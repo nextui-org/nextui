@@ -1,0 +1,12 @@
+.github
+.next
+.now
+.circleci
+dist
+coverage
+public
+esm
+*.json
+*.d.ts
+*.yml
+*.snap
