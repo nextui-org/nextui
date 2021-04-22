@@ -1,5 +1,9 @@
-import { NextUIThemes, NextUIThemesPalette, NextUIThemesExpressiveness } from './index'
-import { defaultFont, defaultBreakpoints, defaultLayout } from './shared'
+import {
+  NextUIThemes,
+  NextUIThemesPalette,
+  NextUIThemesExpressiveness,
+} from './index';
+import { defaultFont, defaultBreakpoints, defaultLayout } from './shared';
 
 export const palette: NextUIThemesPalette = {
   accents_1: '#fafafa',
@@ -10,9 +14,12 @@ export const palette: NextUIThemesPalette = {
   accents_6: '#444',
   accents_7: '#333',
   accents_8: '#111',
+  text: '#2c3e50',
+  white: '#fff',
   background: '#fff',
   foreground: '#000',
   selection: '#79ffe1',
+  primary: '#0070f3',
   secondary: '#666',
   code: '#f81ce5',
   border: '#eaeaea',
@@ -40,7 +47,7 @@ export const palette: NextUIThemesPalette = {
   alert: '#ff0080',
   magenta: '#eb367f',
   link: '#0070f3',
-}
+};
 
 export const expressiveness: NextUIThemesExpressiveness = {
   linkStyle: 'none',
@@ -52,13 +59,13 @@ export const expressiveness: NextUIThemesExpressiveness = {
   shadowMedium: '0 8px 30px rgba(0, 0, 0, 0.12)',
   shadowLarge: '0 30px 60px rgba(0, 0, 0, 0.12)',
   portalOpacity: 0.25,
-}
+};
 
-export const font = defaultFont
+export const font = defaultFont;
 
-export const breakpoints = defaultBreakpoints
+export const breakpoints = defaultBreakpoints;
 
-export const layout = defaultLayout
+export const layout = defaultLayout;
 
 export const themes: NextUIThemes = {
   type: 'light',
@@ -67,6 +74,6 @@ export const themes: NextUIThemes = {
   palette,
   breakpoints,
   expressiveness,
-}
+};
 
-export default themes
+export default themes;
