@@ -6,6 +6,7 @@ import { NormalSizes, NormalTypes } from '@utils/prop-types';
 import useTheme from '@hooks/use-theme';
 import { getIconCheckStyle, getCheckboxSize } from './styles';
 import { isHex, hexToRGBA } from '@utils/index';
+
 interface CheckboxEventTarget {
   checked: boolean;
 }
@@ -17,8 +18,9 @@ export interface CheckboxEvent {
   nativeEvent: React.ChangeEvent;
 }
 
-interface Props {
+export interface Props {
   color?: NormalTypes | string;
+  label?: string;
   indeterminate?: boolean;
   checked?: boolean;
   disabled?: boolean;
@@ -51,6 +53,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   className,
   children,
   size,
+  label,
   color,
   value,
   ...props
@@ -136,8 +139,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           </i>
         </div>
       </div>
-      <span className="text">{children}</span>
-
+      <span className="text">{children || label}</span>
       <style jsx>{`
         label {
           --checkbox-size: ${fontSize};

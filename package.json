@@ -38,7 +38,9 @@
     "test": "jest --config .jest.config.js --no-cache",
     "test-update": "jest --config .jest.config.js --no-cache --update-snapshot",
     "coverage": "yarn test --coverage",
-    "release": "yarn build && yarn publish --access public --non-interactive"
+    "release": "yarn build && yarn publish --access public --non-interactive",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
+    "build-storybook": "build-storybook"
   },
   "files": [
     "/dist",
@@ -49,6 +51,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
     "@babel/plugin-transform-runtime": "^7.13.15",
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime": "^7.13.17",
@@ -57,6 +60,14 @@
     "@next/mdx": "^10.1.3",
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
+    "@storybook/addon-a11y": "^6.2.8",
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-docs": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-knobs": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/addon-storysource": "^6.2.8",
+    "@storybook/react": "^6.2.8",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/styled-jsx": "^2.2.8",
@@ -85,9 +96,11 @@
     "prettier-eslint": "^12.0.0",
     "prettier-eslint-cli": "^5.0.1",
     "react": "^17.0.2",
+    "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^17.0.2",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-local-resolve": "^1.0.7",
+    "storybook-addon-react-docgen": "^1.2.42",
     "typescript": "^4.2.4",
     "webpack": "^5.35.0",
     "webpack-cli": "^4.6.0"
