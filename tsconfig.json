@@ -33,7 +33,7 @@
       "./typings"
     ]
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules, pages"],
   "include": [
     "next-env.d.ts", 
     "**/*.ts", 
