@@ -1,7 +1,13 @@
 {
-    "extends": "../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-      "baseUrl": ".",
+      "baseUrl": "./",
+      "paths": {
+          "@components/*": ["./src/components/*"],
+          "@hooks/*": ["./src/hooks/*"],
+          "@utils/*": ["./src/utils/*"],
+          "@theme/*": ["./src/theme/*"]
+      },
       "jsx": "preserve",
       "allowJs": true,
       "esModuleInterop": true,
@@ -11,9 +17,11 @@
       "forceConsistentCasingInFileNames": true,
       "noEmit": true,
       "resolveJsonModule": true,
-      "isolatedModules": true
+      "isolatedModules": true,
+      "typeRoots": [
+        "./typings"
+      ]
     },
     "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
   }
-  

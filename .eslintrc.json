@@ -2,8 +2,12 @@
   "plugins": ["prettier", "@typescript-eslint"],
   "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
   "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
+  },
   "parserOptions": {
-    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     }
