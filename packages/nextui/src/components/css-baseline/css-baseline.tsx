@@ -6,7 +6,7 @@ import flushToReact from 'styled-jsx/server';
 const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const theme = useTheme();
   return (
-    <>
+    <React.Fragment>
       {children}
       <style global jsx>{`
         html,
@@ -296,7 +296,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           color: ${theme.palette.foreground};
         }
       `}</style>
-    </>
+    </React.Fragment>
   );
 };
 
