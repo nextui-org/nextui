@@ -1,46 +1,36 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["./src/components/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@theme/*": ["./src/theme/*"]
-    },
+    "rootDir": ".",
+    "paths": {},
     "strictNullChecks": true,
     "moduleResolution": "node",
-    "esModuleInterop": true,
     "experimentalDecorators": true,
-    "jsx": "preserve",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
+    "esModuleInterop": true,
+    "allowJs": true,
     "target": "es6",
+    "jsx": "preserve",
     "lib": [
       "dom",
       "es2017"
     ],
     "skipLibCheck": true,
-    "allowJs": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "typeRoots": [
-      "node_modules/@types",
-      "./typings"
+      "node_modules/@types", "./typings"
     ]
   },
-  "exclude": ["node_modules, pages"],
+  "exclude": ["node_modules"],
   "include": [
-    "next-env.d.ts", 
     "**/*.ts", 
     "**/*.tsx", 
     "**/*.js", 
-    "**/*.jsx", 
-    "src/**/*.tsx"
+    "**/*.jsx"
   ],
 }
 

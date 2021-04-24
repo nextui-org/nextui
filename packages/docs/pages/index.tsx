@@ -1,5 +1,5 @@
 import React from 'react';
-import Checkbox from '@components/checkbox';
+import { Checkbox } from '@nextui/react';
 
 const IndexPage = () => {
   return (

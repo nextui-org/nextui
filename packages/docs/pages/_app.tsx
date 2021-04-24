@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
-import CssBaseline from '@components/css-baseline';
+import { CssBaseline } from '@nextui/react';
 
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   return (

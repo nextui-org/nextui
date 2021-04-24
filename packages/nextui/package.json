@@ -1,0 +1,63 @@
+{
+  "name": "@nextui/react",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "🚀 Beautiful and modern React UI library.",
+  "homepage": "https://nextui.org",
+  "bugs": {
+    "url": "https://github.com/jrgarciadev/next-ui/issues/new/choose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrgarciadev/next-ui"
+  },
+  "keywords": [
+    "next",
+    "next ui",
+    "components",
+    "modern components",
+    "react components",
+    "react ui"
+  ],
+  "main": "./dist/index.js",
+  "exports": "./dist/index.modern.js",
+  "module": "./dist/index.module.js",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.umd.js",
+  "source": "./src/index.ts",
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "clear": "rm -rf ./dist ./esm",
+    "build:prod": "npm run clear && microbundle --compress --strict --format modern,cjs",
+    "build:watch": "npm run clear && microbundle watch --no-compress --format modern,cjs",
+    "build": "npm run build:prod",
+    "watch": "npm run build:watch",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
+    "build-storybook": "build-storybook",
+    "start-storybook": "npm run build-storybook && http-server ./storybook-static"
+  },
+  "files": [
+    "/dist",
+    "/esm"
+  ],
+  "dependencies": {
+    "styled-jsx": "^3.4.4"
+  },
+  "devDependencies": {
+    "microbundle": "^0.13.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.2.4",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "@storybook/addon-a11y": "^6.2.8",
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-docs": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-knobs": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/addon-storysource": "^6.2.8",
+    "@storybook/react": "^6.2.8",
+    "storybook-addon-react-docgen": "^1.2.42"
+  }
+}
