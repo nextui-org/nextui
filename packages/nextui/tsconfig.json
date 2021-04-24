@@ -18,10 +18,12 @@
       "noEmit": true,
       "resolveJsonModule": true,
       "isolatedModules": true,
+      "target": "ESNext",
+      "module": "ESNext",
       "typeRoots": [
         "./typings"
       ]
     },
     "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
-    "exclude": ["node_modules"],
+    "exclude": ["node_modules", "storybook-static"],
   }
