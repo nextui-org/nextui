@@ -9,6 +9,7 @@
           "@theme/*": ["./src/theme/*"]
       },
       "jsx": "preserve",
+      "moduleResolution": "node",
       "allowJs": true,
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
@@ -18,8 +19,8 @@
       "noEmit": true,
       "resolveJsonModule": true,
       "isolatedModules": true,
-      "target": "ESNext",
-      "module": "ESNext",
+      "target": "es6",
+      "module": "esnext",
       "typeRoots": [
         "./typings"
       ]
