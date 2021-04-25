@@ -10,7 +10,6 @@ module.exports = {
     },
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    '@storybook/addon-knobs',
     '@storybook/addon-storysource',
     'storybook-addon-react-docgen',
   ],

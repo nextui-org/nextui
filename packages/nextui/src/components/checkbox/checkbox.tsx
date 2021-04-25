@@ -29,6 +29,7 @@ export interface Props {
   size?: NormalSizes;
   className?: string;
   value?: string;
+  style?: object;
 }
 
 const defaultProps = {
@@ -56,6 +57,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   label,
   color,
   value,
+  style,
   ...props
 }) => {
   const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
@@ -121,7 +123,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     setSelfChecked(checked);
   }, [checked]);
   return (
-    <label className={`${className}`}>
+    <label className={`${className}`} style={style}>
       <div className="checkbox-container">
         <input
           type="checkbox"

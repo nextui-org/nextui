@@ -53,7 +53,6 @@
     "@storybook/addon-actions": "^6.2.8",
     "@storybook/addon-docs": "^6.2.8",
     "@storybook/addon-essentials": "^6.2.8",
-    "@storybook/addon-knobs": "^6.2.8",
     "@storybook/addon-links": "^6.2.8",
     "@storybook/addon-storysource": "^6.2.8",
     "@storybook/react": "^6.2.8",
