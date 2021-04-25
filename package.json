@@ -4,22 +4,19 @@
     "workspaces": [
         "packages/**"
     ],
-    "engines": {
-        "npm": "7.9.0"
-    },
     "scripts": {
-        "dev:docs": "npm run dev --workspace=@nextui/docs",
-        "build": "SKIP_PREFLIGHT_CHECK=true npm run build --workspace=@nextui/react",
-        "build:watch": "npm run watch --workspace=@nextui/react",
+        "dev:docs": "yarn workspace @nextui/docs dev",
+        "build": "SKIP_PREFLIGHT_CHECK=true yarn workspace @nextui/react build",
+        "build:watch": "yarn workspace @nextui/react watch",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
         "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
         "prettier": "prettier --write .",
         "test": "jest --config .jest.config.js --no-cache",
         "test-update": "jest --config .jest.config.js --no-cache --update-snapshot",
         "coverage": "yarn test --coverage",
-        "sb": "npm run storybook --workspace=@nextui/react",
-        "build:sb": "npm run build-storybook --workspace=@nextui/react",
-        "start:sb": "npm run start-storybook --workspace=@nextui/react"
+        "sb": "yarn workspace @nextui/react storybook",
+        "build:sb": "yarn workspace @nextui/react build-storybook",
+        "start:sb": "yarn workspace @nextui/react start-storybook"
     },
     "devDependencies": {
         "@types/node": "^14.14.41",
