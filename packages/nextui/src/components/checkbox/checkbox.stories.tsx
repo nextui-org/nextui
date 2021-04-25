@@ -31,8 +31,7 @@ const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  checked: true,
-  label: 'Default',
+  label: 'Option',
   color: 'primary' as NormalTypes,
   size: 'large' as NormalSizes,
   style: { marginRight: '1rem' },
@@ -40,24 +39,41 @@ Default.args = {
 
 export const Color = Template.bind({});
 Color.args = {
-  checked: true,
-  label: 'Label',
+  lineThrough: false,
+  label: 'Option',
   color: 'warning' as NormalTypes,
   size: 'large' as NormalSizes,
 };
 
 export const Large = Template.bind({});
 Large.args = {
-  checked: true,
-  label: 'Label',
+  lineThrough: false,
+  label: 'Option',
   color: 'secondary' as NormalTypes,
   size: 'large' as NormalSizes,
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  checked: true,
-  label: 'Label',
+  lineThrough: false,
+  label: 'Option',
   color: 'secondary' as NormalTypes,
   size: 'small' as NormalSizes,
+};
+
+export const Line = Template.bind({});
+Line.args = {
+  line: true,
+  label: 'Option',
+  color: 'primary' as NormalTypes,
+  size: 'large' as NormalSizes,
+};
+
+export const Indeterminate = Template.bind({});
+Indeterminate.args = {
+  checked: true,
+  indeterminate: true,
+  label: 'Option',
+  color: 'primary' as NormalTypes,
+  size: 'large' as NormalSizes,
 };

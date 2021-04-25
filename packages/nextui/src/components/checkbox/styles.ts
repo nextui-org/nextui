@@ -12,34 +12,45 @@ export const getCheckboxSize = (size: NormalSizes): string => {
   return sizes[size];
 };
 
-export const getIconCheckStyle = (size: NormalSizes): CSSProperties => {
-  const common: CSSProperties = {
-    display: 'block',
-    position: 'relative',
-    width: '8px',
-    height: '13px',
-    marginTop: '-4px',
-  };
+export const getIconCheckStyle = (
+  size: NormalSizes,
+  indeterminate?: boolean
+): CSSProperties => {
+  const common: CSSProperties = indeterminate
+    ? {
+        transform: 'rotate(0deg)',
+        height: 'auto',
+        margin: '0px',
+        width: 'auto',
+      }
+    : {
+        display: 'block',
+        position: 'relative',
+        width: '8px',
+        height: '13px',
+        marginTop: '-4px',
+      };
+
   const sizes: { [key in NormalSizes]: CSSProperties } = {
     mini: {
       ...common,
-      transform: 'rotate(45deg) scale(0.5)',
+      transform: indeterminate ? 'scale(0.5)' : 'rotate(45deg) scale(0.5)',
     },
     small: {
       ...common,
-      transform: 'rotate(45deg) scale(0.5)',
+      transform: indeterminate ? 'scale(0.5)' : 'rotate(45deg) scale(0.5)',
     },
     medium: {
       ...common,
-      transform: 'rotate(45deg) scale(0.8)',
+      transform: indeterminate ? 'scale(0.8)' : 'rotate(45deg) scale(0.8)',
     },
     large: {
       ...common,
-      transform: 'rotate(45deg)',
+      transform: indeterminate ? '' : 'rotate(45deg)',
     },
     xlarge: {
       ...common,
-      transform: 'rotate(45deg)',
+      transform: indeterminate ? '' : 'rotate(45deg)',
     },
   };
   return sizes[size];

@@ -21,6 +21,7 @@ export interface CheckboxEvent {
 export interface Props {
   color?: NormalTypes | string;
   label?: string;
+  line?: boolean;
   indeterminate?: boolean;
   checked?: boolean;
   disabled?: boolean;
@@ -48,6 +49,7 @@ export type CheckboxProps = Props & typeof defaultProps & NativeAttrs;
 const Checkbox: React.FC<CheckboxProps> = ({
   checked,
   initialChecked,
+  line,
   indeterminate,
   disabled,
   onChange,
@@ -80,7 +82,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     ? hexToRGBA(checkboxColor, 0.35)
     : checkboxColor;
 
-  const iconCheckStyle = getIconCheckStyle(size);
+  const iconCheckStyle = getIconCheckStyle(size, indeterminate);
 
   if (inGroup && checked) {
     useWarning(
@@ -117,7 +119,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
     },
     [updateState, onChange, isDisabled, selfChecked]
   );
-
   useEffect(() => {
     if (checked === undefined) return;
     setSelfChecked(checked);
@@ -141,7 +142,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
           </i>
         </div>
       </div>
-      <span className="text">{children || label}</span>
+      <span className={`text ${line ? 'line-through' : ''}`}>
+        {children || label}
+      </span>
       <style jsx>{`
         label {
           --checkbox-size: ${fontSize};
@@ -157,6 +160,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           height: var(--checkbox-size);
           border-radius: 9px;
           position: relative;
+          opacity: ${isDisabled ? '0.4' : '1'};
           z-index: 1;
         }
         .checkbox-mask {
@@ -272,12 +276,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
         .icon-check.active:after {
           width: 4px;
         }
-        .icon-check.indeterminate span {
-          transform: rotate(0);
-          height: auto;
-          margin: 0px;
-          width: auto;
-        }
         .icon-check.indeterminate span:after {
           position: relative;
           content: '';
@@ -328,7 +326,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           border: 2px solid transparent;
         }
         input:checked:hover ~ .checkbox-mask {
-          box-shadow: 0px 3px 15px 0px ${alphaColor};
+          box-shadow: ${isDisabled ? '' : '0px 3px 15px 0px ' + alphaColor};
         }
         input:checked ~ .checkbox-mask {
           box-shadow: 0px 0px 0px 0px ${alphaColor};
@@ -358,12 +356,27 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transform: scale(1.2);
         }
         .text {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           color: ${theme.palette.text};
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
           user-select: none;
           cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
+        }
+        .line-through {
+          opacity: ${selfChecked ? '0.4' : '1'};
+        }
+        .text:before {
+          position: absolute;
+          width: ${selfChecked && line ? 'calc(100% - 10px)' : '0px'};
+          height: 2px;
+          background: ${theme.palette.accents_3};
+          content: '';
+          transition: all 0.25s ease;
         }
       `}</style>
     </label>
