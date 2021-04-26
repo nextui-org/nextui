@@ -3,6 +3,7 @@
     "compilerOptions": {
       "baseUrl": "./",
       "paths": {
+          "@components": ["./src/components/index.ts"],
           "@components/*": ["./src/components/*"],
           "@hooks/*": ["./src/hooks/*"],
           "@utils/*": ["./src/utils/*"],
@@ -13,7 +14,7 @@
       "allowJs": true,
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
-      "types": ["node"],
+      "types": ["node", "jest"],
       "strict": false,
       "forceConsistentCasingInFileNames": true,
       "noEmit": true,
@@ -22,9 +23,10 @@
       "target": "es6",
       "module": "esnext",
       "typeRoots": [
+        "../../node_modules/@types",
         "./typings"
       ]
     },
-    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "tests/*.ts", "**/*.jsx", "next-env.d.ts"],
     "exclude": ["node_modules", "storybook-static"],
   }

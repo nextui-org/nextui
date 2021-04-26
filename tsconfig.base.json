@@ -22,7 +22,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "typeRoots": [
-      "node_modules/@types", "./typings"
+      "./node_modules/@types", "./typings"
     ]
   },
   "exclude": ["node_modules"],

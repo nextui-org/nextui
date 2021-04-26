@@ -2,6 +2,9 @@
   "plugins": ["prettier", "@typescript-eslint"],
   "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
   "parser": "@typescript-eslint/parser",
+  "globals": {
+    "JSX": true
+  },
   "env": {
     "browser": true,
     "amd": true,

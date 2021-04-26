@@ -1,10 +1,10 @@
-import Checkbox from './checkbox'
-import CheckboxGroup from './checkbox-group'
-import { CheckboxProps, CheckboxEvent } from './checkbox'
+import Checkbox from './checkbox';
+import CheckboxGroup from './checkbox-group';
+import { CheckboxProps, CheckboxEvent } from './checkbox';
 
-export type Props = CheckboxProps
-export type Event = CheckboxEvent
+export type Props = CheckboxProps;
+export type Event = CheckboxEvent;
 
-Checkbox.Group = CheckboxGroup
+Checkbox.Group = CheckboxGroup;
 
-export default Checkbox
+export default Checkbox;
