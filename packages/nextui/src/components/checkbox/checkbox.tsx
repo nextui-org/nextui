@@ -5,7 +5,6 @@ import useWarning from '@hooks/use-warning';
 import { NormalSizes, NormalTypes } from '@utils/prop-types';
 import useTheme from '@hooks/use-theme';
 import { getIconCheckStyle, getCheckboxSize } from './styles';
-import { isHex, hexToRGBA } from '@utils/index';
 
 interface CheckboxEventTarget {
   checked: boolean;
@@ -79,12 +78,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
       ? theme.palette[groupColor] || groupColor
       : theme.palette[color] || color;
   }, [inGroup, color, theme.palette]);
-
-  const alphaColor = useMemo(() => {
-    return isHex(checkboxColor)
-      ? hexToRGBA(checkboxColor, 0.35)
-      : checkboxColor;
-  }, [checkboxColor]);
 
   const iconCheckStyle = getIconCheckStyle(size, indeterminate);
 
@@ -328,12 +321,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
         }
         input:hover ~ .checkbox-mask:before {
           border: 2px solid transparent;
-        }
-        input:checked:hover ~ .checkbox-mask {
-          box-shadow: ${isDisabled ? '' : '0px 3px 15px 0px ' + alphaColor};
-        }
-        input:checked ~ .checkbox-mask {
-          box-shadow: 0px 0px 0px 0px ${alphaColor};
         }
         input:checked ~ .checkbox-mask i:not(.icon-check) {
           opacity: 1;
