@@ -16,7 +16,8 @@ const buttonTypes = tuple(
 
 const normalSizes = tuple('mini', 'small', 'medium', 'large', 'xlarge');
 
-const normalTypes = tuple(
+const normalColors = tuple(
+  'default',
   'primary',
   'secondary',
   'success',
@@ -77,7 +78,7 @@ export type ButtonTypes = typeof buttonTypes[number];
 
 export type NormalSizes = typeof normalSizes[number];
 
-export type NormalTypes = typeof normalTypes[number];
+export type NormalColors = typeof normalColors[number];
 
 export type ThemeTypes = typeof themeTypes[number];
 

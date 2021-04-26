@@ -18,7 +18,7 @@ export const palette: NextUIThemesPalette = {
   white: '#fff',
   background: '#fff',
   foreground: '#000',
-  selection: '#79ffe1',
+  selection: '#5AC8FA',
   primary: '#0070f3',
   secondary: '#7928ca',
   code: '#f81ce5',

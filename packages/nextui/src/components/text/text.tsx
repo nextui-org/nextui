@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 import withDefaults from '@utils/with-defaults';
-import { NormalTypes } from '@utils/prop-types';
+import { NormalColors } from '@utils/prop-types';
 import TextChild from './child';
 
 interface Props {
@@ -20,7 +20,7 @@ interface Props {
   blockquote?: boolean;
   className?: string;
   size?: string | number;
-  type?: NormalTypes;
+  color?: NormalColors;
 }
 
 const defaultProps = {
@@ -39,7 +39,7 @@ const defaultProps = {
   em: false,
   blockquote: false,
   className: '',
-  type: 'default' as NormalTypes,
+  color: 'default' as NormalColors,
 };
 
 type ElementMap = { [key in keyof JSX.IntrinsicElements]?: boolean };

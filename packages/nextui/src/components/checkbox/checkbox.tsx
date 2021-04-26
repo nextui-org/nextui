@@ -2,9 +2,10 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCheckbox } from './checkbox-context';
 import CheckboxGroup from './checkbox-group';
 import useWarning from '@hooks/use-warning';
-import { NormalSizes, NormalTypes } from '@utils/prop-types';
+import { NormalSizes, NormalColors } from '@utils/prop-types';
 import useTheme from '@hooks/use-theme';
 import { getIconCheckStyle, getCheckboxSize } from './styles';
+import { getNormalColor } from '@utils/index';
 
 interface CheckboxEventTarget {
   checked: boolean;
@@ -18,7 +19,7 @@ export interface CheckboxEvent {
 }
 
 export interface Props {
-  color?: NormalTypes | string;
+  color?: NormalColors;
   label?: string;
   line?: boolean;
   indeterminate?: boolean;
@@ -33,7 +34,7 @@ export interface Props {
 }
 
 const defaultProps = {
-  color: 'primary' as NormalTypes,
+  color: 'primary' as NormalColors,
   disabled: false,
   initialChecked: false,
   indeterminate: false,
@@ -73,11 +74,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
   const isDisabled = inGroup ? disabledAll || disabled : disabled;
   const theme = useTheme();
 
-  const checkboxColor = useMemo(() => {
-    return inGroup
-      ? theme.palette[groupColor] || groupColor
-      : theme.palette[color] || color;
-  }, [inGroup, color, theme.palette]);
+  const checkboxColor = useMemo(
+    () => getNormalColor(color || groupColor, theme.palette),
+    [color, theme.palette]
+  );
 
   const iconCheckStyle = getIconCheckStyle(size, indeterminate);
 
@@ -155,13 +155,12 @@ const Checkbox: React.FC<CheckboxProps> = ({
         .checkbox-container {
           width: var(--checkbox-size);
           height: var(--checkbox-size);
-          border-radius: 9px;
           position: relative;
           opacity: ${isDisabled ? '0.4' : '1'};
           z-index: 1;
         }
         .checkbox-mask {
-          border-radius: 32%;
+          border-radius: ${theme.layout.radius.sm};
           width: 100%;
           height: 100%;
           position: absolute;
@@ -207,7 +206,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           border-radius: inherit;
           transition: all 0.25s ease;
           z-index: -1;
-          border: 2px solid ${theme.palette.accents_2};
+          border: ${theme.layout.stroke} solid ${theme.palette.accents_2};
           box-sizing: border-box;
         }
 
@@ -216,8 +215,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
           z-index: 200;
         }
         .icon-check {
-          width: 23px;
-          height: 23px;
+          width: 100%;
+          height: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -296,7 +295,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
           height: 11px;
           display: none;
         }
-
         input {
           position: absolute;
           width: 100%;

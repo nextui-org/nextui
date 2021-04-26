@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { CheckboxContext } from './checkbox-context';
 import useWarning from '@hooks/use-warning';
-import { NormalSizes, NormalTypes } from '@utils/prop-types';
+import { NormalSizes, NormalColors } from '@utils/prop-types';
 import withDefaults from '@utils/with-defaults';
 import { getCheckboxSize } from './styles';
 
 interface Props {
   value: string[];
-  color?: NormalTypes | string;
+  color?: NormalColors | string;
   disabled?: boolean;
   size?: NormalSizes;
   onChange?: (values: string[]) => void;
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const defaultProps = {
-  color: 'primary' as NormalTypes,
+  color: 'primary' as NormalColors,
   disabled: false,
   size: 'medium' as NormalSizes,
   className: '',

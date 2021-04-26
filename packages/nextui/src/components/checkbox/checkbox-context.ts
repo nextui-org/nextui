@@ -1,8 +1,8 @@
 import React from 'react';
-import { NormalTypes } from '@utils/prop-types';
+import { NormalColors } from '@utils/prop-types';
 
 export interface CheckboxConfig {
-  color: NormalTypes;
+  color: NormalColors;
   updateState?: (value: string, checked: boolean) => void;
   disabledAll: boolean;
   values: string[];
@@ -10,7 +10,7 @@ export interface CheckboxConfig {
 }
 
 const defaultContext = {
-  color: 'primary' as NormalTypes,
+  color: 'primary' as NormalColors,
   disabledAll: false,
   inGroup: false,
   values: [],

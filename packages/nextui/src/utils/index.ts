@@ -1,3 +1,6 @@
+import { NormalColors } from './prop-types';
+import { NextUIThemesPalette } from '@theme/index';
+
 /**
  * This function allows validate if a string is a hexadecimal
  * value
@@ -31,4 +34,20 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
     b = '0x' + hex[5] + hex[6];
   }
   return `rgba(${+r}, ${+g},${+b},${alpha})`;
+};
+
+export const getNormalColor = (
+  type: NormalColors,
+  palette: NextUIThemesPalette
+) => {
+  const colors: { [key in NormalColors]: string } = {
+    default: 'inherit',
+    primary: palette.primary,
+    secondary: palette.secondary,
+    success: palette.success,
+    warning: palette.warning,
+    error: palette.error,
+  };
+
+  return colors[type] || colors.default;
 };

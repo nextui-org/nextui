@@ -1,31 +1,19 @@
 import React, { useMemo } from 'react';
 import withDefaults from '@utils/with-defaults';
 import useTheme from '@hooks/use-theme';
-import { NormalTypes } from '@utils/prop-types';
-import { NextUIThemesPalette } from '@theme/index';
+import { NormalColors } from '@utils/prop-types';
+import { getNormalColor } from '@utils/index';
 
 export interface Props {
   tag: keyof JSX.IntrinsicElements;
-  type?: NormalTypes;
+  color?: NormalColors;
   size?: string | number;
   className?: '';
 }
 
 const defaultProps = {
-  type: 'default' as NormalTypes,
+  color: 'default' as NormalColors,
   className: '',
-};
-
-const getTypeColor = (type: NormalTypes, palette: NextUIThemesPalette) => {
-  const colors: { [key in NormalTypes]: string } = {
-    primary: palette.primary,
-    secondary: palette.secondary,
-    success: palette.success,
-    warning: palette.warning,
-    error: palette.error,
-  };
-
-  return colors[type] || colors.primary;
 };
 
 type NativeAttrs = Omit<React.DetailsHTMLAttributes<unknown>, keyof Props>;
@@ -35,14 +23,14 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   children,
   tag,
   className,
-  type,
+  color: userColor,
   size,
   ...props
 }) => {
   const theme = useTheme();
   const Component = tag;
-  const color = useMemo(() => getTypeColor(type, theme.palette), [
-    type,
+  const color = useMemo(() => getNormalColor(userColor, theme.palette), [
+    userColor,
     theme.palette,
   ]);
   const fontSize = useMemo<string>(() => {
