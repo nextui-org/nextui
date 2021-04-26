@@ -74,13 +74,17 @@ const Checkbox: React.FC<CheckboxProps> = ({
   const isDisabled = inGroup ? disabledAll || disabled : disabled;
   const theme = useTheme();
 
-  const checkboxColor = inGroup
-    ? theme.palette[groupColor] || groupColor
-    : theme.palette[color] || color;
+  const checkboxColor = useMemo(() => {
+    return inGroup
+      ? theme.palette[groupColor] || groupColor
+      : theme.palette[color] || color;
+  }, [inGroup, color, theme.palette]);
 
-  const alphaColor = isHex(checkboxColor)
-    ? hexToRGBA(checkboxColor, 0.35)
-    : checkboxColor;
+  const alphaColor = useMemo(() => {
+    return isHex(checkboxColor)
+      ? hexToRGBA(checkboxColor, 0.35)
+      : checkboxColor;
+  }, [checkboxColor]);
 
   const iconCheckStyle = getIconCheckStyle(size, indeterminate);
 

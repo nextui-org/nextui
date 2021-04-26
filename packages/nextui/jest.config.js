@@ -10,6 +10,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/components/**/*.{ts,tsx}',
     '!src/components/**/styles.{ts,tsx}',
+    '!src/components/**/*stories.{ts,tsx}',
     '!src/components/**/*types.{ts,tsx}',
     '!src/components/styles/*',
     '!src/components/index.ts',

@@ -7,7 +7,7 @@ describe('Checkbox', () => {
     const wrapper = mount(<Checkbox checked={true}>Buenos Aires</Checkbox>);
     expect(() => wrapper.unmount()).not.toThrow();
     const rendered = render(<Checkbox>Buenos Aires</Checkbox>);
-    expect(rendered).toMatchSnapshot();
+    expect(rendered.html()).toMatchSnapshot();
   });
 
   it('should work correctly with different sizes', () => {
@@ -40,6 +40,8 @@ describe('Checkbox', () => {
     wrapper = mount(<Checkbox initialChecked={false}>Buenos Aires</Checkbox>);
     input = wrapper.find('input').getDOMNode();
     expect((input as HTMLInputElement).checked).not.toBeTruthy();
+
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('should change value after click', () => {
@@ -56,6 +58,7 @@ describe('Checkbox', () => {
     const input = wrapper.find('input').at(0);
     input.simulate('change');
     expect(wrapper.find('.text').text()).toContain('state2');
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('should ignore events when disabled', () => {
@@ -72,5 +75,30 @@ describe('Checkbox', () => {
     const input = wrapper.find('input').at(0);
     input.simulate('change');
     expect(wrapper.find('.text').text()).not.toContain('state2');
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should work correctly with indeterminate value', () => {
+    let wrapper = mount(<Checkbox indeterminate>Buenos Aires</Checkbox>);
+    let icon = wrapper.find('i').getDOMNode();
+    expect((icon as HTMLInputElement).className).toContain('indeterminate');
+
+    wrapper = mount(<Checkbox indeterminate={false}>Buenos Aires</Checkbox>);
+    icon = wrapper.find('i').getDOMNode();
+    expect((icon as HTMLInputElement).className).not.toContain('indeterminate');
+
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should work correctly with line-through value', () => {
+    let wrapper = mount(<Checkbox line>Buenos Aires</Checkbox>);
+    let icon = wrapper.find('.text').getDOMNode();
+    expect((icon as HTMLInputElement).className).toContain('line-through');
+
+    wrapper = mount(<Checkbox line={false}>Buenos Aires</Checkbox>);
+    icon = wrapper.find('.text').getDOMNode();
+    expect((icon as HTMLInputElement).className).not.toContain('line-through');
+
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 });

@@ -15,7 +15,7 @@
         "nextui:test-update": "yarn workspace @nextui/react test-update",
         "test": "yarn nextui:test",
         "test-update": "yarn nextui:test-update",
-        "coverage": "yarn test --coverage",
+        "coverage": "yarn workspace @nextui/react coverage",
         "sb": "yarn workspace @nextui/react storybook",
         "build:sb": "yarn workspace @nextui/react build-storybook",
         "start:sb": "yarn workspace @nextui/react start-storybook"
