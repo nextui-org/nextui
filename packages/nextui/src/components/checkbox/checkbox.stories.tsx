@@ -33,7 +33,7 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'Option',
   color: 'primary' as NormalTypes,
-  size: 'large' as NormalSizes,
+  size: 'medium' as NormalSizes,
   style: { marginRight: '1rem' },
 };
 
@@ -42,7 +42,7 @@ Color.args = {
   lineThrough: false,
   label: 'Option',
   color: 'warning' as NormalTypes,
-  size: 'large' as NormalSizes,
+  size: 'medium' as NormalSizes,
 };
 
 export const Large = Template.bind({});
