@@ -24,4 +24,4 @@ scripts:
   - yarn run build
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - jest --ci --coverage && codecov
