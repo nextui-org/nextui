@@ -18,8 +18,7 @@ branches:
 install:
   - yarn
 
-script:
-  scripts:
+scripts:
   - npm install codecov -g
   - yarn run test
   - yarn run build
