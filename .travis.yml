@@ -24,4 +24,4 @@ scripts:
   - yarn run build
 
 after_success:
-  - codecov -f coverage/*.json
+  - bash <(curl -s https://codecov.io/bash)

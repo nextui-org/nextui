@@ -1,8 +1,0 @@
-codecov:
-  require_ci_to_pass: yes
-  comment:
-    layout: "reach, diff, flags, files"
-    behavior: default
-    require_changes: false
-    branches:
-      - "main"
