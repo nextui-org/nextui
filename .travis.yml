@@ -1,0 +1,22 @@
+language: node_js
+
+node_js:
+  - 13.9.0
+
+cache:
+  directories:
+  - "node_modules"
+
+notifications:
+  email:
+    on_success: never
+
+branches:
+  only:
+    - main
+
+install:
+  - yarn
+
+script:
+  - yarn run build

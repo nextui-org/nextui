@@ -28,5 +28,5 @@
         ]
     },
     "include": ["**/*.ts", "**/*.tsx", "**/*.js", "tests/*.ts", "**/*.jsx", "next-env.d.ts"],
-    "exclude": ["node_modules", "storybook-static"],
+    "exclude": ["node_modules", "storybook-static", "dist"],
 }

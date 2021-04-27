@@ -4,7 +4,11 @@ import CheckboxGroup from './checkbox-group';
 import useWarning from '@hooks/use-warning';
 import { NormalSizes, NormalColors } from '@utils/prop-types';
 import useTheme from '@hooks/use-theme';
-import { getIconCheckStyle, getCheckboxSize } from './styles';
+import {
+  getIconCheckStyle,
+  getCheckboxSize,
+  getCheckboxRadius,
+} from './styles';
 import { getNormalColor } from '@utils/index';
 
 interface CheckboxEventTarget {
@@ -78,6 +82,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
     () => getNormalColor(color || groupColor, theme.palette),
     [color, theme.palette]
   );
+
+  const radius = useMemo(() => getCheckboxRadius(size, theme), [size]);
 
   const iconCheckStyle = getIconCheckStyle(size, indeterminate);
 
@@ -160,7 +166,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           z-index: 1;
         }
         .checkbox-mask {
-          border-radius: ${theme.layout.radius.sm};
+          border-radius: ${radius};
           width: 100%;
           height: 100%;
           position: absolute;

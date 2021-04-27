@@ -1,3 +1,4 @@
+import { NextUIThemes } from '@theme/index';
 import { CSSProperties } from 'react';
 import { NormalSizes } from '@utils/prop-types';
 
@@ -8,6 +9,20 @@ export const getCheckboxSize = (size: NormalSizes): string => {
     medium: '1.125rem',
     large: '1.3rem',
     xlarge: '1.5rem',
+  };
+  return sizes[size];
+};
+
+export const getCheckboxRadius = (
+  size: NormalSizes,
+  theme: NextUIThemes
+): string => {
+  const sizes: { [key in NormalSizes]: string } = {
+    mini: theme.layout.radius.xs,
+    small: theme.layout.radius.xs,
+    medium: theme.layout.radius.sm,
+    large: theme.layout.radius.sm,
+    xlarge: theme.layout.radius.sm,
   };
   return sizes[size];
 };

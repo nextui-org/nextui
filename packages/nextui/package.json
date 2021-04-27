@@ -28,7 +28,7 @@
   "sideEffects": false,
   "scripts": {
     "clear": "rm -rf ./dist ./esm",
-    "build:prod": "yarn clear && microbundle build --jsx React.createElement --jsxFragment React.Fragment --tsconfig tsconfig.json --compress --strict --format modern,cjs",
+    "build:prod": "yarn clear && microbundle build --jsx React.createElement --jsxFragment React.Fragment --tsconfig tsconfig.build.json --compress --strict --format modern,cjs",
     "build:watch": "yarn clear && microbundle watch --jsx React.createElement --jsxFragment React.Fragment --no-compress --format modern,cjs",
     "build": "yarn build:prod",
     "watch": "yarn build:watch",

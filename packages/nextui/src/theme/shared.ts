@@ -47,7 +47,7 @@ export const defaultLayout: NextUIThemesLayout = {
   breakpointMobile: defaultBreakpoints.xs.max,
   breakpointTablet: defaultBreakpoints.sm.max,
   radius: {
-    xs: '3px',
+    xs: '4px',
     sm: '6px',
     md: '14px',
     lg: '20px',
