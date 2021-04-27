@@ -24,4 +24,4 @@ scripts:
   - yarn run build
 
 after_success:
-  - jest --ci --coverage && codecov
+  - yarn run coverage
