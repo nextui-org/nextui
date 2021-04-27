@@ -9,17 +9,17 @@ initialize {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-1546495856 ",
+          "class": "jsx-118443416 ",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-1546495856 checkbox-container",
+              "class": "jsx-118443416 checkbox-container",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-1546495856 ",
+                  "class": "jsx-118443416 ",
                   "type": "checkbox",
                 },
                 "children": Array [],
@@ -27,30 +27,30 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "jsx-1546495856 checkbox-mask",
+                    "class": "jsx-118443416 checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "jsx-1546495856 icon-check ",
+                        "class": "jsx-118443416 icon-check ",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-1546495856",
+                            "class": "jsx-118443416",
                             "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-1546495856 line1",
+                                "class": "jsx-118443416 line1",
                               },
                               "children": Array [],
                               "name": "div",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "jsx-1546495856 line2",
+                                  "class": "jsx-118443416 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -78,7 +78,7 @@ initialize {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "jsx-1546495856 line2",
+                                "class": "jsx-118443416 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -87,7 +87,7 @@ initialize {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "jsx-1546495856 line1",
+                                  "class": "jsx-118443416 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -169,30 +169,30 @@ initialize {
               },
               Node {
                 "attribs": Object {
-                  "class": "jsx-1546495856 checkbox-mask",
+                  "class": "jsx-118443416 checkbox-mask",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "jsx-1546495856 icon-check ",
+                      "class": "jsx-118443416 icon-check ",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-1546495856",
+                          "class": "jsx-118443416",
                           "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-1546495856 line1",
+                              "class": "jsx-118443416 line1",
                             },
                             "children": Array [],
                             "name": "div",
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "jsx-1546495856 line2",
+                                "class": "jsx-118443416 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -220,7 +220,7 @@ initialize {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "jsx-1546495856 line2",
+                              "class": "jsx-118443416 line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -229,7 +229,7 @@ initialize {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "jsx-1546495856 line1",
+                                "class": "jsx-118443416 line1",
                               },
                               "children": Array [],
                               "name": "div",
@@ -290,7 +290,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "jsx-1546495856 ",
+                    "class": "jsx-118443416 ",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -322,7 +322,7 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "jsx-1546495856 text ",
+                "class": "jsx-118443416 text ",
               },
               "children": Array [
                 Node {
@@ -358,7 +358,7 @@ initialize {
           },
           Node {
             "attribs": Object {
-              "class": "jsx-1546495856 text ",
+              "class": "jsx-118443416 text ",
             },
             "children": Array [
               Node {
@@ -375,12 +375,12 @@ initialize {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "jsx-1546495856 checkbox-container",
+                "class": "jsx-118443416 checkbox-container",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1546495856 ",
+                    "class": "jsx-118443416 ",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -388,30 +388,30 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-1546495856 checkbox-mask",
+                      "class": "jsx-118443416 checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-1546495856 icon-check ",
+                          "class": "jsx-118443416 icon-check ",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-1546495856",
+                              "class": "jsx-118443416",
                               "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                             },
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-1546495856 line1",
+                                  "class": "jsx-118443416 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "jsx-1546495856 line2",
+                                    "class": "jsx-118443416 line2",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -439,7 +439,7 @@ initialize {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-1546495856 line2",
+                                  "class": "jsx-118443416 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -448,7 +448,7 @@ initialize {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "jsx-1546495856 line1",
+                                    "class": "jsx-118443416 line1",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -530,30 +530,30 @@ initialize {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1546495856 checkbox-mask",
+                    "class": "jsx-118443416 checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "jsx-1546495856 icon-check ",
+                        "class": "jsx-118443416 icon-check ",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-1546495856",
+                            "class": "jsx-118443416",
                             "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-1546495856 line1",
+                                "class": "jsx-118443416 line1",
                               },
                               "children": Array [],
                               "name": "div",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "jsx-1546495856 line2",
+                                  "class": "jsx-118443416 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -581,7 +581,7 @@ initialize {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "jsx-1546495856 line2",
+                                "class": "jsx-118443416 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -590,7 +590,7 @@ initialize {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "jsx-1546495856 line1",
+                                  "class": "jsx-118443416 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -651,7 +651,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-1546495856 ",
+                      "class": "jsx-118443416 ",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -746,4 +746,4 @@ initialize {
 }
 `;
 
-exports[`Checkbox Group should work correctly with different sizes 1`] = `"<div><div class=\\"jsx-1595250786 group \\"><label class=\\"jsx-1546495856 \\"><div class=\\"jsx-1546495856 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-1546495856 \\"><div class=\\"jsx-1546495856 checkbox-mask\\"><i class=\\"jsx-1546495856 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-1546495856\\"><div class=\\"jsx-1546495856 line1\\"></div><div class=\\"jsx-1546495856 line2\\"></div></span></i></div></div><span class=\\"jsx-1546495856 text \\">Sydney</span></label></div><div class=\\"jsx-1796830530 group \\"><label class=\\"jsx-1546495856 \\"><div class=\\"jsx-1546495856 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-1546495856 \\"><div class=\\"jsx-1546495856 checkbox-mask\\"><i class=\\"jsx-1546495856 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-1546495856\\"><div class=\\"jsx-1546495856 line1\\"></div><div class=\\"jsx-1546495856 line2\\"></div></span></i></div></div><span class=\\"jsx-1546495856 text \\">Sydney</span></label></div><div class=\\"jsx-1487474754 group \\"><label class=\\"jsx-1546495856 \\"><div class=\\"jsx-1546495856 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-1546495856 \\"><div class=\\"jsx-1546495856 checkbox-mask\\"><i class=\\"jsx-1546495856 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-1546495856\\"><div class=\\"jsx-1546495856 line1\\"></div><div class=\\"jsx-1546495856 line2\\"></div></span></i></div></div><span class=\\"jsx-1546495856 text \\">Sydney</span></label></div><div class=\\"jsx-1748177826 group \\"><label class=\\"jsx-1546495856 \\"><div class=\\"jsx-1546495856 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-1546495856 \\"><div class=\\"jsx-1546495856 checkbox-mask\\"><i class=\\"jsx-1546495856 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-1546495856\\"><div class=\\"jsx-1546495856 line1\\"></div><div class=\\"jsx-1546495856 line2\\"></div></span></i></div></div><span class=\\"jsx-1546495856 text \\">Sydney</span></label></div></div>"`;
+exports[`Checkbox Group should work correctly with different sizes 1`] = `"<div><div class=\\"jsx-1595250786 group \\"><label class=\\"jsx-118443416 \\"><div class=\\"jsx-118443416 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-118443416 \\"><div class=\\"jsx-118443416 checkbox-mask\\"><i class=\\"jsx-118443416 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-118443416\\"><div class=\\"jsx-118443416 line1\\"></div><div class=\\"jsx-118443416 line2\\"></div></span></i></div></div><span class=\\"jsx-118443416 text \\">Sydney</span></label></div><div class=\\"jsx-1796830530 group \\"><label class=\\"jsx-118443416 \\"><div class=\\"jsx-118443416 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-118443416 \\"><div class=\\"jsx-118443416 checkbox-mask\\"><i class=\\"jsx-118443416 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-118443416\\"><div class=\\"jsx-118443416 line1\\"></div><div class=\\"jsx-118443416 line2\\"></div></span></i></div></div><span class=\\"jsx-118443416 text \\">Sydney</span></label></div><div class=\\"jsx-1487474754 group \\"><label class=\\"jsx-118443416 \\"><div class=\\"jsx-118443416 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-118443416 \\"><div class=\\"jsx-118443416 checkbox-mask\\"><i class=\\"jsx-118443416 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-118443416\\"><div class=\\"jsx-118443416 line1\\"></div><div class=\\"jsx-118443416 line2\\"></div></span></i></div></div><span class=\\"jsx-118443416 text \\">Sydney</span></label></div><div class=\\"jsx-1748177826 group \\"><label class=\\"jsx-118443416 \\"><div class=\\"jsx-118443416 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-118443416 \\"><div class=\\"jsx-118443416 checkbox-mask\\"><i class=\\"jsx-118443416 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-118443416\\"><div class=\\"jsx-118443416 line1\\"></div><div class=\\"jsx-118443416 line2\\"></div></span></i></div></div><span class=\\"jsx-118443416 text \\">Sydney</span></label></div></div>"`;
