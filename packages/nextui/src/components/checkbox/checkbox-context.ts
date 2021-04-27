@@ -3,6 +3,7 @@ import { NormalColors } from '@utils/prop-types';
 
 export interface CheckboxConfig {
   color: NormalColors;
+  textColor: NormalColors;
   updateState?: (value: string, checked: boolean) => void;
   disabledAll: boolean;
   values: string[];
@@ -11,6 +12,7 @@ export interface CheckboxConfig {
 
 const defaultContext = {
   color: 'primary' as NormalColors,
+  textColor: 'default' as NormalColors,
   disabledAll: false,
   inGroup: false,
   values: [],

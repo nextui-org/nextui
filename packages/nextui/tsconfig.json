@@ -7,7 +7,8 @@
             "@components/*": ["./src/components/*"],
             "@hooks/*": ["./src/hooks/*"],
             "@utils/*": ["./src/utils/*"],
-            "@theme/*": ["./src/theme/*"]
+            "@theme/*": ["./src/theme/*"],
+            "@tests/*": ["./tests/*"]
         },
         "jsx": "preserve",
         "skipLibCheck": true,
@@ -27,6 +28,6 @@
             "./typings"
         ]
     },
-    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "tests/*.ts", "**/*.jsx", "next-env.d.ts"],
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
     "exclude": ["node_modules", "storybook-static", "dist"],
 }

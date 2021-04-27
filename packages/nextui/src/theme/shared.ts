@@ -46,12 +46,6 @@ export const defaultLayout: NextUIThemesLayout = {
   pageWidthWithMargin: '782pt',
   breakpointMobile: defaultBreakpoints.xs.max,
   breakpointTablet: defaultBreakpoints.sm.max,
-  radius: {
-    xs: '4px',
-    sm: '6px',
-    md: '14px',
-    lg: '20px',
-    xl: '1000px',
-  },
+  radius: '14px',
   stroke: '2px',
 };

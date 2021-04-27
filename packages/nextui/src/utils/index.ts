@@ -38,10 +38,11 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
 
 export const getNormalColor = (
   type: NormalColors,
-  palette: NextUIThemesPalette
+  palette: NextUIThemesPalette,
+  defaultColor: string = 'inherit'
 ) => {
   const colors: { [key in NormalColors]: string } = {
-    default: 'inherit',
+    default: defaultColor,
     primary: palette.primary,
     secondary: palette.secondary,
     success: palette.success,
@@ -49,5 +50,5 @@ export const getNormalColor = (
     error: palette.error,
   };
 
-  return colors[type] || colors.default;
+  return colors[type] || defaultColor;
 };

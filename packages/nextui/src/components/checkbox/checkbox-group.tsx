@@ -7,18 +7,22 @@ import { getCheckboxSize } from './styles';
 
 interface Props {
   value: string[];
-  color?: NormalColors | string;
+  color?: NormalColors;
+  textColor?: NormalColors;
   disabled?: boolean;
   size?: NormalSizes;
   onChange?: (values: string[]) => void;
   className?: string;
+  row?: boolean;
 }
 
 const defaultProps = {
   color: 'primary' as NormalColors,
+  textColor: 'default' as NormalColors,
   disabled: false,
   size: 'medium' as NormalSizes,
   className: '',
+  row: false,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -26,10 +30,12 @@ export type CheckboxGroupProps = Props & typeof defaultProps & NativeAttrs;
 
 const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
   color,
+  textColor,
   disabled,
   onChange,
   value,
   size,
+  row,
   children,
   className,
   ...props
@@ -51,12 +57,15 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
     return {
       updateState,
       color,
+      textColor,
       disabledAll: disabled,
       inGroup: true,
       values: selfVal,
     };
   }, [disabled, selfVal]);
+
   const fontSize = useMemo(() => getCheckboxSize(size), [size]);
+  const groupGap = `calc(${fontSize} * 1)`;
 
   useEffect(() => {
     setSelfVal(value);
@@ -64,12 +73,20 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
 
   return (
     <CheckboxContext.Provider value={providerValue}>
-      <div className={`group ${className}`} {...props}>
+      <div className={`checkbox-group ${className}`} {...props}>
         {children}
         <style jsx>{`
-          .group :global(label) {
-            margin-right: calc(${fontSize} * 2);
+          .checkbox-group :global(.checkbox) {
+            margin-top: ${row ? 0 : groupGap};
+            margin-left: ${row ? groupGap : 0};
             --checkbox-size: ${fontSize};
+          }
+          .checkbox-group {
+            display: flex;
+            flex-direction: ${row ? 'col' : 'column'};
+          }
+          .checkbox-group :global(.checkbox:first-of-type) {
+            margin: 0;
           }
         `}</style>
       </div>

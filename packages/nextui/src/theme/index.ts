@@ -56,14 +56,6 @@ export interface NextUIThemesExpressiveness {
   portalOpacity: number;
 }
 
-export interface RadiusItem {
-  xs: string;
-  sm: string;
-  md: string;
-  lg: string;
-  xl: string;
-}
-
 export interface NextUIThemesLayout {
   gap: string;
   gapNegative: string;
@@ -76,7 +68,7 @@ export interface NextUIThemesLayout {
   pageWidthWithMargin: string;
   breakpointMobile: string;
   breakpointTablet: string;
-  radius: RadiusItem;
+  radius: string;
   stroke: string;
 }
 
