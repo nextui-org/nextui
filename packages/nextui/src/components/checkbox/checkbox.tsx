@@ -4,11 +4,7 @@ import CheckboxGroup from './checkbox-group';
 import useWarning from '@hooks/use-warning';
 import { NormalSizes, NormalColors } from '@utils/prop-types';
 import useTheme from '@hooks/use-theme';
-import {
-  getIconCheckStyle,
-  getCheckboxSize,
-  getCheckboxRadius,
-} from './styles';
+import { getIconCheckStyle, getCheckboxSize } from './styles';
 import { getNormalColor } from '@utils/index';
 
 interface CheckboxEventTarget {
@@ -24,6 +20,7 @@ export interface CheckboxEvent {
 
 export interface Props {
   color?: NormalColors;
+  textColor?: NormalColors;
   label?: string;
   line?: boolean;
   indeterminate?: boolean;
@@ -39,6 +36,7 @@ export interface Props {
 
 const defaultProps = {
   color: 'primary' as NormalColors,
+  textColor: 'default' as NormalColors,
   disabled: false,
   initialChecked: false,
   indeterminate: false,
@@ -62,6 +60,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   size,
   label,
   color,
+  textColor,
   value,
   style,
   ...props
@@ -69,6 +68,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
   const {
     color: groupColor,
+    textColor: textGroupColor,
     updateState,
     inGroup,
     disabledAll,
@@ -80,10 +80,20 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
   const checkboxColor = useMemo(
     () => getNormalColor(color || groupColor, theme.palette),
-    [color, theme.palette]
+    [color, groupColor, theme.palette]
   );
 
-  const radius = useMemo(() => getCheckboxRadius(size, theme), [size]);
+  const labelColor = useMemo(
+    () =>
+      isDisabled
+        ? theme.palette.accents_4
+        : getNormalColor(
+            textColor || textGroupColor,
+            theme.palette,
+            theme.palette.text
+          ),
+    [textColor, textGroupColor, isDisabled, theme.palette]
+  );
 
   const iconCheckStyle = getIconCheckStyle(size, indeterminate);
 
@@ -127,7 +137,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     setSelfChecked(checked);
   }, [checked]);
   return (
-    <label className={`${className}`} style={style}>
+    <label className={`checkbox ${className}`} style={style}>
       <div className="checkbox-container">
         <input
           type="checkbox"
@@ -166,7 +176,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           z-index: 1;
         }
         .checkbox-mask {
-          border-radius: ${radius};
+          border-radius: 33%;
           width: 100%;
           height: 100%;
           position: absolute;
@@ -212,7 +222,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           border-radius: inherit;
           transition: all 0.25s ease;
           z-index: -1;
-          border: ${theme.layout.stroke} solid ${theme.palette.accents_2};
+          border: ${theme.layout.stroke} solid ${theme.palette.border};
           box-sizing: border-box;
         }
 
@@ -318,10 +328,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
           pointer-events: none;
         }
         input:active ~ .checkbox-mask {
-          background: ${theme.palette.accents_2};
+          background: ${theme.palette.border};
         }
         input:hover ~ .checkbox-mask {
-          background: ${theme.palette.accents_2};
+          background: ${theme.palette.border};
         }
         input:hover ~ .checkbox-mask:before {
           border: 2px solid transparent;
@@ -355,7 +365,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           display: flex;
           justify-content: center;
           align-items: center;
-          color: ${theme.palette.text};
+          color: ${labelColor};
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);

@@ -14,7 +14,8 @@
           "@components": "./src/components",
           "@hooks": "./src/hooks",
           "@utils": "./src/utils",
-          "@theme": "./src/theme"
+          "@theme": "./src/theme",
+          "@tests": "./tests"
         }
       }
     ]

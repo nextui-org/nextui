@@ -278,7 +278,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           padding: calc(0.667 * ${theme.layout.gap}) ${theme.layout.gap};
           color: ${theme.palette.accents_5};
           background-color: ${theme.palette.accents_1};
-          border-radius: ${theme.layout.radius.lg};
+          border-radius: ${theme.layout.radius};
           margin: 1.5rem 0;
         }
 
