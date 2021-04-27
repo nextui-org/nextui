@@ -37,7 +37,8 @@
     "start-storybook": "yarn build-storybook && http-server ./storybook-static",
     "test": "jest --config jest.config.js --no-cache",
     "test-update": "jest --config jest.config.js --no-cache --update-snapshot",
-    "coverage": "yarn test --coverage && codecov"
+    "coverage": "yarn test --coverage",
+    "coverage:codecov": "yarn test --coverage && codecov"
   },
   "files": [
     "/dist",

@@ -20,8 +20,6 @@ install:
 
 scripts:
   - npm install codecov -g
-  - yarn run test
+  - yarn run coverage:codecov
   - yarn run build
-
-after_success:
-  - yarn run coverage
+ 
