@@ -19,4 +19,5 @@ install:
   - yarn
 
 script:
+  - yarn run test
   - yarn run build
