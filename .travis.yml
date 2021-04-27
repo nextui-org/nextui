@@ -19,5 +19,10 @@ install:
   - yarn
 
 script:
+  scripts:
+  - npm install codecov -g
   - yarn run test
   - yarn run build
+
+after_success:
+  - codecov
