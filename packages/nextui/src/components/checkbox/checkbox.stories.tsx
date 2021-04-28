@@ -80,7 +80,6 @@ export const Colors = () => (
     <Checkbox color="error" checked={true}>
       Error
     </Checkbox>
-    <br />
   </div>
 );
 
@@ -105,7 +104,6 @@ export const TextColors = () => (
     <Checkbox color="error" textColor="error" checked={true}>
       Error
     </Checkbox>
-    <br />
   </div>
 );
 
@@ -129,6 +127,18 @@ export const Sizes = () => (
     <br />
     <Checkbox checked={true} size="xlarge">
       xlarge
+    </Checkbox>
+  </div>
+);
+
+export const Disabled = () => (
+  <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <Checkbox checked={true} size="xlarge">
+      Enabled
+    </Checkbox>
+    <br />
+    <Checkbox disabled checked={true} size="xlarge">
+      Disabled
     </Checkbox>
   </div>
 );
