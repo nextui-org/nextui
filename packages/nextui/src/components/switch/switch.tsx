@@ -164,7 +164,7 @@ const Switch: React.FC<SwitchProps> = ({
           left: 1px;
           box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 10%),
             0px 1px 1px 0px rgb(0 0 0 / 10%), 0px 1px 3px 0px rgb(0 0 0 / 8%);
-          transition: left 280ms cubic-bezier(0, 0, 0.2, 1);
+          transition: left 0.2s ease;
           border-radius: 50%;
           background-color: ${theme.palette.background};
         }
