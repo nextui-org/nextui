@@ -5,7 +5,7 @@ import Radio from './index';
 export default {
   title: 'Inputs/Radio',
   component: Radio,
-  onChange: { onClick: { action: 'changed' } },
+  onChange: { action: 'changed' },
 } as Meta;
 
 export const Default = () => (
@@ -14,6 +14,54 @@ export const Default = () => (
     <Radio value="B">Option B</Radio>
     <Radio value="C">Option C</Radio>
     <Radio value="D">Option D</Radio>
+  </Radio.Group>
+);
+
+export const Colors = () => (
+  <Radio.Group value="primary">
+    <Radio value="primary" color="primary" checked={true}>
+      Primary
+    </Radio>
+    <br />
+    <Radio value="secondary" color="secondary">
+      Secondary
+    </Radio>
+    <br />
+    <Radio value="success" color="success">
+      Success
+    </Radio>
+    <br />
+    <Radio value="warning" color="warning">
+      Warning
+    </Radio>
+    <br />
+    <Radio value="error" color="error">
+      Error
+    </Radio>
+  </Radio.Group>
+);
+
+export const TextColors = () => (
+  <Radio.Group value="primary">
+    <Radio value="primary" color="primary" textColor="primary">
+      Primary
+    </Radio>
+    <br />
+    <Radio value="secondary" color="secondary" textColor="secondary">
+      Secondary
+    </Radio>
+    <br />
+    <Radio value="success" color="success" textColor="success">
+      Success
+    </Radio>
+    <br />
+    <Radio value="warning" color="warning" textColor="warning">
+      Warning
+    </Radio>
+    <br />
+    <Radio value="error" color="error" textColor="error">
+      Error
+    </Radio>
   </Radio.Group>
 );
 

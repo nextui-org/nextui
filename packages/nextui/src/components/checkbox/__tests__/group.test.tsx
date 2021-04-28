@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import Checkbox from '@components/checkbox';
+import { Checkbox } from '@components';
 
 describe('Checkbox Group', () => {
   it('should render correctly', () => {
@@ -92,6 +92,7 @@ describe('Checkbox Group', () => {
 
   it('should throw error when value missing', () => {
     let errorMessage = '';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const Group = Checkbox.Group as any;
     const errorSpy = jest
       .spyOn(console, 'error')
