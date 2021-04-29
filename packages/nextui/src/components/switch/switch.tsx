@@ -148,7 +148,6 @@ const Switch: React.FC<SwitchProps> = ({
           opacity: 1;
           transition: all 0.25s ease;
           position: relative;
-          border: 1px solid transparent;
           background-color: ${theme.palette.accents_1};
           box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
           padding: 0;
@@ -175,7 +174,7 @@ const Switch: React.FC<SwitchProps> = ({
           background-color: ${theme.palette.accents_2};
         }
         .disabled {
-          border-color: ${theme.palette.accents_2};
+          border-color: ${theme.palette.accents_1};
           background-color: ${theme.palette.accents_1};
         }
         .disabled.checked {
