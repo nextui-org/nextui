@@ -146,15 +146,16 @@ const Switch: React.FC<SwitchProps> = ({
           width: ${width};
           border-radius: ${height};
           opacity: 1;
-          transition: opacity 0.25s ease;
+          transition: all 0.25s ease;
           position: relative;
           border: 1px solid transparent;
-          background-color: ${theme.palette.accents_2};
+          background-color: ${theme.palette.accents_1};
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
           padding: 0;
         }
         .circle {
-          width: calc(${height} - 2px);
-          height: calc(${height} - 2px);
+          width: calc(${height} * 0.85);
+          height: calc(${height} * 0.85);
           position: absolute;
           display: flex;
           justify-content: center;
@@ -162,17 +163,19 @@ const Switch: React.FC<SwitchProps> = ({
           top: 50%;
           transform: translateY(-50%);
           left: 1px;
-          box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 10%),
-            0px 1px 1px 0px rgb(0 0 0 / 10%), 0px 1px 3px 0px rgb(0 0 0 / 8%);
+          box-shadow: 0 5px 15px 0 rgb(0 0 0 / 15%);
           transition: left 0.2s ease;
           border-radius: 50%;
           background-color: ${theme.palette.background};
         }
-        .switch:hover {
+        .switch.checked:hover {
           opacity: 0.8;
         }
+        .switch:hover:not(.checked) {
+          background-color: ${theme.palette.accents_2};
+        }
         .disabled {
-          border-color: ${theme.palette.accents_2};
+          border-color: ${theme.palette.accents_1};
           background-color: ${theme.palette.accents_1};
         }
         .disabled.checked {
@@ -184,11 +187,11 @@ const Switch: React.FC<SwitchProps> = ({
         }
         .circle :global(svg) {
           background: transparent;
-          height: calc(${height} / 1.8);
-          width: calc(${height} / 1.8);
+          height: calc(${height} * 0.5);
+          width: calc(${height} * 0.5);
         }
         .checked > .circle {
-          left: calc(100% - (${height} - 1px));
+          left: calc(100% - (${height} * 0.91));
           box-shadow: none;
         }
         .disabled > .circle {

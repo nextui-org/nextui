@@ -208,11 +208,30 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           width: calc(var(--radio-size) + 2px);
           border-radius: 50%;
           background-color: ${radioColor};
+          transition: all 0.25s ease;
+        }
+        .point:after {
+          content: '';
+          opacity: 0;
+          position: absolute;
+          transform: scale(0.2);
+          border-radius: 50%;
+          top: calc(calc(var(--radio-size) + 2px) * 0.25);
+          left: calc(calc(var(--radio-size) + 2px) * 0.25);
+          height: calc(calc(var(--radio-size) + 2px) * 0.5);
+          width: calc(calc(var(--radio-size) + 2px) * 0.5);
+          background-color: ${theme.palette.background};
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%),
+            0 5px 15px 0 rgb(0 0 0 / 15%);
+          transition: transform 0.5s ease;
         }
         .point.active:before {
           opacity: 1;
           transform: scale(1);
-          transition: all 0.25s ease;
+        }
+        .point.active:after {
+          opacity: 1;
+          transform: scale(1);
         }
         .point.active {
           border: 2px solid transparent;

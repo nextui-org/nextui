@@ -6,7 +6,7 @@ import {
 import { defaultFont, defaultBreakpoints, defaultLayout } from './shared';
 
 export const palette: NextUIThemesPalette = {
-  accents_1: '#fafafa',
+  accents_1: '#f6f6f6',
   accents_2: '#eaeaea',
   accents_3: '#999',
   accents_4: '#888',
