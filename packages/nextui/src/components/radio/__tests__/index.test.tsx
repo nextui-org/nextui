@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { Radio } from '@components';
 import { nativeEvent } from '@tests/utils';
 
@@ -10,6 +10,13 @@ describe('Radio', () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
+  it('should support square and circle', () => {
+    const circle = shallow(<Radio />);
+    expect(() => circle.unmount()).not.toThrow();
+    const square = shallow(<Radio squared />);
+    expect(() => square.unmount()).not.toThrow();
+  });
+
   it('should work correctly with different sizes', () => {
     const wrapper = mount(
       <div>
@@ -18,6 +25,34 @@ describe('Radio', () => {
         <Radio size="medium">medium</Radio>
         <Radio size="large">large</Radio>
         <Radio size="xlarge">xlarge</Radio>
+      </div>
+    );
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should work with different colors', () => {
+    const wrapper = mount(
+      <div>
+        <Radio color="primary" />
+        <Radio color="secondary" />
+        <Radio color="success" />
+        <Radio color="warning" />
+        <Radio color="error" />
+      </div>
+    );
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should work with different textColors', () => {
+    const wrapper = mount(
+      <div>
+        <Radio textColor="primary" />
+        <Radio textColor="secondary" />
+        <Radio textColor="success" />
+        <Radio textColor="warning" />
+        <Radio textColor="error" />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();

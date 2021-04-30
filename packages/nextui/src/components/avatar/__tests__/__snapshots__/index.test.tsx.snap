@@ -57,6 +57,8 @@ initialize {
 }
 `;
 
+exports[`Avatar should render correctly with an icon 1`] = `"<span class=\\"jsx-2518140673 avatar undefined \\"><span class=\\"jsx-2518140673 icon\\"><svg class=\\"\\"></svg></span></span>"`;
+
 exports[`Avatar should render text element 1`] = `
 initialize {
   "0": Node {
@@ -180,3 +182,11 @@ initialize {
 `;
 
 exports[`Avatar should work correctly with different sizes 1`] = `"<div><span class=\\"jsx-3103339393 avatar undefined \\"><span class=\\"jsx-3103339393 avatar-text\\"></span></span><span class=\\"jsx-2856066177 avatar undefined \\"><span class=\\"jsx-2856066177 avatar-text\\"></span></span><span class=\\"jsx-2518140673 avatar undefined \\"><span class=\\"jsx-2518140673 avatar-text\\"></span></span><span class=\\"jsx-1668921857 avatar undefined \\"><span class=\\"jsx-1668921857 avatar-text\\"></span></span><span class=\\"jsx-2007081121 avatar undefined \\"><span class=\\"jsx-2007081121 avatar-text\\"></span></span></div>"`;
+
+exports[`Avatar should work with a gradient color 1`] = `"<span class=\\"jsx-1444909668 avatar undefined \\"><span class=\\"jsx-1444909668 avatar-text\\"></span></span>"`;
+
+exports[`Avatar should work with different colors 1`] = `"<div><span class=\\"jsx-330673779 avatar undefined \\"><span class=\\"jsx-330673779 avatar-text\\"></span></span><span class=\\"jsx-4280568647 avatar undefined \\"><span class=\\"jsx-4280568647 avatar-text\\"></span></span><span class=\\"jsx-228489183 avatar undefined \\"><span class=\\"jsx-228489183 avatar-text\\"></span></span><span class=\\"jsx-3601254788 avatar undefined \\"><span class=\\"jsx-3601254788 avatar-text\\"></span></span><span class=\\"jsx-475931408 avatar undefined \\"><span class=\\"jsx-475931408 avatar-text\\"></span></span></div>"`;
+
+exports[`Avatar should work with pointer 1`] = `"<span class=\\"jsx-1483717978 avatar undefined \\"><span class=\\"jsx-1483717978 avatar-text\\"></span></span>"`;
+
+exports[`Avatar should work with zoomed 1`] = `"<span class=\\"jsx-917439308 avatar undefined \\"><span class=\\"jsx-917439308 avatar-text\\"></span></span>"`;

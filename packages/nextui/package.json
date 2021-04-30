@@ -38,6 +38,7 @@
     "test": "jest --config jest.config.js --no-cache",
     "test-update": "jest --config jest.config.js --no-cache --update-snapshot",
     "coverage": "yarn test --coverage",
+    "coverage-update": "yarn test-update --coverage",
     "coverage:codecov": "yarn test --coverage && codecov"
   },
   "files": [

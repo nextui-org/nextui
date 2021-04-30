@@ -1,6 +1,13 @@
 import React from 'react';
 import { mount, render, shallow } from 'enzyme';
 import { Avatar } from '@components';
+interface IconProps {
+  className?: string;
+}
+
+const Icon: React.FC<IconProps> = ({ className = '' }) => (
+  <svg className={className} />
+);
 
 describe('Avatar', () => {
   it('should support square and circle', () => {
@@ -15,6 +22,44 @@ describe('Avatar', () => {
     expect(imageAvatar).toMatchSnapshot();
     const textAvatar = render(<Avatar text="text" />);
     expect(textAvatar).toMatchSnapshot();
+  });
+
+  it('should work with different colors', () => {
+    const wrapper = mount(
+      <div>
+        <Avatar color="primary" />
+        <Avatar color="secondary" />
+        <Avatar color="success" />
+        <Avatar color="warning" />
+        <Avatar color="error" />
+      </div>
+    );
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should work with a gradient color', () => {
+    const wrapper = mount(<Avatar color="gradient" />);
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should work with pointer', () => {
+    const wrapper = mount(<Avatar pointer />);
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should work with zoomed', () => {
+    const wrapper = mount(<Avatar zoomed />);
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should render correctly with an icon', () => {
+    const wrapper = mount(<Avatar icon={<Icon />} />);
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('should omit long chars automatically', () => {

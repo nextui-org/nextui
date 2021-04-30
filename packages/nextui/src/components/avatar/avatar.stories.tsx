@@ -43,7 +43,6 @@ export const Default = () => {
 };
 
 export const Colors = () => {
-  const url = 'https://i.pravatar.cc/300?u=a042581f4e29026704d';
   return (
     <div
       style={{
