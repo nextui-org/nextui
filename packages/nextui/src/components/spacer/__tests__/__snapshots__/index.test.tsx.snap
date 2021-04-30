@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spacer should render correctly 1`] = `"<span class=\\"jsx-870436695 \\"></span>"`;
+
+exports[`Spacer should support x and y 1`] = `"<div><span class=\\"jsx-3385533526 \\"></span><span class=\\"jsx-3994623355 \\"></span><span class=\\"jsx-1635337915 \\"></span><span class=\\"jsx-3499487811 \\"></span></div>"`;
+
+exports[`Spacer should work with float 1`] = `"<div><span class=\\"jsx-4201485135 \\"></span><span class=\\"jsx-2386507893 \\"></span><span class=\\"jsx-940861276 \\"></span><span class=\\"jsx-2109508518 \\"></span></div>"`;
+
+exports[`Spacer should work with inline mode 1`] = `"<span class=\\"jsx-225541363 \\"></span>"`;

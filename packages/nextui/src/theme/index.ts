@@ -19,6 +19,7 @@ export interface NextUIThemesPalette {
   code: string;
   border: string;
   success: string;
+  gradient: string;
   successLighter: string;
   successLight: string;
   successDark: string;

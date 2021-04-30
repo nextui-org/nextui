@@ -22,6 +22,7 @@ export interface RadioEvent {
 interface Props {
   checked?: boolean;
   value?: string | number;
+  squared?: boolean;
   size?: NormalSizes;
   color?: NormalColors;
   textColor?: NormalColors;
@@ -35,6 +36,7 @@ const defaultProps = {
   color: 'primary' as NormalColors,
   textColor: 'default' as NormalColors,
   disabled: false,
+  squared: false,
   className: '',
 };
 
@@ -45,6 +47,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   className,
   checked,
   onChange,
+  squared,
   disabled,
   size,
   color,
@@ -89,6 +92,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     disabled,
     disabledAll,
   ]);
+  const radius = squared ? '33%' : '50%';
 
   const radioColor = useMemo(
     () =>
@@ -137,7 +141,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   }, [checked]);
 
   return (
-    <div className={`radio ${className}`}>
+    <div className={`radio ${className}`} {...props}>
       <label>
         <input
           type="radio"
@@ -191,7 +195,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
         .point {
           height: var(--radio-size);
           width: var(--radio-size);
-          border-radius: 50%;
+          border-radius: ${radius};
           border: 2px solid ${theme.palette.border};
           transition: all 0.25s ease;
           position: relative;
@@ -206,7 +210,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           transform: scale(0.5);
           height: calc(var(--radio-size) + 2px);
           width: calc(var(--radio-size) + 2px);
-          border-radius: 50%;
+          border-radius: ${radius};
           background-color: ${radioColor};
           transition: all 0.25s ease;
         }
@@ -215,7 +219,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           opacity: 0;
           position: absolute;
           transform: scale(0.2);
-          border-radius: 50%;
+          border-radius: ${radius};
           top: calc(calc(var(--radio-size) + 2px) * 0.25);
           left: calc(calc(var(--radio-size) + 2px) * 0.25);
           height: calc(calc(var(--radio-size) + 2px) * 0.5);

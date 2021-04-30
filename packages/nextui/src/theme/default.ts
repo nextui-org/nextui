@@ -28,6 +28,7 @@ export const palette: NextUIThemesPalette = {
   errorLighter: '#f59aba',
   errorDark: '#e3001e',
   success: '#17c964',
+  gradient: 'linear-gradient(40deg, #f5a623, #f21361 96%,#c52d91 0)',
   successLight: '#6ec293',
   successLighter: '#9bc7ae',
   successDark: '#009c22',

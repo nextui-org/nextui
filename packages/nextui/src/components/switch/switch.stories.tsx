@@ -56,6 +56,30 @@ export const Sizes = () => (
   </div>
 );
 
+export const Squared = () => (
+  <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <Switch squared color="primary" checked={true}>
+      Primary
+    </Switch>
+    <br />
+    <Switch squared color="secondary" checked={true}>
+      Secondary
+    </Switch>
+    <br />
+    <Switch squared color="success" checked={true}>
+      Success
+    </Switch>
+    <br />
+    <Switch squared color="warning" checked={true}>
+      Warning
+    </Switch>
+    <br />
+    <Switch squared color="error" checked={true}>
+      Error
+    </Switch>
+  </div>
+);
+
 export const Disabled = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
     <Switch disabled />

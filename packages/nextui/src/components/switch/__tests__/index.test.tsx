@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, ReactWrapper } from 'enzyme';
+import { mount, shallow, ReactWrapper } from 'enzyme';
 import { Switch } from '@components';
 import { nativeEvent, updateWrapper } from '@tests/utils';
 
@@ -24,6 +24,13 @@ describe('Switch', () => {
     const wrapper = mount(<Switch />);
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should support square and circle', () => {
+    const circle = shallow(<Switch />);
+    expect(() => circle.unmount()).not.toThrow();
+    const square = shallow(<Switch squared />);
+    expect(() => square.unmount()).not.toThrow();
   });
 
   it('should render correctly with an icon', () => {

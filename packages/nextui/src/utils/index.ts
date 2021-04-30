@@ -1,6 +1,5 @@
-import { NormalColors } from './prop-types';
+import { NormalColors, normalColors } from './prop-types';
 import { NextUIThemesPalette } from '@theme/index';
-
 /**
  * This function allows validate if a string is a hexadecimal
  * value
@@ -37,18 +36,34 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
 };
 
 export const getNormalColor = (
-  type: NormalColors,
+  color: NormalColors | string | undefined,
   palette: NextUIThemesPalette,
   defaultColor: string = 'inherit'
 ) => {
-  const colors: { [key in NormalColors]: string } = {
+  const colors: { [key in NormalColors | string]: string } = {
     default: defaultColor,
     primary: palette.primary,
     secondary: palette.secondary,
     success: palette.success,
     warning: palette.warning,
     error: palette.error,
+    gradient: palette.gradient,
   };
+  return color && colors[color] ? colors[color] : defaultColor;
+};
 
-  return colors[type] || defaultColor;
+export const isNormalColor = (color: string): boolean => {
+  let found = normalColors.find((el) => el === color);
+  return found !== undefined && found !== null;
+};
+
+/**
+ * Function that checks color name support in the current browser
+ * @param strColor
+ * @returns boolean
+ */
+export const isColor = (strColor: string) => {
+  let s = new Option().style;
+  s.color = strColor;
+  return s.color == strColor;
 };

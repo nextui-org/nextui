@@ -7,12 +7,14 @@ describe('Checkbox Group', () => {
     const wrapper = mount(
       <Checkbox.Group value={[]}>
         <Checkbox value="sydney">Sydney</Checkbox>
+        <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
       </Checkbox.Group>
     );
     expect(() => wrapper.unmount()).not.toThrow();
     const rendered = render(
-      <Checkbox.Group value={[]}>
+      <Checkbox.Group value={[]} row>
         <Checkbox value="sydney">Sydney</Checkbox>
+        <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
       </Checkbox.Group>
     );
     expect(rendered).toMatchSnapshot();

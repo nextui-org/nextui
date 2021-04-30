@@ -131,6 +131,30 @@ export const Sizes = () => (
   </div>
 );
 
+export const Rounded = () => (
+  <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <Checkbox rounded color="primary" checked={true}>
+      Primary
+    </Checkbox>
+    <br />
+    <Checkbox rounded color="secondary" checked={true}>
+      Secondary
+    </Checkbox>
+    <br />
+    <Checkbox rounded color="success" checked={true}>
+      Success
+    </Checkbox>
+    <br />
+    <Checkbox rounded color="warning" checked={true}>
+      Warning
+    </Checkbox>
+    <br />
+    <Checkbox rounded color="error" checked={true}>
+      Error
+    </Checkbox>
+  </div>
+);
+
 export const Disabled = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
     <Checkbox checked={true} size="xlarge">

@@ -85,6 +85,30 @@ export const Sizes = () => (
   </>
 );
 
+export const Squared = () => (
+  <Radio.Group value="primary">
+    <Radio squared value="primary" color="primary" checked={true}>
+      Primary
+    </Radio>
+    <br />
+    <Radio squared value="secondary" color="secondary">
+      Secondary
+    </Radio>
+    <br />
+    <Radio squared value="success" color="success">
+      Success
+    </Radio>
+    <br />
+    <Radio squared value="warning" color="warning">
+      Warning
+    </Radio>
+    <br />
+    <Radio squared value="error" color="error">
+      Error
+    </Radio>
+  </Radio.Group>
+);
+
 export const Disabled = () => (
   <Radio.Group value="1">
     <Radio value="1">Option 1</Radio>

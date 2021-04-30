@@ -20,6 +20,7 @@ export interface SwitchEvent {
 interface Props {
   color?: NormalColors;
   checked?: boolean;
+  squared?: boolean;
   icon?: React.ReactNode;
   iconOn?: React.ReactNode;
   iconOff?: React.ReactNode;
@@ -34,6 +35,7 @@ const defaultProps = {
   color: 'primary' as NormalColors,
   size: 'medium' as NormalSizes,
   disabled: false,
+  squared: false,
   initialChecked: false,
   className: '',
 };
@@ -47,6 +49,7 @@ const Switch: React.FC<SwitchProps> = ({
   disabled,
   onChange,
   size,
+  squared,
   color,
   icon,
   iconOn,
@@ -79,6 +82,8 @@ const Switch: React.FC<SwitchProps> = ({
     },
     [disabled, selfChecked, onChange]
   );
+
+  const radius = squared ? '33%' : '50%';
 
   const circleIcon = useMemo(() => {
     const hasIcon = icon || iconOn || iconOff;
@@ -144,7 +149,7 @@ const Switch: React.FC<SwitchProps> = ({
         .switch {
           height: ${height};
           width: ${width};
-          border-radius: ${height};
+          border-radius: ${squared ? 'calc(' + height + '/3)' : height};
           opacity: 1;
           transition: all 0.25s ease;
           position: relative;
@@ -165,7 +170,7 @@ const Switch: React.FC<SwitchProps> = ({
           left: 1px;
           box-shadow: 0 5px 15px 0 rgb(0 0 0 / 15%);
           transition: left 0.2s ease;
-          border-radius: 50%;
+          border-radius: ${radius};
           background-color: ${theme.palette.background};
         }
         .switch.checked:hover {
@@ -192,7 +197,6 @@ const Switch: React.FC<SwitchProps> = ({
         }
         .checked > .circle {
           left: calc(100% - (${height} * 0.91));
-          box-shadow: none;
         }
         .disabled > .circle {
           background-color: ${theme.palette.accents_2};
