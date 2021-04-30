@@ -16,13 +16,14 @@ const buttonTypes = tuple(
 
 const normalSizes = tuple('mini', 'small', 'medium', 'large', 'xlarge');
 
-const normalColors = tuple(
+export const normalColors = tuple(
   'default',
   'primary',
   'secondary',
   'success',
   'warning',
-  'error'
+  'error',
+  'gradient'
 );
 
 const themeTypes = tuple('dark', 'light');

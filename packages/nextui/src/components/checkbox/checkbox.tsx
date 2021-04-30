@@ -24,6 +24,7 @@ export interface Props {
   label?: string;
   line?: boolean;
   indeterminate?: boolean;
+  rounded?: boolean;
   checked?: boolean;
   disabled?: boolean;
   initialChecked?: boolean;
@@ -40,6 +41,7 @@ const defaultProps = {
   disabled: false,
   initialChecked: false,
   indeterminate: false,
+  rounded: false,
   size: 'medium' as NormalSizes,
   className: '',
   value: '',
@@ -52,6 +54,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   checked,
   initialChecked,
   line,
+  rounded,
   indeterminate,
   disabled,
   onChange,
@@ -77,6 +80,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
   const isDisabled = inGroup ? disabledAll || disabled : disabled;
   const theme = useTheme();
+
+  const radius = rounded ? '50%' : '33%';
 
   const checkboxColor = useMemo(
     () => getNormalColor(color || groupColor, theme.palette),
@@ -176,7 +181,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           z-index: 1;
         }
         .checkbox-mask {
-          border-radius: 33%;
+          border-radius: ${radius};
           width: 100%;
           height: 100%;
           position: absolute;
