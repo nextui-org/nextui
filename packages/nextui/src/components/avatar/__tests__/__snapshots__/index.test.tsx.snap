@@ -4,12 +4,12 @@ exports[`Avatar should render component of a specified size 1`] = `
 initialize {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-2138600513 avatar undefined ",
+      "class": "jsx-4265490818 avatar  ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-2138600513 avatar-text",
+          "class": "jsx-4265490818 avatar-text",
         },
         "children": Array [],
         "name": "span",
@@ -57,18 +57,18 @@ initialize {
 }
 `;
 
-exports[`Avatar should render correctly with an icon 1`] = `"<span class=\\"jsx-2518140673 avatar undefined \\"><span class=\\"jsx-2518140673 icon\\"><svg class=\\"\\"></svg></span></span>"`;
+exports[`Avatar should render correctly with an icon 1`] = `"<span class=\\"jsx-4176817858 avatar  \\"><span class=\\"jsx-4176817858 icon\\"><svg class=\\"\\"></svg></span></span>"`;
 
 exports[`Avatar should render text element 1`] = `
 initialize {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-2518140673 avatar undefined ",
+      "class": "jsx-4176817858 avatar  ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-2518140673 avatar-text",
+          "class": "jsx-4176817858 avatar-text",
         },
         "children": Array [],
         "name": "span",
@@ -120,12 +120,12 @@ exports[`Avatar should render text element 2`] = `
 initialize {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-2518140673 avatar undefined ",
+      "class": "jsx-4176817858 avatar  ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-2518140673 avatar-text",
+          "class": "jsx-4176817858 avatar-text",
         },
         "children": Array [
           Node {
@@ -181,12 +181,12 @@ initialize {
 }
 `;
 
-exports[`Avatar should work correctly with different sizes 1`] = `"<div><span class=\\"jsx-3103339393 avatar undefined \\"><span class=\\"jsx-3103339393 avatar-text\\"></span></span><span class=\\"jsx-2856066177 avatar undefined \\"><span class=\\"jsx-2856066177 avatar-text\\"></span></span><span class=\\"jsx-2518140673 avatar undefined \\"><span class=\\"jsx-2518140673 avatar-text\\"></span></span><span class=\\"jsx-1668921857 avatar undefined \\"><span class=\\"jsx-1668921857 avatar-text\\"></span></span><span class=\\"jsx-2007081121 avatar undefined \\"><span class=\\"jsx-2007081121 avatar-text\\"></span></span></div>"`;
+exports[`Avatar should work correctly with different sizes 1`] = `"<div><span class=\\"jsx-1063767362 avatar  \\"><span class=\\"jsx-1063767362 avatar-text\\"></span></span><span class=\\"jsx-2166814146 avatar  \\"><span class=\\"jsx-2166814146 avatar-text\\"></span></span><span class=\\"jsx-4176817858 avatar  \\"><span class=\\"jsx-4176817858 avatar-text\\"></span></span><span class=\\"jsx-1785224386 avatar  \\"><span class=\\"jsx-1785224386 avatar-text\\"></span></span><span class=\\"jsx-3686287650 avatar  \\"><span class=\\"jsx-3686287650 avatar-text\\"></span></span></div>"`;
 
-exports[`Avatar should work with a gradient color 1`] = `"<span class=\\"jsx-1444909668 avatar undefined \\"><span class=\\"jsx-1444909668 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with a gradient color 1`] = `"<span class=\\"jsx-4209686791 avatar  \\"><span class=\\"jsx-4209686791 avatar-text\\"></span></span>"`;
 
-exports[`Avatar should work with different colors 1`] = `"<div><span class=\\"jsx-330673779 avatar undefined \\"><span class=\\"jsx-330673779 avatar-text\\"></span></span><span class=\\"jsx-4280568647 avatar undefined \\"><span class=\\"jsx-4280568647 avatar-text\\"></span></span><span class=\\"jsx-228489183 avatar undefined \\"><span class=\\"jsx-228489183 avatar-text\\"></span></span><span class=\\"jsx-3601254788 avatar undefined \\"><span class=\\"jsx-3601254788 avatar-text\\"></span></span><span class=\\"jsx-475931408 avatar undefined \\"><span class=\\"jsx-475931408 avatar-text\\"></span></span></div>"`;
+exports[`Avatar should work with different colors 1`] = `"<div><span class=\\"jsx-3157136048 avatar  \\"><span class=\\"jsx-3157136048 avatar-text\\"></span></span><span class=\\"jsx-4098170180 avatar  \\"><span class=\\"jsx-4098170180 avatar-text\\"></span></span><span class=\\"jsx-572673372 avatar  \\"><span class=\\"jsx-572673372 avatar-text\\"></span></span><span class=\\"jsx-4152143559 avatar  \\"><span class=\\"jsx-4152143559 avatar-text\\"></span></span><span class=\\"jsx-2989927891 avatar  \\"><span class=\\"jsx-2989927891 avatar-text\\"></span></span></div>"`;
 
-exports[`Avatar should work with pointer 1`] = `"<span class=\\"jsx-1483717978 avatar undefined \\"><span class=\\"jsx-1483717978 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with pointer 1`] = `"<span class=\\"jsx-1563297974 avatar  \\"><span class=\\"jsx-1563297974 avatar-text\\"></span></span>"`;
 
-exports[`Avatar should work with zoomed 1`] = `"<span class=\\"jsx-917439308 avatar undefined \\"><span class=\\"jsx-917439308 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with zoomed 1`] = `"<span class=\\"jsx-1415796367 avatar  \\"><span class=\\"jsx-1415796367 avatar-text\\"></span></span>"`;

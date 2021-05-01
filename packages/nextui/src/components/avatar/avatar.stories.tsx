@@ -10,7 +10,7 @@ export default {
   component: Avatar,
 } as Meta;
 
-const nameUsers = ['Junior', 'Jane', 'W', 'John'];
+const nameUsers = ['Junior', 'Jane', 'W', 'John', 'JR'];
 const pictureUsers = [
   'https://i.pravatar.cc/300?u=a042581f4e29026705d',
   'https://i.pravatar.cc/300?u=a042581f4e29026706d',
@@ -19,218 +19,129 @@ const pictureUsers = [
   'https://i.pravatar.cc/300?u=a042581f4f29026709d',
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Container = ({ children }: any) => (
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      width: '100%',
+      maxWidth: `${children.length * 45}px`,
+    }}
+  >
+    {children}
+  </div>
+);
+
 export const Default = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        maxWidth: '50%',
-        flexWrap: 'wrap',
-      }}
-    >
-      <Avatar text={nameUsers[0]} />
-      <Avatar pointer src={pictureUsers[1]} />
-      <Avatar text={nameUsers[1]} />
-      <Avatar pointer src={pictureUsers[2]} />
-      <Avatar text={nameUsers[2]} squared />
-      <Avatar src={pictureUsers[3]} squared />
-      <Avatar text={nameUsers[3]} squared />
-      <Avatar src={pictureUsers[4]} squared />
-    </div>
+    <>
+      <Container>
+        <Avatar text={nameUsers[0]} />
+        <Avatar pointer src={pictureUsers[1]} />
+        <Avatar text={nameUsers[1]} />
+        <Avatar src={pictureUsers[3]} squared />
+        <Avatar text={nameUsers[3]} squared />
+        <Avatar src={pictureUsers[4]} squared />
+      </Container>
+    </>
   );
 };
 
 export const Colors = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        maxWidth: '50%',
-        flexWrap: 'wrap',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          maxWidth: '100%',
-        }}
-      >
-        <Avatar
-          size="large"
-          color="primary"
-          bordered
-          pointer
-          src={pictureUsers[0]}
-        />
-        <Avatar
-          size="large"
-          color="secondary"
-          bordered
-          pointer
-          src={pictureUsers[1]}
-        />
-        <Avatar
-          size="large"
-          color="success"
-          bordered
-          src={pictureUsers[2]}
-          squared
-        />
-        <Avatar
-          size="large"
-          color="warning"
-          bordered
-          src={pictureUsers[3]}
-          squared
-        />
-        <Avatar
-          size="large"
-          color="error"
-          bordered
-          src={pictureUsers[4]}
-          squared
-        />
-        <Avatar
-          size="large"
-          color="gradient"
-          bordered
-          src={pictureUsers[1]}
-          squared
-        />
-      </div>
+    <>
+      <Container>
+        <Avatar color="primary" bordered pointer src={pictureUsers[0]} />
+        <Avatar color="secondary" bordered pointer src={pictureUsers[1]} />
+        <Avatar color="success" bordered src={pictureUsers[2]} squared />
+        <Avatar color="warning" bordered src={pictureUsers[3]} squared />
+        <Avatar color="error" bordered src={pictureUsers[4]} squared />
+        <Avatar color="gradient" bordered src={pictureUsers[1]} squared />
+      </Container>
       <Spacer />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          maxWidth: '100%',
-        }}
-      >
-        <Avatar size="large" text={nameUsers[0]} color="primary" pointer />
-        <Avatar size="large" text={nameUsers[1]} color="secondary" pointer />
-        <Avatar size="large" text={nameUsers[2]} color="success" squared />
-        <Avatar size="large" text={nameUsers[3]} color="warning" squared />
-        <Avatar size="large" text={nameUsers[0]} color="error" squared />
-        <Avatar size="large" text={nameUsers[2]} color="gradient" squared />
-      </div>
-    </div>
+      <Container>
+        <Avatar text={nameUsers[0]} color="primary" pointer />
+        <Avatar text={nameUsers[1]} color="secondary" pointer />
+        <Avatar text={nameUsers[2]} color="success" squared />
+        <Avatar text={nameUsers[3]} color="warning" squared />
+        <Avatar text={nameUsers[0]} color="error" squared />
+        <Avatar text={nameUsers[2]} color="gradient" squared />
+      </Container>
+    </>
   );
 };
 
 export const Bordered = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        maxWidth: '50%',
-        flexWrap: 'wrap',
-      }}
-    >
+    <Container>
       {pictureUsers.map((url, index) => (
         <Avatar
           key={index}
           squared={index % 2 > 0}
-          size="medium"
           bordered
           pointer
           src={url}
         />
       ))}
-    </div>
+    </Container>
   );
 };
 
 export const Sizes = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        maxWidth: '50%',
-        flexWrap: 'wrap',
-      }}
-    >
+    <Container>
       <Avatar src={pictureUsers[0]} size="mini" />
       <Avatar pointer squared src={pictureUsers[1]} size="small" />
       <Avatar src={pictureUsers[2]} size="medium" />
       <Avatar pointer squared src={pictureUsers[3]} size="large" />
       <Avatar src={pictureUsers[4]} size="xlarge" />
-    </div>
+    </Container>
   );
 };
 
 export const Zoomed = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        maxWidth: '50%',
-        flexWrap: 'wrap',
-      }}
-    >
+    <Container>
       {pictureUsers.map((url, index) => (
         <Avatar key={index} size="medium" zoomed bordered pointer src={url} />
       ))}
-    </div>
+    </Container>
   );
 };
 
 export const Icons = () => {
   const theme = useTheme();
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        maxWidth: '50%',
-        flexWrap: 'wrap',
-      }}
-    >
+    <Container>
       <Avatar
-        size="large"
         squared
-        icon={<Lock theme={theme} fill={theme.palette.text} />}
+        icon={<Lock size={20} theme={theme} fill={theme.palette.text} />}
       />
       <Avatar
-        size="large"
         squared
-        icon={<Camera theme={theme} fill={theme.palette.text} />}
+        icon={<Camera size={20} theme={theme} fill={theme.palette.text} />}
       />
       <Avatar
-        size="large"
         squared
-        icon={<User theme={theme} fill={theme.palette.text} />}
+        icon={<User size={20} theme={theme} fill={theme.palette.text} />}
       />
       <Avatar
-        size="large"
         squared
-        icon={<VolumeUp theme={theme} fill={theme.palette.text} />}
+        icon={<VolumeUp size={20} theme={theme} fill={theme.palette.text} />}
       />
       <Avatar
-        size="large"
         squared
-        icon={<Activity theme={theme} fill={theme.palette.text} />}
+        icon={<Activity size={20} theme={theme} fill={theme.palette.text} />}
       />
-    </div>
+    </Container>
   );
 };
 
 export const Group = () => {
   return (
-    <>
+    <Container>
       <Avatar.Group count={12}>
         {pictureUsers.map((url, index) => (
           <Avatar key={index} src={url} bordered stacked />
@@ -242,6 +153,6 @@ export const Group = () => {
           <Avatar key={index} text={name} bordered stacked />
         ))}
       </Avatar.Group>
-    </>
+    </Container>
   );
 };
