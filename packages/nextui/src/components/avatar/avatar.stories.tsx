@@ -91,13 +91,29 @@ export const Bordered = () => {
 
 export const Sizes = () => {
   return (
-    <Container>
-      <Avatar src={pictureUsers[0]} size="mini" />
-      <Avatar pointer squared src={pictureUsers[1]} size="small" />
-      <Avatar src={pictureUsers[2]} size="medium" />
-      <Avatar pointer squared src={pictureUsers[3]} size="large" />
-      <Avatar src={pictureUsers[4]} size="xlarge" />
-    </Container>
+    <div
+      style={{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <Container>
+        <Avatar src={pictureUsers[0]} size="mini" />
+        <Avatar src={pictureUsers[1]} size="small" />
+        <Avatar src={pictureUsers[2]} size="medium" />
+        <Avatar src={pictureUsers[3]} size="large" />
+        <Avatar src={pictureUsers[4]} size="xlarge" />
+      </Container>
+      <Spacer />
+      <Container>
+        <Avatar squared src={pictureUsers[0]} size="mini" />
+        <Avatar squared src={pictureUsers[1]} size="small" />
+        <Avatar squared src={pictureUsers[2]} size="medium" />
+        <Avatar squared src={pictureUsers[3]} size="large" />
+        <Avatar squared src={pictureUsers[4]} size="xlarge" />
+      </Container>
+    </div>
   );
 };
 

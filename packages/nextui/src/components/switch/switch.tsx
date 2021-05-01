@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import withDefaults from '@utils/with-defaults';
 import useTheme from '@hooks/use-theme';
 import { NormalSizes, NormalColors } from '@utils/prop-types';
-import { getNormalColor } from '@utils/index';
+import { getNormalColor } from '@utils/color';
 import { getSizes } from './styles';
 import useWarning from '@hooks/use-warning';
 

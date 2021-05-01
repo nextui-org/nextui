@@ -9,7 +9,7 @@ interface Props {
   disabled?: boolean;
   color?: NormalColors | string;
   textColor?: NormalColors | string;
-  size?: NormalSizes;
+  size?: NormalSizes | number;
   onChange?: (value: string | number) => void;
   className?: string;
   row?: boolean;
@@ -27,7 +27,7 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type RadioGroupProps = Props & typeof defaultProps & NativeAttrs;
 
-export const getRadioSize = (size: NormalSizes): string => {
+export const getRadioSize = (size: NormalSizes | number): string => {
   const sizes: { [key in NormalSizes]: string } = {
     mini: '.8rem',
     small: '1rem',
@@ -35,6 +35,7 @@ export const getRadioSize = (size: NormalSizes): string => {
     large: '1.4rem',
     xlarge: '1.6rem',
   };
+  if (typeof size === 'number') return `${size}px`;
   return sizes[size];
 };
 
