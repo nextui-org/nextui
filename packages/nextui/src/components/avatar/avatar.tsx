@@ -87,7 +87,7 @@ const Avatar: React.FC<AvatarProps> = ({
 
   return (
     <span
-      className={`avatar ${bordered && 'bordered'} ${className}`}
+      className={`avatar ${bordered ? 'bordered' : ''} ${className}`}
       {...props}
     >
       {!showText && <img className="avatar-img" src={src} />}
@@ -105,7 +105,7 @@ const Avatar: React.FC<AvatarProps> = ({
           overflow: hidden;
           border-radius: ${radius};
           vertical-align: top;
-          cursor: ${pointer && 'pointer'};
+          cursor: ${pointer ? 'pointer' : 'auto'};
           margin: 0 0 0 ${marginLeft};
           transition: box-shadow, 0.25s ease;
         }
@@ -137,6 +137,7 @@ const Avatar: React.FC<AvatarProps> = ({
           user-select: none;
         }
         .icon {
+          display: flex;
           position: absolute;
           left: 50%;
           top: 50%;
