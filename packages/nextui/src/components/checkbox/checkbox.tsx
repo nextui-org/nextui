@@ -5,7 +5,7 @@ import useWarning from '@hooks/use-warning';
 import { NormalSizes, NormalColors } from '@utils/prop-types';
 import useTheme from '@hooks/use-theme';
 import { getIconCheckStyle, getCheckboxSize } from './styles';
-import { getNormalColor } from '@utils/index';
+import { getNormalColor } from '@utils/color';
 
 interface CheckboxEventTarget {
   checked: boolean;

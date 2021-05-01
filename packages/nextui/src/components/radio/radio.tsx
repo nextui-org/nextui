@@ -6,7 +6,7 @@ import RadioDescription from './radio-description';
 import { pickChild } from '@utils/collections';
 import useWarning from '@hooks/use-warning';
 import { NormalSizes, NormalColors } from '@utils/prop-types';
-import { getNormalColor } from '@utils/index';
+import { getNormalColor } from '@utils/color';
 
 interface RadioEventTarget {
   checked: boolean;
@@ -23,7 +23,7 @@ interface Props {
   checked?: boolean;
   value?: string | number;
   squared?: boolean;
-  size?: NormalSizes;
+  size?: NormalSizes | number;
   color?: NormalColors;
   textColor?: NormalColors;
   className?: string;
@@ -32,7 +32,7 @@ interface Props {
 }
 
 const defaultProps = {
-  size: 'medium' as NormalSizes,
+  size: 'medium' as NormalSizes | number,
   color: 'primary' as NormalColors,
   textColor: 'default' as NormalColors,
   disabled: false,
