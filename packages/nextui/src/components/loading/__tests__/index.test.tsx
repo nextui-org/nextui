@@ -29,6 +29,21 @@ describe('Loading', () => {
     expect(() => wrapper.unmount()).toMatchSnapshot();
   });
 
+  it('should work with different text colors', () => {
+    const wrapper = mount(
+      <div>
+        <Loading textColor="#f81ce5" />
+        <Loading textColor="primary" />
+        <Loading textColor="success" />
+        <Loading textColor="secondary" />
+        <Loading textColor="warning" />
+        <Loading textColor="error" />
+      </div>
+    );
+    expect(wrapper.html()).toMatchSnapshot();
+    expect(() => wrapper.unmount()).toMatchSnapshot();
+  });
+
   it('should work with different sizes', () => {
     const wrapper = mount(
       <div>
