@@ -9,9 +9,16 @@ describe('Loading', () => {
     expect(() => wrapper.unmount()).toMatchSnapshot();
   });
 
-  it('should work with different types', () => {
+  it('should work with children', () => {
+    const wrapper = mount(<Loading>Loading</Loading>);
+    expect(wrapper.find('.loading').text()).toContain('Loading');
+  });
+
+  it('should work with different colors', () => {
     const wrapper = mount(
       <div>
+        <Loading color="#f81ce5" />
+        <Loading color="primary" />
         <Loading color="success" />
         <Loading color="secondary" />
         <Loading color="warning" />
@@ -29,26 +36,29 @@ describe('Loading', () => {
         <Loading size="small" />
         <Loading size="medium" />
         <Loading size="large" />
+        <Loading size="xlarge" />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).toMatchSnapshot();
   });
 
-  it('should work with custom styles', () => {
+  it('should work with different types', () => {
     const wrapper = mount(
       <div>
-        <Loading color="#fff" />
-        <Loading width="20%" />
-        <Loading height="10px" />
+        <Loading type="default" />
+        <Loading type="spinner" />
+        <Loading type="points" />
+        <Loading type="points-opacity" />
+        <Loading type="gradient" />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).toMatchSnapshot();
   });
 
-  it('should work with children', () => {
-    const wrapper = mount(<Loading>test-children</Loading>);
-    expect(wrapper.find('.loading').text()).toContain('test-children');
+  it('should work with text in spinner type', () => {
+    const wrapper = mount(<Loading type="spinner">Spinner</Loading>);
+    expect(wrapper.find('.spinner').text()).toContain('Spinner');
   });
 });
