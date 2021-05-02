@@ -26,6 +26,14 @@ export const normalColors = tuple(
   'gradient'
 );
 
+export const normalLoaders = tuple(
+  'default',
+  'points',
+  'points-opacity',
+  'gradient',
+  'spinner'
+);
+
 const themeTypes = tuple('dark', 'light');
 
 const snippetTypes = tuple(
@@ -80,6 +88,8 @@ export type ButtonTypes = typeof buttonTypes[number];
 export type NormalSizes = typeof normalSizes[number];
 
 export type NormalColors = typeof normalColors[number];
+
+export type NormalLoaders = typeof normalLoaders[number];
 
 export type ThemeTypes = typeof themeTypes[number];
 

@@ -1,0 +1,793 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading should render correctly 1`] = `
+"<div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: #444;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div>"
+`;
+
+exports[`Loading should render correctly 2`] = `[Function]`;
+
+exports[`Loading should work with custom styles 1`] = `
+"<div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: #fff;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: #444;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: #444;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div></div>"
+`;
+
+exports[`Loading should work with custom styles 2`] = `[Function]`;
+
+exports[`Loading should work with different sizes 1`] = `
+"<div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 2px;
+          height: 2px;
+          border-radius: 50%;
+          background-color: #444;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background-color: #444;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: #444;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background-color: #444;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div></div>"
+`;
+
+exports[`Loading should work with different sizes 2`] = `[Function]`;
+
+exports[`Loading should work with different types 1`] = `
+"<div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: #0070f3;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: #666;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: #f5a623;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading\\"><i></i><i></i><i></i></span><style>
+        .loading-container {
+          display: inline-flex;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        label {
+          margin-right: 8pt;
+          color: #666;
+        }
+
+        label :global(*) {
+          margin: 0;
+        }
+
+        .loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          user-select: none;
+        }
+
+        i {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: #e00;
+          margin: 0 1px;
+          display: inline-block;
+          animation: loading-blink 1.4s infinite both;
+        }
+
+        i:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        i:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes loading-blink {
+          0% {
+            opacity: 0.2;
+          }
+
+          20% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0.2;
+          }
+        }
+      </style></div></div>"
+`;
+
+exports[`Loading should work with different types 2`] = `[Function]`;

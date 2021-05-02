@@ -7,3 +7,4 @@ export { default as Switch } from './switch';
 export { default as Spacer } from './spacer';
 export { default as User } from './user';
 export { default as Link } from './link';
+export { default as Loading } from './loading';

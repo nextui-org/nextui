@@ -49,7 +49,7 @@ export const getNormalColor = (
     error: palette.error,
     gradient: palette.gradient,
   };
-  return color && colors[color] ? colors[color] : defaultColor;
+  return color && colors[color] ? colors[color] : color || defaultColor;
 };
 
 export const isNormalColor = (color: string): boolean => {
