@@ -1,13 +1,13 @@
 export const tuple = <T extends string[]>(...args: T) => args;
 
-const buttonTypes = tuple(
-  'default',
+const buttonColors = tuple(
   'primary',
   'secondary',
   'success',
   'warning',
   'error',
   'abort',
+  'gradient',
   'secondary-light',
   'success-light',
   'warning-light',
@@ -83,7 +83,7 @@ const placement = tuple(
 
 const dividerAlign = tuple('start', 'center', 'end', 'left', 'right');
 
-export type ButtonTypes = typeof buttonTypes[number];
+export type ButtonColors = typeof buttonColors[number];
 
 export type NormalSizes = typeof normalSizes[number];
 

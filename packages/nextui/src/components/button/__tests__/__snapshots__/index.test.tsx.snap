@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render empty button correctly 1`] = `<Memo />`;
+
+exports[`Button should render special styles 1`] = `ReactWrapper {}`;
+
+exports[`Button should render special styles 2`] = `
+<Memo
+  loading={true}
+>
+  button
+</Memo>
+`;

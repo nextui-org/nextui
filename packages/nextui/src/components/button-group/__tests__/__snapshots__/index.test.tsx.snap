@@ -1,0 +1,503 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup buttons should be displayed vertically 1`] = `
+"<div class=\\"btn-group vertical \\"><button type=\\"button\\" class=\\"btn \\"><div class=\\"text\\">action1</div><style>
+          .btn {
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 0 1.25rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            min-width: min-content;
+            width: auto;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size: .875rem;
+            user-select: none;
+            outline: none;
+            text-transform: capitalize;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            transition: background-color 200ms ease 0ms, box-shadow 200ms ease 0ms,
+              border 200ms ease 0ms, color 200ms ease 0ms;
+            position: relative;
+            overflow: hidden;
+            color: #666;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            --geist-ui-button-padding: 1.25rem;
+            --geist-ui-button-height: 2.5rem;
+            --geist-ui-button-color: #666;
+            --geist-ui-button-bg: #fff;
+          }
+
+          .btn:hover,
+          .btn:focus {
+            color: #000;
+            --geist-ui-button-color: #000;
+            background-color: #fff;
+            border-color: #000;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            transform: translate3d(0px, 0px, 0px);
+          }
+
+          .btn :global(.text) {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: inherit;
+            top: -1px;
+          }
+
+          .btn :global(.text p),
+          .btn :global(.text pre),
+          .btn :global(.text div) {
+            margin: 0;
+          }
+        </style></button><button type=\\"button\\" class=\\"btn \\"><div class=\\"text\\">action2</div><style>
+          .btn {
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 0 1.25rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            min-width: min-content;
+            width: auto;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size: .875rem;
+            user-select: none;
+            outline: none;
+            text-transform: capitalize;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            transition: background-color 200ms ease 0ms, box-shadow 200ms ease 0ms,
+              border 200ms ease 0ms, color 200ms ease 0ms;
+            position: relative;
+            overflow: hidden;
+            color: #666;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            --geist-ui-button-padding: 1.25rem;
+            --geist-ui-button-height: 2.5rem;
+            --geist-ui-button-color: #666;
+            --geist-ui-button-bg: #fff;
+          }
+
+          .btn:hover,
+          .btn:focus {
+            color: #000;
+            --geist-ui-button-color: #000;
+            background-color: #fff;
+            border-color: #000;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            transform: translate3d(0px, 0px, 0px);
+          }
+
+          .btn :global(.text) {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: inherit;
+            top: -1px;
+          }
+
+          .btn :global(.text p),
+          .btn :global(.text pre),
+          .btn :global(.text div) {
+            margin: 0;
+          }
+        </style></button><style>
+          .btn-group {
+            display: inline-flex;
+            border-radius: 5px;
+            margin: 4pt;
+            border: 1px solid #eaeaea;
+            background-color: transparent;
+            overflow: hidden;
+            height: min-content;
+          }
+
+          .vertical {
+            flex-direction: column;
+          }
+
+          .btn-group :global(.btn) {
+            border: none;
+          }
+
+          .btn-group :global(.btn .text) {
+            top: 0;
+          }
+
+          .horizontal :global(.btn:not(:first-child)) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left: 1px solid #eaeaea;
+          }
+
+          .horizontal :global(.btn:not(:last-child)) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+
+          .vertical :global(.btn:not(:first-child)) {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-top: 1px solid #eaeaea;
+          }
+
+          .vertical :global(.btn:not(:last-child)) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        </style></div>"
+`;
+
+exports[`ButtonGroup props should be passed to each button 1`] = `
+"<div class=\\"btn-group horizontal \\"><button type=\\"button\\" class=\\"btn \\"><div class=\\"text\\">action</div><style>
+          .btn {
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 0 0.625rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            min-width: min-content;
+            width: auto;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size: .75rem;
+            user-select: none;
+            outline: none;
+            text-transform: capitalize;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            transition: background-color 200ms ease 0ms, box-shadow 200ms ease 0ms,
+              border 200ms ease 0ms, color 200ms ease 0ms;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            background-color: #0070f3;
+            border: 1px solid #0070f3;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            --geist-ui-button-padding: 0.625rem;
+            --geist-ui-button-height: 1.5rem;
+            --geist-ui-button-color: #fff;
+            --geist-ui-button-bg: #0070f3;
+          }
+
+          .btn:hover,
+          .btn:focus {
+            color: #0070f3;
+            --geist-ui-button-color: #0070f3;
+            background-color: #fff;
+            border-color: #0070f3;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            transform: translate3d(0px, 0px, 0px);
+          }
+
+          .btn :global(.text) {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: inherit;
+            top: -1px;
+          }
+
+          .btn :global(.text p),
+          .btn :global(.text pre),
+          .btn :global(.text div) {
+            margin: 0;
+          }
+        </style></button><style>
+          .btn-group {
+            display: inline-flex;
+            border-radius: 5px;
+            margin: 4pt;
+            border: 1px solid #fff;
+            background-color: transparent;
+            overflow: hidden;
+            height: min-content;
+          }
+
+          .vertical {
+            flex-direction: column;
+          }
+
+          .btn-group :global(.btn) {
+            border: none;
+          }
+
+          .btn-group :global(.btn .text) {
+            top: 0;
+          }
+
+          .horizontal :global(.btn:not(:first-child)) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left: 1px solid #fff;
+          }
+
+          .horizontal :global(.btn:not(:last-child)) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+
+          .vertical :global(.btn:not(:first-child)) {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-top: 1px solid #fff;
+          }
+
+          .vertical :global(.btn:not(:last-child)) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        </style></div>"
+`;
+
+exports[`ButtonGroup props should be passed to each button 2`] = `
+"<div class=\\"btn-group horizontal \\"><button type=\\"button\\" class=\\"btn \\"><div class=\\"text\\">action</div><style>
+          .btn {
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 0 0.625rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            min-width: min-content;
+            width: auto;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size: .75rem;
+            user-select: none;
+            outline: none;
+            text-transform: capitalize;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            transition: background-color 200ms ease 0ms, box-shadow 200ms ease 0ms,
+              border 200ms ease 0ms, color 200ms ease 0ms;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            background-color: #0070f3;
+            border: 1px solid #0070f3;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            --geist-ui-button-padding: 0.625rem;
+            --geist-ui-button-height: 1.5rem;
+            --geist-ui-button-color: #fff;
+            --geist-ui-button-bg: #0070f3;
+          }
+
+          .btn:hover,
+          .btn:focus {
+            color: #0070f3;
+            --geist-ui-button-color: #0070f3;
+            background-color: #fff;
+            border-color: #0070f3;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            transform: translate3d(0px, 0px, 0px);
+          }
+
+          .btn :global(.text) {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: inherit;
+            top: -1px;
+          }
+
+          .btn :global(.text p),
+          .btn :global(.text pre),
+          .btn :global(.text div) {
+            margin: 0;
+          }
+        </style></button><style>
+          .btn-group {
+            display: inline-flex;
+            border-radius: 5px;
+            margin: 4pt;
+            border: 1px solid #0070f3;
+            background-color: transparent;
+            overflow: hidden;
+            height: min-content;
+          }
+
+          .vertical {
+            flex-direction: column;
+          }
+
+          .btn-group :global(.btn) {
+            border: none;
+          }
+
+          .btn-group :global(.btn .text) {
+            top: 0;
+          }
+
+          .horizontal :global(.btn:not(:first-child)) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left: 1px solid #0070f3;
+          }
+
+          .horizontal :global(.btn:not(:last-child)) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+
+          .vertical :global(.btn:not(:first-child)) {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-top: 1px solid #0070f3;
+          }
+
+          .vertical :global(.btn:not(:last-child)) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        </style></div>"
+`;
+
+exports[`ButtonGroup should render correctly 1`] = `
+"<div class=\\"btn-group horizontal \\"><button type=\\"button\\" class=\\"btn \\"><div class=\\"text\\">action</div><style>
+          .btn {
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 0 1.25rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            min-width: min-content;
+            width: auto;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size: .875rem;
+            user-select: none;
+            outline: none;
+            text-transform: capitalize;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            transition: background-color 200ms ease 0ms, box-shadow 200ms ease 0ms,
+              border 200ms ease 0ms, color 200ms ease 0ms;
+            position: relative;
+            overflow: hidden;
+            color: #666;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            --geist-ui-button-padding: 1.25rem;
+            --geist-ui-button-height: 2.5rem;
+            --geist-ui-button-color: #666;
+            --geist-ui-button-bg: #fff;
+          }
+
+          .btn:hover,
+          .btn:focus {
+            color: #000;
+            --geist-ui-button-color: #000;
+            background-color: #fff;
+            border-color: #000;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            transform: translate3d(0px, 0px, 0px);
+          }
+
+          .btn :global(.text) {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: inherit;
+            top: -1px;
+          }
+
+          .btn :global(.text p),
+          .btn :global(.text pre),
+          .btn :global(.text div) {
+            margin: 0;
+          }
+        </style></button><style>
+          .btn-group {
+            display: inline-flex;
+            border-radius: 5px;
+            margin: 4pt;
+            border: 1px solid #eaeaea;
+            background-color: transparent;
+            overflow: hidden;
+            height: min-content;
+          }
+
+          .vertical {
+            flex-direction: column;
+          }
+
+          .btn-group :global(.btn) {
+            border: none;
+          }
+
+          .btn-group :global(.btn .text) {
+            top: 0;
+          }
+
+          .horizontal :global(.btn:not(:first-child)) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left: 1px solid #eaeaea;
+          }
+
+          .horizontal :global(.btn:not(:last-child)) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+
+          .vertical :global(.btn:not(:first-child)) {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-top: 1px solid #eaeaea;
+          }
+
+          .vertical :global(.btn:not(:last-child)) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        </style></div>"
+`;

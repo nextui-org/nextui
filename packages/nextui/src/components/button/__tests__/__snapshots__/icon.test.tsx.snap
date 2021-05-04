@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonIcon should render correctly 1`] = `
+"<button type=\\"button\\" class=\\"btn \\"><span class=\\"icon   \\"><svg></svg><style>
+        .icon {
+          position: absolute;
+          left: var(--geist-ui-button-padding);
+          right: auto;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--geist-ui-button-color);
+          z-index: 1;
+        }
+
+        .right {
+          right: var(--geist-ui-button-padding);
+          left: auto;
+        }
+
+        .icon :global(svg) {
+          background: transparent;
+          height: calc(var(--geist-ui-button-height) / 2.35);
+          width: calc(var(--geist-ui-button-height) / 2.35);
+        }
+
+        .single {
+          position: static;
+          transform: none;
+        }
+      </style></span><div class=\\"text left\\">action<style>
+          .left {
+            padding-left: 0;
+          }
+          .right {
+            padding-right: 0;
+          }
+        </style></div><style>
+          .btn {
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 0 1.375rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            min-width: 12.5rem;
+            width: auto;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size: .875rem;
+            user-select: none;
+            outline: none;
+            text-transform: capitalize;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            transition: background-color 200ms ease 0ms, box-shadow 200ms ease 0ms,
+              border 200ms ease 0ms, color 200ms ease 0ms;
+            position: relative;
+            overflow: hidden;
+            color: #666;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            --geist-ui-button-padding: 1.375rem;
+            --geist-ui-button-height: 2.5rem;
+            --geist-ui-button-color: #666;
+            --geist-ui-button-bg: #fff;
+          }
+
+          .btn:hover,
+          .btn:focus {
+            color: #000;
+            --geist-ui-button-color: #000;
+            background-color: #fff;
+            border-color: #000;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            transform: translate3d(0px, 0px, 0px);
+          }
+
+          .btn :global(.text) {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: inherit;
+            top: -1px;
+          }
+
+          .btn :global(.text p),
+          .btn :global(.text pre),
+          .btn :global(.text div) {
+            margin: 0;
+          }
+        </style></button>"
+`;
+
+exports[`ButtonIcon should work with right 1`] = `
+"<button type=\\"button\\" class=\\"btn \\"><span class=\\"icon right  \\"><svg></svg><style>
+        .icon {
+          position: absolute;
+          left: var(--geist-ui-button-padding);
+          right: auto;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--geist-ui-button-color);
+          z-index: 1;
+        }
+
+        .right {
+          right: var(--geist-ui-button-padding);
+          left: auto;
+        }
+
+        .icon :global(svg) {
+          background: transparent;
+          height: calc(var(--geist-ui-button-height) / 2.35);
+          width: calc(var(--geist-ui-button-height) / 2.35);
+        }
+
+        .single {
+          position: static;
+          transform: none;
+        }
+      </style></span><div class=\\"text right\\">action<style>
+          .left {
+            padding-left: 0;
+          }
+          .right {
+            padding-right: 0;
+          }
+        </style></div><style>
+          .btn {
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 0 1.375rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            min-width: 12.5rem;
+            width: auto;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size: .875rem;
+            user-select: none;
+            outline: none;
+            text-transform: capitalize;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            transition: background-color 200ms ease 0ms, box-shadow 200ms ease 0ms,
+              border 200ms ease 0ms, color 200ms ease 0ms;
+            position: relative;
+            overflow: hidden;
+            color: #666;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            --geist-ui-button-padding: 1.375rem;
+            --geist-ui-button-height: 2.5rem;
+            --geist-ui-button-color: #666;
+            --geist-ui-button-bg: #fff;
+          }
+
+          .btn:hover,
+          .btn:focus {
+            color: #000;
+            --geist-ui-button-color: #000;
+            background-color: #fff;
+            border-color: #000;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            transform: translate3d(0px, 0px, 0px);
+          }
+
+          .btn :global(.text) {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: inherit;
+            top: -1px;
+          }
+
+          .btn :global(.text p),
+          .btn :global(.text pre),
+          .btn :global(.text div) {
+            margin: 0;
+          }
+        </style></button>"
+`;
+
+exports[`ButtonIcon should work without text 1`] = `
+"<button type=\\"button\\" class=\\"btn \\"><span class=\\"icon right single \\"><svg></svg><style>
+        .icon {
+          position: absolute;
+          left: var(--geist-ui-button-padding);
+          right: auto;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--geist-ui-button-color);
+          z-index: 1;
+        }
+
+        .right {
+          right: var(--geist-ui-button-padding);
+          left: auto;
+        }
+
+        .icon :global(svg) {
+          background: transparent;
+          height: calc(var(--geist-ui-button-height) / 2.35);
+          width: calc(var(--geist-ui-button-height) / 2.35);
+        }
+
+        .single {
+          position: static;
+          transform: none;
+        }
+      </style></span><style>
+          .btn {
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 0 1.375rem;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            min-width: 12.5rem;
+            width: auto;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size: .875rem;
+            user-select: none;
+            outline: none;
+            text-transform: capitalize;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            transition: background-color 200ms ease 0ms, box-shadow 200ms ease 0ms,
+              border 200ms ease 0ms, color 200ms ease 0ms;
+            position: relative;
+            overflow: hidden;
+            color: #666;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            --geist-ui-button-padding: 1.375rem;
+            --geist-ui-button-height: 2.5rem;
+            --geist-ui-button-color: #666;
+            --geist-ui-button-bg: #fff;
+          }
+
+          .btn:hover,
+          .btn:focus {
+            color: #000;
+            --geist-ui-button-color: #000;
+            background-color: #fff;
+            border-color: #000;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: none;
+            transform: translate3d(0px, 0px, 0px);
+          }
+
+          .btn :global(.text) {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: inherit;
+            top: -1px;
+          }
+
+          .btn :global(.text p),
+          .btn :global(.text pre),
+          .btn :global(.text div) {
+            margin: 0;
+          }
+        </style></button>"
+`;

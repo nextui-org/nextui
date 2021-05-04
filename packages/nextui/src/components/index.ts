@@ -8,3 +8,4 @@ export { default as Spacer } from './spacer';
 export { default as User } from './user';
 export { default as Link } from './link';
 export { default as Loading } from './loading';
+export { default as Button } from './button';

@@ -93,7 +93,6 @@ export const colorToRgbValues = (color: string) => {
 
   const regArray = safeColor.match(/\((.+)\)/);
   if (!colorType.startsWith('rgb') || !regArray) {
-    console.log(color);
     throw new Error(`Next UI: Only support ["RGB", "RGBA", "HEX"] color.`);
   }
 
