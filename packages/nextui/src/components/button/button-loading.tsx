@@ -24,7 +24,7 @@ const ButtonLoading: React.FC<React.PropsWithChildren<ButtonLoadingProps>> = ({
   background,
 }) => {
   return (
-    <div className="btn-loading">
+    <div className="button-loading">
       <Loading
         size={size}
         color={color}
@@ -32,7 +32,7 @@ const ButtonLoading: React.FC<React.PropsWithChildren<ButtonLoadingProps>> = ({
         type={type}
       />
       <style jsx>{`
-        .btn-loading {
+        .button-loading {
           top: 0;
           left: 0;
           right: 0;

@@ -91,9 +91,29 @@ export const Bordered = () => (
     <Button color="error" bordered>
       Error
     </Button>
+  </>
+);
+
+export const Flattened = () => (
+  <>
+    <Button color="primary" flattened>
+      Primary
+    </Button>
     <Spacer y={0.5} />
-    <Button color="gradient" bordered>
-      Gradient
+    <Button color="secondary" flattened>
+      Secondary
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="success" flattened>
+      Success
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="warning" flattened>
+      Warning
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="error" flattened>
+      Error
     </Button>
   </>
 );

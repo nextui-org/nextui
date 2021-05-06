@@ -25,10 +25,11 @@ interface Props {
   color?: ButtonColors;
   size?: NormalSizes;
   bordered?: boolean;
+  flattened?: boolean;
   loading?: boolean;
   shadow?: boolean;
   auto?: boolean;
-  effect?: boolean;
+  animated?: boolean;
   disabled?: boolean;
   loaderType?: NormalLoaders;
   htmlType?: React.ButtonHTMLAttributes<unknown>['type'];
@@ -43,11 +44,12 @@ const defaultProps = {
   size: 'medium' as NormalSizes,
   htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
   loaderType: 'default' as NormalLoaders,
-  ghost: false,
+  bordered: false,
+  flattened: false,
   loading: false,
   shadow: false,
   auto: false,
-  effect: true,
+  animated: true,
   disabled: false,
   className: '',
 };
@@ -73,9 +75,10 @@ const Button = React.forwardRef<
     children,
     disabled,
     loading,
+    bordered,
     shadow,
-    ghost,
-    effect,
+    animated,
+    flattened,
     onClick,
     auto,
     size,
@@ -106,17 +109,17 @@ const Button = React.forwardRef<
     fontSize,
     loaderSize,
   } = useMemo(() => getButtonSize(size, auto), [size, auto]);
-  const dripColor = useMemo(() => getButtonDripColor(theme.palette), [
-    theme.palette,
-    filteredProps,
-  ]);
+
+  const dripColor = useMemo(
+    () => getButtonDripColor(theme.palette, filteredProps),
+    [theme.palette, filteredProps]
+  );
 
   const background =
-    filteredProps.color === 'gradient'
+    filteredProps.color === 'gradient' && !bordered
       ? `background-image: ${bg}`
       : `background-color: ${bg}`;
 
-  /* istanbul ignore next */
   const dripCompletedHandle = () => {
     setDripShow(false);
     setDripX(0);
@@ -125,9 +128,7 @@ const Button = React.forwardRef<
 
   const clickHandler = (event: MouseEvent<HTMLButtonElement>) => {
     if (disabled || loading) return;
-    const showDrip = !shadow && !ghost && effect;
-    /* istanbul ignore next */
-    if (showDrip && buttonRef.current) {
+    if (animated && buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
       setDripShow(true);
       setDripX(event.clientX - rect.left);
@@ -149,7 +150,7 @@ const Button = React.forwardRef<
     <button
       ref={buttonRef}
       type={htmlType}
-      className={`btn ${className}`}
+      className={`button ${className}`}
       disabled={disabled}
       onClick={clickHandler}
       {...props}
@@ -172,7 +173,7 @@ const Button = React.forwardRef<
         />
       )}
       <style jsx>{`
-        .btn {
+        .button {
           ${background};
           box-sizing: border-box;
           display: inline-block;
@@ -184,7 +185,7 @@ const Button = React.forwardRef<
           border-radius: ${radius};
           border: ${border?.weight || '2px'} solid
             ${border?.color || 'transparent'};
-          font-weight: 600;
+          font-weight: 500;
           font-size: ${fontSize};
           user-select: none;
           outline: none;
@@ -206,17 +207,17 @@ const Button = React.forwardRef<
           --next-ui-button-color: ${color};
           --next-ui-button-bg: ${bg};
         }
-        .btn:hover {
+        .button:hover {
           cursor: ${cursor};
           pointer-events: ${events};
           box-shadow: ${shadow
             ? theme.expressiveness.shadowMedium
-            : !disabled
+            : !disabled && !bordered && !flattened
             ? 'inset 0 0 40px 0 rgb(0 0 0 / 14%)'
             : 'none'};
           transform: translate3d(0px, ${shadow ? '-1.5px' : '0px'}, 0px);
         }
-        .btn :global(.text) {
+        .button :global(.text) {
           position: relative;
           z-index: 1;
           display: inline-flex;
@@ -226,9 +227,9 @@ const Button = React.forwardRef<
           line-height: inherit;
           top: -1px;
         }
-        .btn :global(.text p),
-        .btn :global(.text pre),
-        .btn :global(.text div) {
+        .button :global(.text p),
+        .button :global(.text pre),
+        .button :global(.text div) {
           margin: 0;
         }
       `}</style>

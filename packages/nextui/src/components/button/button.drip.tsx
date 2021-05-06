@@ -22,17 +22,13 @@ const ButtonDrip: React.FC<ButtonDripProps> = ({
   onCompleted,
 }) => {
   const dripRef = useRef<HTMLDivElement>(null);
-  /* istanbul ignore next */
   const top = Number.isNaN(+y) ? 0 : y - 10;
-  /* istanbul ignore next */
   const left = Number.isNaN(+x) ? 0 : x - 10;
 
   useEffect(() => {
-    /* istanbul ignore next */
     if (!dripRef.current) return;
     dripRef.current.addEventListener('animationend', onCompleted);
     return () => {
-      /* istanbul ignore next */
       if (!dripRef.current) return;
       dripRef.current.removeEventListener('animationend', onCompleted);
     };
@@ -58,7 +54,7 @@ const ButtonDrip: React.FC<ButtonDripProps> = ({
         }
         svg {
           position: absolute;
-          animation: 350ms ease-in expand;
+          animation: 300ms ease-in expand;
           animation-fill-mode: forwards;
           width: 1rem;
           height: 1rem;

@@ -8,7 +8,7 @@ import { NextUIThemesPalette } from '@theme/index';
 interface Props {
   disabled?: boolean;
   vertical?: boolean;
-  ghost?: boolean;
+  bordered?: boolean;
   size?: NormalSizes;
   type?: ButtonColors;
   className?: string;
@@ -17,7 +17,7 @@ interface Props {
 const defaultProps = {
   disabled: false,
   vertical: false,
-  ghost: false,
+  bordered: false,
   size: 'medium' as NormalSizes,
   type: 'default' as ButtonColors,
   className: '',
@@ -30,8 +30,8 @@ const getGroupBorderColors = (
   palette: NextUIThemesPalette,
   props: ButtonGroupProps
 ): string => {
-  const { ghost, color } = props;
-  if (!ghost && color !== 'primary') return palette.background;
+  const { bordered, color } = props;
+  if (!bordered && color !== 'primary') return palette.background;
   const colors: { [key in ButtonColors]?: string } = {
     primary: palette.border,
     success: palette.success,
@@ -51,7 +51,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     disabled,
     size,
     type,
-    ghost,
+    bordered,
     vertical,
     children,
     className,
@@ -62,7 +62,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       disabled,
       size,
       type,
-      ghost,
+      bordered,
       isButtonGroup: true,
     }),
     [disabled, size, type]
@@ -70,19 +70,19 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
 
   const border = useMemo(() => {
     return getGroupBorderColors(theme.palette, groupProps);
-  }, [theme, type, disabled, ghost]);
+  }, [theme, type, disabled, bordered]);
 
   return (
     <ButtonGroupContext.Provider value={initialValue}>
       <div
-        className={`btn-group ${
+        className={`button-group ${
           vertical ? 'vertical' : 'horizontal'
         } ${className}`}
         {...props}
       >
         {children}
         <style jsx>{`
-          .btn-group {
+          .button-group {
             display: inline-flex;
             border-radius: ${theme.layout.radius};
             margin: ${theme.layout.gapQuarter};
@@ -91,37 +91,30 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
             overflow: hidden;
             height: min-content;
           }
-
           .vertical {
             flex-direction: column;
           }
-
-          .btn-group :global(.btn) {
+          .button-group :global(.button) {
             border: none;
           }
-
-          .btn-group :global(.btn .text) {
+          .button-group :global(.button .text) {
             top: 0;
           }
-
-          .horizontal :global(.btn:not(:first-child)) {
+          .horizontal :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-left: 1px solid ${border};
           }
-
-          .horizontal :global(.btn:not(:last-child)) {
+          .horizontal :global(.button:not(:last-child)) {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
           }
-
-          .vertical :global(.btn:not(:first-child)) {
+          .vertical :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             border-top: 1px solid ${border};
           }
-
-          .vertical :global(.btn:not(:last-child)) {
+          .vertical :global(.button:not(:last-child)) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }

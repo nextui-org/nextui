@@ -13,121 +13,63 @@ export interface ButtonColorGroup {
   };
 }
 
-export const getButtonBorderColors = (
-  palette: NextUIThemesPalette,
-  type: ButtonColors
-): ButtonColorGroup | null => {
-  const colors: { [key in ButtonColors]?: ButtonColorGroup } = {
-    primary: {
-      bg: palette.background,
-      color: palette.primary,
-      border: {
-        weight: '2px',
-        color: palette.primary,
-      },
-    },
-    secondary: {
-      bg: palette.background,
-      color: palette.secondary,
-      border: {
-        weight: '2px',
-        color: palette.secondary,
-      },
-    },
-    success: {
-      bg: palette.background,
-      color: palette.success,
-      border: {
-        weight: '2px',
-        color: palette.success,
-      },
-    },
-    warning: {
-      bg: palette.background,
-      color: palette.warning,
-      border: {
-        weight: '2px',
-        color: palette.warning,
-      },
-    },
-    gradient: {
-      bg: palette.gradient,
-      color: palette.warning,
-      border: {
-        weight: '2px',
-        color: palette.warning,
-      },
-    },
-    error: {
-      bg: palette.background,
-      color: palette.error,
-      border: {
-        weight: '2px',
-        color: palette.error,
-      },
-    },
-  };
+export interface ButtonCursorGroup {
+  cursor: string;
+  events: string;
+}
 
-  return colors[type] || null;
+export type ButtonSizeGroup = {
+  height: string;
+  width: string;
+  loaderSize?: NormalSizes;
+  padding: string;
+  minWidth: string;
+  fontSize: string;
 };
 
 export const getButtonColors = (
   palette: NextUIThemesPalette,
   props: ButtonProps
 ): ButtonColorGroup => {
-  const { color, disabled, bordered } = props;
+  const { color, disabled, bordered, flattened } = props;
+  const common = {
+    color: palette.white,
+    border: {
+      weight: '0px',
+    },
+  };
   const colors: { [key in ButtonColors]?: ButtonColorGroup } = {
     primary: {
+      ...common,
       bg: palette.primary,
-      color: palette.white,
       loaderBg: palette.primary,
-      border: {
-        weight: '0px',
-      },
     },
     secondary: {
+      ...common,
       bg: palette.secondary,
-      color: palette.white,
       loaderBg: palette.primary,
-      border: {
-        weight: '0px',
-      },
     },
     success: {
+      ...common,
       bg: palette.success,
-      color: palette.white,
       loaderBg: palette.success,
-      border: {
-        weight: '0px',
-      },
     },
     warning: {
+      ...common,
       bg: palette.warning,
-      color: palette.white,
       loaderBg: palette.warning,
-      border: {
-        weight: '0px',
-      },
     },
     gradient: {
+      ...common,
       bg: palette.gradient,
-      color: palette.white,
+
       loaderBg: palette.warning,
-      border: {
-        weight: '0px',
-      },
     },
     error: {
+      ...common,
       bg: palette.error,
-      color: palette.white,
+
       loaderBg: palette.error,
-      border: {
-        weight: '0px',
-      },
-    },
-    abort: {
-      bg: 'transparent',
-      color: palette.accents_5,
     },
   };
   if (disabled)
@@ -137,19 +79,25 @@ export const getButtonColors = (
       loaderBg: palette.accents_1,
     };
 
-  /**
-   * The '-light' type is the same color as the common type,
-   * only hover's color is different.
-   * e.g.
-   *   Color['success'] === Color['success-light']
-   *   Color['warning'] === Color['warning-light']
-   */
-  const withoutLightType = color.replace('-light', '') as ButtonColors;
   const defaultColor = colors.primary as ButtonColorGroup;
-
+  const selectedColor = colors[color] || defaultColor;
   if (bordered)
-    return getButtonBorderColors(palette, withoutLightType) || defaultColor;
-  return colors[withoutLightType] || defaultColor;
+    return {
+      ...selectedColor,
+      bg: palette.background,
+      color: palette[color],
+      border: {
+        weight: '2px',
+        color: palette[color],
+      },
+    };
+  if (flattened)
+    return {
+      ...selectedColor,
+      bg: addColorAlpha(selectedColor.bg, 0.15),
+      color: palette[color],
+    };
+  return selectedColor;
 };
 
 export const getLoadingSize = (size: NormalSizes): NormalSizes => {
@@ -174,40 +122,8 @@ export const getLoadingBackground = (
     warning: palette.warning,
     error: palette.error,
   };
-  const withoutLightType = color.replace('-light', '') as ButtonColors;
-  return colors[withoutLightType] || color || null;
+  return colors[color as ButtonColors] || color || null;
 };
-
-export const getButtonGhostHoverColors = (
-  palette: NextUIThemesPalette,
-  type: ButtonColors
-): ButtonColorGroup | null => {
-  const colors: { [key in ButtonColors]?: ButtonColorGroup } = {
-    secondary: {
-      bg: palette.foreground,
-      color: palette.background,
-    },
-    success: {
-      bg: palette.success,
-      color: 'white',
-    },
-    warning: {
-      bg: palette.warning,
-      color: 'white',
-    },
-    error: {
-      bg: palette.error,
-      color: 'white',
-    },
-  };
-  const withoutLightType = type.replace('-light', '') as ButtonColors;
-  return colors[withoutLightType] || null;
-};
-
-export interface ButtonCursorGroup {
-  cursor: string;
-  events: string;
-}
 
 export const getButtonCursor = (
   disabled: boolean,
@@ -228,15 +144,6 @@ export const getButtonCursor = (
     cursor: 'pointer',
     events: 'auto',
   };
-};
-
-export type ButtonSizeGroup = {
-  height: string;
-  width: string;
-  loaderSize?: NormalSizes;
-  padding: string;
-  minWidth: string;
-  fontSize: string;
 };
 
 export const getButtonRadius = (size: NormalSizes): string => {
@@ -317,6 +224,21 @@ export const getButtonSize = (
   return layouts[size] || defaultLayout;
 };
 
-export const getButtonDripColor = (palette: NextUIThemesPalette) => {
-  return addColorAlpha(palette.accents_2, 0.25);
+export const getButtonDripColor = (
+  palette: NextUIThemesPalette,
+  props: ButtonProps
+) => {
+  const { color, bordered, flattened } = props;
+  const colors: { [key in ButtonColors]?: string } = {
+    primary: palette.primary,
+    secondary: palette.secondary,
+    success: palette.success,
+    warning: palette.warning,
+    error: palette.error,
+    gradient: palette.warning,
+  };
+  if (flattened) return addColorAlpha(colors[color] || palette.accents_2, 0.4);
+  const selectedColor = bordered ? colors[color] : palette.accents_2;
+  if (selectedColor) return addColorAlpha(selectedColor, 0.25);
+  return palette.accents_2;
 };

@@ -6,12 +6,7 @@ const buttonColors = tuple(
   'success',
   'warning',
   'error',
-  'abort',
-  'gradient',
-  'secondary-light',
-  'success-light',
-  'warning-light',
-  'error-light'
+  'gradient'
 );
 
 const normalSizes = tuple('mini', 'small', 'medium', 'large', 'xlarge');
