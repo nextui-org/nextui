@@ -1,5 +1,5 @@
 import { NextUIThemesPalette } from '@theme/index';
-import { NormalSizes, ButtonColors } from '@utils/prop-types';
+import { NormalSizes, NormalColors } from '@utils/prop-types';
 import { ButtonProps } from './button';
 import { addColorAlpha } from '@utils/color';
 
@@ -31,14 +31,19 @@ export const getButtonColors = (
   palette: NextUIThemesPalette,
   props: ButtonProps
 ): ButtonColorGroup => {
-  const { color, disabled, bordered, flattened } = props;
+  const { color, disabled, bordered, flattened, light } = props;
   const common = {
     color: palette.white,
     border: {
       weight: '0px',
     },
   };
-  const colors: { [key in ButtonColors]?: ButtonColorGroup } = {
+  const colors: { [key in NormalColors]?: ButtonColorGroup } = {
+    default: {
+      ...common,
+      bg: palette.primary,
+      loaderBg: palette.primary,
+    },
     primary: {
       ...common,
       bg: palette.primary,
@@ -79,23 +84,32 @@ export const getButtonColors = (
       loaderBg: palette.accents_1,
     };
 
-  const defaultColor = colors.primary as ButtonColorGroup;
+  const defaultColor = colors.default as ButtonColorGroup;
   const selectedColor = colors[color] || defaultColor;
+  const baseColor = color === 'default' ? palette.accents_2 : palette[color];
+  const highlightColor = color === 'default' ? palette.primary : baseColor;
+
   if (bordered)
     return {
       ...selectedColor,
       bg: palette.background,
-      color: palette[color],
+      color: highlightColor,
       border: {
         weight: '2px',
-        color: palette[color],
+        color: highlightColor,
       },
+    };
+  if (light)
+    return {
+      ...selectedColor,
+      bg: palette.background,
+      color: color === 'default' ? palette.foreground : baseColor,
     };
   if (flattened)
     return {
       ...selectedColor,
-      bg: addColorAlpha(selectedColor.bg, 0.15),
-      color: palette[color],
+      bg: addColorAlpha(selectedColor?.bg || palette.foreground, 0.15),
+      color: highlightColor,
     };
   return selectedColor;
 };
@@ -113,16 +127,16 @@ export const getLoadingSize = (size: NormalSizes): NormalSizes => {
 
 export const getLoadingBackground = (
   palette: NextUIThemesPalette,
-  color: ButtonColors | string
+  color: NormalColors | string
 ): string | null => {
-  const colors: { [key in ButtonColors]?: string } = {
+  const colors: { [key in NormalColors]?: string } = {
     primary: palette.primary,
     secondary: palette.secondary,
     success: palette.success,
     warning: palette.warning,
     error: palette.error,
   };
-  return colors[color as ButtonColors] || color || null;
+  return colors[color as NormalColors] || color || null;
 };
 
 export const getButtonCursor = (
@@ -232,8 +246,9 @@ export const getButtonDripColor = (
   palette: NextUIThemesPalette,
   props: ButtonProps
 ) => {
-  const { color, bordered, flattened } = props;
-  const colors: { [key in ButtonColors]?: string } = {
+  const { color, bordered, flattened, light } = props;
+  const colors: { [key in NormalColors]?: string } = {
+    default: palette.accents_2,
     primary: palette.primary,
     secondary: palette.secondary,
     success: palette.success,
@@ -241,8 +256,10 @@ export const getButtonDripColor = (
     error: palette.error,
     gradient: palette.warning,
   };
-  if (flattened) return addColorAlpha(colors[color] || palette.accents_2, 0.4);
-  const selectedColor = bordered ? colors[color] : palette.accents_2;
+  const baseColor = color === 'default' ? palette.primary : colors[color];
+  if (light) return addColorAlpha(palette.accents_2, 0.8);
+  if (flattened) return addColorAlpha(baseColor || palette.accents_2, 0.4);
+  const selectedColor = bordered ? baseColor : palette.accents_2;
   if (selectedColor) return addColorAlpha(selectedColor, 0.25);
   return palette.accents_2;
 };

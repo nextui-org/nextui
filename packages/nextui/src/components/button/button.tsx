@@ -10,7 +10,7 @@ import React, {
 import useTheme from '@hooks/use-theme';
 import ButtonDrip from './button.drip';
 import ButtonLoading from './button-loading';
-import { ButtonColors, NormalLoaders, NormalSizes } from '@utils/prop-types';
+import { NormalColors, NormalLoaders, NormalSizes } from '@utils/prop-types';
 import { filterPropsWithGroup, getButtonChildrenWithIcon } from './utils';
 import { useButtonGroupContext } from '../button-group/button-group-context';
 import {
@@ -22,8 +22,9 @@ import {
 } from './styles';
 
 interface Props {
-  color?: ButtonColors;
+  color?: NormalColors;
   size?: NormalSizes;
+  light?: boolean;
   bordered?: boolean;
   flattened?: boolean;
   loading?: boolean;
@@ -41,12 +42,13 @@ interface Props {
 }
 
 const defaultProps = {
-  color: 'primary' as ButtonColors,
+  color: 'default' as NormalColors,
   size: 'medium' as NormalSizes,
   htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
   loaderType: 'default' as NormalLoaders,
   bordered: false,
   flattened: false,
+  light: false,
   loading: false,
   rounded: false,
   shadow: false,
@@ -80,6 +82,7 @@ const Button = React.forwardRef<
     bordered,
     shadow,
     animated,
+    light,
     flattened,
     rounded,
     onClick,
@@ -216,7 +219,7 @@ const Button = React.forwardRef<
           pointer-events: ${events};
           box-shadow: ${shadow
             ? theme.expressiveness.shadowMedium
-            : !disabled && !bordered && !flattened
+            : !disabled && !bordered && !flattened && !light
             ? 'inset 0 0 40px 0 rgb(0 0 0 / 14%)'
             : 'none'};
           transform: translate3d(0px, ${shadow ? '-1.5px' : '0px'}, 0px);
