@@ -146,7 +146,10 @@ export const getButtonCursor = (
   };
 };
 
-export const getButtonRadius = (size: NormalSizes): string => {
+export const getButtonRadius = (
+  size: NormalSizes,
+  rounded?: boolean
+): string => {
   const radius: { [key in NormalSizes]: string } = {
     mini: '0.4375rem',
     small: '0.5625rem',
@@ -154,7 +157,8 @@ export const getButtonRadius = (size: NormalSizes): string => {
     large: '0.8rem',
     xlarge: '0.9rem',
   };
-  return radius[size];
+  const baseRadius = radius[size];
+  return rounded ? `calc(${baseRadius} + 10rem)` : baseRadius;
 };
 
 export const getButtonSize = (

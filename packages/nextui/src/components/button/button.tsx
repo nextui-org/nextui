@@ -30,6 +30,7 @@ interface Props {
   shadow?: boolean;
   auto?: boolean;
   animated?: boolean;
+  rounded?: boolean;
   disabled?: boolean;
   loaderType?: NormalLoaders;
   htmlType?: React.ButtonHTMLAttributes<unknown>['type'];
@@ -47,6 +48,7 @@ const defaultProps = {
   bordered: false,
   flattened: false,
   loading: false,
+  rounded: false,
   shadow: false,
   auto: false,
   animated: true,
@@ -79,6 +81,7 @@ const Button = React.forwardRef<
     shadow,
     animated,
     flattened,
+    rounded,
     onClick,
     auto,
     size,
@@ -95,7 +98,8 @@ const Button = React.forwardRef<
     () => getButtonColors(theme.palette, filteredProps),
     [theme.palette, filteredProps]
   );
-  const radius = useMemo(() => getButtonRadius(size), [size]);
+
+  const radius = useMemo(() => getButtonRadius(size, rounded), [size, rounded]);
 
   const { cursor, events } = useMemo(() => getButtonCursor(disabled, loading), [
     disabled,

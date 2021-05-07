@@ -118,13 +118,42 @@ export const Flattened = () => (
   </>
 );
 
+export const Rounded = () => (
+  <>
+    <Button color="primary" rounded>
+      Primary
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="secondary" rounded>
+      Secondary
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="success" rounded>
+      Success
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="warning" rounded>
+      Warning
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="error" rounded>
+      Error
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="gradient" rounded>
+      Action
+    </Button>
+  </>
+);
+
 export const Sizes = () => (
   <>
     <Button size="mini">mini</Button>
     <Spacer y={0.5} />
     <Button size="small">small</Button>
     <Spacer y={0.5} />
-    <Button>medium</Button> <Spacer y={0.5} />
+    <Button>medium</Button>
+    <Spacer y={0.5} />
     <Button size="large">large</Button>
     <Spacer y={0.5} />
     <Button size="xlarge">xlarge</Button>
