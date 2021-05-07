@@ -1,16 +1,24 @@
 import React, { useMemo } from 'react';
 import useTheme from '@hooks/use-theme';
 import withDefaults from '@utils/with-defaults';
-import { NormalSizes, ButtonColors } from '@utils/prop-types';
+import { NormalSizes, NormalColors } from '@utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
 import { NextUIThemesPalette } from '@theme/index';
+import { getButtonRadius } from './styles';
 
 interface Props {
   disabled?: boolean;
   vertical?: boolean;
   bordered?: boolean;
+  light?: boolean;
+  flattened?: boolean;
+  loading?: boolean;
+  shadow?: boolean;
+  auto?: boolean;
+  animated?: boolean;
+  rounded?: boolean;
   size?: NormalSizes;
-  type?: ButtonColors;
+  color?: NormalColors;
   className?: string;
 }
 
@@ -18,8 +26,15 @@ const defaultProps = {
   disabled: false,
   vertical: false,
   bordered: false,
+  light: false,
+  flattened: false,
+  loading: false,
+  shadow: false,
+  auto: false,
+  animated: false,
+  rounded: false,
   size: 'medium' as NormalSizes,
-  type: 'default' as ButtonColors,
+  color: 'default' as NormalColors,
   className: '',
 };
 
@@ -32,15 +47,15 @@ const getGroupBorderColors = (
 ): string => {
   const { bordered, color } = props;
   if (!bordered && color !== 'primary') return palette.background;
-  const colors: { [key in ButtonColors]?: string } = {
+  const colors: { [key in NormalColors]?: string } = {
+    default: palette.primary,
     primary: palette.border,
     success: palette.success,
     secondary: palette.secondary,
     error: palette.error,
     warning: palette.warning,
   };
-  const withoutLightType = color?.replace('-light', '') as ButtonColors;
-  return colors[withoutLightType] || (colors.primary as string);
+  return colors[color as NormalColors] || (colors.primary as string);
 };
 
 const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
@@ -50,8 +65,15 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
   const {
     disabled,
     size,
-    type,
+    color,
     bordered,
+    light,
+    flattened,
+    loading,
+    shadow,
+    auto,
+    animated,
+    rounded,
     vertical,
     children,
     className,
@@ -61,16 +83,25 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     () => ({
       disabled,
       size,
-      type,
+      color,
       bordered,
+      light,
+      flattened,
+      loading,
+      shadow,
+      auto,
+      animated,
+      rounded,
       isButtonGroup: true,
     }),
-    [disabled, size, type]
+    [disabled, light, size, color]
   );
 
   const border = useMemo(() => {
     return getGroupBorderColors(theme.palette, groupProps);
-  }, [theme, type, disabled, bordered]);
+  }, [theme, color, disabled, bordered]);
+
+  const radius = useMemo(() => getButtonRadius(size, rounded), [size, rounded]);
 
   return (
     <ButtonGroupContext.Provider value={initialValue}>
@@ -84,9 +115,9 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
         <style jsx>{`
           .button-group {
             display: inline-flex;
-            border-radius: ${theme.layout.radius};
+            border-radius: ${radius};
             margin: ${theme.layout.gapQuarter};
-            border: 1px solid ${border};
+            border: 2px solid ${border};
             background-color: transparent;
             overflow: hidden;
             height: min-content;
@@ -103,7 +134,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .horizontal :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border-left: 1px solid ${border};
+            border-left: 2px solid ${border};
           }
           .horizontal :global(.button:not(:last-child)) {
             border-top-right-radius: 0;
@@ -112,7 +143,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .vertical :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-            border-top: 1px solid ${border};
+            border-top: 2px solid ${border};
           }
           .vertical :global(.button:not(:last-child)) {
             border-bottom-left-radius: 0;

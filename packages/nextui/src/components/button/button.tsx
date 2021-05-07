@@ -12,7 +12,8 @@ import ButtonDrip from './button.drip';
 import ButtonLoading from './button-loading';
 import { NormalColors, NormalLoaders, NormalSizes } from '@utils/prop-types';
 import { filterPropsWithGroup, getButtonChildrenWithIcon } from './utils';
-import { useButtonGroupContext } from '../button-group/button-group-context';
+import { useButtonGroupContext } from './button-group-context';
+import ButtonGroup from './button-group';
 import {
   getButtonColors,
   getButtonCursor,
@@ -246,7 +247,10 @@ const Button = React.forwardRef<
 
 type ButtonComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
->;
+> & {
+  Group: typeof ButtonGroup;
+};
+
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs;
@@ -254,7 +258,4 @@ type ComponentProps = Partial<typeof defaultProps> &
 Button.displayName = 'NextUI - Button';
 Button.defaultProps = defaultProps;
 
-export default React.memo(Button) as ButtonComponent<
-  HTMLButtonElement,
-  ComponentProps
->;
+export default Button as ButtonComponent<HTMLButtonElement, ComponentProps>;

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { NormalSizes } from '@utils/prop-types';
 import ButtonIcon from './button-icon';
 import { ButtonProps } from '@components/button/button';
-import { ButtonGroupConfig } from '@components/button-group/button-group-context';
+import { ButtonGroupConfig } from '@components/button/button-group-context';
 
 export const getButtonChildrenWithIcon = (
   auto: boolean,
@@ -56,6 +56,10 @@ export const filterPropsWithGroup = (
     auto: true,
     shadow: false,
     bordered: config.bordered || props.bordered,
+    flattened: config.flattened || props.flattened,
+    animated: config.animated || props.animated,
+    rounded: config.rounded || props.rounded,
+    light: config.light || props.light,
     size: config.size || props.size,
     color: config.color || props.color,
     disabled: config.disabled || props.disabled,

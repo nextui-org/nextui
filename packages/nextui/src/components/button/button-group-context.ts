@@ -1,11 +1,18 @@
 import React from 'react';
-import { NormalSizes, ButtonColors } from '@utils/prop-types';
+import { NormalSizes, NormalColors } from '@utils/prop-types';
 
 export interface ButtonGroupConfig {
   size?: NormalSizes;
-  color?: ButtonColors;
+  color?: NormalColors;
   bordered?: boolean;
   disabled?: boolean;
+  light?: boolean;
+  flattened?: boolean;
+  loading?: boolean;
+  shadow?: boolean;
+  auto?: boolean;
+  animated?: boolean;
+  rounded?: boolean;
   isButtonGroup: boolean;
 }
 
