@@ -27,6 +27,26 @@ export const Default = () => (
   </Button.Group>
 );
 
+export const Outline = () => (
+  <Button.Group outline>
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+  </Button.Group>
+);
+
+export const Loading = () => (
+  <Button.Group>
+    <Button loading>One</Button>
+    <Button loading loaderType="points">
+      Two
+    </Button>
+    <Button loading loaderType="points-opacity">
+      Three
+    </Button>
+  </Button.Group>
+);
+
 export const Variants = () => (
   <>
     <Button.Group color="success">

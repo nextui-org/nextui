@@ -3,8 +3,7 @@ import useTheme from '@hooks/use-theme';
 import withDefaults from '@utils/with-defaults';
 import { NormalSizes, NormalColors } from '@utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
-import { NextUIThemesPalette } from '@theme/index';
-import { getButtonRadius } from './styles';
+import { getButtonRadius, getGroupBorder } from './styles';
 
 interface Props {
   disabled?: boolean;
@@ -13,6 +12,7 @@ interface Props {
   light?: boolean;
   flattened?: boolean;
   loading?: boolean;
+  outline?: boolean;
   shadow?: boolean;
   auto?: boolean;
   animated?: boolean;
@@ -27,6 +27,7 @@ const defaultProps = {
   vertical: false,
   bordered: false,
   light: false,
+  outline: false,
   flattened: false,
   loading: false,
   shadow: false,
@@ -40,23 +41,6 @@ const defaultProps = {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type ButtonGroupProps = Props & typeof defaultProps & NativeAttrs;
-
-const getGroupBorderColors = (
-  palette: NextUIThemesPalette,
-  props: ButtonGroupProps
-): string => {
-  const { bordered, color } = props;
-  if (!bordered && color !== 'primary') return palette.background;
-  const colors: { [key in NormalColors]?: string } = {
-    default: palette.primary,
-    primary: palette.border,
-    success: palette.success,
-    secondary: palette.secondary,
-    error: palette.error,
-    warning: palette.warning,
-  };
-  return colors[color as NormalColors] || (colors.primary as string);
-};
 
 const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
   groupProps
@@ -94,12 +78,12 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       rounded,
       isButtonGroup: true,
     }),
-    [disabled, light, size, color]
+    [disabled, size, color, bordered, light, flattened]
   );
 
-  const border = useMemo(() => {
-    return getGroupBorderColors(theme.palette, groupProps);
-  }, [theme, color, disabled, bordered]);
+  const { color: borderColor, weight } = useMemo(() => {
+    return getGroupBorder(theme.palette, groupProps);
+  }, [theme, disabled, bordered]);
 
   const radius = useMemo(() => getButtonRadius(size, rounded), [size, rounded]);
 
@@ -117,7 +101,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
             display: inline-flex;
             border-radius: ${radius};
             margin: ${theme.layout.gapQuarter};
-            border: 2px solid ${border};
+            border: ${weight} solid ${borderColor};
             background-color: transparent;
             overflow: hidden;
             height: min-content;
@@ -134,7 +118,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .horizontal :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border-left: 2px solid ${border};
+            border-left: ${weight} solid ${borderColor};
           }
           .horizontal :global(.button:not(:last-child)) {
             border-top-right-radius: 0;
@@ -143,7 +127,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .vertical :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-            border-top: 2px solid ${border};
+            border-top: ${weight} solid ${borderColor};
           }
           .vertical :global(.button:not(:last-child)) {
             border-bottom-left-radius: 0;

@@ -1,16 +1,19 @@
 import { NextUIThemesPalette } from '@theme/index';
 import { NormalSizes, NormalColors } from '@utils/prop-types';
 import { ButtonProps } from './button';
+import { ButtonGroupProps } from './button-group';
 import { addColorAlpha } from '@utils/color';
 
+export interface ButtonBorder {
+  weight?: string;
+  color?: string;
+}
+
 export interface ButtonColorGroup {
-  bg: string;
-  color: string;
+  bg?: string;
+  color?: string;
   loaderBg?: string;
-  border?: {
-    weight: string;
-    color?: string;
-  };
+  border?: ButtonBorder;
 }
 
 export interface ButtonCursorGroup {
@@ -25,6 +28,51 @@ export type ButtonSizeGroup = {
   padding: string;
   minWidth: string;
   fontSize: string;
+};
+
+export const getGroupBorder = (
+  palette: NextUIThemesPalette,
+  props: ButtonGroupProps
+): ButtonBorder => {
+  const { bordered, color, outline } = props;
+  const common = {
+    color: palette.background,
+    weight: outline || bordered ? '2px' : '0px',
+  };
+  if (!bordered && color !== 'primary') return common;
+
+  const colors: { [key in NormalColors]?: ButtonColorGroup } = {
+    default: {
+      ...common,
+      color: palette.primary,
+    },
+    primary: {
+      ...common,
+      color: palette.primary,
+    },
+    success: {
+      ...common,
+      color: palette.success,
+    },
+    secondary: {
+      ...common,
+      color: palette.secondary,
+    },
+    error: {
+      ...common,
+      color: palette.error,
+    },
+    warning: {
+      ...common,
+      color: palette.warning,
+    },
+  };
+  return (
+    colors[color as NormalColors] || {
+      ...common,
+      color: palette.primary,
+    }
+  );
 };
 
 export const getButtonColors = (

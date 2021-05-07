@@ -1,14 +1,14 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { ButtonGroup, Button } from 'components';
+import { Button } from '@components';
 import { nativeEvent } from 'tests/utils';
 
 describe('ButtonGroup', () => {
   it('should render correctly', () => {
     const wrapper = mount(
-      <ButtonGroup>
+      <Button.Group>
         <Button>action</Button>
-      </ButtonGroup>
+      </Button.Group>
     );
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
@@ -16,9 +16,9 @@ describe('ButtonGroup', () => {
 
   it('props should be passed to each button', () => {
     const wrapper = mount(
-      <ButtonGroup size="mini" type="success">
+      <Button.Group size="mini" color="success">
         <Button>action</Button>
-      </ButtonGroup>
+      </Button.Group>
     );
     expect(wrapper.html()).toMatchSnapshot();
     wrapper.setProps({ ghost: true });
@@ -29,9 +29,9 @@ describe('ButtonGroup', () => {
   it('should ignore events when group disabled', () => {
     const handler = jest.fn();
     const wrapper = mount(
-      <ButtonGroup>
+      <Button.Group>
         <Button onClick={handler}>action</Button>
-      </ButtonGroup>
+      </Button.Group>
     );
     wrapper.find('button').simulate('click', nativeEvent);
     expect(handler).toHaveBeenCalledTimes(1);
@@ -42,10 +42,10 @@ describe('ButtonGroup', () => {
 
   it('buttons should be displayed vertically', () => {
     const wrapper = mount(
-      <ButtonGroup vertical>
+      <Button.Group vertical>
         <Button>action1</Button>
         <Button>action2</Button>
-      </ButtonGroup>
+      </Button.Group>
     );
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
