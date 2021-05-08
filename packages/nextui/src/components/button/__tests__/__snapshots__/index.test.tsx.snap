@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render different variants 1`] = `ReactWrapper {}`;
+
+exports[`Button should render different variants 2`] = `
+<NextUI - Button
+  animated={true}
+  auto={false}
+  bordered={false}
+  className=""
+  color="default"
+  disabled={false}
+  flattened={false}
+  htmlType="button"
+  light={false}
+  loaderType="default"
+  loading={true}
+  rounded={false}
+  shadow={false}
+  size="medium"
+>
+  button
+</NextUI - Button>
+`;
+
+exports[`Button should render empty button correctly 1`] = `
+<NextUI - Button
+  animated={true}
+  auto={false}
+  bordered={false}
+  className=""
+  color="default"
+  disabled={false}
+  flattened={false}
+  htmlType="button"
+  light={false}
+  loaderType="default"
+  loading={false}
+  rounded={false}
+  shadow={false}
+  size="medium"
+/>
+`;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '../link';
+import { Link } from '@components';
 import withDefaults from '@utils/with-defaults';
 
 interface Props {

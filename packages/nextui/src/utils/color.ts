@@ -93,7 +93,6 @@ export const colorToRgbValues = (color: string) => {
 
   const regArray = safeColor.match(/\((.+)\)/);
   if (!colorType.startsWith('rgb') || !regArray) {
-    console.log(color);
     throw new Error(`Next UI: Only support ["RGB", "RGBA", "HEX"] color.`);
   }
 
@@ -101,7 +100,11 @@ export const colorToRgbValues = (color: string) => {
 };
 
 export const addColorAlpha = (color: string, alpha: number) => {
-  if (!/^#|rgb|RGB/.test(color)) return color;
+  if (isHex(color)) {
+    return hexToRGBA(color, alpha);
+  } else if (!/^#|rgb|RGB/.test(color)) {
+    return color;
+  }
   const [r, g, b] = colorToRgbValues(color);
   const safeAlpha = alpha > 1 ? 1 : alpha < 0 ? 0 : alpha;
   return `rgba(${r}, ${g}, ${b}, ${safeAlpha})`;

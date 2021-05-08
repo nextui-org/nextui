@@ -43,6 +43,18 @@ export const getLoaderSize = (type: NormalLoaders) => {
   return sizes[type];
 };
 
+export const getLoaderBorder = (size: NormalSizes): string => {
+  const defaultBorder = '3px';
+  const sizes: { [key in NormalSizes]: string } = {
+    mini: '2px',
+    small: '2px',
+    medium: '3px',
+    large: '3px',
+    xlarge: '3px',
+  };
+  return sizes[size] || defaultBorder;
+};
+
 export const getLabelStyle = (
   type: NormalLoaders,
   theme: NextUIThemes,

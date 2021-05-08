@@ -3,12 +3,13 @@ import useTheme from '@hooks/use-theme';
 import withDefaults from '@utils/with-defaults';
 import { NormalSizes, NormalColors, NormalLoaders } from '@utils/prop-types';
 import { getNormalColor, addColorAlpha } from '@utils/color';
-import { getLoaderSize, getLabelStyle } from './styles';
+import { getLoaderSize, getLoaderBorder, getLabelStyle } from './styles';
 import Spinner from './spinner';
 
 interface Props {
   size?: NormalSizes;
   color?: NormalColors | string;
+  gradientBackground?: string | null;
   textColor?: NormalColors | string;
   type?: NormalLoaders;
 }
@@ -26,12 +27,14 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   children,
   size,
   color,
+  gradientBackground,
   textColor,
   type,
   ...props
 }) => {
   const theme = useTheme();
   const width = useMemo(() => getLoaderSize(type)[size], [size, type]);
+  const border = useMemo(() => getLoaderBorder(size), [size]);
   const labelColor = useMemo(() => getNormalColor(textColor, theme.palette), [
     color,
     theme.palette,
@@ -96,10 +99,12 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
         }
         .loading.gradient {
           display: flex;
-          align-items: center;
-          justify-content: center;
+          position: relative;
           width: ${width};
           height: ${width};
+        }
+        .loading.points {
+          transform: translate(0, calc(${width} * 0.6));
         }
         .loading.default i {
           top: 0px;
@@ -109,17 +114,17 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           border-radius: inherit;
         }
         .loading.default ._1 {
-          border: 3px solid ${bgColor};
-          border-top: 3px solid transparent;
-          border-left: 3px solid transparent;
-          border-right: 3px solid transparent;
+          border: ${border} solid ${bgColor};
+          border-top: ${border} solid transparent;
+          border-left: ${border} solid transparent;
+          border-right: ${border} solid transparent;
           animation: rotate 0.8s ease infinite;
         }
         .loading.default ._2 {
-          border: 3px dotted ${bgColor};
-          border-top: 3px solid transparent;
-          border-left: 3px solid transparent;
-          border-right: 3px solid transparent;
+          border: ${border} dotted ${bgColor};
+          border-top: ${border} solid transparent;
+          border-left: ${border} solid transparent;
+          border-right: ${border} solid transparent;
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
@@ -181,7 +186,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: ${theme.palette.background};
+          background: ${gradientBackground || theme.palette.background};
           border-radius: 50%;
         }
         .loading.gradient ._3 {

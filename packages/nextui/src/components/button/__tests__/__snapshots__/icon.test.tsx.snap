@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonIcon should render correctly 1`] = `"<button type=\\"button\\" color=\\"default\\" class=\\"jsx-2555106444 button \\"><span class=\\"jsx-682278566 icon   \\"><svg></svg></span><div class=\\"jsx-1854098254 text left\\">action</div></button>"`;
+
+exports[`ButtonIcon should work with right 1`] = `"<button type=\\"button\\" color=\\"default\\" class=\\"jsx-2555106444 button \\"><span class=\\"jsx-682278566 icon right  \\"><svg></svg></span><div class=\\"jsx-1854098254 text right\\">action</div></button>"`;
+
+exports[`ButtonIcon should work without text 1`] = `"<button type=\\"button\\" color=\\"default\\" class=\\"jsx-2555106444 button \\"><span class=\\"jsx-682278566 icon right single \\"><svg></svg></span></button>"`;
