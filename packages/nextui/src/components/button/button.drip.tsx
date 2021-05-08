@@ -20,6 +20,7 @@ const ButtonDrip: React.FC<ButtonDripProps> = ({
   y,
   color,
   onCompleted,
+  ...props
 }) => {
   const dripRef = useRef<HTMLDivElement>(null);
   const top = Number.isNaN(+y) ? 0 : y - 10;
@@ -35,7 +36,7 @@ const ButtonDrip: React.FC<ButtonDripProps> = ({
   });
 
   return (
-    <div ref={dripRef} className="drip">
+    <div ref={dripRef} className="drip" {...props}>
       <svg width="20" height="20" viewBox="0 0 20 20" style={{ top, left }}>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g fill={color}>

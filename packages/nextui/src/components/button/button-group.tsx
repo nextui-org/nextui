@@ -12,7 +12,6 @@ interface Props {
   light?: boolean;
   flattened?: boolean;
   loading?: boolean;
-  outline?: boolean;
   shadow?: boolean;
   auto?: boolean;
   animated?: boolean;
@@ -27,7 +26,6 @@ const defaultProps = {
   vertical: false,
   bordered: false,
   light: false,
-  outline: false,
   flattened: false,
   loading: false,
   shadow: false,

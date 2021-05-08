@@ -34,10 +34,10 @@ export const getGroupBorder = (
   palette: NextUIThemesPalette,
   props: ButtonGroupProps
 ): ButtonBorder => {
-  const { bordered, color, outline } = props;
+  const { bordered, color } = props;
   const common = {
     color: palette.background,
-    weight: outline || bordered ? '2px' : '0px',
+    weight: bordered ? '2px' : '0px',
   };
   if (!bordered && color !== 'primary') return common;
 

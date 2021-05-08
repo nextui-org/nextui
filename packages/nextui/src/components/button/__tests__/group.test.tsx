@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Button } from '@components';
-import { nativeEvent } from 'tests/utils';
+import { nativeEvent } from '@tests/utils';
 
 describe('ButtonGroup', () => {
   it('should render correctly', () => {
@@ -21,7 +21,7 @@ describe('ButtonGroup', () => {
       </Button.Group>
     );
     expect(wrapper.html()).toMatchSnapshot();
-    wrapper.setProps({ ghost: true });
+    wrapper.setProps({ flattened: true });
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -49,5 +49,33 @@ describe('ButtonGroup', () => {
     );
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should render different variants', () => {
+    const wrapper = mount(
+      <Button.Group>
+        <Button flattened>button</Button>
+        <Button light color="warning">
+          light
+        </Button>
+        <Button flattened color="success">
+          button
+        </Button>
+        <Button flattened color="warning">
+          button
+        </Button>
+        <Button rounded loading>
+          button
+        </Button>
+        <Button flattened loading>
+          button
+        </Button>
+        <Button shadow>button</Button>
+        <Button auto>button</Button>
+        <Button animated={false}>button</Button>
+      </Button.Group>
+    );
+    expect(wrapper).toMatchSnapshot();
+    expect(<Button loading>button</Button>).toMatchSnapshot();
   });
 });

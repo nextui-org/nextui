@@ -1,10 +1,10 @@
 import React from 'react';
 import withDefaults from '@utils/with-defaults';
-import { NormalSizes, NormalLoaders, ButtonColors } from '@utils/prop-types';
+import { NormalSizes, NormalLoaders, NormalColors } from '@utils/prop-types';
 import { Loading } from '@components';
 
 interface Props {
-  color: ButtonColors | string;
+  color?: NormalColors | string;
   background?: string | null;
   size?: NormalSizes;
   type?: NormalLoaders;
@@ -22,9 +22,10 @@ const ButtonLoading: React.FC<React.PropsWithChildren<ButtonLoadingProps>> = ({
   size,
   type,
   background,
+  ...props
 }) => {
   return (
-    <div className="button-loading">
+    <div className="button-loading" {...props}>
       <Loading
         size={size}
         color={color}

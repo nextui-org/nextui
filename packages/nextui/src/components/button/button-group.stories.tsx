@@ -10,7 +10,9 @@ export default {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          maxWidth: '45%',
         }}
       >
         <Story />
@@ -21,14 +23,6 @@ export default {
 
 export const Default = () => (
   <Button.Group>
-    <Button>One</Button>
-    <Button>Two</Button>
-    <Button>Three</Button>
-  </Button.Group>
-);
-
-export const Outline = () => (
-  <Button.Group outline>
     <Button>One</Button>
     <Button>Two</Button>
     <Button>Three</Button>
@@ -62,7 +56,6 @@ export const Variants = () => (
     <Button.Group bordered>
       <Button>Action1</Button>
       <Button>Action2</Button>
-      <Button>Action3</Button>
     </Button.Group>
     <Button.Group color="warning" flattened>
       <Button>Action1</Button>
