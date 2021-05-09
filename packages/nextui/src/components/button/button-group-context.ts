@@ -7,7 +7,7 @@ export interface ButtonGroupConfig {
   bordered?: boolean;
   disabled?: boolean;
   light?: boolean;
-  flattened?: boolean;
+  flat?: boolean;
   loading?: boolean;
   shadow?: boolean;
   auto?: boolean;

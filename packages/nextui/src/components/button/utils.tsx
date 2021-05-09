@@ -56,7 +56,7 @@ export const filterPropsWithGroup = (
     auto: true,
     shadow: false,
     bordered: config.bordered || props.bordered,
-    flattened: config.flattened || props.flattened,
+    flat: config.flat || props.flat,
     animated: config.animated || props.animated,
     rounded: config.rounded || props.rounded,
     light: config.light || props.light,

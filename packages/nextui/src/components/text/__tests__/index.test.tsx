@@ -13,10 +13,10 @@ describe('Text', () => {
   it('should work with different styles', () => {
     const wrapper = mount(
       <div>
-        <Text type="secondary">test-value</Text>
-        <Text type="success">test-value</Text>
-        <Text type="warning">test-value</Text>
-        <Text type="error">test-value</Text>
+        <Text color="secondary">test-value</Text>
+        <Text color="success">test-value</Text>
+        <Text color="warning">test-value</Text>
+        <Text color="error">test-value</Text>
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();
@@ -66,6 +66,7 @@ describe('Text', () => {
   });
 
   it('should render default color when type missing', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const Mock = Text as any;
     const wrapper = mount(<Mock type="unknow">test-value</Mock>);
     expect(wrapper.html()).toMatchSnapshot();

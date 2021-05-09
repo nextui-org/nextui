@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image should render correctly 1`] = `ReactWrapper {}`;
+
+exports[`Image should render correctly 2`] = `ReactWrapper {}`;
+
+exports[`Image should render correctly 3`] = `ReactWrapper {}`;

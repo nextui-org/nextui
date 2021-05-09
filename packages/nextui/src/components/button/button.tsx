@@ -27,7 +27,7 @@ interface Props {
   size?: NormalSizes;
   light?: boolean;
   bordered?: boolean;
-  flattened?: boolean;
+  flat?: boolean;
   loading?: boolean;
   shadow?: boolean;
   auto?: boolean;
@@ -48,7 +48,7 @@ const defaultProps = {
   htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
   loaderType: 'default' as NormalLoaders,
   bordered: false,
-  flattened: false,
+  flat: false,
   light: false,
   loading: false,
   rounded: false,
@@ -84,7 +84,7 @@ const Button = React.forwardRef<
     shadow,
     animated,
     light,
-    flattened,
+    flat,
     rounded,
     onClick,
     auto,
@@ -220,7 +220,7 @@ const Button = React.forwardRef<
           pointer-events: ${events};
           box-shadow: ${shadow
             ? theme.expressiveness.shadowMedium
-            : !disabled && !bordered && !flattened && !light
+            : !disabled && !bordered && !flat && !light
             ? 'inset 0 0 40px 0 rgb(0 0 0 / 14%)'
             : 'none'};
           transform: translate3d(0px, ${shadow ? '-1.5px' : '0px'}, 0px);

@@ -96,25 +96,25 @@ export const Bordered = () => (
   </>
 );
 
-export const Flattened = () => (
+export const flat = () => (
   <>
-    <Button color="primary" flattened>
+    <Button color="primary" flat>
       Primary
     </Button>
     <Spacer y={0.5} />
-    <Button color="secondary" flattened>
+    <Button color="secondary" flat>
       Secondary
     </Button>
     <Spacer y={0.5} />
-    <Button color="success" flattened>
+    <Button color="success" flat>
       Success
     </Button>
     <Spacer y={0.5} />
-    <Button color="warning" flattened>
+    <Button color="warning" flat>
       Warning
     </Button>
     <Spacer y={0.5} />
-    <Button color="error" flattened>
+    <Button color="error" flat>
       Error
     </Button>
   </>
@@ -212,7 +212,7 @@ export const Icons = () => {
       <Button
         icon={<User theme={theme} fill={theme.palette.error} />}
         color="error"
-        flattened
+        flat
       >
         Delete User
       </Button>

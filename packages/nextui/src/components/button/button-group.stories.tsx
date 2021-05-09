@@ -1,22 +1,16 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Button from './index';
+import { Grid } from '@components';
 
 export default {
   title: 'General/ButtonGroup',
   component: Button,
   decorators: [
     (Story) => (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          maxWidth: '45%',
-        }}
-      >
+      <Grid.Container gap={2} justify="center" direction="column">
         <Story />
-      </div>
+      </Grid.Container>
     ),
   ],
 } as Meta;
@@ -57,7 +51,7 @@ export const Variants = () => (
       <Button>Action1</Button>
       <Button>Action2</Button>
     </Button.Group>
-    <Button.Group color="warning" flattened>
+    <Button.Group color="warning" flat>
       <Button>Action1</Button>
       <Button>Action2</Button>
     </Button.Group>

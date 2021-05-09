@@ -13,6 +13,7 @@ interface Props {
   p?: boolean;
   b?: boolean;
   small?: boolean;
+  capitalize?: boolean;
   i?: boolean;
   span?: boolean;
   del?: boolean;
@@ -33,6 +34,7 @@ const defaultProps = {
   p: false,
   b: false,
   small: false,
+  capitalize: false,
   i: false,
   span: false,
   del: false,
@@ -52,12 +54,13 @@ type TextRenderableElements = Array<keyof JSX.IntrinsicElements>;
 const getModifierChild = (
   tags: TextRenderableElements,
   children: ReactNode,
-  size?: string | number
+  size?: string | number,
+  capitalize?: boolean
 ) => {
   if (!tags.length) return children;
   const nextTag = tags.slice(1, tags.length);
   return (
-    <TextChild tag={tags[0]} size={size}>
+    <TextChild tag={tags[0]} size={size} capitalize={capitalize}>
       {getModifierChild(nextTag, children, size)}
     </TextChild>
   );
@@ -78,6 +81,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   del,
   em,
   blockquote,
+  capitalize,
   size,
   children,
   className,
@@ -91,7 +95,6 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   const inlineNames = Object.keys(inlineElements).filter(
     (name: keyof JSX.IntrinsicElements) => inlineElements[name]
   ) as TextRenderableElements;
-
   /**
    *  Render element "p" only if no element is found.
    *  If there is only one modifier, just rendered one modifier element
@@ -114,11 +117,22 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
 
   const modifers = useMemo(() => {
     if (!renderableChildElements.length) return children;
-    return getModifierChild(renderableChildElements, children, size);
-  }, [renderableChildElements, children, size]);
+    return getModifierChild(
+      renderableChildElements,
+      children,
+      size,
+      capitalize
+    );
+  }, [renderableChildElements, children, size, capitalize]);
 
   return (
-    <TextChild className={className} tag={tag} size={size} {...props}>
+    <TextChild
+      className={className}
+      capitalize={capitalize}
+      tag={tag}
+      size={size}
+      {...props}
+    >
       {modifers}
     </TextChild>
   );

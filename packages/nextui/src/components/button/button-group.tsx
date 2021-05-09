@@ -10,7 +10,7 @@ interface Props {
   vertical?: boolean;
   bordered?: boolean;
   light?: boolean;
-  flattened?: boolean;
+  flat?: boolean;
   loading?: boolean;
   shadow?: boolean;
   auto?: boolean;
@@ -26,7 +26,7 @@ const defaultProps = {
   vertical: false,
   bordered: false,
   light: false,
-  flattened: false,
+  flat: false,
   loading: false,
   shadow: false,
   auto: false,
@@ -50,7 +50,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     color,
     bordered,
     light,
-    flattened,
+    flat,
     loading,
     shadow,
     auto,
@@ -68,7 +68,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       color,
       bordered,
       light,
-      flattened,
+      flat,
       loading,
       shadow,
       auto,
@@ -76,7 +76,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       rounded,
       isButtonGroup: true,
     }),
-    [disabled, size, color, bordered, light, flattened]
+    [disabled, size, color, bordered, light, flat]
   );
 
   const { color: borderColor, weight } = useMemo(() => {

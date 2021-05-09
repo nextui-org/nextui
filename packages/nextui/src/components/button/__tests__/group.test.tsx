@@ -21,7 +21,7 @@ describe('ButtonGroup', () => {
       </Button.Group>
     );
     expect(wrapper.html()).toMatchSnapshot();
-    wrapper.setProps({ flattened: true });
+    wrapper.setProps({ flat: true });
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -54,20 +54,20 @@ describe('ButtonGroup', () => {
   it('should render different variants', () => {
     const wrapper = mount(
       <Button.Group>
-        <Button flattened>button</Button>
+        <Button flat>button</Button>
         <Button light color="warning">
           light
         </Button>
-        <Button flattened color="success">
+        <Button flat color="success">
           button
         </Button>
-        <Button flattened color="warning">
+        <Button flat color="warning">
           button
         </Button>
         <Button rounded loading>
           button
         </Button>
-        <Button flattened loading>
+        <Button flat loading>
           button
         </Button>
         <Button shadow>button</Button>

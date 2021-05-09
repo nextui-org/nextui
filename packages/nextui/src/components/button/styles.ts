@@ -79,7 +79,7 @@ export const getButtonColors = (
   palette: NextUIThemesPalette,
   props: ButtonProps
 ): ButtonColorGroup => {
-  const { color, disabled, bordered, flattened, light } = props;
+  const { color, disabled, bordered, flat, light } = props;
   const common = {
     color: palette.white,
     border: {
@@ -153,7 +153,7 @@ export const getButtonColors = (
       bg: palette.background,
       color: color === 'default' ? palette.foreground : baseColor,
     };
-  if (flattened)
+  if (flat)
     return {
       ...selectedColor,
       bg: addColorAlpha(selectedColor?.bg || palette.foreground, 0.15),
@@ -294,7 +294,7 @@ export const getButtonDripColor = (
   palette: NextUIThemesPalette,
   props: ButtonProps
 ) => {
-  const { color, bordered, flattened, light } = props;
+  const { color, bordered, flat, light } = props;
   const colors: { [key in NormalColors]?: string } = {
     default: palette.accents_2,
     primary: palette.primary,
@@ -306,7 +306,7 @@ export const getButtonDripColor = (
   };
   const baseColor = color === 'default' ? palette.primary : colors[color];
   if (light) return addColorAlpha(palette.accents_2, 0.8);
-  if (flattened) return addColorAlpha(baseColor || palette.accents_2, 0.4);
+  if (flat) return addColorAlpha(baseColor || palette.accents_2, 0.4);
   const selectedColor = bordered ? baseColor : palette.accents_2;
   if (selectedColor) return addColorAlpha(selectedColor, 0.25);
   return palette.accents_2;

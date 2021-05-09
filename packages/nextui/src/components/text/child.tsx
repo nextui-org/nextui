@@ -8,12 +8,14 @@ export interface Props {
   tag: keyof JSX.IntrinsicElements;
   color?: NormalColors;
   size?: string | number;
+  capitalize?: boolean;
   className?: '';
 }
 
 const defaultProps = {
   color: 'default' as NormalColors,
   className: '',
+  capitalize: false,
 };
 
 type NativeAttrs = Omit<React.DetailsHTMLAttributes<unknown>, keyof Props>;
@@ -24,6 +26,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   tag,
   className,
   color: userColor,
+  capitalize,
   size,
   ...props
 }) => {
@@ -42,7 +45,9 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   return (
     <>
       <Component
-        className={`${size ? 'custom-size' : ''} ${className}`}
+        className={`${size ? 'custom-size' : ''} ${
+          capitalize ? 'capitalize' : ''
+        } ${className}`}
         {...props}
       >
         {children}
@@ -53,6 +58,9 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
         }
         .custom-size {
           font-size: ${fontSize};
+        }
+        .capitalize {
+          text-transform: capitalize;
         }
       `}</style>
     </>
