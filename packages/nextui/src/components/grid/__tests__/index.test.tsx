@@ -10,7 +10,6 @@ describe('Grid', () => {
         <Grid>test</Grid>
       </Grid.Container>
     );
-
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -23,7 +22,6 @@ describe('Grid', () => {
         </Grid>
       </Grid.Container>
     );
-
     expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -109,7 +107,7 @@ describe('Grid', () => {
   it('should work correctly when size exceeds', () => {
     const wrapper = mount(
       <Grid.Container>
-        <Grid xs={25}>test</Grid>
+        <Grid xs={13}>test</Grid>
         <Grid xs={-1}>test</Grid>
       </Grid.Container>
     );
@@ -118,9 +116,16 @@ describe('Grid', () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('Grid should be hidden when value is 0', () => {
-    let wrapper = mount(<Grid.Container xs={0} />);
-    expect(wrapper.find('.item').hasClass('xs')).toBeTruthy();
-    expect(wrapper.find('.item').html()).toContain('display: none');
+  it('Grid should be hidden when value is 0 and display when value is greater than 0', () => {
+    let wrapper = mount(
+      <Grid.Container gap={2}>
+        <Grid xs={0} md={6}>
+          test
+        </Grid>
+      </Grid.Container>
+    );
+    expect(wrapper.find('.item').at(1).hasClass('xs')).toBeTruthy();
+    console.log(wrapper.find('.xs').get(1));
+    // expect(wrapper.find('.item').get(1).props.style).toContain('display: none');
   });
 });

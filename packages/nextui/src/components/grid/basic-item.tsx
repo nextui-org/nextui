@@ -3,6 +3,7 @@ import useTheme from '@hooks/use-theme';
 import { Justify, Direction, AlignItems, AlignContent } from './grid-types';
 
 type BreakpointsValue = number | boolean;
+
 interface Props {
   xs?: BreakpointsValue;
   sm?: BreakpointsValue;
@@ -35,9 +36,9 @@ type ItemLayoutValue = {
   display: string;
 };
 const getItemLayout = (val: BreakpointsValue): ItemLayoutValue => {
-  const display = val === 0 ? 'display: none;' : '';
+  const display = val === 0 ? 'display: none;' : 'display: block';
   if (typeof val === 'number') {
-    const width = (100 / 24) * val;
+    const width = (100 / 12) * val;
     const ratio = width > 100 ? '100%' : width < 0 ? '0' : `${width}%`;
     return {
       grow: 0,
@@ -103,7 +104,6 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
     }),
     [xs, sm, md, lg, xl]
   );
-
   return (
     <div className={`item ${classes} ${className}`} {...props}>
       {children}
