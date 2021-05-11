@@ -11,6 +11,7 @@
             "@tests/*": ["./tests/*"]
         },
         "jsx": "preserve",
+        "declaration": false,
         "skipLibCheck": true,
         "moduleResolution": "node",
         "allowJs": true,
