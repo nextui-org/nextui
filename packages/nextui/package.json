@@ -32,7 +32,6 @@
     "build:webpack": "yarn webpack --config buildconfig/webpack.config.js",
     "build:esm": "yarn babel --config-file ./buildconfig/babel.config.js --extensions \".js,.ts,.tsx\" ./src/components --out-dir ./esm --ignore \"**/__tests__/**/*,**/*.d.ts,**/*.stories.@(js|jsx|ts|tsx)\"",
     "build": "yarn clear && yarn build:esm && yarn build:webpack && yarn build:types",
-    "watch": "yarn build:watch",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook",
     "start-storybook": "yarn build-storybook && http-server ./storybook-static",
