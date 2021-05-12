@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { CheckboxContext } from './checkbox-context';
-import useWarning from '@hooks/use-warning';
-import { NormalSizes, NormalColors } from '@utils/prop-types';
-import withDefaults from '@utils/with-defaults';
+import useWarning from '../../hooks/use-warning';
+import { NormalSizes, NormalColors } from '../../utils/prop-types';
+import withDefaults from '../../utils/with-defaults';
 import { getCheckboxSize } from './styles';
 
 interface Props {

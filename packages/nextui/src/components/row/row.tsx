@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import withDefaults from '@utils/with-defaults';
-import useTheme from '@hooks/use-theme';
+import withDefaults from '../../utils/with-defaults';
+import useTheme from '../../hooks/use-theme';
 
 type Justify = 'start' | 'end' | 'center' | 'space-around' | 'space-between';
 type Align = 'top' | 'middle' | 'bottom';

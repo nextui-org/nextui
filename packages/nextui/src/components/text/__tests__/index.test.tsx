@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Text } from '@components';
+import Text from '../index';
 
 describe('Text', () => {
   it('should render P element in the default', () => {

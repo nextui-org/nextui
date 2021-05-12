@@ -1,5 +1,5 @@
 import { NormalColors, normalColors } from './prop-types';
-import { NextUIThemesPalette } from '@theme/index';
+import { NextUIThemesPalette } from '../theme/index';
 /**
  * This function allows validate if a string is a hexadecimal
  * value

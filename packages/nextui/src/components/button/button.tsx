@@ -7,10 +7,14 @@ import React, {
   PropsWithoutRef,
   RefAttributes,
 } from 'react';
-import useTheme from '@hooks/use-theme';
+import useTheme from '../../hooks/use-theme';
 import ButtonDrip from './button.drip';
 import ButtonLoading from './button-loading';
-import { NormalColors, NormalLoaders, NormalSizes } from '@utils/prop-types';
+import {
+  NormalColors,
+  NormalLoaders,
+  NormalSizes,
+} from '../../utils/prop-types';
 import { filterPropsWithGroup, getButtonChildrenWithIcon } from './utils';
 import { useButtonGroupContext } from './button-group-context';
 import ButtonGroup from './button-group';

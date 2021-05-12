@@ -1,4 +1,4 @@
-import { NextUIThemes } from '@theme/index';
+import { NextUIThemes } from '../theme/index';
 import React from 'react';
 
 interface IconProps {

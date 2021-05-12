@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Button } from '@components';
+import Button from '../index';
 
 const Icon: React.FC<unknown> = () => <svg />;
 

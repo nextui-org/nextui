@@ -1,8 +1,8 @@
-import { NextUIThemesPalette } from '@theme/index';
-import { NormalSizes, NormalColors } from '@utils/prop-types';
+import { NextUIThemesPalette } from '../../theme/index';
+import { NormalSizes, NormalColors } from '../../utils/prop-types';
 import { ButtonProps } from './button';
 import { ButtonGroupProps } from './button-group';
-import { addColorAlpha } from '@utils/color';
+import { addColorAlpha } from '../../utils/color';
 
 export interface ButtonBorder {
   weight?: string;

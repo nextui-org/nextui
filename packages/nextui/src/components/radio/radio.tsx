@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import useTheme from '@hooks/use-theme';
+import useTheme from '../../hooks/use-theme';
 import { useRadioContext } from './radio-context';
 import RadioGroup, { getRadioSize } from './radio-group';
 import RadioDescription from './radio-description';
-import { pickChild } from '@utils/collections';
-import useWarning from '@hooks/use-warning';
-import { NormalSizes, NormalColors } from '@utils/prop-types';
-import { getNormalColor } from '@utils/color';
+import { pickChild } from '../../utils/collections';
+import useWarning from '../../hooks/use-warning';
+import { NormalSizes, NormalColors } from '../../utils/prop-types';
+import { getNormalColor } from '../../utils/color';
 
 interface RadioEventTarget {
   checked: boolean;

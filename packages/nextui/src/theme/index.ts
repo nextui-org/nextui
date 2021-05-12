@@ -1,4 +1,4 @@
-import { ThemeTypes } from '@utils/prop-types';
+import { ThemeTypes } from '../utils/prop-types';
 
 export interface NextUIThemesPalette {
   accents_1: string;

@@ -1,4 +1,4 @@
-import { tuple } from '@utils/prop-types';
+import { tuple } from '../../utils/prop-types';
 
 const justify = tuple(
   'flex-start',

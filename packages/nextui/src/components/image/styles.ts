@@ -1,4 +1,4 @@
-import { NextUIThemesPalette } from '@theme/index';
+import { NextUIThemesPalette } from '../../theme/index';
 
 export type BrowserColors = {
   color: string;

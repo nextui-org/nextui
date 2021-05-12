@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
-import withDefaults from '@utils/with-defaults';
-import { NormalColors } from '@utils/prop-types';
+import withDefaults from '../../utils/with-defaults';
+import { NormalColors } from '../../utils/prop-types';
 import TextChild from './child';
 
 interface Props {
