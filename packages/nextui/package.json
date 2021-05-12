@@ -19,12 +19,11 @@
     "react components",
     "react ui"
   ],
-  "main": "./dist/index.js",
-  "exports": "./dist/index.modern.js",
-  "module": "./dist/index.module.js",
-  "unpkg": "./dist/index.umd.js",
   "source": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./esm/index.js",
   "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.min.js",
   "sideEffects": false,
   "scripts": {
     "clear": "rm -rf ./dist ./esm",
