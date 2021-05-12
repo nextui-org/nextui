@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import withDefaults from '@utils/with-defaults';
+import withDefaults from '../../utils/with-defaults';
 
 interface Props {
   x: number;

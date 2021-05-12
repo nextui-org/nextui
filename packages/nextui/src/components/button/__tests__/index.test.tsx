@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Button } from '@components';
-import { sleep } from '@tests/utils';
+import Button from '../index';
+import { sleep } from '../../../../tests/utils';
 
 describe('Button', () => {
   it('should render correctly', () => {
@@ -96,20 +96,20 @@ describe('Button', () => {
   it('should render different variants', () => {
     const wrapper = mount(
       <div>
-        <Button flattened>button</Button>
+        <Button flat>button</Button>
         <Button light color="warning">
           light
         </Button>
-        <Button flattened color="success">
+        <Button flat color="success">
           button
         </Button>
-        <Button flattened color="warning">
+        <Button flat color="warning">
           button
         </Button>
         <Button rounded loading>
           button
         </Button>
-        <Button flattened loading>
+        <Button flat loading>
           button
         </Button>
         <Button shadow>button</Button>

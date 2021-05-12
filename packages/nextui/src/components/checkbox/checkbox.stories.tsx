@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { NormalSizes, NormalColors } from '@utils/prop-types';
+import { NormalSizes, NormalColors } from '../../utils/prop-types';
 import Checkbox, { Props } from './index';
 
 const argTypes = {

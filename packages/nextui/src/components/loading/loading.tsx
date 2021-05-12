@@ -1,8 +1,12 @@
 import React, { useMemo } from 'react';
-import useTheme from '@hooks/use-theme';
-import withDefaults from '@utils/with-defaults';
-import { NormalSizes, NormalColors, NormalLoaders } from '@utils/prop-types';
-import { getNormalColor, addColorAlpha } from '@utils/color';
+import useTheme from '../../hooks/use-theme';
+import withDefaults from '../../utils/with-defaults';
+import {
+  NormalSizes,
+  NormalColors,
+  NormalLoaders,
+} from '../../utils/prop-types';
+import { getNormalColor, addColorAlpha } from '../../utils/color';
 import { getLoaderSize, getLoaderBorder, getLabelStyle } from './styles';
 import Spinner from './spinner';
 

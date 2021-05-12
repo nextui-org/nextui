@@ -1,5 +1,5 @@
 import React from 'react';
-import useTheme from '@hooks/use-theme';
+import useTheme from '../../hooks/use-theme';
 import flush from 'styled-jsx/server';
 import flushToReact from 'styled-jsx/server';
 

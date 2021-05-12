@@ -1,9 +1,9 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Button from './index';
-import { Spacer } from '@components';
-import { Lock, Notification, User, Camera, Activity } from '@utils/icons';
-import useTheme from '@hooks/use-theme';
+import { Spacer } from '../../index';
+import { Lock, Notification, User, Camera, Activity } from '../../utils/icons';
+import useTheme from '../../hooks/use-theme';
 
 export default {
   title: 'General/Button',
@@ -96,25 +96,25 @@ export const Bordered = () => (
   </>
 );
 
-export const Flattened = () => (
+export const flat = () => (
   <>
-    <Button color="primary" flattened>
+    <Button color="primary" flat>
       Primary
     </Button>
     <Spacer y={0.5} />
-    <Button color="secondary" flattened>
+    <Button color="secondary" flat>
       Secondary
     </Button>
     <Spacer y={0.5} />
-    <Button color="success" flattened>
+    <Button color="success" flat>
       Success
     </Button>
     <Spacer y={0.5} />
-    <Button color="warning" flattened>
+    <Button color="warning" flat>
       Warning
     </Button>
     <Spacer y={0.5} />
-    <Button color="error" flattened>
+    <Button color="error" flat>
       Error
     </Button>
   </>
@@ -212,7 +212,7 @@ export const Icons = () => {
       <Button
         icon={<User theme={theme} fill={theme.palette.error} />}
         color="error"
-        flattened
+        flat
       >
         Delete User
       </Button>

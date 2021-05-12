@@ -1,12 +1,14 @@
 {
     "extends": "./tsconfig.json",
-    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
+    "include": ["src/index.ts", "typings/**/*"],
     "exclude": [
         "node_modules", 
+        "buildconfig",
         "dist",
         "storybook-static", 
         "coverage", 
         "jest.config.js", 
+        "**/*-spec.ts",
         "**/*.test.tsx", 
         "tests",
         "**/*.stories.mdx",

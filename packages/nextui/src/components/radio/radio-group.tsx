@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import withDefaults from '@utils/with-defaults';
+import withDefaults from '../../utils/with-defaults';
 import { RadioContext } from './radio-context';
-import { NormalSizes, NormalColors } from '@utils/prop-types';
+import { NormalSizes, NormalColors } from '../../utils/prop-types';
 
 interface Props {
   value?: string | number;

@@ -33,7 +33,7 @@ const snippetTypes = tuple(
   'lite'
 );
 
-const cardTypes = tuple(
+const cardColors = tuple(
   'default',
   'primary',
   'secondary',
@@ -45,6 +45,7 @@ const cardTypes = tuple(
   'alert',
   'purple',
   'violet',
+  'gradient',
   'cyan'
 );
 
@@ -79,7 +80,7 @@ export type ThemeTypes = typeof themeTypes[number];
 
 export type SnippetTypes = typeof snippetTypes[number];
 
-export type CardTypes = typeof cardTypes[number];
+export type CardColors = typeof cardColors[number];
 
 export type CopyTypes = typeof copyTypes[number];
 

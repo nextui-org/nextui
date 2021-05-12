@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { NormalSizes } from '@utils/prop-types';
+import { NormalSizes } from '../../utils/prop-types';
 
 export const getCheckboxSize = (size: NormalSizes): string => {
   const sizes: { [key in NormalSizes]: string } = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow, ReactWrapper } from 'enzyme';
-import { Switch } from '@components';
-import { nativeEvent, updateWrapper } from '@tests/utils';
+import Switch from '../index';
+import { nativeEvent, updateWrapper } from '../../../../tests/utils';
 
 interface IconProps {
   className?: string;

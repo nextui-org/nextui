@@ -1,4 +1,4 @@
-import { NormalColors } from '@utils/prop-types';
+import { NormalColors } from '../../utils/prop-types';
 import React from 'react';
 
 export interface RadioConfig {

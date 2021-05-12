@@ -4,13 +4,10 @@ module.exports = {
     '@babel/preset-react',
     '@babel/preset-typescript',
   ],
-  plugins: [
-    'styled-jsx/babel',
-    'styled-jsx/babel-test',
-    '@babel/plugin-transform-runtime',
-  ],
+  plugins: ['styled-jsx/babel-test', '@babel/plugin-transform-runtime'],
   env: {
     test: {
+      plugins: ['styled-jsx/babel-test'],
       presets: [
         [
           'next/babel',

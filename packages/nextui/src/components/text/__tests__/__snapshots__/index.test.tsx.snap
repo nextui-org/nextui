@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text should be able to specify the size of text 1`] = `"<p class=\\"jsx-961950964 custom-size \\">test-value</p>"`;
+exports[`Text should be able to specify the size of text 1`] = `"<p class=\\"jsx-3909933700 custom-size  \\">test-value</p>"`;
 
-exports[`Text should be able to specify the size of text 2`] = `"<p class=\\"jsx-3916272896 custom-size \\">test-value</p>"`;
+exports[`Text should be able to specify the size of text 2`] = `"<p class=\\"jsx-595610608 custom-size  \\">test-value</p>"`;
 
-exports[`Text should render P element in the default 1`] = `"<p class=\\"jsx-2791547516  \\">test-value</p>"`;
+exports[`Text should render P element in the default 1`] = `"<p class=\\"jsx-4225676556   \\">test-value</p>"`;
 
-exports[`Text should render default color when type missing 1`] = `"<p type=\\"unknow\\" class=\\"jsx-2791547516  \\">test-value</p>"`;
+exports[`Text should render default color when type missing 1`] = `"<p type=\\"unknow\\" class=\\"jsx-4225676556   \\">test-value</p>"`;
 
-exports[`Text should work with different styles 1`] = `"<div><p type=\\"secondary\\" class=\\"jsx-2791547516  \\">test-value</p><p type=\\"success\\" class=\\"jsx-2791547516  \\">test-value</p><p type=\\"warning\\" class=\\"jsx-2791547516  \\">test-value</p><p type=\\"error\\" class=\\"jsx-2791547516  \\">test-value</p></div>"`;
+exports[`Text should work with different styles 1`] = `"<div><p class=\\"jsx-627211276   \\">test-value</p><p class=\\"jsx-2399063956   \\">test-value</p><p class=\\"jsx-430947631   \\">test-value</p><p class=\\"jsx-2068469819   \\">test-value</p></div>"`;
 
-exports[`Text the combined style should be rendered 1`] = `"<p class=\\"jsx-2791547516  \\"><b class=\\"jsx-3005979054  \\"><del class=\\"jsx-663916577  \\">test-value</del></b></p>"`;
+exports[`Text the combined style should be rendered 1`] = `"<p class=\\"jsx-4225676556   \\"><b class=\\"jsx-3837262366   \\"><del class=\\"jsx-3397322545   \\">test-value</del></b></p>"`;
 
-exports[`Text the specified element should be rendered 1`] = `"<div><h1 class=\\"jsx-1934822325  \\">test-value</h1><h2 class=\\"jsx-3752099062  \\">test-value</h2><h3 class=\\"jsx-793734327  \\">test-value</h3><h4 class=\\"jsx-2580748784  \\">test-value</h4><h5 class=\\"jsx-3917351345  \\">test-value</h5><h6 class=\\"jsx-1439660786  \\">test-value</h6><p class=\\"jsx-2791547516  \\">test-value</p><small class=\\"jsx-3272753075  \\">test-value</small><span class=\\"jsx-2488440928  \\">test-value</span><del class=\\"jsx-663916577  \\">test-value</del><i class=\\"jsx-2135782725  \\">test-value</i><em class=\\"jsx-1474874372  \\">test-value</em><b class=\\"jsx-3005979054  \\">test-value</b></div>"`;
+exports[`Text the specified element should be rendered 1`] = `"<div><h1 class=\\"jsx-1039459621   \\">test-value</h1><h2 class=\\"jsx-3599571526   \\">test-value</h2><h3 class=\\"jsx-3343130087   \\">test-value</h3><h4 class=\\"jsx-108138240   \\">test-value</h4><h5 class=\\"jsx-4146664097   \\">test-value</h5><h6 class=\\"jsx-2411808706   \\">test-value</h6><p class=\\"jsx-4225676556   \\">test-value</p><small class=\\"jsx-2951315555   \\">test-value</small><span class=\\"jsx-3098803088   \\">test-value</span><del class=\\"jsx-3397322545   \\">test-value</del><i class=\\"jsx-3922116245   \\">test-value</i><em class=\\"jsx-2290070388   \\">test-value</em><b class=\\"jsx-3837262366   \\">test-value</b></div>"`;

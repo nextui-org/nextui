@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonGroup buttons should be displayed vertically 1`] = `"<div class=\\"jsx-3719752608 button-group vertical \\"><button type=\\"button\\" color=\\"default\\" class=\\"jsx-1775237536 button \\"><div class=\\"text\\">action1</div></button><button type=\\"button\\" color=\\"default\\" class=\\"jsx-1775237536 button \\"><div class=\\"text\\">action2</div></button></div>"`;
+exports[`ButtonGroup buttons should be displayed vertically 1`] = `"<div class=\\"jsx-3719752608 button-group vertical \\"><button type=\\"button\\" color=\\"default\\" class=\\"jsx-3975117795 button \\"><div class=\\"text\\">action1</div></button><button type=\\"button\\" color=\\"default\\" class=\\"jsx-3975117795 button \\"><div class=\\"text\\">action2</div></button></div>"`;
 
-exports[`ButtonGroup props should be passed to each button 1`] = `"<div class=\\"jsx-3291777475 button-group horizontal \\"><button type=\\"button\\" color=\\"success\\" class=\\"jsx-4001641336 button \\"><div class=\\"text\\">action</div></button></div>"`;
+exports[`ButtonGroup props should be passed to each button 1`] = `"<div class=\\"jsx-3291777475 button-group horizontal \\"><button type=\\"button\\" color=\\"success\\" class=\\"jsx-702901179 button \\"><div class=\\"text\\">action</div></button></div>"`;
 
-exports[`ButtonGroup props should be passed to each button 2`] = `"<div class=\\"jsx-3291777475 button-group horizontal \\"><button type=\\"button\\" color=\\"success\\" class=\\"jsx-727615426 button \\"><div class=\\"text\\">action</div></button></div>"`;
+exports[`ButtonGroup props should be passed to each button 2`] = `"<div class=\\"jsx-3291777475 button-group horizontal \\"><button type=\\"button\\" color=\\"success\\" class=\\"jsx-1888484097 button \\"><div class=\\"text\\">action</div></button></div>"`;
 
-exports[`ButtonGroup should render correctly 1`] = `"<div class=\\"jsx-3719752608 button-group horizontal \\"><button type=\\"button\\" color=\\"default\\" class=\\"jsx-1775237536 button \\"><div class=\\"text\\">action</div></button></div>"`;
+exports[`ButtonGroup should render correctly 1`] = `"<div class=\\"jsx-3719752608 button-group horizontal \\"><button type=\\"button\\" color=\\"default\\" class=\\"jsx-3975117795 button \\"><div class=\\"text\\">action</div></button></div>"`;
 
 exports[`ButtonGroup should render different variants 1`] = `ReactWrapper {}`;
 
@@ -18,7 +18,7 @@ exports[`ButtonGroup should render different variants 2`] = `
   className=""
   color="default"
   disabled={false}
-  flattened={false}
+  flat={false}
   htmlType="button"
   light={false}
   loaderType="default"

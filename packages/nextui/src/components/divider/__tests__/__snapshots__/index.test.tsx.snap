@@ -1,0 +1,1125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divider should render correctly 1`] = `ReactWrapper {}`;
+
+exports[`Divider should support float 1`] = `ReactWrapper {}`;
+
+exports[`Divider should work with align and volume 1`] = `
+initialize {
+  "0": Node {
+    "attribs": Object {},
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "jsx-1245640475 divider ",
+          "role": "separator",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "class": "jsx-1245640475 text start",
+            },
+            "children": Array [
+              Node {
+                "data": "start",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "jsx-1245640475 divider ",
+            "role": "separator",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "jsx-1245640475 text start",
+              },
+              "children": Array [
+                Node {
+                  "data": "left",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "jsx-1245640475 divider ",
+              "role": "separator",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "class": "jsx-1245640475 text end",
+                },
+                "children": Array [
+                  Node {
+                    "data": "end",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "jsx-1010203768 divider ",
+                "role": "separator",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "class": "jsx-1010203768 text start",
+                  },
+                  "children": Array [
+                    Node {
+                      "data": "start",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "role": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "role": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "jsx-1245640475 divider ",
+          "role": "separator",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "class": "jsx-1245640475 text start",
+            },
+            "children": Array [
+              Node {
+                "data": "left",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "jsx-1245640475 divider ",
+            "role": "separator",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "jsx-1245640475 text end",
+              },
+              "children": Array [
+                Node {
+                  "data": "end",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "jsx-1010203768 divider ",
+              "role": "separator",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "class": "jsx-1010203768 text start",
+                },
+                "children": Array [
+                  Node {
+                    "data": "start",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "jsx-1245640475 divider ",
+            "role": "separator",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "jsx-1245640475 text start",
+              },
+              "children": Array [
+                Node {
+                  "data": "start",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "jsx-1245640475 divider ",
+          "role": "separator",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "class": "jsx-1245640475 text end",
+            },
+            "children": Array [
+              Node {
+                "data": "end",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "jsx-1010203768 divider ",
+            "role": "separator",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "jsx-1010203768 text start",
+              },
+              "children": Array [
+                Node {
+                  "data": "start",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "jsx-1245640475 divider ",
+            "role": "separator",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "jsx-1245640475 text start",
+              },
+              "children": Array [
+                Node {
+                  "data": "left",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "jsx-1245640475 divider ",
+              "role": "separator",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "class": "jsx-1245640475 text start",
+                },
+                "children": Array [
+                  Node {
+                    "data": "start",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "jsx-1010203768 divider ",
+          "role": "separator",
+        },
+        "children": Array [
+          Node {
+            "attribs": Object {
+              "class": "jsx-1010203768 text start",
+            },
+            "children": Array [
+              Node {
+                "data": "start",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "jsx-1245640475 divider ",
+            "role": "separator",
+          },
+          "children": Array [
+            Node {
+              "attribs": Object {
+                "class": "jsx-1245640475 text end",
+              },
+              "children": Array [
+                Node {
+                  "data": "end",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "jsx-1245640475 divider ",
+              "role": "separator",
+            },
+            "children": Array [
+              Node {
+                "attribs": Object {
+                  "class": "jsx-1245640475 text start",
+                },
+                "children": Array [
+                  Node {
+                    "data": "left",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": Node {
+              "attribs": Object {
+                "class": "jsx-1245640475 divider ",
+                "role": "separator",
+              },
+              "children": Array [
+                Node {
+                  "attribs": Object {
+                    "class": "jsx-1245640475 text start",
+                  },
+                  "children": Array [
+                    Node {
+                      "data": "start",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "role": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "role": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {},
+    "x-attribsPrefix": Object {},
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Divider should work with type 1`] = `
+initialize {
+  "0": Node {
+    "attribs": Object {},
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "jsx-1917779631 divider ",
+          "role": "separator",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "jsx-3244236143 divider ",
+            "role": "separator",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {
+              "class": "jsx-973279983 divider ",
+              "role": "separator",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "jsx-3244236143 divider ",
+          "role": "separator",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "jsx-973279983 divider ",
+            "role": "separator",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "jsx-1917779631 divider ",
+            "role": "separator",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "jsx-973279983 divider ",
+          "role": "separator",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "jsx-3244236143 divider ",
+            "role": "separator",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "jsx-1917779631 divider ",
+              "role": "separator",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "role": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {},
+    "x-attribsPrefix": Object {},
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Divider should work with x and y 1`] = `
+initialize {
+  "0": Node {
+    "attribs": Object {},
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "jsx-4131917444 divider ",
+          "role": "separator",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "jsx-3752882425 divider ",
+            "role": "separator",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "jsx-3752882425 divider ",
+          "role": "separator",
+        },
+        "children": Array [],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "jsx-4131917444 divider ",
+            "role": "separator",
+          },
+          "children": Array [],
+          "name": "div",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+            "role": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+          "role": undefined,
+        },
+      },
+    ],
+    "name": "div",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {},
+    "x-attribsPrefix": Object {},
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

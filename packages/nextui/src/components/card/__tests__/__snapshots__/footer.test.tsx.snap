@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Footer should render correctly 1`] = `"<div class=\\"jsx-1280294660 card  \\"><div class=\\"jsx-1147283720 content \\"><p>card</p></div><footer class=\\"jsx-411982631 auto-margin \\">footer</footer></div>"`;
+
+exports[`Card Footer should work with disable-auto-margin 1`] = `"<footer class=\\"jsx-411982631  \\">footer</footer>"`;
