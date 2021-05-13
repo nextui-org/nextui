@@ -29,7 +29,7 @@ export const getButtonChildrenWithIcon = (
     );
   }
   return (
-    <>
+    <React.Fragment>
       <ButtonIcon isRight={isRight}>{hasIcon}</ButtonIcon>
       <div className={`text ${isRight ? 'right' : 'left'}`}>
         {children}
@@ -42,7 +42,7 @@ export const getButtonChildrenWithIcon = (
           }
         `}</style>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

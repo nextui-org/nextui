@@ -25,7 +25,7 @@ const Code: React.FC<React.PropsWithChildren<CodeProps>> = ({
   if (!block) return <code {...props}>{children}</code>;
 
   return (
-    <>
+    <React.Fragment>
       <pre className={className} {...props}>
         <code>{children}</code>
       </pre>
@@ -42,7 +42,7 @@ const Code: React.FC<React.PropsWithChildren<CodeProps>> = ({
           color: white;
         }
       `}</style>
-    </>
+    </React.Fragment>
   );
 };
 

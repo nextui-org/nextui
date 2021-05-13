@@ -1,0 +1,54 @@
+{
+    "compilerOptions": {
+      "outDir": "../dist",
+      "baseUrl": "../",
+      "paths": {
+          "@components": ["./src/components/index.ts"],
+          "@components/*": ["./src/components/*"],
+          "@hooks/*": ["./src/hooks/*"],
+          "@utils/*": ["./src/utils/*"],
+          "@theme/*": ["./src/theme/*"],
+          "@tests/*": ["./tests/*"]
+      },
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "strictNullChecks": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "jsx": "preserve",
+      "noUnusedParameters": true,
+      "noUnusedLocals": true,
+      "noImplicitAny": true,
+      "target": "es6",
+      "lib": [
+        "dom",
+        "es2017"
+      ],
+      "skipLibCheck": true,
+      "allowJs": true,
+      "strict": false,
+      "forceConsistentCasingInFileNames": true,
+      "module": "esnext",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+    },
+    "include": [
+      "../src/index.ts",
+      "../typings/**/*",
+    ],
+    "exclude": [
+      "lib",
+      "es",
+      "node_modules", 
+      "dist",
+      "storybook-static", 
+      "coverage", 
+      "jest.config.js", 
+      "**/*-spec.ts",
+      "**/*.test.tsx", 
+      "tests",
+      "**/*.stories.mdx",
+      "**/*.stories.@(js|jsx|ts|tsx)"
+    ]
+  }

@@ -43,7 +43,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   }, [size]);
 
   return (
-    <>
+    <React.Fragment>
       <Component
         className={`${size ? 'custom-size' : ''} ${
           capitalize ? 'capitalize' : ''
@@ -63,7 +63,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
           text-transform: capitalize;
         }
       `}</style>
-    </>
+    </React.Fragment>
   );
 };
 
