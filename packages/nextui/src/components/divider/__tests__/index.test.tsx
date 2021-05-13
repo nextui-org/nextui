@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { Divider } from '@components';
+import Divider from '../index';
 
 describe('Divider', () => {
   it('should render correctly', () => {

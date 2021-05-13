@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, render, shallow } from 'enzyme';
-import { Avatar } from '@components';
+import Avatar from '../index';
 
 describe('AvatarGroup', () => {
   it('should render correctly', () => {

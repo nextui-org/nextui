@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
-import { NormalSizes } from '@utils/prop-types';
+import { NormalSizes } from '../../utils/prop-types';
 import ButtonIcon from './button-icon';
-import { ButtonProps } from '@components/button/button';
-import { ButtonGroupConfig } from '@components/button/button-group-context';
+import { ButtonProps } from './button';
+import { ButtonGroupConfig } from './button-group-context';
 
 export const getButtonChildrenWithIcon = (
   auto: boolean,

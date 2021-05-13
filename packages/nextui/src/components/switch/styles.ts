@@ -1,4 +1,4 @@
-import { NormalSizes } from '@utils/prop-types';
+import { NormalSizes } from '../../utils/prop-types';
 
 export type SwitchSize = {
   width: string;

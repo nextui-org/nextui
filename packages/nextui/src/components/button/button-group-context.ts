@@ -1,5 +1,5 @@
 import React from 'react';
-import { NormalSizes, NormalColors } from '@utils/prop-types';
+import { NormalSizes, NormalColors } from '../../utils/prop-types';
 
 export interface ButtonGroupConfig {
   size?: NormalSizes;

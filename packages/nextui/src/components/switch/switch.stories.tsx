@@ -1,8 +1,8 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Switch from './index';
-import { Moon, Sun, Lock, Notification } from '@utils/icons';
-import useTheme from '@hooks/use-theme';
+import { Moon, Sun, Lock, Notification } from '../../utils/icons';
+import useTheme from '../../hooks/use-theme';
 
 export default {
   title: 'Inputs/Switch',

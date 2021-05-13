@@ -1,5 +1,5 @@
 import React from 'react';
-import { NormalColors } from '@utils/prop-types';
+import { NormalColors } from '../../utils/prop-types';
 
 export interface CheckboxConfig {
   color: NormalColors;

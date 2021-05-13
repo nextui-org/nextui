@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Row, Col } from '@components';
+import Row from '../index';
+import Col from '../../col/index';
 
 describe('Row', () => {
   it('should render correctly', () => {

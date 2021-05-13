@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Card } from '@components';
+import Card from '../index';
 
 describe('Card Footer', () => {
   it('should render correctly', () => {

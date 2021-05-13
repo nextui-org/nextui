@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import useTheme from '@hooks/use-theme';
+import useTheme from '../../hooks/use-theme';
 import { Justify, Direction, AlignItems, AlignContent } from './grid-types';
 
 type BreakpointsValue = number | boolean;

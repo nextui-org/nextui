@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Button } from '@components';
-import { nativeEvent } from '@tests/utils';
+import Button from '../index';
+import { nativeEvent } from '../../../../tests/utils';
 
 describe('ButtonGroup', () => {
   it('should render correctly', () => {

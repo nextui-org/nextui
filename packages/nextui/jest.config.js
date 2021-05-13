@@ -17,6 +17,5 @@ module.exports = {
   ],
   moduleNameMapper: {
     'tests/(.*)$': '<rootDir>/tests/$1',
-    components: './src/components/index.ts',
   },
 };

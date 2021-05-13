@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
-import { NormalSizes, NormalColors } from '@utils/prop-types';
-import useTheme from '@hooks/use-theme';
-import useWarning from '@hooks/use-warning';
+import { NormalSizes, NormalColors } from '../../utils/prop-types';
+import useTheme from '../../hooks/use-theme';
+import useWarning from '../../hooks/use-warning';
 import AvatarGroup from './avatar-group';
-import { isColor, getNormalColor, isNormalColor } from '@utils/color';
+import { isColor, getNormalColor, isNormalColor } from '../../utils/color';
 
 interface Props {
   src?: string;

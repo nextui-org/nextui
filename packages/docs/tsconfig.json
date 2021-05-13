@@ -13,6 +13,7 @@
       "resolveJsonModule": true,
       "isolatedModules": true,
       "typeRoots": [
+        "../../node_modules/@types",
         "./typings"
       ]
     },

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { Image } from '@components';
+import Image from '../index';
 
 const link = 'https://react.geist-ui.dev/en-us/guide/introduction';
 const url =

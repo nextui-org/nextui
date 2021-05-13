@@ -52,3 +52,4 @@
       "**/*.stories.@(js|jsx|ts|tsx)"
     ]
   }
+}

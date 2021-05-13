@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Spacer from './index';
-import useTheme from '@hooks/use-theme';
+import useTheme from '../../hooks/use-theme';
 
 export default {
   title: 'Layout/Spacer',

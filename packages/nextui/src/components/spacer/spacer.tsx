@@ -1,6 +1,6 @@
 import React from 'react';
-import withDefaults from '@utils/with-defaults';
-import { getMargin } from '@utils/dimensions';
+import withDefaults from '../../utils/with-defaults';
+import { getMargin } from '../../utils/dimensions';
 
 interface Props {
   x?: number;

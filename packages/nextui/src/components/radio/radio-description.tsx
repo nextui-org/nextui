@@ -1,6 +1,6 @@
 import React from 'react';
-import withDefaults from '@utils/with-defaults';
-import useTheme from '@hooks/use-theme';
+import withDefaults from '../../utils/with-defaults';
+import useTheme from '../../hooks/use-theme';
 
 interface Props {
   className?: string;

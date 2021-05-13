@@ -11,8 +11,8 @@ import {
   Divider,
   Code,
   Grid,
-} from '@components';
-import { CardColors } from '@utils/prop-types';
+} from '../../index';
+import { CardColors } from '../../utils/prop-types';
 import Headphones from '../../../assets/headphones.jpg';
 import Watch from '../../../assets/watch.jpeg';
 import Items from '../../../assets/items.jpeg';
