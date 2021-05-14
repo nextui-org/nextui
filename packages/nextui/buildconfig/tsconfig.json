@@ -10,6 +10,7 @@
           "@theme/*": ["./src/theme/*"],
           "@tests/*": ["./tests/*"]
       },
+      "noEmit": false,
       "declaration": true,
       "emitDeclarationOnly": true,
       "strictNullChecks": true,
@@ -36,19 +37,5 @@
     "include": [
       "../src/index.ts",
       "../typings/**/*",
-    ],
-    "exclude": [
-      "lib",
-      "es",
-      "node_modules", 
-      "dist",
-      "storybook-static", 
-      "coverage", 
-      "jest.config.js", 
-      "**/*-spec.ts",
-      "**/*.test.tsx", 
-      "tests",
-      "**/*.stories.mdx",
-      "**/*.stories.@(js|jsx|ts|tsx)"
     ]
   }
