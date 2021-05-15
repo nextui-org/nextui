@@ -2,6 +2,13 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
       "baseUrl": ".",
+      "paths": {
+        "@components/*": ["./src/components/*"],
+        "@layouts/*": ["./src/layouts/*"],
+        "@hooks/*": ["./src/hooks/*"],
+        "@utils/*": ["./src/utils/*"],
+        "@theme/*": ["./src/theme/*"]
+    },
       "jsx": "preserve",
       "allowJs": true,
       "esModuleInterop": true,
