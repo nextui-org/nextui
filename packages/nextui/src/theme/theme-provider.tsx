@@ -1,7 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import useTheme from '@hooks/use-theme';
 import ThemeContext from './theme-context';
-import { ThemeParam, mergeTheme, switchTheme } from './utils';
+import { NextUIThemes } from './index';
+import { ThemeParam, getThemeByType, mergeTheme, switchTheme } from './utils';
 
 export interface Props {
   theme?: ThemeParam;
@@ -11,9 +12,12 @@ const ThemeProvider: React.FC<PropsWithChildren<Props>> = ({
   children,
   theme,
 }) => {
-  const customTheme = theme;
+  const customTheme = theme as NextUIThemes;
   const currentTheme = useTheme();
-  const merged = mergeTheme(currentTheme, customTheme);
+  const baseTheme = customTheme.type
+    ? getThemeByType(customTheme.type)
+    : currentTheme;
+  const merged = mergeTheme(baseTheme, customTheme);
   const userTheme =
     currentTheme.type !== merged.type ? switchTheme(merged) : merged;
 

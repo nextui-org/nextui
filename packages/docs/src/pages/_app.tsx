@@ -6,6 +6,7 @@ import { AppInitialProps } from 'next/app';
 import DefaultLayout from '@layouts/default';
 import { DeepPartial } from '@utils/types';
 import useDomClean from '@hooks/use-dom-clean';
+import sharedTheme from '@theme/shared';
 
 export type ComponentLayout<P = {}> = React.NamedExoticComponent<P> & {
   Layout: React.FC;
@@ -25,6 +26,7 @@ type AppProps<P = {}> = AppPropsType<Router, P>;
 
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const [customTheme, setCustomTheme] = useState<DeepPartial<NextUIThemes>>({
+    ...sharedTheme,
     type: 'dark',
   });
   const themeChangeHandle = (theme: DeepPartial<NextUIThemes>) => {

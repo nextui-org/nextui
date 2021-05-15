@@ -27,10 +27,14 @@ export const mergeTheme = (
   return deepMergeObject<NextUIThemes>(current, custom as NextUIThemes);
 };
 
-export const switchTheme = (mergedTheme: NextUIThemes): NextUIThemes => {
+export const getThemeByType = (type: NextUIThemes['type']) => {
   const themes: { [key in NextUIThemes['type']]: NextUIThemes } = {
     light: lightTheme,
     dark: darkTheme,
   };
-  return { ...mergedTheme, ...themes[mergedTheme.type] };
+  return themes[type];
+};
+
+export const switchTheme = (mergedTheme: NextUIThemes): NextUIThemes => {
+  return { ...getThemeByType(mergedTheme.type), ...mergedTheme };
 };
