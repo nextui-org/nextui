@@ -1,8 +1,12 @@
 import React, { useMemo } from 'react';
 import useTheme from '@hooks/use-theme';
-import { Justify, Direction, AlignItems, AlignContent } from './grid-types';
-
-type BreakpointsValue = number | boolean;
+import {
+  BreakpointsValue,
+  Justify,
+  Direction,
+  AlignItems,
+  AlignContent,
+} from '@utils/prop-types';
 
 interface Props {
   xs?: BreakpointsValue;

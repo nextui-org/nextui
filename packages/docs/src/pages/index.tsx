@@ -28,7 +28,6 @@ const IndexPage = () => {
       <style jsx>{`
         div {
           display: flex;
-          margin: 1rem;
           flex-direction: column;
         }
       `}</style>
