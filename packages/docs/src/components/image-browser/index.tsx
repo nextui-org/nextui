@@ -1,65 +1,26 @@
 import React, { useMemo } from 'react';
-import { Link } from '@components';
-import { Props as LinkProps } from '../link/link';
-import useTheme from '@hooks/use-theme';
 import withDefaults from '@utils/with-defaults';
-import ImageBrowserHttpsIcon from './image-browser-https-icon';
 import { getBrowserColors, BrowserColors } from './styles';
-
-type AnchorProps = Omit<React.AnchorHTMLAttributes<unknown>, keyof LinkProps>;
+import { useTheme } from '@nextui/react';
 
 interface Props {
-  title?: string;
-  url?: string;
-  showFullLink?: boolean;
-  invert?: boolean;
-  anchorProps?: AnchorProps;
+  dark?: boolean;
   className?: string;
 }
 
 const defaultProps = {
   className: '',
-  showFullLink: false,
-  anchorProps: {} as AnchorProps,
-  invert: false,
+  dark: false,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type ImageBrowserProps = Props & typeof defaultProps & NativeAttrs;
 
-const getHostFromUrl = (url: string) => {
-  try {
-    return new URL(url).host;
-  } catch (e) {
-    return url;
-  }
-};
-
-const getTitle = (title: string, colors: BrowserColors) => (
-  <div className="title">
-    {title}
-    <style jsx>{`
-      .title {
-        color: ${colors.titleColor};
-        font-size: 0.75rem;
-      }
-    `}</style>
-  </div>
-);
-
-const getAddressInput = (
-  url: string,
-  showFullLink: boolean,
-  colors: BrowserColors,
-  anchorProps: AnchorProps
-) => (
+const getAddressInput = (colors: BrowserColors) => (
   <div className="address-input">
     <span className="https">
-      <ImageBrowserHttpsIcon />
+      <p>Hola</p>
     </span>
-    <Link href={url} title={url} target="_blank" {...anchorProps}>
-      {showFullLink ? url : getHostFromUrl(url)}
-    </Link>
     <style jsx>{`
       .address-input {
         height: 1.75rem;
@@ -67,7 +28,7 @@ const getAddressInput = (
         min-width: 40%;
         background-color: ${colors.inputBgColor};
         color: inherit;
-        border-radius: 3px;
+        border-radius: ${colors.radius};
         display: flex;
         align-items: center;
         justify-content: center;
@@ -104,28 +65,14 @@ const ImageBrowser = React.forwardRef<
   React.PropsWithChildren<ImageBrowserProps>
 >(
   (
-    {
-      url,
-      title,
-      children,
-      showFullLink,
-      invert,
-      anchorProps,
-      className,
-      ...props
-    },
+    { title, children, dark, className, ...props },
     ref: React.Ref<HTMLDivElement>
   ) => {
     const theme = useTheme();
-    const colors = useMemo(() => getBrowserColors(invert, theme.palette), [
-      invert,
-      theme.palette,
-    ]);
+    const colors = useMemo(() => getBrowserColors(dark, theme), [dark, theme]);
     const input = useMemo(() => {
-      if (url) return getAddressInput(url, showFullLink, colors, anchorProps);
-      if (title) return getTitle(title, colors);
-      return null;
-    }, [url, showFullLink, title, colors, anchorProps]);
+      return getAddressInput(colors);
+    }, [colors]);
 
     return (
       <div className={`browser ${className}`} ref={ref} {...props}>
@@ -143,6 +90,7 @@ const ImageBrowser = React.forwardRef<
             background-color: transparent;
             box-shadow: ${theme.expressiveness.shadowLarge};
             width: max-content;
+            width: 100%;
             max-width: 100%;
             margin: 0 auto;
             border-radius: ${theme.layout.radius};

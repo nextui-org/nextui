@@ -25,13 +25,16 @@ interface Props {
   alignItems?: AlignItems;
   alignContent?: AlignContent;
   children: ReactNode;
-  className: string;
+  as: keyof JSX.IntrinsicElements;
+  className?: string;
+  style?: object;
 }
 
 const defaultProps = {
   gap: 2,
   fluid: false,
   wrap: 'wrap' as Wrap,
+  as: 'div' as keyof JSX.IntrinsicElements,
   xs: false as BreakpointsValue,
   sm: false as BreakpointsValue,
   md: false as BreakpointsValue,
@@ -53,6 +56,7 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   xl,
   wrap,
   gap,
+  as,
   display,
   justify,
   direction,
@@ -60,6 +64,7 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   alignContent,
   children,
   className,
+  style,
   ...props
 }) => {
   const theme = useTheme();
@@ -102,8 +107,14 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
     return `calc(${gap} * ${theme.layout.gapQuarter})`;
   }, [gap, theme.layout.gapQuarter]);
 
+  const Component = as;
+
   return (
-    <div className={`container ${classes} ${className}`} {...props}>
+    <Component
+      className={`container ${classes} ${className}`}
+      style={style}
+      {...props}
+    >
       {children}
       <style jsx>{`
         .container {
@@ -169,7 +180,7 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
           }
         }
       `}</style>
-    </div>
+    </Component>
   );
 };
 
