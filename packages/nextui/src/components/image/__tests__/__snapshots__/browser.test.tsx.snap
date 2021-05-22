@@ -4,36 +4,36 @@ exports[`Image Browser should render correctly 1`] = `
 initialize {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-1070037866 bowser ",
+      "class": "jsx-2307557747 browser ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-1070037866",
+          "class": "jsx-2307557747",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-1070037866 traffic",
+              "class": "jsx-2307557747 traffic",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-1070037866 close",
+                  "class": "jsx-2307557747 close",
                 },
                 "children": Array [],
                 "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 mini",
+                    "class": "jsx-2307557747 mini",
                   },
                   "children": Array [],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 full",
+                      "class": "jsx-2307557747 full",
                     },
                     "children": Array [],
                     "name": "span",
@@ -71,14 +71,14 @@ initialize {
               },
               Node {
                 "attribs": Object {
-                  "class": "jsx-1070037866 mini",
+                  "class": "jsx-2307557747 mini",
                 },
                 "children": Array [],
                 "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 full",
+                    "class": "jsx-2307557747 full",
                   },
                   "children": Array [],
                   "name": "span",
@@ -97,7 +97,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 close",
+                    "class": "jsx-2307557747 close",
                   },
                   "children": Array [],
                   "name": "span",
@@ -123,7 +123,7 @@ initialize {
               },
               Node {
                 "attribs": Object {
-                  "class": "jsx-1070037866 full",
+                  "class": "jsx-2307557747 full",
                 },
                 "children": Array [],
                 "name": "span",
@@ -132,7 +132,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 mini",
+                    "class": "jsx-2307557747 mini",
                   },
                   "children": Array [],
                   "name": "span",
@@ -141,7 +141,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 close",
+                      "class": "jsx-2307557747 close",
                     },
                     "children": Array [],
                     "name": "span",
@@ -869,26 +869,26 @@ initialize {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "jsx-1070037866 traffic",
+                "class": "jsx-2307557747 traffic",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 close",
+                    "class": "jsx-2307557747 close",
                   },
                   "children": Array [],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 mini",
+                      "class": "jsx-2307557747 mini",
                     },
                     "children": Array [],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "jsx-1070037866 full",
+                        "class": "jsx-2307557747 full",
                       },
                       "children": Array [],
                       "name": "span",
@@ -926,14 +926,14 @@ initialize {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 mini",
+                    "class": "jsx-2307557747 mini",
                   },
                   "children": Array [],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 full",
+                      "class": "jsx-2307557747 full",
                     },
                     "children": Array [],
                     "name": "span",
@@ -952,7 +952,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 close",
+                      "class": "jsx-2307557747 close",
                     },
                     "children": Array [],
                     "name": "span",
@@ -978,7 +978,7 @@ initialize {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 full",
+                    "class": "jsx-2307557747 full",
                   },
                   "children": Array [],
                   "name": "span",
@@ -987,7 +987,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 mini",
+                      "class": "jsx-2307557747 mini",
                     },
                     "children": Array [],
                     "name": "span",
@@ -996,7 +996,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "jsx-1070037866 close",
+                        "class": "jsx-2307557747 close",
                       },
                       "children": Array [],
                       "name": "span",
@@ -1136,31 +1136,31 @@ initialize {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-1070037866",
+            "class": "jsx-2307557747",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-1070037866 traffic",
+                "class": "jsx-2307557747 traffic",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 close",
+                    "class": "jsx-2307557747 close",
                   },
                   "children": Array [],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 mini",
+                      "class": "jsx-2307557747 mini",
                     },
                     "children": Array [],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "jsx-1070037866 full",
+                        "class": "jsx-2307557747 full",
                       },
                       "children": Array [],
                       "name": "span",
@@ -1198,14 +1198,14 @@ initialize {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 mini",
+                    "class": "jsx-2307557747 mini",
                   },
                   "children": Array [],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 full",
+                      "class": "jsx-2307557747 full",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1224,7 +1224,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 close",
+                      "class": "jsx-2307557747 close",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1250,7 +1250,7 @@ initialize {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1070037866 full",
+                    "class": "jsx-2307557747 full",
                   },
                   "children": Array [],
                   "name": "span",
@@ -1259,7 +1259,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 mini",
+                      "class": "jsx-2307557747 mini",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1268,7 +1268,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "jsx-1070037866 close",
+                        "class": "jsx-2307557747 close",
                       },
                       "children": Array [],
                       "name": "span",
@@ -1996,26 +1996,26 @@ initialize {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "jsx-1070037866 traffic",
+                  "class": "jsx-2307557747 traffic",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 close",
+                      "class": "jsx-2307557747 close",
                     },
                     "children": Array [],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "jsx-1070037866 mini",
+                        "class": "jsx-2307557747 mini",
                       },
                       "children": Array [],
                       "name": "span",
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Node {
                         "attribs": Object {
-                          "class": "jsx-1070037866 full",
+                          "class": "jsx-2307557747 full",
                         },
                         "children": Array [],
                         "name": "span",
@@ -2053,14 +2053,14 @@ initialize {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 mini",
+                      "class": "jsx-2307557747 mini",
                     },
                     "children": Array [],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "jsx-1070037866 full",
+                        "class": "jsx-2307557747 full",
                       },
                       "children": Array [],
                       "name": "span",
@@ -2079,7 +2079,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "jsx-1070037866 close",
+                        "class": "jsx-2307557747 close",
                       },
                       "children": Array [],
                       "name": "span",
@@ -2105,7 +2105,7 @@ initialize {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "jsx-1070037866 full",
+                      "class": "jsx-2307557747 full",
                     },
                     "children": Array [],
                     "name": "span",
@@ -2114,7 +2114,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "jsx-1070037866 mini",
+                        "class": "jsx-2307557747 mini",
                       },
                       "children": Array [],
                       "name": "span",
@@ -2123,7 +2123,7 @@ initialize {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "jsx-1070037866 close",
+                          "class": "jsx-2307557747 close",
                         },
                         "children": Array [],
                         "name": "span",

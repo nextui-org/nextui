@@ -9,7 +9,7 @@ initialize {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-1815154890 col ",
+          "class": "jsx-1461834189 col ",
         },
         "children": Array [
           Node {
@@ -24,7 +24,7 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-1049252664 col ",
+            "class": "jsx-647884236 col ",
           },
           "children": Array [
             Node {
@@ -60,7 +60,7 @@ initialize {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-1049252664 col ",
+          "class": "jsx-647884236 col ",
         },
         "children": Array [
           Node {
@@ -77,7 +77,7 @@ initialize {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-1815154890 col ",
+            "class": "jsx-1461834189 col ",
           },
           "children": Array [
             Node {
