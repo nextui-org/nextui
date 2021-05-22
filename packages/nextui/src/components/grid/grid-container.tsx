@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import useTheme from '@hooks/use-theme';
 import GridBasicItem, { GridBasicItemComponentProps } from './basic-item';
-import { Wrap } from './grid-types';
+import { Wrap } from '@utils/prop-types';
 import { css } from 'styled-jsx/css';
 
 interface Props {
@@ -31,6 +31,7 @@ const GridContainer: React.FC<React.PropsWithChildren<GridContainerProps>> = ({
   const gapUnit = useMemo(() => {
     return `calc(${gap} * ${theme.layout.gapQuarter})`;
   }, [gap, theme.layout.gapQuarter]);
+
   const { className: resolveClassName, styles } = css.resolve`
     --grid-gap-unit: ${gapUnit};
     display: flex;

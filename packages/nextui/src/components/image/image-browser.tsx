@@ -128,7 +128,7 @@ const ImageBrowser = React.forwardRef<
     }, [url, showFullLink, title, colors, anchorProps]);
 
     return (
-      <div className={`bowser ${className}`} ref={ref} {...props}>
+      <div className={`browser ${className}`} ref={ref} {...props}>
         <header>
           <div className="traffic">
             <span className="close" />
@@ -139,7 +139,7 @@ const ImageBrowser = React.forwardRef<
         </header>
         {children}
         <style jsx>{`
-          .bowser {
+          .browser {
             background-color: transparent;
             box-shadow: ${theme.expressiveness.shadowLarge};
             width: max-content;
@@ -149,7 +149,7 @@ const ImageBrowser = React.forwardRef<
             overflow: hidden;
           }
 
-          .bowser :global(.image) {
+          .browser :global(.image) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
           }

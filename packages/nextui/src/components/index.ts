@@ -16,3 +16,4 @@ export { default as Row } from './row';
 export { default as Col } from './col';
 export { default as Divider } from './divider';
 export { default as Code } from './code';
+export { default as Container } from './container';
