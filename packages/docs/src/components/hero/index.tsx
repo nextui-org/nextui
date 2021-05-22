@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Row, Col, Image } from '@nextui/react';
+import { Text, Row, Col } from '@nextui/react';
 import { ImageBrowser } from '@components';
 
 const Hero: React.FC = () => {
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
           </Text>
         </Col>
         <Col span={6} className="hero__image-container">
-          <ImageBrowser dark />
+          <ImageBrowser className="hero__image" />
         </Col>
       </Row>
       <style jsx>{`
@@ -29,11 +29,8 @@ const Hero: React.FC = () => {
         :global(.hero__title-smooth) {
           color: #c1c1c1 !important;
         }
-
-        :global(.hero__image-container) {
-           {
-            /* transform: translate3d(200px, 0, 0); */
-          }
+        :global(.hero__image) {
+          transform: translate3d(0, -50px, 0);
         }
       `}</style>
     </>

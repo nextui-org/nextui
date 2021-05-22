@@ -9,11 +9,21 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
 }) => {
   return (
     <BaseLayout>
-      <Container>
+      <Container className="main-container">
         <Navbar />
         {children}
         <Footer />
       </Container>
+      <style jsx>{`
+        :global(.main-container) {
+          min-height: 100vh;
+          --dot-size: 1px;
+          --dot-space: 22px;
+          background: linear-gradient(90deg, #000 21px, transparent 1%) 50%,
+            linear-gradient(#000 21px, transparent 1%) 50%, #444;
+          background-size: var(--dot-space) var(--dot-space);
+        }
+      `}</style>
     </BaseLayout>
   );
 };
