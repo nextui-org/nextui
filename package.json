@@ -4,6 +4,11 @@
     "workspaces": [
         "packages/**"
     ],
+    "engines": {
+        "node": ">=12.13.0",
+        "npm": ">=7.9.0",
+        "yarn": ">=1.12.x"
+    },
     "scripts": {
         "dev:docs": "yarn workspace @nextui/docs dev",
         "build": "SKIP_PREFLIGHT_CHECK=true yarn workspace @nextui/react build",
