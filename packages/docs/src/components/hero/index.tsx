@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Row, Col, Grid, Spacer, Button, Image } from '@nextui/react';
+import { Text, Row, Col, Grid, Spacer, Button } from '@nextui/react';
 import { ImageBrowser } from '@components';
 
 const Hero: React.FC = () => {
@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
       </Row>
       <style jsx>{`
         :global(.hero-container) {
-          padding: 14vh 0;
+          padding: 14vh 0 0 0;
         }
         :global(.hero__title) {
           margin-bottom: 0rem;

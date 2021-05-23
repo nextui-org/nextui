@@ -4,8 +4,19 @@ import { Container } from '@nextui/react';
 
 const Navbar: React.FC = () => {
   return (
-    <Container as="nav" gap={0} style={{ padding: '20px 0' }}>
+    <Container
+      className="navbar__container"
+      display="flex"
+      alignItems="center"
+      as="nav"
+      gap={0}
+    >
       <Logo />
+      <style jsx>{`
+        :global(.navbar__container) {
+          min-height: var(--navbar-height);
+        }
+      `}</style>
     </Container>
   );
 };
