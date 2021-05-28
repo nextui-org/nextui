@@ -1,10 +1,20 @@
-![Logo](https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/black_logo.png)
-
-Add badges from somewhere like: [shields.io](https://shields.io/)
-
-[![codecov](https://codecov.io/gh/jrgarciadev/nextui/branch/main/graph/badge.svg?token=QJF2QKR5N4)](https://codecov.io/gh/jrgarciadev/nextui)
-[![Build Status](https://www.travis-ci.com/jrgarciadev/nextui.svg?branch=main)](https://www.travis-ci.com/jrgarciadev/nextui)
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+<p align="center">
+  <a href="https://nextui.org">
+<img width="40%" src="https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/black_imagotipo.png" alt="nextui" />
+   </a>
+  </p>
+  </br>
+  <p align="center">
+  <a href="https://codecov.io/gh/jrgarciadev/nextui">
+    <img src="https://codecov.io/gh/jrgarciadev/nextui/branch/main/graph/badge.svg?token=QJF2QKR5N4" alt="codecov badge">
+  </a>
+  <a href="https://www.travis-ci.com/jrgarciadev/nextui">
+    <img src="https://www.travis-ci.com/jrgarciadev/nextui.svg?branch=main" alt="travis ci nextui">
+  </a>
+  <a href="https://github.com/jrgarciadev/nextui/blob/main/LICENSE">
+    <img src="https://img.shields.io/apm/l/atomic-design-ui.svg?" alt="License">
+  </a>
+</p>
 
 ## Browser support
 
