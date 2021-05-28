@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/jrgarciadev/nextui/main/public/dark_logo.png)
+![Logo](https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/black_logo.png)
 
 Add badges from somewhere like: [shields.io](https://shields.io/)
 
