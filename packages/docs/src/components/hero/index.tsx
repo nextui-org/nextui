@@ -54,9 +54,13 @@ const Hero: React.FC = () => {
           </Grid.Container>
           <Spacer y={2} />
           <Row align="middle">
-            <Button>Get Started</Button>
-            <Spacer x={1} />
-            <Button light>View on Github</Button>
+            <Button auto size="large">
+              Get Started
+            </Button>
+            <Spacer x={0.5} />
+            <Button light auto size="large">
+              View on Github
+            </Button>
           </Row>
         </Col>
         <Col span={6} className="hero__image-container">
@@ -65,7 +69,7 @@ const Hero: React.FC = () => {
       </Row>
       <style jsx>{`
         :global(.hero-container) {
-          padding: 14vh 0 0 0;
+          padding: 14vh 0;
         }
         :global(.hero__title) {
           margin-bottom: 0rem;

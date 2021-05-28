@@ -145,8 +145,13 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
         .alignItems {
           align-items: ${alignItems};
         }
+        .container.xs {
+        }
         @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
           .container {
+            max-width: ${theme.breakpoints.xs.max};
+          }
+          .xs {
             max-width: ${theme.breakpoints.xs.max};
           }
         }
@@ -154,29 +159,42 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
           .container {
             max-width: ${theme.breakpoints.sm.min};
           }
-          .md {
-            max-width: 100%;
+          .xs {
+            max-width: ${theme.breakpoints.xs.max};
+          }
+          .sm {
+            max-width: ${theme.breakpoints.sm.min};
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md.min}) {
           .container {
             max-width: ${theme.breakpoints.md.min};
           }
-          .lg {
-            max-width: 100%;
+          .xs {
+            max-width: ${theme.breakpoints.xs.max};
+          }
+          .sm {
+            max-width: ${theme.breakpoints.sm.min};
+          }
+          .md {
+            max-width: ${theme.breakpoints.md.min};
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
           .container {
             max-width: ${theme.breakpoints.lg.min};
           }
-          .xl {
-            max-width: 100%;
+          .xs {
+            max-width: ${theme.breakpoints.xs.max};
           }
-        }
-        @media only screen and (min-width: ${theme.breakpoints.xl.min}) {
-          .container {
-            max-width: ${theme.breakpoints.xl.min};
+          .sm {
+            max-width: ${theme.breakpoints.sm.min};
+          }
+          .md {
+            max-width: ${theme.breakpoints.md.min};
+          }
+          .lg {
+            max-width: ${theme.breakpoints.lg.min};
           }
         }
       `}</style>
