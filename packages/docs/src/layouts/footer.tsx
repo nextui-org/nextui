@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
   const theme = useTheme() as NextUIThemes;
   const year = new Date().getFullYear();
   return (
-    <Container gap={0}>
+    <Container className="footer__container" gap={0}>
       <Row justify="end">
         <Text span className="footer__copy" size={14}>
           &copy; Copyright {year} NextUI

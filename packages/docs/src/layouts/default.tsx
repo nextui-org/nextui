@@ -20,7 +20,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
         .wrapper {
           --dot-size: 1px;
           --dot-space: 22px;
-          --navbar-height: 80px;
+          --navbar-height: 50px;
           width: 100%;
           min-height: 100vh;
           background: linear-gradient(90deg, #000 21px, transparent 1%) 50%,
