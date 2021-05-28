@@ -1,67 +1,47 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import withDefaults from '@utils/with-defaults';
 import useTheme from '@hooks/use-theme';
-
-type Justify = 'start' | 'end' | 'center' | 'space-around' | 'space-between';
-type Align = 'top' | 'middle' | 'bottom';
+import { Justify, AlignItems } from '@utils/prop-types';
 
 interface Props {
   gap?: number;
   flexWrap?: boolean;
+  fluid?: boolean;
   justify?: Justify;
-  align?: Align;
-  component?: keyof JSX.IntrinsicElements;
+  align?: AlignItems;
+  as?: keyof JSX.IntrinsicElements;
   className?: string;
 }
 
 const defaultProps = {
   gap: 0,
   flexWrap: false,
-  justify: 'start' as Justify,
-  align: 'top' as Align,
-  component: 'div' as keyof JSX.IntrinsicElements,
+  fluid: true,
+  justify: 'flex-start' as Justify,
+  align: 'flex-start' as AlignItems,
+  as: 'div' as keyof JSX.IntrinsicElements,
   className: '',
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type RowProps = Props & typeof defaultProps & NativeAttrs;
 
-const getFlexAlignment = (justify: Justify, align: Align) => {
-  const flexJustifyMap: { [key in Justify]?: string } = {
-    end: 'flex-end',
-    center: 'center',
-    'space-around': 'space-around',
-    'space-between': 'space-between',
-  };
-  const flexAlignMap: { [key in Align]?: string } = {
-    middle: 'center',
-    bottom: 'flex-end',
-  };
-  return {
-    justifyValue: flexJustifyMap[justify] || 'normal',
-    alignValue: flexAlignMap[align] || 'normal',
-  };
-};
-
 const Container: React.FC<React.PropsWithChildren<RowProps>> = ({
   children,
-  component,
+  as,
   gap,
+  fluid,
   justify,
   align,
   flexWrap,
   className,
   ...props
 }) => {
-  const Component = component;
+  const Component = as;
   const theme = useTheme();
-  const { justifyValue, alignValue } = useMemo(
-    () => getFlexAlignment(justify, align),
-    [justify, align]
-  );
 
   return (
-    <Component className={`row ${className}`} {...props}>
+    <Component className={`row ${className} ${fluid && 'fluid'}`} {...props}>
       {children}
       <style jsx>{`
         .row {
@@ -72,8 +52,11 @@ const Container: React.FC<React.PropsWithChildren<RowProps>> = ({
           margin-left: calc(${gap} * ${theme.layout.gap} / 2);
           margin-right: calc(${gap} * ${theme.layout.gap} / 2);
           --row-gap: calc(${gap} * ${theme.layout.gap});
-          justify-content: ${justifyValue};
-          align-items: ${alignValue};
+          justify-content: ${justify};
+          align-items: ${align};
+        }
+        .fluid {
+          width: 100%;
         }
       `}</style>
     </Component>

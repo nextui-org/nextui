@@ -9,22 +9,28 @@ describe('Row', () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should be render differnet components', () => {
+  it('should be render different components', () => {
     const wrapper = mount(<Row>row</Row>);
-    wrapper.setProps({ component: 'span' });
+    wrapper.setProps({ as: 'div' });
+    expect(wrapper.find('div').length).not.toBe(0);
+
+    wrapper.setProps({ as: 'nav' });
+    expect(wrapper.find('nav').length).not.toBe(0);
+
+    wrapper.setProps({ as: 'span' });
     expect(wrapper.find('span').length).not.toBe(0);
 
-    wrapper.setProps({ component: 'p' });
+    wrapper.setProps({ as: 'p' });
     expect(wrapper.find('p').length).not.toBe(0);
 
-    wrapper.setProps({ component: 'details' });
+    wrapper.setProps({ as: 'details' });
     expect(wrapper.find('details').length).not.toBe(0);
   });
 
   it('the children should be aligned correctly', () => {
     const wrapper = mount(
       <div>
-        <Row justify="end">
+        <Row justify="flex-end">
           <Col />
         </Row>
         <Row justify="center">
@@ -36,13 +42,13 @@ describe('Row', () => {
         <Row justify="space-between">
           <Col />
         </Row>
-        <Row align="top">
+        <Row align="flex-start">
           <Col />
         </Row>
-        <Row align="middle">
+        <Row align="center">
           <Col />
         </Row>
-        <Row align="bottom">
+        <Row align="flex-end">
           <Col />
         </Row>
       </div>

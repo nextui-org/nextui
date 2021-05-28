@@ -49,7 +49,9 @@ const Link = React.forwardRef<
     const theme = useTheme();
     const linkColor = color || block ? theme.palette.link : 'inherit';
     const hoverColor =
-      color || block ? addColorAlpha(theme.palette.link, 0.8) : 'inherit';
+      color || block
+        ? addColorAlpha(theme.palette.link, 0.8)
+        : addColorAlpha(theme.palette.text, 0.8);
     const padding = block ? theme.layout.gapQuarter : '0';
     const decoration = underline ? 'underline' : 'none';
     if (pure) {
@@ -80,7 +82,7 @@ const Link = React.forwardRef<
           .link:hover {
             background-color: ${block
               ? addColorAlpha(theme.palette.link, 0.2)
-              : 'unset'};
+              : 'inherit'};
             color: ${hoverColor};
           }
         `}</style>
