@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://nextui.org">
-<img width="40%" src="https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/black_imagotipo.png" alt="nextui" />
+<img width="40%" src="https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/isotipo.png" alt="nextui" />
    </a>
   </p>
   </br>
