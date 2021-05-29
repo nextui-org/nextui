@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://nextui.org">
       <img width="40%" src="https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/isotipo.png" alt="nextui" />
-      <h1 align="center">Next.js</h1>
+      <h1 align="center">Nextui</h1>
   </a>
   </p>
   </br>
