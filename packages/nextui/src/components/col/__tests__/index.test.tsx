@@ -34,13 +34,16 @@ describe('Col', () => {
   });
 
   it('should render different components', () => {
-    let wrapper = mount(<Col component="p" />);
+    let wrapper = mount(<Col as="p" />);
     expect(wrapper.find('p').length).not.toBe(0);
 
-    wrapper = mount(<Col component="details" />);
+    wrapper = mount(<Col as="details" />);
     expect(wrapper.find('details').length).not.toBe(0);
 
-    wrapper = mount(<Col component="h1" />);
+    wrapper = mount(<Col as="h1" />);
     expect(wrapper.find('h1').length).not.toBe(0);
+
+    wrapper = mount(<Col as="div" />);
+    expect(wrapper.find('div').length).not.toBe(0);
   });
 });

@@ -40,6 +40,7 @@ const Navbar: React.FC = () => {
       <style jsx>{`
         :global(.navbar__container) {
           min-height: var(--navbar-height);
+          max-height: var(--navbar-height);
         }
       `}</style>
     </Container>

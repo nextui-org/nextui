@@ -81,8 +81,8 @@ const justify = tuple(
 
 const alignItems = tuple(
   'flex-start',
-  'center',
   'flex-end',
+  'center',
   'stretch',
   'baseline'
 );

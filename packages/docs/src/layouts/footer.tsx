@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
   const year = new Date().getFullYear();
   return (
     <Container className="footer__container" gap={0}>
-      <Row justify="end">
+      <Row justify="flex-end">
         <Text span className="footer__copy" size={14}>
           &copy; Copyright {year} NextUI
         </Text>
@@ -30,6 +30,9 @@ const Footer: React.FC = () => {
           </Link>
         </Text>
         <style jsx>{`
+          :global(.footer__container) {
+            padding: 1rem 0;
+          }
           :global(.footer__copy),
           :global(.footer__by) {
             color: ${theme.palette.accents_6} !important;

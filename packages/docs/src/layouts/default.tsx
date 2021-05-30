@@ -10,7 +10,13 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
   return (
     <BaseLayout>
       <div className="wrapper">
-        <Container lg display="flex" as="main" className="main-container">
+        <Container
+          lg
+          display="flex"
+          as="main"
+          alignContent="space-between"
+          className="main-container"
+        >
           <Navbar />
           {children}
           <Footer />
@@ -20,7 +26,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
         .wrapper {
           --dot-size: 1px;
           --dot-space: 22px;
-          --navbar-height: 50px;
+          --navbar-height: 60px;
           width: 100%;
           min-height: 100vh;
           background: linear-gradient(90deg, #000 21px, transparent 1%) 50%,

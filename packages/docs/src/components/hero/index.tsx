@@ -5,7 +5,7 @@ import { ImageBrowser } from '@components';
 const Hero: React.FC = () => {
   return (
     <>
-      <Row className="hero-container">
+      <Row className="hero-container" align="center">
         <Col span={6}>
           <Text h1 className="hero__title" size="4rem">
             Beautiful, fast and
@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
           <Spacer y={1.5} />
           <Grid.Container gap={2} justify="center">
             <Grid xs={6}>
-              <Row align="middle">
+              <Row align="center">
                 <img src="/responsive.svg" width="24" alt="responsive icon" />
                 <Spacer />
                 <Text b size="1.1rem">
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
               </Row>
             </Grid>
             <Grid xs={6}>
-              <Row align="middle">
+              <Row align="center">
                 <img src="/components.svg" width="24" alt="components icon" />
                 <Spacer />
                 <Text b size="1.1rem">
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
               </Row>
             </Grid>
             <Grid xs={6}>
-              <Row align="middle">
+              <Row align="center">
                 <img src="/graph.svg" width="24" alt="graph icon" />
                 <Spacer />
                 <Text b size="1.1rem">
@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
               </Row>
             </Grid>
             <Grid xs={6}>
-              <Row align="middle">
+              <Row align="center">
                 <img src="/open_source.svg" width="24" alt="open source icon" />
                 <Spacer />
                 <Text b size="1.1rem">
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
             </Grid>
           </Grid.Container>
           <Spacer y={2} />
-          <Row align="middle">
+          <Row align="center">
             <Button auto size="large">
               Get Started
             </Button>
@@ -68,9 +68,6 @@ const Hero: React.FC = () => {
         </Col>
       </Row>
       <style jsx>{`
-        :global(.hero-container) {
-          padding: 14vh 0;
-        }
         :global(.hero__title) {
           margin-bottom: 0rem;
           line-height: 1.2;
@@ -78,8 +75,8 @@ const Hero: React.FC = () => {
         :global(.hero__title-smooth) {
           color: #c1c1c1 !important;
         }
-        :global(.hero__image) {
-          transform: translate3d(0, -50px, 0);
+        :global(.hero__image-container) {
+          height: 100%;
         }
       `}</style>
     </>
