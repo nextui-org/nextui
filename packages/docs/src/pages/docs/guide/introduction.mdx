@@ -1,1 +1,13 @@
+import DocsLayout from '@layouts/docs';
+
+export const meta = {
+  title: 'introduction',
+  group: 'getting-started',
+  index: 1,
+};
+
 # Intro
+
+export default ({ children }) => (
+  <DocsLayout meta={meta}>{children}</DocsLayout>
+);

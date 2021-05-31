@@ -4,6 +4,7 @@ import { NextRouter, Router } from 'next/router';
 import { CssBaseline, NextUIThemes, ThemeProvider } from '@nextui/react';
 import { AppInitialProps } from 'next/app';
 import DefaultLayout from '@layouts/default';
+import DocsLayout from '@layouts/docs';
 import { DeepPartial } from '@utils/types';
 import useDomClean from '@hooks/use-dom-clean';
 import sharedTheme from '@theme/shared';
@@ -41,7 +42,6 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
 
   useDomClean();
   const Layout = Component.Layout || DefaultLayout;
-
   return (
     <>
       <ThemeProvider theme={customTheme}>
