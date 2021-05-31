@@ -14,7 +14,11 @@ const Navbar: React.FC = () => {
     >
       <Row justify="space-between" align="center">
         <Col>
-          <Logo />
+          <NextLink href="/">
+            <Link>
+              <Logo className="navbar__logo" />
+            </Link>
+          </NextLink>
         </Col>
         <Col>
           <Row justify="center" align="center">
@@ -22,7 +26,7 @@ const Navbar: React.FC = () => {
               <Link>Guide</Link>
             </NextLink>
             <Spacer x={1} y={0} />
-            <NextLink href="#">
+            <NextLink href="/docs/guide/introduction">
               <Link href="#">Docs</Link>
             </NextLink>
             <Spacer x={1} y={0} />
@@ -41,6 +45,9 @@ const Navbar: React.FC = () => {
         :global(.navbar__container) {
           min-height: var(--navbar-height);
           max-height: var(--navbar-height);
+        }
+        :global(.navbar__logo) {
+          cursor: pointer;
         }
       `}</style>
     </Container>

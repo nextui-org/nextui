@@ -7,6 +7,7 @@ export interface LogoProps {
   height?: number;
   small?: boolean;
   dark?: boolean;
+  className?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({
@@ -15,6 +16,7 @@ const Logo: React.FC<LogoProps> = ({
   height,
   dark,
   small,
+  className,
   ...props
 }) => {
   const theme = useTheme() as NextUIThemes;
@@ -26,6 +28,7 @@ const Logo: React.FC<LogoProps> = ({
         width={width || size || 40}
         height={height || size || 40}
         viewBox="0 0 43 43"
+        className={className}
         {...props}
       >
         <path
