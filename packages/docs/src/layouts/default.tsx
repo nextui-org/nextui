@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseLayout from './base';
+import Header from './header';
 import Footer from './footer';
 import Navbar from './navbar';
 import { Container } from '@nextui/react';
@@ -8,20 +8,19 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
   children,
 }) => {
   return (
-    <BaseLayout>
-      <div className="wrapper">
-        <Container
-          lg
-          display="flex"
-          as="main"
-          alignContent="space-between"
-          className="main-container"
-        >
-          <Navbar />
-          {children}
-          <Footer />
-        </Container>
-      </div>
+    <div className="wrapper">
+      <Header />
+      <Container
+        lg
+        display="flex"
+        as="main"
+        alignContent="space-between"
+        className="main-container"
+      >
+        <Navbar />
+        {children}
+        <Footer />
+      </Container>
       <style jsx>{`
         .wrapper {
           --dot-size: 1px;
@@ -37,7 +36,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
           min-height: 100vh;
         }
       `}</style>
-    </BaseLayout>
+    </div>
   );
 };
 

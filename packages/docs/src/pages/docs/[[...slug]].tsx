@@ -1,22 +1,25 @@
 import * as React from 'react';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import DocsLayout from '@layouts/docs';
 import * as Components from '@nextui/react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { getSlug } from '@lib/docs/utils';
-import fs from 'fs';
-import path from 'path';
+import { MetaProps } from '@lib/docs/meta';
 
 const components = { ...Components };
 
 interface Props {
   source: MDXRemoteSerializeResult;
+  meta: MetaProps;
 }
 
-const IntroPage: React.FC<Props> = ({ source }) => {
+const IntroPage: React.FC<Props> = ({ source, meta }) => {
   return (
-    <DocsLayout>
+    <DocsLayout meta={meta}>
       <MDXRemote {...source} components={components} />
     </DocsLayout>
   );
@@ -38,11 +41,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true, // It's not need for "fallback: false" but avoid fs.read exception
     };
   }
-  const mdx = fs.readFileSync(filePath);
-  const mdxSource = await serialize(mdx.toString());
+  const rawFileSource = fs.readFileSync(filePath);
+  const { content, data } = matter(rawFileSource);
+  const mdxSource = await serialize(content.toString());
+
   return {
     props: {
       source: mdxSource,
+      meta: data,
     },
   };
 };

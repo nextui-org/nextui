@@ -1,20 +1,21 @@
 import React from 'react';
-
-export interface Meta {
-  title: string;
-}
+import { MetaProps } from '@lib/docs/meta';
+import Header from './header';
 
 export interface Props {
-  meta?: Meta;
-  getStaticProps?: any;
+  meta?: MetaProps;
 }
 
 const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   children,
   meta,
 }) => {
-  console.log({ meta });
-  return <>{children}</>;
+  return (
+    <div>
+      <Header {...meta} />
+      {children}
+    </div>
+  );
 };
 
 export default DocsLayout;
