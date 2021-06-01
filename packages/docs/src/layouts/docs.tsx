@@ -7,11 +7,11 @@ const DocsLayout: React.FC<React.PropsWithChildren<any>> = ({ children }) => {
     <Container className="docs__container" display="flex" gap={0}>
       <Navbar />
       <Row>
-        <Col>
+        <Col span={3}>
           <p>Main Sidebar</p>
         </Col>
-        <Col>{children}</Col>
-        <Col>Component Sidebar</Col>
+        <Col span={7}>{children}</Col>
+        <Col span={2}>Component Sidebar</Col>
       </Row>
     </Container>
   );
