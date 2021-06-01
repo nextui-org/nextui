@@ -4,7 +4,7 @@ export type SlugParams = ParsedUrlQuery | undefined;
 
 export interface SlugResponse {
   slug: string;
-  version?: string;
+  tag?: string;
 }
 
 // Handle optional catch all route for `/docs`
@@ -19,7 +19,7 @@ export function getSlug(params: SlugParams): SlugResponse {
   if (slug[0] === 'tag') {
     return {
       slug: `/docs/${getDocsSlug(slug.slice(2)).join('/')}`,
-      version: slug[1],
+      tag: slug[1],
     };
   }
 

@@ -2,7 +2,9 @@ import React from 'react';
 import Navbar from './navbar';
 import { Container, Row, Col } from '@nextui/react';
 
-const DocsLayout: React.FC<React.PropsWithChildren<any>> = ({ children }) => {
+const DocsLayout: React.FC<React.PropsWithChildren<unknown>> = ({
+  children,
+}) => {
   return (
     <Container className="docs__container" display="flex" gap={0}>
       <Navbar />

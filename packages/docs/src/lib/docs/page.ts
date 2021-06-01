@@ -1,4 +1,4 @@
-import { TAG, FORCE_TAG } from './config';
+import { TAG, FORCE_TAG, CONTENT_PATH } from './config';
 import { getLatestTag } from '@lib/github/api';
 import { getRawFileFromRepo } from '@lib/github/raw';
 import { removeFromLast } from '@utils/index';
@@ -28,12 +28,29 @@ export async function getCurrentTag(tag?: string) {
   return getLatestTag();
 }
 
+export async function fetchRawDoc(doc: string, tag: string) {
+  return await getRawFileFromRepo(`${CONTENT_PATH}${doc}`, tag);
+}
+
 export async function fetchDocsManifest(tag: string) {
   const res = await getRawFileFromRepo(
-    '/packages/docs/content/docs/manifest.json',
+    `${CONTENT_PATH}/docs/manifest.json`,
     tag
   );
   return JSON.parse(res);
+}
+
+export function findRouteByPath(
+  path: string,
+  routes: Route[]
+): Route | null | undefined {
+  for (const route of routes) {
+    if (route.path && removeFromLast(route.path, '.') === path) {
+      return route;
+    }
+    const childPath = route.routes ? findRouteByPath(path, route.routes) : null;
+    if (childPath) return childPath;
+  }
 }
 
 export function getPaths(
