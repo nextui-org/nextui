@@ -8,7 +8,9 @@
         "@layouts/*": ["./src/layouts/*"],
         "@hooks/*": ["./src/hooks/*"],
         "@utils/*": ["./src/utils/*"],
-        "@theme/*": ["./src/theme/*"]
+        "@theme/*": ["./src/theme/*"],
+        "@content/*": ["./content/*"],
+        "@lib/*": ["./src/lib/*"]
     },
       "jsx": "preserve",
       "allowJs": true,
