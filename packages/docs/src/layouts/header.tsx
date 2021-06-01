@@ -13,12 +13,12 @@ const defaultProps = {
 };
 
 const Header: React.FC<HeaderProps> = ({ title, description }) => {
+  let pageTitle = title ? `${toCapitalize(title)} | ` : '';
+  pageTitle += 'NextUI - Beautiful, fast,modern React UI Library';
   return (
     <Head>
-      <title>
-        {title ? `${toCapitalize(title)} | ` : ''}NextUI - Beautiful, fast,
-        modern React UI Library
-      </title>
+      <title>{pageTitle}</title>
+      <meta property="og:title" content={pageTitle} key="title" />
       <meta name="description" content={description} />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="theme-color" content="#ffffff" />
