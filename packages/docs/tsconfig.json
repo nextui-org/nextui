@@ -9,7 +9,6 @@
         "@hooks/*": ["./src/hooks/*"],
         "@utils/*": ["./src/utils/*"],
         "@theme/*": ["./src/theme/*"],
-        "@content/*": ["./content/*"],
         "@lib/*": ["./src/lib/*"]
     },
       "jsx": "preserve",
