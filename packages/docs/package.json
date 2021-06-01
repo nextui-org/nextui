@@ -17,7 +17,8 @@
     "querystring": "^0.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "styled-jsx": "^3.4.4"
+    "styled-jsx": "^3.4.4",
+    "util.promisify": "^1.1.1"
   },
   "devDependencies": {
     "typescript": "^4.2.4"

@@ -11,6 +11,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { getSlug } from '@lib/docs/utils';
 import { MetaProps } from '@lib/docs/meta';
 import { ReactFCLayout } from '@lib/types';
+import { getCurrentTag, fetchDocsManifest, getPaths } from '@lib/docs/page';
 
 const components = { ...Components };
 
@@ -29,10 +30,11 @@ const DocsPage: ReactFCLayout<Props> = ({ source, meta }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: ['/docs/getting-started', '/docs/guide/introduction'],
-    fallback: false,
-  };
+  const tag = await getCurrentTag();
+  const manifest = await fetchDocsManifest(tag);
+  const paths = getPaths(manifest.routes);
+  console.log({ paths });
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

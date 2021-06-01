@@ -4,7 +4,8 @@
         "title": "Documentation",
         "heading": true,
         "routes": [
-          { "title": "Getting Started", "path": "/docs/getting-started.md" },
+            { "title": "Introduction", "path": "/docs/guide/introduction.mdx" },
+          { "title": "Getting Started", "path": "/docs/guide/getting-started.mdx" },
           {
             "title": "Basic Features",
             "open": true,
