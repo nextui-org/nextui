@@ -4,11 +4,13 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import Header from '@layouts/header';
 import DocsLayout from '@layouts/docs';
 import * as Components from '@nextui/react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { getSlug } from '@lib/docs/utils';
 import { MetaProps } from '@lib/docs/meta';
+import { ReactFCLayout } from '@lib/types';
 
 const components = { ...Components };
 
@@ -17,11 +19,12 @@ interface Props {
   meta: MetaProps;
 }
 
-const IntroPage: React.FC<Props> = ({ source, meta }) => {
+const DocsPage: ReactFCLayout<Props> = ({ source, meta }) => {
   return (
-    <DocsLayout meta={meta}>
+    <>
+      <Header {...meta} />
       <MDXRemote {...source} components={components} />
-    </DocsLayout>
+    </>
   );
 };
 
@@ -53,4 +56,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default IntroPage;
+DocsPage.Layout = DocsLayout;
+
+export default DocsPage;
