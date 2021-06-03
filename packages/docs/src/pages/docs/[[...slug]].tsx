@@ -1,5 +1,6 @@
 import * as React from 'react';
 import matter from 'gray-matter';
+import { useRouter } from 'next/router';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import Header from '@layouts/header';
@@ -8,8 +9,9 @@ import * as Components from '@nextui/react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { getSlug } from '@lib/docs/utils';
 import { MetaProps } from '@lib/docs/meta';
-import { ReactFCLayout } from '@lib/types';
+import useDocsRoute from '@hooks/use-docs-route';
 import {
+  Route,
   getCurrentTag,
   fetchDocsManifest,
   getPaths,
@@ -20,16 +22,22 @@ import {
 const components = { ...Components };
 
 interface Props {
+  routes: Route[];
+  currentRoute: Route;
   source: MDXRemoteSerializeResult;
   meta: MetaProps;
 }
 
-const DocsPage: ReactFCLayout<Props> = ({ source, meta }) => {
+const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
+  const { route, prevRoute, nextRoute } = useDocsRoute(currentRoute, routes);
+  console.log({ route, prevRoute, nextRoute });
+  const { query } = useRouter();
+  const { tag, slug } = getSlug(query);
   return (
-    <>
+    <DocsLayout routes={routes} tag={tag} slug={slug}>
       <Header {...meta} />
       <MDXRemote {...source} components={components} />
-    </>
+    </DocsLayout>
   );
 };
 
@@ -60,11 +68,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       source: mdxSource,
+      routes: manifest.routes,
+      currentRoute: route,
       meta: data,
     },
   };
 };
-
-DocsPage.Layout = DocsLayout;
 
 export default DocsPage;

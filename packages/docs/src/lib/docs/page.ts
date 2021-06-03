@@ -5,27 +5,31 @@ import { removeFromLast } from '@utils/index';
 
 export interface Route {
   title: string;
-  path: string;
+  heading?: boolean;
+  open?: boolean;
+  path?: string;
   routes?: Route[];
 }
 
-export interface MainRoute {
-  path?: string;
-  tile: string;
-  heading: boolean;
-  routes: Route[];
+export interface RouteContext {
+  parent?: Route;
+  route?: Route;
+  nextRoute?: Route;
+  prevRoute?: Route;
 }
 
 export interface Carry {
   params: { slug: any };
 }
 
-export type PathRoute = MainRoute & Route;
-
 export async function getCurrentTag(tag?: string) {
   if (tag) return tag;
   if (FORCE_TAG) return TAG;
   return getLatestTag();
+}
+
+export function addTagToSlug(slug: string, tag?: string) {
+  return tag ? slug.replace('/docs', `/docs/tag/${tag}`) : slug;
 }
 
 export async function fetchRawDoc(doc: string, tag: string) {
@@ -54,10 +58,10 @@ export function findRouteByPath(
 }
 
 export function getPaths(
-  nextRoutes: MainRoute[] | Route[],
+  nextRoutes: Route[],
   carry: Carry[] = [{ params: { slug: [] } }]
 ) {
-  nextRoutes.forEach((route: PathRoute) => {
+  nextRoutes.forEach((route: Route) => {
     if (route.path) {
       carry.push(removeFromLast(route.path, '.') as Carry);
     } else if (route.routes) {

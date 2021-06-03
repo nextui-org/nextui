@@ -1,16 +1,27 @@
 import React from 'react';
 import Navbar from './navbar';
 import { Container, Row, Col } from '@nextui/react';
+import { Route } from '@lib/docs/page';
+import { Sidebar } from '@components';
 
-const DocsLayout: React.FC<React.PropsWithChildren<unknown>> = ({
+export interface Props {
+  routes: Route[];
+  tag?: string;
+  slug?: string;
+}
+
+const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   children,
+  routes,
+  tag,
+  slug,
 }) => {
   return (
     <Container className="docs__container" display="flex" gap={0}>
       <Navbar />
       <Row>
         <Col span={3}>
-          <p>Main Sidebar</p>
+          <Sidebar routes={routes} tag={tag} slug={slug} />
         </Col>
         <Col span={7}>{children}</Col>
         <Col span={2}>Component Sidebar</Col>

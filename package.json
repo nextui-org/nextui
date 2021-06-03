@@ -12,7 +12,10 @@
     "scripts": {
         "dev": "run-p dev:docs sb",
         "dev:docs": "yarn workspace @nextui/docs dev",
-        "build": "SKIP_PREFLIGHT_CHECK=true yarn workspace @nextui/react build",
+        "start:docs": "yarn workspace @nextui/docs start",
+        "build:docs": "yarn workspace @nextui/docs build",
+        "build:nextui": "SKIP_PREFLIGHT_CHECK=true yarn workspace @nextui/react build",
+        "build": "run-s build:nextui build:docs",
         "build:watch": "yarn workspace @nextui/react watch",
         "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
         "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",

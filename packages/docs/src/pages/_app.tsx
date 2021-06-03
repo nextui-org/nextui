@@ -3,7 +3,6 @@ import { NextPage } from 'next';
 import { NextRouter, Router } from 'next/router';
 import { CssBaseline, NextUIThemes, ThemeProvider } from '@nextui/react';
 import { AppInitialProps } from 'next/app';
-import DefaultLayout from '@layouts/default';
 import { DeepPartial } from '@utils/types';
 import useDomClean from '@hooks/use-dom-clean';
 import sharedTheme from '@theme/shared';
@@ -37,14 +36,24 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   }, []);
 
   useDomClean();
-  const Layout = Component.Layout || DefaultLayout;
   return (
     <>
       <ThemeProvider theme={customTheme}>
-        <Layout>
+        <>
           <CssBaseline />
           <Component {...pageProps} />
-        </Layout>
+        </>
+        <style global jsx>{`
+          .noselect {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+          }
+        `}</style>
       </ThemeProvider>
     </>
   );
