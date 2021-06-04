@@ -6,6 +6,7 @@ import { removeFromLast } from '@utils/index';
 export interface Route {
   title: string;
   heading?: boolean;
+  icon?: string;
   open?: boolean;
   path?: string;
   routes?: Route[];

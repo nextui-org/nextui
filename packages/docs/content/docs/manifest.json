@@ -3,7 +3,7 @@
         {
             "title": "Guide",
             "open": true,
-            "icon": "",
+            "icon": "https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/paper%402x.png",
             "routes": [
                 {
                     "title": "Introduction",
@@ -21,7 +21,7 @@
         },
         {
             "title": "Theme",
-            "icon": "",
+            "icon": "https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/category%402x.png",
             "open": true,
             "routes": [
                 {
@@ -52,7 +52,7 @@
         },
         {
             "title": "Layout",
-            "icon": "",
+            "icon": "https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/layout%402x.png",
             "open": true,
             "routes": [
                 {
@@ -71,7 +71,7 @@
         },
         {
             "title": "Components",
-            "icon": "",
+            "icon": "https://raw.githubusercontent.com/jrgarciadev/nextui/main/packages/docs/public/components%402x.png",
             "open": true,
             "routes": [
                 {

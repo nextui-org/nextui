@@ -7,6 +7,7 @@ import { useTheme, NextUIThemes } from '@nextui/react';
 export interface Props {
   level: number;
   title: string;
+  iconUrl?: string;
   isMobile: boolean;
   selected: boolean;
   opened: boolean;
@@ -28,6 +29,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   level = 1,
   title,
   selected,
+  iconUrl,
   opened,
   children,
 }) => {
@@ -65,13 +67,13 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
       setToggle(toggle);
     }
   }, [toggle, shouldScroll, isMobile]);
-
   return (
     <div
       ref={ref}
       className={cn('category', levelClass, { open: toggle, selected })}
     >
       <span className="label noselect" onClick={toggleCategory}>
+        <img src={iconUrl} />
         <ArrowRight fill={theme.palette.accents_7} />
         {title}
       </span>
@@ -102,7 +104,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
         }
         .selected > .label {
           font-weight: 600;
-          color: #000;
+          color: ${theme.palette.accents_8};
         }
         .open > .label {
           color: ${theme.palette.accents_8};
@@ -123,7 +125,6 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           margin-bottom: 32px;
         }
         .posts {
-          border-left: 1px solid ${theme.palette.accents_6};
           margin-top: 0;
           height: 0;
           overflow: hidden;

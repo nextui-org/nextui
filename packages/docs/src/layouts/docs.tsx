@@ -19,13 +19,20 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <Container className="docs__container" display="flex" gap={0}>
       <Navbar />
-      <Row>
-        <Col span={3}>
+      <Row className="docs__content">
+        <Col className="docs__left-sidebar" span={3}>
           <Sidebar routes={routes} tag={tag} slug={slug} />
         </Col>
         <Col span={7}>{children}</Col>
         <Col span={2}>Component Sidebar</Col>
       </Row>
+      <style jsx>
+        {`
+          :global(.docs__content) {
+            padding-top: 2rem;
+          }
+        `}
+      </style>
     </Container>
   );
 };
