@@ -5,9 +5,9 @@ const getRouteContext = (
   routes: Route[],
   ctx: RouteContext = {}
 ): RouteContext => {
-  const { path } = currentRoute;
+  const path = currentRoute?.path;
   const { parent } = ctx;
-  for (let i = 0; i < routes.length; i += 1) {
+  for (let i = 0; i < routes?.length; i += 1) {
     const route = routes[i];
     if (route.routes) {
       ctx.parent = route;

@@ -37,7 +37,7 @@ const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
   return (
     <DocsLayout routes={routes} tag={tag} slug={slug}>
       <Header {...meta} />
-      <MDXRemote {...source} components={components} />
+      {source && <MDXRemote {...source} components={components} />}
     </DocsLayout>
   );
 };
@@ -45,7 +45,8 @@ const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const tag = await getCurrentTag();
   const manifest = await fetchDocsManifest(tag);
-  return { paths: getPaths(manifest.routes), fallback: false };
+  const paths = getPaths(manifest.routes);
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

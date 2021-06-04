@@ -34,7 +34,7 @@ const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
   const isMobile = useIsMobile();
   return (
     <>
-      {routes.map(({ path, title, icon, routes, heading, open }) => {
+      {routes?.map(({ path, title, icon, routes, heading, open }) => {
         if (routes) {
           const pathname = getCategoryPath(routes);
           const selected = slug.startsWith(pathname);
