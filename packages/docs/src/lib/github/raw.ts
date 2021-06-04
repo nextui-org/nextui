@@ -11,3 +11,7 @@ export async function getRawFileFromGitHub(path: string) {
 export function getRawFileFromRepo(path: string, tag: string) {
   return getRawFileFromGitHub(`/${REPO_NAME}/${tag}${path}`);
 }
+
+export function getRawAssetFromRepo(path: string, tag: string) {
+  return `${RAW_GITHUB_URL}/${REPO_NAME}/${tag}${path}`;
+}

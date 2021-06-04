@@ -17,6 +17,7 @@ import {
   getPaths,
   fetchRawDoc,
   findRouteByPath,
+  getRawAsset,
 } from '@lib/docs/page';
 
 const components = { ...Components };
@@ -33,6 +34,7 @@ const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
   console.log({ route, prevRoute, nextRoute });
   const { query } = useRouter();
   const { tag, slug } = getSlug(query);
+  console.log({ routes });
   return (
     <DocsLayout routes={routes} tag={tag} slug={slug}>
       <Header {...meta} />
@@ -64,11 +66,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { content, data } = matter(rawFileSource);
   const mdxSource = await serialize(content.toString());
+  const routes = manifest.routes.map((route: any) => {
+    if (route.icon) {
+      return {
+        ...route,
+        icon: getRawAsset(route.icon, currentTag),
+      };
+    }
+    return route;
+  });
 
   return {
     props: {
+      routes,
       source: mdxSource,
-      routes: manifest.routes,
       currentRoute: route,
       meta: data,
     },

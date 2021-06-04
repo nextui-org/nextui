@@ -1,6 +1,6 @@
-import { TAG, FORCE_TAG, CONTENT_PATH } from './config';
+import { TAG, FORCE_TAG, CONTENT_PATH, ASSETS_PATH } from './config';
 import { getLatestTag } from '@lib/github/api';
-import { getRawFileFromRepo } from '@lib/github/raw';
+import { getRawFileFromRepo, getRawAssetFromRepo } from '@lib/github/raw';
 import { removeFromLast } from '@utils/index';
 
 export interface Route {
@@ -43,6 +43,10 @@ export async function fetchDocsManifest(tag: string) {
     tag
   );
   return JSON.parse(res);
+}
+
+export function getRawAsset(doc: string, tag: string) {
+  return getRawAssetFromRepo(`${ASSETS_PATH}${doc}`, tag);
 }
 
 export function findRouteByPath(
