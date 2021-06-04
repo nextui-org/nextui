@@ -6,19 +6,27 @@ export interface Props {
   height?: number;
 }
 
-const ArrowRight: React.FC<Props> = ({ fill, width = 6, height = 10 }) => {
+const ArrowRight: React.FC<Props> = ({
+  fill,
+  width = 24,
+  height = 24,
+  ...props
+}) => {
   return (
     <svg
       width={width}
       height={height}
-      viewBox="0 0 6 10"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
-        d="M1.4 8.56L4.67 5M1.4 1.23L4.66 4.7"
+        d="M8.5 5l7 7-7 7"
         stroke={fill}
-        strokeLinecap="square"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

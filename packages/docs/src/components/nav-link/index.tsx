@@ -9,6 +9,7 @@ export interface Props {
   pathname: string;
   title: string;
   selected: boolean;
+  color?: string | boolean;
 }
 
 const defaultProps = {
@@ -26,12 +27,12 @@ const NavLink: React.FC<NavLinkProps> = ({
   href,
   pathname,
   title,
+  color,
   selected,
   onClick,
 }) => {
   const router = useRouter();
   const onlyHashChange = pathname === router.pathname;
-
   return (
     <div className={cn('nav-link', { selected })}>
       {
@@ -54,6 +55,7 @@ const NavLink: React.FC<NavLinkProps> = ({
           display: flex;
         }
         .nav-link :global(a) {
+          color: ${color ? color : 'inherit'} !important;
           text-decoration: none;
           font-size: 1rem;
           line-height: 1.5rem;

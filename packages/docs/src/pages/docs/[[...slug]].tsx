@@ -34,7 +34,6 @@ const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
   console.log({ route, prevRoute, nextRoute });
   const { query } = useRouter();
   const { tag, slug } = getSlug(query);
-  console.log({ routes });
   return (
     <DocsLayout routes={routes} tag={tag} slug={slug}>
       <Header {...meta} />

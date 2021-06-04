@@ -73,9 +73,11 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
       className={cn('category', levelClass, { open: toggle, selected })}
     >
       <span className="label noselect" onClick={toggleCategory}>
-        <img src={iconUrl} />
-        <ArrowRight fill={theme.palette.accents_7} />
+        {iconUrl && (
+          <img className="category-image" src={iconUrl} alt={`${title} icon`} />
+        )}
         {title}
+        <ArrowRight width={14} height={14} fill={theme.palette.accents_7} />
       </span>
       <div className="posts">{children}</div>
       <style jsx>{`
@@ -88,6 +90,10 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
         .category:last-child {
           margin-bottom: 0;
         }
+        .category-image {
+          width: 20px;
+          margin-right: 20px;
+        }
         .label {
           font-size: 1rem;
           line-height: 1.5rem;
@@ -99,7 +105,8 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           transition: all 250ms ease 0ms;
         }
         .label > :global(svg) {
-          margin-right: 14px;
+          margin-top: 1px;
+          margin-left: 14px;
           transition: transform 0.15s ease;
         }
         .selected > .label {
@@ -110,8 +117,8 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           color: ${theme.palette.accents_8};
         }
         .open > .label > :global(svg) {
-          margin-left: 1px;
-          margin-right: 13px;
+          margin-right: 1px;
+          margin-left: 13px;
           transform: rotate(90deg);
         }
         .level-2 .label {
@@ -130,6 +137,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           overflow: hidden;
           padding-left: 19px;
           margin-left: 3px;
+          transition: margin-top 0.25s ease;
         }
         .open > .posts {
           margin-top: 18px;

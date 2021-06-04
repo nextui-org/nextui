@@ -8,15 +8,11 @@ export interface Props {
   level: number;
   route: NavLinkProps;
   isMobile: boolean;
-  selected: boolean;
-  opened: boolean;
 }
 
 const defaultProps = {
   level: 1,
   isMobile: false,
-  selected: false,
-  opened: false,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
@@ -49,7 +45,11 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
 
   return (
     <div ref={ref} className={cn('link', `level-${level}`)}>
-      <NavLink {...route} onClick={onClick} />
+      <NavLink
+        {...route}
+        color={!route.selected && theme.palette.accents_5}
+        onClick={onClick}
+      />
       <style jsx>{`
         .link {
           margin: 18px 0;
