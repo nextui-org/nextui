@@ -17,7 +17,7 @@ export interface Props {
 
 const defaultProps = {
   level: 1,
-  tag: 'main',
+  tag: '',
   slug: '',
 };
 
@@ -77,7 +77,6 @@ const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
         const pathname = pagePath && addTagToSlug(pagePath, tag);
         const selected = pagePath && slug.startsWith(pagePath);
         const route = { href, path, title, pathname, selected } as NavLinkProps;
-
         return (
           <Post key={title} isMobile={isMobile} level={level} route={route} />
         );
