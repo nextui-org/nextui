@@ -3,7 +3,7 @@
         {
             "title": "Guide",
             "open": true,
-            "icon": "paper.svg",
+            "icon": "/paper.svg",
             "routes": [
                 {
                     "title": "Introduction",
@@ -21,7 +21,7 @@
         },
         {
             "title": "Theme",
-            "icon": "category.svg",
+            "icon": "/category.svg",
             "open": true,
             "routes": [
                 {
@@ -52,7 +52,7 @@
         },
         {
             "title": "Layout",
-            "icon": "layout.svg",
+            "icon": "/layout.svg",
             "open": true,
             "routes": [
                 {
@@ -71,7 +71,7 @@
         },
         {
             "title": "Components",
-            "icon": "components.svg",
+            "icon": "/components.svg",
             "open": true,
             "routes": [
                 {
