@@ -29,7 +29,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
       <style jsx>
         {`
           :global(.docs__content) {
-            padding-top: 2rem;
+            padding-top: 1rem;
           }
         `}
       </style>

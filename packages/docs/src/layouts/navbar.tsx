@@ -1,9 +1,24 @@
 import React from 'react';
 import { Logo } from '@components';
+import cn from 'classnames';
 import NextLink from 'next/link';
-import { Container, Row, Col, Spacer, Link, Text } from '@nextui/react';
+import {
+  Container,
+  Row,
+  Col,
+  Spacer,
+  Link,
+  Text,
+  useTheme,
+} from '@nextui/react';
+import { useRouter } from 'next/router';
+
+const isActive = (pathname: string, href: string) =>
+  pathname && pathname.startsWith(href);
 
 const Navbar: React.FC = () => {
+  const router = useRouter();
+  const theme = useTheme();
   return (
     <Container
       className="navbar__container"
@@ -22,12 +37,16 @@ const Navbar: React.FC = () => {
         </Col>
         <Col>
           <Row justify="center" align="center">
-            <NextLink href="#">
-              <Link>Guide</Link>
-            </NextLink>
             <Spacer x={1} y={0} />
             <NextLink href="/docs/guide/introduction">
-              <Link href="#">Docs</Link>
+              <Link
+                className={cn('navbar__link', {
+                  active: isActive(router.pathname, '/docs/[[...slug]]'),
+                })}
+                href="#"
+              >
+                Docs
+              </Link>
             </NextLink>
             <Spacer x={1} y={0} />
             <NextLink href="#">
@@ -43,11 +62,15 @@ const Navbar: React.FC = () => {
       </Row>
       <style jsx>{`
         :global(.navbar__container) {
-          min-height: var(--navbar-height);
-          max-height: var(--navbar-height);
+          min-height: 80px;
+          max-height: 80px;
         }
         :global(.navbar__logo) {
           cursor: pointer;
+        }
+        :global(.navbar__link.active) {
+          font-weight: 600;
+          color: ${theme.palette.primary};
         }
       `}</style>
     </Container>
