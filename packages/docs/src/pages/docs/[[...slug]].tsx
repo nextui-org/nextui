@@ -1,4 +1,7 @@
+/* eslint-disable react/display-name */
 import * as React from 'react';
+import fs from 'fs';
+import path from 'path';
 import matter from 'gray-matter';
 import { useRouter } from 'next/router';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -8,8 +11,10 @@ import DocsLayout from '@layouts/docs';
 import * as Components from '@nextui/react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { getSlug } from '@lib/docs/utils';
+import { isProd } from '@utils/index';
 import { MetaProps } from '@lib/docs/meta';
 import useDocsRoute from '@hooks/use-docs-route';
+import { Playground } from '@components';
 import {
   Route,
   getCurrentTag,
@@ -20,7 +25,10 @@ import {
   getRawAsset,
 } from '@lib/docs/page';
 
-const components = { ...Components };
+const components = {
+  ...Components,
+  Playground,
+};
 
 interface Props {
   routes: Route[];
@@ -57,15 +65,38 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     if (error.status === 404) return;
     throw error;
   });
-
   const route = manifest && findRouteByPath(slug, manifest.routes);
 
   if (!route) return { props: {} };
 
-  const rawFileSource = await fetchRawDoc(route.path, currentTag);
+  let meta, doc;
 
-  const { content, data } = matter(rawFileSource);
-  const mdxSource = await serialize(content.toString());
+  if (isProd) {
+    const rawFileSource = await fetchRawDoc(route.path, currentTag);
+    const { content, data } = matter(rawFileSource);
+    doc = content.toString();
+    meta = data;
+  } else {
+    meta = null;
+    const folderPath = path.join(process.cwd(), 'content');
+    const filePath = path.join(folderPath, `${slug}.mdx`);
+    const rawFileSource = fs.readFileSync(filePath);
+    const { content, data } = matter(rawFileSource);
+    doc = content.toString();
+    meta = data;
+  }
+
+  const mdxSource = await serialize(doc, {
+    mdxOptions: {
+      remarkPlugins: [
+        require('remark-autolink-headings'),
+        require('remark-slug'),
+      ],
+      rehypePlugins: [require('@mapbox/rehype-prism')],
+    },
+  });
+
+  console.log({ mdxSource });
   const routes = manifest.routes.map((route: any) => {
     if (route.icon) {
       return {
@@ -79,9 +110,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       routes,
+      meta,
       source: mdxSource,
       currentRoute: route,
-      meta: data,
     },
   };
 };

@@ -1,16 +1,50 @@
 ---
 title: 'Button'
-description: 'Buttons allow users to take actions, and make choices, with a single tap.'
+description: 'Buttons allow users to perform actions and choose with a single tap.'
 ---
 
-# Button
+## Button
 
-<p>Buttons allow users to take actions, and make choices, with a single tap.</p>
-<br />
-<h2>Default</h2>
+<Text>
+  Buttons allow users to perform actions and choose with a single tap.
+</Text>
 
+<Playground
+  title="Default"
+  desc="The default `Button` contains an animation effect."
+  code={`
 <Button>Default</Button>
+`}
+/>
 
-```jsx
-<Button>Default</Button>
-```
+<Playground
+  title="Colors"
+  desc="You can change the color of the `Button` with the property color giving it as a value the color."
+  code={`
+<Row flexWrap="false">
+  <Button color="primary" auto>
+    Primary
+  </Button>
+  <Spacer />
+  <Button color="secondary" auto>
+    Secondary
+  </Button>
+  <Spacer />
+  <Button color="success" auto>
+    Success
+  </Button>
+  <Spacer />
+  <Button color="warning" auto>
+    Warning
+  </Button>
+  <Spacer />
+  <Button color="error" auto>
+    Error
+  </Button>
+  <Spacer />
+  <Button color="gradient" auto>
+    Gradient
+  </Button>
+</Row>
+`}
+/>

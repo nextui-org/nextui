@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import cn from 'classnames';
-import ArrowRight from '../icons/arrow-right-sidebar';
+import ArrowRight from '../icons/arrow-right';
 import withDefaults from '@utils/with-defaults';
 import { useTheme, NextUIThemes } from '@nextui/react';
 
@@ -137,7 +137,6 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           overflow: hidden;
           padding-left: 19px;
           margin-left: 3px;
-          transition: margin-top 0.25s ease;
         }
         .open > .posts {
           margin-top: 18px;

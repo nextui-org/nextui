@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './navbar';
+import Footer from './footer';
 import { Container, Row, Col } from '@nextui/react';
 import { Route } from '@lib/docs/page';
 import { Sidebar } from '@components';
@@ -26,6 +27,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         <Col span={7}>{children}</Col>
         <Col span={2}>Component Sidebar</Col>
       </Row>
+      <Footer />
       <style jsx>
         {`
           :global(.docs__content) {
