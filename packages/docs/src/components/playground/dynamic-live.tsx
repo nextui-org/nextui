@@ -19,7 +19,7 @@ const DynamicLive: React.FC<Props> = ({ code }) => {
         <LivePreview />
         <LiveError />
       </div>
-      <Editor code={code} />
+      <Editor />
       <style jsx>{`
         .wrapper {
           width: 100%;

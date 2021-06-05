@@ -4,11 +4,7 @@ import { useTheme, Row, Col } from '@nextui/react';
 import CopyIcon from '../icons/copy';
 import RightIcon from '../icons/arrow-right';
 
-interface Props {
-  code: string;
-}
-
-const Editor: React.FC<Props> = ({ code }) => {
+const Editor: React.FC = () => {
   const theme = useTheme();
   const [visible, setVisible] = useState(false);
   const clickHandler = (event: React.MouseEvent) => {
