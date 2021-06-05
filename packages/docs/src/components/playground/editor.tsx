@@ -31,7 +31,7 @@ const Editor: React.FC = () => {
               <span className="arrow">
                 <RightIcon size={16} />
               </span>
-              <span>Code Editor</span>
+              <span>Live Editor</span>
             </Col>
             <Col className="action">
               {visible && (

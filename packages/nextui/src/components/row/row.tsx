@@ -26,7 +26,7 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type RowProps = Props & typeof defaultProps & NativeAttrs;
 
-const Container: React.FC<React.PropsWithChildren<RowProps>> = ({
+const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
   children,
   as,
   gap,
@@ -63,6 +63,6 @@ const Container: React.FC<React.PropsWithChildren<RowProps>> = ({
   );
 };
 
-const MemoContainer = React.memo(Container);
+const MemoRow = React.memo(Row);
 
-export default withDefaults(MemoContainer, defaultProps);
+export default withDefaults(MemoRow, defaultProps);

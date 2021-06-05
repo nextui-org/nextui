@@ -96,7 +96,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   });
 
-  console.log({ mdxSource });
   const routes = manifest.routes.map((route: any) => {
     if (route.icon) {
       return {
