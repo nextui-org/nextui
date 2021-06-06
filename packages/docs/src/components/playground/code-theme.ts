@@ -46,7 +46,7 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
     {
       types: ['tag-id', 'selector', 'atrule-id'],
       style: {
-        color: '#eeebff',
+        color: '#E06C75',
       },
     },
     {
@@ -109,7 +109,7 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
     {
       types: ['important'],
       style: {
-        color: '#c4b9fe',
+        color: '#C678DD',
       },
     },
   ],

@@ -46,7 +46,6 @@ const Playground: React.FC<PlaygroundProps> = ({
           .playground {
             width: 100%;
             border-radius: ${theme.layout.radius};
-            border: 1px solid ${theme.palette.accents_2};
           }
         `}</style>
       </div>

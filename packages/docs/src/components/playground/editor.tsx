@@ -29,7 +29,7 @@ const Editor: React.FC = () => {
           >
             <Col className="action">
               <span className="arrow">
-                <RightIcon size={16} />
+                <RightIcon size={16} fill={theme.palette.accents_6} />
               </span>
               <span>Live Editor</span>
             </Col>
@@ -49,21 +49,18 @@ const Editor: React.FC = () => {
 
       <style jsx>{`
         .editor {
-          border-bottom-left-radius: ${theme.layout.radius};
-          border-bottom-right-radius: ${theme.layout.radius};
+          margin-top: 1rem;
         }
         details {
           transition: all 0.2s ease;
           overflow: hidden;
-          border-bottom-left-radius: ${theme.layout.radius};
-          border-bottom-right-radius: ${theme.layout.radius};
+          border-radius: ${theme.layout.radius};
         }
         summary {
           display: flex;
           justify-content: space-between;
           align-items: center;
           padding: 0 ${theme.layout.gap};
-          border-top: 1px solid ${theme.palette.accents_2};
           color: ${theme.palette.accents_5};
           height: 2.875rem;
           list-style: none;
@@ -88,7 +85,6 @@ const Editor: React.FC = () => {
           background-color: #111;
           font-size: 1em;
           overflow: hidden;
-          border-top: 1px solid ${theme.palette.accents_2};
           padding: ${theme.layout.gapHalf};
         }
         .arrow {

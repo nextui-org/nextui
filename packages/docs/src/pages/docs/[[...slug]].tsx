@@ -14,7 +14,7 @@ import { getSlug } from '@lib/docs/utils';
 import { isProd } from '@utils/index';
 import { MetaProps } from '@lib/docs/meta';
 import useDocsRoute from '@hooks/use-docs-route';
-import { Playground } from '@components';
+import { MDXComponents } from '@components';
 import {
   Route,
   getCurrentTag,
@@ -27,7 +27,7 @@ import {
 
 const components = {
   ...Components,
-  Playground,
+  ...MDXComponents,
 };
 
 interface Props {

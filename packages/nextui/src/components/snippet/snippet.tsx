@@ -12,6 +12,7 @@ interface Props {
   toastText?: string;
   filled?: boolean;
   width?: string;
+  bordered?: boolean;
   copy?: CopyTypes;
   type?: SnippetTypes;
   className?: string;
@@ -19,6 +20,7 @@ interface Props {
 
 const defaultProps = {
   filled: false,
+  bordered: false,
   symbol: '$',
   toastText: 'Copied to clipboard!',
   width: 'initial',
@@ -40,6 +42,7 @@ const textArrayToString = (text: string[]): string => {
 const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   type,
   filled,
+  bordered,
   children,
   symbol,
   toastText,
@@ -100,7 +103,7 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           padding-right: calc(2 * ${theme.layout.gap});
           color: ${style.color};
           background-color: ${style.bgColor};
-          border: 1px solid ${style.border};
+          border: ${bordered ? '1px' : '0px'} solid ${style.border};
           border-radius: ${theme.layout.radius};
         }
         pre {
