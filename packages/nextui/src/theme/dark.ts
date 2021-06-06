@@ -29,9 +29,9 @@ export const expressiveness: NextUIThemesExpressiveness = {
   dropdownBoxShadow: '0 0 0 1px #333',
   scrollerStart: 'rgba(255, 255, 255, 1)',
   scrollerEnd: 'rgba(255, 255, 255, 0)',
-  shadowSmall: '0 0 0 1px #333',
-  shadowMedium: '0 0 0 1px #333',
-  shadowLarge: '0 0 0 1px #333',
+  shadowSmall: '0 10px 20px -10px rgba(230, 230, 230, .15)',
+  shadowMedium: '0 15px 22px -10px rgba(230, 230, 230, 0.15)',
+  shadowLarge: '0 20px 24px -10px rgba(230, 230, 230, 0.15)',
   portalOpacity: 0.75,
 };
 

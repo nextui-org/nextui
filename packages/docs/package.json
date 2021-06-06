@@ -21,6 +21,7 @@
     "react-dom": "^17.0.2",
     "react-iconly": "^2.2.2",
     "react-live": "^2.2.3",
+    "react-markdown": "^6.0.2",
     "remark-autolink-headings": "^6.0.1",
     "remark-slug": "^6.0.0",
     "styled-jsx": "^3.4.4",

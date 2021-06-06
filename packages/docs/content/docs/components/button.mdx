@@ -22,8 +22,44 @@ import { Button } from '@nextui/react';
 />
 
 <Playground
+  title="Disabled"
+  desc="Unusable and un-clickable `Button`."
+  code={`
+<Button disabled>Default</Button>
+`}
+/>
+
+<Playground
+  title="Shadow"
+  desc="You can add a shadow effect with the property `shadow`."
+  code={`
+ <Button shadow color="secondary">Shadow</Button>
+`}
+/>
+
+<Playground
+  title="Sizes"
+  desc="Change the size of the entire button including `padding`, `font-size` and `border` with the size property."
+  code={`
+<>
+    <Button size="mini">mini</Button>
+    <Spacer y={0.5}/>
+    <Button size="small">small</Button>
+    <Spacer y={0.5}/>
+    <Button>medium</Button>
+    <Spacer y={0.5}/>
+    <Button size="large">large</Button>
+    <Spacer y={0.5}/>
+    <Button size="xlarge">xlarge</Button>
+    <Spacer y={0.5}/>
+    <Button auto>auto width</Button>
+</>
+`}
+/>
+
+<Playground
   title="Colors"
-  desc="You can change the color of the `Button` with the property color giving it as a value the color."
+  desc="You can change the color of the `Button` with the property color."
   code={`
 <Row flexWrap="false">
   <Button color="primary" auto>
@@ -50,5 +86,193 @@ import { Button } from '@nextui/react';
     Gradient
   </Button>
 </Row>
+`}
+/>
+
+<Playground
+  title="Loading"
+  desc="You can add a `loading` status with the loading property. You can change the `loader` with the `loaderType` property"
+  code={`
+<Row flexWrap="false">
+  <Button loading color="primary" loaderType="default" auto>
+    Primary
+  </Button>
+  <Spacer />
+  <Button loading color="secondary" loaderType="spinner" auto>
+    Secondary
+  </Button>
+  <Spacer />
+  <Button loading color="success" loaderType="points" auto>
+    Success
+  </Button>
+  <Spacer />
+  <Button loading color="warning" loaderType="points-opacity" auto>
+    Warning
+  </Button>
+  <Spacer />
+  <Button loading color="error" loaderType="gradient" auto>
+    Error
+  </Button>
+  <Spacer />
+  <Button loading color="gradient" loaderType="default" auto>
+    Gradient
+  </Button>
+</Row>
+`}
+/>
+
+<Playground
+  title="Bordered"
+  desc="You can change the full style towards a bodered button with the `bordered` property."
+  code={`
+ <Row flexWrap="false">
+    <Button bordered color="primary" auto>
+      Primary
+    </Button>
+    <Spacer/>
+    <Button bordered color="secondary" auto>
+      Secondary
+    </Button>
+    <Spacer/>
+    <Button bordered color="success" auto>
+      Success
+    </Button>
+    <Spacer/>
+    <Button bordered color="warning" auto>
+      Warning
+    </Button>
+    <Spacer/>
+    <Button bordered color="error" auto>
+      Error
+    </Button>
+    <Spacer/>
+    <Button bordered color="gradient" auto>
+      Gradient
+    </Button>
+ </Row>
+`}
+/>
+
+<Playground
+  title="Flat"
+  desc="You can change the full style towards a flat button with the `flat` property."
+  code={`
+ <Row flexWrap="false">
+     <Button auto color="primary" flat>
+      Primary
+    </Button>
+    <Spacer/>
+    <Button auto color="secondary" flat>
+      Secondary
+    </Button>
+    <Spacer/>
+    <Button auto color="success" flat>
+      Success
+    </Button>
+    <Spacer/>
+    <Button auto color="warning" flat>
+      Warning
+    </Button>
+    <Spacer/>
+    <Button auto color="error" flat>
+      Error
+    </Button>
+    <Spacer/>
+    <Button auto color="gradient" flat>
+      Gradient
+    </Button>
+ </Row>
+`}
+/>
+
+<Playground
+  title="Light"
+  desc="You can change the full style towards a light button with the `light` property."
+  code={`
+ <Row flexWrap="false">
+    <Button auto color="primary" light>
+      Primary
+    </Button>
+    <Spacer/>
+    <Button auto color="secondary" light>
+      Secondary
+    </Button>
+    <Spacer/>
+    <Button auto color="success" light>
+      Success
+    </Button>
+    <Spacer/>
+    <Button auto color="warning" light>
+      Warning
+    </Button>
+    <Spacer/>
+    <Button auto color="error" light>
+      Error
+    </Button>
+    <Spacer/>
+    <Button auto color="gradient" light>
+      Gradient
+    </Button>
+ </Row>
+`}
+/>
+
+<Playground
+  title="Rounded"
+  desc="You can completely round the corners of any type of button with the `rounded` property."
+  code={`
+ <Row flexWrap="false">
+    <Button auto color="primary" rounded>
+      Primary
+    </Button>
+    <Spacer/>
+    <Button auto color="secondary" rounded flat>
+      Secondary
+    </Button>
+    <Spacer/>
+    <Button auto color="success" rounded bordered>
+      Success
+    </Button>
+    <Spacer/>
+    <Button auto color="warning" rounded flat>
+      Warning
+    </Button>
+    <Spacer/>
+    <Button auto color="error" rounded bordered>
+      Error
+    </Button>
+    <Spacer/>
+    <Button auto color="gradient" rounded>
+      Gradient
+    </Button>
+ </Row>
+`}
+/>
+
+<Playground
+  title="Icons"
+  desc="NextUI doesn't use any library or icon font by default, with this we give the freedom to use the one you prefer. In the following example we use [React Iconly](https://react-iconly.jrgarciadev.com)"
+  code={`
+ <>
+    <Button auto color="error" icon={<Heart fill="white" filled />} />
+    <Spacer y={0.5} />
+    <Button iconRight={<Camera fill="white" />}>Take a photo</Button>
+    <Spacer y={0.5} />
+    <Button icon={<Lock fill="white" />} color="success">
+        Lock
+    </Button>
+    <Spacer y={0.5} />
+    <Button icon={<Notification fill="white" />} color="secondary">
+        Notifications
+    </Button>
+    <Spacer y={0.5} />
+    <Button icon={<User  fill="#e85186" />} color="error" flat>
+        Delete User
+    </Button>
+    <Spacer y={0.5} />
+    <Button icon={<User/>} disabled>
+        Delete User
+    </Button>
+</>
 `}
 />

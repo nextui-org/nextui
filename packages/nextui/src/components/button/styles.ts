@@ -128,7 +128,7 @@ export const getButtonColors = (
   if (disabled)
     return {
       bg: palette.accents_2,
-      color: palette.accents_3,
+      color: palette.accents_4,
       loaderBg: palette.accents_1,
     };
 

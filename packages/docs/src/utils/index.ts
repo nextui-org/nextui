@@ -8,4 +8,8 @@ export function removeFromLast<T>(path: string, key: string): string | T {
   return i === -1 ? path : path.substring(0, i);
 }
 
+export function isFunction(fn: any): boolean {
+  return typeof fn === 'function';
+}
+
 export const isProd = process.env.NODE_ENV === 'production';

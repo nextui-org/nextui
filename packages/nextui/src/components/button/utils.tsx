@@ -8,6 +8,7 @@ export const getButtonChildrenWithIcon = (
   auto: boolean,
   size: NormalSizes,
   children: ReactNode,
+  loading: boolean,
   icons: {
     icon?: React.ReactNode;
     iconRight?: React.ReactNode;
@@ -20,7 +21,17 @@ export const getButtonChildrenWithIcon = (
     auto || size === 'mini'
       ? `calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5)`
       : 0;
-  if (!hasIcon) return <div className="text">{children}</div>;
+  if (!hasIcon)
+    return (
+      <div className="text">
+        {children}
+        <style jsx>{`
+          .text {
+            opacity: ${loading ? 0 : 1};
+          }
+        `}</style>
+      </div>
+    );
   if (React.Children.count(children) === 0) {
     return (
       <ButtonIcon isRight={isRight} isSingle>

@@ -4,6 +4,7 @@ import { useTheme } from '@nextui/react';
 import makeCodeTheme from './code-theme';
 import Editor from './editor';
 import * as Components from '@nextui/react';
+import * as Icons from '../icons';
 
 export interface Props {
   code: string;
@@ -12,7 +13,7 @@ export interface Props {
 const DynamicLive: React.FC<Props> = ({ code }) => {
   const theme = useTheme();
   const codeTheme = makeCodeTheme(theme);
-  const scope = { ...Components };
+  const scope = { ...Components, ...Icons };
   return (
     <LiveProvider code={code} scope={scope} theme={codeTheme}>
       <div className="wrapper">
@@ -23,7 +24,7 @@ const DynamicLive: React.FC<Props> = ({ code }) => {
       <style jsx>{`
         .wrapper {
           width: 100%;
-          padding: ${theme.layout.pageMargin};
+          padding: 0 0 ${theme.layout.gapHalf} 0;
           display: flex;
           flex-direction: column;
           box-sizing: border-box;

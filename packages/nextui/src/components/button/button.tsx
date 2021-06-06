@@ -147,11 +147,11 @@ const Button = React.forwardRef<
 
   const childrenWithIcon = useMemo(
     () =>
-      getButtonChildrenWithIcon(auto, size, children, {
+      getButtonChildrenWithIcon(auto, size, children, loading, {
         icon,
         iconRight,
       }),
-    [auto, size, children, icon, iconRight]
+    [auto, loading, size, children, icon, iconRight]
   );
 
   return (

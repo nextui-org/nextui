@@ -13,10 +13,6 @@ const defaultProps = {
   height: 24,
 };
 
-type NativeAttrs = Omit<React.SVGProps<SVGSVGElement>, keyof Props>;
-
-export type CategoryProps = Props & typeof defaultProps & NativeAttrs;
-
 const Copy: React.FC<Props> = ({ size, fill, width, height, ...props }) => {
   return (
     <svg

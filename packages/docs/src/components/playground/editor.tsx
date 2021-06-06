@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { LiveEditor } from 'react-live';
 import { useTheme, Row, Col } from '@nextui/react';
 import CopyIcon from '../icons/copy';
+import BugIcon from '../icons/bug';
 import RightIcon from '../icons/arrow-right';
 
 const Editor: React.FC = () => {
@@ -31,13 +32,26 @@ const Editor: React.FC = () => {
               <span className="arrow">
                 <RightIcon size={16} fill={theme.palette.accents_6} />
               </span>
-              <span>Live Editor</span>
+              <span className="title">Live Editor</span>
             </Col>
             <Col className="action">
               {visible && (
-                <span className="copy" onClick={copyHandler} title="Copy Code">
-                  <CopyIcon fill={theme.palette.accents_6} size={18} />
-                </span>
+                <>
+                  <span
+                    className="icon"
+                    onClick={copyHandler}
+                    title="Copy Code"
+                  >
+                    <CopyIcon fill={theme.palette.accents_6} size={18} />
+                  </span>
+                  <span
+                    className="icon"
+                    onClick={copyHandler}
+                    title="Report a bug"
+                  >
+                    <BugIcon fill={theme.palette.accents_6} size={18} />
+                  </span>
+                </>
               )}
             </Col>
           </Row>
@@ -50,6 +64,9 @@ const Editor: React.FC = () => {
       <style jsx>{`
         .editor {
           margin-top: 1rem;
+        }
+        .title {
+          font-weight: 600;
         }
         details {
           transition: all 0.2s ease;
@@ -96,13 +113,14 @@ const Editor: React.FC = () => {
           height: 1rem;
           margin-right: 0.5rem;
         }
-        .copy {
+        .icon {
           display: inline-flex;
           align-items: center;
+          margin-left: 0.5rem;
           color: ${theme.palette.accents_4};
           transition: color 0.2s ease;
         }
-        .copy:hover {
+        .icon:hover {
           color: ${theme.palette.accents_6};
         }
       `}</style>
