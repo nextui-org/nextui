@@ -276,3 +276,28 @@ import { Button } from '@nextui/react';
 </>
 `}
 />
+
+<Spacer y={2} />
+
+#### API
+
+#### Button Props
+
+| Attribute     | Description                               | Type                                            | Accepted values             | Default   |
+| ------------- | ----------------------------------------- | ----------------------------------------------- | --------------------------- | --------- |
+| **type**      | button type                               | `ButtonTypes`                                   | [ButtonTypes](#buttontypes) | `default` |
+| **size**      | button size                               | `NormalSizes`                                   | [NormalSizes](#normalsizes) | `medium`  |
+| **ghost**     | the opposite color                        | `boolean`                                       | -                           | `false`   |
+| **loading**   | display loading indicator                 | `boolean`                                       | -                           | `false`   |
+| **shadow**    | display shadow                            | `boolean`                                       | -                           | `false`   |
+| **auto**      | autoscale width                           | `boolean`                                       | -                           | `false`   |
+| **effect**    | display animation                         | `boolean`                                       | -                           | `true`    |
+| **disabled**  | disable button                            | `boolean`                                       | -                           | `false`   |
+| **onClick**   | click handler                             | `MouseEventHandler`                             | -                           | -         |
+| **icon**      | show icon in button                       | `ReactNode`                                     | -                           | -         |
+| **iconRight** | show icon on the other side of the button | `ReactNode`                                     | -                           | -         |
+| **htmlType**  | native type of button element             | `ButtonHTMLAttributes.type`                     | -                           | `button`  |
+| **ref**       | forwardRef                                | <Code>Ref<HTMLButtonElement &#124; null></Code> | -                           | -         |
+| ...           | native props                              | `ButtonHTMLAttributes`                          | `'id', 'className', ...`    | -         |
+
+#### Button Group Props
