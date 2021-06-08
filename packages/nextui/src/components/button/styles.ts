@@ -1,10 +1,12 @@
+import { CSSProperties } from 'react';
 import { NextUIThemesPalette } from '@theme/index';
-import { NormalSizes, NormalColors } from '@utils/prop-types';
+import { NormalSizes, NormalColors, NormalWeights } from '@utils/prop-types';
 import { ButtonProps } from './button';
 import { ButtonGroupProps } from './button-group';
 import { addColorAlpha } from '@utils/color';
 
 export interface ButtonBorder {
+  display?: string;
   weight?: string;
   color?: string;
 }
@@ -14,6 +16,7 @@ export interface ButtonColorGroup {
   color?: string;
   loaderBg?: string;
   border?: ButtonBorder;
+  style?: CSSProperties;
 }
 
 export interface ButtonCursorGroup {
@@ -75,15 +78,25 @@ export const getGroupBorder = (
   );
 };
 
+const getButtonWeight = (weight: NormalWeights): string | undefined => {
+  const weights: { [key in NormalWeights]?: string } = {
+    light: '1px',
+    normal: '2px',
+    bold: '3px',
+  };
+  return weights[weight];
+};
+
 export const getButtonColors = (
   palette: NextUIThemesPalette,
   props: ButtonProps
 ): ButtonColorGroup => {
-  const { color, disabled, bordered, flat, light } = props;
+  const { color, disabled, bordered, weight, flat, light } = props;
+  const border = getButtonWeight(weight);
   const common = {
     color: palette.white,
     border: {
-      weight: '0px',
+      weight: border || '0px',
     },
   };
   const colors: { [key in NormalColors]?: ButtonColorGroup } = {
@@ -115,13 +128,11 @@ export const getButtonColors = (
     gradient: {
       ...common,
       bg: palette.gradient,
-
       loaderBg: palette.warning,
     },
     error: {
       ...common,
       bg: palette.error,
-
       loaderBg: palette.error,
     },
   };
@@ -138,15 +149,31 @@ export const getButtonColors = (
   const highlightColor = color === 'default' ? palette.primary : baseColor;
 
   if (bordered)
-    return {
-      ...selectedColor,
-      bg: palette.background,
-      color: highlightColor,
-      border: {
-        weight: '2px',
-        color: highlightColor,
-      },
-    };
+    return color === 'gradient'
+      ? {
+          ...selectedColor,
+          bg: palette.background,
+          color: 'inherit',
+          border: {
+            display: 'none',
+          },
+          style: {
+            padding: border,
+            backgroundClip: 'content-box, border-box',
+            backgroundImage: `linear-gradient(${palette.background},${palette.background}),
+             ${palette.gradient}`,
+          },
+        }
+      : {
+          ...selectedColor,
+          bg: palette.background,
+          color: highlightColor,
+          border: {
+            display: 'solid',
+            weight: border,
+            color: highlightColor,
+          },
+        };
   if (light)
     return {
       ...selectedColor,

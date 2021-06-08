@@ -19,7 +19,7 @@ export const palette: NextUIThemesPalette = {
   text: '#fff',
   background: '#000',
   foreground: '#fff',
-  code: '#79ffe1',
+  code: '#eaeaea',
   border: '#333',
 };
 

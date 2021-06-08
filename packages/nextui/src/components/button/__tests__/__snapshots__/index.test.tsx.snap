@@ -18,6 +18,7 @@ exports[`Button should render different variants 2`] = `
   rounded={false}
   shadow={false}
   size="medium"
+  weight="normal"
 >
   button
 </NextUI - Button>
@@ -39,5 +40,6 @@ exports[`Button should render empty button correctly 1`] = `
   rounded={false}
   shadow={false}
   size="medium"
+  weight="normal"
 />
 `;

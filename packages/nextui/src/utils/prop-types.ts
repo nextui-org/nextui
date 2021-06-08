@@ -20,6 +20,8 @@ export const normalLoaders = tuple(
   'spinner'
 );
 
+export const normalWeights = tuple('light', 'normal', 'bold');
+
 const themeTypes = tuple('dark', 'light');
 
 const snippetTypes = tuple(
@@ -123,6 +125,8 @@ export type Direction = typeof direction[number];
 export type Wrap = typeof wrap[number];
 
 export type NormalSizes = typeof normalSizes[number];
+
+export type NormalWeights = typeof normalWeights[number];
 
 export type NormalColors = typeof normalColors[number];
 

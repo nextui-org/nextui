@@ -2,6 +2,7 @@ import React from 'react';
 import useTheme from '@hooks/use-theme';
 import flush from 'styled-jsx/server';
 import flushToReact from 'styled-jsx/server';
+import { addColorAlpha } from '@utils/color';
 
 const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const theme = useTheme();
@@ -163,13 +164,17 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         }
         code {
           color: ${theme.palette.code};
+          padding: calc(${theme.layout.gapQuarter} * 0.5)
+            ${theme.layout.gapQuarter};
+          border-radius: 0.375rem;
+          background-color: ${addColorAlpha(theme.palette.code, 0.2)};
           font-family: ${theme.font.mono};
-          font-size: 0.9em;
+          font-size: 0.8rem;
           white-space: pre-wrap;
+          transition: background-color 0.25s ease;
         }
-        code:before,
-        code:after {
-          content: '\`';
+        code:hover {
+          background-color: ${addColorAlpha(theme.palette.code, 0.3)};
         }
         pre {
           border-radius: ${theme.layout.radius};

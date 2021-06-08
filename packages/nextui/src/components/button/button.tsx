@@ -7,10 +7,16 @@ import React, {
   PropsWithoutRef,
   RefAttributes,
 } from 'react';
+import useWarning from '@hooks/use-warning';
 import useTheme from '@hooks/use-theme';
 import ButtonDrip from './button.drip';
 import ButtonLoading from './button-loading';
-import { NormalColors, NormalLoaders, NormalSizes } from '@utils/prop-types';
+import {
+  NormalColors,
+  NormalLoaders,
+  NormalSizes,
+  NormalWeights,
+} from '@utils/prop-types';
 import { filterPropsWithGroup, getButtonChildrenWithIcon } from './utils';
 import { useButtonGroupContext } from './button-group-context';
 import ButtonGroup from './button-group';
@@ -34,12 +40,14 @@ interface Props {
   animated?: boolean;
   rounded?: boolean;
   disabled?: boolean;
+  weight?: NormalWeights;
   loaderType?: NormalLoaders;
   htmlType?: React.ButtonHTMLAttributes<unknown>['type'];
   icon?: React.ReactNode;
   iconRight?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const defaultProps = {
@@ -47,6 +55,7 @@ const defaultProps = {
   size: 'medium' as NormalSizes,
   htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
   loaderType: 'default' as NormalLoaders,
+  weight: 'normal' as NormalWeights,
   bordered: false,
   flat: false,
   light: false,
@@ -94,11 +103,16 @@ const Button = React.forwardRef<
     iconRight,
     className,
     loaderType,
+    style: buttonStyle,
     ...props
   } = filteredProps;
   /* eslint-enable @typescript-eslint/no-unused-vars */
-
-  const { bg, color, loaderBg, border } = useMemo(
+  if (filteredProps.color === 'gradient' && (flat || light)) {
+    useWarning(
+      'Using the gradient color on flat and light buttons will have no effect.'
+    );
+  }
+  const { bg, color, loaderBg, border, style } = useMemo(
     () => getButtonColors(theme.palette, filteredProps),
     [theme.palette, filteredProps]
   );
@@ -124,7 +138,7 @@ const Button = React.forwardRef<
   );
 
   const background =
-    filteredProps.color === 'gradient' && !bordered
+    filteredProps.color === 'gradient' && !flat && !light
       ? `background-image: ${bg}`
       : `background-color: ${bg}`;
 
@@ -147,11 +161,27 @@ const Button = React.forwardRef<
 
   const childrenWithIcon = useMemo(
     () =>
-      getButtonChildrenWithIcon(auto, size, children, loading, {
-        icon,
-        iconRight,
-      }),
-    [auto, loading, size, children, icon, iconRight]
+      getButtonChildrenWithIcon(
+        auto,
+        size,
+        children,
+        loading,
+        {
+          icon,
+          iconRight,
+        },
+        filteredProps.color === 'gradient' && filteredProps.bordered
+      ),
+    [
+      auto,
+      loading,
+      size,
+      children,
+      icon,
+      iconRight,
+      filteredProps.bordered,
+      filteredProps.color,
+    ]
   );
 
   return (
@@ -161,6 +191,10 @@ const Button = React.forwardRef<
       className={`button ${className}`}
       disabled={disabled}
       onClick={clickHandler}
+      style={{
+        ...style,
+        ...buttonStyle,
+      }}
       {...props}
     >
       {loading && (
@@ -191,7 +225,7 @@ const Button = React.forwardRef<
           min-width: ${minWidth};
           width: ${width};
           border-radius: ${radius};
-          border: ${border?.weight || '2px'} solid
+          border: ${border?.weight || '2px'} ${border?.display || 'none'}
             ${border?.color || 'transparent'};
           font-weight: 500;
           font-size: ${fontSize};
