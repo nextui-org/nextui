@@ -5,6 +5,7 @@ import Codeblock from './codeblock';
 import * as Icons from '../icons';
 import { useTheme } from '@nextui/react';
 import { Anchor } from '@components';
+import cn from 'classnames';
 
 const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   return (
@@ -75,21 +76,38 @@ const Tcol: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
 };
 export interface LinkedHeadingProps {
   as: keyof JSX.IntrinsicElements;
+  linked?: boolean;
 }
 
-const LinkedHeading: React.FC<LinkedHeadingProps> = ({ as, ...props }) => {
+const LinkedHeading: React.FC<LinkedHeadingProps> = ({
+  as,
+  linked = true,
+  ...props
+}) => {
   const Component = as;
   return (
-    <Component {...props}>
-      <Anchor>{props.children}</Anchor>
+    <Component
+      className={cn({ 'linked-heading': linked })}
+      data-name={props.children}
+      {...props}
+    >
+      {linked ? <Anchor>{props.children}</Anchor> : <>{props.children}</>}
+      <style jsx>{`
+        :global(h1) {
+          font-size: 2.3rem;
+        }
+      `}</style>
     </Component>
   );
 };
 
 const MDXComponents = {
   ...Icons,
+  h1: (props: React.DetailsHTMLAttributes<unknown>) => (
+    <LinkedHeading as="h1" linked={false} {...props} />
+  ),
   h2: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h3" {...props} />
+    <LinkedHeading as="h2" {...props} />
   ),
   h3: (props: React.DetailsHTMLAttributes<unknown>) => (
     <LinkedHeading as="h3" {...props} />

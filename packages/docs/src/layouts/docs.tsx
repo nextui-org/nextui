@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './navbar';
 import Footer from './footer';
-import { Container, Row, Col } from '@nextui/react';
+import {
+  Container,
+  Row,
+  Col,
+  Spacer,
+  useTheme,
+  NextUIThemes,
+} from '@nextui/react';
 import { Route } from '@lib/docs/page';
-import { Sidebar } from '@components';
+import { Sidebar, TableOfContent } from '@components';
+import { Heading, getHeadings } from '@utils/get-headings';
+import { MetaProps } from '@lib/docs/meta';
+import Header from '@layouts/header';
+import { Sticky } from '@components';
 
 export interface Props {
   routes: Route[];
+  meta?: MetaProps;
   tag?: string;
   slug?: string;
 }
@@ -16,22 +28,44 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   routes,
   tag,
   slug,
+  meta,
 }) => {
+  const [headings, setHeadings] = useState<Heading[]>([]);
+  const theme = useTheme() as NextUIThemes;
+  useEffect(() => {
+    setHeadings(getHeadings());
+  }, [routes]);
+
   return (
     <Container className="docs__container" display="flex" gap={0}>
+      <Header {...meta} />
       <Navbar />
       <Row className="docs__content">
-        <Col className="docs__left-sidebar" span={3}>
+        <Sticky className="docs__left-sidebar">
           <Sidebar routes={routes} tag={tag} slug={slug} />
-        </Col>
-        <Col span={7}>{children}</Col>
-        <Col span={2}>Component Sidebar</Col>
+        </Sticky>
+        <Col span={8}>{children}</Col>
+        <Spacer x={1} />
+        <Sticky className="docs__right-sidebar">
+          <TableOfContent headings={headings} />
+        </Sticky>
       </Row>
       <Footer />
       <style jsx>
         {`
+          :global(.docs__left-sidebar) {
+            width: 25%;
+          }
           :global(.docs__content) {
             padding-top: 1rem;
+          }
+          :global(.docs__right-sidebar) {
+            display: none;
+          }
+          @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
+            :global(.docs__right-sidebar) {
+              display: block;
+            }
           }
         `}
       </style>

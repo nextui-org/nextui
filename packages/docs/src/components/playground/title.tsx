@@ -2,6 +2,7 @@ import React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { Anchor } from '@components';
 import ReactMarkdown from 'react-markdown';
+import { kebabCase, isString } from 'lodash';
 
 interface Props {
   title: React.ReactNode | string;
@@ -17,7 +18,11 @@ export type TitleProps = Props & typeof defaultProps;
 const Title: React.FC<TitleProps> = ({ title, desc }) => {
   return (
     <>
-      <h3>
+      <h3
+        id={`${isString(title) && kebabCase(title)}`}
+        data-name={title}
+        className="linked-heading"
+      >
         <Anchor>{title}</Anchor>
       </h3>
       {desc && <ReactMarkdown>{desc}</ReactMarkdown>}

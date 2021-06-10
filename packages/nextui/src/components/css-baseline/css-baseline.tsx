@@ -32,9 +32,6 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           overflow-x: hidden;
           font-family: ${theme.font.sans};
         }
-        #__next {
-          overflow-x: hidden;
-        }
         *,
         *:before,
         *:after {

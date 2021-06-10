@@ -11,6 +11,8 @@
         "@theme/*": ["./src/theme/*"],
         "@lib/*": ["./src/lib/*"]
     },
+     "lib": ["dom", "es2015", "ESNext.String"],
+      "target": "esnext",
       "jsx": "preserve",
       "allowJs": true,
       "esModuleInterop": true,

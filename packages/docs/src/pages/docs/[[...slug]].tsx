@@ -6,7 +6,6 @@ import matter from 'gray-matter';
 import { useRouter } from 'next/router';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import Header from '@layouts/header';
 import DocsLayout from '@layouts/docs';
 import * as Components from '@nextui/react';
 import { GetStaticProps, GetStaticPaths } from 'next';
@@ -43,9 +42,15 @@ const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
   const { query } = useRouter();
   const { tag, slug } = getSlug(query);
   return (
-    <DocsLayout routes={routes} tag={tag} slug={slug}>
-      <Header {...meta} />
-      {source && <MDXRemote {...source} components={components} />}
+    <DocsLayout routes={routes} tag={tag} slug={slug} meta={meta}>
+      <div className="slug__container">
+        {source && <MDXRemote {...source} components={components} />}
+        <style jsx>{`
+          .slug__container {
+            padding-right: 2rem;
+          }
+        `}</style>
+      </div>
     </DocsLayout>
   );
 };
