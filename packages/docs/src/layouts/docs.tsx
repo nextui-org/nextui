@@ -41,12 +41,12 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
       <Header {...meta} />
       <Navbar />
       <Row className="docs__content">
-        <Sticky className="docs__left-sidebar">
+        <Sticky offset={10} className="docs__left-sidebar">
           <Sidebar routes={routes} tag={tag} slug={slug} />
         </Sticky>
         <Col span={8}>{children}</Col>
         <Spacer x={1} />
-        <Sticky className="docs__right-sidebar">
+        <Sticky offset={10} className="docs__right-sidebar">
           <TableOfContent headings={headings} />
         </Sticky>
       </Row>
@@ -55,6 +55,11 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         {`
           :global(.docs__left-sidebar) {
             width: 25%;
+            max-height: calc(100vh - 4rem);
+            overflow: auto;
+          }
+          :global(.docs__left-sidebar::-webkit-scrollbar) {
+            width: 0px;
           }
           :global(.docs__content) {
             padding-top: 1rem;

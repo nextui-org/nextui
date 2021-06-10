@@ -2,7 +2,7 @@ import * as React from 'react';
 import cn from 'classnames';
 import { useScrollSpy } from '@hooks/use-scroll-spy';
 import { Heading } from '@utils/get-headings';
-import { useTheme, Text, Spacer, NextUIThemes } from '@nextui/react';
+import { useTheme, NextUIThemes } from '@nextui/react';
 
 interface TableOfContentProps {
   headings: Heading[];
@@ -23,8 +23,8 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
   if (headings.length <= 0) return null;
 
   return (
-    <div className="container">
-      <p className="title">Contents</p>
+    <div className="container" {...props}>
+      <h4 className="title">Contents</h4>
       <ul className="list">
         {headings.map((heading) => (
           <li
@@ -43,7 +43,8 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
         }
         .title {
           padding-left: 1rem;
-          margin: 0;
+          font-size: 1.2rem;
+          font-weight: 600;
         }
         .list {
           max-height: 62vh;

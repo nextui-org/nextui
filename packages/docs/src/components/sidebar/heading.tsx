@@ -23,7 +23,6 @@ const Heading: React.FC<React.PropsWithChildren<HeadingProps>> = ({
       <div>{children}</div>
       <style jsx>{`
         h4 {
-          margin: 1.25rem 0;
           font-size: 1.2rem;
           font-weight: 600;
         }

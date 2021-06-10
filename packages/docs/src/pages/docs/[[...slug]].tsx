@@ -110,7 +110,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
     return route;
   });
-
   return {
     props: {
       routes,
