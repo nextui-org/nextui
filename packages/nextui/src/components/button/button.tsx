@@ -34,6 +34,7 @@ interface Props {
   light?: boolean;
   bordered?: boolean;
   flat?: boolean;
+  ghost?: boolean;
   loading?: boolean;
   shadow?: boolean;
   auto?: boolean;
@@ -59,6 +60,7 @@ const defaultProps = {
   bordered: false,
   flat: false,
   light: false,
+  ghost: false,
   loading: false,
   rounded: false,
   shadow: false,
@@ -112,7 +114,8 @@ const Button = React.forwardRef<
       'Using the gradient color on flat and light buttons will have no effect.'
     );
   }
-  const { bg, color, loaderBg, border, style } = useMemo(
+
+  const { bg, color, loaderBg, border, style, hover } = useMemo(
     () => getButtonColors(theme.palette, filteredProps),
     [theme.palette, filteredProps]
   );
@@ -249,14 +252,15 @@ const Button = React.forwardRef<
           --next-ui-button-color: ${color};
           --next-ui-button-bg: ${bg};
         }
-        .button:hover {
+        .button:hover,
+        .button:focus {
+          color: ${hover?.color};
+          --next-ui-button-color: ${hover?.color};
+          background-color: ${hover?.bg};
+          border-color: ${hover?.border?.color || 'transparent'};
           cursor: ${cursor};
           pointer-events: ${events};
-          box-shadow: ${shadow
-            ? theme.expressiveness.shadowMedium
-            : !disabled && !bordered && !flat && !light
-            ? 'inset 0 0 40px 0 rgb(0 0 0 / 14%)'
-            : 'none'};
+          box-shadow: ${shadow ? theme.expressiveness.shadowMedium : 'none'};
           transform: translate3d(0px, ${shadow ? '-1.5px' : '0px'}, 0px);
         }
         .button :global(.text) {

@@ -38,19 +38,19 @@ interface Props {
 
 const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
   const { route, prevRoute, nextRoute } = useDocsRoute(currentRoute, routes);
-  console.log({ route, prevRoute, nextRoute });
   const { query } = useRouter();
   const { tag, slug } = getSlug(query);
   return (
-    <DocsLayout routes={routes} tag={tag} slug={slug} meta={meta}>
-      <div className="slug__container">
-        {source && <MDXRemote {...source} components={components} />}
-        <style jsx>{`
-          .slug__container {
-            padding-right: 2rem;
-          }
-        `}</style>
-      </div>
+    <DocsLayout
+      routes={routes}
+      currentRoute={route}
+      prevRoute={prevRoute}
+      nextRoute={nextRoute}
+      tag={tag}
+      slug={slug}
+      meta={meta}
+    >
+      {source && <MDXRemote {...source} components={components} />}
     </DocsLayout>
   );
 };

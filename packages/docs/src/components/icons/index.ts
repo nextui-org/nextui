@@ -9,6 +9,7 @@ export interface IconProps {
 
 export { default as Activity } from './activity';
 export { default as Camera } from './camera';
+export { default as ArrowLeft } from './arrow-left';
 export { default as ArrowRight } from './arrow-right';
 export { default as Copy } from './copy';
 export { default as Lock } from './lock';
