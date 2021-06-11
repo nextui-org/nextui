@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { NextUIThemesPalette } from '@theme/index';
 import { NormalSizes, NormalColors, NormalWeights } from '@utils/prop-types';
-import { ButtonProps } from './button';
+import { Props as ButtonProps } from './button';
 import { ButtonGroupProps } from './button-group';
 import { addColorAlpha } from '@utils/color';
 
@@ -79,28 +79,13 @@ export const getGroupBorder = (
   );
 };
 
-const getButtonWeight = (weight: NormalWeights): string | undefined => {
+const getButtonWeight = (weight?: NormalWeights): string | undefined => {
   const weights: { [key in NormalWeights]?: string } = {
     light: '1px',
     normal: '2px',
     bold: '3px',
   };
-  return weights[weight];
-};
-
-export const getButtonGhostHoverColors = (
-  palette: NextUIThemesPalette,
-  props: ButtonProps
-): ButtonColorGroup => {
-  const { color } = props;
-  const key = color === 'default' ? 'primary' : color;
-  return {
-    bg: palette[key] || palette.primary,
-    color: palette.white,
-    border: {
-      color: 'transparent',
-    },
-  };
+  return weights[weight || 'normal'];
 };
 
 export const getButtonColors = (
@@ -115,7 +100,7 @@ export const getButtonColors = (
       weight: border || '0px',
     },
   };
-  const key = color === 'default' ? 'primary' : color;
+  const key = (color === 'default' ? 'primary' : color) || 'primary';
   const buttonColor = {
     ...common,
     bg: palette[key] || palette.primary,
@@ -129,7 +114,8 @@ export const getButtonColors = (
       loaderBg: palette.accents_1,
     };
 
-  const baseColor = color === 'default' ? palette.accents_2 : palette[color];
+  const baseColor =
+    color === 'default' ? palette.accents_2 : palette[color || 'primary'];
   const highlightColor = color === 'default' ? palette.primary : baseColor;
 
   if (bordered)
@@ -188,7 +174,7 @@ export const getButtonColors = (
         bg: addColorAlpha(buttonColor?.bg || palette.foreground, 0.25),
       },
     };
-  if (ghost) {
+  if (ghost === true) {
     return {
       ...buttonColor,
       bg: palette.background,
@@ -207,7 +193,10 @@ export const getButtonColors = (
       },
     };
   }
-  return buttonColor;
+  return {
+    ...buttonColor,
+    hover: { bg: addColorAlpha(palette[key] || palette.primary, 0.92) },
+  };
 };
 
 export const getLoadingSize = (size: NormalSizes): NormalSizes => {
@@ -352,7 +341,8 @@ export const getButtonDripColor = (
     error: palette.error,
     gradient: palette.warning,
   };
-  const baseColor = color === 'default' ? palette.primary : colors[color];
+  const baseColor =
+    color === 'default' ? palette.primary : colors[color || 'default'];
   if (light) return addColorAlpha(palette.accents_2, 0.8);
   if (flat) return addColorAlpha(baseColor || palette.accents_2, 0.4);
   const selectedColor = bordered ? baseColor : palette.accents_2;

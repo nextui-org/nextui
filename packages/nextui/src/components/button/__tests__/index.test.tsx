@@ -113,6 +113,8 @@ describe('Button', () => {
           button
         </Button>
         <Button shadow>button</Button>
+        <Button ghost>button</Button>
+        <Button bordered>button</Button>
         <Button auto>button</Button>
         <Button animated={false}>button</Button>
       </div>

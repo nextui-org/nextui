@@ -28,7 +28,7 @@ import {
   getButtonSize,
 } from './styles';
 
-interface Props {
+export interface Props {
   color?: NormalColors;
   size?: NormalSizes;
   light?: boolean;
@@ -91,7 +91,6 @@ const Button = React.forwardRef<
     children,
     disabled,
     loading,
-    bordered,
     shadow,
     animated,
     light,
@@ -173,7 +172,7 @@ const Button = React.forwardRef<
           icon,
           iconRight,
         },
-        filteredProps.color === 'gradient' && filteredProps.bordered
+        filteredProps.color === 'gradient' && filteredProps.bordered == true
       ),
     [
       auto,
