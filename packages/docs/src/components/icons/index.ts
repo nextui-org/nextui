@@ -7,6 +7,7 @@ export interface IconProps {
   label?: string;
 }
 
+export { default as Anchor } from './anchor';
 export { default as Activity } from './activity';
 export { default as Camera } from './camera';
 export { default as ArrowLeft } from './arrow-left';

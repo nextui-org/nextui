@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useTheme } from '@nextui/react';
-import AnchorIcon from './anchor-icon';
+import { Anchor } from '../icons';
 
 export interface Props {
   pure?: boolean;
@@ -30,7 +30,7 @@ const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({
       <span className="virtual" id={id} />
       {!pure && (
         <span className="icon">
-          <AnchorIcon />
+          <Anchor />
         </span>
       )}
       <style jsx>{`
@@ -64,7 +64,7 @@ const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({
           width: 1em;
           height: 1em;
           color: ${theme.palette.accents_5};
-          transition: opacity 0.25s ease;
+          transition: all 0.25s ease;
         }
         .parent:hover > .icon {
           opacity: 1;

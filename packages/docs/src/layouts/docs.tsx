@@ -54,7 +54,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         <Sticky offset={10} className="docs__left-sidebar">
           <Sidebar routes={routes} tag={tag} slug={slug} />
         </Sticky>
-        <Col span={8}>
+        <Col className="docs__center" span={8}>
           {children}
           <PageNav tag={tag} prevRoute={prevRoute} nextRoute={nextRoute} />
           <footer>
@@ -80,9 +80,12 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
       <style jsx>
         {`
           :global(.docs__left-sidebar) {
-            width: 25%;
+            width: 20%;
             max-height: calc(100vh - 4rem);
             overflow: auto;
+          }
+          :global(.docs__center) {
+            padding: 0 1.8rem !important;
           }
           :global(.docs__left-sidebar::-webkit-scrollbar) {
             width: 0px;

@@ -4,3 +4,37 @@ description: Get started with NextUI in the official documentation, and learn mo
 ---
 
 # Getting started
+
+Welcome to the NextUI documentation!
+
+NextUI is a library of UI components created with [React.js](https://reactjs.org/) and [styled-jsx](https://github.com/vercel/styled-jsx) for
+building beautiful, modern and fast websites and applications, NextUI is base on [GeistUI](https://react.geist-ui.dev) and inspired by [Vuesax](https://vuesax.com/).
+
+### Installation
+
+Inside your React project directory, install NextUI by running either of the following:
+
+```bash
+yarn add @nextui/react
+# or
+npm i @nextui/react
+```
+
+### Setup
+
+```jsx
+import { CssBaseline } from '@nextui/react';
+const Application = () => (
+  <>
+    <CssBaseline /> // ---> Normalize styles
+    <AppComponent /> // ---> Your App Component
+  </>
+);
+```
+
+### Using NextUI components
+
+```jsx
+import { Button } from '@next-ui/react';
+const Component = () => <Button>Action</Button>;
+```

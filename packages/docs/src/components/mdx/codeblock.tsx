@@ -11,18 +11,24 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
     style.types.includes('string')
   );
   const punctuationColor = codeTheme.styles.find((style) =>
-    style.types.includes('tag')
+    style.types.includes('punctuation')
   );
-  const classnameColor = codeTheme.styles.find((style) =>
+  const selectorColor = codeTheme.styles.find((style) =>
     style.types.includes('selector')
   );
+  const commentColor = codeTheme.styles.find((style) =>
+    style.types.includes('comment')
+  );
+  const classnameColor = codeTheme.styles.find((style) =>
+    style.types.includes('tag')
+  );
   return (
-    <Snippet>
+    <Snippet symbol="">
       {children}
       <style jsx>{`
         :global(pre) {
           border: 0px;
-          padding: 0;
+          padding: 4px !important;
         }
         :global(.snippet, .copy) {
           background-color: ${codeTheme.plain.backgroundColor} !important;
@@ -33,10 +39,16 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
         :global(.token.punctuation) {
           color: ${punctuationColor?.style.color};
         }
-        :global(.token.maybe-class-name) {
+        :global(.token.class-name) {
           color: ${classnameColor?.style.color};
         }
-        :global(.token.module) {
+        :global(.token.maybe-class-name) {
+          color: ${selectorColor?.style.color};
+        }
+        :global(.token.plain-text, .token.comment) {
+          color: ${commentColor?.style.color};
+        }
+        :global(.token.module, .token.keyword) {
           color: #c678dd;
         }
       `}</style>

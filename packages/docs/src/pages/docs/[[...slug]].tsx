@@ -90,7 +90,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     doc = content.toString();
     meta = data;
   }
-
   const mdxSource = await serialize(doc, {
     mdxOptions: {
       remarkPlugins: [

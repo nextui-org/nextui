@@ -79,7 +79,6 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
     copy(childText);
     if (copyType === 'slient') return;
   };
-
   return (
     <div className={`snippet ${className}`} {...props}>
       {isMultiLine ? (
