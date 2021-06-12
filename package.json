@@ -25,6 +25,7 @@
         "test": "yarn nextui:test",
         "test:update": "yarn nextui:test-update",
         "test:up": "yarn nextui:test-update",
+        "test:cov": "yarn workspace @nextui/react coverage-update",
         "coverage": "yarn workspace @nextui/react coverage",
         "coverage:update": "yarn workspace @nextui/react coverage-update",
         "coverage:codecov": "yarn workspace @nextui/react coverage:codecov",

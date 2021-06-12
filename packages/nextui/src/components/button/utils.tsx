@@ -1,66 +1,6 @@
-import React, { ReactNode } from 'react';
-import { NormalSizes } from '@utils/prop-types';
-import ButtonIcon from './button-icon';
+import React from 'react';
 import { ButtonProps } from '@components/button/button';
 import { ButtonGroupConfig } from '@components/button/button-group-context';
-
-export const getButtonChildrenWithIcon = (
-  auto: boolean,
-  size: NormalSizes,
-  children: ReactNode,
-  loading: boolean,
-  icons: {
-    icon?: React.ReactNode;
-    iconRight?: React.ReactNode;
-  },
-  borderedGradient?: boolean
-) => {
-  const { icon, iconRight } = icons;
-  const hasIcon = icon || iconRight;
-  const isRight = Boolean(iconRight);
-  const paddingForAutoMode =
-    auto || size === 'mini'
-      ? `calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5)`
-      : 0;
-  const paddingForBorderedGradient = borderedGradient
-    ? `var(--next-ui-button-padding)`
-    : 0;
-  if (!hasIcon)
-    return (
-      <div className="text">
-        {children}
-        <style jsx>{`
-          .text {
-            padding: 0 ${paddingForBorderedGradient};
-            opacity: ${loading ? 0 : 1};
-          }
-        `}</style>
-      </div>
-    );
-  if (React.Children.count(children) === 0) {
-    return (
-      <ButtonIcon isRight={isRight} isSingle>
-        {hasIcon}
-      </ButtonIcon>
-    );
-  }
-  return (
-    <React.Fragment>
-      <ButtonIcon isRight={isRight}>{hasIcon}</ButtonIcon>
-      <div className={`text ${isRight ? 'right' : 'left'}`}>
-        {children}
-        <style jsx>{`
-          .left {
-            padding-left: ${paddingForAutoMode};
-          }
-          .right {
-            padding-right: ${paddingForAutoMode};
-          }
-        `}</style>
-      </div>
-    </React.Fragment>
-  );
-};
 
 export const filterPropsWithGroup = (
   props: React.PropsWithChildren<ButtonProps>,

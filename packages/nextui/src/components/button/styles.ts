@@ -7,7 +7,7 @@ import { addColorAlpha } from '@utils/color';
 
 export interface ButtonBorder {
   display?: string;
-  weight?: string;
+  width?: string;
   color?: string;
 }
 
@@ -16,6 +16,7 @@ export interface ButtonColorGroup {
   color?: string;
   loaderBg?: string;
   hover?: ButtonColorGroup;
+  padding?: string;
   border?: ButtonBorder;
   style?: CSSProperties;
 }
@@ -97,7 +98,7 @@ export const getButtonColors = (
   const common = {
     color: palette.white,
     border: {
-      weight: border || '0px',
+      width: border || '0px',
     },
   };
   const key = (color === 'default' ? 'primary' : color) || 'primary';
@@ -118,38 +119,39 @@ export const getButtonColors = (
     color === 'default' ? palette.accents_2 : palette[color || 'primary'];
   const highlightColor = color === 'default' ? palette.primary : baseColor;
 
+  const borderedGradientStyles = {
+    ...buttonColor,
+    bg: palette.background,
+    color: 'inherit',
+    border: {
+      display: 'none',
+    },
+    style: {
+      padding: border,
+      backgroundClip: 'content-box, border-box',
+      backgroundImage: `linear-gradient(${palette.background},${palette.background}),
+       ${palette.gradient}`,
+    },
+    hover: {
+      color: addColorAlpha(palette.text, 0.8),
+    },
+  };
   if (bordered)
     return color === 'gradient'
-      ? {
-          ...buttonColor,
-          bg: palette.background,
-          color: 'inherit',
-          border: {
-            display: 'none',
-          },
-          style: {
-            padding: border,
-            backgroundClip: 'content-box, border-box',
-            backgroundImage: `linear-gradient(${palette.background},${palette.background}),
-             ${palette.gradient}`,
-          },
-          hover: {
-            color: addColorAlpha(palette.text, 0.8),
-          },
-        }
+      ? borderedGradientStyles
       : {
           ...buttonColor,
           bg: palette.background,
           color: highlightColor,
           border: {
             display: 'solid',
-            weight: border,
+            width: border,
             color: highlightColor,
           },
           hover: {
-            color: addColorAlpha(highlightColor, 0.8),
+            color: addColorAlpha(highlightColor, 0.85),
             border: {
-              color: addColorAlpha(highlightColor, 0.6),
+              color: addColorAlpha(highlightColor, 0.8),
             },
           },
         };
@@ -161,8 +163,8 @@ export const getButtonColors = (
       hover: {
         color:
           color === 'default'
-            ? addColorAlpha(palette.foreground, 0.8)
-            : addColorAlpha(baseColor, 0.8),
+            ? addColorAlpha(palette.foreground, 0.85)
+            : addColorAlpha(baseColor, 0.9),
       },
     };
   if (flat)
@@ -175,12 +177,21 @@ export const getButtonColors = (
       },
     };
   if (ghost === true) {
+    if (color === 'gradient') {
+      return {
+        ...borderedGradientStyles,
+        hover: {
+          bg: palette[key],
+          padding: '0px',
+        },
+      };
+    }
     return {
       ...buttonColor,
       bg: palette.background,
       border: {
         display: 'solid',
-        weight: border,
+        width: border,
         color: highlightColor,
       },
       color: highlightColor,
@@ -195,7 +206,7 @@ export const getButtonColors = (
   }
   return {
     ...buttonColor,
-    hover: { bg: addColorAlpha(palette[key] || palette.primary, 0.92) },
+    hover: { bg: addColorAlpha(palette[key] || palette.primary, 0.85) },
   };
 };
 

@@ -17,9 +17,10 @@ import {
   NormalSizes,
   NormalWeights,
 } from '@utils/prop-types';
-import { filterPropsWithGroup, getButtonChildrenWithIcon } from './utils';
+import { filterPropsWithGroup } from './utils';
 import { useButtonGroupContext } from './button-group-context';
 import ButtonGroup from './button-group';
+import ButtonIcon from './button-icon';
 import {
   getButtonColors,
   getButtonCursor,
@@ -32,15 +33,15 @@ export interface Props {
   color?: NormalColors;
   size?: NormalSizes;
   light?: boolean;
-  bordered?: boolean;
   flat?: boolean;
-  ghost?: boolean;
   loading?: boolean;
   shadow?: boolean;
   auto?: boolean;
   animated?: boolean;
   rounded?: boolean;
   disabled?: boolean;
+  bordered?: boolean;
+  ghost?: boolean;
   weight?: NormalWeights;
   loaderType?: NormalLoaders;
   htmlType?: React.ButtonHTMLAttributes<unknown>['type'];
@@ -57,14 +58,14 @@ const defaultProps = {
   htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
   loaderType: 'default' as NormalLoaders,
   weight: 'normal' as NormalWeights,
-  bordered: false,
   flat: false,
   light: false,
-  ghost: false,
   loading: false,
   rounded: false,
   shadow: false,
   auto: false,
+  bordered: false,
+  ghost: false,
   animated: true,
   disabled: false,
   className: '',
@@ -104,6 +105,8 @@ const Button = React.forwardRef<
     iconRight,
     className,
     loaderType,
+    bordered,
+    ghost,
     style: buttonStyle,
     ...props
   } = filteredProps;
@@ -113,6 +116,8 @@ const Button = React.forwardRef<
       'Using the gradient color on flat and light buttons will have no effect.'
     );
   }
+  const hasIcon = icon || iconRight;
+  const isRight = Boolean(iconRight);
 
   const { bg, color, loaderBg, border, style, hover } = useMemo(
     () => getButtonColors(theme.palette, filteredProps),
@@ -139,10 +144,37 @@ const Button = React.forwardRef<
     [theme.palette, filteredProps]
   );
 
-  const background =
-    filteredProps.color === 'gradient' && !flat && !light
-      ? `background-image: ${bg}`
-      : `background-color: ${bg}`;
+  const background = useMemo(
+    () =>
+      filteredProps.color === 'gradient' && !flat && !light && !ghost
+        ? `background-image: ${bg}`
+        : `background-color: ${bg}`,
+    [bg, flat, light, ghost]
+  );
+
+  const backgroundHover = useMemo(
+    () =>
+      filteredProps.color === 'gradient'
+        ? `background-image: ${hover?.bg}`
+        : `background-color: ${hover?.bg}`,
+    [bg, flat, light, ghost]
+  );
+
+  const paddingForAutoMode = useMemo(
+    () =>
+      auto || size === 'mini'
+        ? `calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5)`
+        : 0,
+    [auto, size]
+  );
+
+  const paddingForBorderedGradient = useMemo(
+    () =>
+      filteredProps.color === 'gradient' && (bordered || ghost)
+        ? `var(--next-ui-button-padding)`
+        : 0,
+    [filteredProps.color, bordered]
+  );
 
   const dripCompletedHandle = () => {
     setDripShow(false);
@@ -160,31 +192,6 @@ const Button = React.forwardRef<
     }
     onClick && onClick(event);
   };
-
-  const childrenWithIcon = useMemo(
-    () =>
-      getButtonChildrenWithIcon(
-        auto,
-        size,
-        children,
-        loading,
-        {
-          icon,
-          iconRight,
-        },
-        filteredProps.color === 'gradient' && filteredProps.bordered == true
-      ),
-    [
-      auto,
-      loading,
-      size,
-      children,
-      icon,
-      iconRight,
-      filteredProps.bordered,
-      filteredProps.color,
-    ]
-  );
 
   return (
     <button
@@ -207,7 +214,18 @@ const Button = React.forwardRef<
           background={loaderBg}
         />
       )}
-      {childrenWithIcon}
+      {React.Children.count(children) === 0 ? (
+        <ButtonIcon isRight={isRight} isSingle>
+          {hasIcon}
+        </ButtonIcon>
+      ) : hasIcon ? (
+        <div>
+          <ButtonIcon isRight={isRight}>{hasIcon}</ButtonIcon>
+          <div className={`text ${isRight ? 'right' : 'left'}`}>{children}</div>
+        </div>
+      ) : (
+        <div className="text">{children}</div>
+      )}
       {dripShow && (
         <ButtonDrip
           x={dripX}
@@ -227,7 +245,7 @@ const Button = React.forwardRef<
           min-width: ${minWidth};
           width: ${width};
           border-radius: ${radius};
-          border: ${border?.weight || '2px'} ${border?.display || 'none'}
+          border: ${border?.width || '2px'} ${border?.display || 'none'}
             ${border?.color || 'transparent'};
           font-weight: 500;
           font-size: ${fontSize};
@@ -253,16 +271,19 @@ const Button = React.forwardRef<
         }
         .button:hover,
         .button:focus {
+          ${backgroundHover} !important;
           color: ${hover?.color};
           --next-ui-button-color: ${hover?.color};
           background-color: ${hover?.bg};
           border-color: ${hover?.border?.color || 'transparent'};
+          border-width: ${hover?.border?.width};
+          padding: ${hover?.padding} !important;
           cursor: ${cursor};
           pointer-events: ${events};
           box-shadow: ${shadow ? theme.expressiveness.shadowMedium : 'none'};
           transform: translate3d(0px, ${shadow ? '-1.5px' : '0px'}, 0px);
         }
-        .button :global(.text) {
+        .text {
           position: relative;
           z-index: 1;
           display: inline-flex;
@@ -271,11 +292,19 @@ const Button = React.forwardRef<
           text-align: center;
           line-height: inherit;
           top: -1px;
+          padding: 0 ${paddingForBorderedGradient};
+          opacity: ${loading ? 0 : 1};
         }
-        .button :global(.text p),
-        .button :global(.text pre),
-        .button :global(.text div) {
+        .text p,
+        .text pre,
+        .text div {
           margin: 0;
+        }
+        .text.left {
+          padding-left: ${paddingForAutoMode};
+        }
+        .text.right {
+          padding-right: ${paddingForAutoMode};
         }
       `}</style>
     </button>
