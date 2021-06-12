@@ -9,8 +9,10 @@ import {
   useTheme,
   NextUIThemes,
 } from '@nextui/react';
+import NextLink from 'next/link';
 import { Route } from '@lib/docs/page';
 import { Sidebar, TableOfContent } from '@components';
+import { Link } from '@nextui/react';
 import { Heading, getHeadings } from '@utils/get-headings';
 import { MetaProps } from '@lib/docs/meta';
 import Header from '@layouts/header';
@@ -44,7 +46,6 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
     setHeadings(getHeadings());
   }, [routes]);
   const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}/${CONTENT_PATH}${currentRoute?.path}`;
-  console.log({ editUrl });
   return (
     <Container className="docs__container" display="flex" gap={0}>
       <Header {...meta} />
@@ -56,6 +57,19 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         <Col span={8}>
           {children}
           <PageNav tag={tag} prevRoute={prevRoute} nextRoute={nextRoute} />
+          <footer>
+            {tag ? (
+              <NextLink href={slug || ''}>
+                <Link>
+                  <small>Go to the live version of this page</small>
+                </Link>
+              </NextLink>
+            ) : (
+              <a href={editUrl} target="_blank" rel="noopener noreferrer">
+                <small>Edit this page on GitHub</small>
+              </a>
+            )}
+          </footer>
         </Col>
         <Spacer x={1} />
         <Sticky offset={10} className="docs__right-sidebar">
