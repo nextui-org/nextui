@@ -7,7 +7,7 @@ async function redirect() {
     },
     {
       source: '/guide',
-      destination: '/docs/guide/introduction',
+      destination: '/docs/guide/getting-started',
       permanent: true,
     },
   ];

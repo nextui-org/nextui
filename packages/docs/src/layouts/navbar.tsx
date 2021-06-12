@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
         <Col>
           <Row justify="center" align="center">
             <Spacer x={1} y={0} />
-            <NextLink href="/docs/guide/introduction">
+            <NextLink href="/docs/guide/getting-started">
               <Link
                 className={cn('navbar__link', {
                   active: isActive(router.pathname, '/docs/[[...slug]]'),

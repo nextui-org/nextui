@@ -10,10 +10,6 @@
                     "icon": "/paper.svg",
                     "routes": [
                         {
-                            "title": "Introduction",
-                            "path": "/docs/guide/introduction.mdx"
-                        },
-                        {
                             "title": "Getting Started",
                             "path": "/docs/guide/getting-started.mdx"
                         },
