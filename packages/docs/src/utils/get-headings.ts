@@ -1,5 +1,3 @@
-import { toCapitalize } from '@utils/index';
-
 export interface Heading {
   text: string;
   id: string;
