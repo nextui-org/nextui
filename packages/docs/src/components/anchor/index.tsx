@@ -30,7 +30,7 @@ const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({
       <span className="virtual" id={id} />
       {!pure && (
         <span className="icon">
-          <Anchor />
+          <Anchor size={20} />
         </span>
       )}
       <style jsx>{`
@@ -54,7 +54,7 @@ const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({
           justify-content: center;
           align-items: center;
           overflow: hidden;
-          left: -1.5em;
+          left: -1em;
           top: 50%;
           transform: translateY(-50%);
           position: absolute;
