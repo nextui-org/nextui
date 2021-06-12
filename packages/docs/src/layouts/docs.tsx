@@ -19,6 +19,7 @@ import Header from '@layouts/header';
 import { Sticky, PageNav } from '@components';
 import { REPO_NAME, GITHUB_URL } from '@lib/github/constants';
 import { TAG, CONTENT_PATH } from '@lib/docs/config';
+import { useMediaQuery } from '@hooks/use-media-query';
 
 export interface Props {
   routes: Route[];
@@ -42,6 +43,9 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const theme = useTheme() as NextUIThemes;
+  const isMobile = useMediaQuery(
+    Number(theme.breakpoints.md.min.replace('px', ''))
+  );
   useEffect(() => {
     setHeadings(getHeadings());
   }, [routes]);
@@ -54,7 +58,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         <Sticky offset={10} className="docs__left-sidebar">
           <Sidebar routes={routes} tag={tag} slug={slug} />
         </Sticky>
-        <Col className="docs__center" span={8}>
+        <Col className="docs__center" span={isMobile ? 12 : 8}>
           {children}
           <PageNav tag={tag} prevRoute={prevRoute} nextRoute={nextRoute} />
           <footer>
@@ -71,7 +75,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             )}
           </footer>
         </Col>
-        <Spacer x={1} />
+        {!isMobile && <Spacer x={1} />}
         <Sticky offset={10} className="docs__right-sidebar">
           <TableOfContent headings={headings} />
         </Sticky>
@@ -83,6 +87,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             width: 20%;
             max-height: calc(100vh - 4rem);
             overflow: auto;
+            display: none;
           }
           :global(.docs__center) {
             padding: 0 1.8rem !important;
@@ -99,6 +104,16 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
             :global(.docs__right-sidebar) {
               display: block;
+            }
+          }
+          @media only screen and (min-width: ${theme.breakpoints.md.min}) {
+            :global(.docs__left-sidebar) {
+              display: block;
+            }
+          }
+          @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+            :global(.docs__center) {
+              padding: 0 1rem !important;
             }
           }
         `}
