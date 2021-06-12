@@ -79,7 +79,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     [disabled, size, color, bordered, light, flat]
   );
 
-  const { color: borderColor, weight } = useMemo(() => {
+  const { color: borderColor, width: borderWidth } = useMemo(() => {
     return getGroupBorder(theme.palette, groupProps);
   }, [theme, disabled, bordered]);
 
@@ -99,7 +99,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
             display: inline-flex;
             border-radius: ${radius};
             margin: ${theme.layout.gapQuarter};
-            border: ${weight} solid ${borderColor};
+            border: ${borderWidth} solid ${borderColor};
             background-color: transparent;
             overflow: hidden;
             height: min-content;
@@ -116,7 +116,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .horizontal :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border-left: ${weight} solid ${borderColor};
+            border-left: ${borderWidth} solid ${borderColor};
           }
           .horizontal :global(.button:not(:last-child)) {
             border-top-right-radius: 0;
@@ -125,7 +125,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .vertical :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-            border-top: ${weight} solid ${borderColor};
+            border-top: ${borderWidth} solid ${borderColor};
           }
           .vertical :global(.button:not(:last-child)) {
             border-bottom-left-radius: 0;
