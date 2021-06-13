@@ -67,3 +67,28 @@ class MyDocument extends Document {
 ```
 
 Here's an example of what your `_document.js` file should look like: <Link target="_blank" href="https://github.com/jrgarciadev/nextui/blob/main/packages/docs/src/pages/_document.tsx" rel="nofollow" color>\_document.jsx</Link>.
+
+### Custom Server
+
+In the custom server, also get the style set from function `CssBaseline.flush` as shown below.
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/server';
+import { CssBaseline } from '@nextui/react';
+import App from './app';
+
+export default (req, res) => {
+  const app = ReactDOM.renderToString(<App />);
+  const styles = CssBaseline.flush();
+  const html = ReactDOM.renderToStaticMarkup(
+    <html>
+      <head>{styles}</head>
+      <body>
+        <div id="root" dangerouslySetInnerHTML={{ __html: app }} />
+      </body>
+    </html>
+  );
+  res.end('<!doctype html>' + html);
+};
+```
