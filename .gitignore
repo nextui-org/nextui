@@ -31,3 +31,5 @@ esm
 examples/**/yarn.lock
 examples/**/out
 examples/**/.next
+
+.vercel
