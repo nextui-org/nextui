@@ -20,9 +20,15 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
       },
     },
     {
-      types: ['punctuation', 'symbol'],
+      types: ['punctuation', 'symbol', 'text'],
       style: {
         color: '#C0C0C0',
+      },
+    },
+    {
+      types: ['function'],
+      style: {
+        color: '#61AFEF',
       },
     },
     {

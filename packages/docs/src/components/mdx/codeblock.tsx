@@ -13,6 +13,9 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
   const punctuationColor = codeTheme.styles.find((style) =>
     style.types.includes('punctuation')
   );
+  const textColor = codeTheme.styles.find((style) =>
+    style.types.includes('text')
+  );
   const selectorColor = codeTheme.styles.find((style) =>
     style.types.includes('selector')
   );
@@ -22,6 +25,9 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
   const classnameColor = codeTheme.styles.find((style) =>
     style.types.includes('tag')
   );
+  const functionColor = codeTheme.styles.find((style) =>
+    style.types.includes('function')
+  );
   return (
     <Snippet symbol="">
       {children}
@@ -29,6 +35,7 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
         :global(pre) {
           border: 0px;
           padding: 4px !important;
+          color: ${textColor?.style.color} !important;
         }
         :global(.snippet, .copy) {
           background-color: ${codeTheme.plain.backgroundColor} !important;
@@ -50,6 +57,9 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
         }
         :global(.token.module, .token.keyword) {
           color: #c678dd;
+        }
+        :global(.token.function) {
+          color: ${functionColor?.style.color};
         }
       `}</style>
     </Snippet>
