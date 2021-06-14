@@ -11,9 +11,9 @@
     },
     "scripts": {
         "dev": "run-p dev:docs sb",
-        "dev:docs": "yarn workspace @nextui/docs dev",
-        "start:docs": "yarn workspace @nextui/docs start",
-        "build:docs": "yarn workspace @nextui/docs build",
+        "dev:docs": "yarn workspace @nextui-org/docs dev",
+        "start:docs": "yarn workspace @nextui-org/docs start",
+        "build:docs": "yarn workspace @nextui-org/docs build",
         "build:nextui": "SKIP_PREFLIGHT_CHECK=true yarn workspace @nextui/react build",
         "build": "run-s build:nextui build:docs",
         "build:watch": "yarn workspace @nextui/react watch",
