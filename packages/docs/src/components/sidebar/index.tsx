@@ -1,7 +1,7 @@
 import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { Route, addTagToSlug } from '@lib/docs/page';
-import { removeFromLast } from '@utils/index';
+import { removeFromLast, isPathActive } from '@utils/index';
 import { useIsMobile } from '@hooks/use-media-query';
 import Heading from './heading';
 import Category from './category';
@@ -37,8 +37,8 @@ const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
       {routes?.map(({ path, title, icon, routes, heading, open }) => {
         if (routes) {
           const pathname = getCategoryPath(routes);
-          const selected = slug.startsWith(pathname);
-          const opened = selected || isMobile ? false : open;
+          const categorySelected = slug.startsWith(pathname);
+          const opened = categorySelected || isMobile ? false : open;
 
           if (heading) {
             return (
@@ -60,7 +60,7 @@ const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
               iconUrl={icon}
               level={level}
               title={title}
-              selected={selected}
+              selected={categorySelected}
               opened={opened}
             >
               <Sidebar
@@ -75,7 +75,7 @@ const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
         const href = '/docs/[[...slug]]';
         const pagePath: string | undefined = path && removeFromLast(path, '.');
         const pathname = pagePath && addTagToSlug(pagePath, tag);
-        const selected = pagePath && slug.startsWith(pagePath);
+        const selected = pagePath && pagePath === slug;
         const route = { href, path, title, pathname, selected } as NavLinkProps;
         return (
           <Post key={title} isMobile={isMobile} level={level} route={route} />

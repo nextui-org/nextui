@@ -9,15 +9,33 @@ inside the buttons you want to group.'
 If you need to make a group of buttons you can use the compound component `Button.Group` and
 inside the buttons you want to group.
 
+```jsx
+import { Button } from '@nextui-org/react';
+```
+
 <Playground
   title="Default"
-  desc="The default `Button` group"
+  desc="The default `Button.Group`"
   code={`
 <Button.Group>
   <Button>One</Button>
   <Button>Two</Button>
   <Button>Three</Button>
 </Button.Group>
+`}
+/>
+
+<Playground
+  title="Disabled"
+  desc="You can disabled all buttons with the property `disabled`."
+  code={`
+<>
+     <Button.Group size="small" disabled>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+</>
 `}
 />
 
@@ -34,6 +52,78 @@ inside the buttons you want to group.
     Three
   </Button>
 </Button.Group>
+`}
+/>
+
+<Playground
+  title="Sizes"
+  desc="Change the size of the entire group button including `padding`, `font-size` and `border` with the size property."
+  code={`
+<Container display="flex" direction="column">
+    <Button.Group size="mini">
+      <Button>One</Button>
+      <Button>Two</Button>
+    </Button.Group>
+    <Button.Group size="small">
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+    <Button.Group size="medium">
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+    <Button.Group size="large">
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+    <Button.Group size="xlarge">
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+  </Container>
+`}
+/>
+
+<Playground
+  title="Vertical"
+  desc="You can use the `vertical` property to sort the buttons vertically."
+  code={`
+<>
+    <Button.Group size="mini" vertical>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+      <Button>Four</Button>
+    </Button.Group>
+     <Button.Group size="small" vertical>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+      <Button>Four</Button>
+    </Button.Group>
+    <Button.Group size="medium" vertical>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+      <Button>Four</Button>
+    </Button.Group>
+    <Button.Group size="large" vertical>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+      <Button>Four</Button>
+    </Button.Group>
+    <Button.Group size="xlarge" vertical>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+      <Button>Four</Button>
+    </Button.Group>
+</>
 `}
 />
 
@@ -80,6 +170,8 @@ inside the buttons you want to group.
   </>
 `}
 />
+
+<Spacer y={3} />
 
 ### APIs
 
