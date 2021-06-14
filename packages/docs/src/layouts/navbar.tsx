@@ -10,7 +10,7 @@ import {
   Link,
   Text,
   useTheme,
-} from '@nextui/react';
+} from '@nextui-org/react';
 import { useRouter } from 'next/router';
 
 const isActive = (pathname: string, href: string) =>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NextPage } from 'next';
 import { NextRouter, Router } from 'next/router';
-import { CssBaseline, NextUIThemes, ThemeProvider } from '@nextui/react';
+import { CssBaseline, NextUIThemes, ThemeProvider } from '@nextui-org/react';
 import { AppInitialProps } from 'next/app';
 import { DeepPartial } from '@utils/types';
 import useDomClean from '@hooks/use-dom-clean';

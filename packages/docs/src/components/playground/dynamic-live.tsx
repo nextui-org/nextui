@@ -1,9 +1,9 @@
 import React from 'react';
 import { LivePreview, LiveProvider, LiveError } from 'react-live';
-import { useTheme } from '@nextui/react';
+import { useTheme } from '@nextui-org/react';
 import makeCodeTheme from './code-theme';
 import Editor from './editor';
-import * as Components from '@nextui/react';
+import * as Components from '@nextui-org/react';
 import * as Icons from '../icons';
 
 export interface Props {

@@ -1,5 +1,5 @@
 import { PrismTheme } from 'prism-react-renderer';
-import { NextUIThemes } from '@nextui/react';
+import { NextUIThemes } from '@nextui-org/react';
 
 const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
   plain: {

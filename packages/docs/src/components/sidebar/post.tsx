@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import cn from 'classnames';
 import NavLink, { NavLinkProps } from '../nav-link';
 import withDefaults from '@utils/with-defaults';
-import { useTheme, NextUIThemes } from '@nextui/react';
+import { useTheme, NextUIThemes } from '@nextui-org/react';
 
 export interface Props {
   level: number;

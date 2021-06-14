@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Row, Col, Grid, Spacer, Button } from '@nextui/react';
+import { Text, Row, Col, Grid, Spacer, Button } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
 
 const Hero: React.FC = () => {

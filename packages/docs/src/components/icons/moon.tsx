@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IconProps } from './index';
-import { useTheme } from '@nextui/react';
+import { useTheme } from '@nextui-org/react';
 
 const Moon: React.FC<IconProps> = ({
   fill,

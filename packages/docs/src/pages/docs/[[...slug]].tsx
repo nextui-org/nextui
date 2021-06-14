@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import DocsLayout from '@layouts/docs';
-import * as Components from '@nextui/react';
+import * as Components from '@nextui-org/react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { getSlug } from '@lib/docs/utils';
 import { isProd } from '@utils/index';

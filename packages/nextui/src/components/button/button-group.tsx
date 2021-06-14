@@ -53,6 +53,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     size,
     color,
     bordered,
+    ghost,
     light,
     flat,
     loading,
@@ -72,6 +73,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       color,
       bordered,
       light,
+      ghost,
       flat,
       loading,
       shadow,
@@ -80,7 +82,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       rounded,
       isButtonGroup: true,
     }),
-    [disabled, size, color, bordered, light, flat]
+    [disabled, size, color, bordered, light, ghost, flat]
   );
 
   const { color: borderColor, width: borderWidth } = useMemo(() => {
@@ -120,6 +122,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .horizontal :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
+            border-left: ${borderWidth} solid ${borderColor};
           }
           .horizontal :global(.button:not(:last-child)) {
             border-top-right-radius: 0;
@@ -128,6 +131,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .vertical :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
+            border-top: ${borderWidth} solid ${borderColor};
           }
           .vertical :global(.button:not(:last-child)) {
             border-bottom-left-radius: 0;

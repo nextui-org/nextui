@@ -7,7 +7,7 @@ import {
   Spacer,
   Link,
   NextUIThemes,
-} from '@nextui/react';
+} from '@nextui-org/react';
 
 const Footer: React.FC = () => {
   const theme = useTheme() as NextUIThemes;

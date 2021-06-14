@@ -1,5 +1,5 @@
 import React from 'react';
-import { NextUIThemes, useTheme } from '@nextui/react';
+import { NextUIThemes, useTheme } from '@nextui-org/react';
 
 export interface LogoProps {
   size?: number;

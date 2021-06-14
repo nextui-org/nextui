@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 import withDefaults from '@utils/with-defaults';
-import { NextUIThemes, useTheme } from '@nextui/react';
+import { NextUIThemes, useTheme } from '@nextui-org/react';
 
 export interface StickyProps {
   offset?: number;

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useTheme } from '@nextui/react';
+import { Link, useTheme } from '@nextui-org/react';
 import { Anchor } from '../icons';
 
 export interface Props {

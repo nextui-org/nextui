@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LiveEditor } from 'react-live';
-import { useTheme, Row, Col } from '@nextui/react';
+import { useTheme, Row, Col } from '@nextui-org/react';
 import CopyIcon from '../icons/copy';
 import BugIcon from '../icons/bug';
 import RightIcon from '../icons/arrow-right';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { Route, addTagToSlug } from '@lib/docs/page';
 import NextLink from 'next/link';
-import { useTheme, NextUIThemes, Container, Button } from '@nextui/react';
+import { useTheme, NextUIThemes, Container, Button } from '@nextui-org/react';
 import { ArrowRight, ArrowLeft } from '../icons';
 import { removeFromLast } from '@utils/index';
 

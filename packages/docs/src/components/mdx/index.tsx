@@ -3,7 +3,7 @@ import * as React from 'react';
 import Playground from '../playground';
 import Codeblock from './codeblock';
 import * as Icons from '../icons';
-import { useTheme } from '@nextui/react';
+import { useTheme } from '@nextui-org/react';
 import { Anchor } from '@components';
 import cn from 'classnames';
 

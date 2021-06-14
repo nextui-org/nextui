@@ -1,4 +1,4 @@
-import { NextUIThemesFont } from '@nextui/react';
+import { NextUIThemesFont } from '@nextui-org/react';
 
 const themeFont: NextUIThemesFont = {
   sans:

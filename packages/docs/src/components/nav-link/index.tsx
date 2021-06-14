@@ -2,7 +2,7 @@ import React from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
-import { Link } from '@nextui/react';
+import { Link } from '@nextui-org/react';
 
 export interface Props {
   href: string;

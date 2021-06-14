@@ -39,7 +39,7 @@ inside the buttons you want to group.
 
 <Playground
   title="Variants"
-  desc="You can use any variant described earlier in a `Button.Group`"
+  desc="You can use any `Button` variant in a `Button.Group`"
   code={`
 <>
     <Button.Group color="success">
@@ -47,17 +47,17 @@ inside the buttons you want to group.
       <Button>Two</Button>
       <Button>Three</Button>
     </Button.Group>
+    <Button.Group color="secondary" ghost>
+      <Button>Action1</Button>
+      <Button>Action2</Button>
+      <Button>Action3</Button>
+    </Button.Group>
     <Button.Group color="error" rounded>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
     </Button.Group>
     <Button.Group color="primary" bordered>
-      <Button>Action1</Button>
-      <Button>Action2</Button>
-      <Button>Action3</Button>
-    </Button.Group>
-     <Button.Group color="secondary" ghost>
       <Button>Action1</Button>
       <Button>Action2</Button>
       <Button>Action3</Button>

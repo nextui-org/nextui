@@ -2,7 +2,7 @@ import * as React from 'react';
 import cn from 'classnames';
 import { useScrollSpy } from '@hooks/use-scroll-spy';
 import { Heading } from '@utils/get-headings';
-import { useTheme, NextUIThemes } from '@nextui/react';
+import { useTheme, NextUIThemes } from '@nextui-org/react';
 
 interface TableOfContentProps {
   headings: Heading[];

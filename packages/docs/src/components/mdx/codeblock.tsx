@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Snippet, useTheme } from '@nextui/react';
+import { Snippet, useTheme } from '@nextui-org/react';
 import makeCodeTheme from '../playground/code-theme';
 
 const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({

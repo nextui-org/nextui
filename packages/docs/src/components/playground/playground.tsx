@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { useTheme, Loading } from '@nextui/react';
+import { useTheme, Loading } from '@nextui-org/react';
 import withDefaults from '@utils/with-defaults';
 import Title from './title';
 
