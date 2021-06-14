@@ -79,6 +79,10 @@
                             "path": "/docs/components/button.mdx"
                         },
                         {
+                            "title": "Button Group",
+                            "path": "/docs/components/button-group.mdx"
+                        },
+                        {
                             "title": "Input",
                             "path": "/docs/components/input.mdx"
                         },

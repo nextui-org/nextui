@@ -1,0 +1,150 @@
+---
+title: 'Button Group'
+description: 'If you need to make a group of buttons you can use the compound component `Button.Group` and
+inside the buttons you want to group.'
+---
+
+# Button Group
+
+If you need to make a group of buttons you can use the compound component `Button.Group` and
+inside the buttons you want to group.
+
+<Playground
+  title="Default"
+  desc="The default `Button` group"
+  code={`
+<Button.Group>
+  <Button>One</Button>
+  <Button>Two</Button>
+  <Button>Three</Button>
+</Button.Group>
+`}
+/>
+
+<Playground
+  title="Loading"
+  desc="You can use the loading status in any button you want"
+  code={`
+<Button.Group>
+  <Button loading>One</Button>
+  <Button loading loaderType="points">
+    Two
+  </Button>
+  <Button loading loaderType="points-opacity">
+    Three
+  </Button>
+</Button.Group>
+`}
+/>
+
+<Playground
+  title="Variants"
+  desc="You can use any variant described earlier in a `Button.Group`"
+  code={`
+<>
+    <Button.Group color="success">
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+    <Button.Group color="error" rounded>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+    <Button.Group color="primary" bordered>
+      <Button>Action1</Button>
+      <Button>Action2</Button>
+      <Button>Action3</Button>
+    </Button.Group>
+     <Button.Group color="secondary" ghost>
+      <Button>Action1</Button>
+      <Button>Action2</Button>
+      <Button>Action3</Button>
+    </Button.Group>
+    <Button.Group color="warning" flat>
+      <Button>Action1</Button>
+      <Button>Action2</Button>
+      <Button>Action2</Button>
+    </Button.Group>
+    <Button.Group color="secondary" size="small">
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+    <Button.Group color="secondary" light>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+  </>
+`}
+/>
+
+### APIs
+
+<Spacer y={2} />
+
+#### Button Group Props
+
+| Attribute  | Type                                            | Accepted values                  | Description                               | Default   |
+| ---------- | ----------------------------------------------- | -------------------------------- | ----------------------------------------- | --------- |
+| color      | `NormalColors`                                  | [NormalColors](#normal-colors)   | Change button color                       | `default` |
+| size       | `NormalSizes`                                   | [NormalSizes](#normal-sizes)     | Change button size                        | `medium`  |
+| disabled   | `boolean`                                       | `true/false`                     | Disable button                            | `false`   |
+| bordered   | `boolean`                                       | `true/false`                     | Bodered button                            | `false`   |
+| flat       | `boolean`                                       | `true/false`                     | Flat button                               | `false`   |
+| rounded    | `boolean`                                       | `true/false`                     | Rounded button                            | `false`   |
+| ghost      | `boolean`                                       | `true/false`                     | The opposite color                        | `false`   |
+| shadow     | `boolean`                                       | `true/false`                     | Display shadow effect                     | `false`   |
+| loading    | `boolean`                                       | `true/false`                     | Display loading indicator                 | `false`   |
+| loaderType | `NormalLoaders`                                 | [NormalLoaders](#normal-loaders) | Change loader indicator                   | `default` |
+| auto       | `boolean`                                       | `true/false`                     | Autoscale button width                    | `false`   |
+| animated   | `boolean`                                       | `true/false`                     | Display drip animation                    | `true`    |
+| weight     | `NormalWeights`                                 | [NormalWeights](#normal-weights) | Border weight for `bordered` button       | `normal`  |
+| onClick    | `MouseEventHandler`                             | -                                | Button click handler                      | -         |
+| icon       | `ReactNode`                                     | -                                | Show icon in button                       | -         |
+| iconRight  | `ReactNode`                                     | -                                | Show icon on the other side of the button | -         |
+| htmlType   | `ButtonHTMLAttributes.type`                     | -                                | Native type of button element             | `button`  |
+| ref        | <Code>Ref<HTMLButtonElement &#124; null></Code> | -                                | forwardRef                                | -         |
+| ...        | `ButtonHTMLAttributes`                          | `'id', 'className', ...`         | Native button props                       | -         |
+
+---
+
+<Spacer y={1} />
+
+#### Normal Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'gradient';
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+```
+
+#### Normal Loaders
+
+```ts
+type NormalLoaders =
+  | 'default'
+  | 'points'
+  | 'points-opacity'
+  | 'gradient'
+  | 'spinner';
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = 'normal' | 'light' | 'bold';
+```

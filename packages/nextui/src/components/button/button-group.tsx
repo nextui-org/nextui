@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import useTheme from '@hooks/use-theme';
 import withDefaults from '@utils/with-defaults';
-import { NormalSizes, NormalColors } from '@utils/prop-types';
+import { NormalSizes, NormalColors, NormalWeights } from '@utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
 import { getButtonRadius, getGroupBorder } from './styles';
 
@@ -16,6 +16,8 @@ interface Props {
   auto?: boolean;
   animated?: boolean;
   rounded?: boolean;
+  ghost?: boolean;
+  weight?: NormalWeights;
   size?: NormalSizes;
   color?: NormalColors;
   className?: string;
@@ -32,6 +34,8 @@ const defaultProps = {
   auto: false,
   animated: false,
   rounded: false,
+  ghost: false,
+  weight: 'normal' as NormalWeights,
   size: 'medium' as NormalSizes,
   color: 'default' as NormalColors,
   className: '',
@@ -107,16 +111,15 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .vertical {
             flex-direction: column;
           }
-          .button-group :global(.button) {
-            border: none;
-          }
           .button-group :global(.button .text) {
             top: 0;
+          }
+          .button-group :global(.button) {
+            border: none;
           }
           .horizontal :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border-left: ${borderWidth} solid ${borderColor};
           }
           .horizontal :global(.button:not(:last-child)) {
             border-top-right-radius: 0;
@@ -125,7 +128,6 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .vertical :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-            border-top: ${borderWidth} solid ${borderColor};
           }
           .vertical :global(.button:not(:last-child)) {
             border-bottom-left-radius: 0;

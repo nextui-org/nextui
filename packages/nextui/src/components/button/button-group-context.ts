@@ -8,6 +8,7 @@ export interface ButtonGroupConfig {
   disabled?: boolean;
   light?: boolean;
   flat?: boolean;
+  ghost?: boolean;
   loading?: boolean;
   shadow?: boolean;
   auto?: boolean;

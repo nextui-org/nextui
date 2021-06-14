@@ -39,45 +39,20 @@ export const getGroupBorder = (
   palette: NextUIThemesPalette,
   props: ButtonGroupProps
 ): ButtonBorder => {
-  const { bordered, color } = props;
+  const { bordered, color, weight } = props;
+  const border = getButtonWeight(weight);
   const common = {
     color: palette.background,
-    weight: bordered ? '2px' : '0px',
+    width: bordered ? border : '0px',
   };
+  const key = (color === 'default' ? 'primary' : color) || 'primary';
   if (!bordered && color !== 'primary') return common;
-
-  const colors: { [key in NormalColors]?: ButtonColorGroup } = {
-    default: {
-      ...common,
-      color: palette.primary,
-    },
-    primary: {
-      ...common,
-      color: palette.primary,
-    },
-    success: {
-      ...common,
-      color: palette.success,
-    },
-    secondary: {
-      ...common,
-      color: palette.secondary,
-    },
-    error: {
-      ...common,
-      color: palette.error,
-    },
-    warning: {
-      ...common,
-      color: palette.warning,
-    },
+  const buttonColor = {
+    ...common,
+    color: palette[key] || palette.primary,
   };
-  return (
-    colors[color as NormalColors] || {
-      ...common,
-      color: palette.primary,
-    }
-  );
+
+  return buttonColor;
 };
 
 const getButtonWeight = (weight?: NormalWeights): string | undefined => {

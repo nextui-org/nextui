@@ -12,6 +12,7 @@ export const filterPropsWithGroup = (
     auto: true,
     shadow: false,
     bordered: config.bordered || props.bordered,
+    ghost: config.ghost || props.ghost,
     flat: config.flat || props.flat,
     animated: config.animated || props.animated,
     rounded: config.rounded || props.rounded,
