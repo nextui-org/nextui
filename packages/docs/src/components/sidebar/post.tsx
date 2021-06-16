@@ -55,6 +55,7 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
           margin: 18px 0;
           display: flex;
           align-items: center;
+          min-height: 24px;
         }
         .link::before {
           content: '';

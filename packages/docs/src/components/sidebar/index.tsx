@@ -1,7 +1,7 @@
 import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { Route, addTagToSlug } from '@lib/docs/page';
-import { removeFromLast, isPathActive } from '@utils/index';
+import { removeFromLast } from '@utils/index';
 import { useIsMobile } from '@hooks/use-media-query';
 import Heading from './heading';
 import Category from './category';
@@ -56,6 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
           return (
             <Category
               key={pathname}
+              routes={routes}
               isMobile={isMobile}
               iconUrl={icon}
               level={level}

@@ -1,12 +1,14 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import cn from 'classnames';
 import ArrowRight from '../icons/arrow-right';
 import withDefaults from '@utils/with-defaults';
 import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { Route } from '@lib/docs/page';
 
 export interface Props {
   level: number;
   title: string;
+  routes: Route[];
   iconUrl?: string;
   isMobile: boolean;
   selected: boolean;
@@ -29,6 +31,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   level = 1,
   title,
   selected,
+  routes,
   iconUrl,
   opened,
   children,
@@ -44,6 +47,12 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   };
 
   const levelClass = `level-${level}`;
+  const margin = 18;
+
+  const postsHeight = useMemo(
+    () => routes.length * 24 + margin * (routes.length - 1),
+    [routes]
+  );
 
   // If a category is selected indirectly, open it. This can happen when using the search input
   useEffect(() => {
@@ -63,10 +72,12 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
       if (ref.current && content) {
         height = ref.current?.offsetTop - (isMobile ? 10 : content?.offsetTop);
         content.scrollTop = height;
+        console.log({ height });
       }
       setToggle(toggle);
     }
   }, [toggle, shouldScroll, isMobile]);
+
   return (
     <div
       ref={ref}
@@ -82,7 +93,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
       <div className="posts">{children}</div>
       <style jsx>{`
         .category {
-          margin: 18px 0;
+          margin: ${margin}px 0;
         }
         .category:first-child {
           margin-top: 0;
@@ -102,7 +113,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           display: flex;
           align-items: center;
           color: ${theme.palette.accents_7};
-          transition: all 250ms ease 0ms;
+          transition: all 200ms ease 0ms;
         }
         .label > :global(svg) {
           margin-top: 1px;
@@ -132,15 +143,15 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           margin-bottom: 32px;
         }
         .posts {
-          margin-top: 0;
+          margin-top: ${margin}px;
           height: 0;
           overflow: hidden;
           padding-left: 19px;
           margin-left: 3px;
+          transition: height 200ms ease;
         }
         .open > .posts {
-          margin-top: 18px;
-          height: auto;
+          height: ${postsHeight}px;
         }
         @media screen and (max-width: ${theme.breakpoints.md.min}) {
           .category {

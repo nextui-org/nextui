@@ -44,7 +44,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   const [headings, setHeadings] = useState<Heading[]>([]);
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(
-    Number(theme.breakpoints.md.min.replace('px', ''))
+    Number(theme.breakpoints.sm.min.replace('px', ''))
   );
   useEffect(() => {
     setHeadings(getHeadings());
@@ -106,7 +106,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               display: block;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.md.min}) {
+          @media only screen and (min-width: ${theme.breakpoints.sm.max}) {
             :global(.docs__left-sidebar) {
               display: block;
             }
