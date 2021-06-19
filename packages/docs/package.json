@@ -15,7 +15,7 @@
     "classnames": "^2.3.1",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
-    "next": "10.1.3",
+    "next": "^11.0.0",
     "next-mdx-remote": "^3.0.2",
     "prism-react-renderer": "^1.2.1",
     "querystring": "^0.2.1",
@@ -30,6 +30,10 @@
     "util.promisify": "^1.1.1"
   },
   "devDependencies": {
-    "typescript": "^4.2.4"
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint-config-next": "^11.0.0",
+    "typescript": "^4.3.4"
   }
 }
