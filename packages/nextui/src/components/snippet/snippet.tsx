@@ -1,10 +1,10 @@
 import React, { useMemo, useRef } from 'react';
-import useTheme from '@hooks/use-theme';
-import withDefaults from '@utils/with-defaults';
-import { SnippetTypes, CopyTypes } from '@utils/prop-types';
+import useTheme from '../../hooks/use-theme';
+import withDefaults from '../../utils/with-defaults';
+import { SnippetTypes, CopyTypes } from '../../utils/prop-types';
 import { getStyles } from './styles';
 import SnippetIcon from './snippet-icon';
-import useClipboard from '@hooks/use-clipboard';
+import useClipboard from '../../hooks/use-clipboard';
 
 interface Props {
   text?: string | string[];

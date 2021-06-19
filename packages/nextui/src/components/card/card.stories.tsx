@@ -11,8 +11,8 @@ import {
   Divider,
   Code,
   Grid,
-} from '@components';
-import { CardColors } from '@utils/prop-types';
+} from '../index';
+import { CardColors } from '../../utils/prop-types';
 import Headphones from '../../../assets/headphones.jpg';
 import Watch from '../../../assets/watch.jpeg';
 import Items from '../../../assets/items.jpeg';
@@ -101,7 +101,7 @@ export const Shadow = () => (
 );
 
 export const WithFooter = () => (
-  <Row flexWrap justify="start">
+  <Row flexWrap justify="flex-start">
     <Card width="330px">
       <Text h4>Next UI</Text>
       <Text>🚀 Beautiful and modern React UI library.</Text>

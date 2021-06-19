@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
-import { NormalLoaders, NormalSizes } from '@utils/prop-types';
-import { NextUIThemes } from '@theme/index';
+import { NormalLoaders, NormalSizes } from '../../utils/prop-types';
+import { NextUIThemes } from '../../theme';
 
 export const getLoaderSize = (type: NormalLoaders) => {
   const sizes: { [key in NormalLoaders]: { [key in NormalSizes]: string } } = {

@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
-import { Link } from '@components';
+import { Link } from '../index';
 import { Props as LinkProps } from '../link/link';
-import useTheme from '@hooks/use-theme';
-import withDefaults from '@utils/with-defaults';
+import useTheme from '../../hooks/use-theme';
+import withDefaults from '../../utils/with-defaults';
 import ImageBrowserHttpsIcon from './image-browser-https-icon';
 import { getBrowserColors, BrowserColors } from './styles';
 

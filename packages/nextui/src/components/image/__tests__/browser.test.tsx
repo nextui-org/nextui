@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { Image } from '@components';
+import ImageBrowser from '../image-browser';
+import Image from '../index';
 
 const link = 'https://react.geist-ui.dev/en-us/guide/introduction';
 const url =
@@ -11,34 +12,34 @@ const url =
 describe('Image Browser', () => {
   it('should render correctly', () => {
     const wrapper = mount(
-      <Image.Browser url={link}>
+      <ImageBrowser url={link}>
         <Image src={url} />
-      </Image.Browser>
+      </ImageBrowser>
     );
     expect(() => wrapper.unmount()).not.toThrow();
 
     const browser = render(
-      <Image.Browser url={link}>
+      <ImageBrowser url={link}>
         <Image src={url} />
-      </Image.Browser>
+      </ImageBrowser>
     );
     expect(browser).toMatchSnapshot();
   });
 
   it('show title when url missing', () => {
     const wrapper = mount(
-      <Image.Browser title="test-title">
+      <ImageBrowser title="test-title">
         <Image src={url} />
-      </Image.Browser>
+      </ImageBrowser>
     );
     expect(wrapper.find('header').text()).toContain('test-title');
   });
 
   it('should work correctly with full link', () => {
     const wrapper = mount(
-      <Image.Browser url={link}>
+      <ImageBrowser url={link}>
         <Image src={url} />
-      </Image.Browser>
+      </ImageBrowser>
     );
     expect(wrapper.find('.link').text()).not.toContain('http');
     wrapper.setProps({ showFullLink: true });
@@ -48,24 +49,24 @@ describe('Image Browser', () => {
   it('show full link when url parse error', () => {
     const errorLink = 'httpsw/com';
     const wrapper = mount(
-      <Image.Browser url={errorLink}>
+      <ImageBrowser url={errorLink}>
         <Image src={url} />
-      </Image.Browser>
+      </ImageBrowser>
     );
     expect(wrapper.find('.link').text()).toContain(errorLink);
   });
 
   it('should work correctly when props missing', () => {
-    const wrapper = mount(<Image.Browser />);
+    const wrapper = mount(<ImageBrowser />);
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('anchor props should be passed through', () => {
     const anchorRel = 'noreferrer';
     const wrapper = mount(
-      <Image.Browser url={link} anchorProps={{ rel: anchorRel }}>
+      <ImageBrowser url={link} anchorProps={{ rel: anchorRel }}>
         <Image src={url} />
-      </Image.Browser>
+      </ImageBrowser>
     );
     const rel = wrapper.find('a').getDOMNode().getAttribute('rel');
     expect(rel).toEqual(anchorRel);

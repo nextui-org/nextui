@@ -1,8 +1,8 @@
 import React from 'react';
-import useTheme from '@hooks/use-theme';
+import useTheme from '../../hooks/use-theme';
 import flush from 'styled-jsx/server';
 import flushToReact from 'styled-jsx/server';
-import { addColorAlpha } from '@utils/color';
+import { addColorAlpha } from '../../utils/color';
 
 const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const theme = useTheme();

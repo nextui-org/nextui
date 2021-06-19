@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import useTheme from '@hooks/use-theme';
+import useTheme from '../../hooks/use-theme';
 import GridBasicItem, { GridBasicItemComponentProps } from './basic-item';
-import { Wrap } from '@utils/prop-types';
+import { Wrap } from '../../utils/prop-types';
 import { css } from 'styled-jsx/css';
 
 interface Props {

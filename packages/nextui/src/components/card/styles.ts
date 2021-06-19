@@ -1,5 +1,5 @@
-import { CardColors } from '@utils/prop-types';
-import { NextUIThemesPalette } from '@theme/index';
+import { CardColors } from '../../utils/prop-types';
+import { NextUIThemesPalette } from '../../theme';
 
 export interface CardBorder {
   weight?: string;

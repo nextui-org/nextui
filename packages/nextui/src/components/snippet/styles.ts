@@ -1,5 +1,5 @@
-import { SnippetTypes } from '@utils/prop-types';
-import { NextUIThemesPalette } from '@theme/index';
+import { SnippetTypes } from '../../utils/prop-types';
+import { NextUIThemesPalette } from '../../theme';
 
 export type SnippetStyles = {
   color: string;

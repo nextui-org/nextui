@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
-import useTheme from '@hooks/use-theme';
-import withDefaults from '@utils/with-defaults';
-import { DividerAlign, SnippetTypes } from '@utils/prop-types';
-import { getMargin } from '@utils/dimensions';
-import { NextUIThemesPalette } from '@theme/index';
+import useTheme from '../../hooks/use-theme';
+import withDefaults from '../../utils/with-defaults';
+import { DividerAlign, SnippetTypes } from '../../utils/prop-types';
+import { getMargin } from '../../utils/dimensions';
+import { NextUIThemesPalette } from '../../theme';
 
 export type DividerTypes = SnippetTypes;
 

@@ -1,7 +1,11 @@
 import React from 'react';
-import withDefaults from '@utils/with-defaults';
-import { NormalSizes, NormalLoaders, NormalColors } from '@utils/prop-types';
-import { Loading } from '@components';
+import withDefaults from '../../utils/with-defaults';
+import {
+  NormalSizes,
+  NormalLoaders,
+  NormalColors,
+} from '../../utils/prop-types';
+import { Loading } from '../index';
 
 interface Props {
   color?: NormalColors | string;

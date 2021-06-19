@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount, render, shallow } from 'enzyme';
-import { Avatar } from '@components';
+import Avatar from '../index';
+
 interface IconProps {
   className?: string;
 }
@@ -99,6 +100,7 @@ describe('Avatar', () => {
     const errorSpy = jest
       .spyOn(console, 'error')
       .mockImplementation((msg) => (errorMessage = msg));
+    // @ts-ignore
     mount(<Avatar color="#kajsdkl" />);
     expect(errorMessage).toContain('is not a valid color');
     errorSpy.mockRestore();

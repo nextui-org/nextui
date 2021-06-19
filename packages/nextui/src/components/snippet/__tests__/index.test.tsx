@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Snippet } from '@components';
+import Snippet from '../index';
 
 const command = 'yarn add @geist-ui/react';
 const multiLine = ['cd project', 'now'];

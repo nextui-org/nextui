@@ -4,20 +4,5 @@
     "@babel/preset-react",
     "@babel/preset-typescript"
   ],
-  "plugins": [
-    ["styled-jsx/babel"],
-    [
-      "module-resolver",
-      {
-        "root": ["./"],
-        "alias": {
-          "@components": "./src/components",
-          "@hooks": "./src/hooks",
-          "@utils": "./src/utils",
-          "@theme": "./src/theme",
-          "@tests": "./tests"
-        }
-      }
-    ]
-  ]
+  "plugins": ["styled-jsx/babel"]
 }

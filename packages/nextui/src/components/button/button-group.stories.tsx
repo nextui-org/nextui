@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Button from './index';
-import { Grid } from '@components';
+import { Grid } from '../index';
 
 export default {
   title: 'General/ButtonGroup',

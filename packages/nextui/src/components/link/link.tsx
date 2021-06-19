@@ -1,9 +1,9 @@
 import React from 'react';
-import withDefaults from '@utils/with-defaults';
-import useTheme from '@hooks/use-theme';
-import useWarning from '@hooks/use-warning';
+import withDefaults from '../../utils/with-defaults';
+import useTheme from '../../hooks/use-theme';
+import useWarning from '../../hooks/use-warning';
 import LinkIcon from './icon';
-import { addColorAlpha } from '@utils/color';
+import { addColorAlpha } from '../../utils/color';
 
 export interface Props {
   href?: string;

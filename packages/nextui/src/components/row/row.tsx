@@ -1,7 +1,7 @@
 import React from 'react';
-import withDefaults from '@utils/with-defaults';
-import useTheme from '@hooks/use-theme';
-import { Justify, AlignItems } from '@utils/prop-types';
+import withDefaults from '../../utils/with-defaults';
+import useTheme from '../../hooks/use-theme';
+import { Justify, AlignItems } from '../../utils/prop-types';
 
 interface Props {
   gap?: number;

@@ -2,14 +2,6 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "paths": {
-            "@components": ["./src/components/index.ts"],
-            "@components/*": ["./src/components/*"],
-            "@hooks/*": ["./src/hooks/*"],
-            "@utils/*": ["./src/utils/*"],
-            "@theme/*": ["./src/theme/*"],
-            "@tests/*": ["./tests/*"]
-        },
         "jsx": "preserve",
         "skipLibCheck": true,
         "moduleResolution": "node",

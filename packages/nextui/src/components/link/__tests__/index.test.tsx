@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Link } from '@components';
+import Link from '../index';
 
 describe('Link', () => {
   it('should render correctly', () => {

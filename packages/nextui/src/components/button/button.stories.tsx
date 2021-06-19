@@ -1,9 +1,9 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Button from './index';
-import { Spacer } from '@components';
-import { Lock, Notification, User, Camera, Activity } from '@utils/icons';
-import useTheme from '@hooks/use-theme';
+import { Spacer } from '../index';
+import { Lock, Notification, User, Camera, Activity } from '../../utils/icons';
+import useTheme from '../../hooks/use-theme';
 
 export default {
   title: 'General/Button',

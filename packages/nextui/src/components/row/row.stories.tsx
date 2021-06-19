@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Row from './index';
-import { Card, Grid, Spacer } from '@components';
+import { Card, Grid, Spacer } from '../index';
 
 export default {
   title: 'Layout/Row',

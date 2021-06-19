@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Loading from './index';
-import { Spacer } from '@components';
+import { Spacer } from '../index';
 
 export default {
   title: 'Feedback/Loading',

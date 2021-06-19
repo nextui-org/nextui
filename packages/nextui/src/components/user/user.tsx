@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
-import { Avatar } from '@components';
-import useTheme from '@hooks/use-theme';
+import { Avatar } from '../index';
+import useTheme from '../../hooks/use-theme';
 import UserLink from './user-link';
-import { NormalColors, NormalSizes } from '@utils/prop-types';
+import { NormalColors, NormalSizes } from '../../utils/prop-types';
 
 interface Props {
   name: ReactNode | string;

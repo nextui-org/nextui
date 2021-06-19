@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { User } from '@components';
+import User from '../index';
 
 describe(' User', () => {
   it('should render correctly', () => {

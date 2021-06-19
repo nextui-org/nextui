@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { Code } from '@components';
+import Code from '../index';
 
 describe('Code', () => {
   it('should render correctly', () => {

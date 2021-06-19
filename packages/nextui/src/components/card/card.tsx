@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import useTheme from '@hooks/use-theme';
-import { CardColors } from '@utils/prop-types';
+import useTheme from '../../hooks/use-theme';
+import { CardColors } from '../../utils/prop-types';
 import { getStyles } from './styles';
 import CardFooter from './card-footer';
 import CardContent from './card-content';
-import { Image } from '@components';
-import { hasChild, pickChild } from '@utils/collections';
+import { Image } from '../index';
+import { hasChild, pickChild } from '../../utils/collections';
 
 interface Props {
   hoverable?: boolean;

@@ -1,7 +1,11 @@
 import React, { useMemo } from 'react';
-import useTheme from '@hooks/use-theme';
-import withDefaults from '@utils/with-defaults';
-import { NormalSizes, NormalColors, NormalWeights } from '@utils/prop-types';
+import useTheme from '../../hooks/use-theme';
+import withDefaults from '../../utils/with-defaults';
+import {
+  NormalSizes,
+  NormalColors,
+  NormalWeights,
+} from '../../utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
 import { getButtonRadius, getGroupBorder } from './styles';
 

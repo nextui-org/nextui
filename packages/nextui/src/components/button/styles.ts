@@ -1,9 +1,13 @@
 import { CSSProperties } from 'react';
-import { NextUIThemesPalette } from '@theme/index';
-import { NormalSizes, NormalColors, NormalWeights } from '@utils/prop-types';
+import { NextUIThemesPalette } from '../../theme';
+import {
+  NormalSizes,
+  NormalColors,
+  NormalWeights,
+} from '../../utils/prop-types';
 import { Props as ButtonProps } from './button';
 import { ButtonGroupProps } from './button-group';
-import { addColorAlpha } from '@utils/color';
+import { addColorAlpha } from '../../utils/color';
 
 export interface ButtonBorder {
   display?: string;

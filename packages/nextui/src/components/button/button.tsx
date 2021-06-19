@@ -7,8 +7,8 @@ import React, {
   PropsWithoutRef,
   RefAttributes,
 } from 'react';
-import useWarning from '@hooks/use-warning';
-import useTheme from '@hooks/use-theme';
+import useWarning from '../../hooks/use-warning';
+import useTheme from '../../hooks/use-theme';
 import ButtonDrip from './button.drip';
 import ButtonLoading from './button-loading';
 import {
@@ -16,7 +16,7 @@ import {
   NormalLoaders,
   NormalSizes,
   NormalWeights,
-} from '@utils/prop-types';
+} from '../../utils/prop-types';
 import { filterPropsWithGroup } from './utils';
 import { useButtonGroupContext } from './button-group-context';
 import ButtonGroup from './button-group';

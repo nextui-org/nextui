@@ -1,5 +1,5 @@
 import React, { useMemo, ReactNode } from 'react';
-import useTheme from '@hooks/use-theme';
+import useTheme from '../../hooks/use-theme';
 import {
   BreakpointsValue,
   Wrap,
@@ -8,7 +8,7 @@ import {
   Direction,
   AlignItems,
   AlignContent,
-} from '@utils/prop-types';
+} from '../../utils/prop-types';
 
 interface Props {
   fluid?: boolean;

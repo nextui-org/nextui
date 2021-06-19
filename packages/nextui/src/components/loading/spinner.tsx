@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
-import withDefaults from '@utils/with-defaults';
-import useTheme from '@hooks/use-theme';
-import { NextUIThemes } from '@theme/index';
+import withDefaults from '../../utils/with-defaults';
+import useTheme from '../../hooks/use-theme';
+import { NextUIThemes } from '../../theme';
 
 interface Props {
   size: string;

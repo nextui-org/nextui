@@ -2,14 +2,6 @@
     "compilerOptions": {
       "outDir": "../dist",
       "baseUrl": "../",
-      "paths": {
-          "@components": ["./src/components/index.ts"],
-          "@components/*": ["./src/components/*"],
-          "@hooks/*": ["./src/hooks/*"],
-          "@utils/*": ["./src/utils/*"],
-          "@theme/*": ["./src/theme/*"],
-          "@tests/*": ["./tests/*"]
-      },
       "noEmit": false,
       "declaration": true,
       "emitDeclarationOnly": true,

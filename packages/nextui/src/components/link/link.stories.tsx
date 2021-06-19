@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Link from './link';
-import { Spacer, Text } from '@components';
+import { Spacer, Text } from '../index';
 
 export default {
   title: 'Navigation/Link',

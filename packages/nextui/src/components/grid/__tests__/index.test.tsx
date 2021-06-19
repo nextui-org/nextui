@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Grid } from '@components';
+import Grid from '../index';
 
 describe('Grid', () => {
   it('should render correctly', () => {

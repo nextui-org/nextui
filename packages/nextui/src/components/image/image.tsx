@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import useTheme from '@hooks/use-theme';
+import useTheme from '../../hooks/use-theme';
 import ImageSkeleton from './image.skeleton';
 import ImageBrowser from './image-browser';
-import useRealShape from '@hooks/use-real-shape';
-import useCurrentState from '@hooks/use-current-state';
-import useResize from '@hooks/use-resize';
+import useRealShape from '../../hooks/use-real-shape';
+import useCurrentState from '../../hooks/use-current-state';
+import useResize from '../../hooks/use-resize';
 
 interface Props {
   src: string;

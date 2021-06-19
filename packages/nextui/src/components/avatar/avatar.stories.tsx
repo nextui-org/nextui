@@ -1,9 +1,9 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Avatar from './index';
-import useTheme from '@hooks/use-theme';
-import { Spacer } from '@components';
-import { Lock, User, VolumeUp, Camera, Activity } from '@utils/icons';
+import useTheme from '../../hooks/use-theme';
+import { Spacer } from '../index';
+import { Lock, User, VolumeUp, Camera, Activity } from '../../utils/icons';
 
 export default {
   title: 'Display/Avatar',

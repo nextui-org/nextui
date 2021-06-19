@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
-import withDefaults from '@utils/with-defaults';
-import useTheme from '@hooks/use-theme';
-import { NormalColors } from '@utils/prop-types';
-import { getNormalColor } from '@utils/color';
+import withDefaults from '../../utils/with-defaults';
+import useTheme from '../../hooks/use-theme';
+import { NormalColors } from '../../utils/prop-types';
+import { getNormalColor } from '../../utils/color';
 
 export interface Props {
   tag: keyof JSX.IntrinsicElements;

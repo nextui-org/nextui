@@ -1,6 +1,6 @@
 import React from 'react';
-import { ButtonProps } from '@components/button/button';
-import { ButtonGroupConfig } from '@components/button/button-group-context';
+import { ButtonProps } from '../button/button';
+import { ButtonGroupConfig } from '../button/button-group-context';
 
 export const filterPropsWithGroup = (
   props: React.PropsWithChildren<ButtonProps>,

@@ -1,7 +1,7 @@
 import { NextUIThemes } from './index';
-import useWarning from '@hooks/use-warning';
-import { DeepPartial } from '@utils/types';
-import { deepMergeObject } from '@utils/object';
+import useWarning from '../hooks/use-warning';
+import { DeepPartial } from '../utils/types';
+import { deepMergeObject } from '../utils/object';
 import darkTheme from './dark';
 import lightTheme from './default';
 
