@@ -1,3 +1,5 @@
+/// <reference types="styled-jsx" />
+
 export { default as Avatar } from './avatar';
 export { default as CssBaseline } from './css-baseline';
 export { default as Checkbox } from './checkbox';
