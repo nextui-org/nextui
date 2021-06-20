@@ -51,7 +51,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   }, [routes]);
   const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}/${CONTENT_PATH}${currentRoute?.path}`;
   return (
-    <Container className="docs__container" display="flex" gap={0}>
+    <Container as="main" className="docs__container" display="flex">
       <Header {...meta} />
       <Navbar />
       <Row className="docs__content">

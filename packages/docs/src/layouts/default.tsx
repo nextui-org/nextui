@@ -11,7 +11,6 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
     <div className="wrapper">
       <Header />
       <Container
-        lg
         display="flex"
         as="main"
         alignContent="space-between"

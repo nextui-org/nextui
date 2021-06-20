@@ -2,9 +2,11 @@ const fs = require('fs-extra');
 const path = require('path');
 const componentsPath = path.join(__dirname, 'src');
 
+const isDev = process.env.NODE_ENV === 'dev';
+
 module.exports = async () => {
   const files = await fs.readdir(componentsPath);
-
+  console.log({ isDev });
   const components = await Promise.all(
     files.map(async (name) => {
       const comPath = path.join(componentsPath, name);
@@ -35,9 +37,8 @@ module.exports = async () => {
 
   const configs = {
     mode: 'none',
-
+    watch: isDev,
     entry: componentsEntries,
-
     output: {
       filename: '[name].js',
       path: path.resolve(__dirname, 'dist'),

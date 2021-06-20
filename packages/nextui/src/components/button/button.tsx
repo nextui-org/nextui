@@ -126,18 +126,14 @@ const Button = React.forwardRef<
 
   const radius = useMemo(() => getButtonRadius(size, rounded), [size, rounded]);
 
-  const { cursor, events } = useMemo(() => getButtonCursor(disabled, loading), [
-    disabled,
-    loading,
-  ]);
-  const {
-    height,
-    minWidth,
-    padding,
-    width,
-    fontSize,
-    loaderSize,
-  } = useMemo(() => getButtonSize(size, auto), [size, auto]);
+  const { cursor, events } = useMemo(
+    () => getButtonCursor(disabled, loading),
+    [disabled, loading]
+  );
+  const { height, minWidth, padding, width, fontSize, loaderSize } = useMemo(
+    () => getButtonSize(size, auto),
+    [size, auto]
+  );
 
   const dripColor = useMemo(
     () => getButtonDripColor(theme.palette, filteredProps),
@@ -281,7 +277,6 @@ const Button = React.forwardRef<
           cursor: ${cursor};
           pointer-events: ${events};
           box-shadow: ${shadow ? theme.expressiveness.shadowMedium : 'none'};
-          transform: translate3d(0px, ${shadow ? '-1.5px' : '0px'}, 0px);
         }
         .text {
           position: relative;

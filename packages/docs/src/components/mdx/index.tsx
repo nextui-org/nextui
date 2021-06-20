@@ -9,16 +9,19 @@ import cn from 'classnames';
 
 const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   return (
-    <table>
-      {children}
+    <div>
+      <table>{children}</table>
       <style jsx>{`
+        div {
+          overflow-x: auto;
+        }
         table {
           border-collapse: separate;
           border-spacing: 0;
           width: 100%;
         }
       `}</style>
-    </table>
+    </div>
   );
 };
 const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {

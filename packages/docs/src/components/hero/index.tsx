@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Text, Row, Col, Grid, Spacer, Button } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
 
@@ -17,7 +18,12 @@ const Hero: React.FC = () => {
           <Grid.Container gap={2} justify="center">
             <Grid xs={6}>
               <Row align="center">
-                <img src="/responsive.svg" width="24" alt="responsive icon" />
+                <Image
+                  src="/responsive.svg"
+                  width="24"
+                  height="27.9"
+                  alt="responsive icon"
+                />
                 <Spacer />
                 <Text b size="1.1rem">
                   Responsive design
@@ -26,7 +32,12 @@ const Hero: React.FC = () => {
             </Grid>
             <Grid xs={6}>
               <Row align="center">
-                <img src="/components.svg" width="24" alt="components icon" />
+                <Image
+                  src="/components.svg"
+                  width="24"
+                  height="27.9"
+                  alt="components icon"
+                />
                 <Spacer />
                 <Text b size="1.1rem">
                   +100 Components
@@ -35,7 +46,12 @@ const Hero: React.FC = () => {
             </Grid>
             <Grid xs={6}>
               <Row align="center">
-                <img src="/graph.svg" width="24" alt="graph icon" />
+                <Image
+                  src="/graph.svg"
+                  width="24"
+                  height="30.8"
+                  alt="graph icon"
+                />
                 <Spacer />
                 <Text b size="1.1rem">
                   Graph & analytics
@@ -44,7 +60,12 @@ const Hero: React.FC = () => {
             </Grid>
             <Grid xs={6}>
               <Row align="center">
-                <img src="/open_source.svg" width="24" alt="open source icon" />
+                <Image
+                  src="/open_source.svg"
+                  width="24"
+                  height="25.06"
+                  alt="open source icon"
+                />
                 <Spacer />
                 <Text b size="1.1rem">
                   Open source

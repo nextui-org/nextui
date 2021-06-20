@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/docs",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1-alpha.3",
   "private": true,
   "scripts": {
     "dev": "next dev",
