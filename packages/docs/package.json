@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/docs",
-  "version": "1.0.1-alpha.3",
+  "version": "1.0.1-alpha.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.6.0",
     "@mdx-js/react": "^1.6.22",
-    "@nextui-org/react": "^1.0.1-alpha.2",
+    "@nextui-org/react": "^1.0.1-alpha.3",
     "@types/lodash": "^4.14.170",
     "classnames": "^2.3.1",
     "gray-matter": "^4.0.3",
