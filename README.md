@@ -1,1 +1,1 @@
-README.md
+packages/nextui/README.md
