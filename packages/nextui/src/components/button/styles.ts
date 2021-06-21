@@ -7,7 +7,12 @@ import {
 } from '../../utils/prop-types';
 import { Props as ButtonProps } from './button';
 import { ButtonGroupProps } from './button-group';
-import { addColorAlpha } from '../../utils/color';
+import {
+  hexToRgb,
+  addColorAlpha,
+  hexFromString,
+  getNormalColor,
+} from '../../utils/color';
 
 export interface ButtonBorder {
   display?: string;
@@ -66,6 +71,22 @@ const getButtonWeight = (weight?: NormalWeights): string | undefined => {
     bold: '3px',
   };
   return weights[weight || 'normal'];
+};
+
+export const getShadowColor = (
+  palette: NextUIThemesPalette,
+  color: NormalColors
+) => {
+  try {
+    const hexColor =
+      color === 'gradient'
+        ? (hexFromString(palette.gradient, palette.primary, true) as string)
+        : getNormalColor(color, palette, palette.primary);
+    const [r, g, b] = hexToRgb(hexColor);
+    return `0 4px 14px 0 rgb(${r} ${g} ${b}/ 60%);`;
+  } catch (err) {
+    return 'none';
+  }
 };
 
 export const getButtonColors = (
@@ -163,10 +184,6 @@ export const getButtonColors = (
         ...borderedGradientStyles,
         hover: {
           bg: palette.gradient,
-          //   color: addColorAlpha(palette.text, 0.8),
-          //   style: {
-          //     filter: 'hue-rotate(40deg);',
-          //   },
         },
       };
     }
@@ -339,7 +356,7 @@ export const getButtonDripColor = (
     success: palette.success,
     warning: palette.warning,
     error: palette.error,
-    gradient: palette.primary,
+    gradient: hexFromString(palette.gradient, palette.primary, true) as string,
   };
   const baseColor =
     color === 'default' ? palette.primary : colors[color || 'default'];

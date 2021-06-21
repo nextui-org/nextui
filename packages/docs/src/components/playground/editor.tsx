@@ -99,7 +99,7 @@ const Editor: React.FC = () => {
           white-space: pre;
           font-family: ${theme.font.mono};
           color: ${theme.palette.foreground};
-          background-color: #111;
+          background-color: ${theme.palette.accents_1};
           font-size: 1em;
           overflow: hidden;
           padding: ${theme.layout.gapHalf};

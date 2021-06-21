@@ -30,14 +30,6 @@ import { Button } from '@nextui-org/react';
 />
 
 <Playground
-  title="Shadow"
-  desc="You can add a shadow effect with the property `shadow`."
-  code={`
- <Button shadow color="secondary">Shadow</Button>
-`}
-/>
-
-<Playground
   title="Sizes"
   desc="Change the size of the entire button including `padding`, `font-size` and `border` with the size property."
   code={`
@@ -86,6 +78,26 @@ import { Button } from '@nextui-org/react';
     Gradient
   </Button>
 </Row>
+`}
+/>
+
+<Playground
+  title="Shadow"
+  desc="You can add a shadow effect with the property `shadow`."
+  code={`
+<Row flexWrap="false">
+    <Button shadow auto>Primary</Button>
+    <Spacer />
+    <Button shadow auto color="secondary">Secondary</Button>
+    <Spacer />
+    <Button shadow auto color="success">Success</Button>
+    <Spacer />
+    <Button shadow auto color="warning">Warning</Button>
+    <Spacer />
+    <Button shadow auto color="error">Error</Button>
+    <Spacer />
+    <Button shadow auto color="gradient">Gradient</Button>
+ </Row>
 `}
 />
 

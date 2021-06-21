@@ -68,7 +68,7 @@ export const isColor = (strColor: string) => {
   return s.color == strColor;
 };
 
-const hexToRgb = (color: string): [number, number, number] => {
+export const hexToRgb = (color: string): [number, number, number] => {
   const fullReg = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   const full = color.replace(
     fullReg,
@@ -83,6 +83,19 @@ const hexToRgb = (color: string): [number, number, number] => {
     Number.parseInt(values[2], 16),
     Number.parseInt(values[3], 16),
   ];
+};
+
+export const hexFromString = (
+  str: string,
+  defaultColor: string = '',
+  returnLast = false
+): string | string[] => {
+  const fullReg = /#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}$/g;
+  const hexCodes = str.match(fullReg);
+  if (hexCodes && hexCodes.length > 0) {
+    return returnLast ? hexCodes[hexCodes.length - 1] : hexCodes;
+  }
+  return defaultColor;
 };
 
 export const colorToRgbValues = (color: string) => {

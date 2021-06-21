@@ -26,6 +26,7 @@ import {
   getButtonCursor,
   getButtonRadius,
   getButtonDripColor,
+  getShadowColor,
   getButtonSize,
 } from './styles';
 
@@ -125,6 +126,12 @@ const Button = React.forwardRef<
   );
 
   const radius = useMemo(() => getButtonRadius(size, rounded), [size, rounded]);
+
+  const shadowColor = useMemo(
+    () =>
+      shadow ? getShadowColor(theme.palette, filteredProps.color) : 'none',
+    [theme.palette, filteredProps, shadow]
+  );
 
   const { cursor, events } = useMemo(
     () => getButtonCursor(disabled, loading),
@@ -264,7 +271,7 @@ const Button = React.forwardRef<
           color: ${color};
           cursor: ${cursor};
           pointer-events: ${events};
-          box-shadow: ${shadow ? theme.expressiveness.shadowSmall : 'none'};
+          box-shadow: ${shadowColor};
           --next-ui-button-padding: ${padding};
           --next-ui-button-height: ${height};
           --next-ui-button-color: ${color};
@@ -300,7 +307,6 @@ const Button = React.forwardRef<
           padding: ${hover?.padding} !important;
           cursor: ${cursor};
           pointer-events: ${events};
-          box-shadow: ${shadow ? theme.expressiveness.shadowMedium : 'none'};
         }
         .text {
           position: relative;
