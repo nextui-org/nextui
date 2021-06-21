@@ -13,7 +13,7 @@ const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
       <table>{children}</table>
       <style jsx>{`
         div {
-          overflow-x: scroll;
+          overflow-x: auto;
           overflow-y: hidden;
         }
         table {
