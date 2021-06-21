@@ -5,11 +5,11 @@
   "description": "🚀 Beautiful and modern React UI library.",
   "homepage": "https://nextui.org",
   "bugs": {
-    "url": "https://github.com/jrgarciadev/next-ui/issues/new/choose"
+    "url": "https://github.com/nextui-org/nextui/issues/new/choose"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jrgarciadev/next-ui"
+    "url": "https://github.com/nextui-org/nextui"
   },
   "keywords": [
     "next",
