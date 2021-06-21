@@ -17,7 +17,12 @@ const defaultProps = {};
 const PageNav: React.FC<PageNavProps> = ({ tag, prevRoute, nextRoute }) => {
   const theme = useTheme() as NextUIThemes;
   return (
-    <Container display="flex" justify="space-between" className="page-nav">
+    <Container
+      display="flex"
+      justify="space-between"
+      className="page-nav"
+      gap={0}
+    >
       {prevRoute ? (
         <NextLink
           href={addTagToSlug(removeFromLast(prevRoute.path || '', '.'), tag)}

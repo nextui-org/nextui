@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonIcon should render correctly 1`] = `"<button type=\\"button\\" color=\\"default\\" weight=\\"normal\\" class=\\"jsx-171030409 button \\"><div class=\\"jsx-171030409\\"><span class=\\"jsx-2775745252 icon   \\"><svg></svg></span><div class=\\"jsx-171030409 text left\\">action</div></div></button>"`;
+exports[`ButtonIcon should render correctly 1`] = `"<button type=\\"button\\" color=\\"default\\" weight=\\"normal\\" class=\\"jsx-1954459594 button \\"><div class=\\"jsx-1954459594\\"><span class=\\"jsx-2775745252 icon   \\"><svg></svg></span><div class=\\"jsx-1954459594 text left\\">action</div></div></button>"`;
 
-exports[`ButtonIcon should work with right 1`] = `"<button type=\\"button\\" color=\\"default\\" weight=\\"normal\\" class=\\"jsx-171030409 button \\"><div class=\\"jsx-171030409\\"><span class=\\"jsx-2775745252 icon right  \\"><svg></svg></span><div class=\\"jsx-171030409 text right\\">action</div></div></button>"`;
+exports[`ButtonIcon should work with right 1`] = `"<button type=\\"button\\" color=\\"default\\" weight=\\"normal\\" class=\\"jsx-1954459594 button \\"><div class=\\"jsx-1954459594\\"><span class=\\"jsx-2775745252 icon right  \\"><svg></svg></span><div class=\\"jsx-1954459594 text right\\">action</div></div></button>"`;
 
-exports[`ButtonIcon should work without text 1`] = `"<button type=\\"button\\" color=\\"default\\" weight=\\"normal\\" class=\\"jsx-171030409 button \\"><span class=\\"jsx-2775745252 icon right single \\"><svg></svg></span></button>"`;
+exports[`ButtonIcon should work without text 1`] = `"<button type=\\"button\\" color=\\"default\\" weight=\\"normal\\" class=\\"jsx-1954459594 button \\"><span class=\\"jsx-2775745252 icon right single \\"><svg></svg></span></button>"`;

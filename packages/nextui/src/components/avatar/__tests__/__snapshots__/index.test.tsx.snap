@@ -411,7 +411,7 @@ LoadedCheerio {
 
 exports[`Avatar should work correctly with different sizes 1`] = `"<div><span class=\\"jsx-2879363747 avatar  \\"><span class=\\"jsx-2879363747 avatar-text\\"></span></span><span class=\\"jsx-4278147747 avatar  \\"><span class=\\"jsx-4278147747 avatar-text\\"></span></span><span class=\\"jsx-3671186691 avatar  \\"><span class=\\"jsx-3671186691 avatar-text\\"></span></span><span class=\\"jsx-2079164419 avatar  \\"><span class=\\"jsx-2079164419 avatar-text\\"></span></span><span class=\\"jsx-3155889251 avatar  \\"><span class=\\"jsx-3155889251 avatar-text\\"></span></span></div>"`;
 
-exports[`Avatar should work with a gradient color 1`] = `"<span class=\\"jsx-2519447360 avatar  \\"><span class=\\"jsx-2519447360 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with a gradient color 1`] = `"<span class=\\"jsx-2527914183 avatar  \\"><span class=\\"jsx-2527914183 avatar-text\\"></span></span>"`;
 
 exports[`Avatar should work with different colors 1`] = `"<div><span class=\\"jsx-2848712817 avatar  \\"><span class=\\"jsx-2848712817 avatar-text\\"></span></span><span class=\\"jsx-2340694469 avatar  \\"><span class=\\"jsx-2340694469 avatar-text\\"></span></span><span class=\\"jsx-3117078237 avatar  \\"><span class=\\"jsx-3117078237 avatar-text\\"></span></span><span class=\\"jsx-561504774 avatar  \\"><span class=\\"jsx-561504774 avatar-text\\"></span></span><span class=\\"jsx-854317330 avatar  \\"><span class=\\"jsx-854317330 avatar-text\\"></span></span></div>"`;
 

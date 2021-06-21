@@ -13,7 +13,8 @@ const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
       <table>{children}</table>
       <style jsx>{`
         div {
-          overflow-x: auto;
+          overflow-x: scroll;
+          overflow-y: hidden;
         }
         table {
           border-collapse: separate;

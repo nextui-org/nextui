@@ -97,7 +97,6 @@ export const getButtonColors = (
   const baseColor =
     color === 'default' ? palette.accents_2 : palette[color || 'primary'];
   const highlightColor = color === 'default' ? palette.primary : baseColor;
-
   const borderedGradientStyles = {
     ...buttonColor,
     bg: palette.background,
@@ -113,6 +112,9 @@ export const getButtonColors = (
     },
     hover: {
       color: addColorAlpha(palette.text, 0.8),
+      style: {
+        filter: 'hue-rotate(40deg);',
+      },
     },
   };
   if (bordered)
@@ -155,13 +157,16 @@ export const getButtonColors = (
         bg: addColorAlpha(buttonColor?.bg || palette.foreground, 0.25),
       },
     };
-  if (ghost === true) {
+  if (ghost) {
     if (color === 'gradient') {
       return {
         ...borderedGradientStyles,
         hover: {
-          bg: palette[key],
-          padding: '0px',
+          bg: palette.gradient,
+          //   color: addColorAlpha(palette.text, 0.8),
+          //   style: {
+          //     filter: 'hue-rotate(40deg);',
+          //   },
         },
       };
     }
@@ -185,7 +190,12 @@ export const getButtonColors = (
   }
   return {
     ...buttonColor,
-    hover: { bg: addColorAlpha(palette[key] || palette.primary, 0.85) },
+    hover: {
+      bg: addColorAlpha(palette[key] || palette.primary, 0.85),
+      style: {
+        filter: color === 'gradient' ? 'hue-rotate(40deg);' : 'none',
+      },
+    },
   };
 };
 
@@ -329,7 +339,7 @@ export const getButtonDripColor = (
     success: palette.success,
     warning: palette.warning,
     error: palette.error,
-    gradient: palette.warning,
+    gradient: palette.primary,
   };
   const baseColor =
     color === 'default' ? palette.primary : colors[color || 'default'];

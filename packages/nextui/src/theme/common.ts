@@ -41,7 +41,7 @@ export default {
   errorDark: '#e3001e',
   success: '#17c964',
   gradient:
-    'linear-gradient(45deg, #ffa95f 5%, #f99c4a 15%, #f47838 30%, #e75157 45%, #d92d7a 70%, #cc2a92 80%, #c32e92 95%)',
+    'linear-gradient(111.19deg,#aaffec -63.59%,#ff4ecd -20.3%,#0070f3 70.46%)',
   successLight: '#6ec293',
   successLighter: '#9bc7ae',
   successDark: '#009c22',

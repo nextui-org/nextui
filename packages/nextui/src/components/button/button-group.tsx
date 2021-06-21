@@ -98,8 +98,8 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
   return (
     <ButtonGroupContext.Provider value={initialValue}>
       <div
-        className={`button-group ${
-          vertical ? 'vertical' : 'horizontal'
+        className={`button-group ${vertical ? 'vertical' : 'horizontal'} ${
+          groupProps.color === 'gradient' ? 'gradient' : ''
         } ${className}`}
         {...props}
       >
@@ -128,16 +128,46 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
             border-bottom-left-radius: 0;
             border-left: ${borderWidth} solid ${borderColor};
           }
+          .horizontal :global(.button:not(:first-child):before) {
+            border-radius: 0;
+          }
           .horizontal :global(.button:not(:last-child)) {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .horizontal :global(.button:not(:last-child):before) {
+            border-radius: 0;
+          }
+          .gradient.horizontal
+            :global(.button:not(:last-child):not(:first-child)) {
+            padding-left: 0 !important;
+            filter: hue-rotate(310deg);
+          }
+          .gradient.horizontal :global(.button:last-child) {
+            filter: hue-rotate(250deg);
+            padding-left: 0 !important;
+          }
+          .gradient.vertical
+            :global(.button:not(:last-child):not(:first-child)) {
+            padding-top: 0 !important;
+          }
+          .gradient.vertical :global(.button:last-child) {
+            padding-top: 0 !important;
           }
           .vertical :global(.button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             border-top: ${borderWidth} solid ${borderColor};
           }
+          .vertical :global(.button:not(:first-child):before) {
+            border-radius: 0;
+          }
           .vertical :global(.button:not(:last-child)) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+
+          .vertical :global(.button:not(:last-child):before) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }

@@ -164,6 +164,11 @@ const Button = React.forwardRef<
     [auto, size]
   );
 
+  const hoverBeforeWidth = useMemo(
+    () => (filteredProps.color === 'gradient' && ghost ? '100%' : '0%'),
+    [ghost, filteredProps]
+  );
+
   const paddingForBorderedGradient = useMemo(
     () =>
       filteredProps.color === 'gradient' && (bordered || ghost)
@@ -251,9 +256,9 @@ const Button = React.forwardRef<
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, box-shadow 250ms ease 0ms,
-            border 250ms ease 0ms, color 250ms ease 0ms,
-            transform 250ms ease 0ms;
+          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
+            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
+            color 250ms ease 0ms, transform 250ms ease 0ms;
           position: relative;
           overflow: hidden;
           color: ${color};
@@ -265,11 +270,30 @@ const Button = React.forwardRef<
           --next-ui-button-color: ${color};
           --next-ui-button-bg: ${bg};
         }
+        .button:before {
+          ${backgroundHover};
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          border-radius: ${radius};
+          width: 0;
+          transition: all 0.2s ease;
+          z-index: 1;
+        }
+        .button:hover:before {
+          width: ${hoverBeforeWidth};
+        }
+        .button:active {
+          transform: ${animated ? 'scale(0.97)' : 'none'};
+        }
         .button:hover,
         .button:focus {
-          ${backgroundHover} !important;
-          color: ${hover?.color};
+          ${backgroundHover};
           --next-ui-button-color: ${hover?.color};
+          filter: ${hover?.style?.filter || 'none'};
+          color: ${hover?.color};
           background-color: ${hover?.bg};
           border-color: ${hover?.border?.color || 'transparent'};
           border-width: ${hover?.border?.width};
