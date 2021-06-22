@@ -9,7 +9,6 @@ export interface ButtonGroupConfig {
   light?: boolean;
   flat?: boolean;
   ghost?: boolean;
-  loading?: boolean;
   shadow?: boolean;
   auto?: boolean;
   animated?: boolean;
@@ -22,9 +21,8 @@ const defaultContext = {
   disabled: false,
 };
 
-export const ButtonGroupContext = React.createContext<ButtonGroupConfig>(
-  defaultContext
-);
+export const ButtonGroupContext =
+  React.createContext<ButtonGroupConfig>(defaultContext);
 
 export const useButtonGroupContext = (): ButtonGroupConfig =>
   React.useContext<ButtonGroupConfig>(ButtonGroupContext);

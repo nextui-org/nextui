@@ -15,7 +15,6 @@ interface Props {
   bordered?: boolean;
   light?: boolean;
   flat?: boolean;
-  loading?: boolean;
   shadow?: boolean;
   auto?: boolean;
   animated?: boolean;
@@ -33,7 +32,6 @@ const defaultProps = {
   bordered: false,
   light: false,
   flat: false,
-  loading: false,
   shadow: false,
   auto: false,
   animated: false,
@@ -60,7 +58,6 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     ghost,
     light,
     flat,
-    loading,
     shadow,
     auto,
     animated,
@@ -79,7 +76,6 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       light,
       ghost,
       flat,
-      loading,
       shadow,
       auto,
       animated,
