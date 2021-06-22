@@ -40,7 +40,7 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
     {
       types: ['tag', 'operator', 'number'],
       style: {
-        color: theme.palette.warning,
+        color: '#E5C07B',
       },
     },
     {
@@ -79,7 +79,7 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
         'variable',
       ],
       style: {
-        color: theme.palette.success,
+        color: '#98C379',
       },
     },
     {
