@@ -32,10 +32,10 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
 }) => {
   const theme = useTheme();
   const Component = tag;
-  const color = useMemo(() => getNormalColor(userColor, theme.palette), [
-    userColor,
-    theme.palette,
-  ]);
+  const color = useMemo(
+    () => getNormalColor(userColor, theme.palette),
+    [userColor, theme.palette]
+  );
   const fontSize = useMemo<string>(() => {
     if (!size) return 'inherit';
     if (typeof size === 'number') return `${size}px`;

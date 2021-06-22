@@ -1,1 +1,174 @@
+---
+title: 'Text'
+description: 'Buttons allow users to perform actions and choose with a single tap.'
+---
+
 # Text
+
+Text component is the used to render text and paragraphs within an interface using well-defined typographic styles.
+It renders a `<p>` tag by default.
+
+<Playground
+  title="Headings"
+  desc="Headings `h1..h6` are titles or subtitles that you want to display on a webpage."
+  code={`
+() => {
+  const text = 'Almost before we knew it, we had left the ground.'
+  return (
+    <>
+      <Text h1>{text}</Text>
+      <Text h2>{text}</Text>
+      <Text h3>{text}</Text>
+      <Text h4>{text}</Text>
+      <Text h5>{text}</Text>
+      <Text h6>{text}</Text>
+    </>
+  )
+}
+`}
+/>
+
+<Playground
+  title="Paragraph"
+  desc="You can add `p` attribute to a `Text` to render a paragraph."
+  code={`
+  () => {
+  const text = 'NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.';
+  return (
+    <>
+        <Text p>{text}</Text>
+        <Text p b>
+        {text}
+        </Text>
+    </>
+   )
+}
+`}
+/>
+
+<Playground
+  title="Small"
+  desc="You can use the `small` attribute to a `Text` to render a small paragraph."
+  code={`
+  () => {
+  const text = 'NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.';
+  return (
+    <>
+        <Text small>{text}</Text>
+        <Text small i>
+         {text}
+        </Text>
+    </>
+   )
+  }
+`}
+/>
+
+<Playground
+  title="Blockquote"
+  desc="Use `blockquote` attribute to a `Text` to render a blockquote."
+  code={`
+<Text blockquote>
+  Almost before we knew it, we had left the ground.
+</Text>
+`}
+/>
+
+<Playground
+  title="Colors"
+  desc="Use `color` attribute to a `Text` to render the paragraph with a different color."
+  code={`
+<>
+  <Text color="primary">
+    Our mission is to make cloud computing accessible to everyone.
+  </Text>
+  <Text color="success">
+    Our mission is to make cloud computing accessible to everyone.
+  </Text>
+  <Text color="warning">
+    Our mission is to make cloud computing accessible to everyone.
+  </Text>
+  <Text color="secondary">
+    Our mission is to make cloud computing accessible to everyone.
+  </Text>
+  <Text color="error">
+    Our mission is to make cloud computing accessible to everyone.
+  </Text>
+  <Text style={{ color: '#ccc' }}>
+    Our mission is to make cloud computing accessible to everyone.
+  </Text>
+</>
+`}
+/>
+
+<Playground
+  title="Sizes"
+  desc="Change the `font-size` of the `Text` with the `size` property."
+  code={`
+<>
+  <Text size={12}>Font Size: 12px;</Text>
+  <Text size={14}>Font Size: 14px;</Text>
+  <Text size="100%">Font Size: 100%;</Text>
+  <Text size="1.25rem">Font Size: 1.25rem;</Text>
+  <Text size="2em">Font Size: 2em;</Text>
+</>
+`}
+/>
+
+<Playground
+  title="Compose"
+  desc="Effect of multiple `Text` stacks"
+  code={`
+<>
+  <Text p>
+   Our mission is to make cloud computing accessible to everyone. We build products for developers and designers. And those who aspire to become one.
+  </Text>
+
+  <Text>
+    <Text small del>Our mission is to make cloud computing accessible to everyone.</Text>
+    <Text small b>We build products for developers and designers. And those who aspire to become one.</Text>
+  </Text>
+</>
+`} />
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Text Props
+
+| Attribute      | Type                | Accepted values                | Description     | Default         |
+| -------------- | ------------------- | ------------------------------ | --------------- | --------------- |
+| **p**          | `boolean`           | -                              | component name  | `true`          |
+| **h1 - h6**    | `boolean`           | -                              | component name  | `false`         |
+| **small**      | `boolean`           | -                              | component name  | `false`         |
+| **span**       | `boolean`           | -                              | component name  | `false`         |
+| **del**        | `boolean`           | -                              | component name  | `false`         |
+| **i**          | `boolean`           | -                              | component name  | `false`         |
+| **em**         | `boolean`           | -                              | component name  | `false`         |
+| **b**          | `boolean`           | -                              | component name  | `false`         |
+| **blockquote** | `boolean`           | -                              | component name  | `false`         |
+| **capitalize** | `boolean`           | -                              | capitalize text | `false`         |
+| **size**       | `string` / `number` | -                              | size of text    | follow elements |
+| **color**      | `NormalColors`      | [NormalColors](#normal-colors) | text color      | `default`       |
+| ...            | `HTMLAttributes`    | `'id', 'className', ...`       | native props    | -               |
+
+<Spacer y={1} />
+
+#### Text types
+
+<Spacer y={1} />
+
+#### Normal Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
