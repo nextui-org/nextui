@@ -80,22 +80,22 @@ It renders a `<p>` tag by default.
   code={`
 <>
   <Text color="primary">
-    Our mission is to make cloud computing accessible to everyone.
+     Almost before we knew it, we had left the ground.
   </Text>
   <Text color="success">
-    Our mission is to make cloud computing accessible to everyone.
+     Almost before we knew it, we had left the ground.
   </Text>
   <Text color="warning">
-    Our mission is to make cloud computing accessible to everyone.
+     Almost before we knew it, we had left the ground.
   </Text>
   <Text color="secondary">
-    Our mission is to make cloud computing accessible to everyone.
+     Almost before we knew it, we had left the ground.
   </Text>
   <Text color="error">
-    Our mission is to make cloud computing accessible to everyone.
+     Almost before we knew it, we had left the ground.
   </Text>
-  <Text style={{ color: '#ccc' }}>
-    Our mission is to make cloud computing accessible to everyone.
+  <Text style={{ color: '#77C8E6' }}>
+     Almost before we knew it, we had left the ground.
   </Text>
 </>
 `}
@@ -119,17 +119,21 @@ It renders a `<p>` tag by default.
   title="Compose"
   desc="Effect of multiple `Text` stacks"
   code={`
-<>
-  <Text p>
-   Our mission is to make cloud computing accessible to everyone. We build products for developers and designers. And those who aspire to become one.
-  </Text>
-
-  <Text>
-    <Text small del>Our mission is to make cloud computing accessible to everyone.</Text>
-    <Text small b>We build products for developers and designers. And those who aspire to become one.</Text>
-  </Text>
-</>
-`} />
+  () => {
+  const smallText = 'Almost before we knew it, we had left the ground.'
+  const largeText = 'NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.';
+  return (
+    <>
+        <Text p>{largeText}</Text>
+        <Text>
+         <Text small del>{smallText}</Text>
+         <Text small b>{largeText}</Text>
+        </Text>
+    </>
+   )
+}
+`}
+/>
 
 <Spacer y={3} />
 
