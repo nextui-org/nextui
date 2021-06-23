@@ -2,7 +2,11 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCheckbox } from './checkbox-context';
 import CheckboxGroup from './checkbox-group';
 import useWarning from '../../hooks/use-warning';
-import { NormalSizes, NormalColors } from '../../utils/prop-types';
+import {
+  NormalSizes,
+  NormalColors,
+  SimpleColors,
+} from '../../utils/prop-types';
 import useTheme from '../../hooks/use-theme';
 import { getIconCheckStyle, getCheckboxSize } from './styles';
 import { getNormalColor } from '../../utils/color';
@@ -20,7 +24,7 @@ export interface CheckboxEvent {
 
 export interface Props {
   color?: NormalColors;
-  textColor?: NormalColors;
+  textColor?: SimpleColors;
   label?: string;
   line?: boolean;
   indeterminate?: boolean;
@@ -37,7 +41,7 @@ export interface Props {
 
 const defaultProps = {
   color: 'primary' as NormalColors,
-  textColor: 'default' as NormalColors,
+  textColor: 'default' as SimpleColors,
   disabled: false,
   initialChecked: false,
   indeterminate: false,

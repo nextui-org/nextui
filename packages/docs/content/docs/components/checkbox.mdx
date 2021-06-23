@@ -31,7 +31,7 @@ import { Checkbox } from '@nextui-org/react';
 
 <Playground
   title="Sizes"
-  desc="You can change the `Checkbox` text color with `textColor` prop"
+  desc="Change the size of the entire `Checkbox` including `padding`, `font-size` and `border` with the `size` property."
   code={`
  <>
  <Checkbox checked={true} size="mini">
@@ -204,7 +204,7 @@ import { Checkbox } from '@nextui-org/react';
 | Attribute          | Type                  | Accepted values                | Description                                                            | Default   |
 | ------------------ | --------------------- | ------------------------------ | ---------------------------------------------------------------------- | --------- |
 | **color**          | `NormalColors`        | [NormalColors](#normal-colors) | Change checkbox color                                                  | `primary` |
-| **textColor**      | `NormalColors`        | [NormalColors](#normal-colors) | Change checkbox text color                                             | `default` |
+| **textColor**      | `NormalColors`        | [SimpleColors](#simple-colors) | Change checkbox text color                                             | `default` |
 | **size**           | `NormalSizes`         | [NormalSizes](#normal-sizes)   | Checkbox size                                                          | `medium`  |
 | **checked**        | `boolean`             | `true/false`                   | Determine the value of the checkbox                                    | `false`   |
 | **initialChecked** | `boolean`             | `true/false`                   | Determine the initial value of the checkbox                            | `false`   |
@@ -227,7 +227,7 @@ import { Checkbox } from '@nextui-org/react';
 | ------------- | ---------------------------- | ------------------------------ | ----------------------------------- | --------- |
 | **value**     | `string[]`                   | -                              | List of checked checkbox            | `[]`      |
 | **color**     | `NormalColors`               | [NormalColors](#normal-colors) | Change checkbox group color         | `primary` |
-| **textColor** | `NormalColors`               | [NormalColors](#normal-colors) | Change checkbox group text color    | `default` |
+| **textColor** | `NormalColors`               | [SimpleColors](#simple-colors) | Change checkbox group text color    | `default` |
 | **disabled**  | `boolean`                    | `true/false`                   | Disable checkbox group              | `false`   |
 | **row**       | `boolean`                    | `true/false`                   | Change the checkbox group direction | `false`   |
 | **size**      | `NormalSizes`                | [NormalSizes](#normal-sizes)   | Size of all checkboxes in the group | `medium`  |
@@ -249,6 +249,18 @@ type NormalColors =
   | 'warning'
   | 'error'
   | 'gradient';
+```
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
 ```
 
 #### Normal Sizes

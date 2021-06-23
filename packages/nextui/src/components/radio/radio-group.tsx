@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import withDefaults from '../../utils/with-defaults';
 import { RadioContext } from './radio-context';
-import { NormalSizes, NormalColors } from '../../utils/prop-types';
+import { NormalSizes, SimpleColors } from '../../utils/prop-types';
 
 interface Props {
   value?: string | number;
   initialValue?: string | number;
   disabled?: boolean;
-  color?: NormalColors | string;
-  textColor?: NormalColors | string;
+  color?: SimpleColors | string;
+  textColor?: SimpleColors | string;
   size?: NormalSizes | number;
   onChange?: (value: string | number) => void;
   className?: string;
@@ -18,8 +18,8 @@ interface Props {
 const defaultProps = {
   disabled: false,
   size: 'medium' as NormalSizes,
-  color: 'primary' as NormalColors,
-  textColor: 'default' as NormalColors,
+  color: 'primary' as SimpleColors,
+  textColor: 'default' as SimpleColors,
   className: '',
   row: false,
 };
@@ -32,8 +32,8 @@ export const getRadioSize = (size: NormalSizes | number): string => {
     mini: '.8rem',
     small: '1rem',
     medium: '1.2rem',
-    large: '1.4rem',
-    xlarge: '1.6rem',
+    large: '1.5rem',
+    xlarge: '1.7rem',
   };
   if (typeof size === 'number') return `${size}px`;
   return sizes[size];

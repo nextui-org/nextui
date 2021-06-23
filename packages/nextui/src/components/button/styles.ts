@@ -208,7 +208,10 @@ export const getButtonColors = (
   return {
     ...buttonColor,
     hover: {
-      bg: addColorAlpha(palette[key] || palette.primary, 0.85),
+      bg:
+        color === 'gradient'
+          ? palette[key]
+          : addColorAlpha(palette[key] || palette.primary, 0.85),
       style: {
         filter: color === 'gradient' ? 'hue-rotate(40deg);' : 'none',
       },

@@ -5,7 +5,7 @@ import RadioGroup, { getRadioSize } from './radio-group';
 import RadioDescription from './radio-description';
 import { pickChild } from '../../utils/collections';
 import useWarning from '../../hooks/use-warning';
-import { NormalSizes, NormalColors } from '../../utils/prop-types';
+import { NormalSizes, SimpleColors } from '../../utils/prop-types';
 import { getNormalColor } from '../../utils/color';
 
 interface RadioEventTarget {
@@ -24,8 +24,8 @@ interface Props {
   value?: string | number;
   squared?: boolean;
   size?: NormalSizes | number;
-  color?: NormalColors;
-  textColor?: NormalColors;
+  color?: SimpleColors;
+  textColor?: SimpleColors;
   className?: string;
   disabled?: boolean;
   onChange?: (e: RadioEvent) => void;
@@ -33,8 +33,8 @@ interface Props {
 
 const defaultProps = {
   size: 'medium' as NormalSizes | number,
-  color: 'primary' as NormalColors,
-  textColor: 'default' as NormalColors,
+  color: 'primary' as SimpleColors,
+  textColor: 'default' as SimpleColors,
   disabled: false,
   squared: false,
   className: '',
@@ -196,52 +196,26 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           height: var(--radio-size);
           width: var(--radio-size);
           border-radius: ${radius};
-          border: 2px solid ${theme.palette.border};
           transition: all 0.25s ease;
           position: relative;
           display: inline-block;
-          transform: scale(0.875);
           margin-right: calc(var(--radio-size) * 0.375);
-        }
-        .point:before {
-          content: '';
-          opacity: 0;
-          position: absolute;
-          transform: scale(0.5);
-          height: calc(var(--radio-size) + 2px);
-          width: calc(var(--radio-size) + 2px);
-          border-radius: ${radius};
-          background-color: ${radioColor};
-          transition: all 0.25s ease;
         }
         .point:after {
           content: '';
-          opacity: 0;
+          display: block;
           position: absolute;
-          transform: scale(0.2);
+          width: 100%;
+          height: 100%;
           border-radius: ${radius};
-          top: calc(calc(var(--radio-size) + 2px) * 0.25);
-          left: calc(calc(var(--radio-size) + 2px) * 0.25);
-          height: calc(calc(var(--radio-size) + 2px) * 0.5);
-          width: calc(calc(var(--radio-size) + 2px) * 0.5);
-          background-color: ${theme.palette.background};
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%),
-            0 5px 15px 0 rgb(0 0 0 / 15%);
-          transition: transform 0.5s ease;
-        }
-        .point.active:before {
-          opacity: 1;
-          transform: scale(1);
+          box-sizing: border-box;
+          transition: all 0.25s ease;
+          border: 2px solid ${theme.palette.border};
         }
         .point.active:after {
-          opacity: 1;
-          transform: scale(1);
-        }
-        .point.active {
-          border: 2px solid transparent;
+          border: calc(var(--radio-size) * 0.34) solid ${radioColor};
         }
         label:hover .point:not(.active):not(.disabled) {
-          border: 2px solid transparent;
           background: ${theme.palette.border};
         }
       `}</style>

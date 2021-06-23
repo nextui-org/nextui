@@ -12,6 +12,15 @@ export const normalColors = tuple(
   'gradient'
 );
 
+export const simpleColors = tuple(
+  'default',
+  'primary',
+  'secondary',
+  'success',
+  'warning',
+  'error'
+);
+
 export const normalLoaders = tuple(
   'default',
   'points',
@@ -129,6 +138,8 @@ export type NormalSizes = typeof normalSizes[number];
 export type NormalWeights = typeof normalWeights[number];
 
 export type NormalColors = typeof normalColors[number];
+
+export type SimpleColors = typeof simpleColors[number];
 
 export type NormalLoaders = typeof normalLoaders[number];
 

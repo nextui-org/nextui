@@ -147,22 +147,6 @@ const Button = React.forwardRef<
     [theme.palette, filteredProps]
   );
 
-  const background = useMemo(
-    () =>
-      filteredProps.color === 'gradient' && !flat && !light && !ghost
-        ? `background-image: ${bg}`
-        : `background-color: ${bg}`,
-    [bg, flat, light, ghost]
-  );
-
-  const backgroundHover = useMemo(
-    () =>
-      filteredProps.color === 'gradient'
-        ? `background-image: ${hover?.bg}`
-        : `background-color: ${hover?.bg}`,
-    [bg, flat, light, ghost]
-  );
-
   const paddingForAutoMode = useMemo(
     () =>
       auto || size === 'mini'
@@ -244,7 +228,7 @@ const Button = React.forwardRef<
       )}
       <style jsx>{`
         .button {
-          ${background};
+          background: ${bg};
           box-sizing: border-box;
           display: inline-block;
           padding: 0 ${padding};
@@ -278,8 +262,8 @@ const Button = React.forwardRef<
           --next-ui-button-bg: ${bg};
         }
         .button:before {
-          ${backgroundHover};
           content: '';
+          background: ${hover?.bg};
           position: absolute;
           top: 0;
           left: 0;
@@ -297,11 +281,10 @@ const Button = React.forwardRef<
         }
         .button:hover,
         .button:focus {
-          ${backgroundHover};
+          background: ${hover?.bg || 'inherit'};
           --next-ui-button-color: ${hover?.color};
           filter: ${hover?.style?.filter || 'none'};
           color: ${hover?.color};
-          background-color: ${hover?.bg};
           border-color: ${hover?.border?.color || 'transparent'};
           border-width: ${hover?.border?.width};
           padding: ${hover?.padding} !important;
