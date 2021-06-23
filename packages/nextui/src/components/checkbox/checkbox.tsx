@@ -377,9 +377,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
           user-select: none;
           cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
         }
-        .line-through {
-          opacity: ${selfChecked ? '0.4' : '1'};
-        }
         .text:before {
           position: absolute;
           width: ${selfChecked && line ? 'calc(100% - 10px)' : '0px'};

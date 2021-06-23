@@ -4,3 +4,22 @@ description: 'Radios are used when only one choice may be selected in a series o
 ---
 
 # Radio
+
+Radios are used when only one choice may be selected in a series of options.
+
+```jsx
+import { Radio } from '@nextui-org/react';
+```
+
+<Playground
+  title="Default"
+  desc="You can change the state with `checked` prop"
+  code={`
+ <Radio.Group value="A">
+    <Radio value="A">Option A</Radio>
+    <Radio value="B">Option B</Radio>
+    <Radio value="C">Option C</Radio>
+    <Radio value="D">Option D</Radio>
+  </Radio.Group>
+`}
+/>

@@ -88,10 +88,10 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   }
 
   const fontSize = useMemo(() => getRadioSize(size), [size]);
-  const isDisabled = useMemo(() => disabled || disabledAll, [
-    disabled,
-    disabledAll,
-  ]);
+  const isDisabled = useMemo(
+    () => disabled || disabledAll,
+    [disabled, disabledAll]
+  );
   const radius = squared ? '33%' : '50%';
 
   const radioColor = useMemo(
