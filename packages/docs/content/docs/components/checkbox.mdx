@@ -219,7 +219,20 @@ import { Checkbox } from '@nextui-org/react';
 
 ---
 
-<Spacer y={1} />
+<Spacer y={2} />
+
+#### Checkbox Group Props
+
+| Attribute     | Type                         | Accepted values                | Description                         | Default   |
+| ------------- | ---------------------------- | ------------------------------ | ----------------------------------- | --------- |
+| **value**     | `string[]`                   | -                              | List of checked checkbox            | `[]`      |
+| **color**     | `NormalColors`               | [NormalColors](#normal-colors) | Change checkbox group color         | `primary` |
+| **textColor** | `NormalColors`               | [NormalColors](#normal-colors) | Change checkbox group text color    | `default` |
+| **disabled**  | `boolean`                    | `true/false`                   | Disable checkbox group              | `false`   |
+| **row**       | `boolean`                    | `true/false`                   | Change the checkbox group direction | `false`   |
+| **size**      | `NormalSizes`                | [NormalSizes](#normal-sizes)   | Size of all checkboxes in the group | `medium`  |
+| **onChange**  | `(values: string[]) => void` | -                              | Checkbox group event handler        | -         |
+| ...           | `HTMLAttributes`             | `'id', 'className', ...`       | Native checkbox props               | -         |
 
 #### Checkbox types
 
