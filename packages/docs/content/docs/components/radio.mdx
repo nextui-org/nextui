@@ -99,7 +99,7 @@ import { Radio } from '@nextui-org/react';
 
 <Playground
   title="Text Colors"
-  desc="You can change the `Checkbox` text color with `textColor` prop"
+  desc="You can change the `Radio` text color with `textColor` prop"
   code={`
   <>
  <Radio color="primary" textColor="primary"  checked={true}>
@@ -170,3 +170,76 @@ import { Radio } from '@nextui-org/react';
   </Radio.Group>
 `}
 />
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Radio Props
+
+| Attribute     | Type                      | Accepted values                | Description                                                         | Default   |
+| ------------- | ------------------------- | ------------------------------ | ------------------------------------------------------------------- | --------- |
+| **color**     | `SimpleColors`            | [SimpleColors](#simple-colors) | Change radio color                                                  | `primary` |
+| **textColor** | `SimpleColors`            | [SimpleColors](#simple-colors) | Change radio text color                                             | `default` |
+| **checked**   | `boolean`                 | `true/false`                   | Selected or not (in single)                                         | `false`   |
+| **squared**   | `boolean`                 | `true/false`                   | Squared radio                                                       | `false`   |
+| **disabled**  | `boolean`                 | `true/false`                   | Disable radio                                                       | `false`   |
+| **size**      | `NormalSizes`             | [NormalSizes](#normal-sizes)   | Radio size                                                          | `medium`  |
+| **value**     | `string`                  | -                              | Unique ident value (in group)                                       | -         |
+| **id**        | `string`                  | -                              | Native id attr                                                      | -         |
+| **onChange**  | `(e: RadioEvent) => void` | -                              | The callback invoked when the checked state of the `Radio` changes. | -         |
+| ...           | `InputHTMLAttributes`     | `'id', 'className', ...`       | Native radio props                                                  | -         |
+
+---
+
+<Spacer y={2} />
+
+#### Radio Group Props
+
+| Attribute        | Type                      | Accepted values                | Description                      | Default   |
+| ---------------- | ------------------------- | ------------------------------ | -------------------------------- | --------- |
+| **color**        | `SimpleColors`            | [SimpleColors](#simple-colors) | Change radio group color         | `primary` |
+| **textColor**    | `SimpleColors`            | [SimpleColors](#simple-colors) | Change radio group text color    | `default` |
+| **initialValue** | `string/number`           | -                              | Initial radio group value        | -         |
+| **value**        | `string/number`           | -                              | Selected child radio             | -         |
+| **row**          | `boolean`                 | `true/false`                   | Change the radio group direction | `false`   |
+| **disabled**     | `boolean`                 | `true/false`                   | Disable all radios               | `false`   |
+| **size**         | `NormalSizes`             | [NormalSizes](#normal-sizes)   | Size of all radios in the group  | `medium`  |
+| **onChange**     | `(value: string) => void` | -                              | Radio group event handler        | -         |
+| ...              | `HTMLAttributes`          | `'id', 'className', ...`       | Native props                     | -         |
+
+---
+
+<Spacer y={2} />
+
+#### Radio Desc Props
+
+| Attribute | Type             | Accepted values          | Description  | Default |
+| --------- | ---------------- | ------------------------ | ------------ | ------- |
+| ...       | `HTMLAttributes` | `'id', 'className', ...` | native props | -       |
+
+---
+
+#### Radio types
+
+<Spacer y={1} />
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+```

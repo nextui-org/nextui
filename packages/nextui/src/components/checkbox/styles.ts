@@ -5,9 +5,9 @@ export const getCheckboxSize = (size: NormalSizes): string => {
   const sizes: { [key in NormalSizes]: string } = {
     mini: '.875rem',
     small: '1rem',
-    medium: '1.125rem',
-    large: '1.3rem',
-    xlarge: '1.5rem',
+    medium: '1.2rem',
+    large: '1.5rem',
+    xlarge: '1.8rem',
   };
   return sizes[size];
 };
