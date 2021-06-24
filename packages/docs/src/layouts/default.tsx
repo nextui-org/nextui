@@ -29,6 +29,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
           background: linear-gradient(90deg, #000 21px, transparent 1%) 50%,
             linear-gradient(#000 21px, transparent 1%) 50%, #444;
           background-size: var(--dot-space) var(--dot-space);
+          overflow-y: clip;
         }
         :global(.main-container) {
           min-height: 100vh;
