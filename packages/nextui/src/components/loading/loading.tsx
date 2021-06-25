@@ -3,7 +3,7 @@ import useTheme from '../../hooks/use-theme';
 import withDefaults from '../../utils/with-defaults';
 import {
   NormalSizes,
-  NormalColors,
+  SimpleColors,
   NormalLoaders,
 } from '../../utils/prop-types';
 import { getNormalColor, addColorAlpha } from '../../utils/color';
@@ -12,15 +12,15 @@ import Spinner from './spinner';
 
 interface Props {
   size?: NormalSizes;
-  color?: NormalColors | string;
+  color?: SimpleColors | string;
   gradientBackground?: string | null;
-  textColor?: NormalColors | string;
+  textColor?: SimpleColors | string;
   type?: NormalLoaders;
 }
 
 const defaultProps = {
   size: 'medium' as NormalSizes,
-  color: 'primary' as NormalColors | string,
+  color: 'primary' as SimpleColors | string,
   type: 'default' as NormalLoaders,
 };
 
@@ -39,10 +39,10 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   const theme = useTheme();
   const width = useMemo(() => getLoaderSize(type)[size], [size, type]);
   const border = useMemo(() => getLoaderBorder(size), [size]);
-  const labelColor = useMemo(() => getNormalColor(textColor, theme.palette), [
-    color,
-    theme.palette,
-  ]);
+  const labelColor = useMemo(
+    () => getNormalColor(textColor, theme.palette),
+    [color, theme.palette]
+  );
   const labelStyle = useMemo(
     () => getLabelStyle(type, theme, labelColor)[size],
     [type, size, theme, labelColor]
