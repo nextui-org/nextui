@@ -27,7 +27,7 @@ const Sticky: React.FC<React.PropsWithChildren<StickyProps>> = ({
       {children}
       <style jsx>{`
         div {
-          background: ${theme.palette.background};
+          background: 'transparent';
           position: sticky;
           z-index: 1000;
         }

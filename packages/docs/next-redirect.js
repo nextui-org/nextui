@@ -6,6 +6,11 @@ async function redirect() {
       permanent: true,
     },
     {
+      source: '/docs/getting-started',
+      destination: '/docs/guide/getting-started',
+      permanent: true,
+    },
+    {
       source: '/docs/components',
       destination: '/docs/components/text',
       permanent: true,

@@ -9,3 +9,4 @@ export { default as MDXComponents } from './mdx';
 export { default as TableOfContent } from './table-of-content';
 export { default as Sticky } from './sticky';
 export { default as PageNav } from './page-nav';
+export { default as DotsContainer } from './dots-container';

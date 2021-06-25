@@ -34,6 +34,7 @@ const Hero: React.FC = () => {
             <Grid xs={6}>
               <Row align="center">
                 <img
+                  className="hero__feature-img"
                   src="/responsive.svg"
                   width="24"
                   height="27.9"
@@ -48,6 +49,7 @@ const Hero: React.FC = () => {
             <Grid xs={6}>
               <Row align="center">
                 <img
+                  className="hero__feature-img"
                   src="/components.svg"
                   width="24"
                   height="27.9"
@@ -62,6 +64,7 @@ const Hero: React.FC = () => {
             <Grid xs={6}>
               <Row align="center">
                 <img
+                  className="hero__feature-img"
                   src="/graph.svg"
                   width="24"
                   height="28.8"
@@ -76,6 +79,7 @@ const Hero: React.FC = () => {
             <Grid xs={6}>
               <Row align="center">
                 <img
+                  className="hero__feature-img"
                   src="/open_source.svg"
                   width="24"
                   height="25.06"
@@ -125,6 +129,10 @@ const Hero: React.FC = () => {
         .hero-container {
           position: relative;
         }
+        .hero__feature-img {
+          opacity: 0;
+          animation: appear 200ms 100ms ease forwards;
+        }
         :global(.hero__title) {
           margin-bottom: 0rem;
           line-height: 1.2;
@@ -145,10 +153,14 @@ const Hero: React.FC = () => {
         :global(.hero__browser-image) {
           position: relative;
           z-index: 20;
+          opacity: 0;
+          animation: appear 200ms 100ms ease forwards;
         }
         :global(.hero__gradient-blue, .hero__gradient-violet) {
           top: 0;
           position: absolute;
+          opacity: 0;
+          animation: appear 200ms 100ms ease forwards;
         }
         :global(.hero__gradient-blue) {
           top: 30%;
@@ -163,6 +175,14 @@ const Hero: React.FC = () => {
         @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
           :global(.hero__right-container, .hero__gradient-violet) {
             display: block;
+          }
+        }
+        @keyframes appear {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
           }
         }
       `}</style>

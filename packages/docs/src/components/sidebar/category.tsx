@@ -104,6 +104,8 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
         .category-image {
           width: 20px;
           margin-right: 20px;
+          opacity: 0;
+          animation: appear 200ms 100ms ease forwards;
         }
         .label {
           font-size: 1rem;
@@ -152,6 +154,14 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
         }
         .open > .posts {
           height: ${postsHeight}px;
+        }
+        @keyframes appear {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
         @media screen and (max-width: ${theme.breakpoints.md.min}) {
           .category {

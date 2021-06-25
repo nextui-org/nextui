@@ -31,6 +31,7 @@ const Footer: React.FC = () => {
         </Text>
         <style jsx>{`
           :global(.footer__container) {
+            z-index: 99;
             padding: 1rem 0;
           }
           :global(.footer__copy),

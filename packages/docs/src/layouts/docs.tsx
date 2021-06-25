@@ -79,6 +79,16 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         <Sticky offset={10} className="docs__right-sidebar">
           <TableOfContent headings={headings} />
         </Sticky>
+        <img
+          className="hero__gradient-blue"
+          src="/gradient-blue.png"
+          alt="gradient blue background"
+        />
+        <img
+          className="hero__gradient-violet"
+          src="/gradient-violet.png"
+          alt="gradient violet background"
+        />
       </Row>
       <Footer />
       <style jsx>
@@ -90,6 +100,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             display: none;
           }
           :global(.docs__center) {
+            z-index: 99;
             padding: 0 1.8rem !important;
           }
           :global(.docs__left-sidebar::-webkit-scrollbar) {
@@ -101,8 +112,25 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           :global(.docs__right-sidebar) {
             display: none;
           }
+          :global(.hero__gradient-blue, .hero__gradient-violet) {
+            top: 0;
+            opacity: 0;
+            position: fixed;
+            animation: appear 200ms 100ms ease forwards;
+          }
+          :global(.hero__gradient-blue) {
+            top: 30%;
+            left: -40%;
+            z-index: 1;
+          }
+          :global(.hero__gradient-violet) {
+            display: none;
+            z-index: 1;
+            top: -50%;
+            right: -40%;
+          }
           @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
-            :global(.docs__right-sidebar) {
+            :global(.docs__right-sidebar, .hero__gradient-violet) {
               display: block;
             }
           }
@@ -114,6 +142,14 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           @media only screen and (max-width: ${theme.breakpoints.md.min}) {
             :global(.docs__center) {
               padding: 0 1rem !important;
+            }
+          }
+          @keyframes appear {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
             }
           }
         `}
