@@ -23,8 +23,8 @@ export interface CheckboxEvent {
 }
 
 export interface Props {
-  color?: NormalColors;
-  textColor?: SimpleColors;
+  color?: NormalColors | string;
+  textColor?: SimpleColors | string;
   label?: string;
   line?: boolean;
   indeterminate?: boolean;

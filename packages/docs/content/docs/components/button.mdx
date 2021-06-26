@@ -75,6 +75,10 @@ import { Button } from '@nextui-org/react';
   <Button color="gradient" auto>
     Gradient
   </Button>
+  <Spacer />
+  <Button color="#ff4ecd" auto>
+    #ff4ecd
+  </Button>
 </Row>
 `}
 />
@@ -95,6 +99,10 @@ import { Button } from '@nextui-org/react';
     <Button shadow auto color="error">Error</Button>
     <Spacer />
     <Button shadow auto color="gradient">Gradient</Button>
+    <Spacer />
+    <Button shadow color="#ff4ecd" auto>
+        #ff4ecd
+    </Button>
  </Row>
 `}
 />
@@ -135,7 +143,8 @@ import { Button } from '@nextui-org/react';
   title="Bordered"
   desc="You can change the full style towards a bodered button with the `bordered` property."
   code={`
- <Row flexWrap="false">
+  <>
+ <Row flexWrap>
     <Button bordered color="primary" auto>
       Primary
     </Button>
@@ -159,7 +168,15 @@ import { Button } from '@nextui-org/react';
     <Button bordered color="gradient" auto>
       Gradient
     </Button>
+    <Spacer/>
  </Row>
+ <Spacer/>
+ <Row>
+     <Button bordered color="#ff4ecd" auto>
+        #ff4ecd
+    </Button>
+ </Row>
+ </>
 `}
 />
 
@@ -167,7 +184,8 @@ import { Button } from '@nextui-org/react';
   title="Rounded"
   desc="You can completely round the corners of any type of button with the `rounded` property."
   code={`
- <Row flexWrap="false">
+  <>
+ <Row flexWrap>
     <Button auto color="primary" rounded>
       Primary
     </Button>
@@ -191,7 +209,15 @@ import { Button } from '@nextui-org/react';
     <Button auto color="gradient" rounded bordered>
       Gradient
     </Button>
+    <Spacer/>
  </Row>
+ <Spacer/>
+ <Row>
+    <Button auto rounded bordered color="#ff4ecd">
+        #ff4ecd
+    </Button>
+ </Row>
+ </>
 `}
 />
 
@@ -199,7 +225,8 @@ import { Button } from '@nextui-org/react';
   title="Ghost"
   desc="You can change the full style towards a ghost button with the `ghost` property."
   code={`
- <Row flexWrap="false">
+  <>
+ <Row flexWrap>
     <Button auto color="primary" ghost>
       Primary
     </Button>
@@ -224,6 +251,13 @@ import { Button } from '@nextui-org/react';
       Gradient
     </Button>
  </Row>
+ <Spacer/>
+ <Row flexWrap>
+    <Button auto ghost color="#ff4ecd">
+        #ff4ecd
+    </Button>
+ </Row>
+ </>
 `}
 />
 
@@ -250,6 +284,10 @@ import { Button } from '@nextui-org/react';
     <Spacer/>
     <Button auto color="error" flat>
       Error
+    </Button>
+    <Spacer/>
+    <Button auto flat color="#ff4ecd">
+        #ff4ecd
     </Button>
  </Row>
 `}
@@ -278,6 +316,10 @@ import { Button } from '@nextui-org/react';
     <Spacer/>
     <Button auto color="error" light>
       Error
+    </Button>
+    <Spacer/>
+    <Button auto light color="#ff4ecd">
+        #ff4ecd
     </Button>
  </Row>
 `}
@@ -321,7 +363,7 @@ import { Button } from '@nextui-org/react';
 
 | Attribute      | Type                                            | Accepted values                  | Description                               | Default   |
 | -------------- | ----------------------------------------------- | -------------------------------- | ----------------------------------------- | --------- |
-| **color**      | `NormalColors`                                  | [NormalColors](#normal-colors)   | Change button color                       | `default` |
+| **color**      | `NormalColors` `string`                         | [NormalColors](#normal-colors)   | Change button color                       | `default` |
 | **size**       | `NormalSizes`                                   | [NormalSizes](#normal-sizes)     | Change button size                        | `medium`  |
 | **disabled**   | `boolean`                                       | `true/false`                     | Disable button                            | `false`   |
 | **bordered**   | `boolean`                                       | `true/false`                     | Bodered button                            | `false`   |

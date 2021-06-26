@@ -24,8 +24,8 @@ interface Props {
   value?: string | number;
   squared?: boolean;
   size?: NormalSizes | number;
-  color?: SimpleColors;
-  textColor?: SimpleColors;
+  color?: SimpleColors | string;
+  textColor?: SimpleColors | string;
   className?: string;
   disabled?: boolean;
   onChange?: (e: RadioEvent) => void;

@@ -11,6 +11,11 @@ async function redirect() {
       permanent: true,
     },
     {
+      source: '/components/:path*',
+      permanent: true,
+      destination: '/docs/components/:path*',
+    },
+    {
       source: '/docs/components',
       destination: '/docs/components/text',
       permanent: true,

@@ -2,7 +2,7 @@ import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { Route, addTagToSlug } from '@lib/docs/page';
 import NextLink from 'next/link';
-import { useTheme, NextUIThemes, Container, Button } from '@nextui-org/react';
+import { useTheme, NextUIThemes, Container, Link } from '@nextui-org/react';
 import { ArrowRight, ArrowLeft } from '../icons';
 import { removeFromLast } from '@utils/index';
 
@@ -27,13 +27,10 @@ const PageNav: React.FC<PageNavProps> = ({ tag, prevRoute, nextRoute }) => {
         <NextLink
           href={addTagToSlug(removeFromLast(prevRoute.path || '', '.'), tag)}
         >
-          <Button
-            auto
-            light
-            icon={<ArrowLeft fill={theme.palette.primary} size={20} />}
-          >
+          <Link color={theme.palette.foreground} className="nav__link" block>
+            <ArrowLeft fill={theme.palette.primary} size={20} />
             {prevRoute.title}
-          </Button>
+          </Link>
         </NextLink>
       ) : (
         <span />
@@ -42,19 +39,19 @@ const PageNav: React.FC<PageNavProps> = ({ tag, prevRoute, nextRoute }) => {
         <NextLink
           href={addTagToSlug(removeFromLast(nextRoute.path || '', '.'), tag)}
         >
-          <Button
-            auto
-            light
-            iconRight
-            icon={<ArrowRight fill={theme.palette.primary} size={20} />}
-          >
+          <Link color={theme.palette.foreground} className="nav__link" block>
             {nextRoute.title}
-          </Button>
+            <ArrowRight fill={theme.palette.primary} size={20} />
+          </Link>
         </NextLink>
       )}
       <style jsx>{`
         :global(.page-nav) {
           padding: 12% 0;
+        }
+        :global(.nav__link) {
+          display: flex !important;
+          align-items: center !important;
         }
       `}</style>
     </Container>

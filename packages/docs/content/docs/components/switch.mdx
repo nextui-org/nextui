@@ -70,6 +70,8 @@ import { Switch } from '@nextui-org/react';
     <Switch color="error" checked={true}/>
     <Spacer />
     <Switch color="gradient" checked={true}/>
+    <Spacer/>
+    <Switch color="#ff4ecd" checked={true}/>
   </Row>
 `}
 />
@@ -139,7 +141,7 @@ import { Switch } from '@nextui-org/react';
 
 | Attribute          | Type                                         | Accepted values                | Description                                                        | Default   |
 | ------------------ | -------------------------------------------- | ------------------------------ | ------------------------------------------------------------------ | --------- |
-| **color**          | `NormalColors`                               | [NormalColors](#normal-colors) | Change switch color                                                | `primary` |
+| **color**          | `NormalColors` `string`                      | [NormalColors](#normal-colors) | Change switch color                                                | `primary` |
 | **size**           | `NormalSizes`                                | [NormalSizes](#normal-sizes)   | Switch size                                                        | `medium`  |
 | **checked**        | `boolean`                                    | `true/false`                   | Selected or not (in single)                                        | `false`   |
 | **initialChecked** | `boolean`                                    | `true/false`                   | Determine the initial value of the switch                          | `false`   |

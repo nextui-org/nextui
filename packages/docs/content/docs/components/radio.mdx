@@ -93,6 +93,10 @@ import { Radio } from '@nextui-org/react';
  <Radio color="error" checked={true}>
     Error
  </Radio>
+ <Spacer/>
+ <Radio color="#ff4ecd" checked={true}>
+    #ff4ecd
+ </Radio>
  </>
 `}
 />
@@ -120,6 +124,10 @@ import { Radio } from '@nextui-org/react';
   <Spacer/>
  <Radio color="error" textColor="error" checked={true}>
     Error
+ </Radio>
+  <Spacer/>
+ <Radio color="#ff4ecd" textColor="#ff4ecd" checked={true}>
+    #ff4ecd
  </Radio>
  </>
 `}
@@ -207,8 +215,8 @@ import { Radio } from '@nextui-org/react';
 
 | Attribute        | Type                                       | Accepted values                | Description                      | Default   |
 | ---------------- | ------------------------------------------ | ------------------------------ | -------------------------------- | --------- |
-| **color**        | `SimpleColors`                             | [SimpleColors](#simple-colors) | Change radio group color         | `primary` |
-| **textColor**    | `SimpleColors`                             | [SimpleColors](#simple-colors) | Change radio group text color    | `default` |
+| **color**        | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group color         | `primary` |
+| **textColor**    | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group text color    | `default` |
 | **initialValue** | `string/number`                            | -                              | Initial radio group value        | -         |
 | **value**        | `string/number`                            | -                              | Selected child radio             | -         |
 | **row**          | `boolean`                                  | `true/false`                   | Change the radio group direction | `false`   |

@@ -18,7 +18,7 @@ export interface SwitchEvent {
 }
 
 interface Props {
-  color?: NormalColors;
+  color?: NormalColors | string;
   checked?: boolean;
   squared?: boolean;
   icon?: React.ReactNode;

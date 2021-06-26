@@ -6,7 +6,7 @@ import { getNormalColor } from '../../utils/color';
 
 export interface Props {
   tag: keyof JSX.IntrinsicElements;
-  color?: NormalColors;
+  color?: NormalColors | string;
   size?: string | number;
   capitalize?: boolean;
   className?: '';

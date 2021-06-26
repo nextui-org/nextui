@@ -21,7 +21,7 @@ interface Props {
   blockquote?: boolean;
   className?: string;
   size?: string | number;
-  color?: NormalColors;
+  color?: NormalColors | string;
 }
 
 const defaultProps = {

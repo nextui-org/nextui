@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import withDefaults from '../../utils/with-defaults';
 import useTheme from '../../hooks/use-theme';
-import useWarning from '../../hooks/use-warning';
 import LinkIcon from './icon';
-import { addColorAlpha } from '../../utils/color';
+import { addColorAlpha, getNormalColor } from '../../utils/color';
+import { SimpleColors } from '../../utils/prop-types';
 
 export interface Props {
   href?: string;
-  color?: boolean;
-  pure?: boolean;
+  color?: SimpleColors | boolean | string;
   icon?: boolean;
   underline?: boolean;
   block?: boolean;
@@ -18,7 +17,6 @@ export interface Props {
 const defaultProps = {
   href: '',
   color: false,
-  pure: false,
   icon: false,
   underline: false,
   block: false,
@@ -33,30 +31,25 @@ const Link = React.forwardRef<
   React.PropsWithChildren<LinkProps>
 >(
   (
-    {
-      href,
-      color,
-      underline,
-      pure,
-      children,
-      className,
-      block,
-      icon,
-      ...props
-    },
+    { href, color, underline, children, className, block, icon, ...props },
     ref: React.Ref<HTMLAnchorElement>
   ) => {
     const theme = useTheme();
-    const linkColor = color || block ? theme.palette.link : 'inherit';
-    const hoverColor =
-      color || block
-        ? addColorAlpha(theme.palette.link, 0.8)
-        : addColorAlpha(theme.palette.text, 0.8);
+
+    const linkColor = useMemo(
+      () => getNormalColor(color || block, theme.palette, theme.palette.link),
+      [color, theme.palette]
+    );
+    const hoverColor = useMemo(
+      () =>
+        color || block
+          ? addColorAlpha(linkColor, 0.8)
+          : addColorAlpha(theme.palette.text, 0.8),
+      [color, block, theme, linkColor]
+    );
+
     const padding = block ? theme.layout.gapQuarter : '0';
     const decoration = underline ? 'underline' : 'none';
-    if (pure) {
-      useWarning('Props "pure" is deprecated, now the default Link is pure.');
-    }
 
     return (
       <a className={`link ${className}`} href={href} {...props} ref={ref}>
@@ -72,7 +65,7 @@ const Link = React.forwardRef<
             padding: calc(${padding} * 0.8) calc(${padding} * 1.7);
             border-radius: ${block ? theme.layout.radius : 0};
             width: fit-content;
-            transition: all 250ms ease 0ms;
+            transition: all 0.25s ease;
           }
           .link:hover,
           .link:active,
@@ -81,7 +74,7 @@ const Link = React.forwardRef<
           }
           .link:hover {
             background-color: ${block
-              ? addColorAlpha(theme.palette.link, 0.2)
+              ? addColorAlpha(linkColor, 0.2)
               : 'inherit'};
             color: ${hoverColor};
           }

@@ -13,8 +13,142 @@ import { Link } from '@nextui-org/react';
 
 <Playground
   title="Default"
-  desc="Simple link"
+  desc="You can use it to navigeate between pages."
   code={`
  <Link href="#">"First solve the problem. Then, write the code." - Jon Johnson.</Link>;
 `}
 />
+
+<Playground
+  title="Colors"
+  desc="You can use the `color` property to change `Link` color."
+  code={`
+  <>
+ <Link color href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Primary)</Link>
+ <Spacer/>
+ <Link color="secondary" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Secondary)</Link>
+ <Spacer/>
+ <Link color="success" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Success)</Link>
+ <Spacer/>
+ <Link color="warning" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Warning)</Link>
+ <Spacer/>
+ <Link color="error" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Error)</Link>
+ <Spacer/>
+ <Link href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Default)</Link>
+ <Spacer/>
+ <Link color='#ff4ecd' href="#">"First solve the problem. Then, write the code." - Jon Johnson. (#ff4ecd)</Link>
+ </>
+`}
+/>
+
+<Playground
+  title="Variants"
+  desc="You can choose between different styles of links."
+  code={`
+() => {
+const text = "First solve the problem. Then, write the code. - Jon Johnson.";
+return (
+<>
+  <Text>
+    <Link href="#">{text}</Link>
+  </Text>
+  <Text>
+    <Link href="#" color>
+      {text}
+    </Link>
+  </Text>
+  <Text>
+    <Link href="#" underline>
+      {text}
+    </Link>
+  </Text>
+  <Text>
+    <Link href="#" color underline>
+      {text}
+    </Link>
+  </Text>
+</>
+) }`}
+/>
+
+<Playground
+  title="Block"
+  desc="You can use the `block` property to display a separate block."
+  code={`
+  <>
+ <Link block href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Primary)</Link>
+ <Spacer/>
+ <Link block color="secondary" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Secondary)</Link>
+ <Spacer/>
+ <Link block color="success" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Success)</Link>
+ <Spacer/>
+ <Link block color="warning" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Warning)</Link>
+ <Spacer/>
+ <Link block color="error" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Error)</Link>
+ <Spacer/>
+ <Link block color='#ff4ecd' href="#">"First solve the problem. Then, write the code." - Jon Johnson. (#ff4ecd)</Link>
+ </>
+`}
+/>
+
+<Playground
+  title="Icon"
+  desc="Show an icon in the `Link` with the `icon` prop."
+  code={`
+  <>
+    <Link href="#" icon>
+      "First solve the problem. Then, write the code." - Jon Johnson.
+    </Link>
+    <Spacer />
+    <Link href="#" icon color>
+      "First solve the problem. Then, write the code." - Jon Johnson.
+    </Link>
+  </>
+`}
+/>
+
+<Playground
+  title="Next.js Link"
+  desc="If you are usign [Next.js](https://nextjs.org) you can use `next/link` as a parent."
+  code={`
+ <NextLink href="/docs/components/button">
+   <Link block color="secondary">Go to Button</Link>
+ </NextLink>
+`}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Link Props
+
+| Attribute     | Type                                            | Accepted values                | Description                 | Default |
+| ------------- | ----------------------------------------------- | ------------------------------ | --------------------------- | ------- |
+| **color**     | `SimpleColor` `boolean` `string`                | [SimpleColors](#simple-colors) | Change link color           | `false` |
+| **href**      | `string`                                        | -                              | Link url                    | -       |
+| **icon**      | `boolean`                                       | `true/false`                   | Show link icon              | `false` |
+| **underline** | `boolean`                                       | `true/false`                   | Display underline           | `false` |
+| **block**     | `boolean`                                       | `true/false`                   | Display as a separate block | `false` |
+| **ref**       | <Code>Ref<HTMLAnchorElement &#124; null></Code> | -                              | forwardRef                  | -       |
+| ...           | `AnchorHTMLAttributes`                          | `'rel', 'target', ...`         | Native props                | -       |
+
+<Spacer y={2} />
+
+### Switch types
+
+<Spacer y={1} />
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```

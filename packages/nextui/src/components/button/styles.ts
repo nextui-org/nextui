@@ -102,9 +102,10 @@ export const getButtonColors = (
     },
   };
   const key = (color === 'default' ? 'primary' : color) || 'primary';
+  const normalColor = getNormalColor(key, palette);
   const buttonColor = {
     ...common,
-    bg: palette[key] || palette.primary,
+    bg: normalColor,
     loaderBg: palette[key] || palette.primary,
   };
 
@@ -115,8 +116,7 @@ export const getButtonColors = (
       loaderBg: palette.accents_1,
     };
 
-  const baseColor =
-    color === 'default' ? palette.accents_2 : palette[color || 'primary'];
+  const baseColor = color === 'default' ? palette.accents_2 : normalColor;
   const highlightColor = color === 'default' ? palette.primary : baseColor;
   const borderedGradientStyles = {
     ...buttonColor,
@@ -197,7 +197,7 @@ export const getButtonColors = (
       },
       color: highlightColor,
       hover: {
-        bg: palette[key] || palette.primary,
+        bg: normalColor,
         color: palette.white,
         border: {
           color: 'transparent',
@@ -209,9 +209,7 @@ export const getButtonColors = (
     ...buttonColor,
     hover: {
       bg:
-        color === 'gradient'
-          ? palette[key]
-          : addColorAlpha(palette[key] || palette.primary, 0.85),
+        color === 'gradient' ? palette[key] : addColorAlpha(normalColor, 0.85),
       style: {
         filter: color === 'gradient' ? 'hue-rotate(40deg);' : 'none',
       },
@@ -362,7 +360,9 @@ export const getButtonDripColor = (
     gradient: hexFromString(palette.gradient, palette.primary, true) as string,
   };
   const baseColor =
-    color === 'default' ? palette.primary : colors[color || 'default'];
+    color === 'default'
+      ? palette.primary
+      : (color && colors[color]) || getNormalColor(color, palette);
   if (light) return addColorAlpha(palette.accents_2, 0.8);
   if (flat) return addColorAlpha(baseColor || palette.accents_2, 0.4);
   const selectedColor = bordered ? baseColor : palette.accents_2;

@@ -85,6 +85,10 @@ import { Checkbox } from '@nextui-org/react';
  <Checkbox color="gradient" checked={true}>
     Gradient
  </Checkbox>
+  <Spacer/>
+ <Checkbox color="#ff4ecd" checked={true}>
+    #ff4ecd
+ </Checkbox>
  </>
 `}
 />
@@ -116,6 +120,10 @@ import { Checkbox } from '@nextui-org/react';
   <Spacer/>
  <Checkbox color="gradient" textColor="primary" checked={true}>
     Gradient
+ </Checkbox>
+  <Spacer/>
+ <Checkbox color="#ff4ecd" textColor="#ff4ecd" checked={true}>
+    #ff4ecd
  </Checkbox>
  </>
 `}
@@ -201,21 +209,21 @@ import { Checkbox } from '@nextui-org/react';
 
 #### Checkbox Props
 
-| Attribute          | Type                  | Accepted values                | Description                                                            | Default   |
-| ------------------ | --------------------- | ------------------------------ | ---------------------------------------------------------------------- | --------- |
-| **color**          | `NormalColors`        | [NormalColors](#normal-colors) | Change checkbox color                                                  | `primary` |
-| **textColor**      | `SimpleColors`        | [SimpleColors](#simple-colors) | Change checkbox text color                                             | `default` |
-| **size**           | `NormalSizes`         | [NormalSizes](#normal-sizes)   | Checkbox size                                                          | `medium`  |
-| **checked**        | `boolean`             | `true/false`                   | Determine the value of the checkbox                                    | `false`   |
-| **initialChecked** | `boolean`             | `true/false`                   | Determine the initial value of the checkbox                            | `false`   |
-| **disabled**       | `boolean`             | `true/false`                   | Disable checkbox                                                       | `false`   |
-| **indeterminate**  | `boolean`             | `true/false`                   | Indeterminate checkbox                                                 | `false`   |
-| **rounded**        | `boolean`             | `true/false`                   | Rounded checkbox                                                       | `false`   |
-| **line**           | `boolean`             | `true/false`                   | Line in the middle of the label when the `Checkbox` is checked         | -         |
-| **value**          | `string`              | -                              | Unique identification value (only in group)                            | -         |
-| **label**          | `string`              | -                              | Checkbox label                                                         | -         |
-| **onChange**       | `CheckboxEvent`       | -                              | The callback invoked when the checked state of the `Checkbox` changes. | -         |
-| ...                | `LabelHTMLAttributes` | `'form', 'className', ...`     | Native checkbox props                                                  | -         |
+| Attribute          | Type                    | Accepted values                | Description                                                            | Default   |
+| ------------------ | ----------------------- | ------------------------------ | ---------------------------------------------------------------------- | --------- |
+| **color**          | `NormalColors` `string` | [NormalColors](#normal-colors) | Change checkbox color                                                  | `primary` |
+| **textColor**      | `SimpleColors` `string` | [SimpleColors](#simple-colors) | Change checkbox text color                                             | `default` |
+| **size**           | `NormalSizes`           | [NormalSizes](#normal-sizes)   | Checkbox size                                                          | `medium`  |
+| **checked**        | `boolean`               | `true/false`                   | Determine the value of the checkbox                                    | `false`   |
+| **initialChecked** | `boolean`               | `true/false`                   | Determine the initial value of the checkbox                            | `false`   |
+| **disabled**       | `boolean`               | `true/false`                   | Disable checkbox                                                       | `false`   |
+| **indeterminate**  | `boolean`               | `true/false`                   | Indeterminate checkbox                                                 | `false`   |
+| **rounded**        | `boolean`               | `true/false`                   | Rounded checkbox                                                       | `false`   |
+| **line**           | `boolean`               | `true/false`                   | Line in the middle of the label when the `Checkbox` is checked         | -         |
+| **value**          | `string`                | -                              | Unique identification value (only in group)                            | -         |
+| **label**          | `string`                | -                              | Checkbox label                                                         | -         |
+| **onChange**       | `CheckboxEvent`         | -                              | The callback invoked when the checked state of the `Checkbox` changes. | -         |
+| ...                | `LabelHTMLAttributes`   | `'form', 'className', ...`     | Native checkbox props                                                  | -         |
 
 ---
 
