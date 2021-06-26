@@ -101,6 +101,10 @@
                         {
                             "title": "Loading",
                             "path": "/docs/components/loading.mdx"
+                        },
+                        {
+                            "title": "Switch",
+                            "path": "/docs/components/switch.mdx"
                         }
                     ]
                 }
