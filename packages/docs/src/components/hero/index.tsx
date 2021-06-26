@@ -50,14 +50,14 @@ const Hero: React.FC = () => {
               <Row align="center">
                 <img
                   className="hero__feature-img"
-                  src="/components.svg"
+                  src="/category.svg"
                   width="24"
                   height="27.9"
-                  alt="components icon"
+                  alt="category icon"
                 />
                 <Spacer />
                 <Text b size="1.1rem">
-                  +100 Components
+                  Themeable
                 </Text>
               </Row>
             </Grid>
@@ -112,18 +112,18 @@ const Hero: React.FC = () => {
           </Row>
           <img
             className="hero__gradient-blue"
-            src="/gradient-blue.png"
+            src="/gradient-blue.svg"
             alt="gradient blue background"
           />
         </Col>
         <Col span={6} className="hero__right-container">
           <ImageBrowser className="hero__browser-image" />
-          <img
-            className="hero__gradient-violet"
-            src="/gradient-violet.png"
-            alt="gradient violet background"
-          />
         </Col>
+        <img
+          className="hero__gradient-violet"
+          src="/gradient-violet.svg"
+          alt="gradient violet background"
+        />
       </Row>
       <style jsx>{`
         .hero-container {
@@ -170,7 +170,8 @@ const Hero: React.FC = () => {
         :global(.hero__gradient-violet) {
           display: none;
           z-index: 1;
-          right: 5%;
+          top: -100%;
+          right: -50%;
         }
         @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
           :global(.hero__right-container, .hero__gradient-violet) {

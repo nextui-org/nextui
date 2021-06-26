@@ -64,6 +64,7 @@ const Navbar: React.FC = () => {
         :global(.navbar__container) {
           min-height: 80px;
           max-height: 80px;
+          z-index: 99;
         }
         :global(.navbar__logo) {
           cursor: pointer;

@@ -160,7 +160,7 @@ export const getButtonColors = (
   if (light)
     return {
       ...buttonColor,
-      bg: palette.background,
+      bg: 'transparent',
       color: color === 'default' ? palette.foreground : baseColor,
       hover: {
         color:

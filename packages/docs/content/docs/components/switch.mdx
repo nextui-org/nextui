@@ -90,18 +90,21 @@ import { Switch } from '@nextui-org/react';
   code={`
   <Row flexWrap="false">
        <Switch
+        checked={true}
         size="xlarge"
         color="success"
         icon={<Notification />}
       />
       <Spacer/>
       <Switch
+        checked={true}
         size="xlarge"
         iconOn={<Sun filled />}
         iconOff={<Moon filled />}
       />
       <Spacer/>
       <Switch
+        checked={true}
         size="xlarge"
         color="error"
         iconOn={<MicrophoneOff filled />}
@@ -109,6 +112,7 @@ import { Switch } from '@nextui-org/react';
       />
       <Spacer/>
       <Switch
+        checked={true}
         size="xlarge"
         color="warning"
         iconOn={<VideoOff filled />}
@@ -116,6 +120,7 @@ import { Switch } from '@nextui-org/react';
       />
       <Spacer/>
       <Switch
+        checked={true}
         size="xlarge"
         color="secondary"
         icon={<VolumeUp filled />}
@@ -154,16 +159,17 @@ import { Switch } from '@nextui-org/react';
 
 <Spacer y={1} />
 
-#### Simple Colors
+#### Normal Colors
 
 ```ts
-type SimpleColors =
+type NormalColors =
   | 'default'
   | 'primary'
   | 'secondary'
   | 'success'
   | 'warning'
-  | 'error';
+  | 'error'
+  | 'gradient';
 ```
 
 #### Normal Sizes

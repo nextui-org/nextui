@@ -80,13 +80,13 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           <TableOfContent headings={headings} />
         </Sticky>
         <img
-          className="hero__gradient-blue"
-          src="/gradient-blue.png"
+          className="docs__gradient-blue"
+          src="/gradient-blue.svg"
           alt="gradient blue background"
         />
         <img
-          className="hero__gradient-violet"
-          src="/gradient-violet.png"
+          className="docs__gradient-violet"
+          src="/gradient-violet.svg"
           alt="gradient violet background"
         />
       </Row>
@@ -112,25 +112,25 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           :global(.docs__right-sidebar) {
             display: none;
           }
-          :global(.hero__gradient-blue, .hero__gradient-violet) {
+          :global(.docs__gradient-blue, .docs__gradient-violet) {
             top: 0;
             opacity: 0;
             position: fixed;
             animation: appear 200ms 100ms ease forwards;
           }
-          :global(.hero__gradient-blue) {
-            top: 30%;
-            left: -40%;
+          :global(.docs__gradient-blue) {
+            top: 10%;
+            left: -10%;
             z-index: 1;
           }
-          :global(.hero__gradient-violet) {
+          :global(.docs__gradient-violet) {
             display: none;
             z-index: 1;
             top: -50%;
-            right: -40%;
+            right: -50%;
           }
           @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
-            :global(.docs__right-sidebar, .hero__gradient-violet) {
+            :global(.docs__right-sidebar, .docs__gradient-violet) {
               display: block;
             }
           }

@@ -105,6 +105,10 @@
                         {
                             "title": "Switch",
                             "path": "/docs/components/switch.mdx"
+                        },
+                        {
+                            "title": "Link",
+                            "path": "/docs/components/link.mdx"
                         }
                     ]
                 }
