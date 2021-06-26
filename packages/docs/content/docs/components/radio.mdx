@@ -129,9 +129,16 @@ import { Radio } from '@nextui-org/react';
   title="Squared"
   desc="You can change the full style towards a squared `Radio` with the `squared` property."
   code={`
- <Radio squared color="primary" checked={true}>
-    Squared option
- </Radio>
+<Radio.Group value="1">
+    <Radio value="1" squared>Option 1</Radio>
+    <Radio value="2" squared>
+      Option 2
+    </Radio>
+    <Radio value="3" squared>Option 3</Radio>
+    <Radio value="4" squared>
+      Option 4
+    </Radio>
+</Radio.Group>
 `}
 />
 
@@ -198,17 +205,17 @@ import { Radio } from '@nextui-org/react';
 
 #### Radio Group Props
 
-| Attribute        | Type                      | Accepted values                | Description                      | Default   |
-| ---------------- | ------------------------- | ------------------------------ | -------------------------------- | --------- |
-| **color**        | `SimpleColors`            | [SimpleColors](#simple-colors) | Change radio group color         | `primary` |
-| **textColor**    | `SimpleColors`            | [SimpleColors](#simple-colors) | Change radio group text color    | `default` |
-| **initialValue** | `string/number`           | -                              | Initial radio group value        | -         |
-| **value**        | `string/number`           | -                              | Selected child radio             | -         |
-| **row**          | `boolean`                 | `true/false`                   | Change the radio group direction | `false`   |
-| **disabled**     | `boolean`                 | `true/false`                   | Disable all radios               | `false`   |
-| **size**         | `NormalSizes`             | [NormalSizes](#normal-sizes)   | Size of all radios in the group  | `medium`  |
-| **onChange**     | `(value: string) => void` | -                              | Radio group event handler        | -         |
-| ...              | `HTMLAttributes`          | `'id', 'className', ...`       | Native props                     | -         |
+| Attribute        | Type                                       | Accepted values                | Description                      | Default   |
+| ---------------- | ------------------------------------------ | ------------------------------ | -------------------------------- | --------- |
+| **color**        | `SimpleColors`                             | [SimpleColors](#simple-colors) | Change radio group color         | `primary` |
+| **textColor**    | `SimpleColors`                             | [SimpleColors](#simple-colors) | Change radio group text color    | `default` |
+| **initialValue** | `string/number`                            | -                              | Initial radio group value        | -         |
+| **value**        | `string/number`                            | -                              | Selected child radio             | -         |
+| **row**          | `boolean`                                  | `true/false`                   | Change the radio group direction | `false`   |
+| **disabled**     | `boolean`                                  | `true/false`                   | Disable all radios               | `false`   |
+| **size**         | `NormalSizes`                              | [NormalSizes](#normal-sizes)   | Size of all radios in the group  | `medium`  |
+| **onChange**     | `(e:`[RadioEvent](#radio-event)) `=> void` | -                              | Radio group event handler        | -         |
+| ...              | `InputHTMLAttributes`                      | `'id', 'className', ...`       | Native props                     | -         |
 
 ---
 
@@ -244,4 +251,23 @@ type SimpleColors =
 
 ```ts
 type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+```
+
+#### Radio Event
+
+```ts
+interface RadioEvent {
+  target: RadioEventTarget;
+  stopPropagation: () => void;
+  preventDefault: () => void;
+  nativeEvent: React.ChangeEvent;
+}
+```
+
+#### Radio Event Target
+
+```ts
+interface RadioEventTarget {
+  checked: boolean;
+}
 ```

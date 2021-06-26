@@ -11,3 +11,182 @@ component. You can switch between enabled or disabled states.
 ```jsx
 import { Switch } from '@nextui-org/react';
 ```
+
+<Playground
+  title="Default"
+  desc="You can change the state with `checked` prop"
+  code={`
+ <>
+    <Switch />
+    <Spacer />
+    <Switch initialChecked />
+ </>
+`}
+/>
+
+<Playground
+  title="Disabled"
+  desc="Unusable and un-clickable `Switch`."
+  code={`
+ <>
+    <Switch disabled/>
+    <Spacer />
+    <Switch initialChecked disabled/>
+ </>
+`}
+/>
+
+<Playground
+  title="Sizes"
+  desc="Change the size of the entire `Switch` including `padding` and `border` with the `size` property."
+  code={`
+ <>
+    <Switch initialChecked size="mini" />
+    <Spacer />
+    <Switch size="small" />
+    <Spacer />
+    <Switch initialChecked size="medium" />
+    <Spacer />
+    <Switch size="large" />
+    <Spacer />
+    <Switch initialChecked size="xlarge" />
+  </>
+`}
+/>
+
+<Playground
+  title="Colors"
+  desc="You can change the color of the `Switch` with the property color."
+  code={`
+ <Row flexWrap="false">
+    <Switch color="primary" checked={true}/>
+    <Spacer />
+    <Switch color="secondary" checked={true}/>
+    <Spacer />
+    <Switch color="success" checked={true}/>
+    <Spacer />
+    <Switch color="warning" checked={true}/>
+    <Spacer />
+    <Switch color="error" checked={true}/>
+    <Spacer />
+    <Switch color="gradient" checked={true}/>
+  </Row>
+`}
+/>
+
+<Playground
+  title="Squared"
+  desc="You can change the full style towards a squared `Switch` with the `squared` property."
+  code={`
+ <Switch squared color="primary" checked={true}>
+    Squared option
+ </Switch>
+`}
+/>
+
+<Playground
+  title="Icons"
+  desc="NextUI doesn't use any library or icon font by default, with this we give the freedom to use the one you prefer. In the following example we use [Boxicons](https://boxicons.com/)"
+  code={`
+  <Row flexWrap="false">
+       <Switch
+        size="xlarge"
+        color="success"
+        icon={<Notification />}
+      />
+      <Spacer/>
+      <Switch
+        size="xlarge"
+        iconOn={<Sun filled />}
+        iconOff={<Moon filled />}
+      />
+      <Spacer/>
+      <Switch
+        size="xlarge"
+        color="error"
+        iconOn={<MicrophoneOff filled />}
+        iconOff={<Microphone filled />}
+      />
+      <Spacer/>
+      <Switch
+        size="xlarge"
+        color="warning"
+        iconOn={<VideoOff filled />}
+        iconOff={<Video filled/>}
+      />
+      <Spacer/>
+      <Switch
+        size="xlarge"
+        color="secondary"
+        icon={<VolumeUp filled />}
+      />
+    </Row>
+`}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Switch Props
+
+| Attribute          | Type                                         | Accepted values                | Description                                                        | Default   |
+| ------------------ | -------------------------------------------- | ------------------------------ | ------------------------------------------------------------------ | --------- |
+| **color**          | `NormalColors`                               | [NormalColors](#normal-colors) | Change switch color                                                | `primary` |
+| **size**           | `NormalSizes`                                | [NormalSizes](#normal-sizes)   | Switch size                                                        | `medium`  |
+| **checked**        | `boolean`                                    | `true/false`                   | Selected or not (in single)                                        | `false`   |
+| **initialChecked** | `boolean`                                    | `true/false`                   | Determine the initial value of the switch                          | `false`   |
+| **squared**        | `boolean`                                    | `true/false`                   | Squared switch                                                     | `false`   |
+| **disabled**       | `boolean`                                    | `true/false`                   | Disable switch                                                     | `false`   |
+| **icon**           | `ReactNode`                                  | -                              | Add an icon for both status on/off                                 | -         |
+| **iconOn**         | `ReactNode`                                  | -                              | Add an icon for on status                                          | -         |
+| **iconOff**        | `ReactNode`                                  | -                              | Add an icon for off status                                         | -         |
+| **onChange**       | `(e:`[SwitchEvent](#switch-event)) `=> void` | -                              | The callback invoked when the checked state of the switch changes. | -         |
+| ...                | `LabelHTMLAttributes`                        | `'id', 'className', ...`       | Native props                                                       | -         |
+
+---
+
+<Spacer y={2} />
+
+### Switch types
+
+<Spacer y={1} />
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+```
+
+#### Switch Event
+
+```ts
+interface SwitchEvent {
+  target: SwitchEventTarget;
+  stopPropagation: () => void;
+  preventDefault: () => void;
+  nativeEvent: React.ChangeEvent;
+}
+```
+
+#### Switch Event Target
+
+```ts
+interface SwitchEventTarget {
+  checked: boolean;
+}
+```

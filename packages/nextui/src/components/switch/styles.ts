@@ -8,24 +8,24 @@ export type SwitchSize = {
 export const getSizes = (size: NormalSizes) => {
   const sizes: { [key in NormalSizes]: SwitchSize } = {
     mini: {
-      width: '1.336rem',
-      height: '.835rem',
-    },
-    small: {
-      width: '1.6rem',
-      height: '1rem',
-    },
-    medium: {
-      width: '1.96rem',
+      width: '2rem',
       height: '1.2rem',
     },
+    small: {
+      width: '2.45rem',
+      height: '1.4rem',
+    },
+    medium: {
+      width: '2.8rem',
+      height: '1.6rem',
+    },
     large: {
-      width: '2.4rem',
-      height: '1.5rem',
+      width: '3.2rem',
+      height: '1.8rem',
     },
     xlarge: {
-      width: '2.88rem',
-      height: '1.8rem',
+      width: '3.8rem',
+      height: '2.2rem',
     },
   };
   return sizes[size];

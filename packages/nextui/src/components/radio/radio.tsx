@@ -92,7 +92,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     () => disabled || disabledAll,
     [disabled, disabledAll]
   );
-  const radius = squared ? '33%' : '50%';
+  const radius = squared ? '2px' : '50%';
 
   const radioColor = useMemo(
     () =>

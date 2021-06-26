@@ -21,3 +21,7 @@ export { default as User } from './user';
 export { default as VolumeUp } from './volume-up';
 export { default as Heart } from './heart';
 export { default as Bug } from './bug';
+export { default as Microphone } from './microphone';
+export { default as MicrophoneOff } from './microphone-off';
+export { default as Video } from './video';
+export { default as VideoOff } from './video-off';
