@@ -16,7 +16,6 @@ export interface Props {
 
 const defaultProps = {
   href: '',
-  color: false,
   icon: false,
   underline: false,
   block: false,
