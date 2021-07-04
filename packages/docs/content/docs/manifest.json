@@ -109,6 +109,10 @@
                         {
                             "title": "Link",
                             "path": "/docs/components/link.mdx"
+                        },
+                        {
+                            "title": "Avatar",
+                            "path": "/docs/components/avatar.mdx"
                         }
                     ]
                 }

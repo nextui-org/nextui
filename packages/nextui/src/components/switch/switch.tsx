@@ -173,6 +173,9 @@ const Switch: React.FC<SwitchProps> = ({
           border-radius: ${radius};
           background: ${theme.palette.background};
         }
+        .switch:active {
+          transform: scale(0.97);
+        }
         .switch.checked:hover {
           opacity: 0.8;
         }
