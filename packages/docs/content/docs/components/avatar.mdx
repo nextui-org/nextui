@@ -10,3 +10,291 @@ The Avatar component is used to represent a user, and displays the profile pictu
 ```jsx
 import { Avatar } from '@nextui-org/react';
 ```
+
+<Playground
+  title="Default"
+  desc="You can display an avatar with just text or image"
+  code={`
+  <>
+ <Row flexWrap>
+    <Avatar text="Junior" />
+    <Spacer/>
+    <Avatar src="/avatars/avatar-2.png" />
+    <Spacer/>
+    <Avatar text="Jane" />
+    <Spacer/>
+    <Avatar src="/avatars/avatar-4.png" />
+    <Spacer/>
+    <Avatar text="Joe" />
+    <Spacer/>
+    <Avatar src="/avatars/avatar-5.png" />
+ </Row>
+ <Spacer/>
+ <Row flexWrap>
+    <Avatar squared src="/avatars/avatar-1.png" />
+    <Spacer/>
+    <Avatar squared text="Junior" />
+    <Spacer/>
+    <Avatar squared src="/avatars/avatar-3.png" />
+    <Spacer/>
+    <Avatar squared text="Jane" />
+    <Spacer/>
+    <Avatar squared src="/avatars/avatar-6.png" />
+    <Spacer/>
+    <Avatar squared text="Joe" />
+ </Row>
+ </>
+`}
+/>
+
+<Playground
+  title="Sizes"
+  desc="The `Avatar` comes in 5 sizes and also you can set a custom size in px with `size` property."
+  code={`
+  <Row style={{margin: '15px 0'}}>
+    <Avatar text="JR" size="mini" />
+    <Spacer />
+    <Avatar src="/avatars/avatar-2.png" size="small" />
+    <Spacer />
+    <Avatar text="Joe" size="medium" />
+    <Spacer />
+    <Avatar src="/avatars/avatar-4.png" size="large" />
+    <Spacer />
+    <Avatar text="John" size="xlarge" />
+    <Spacer />
+    <Avatar src="/avatars/avatar-1.png" size={90} />
+ </Row>
+`}
+/>
+
+<Playground
+  title="Colors"
+  desc="You can change the color with `color` prop"
+  code={`
+  <Row>
+    <Avatar text="Primary" color="primary" />
+    <Spacer />
+    <Avatar text="Secondary" color="secondary" />
+    <Spacer />
+    <Avatar text="S" color="success" />
+    <Spacer />
+    <Avatar text="Warn" color="warning" />
+    <Spacer />
+    <Avatar text="Err" color="error" />
+    <Spacer />
+    <Avatar text="Grad" color="gradient" />
+    <Spacer />
+    <Avatar text="#ff4ecd" color="#ff4ecd" />
+ </Row>
+`}
+/>
+
+<Playground
+  title="Bordered"
+  desc="You can change the full style towards a bodered `Avatar` with the `bordered` property."
+  code={`
+  <Row>
+    <Avatar size="large" src="/avatars/avatar-6.png" color="primary" bordered />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-2.png" color="secondary" bordered/>
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-1.png" color="success" bordered />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-4.png" color="warning" bordered />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-5.png" color="error" bordered />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-7.png" color="gradient" bordered />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-8.png" color="#ff4ecd" bordered />
+ </Row>
+`}
+/>
+
+<Playground
+  title="Zoomed"
+  desc="You can apply a zoom animation to avatar with the `zoomed` property."
+  code={`
+  <Row>
+    <Avatar size="large" src="/avatars/avatar-6.png" zoomed />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-2.png" zoomed/>
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-1.png" zoomed />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-4.png" zoomed />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-5.png" zoomed />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-7.png" zoomed />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-8.png" zoomed />
+ </Row>
+`}
+/>
+
+<Playground
+  title="Squared"
+  desc="You can change the full style towards a squared `Avatar` with the `squared` property."
+  code={`
+  <Row>
+    <Avatar size="large" src="/avatars/avatar-6.png" color="primary" bordered squared />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-2.png" color="secondary" bordered squared/>
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-1.png" color="success" bordered squared />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-4.png" color="warning" bordered squared />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-5.png" color="error" bordered squared />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-7.png" color="gradient" bordered squared />
+    <Spacer />
+    <Avatar size="large" src="/avatars/avatar-8.png" color="#ff4ecd" bordered squared />
+ </Row>
+`}
+/>
+
+<Playground
+  title="Icon"
+  desc="NextUI doesn't use any library or icon font by default, with this we give the freedom to use the one you prefer. In the following example we use [Boxicons](https://boxicons.com/)"
+  code={`
+  <Row>
+     <Avatar
+        squared
+        icon={<Sun size={20} />}
+      />
+      <Spacer />
+      <Avatar
+        squared
+        icon={<Moon size={20} />}
+      />
+      <Spacer />
+      <Avatar
+        squared
+        icon={<Video size={20} />}
+      />
+      <Spacer />
+      <Avatar
+        squared
+        icon={<VolumeUp size={20} />}
+      />
+      <Spacer />
+      <Avatar
+        squared
+        icon={<Microphone size={20} />}
+      />
+ </Row>
+`}
+/>
+
+<Playground
+  title="Group"
+  desc="You can group several avatar with the parent component `Avatar.Group`"
+  code={`
+  () => {
+    const nameUsers = ['Junior', 'Jane', 'W', 'John', 'JR'];
+    const pictureUsers = [
+        '/avatars/avatar-1.png',
+        '/avatars/avatar-2.png',
+        '/avatars/avatar-3.png',
+        '/avatars/avatar-4.png',
+        '/avatars/avatar-5.png',
+    ];
+    return (
+    <>
+     <Row style={{ marginLeft: '0.5rem'}}>
+        <Avatar.Group count={12}>
+            {nameUsers.map((name, index) => (
+            <Avatar key={index} size="large" pointer text={name} stacked />
+            ))}
+        </Avatar.Group>
+      </Row>
+      <Spacer />
+      <Row>
+        <Avatar.Group count={12}>
+            {pictureUsers.map((url, index) => (
+            <Avatar key={index} size="large" pointer src={url} bordered color="gradient" stacked />
+            ))}
+        </Avatar.Group>
+      </Row>  
+    </>
+    );
+ }
+`}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Avatar Props
+
+| Attribute     | Type                    | Accepted values                          | Description                            | Default   |
+| ------------- | ----------------------- | ---------------------------------------- | -------------------------------------- | --------- |
+| **color**     | `NormalColors` `string` | [NormalColors](#normal-colors)           | Change avatar color                    | `default` |
+| **textColor** | `SimpleColors` `string` | [SimpleColors](#simple-colors)           | Change avatar text color               | `default` |
+| **src**       | `string`                | -                                        | Image source (local or remote)         | -         |
+| **text**      | `string`                | -                                        | Display text when image is missing     | -         |
+| **alt**       | `string`                | -                                        | Display alt text when image is missing | -         |
+| **size**      | `NormalSizes` `number`  | [NormalSizes](#normal-sizes)             | Avatar size                            | `medium`  |
+| **bordered**  | `boolean`               | `true/false`                             | Bodered avatar                         | `false`   |
+| **pointer**   | `boolean`               | `true/false`                             | Display pointer cursor on hover        | `false`   |
+| **stacked**   | `boolean`               | `true/false`                             | Stacked display group                  | `false`   |
+| **zoomed**    | `boolean`               | `true/false`                             | Zoomed avatar                          | `false`   |
+| **squared**   | `boolean`               | `true/false`                             | Squared avatar                         | `false`   |
+| **icon**      | `ReactNode`             | -                                        | Show icon in avatar                    | -         |
+| ...           | `ImgHTMLAttributes`     | `'alt', 'crossOrigin', 'className', ...` | Native props                           | -         |
+
+---
+
+<Spacer y={2} />
+
+#### Avatar Group Props
+
+| Attribute    | Type             | Accepted values                  | Description                             | Default |
+| ------------ | ---------------- | -------------------------------- | --------------------------------------- | ------- |
+| **count**    | `number`         | -                                | Total count of avatars                  | -       |
+| **animated** | `boolean`        | -                                | Display translations animation on hover | `false` |
+| ...          | `HTMLAttributes` | `'id', 'name', 'className', ...` | Native props                            | -       |
+
+---
+
+<Spacer y={2} />
+
+### Avatar types
+
+<Spacer y={1} />
+
+#### Normal Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'gradient';
+```
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+```

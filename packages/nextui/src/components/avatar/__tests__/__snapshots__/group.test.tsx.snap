@@ -9,12 +9,55 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-516824059 avatar bordered ",
+          "class": "jsx-3621946045 avatar bordered ",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-516824059 avatar-text",
+              "class": "jsx-3621946045 avatar-bg",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
+              },
+              "children": Array [
+                Node {
+                  "data": "Jun",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Node {
+            "attribs": Object {
+              "class": "jsx-3621946045 avatar-text",
             },
             "children": Array [
               Node {
@@ -29,7 +72,24 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
             "parent": [Circular],
-            "prev": null,
+            "prev": Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
@@ -43,12 +103,55 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-516824059 avatar bordered ",
+            "class": "jsx-3621946045 avatar bordered ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-516824059 avatar-text",
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
+                },
+                "children": Array [
+                  Node {
+                    "data": "Jane",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
               },
               "children": Array [
                 Node {
@@ -63,7 +166,24 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -77,12 +197,55 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "jsx-516824059 avatar bordered ",
+              "class": "jsx-3621946045 avatar bordered ",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-516824059 avatar-text",
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-text",
+                  },
+                  "children": Array [
+                    Node {
+                      "data": "W",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
                 },
                 "children": Array [
                   Node {
@@ -97,7 +260,24 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
                 "parent": [Circular],
-                "prev": null,
+                "prev": Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-bg",
+                  },
+                  "children": Array [],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
@@ -111,12 +291,55 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "jsx-516824059 avatar bordered ",
+                "class": "jsx-3621946045 avatar bordered ",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-516824059 avatar-text",
+                    "class": "jsx-3621946045 avatar-bg",
+                  },
+                  "children": Array [],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Node {
+                    "attribs": Object {
+                      "class": "jsx-3621946045 avatar-text",
+                    },
+                    "children": Array [
+                      Node {
+                        "data": "John",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-text",
                   },
                   "children": Array [
                     Node {
@@ -131,7 +354,24 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": null,
                   "parent": [Circular],
-                  "prev": null,
+                  "prev": Node {
+                    "attribs": Object {
+                      "class": "jsx-3621946045 avatar-bg",
+                    },
+                    "children": Array [],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
@@ -186,12 +426,55 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-516824059 avatar bordered ",
+          "class": "jsx-3621946045 avatar bordered ",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-516824059 avatar-text",
+              "class": "jsx-3621946045 avatar-bg",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
+              },
+              "children": Array [
+                Node {
+                  "data": "Jane",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Node {
+            "attribs": Object {
+              "class": "jsx-3621946045 avatar-text",
             },
             "children": Array [
               Node {
@@ -206,7 +489,24 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
             "parent": [Circular],
-            "prev": null,
+            "prev": Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
@@ -220,12 +520,55 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-516824059 avatar bordered ",
+            "class": "jsx-3621946045 avatar bordered ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-516824059 avatar-text",
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
+                },
+                "children": Array [
+                  Node {
+                    "data": "W",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
               },
               "children": Array [
                 Node {
@@ -240,7 +583,24 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -254,12 +614,55 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "jsx-516824059 avatar bordered ",
+              "class": "jsx-3621946045 avatar bordered ",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-516824059 avatar-text",
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-text",
+                  },
+                  "children": Array [
+                    Node {
+                      "data": "John",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
                 },
                 "children": Array [
                   Node {
@@ -274,7 +677,24 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
                 "parent": [Circular],
-                "prev": null,
+                "prev": Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-bg",
+                  },
+                  "children": Array [],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
@@ -310,12 +730,55 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-516824059 avatar bordered ",
+            "class": "jsx-3621946045 avatar bordered ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-516824059 avatar-text",
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
+                },
+                "children": Array [
+                  Node {
+                    "data": "Jun",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
               },
               "children": Array [
                 Node {
@@ -330,7 +793,24 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -363,12 +843,55 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-516824059 avatar bordered ",
+          "class": "jsx-3621946045 avatar bordered ",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-516824059 avatar-text",
+              "class": "jsx-3621946045 avatar-bg",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
+              },
+              "children": Array [
+                Node {
+                  "data": "W",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Node {
+            "attribs": Object {
+              "class": "jsx-3621946045 avatar-text",
             },
             "children": Array [
               Node {
@@ -383,7 +906,24 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
             "parent": [Circular],
-            "prev": null,
+            "prev": Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
@@ -397,12 +937,55 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-516824059 avatar bordered ",
+            "class": "jsx-3621946045 avatar bordered ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-516824059 avatar-text",
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
+                },
+                "children": Array [
+                  Node {
+                    "data": "John",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
               },
               "children": Array [
                 Node {
@@ -417,7 +1000,24 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -443,12 +1043,55 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-516824059 avatar bordered ",
+            "class": "jsx-3621946045 avatar bordered ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-516824059 avatar-text",
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
+                },
+                "children": Array [
+                  Node {
+                    "data": "Jane",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
               },
               "children": Array [
                 Node {
@@ -463,7 +1106,24 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -479,12 +1139,55 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "jsx-516824059 avatar bordered ",
+              "class": "jsx-3621946045 avatar bordered ",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-516824059 avatar-text",
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-text",
+                  },
+                  "children": Array [
+                    Node {
+                      "data": "Jun",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
                 },
                 "children": Array [
                   Node {
@@ -499,7 +1202,24 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
                 "parent": [Circular],
-                "prev": null,
+                "prev": Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-bg",
+                  },
+                  "children": Array [],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
@@ -540,12 +1260,55 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-516824059 avatar bordered ",
+          "class": "jsx-3621946045 avatar bordered ",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-516824059 avatar-text",
+              "class": "jsx-3621946045 avatar-bg",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
+              },
+              "children": Array [
+                Node {
+                  "data": "John",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "text",
+                },
+              ],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Node {
+            "attribs": Object {
+              "class": "jsx-3621946045 avatar-text",
             },
             "children": Array [
               Node {
@@ -560,7 +1323,24 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
             "parent": [Circular],
-            "prev": null,
+            "prev": Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
@@ -576,12 +1356,55 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-516824059 avatar bordered ",
+            "class": "jsx-3621946045 avatar bordered ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-516824059 avatar-text",
+                "class": "jsx-3621946045 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
+                },
+                "children": Array [
+                  Node {
+                    "data": "W",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "text",
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "jsx-3621946045 avatar-text",
               },
               "children": Array [
                 Node {
@@ -596,7 +1419,24 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -612,12 +1452,55 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "jsx-516824059 avatar bordered ",
+              "class": "jsx-3621946045 avatar bordered ",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-516824059 avatar-text",
+                  "class": "jsx-3621946045 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-text",
+                  },
+                  "children": Array [
+                    Node {
+                      "data": "Jane",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "text",
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              Node {
+                "attribs": Object {
+                  "class": "jsx-3621946045 avatar-text",
                 },
                 "children": Array [
                   Node {
@@ -632,7 +1515,24 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
                 "parent": [Circular],
-                "prev": null,
+                "prev": Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-bg",
+                  },
+                  "children": Array [],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
@@ -648,12 +1548,55 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "jsx-516824059 avatar bordered ",
+                "class": "jsx-3621946045 avatar bordered ",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-516824059 avatar-text",
+                    "class": "jsx-3621946045 avatar-bg",
+                  },
+                  "children": Array [],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Node {
+                    "attribs": Object {
+                      "class": "jsx-3621946045 avatar-text",
+                    },
+                    "children": Array [
+                      Node {
+                        "data": "Jun",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "text",
+                      },
+                    ],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Node {
+                  "attribs": Object {
+                    "class": "jsx-3621946045 avatar-text",
                   },
                   "children": Array [
                     Node {
@@ -668,7 +1611,24 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": null,
                   "parent": [Circular],
-                  "prev": null,
+                  "prev": Node {
+                    "attribs": Object {
+                      "class": "jsx-3621946045 avatar-bg",
+                    },
+                    "children": Array [],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
@@ -832,19 +1792,71 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-3671186691 avatar  ",
+          "class": "jsx-4052614314 avatar  ",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-3671186691 avatar-text",
+              "class": "jsx-4052614314 avatar-bg",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "jsx-4052614314 avatar-text",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Node {
+            "attribs": Object {
+              "class": "jsx-4052614314 avatar-text",
             },
             "children": Array [],
             "name": "span",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
             "parent": [Circular],
-            "prev": null,
+            "prev": Node {
+              "attribs": Object {
+                "class": "jsx-4052614314 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
@@ -858,19 +1870,71 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-3671186691 avatar  ",
+            "class": "jsx-4052614314 avatar  ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-3671186691 avatar-text",
+                "class": "jsx-4052614314 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "jsx-4052614314 avatar-text",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "jsx-4052614314 avatar-text",
               },
               "children": Array [],
               "name": "span",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": Node {
+                "attribs": Object {
+                  "class": "jsx-4052614314 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -905,19 +1969,71 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-3671186691 avatar  ",
+          "class": "jsx-4052614314 avatar  ",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-3671186691 avatar-text",
+              "class": "jsx-4052614314 avatar-bg",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Node {
+              "attribs": Object {
+                "class": "jsx-4052614314 avatar-text",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          Node {
+            "attribs": Object {
+              "class": "jsx-4052614314 avatar-text",
             },
             "children": Array [],
             "name": "span",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
             "parent": [Circular],
-            "prev": null,
+            "prev": Node {
+              "attribs": Object {
+                "class": "jsx-4052614314 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
@@ -933,19 +2049,71 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-3671186691 avatar  ",
+            "class": "jsx-4052614314 avatar  ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-3671186691 avatar-text",
+                "class": "jsx-4052614314 avatar-bg",
+              },
+              "children": Array [],
+              "name": "span",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {
+                  "class": "jsx-4052614314 avatar-text",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Node {
+              "attribs": Object {
+                "class": "jsx-4052614314 avatar-text",
               },
               "children": Array [],
               "name": "span",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": Node {
+                "attribs": Object {
+                  "class": "jsx-4052614314 avatar-bg",
+                },
+                "children": Array [],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,

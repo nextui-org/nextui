@@ -4,19 +4,71 @@ exports[`Avatar should render component of a specified size 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-1634182531 avatar  ",
+      "class": "jsx-2646591489 avatar  ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-1634182531 avatar-text",
+          "class": "jsx-2646591489 avatar-bg",
+        },
+        "children": Array [],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "jsx-2646591489 avatar-text",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "jsx-2646591489 avatar-text",
         },
         "children": Array [],
         "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
-        "prev": null,
+        "prev": Node {
+          "attribs": Object {
+            "class": "jsx-2646591489 avatar-bg",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
@@ -133,25 +185,77 @@ LoadedCheerio {
 }
 `;
 
-exports[`Avatar should render correctly with an icon 1`] = `"<span class=\\"jsx-3671186691 avatar  \\"><span class=\\"jsx-3671186691 icon\\"><svg class=\\"\\"></svg></span></span>"`;
+exports[`Avatar should render correctly with an icon 1`] = `"<span class=\\"jsx-4052614314 avatar  \\"><span class=\\"jsx-4052614314 avatar-bg\\"></span><span class=\\"jsx-4052614314 icon\\"><svg class=\\"\\"></svg></span></span>"`;
 
 exports[`Avatar should render text element 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-3671186691 avatar  ",
+      "class": "jsx-4052614314 avatar  ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-3671186691 avatar-text",
+          "class": "jsx-4052614314 avatar-bg",
+        },
+        "children": Array [],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "jsx-4052614314 avatar-text",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "jsx-4052614314 avatar-text",
         },
         "children": Array [],
         "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
-        "prev": null,
+        "prev": Node {
+          "attribs": Object {
+            "class": "jsx-4052614314 avatar-bg",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
@@ -272,12 +376,55 @@ exports[`Avatar should render text element 2`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-3671186691 avatar  ",
+      "class": "jsx-4052614314 avatar  ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-3671186691 avatar-text",
+          "class": "jsx-4052614314 avatar-bg",
+        },
+        "children": Array [],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "jsx-4052614314 avatar-text",
+          },
+          "children": Array [
+            Node {
+              "data": "text",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "jsx-4052614314 avatar-text",
         },
         "children": Array [
           Node {
@@ -292,7 +439,24 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
-        "prev": null,
+        "prev": Node {
+          "attribs": Object {
+            "class": "jsx-4052614314 avatar-bg",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
@@ -409,12 +573,12 @@ LoadedCheerio {
 }
 `;
 
-exports[`Avatar should work correctly with different sizes 1`] = `"<div><span class=\\"jsx-2879363747 avatar  \\"><span class=\\"jsx-2879363747 avatar-text\\"></span></span><span class=\\"jsx-4278147747 avatar  \\"><span class=\\"jsx-4278147747 avatar-text\\"></span></span><span class=\\"jsx-3671186691 avatar  \\"><span class=\\"jsx-3671186691 avatar-text\\"></span></span><span class=\\"jsx-2079164419 avatar  \\"><span class=\\"jsx-2079164419 avatar-text\\"></span></span><span class=\\"jsx-3155889251 avatar  \\"><span class=\\"jsx-3155889251 avatar-text\\"></span></span></div>"`;
+exports[`Avatar should work correctly with different sizes 1`] = `"<div><span class=\\"jsx-2637759295 avatar  \\"><span class=\\"jsx-2637759295 avatar-bg\\"></span><span class=\\"jsx-2637759295 avatar-text\\"></span></span><span class=\\"jsx-2711500823 avatar  \\"><span class=\\"jsx-2711500823 avatar-bg\\"></span><span class=\\"jsx-2711500823 avatar-text\\"></span></span><span class=\\"jsx-4052614314 avatar  \\"><span class=\\"jsx-4052614314 avatar-bg\\"></span><span class=\\"jsx-4052614314 avatar-text\\"></span></span><span class=\\"jsx-2324221293 avatar  \\"><span class=\\"jsx-2324221293 avatar-bg\\"></span><span class=\\"jsx-2324221293 avatar-text\\"></span></span><span class=\\"jsx-2673205496 avatar  \\"><span class=\\"jsx-2673205496 avatar-bg\\"></span><span class=\\"jsx-2673205496 avatar-text\\"></span></span></div>"`;
 
-exports[`Avatar should work with a gradient color 1`] = `"<span class=\\"jsx-2527914183 avatar  \\"><span class=\\"jsx-2527914183 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with a gradient color 1`] = `"<span class=\\"jsx-3849966191 avatar  \\"><span class=\\"jsx-3849966191 avatar-bg\\"></span><span class=\\"jsx-3849966191 avatar-text\\"></span></span>"`;
 
-exports[`Avatar should work with different colors 1`] = `"<div><span class=\\"jsx-2848712817 avatar  \\"><span class=\\"jsx-2848712817 avatar-text\\"></span></span><span class=\\"jsx-2340694469 avatar  \\"><span class=\\"jsx-2340694469 avatar-text\\"></span></span><span class=\\"jsx-3117078237 avatar  \\"><span class=\\"jsx-3117078237 avatar-text\\"></span></span><span class=\\"jsx-561504774 avatar  \\"><span class=\\"jsx-561504774 avatar-text\\"></span></span><span class=\\"jsx-854317330 avatar  \\"><span class=\\"jsx-854317330 avatar-text\\"></span></span></div>"`;
+exports[`Avatar should work with different colors 1`] = `"<div><span class=\\"jsx-1364273066 avatar  \\"><span class=\\"jsx-1364273066 avatar-bg\\"></span><span class=\\"jsx-1364273066 avatar-text\\"></span></span><span class=\\"jsx-467682346 avatar  \\"><span class=\\"jsx-467682346 avatar-bg\\"></span><span class=\\"jsx-467682346 avatar-text\\"></span></span><span class=\\"jsx-87732650 avatar  \\"><span class=\\"jsx-87732650 avatar-bg\\"></span><span class=\\"jsx-87732650 avatar-text\\"></span></span><span class=\\"jsx-2639547946 avatar  \\"><span class=\\"jsx-2639547946 avatar-bg\\"></span><span class=\\"jsx-2639547946 avatar-text\\"></span></span><span class=\\"jsx-3088209450 avatar  \\"><span class=\\"jsx-3088209450 avatar-bg\\"></span><span class=\\"jsx-3088209450 avatar-text\\"></span></span></div>"`;
 
-exports[`Avatar should work with pointer 1`] = `"<span class=\\"jsx-2505924119 avatar  \\"><span class=\\"jsx-2505924119 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with pointer 1`] = `"<span class=\\"jsx-3197361502 avatar  \\"><span class=\\"jsx-3197361502 avatar-bg\\"></span><span class=\\"jsx-3197361502 avatar-text\\"></span></span>"`;
 
-exports[`Avatar should work with zoomed 1`] = `"<span class=\\"jsx-986380238 avatar  \\"><span class=\\"jsx-986380238 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with zoomed 1`] = `"<span class=\\"jsx-2209321031 avatar  \\"><span class=\\"jsx-2209321031 avatar-bg\\"></span><span class=\\"jsx-2209321031 avatar-text\\"></span></span>"`;

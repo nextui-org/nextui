@@ -1,9 +1,18 @@
 import React, { useMemo } from 'react';
-import { NormalSizes, NormalColors } from '../../utils/prop-types';
+import {
+  NormalSizes,
+  NormalColors,
+  SimpleColors,
+} from '../../utils/prop-types';
 import useTheme from '../../hooks/use-theme';
 import useWarning from '../../hooks/use-warning';
 import AvatarGroup from './avatar-group';
-import { isColor, getNormalColor, isNormalColor } from '../../utils/color';
+import {
+  isColor,
+  getNormalColor,
+  isNormalColor,
+  addColorAlpha,
+} from '../../utils/color';
 
 interface Props {
   src?: string;
@@ -11,7 +20,8 @@ interface Props {
   zoomed?: boolean;
   bordered?: boolean;
   icon?: React.ReactNode;
-  color?: NormalColors;
+  color?: NormalColors | string;
+  textColor?: SimpleColors | string;
   pointer?: boolean;
   alt?: string;
   text?: string;
@@ -24,6 +34,7 @@ const defaultProps = {
   text: '',
   stacked: false,
   size: 'medium' as NormalSizes | number,
+  textColor: 'default' as SimpleColors,
   squared: false,
   zoomed: false,
   className: '',
@@ -73,6 +84,7 @@ const Avatar: React.FC<AvatarProps> = ({
   zoomed,
   bordered,
   color,
+  textColor,
   icon,
   pointer,
   alt,
@@ -89,11 +101,18 @@ const Avatar: React.FC<AvatarProps> = ({
     () => getNormalColor(color, theme.palette, theme.palette.accents_2),
     [color, theme.palette]
   );
+  const avatarTextColor = useMemo(
+    () => getNormalColor(textColor, theme.palette, theme.palette.text),
+    [textColor, theme.palette]
+  );
 
-  const background =
-    color === 'gradient'
-      ? `background-image: ${avatarColor}`
-      : `background-color: ${avatarColor}`;
+  const hoverBackground = useMemo(
+    () =>
+      color === 'gradient' || !bordered
+        ? avatarColor
+        : addColorAlpha(avatarColor, 0.8),
+    [color, avatarColor, bordered]
+  );
 
   if (color && !isNormalColor(color) && !isColor(color)) {
     useWarning(`Props "color" ${color} is not a valid color.`, 'Avatar');
@@ -104,6 +123,7 @@ const Avatar: React.FC<AvatarProps> = ({
       className={`avatar ${bordered ? 'bordered' : ''} ${className}`}
       {...props}
     >
+      <span className="avatar-bg" />
       {!showText && <img className="avatar-img" src={src} alt={alt} />}
       {showText && !icon && (
         <span className="avatar-text">{safeText(text)}</span>
@@ -111,7 +131,8 @@ const Avatar: React.FC<AvatarProps> = ({
       {icon && <span className="icon">{icon}</span>}
       <style jsx>{`
         .avatar {
-          ${background};
+          position: relative;
+          z-index: 1;
           min-width: ${width};
           min-height: ${width};
           width: ${width};
@@ -126,7 +147,18 @@ const Avatar: React.FC<AvatarProps> = ({
           vertical-align: top;
           cursor: ${pointer ? 'pointer' : 'auto'};
           margin: 0 0 0 ${marginLeft};
-          transition: box-shadow, 0.25s ease;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: ${width};
+          height: ${width};
+          background: ${avatarColor};
+          transition: all 0.25s ease;
         }
         .avatar.bordered {
           padding: ${border};
@@ -135,6 +167,7 @@ const Avatar: React.FC<AvatarProps> = ({
           margin: 0;
         }
         .avatar-img {
+          z-index: 99;
           display: flex;
           border-radius: 50%;
           background: ${theme.palette.background};
@@ -148,12 +181,13 @@ const Avatar: React.FC<AvatarProps> = ({
           position: absolute;
           left: 50%;
           top: 50%;
-          font-size: 1em;
+          font-size: calc(0.8em + ${width} * 0.1);
           text-align: center;
-          color: ${color ? theme.palette.background : theme.palette.text};
+          color: ${avatarTextColor};
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
+          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
         }
         .icon {
           display: flex;
@@ -165,10 +199,14 @@ const Avatar: React.FC<AvatarProps> = ({
           white-space: nowrap;
           user-select: none;
         }
+        .bordered:hover .avatar-bg {
+          background: ${hoverBackground};
+          filter: ${color === 'gradient' ? 'hue-rotate(40deg)' : 'none'};
+        }
         .avatar:hover .avatar-img {
           transform: ${zoomed && 'scale(1.125)'};
         }
-        .avatar:hover:not(.avatar-img) {
+        .avatar:hover .avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       `}</style>
