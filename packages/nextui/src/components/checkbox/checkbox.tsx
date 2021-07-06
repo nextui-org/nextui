@@ -119,7 +119,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
       setSelfChecked(next);
     }, [values.join(',')]);
   }
-
   const fontSize = useMemo(() => getCheckboxSize(size), [size]);
   const changeHandle = useCallback(
     (ev: React.ChangeEvent) => {

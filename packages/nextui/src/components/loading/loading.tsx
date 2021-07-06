@@ -11,7 +11,7 @@ import { getLoaderSize, getLoaderBorder, getLabelStyle } from './styles';
 import Spinner from './spinner';
 
 interface Props {
-  size?: NormalSizes;
+  size?: NormalSizes | number;
   color?: SimpleColors | string;
   gradientBackground?: string | null;
   textColor?: SimpleColors | string;
@@ -37,7 +37,10 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
-  const width = useMemo(() => getLoaderSize(type)[size], [size, type]);
+  const width = useMemo(
+    () => (typeof size === 'number' ? `${size}px` : getLoaderSize(type)[size]),
+    [size, type]
+  );
   const border = useMemo(() => getLoaderBorder(size), [size]);
   const labelColor = useMemo(
     () => getNormalColor(textColor, theme.palette),

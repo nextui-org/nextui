@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useRef, useEffect } from 'react';
 import {
   NormalSizes,
   NormalColors,
@@ -95,8 +95,16 @@ const Avatar: React.FC<AvatarProps> = ({
   const showText = !src;
   const radius = squared ? '33%' : '50%';
   const marginLeft = stacked ? '-.625rem' : 0;
+  const [ready, setReady] = useState(false);
   const width = useMemo(() => getSize(size), [size]);
   const border = useMemo(() => getBorder(size), [size]);
+
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    imgRef?.current?.complete && setReady(true);
+  }, []);
+
   const avatarColor = useMemo(
     () => getNormalColor(color, theme.palette, theme.palette.accents_2),
     [color, theme.palette]
@@ -124,7 +132,15 @@ const Avatar: React.FC<AvatarProps> = ({
       {...props}
     >
       <span className="avatar-bg" />
-      {!showText && <img className="avatar-img" src={src} alt={alt} />}
+      {!showText && (
+        <img
+          ref={imgRef}
+          className={`avatar-img ${ready ? 'avatar-ready' : ''}`}
+          src={src}
+          alt={alt}
+          onLoad={() => setReady(true)}
+        />
+      )}
       {showText && !icon && (
         <span className="avatar-text">{safeText(text)}</span>
       )}
@@ -168,11 +184,15 @@ const Avatar: React.FC<AvatarProps> = ({
         }
         .avatar-img {
           z-index: 99;
+          opacity: 0;
           display: flex;
           border-radius: 50%;
           background: ${theme.palette.background};
           border-radius: ${radius};
-          transition: all 0.25s ease;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
         }
         .bordered .avatar-img {
           border: ${border} solid ${theme.palette.background};
