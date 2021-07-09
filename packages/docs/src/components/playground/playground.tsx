@@ -17,12 +17,14 @@ const DynamicLive = dynamic(() => import('./dynamic-live'), {
 interface Props {
   title?: React.ReactNode | string;
   desc?: React.ReactNode | string;
+  showEditor?: boolean;
   code: string;
 }
 
 const defaultProps = {
   desc: '',
   code: '',
+  showEditor: true,
   bindings: {},
 };
 
@@ -31,6 +33,7 @@ export type PlaygroundProps = Props & typeof defaultProps;
 const Playground: React.FC<PlaygroundProps> = ({
   title: inputTitle,
   code: inputCode,
+  showEditor,
   desc,
 }) => {
   const theme = useTheme();
@@ -41,7 +44,7 @@ const Playground: React.FC<PlaygroundProps> = ({
     <>
       <Title title={title} desc={desc} />
       <div className="playground">
-        <DynamicLive code={code} />
+        <DynamicLive showEditor={showEditor} code={code} />
         <style jsx>{`
           .playground {
             width: 100%;
