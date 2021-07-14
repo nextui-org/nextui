@@ -29,24 +29,8 @@
                             "path": "/docs/theme/palette.mdx"
                         },
                         {
-                            "title": "Fonts",
-                            "path": "/docs/theme/fonts.mdx"
-                        },
-                        {
                             "title": "Layout",
                             "path": "/docs/theme/layout.mdx"
-                        },
-                        {
-                            "title": "Breakpoints",
-                            "path": "/docs/theme/breakpoints.mdx"
-                        },
-                        {
-                            "title": "Shadows",
-                            "path": "/docs/theme/shadows.mdx"
-                        },
-                        {
-                            "title": "Custom",
-                            "path": "/docs/theme/custom.mdx"
                         }
                     ]
                 },
