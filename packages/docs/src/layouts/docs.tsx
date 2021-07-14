@@ -44,7 +44,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   const [headings, setHeadings] = useState<Heading[]>([]);
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.min.replace('px', ''))
+    Number(theme.breakpoints.sm.max.replace('px', ''))
   );
   useEffect(() => {
     setHeadings(getHeadings());

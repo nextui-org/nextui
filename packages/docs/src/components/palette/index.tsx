@@ -36,7 +36,7 @@ const Palette: React.FC<Props> = ({ colors, inverted }) => {
               border-radius: ${theme.layout.radius};
               transition: all 0.25s ease;
             }
-            .color:hover) {
+            .color:hover {
               transform: translateY(5px);
               box-shadow: 0 0 0 0 ${hexToRGBA(shadowColor, 0.5)};
             }
