@@ -139,35 +139,34 @@ const Input = (props: any) => {
             border: none;
           }
           .react-autosuggest__suggestions-container {
-            display: none;
-            max-height: calc(90vh - 334px);
-            min-height: 168px;
-            overflow-y: auto;
-            padding: 12px 0;
-          }
-
-          .react-autosuggest__suggestions-container--open {
-            display: block;
             position: absolute;
-            width: 100%;
-            top: 48px;
+            opacity: 0;
+            height: 0;
+            top: 28px;
+            overflow-y: auto;
+            transition: all 0.25s ease;
             background: ${theme.palette.accents_1};
-            box-shadow: 0 15px 22px -10px ${addColorAlpha(theme.palette.secondary, 0.3)};
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
             border-radius: 8px;
           }
-
+          .react-autosuggest__suggestions-container--open {
+            opacity: 1;
+            width: 100%;
+            padding: 12px 0;
+            max-height: calc(90vh - 334px);
+            min-height: 168px;
+            transform: translateY(20px);
+          }
           .react-autosuggest__suggestions-list {
             margin: 0;
             padding: 0;
             list-style-type: none;
             overflow-y: auto;
           }
-
           .react-autosuggest__suggestion {
             cursor: pointer;
             padding: 0 12px;
           }
-
           .react-autosuggest__suggestion a {
             text-decoration: none;
             color: black;
@@ -176,24 +175,19 @@ const Input = (props: any) => {
             padding: 12px;
             border: 1px solid transparent;
           }
-
           .react-autosuggest__suggestion--highlighted a {
             background: var(--accents-1);
             border-color: var(--accents-2);
           }
-
           .react-autosuggest__suggestion--highlighted a span {
             color: var(--geist-foreground);
           }
-
           .react-autosuggest__section-container {
             border-top: 1px dashed var(--accents-3);
           }
-
           .react-autosuggest__section-container--first {
             border-top: 0;
           }
-
           .react-autosuggest__section-title {
             padding: 10px 0 0 10px;
             font-size: 12px;
