@@ -155,8 +155,8 @@ const Button = React.forwardRef<
     [auto, size]
   );
 
-  const hoverBeforeWidth = useMemo(
-    () => (filteredProps.color === 'gradient' && ghost ? '100%' : '0%'),
+  const hoverBeforeOpacity = useMemo(
+    () => (filteredProps.color === 'gradient' && ghost ? 1 : 0),
     [ghost, filteredProps]
   );
 
@@ -268,13 +268,14 @@ const Button = React.forwardRef<
           top: 0;
           left: 0;
           height: 100%;
+          width: 100%;
           border-radius: ${radius};
-          width: 0;
           transition: all 0.2s ease;
           z-index: 1;
+          opacity: 0;
         }
         .button:hover:before {
-          width: ${hoverBeforeWidth};
+          opacity: ${hoverBeforeOpacity};
         }
         .button:active {
           transform: ${animated ? 'scale(0.97)' : 'none'};
