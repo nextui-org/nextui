@@ -6,6 +6,17 @@ export const toCapitalize = (name: string) => {
   return `${first.toUpperCase()}${rest.join('')}`;
 };
 
+/**
+ * This function allows validate if a string is a hexadecimal
+ * value
+ * @param str [string] hexadecimal value
+ * @returns result [boolean]
+ */
+export const isHex = (str: string): boolean => {
+  const exp = /#[a-fA-F0-9]{3,6}/g;
+  return exp.test(str);
+};
+
 export function removeFromLast<T>(path: string, key: string): string | T {
   const i = path.lastIndexOf(key);
   return i === -1 ? path : path.substring(0, i);
@@ -94,4 +105,47 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
   }
   return `rgba(${+r}, ${+g},${+b},${alpha})`;
 };
+
+export const hexToRgb = (color: string): [number, number, number] => {
+  const fullReg = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  const full = color.replace(
+    fullReg,
+    (_, r, g, b) => `${r}${r}${g}${g}${b}${b}`
+  );
+  const values = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(full);
+  if (!values) {
+    throw new Error(`Next UI: Unsupported ${color} color.`);
+  }
+  return [
+    Number.parseInt(values[1], 16),
+    Number.parseInt(values[2], 16),
+    Number.parseInt(values[3], 16),
+  ];
+};
+
+export const colorToRgbValues = (color: string) => {
+  if (color.charAt(0) === '#') return hexToRgb(color);
+
+  const safeColor = color.replace(/ /g, '');
+  const colorType = color.substr(0, 4);
+
+  const regArray = safeColor.match(/\((.+)\)/);
+  if (!colorType.startsWith('rgb') || !regArray) {
+    throw new Error(`Next UI: Only support ["RGB", "RGBA", "HEX"] color.`);
+  }
+
+  return regArray[1].split(',').map((str) => Number.parseFloat(str));
+};
+
+export const addColorAlpha = (color: string, alpha: number) => {
+  if (isHex(color)) {
+    return hexToRGBA(color, alpha);
+  } else if (!/^#|rgb|RGB/.test(color)) {
+    return color;
+  }
+  const [r, g, b] = colorToRgbValues(color);
+  const safeAlpha = alpha > 1 ? 1 : alpha < 0 ? 0 : alpha;
+  return `rgba(${r}, ${g}, ${b}, ${safeAlpha})`;
+};
+
 export const isProd = process.env.NODE_ENV === 'production';

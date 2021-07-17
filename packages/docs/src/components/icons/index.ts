@@ -25,3 +25,4 @@ export { default as Microphone } from './microphone';
 export { default as MicrophoneOff } from './microphone-off';
 export { default as Video } from './video';
 export { default as VideoOff } from './video-off';
+export { default as Search } from './search';

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useTheme, NextUIThemes, Grid } from '@nextui-org/react';
+import { useTheme, NextUIThemes } from '@nextui-org/react';
 import { get, replace } from 'lodash';
 import { invertHex, hexToRGBA, hexFromString } from '@utils/index';
 

@@ -11,3 +11,4 @@ export { default as Sticky } from './sticky';
 export { default as PageNav } from './page-nav';
 export { default as DotsContainer } from './dots-container';
 export { default as Palette } from './palette';
+export * from './search';

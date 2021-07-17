@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo } from '@components';
+import { Logo, SearchInput } from '@components';
 import cn from 'classnames';
 import NextLink from 'next/link';
 import {
@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
         </Col>
         <Col>
           <Row justify="flex-end">
-            <Text>Search</Text>
+            <SearchInput />
           </Row>
         </Col>
       </Row>
@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
         :global(.navbar__container) {
           min-height: 80px;
           max-height: 80px;
-          z-index: 99;
+          z-index: 9999;
         }
         :global(.navbar__logo) {
           cursor: pointer;

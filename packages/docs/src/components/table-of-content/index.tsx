@@ -45,6 +45,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
           padding-left: 1rem;
           font-size: 1.2rem;
           font-weight: 600;
+          z-index: 1;
         }
         .list {
           max-height: 62vh;
