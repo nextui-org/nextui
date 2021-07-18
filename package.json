@@ -34,15 +34,21 @@
         "cov:up": "yarn workspace @nextui-org/react coverage-update",
         "sb": "yarn workspace @nextui-org/react storybook",
         "build:sb": "yarn workspace @nextui-org/react build-storybook",
-        "start:sb": "yarn workspace @nextui-org/react start-storybook"
+        "start:sb": "yarn workspace @nextui-org/react start-storybook",
+        "build:docs-meta": "ts-node scripts/update-index-docs.ts"
     },
     "devDependencies": {
+        "@docusaurus/utils": "^2.0.0-beta.3",
         "@types/node": "^14.14.41",
         "@types/react": "^17.0.2",
         "@types/react-dom": "^17.0.2",
+        "@types/shelljs": "^0.8.9",
         "@types/styled-jsx": "^2.2.8",
+        "@types/uuid": "^8.3.1",
         "@typescript-eslint/eslint-plugin": "^4.22.0",
         "@typescript-eslint/parser": "^4.22.0",
+        "algoliasearch": "^4.10.3",
+        "dotenv": "^10.0.0",
         "eslint": "^7.29.0",
         "eslint-config-airbnb": "^18.2.1",
         "eslint-config-airbnb-typescript": "^12.3.1",
@@ -58,12 +64,20 @@
         "eslint-plugin-prettier": "^3.4.0",
         "eslint-plugin-react": "^7.23.2",
         "eslint-plugin-react-hooks": "^4.2.0",
+        "graceful-fs": "^4.2.6",
         "http-server": "^0.12.3",
         "lerna": "^4.0.0",
+        "markdown-toc": "^1.2.0",
         "npm-run-all": "^4.1.5",
         "prettier": "^2.2.1",
         "prettier-eslint": "^12.0.0",
         "prettier-eslint-cli": "^5.0.1",
-        "typescript": "^4.2.4"
+        "shelljs": "^0.8.4",
+        "ts-node": "^10.1.0",
+        "typescript": "^4.2.4",
+        "uuid": "^8.3.2"
+    },
+    "dependencies": {
+        "gray-matter": "^4.0.3"
     }
 }

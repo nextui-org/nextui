@@ -2,15 +2,7 @@ import React from 'react';
 import { Logo, SearchInput } from '@components';
 import cn from 'classnames';
 import NextLink from 'next/link';
-import {
-  Container,
-  Row,
-  Col,
-  Spacer,
-  Link,
-  Text,
-  useTheme,
-} from '@nextui-org/react';
+import { Container, Row, Col, Spacer, Link, useTheme } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 
 const isActive = (pathname: string, href: string) =>

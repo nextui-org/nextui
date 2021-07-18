@@ -4,8 +4,13 @@ import { NextUIThemes, useTheme } from '@nextui-org/react';
 import AutoSuggest, { ChangeEvent } from 'react-autosuggest';
 import { Search } from '../icons';
 import { addColorAlpha } from '@utils/index';
+import { connectAutoComplete } from 'react-instantsearch-dom';
+import { AutocompleteProvided } from 'react-instantsearch-core';
+import Suggestion from './suggestion';
 
-const Input = (props: any) => {
+interface Props extends AutocompleteProvided {}
+
+const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const [value, setValue] = React.useState('');
   const [isFocused, setIsFocused] = React.useState(false);
   const theme = useTheme() as NextUIThemes;
@@ -17,17 +22,6 @@ const Input = (props: any) => {
     setValue(newValue);
   };
 
-  const languages = [
-    {
-      name: 'C',
-      year: 1972,
-    },
-    {
-      name: 'Elm',
-      year: 2012,
-    },
-  ];
-
   const onToggleFocus = () => {
     setIsFocused(!isFocused);
   };
@@ -35,21 +29,24 @@ const Input = (props: any) => {
   const inputProps = {
     value,
     onChange,
+    type: 'search',
     onFocus: onToggleFocus,
     onBlur: onToggleFocus,
   };
 
-  const onSuggestionsFetchRequested = ({ value }) => {
-    console.log({ value });
+  const onSuggestionsFetchRequested = ({ value }: any) => {
+    refine(value);
   };
 
   const onSuggestionsClearRequested = () => {
     console.log('onSuggestionsClearRequested');
   };
 
-  const getSuggestionValue = (suggestion) => suggestion.name;
+  const getSuggestionValue = () => value;
 
-  const renderSuggestion = (suggestion) => <div>{suggestion.name}</div>;
+  const renderSuggestion = (hit: any) => (
+    <Suggestion search={value} hit={hit} />
+  );
 
   return (
     <div
@@ -73,7 +70,7 @@ const Input = (props: any) => {
         onSuggestionsClearRequested={onSuggestionsClearRequested}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
-        suggestions={languages}
+        suggestions={hits}
         inputProps={inputProps}
       />
 
@@ -142,8 +139,12 @@ const Input = (props: any) => {
             position: absolute;
             opacity: 0;
             height: 0;
-            top: 28px;
+            right: 0;
+            min-width: 428px;
             overflow-y: auto;
+            padding: 12px 16px;
+            max-height: calc(90vh - 334px);
+            min-height: 168px;
             transition: all 0.25s ease;
             background: ${theme.palette.accents_1};
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
@@ -152,14 +153,12 @@ const Input = (props: any) => {
           .react-autosuggest__suggestions-container--open {
             opacity: 1;
             width: 100%;
-            padding: 12px 0;
-            max-height: calc(90vh - 334px);
-            min-height: 168px;
-            transform: translateY(20px);
+            transform: translateY(10px);
           }
           .react-autosuggest__suggestions-list {
             margin: 0;
             padding: 0;
+            list-style: none;
             list-style-type: none;
             overflow-y: auto;
           }
@@ -199,6 +198,6 @@ const Input = (props: any) => {
   );
 };
 
-const MemoInput = React.memo(Input);
+const MemoAutocomplete = React.memo(Autocomplete);
 
-export default MemoInput;
+export default connectAutoComplete(MemoAutocomplete);
