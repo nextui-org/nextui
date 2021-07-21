@@ -4,6 +4,7 @@ import { browserName } from 'react-device-detect';
 import { NextUIThemes, useTheme } from '@nextui-org/react';
 import AutoSuggest, {
   ChangeEvent,
+  RenderInputComponentProps,
   RenderSuggestionsContainerParams,
 } from 'react-autosuggest';
 import { Search, SearchByAlgolia, Close } from '../icons';
@@ -20,6 +21,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const [value, setValue] = React.useState('');
   const [isFocused, setIsFocused] = React.useState(false);
   const theme = useTheme() as NextUIThemes;
+
   const onChange = (
     event: React.FormEvent<HTMLElement>,
     { newValue }: ChangeEvent
@@ -72,6 +74,31 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     );
   };
 
+  const renderInput = React.useCallback(
+    (inputProps: RenderInputComponentProps) => {
+      return (
+        <div className="search__input-container">
+          <input {...inputProps} />
+          {!value ? (
+            <span className="search__placeholder-container">
+              <Search
+                size={16}
+                fill={theme.palette.accents_8}
+                className="search__placeholder-icon"
+              />
+              <p className="search__placeholder-text">Search...</p>
+            </span>
+          ) : (
+            <span className="search__reset-container" onClick={onClear}>
+              <Close size={16} fill={theme.palette.accents_6} />
+            </span>
+          )}
+        </div>
+      );
+    },
+    [theme, value]
+  );
+
   return (
     <div
       className={cn('search__container', {
@@ -79,26 +106,12 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
         'has-value': !!value.length,
       })}
     >
-      {!value ? (
-        <span className="search__placeholder-container">
-          <Search
-            size={16}
-            fill={theme.palette.accents_8}
-            className="search__placeholder-icon"
-          />
-          <p className="search__placeholder-text">Search...</p>
-        </span>
-      ) : (
-        <span className="search__reset-container" onClick={onClear}>
-          <Close size={16} fill={theme.palette.accents_6} />
-        </span>
-      )}
       <AutoSuggest
-        alwaysRenderSuggestions={true}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={onClear}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
+        renderInputComponent={renderInput}
         renderSuggestionsContainer={renderSuggestionsContainer}
         suggestions={hits}
         inputProps={inputProps}
@@ -112,12 +125,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             align-items: center;
             justify-content: flex-start;
             transition: all 0.25s ease;
-            background: ${addColorAlpha(theme.palette.accents_3, 0.5)};
-            color: ${theme.palette.white};
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
           }
-          .search__placeholder-container,
           .search__reset-container {
             position: absolute;
             z-index: 3;
@@ -126,8 +134,12 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             align-items: center;
           }
           .search__placeholder-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
             height: 100%;
+            top: 0;
             left: 0;
             right: 0;
           }
@@ -157,6 +169,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           .search__placeholder-icon {
             position: absolute;
             left: 30%;
+            z-index: -1;
             transition: all 0.25s ease;
           }
           .search__container.focused .search__placeholder-text {
@@ -173,9 +186,21 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             position: relative;
             z-index: 4;
           }
+          .search__input-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: saturate(180%) blur(10px);
+            background: ${addColorAlpha(theme.palette.accents_2, 0.7)};
+            box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+          }
+
           .react-autosuggest__input {
             text-align: left;
-            background: transparent;
+            background: none;
+            color: ${theme.palette.text};
             width: 228px;
             height: 28px;
             padding: 16px;
