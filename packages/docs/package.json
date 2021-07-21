@@ -1,12 +1,13 @@
 {
   "name": "@nextui-org/docs",
-  "version": "1.0.1-alpha.17",
+  "version": "1.0.1-alpha.18",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "vercel --prod"
+    "deploy": "yarn build && yarn postbuild && vercel --prod",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.6.0",
@@ -23,6 +24,7 @@
     "querystring": "^0.2.1",
     "react": "^17.0.2",
     "react-autosuggest": "^10.1.0",
+    "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.2",
     "react-iconly": "^2.2.2",
     "react-instantsearch-dom": "^6.12.0",
@@ -40,6 +42,7 @@
     "@types/react-instantsearch-dom": "^6.12.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint-config-next": "^11.0.0",
+    "next-sitemap": "^1.6.140",
     "typescript": "^4.3.4"
   }
 }

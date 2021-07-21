@@ -1,82 +1,92 @@
 import * as React from 'react';
-import { Highlight, Snippet } from 'react-instantsearch-dom';
+import { Highlight } from 'react-instantsearch-dom';
 import NextLink from 'next/link';
 import { Hit } from 'react-instantsearch-core';
-import { map } from 'lodash';
 import { NextUIThemes, useTheme } from '@nextui-org/react';
+import { CodeDocument, Hash, ArrowRight } from '../icons';
+import { addColorAlpha } from '@utils/index';
+import { includes } from 'lodash';
 
 interface Props {
   hit: Hit;
-  search: string;
 }
 
-const Suggestion: React.FC<Props> = ({ hit, search }) => {
+const Suggestion: React.FC<Props> = ({ hit }) => {
   const theme = useTheme() as NextUIThemes;
   return (
-    <NextLink
-      href={`${hit.url}?query=${encodeURIComponent(search)}${
-        hit.anchor ? `${hit.anchor}` : ''
-      }`}
-    >
-      <a>
-        <span className="suggestion__title">
-          <Highlight attribute="content" tagName="mark" hit={hit} />
-          <div className="tags">
-            {map(hit._tags, (tag: string) => (
-              <span key={tag} className="tag">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </span>
-        {hit.section && (
-          <span className="suggestion__section">
-            <Highlight attribute="section" tagName="mark" hit={hit} />
+    <NextLink href={hit.url}>
+      <a className="suggestion__container">
+        <div className="suggestion__icon-container">
+          {hit.type !== 'lvl1' || includes(hit.url, '#') ? (
+            <Hash fill={theme.palette.accents_6} />
+          ) : (
+            <CodeDocument fill={theme.palette.accents_6} />
+          )}
+        </div>
+        <div className="suggestion__data-container">
+          {hit.type !== 'lvl1' && (
+            <span className="suggestion__title">
+              <Highlight hit={hit} attribute="hierarchy.lvl1" tagName="mark" />
+            </span>
+          )}
+          <span className="suggestion__content">
+            <Highlight hit={hit} attribute="content" tagName="mark" />
           </span>
-        )}
-        <span className="suggestion__content">
-          <Snippet width="100%" hit={hit} attribute="content" tagName="mark" />
-        </span>
+        </div>
+        <div>
+          <ArrowRight fill={theme.palette.accents_6} size={16} />
+        </div>
+
         <style jsx>
           {`
+            .suggestion__container,
+            .suggestion__icon-container {
+              display: flex;
+              align-items: center;
+            }
+            .suggestion__container {
+              justify-content: space-between;
+              border-bottom: 1px solid
+                ${addColorAlpha(theme.palette.border, 0.6)};
+              padding: 16px 8px;
+              min-height: 68px;
+              transition: all 0.2s ease;
+            }
+            .suggestion__container:hover {
+              border-radius: 4px;
+              background: ${addColorAlpha(theme.palette.text, 0.1)};
+            }
+            .suggestion__container:active {
+              transform: scale(0.97);
+            }
+            .suggestion__icon-container {
+              margin-right: ${theme.layout.gapQuarter};
+            }
+            .suggestion__data-container {
+              width: 100%;
+            }
             .suggestion__title {
-              font-size: 1rem;
+              font-size: 0.735rem;
               line-height: 2px;
               font-weight: 500;
               margin-bottom: 8px;
               display: flex;
               color: ${theme.palette.accents_6};
             }
-            .suggestion__section {
-              font-size: 0.875rem;
-              line-height: 1px;
-              font-weight: 500;
-              margin-bottom: 12px;
-              display: block;
+            :global(.suggestion__title mark) {
+              background-color: transparent;
+              color: ${theme.palette.accents_6};
             }
             .suggestion__content {
               font-size: 1rem;
               line-height: 2px;
-              color: ${theme.palette.accents_6};
               display: block;
               line-height: 1.6;
+              color: ${theme.palette.accents_6};
             }
-            .tags {
-              margin-left: 8px;
-              height: 22px;
-              display: flex;
-              align-items: center;
-            }
-            .tags .tag {
-              border-radius: 4px;
-              border: 1px solid ${theme.palette.accents_2};
-              background: ${theme.palette.background};
-              font-size: 10px;
-              text-transform: uppercase;
-              padding: 4px 8px;
-              height: 100%;
-              line-height: 130%;
-              margin: 0;
+            :global(.suggestion__content mark) {
+              background-color: transparent;
+              color: ${theme.palette.text};
             }
           `}
         </style>

@@ -11,6 +11,7 @@ const isActive = (pathname: string, href: string) =>
 const Navbar: React.FC = () => {
   const router = useRouter();
   const theme = useTheme();
+
   return (
     <Container
       className="navbar__container"

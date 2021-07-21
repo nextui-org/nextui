@@ -26,3 +26,7 @@ export { default as MicrophoneOff } from './microphone-off';
 export { default as Video } from './video';
 export { default as VideoOff } from './video-off';
 export { default as Search } from './search';
+export { default as Hash } from './hash';
+export { default as CodeDocument } from './code-document';
+export { default as SearchByAlgolia } from './search-by-algolia';
+export { default as Close } from './close';

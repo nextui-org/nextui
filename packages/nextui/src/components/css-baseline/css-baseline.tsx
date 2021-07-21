@@ -96,13 +96,6 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           font-size: 1em;
           line-height: 1.625em;
         }
-        ul li:before {
-          content: '–';
-          display: inline-block;
-          color: ${theme.palette.accents_4};
-          position: absolute;
-          margin-left: -0.9375rem;
-        }
         h1,
         h2,
         h3,
