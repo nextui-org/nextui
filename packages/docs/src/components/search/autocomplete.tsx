@@ -140,7 +140,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
       })}
     >
       <AutoSuggest
-        alwaysRenderSuggestions={true}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={() => refine()}
         getSuggestionValue={getSuggestionValue}
