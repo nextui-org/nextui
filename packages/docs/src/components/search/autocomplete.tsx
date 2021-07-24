@@ -1,15 +1,20 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { browserName } from 'react-device-detect';
-import { NextUIThemes, useTheme } from '@nextui-org/react';
+import { NextUIThemes, useTheme, useBodyScroll } from '@nextui-org/react';
 import AutoSuggest, {
   ChangeEvent,
-  RenderInputComponentProps,
   RenderSuggestionsContainerParams,
+  RenderInputComponentProps,
 } from 'react-autosuggest';
-import { Search, SearchByAlgolia, Close } from '../icons';
+import { useMediaQuery } from '@hooks/use-media-query';
+import { SearchByAlgolia, Search, Close } from '../icons';
 import { addColorAlpha } from '@utils/index';
-import { connectAutoComplete } from 'react-instantsearch-dom';
+import {
+  connectAutoComplete,
+  connectStateResults,
+} from 'react-instantsearch-dom';
+import { isEmpty } from 'lodash';
 import { AutocompleteProvided } from 'react-instantsearch-core';
 import Suggestion from './suggestion';
 
@@ -20,7 +25,23 @@ const isSafari = browserName === 'Safari';
 const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const [value, setValue] = React.useState('');
   const [isFocused, setIsFocused] = React.useState(false);
+  const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
   const theme = useTheme() as NextUIThemes;
+  const isMobile = useMediaQuery(
+    Number(theme.breakpoints.sm.max.replace('px', ''))
+  );
+
+  React.useEffect(() => {
+    if (isMobile) {
+      const isOpen = !isEmpty(
+        document.getElementsByClassName(
+          'react-autosuggest__suggestions-container--open'
+        )
+      );
+      const noResults = isEmpty(hits) && !isEmpty(value);
+      setBodyHidden(isFocused && (isOpen || noResults));
+    }
+  }, [hits, value, isFocused, isMobile]);
 
   const onChange = (
     event: React.FormEvent<HTMLElement>,
@@ -55,6 +76,26 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     setValue('');
   };
 
+  const renderInput = (inputProps: RenderInputComponentProps) => (
+    <div className="search__input-container">
+      <input {...inputProps} />
+      {!value ? (
+        <span className="search__placeholder-container">
+          <Search
+            size={16}
+            fill={theme.palette.accents_8}
+            className="search__placeholder-icon"
+          />
+          <p className="search__placeholder-text">Search...</p>
+        </span>
+      ) : (
+        <span className="search__reset-container" onClick={onClear}>
+          <Close size={16} fill={theme.palette.accents_6} />
+        </span>
+      )}
+    </div>
+  );
+
   const renderSuggestionsContainer = ({
     containerProps,
     children,
@@ -74,29 +115,21 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     );
   };
 
-  const renderInput = React.useCallback(
-    (inputProps: RenderInputComponentProps) => {
-      return (
-        <div className="search__input-container">
-          <input {...inputProps} />
-          {!value ? (
-            <span className="search__placeholder-container">
-              <Search
-                size={16}
-                fill={theme.palette.accents_8}
-                className="search__placeholder-icon"
-              />
-              <p className="search__placeholder-text">Search...</p>
-            </span>
-          ) : (
-            <span className="search__reset-container" onClick={onClear}>
-              <Close size={16} fill={theme.palette.accents_6} />
-            </span>
-          )}
+  const NoResults = connectStateResults(
+    ({ searchState, searchResults, searching }) =>
+      searchState &&
+      searchState.query &&
+      !searching &&
+      searchResults &&
+      searchResults.nbHits === 0 ? (
+        <div className="no-results">
+          <span>
+            No results for <span>"{value}"</span>
+          </span>
+          <br />
+          <span>Try again with a different keyword</span>
         </div>
-      );
-    },
-    [theme, value]
+      ) : null
   );
 
   return (
@@ -107,8 +140,9 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
       })}
     >
       <AutoSuggest
+        alwaysRenderSuggestions={true}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onClear}
+        onSuggestionsClearRequested={() => refine()}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         renderInputComponent={renderInput}
@@ -117,21 +151,25 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
         inputProps={inputProps}
       />
 
+      <NoResults />
+
       <style jsx global>
         {`
           .search__container {
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            transition: all 0.25s ease;
           }
           .search__reset-container {
             position: absolute;
-            z-index: 3;
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 6;
+            height: 100%;
+            right: 5%;
+            cursor: pointer;
+            transition: all 0.25s ease;
           }
           .search__placeholder-container {
             display: flex;
@@ -139,16 +177,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             align-items: center;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-          }
-          .search__reset-container {
-            z-index: 6;
-            height: 100%;
-            right: 5%;
-            cursor: pointer;
-            transition: all 0.25s ease;
           }
           :global(.search__reset-container:hover path) {
             fill: ${addColorAlpha(theme.palette.accents_6, 0.8)};
@@ -191,12 +219,12 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 9999;
             backdrop-filter: saturate(180%) blur(10px);
             background: ${addColorAlpha(theme.palette.accents_2, 0.7)};
             box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
           }
-
           .react-autosuggest__input {
             text-align: left;
             background: none;
@@ -210,11 +238,14 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             border: none;
           }
           .react-autosuggest__suggestions-container {
-            position: absolute;
             display: none;
-            top: 30px;
-            right: 0;
             opacity: 0;
+          }
+          .react-autosuggest__suggestions-container,
+          .no-results {
+            position: absolute;
+            top: 34px;
+            right: 0;
             height: 0;
             padding: 12px 0;
             overflow-y: auto;
@@ -228,6 +259,9 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
           }
+          .react-autosuggest__suggestions-container::-webkit-scrollbar {
+            width: 0px;
+          }
           .react-autosuggest__suggestions-header {
             padding: 14px;
             width: 100%;
@@ -235,7 +269,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           .react-autosuggest__suggestions-container--open {
             display: block;
             opacity: 1;
-            z-index: 9999;
+            z-index: 1001;
             transform: translateY(10px);
           }
           .react-autosuggest__suggestions-list {
@@ -268,10 +302,55 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           .react-autosuggest__section-title {
             padding: 10px 0 0 10px;
             font-size: 12px;
-            color: var(--accents-5);
+            color: ${theme.palette.accents_6};
+          }
+          .no-results {
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: ${theme.palette.accents_6};
+          }
+          .no-results span {
+            word-break: break-all;
           }
           ::-webkit-search-cancel-button {
             display: none;
+          }
+          @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+            .react-autosuggest__suggestions-container,
+            .no-results {
+              right: -90px;
+            }
+            .react-autosuggest__input {
+              width: 248px;
+              padding-right: calc(5% + 10px);
+            }
+          }
+          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+            .react-autosuggest__suggestions-container,
+            .no-results {
+              z-index: -1;
+              width: 100%;
+              height: 100vh;
+              max-height: 100vh;
+              padding: 50px 0;
+              top: 0;
+              left: 0;
+              right: 0;
+            }
+            .react-autosuggest__input {
+              width: 190px;
+            }
+            .react-autosuggest__container {
+              position: initial;
+              z-index: 4;
+            }
+            .search__input-container {
+              position: initial;
+            }
           }
         `}
       </style>

@@ -114,6 +114,9 @@ export const getButtonColors = (
       bg: palette.accents_2,
       color: palette.accents_4,
       loaderBg: palette.accents_1,
+      hover: {
+        bg: palette.accents_2,
+      },
     };
 
   const baseColor = color === 'default' ? palette.accents_2 : normalColor;

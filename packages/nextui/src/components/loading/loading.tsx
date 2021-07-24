@@ -19,7 +19,7 @@ interface Props {
 }
 
 const defaultProps = {
-  size: 'medium' as NormalSizes,
+  size: 'medium' as NormalSizes | number,
   color: 'primary' as SimpleColors | string,
   type: 'default' as NormalLoaders,
 };
@@ -37,11 +37,18 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
+
   const width = useMemo(
     () => (typeof size === 'number' ? `${size}px` : getLoaderSize(type)[size]),
     [size, type]
   );
-  const border = useMemo(() => getLoaderBorder(size), [size]);
+  const border = useMemo(
+    () =>
+      typeof size === 'number'
+        ? `calc(${size}px / ${size} + ${size > 10 ? '2px' : '1px'})`
+        : getLoaderBorder(size),
+    [size]
+  );
   const labelColor = useMemo(
     () => getNormalColor(textColor, theme.palette),
     [color, theme.palette]

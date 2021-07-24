@@ -59,7 +59,7 @@ export const getLabelStyle = (
   type: NormalLoaders,
   theme: NextUIThemes,
   color?: string
-): { [key in NormalSizes]: CSSProperties } => {
+): { [key in any]: CSSProperties } => {
   const common: CSSProperties = {
     color: color || theme.palette.text,
   };

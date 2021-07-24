@@ -51,10 +51,10 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   }, [routes]);
   const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}/${CONTENT_PATH}${currentRoute?.path}`;
   return (
-    <Container as="main" className="docs__container" display="flex">
+    <Container lg as="main" className="docs__container" display="flex">
       <Header {...meta} />
       <Navbar />
-      <Row className="docs__content">
+      <Row className="docs__content" gap={1}>
         <Sticky offset={10} className="docs__left-sidebar">
           <Sidebar routes={routes} tag={tag} slug={slug} />
         </Sticky>
@@ -93,6 +93,9 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
       <Footer />
       <style jsx>
         {`
+          :global(.docs__container) {
+            position: relative;
+          }
           :global(.docs__left-sidebar) {
             width: 20%;
             max-height: calc(100vh - 4rem);
@@ -124,15 +127,10 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             z-index: 1;
           }
           :global(.docs__gradient-violet) {
-            display: none;
+            display: block;
             z-index: 1;
             top: -50%;
             right: -50%;
-          }
-          @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
-            :global(.docs__right-sidebar, .docs__gradient-violet) {
-              display: block;
-            }
           }
           @media only screen and (min-width: ${theme.breakpoints.sm.max}) {
             :global(.docs__left-sidebar) {
@@ -142,6 +140,25 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           @media only screen and (max-width: ${theme.breakpoints.md.min}) {
             :global(.docs__center) {
               padding: 0 1rem !important;
+            }
+            :global(.docs__content) {
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+              margin-left: 0 !important;
+              margin-right: 0 !important;
+            }
+            :global(.docs__gradient-violet) {
+              top: -35%;
+              right: -45%;
+            }
+          }
+          @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
+            :global(.docs__right-sidebar) {
+              display: block;
+            }
+            :global(.docs__right-sidebar, .docs__gradient-violet) {
+              top: -50%;
+              right: -50%;
             }
           }
           @keyframes appear {

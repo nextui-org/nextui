@@ -12,4 +12,5 @@ export { default as PageNav } from './page-nav';
 export { default as DotsContainer } from './dots-container';
 export { default as Palette } from './palette';
 export { default as CssTransition } from './css-transition';
+export { default as MenuToggle } from './menu-toggle';
 export * from './search';

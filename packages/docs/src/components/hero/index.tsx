@@ -9,6 +9,7 @@ import {
   Link,
   Spacer,
   Button,
+  Container,
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
 import NextLink from 'next/link';
@@ -17,11 +18,19 @@ import { useMediaQuery } from '@hooks/use-media-query';
 const Hero: React.FC = () => {
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.min.replace('px', ''))
+    Number(theme.breakpoints.md.min.replace('px', ''))
   );
   return (
-    <>
-      <Row className="hero-container" align="center">
+    <Container
+      lg
+      className="hero__container"
+      display="flex"
+      alignItems="center"
+      justify="space-between"
+      wrap="nowrap"
+      as="nav"
+    >
+      <Row align="center">
         <Col className="hero__left-container" span={isMobile ? 12 : 6}>
           <Text h1 className="hero__title" size="4rem">
             Beautiful, fast and
@@ -126,7 +135,7 @@ const Hero: React.FC = () => {
         />
       </Row>
       <style jsx>{`
-        .hero-container {
+        :global(.hero__container) {
           position: relative;
         }
         .hero__feature-img {
@@ -173,7 +182,7 @@ const Hero: React.FC = () => {
           top: -100%;
           right: -50%;
         }
-        @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
+        @media only screen and (min-width: ${theme.breakpoints.md.min}) {
           :global(.hero__right-container, .hero__gradient-violet) {
             display: block;
           }
@@ -187,7 +196,7 @@ const Hero: React.FC = () => {
           }
         }
       `}</style>
-    </>
+    </Container>
   );
 };
 

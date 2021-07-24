@@ -25,8 +25,8 @@ const Logo: React.FC<LogoProps> = ({
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width={width || size || 40}
-        height={height || size || 40}
+        width={width || size || 25}
+        height={height || size || 25}
         viewBox="0 0 43 43"
         className={className}
         {...props}

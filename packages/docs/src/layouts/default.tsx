@@ -12,20 +12,24 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
     <DotsContainer>
       <Header />
       <Container
+        lg
         display="flex"
         as="main"
         alignContent="space-between"
         className="main-container"
+        gap={0}
       >
         <Navbar />
         {children}
         <Footer />
+        <style jsx>{`
+          :global(.main-container) {
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
+          }
+        `}</style>
       </Container>
-      <style jsx>{`
-        :global(.main-container) {
-          min-height: 100vh;
-        }
-      `}</style>
     </DotsContainer>
   );
 };
