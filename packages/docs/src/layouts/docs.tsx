@@ -142,6 +142,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               padding: 0 1rem !important;
             }
             :global(.docs__content) {
+              margin-top: 64px;
               padding-left: 0 !important;
               padding-right: 0 !important;
               margin-left: 0 !important;

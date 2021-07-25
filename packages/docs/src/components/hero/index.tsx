@@ -28,9 +28,9 @@ const Hero: React.FC = () => {
       alignItems="center"
       justify="space-between"
       wrap="nowrap"
-      as="nav"
+      as="section"
     >
-      <Row align="center">
+      <Row className="hero__content" align="center">
         <Col className="hero__left-container" span={isMobile ? 12 : 6}>
           <Text h1 className="hero__title" size="4rem">
             Beautiful, fast and
@@ -177,7 +177,7 @@ const Hero: React.FC = () => {
           z-index: -1;
         }
         :global(.hero__gradient-violet) {
-          display: none;
+          display: block;
           z-index: 1;
           top: -100%;
           right: -50%;
@@ -185,6 +185,15 @@ const Hero: React.FC = () => {
         @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
           :global(.hero__title, .hero__title-smooth) {
             font-size: calc(2rem + 2.5vw) !important;
+          }
+        }
+        @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+          :global(.hero__gradient-violet) {
+            top: -65%;
+            right: -52%;
+          }
+          :global(.hero__content) {
+            margin-top: 120px;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md.min}) {

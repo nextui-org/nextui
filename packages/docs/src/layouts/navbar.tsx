@@ -90,12 +90,17 @@ const Navbar: React.FC = () => {
           height: 40px;
           width: 40px;
           float: right;
+          margin-right: 10px;
         }
         :global(.navbar__menu-container) {
           display: none;
         }
         @media only screen and (max-width: ${theme.breakpoints.md.min}) {
           :global(.navbar__container) {
+            top: 0;
+            position: fixed;
+            background: ${theme.palette.background};
+            box-shadow: 0px 5px 20px -5px rgba(2, 1, 1, 0.1);
             min-height: 64px;
             max-height: 64px;
             padding-left: 16px;

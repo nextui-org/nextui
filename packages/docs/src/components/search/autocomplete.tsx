@@ -22,6 +22,7 @@ import {
 import { isEmpty, includes } from 'lodash';
 import { AutocompleteProvided } from 'react-instantsearch-core';
 import Suggestion from './suggestion';
+import { isProd } from '@utils/index';
 
 interface Props extends AutocompleteProvided {}
 
@@ -44,6 +45,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   });
 
   React.useEffect(() => {
+    inputRef && inputRef?.current?.focus();
     if (isMobile) {
       const isOpen = !isEmpty(
         document.getElementsByClassName(
@@ -57,6 +59,13 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     }
   }, [hits, value, isFocused, isMobile]);
 
+  const handleScroll = () => {
+    if (isMobile && isFocused) {
+      setIsFocused(false);
+      inputRef && inputRef?.current?.blur();
+    }
+  };
+
   const onChange = (
     event: React.FormEvent<HTMLElement>,
     { newValue }: ChangeEvent
@@ -65,16 +74,12 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     setValue(newValue);
   };
 
-  const onToggleFocus = () => {
-    setIsFocused(!isFocused);
-  };
-
   const inputProps = {
     value,
     onChange,
     type: 'search',
-    onFocus: onToggleFocus,
-    onBlur: onToggleFocus,
+    onFocus: () => setIsFocused(true),
+    onBlur: () => setIsFocused(false),
   };
 
   const onSuggestionsFetchRequested = ({ value }: any) => {
@@ -120,7 +125,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     children,
   }: RenderSuggestionsContainerParams) => {
     return (
-      <div {...containerProps}>
+      <div {...containerProps} onScroll={handleScroll}>
         <a
           href="https://www.algolia.com/"
           target="_blank"
@@ -160,7 +165,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     >
       <AutoSuggest
         ref={() => inputRef}
-        alwaysRenderSuggestions={true}
+        alwaysRenderSuggestions={!isProd}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={() => refine()}
         getSuggestionValue={getSuggestionValue}
