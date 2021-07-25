@@ -52,6 +52,8 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
       );
       const noResults = isEmpty(hits) && !isEmpty(value);
       setBodyHidden(isFocused && (isOpen || noResults));
+    } else {
+      setBodyHidden(false);
     }
   }, [hits, value, isFocused, isMobile]);
 
@@ -64,7 +66,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   };
 
   const onToggleFocus = () => {
-    console.log('onToggleFocus');
     setIsFocused(!isFocused);
   };
 
@@ -159,6 +160,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     >
       <AutoSuggest
         ref={() => inputRef}
+        alwaysRenderSuggestions={true}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={() => refine()}
         getSuggestionValue={getSuggestionValue}
@@ -288,7 +290,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             display: block;
             opacity: 1;
             z-index: 1001;
-            transform: translateY(10px);
           }
           .react-autosuggest__suggestions-list {
             margin: 0;
@@ -355,7 +356,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               height: calc(100vh + 10%);
               max-height: 100vh;
               padding: calc(50px + 10%) 0;
-              top: -2%;
+              top: 0;
               left: 0;
               right: 0;
             }
