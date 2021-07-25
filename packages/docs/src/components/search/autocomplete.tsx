@@ -1,7 +1,12 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { browserName } from 'react-device-detect';
-import { NextUIThemes, useTheme, useBodyScroll } from '@nextui-org/react';
+import {
+  NextUIThemes,
+  useTheme,
+  useBodyScroll,
+  useClickAway,
+} from '@nextui-org/react';
 import AutoSuggest, {
   ChangeEvent,
   RenderSuggestionsContainerParams,
@@ -14,13 +19,13 @@ import {
   connectAutoComplete,
   connectStateResults,
 } from 'react-instantsearch-dom';
-import { isEmpty } from 'lodash';
+import { isEmpty, includes } from 'lodash';
 import { AutocompleteProvided } from 'react-instantsearch-core';
 import Suggestion from './suggestion';
 
 interface Props extends AutocompleteProvided {}
 
-const isSafari = browserName === 'Safari';
+const isSafari = includes(browserName, 'Safari');
 
 const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const [value, setValue] = React.useState('');
@@ -30,6 +35,13 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const isMobile = useMediaQuery(
     Number(theme.breakpoints.sm.max.replace('px', ''))
   );
+
+  let inputRef = React.useRef<HTMLInputElement>(null);
+
+  useClickAway(inputRef, () => {
+    setIsFocused(false);
+    inputRef && inputRef?.current?.blur();
+  });
 
   React.useEffect(() => {
     if (isMobile) {
@@ -52,6 +64,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   };
 
   const onToggleFocus = () => {
+    console.log('onToggleFocus');
     setIsFocused(!isFocused);
   };
 
@@ -76,24 +89,35 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     setValue('');
   };
 
-  const renderInput = (inputProps: RenderInputComponentProps) => (
-    <div className="search__input-container">
-      <input {...inputProps} />
-      {!value ? (
-        <span className="search__placeholder-container">
-          <Search
-            size={16}
-            fill={theme.palette.accents_8}
-            className="search__placeholder-icon"
-          />
-          <p className="search__placeholder-text">Search...</p>
-        </span>
-      ) : (
-        <span className="search__reset-container" onClick={onClear}>
-          <Close size={16} fill={theme.palette.accents_6} />
-        </span>
-      )}
-    </div>
+  const storeInputReference = (autosuggest: any) => {
+    if (autosuggest !== null) {
+      inputRef = autosuggest.input;
+    }
+  };
+
+  const renderInput = React.useCallback(
+    (inputProps: RenderInputComponentProps) => {
+      return (
+        <div ref={inputRef} className="search__input-container">
+          <input {...inputProps} />
+          {!value ? (
+            <span className="search__placeholder-container">
+              <Search
+                size={16}
+                fill={theme.palette.accents_8}
+                className="search__placeholder-icon"
+              />
+              <p className="search__placeholder-text">Search...</p>
+            </span>
+          ) : (
+            <span className="search__reset-container" onClick={onClear}>
+              <Close size={16} fill={theme.palette.accents_6} />
+            </span>
+          )}
+        </div>
+      );
+    },
+    [value]
   );
 
   const renderSuggestionsContainer = ({
@@ -140,6 +164,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
       })}
     >
       <AutoSuggest
+        ref={() => inputRef}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={() => refine()}
         getSuggestionValue={getSuggestionValue}
@@ -333,22 +358,19 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             .no-results {
               z-index: -1;
               width: 100%;
-              height: 100vh;
+              height: calc(100vh + 10%);
               max-height: 100vh;
-              padding: 50px 0;
-              top: 0;
+              padding: calc(50px + 10%) 0;
+              top: -2%;
               left: 0;
               right: 0;
             }
             .react-autosuggest__input {
-              width: 190px;
+              width: 64vw;
             }
             .react-autosuggest__container {
               position: initial;
               z-index: 4;
-            }
-            .search__input-container {
-              position: initial;
             }
           }
         `}

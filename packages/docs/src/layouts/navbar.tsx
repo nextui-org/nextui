@@ -63,7 +63,10 @@ const Navbar: React.FC = () => {
         </Row>
       </Col>
       <Col className="navbar__menu-container">
-        <div className="navbar__menu-arrow" onClick={onToggleNavigation}>
+        <div
+          className="navbar__menu-arrow noselect"
+          onClick={onToggleNavigation}
+        >
           <MenuToggle expanded={expanded} />
         </div>
       </Col>
