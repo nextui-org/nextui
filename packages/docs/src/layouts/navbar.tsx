@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
       <Col className="navbar__logo-container">
         <NextLink href="/">
           <Link>
-            <Logo small={isMobile} className="navbar__logo" />
+            <Logo auto className="navbar__logo" />
           </Link>
         </NextLink>
       </Col>

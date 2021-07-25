@@ -89,12 +89,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     setValue('');
   };
 
-  const storeInputReference = (autosuggest: any) => {
-    if (autosuggest !== null) {
-      inputRef = autosuggest.input;
-    }
-  };
-
   const renderInput = React.useCallback(
     (inputProps: RenderInputComponentProps) => {
       return (

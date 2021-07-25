@@ -2,6 +2,7 @@ import React from 'react';
 import { NextUIThemes, useTheme } from '@nextui-org/react';
 
 export interface LogoProps {
+  auto?: boolean;
   size?: number;
   width?: number;
   height?: number;
@@ -11,6 +12,7 @@ export interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({
+  auto,
   size,
   width,
   height,
@@ -21,26 +23,24 @@ const Logo: React.FC<LogoProps> = ({
 }) => {
   const theme = useTheme() as NextUIThemes;
 
-  if (small) {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={width || size || 25}
-        height={height || size || 25}
-        viewBox="0 0 43 43"
-        className={className}
-        {...props}
-      >
-        <path
-          fill={dark ? '#000000' : theme.palette.foreground}
-          d="M32 43H11a10.928 10.928 0 01-7.778-3.222A10.928 10.928 0 010 32V11a10.928 10.928 0 013.222-7.778A10.928 10.928 0 0111 0h21a10.929 10.929 0 017.779 3.222A10.927 10.927 0 0143 11v21a10.927 10.927 0 01-3.222 7.778A10.929 10.929 0 0132 43zM11.314 12.293v12.033a6.35 6.35 0 00.87 3.31 6.243 6.243 0 002.422 2.3 7.458 7.458 0 003.595.843 7.474 7.474 0 003.6-.839 6.2 6.2 0 002.418-2.3 6.381 6.381 0 00.869-3.315V12.292h-1.659V24.21a5.149 5.149 0 01-.643 2.578 4.6 4.6 0 01-1.824 1.779 5.668 5.668 0 01-2.759.648 5.646 5.646 0 01-2.756-.648 4.64 4.64 0 01-1.823-1.779 5.116 5.116 0 01-.648-2.578V12.292zm18.6 0v18.175h1.66V12.293z"
-        />
-      </svg>
-    );
-  }
-  return (
+  const Small = () => (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      className="logo__small"
+      width={width || size || 25}
+      height={height || size || 25}
+      viewBox="0 0 43 43"
+      {...props}
+    >
+      <path
+        fill={dark ? '#000000' : theme.palette.foreground}
+        d="M32 43H11a10.928 10.928 0 01-7.778-3.222A10.928 10.928 0 010 32V11a10.928 10.928 0 013.222-7.778A10.928 10.928 0 0111 0h21a10.929 10.929 0 017.779 3.222A10.927 10.927 0 0143 11v21a10.927 10.927 0 01-3.222 7.778A10.929 10.929 0 0132 43zM11.314 12.293v12.033a6.35 6.35 0 00.87 3.31 6.243 6.243 0 002.422 2.3 7.458 7.458 0 003.595.843 7.474 7.474 0 003.6-.839 6.2 6.2 0 002.418-2.3 6.381 6.381 0 00.869-3.315V12.292h-1.659V24.21a5.149 5.149 0 01-.643 2.578 4.6 4.6 0 01-1.824 1.779 5.668 5.668 0 01-2.759.648 5.646 5.646 0 01-2.756-.648 4.64 4.64 0 01-1.823-1.779 5.116 5.116 0 01-.648-2.578V12.292zm18.6 0v18.175h1.66V12.293z"
+      />
+    </svg>
+  );
+
+  const Large = () => (
+    <svg
+      className="logo__large"
       width={100}
       height={24.48}
       viewBox="0 0 100 24.48"
@@ -53,6 +53,38 @@ const Logo: React.FC<LogoProps> = ({
       />
     </svg>
   );
+
+  if (auto) {
+    return (
+      <div>
+        <Small />
+        <Large />
+        <style jsx>
+          {`
+            :global(.logo__small) {
+              display: none;
+            }
+            :global(.logo__large) {
+              display: block;
+            }
+            @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+              :global(.logo__small) {
+                display: block;
+              }
+              :global(.logo__large) {
+                display: none;
+              }
+            }
+          `}
+        </style>
+      </div>
+    );
+  }
+
+  if (small) {
+    return <Small />;
+  }
+  return <Large />;
 };
 
 const MemoLogo = React.memo(Logo);
