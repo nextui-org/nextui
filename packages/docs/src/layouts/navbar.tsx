@@ -5,11 +5,17 @@ import NextLink from 'next/link';
 import { Container, Row, Col, Spacer, Link, useTheme } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@hooks/use-media-query';
+import { addColorAlpha } from '@utils/index';
+
+export interface Props {
+  isHome?: boolean;
+  detached?: boolean;
+}
 
 const isActive = (pathname: string, href: string) =>
   pathname && pathname.startsWith(href);
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<Props> = ({ isHome, detached }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
   const theme = useTheme();
@@ -90,22 +96,38 @@ const Navbar: React.FC = () => {
           height: 40px;
           width: 40px;
           float: right;
-          margin-right: 10px;
+          margin-right: calc(2 * 5pt);
         }
         :global(.navbar__menu-container) {
           display: none;
         }
-        @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+        @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
           :global(.navbar__container) {
             top: 0;
             position: fixed;
-            background: ${theme.palette.background};
-            box-shadow: 0px 5px 20px -5px rgba(2, 1, 1, 0.1);
+            background: ${isHome || !detached
+              ? 'transparent'
+              : addColorAlpha(theme.palette.background, 0.6)};
+            box-shadow: ${detached
+              ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
+              : 'none'};
             min-height: 64px;
             max-height: 64px;
             padding-left: 16px;
             padding-right: 16px;
           }
+          @supports (
+            (-webkit-backdrop-filter: blur(10px)) or
+              (backdrop-filter: blur(10px))
+          ) {
+            :global(.navbar__container) {
+              backdrop-filter: ${isHome || !detached
+                ? 'none'
+                : 'saturate(180%) blur(10px)'};
+            }
+          }
+        }
+        @media only screen and (max-width: ${theme.breakpoints.md.min}) {
           :global(.navbar__logo-container) {
             display: flex;
             width: 24px;

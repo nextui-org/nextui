@@ -186,6 +186,10 @@ const Hero: React.FC = () => {
           :global(.hero__title, .hero__title-smooth) {
             font-size: calc(2rem + 2.5vw) !important;
           }
+          :global(.hero__container) {
+            height: calc(100vh - 64px);
+            overflow: hidden;
+          }
         }
         @media only screen and (max-width: ${theme.breakpoints.md.min}) {
           :global(.hero__gradient-violet) {

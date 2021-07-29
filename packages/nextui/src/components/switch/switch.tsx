@@ -21,6 +21,7 @@ interface Props {
   color?: NormalColors | string;
   checked?: boolean;
   squared?: boolean;
+  bordered?: boolean;
   icon?: React.ReactNode;
   iconOn?: React.ReactNode;
   iconOff?: React.ReactNode;
@@ -35,6 +36,7 @@ const defaultProps = {
   color: 'primary' as NormalColors,
   size: 'medium' as NormalSizes,
   disabled: false,
+  bordered: false,
   squared: false,
   initialChecked: false,
   className: '',
@@ -50,6 +52,7 @@ const Switch: React.FC<SwitchProps> = ({
   onChange,
   size,
   squared,
+  bordered,
   color,
   icon,
   iconOn,
@@ -83,7 +86,7 @@ const Switch: React.FC<SwitchProps> = ({
     [disabled, selfChecked, onChange]
   );
 
-  const radius = squared ? '2px' : '50%';
+  const radius = useMemo(() => (squared ? '2px' : '50%'), [squared]);
 
   const circleIcon = useMemo(() => {
     const hasIcon = icon || iconOn || iconOff;
@@ -147,34 +150,36 @@ const Switch: React.FC<SwitchProps> = ({
           z-index: -1;
         }
         .switch {
-          height: ${height};
           width: ${width};
+          height: ${height};
           border-radius: ${squared ? '2px' : height};
           opacity: 1;
           transition: all 0.25s ease;
           position: relative;
-          border: 1px solid transparent;
-          background: ${theme.palette.accents_2};
+          border: ${theme.layout.stroke} solid
+            ${bordered ? theme.palette.border : 'transparent'};
+          background: ${bordered
+            ? theme.palette.background
+            : theme.palette.accents_2};
           box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
           padding: 0;
         }
         .circle {
-          width: calc(${height} * 0.68);
-          height: calc(${height} * 0.68);
           position: absolute;
           display: flex;
+          width: calc(${height} * 0.76);
+          height: calc(${height} * 0.76);
           justify-content: center;
           align-items: center;
           top: 50%;
           transform: translateY(-50%);
-          left: calc(54% - (${height} * 0.8));
+          left: 5%;
           box-shadow: 0 5px 15px 0 rgb(0 0 0 / 15%);
-          transition: left 0.2s ease;
+          transition: left 0.25s ease;
           border-radius: ${radius};
-          background: ${theme.palette.background};
-        }
-        .switch:active {
-          transform: scale(0.97);
+          background: ${bordered
+            ? theme.palette.accents_2
+            : theme.palette.background};
         }
         .switch.checked:hover {
           opacity: 0.8;
@@ -187,6 +192,7 @@ const Switch: React.FC<SwitchProps> = ({
           background-color: ${theme.palette.accents_3};
         }
         .checked {
+          border: 1px solid transparent;
           background: ${switchColor};
         }
         .circle :global(svg) {
@@ -195,7 +201,8 @@ const Switch: React.FC<SwitchProps> = ({
           width: calc(${height} * 0.44);
         }
         .checked > .circle {
-          left: calc(100% - (${height} * 0.8));
+          left: calc(95% - (${height} * 0.76));
+          background: ${theme.palette.background};
         }
         .disabled > .circle {
           background: ${theme.palette.accents_2};

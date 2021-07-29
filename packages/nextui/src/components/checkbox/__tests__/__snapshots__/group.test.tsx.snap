@@ -4,22 +4,22 @@ exports[`Checkbox Group should render correctly 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-508137458 checkbox-group ",
+      "class": "jsx-4211660850 checkbox-group ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-2928208789 checkbox ",
+          "class": "jsx-853566600 checkbox ",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-2928208789 checkbox-container",
+              "class": "jsx-853566600 checkbox-container",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-2928208789 ",
+                  "class": "jsx-853566600 ",
                   "type": "checkbox",
                 },
                 "children": Array [],
@@ -27,30 +27,30 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 checkbox-mask",
+                    "class": "jsx-853566600 checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 icon-check ",
+                        "class": "jsx-853566600 icon-check ",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-2928208789",
-                            "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                            "class": "jsx-853566600",
+                            "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line1",
+                                "class": "jsx-853566600 line1",
                               },
                               "children": Array [],
                               "name": "div",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -78,7 +78,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line2",
+                                "class": "jsx-853566600 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -87,7 +87,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -169,30 +169,30 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "jsx-2928208789 checkbox-mask",
+                  "class": "jsx-853566600 checkbox-mask",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 icon-check ",
+                      "class": "jsx-853566600 icon-check ",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-2928208789",
-                          "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                          "class": "jsx-853566600",
+                          "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789 line1",
+                              "class": "jsx-853566600 line1",
                             },
                             "children": Array [],
                             "name": "div",
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line2",
+                                "class": "jsx-853566600 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -220,7 +220,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789 line2",
+                              "class": "jsx-853566600 line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -229,7 +229,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line1",
+                                "class": "jsx-853566600 line1",
                               },
                               "children": Array [],
                               "name": "div",
@@ -290,7 +290,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 ",
+                    "class": "jsx-853566600 ",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -322,7 +322,7 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "jsx-2928208789 text ",
+                "class": "jsx-853566600 text ",
               },
               "children": Array [
                 Node {
@@ -358,7 +358,7 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "jsx-2928208789 text ",
+              "class": "jsx-853566600 text ",
             },
             "children": Array [
               Node {
@@ -375,12 +375,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "jsx-2928208789 checkbox-container",
+                "class": "jsx-853566600 checkbox-container",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 ",
+                    "class": "jsx-853566600 ",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -388,30 +388,30 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 checkbox-mask",
+                      "class": "jsx-853566600 checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-2928208789 icon-check ",
+                          "class": "jsx-853566600 icon-check ",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789",
-                              "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                              "class": "jsx-853566600",
+                              "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                             },
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line2",
+                                    "class": "jsx-853566600 line2",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -439,7 +439,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -448,7 +448,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line1",
+                                    "class": "jsx-853566600 line1",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -530,30 +530,30 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 checkbox-mask",
+                    "class": "jsx-853566600 checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 icon-check ",
+                        "class": "jsx-853566600 icon-check ",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-2928208789",
-                            "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                            "class": "jsx-853566600",
+                            "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line1",
+                                "class": "jsx-853566600 line1",
                               },
                               "children": Array [],
                               "name": "div",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -581,7 +581,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line2",
+                                "class": "jsx-853566600 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -590,7 +590,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -651,7 +651,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 ",
+                      "class": "jsx-853566600 ",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -705,17 +705,17 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-2928208789 checkbox ",
+            "class": "jsx-853566600 checkbox ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-2928208789 checkbox-container",
+                "class": "jsx-853566600 checkbox-container",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 ",
+                    "class": "jsx-853566600 ",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -723,30 +723,30 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 checkbox-mask",
+                      "class": "jsx-853566600 checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-2928208789 icon-check ",
+                          "class": "jsx-853566600 icon-check ",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789",
-                              "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                              "class": "jsx-853566600",
+                              "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                             },
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line2",
+                                    "class": "jsx-853566600 line2",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -774,7 +774,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -783,7 +783,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line1",
+                                    "class": "jsx-853566600 line1",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -865,30 +865,30 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 checkbox-mask",
+                    "class": "jsx-853566600 checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 icon-check ",
+                        "class": "jsx-853566600 icon-check ",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-2928208789",
-                            "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                            "class": "jsx-853566600",
+                            "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line1",
+                                "class": "jsx-853566600 line1",
                               },
                               "children": Array [],
                               "name": "div",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -916,7 +916,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line2",
+                                "class": "jsx-853566600 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -925,7 +925,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -986,7 +986,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 ",
+                      "class": "jsx-853566600 ",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -1018,7 +1018,7 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "jsx-2928208789 text ",
+                  "class": "jsx-853566600 text ",
                 },
                 "children": Array [
                   Node {
@@ -1054,7 +1054,7 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "jsx-2928208789 text ",
+                "class": "jsx-853566600 text ",
               },
               "children": Array [
                 Node {
@@ -1071,12 +1071,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "jsx-2928208789 checkbox-container",
+                  "class": "jsx-853566600 checkbox-container",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 ",
+                      "class": "jsx-853566600 ",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -1084,30 +1084,30 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 checkbox-mask",
+                        "class": "jsx-853566600 checkbox-mask",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-2928208789 icon-check ",
+                            "class": "jsx-853566600 icon-check ",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789",
-                                "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                                "class": "jsx-853566600",
+                                "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                               },
                               "children": Array [
                                 Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line1",
+                                    "class": "jsx-853566600 line1",
                                   },
                                   "children": Array [],
                                   "name": "div",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
-                                      "class": "jsx-2928208789 line2",
+                                      "class": "jsx-853566600 line2",
                                     },
                                     "children": Array [],
                                     "name": "div",
@@ -1135,7 +1135,7 @@ LoadedCheerio {
                                 },
                                 Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line2",
+                                    "class": "jsx-853566600 line2",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -1144,7 +1144,7 @@ LoadedCheerio {
                                   "parent": [Circular],
                                   "prev": Node {
                                     "attribs": Object {
-                                      "class": "jsx-2928208789 line1",
+                                      "class": "jsx-853566600 line1",
                                     },
                                     "children": Array [],
                                     "name": "div",
@@ -1226,30 +1226,30 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 checkbox-mask",
+                      "class": "jsx-853566600 checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-2928208789 icon-check ",
+                          "class": "jsx-853566600 icon-check ",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789",
-                              "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                              "class": "jsx-853566600",
+                              "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                             },
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line2",
+                                    "class": "jsx-853566600 line2",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -1277,7 +1277,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -1286,7 +1286,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line1",
+                                    "class": "jsx-853566600 line1",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -1347,7 +1347,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 ",
+                        "class": "jsx-853566600 ",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -1422,17 +1422,17 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-2928208789 checkbox ",
+          "class": "jsx-853566600 checkbox ",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-2928208789 checkbox-container",
+              "class": "jsx-853566600 checkbox-container",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-2928208789 ",
+                  "class": "jsx-853566600 ",
                   "type": "checkbox",
                 },
                 "children": Array [],
@@ -1440,30 +1440,30 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 checkbox-mask",
+                    "class": "jsx-853566600 checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 icon-check ",
+                        "class": "jsx-853566600 icon-check ",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-2928208789",
-                            "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                            "class": "jsx-853566600",
+                            "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line1",
+                                "class": "jsx-853566600 line1",
                               },
                               "children": Array [],
                               "name": "div",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -1491,7 +1491,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line2",
+                                "class": "jsx-853566600 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -1500,7 +1500,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -1582,30 +1582,30 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "jsx-2928208789 checkbox-mask",
+                  "class": "jsx-853566600 checkbox-mask",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 icon-check ",
+                      "class": "jsx-853566600 icon-check ",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-2928208789",
-                          "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                          "class": "jsx-853566600",
+                          "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789 line1",
+                              "class": "jsx-853566600 line1",
                             },
                             "children": Array [],
                             "name": "div",
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line2",
+                                "class": "jsx-853566600 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -1633,7 +1633,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789 line2",
+                              "class": "jsx-853566600 line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -1642,7 +1642,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line1",
+                                "class": "jsx-853566600 line1",
                               },
                               "children": Array [],
                               "name": "div",
@@ -1703,7 +1703,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 ",
+                    "class": "jsx-853566600 ",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -1735,7 +1735,7 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "jsx-2928208789 text ",
+                "class": "jsx-853566600 text ",
               },
               "children": Array [
                 Node {
@@ -1771,7 +1771,7 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "jsx-2928208789 text ",
+              "class": "jsx-853566600 text ",
             },
             "children": Array [
               Node {
@@ -1788,12 +1788,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "jsx-2928208789 checkbox-container",
+                "class": "jsx-853566600 checkbox-container",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 ",
+                    "class": "jsx-853566600 ",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -1801,30 +1801,30 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 checkbox-mask",
+                      "class": "jsx-853566600 checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-2928208789 icon-check ",
+                          "class": "jsx-853566600 icon-check ",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789",
-                              "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                              "class": "jsx-853566600",
+                              "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                             },
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line2",
+                                    "class": "jsx-853566600 line2",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -1852,7 +1852,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -1861,7 +1861,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line1",
+                                    "class": "jsx-853566600 line1",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -1943,30 +1943,30 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 checkbox-mask",
+                    "class": "jsx-853566600 checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 icon-check ",
+                        "class": "jsx-853566600 icon-check ",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-2928208789",
-                            "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                            "class": "jsx-853566600",
+                            "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line1",
+                                "class": "jsx-853566600 line1",
                               },
                               "children": Array [],
                               "name": "div",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -1994,7 +1994,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line2",
+                                "class": "jsx-853566600 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -2003,7 +2003,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -2064,7 +2064,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 ",
+                      "class": "jsx-853566600 ",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -2120,17 +2120,17 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-2928208789 checkbox ",
+            "class": "jsx-853566600 checkbox ",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-2928208789 checkbox-container",
+                "class": "jsx-853566600 checkbox-container",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 ",
+                    "class": "jsx-853566600 ",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -2138,30 +2138,30 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 checkbox-mask",
+                      "class": "jsx-853566600 checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-2928208789 icon-check ",
+                          "class": "jsx-853566600 icon-check ",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789",
-                              "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                              "class": "jsx-853566600",
+                              "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                             },
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line2",
+                                    "class": "jsx-853566600 line2",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -2189,7 +2189,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -2198,7 +2198,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line1",
+                                    "class": "jsx-853566600 line1",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -2280,30 +2280,30 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "jsx-2928208789 checkbox-mask",
+                    "class": "jsx-853566600 checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 icon-check ",
+                        "class": "jsx-853566600 icon-check ",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-2928208789",
-                            "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                            "class": "jsx-853566600",
+                            "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line1",
+                                "class": "jsx-853566600 line1",
                               },
                               "children": Array [],
                               "name": "div",
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -2331,7 +2331,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789 line2",
+                                "class": "jsx-853566600 line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -2340,7 +2340,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -2401,7 +2401,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 ",
+                      "class": "jsx-853566600 ",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -2433,7 +2433,7 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "jsx-2928208789 text ",
+                  "class": "jsx-853566600 text ",
                 },
                 "children": Array [
                   Node {
@@ -2469,7 +2469,7 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "jsx-2928208789 text ",
+                "class": "jsx-853566600 text ",
               },
               "children": Array [
                 Node {
@@ -2486,12 +2486,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "jsx-2928208789 checkbox-container",
+                  "class": "jsx-853566600 checkbox-container",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 ",
+                      "class": "jsx-853566600 ",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -2499,30 +2499,30 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 checkbox-mask",
+                        "class": "jsx-853566600 checkbox-mask",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "jsx-2928208789 icon-check ",
+                            "class": "jsx-853566600 icon-check ",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "jsx-2928208789",
-                                "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                                "class": "jsx-853566600",
+                                "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                               },
                               "children": Array [
                                 Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line1",
+                                    "class": "jsx-853566600 line1",
                                   },
                                   "children": Array [],
                                   "name": "div",
                                   "namespace": "http://www.w3.org/1999/xhtml",
                                   "next": Node {
                                     "attribs": Object {
-                                      "class": "jsx-2928208789 line2",
+                                      "class": "jsx-853566600 line2",
                                     },
                                     "children": Array [],
                                     "name": "div",
@@ -2550,7 +2550,7 @@ LoadedCheerio {
                                 },
                                 Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line2",
+                                    "class": "jsx-853566600 line2",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -2559,7 +2559,7 @@ LoadedCheerio {
                                   "parent": [Circular],
                                   "prev": Node {
                                     "attribs": Object {
-                                      "class": "jsx-2928208789 line1",
+                                      "class": "jsx-853566600 line1",
                                     },
                                     "children": Array [],
                                     "name": "div",
@@ -2641,30 +2641,30 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "jsx-2928208789 checkbox-mask",
+                      "class": "jsx-853566600 checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "jsx-2928208789 icon-check ",
+                          "class": "jsx-853566600 icon-check ",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "jsx-2928208789",
-                              "style": "display:block;position:relative;width:8px;height:13px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
+                              "class": "jsx-853566600",
+                              "style": "display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)",
                             },
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line1",
+                                  "class": "jsx-853566600 line1",
                                 },
                                 "children": Array [],
                                 "name": "div",
                                 "namespace": "http://www.w3.org/1999/xhtml",
                                 "next": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line2",
+                                    "class": "jsx-853566600 line2",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -2692,7 +2692,7 @@ LoadedCheerio {
                               },
                               Node {
                                 "attribs": Object {
-                                  "class": "jsx-2928208789 line2",
+                                  "class": "jsx-853566600 line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -2701,7 +2701,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "jsx-2928208789 line1",
+                                    "class": "jsx-853566600 line1",
                                   },
                                   "children": Array [],
                                   "name": "div",
@@ -2762,7 +2762,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "jsx-2928208789 ",
+                        "class": "jsx-853566600 ",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -2941,4 +2941,4 @@ LoadedCheerio {
 }
 `;
 
-exports[`Checkbox Group should work correctly with different sizes 1`] = `"<div><div class=\\"jsx-2198715844 checkbox-group \\"><label class=\\"jsx-2928208789 checkbox \\"><div class=\\"jsx-2928208789 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-2928208789 \\"><div class=\\"jsx-2928208789 checkbox-mask\\"><i class=\\"jsx-2928208789 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-2928208789\\"><div class=\\"jsx-2928208789 line1\\"></div><div class=\\"jsx-2928208789 line2\\"></div></span></i></div></div><span class=\\"jsx-2928208789 text \\">Sydney</span></label></div><div class=\\"jsx-1818101444 checkbox-group \\"><label class=\\"jsx-2928208789 checkbox \\"><div class=\\"jsx-2928208789 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-2928208789 \\"><div class=\\"jsx-2928208789 checkbox-mask\\"><i class=\\"jsx-2928208789 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-2928208789\\"><div class=\\"jsx-2928208789 line1\\"></div><div class=\\"jsx-2928208789 line2\\"></div></span></i></div></div><span class=\\"jsx-2928208789 text \\">Sydney</span></label></div><div class=\\"jsx-679420996 checkbox-group \\"><label class=\\"jsx-2928208789 checkbox \\"><div class=\\"jsx-2928208789 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-2928208789 \\"><div class=\\"jsx-2928208789 checkbox-mask\\"><i class=\\"jsx-2928208789 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-2928208789\\"><div class=\\"jsx-2928208789 line1\\"></div><div class=\\"jsx-2928208789 line2\\"></div></span></i></div></div><span class=\\"jsx-2928208789 text \\">Sydney</span></label></div><div class=\\"jsx-387069124 checkbox-group \\"><label class=\\"jsx-2928208789 checkbox \\"><div class=\\"jsx-2928208789 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-2928208789 \\"><div class=\\"jsx-2928208789 checkbox-mask\\"><i class=\\"jsx-2928208789 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 13px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-2928208789\\"><div class=\\"jsx-2928208789 line1\\"></div><div class=\\"jsx-2928208789 line2\\"></div></span></i></div></div><span class=\\"jsx-2928208789 text \\">Sydney</span></label></div></div>"`;
+exports[`Checkbox Group should work correctly with different sizes 1`] = `"<div><div class=\\"jsx-1229877316 checkbox-group \\"><label class=\\"jsx-853566600 checkbox \\"><div class=\\"jsx-853566600 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-853566600 \\"><div class=\\"jsx-853566600 checkbox-mask\\"><i class=\\"jsx-853566600 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-853566600\\"><div class=\\"jsx-853566600 line1\\"></div><div class=\\"jsx-853566600 line2\\"></div></span></i></div></div><span class=\\"jsx-853566600 text \\">Sydney</span></label></div><div class=\\"jsx-3332886468 checkbox-group \\"><label class=\\"jsx-853566600 checkbox \\"><div class=\\"jsx-853566600 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-853566600 \\"><div class=\\"jsx-853566600 checkbox-mask\\"><i class=\\"jsx-853566600 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-853566600\\"><div class=\\"jsx-853566600 line1\\"></div><div class=\\"jsx-853566600 line2\\"></div></span></i></div></div><span class=\\"jsx-853566600 text \\">Sydney</span></label></div><div class=\\"jsx-2267503748 checkbox-group \\"><label class=\\"jsx-853566600 checkbox \\"><div class=\\"jsx-853566600 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-853566600 \\"><div class=\\"jsx-853566600 checkbox-mask\\"><i class=\\"jsx-853566600 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-853566600\\"><div class=\\"jsx-853566600 line1\\"></div><div class=\\"jsx-853566600 line2\\"></div></span></i></div></div><span class=\\"jsx-853566600 text \\">Sydney</span></label></div><div class=\\"jsx-3039123588 checkbox-group \\"><label class=\\"jsx-853566600 checkbox \\"><div class=\\"jsx-853566600 checkbox-container\\"><input type=\\"checkbox\\" class=\\"jsx-853566600 \\"><div class=\\"jsx-853566600 checkbox-mask\\"><i class=\\"jsx-853566600 icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\" class=\\"jsx-853566600\\"><div class=\\"jsx-853566600 line1\\"></div><div class=\\"jsx-853566600 line2\\"></div></span></i></div></div><span class=\\"jsx-853566600 text \\">Sydney</span></label></div></div>"`;

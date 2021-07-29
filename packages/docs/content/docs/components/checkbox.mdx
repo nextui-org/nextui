@@ -53,6 +53,10 @@ import { Checkbox } from '@nextui-org/react';
  <Checkbox checked={true} size="xlarge">
     xlarge
  </Checkbox>
+  <Spacer/>
+ <Checkbox checked={true} size={40}>
+    40px
+ </Checkbox>
  </>
 `}
 />
@@ -213,7 +217,7 @@ import { Checkbox } from '@nextui-org/react';
 | ------------------ | ----------------------- | ------------------------------ | ---------------------------------------------------------------------- | --------- |
 | **color**          | `NormalColors` `string` | [NormalColors](#normal-colors) | Change checkbox color                                                  | `primary` |
 | **textColor**      | `SimpleColors` `string` | [SimpleColors](#simple-colors) | Change checkbox text color                                             | `default` |
-| **size**           | `NormalSizes`           | [NormalSizes](#normal-sizes)   | Checkbox size                                                          | `medium`  |
+| **size**           | `NormalSizes` `number`  | [NormalSizes](#normal-sizes)   | Checkbox size                                                          | `medium`  |
 | **checked**        | `boolean`               | `true/false`                   | Determine the value of the checkbox                                    | `false`   |
 | **initialChecked** | `boolean`               | `true/false`                   | Determine the initial value of the checkbox                            | `false`   |
 | **disabled**       | `boolean`               | `true/false`                   | Disable checkbox                                                       | `false`   |

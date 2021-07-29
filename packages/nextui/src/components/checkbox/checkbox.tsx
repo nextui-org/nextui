@@ -33,7 +33,7 @@ export interface Props {
   disabled?: boolean;
   initialChecked?: boolean;
   onChange?: (e: CheckboxEvent) => void;
-  size?: NormalSizes;
+  size?: NormalSizes | number;
   className?: string;
   value?: string;
   style?: object;
@@ -46,7 +46,7 @@ const defaultProps = {
   initialChecked: false,
   indeterminate: false,
   rounded: false,
-  size: 'medium' as NormalSizes,
+  size: 'medium' as NormalSizes | number,
   className: '',
   value: '',
 };

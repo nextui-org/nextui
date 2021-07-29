@@ -19,7 +19,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
         className="main-container"
         gap={0}
       >
-        <Navbar />
+        <Navbar isHome />
         {children}
         <Footer />
         <style jsx>{`

@@ -65,6 +65,10 @@ import { Radio } from '@nextui-org/react';
     <Radio size="xlarge">
         xlarge
     </Radio>
+    <Spacer/>
+    <Radio size={40}>
+        40px
+    </Radio>
  </>
 `}
 />
@@ -197,11 +201,11 @@ import { Radio } from '@nextui-org/react';
 | Attribute     | Type                      | Accepted values                | Description                                                         | Default   |
 | ------------- | ------------------------- | ------------------------------ | ------------------------------------------------------------------- | --------- |
 | **color**     | `SimpleColors` `string`   | [SimpleColors](#simple-colors) | Change radio color                                                  | `primary` |
+| **size**      | `NormalSizes` `number`    | [NormalSizes](#normal-sizes)   | Radio size                                                          | `medium`  |
 | **textColor** | `SimpleColors` `string`   | [SimpleColors](#simple-colors) | Change radio text color                                             | `default` |
 | **checked**   | `boolean`                 | `true/false`                   | Selected or not (in single)                                         | `false`   |
 | **squared**   | `boolean`                 | `true/false`                   | Squared radio                                                       | `false`   |
 | **disabled**  | `boolean`                 | `true/false`                   | Disable radio                                                       | `false`   |
-| **size**      | `NormalSizes`             | [NormalSizes](#normal-sizes)   | Radio size                                                          | `medium`  |
 | **value**     | `string`                  | -                              | Unique ident value (in group)                                       | -         |
 | **id**        | `string`                  | -                              | Native id attr                                                      | -         |
 | **onChange**  | `(e: RadioEvent) => void` | -                              | The callback invoked when the checked state of the `Radio` changes. | -         |

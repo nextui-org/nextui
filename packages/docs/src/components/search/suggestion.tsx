@@ -39,25 +39,22 @@ const Suggestion: React.FC<Props> = ({ hit }) => {
 
         <style jsx>
           {`
+            .suggestion__container {
+              padding: 16px 8px;
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              padding: 0 12px;
+              justify-content: space-between;
+              border-bottom: 1px solid
+                ${addColorAlpha(theme.palette.border, 0.6)};
+              min-height: 68px;
+              transition: all 0.2s ease;
+            }
             .suggestion__container,
             .suggestion__icon-container {
               display: flex;
               align-items: center;
-            }
-            .suggestion__container {
-              justify-content: space-between;
-              border-bottom: 1px solid
-                ${addColorAlpha(theme.palette.border, 0.6)};
-              padding: 16px 8px;
-              min-height: 68px;
-              transition: all 0.2s ease;
-            }
-            .suggestion__container:hover {
-              border-radius: 4px;
-              background: ${addColorAlpha(theme.palette.text, 0.1)};
-            }
-            .suggestion__container:active {
-              transform: scale(0.97);
             }
             .suggestion__icon-container {
               margin-right: ${theme.layout.gapQuarter};
@@ -72,6 +69,13 @@ const Suggestion: React.FC<Props> = ({ hit }) => {
               margin-bottom: 8px;
               display: flex;
               color: ${theme.palette.accents_6};
+            }
+            .suggestion__container:hover {
+              border-radius: 4px;
+              background: ${addColorAlpha(theme.palette.text, 0.1)};
+            }
+            .suggestion__container:active {
+              transform: scale(0.97);
             }
             :global(.suggestion__title mark) {
               background-color: transparent;

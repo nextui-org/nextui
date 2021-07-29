@@ -42,10 +42,27 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   meta,
 }) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
+  const [scrollPosition, setScrollPosition] = useState(
+    (typeof window !== 'undefined' && window.pageYOffset) || 0
+  );
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(
     Number(theme.breakpoints.sm.max.replace('px', ''))
   );
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll.bind(this));
+    return () => {
+      window.removeEventListener('scroll', onScroll.bind(this));
+    };
+  }, []);
+
+  const onScroll = () => {
+    requestAnimationFrame(() => {
+      setScrollPosition(window.pageYOffset);
+    });
+  };
+
   useEffect(() => {
     setHeadings(getHeadings());
   }, [routes]);
@@ -53,7 +70,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <Container lg as="main" className="docs__container" display="flex" gap={0}>
       <Header {...meta} />
-      <Navbar />
+      <Navbar detached={scrollPosition > 0} />
       <Row className="docs__content" gap={1}>
         <Sticky offset={10} className="docs__left-sidebar">
           <Sidebar routes={routes} tag={tag} slug={slug} />
@@ -132,6 +149,15 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             top: -50%;
             right: -50%;
           }
+          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+            :global(.docs__content) {
+              margin-top: 64px;
+              padding-left: 0 !important;
+              padding-right: 0 !important;
+              margin-left: 0 !important;
+              margin-right: 0 !important;
+            }
+          }
           @media only screen and (min-width: ${theme.breakpoints.sm.max}) {
             :global(.docs__left-sidebar) {
               display: block;
@@ -140,13 +166,6 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           @media only screen and (max-width: ${theme.breakpoints.md.min}) {
             :global(.docs__center) {
               padding: 0 1rem !important;
-            }
-            :global(.docs__content) {
-              margin-top: 64px;
-              padding-left: 0 !important;
-              padding-right: 0 !important;
-              margin-left: 0 !important;
-              margin-right: 0 !important;
             }
             :global(.docs__gradient-violet) {
               top: -35%;

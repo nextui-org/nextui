@@ -38,6 +38,16 @@ const Footer: React.FC = () => {
           :global(.footer__by) {
             color: ${theme.palette.accents_6} !important;
           }
+          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+            :global(.footer__container) {
+              z-index: 99;
+              padding: 1rem;
+            }
+            :global(.footer__container .row) {
+              justify-content: flex-start !important;
+              padding: 0 calc(2 * ${theme.layout.gapQuarter}) !important;
+            }
+          }
         `}</style>
       </Row>
     </Container>
