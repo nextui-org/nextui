@@ -88,7 +88,10 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
 
   const getSuggestionValue = () => value;
 
-  const renderSuggestion = (hit: any) => <Suggestion hit={hit} />;
+  const renderSuggestion = (
+    hit: any,
+    { isHighlighted }: { isHighlighted: boolean }
+  ) => <Suggestion highlighted={isHighlighted} hit={hit} />;
 
   const onClear = () => {
     refine();

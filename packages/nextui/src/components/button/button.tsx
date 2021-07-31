@@ -300,7 +300,6 @@ const Button = React.forwardRef<
           align-items: center;
           text-align: center;
           line-height: inherit;
-          top: -1px;
           padding: 0 ${paddingForBorderedGradient};
           opacity: ${loading ? 0 : 1};
         }

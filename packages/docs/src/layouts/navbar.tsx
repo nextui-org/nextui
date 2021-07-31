@@ -24,63 +24,66 @@ const Navbar: React.FC<Props> = ({ isHome, detached }) => {
   const onToggleNavigation = () => setExpanded(!expanded);
 
   return (
-    <Container
-      lg
-      className="navbar__container"
-      display="flex"
-      alignItems="center"
-      justify="space-between"
-      wrap="nowrap"
-      as="nav"
-    >
-      <Col className="navbar__logo-container">
-        <NextLink href="/">
-          <Link>
-            <Logo auto className="navbar__logo" />
-          </Link>
-        </NextLink>
-      </Col>
-      <Col className="navbar__resources-container">
-        <Row justify="center" align="center">
-          <Spacer x={1} y={0} />
-          <NextLink href="/docs/guide/getting-started">
-            <Link
-              className={cn('navbar__link', {
-                active: isActive(router.pathname, '/docs/[[...slug]]'),
-              })}
-              href="#"
-            >
-              Docs
+    <nav className="navbar__container">
+      <div className="navbar__wrapper">
+        <Col className="navbar__logo-container">
+          <NextLink href="/">
+            <Link>
+              <Logo auto className="navbar__logo" />
             </Link>
           </NextLink>
-          <Spacer x={1} y={0} />
-          <NextLink href="#">
-            <Link href="#">Ecosystem</Link>
-          </NextLink>
-        </Row>
-      </Col>
-      <Col className="navbar__search-container">
-        <Row
-          className="navbar__search-row"
-          justify={isMobile ? 'center' : 'flex-end'}
-          align="center"
-        >
-          <SearchInput />
-        </Row>
-      </Col>
-      <Col className="navbar__menu-container">
-        <div
-          className="navbar__menu-arrow noselect"
-          onClick={onToggleNavigation}
-        >
-          <MenuToggle expanded={expanded} />
-        </div>
-      </Col>
+        </Col>
+        <Col className="navbar__resources-container">
+          <Row justify="center" align="center">
+            <Spacer x={1} y={0} />
+            <NextLink href="/docs/guide/getting-started">
+              <Link
+                className={cn('navbar__link', {
+                  active: isActive(router.pathname, '/docs/[[...slug]]'),
+                })}
+                href="#"
+              >
+                Docs
+              </Link>
+            </NextLink>
+            <Spacer x={1} y={0} />
+            <NextLink href="#">
+              <Link href="#">Ecosystem</Link>
+            </NextLink>
+          </Row>
+        </Col>
+        <Col className="navbar__search-container">
+          <Row
+            className="navbar__search-row"
+            justify={isMobile ? 'center' : 'flex-end'}
+            align="center"
+          >
+            <SearchInput />
+          </Row>
+        </Col>
+        <Col className="navbar__menu-container">
+          <div
+            className="navbar__menu-arrow noselect"
+            onClick={onToggleNavigation}
+          >
+            <MenuToggle expanded={expanded} />
+          </div>
+        </Col>
+      </div>
       <style jsx>{`
-        :global(.navbar__container) {
-          min-height: 80px;
-          max-height: 80px;
+        .navbar__container,
+        .navbar__wrapper {
+          width: 100%;
+          display: flex;
+          align-items: center;
+        }
+        .navbar__container {
+          min-height: 64px;
+          max-height: 64px;
           z-index: 9999;
+        }
+        .navbar__wrapper {
+          padding: 0 16px;
         }
         :global(.navbar__search-row) {
           position: initial !important;
@@ -96,7 +99,6 @@ const Navbar: React.FC<Props> = ({ isHome, detached }) => {
           height: 40px;
           width: 40px;
           float: right;
-          margin-right: calc(2 * 5pt);
         }
         :global(.navbar__menu-container) {
           display: none;
@@ -113,8 +115,6 @@ const Navbar: React.FC<Props> = ({ isHome, detached }) => {
               : 'none'};
             min-height: 64px;
             max-height: 64px;
-            padding-left: 16px;
-            padding-right: 16px;
           }
           @supports (
             (-webkit-backdrop-filter: blur(10px)) or
@@ -142,7 +142,7 @@ const Navbar: React.FC<Props> = ({ isHome, detached }) => {
           }
         }
       `}</style>
-    </Container>
+    </nav>
   );
 };
 

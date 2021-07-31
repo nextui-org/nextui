@@ -1,4 +1,5 @@
 import * as React from 'react';
+import cn from 'classnames';
 import { Highlight } from 'react-instantsearch-dom';
 import NextLink from 'next/link';
 import { Hit } from 'react-instantsearch-core';
@@ -9,13 +10,14 @@ import { includes } from 'lodash';
 
 interface Props {
   hit: Hit;
+  highlighted: boolean;
 }
 
-const Suggestion: React.FC<Props> = ({ hit }) => {
+const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
   const theme = useTheme() as NextUIThemes;
   return (
     <NextLink href={hit.url}>
-      <a className="suggestion__container">
+      <a className={cn('suggestion__container', { highlighted })}>
         <div className="suggestion__icon-container">
           {hit.type !== 'lvl1' || includes(hit.url, '#') ? (
             <Hash fill={theme.palette.accents_6} />
@@ -70,7 +72,8 @@ const Suggestion: React.FC<Props> = ({ hit }) => {
               display: flex;
               color: ${theme.palette.accents_6};
             }
-            .suggestion__container:hover {
+            .suggestion__container:hover,
+            .suggestion__container.highlighted {
               border-radius: 4px;
               background: ${addColorAlpha(theme.palette.text, 0.1)};
             }
