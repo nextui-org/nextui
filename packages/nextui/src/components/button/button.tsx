@@ -256,6 +256,7 @@ const Button = React.forwardRef<
           cursor: ${cursor};
           pointer-events: ${events};
           box-shadow: ${shadowColor};
+          --next-ui-button-border-radius: ${radius};
           --next-ui-button-padding: ${padding};
           --next-ui-button-height: ${height};
           --next-ui-button-color: ${color};

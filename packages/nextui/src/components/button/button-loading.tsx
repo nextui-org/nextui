@@ -47,6 +47,7 @@ const ButtonLoading: React.FC<React.PropsWithChildren<ButtonLoadingProps>> = ({
           display: flex;
           justify-content: center;
           align-items: center;
+          border-radius: var(--next-ui-button-border-radius);
           background-color: var(--next-ui-button-bg);
         }
       `}</style>

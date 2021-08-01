@@ -51,17 +51,23 @@ import { Loading } from '@nextui-org/react';
   title="Types"
   desc="You can change the type of loading with the `type` prop."
   code={`
-  <Row flexWrap="false" align="center">
-    <Loading type="default"/>
-    <Spacer x={2}/>
-    <Loading type="spinner" size="large"/>
-    <Spacer x={2}/>
-    <Loading type="points" />
-    <Spacer x={2}/>
-    <Loading type="points-opacity"/>
-    <Spacer x={2}/>
-    <Loading type="gradient"/>
-  </Row>
+  <Grid.Container gap={2}>
+    <Grid>
+        <Loading type="default"/>
+    </Grid>
+    <Grid>
+        <Loading type="spinner" size="large"/>
+    </Grid>
+    <Grid>
+        <Loading type="points" />
+    </Grid>
+    <Grid>
+        <Loading type="points-opacity"/>
+    </Grid>
+    <Grid>
+        <Loading type="gradient"/>
+    </Grid>
+  </Grid.Container>
 `}
 />
 
@@ -69,20 +75,26 @@ import { Loading } from '@nextui-org/react';
   title="Colors"
   desc="You can change the color of the `loading` with the property color."
   code={`
-  <Row flexWrap="false" align="center" style={{marginBottom: '1.5rem'}}>
-    <Loading color="primary">Primary</Loading>
-    <Spacer x={2} />
-    <Loading color="secondary">Secondary</Loading>
-    <Spacer x={2} />
-    <Loading color="success">Success</Loading>
-    <Spacer x={2} />
-    <Loading color="warning">Warning</Loading>
-    <Spacer x={2} />
-    <Loading color="error">Error</Loading>
-    <Spacer x={2} />
-    <Loading color="#f81ce5">#f81ce5</Loading>
-    <Spacer x={2} />
-  </Row>
+ <Grid.Container gap={2}>
+    <Grid>
+        <Loading color="primary">Primary</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="secondary">Secondary</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="success">Success</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="warning">Warning</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="error">Error</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="#f81ce5">#f81ce5</Loading>
+    </Grid>
+  </Grid.Container>
 `}
 />
 
@@ -90,20 +102,26 @@ import { Loading } from '@nextui-org/react';
   title="Text Colors"
   desc="You can change the `Loading` text color with `textColor` prop"
   code={`
-  <Row flexWrap="false" align="center" style={{marginBottom: '1.5rem'}}>
-    <Loading color="primary" textColor="primary">Primary</Loading>
-    <Spacer x={2} />
-    <Loading color="secondary" textColor="secondary">Secondary</Loading>
-    <Spacer x={2} />
-    <Loading color="success" textColor="success">Success</Loading>
-    <Spacer x={2} />
-    <Loading color="warning" textColor="warning">Warning</Loading>
-    <Spacer x={2} />
-    <Loading color="error" textColor="error">Error</Loading>
-    <Spacer x={2} />
-    <Loading color="#f81ce5" textColor="#f81ce5">#f81ce5</Loading>
-    <Spacer x={2} />
-  </Row>
+  <Grid.Container gap={2}>
+    <Grid>
+        <Loading color="primary" textColor="primary">Primary</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="secondary" textColor="secondary">Secondary</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="success" textColor="success">Success</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="warning" textColor="warning">Warning</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="error" textColor="error">Error</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="#f81ce5" textColor="#f81ce5">#f81ce5</Loading>
+    </Grid>
+  </Grid.Container>
 `}
 />
 

@@ -61,6 +61,7 @@ export const getLabelStyle = (
   color?: string
 ): { [key in any]: CSSProperties } => {
   const common: CSSProperties = {
+    width: '100%',
     color: color || theme.palette.text,
   };
   const styles: {
@@ -70,7 +71,7 @@ export const getLabelStyle = (
       mini: {
         ...common,
         marginRight: '0px',
-        marginTop: 'calc(100% + 1.6rem)',
+        // marginTop: 'calc(100% + 1.6rem)',
         fontSize: '0.6rem',
       },
       small: {
@@ -82,17 +83,17 @@ export const getLabelStyle = (
       medium: {
         ...common,
         marginRight: '0px',
-        marginTop: 'calc(100% + 2.4rem)',
+        // marginTop: 'calc(100% + 2.4rem)',
         fontSize: '0.875rem',
       },
       large: {
         ...common,
-        marginTop: 'calc(100% + 3rem)',
+        // marginTop: 'calc(100% + 3rem)',
         fontSize: '0.875rem',
       },
       xlarge: {
         ...common,
-        marginTop: 'calc(100% + 3.4rem)',
+        // marginTop: 'calc(100% + 3.4rem)',
         fontSize: '0.875rem',
       },
     },

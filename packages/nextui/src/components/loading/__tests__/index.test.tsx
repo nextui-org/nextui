@@ -11,7 +11,7 @@ describe('Loading', () => {
 
   it('should work with children', () => {
     const wrapper = mount(<Loading>Loading</Loading>);
-    expect(wrapper.find('.loading').text()).toContain('Loading');
+    expect(wrapper.find('label').text()).toContain('Loading');
   });
 
   it('should work with different colors', () => {

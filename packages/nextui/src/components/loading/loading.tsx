@@ -71,16 +71,20 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   return (
     <div className="loading-container" {...props}>
       <span className={`loading ${type}`}>
-        {children && <label style={labelStyle}>{children}</label>}
         <i className="_1" />
         <i className="_2" />
         <i className="_3" />
       </span>
+      {children && <label style={labelStyle}>{children}</label>}
       <style jsx>{`
         .loading-container {
           display: inline-flex;
+          flex-direction: column;
           align-items: center;
           position: relative;
+        }
+        label {
+          margin-top: ${theme.layout.gapQuarter};
         }
         label :global(*) {
           margin: 0;

@@ -58,21 +58,29 @@ import { Switch } from '@nextui-org/react';
   title="Colors"
   desc="You can change the color of the `Switch` with the property color."
   code={`
- <Row flexWrap="false">
-    <Switch color="primary" checked={true}/>
-    <Spacer />
-    <Switch color="secondary" checked={true}/>
-    <Spacer />
-    <Switch color="success" checked={true}/>
-    <Spacer />
-    <Switch color="warning" checked={true}/>
-    <Spacer />
-    <Switch color="error" checked={true}/>
-    <Spacer />
-    <Switch color="gradient" checked={true}/>
-    <Spacer/>
-    <Switch color="#ff4ecd" checked={true}/>
-  </Row>
+ <Grid.Container gap={2}>
+    <Grid>
+        <Switch color="primary" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="secondary" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="success" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="warning" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="error" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="gradient" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="#ff4ecd" checked={true}/>
+    </Grid>
+  </Grid.Container>
 `}
 />
 
@@ -108,44 +116,50 @@ import { Switch } from '@nextui-org/react';
   title="Icons"
   desc="NextUI doesn't use any library or icon font by default, with this we give the freedom to use the one you prefer. In the following example we use [Boxicons](https://boxicons.com/)"
   code={`
-  <Row flexWrap="false">
-       <Switch
-        checked={true}
-        size="xlarge"
-        color="success"
-        icon={<Notification />}
-      />
-      <Spacer/>
-      <Switch
-        checked={true}
-        size="xlarge"
-        iconOn={<Sun filled />}
-        iconOff={<Moon filled />}
-      />
-      <Spacer/>
-      <Switch
-        checked={true}
-        size="xlarge"
-        color="error"
-        iconOn={<MicrophoneOff filled />}
-        iconOff={<Microphone filled />}
-      />
-      <Spacer/>
-      <Switch
-        checked={true}
-        size="xlarge"
-        color="warning"
-        iconOn={<VideoOff filled />}
-        iconOff={<Video filled/>}
-      />
-      <Spacer/>
-      <Switch
-        checked={true}
-        size="xlarge"
-        color="secondary"
-        icon={<VolumeUp filled />}
-      />
-    </Row>
+  <Grid.Container gap={2}>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xlarge"
+            color="success"
+            icon={<Notification />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xlarge"
+            iconOn={<Sun filled />}
+            iconOff={<Moon filled />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xlarge"
+            color="error"
+            iconOn={<MicrophoneOff filled />}
+            iconOff={<Microphone filled />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xlarge"
+            color="warning"
+            iconOn={<VideoOff filled />}
+            iconOff={<Video filled/>}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xlarge"
+            color="secondary"
+            icon={<VolumeUp filled />}
+        />
+      </Grid>
+    </Grid.Container>
 `}
 />
 
