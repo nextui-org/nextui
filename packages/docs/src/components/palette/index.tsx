@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useTheme, NextUIThemes } from '@nextui-org/react';
 import { get, replace } from 'lodash';
 import { invertHex, hexToRGBA, hexFromString } from '@utils/index';
+import { getId } from '@utils/collections';
 
 export interface Props {
   colors?: string[];
@@ -21,7 +22,7 @@ const Palette: React.FC<Props> = ({ colors, inverted }) => {
           : get(theme.palette, color || 'primary');
 
       return (
-        <div key={color} className="color">
+        <div key={`${getId()}_${color}`} className="color">
           <p className="text">{replace(color, '_', ' ')}</p>
           <style jsx>{`
             .color {

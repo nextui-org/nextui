@@ -2,6 +2,7 @@ import * as React from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
 import { browserName } from 'react-device-detect';
+import { useRouter } from 'next/router';
 import {
   NextUIThemes,
   useTheme,
@@ -11,6 +12,7 @@ import {
 } from '@nextui-org/react';
 import AutoSuggest, {
   ChangeEvent,
+  OnSuggestionSelected,
   RenderSuggestionsContainerParams,
   RenderInputComponentProps,
 } from 'react-autosuggest';
@@ -33,6 +35,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const [value, setValue] = React.useState('');
   const [isFocused, setIsFocused] = React.useState(false);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
+  const router = useRouter();
   const suggestionsPortal = usePortal('suggestions');
   const noResultsPortal = usePortal('no-results');
   const theme = useTheme() as NextUIThemes;
@@ -48,7 +51,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   });
 
   React.useEffect(() => {
-    inputRef && inputRef?.current?.focus();
     if (isMobile) {
       const isOpen = !isEmpty(
         document.getElementsByClassName(
@@ -62,17 +64,14 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     }
   }, [hits, value, isFocused, isMobile]);
 
-  const onChange = (
-    event: React.FormEvent<HTMLElement>,
-    { newValue }: ChangeEvent
-  ) => {
-    console.log(event);
+  const onChange = (_: unknown, { newValue }: ChangeEvent) => {
     setValue(newValue);
   };
 
   const inputProps = {
     value,
     onChange,
+    ref: inputRef,
     type: 'search',
     onFocus: () => setIsFocused(true),
     onBlur: () => setIsFocused(false),
@@ -86,6 +85,16 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     refine(value);
   };
 
+  const onSuggestionSelected: OnSuggestionSelected<any> = (
+    _,
+    { suggestion, method }
+  ) => {
+    if (method === 'enter') {
+      onClear();
+      router.push(suggestion.url);
+    }
+  };
+
   const getSuggestionValue = () => value;
 
   const renderSuggestion = (
@@ -96,12 +105,13 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const onClear = () => {
     refine();
     setValue('');
+    inputRef && inputRef?.current?.blur();
   };
 
   const renderInput = React.useCallback(
     (inputProps: RenderInputComponentProps) => {
       return (
-        <div ref={inputRef} className="search__input-container">
+        <div className="search__input-container">
           <input {...inputProps} />
           {!value ? (
             <span className="search__placeholder-container">
@@ -188,9 +198,10 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
       })}
     >
       <AutoSuggest
-        ref={() => inputRef}
+        highlightFirstSuggestion={true}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={() => refine()}
+        onSuggestionsClearRequested={onClear}
+        onSuggestionSelected={onSuggestionSelected}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         renderInputComponent={renderInput}

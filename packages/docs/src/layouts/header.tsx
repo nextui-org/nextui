@@ -12,6 +12,17 @@ const defaultProps = {
   description: 'Beautiful, fast, modern React UI Library',
 };
 
+if (global.document) {
+  const info = [
+    `"First solve the problem. Then, write the code." -Jon Johnson 🚀`,
+  ];
+
+  for (const message of info) {
+    // eslint-disable-next-line no-console
+    console.log(message);
+  }
+}
+
 const Header: React.FC<HeaderProps> = ({ title, description }) => {
   let pageTitle = title ? `${toCapitalize(title)} | ` : '';
   pageTitle += 'NextUI - Beautiful, fast,modern React UI Library';

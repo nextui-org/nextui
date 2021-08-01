@@ -51,35 +51,43 @@ import { Button } from '@nextui-org/react';
   title="Colors"
   desc="You can change the color of the `Button` with the property color."
   code={`
-<Row flexWrap="false">
-  <Button color="primary" auto>
-    Primary
-  </Button>
-  <Spacer />
-  <Button color="secondary" auto>
-    Secondary
-  </Button>
-  <Spacer />
-  <Button color="success" auto>
-    Success
-  </Button>
-  <Spacer />
-  <Button color="warning" auto>
-    Warning
-  </Button>
-  <Spacer />
-  <Button color="error" auto>
-    Error
-  </Button>
-  <Spacer />
-  <Button color="gradient" auto>
-    Gradient
-  </Button>
-  <Spacer />
-  <Button color="#ff4ecd" auto>
-    #ff4ecd
-  </Button>
-</Row>
+<Grid.Container gap={2}>
+  <Grid>
+    <Button color="primary" auto>
+        Primary
+    </Button>
+  </Grid>
+  <Grid>
+    <Button color="secondary" auto>
+        Secondary
+    </Button>
+  </Grid>
+  <Grid>
+    <Button color="success" auto>
+        Success
+    </Button>
+  </Grid>
+  <Grid>
+    <Button color="warning" auto>
+        Warning
+    </Button>
+  </Grid>
+  <Grid>
+    <Button color="error" auto>
+        Error
+    </Button>
+  </Grid>
+  <Grid>
+    <Button color="gradient" auto>
+        Gradient
+    </Button>
+  </Grid>
+  <Grid>
+    <Button color="#ff4ecd" auto>
+        #ff4ecd
+    </Button>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -87,23 +95,43 @@ import { Button } from '@nextui-org/react';
   title="Shadow"
   desc="You can add a shadow effect with the property `shadow`."
   code={`
-<Row flexWrap="false">
-    <Button shadow auto>Primary</Button>
-    <Spacer />
-    <Button shadow auto color="secondary">Secondary</Button>
-    <Spacer />
-    <Button shadow auto color="success">Success</Button>
-    <Spacer />
-    <Button shadow auto color="warning">Warning</Button>
-    <Spacer />
-    <Button shadow auto color="error">Error</Button>
-    <Spacer />
-    <Button shadow auto color="gradient">Gradient</Button>
-    <Spacer />
+<Grid.Container gap={2}>
+  <Grid>
+    <Button shadow color="primary" auto>
+        Primary
+    </Button>
+  </Grid>
+  <Grid>
+    <Button shadow color="secondary" auto>
+        Secondary
+    </Button>
+  </Grid>
+  <Grid>
+    <Button shadow color="success" auto>
+        Success
+    </Button>
+  </Grid>
+  <Grid>
+    <Button shadow color="warning" auto>
+        Warning
+    </Button>
+  </Grid>
+  <Grid>
+    <Button shadow color="error" auto>
+        Error
+    </Button>
+  </Grid>
+  <Grid>
+    <Button shadow color="gradient" auto>
+        Gradient
+    </Button>
+  </Grid>
+  <Grid>
     <Button shadow color="#ff4ecd" auto>
         #ff4ecd
     </Button>
- </Row>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -111,31 +139,38 @@ import { Button } from '@nextui-org/react';
   title="Loading"
   desc="You can add a `loading` status with the loading property. You can change the `loader` with the `loaderType` property"
   code={`
-<Row flexWrap="false">
-  <Button loading color="primary" loaderType="default" auto>
-    Primary
-  </Button>
-  <Spacer />
+<Grid.Container gap={2}>
+  <Grid>
+    <Button loading color="primary" loaderType="default" auto>
+        Primary
+    </Button>
+  </Grid>
+  <Grid>
   <Button loading color="secondary" loaderType="spinner" auto>
     Secondary
   </Button>
-  <Spacer />
+  </Grid>
+  <Grid>
   <Button loading color="success" loaderType="points" auto>
     Success
   </Button>
-  <Spacer />
+  </Grid>
+  <Grid>
   <Button loading color="warning" loaderType="points-opacity" auto>
     Warning
   </Button>
-  <Spacer />
+  </Grid>
+  <Grid>
   <Button loading color="error" loaderType="gradient" auto>
     Error
   </Button>
-  <Spacer />
+  </Grid>
+  <Grid>
   <Button loading color="gradient" loaderType="default" auto>
     Gradient
   </Button>
-</Row>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -143,40 +178,43 @@ import { Button } from '@nextui-org/react';
   title="Bordered"
   desc="You can change the full style towards a bodered `Button` with the `bordered` property."
   code={`
-  <>
- <Row flexWrap>
+  <Grid.Container gap={2}>
+  <Grid>
     <Button bordered color="primary" auto>
-      Primary
+        Primary
     </Button>
-    <Spacer/>
-    <Button bordered color="secondary" auto>
-      Secondary
+  </Grid>
+  <Grid>
+  <Button bordered color="secondary" auto>
+    Secondary
+  </Button>
+  </Grid>
+  <Grid>
+  <Button bordered color="success" auto>
+    Success
+  </Button>
+  </Grid>
+  <Grid>
+  <Button bordered color="warning" auto>
+    Warning
+  </Button>
+  </Grid>
+  <Grid>
+  <Button bordered color="error" auto>
+    Error
+  </Button>
+  </Grid>
+  <Grid>
+  <Button bordered color="gradient" auto>
+    Gradient
+  </Button>
+  </Grid>
+  <Grid>
+    <Button bordered color="#ff4ecd" auto>
+      #ff4ecd
     </Button>
-    <Spacer/>
-    <Button bordered color="success" auto>
-      Success
-    </Button>
-    <Spacer/>
-    <Button bordered color="warning" auto>
-      Warning
-    </Button>
-    <Spacer/>
-    <Button bordered color="error" auto>
-      Error
-    </Button>
-    <Spacer/>
-    <Button bordered color="gradient" auto>
-      Gradient
-    </Button>
-    <Spacer/>
- </Row>
- <Spacer/>
- <Row>
-     <Button bordered color="#ff4ecd" auto>
-        #ff4ecd
-    </Button>
- </Row>
- </>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -184,40 +222,43 @@ import { Button } from '@nextui-org/react';
   title="Rounded"
   desc="You can completely round the corners of any type of button with the `rounded` property."
   code={`
-  <>
- <Row flexWrap>
+<Grid.Container gap={2}>
+  <Grid>
     <Button auto color="primary" rounded>
       Primary
     </Button>
-    <Spacer/>
+  </Grid>
+  <Grid>
     <Button auto color="secondary" rounded flat>
       Secondary
     </Button>
-    <Spacer/>
+  </Grid>
+  <Grid>
     <Button auto color="success" rounded bordered>
       Success
     </Button>
-    <Spacer/>
+  </Grid>
+  <Grid>
     <Button auto color="warning" rounded flat>
       Warning
     </Button>
-    <Spacer/>
+  </Grid>
+  <Grid>
     <Button auto color="error" rounded bordered>
       Error
     </Button>
-    <Spacer/>
+  </Grid>
+  <Grid>
     <Button auto color="gradient" rounded bordered>
       Gradient
     </Button>
-    <Spacer/>
- </Row>
- <Spacer/>
- <Row>
+  </Grid>
+  <Grid>
     <Button auto rounded bordered color="#ff4ecd">
-        #ff4ecd
+      #ff4ecd
     </Button>
- </Row>
- </>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -225,39 +266,43 @@ import { Button } from '@nextui-org/react';
   title="Ghost"
   desc="You can change the full style towards a ghost button with the `ghost` property."
   code={`
-  <>
- <Row flexWrap>
-    <Button auto color="primary" ghost>
-      Primary
+  <Grid.Container gap={2}>
+  <Grid>
+    <Button color="primary" auto ghost>
+        Primary
     </Button>
-    <Spacer/>
-    <Button auto color="secondary" ghost>
-      Secondary
+  </Grid>
+  <Grid>
+  <Button color="secondary" auto ghost>
+    Secondary
+  </Button>
+  </Grid>
+  <Grid>
+  <Button color="success" auto ghost>
+    Success
+  </Button>
+  </Grid>
+  <Grid>
+  <Button color="warning" auto ghost>
+    Warning
+  </Button>
+  </Grid>
+  <Grid>
+  <Button color="error" auto ghost>
+    Error
+  </Button>
+  </Grid>
+  <Grid>
+  <Button color="gradient" auto ghost>
+    Gradient
+  </Button>
+  </Grid>
+  <Grid>
+    <Button color="#ff4ecd" auto ghost>
+      #ff4ecd
     </Button>
-    <Spacer/>
-    <Button auto color="success" ghost>
-      Success
-    </Button>
-    <Spacer/>
-    <Button auto color="warning" ghost>
-      Warning
-    </Button>
-    <Spacer/>
-    <Button auto color="error" ghost>
-      Error
-    </Button>
-    <Spacer/>
-    <Button auto color="gradient" ghost>
-      Gradient
-    </Button>
- </Row>
- <Spacer/>
- <Row flexWrap>
-    <Button auto ghost color="#ff4ecd">
-        #ff4ecd
-    </Button>
- </Row>
- </>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -265,31 +310,43 @@ import { Button } from '@nextui-org/react';
   title="Flat"
   desc="You can change the full style towards a flat button with the `flat` property."
   code={`
- <Row flexWrap="false">
-     <Button auto color="primary" flat>
-      Primary
+ <Grid.Container gap={2}>
+  <Grid>
+    <Button flat color="primary" auto>
+        Primary
     </Button>
-    <Spacer/>
-    <Button auto color="secondary" flat>
-      Secondary
+  </Grid>
+  <Grid>
+  <Button flat color="secondary" auto>
+    Secondary
+  </Button>
+  </Grid>
+  <Grid>
+  <Button flat color="success" auto>
+    Success
+  </Button>
+  </Grid>
+  <Grid>
+  <Button flat color="warning" auto>
+    Warning
+  </Button>
+  </Grid>
+  <Grid>
+  <Button flat color="error" auto>
+    Error
+  </Button>
+  </Grid>
+  <Grid>
+  <Button flat color="gradient" auto>
+    Gradient
+  </Button>
+  </Grid>
+  <Grid>
+    <Button flat color="#ff4ecd" auto>
+      #ff4ecd
     </Button>
-    <Spacer/>
-    <Button auto color="success" flat>
-      Success
-    </Button>
-    <Spacer/>
-    <Button auto color="warning" flat>
-      Warning
-    </Button>
-    <Spacer/>
-    <Button auto color="error" flat>
-      Error
-    </Button>
-    <Spacer/>
-    <Button auto flat color="#ff4ecd">
-        #ff4ecd
-    </Button>
- </Row>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -297,31 +354,43 @@ import { Button } from '@nextui-org/react';
   title="Light"
   desc="You can change the full style towards a light button with the `light` property."
   code={`
- <Row flexWrap="false">
-    <Button auto color="primary" light>
-      Primary
+ <Grid.Container gap={2}>
+  <Grid>
+    <Button light color="primary" auto>
+        Primary
     </Button>
-    <Spacer/>
-    <Button auto color="secondary" light>
-      Secondary
+  </Grid>
+  <Grid>
+  <Button light color="secondary" auto>
+    Secondary
+  </Button>
+  </Grid>
+  <Grid>
+  <Button light color="success" auto>
+    Success
+  </Button>
+  </Grid>
+  <Grid>
+  <Button light color="warning" auto>
+    Warning
+  </Button>
+  </Grid>
+  <Grid>
+  <Button light color="error" auto>
+    Error
+  </Button>
+  </Grid>
+  <Grid>
+  <Button light color="gradient" auto>
+    Gradient
+  </Button>
+  </Grid>
+  <Grid>
+    <Button light color="#ff4ecd" auto>
+      #ff4ecd
     </Button>
-    <Spacer/>
-    <Button auto color="success" light>
-      Success
-    </Button>
-    <Spacer/>
-    <Button auto color="warning" light>
-      Warning
-    </Button>
-    <Spacer/>
-    <Button auto color="error" light>
-      Error
-    </Button>
-    <Spacer/>
-    <Button auto light color="#ff4ecd">
-        #ff4ecd
-    </Button>
- </Row>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -331,21 +400,21 @@ import { Button } from '@nextui-org/react';
   code={`
  <>
     <Button auto color="error" icon={<Heart fill="white" filled />} />
-    <Spacer y={0.5} />
+    <Spacer y={1} />
     <Button iconRight={<Camera fill="white" />}>Take a photo</Button>
-    <Spacer y={0.5} />
+    <Spacer y={1} />
     <Button icon={<Lock fill="white" />} color="success">
         Lock
     </Button>
-    <Spacer y={0.5} />
+    <Spacer y={1} />
     <Button icon={<Notification fill="white" />} color="secondary">
         Notifications
     </Button>
-    <Spacer y={0.5} />
+    <Spacer y={1} />
     <Button icon={<User  fill="#e85186" />} color="error" flat>
         Delete User
     </Button>
-    <Spacer y={0.5} />
+    <Spacer y={1} />
     <Button icon={<User/>} disabled>
         Delete User
     </Button>

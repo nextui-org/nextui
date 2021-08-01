@@ -173,7 +173,7 @@ const Switch: React.FC<SwitchProps> = ({
           align-items: center;
           top: 50%;
           transform: translateY(-50%);
-          left: 5%;
+          left: ${bordered ? '4%' : 0};
           box-shadow: 0 5px 15px 0 rgb(0 0 0 / 15%);
           transition: left 0.25s ease;
           border-radius: ${radius};
@@ -201,7 +201,7 @@ const Switch: React.FC<SwitchProps> = ({
           width: calc(${height} * 0.44);
         }
         .checked > .circle {
-          left: calc(95% - (${height} * 0.76));
+          left: calc(100% - (${height} * 0.8));
           background: ${theme.palette.background};
         }
         .disabled > .circle {

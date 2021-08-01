@@ -34,6 +34,8 @@ const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
           width: 100%;
           padding: 0 0 ${theme.layout.gapHalf} 0;
           display: flex;
+          flex-wrap: wrap;
+          overflow-x: auto;
           flex-direction: column;
           box-sizing: border-box;
         }

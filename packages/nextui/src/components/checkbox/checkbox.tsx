@@ -185,8 +185,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
         }
         .checkbox-mask {
           border-radius: ${radius};
-          width: 100%;
-          height: 100%;
+          width: var(--checkbox-size);
+          height: var(--checkbox-size);
           position: absolute;
           z-index: 50;
           cursor: pointer;
@@ -211,8 +211,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
           position: absolute;
           top: 0px;
           left: 0px;
-          width: 100%;
-          height: 100%;
+          width: var(--checkbox-size);
+          height: var(--checkbox-size);
           background: ${checkboxColor};
           transform: scale(0.5);
           border-radius: inherit;
@@ -225,8 +225,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
           position: absolute;
           top: 0px;
           left: 0px;
-          width: 100%;
-          height: 100%;
+          width: var(--checkbox-size);
+          height: var(--checkbox-size);
           border-radius: inherit;
           transition: all 0.25s ease;
           z-index: -1;
@@ -239,8 +239,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
           z-index: 200;
         }
         .icon-check {
-          width: 100%;
-          height: 100%;
+          width: var(--checkbox-size);
+          height: var(--checkbox-size);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -321,8 +321,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
         }
         input {
           position: absolute;
-          width: 100%;
-          height: 100%;
+          width: var(--checkbox-size);
+          height: var(--checkbox-size);
           top: 0px;
           left: 0px;
           margin: 0px;

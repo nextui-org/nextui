@@ -87,15 +87,12 @@ const RadioGroup: React.FC<React.PropsWithChildren<RadioGroupProps>> = ({
       <style jsx>{`
         .radio-group {
           display: flex;
-          flex-direction: ${row ? 'col' : 'column'};
+          flex-direction: ${row ? 'row' : 'column'};
         }
         .radio-group :global(.radio) {
           margin-top: ${row ? 0 : groupGap};
-          margin-left: ${row ? groupGap : 0};
+          margin-right: ${row ? groupGap : 0};
           --radio-size: ${fontSize};
-        }
-        .radio-group :global(.radio:first-of-type) {
-          margin: 0;
         }
       `}</style>
     </RadioContext.Provider>

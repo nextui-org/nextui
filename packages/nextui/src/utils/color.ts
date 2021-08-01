@@ -52,7 +52,10 @@ export const getNormalColor = (
   if (typeof color == 'boolean') {
     return color ? palette.primary : 'inherit';
   }
-  return color && colors[color] ? colors[color] : color || defaultColor;
+  if (color && isNormalColor(color)) {
+    return colors[color];
+  }
+  return color || defaultColor;
 };
 
 export const isNormalColor = (color: string): boolean => {

@@ -193,8 +193,8 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           align-items: center;
         }
         .point {
-          height: var(--radio-size);
           width: var(--radio-size);
+          height: var(--radio-size);
           border-radius: ${radius};
           transition: all 0.25s ease;
           position: relative;
@@ -205,8 +205,8 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           content: '';
           display: block;
           position: absolute;
-          width: 100%;
-          height: 100%;
+          width: var(--radio-size);
+          height: var(--radio-size);
           border-radius: ${radius};
           box-sizing: border-box;
           transition: all 0.25s ease;

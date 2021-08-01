@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Logo, SearchInput, MenuToggle } from '@components';
 import cn from 'classnames';
 import NextLink from 'next/link';
-import { Container, Row, Col, Spacer, Link, useTheme } from '@nextui-org/react';
+import { Row, Col, Spacer, Link, useTheme } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@hooks/use-media-query';
 import { addColorAlpha } from '@utils/index';

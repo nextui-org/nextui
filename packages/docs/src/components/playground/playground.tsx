@@ -9,7 +9,7 @@ const DynamicLive = dynamic(() => import('./dynamic-live'), {
   // eslint-disable-next-line react/display-name
   loading: () => (
     <div style={{ padding: '20pt 0' }}>
-      <Loading />
+      <Loading type="spinner" />
     </div>
   ),
 });

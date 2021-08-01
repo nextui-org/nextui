@@ -79,13 +79,11 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
           .checkbox-group :global(.checkbox) {
             margin-top: ${row ? 0 : groupGap};
             margin-right: ${row ? groupGap : 0};
-            margin-bottom: ${row ? groupGap : 0};
             --checkbox-size: ${fontSize};
           }
           .checkbox-group {
             display: flex;
-            flex-wrap: wrap;
-            flex-direction: ${row ? 'col' : 'column'};
+            flex-direction: ${row ? 'row' : 'column'};
           }
         `}</style>
       </div>
