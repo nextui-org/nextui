@@ -308,38 +308,35 @@ import { Button } from '@nextui-org/react';
 
 <Playground
   title="Flat"
-  desc="You can change the full style towards a flat button with the `flat` property."
+  desc="You can change the full style towards a flat button with the `flat` property.
+                                        
+**_Note: `gradient` variant is not supported with the `flat` mode._**"
   code={`
- <Grid.Container gap={2}>
+<Grid.Container gap={2}>
   <Grid>
     <Button flat color="primary" auto>
-        Primary
+      Primary
     </Button>
   </Grid>
   <Grid>
-  <Button flat color="secondary" auto>
-    Secondary
-  </Button>
+    <Button flat color="secondary" auto>
+      Secondary
+    </Button>
   </Grid>
   <Grid>
-  <Button flat color="success" auto>
-    Success
-  </Button>
+    <Button flat color="success" auto>
+      Success
+    </Button>
   </Grid>
   <Grid>
-  <Button flat color="warning" auto>
-    Warning
-  </Button>
+    <Button flat color="warning" auto>
+      Warning
+    </Button>
   </Grid>
   <Grid>
-  <Button flat color="error" auto>
-    Error
-  </Button>
-  </Grid>
-  <Grid>
-  <Button flat color="gradient" auto>
-    Gradient
-  </Button>
+    <Button flat color="error" auto>
+      Error
+    </Button>
   </Grid>
   <Grid>
     <Button flat color="#ff4ecd" auto>
@@ -352,7 +349,9 @@ import { Button } from '@nextui-org/react';
 
 <Playground
   title="Light"
-  desc="You can change the full style towards a light button with the `light` property."
+  desc="You can change the full style towards a light button with the `light` property. 
+  
+  ***_Note: `gradient` variant is not supported with the `light` mode._***"
   code={`
  <Grid.Container gap={2}>
   <Grid>
@@ -378,11 +377,6 @@ import { Button } from '@nextui-org/react';
   <Grid>
   <Button light color="error" auto>
     Error
-  </Button>
-  </Grid>
-  <Grid>
-  <Button light color="gradient" auto>
-    Gradient
   </Button>
   </Grid>
   <Grid>
