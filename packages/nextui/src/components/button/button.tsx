@@ -296,6 +296,9 @@ const Button = React.forwardRef<
         .text {
           position: relative;
           z-index: 1;
+          transform: translateY(
+            -${bordered || ghost ? border?.width || '2px' : '0'}
+          );
           display: inline-flex;
           justify-content: center;
           align-items: center;
