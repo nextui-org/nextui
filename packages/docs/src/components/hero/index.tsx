@@ -197,7 +197,8 @@ const Hero: React.FC = () => {
             right: -52%;
           }
           :global(.hero__content) {
-            margin-top: 120px;
+            margin-top: 80px;
+            padding: 0 8px;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md.min}) {

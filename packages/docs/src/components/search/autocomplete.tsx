@@ -77,10 +77,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     onBlur: () => setIsFocused(false),
   };
 
-  const handleScroll = () => {
-    inputRef && inputRef?.current?.blur();
-  };
-
   const onSuggestionsFetchRequested = ({ value }: any) => {
     refine(value);
   };
@@ -138,7 +134,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   }: RenderSuggestionsContainerParams) =>
     isMobile && suggestionsPortal ? (
       createPortal(
-        <div {...containerProps} onScroll={handleScroll}>
+        <div {...containerProps}>
           <a
             href="https://www.algolia.com/"
             target="_blank"
@@ -283,15 +279,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
           }
-          @supports (
-            (-webkit-backdrop-filter: blur(10px)) or
-              (backdrop-filter: blur(10px))
-          ) {
-            .search__input-container {
-              backdrop-filter: saturate(180%) blur(10px);
-              background: ${addColorAlpha(theme.palette.accents_2, 0.7)};
-            }
-          }
           .react-autosuggest__input {
             text-align: left;
             background: none;
@@ -325,6 +312,37 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             background: ${addColorAlpha(theme.palette.accents_1, 0.7)};
             box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+          }
+          @supports (
+            (-webkit-backdrop-filter: blur(10px)) or
+              (backdrop-filter: blur(10px))
+          ) {
+            .search__input-container,
+            .react-autosuggest__suggestions-container,
+            .no-results {
+              backdrop-filter: saturate(180%) blur(10px);
+              background: ${addColorAlpha(theme.palette.accents_2, 0.7)};
+            }
+            .search__input-container {
+              background: ${addColorAlpha(theme.palette.accents_2, 0.7)};
+            }
+            .react-autosuggest__suggestions-container,
+            .no-results {
+              background: ${addColorAlpha(theme.palette.accents_1, 0.7)};
+            }
+          }
+          @supports (
+            not (-webkit-backdrop-filter: blur(10px)) and not
+              (backdrop-filter: blur(10px))
+          ) {
+            .search__input-container {
+              background: ${theme.palette.accents_2};
+            }
+
+            .react-autosuggest__suggestions-container,
+            .no-results {
+              background: ${theme.palette.accents_1};
+            }
           }
           .react-autosuggest__suggestions-container::-webkit-scrollbar {
             width: 0px;

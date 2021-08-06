@@ -115,6 +115,7 @@ const Editor: React.FC = () => {
         }
         .icon {
           display: inline-flex;
+          z-index: 100;
           align-items: center;
           margin-left: 0.5rem;
           color: ${theme.palette.accents_4};

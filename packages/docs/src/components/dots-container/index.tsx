@@ -14,6 +14,7 @@ const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({
           --dot-space: 22px;
           min-width: 100vw;
           min-height: 100vh;
+          overflow: hidden;
           background: linear-gradient(
                 90deg,
                 ${theme.palette.background} 21px,
@@ -24,7 +25,6 @@ const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({
               50%,
             #444;
           background-size: var(--dot-space) var(--dot-space);
-          overflow-y: clip;
         }
       `}</style>
     </div>

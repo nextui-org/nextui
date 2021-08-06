@@ -21,8 +21,6 @@ const MenuToggle: React.FC<MenuToggleProps> = ({ expanded }) => {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 100%;
-            height: 100%;
             pointer-events: none;
           }
           .line {

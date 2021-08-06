@@ -1,27 +1,38 @@
 import React, { useState } from 'react';
-import { Logo, SearchInput, MenuToggle } from '@components';
+import { Logo, SearchInput, MenuToggle, MobileNavigation } from '@components';
 import cn from 'classnames';
 import NextLink from 'next/link';
-import { Row, Col, Spacer, Link, useTheme } from '@nextui-org/react';
+import {
+  Row,
+  Col,
+  Spacer,
+  Link,
+  useTheme,
+  useBodyScroll,
+} from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@hooks/use-media-query';
 import { addColorAlpha } from '@utils/index';
+import { isActive } from '@utils/links';
 
 export interface Props {
   isHome?: boolean;
   detached?: boolean;
 }
 
-const isActive = (pathname: string, href: string) =>
-  pathname && pathname.startsWith(href);
-
-const Navbar: React.FC<Props> = ({ isHome, detached }) => {
+const Navbar: React.FC<Props> = ({ detached }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
   const theme = useTheme();
   const isMobile = useMediaQuery(960);
+  const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
 
-  const onToggleNavigation = () => setExpanded(!expanded);
+  const onToggleNavigation = () => {
+    setExpanded(!expanded);
+    isMobile && setBodyHidden(!expanded);
+  };
+
+  const showBlur = !!expanded || !!detached;
 
   return (
     <nav className="navbar__container">
@@ -69,11 +80,13 @@ const Navbar: React.FC<Props> = ({ isHome, detached }) => {
             <MenuToggle expanded={expanded} />
           </div>
         </Col>
+        <MobileNavigation opened={expanded} />
       </div>
       <style jsx>{`
         .navbar__container,
         .navbar__wrapper {
           width: 100%;
+          height: 100%;
           display: flex;
           align-items: center;
         }
@@ -96,20 +109,24 @@ const Navbar: React.FC<Props> = ({ isHome, detached }) => {
           color: ${theme.palette.primary};
         }
         :global(.navbar__menu-arrow) {
-          height: 40px;
-          width: 40px;
-          float: right;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
         }
         :global(.navbar__menu-container) {
+          width: 100%;
+          height: 100%;
           display: none;
         }
         @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
           :global(.navbar__container) {
             top: 0;
             position: fixed;
-            background: ${isHome || !detached
-              ? 'transparent'
-              : addColorAlpha(theme.palette.background, 0.6)};
+            background: ${showBlur
+              ? addColorAlpha(theme.palette.background, 0.6)
+              : 'transparent'};
             box-shadow: ${detached
               ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
               : 'none'};
@@ -121,9 +138,17 @@ const Navbar: React.FC<Props> = ({ isHome, detached }) => {
               (backdrop-filter: blur(10px))
           ) {
             :global(.navbar__container) {
-              backdrop-filter: ${isHome || !detached
-                ? 'none'
-                : 'saturate(180%) blur(10px)'};
+              backdrop-filter: ${showBlur
+                ? 'saturate(180%) blur(10px)'
+                : 'none'};
+            }
+          }
+          @supports (
+            not (-webkit-backdrop-filter: blur(10px)) and not
+              (backdrop-filter: blur(10px))
+          ) {
+            :global(.navbar__container) {
+              background: ${theme.palette.background};
             }
           }
         }
@@ -134,9 +159,8 @@ const Navbar: React.FC<Props> = ({ isHome, detached }) => {
             align-items: center;
           }
           :global(.navbar__menu-container) {
-            display: block;
+            display: flex;
           }
-
           :global(.navbar__resources-container) {
             display: none;
           }
