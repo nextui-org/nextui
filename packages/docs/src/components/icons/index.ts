@@ -30,3 +30,6 @@ export { default as Hash } from './hash';
 export { default as CodeDocument } from './code-document';
 export { default as SearchByAlgolia } from './search-by-algolia';
 export { default as Close } from './close';
+export { default as Twitter } from './twitter';
+export { default as Discord } from './discord';
+export { default as Github } from './github';

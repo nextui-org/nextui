@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { Logo, SearchInput, MenuToggle, MobileNavigation } from '@components';
+import {
+  Logo,
+  SearchInput,
+  MenuToggle,
+  MobileNavigation,
+  Badge,
+  Twitter,
+  Discord,
+  Github,
+} from '@components';
 import cn from 'classnames';
 import NextLink from 'next/link';
 import {
@@ -9,6 +18,7 @@ import {
   Link,
   useTheme,
   useBodyScroll,
+  NextUIThemes,
 } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@hooks/use-media-query';
@@ -23,7 +33,7 @@ export interface Props {
 const Navbar: React.FC<Props> = ({ detached }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
-  const theme = useTheme();
+  const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
 
@@ -38,11 +48,19 @@ const Navbar: React.FC<Props> = ({ detached }) => {
     <nav className="navbar__container">
       <div className="navbar__wrapper">
         <Col className="navbar__logo-container">
-          <NextLink href="/">
-            <Link>
-              <Logo auto className="navbar__logo" />
-            </Link>
-          </NextLink>
+          <Row justify="flex-start" align="center">
+            <NextLink href="/">
+              <Link>
+                <Logo auto className="navbar__logo" />
+              </Link>
+            </NextLink>
+            <Spacer x={0.4} />
+            <Badge
+              className="navbar__version-badge"
+              label="Alpha"
+              type="warning"
+            />
+          </Row>
         </Col>
         <Col className="navbar__resources-container">
           <Row justify="center" align="center">
@@ -61,6 +79,10 @@ const Navbar: React.FC<Props> = ({ detached }) => {
             <NextLink href="#">
               <Link href="#">Ecosystem</Link>
             </NextLink>
+            <Spacer x={1} y={0} />
+            <NextLink href="#">
+              <Link href="#">Feedback</Link>
+            </NextLink>
           </Row>
         </Col>
         <Col className="navbar__search-container">
@@ -69,6 +91,37 @@ const Navbar: React.FC<Props> = ({ detached }) => {
             justify={isMobile ? 'center' : 'flex-end'}
             align="center"
           >
+            <Row
+              className="navbar__social-icons-container"
+              justify="center"
+              align="center"
+            >
+              <Link
+                className="navbar__social-icon"
+                href="https://twitter.com/getnextui"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Twitter fill={theme.palette.accents_6} />
+              </Link>
+
+              <Link
+                className="navbar__social-icon"
+                href="https://discord.gg/9b6yyZKmH4"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Discord fill={theme.palette.accents_6} />
+              </Link>
+              <Link
+                className="navbar__social-icon"
+                href="https://github.com/nextui-org/nextui"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Github fill={theme.palette.accents_6} />
+              </Link>
+            </Row>
             <SearchInput />
           </Row>
         </Col>
@@ -120,6 +173,18 @@ const Navbar: React.FC<Props> = ({ detached }) => {
           height: 100%;
           display: none;
         }
+        :global(.navbar__version-badge, .navbar__social-icons-container) {
+          display: none !important;
+        }
+        :global(.navbar__social-icon) {
+          margin: 0 2px;
+        }
+        :global(.navbar__social-icon svg) {
+          transition: all 0.25s ease;
+        }
+        :global(.navbar__social-icon:hover svg) {
+          opacity: 0.7;
+        }
         @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
           :global(.navbar__container) {
             top: 0;
@@ -152,6 +217,11 @@ const Navbar: React.FC<Props> = ({ detached }) => {
             }
           }
         }
+        @media only screen and (min-width: ${theme.breakpoints.xs.max}) {
+          :global(.navbar__version-badge) {
+            display: inline-block !important;
+          }
+        }
         @media only screen and (max-width: ${theme.breakpoints.md.min}) {
           :global(.navbar__logo-container) {
             display: flex;
@@ -163,6 +233,11 @@ const Navbar: React.FC<Props> = ({ detached }) => {
           }
           :global(.navbar__resources-container) {
             display: none;
+          }
+        }
+        @media only screen and (min-width: ${theme.breakpoints.md.min}) {
+          :global(.navbar__social-icons-container) {
+            display: flex !important;
           }
         }
       `}</style>

@@ -14,4 +14,6 @@ export { default as Palette } from './palette';
 export { default as CssTransition } from './css-transition';
 export { default as MenuToggle } from './menu-toggle';
 export { default as MobileNavigation } from './mobile-navigation';
+export { default as Badge } from './badge';
 export * from './search';
+export * from './icons';
