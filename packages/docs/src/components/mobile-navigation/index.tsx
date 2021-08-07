@@ -1,24 +1,23 @@
 import React from 'react';
-import { NextUIThemes, useTheme, usePortal, Link } from '@nextui-org/react';
+import { NextUIThemes, useTheme, usePortal } from '@nextui-org/react';
 import cn from 'classnames';
 import { addColorAlpha } from '@utils/index';
-import NextLink from 'next/link';
-import { useRouter } from 'next/router';
 import withDefaults from '@utils/with-defaults';
+import { Route } from '@lib/docs/page';
 import { createPortal } from 'react-dom';
-import { isActive } from '@utils/links';
+import { Sidebar, Heading } from '@components';
 
 interface Props {
   opened: boolean;
+  routes?: Route[];
 }
 
 const defaultProps = {
   opened: false,
 };
 
-const MobileNavigation: React.FC<Props> = ({ opened }) => {
+const MobileNavigation: React.FC<Props> = ({ opened, routes }) => {
   const theme = useTheme() as NextUIThemes;
-  const router = useRouter();
   const portal = usePortal('mobile-navigation');
 
   return portal
@@ -27,48 +26,21 @@ const MobileNavigation: React.FC<Props> = ({ opened }) => {
           <div className="mobile-navigation__nav-wrapper">
             <ul>
               <li>
-                <NextLink href="/docs/guide/getting-started">
-                  <Link
-                    className={cn('navbar__link', {
-                      active: isActive(router.pathname, '/docs/[[...slug]]'),
-                    })}
-                    href="#"
-                  >
-                    Docs
-                  </Link>
-                </NextLink>
+                <Sidebar routes={routes} />
               </li>
               <li>
-                <NextLink href="/docs/guide/getting-started">
-                  <Link
-                    className={cn('navbar__link', {
-                      active: isActive(router.pathname, '/docs/[[...slug]]'),
-                    })}
-                    href="#"
-                  >
-                    Blog
-                  </Link>
-                </NextLink>
+                <Heading title="Contributors" />
               </li>
               <li>
-                <NextLink href="/docs/guide/getting-started">
-                  <Link
-                    className={cn('navbar__link', {
-                      active: isActive(router.pathname, '/docs/[[...slug]]'),
-                    })}
-                    href="#"
-                  >
-                    Ecosystem
-                  </Link>
-                </NextLink>
+                <Heading title="Feedback" />
               </li>
             </ul>
           </div>
           <style jsx>{`
             .mobile-navigation__container {
               position: fixed;
-              top: 20px;
-              z-index: 99;
+              top: 60px;
+              z-index: 9999;
               right: 0;
               left: 0;
               display: block;
@@ -76,6 +48,7 @@ const MobileNavigation: React.FC<Props> = ({ opened }) => {
               width: 100%;
               height: 0;
               transition: all 0.25s ease;
+              overflow-y: scroll;
               background: ${addColorAlpha(theme.palette.background, 0.7)};
               user-select: none;
             }

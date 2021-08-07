@@ -3,13 +3,13 @@ import withDefaults from '@utils/with-defaults';
 import { Route, addTagToSlug } from '@lib/docs/page';
 import { removeFromLast } from '@utils/index';
 import { useIsMobile } from '@hooks/use-media-query';
-import Heading from './heading';
+import { Heading } from '@components';
 import Category from './category';
 import Post from './post';
 import { NavLinkProps } from '../nav-link';
 
 export interface Props {
-  routes: Route[];
+  routes?: Route[];
   level?: number;
   tag?: string;
   slug?: string;

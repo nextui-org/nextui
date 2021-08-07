@@ -4,9 +4,18 @@ import Footer from './footer';
 import Navbar from './navbar';
 import { Container } from '@nextui-org/react';
 import { DotsContainer } from '@components';
+import { Route } from '@lib/docs/page';
 
-const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
+export interface Props {
+  routes: Route[];
+  currentRoute?: Route;
+  tag?: string;
+  slug?: string;
+}
+
+const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
   children,
+  routes,
 }) => {
   return (
     <DotsContainer>
@@ -19,7 +28,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<unknown>> = ({
         className="main-container"
         gap={0}
       >
-        <Navbar isHome />
+        <Navbar isHome routes={routes} />
         {children}
         <Footer />
         <style jsx>{`

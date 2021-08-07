@@ -20,6 +20,7 @@ import {
   useBodyScroll,
   NextUIThemes,
 } from '@nextui-org/react';
+import { Route } from '@lib/docs/page';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@hooks/use-media-query';
 import { addColorAlpha } from '@utils/index';
@@ -28,9 +29,10 @@ import { isActive } from '@utils/links';
 export interface Props {
   isHome?: boolean;
   detached?: boolean;
+  routes?: Route[];
 }
 
-const Navbar: React.FC<Props> = ({ detached }) => {
+const Navbar: React.FC<Props> = ({ detached, routes }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
   const theme = useTheme() as NextUIThemes;
@@ -77,7 +79,7 @@ const Navbar: React.FC<Props> = ({ detached }) => {
             </NextLink>
             <Spacer x={1} y={0} />
             <NextLink href="#">
-              <Link href="#">Ecosystem</Link>
+              <Link href="#">Contributors</Link>
             </NextLink>
             <Spacer x={1} y={0} />
             <NextLink href="#">
@@ -134,7 +136,7 @@ const Navbar: React.FC<Props> = ({ detached }) => {
             <MenuToggle expanded={expanded} />
           </div>
         </Col>
-        <MobileNavigation opened={expanded} />
+        <MobileNavigation routes={routes} opened={expanded} />
       </div>
       <style jsx>{`
         .navbar__container,
@@ -148,9 +150,6 @@ const Navbar: React.FC<Props> = ({ detached }) => {
           min-height: 64px;
           max-height: 64px;
           z-index: 9999;
-        }
-        .navbar__wrapper {
-          padding: 0 16px;
         }
         :global(.navbar__search-row) {
           position: initial !important;
@@ -221,6 +220,9 @@ const Navbar: React.FC<Props> = ({ detached }) => {
         @media only screen and (min-width: ${theme.breakpoints.xs.max}) {
           :global(.navbar__version-badge) {
             display: inline-block !important;
+          }
+          .navbar__wrapper {
+            padding: 0 16px;
           }
         }
         @media only screen and (max-width: ${theme.breakpoints.md.min}) {

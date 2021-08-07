@@ -66,12 +66,14 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   useEffect(() => {
     setHeadings(getHeadings());
   }, [routes]);
+
   const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}/${CONTENT_PATH}${currentRoute?.path}`;
+
   return (
     <Container lg as="main" className="docs__container" display="flex" gap={0}>
       <Header {...meta} />
-      <Navbar detached={scrollPosition > 0} />
-      <Row className="docs__content" gap={1}>
+      <Navbar routes={routes} detached={scrollPosition > 0} />
+      <Row className="docs__content" gap={0}>
         <Sticky offset={10} className="docs__left-sidebar">
           <Sidebar routes={routes} tag={tag} slug={slug} />
         </Sticky>

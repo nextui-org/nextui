@@ -50,8 +50,8 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   const margin = 18;
 
   const postsHeight = useMemo(
-    () => routes.length * 24 + margin * (routes.length - 1),
-    [routes]
+    () => routes.length * (isMobile ? 30 : 24) + margin * (routes.length - 1),
+    [routes, isMobile]
   );
 
   // If a category is selected indirectly, open it. This can happen when using the search input
@@ -72,7 +72,6 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
       if (ref.current && content) {
         height = ref.current?.offsetTop - (isMobile ? 10 : content?.offsetTop);
         content.scrollTop = height;
-        console.log({ height });
       }
       setToggle(toggle);
     }
