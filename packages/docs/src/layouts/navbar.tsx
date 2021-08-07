@@ -93,8 +93,9 @@ const Navbar: React.FC<Props> = ({ detached }) => {
           >
             <Row
               className="navbar__social-icons-container"
-              justify="center"
+              justify="flex-end"
               align="center"
+              gap={1}
             >
               <Link
                 className="navbar__social-icon"
@@ -102,7 +103,7 @@ const Navbar: React.FC<Props> = ({ detached }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Twitter fill={theme.palette.accents_6} />
+                <Twitter size={20} fill={theme.palette.accents_6} />
               </Link>
 
               <Link
@@ -111,7 +112,7 @@ const Navbar: React.FC<Props> = ({ detached }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Discord fill={theme.palette.accents_6} />
+                <Discord size={20} fill={theme.palette.accents_6} />
               </Link>
               <Link
                 className="navbar__social-icon"
@@ -119,7 +120,7 @@ const Navbar: React.FC<Props> = ({ detached }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Github fill={theme.palette.accents_6} />
+                <Github size={20} fill={theme.palette.accents_6} />
               </Link>
             </Row>
             <SearchInput />
@@ -177,7 +178,7 @@ const Navbar: React.FC<Props> = ({ detached }) => {
           display: none !important;
         }
         :global(.navbar__social-icon) {
-          margin: 0 2px;
+          margin: 0 3px;
         }
         :global(.navbar__social-icon svg) {
           transition: all 0.25s ease;

@@ -32,7 +32,8 @@ const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
       <style jsx>{`
         .wrapper {
           width: 100%;
-          padding: 0 0 ${theme.layout.gapHalf} 0;
+          padding: ${theme.layout.gapHalf};
+          margin-left: -${theme.layout.gapHalf};
           display: flex;
           flex-wrap: wrap;
           overflow-x: auto;
