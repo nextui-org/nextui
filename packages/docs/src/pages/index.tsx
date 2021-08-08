@@ -3,9 +3,8 @@ import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { Hero } from '@components';
 import DefaultLayout from '@layouts/default';
-import { fetchDocs } from '@lib/get-docs';
 import { getSlug } from '@lib/docs/utils';
-import { Route } from '@lib/docs/page';
+import { Route, getCurrentTag, fetchDocsManifest } from '@lib/docs/page';
 
 interface Props {
   routes: Route[];
@@ -27,11 +26,12 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const resp = await fetchDocs(params, true);
+export const getStaticProps: GetStaticProps = async () => {
+  const tag = await getCurrentTag();
+  const manifest = await fetchDocsManifest(tag);
   return {
     props: {
-      ...resp,
+      routes: manifest.routes,
     },
   };
 };

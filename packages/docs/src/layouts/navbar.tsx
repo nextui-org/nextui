@@ -151,6 +151,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           max-height: 64px;
           z-index: 9999;
         }
+
         :global(.navbar__search-row) {
           position: initial !important;
         }
@@ -216,13 +217,13 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
               background: ${theme.palette.background};
             }
           }
+          .navbar__wrapper {
+            padding: 0 16px;
+          }
         }
         @media only screen and (min-width: ${theme.breakpoints.xs.max}) {
           :global(.navbar__version-badge) {
             display: inline-block !important;
-          }
-          .navbar__wrapper {
-            padding: 0 16px;
           }
         }
         @media only screen and (max-width: ${theme.breakpoints.md.min}) {

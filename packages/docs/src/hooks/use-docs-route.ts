@@ -1,8 +1,8 @@
 import { Route, RouteContext } from '@lib/docs/page';
 
 const getRouteContext = (
-  currentRoute: Route,
   routes: Route[],
+  currentRoute?: Route,
   ctx: RouteContext = {}
 ): RouteContext => {
   const path = currentRoute?.path;
@@ -11,7 +11,7 @@ const getRouteContext = (
     const route = routes[i];
     if (route.routes) {
       ctx.parent = route;
-      ctx = getRouteContext(currentRoute, route.routes, ctx);
+      ctx = getRouteContext(route.routes, currentRoute, ctx);
       // If the active route and the next route was found in nested routes, return it
       if (ctx.nextRoute) return ctx;
     }
@@ -29,8 +29,8 @@ const getRouteContext = (
         ...currentRoute,
         title:
           parent && !parent.heading
-            ? `${parent.title}: ${currentRoute.title}`
-            : currentRoute.title,
+            ? `${parent.title}: ${currentRoute?.title}` || ''
+            : currentRoute?.title || '',
       };
       // Continue the loop until we know the next route
       continue;
@@ -47,11 +47,11 @@ const getRouteContext = (
  * Returns the siblings of a specific route (that is the previous and next routes).
  */
 const useDocsRoute = (
-  currentRoute: Route,
   routes: Route[],
+  currentRoute?: Route,
   ctx: RouteContext = {}
 ): RouteContext => {
-  getRouteContext(currentRoute, routes, ctx);
+  getRouteContext(routes, currentRoute, ctx);
   // The loop ended and the previous route was found, or nothing
   return ctx;
 };
