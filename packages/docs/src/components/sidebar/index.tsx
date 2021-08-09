@@ -13,6 +13,7 @@ export interface Props {
   level?: number;
   tag?: string;
   slug?: string;
+  onPostClick?: (route: Route) => void;
 }
 
 const defaultProps = {
@@ -30,7 +31,13 @@ function getCategoryPath(routes: Route[]): string {
   return route && route.path ? removeFromLast(route.path, '/') : '';
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+  routes,
+  level,
+  tag,
+  slug,
+  onPostClick,
+}) => {
   const isMobile = useIsMobile();
   return (
     <>
@@ -48,6 +55,7 @@ const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
                   level={level + 1}
                   tag={tag}
                   slug={slug}
+                  onPostClick={onPostClick}
                 />
               </Heading>
             );
@@ -69,6 +77,7 @@ const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
                 level={level + 1}
                 tag={tag}
                 slug={slug}
+                onPostClick={onPostClick}
               />
             </Category>
           );
@@ -78,8 +87,15 @@ const Sidebar: React.FC<SidebarProps> = ({ routes, level, tag, slug }) => {
         const pathname = pagePath && addTagToSlug(pagePath, tag);
         const selected = pagePath && pagePath === slug;
         const route = { href, path, title, pathname, selected } as NavLinkProps;
+
         return (
-          <Post key={title} isMobile={isMobile} level={level} route={route} />
+          <Post
+            key={title}
+            isMobile={isMobile}
+            level={level}
+            route={route}
+            onClick={() => onPostClick && onPostClick(route)}
+          />
         );
       })}
     </>

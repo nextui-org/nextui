@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Logo,
   SearchInput,
@@ -38,6 +38,13 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
+
+  useEffect(() => {
+    if (!isMobile) {
+      setExpanded(false);
+      setBodyHidden(false);
+    }
+  }, [isMobile]);
 
   const onToggleNavigation = () => {
     setExpanded(!expanded);
@@ -79,11 +86,25 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             </NextLink>
             <Spacer x={1} y={0} />
             <NextLink href="#">
-              <Link href="#">Contributors</Link>
+              <Link
+                aria-disabled
+                className="navbar__disabled-link"
+                href="#"
+                title="Coming soon.."
+              >
+                Contributors
+              </Link>
             </NextLink>
             <Spacer x={1} y={0} />
             <NextLink href="#">
-              <Link href="#">Feedback</Link>
+              <Link
+                aria-disabled
+                className="navbar__disabled-link"
+                href="#"
+                title="Coming soon.."
+              >
+                Feedback
+              </Link>
             </NextLink>
           </Row>
         </Col>
@@ -107,7 +128,6 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
               >
                 <Twitter size={20} fill={theme.palette.accents_6} />
               </Link>
-
               <Link
                 className="navbar__social-icon"
                 href="https://discord.gg/9b6yyZKmH4"
@@ -136,7 +156,14 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             <MenuToggle expanded={expanded} />
           </div>
         </Col>
-        <MobileNavigation routes={routes} opened={expanded} />
+        <MobileNavigation
+          routes={routes}
+          opened={expanded}
+          onClose={() => {
+            setExpanded(false);
+            setBodyHidden(false);
+          }}
+        />
       </div>
       <style jsx>{`
         .navbar__container,
@@ -157,6 +184,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
         }
         :global(.navbar__logo) {
           cursor: pointer;
+          transition: all 0.25s ease;
         }
         :global(.navbar__link.active) {
           font-weight: 600;
@@ -185,6 +213,10 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
         }
         :global(.navbar__social-icon:hover svg) {
           opacity: 0.7;
+        }
+        :global(.navbar__disabled-link) {
+          cursor: not-allowed;
+          events: none;
         }
         @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
           :global(.navbar__container) {
@@ -216,6 +248,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             :global(.navbar__container) {
               background: ${theme.palette.background};
             }
+          }
+          :global(.navbar__logo-container a:active) {
+            opacity: 0.7;
           }
           .navbar__wrapper {
             padding: 0 16px;

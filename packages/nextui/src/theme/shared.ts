@@ -5,10 +5,8 @@ import {
 } from './index';
 
 export const defaultFont: NextUIThemesFont = {
-  sans:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-  mono:
-    'Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace',
+  sans: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+  mono: 'Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace',
 };
 
 export const defaultBreakpoints: NextUIThemesBreakpoints = {
@@ -17,7 +15,7 @@ export const defaultBreakpoints: NextUIThemesBreakpoints = {
     max: '650px',
   },
   sm: {
-    min: '650px',
+    min: '750px',
     max: '900px',
   },
   md: {

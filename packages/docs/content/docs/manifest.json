@@ -27,10 +27,6 @@
                         {
                             "title": "Palette",
                             "path": "/docs/theme/palette.mdx"
-                        },
-                        {
-                            "title": "Layout",
-                            "path": "/docs/theme/layout.mdx"
                         }
                     ]
                 },

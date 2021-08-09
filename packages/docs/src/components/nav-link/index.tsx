@@ -33,6 +33,7 @@ const NavLink: React.FC<NavLinkProps> = ({
 }) => {
   const router = useRouter();
   const onlyHashChange = pathname === router.pathname;
+
   return (
     <div className={cn('nav-link', { selected })}>
       {
@@ -60,6 +61,10 @@ const NavLink: React.FC<NavLinkProps> = ({
           font-size: 1rem;
           line-height: 1.5rem;
           box-sizing: border-box;
+          transitions: all 0.25s ease;
+        }
+        .nav-link :global(a):active {
+          opacity: 0.7;
         }
         .selected :global(a) {
           font-weight: 600;

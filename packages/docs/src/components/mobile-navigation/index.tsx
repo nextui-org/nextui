@@ -1,44 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NextUIThemes, useTheme, usePortal } from '@nextui-org/react';
 import cn from 'classnames';
 import { addColorAlpha } from '@utils/index';
 import withDefaults from '@utils/with-defaults';
 import { Route } from '@lib/docs/page';
 import { createPortal } from 'react-dom';
-import { Sidebar, Heading } from '@components';
+import { Sidebar } from '@components';
 
 interface Props {
   opened: boolean;
   routes?: Route[];
+  onClose?: () => void;
 }
 
 const defaultProps = {
   opened: false,
 };
 
-const MobileNavigation: React.FC<Props> = ({ opened, routes }) => {
+const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
   const theme = useTheme() as NextUIThemes;
   const portal = usePortal('mobile-navigation');
+
+  const handlePostClick = () => {
+    onClose && onClose();
+  };
 
   return portal
     ? createPortal(
         <nav className={cn('mobile-navigation__container', { opened })}>
           <ul className="mobile-navigation__nav-wrapper">
             <li>
-              <Sidebar routes={routes} />
+              <Sidebar routes={routes} onPostClick={handlePostClick} />
             </li>
-            <li>
+            {/* <li>
               <Heading title="Contributors" />
             </li>
             <li>
               <Heading title="Feedback" />
-            </li>
+            </li> */}
           </ul>
           <style jsx>{`
             .mobile-navigation__container {
               position: fixed;
               top: 60px;
-              z-index: 9999;
+              z-index: 1001;
               right: 0;
               left: 0;
               bottom: 0;
@@ -91,4 +96,6 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes }) => {
     : null;
 };
 
-export default withDefaults(MobileNavigation, defaultProps);
+const MemoMobileNavigation = React.memo(MobileNavigation);
+
+export default withDefaults(MemoMobileNavigation, defaultProps);

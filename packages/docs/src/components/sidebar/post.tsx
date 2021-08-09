@@ -8,6 +8,7 @@ export interface Props {
   level: number;
   route: NavLinkProps;
   isMobile: boolean;
+  onClick?: () => void;
 }
 
 const defaultProps = {
