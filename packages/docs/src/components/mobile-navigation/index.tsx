@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NextUIThemes, useTheme, usePortal } from '@nextui-org/react';
 import cn from 'classnames';
 import { addColorAlpha } from '@utils/index';
