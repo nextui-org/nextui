@@ -92,7 +92,7 @@ jobs:
           fetch-depth: 0
       - name: Deploy to Vercel
         if: ${{ github.event_name == 'push' }}
-      - uses: amondnet/vercel-action@v20
+        uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} 
           github-token: ${{ github.token }}
