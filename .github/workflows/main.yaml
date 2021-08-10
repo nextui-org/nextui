@@ -74,6 +74,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - uses: JS-DevTools/npm-publish@v1
+        if: ${{ github.event_name == 'push' }}
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: './packages/nextui/package.json'
