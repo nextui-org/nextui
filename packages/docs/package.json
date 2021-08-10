@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "deploy": "yarn build && yarn postbuild && vercel --prod",
+    "deploy:stage": "yarn build && yarn postbuild && vercel",
+    "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
     "postbuild": "next-sitemap"
   },
   "dependencies": {

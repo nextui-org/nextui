@@ -37,6 +37,7 @@
     "build": "yarn clear && yarn build:webpack && yarn build:types && yarn clear:packages",
     "watch": "yarn clear && yarn build:types && yarn build:watch",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
+    "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
     "build-storybook": "build-storybook",
     "start-storybook": "yarn build-storybook && http-server ./storybook-static",
     "test": "NODE_ENV=test jest --config jest.config.js --no-cache",

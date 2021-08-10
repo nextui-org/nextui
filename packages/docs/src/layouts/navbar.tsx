@@ -252,9 +252,6 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           :global(.navbar__logo-container a:active) {
             opacity: 0.7;
           }
-          .navbar__wrapper {
-            padding: 0 16px;
-          }
         }
         @media only screen and (min-width: ${theme.breakpoints.xs.max}) {
           :global(.navbar__version-badge) {
@@ -272,6 +269,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           }
           :global(.navbar__resources-container) {
             display: none;
+          }
+          .navbar__wrapper {
+            padding: 0 16px;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md.min}) {

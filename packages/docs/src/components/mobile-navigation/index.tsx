@@ -28,17 +28,19 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
   return portal
     ? createPortal(
         <nav className={cn('mobile-navigation__container', { opened })}>
-          <ul className="mobile-navigation__nav-wrapper">
-            <li>
-              <Sidebar routes={routes} onPostClick={handlePostClick} />
-            </li>
-            {/* <li>
+          <div className="mobile-navigation__wrapper">
+            <ul className="mobile-navigation__list">
+              <li>
+                <Sidebar routes={routes} onPostClick={handlePostClick} />
+              </li>
+              {/* <li>
               <Heading title="Contributors" />
             </li>
             <li>
               <Heading title="Feedback" />
             </li> */}
-          </ul>
+            </ul>
+          </div>
           <style jsx>{`
             .mobile-navigation__container {
               position: fixed;
@@ -56,28 +58,29 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
               overflow-x: hidden;
               user-select: none;
             }
-            .mobile-navigation__nav-wrapper {
-              margin: 0;
-              padding: 16px 0 16px 16px;
+            .mobile-navigation__wrapper {
               display: none;
               width: 100%;
               min-height: 100%;
               transition: all 0.2s ease 50ms;
-              background: ${addColorAlpha(theme.palette.background, 0.7)};
+              background: ${addColorAlpha(theme.palette.background, 0.8)};
+            }
+            .mobile-navigation__list {
+              margin: 0;
+              padding: 16px 0 16px 16px;
             }
             .mobile-navigation__container.opened {
               top: 63px;
               height: calc(100% - 64px);
             }
-            .mobile-navigation__container.opened
-              .mobile-navigation__nav-wrapper {
+            .mobile-navigation__container.opened .mobile-navigation__wrapper {
               display: block;
             }
             @supports (
               (-webkit-backdrop-filter: blur(10px)) or
                 (backdrop-filter: blur(10px))
             ) {
-              .mobile-navigation__nav-wrapper {
+              .mobile-navigation__wrapper {
                 backdrop-filter: saturate(180%) blur(10px);
               }
             }
@@ -85,7 +88,7 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
               not (-webkit-backdrop-filter: blur(10px)) and not
                 (backdrop-filter: blur(10px))
             ) {
-              .mobile-navigation__nav-wrapper {
+              .mobile-navigation__wrapper {
                 background: theme.palette.background;
               }
             }
