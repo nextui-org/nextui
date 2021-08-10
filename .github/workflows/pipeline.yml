@@ -77,7 +77,9 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: './packages/nextui/package.json'
-      - if: steps.publish.outputs.type != 'none'
+
+      - name: Show published version
+        if: steps.publish.outputs.type != 'none'
         run: |
           echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
 
@@ -89,7 +91,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Deploy to Vercel
-        id: deploy
         if: ${{ github.event_name == 'push' }}
       - uses: amondnet/vercel-action@v20
         with:
