@@ -1,0 +1,4 @@
+{
+  "_": "This is your Vercel config file. For more information see the global configuration documentation: https://vercel.com/docs/configuration#global",
+  "collectMetrics": true
+}
