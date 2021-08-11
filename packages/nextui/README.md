@@ -9,8 +9,8 @@
   <a href="https://codecov.io/gh/jrgarciadev/nextui">
     <img src="https://codecov.io/gh/jrgarciadev/nextui/branch/main/graph/badge.svg?token=QJF2QKR5N4" alt="codecov badge">
   </a>
-  <a href="https://www.travis-ci.com/jrgarciadev/nextui">
-    <img src="https://www.travis-ci.com/jrgarciadev/nextui.svg?branch=main" alt="travis ci nextui">
+  <a href="https://github.com/nextui-org/nextui/actions/workflows/main.yaml">
+    <img src="https://github.com/nextui-org/nextui/actions/workflows/main.yaml/badge.svg" alt="CI/CD nextui">
   </a>
   <a href="https://github.com/jrgarciadev/nextui/blob/main/LICENSE">
     <img src="https://img.shields.io/apm/l/atomic-design-ui.svg?" alt="License">

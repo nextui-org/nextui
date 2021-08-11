@@ -61,9 +61,15 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Test
         run: yarn test
+  cov:
+    needs: [lint, build]
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: codecov/codecov-action@v2
         
   publish:
-    needs: [build, test]
+    needs: [build, test, cov]
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
