@@ -61,7 +61,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Test
         run: yarn test
-  cov:
+  codecov:
     needs: [lint, build]
     runs-on: ubuntu-18.04
     steps:
@@ -69,7 +69,7 @@ jobs:
       - uses: codecov/codecov-action@v2
         
   publish:
-    needs: [build, test, cov]
+    needs: [build, test, codecov]
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -108,3 +108,21 @@ jobs:
           vercel-project-name: ${{ secrets.VERCEL_PROJECT_NAME}}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} 
           working-directory: './packages/docs'
+
+  deploy_docs:
+    needs: [publish]
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'yarn'
+          node-version: '12'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Upload docs on Algolia
+        run: build:docs-meta
+
+          
