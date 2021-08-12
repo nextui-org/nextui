@@ -46,7 +46,7 @@ jobs:
       - name: Build
         run: yarn build
 
-  test:
+  tests:
     needs: [lint, build]
     runs-on: ubuntu-18.04
     steps:
@@ -60,16 +60,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Test
-        run: yarn test
-  codecov:
-    needs: [lint, build]
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
+        run: yarn coverage
       - uses: codecov/codecov-action@v2
+        with:
+          directory: './packages/nextui'
         
   publish:
-    needs: [build, test, codecov]
+    needs: [build, tests]
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
