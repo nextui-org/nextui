@@ -109,9 +109,10 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} 
           working-directory: './packages/docs'
 
-  deploy_docs:
+  update_algolia_index:
     needs: [publish]
     runs-on: ubuntu-18.04
+    if: ${{ github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -123,6 +124,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Upload docs on Algolia
-        run: build:docs-meta
+        run: yarn build:docs-meta
 
           
