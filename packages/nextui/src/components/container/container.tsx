@@ -1,4 +1,4 @@
-import React, { useMemo, ReactNode } from 'react';
+import React, { useMemo } from 'react';
 import useTheme from '../../hooks/use-theme';
 import {
   Wrap,
