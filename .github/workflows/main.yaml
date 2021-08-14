@@ -3,13 +3,16 @@ name: CI/CD
 on:
   push:
     branches: [main]
+    paths-ignore: ['**/README.md']
   pull_request:
     branches: [main]
     types: [opened, synchronize]
+    paths-ignore: ['**/README.md']
 
 jobs:
   avoid_reduncy:
     runs-on: ubuntu-18.04
+    if: ${{ github.event_name == 'push' }}
     steps:
       - name: Cancel Previous Redundant Builds
         uses: styfle/cancel-workflow-action@0.9.1
