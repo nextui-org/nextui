@@ -24,11 +24,11 @@ export const defaultBreakpoints: NextUIThemesBreakpoints = {
   },
   lg: {
     min: '1280px',
-    max: '1920px',
+    max: '1400px',
   },
   xl: {
-    min: '1920px',
-    max: '10000px',
+    min: '1400px',
+    max: '1920px',
   },
 };
 

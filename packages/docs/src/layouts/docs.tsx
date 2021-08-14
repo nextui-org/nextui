@@ -158,6 +158,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               padding-right: 0 !important;
               margin-left: 0 !important;
               margin-right: 0 !important;
+              padding: 0;
             }
           }
           @media only screen and (min-width: ${theme.breakpoints.sm.max}) {
@@ -174,10 +175,16 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               right: -45%;
             }
           }
+          @media only screen and (max-width: ${theme.breakpoints.lg.min}) {
+            :global(.docs__content) {
+              padding: 0 20px;
+            }
+          }
           @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
             :global(.docs__right-sidebar) {
               display: block;
             }
+
             :global(.docs__right-sidebar, .docs__gradient-violet) {
               top: -50%;
               right: -50%;

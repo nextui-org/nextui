@@ -40,12 +40,12 @@
                             "path": "/docs/layout/container.mdx"
                         },
                         {
-                            "title": "Row",
-                            "path": "/docs/layout/row.mdx"
+                            "title": "Grid",
+                            "path": "/docs/layout/grid.mdx"
                         },
                         {
-                            "title": "Column",
-                            "path": "/docs/layout/column.mdx"
+                            "title": "Spacer",
+                            "path": "/docs/layout/spacer.mdx"
                         }
                     ]
                 },

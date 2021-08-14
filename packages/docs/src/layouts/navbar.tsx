@@ -191,8 +191,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           color: ${theme.palette.primary};
         }
         :global(.navbar__menu-arrow) {
-          width: 100%;
           height: 100%;
+          min-height: 40px;
+          min-width: 40px;
           display: flex;
           justify-content: flex-end;
           align-items: center;
@@ -266,17 +267,20 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           }
           :global(.navbar__menu-container) {
             display: flex;
+            justify-content: flex-end;
           }
           :global(.navbar__resources-container) {
             display: none;
-          }
-          .navbar__wrapper {
-            padding: 0 16px;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md.min}) {
           :global(.navbar__social-icons-container) {
             display: flex !important;
+          }
+        }
+        @media only screen and (max-width: ${theme.breakpoints.lg.min}) {
+          .navbar__wrapper {
+            padding: 0 16px;
           }
         }
       `}</style>
