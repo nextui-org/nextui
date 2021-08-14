@@ -3,13 +3,16 @@ name: CI/CD
 on:
   push:
     branches: [main]
+    paths-ignore: ['**/README.md']
   pull_request:
     branches: [main]
     types: [opened, synchronize]
+    paths-ignore: ['**/README.md']
 
 jobs:
   avoid_reduncy:
     runs-on: ubuntu-18.04
+    if: ${{ github.event_name == 'push' }}
     steps:
       - name: Cancel Previous Redundant Builds
         uses: styfle/cancel-workflow-action@0.9.1
@@ -68,6 +71,7 @@ jobs:
   publish:
     needs: [build, tests]
     runs-on: ubuntu-18.04
+    if: ${{ github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -77,7 +81,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - uses: JS-DevTools/npm-publish@v1
-        if: ${{ github.event_name == 'push' }}
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: './packages/nextui/package.json'
@@ -90,12 +93,12 @@ jobs:
   deploy:
     needs: [publish]
     runs-on: ubuntu-18.04
+    if: ${{ github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Deploy to Vercel
-        if: ${{ github.event_name == 'push' }}
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} 
