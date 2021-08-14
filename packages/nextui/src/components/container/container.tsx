@@ -26,6 +26,7 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
   className?: string;
   style?: object;
+  children?: React.ReactNode;
 }
 
 const defaultProps = {
