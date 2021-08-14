@@ -183,9 +183,6 @@ const Hero: React.FC = () => {
           right: -50%;
         }
         @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
-          :global(.hero__title, .hero__title-smooth) {
-            font-size: calc(2rem + 2.5vw) !important;
-          }
           :global(.hero__container) {
             height: calc(100vh - 64px);
             overflow: hidden;
@@ -204,6 +201,14 @@ const Hero: React.FC = () => {
         @media only screen and (min-width: ${theme.breakpoints.md.min}) {
           :global(.hero__right-container, .hero__gradient-violet) {
             display: block;
+          }
+        }
+        @media only screen and (max-width: ${theme.breakpoints.lg.min}) {
+          :global(.hero__title, .hero__title-smooth) {
+            font-size: calc(2rem + 2.5vw) !important;
+          }
+          :global(.hero__container) {
+            padding: 0 20px !important;
           }
         }
         @keyframes appear {

@@ -1,7 +1,6 @@
 import React, { useMemo, ReactNode } from 'react';
 import useTheme from '../../hooks/use-theme';
 import {
-  BreakpointsValue,
   Wrap,
   Display,
   Justify,
@@ -12,20 +11,19 @@ import {
 
 interface Props {
   fluid?: boolean;
-  gap: number;
-  xs?: BreakpointsValue;
-  sm?: BreakpointsValue;
-  md?: BreakpointsValue;
-  lg?: BreakpointsValue;
-  xl?: BreakpointsValue;
+  gap?: number;
+  xs?: boolean;
+  sm?: boolean;
+  md?: boolean;
+  lg?: boolean;
+  xl?: boolean;
   wrap?: Wrap;
   display?: Display;
   justify?: Justify;
   direction?: Direction;
   alignItems?: AlignItems;
   alignContent?: AlignContent;
-  children: ReactNode;
-  as: keyof JSX.IntrinsicElements;
+  as?: keyof JSX.IntrinsicElements;
   className?: string;
   style?: object;
 }
@@ -33,13 +31,14 @@ interface Props {
 const defaultProps = {
   gap: 2,
   fluid: false,
+  xs: false,
+  sm: false,
+  md: false,
+  lg: false,
+  xl: false,
   wrap: 'wrap' as Wrap,
   as: 'div' as keyof JSX.IntrinsicElements,
-  xs: false as BreakpointsValue,
-  sm: false as BreakpointsValue,
-  md: false as BreakpointsValue,
-  lg: false as BreakpointsValue,
-  xl: false as BreakpointsValue,
+  display: 'block' as Display,
   className: '',
 };
 
@@ -145,37 +144,48 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
         .alignItems {
           align-items: ${alignItems};
         }
-        @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+        @media only screen and (min-width: ${theme.breakpoints.xs.max}) {
           .container {
             max-width: ${theme.breakpoints.xs.max};
+          }
+          .sm,
+          .md,
+          .lg,
+          .xl {
+            max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
           .container {
             max-width: ${theme.breakpoints.sm.min};
           }
+          .md,
+          .lg,
+          .xl {
+            max-width: 100%;
+          }
         }
         @media only screen and (min-width: ${theme.breakpoints.md.min}) {
           .container {
             max-width: ${theme.breakpoints.md.min};
+          }
+          .lg,
+          .xl {
+            max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
           .container {
             max-width: ${theme.breakpoints.lg.min};
           }
+          .xl {
+            max-width: 100%;
+          }
         }
-        .xs {
-          max-width: ${theme.breakpoints.xs.max};
-        }
-        .sm {
-          max-width: ${theme.breakpoints.sm.min};
-        }
-        .md {
-          max-width: ${theme.breakpoints.md.min};
-        }
-        .lg {
-          max-width: ${theme.breakpoints.lg.min};
+        @media only screen and (min-width: ${theme.breakpoints.xl.min}) {
+          .container {
+            max-width: ${theme.breakpoints.xl.min};
+          }
         }
       `}</style>
     </Component>

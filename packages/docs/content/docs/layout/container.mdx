@@ -39,57 +39,177 @@ A component for fixing an element's width to the current breakpoint.
 
 <Playground
   title="Breakpoints"
-  desc="Container which is `width: 100%` until the specified breakpoint"
+  desc="Setting it to a breakpoint `(xs, sm, md, lg, xl)` will set the `Container` as `fluid` until the specified breakpoint."
   code={`
-  () => {
-   const Block = () => (<ExampleBlock>
-  <Row justify="center" align="center">
-    <Text h6 size={15} color="white" style={{ margin: 0 }}>
-      NextUI gives you the best developer experience with all the features you
-      need for building beautiful and modern websites and applications.
-    </Text>
-  </Row>
-</ExampleBlock>
-);
-    return (
-    <>
-    <Container xl>
-        <Block />
-    </Container>
-    <Spacer y={1}/>
-    <Container lg>
-        <Block />
-    </Container>
-    <Spacer y={1}/>
-    <Container md>
-        <Block />
-    </Container>
-    <Spacer y={1}/>
-    <Container sm>
-        <Block />
-    </Container>
-    <Spacer y={1}/>
-    <Container xs>
-        <Block />
-    </Container>
-    </>
-    );
- }
- `}
+<Container xl>
+  <ExampleBlock>
+    <Row justify="center" align="center">
+        <Text h6 size={15} color="white" style={{ margin: 0 }}>
+        NextUI gives you the best developer experience with all the features you
+        need for building beautiful and modern websites and applications.
+        </Text>
+    </Row>
+  </ExampleBlock>
+</Container>
+`}
 />
 
 <Spacer y={2} />
 
 #### Breakpoint Sizes
 
-| Breakpoint  | >=650px | >=750px | >=960px | >=1280px | ≥1920px |
-| ----------- | ------- | ------- | ------- | -------- | ------- |
-| **default** | `100%`  | 750px   | 960px   | 1280px   | 1280px  |
-| **xs**      | `100%`  | 750px   | 960px   | 1280px   | 1280px  |
-| **sm**      | `100%`  | 750px   | 960px   | 1280px   | 1280px  |
-| **md**      | `100%`  | `100%`  | 960px   | 1280px   | 1280px  |
-| **lg**      | `100%`  | `100%`  | `100%`  | 1280px   | 1280px  |
-| **xl**      | `100%`  | `100%`  | `100%`  | `100%`   | 1280px  |
-| **fluid**   | `100%`  | `100%`  | `100%`  | `100%`   | `100%`  |
+| Breakpoint  | <650px | ≥650px | ≥750px | ≥960px | ≥1280px | ≥1400px |
+| ----------- | ------ | ------ | ------ | ------ | ------- | ------- |
+| **default** | `100%` | 650px  | 750px  | 960px  | 1280px  | 1400px  |
+| **xs**      | `100%` | 650px  | 750px  | 960px  | 1280px  | 1400px  |
+| **sm**      | `100%` | `100%` | 750px  | 960px  | 1280px  | 1400px  |
+| **md**      | `100%` | `100%` | `100%` | 960px  | 1280px  | 1400px  |
+| **lg**      | `100%` | `100%` | `100%` | `100%` | 1280px  | 1400px  |
+| **xl**      | `100%` | `100%` | `100%` | `100%` | `100%`  | 1400px  |
+| **fluid**   | `100%` | `100%` | `100%` | `100%` | `100%`  | `100%`  |
 
 ---
+
+<Playground
+  title="Auto-layout columns"
+  desc="When no column widths are specified the `Col` component will render equal width columns."
+  code={`
+<Container gap={0}>
+    <Row gap={1}>
+        <Col>
+            <ExampleBlock>
+                <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                    1 of 2
+                </Text>
+            </ExampleBlock>
+        </Col>
+        <Col>
+            <ExampleBlock>
+                <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                    2 of 2
+                </Text>
+            </ExampleBlock>
+        </Col>
+    </Row>
+    <Spacer y={1}/>
+    <Row gap={1}>
+        <Col>
+            <ExampleBlock>
+                <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                    1 of 3
+                </Text>
+            </ExampleBlock>
+        </Col>
+        <Col>
+            <ExampleBlock>
+                <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                    2 of 3
+                </Text>
+            </ExampleBlock>
+        </Col>
+        <Col>
+            <ExampleBlock>
+                <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                    2 of 3
+                </Text>
+            </ExampleBlock>
+        </Col>
+    </Row>
+</Container>
+  `}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Container Props
+
+| Attribute        | Type             | Accepted values                | Description                          | Default |
+| ---------------- | ---------------- | ------------------------------ | ------------------------------------ | ------- |
+| **fluid**        | `boolean`        | -                              | `width: 100%` at all breakpoints     | `false` |
+| **xs**           | `boolean`        | -                              | extra small devices (<650px)         | `false` |
+| **sm**           | `boolean`        | -                              | small devices (≥650px)               | `false` |
+| **md**           | `boolean`        | -                              | medium devices (≥960px)              | `false` |
+| **lg**           | `boolean`        | -                              | large devices (≥1280px)              | `false` |
+| **xl**           | `boolean`        | -                              | extra large devices (≥1400px)        | `false` |
+| **gap**          | `boolean`        | `number` `float`               | spacing of children                  | 2       |
+| **wrap**         | `Wrap`           | [Wrap](#wrap)                  | CSS "flex-wrap" property             | `wrap`  |
+| **display**      | `Display`        | [Display](#display)            | CSS "display" property               | `block` |
+| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content" property       | -       |
+| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction" property        | -       |
+| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items" property           | -       |
+| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content" property         | -       |
+| **as**           | `ElementType`    | [ElementType](#element-type)   | The component used for the root node | -       |
+| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props                 | -       |
+
+---
+
+<Spacer y={2} />
+
+### Container types
+
+<Spacer y={1} />
+
+#### Wrap
+
+```ts
+type Wrap = 'nowrap' | 'wrap' | 'wrap-reverse';
+```
+
+#### Display
+
+```ts
+type Display =
+  | 'flex'
+  | 'block'
+  | 'grid'
+  | 'inline'
+  | 'inline-block'
+  | 'inline-flex'
+  | 'inline-grid';
+```
+
+#### Justify
+
+```ts
+type Justify =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
+```
+
+#### Direction
+
+```ts
+type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+```
+
+#### Align Items
+
+```ts
+type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+```
+
+#### Align Content
+
+```ts
+type AlignContent =
+  | 'stretch'
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around';
+```
+
+#### Element Type
+
+```ts
+typekeyof JSX.IntrinsicElements;
+```
