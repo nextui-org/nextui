@@ -173,10 +173,15 @@ Override the default `@nextui-org/react` breakpoints.
 
 ```tsx
 const breakpoints: NextUIThemesBreakpoints = {
+  // Extra small devices (phones)
   xs: { min: '0', max: '650px' },
-  sm: { min: '750px', max: '900px' },
+  // Small devices (tablets)
+  sm: { min: '650px', max: '960px' },
+  // Medium devices (landscape tablets)
   md: { min: '960px', max: '1280px' },
+  // Large devices (desktops)
   lg: { min: '1280px', max: '1400px' },
+  // Extra large devices (larger desktops)
   xl: { min: '1400px', max: '1920px' },
 };
 
@@ -190,16 +195,110 @@ const App = () => (
 
 <Spacer y={2} />
 
-#### Breakpoint Sizes
+#### Default breakpoints
 
-| Breakpoint  | <650px | ≥650px | ≥750px | ≥960px | ≥1280px | ≥1400px |
-| ----------- | ------ | ------ | ------ | ------ | ------- | ------- |
-| **default** | `100%` | 650px  | 750px  | 960px  | 1280px  | 1400px  |
-| **xs**      | `100%` | 650px  | 750px  | 960px  | 1280px  | 1400px  |
-| **sm**      | `100%` | `100%` | 750px  | 960px  | 1280px  | 1400px  |
-| **md**      | `100%` | `100%` | `100%` | 960px  | 1280px  | 1400px  |
-| **lg**      | `100%` | `100%` | `100%` | `100%` | 1280px  | 1400px  |
-| **xl**      | `100%` | `100%` | `100%` | `100%` | `100%`  | 1400px  |
-| **fluid**   | `100%` | `100%` | `100%` | `100%` | `100%`  | `100%`  |
+| Breakpoint  | <650px | ≥650px | ≥960px | ≥1280px | ≥1400px |
+| ----------- | ------ | ------ | ------ | ------- | ------- |
+| **default** | `100%` | 650px  | 960px  | 1280px  | 1400px  |
+| **xs**      | `100%` | 650px  | 960px  | 1280px  | 1400px  |
+| **sm**      | `100%` | `100%` | 960px  | 1280px  | 1400px  |
+| **md**      | `100%` | `100%` | 960px  | 1280px  | 1400px  |
+| **lg**      | `100%` | `100%` | `100%` | 1280px  | 1400px  |
+| **xl**      | `100%` | `100%` | `100%` | `100%`  | 1400px  |
+| **fluid**   | `100%` | `100%` | `100%` | `100%`  | `100%`  |
 
 ---
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Grid Props
+
+| Attribute        | Type             | Accepted values                | Description                    | Default |
+| ---------------- | ---------------- | ------------------------------ | ------------------------------ | ------- |
+| **xs**           | `boolean`        | -                              | extra small devices (<650px)   | `false` |
+| **sm**           | `boolean`        | -                              | small devices (≥650px)         | `false` |
+| **md**           | `boolean`        | -                              | medium devices (≥960px)        | `false` |
+| **lg**           | `boolean`        | -                              | large devices (≥1280px)        | `false` |
+| **xl**           | `boolean`        | -                              | extra large devices (≥1400px)  | `false` |
+| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction" property  | -       |
+| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content" property | -       |
+| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items" property     | -       |
+| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content" property   | -       |
+| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props           | -       |
+
+---
+
+<Spacer y={2} />
+
+#### Grid.Container Props
+
+| Attribute | Type             | Accepted values          | Description              | Default |
+| --------- | ---------------- | ------------------------ | ------------------------ | ------- |
+| **gap**   | `boolean`        | `number` `float`         | spacing of children      | 0       |
+| **wrap**  | `Wrap`           | [Wrap](#wrap)            | CSS "flex-wrap" property | `wrap`  |
+| ...       | `HTMLAttributes` | `'id', 'className', ...` | Native element props     | -       |
+
+---
+
+### Grid types
+
+<Spacer y={1} />
+
+#### Wrap
+
+```ts
+type Wrap = 'nowrap' | 'wrap' | 'wrap-reverse';
+```
+
+#### Display
+
+```ts
+type Display =
+  | 'flex'
+  | 'block'
+  | 'grid'
+  | 'inline'
+  | 'inline-block'
+  | 'inline-flex'
+  | 'inline-grid';
+```
+
+#### Justify
+
+```ts
+type Justify =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
+```
+
+#### Direction
+
+```ts
+type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+```
+
+#### Align Items
+
+```ts
+type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+```
+
+#### Align Content
+
+```ts
+type AlignContent =
+  | 'stretch'
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around';
+```

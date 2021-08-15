@@ -1,0 +1,53 @@
+---
+title: 'Spacer'
+description: 'Provide empty space.'
+---
+
+## Spacer
+
+Provide empty space.
+
+<Playground
+  title="Vertical"
+  code={`
+<>
+  <ExampleBlock>
+    <Spacer y={1}/>
+  </ExampleBlock>
+  <Spacer y={1}/>
+  <ExampleBlock>
+    <Spacer y={2}/>
+  </ExampleBlock>
+  <Spacer y={1}/>
+  <ExampleBlock>
+    <Spacer y={3}/>
+  </ExampleBlock>
+</>
+`}
+/>
+
+<Playground
+  title="Horizontal"
+  code={`
+<Container>
+  <ExampleBlock />
+  <Spacer x={5}/>
+  <ExampleBlock />
+</Container>
+`}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Spacer Props
+
+| Attribute  | Type               | Accepted values          | Description    | Default |
+| ---------- | ------------------ | ------------------------ | -------------- | ------- |
+| **x**      | `number` / `float` | -                        | x-axis spacing | 1       |
+| **y**      | `number` / `float` | -                        | y-axis spacing | 1       |
+| **inline** | `boolean`          | -                        | inline space   | `false` |
+| ...        | `HTMLAttributes`   | `'id', 'className', ...` | native props   | -       |

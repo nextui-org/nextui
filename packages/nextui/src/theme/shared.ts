@@ -15,8 +15,8 @@ export const defaultBreakpoints: NextUIThemesBreakpoints = {
     max: '650px',
   },
   sm: {
-    min: '750px',
-    max: '900px',
+    min: '650px',
+    max: '960px',
   },
   md: {
     min: '960px',
