@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Grid all breakpoint values should be supported 1`] = `"<div class=\\"jsx-733265319 item xs sm md lg xl jsx-3575141045 \\"><div class=\\"jsx-733265319 item xs sm md lg xl jsx-2841698183 \\">test</div></div>"`;
+exports[`Grid all breakpoint values should be supported 1`] = `"<div class=\\"jsx-1392191590 item xs sm md lg xl jsx-3575141045 \\"><div class=\\"jsx-1392191590 item xs sm md lg xl jsx-2841698183 \\">test</div></div>"`;
 
-exports[`Grid css value should be passed through 1`] = `"<div class=\\"jsx-2927973370 item justify direction alignItems alignContent jsx-3575141045 \\"><div class=\\"jsx-2927973370 item justify direction alignItems alignContent jsx-2841698183 \\">test</div></div>"`;
+exports[`Grid css value should be passed through 1`] = `"<div class=\\"jsx-2882539707 item justify direction alignItems alignContent jsx-3575141045 \\"><div class=\\"jsx-2882539707 item justify direction alignItems alignContent jsx-2841698183 \\">test</div></div>"`;
 
-exports[`Grid decimal spacing should be supported 1`] = `"<div class=\\"jsx-2089471975 item  jsx-3093133195 \\"><div class=\\"jsx-2089471975 item  jsx-2841698183 \\">test</div></div>"`;
+exports[`Grid decimal spacing should be supported 1`] = `"<div class=\\"jsx-516362406 item  jsx-3093133195 \\"><div class=\\"jsx-516362406 item  jsx-2841698183 \\">test</div></div>"`;
 
-exports[`Grid nested components should be supported 1`] = `"<div class=\\"jsx-2089471975 item  jsx-3575141045 \\"><div class=\\"jsx-2089471975 item  jsx-2841698183 \\">test</div><div class=\\"jsx-2089471975 item  jsx-3575141045 \\"><div class=\\"jsx-2089471975 item  jsx-2841698183 \\">test</div><div class=\\"jsx-2089471975 item  jsx-3575141045 \\"><div class=\\"jsx-2089471975 item  jsx-2841698183 \\">test</div><div class=\\"jsx-2089471975 item  jsx-3575141045 \\"><div class=\\"jsx-2089471975 item  jsx-2841698183 \\">test</div></div>,</div>,</div>,</div>"`;
+exports[`Grid nested components should be supported 1`] = `"<div class=\\"jsx-516362406 item  jsx-3575141045 \\"><div class=\\"jsx-516362406 item  jsx-2841698183 \\">test</div><div class=\\"jsx-516362406 item  jsx-3575141045 \\"><div class=\\"jsx-516362406 item  jsx-2841698183 \\">test</div><div class=\\"jsx-516362406 item  jsx-3575141045 \\"><div class=\\"jsx-516362406 item  jsx-2841698183 \\">test</div><div class=\\"jsx-516362406 item  jsx-3575141045 \\"><div class=\\"jsx-516362406 item  jsx-2841698183 \\">test</div></div>,</div>,</div>,</div>"`;
 
-exports[`Grid should render correctly 1`] = `"<div class=\\"jsx-2089471975 item  jsx-3575141045 \\"><div class=\\"jsx-2089471975 item  jsx-2841698183 \\">test</div><div class=\\"jsx-2089471975 item  jsx-2841698183 \\">test</div></div>"`;
+exports[`Grid should render correctly 1`] = `"<div class=\\"jsx-516362406 item  jsx-3575141045 \\"><div class=\\"jsx-516362406 item  jsx-2841698183 \\">test</div><div class=\\"jsx-516362406 item  jsx-2841698183 \\">test</div></div>"`;
 
-exports[`Grid should work correctly when size exceeds 1`] = `"<div class=\\"jsx-2089471975 item  jsx-3575141045 \\"><div class=\\"jsx-3657421095 item xs jsx-2841698183 \\">test</div><div class=\\"jsx-433630119 item xs jsx-2841698183 \\">test</div></div>"`;
+exports[`Grid should work correctly when size exceeds 1`] = `"<div class=\\"jsx-516362406 item  jsx-3575141045 \\"><div class=\\"jsx-3463623270 item xs jsx-2841698183 \\">test</div><div class=\\"jsx-3088245350 item xs jsx-2841698183 \\">test</div></div>"`;

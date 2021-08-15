@@ -1,0 +1,304 @@
+---
+title: 'Grid'
+description: 'The layout grid adapts to screen size and orientation, ensuring consistency across layouts.'
+---
+
+# Grid
+
+The layout `Grid` adapts to screen size and orientation, ensuring consistency across layouts.
+
+<Playground
+  title="Default"
+  desc="Dynamically scale container width while maintaining spacing."
+  code={`
+() => {
+  const MockItem = ({text}) => {
+    return (
+        <ExampleBlock height={100}>
+            <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                {text}
+            </Text>
+        </ExampleBlock>
+    );
+}
+return (
+<Grid.Container gap={2} justify="center">
+  <Grid xs={4}>
+    <MockItem text="1 of 3" />
+  </Grid>
+  <Grid xs={4}>
+    <MockItem text="2 of 3" />
+  </Grid>
+  <Grid xs={4}>
+    <MockItem text="3 of 3" />
+  </Grid>
+</Grid.Container>
+) } `}
+/>
+
+<Playground
+  title="Fluid"
+  desc="Containers for wrapping and scaling. The column widths apply at all breakpoints (i.e. `xs` and up)."
+  code={`
+() => {
+ const MockItem = ({text}) => {
+    return (
+        <ExampleBlock height={60}>
+            <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                {text}
+            </Text>
+        </ExampleBlock>
+    );
+}
+  return (
+    <Grid.Container gap={2} justify="center">
+      <Grid xs={6}><MockItem text="1 of 2" /></Grid>
+      <Grid xs={6}><MockItem text="2 of 2" /></Grid>
+      <Grid xs={6}><MockItem text="1 of 3" /></Grid>
+      <Grid xs={3}><MockItem text="2 of 3" /></Grid>
+      <Grid xs={3}><MockItem text="3 of 3" /></Grid>
+      <Grid xs={3}><MockItem text="1 of 4" /></Grid>
+      <Grid xs={3}><MockItem text="2 of 4" /></Grid>
+      <Grid xs={3}><MockItem text="3 of 4" /></Grid>
+      <Grid xs={3}><MockItem text="4 of 4" /></Grid>
+      <Grid xs={3}><MockItem text="1 of 3" /></Grid>
+      <Grid xs={6}><MockItem text="2 of 3" /></Grid>
+      <Grid xs={3}><MockItem text="3 of 3" /></Grid>
+    </Grid.Container>
+  )
+}
+`}
+/>
+
+<Playground
+  title="Responsive"
+  desc="Use different layouts for different screen widths."
+  code={`
+() => {
+ const isMd = useMediaQuery(960);
+ 
+ const MockItem = ({text}) => {
+    return (
+        <ExampleBlock height={60}>
+            <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                {text}
+            </Text>
+        </ExampleBlock>
+    );
+}
+  return (
+    <Grid.Container gap={2} justify="center">
+      <Grid xs={12} md={6}><MockItem text={isMd ? "1 of 1" : "1 of 2"} /></Grid>
+      <Grid xs={6} md={6}><MockItem text={isMd ? "1 of 2" : "2 of 2"} /></Grid>
+      <Grid xs={6} md={3}><MockItem text={isMd ? "2 of 2" : "1 of 3"} /></Grid>
+      <Grid xs={6} md={3}><MockItem text={isMd ? "1 of 2" : "2 of 3"} /></Grid>
+      <Grid xs={6} md={3}><MockItem text={isMd ? "2 of 2" : "3 of 3"} /></Grid>
+    </Grid.Container>
+  )
+}
+`}
+/>
+
+<Playground
+  title="Auto width"
+  desc="Auto fill remaining width."
+  code={`
+() => {
+  const MockItem = ({text}) => {
+    return (
+        <ExampleBlock height={60}>
+            <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                {text}
+            </Text>
+        </ExampleBlock>
+    );
+}
+  return (
+    <>
+      <Grid.Container gap={2} justify="center">
+        <Grid xs><MockItem text="1 of 3" /></Grid>
+        <Grid xs><MockItem text="2 of 3" /></Grid>
+        <Grid xs><MockItem text="3 of 3" /></Grid>
+      </Grid.Container>
+      <Spacer/>
+      <Grid.Container gap={2} justify="center">
+        <Grid xs><MockItem text="1 of 3" /></Grid>
+        <Grid xs={6}><MockItem text="2 of 3" /></Grid>
+        <Grid xs><MockItem text="3 of 3" /></Grid>
+      </Grid.Container>
+    </>
+  )
+}
+`}
+/>
+
+<Playground
+  title="Hide elements"
+  desc="Hide elements when unit size is 0 (i.e. `sm={0}` this will hide the element for resolutions greater than  `sm`). "
+  code={`
+() => {
+ const isMd = useMediaQuery(960);
+ 
+ const MockItem = ({text}) => {
+    return (
+        <ExampleBlock height={60}>
+            <Text h6 size={15} color="white" style={{ margin: 0 }}>
+                {text}
+            </Text>
+        </ExampleBlock>
+    );
+}
+return (<Grid.Container gap={2} justify="center">
+
+  <Grid xs={6} sm={0}>
+    <MockItem text={isMd ? "1 of 2" : "1 of 1"} />
+  </Grid>
+  <Grid xs={6} sm={0}>
+    <MockItem text={isMd ? "2 of 2" : "1 of 1"} />
+  </Grid>
+  <Grid xs={12}>
+    <MockItem text="1 of 1" />
+  </Grid>
+  <Grid xs={12}>
+    <MockItem text="1 of 1" />
+  </Grid>
+</Grid.Container>) 
+}`} />
+
+<Spacer y={2} />
+
+### Custom breakpoints
+
+Override the default `@nextui-org/react` breakpoints.
+
+```tsx
+const breakpoints: NextUIThemesBreakpoints = {
+  // Extra small devices (phones)
+  xs: { min: '0', max: '650px' },
+  // Small devices (tablets)
+  sm: { min: '650px', max: '960px' },
+  // Medium devices (landscape tablets)
+  md: { min: '960px', max: '1280px' },
+  // Large devices (desktops)
+  lg: { min: '1280px', max: '1400px' },
+  // Extra large devices (larger desktops)
+  xl: { min: '1400px', max: '1920px' },
+};
+
+const App = () => (
+  <ThemeProvider theme={{ breakpoints: breakpoints }}>
+    <CssBaseline />
+    <AppComponent />
+  </ThemeProvider>
+);
+```
+
+<Spacer y={2} />
+
+#### Default breakpoints
+
+| Breakpoint  | <650px | ≥650px | ≥960px | ≥1280px | ≥1400px |
+| ----------- | ------ | ------ | ------ | ------- | ------- |
+| **default** | `100%` | 650px  | 960px  | 1280px  | 1400px  |
+| **xs**      | `100%` | 650px  | 960px  | 1280px  | 1400px  |
+| **sm**      | `100%` | `100%` | 960px  | 1280px  | 1400px  |
+| **md**      | `100%` | `100%` | 960px  | 1280px  | 1400px  |
+| **lg**      | `100%` | `100%` | `100%` | 1280px  | 1400px  |
+| **xl**      | `100%` | `100%` | `100%` | `100%`  | 1400px  |
+| **fluid**   | `100%` | `100%` | `100%` | `100%`  | `100%`  |
+
+---
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Grid Props
+
+| Attribute        | Type             | Accepted values                | Description                    | Default |
+| ---------------- | ---------------- | ------------------------------ | ------------------------------ | ------- |
+| **xs**           | `boolean`        | -                              | extra small devices (<650px)   | `false` |
+| **sm**           | `boolean`        | -                              | small devices (≥650px)         | `false` |
+| **md**           | `boolean`        | -                              | medium devices (≥960px)        | `false` |
+| **lg**           | `boolean`        | -                              | large devices (≥1280px)        | `false` |
+| **xl**           | `boolean`        | -                              | extra large devices (≥1400px)  | `false` |
+| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction" property  | -       |
+| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content" property | -       |
+| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items" property     | -       |
+| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content" property   | -       |
+| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props           | -       |
+
+---
+
+<Spacer y={2} />
+
+#### Grid.Container Props
+
+| Attribute | Type             | Accepted values          | Description              | Default |
+| --------- | ---------------- | ------------------------ | ------------------------ | ------- |
+| **gap**   | `boolean`        | `number` `float`         | spacing of children      | 0       |
+| **wrap**  | `Wrap`           | [Wrap](#wrap)            | CSS "flex-wrap" property | `wrap`  |
+| ...       | `HTMLAttributes` | `'id', 'className', ...` | Native element props     | -       |
+
+---
+
+### Grid types
+
+<Spacer y={1} />
+
+#### Wrap
+
+```ts
+type Wrap = 'nowrap' | 'wrap' | 'wrap-reverse';
+```
+
+#### Display
+
+```ts
+type Display =
+  | 'flex'
+  | 'block'
+  | 'grid'
+  | 'inline'
+  | 'inline-block'
+  | 'inline-flex'
+  | 'inline-grid';
+```
+
+#### Justify
+
+```ts
+type Justify =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
+```
+
+#### Direction
+
+```ts
+type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+```
+
+#### Align Items
+
+```ts
+type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+```
+
+#### Align Content
+
+```ts
+type AlignContent =
+  | 'stretch'
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around';
+```

@@ -5,6 +5,7 @@ import makeCodeTheme from './code-theme';
 import Editor from './editor';
 import NextLink from 'next/link';
 import { Palette, ExampleBlock } from '@components';
+import { useMediaQuery } from '@hooks/use-media-query';
 import withDefaults from '@utils/with-defaults';
 import * as Components from '@nextui-org/react';
 import * as Icons from '../icons';
@@ -21,7 +22,14 @@ const defaultProps = {
 const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
   const theme = useTheme();
   const codeTheme = makeCodeTheme(theme);
-  const scope = { ...Components, ...Icons, NextLink, Palette, ExampleBlock };
+  const scope = {
+    ...Components,
+    ...Icons,
+    NextLink,
+    Palette,
+    ExampleBlock,
+    useMediaQuery,
+  };
   return (
     <LiveProvider code={code} scope={scope} theme={codeTheme}>
       <div className="wrapper">
