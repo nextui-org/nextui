@@ -219,11 +219,11 @@ const App = () => (
 
 | Attribute        | Type             | Accepted values                | Description                    | Default |
 | ---------------- | ---------------- | ------------------------------ | ------------------------------ | ------- |
-| **xs**           | `boolean`        | -                              | extra small devices (<650px)   | `false` |
-| **sm**           | `boolean`        | -                              | small devices (≥650px)         | `false` |
-| **md**           | `boolean`        | -                              | medium devices (≥960px)        | `false` |
-| **lg**           | `boolean`        | -                              | large devices (≥1280px)        | `false` |
-| **xl**           | `boolean`        | -                              | extra large devices (≥1400px)  | `false` |
+| **xs**           | `boolean`        | `true / false`                 | extra small devices (<650px)   | `false` |
+| **sm**           | `boolean`        | `true / false`                 | small devices (≥650px)         | `false` |
+| **md**           | `boolean`        | `true / false`                 | medium devices (≥960px)        | `false` |
+| **lg**           | `boolean`        | `true / false`                 | large devices (≥1280px)        | `false` |
+| **xl**           | `boolean`        | `true / false`                 | extra large devices (≥1400px)  | `false` |
 | **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction" property  | -       |
 | **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content" property | -       |
 | **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items" property     | -       |
@@ -238,7 +238,7 @@ const App = () => (
 
 | Attribute | Type             | Accepted values          | Description              | Default |
 | --------- | ---------------- | ------------------------ | ------------------------ | ------- |
-| **gap**   | `boolean`        | `number` `float`         | spacing of children      | 0       |
+| **gap**   | `number`         | -                        | spacing of children      | 0       |
 | **wrap**  | `Wrap`           | [Wrap](#wrap)            | CSS "flex-wrap" property | `wrap`  |
 | ...       | `HTMLAttributes` | `'id', 'className', ...` | Native element props     | -       |
 

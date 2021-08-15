@@ -56,7 +56,35 @@ A component for fixing an element's width to the current breakpoint.
 
 <Spacer y={2} />
 
-#### Breakpoint Sizes
+### Custom breakpoints
+
+Override the default `@nextui-org/react` breakpoints.
+
+```tsx
+const breakpoints: NextUIThemesBreakpoints = {
+  // Extra small devices (phones)
+  xs: { min: '0', max: '650px' },
+  // Small devices (tablets)
+  sm: { min: '650px', max: '960px' },
+  // Medium devices (landscape tablets)
+  md: { min: '960px', max: '1280px' },
+  // Large devices (desktops)
+  lg: { min: '1280px', max: '1400px' },
+  // Extra large devices (larger desktops)
+  xl: { min: '1400px', max: '1920px' },
+};
+
+const App = () => (
+  <ThemeProvider theme={{ breakpoints: breakpoints }}>
+    <CssBaseline />
+    <AppComponent />
+  </ThemeProvider>
+);
+```
+
+<Spacer y={2} />
+
+#### Default breakpoints
 
 | Breakpoint  | <650px | ≥650px | ≥960px | ≥1280px | ≥1400px |
 | ----------- | ------ | ------ | ------ | ------- | ------- |
@@ -110,7 +138,7 @@ A component for fixing an element's width to the current breakpoint.
         <Col>
             <ExampleBlock>
                 <Text h6 size={15} color="white" style={{ margin: 0 }}>
-                    2 of 3
+                    3 of 3
                 </Text>
             </ExampleBlock>
         </Col>
@@ -127,23 +155,52 @@ A component for fixing an element's width to the current breakpoint.
 
 #### Container Props
 
-| Attribute        | Type             | Accepted values                | Description                          | Default |
-| ---------------- | ---------------- | ------------------------------ | ------------------------------------ | ------- |
-| **fluid**        | `boolean`        | -                              | `width: 100%` at all breakpoints     | `false` |
-| **xs**           | `boolean`        | -                              | extra small devices (<650px)         | `false` |
-| **sm**           | `boolean`        | -                              | small devices (≥650px)               | `false` |
-| **md**           | `boolean`        | -                              | medium devices (≥960px)              | `false` |
-| **lg**           | `boolean`        | -                              | large devices (≥1280px)              | `false` |
-| **xl**           | `boolean`        | -                              | extra large devices (≥1400px)        | `false` |
-| **gap**          | `boolean`        | `number` `float`               | spacing of children                  | 2       |
-| **wrap**         | `Wrap`           | [Wrap](#wrap)                  | CSS "flex-wrap" property             | `wrap`  |
-| **display**      | `Display`        | [Display](#display)            | CSS "display" property               | `block` |
-| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content" property       | -       |
-| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction" property        | -       |
-| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items" property           | -       |
-| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content" property         | -       |
-| **as**           | `ElementType`    | [ElementType](#element-type)   | The component used for the root node | -       |
-| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props                 | -       |
+| Attribute        | Type             | Accepted values                | Description                      | Default |
+| ---------------- | ---------------- | ------------------------------ | -------------------------------- | ------- |
+| **fluid**        | `boolean`        | `true / false`                 | `width: 100%` at all breakpoints | `false` |
+| **xs**           | `boolean`        | `true / false`                 | Extra small devices (<650px)     | `false` |
+| **sm**           | `boolean`        | `true / false`                 | Small devices (≥650px)           | `false` |
+| **md**           | `boolean`        | `true / false`                 | Medium devices (≥960px)          | `false` |
+| **lg**           | `boolean`        | `true / false`                 | Large devices (≥1280px)          | `false` |
+| **xl**           | `boolean`        | `true / false`                 | Extra large devices (≥1400px)    | `false` |
+| **gap**          | `number`         | -                              | Children's spacing               | 2       |
+| **wrap**         | `Wrap`           | [Wrap](#wrap)                  | CSS "flex-wrap"                  | `wrap`  |
+| **display**      | `Display`        | [Display](#display)            | CSS "display"                    | `block` |
+| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content"            | -       |
+| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction"             | -       |
+| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items"                | -       |
+| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content"              | -       |
+| **as**           | `ElementType`    | [ElementType](#element-type)   | Root node component              | `div`   |
+| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props             | -       |
+
+---
+
+<Spacer y={1} />
+
+#### Row Props
+
+| Attribute   | Type             | Accepted values              | Description                          | Default      |
+| ----------- | ---------------- | ---------------------------- | ------------------------------------ | ------------ |
+| **fluid**   | `boolean`        | `true / false`               | `width: 100%` at all breakpoints     | `true`       |
+| **gap**     | `number`         | -                            | Children's spacing                   | 0            |
+| **wrap**    | `Wrap`           | [Wrap](#wrap)                | CSS "flex-wrap" property             | `nowrap`     |
+| **justify** | `Justify`        | [Justify](#justify)          | CSS "justify-content" property       | `flex-start` |
+| **align**   | `AlignItems`     | [AlignItems](#align-items)   | CSS "align-items" property           | `flex-start` |
+| **as**      | `ElementType`    | [ElementType](#element-type) | The component used for the root node | -            |
+| ...         | `HTMLAttributes` | `'id', 'className', ...`     | Native element props                 | -            |
+
+---
+
+<Spacer y={1} />
+
+#### Col Props
+
+| Attribute  | Type             | Accepted values              | Description                          | Default |
+| ---------- | ---------------- | ---------------------------- | ------------------------------------ | ------- |
+| **span**   | `number`         | `0 - 12`                     | Column's width                       | `12`    |
+| **offset** | `number`         | -                            | Move columns to the right            | `0`     |
+| **as**     | `ElementType`    | [ElementType](#element-type) | The component used for the root node | -       |
+| ...        | `HTMLAttributes` | `'id', 'className', ...`     | Native element props                 | -       |
 
 ---
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import withDefaults from '../../utils/with-defaults';
 import useTheme from '../../hooks/use-theme';
-import { Justify, AlignItems } from '../../utils/prop-types';
+import { Justify, AlignItems, Wrap } from '../../utils/prop-types';
 
 interface Props {
   gap?: number;
-  flexWrap?: boolean;
   fluid?: boolean;
+  wrap?: Wrap;
   justify?: Justify;
   align?: AlignItems;
   as?: keyof JSX.IntrinsicElements;
@@ -15,8 +15,8 @@ interface Props {
 
 const defaultProps = {
   gap: 0,
-  flexWrap: false,
   fluid: true,
+  wrap: 'nowrap' as Wrap,
   justify: 'flex-start' as Justify,
   align: 'flex-start' as AlignItems,
   as: 'div' as keyof JSX.IntrinsicElements,
@@ -33,7 +33,7 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
   fluid,
   justify,
   align,
-  flexWrap,
+  wrap,
   className,
   ...props
 }) => {
@@ -48,7 +48,7 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
           display: flex;
           position: relative;
           box-sizing: border-box;
-          flex-wrap: ${flexWrap ? 'wrap' : 'nowrap'};
+          flex-wrap: ${wrap};
           margin-left: calc(${gap} * ${theme.layout.gap} / 2);
           margin-right: calc(${gap} * ${theme.layout.gap} / 2);
           --row-gap: calc(${gap} * ${theme.layout.gap});
