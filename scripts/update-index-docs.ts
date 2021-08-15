@@ -2,8 +2,6 @@ import { parseMarkdownFile, fileToPath, removePrefix } from '@docusaurus/utils';
 import path from 'path';
 import { v4 as uuid } from 'uuid';
 import shell from 'shelljs';
-import fs from 'graceful-fs';
-import prettier from 'prettier';
 const dotenv = require('dotenv');
 const algoliasearch = require('algoliasearch');
 const toc = require('markdown-toc');
