@@ -92,11 +92,17 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: './packages/nextui/package.json'
-
       - name: Show published version
         if: steps.publish.outputs.type != 'none'
         run: |
           echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+      - name: Tag new version
+        if: steps.publish.outputs.type != 'none'
+        uses: Klemensas/action-autotag@stable
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+          tag_prefix: "v"
+          package_root: "./packages/nextui"
 
   deploy:
     needs: [publish]
