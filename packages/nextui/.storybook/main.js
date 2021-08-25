@@ -1,15 +1,13 @@
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: [
-    '@storybook/addon-links',
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        configureJSX: true,
-      },
-    },
-    '@storybook/addon-essentials',
-    '@storybook/addon-a11y',
-    '@storybook/addon-storysource',
-  ],
+  babel: async (options) => ({
+    ...options,
+    plugins: [
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-proposal-private-methods',
+    ],
+  }),
+  typescript: {
+    reactDocgen: 'none',
+  },
 };
