@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Tooltip, Button } from '../index';
+import { Tooltip, Button, Code, Spacer, Text } from '../index';
 
 export default {
   title: 'Display/Tooltip',
@@ -47,6 +47,22 @@ export const WithComponents = () => {
     <Container>
       <Tooltip text={'Developers love Next.js'} type="dark">
         <Button auto>Button</Button>
+      </Tooltip>
+    </Container>
+  );
+};
+
+export const CustomContent = () => {
+  return (
+    <Container>
+      <Tooltip
+        text={
+          <>
+            Developers love <Code>Next.js</Code>.
+          </>
+        }
+      >
+        <span>Do hover here</span>
       </Tooltip>
     </Container>
   );

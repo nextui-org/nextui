@@ -44,6 +44,9 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </>
         <style global jsx>{`
+          html {
+            scroll-behavior: smooth;
+          }
           .noselect {
             -webkit-touch-callout: none; /* iOS Safari */
             -webkit-user-select: none; /* Safari */

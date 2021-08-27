@@ -7,8 +7,6 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 import { CssBaseline } from '@nextui-org/react';
-import { isProd } from '@utils/index';
-import { GA_TRACKING_ID } from '@lib/constants';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -28,29 +26,6 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        {/* We only want to add the scripts if in production */}
-        {isProd && (
-          <>
-            {/* Global Site Tag (gtag.js) - Google Analytics */}
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-
-                    gtag('config', '${GA_TRACKING_ID}', {
-                      page_path: window.location.pathname,
-                    });
-                  `,
-              }}
-            />
-          </>
-        )}
         <Head />
         <body>
           <script

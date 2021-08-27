@@ -75,10 +75,6 @@
                             "path": "/docs/components/radio.mdx"
                         },
                         {
-                            "title": "Input",
-                            "path": "/docs/components/input.mdx"
-                        },
-                        {
                             "title": "Loading",
                             "path": "/docs/components/loading.mdx"
                         },

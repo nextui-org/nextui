@@ -105,13 +105,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
 
   if (!el) return null;
   return createPortal(
-    <CSSTransition
-      name="wrapper"
-      visible={visible}
-      enterTime={20}
-      leaveTime={0}
-      clearTime={0}
-    >
+    <CSSTransition name="wrapper" visible={visible} leaveTime={0}>
       <div
         className={`tooltip-content ${className}`}
         ref={selfRef}
@@ -132,7 +126,6 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
           .tooltip-content {
             position: absolute;
             width: auto;
-            top: calc(${rect.top} + 5px);
             left: ${rect.left};
             transform: ${rect.transform};
             background-color: ${colors.bgColor};
@@ -140,21 +133,21 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
             border-radius: ${theme.layout.radius};
             padding: 0;
             z-index: 1000;
-            box-shadow: ${hasShadow
-              ? theme.expressiveness.shadowMedium
-              : 'none'};
-            transition: all 0.2s ease;
+            transition: opacity 0.25s ease 0s, top 0.25s ease 0s,
+              box-shadow 0.2s ease 0s;
           }
           .inner {
             padding: ${theme.layout.gapHalf} ${theme.layout.gap};
             position: relative;
           }
           .wrapper-enter {
-            opacity: 0.5;
+            opacity: 0;
+            top: calc(${rect.top} + 5px);
           }
           .wrapper-enter-active {
             opacity: 1;
             top: ${rect.top};
+            box-shadow: ${theme.expressiveness.shadowMedium};
           }
           .wrapper-leave {
             opacity: 1;

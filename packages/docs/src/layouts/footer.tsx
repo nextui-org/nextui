@@ -25,11 +25,7 @@ const Footer: React.FC = () => {
         <Spacer x={1} />
         <Text span className="footer__by" size={isMobile ? 12 : 14}>
           Created by&nbsp;
-          <Link
-            href="https://jrgarciadev.com"
-            rel="no-referrer"
-            target="_blank"
-          >
+          <Link href="https://jrgarciadev.com" rel="noreferrer" target="_blank">
             Junior Garcia
           </Link>
         </Text>
