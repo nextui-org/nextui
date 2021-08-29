@@ -75,6 +75,10 @@
                             "path": "/docs/components/radio.mdx"
                         },
                         {
+                            "title": "Tooltip",
+                            "path": "/docs/components/tooltip.mdx"
+                        },
+                        {
                             "title": "Loading",
                             "path": "/docs/components/loading.mdx"
                         },
