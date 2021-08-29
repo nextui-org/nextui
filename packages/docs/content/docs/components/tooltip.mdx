@@ -3,10 +3,122 @@ title: 'Tooltip'
 description: 'Tooltips displays informative text when users hover, focus, or click an element.'
 ---
 
-# Button
+# Tooltip
 
 Tooltips displays informative text when users hover, focus, or click an element.
 
 ```jsx
 import { Tooltip } from '@nextui-org/react';
 ```
+
+<Playground
+  title="Default"
+  desc="The default `Tooltip` has the background color."
+  code={`
+<Tooltip text={'Developers love Next.js'}>
+    <Button auto flat>
+        Do hover here
+    </Button>
+</Tooltip>
+`}
+/>
+
+<Playground
+  title="Rounded"
+  desc="You can completely round the `Tooltip` corners with the `rounded` property."
+  code={`
+<Tooltip text={'Developers love Next.js'} rounded color="primary">
+    <Button auto flat>
+        Do hover here
+    </Button>
+</Tooltip>
+`}
+/>
+
+<Playground
+  title="Colors"
+  desc="You can change the color of the `Tooltip` with the property color."
+  code={`
+<Grid.Container gap={2}>
+    <Grid>
+        <Tooltip text="Developers love Next.js">
+            <Button light auto>
+                Default
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" color="primary">
+            <Button flat auto>
+                Primary
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" color="secondary">
+            <Button flat auto color="secondary">
+                Secondary
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" color="success">
+            <Button flat auto color="success">
+                Success
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" color="warning">
+            <Button flat auto color="warning">
+                Warning
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" color="error">
+            <Button flat auto color="error">
+                Error
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" color="gradient">
+            <Button auto color="gradient">
+                Gradient
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" color="#ff4ecd">
+            <Button auto flat color="#ff4ecd">
+                Custom
+            </Button>
+        </Tooltip>
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Trigger"
+  desc="You can control the way to trigger the `Tooltip` wheater `hover` or `click` using the `trigger` property."
+  code={`
+<Grid.Container gap={2}>
+    <Grid>
+        <Tooltip text={'Developers love Next.js'} trigger="click" color="primary">
+            <Button auto flat>
+                Click me
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text={'Developers love Next.js'} trigger="hover" color="secondary">
+            <Button auto flat color="secondary">
+                Hover me
+            </Button>
+        </Tooltip>
+    </Grid>
+</Grid.Container>
+`}
+/>

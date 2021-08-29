@@ -70,12 +70,6 @@ export const Colors = () => {
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" color="dark">
-          <Button flat auto color="#000000">
-            Dark
-          </Button>
-        </Tooltip>
-        <Spacer inline x={1.5} />
         <Tooltip text="Developers love Next.js" color="success">
           <Button flat auto color="success">
             Success

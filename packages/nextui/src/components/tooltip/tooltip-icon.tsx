@@ -18,16 +18,14 @@ const TooltipIcon: React.FC<Props> = ({
 }) => {
   const theme = useTheme();
   const { transform, top, left, right, bottom } = useMemo(
-    () => getIconPosition(placement, 3),
+    () => getIconPosition(placement, 4),
     [placement]
   );
 
   const bgColorWithDark = useMemo(() => {
-    if (!shadow || theme.type !== 'dark')
-      return bgColor.includes('linear-gradient')
-        ? hexFromString(bgColor, theme.palette.accents_2, true)
-        : bgColor;
-    return theme.palette.accents_2;
+    return bgColor.includes('linear-gradient')
+      ? hexFromString(bgColor, theme.palette.accents_2, true)
+      : bgColor;
   }, [theme.type, bgColor, shadow]);
 
   return (
