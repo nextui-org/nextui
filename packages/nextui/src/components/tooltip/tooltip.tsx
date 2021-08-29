@@ -2,15 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import withDefaults from '../../utils/with-defaults';
 import TooltipContent from './tooltip-content';
 import useClickAway from '../../hooks/use-click-away';
-import { TriggerTypes, Placement, SnippetTypes } from '../../utils/prop-types';
+import { TriggerTypes, Placement, TooltipTypes } from '../../utils/prop-types';
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
 
 interface Props {
   text: string | React.ReactNode;
-  type?: SnippetTypes;
+  color?: TooltipTypes | string;
   placement?: Placement;
   visible?: boolean;
+  shadow?: boolean;
+  bordered?: boolean;
+  rounded?: boolean;
   initialVisible?: boolean;
   hideArrow?: boolean;
   trigger?: TriggerTypes;
@@ -25,10 +28,13 @@ interface Props {
 const defaultProps = {
   initialVisible: false,
   hideArrow: false,
-  type: 'default' as SnippetTypes,
+  shadow: true,
+  bordered: false,
+  rounded: false,
+  color: 'default' as TooltipTypes | string,
   trigger: 'hover' as TriggerTypes,
   placement: 'top' as Placement,
-  enterDelay: 100,
+  enterDelay: 0,
   leaveDelay: 0,
   offset: 12,
   className: '',
@@ -49,7 +55,10 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   enterDelay,
   leaveDelay,
   trigger,
-  type,
+  bordered,
+  rounded,
+  color,
+  shadow,
   className,
   onVisibleChange,
   hideArrow,
@@ -60,10 +69,13 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState<boolean>(initialVisible);
   const contentProps = {
-    type,
+    color,
     visible,
+    shadow,
     offset,
     placement,
+    bordered,
+    rounded,
     hideArrow,
     parent: ref,
     className: portalClassName,

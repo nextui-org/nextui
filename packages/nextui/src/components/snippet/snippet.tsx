@@ -57,11 +57,10 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   const ref = useRef<HTMLPreElement>(null);
   const isMultiLine = text && Array.isArray(text);
 
-  const style = useMemo(() => getStyles(type, theme.palette, filled), [
-    type,
-    theme.palette,
-    filled,
-  ]);
+  const style = useMemo(
+    () => getStyles(type, theme.palette, filled),
+    [type, theme.palette, filled]
+  );
   const showCopyIcon = useMemo(() => copyType !== 'prevent', [copyType]);
   const childText = useMemo<string | undefined | null>(() => {
     if (isMultiLine) return textArrayToString(text as string[]);
@@ -101,7 +100,7 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           padding: calc(${theme.layout.gap} * 0.75) ${theme.layout.gap};
           padding-right: calc(2 * ${theme.layout.gap});
           color: ${style.color};
-          background-color: ${style.bgColor};
+          background: ${style.bgColor};
           border: ${bordered ? '1px' : '0px'} solid ${style.border};
           border-radius: ${theme.layout.radius};
         }

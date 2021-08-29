@@ -3,7 +3,7 @@ import useTheme from '../../hooks/use-theme';
 import withDefaults from '../../utils/with-defaults';
 import { DividerAlign, SnippetTypes } from '../../utils/prop-types';
 import { getMargin } from '../../utils/dimensions';
-import { NextUIThemesPalette } from '../../theme';
+import { getNormalColor } from '../../utils/color';
 
 export type DividerTypes = SnippetTypes;
 
@@ -11,7 +11,7 @@ interface Props {
   x?: number;
   y?: number;
   volume?: number;
-  type?: DividerTypes;
+  color?: DividerTypes | string;
   align?: DividerAlign;
   className?: string;
 }
@@ -21,30 +21,16 @@ const defaultProps = {
   y: 2,
   volume: 1,
   align: 'center' as DividerAlign,
-  type: 'default' as DividerTypes,
+  color: 'default' as DividerTypes,
   className: '',
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type DividerProps = Props & typeof defaultProps & NativeAttrs;
 
-const getColor = (type: DividerTypes, palette: NextUIThemesPalette) => {
-  const colors: { [key in DividerTypes]: string } = {
-    default: palette.border,
-    primary: palette.primary,
-    lite: palette.accents_1,
-    success: palette.successLight,
-    warning: palette.warningLight,
-    error: palette.errorLight,
-    secondary: palette.secondary,
-    dark: palette.foreground,
-  };
-  return colors[type];
-};
-
 const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   volume,
-  type,
+  color,
   x,
   y,
   align,
@@ -53,16 +39,19 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
-  const color = useMemo(() => getColor(type, theme.palette), [
-    type,
-    theme.palette,
-  ]);
+  const bgColor = useMemo(
+    () => getNormalColor(color, theme.palette),
+    [color, theme.palette]
+  );
   const alignClassName = useMemo(() => {
     if (!align || align === 'center') return '';
     if (align === 'left' || align === 'start') return 'start';
     return 'end';
   }, [align]);
-  const textColor = type === 'default' ? theme.palette.foreground : color;
+  const textColor =
+    color === 'default' || color === 'gradient'
+      ? theme.palette.foreground
+      : color;
   const top = y ? getMargin(y / 2) : 0;
   const left = x ? getMargin(x / 2) : 0;
 
@@ -74,7 +63,7 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
           width: auto;
           max-width: 100%;
           height: calc(${volume} * 1px);
-          background-color: ${color};
+          background: ${bgColor};
           margin: ${top} ${left};
           position: relative;
         }

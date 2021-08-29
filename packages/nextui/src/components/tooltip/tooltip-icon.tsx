@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react';
 import { getIconPosition } from './placement';
 import { Placement } from '../../utils/prop-types';
+import { hexFromString } from '../../utils/color';
 import useTheme from '../../hooks/use-theme';
 
 interface Props {
   placement: Placement;
   bgColor: string;
-  shadow: boolean;
+  shadow?: boolean;
 }
 
 const TooltipIcon: React.FC<Props> = ({
@@ -20,8 +21,12 @@ const TooltipIcon: React.FC<Props> = ({
     () => getIconPosition(placement, 3),
     [placement]
   );
+
   const bgColorWithDark = useMemo(() => {
-    if (!shadow || theme.type !== 'dark') return bgColor;
+    if (!shadow || theme.type !== 'dark')
+      return bgColor.includes('linear-gradient')
+        ? hexFromString(bgColor, theme.palette.accents_2, true)
+        : bgColor;
     return theme.palette.accents_2;
   }, [theme.type, bgColor, shadow]);
 

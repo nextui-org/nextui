@@ -75,7 +75,7 @@ const getButtonWeight = (weight?: NormalWeights): string | undefined => {
 
 export const getShadowColor = (
   palette: NextUIThemesPalette,
-  color: NormalColors
+  color: NormalColors | string
 ) => {
   try {
     const hexColor =
@@ -106,7 +106,7 @@ export const getButtonColors = (
   const buttonColor = {
     ...common,
     bg: normalColor,
-    loaderBg: palette[key] || palette.primary,
+    loaderBg: normalColor || palette.primary,
   };
 
   if (disabled)
@@ -211,8 +211,7 @@ export const getButtonColors = (
   return {
     ...buttonColor,
     hover: {
-      bg:
-        color === 'gradient' ? palette[key] : addColorAlpha(normalColor, 0.85),
+      bg: color === 'gradient' ? normalColor : addColorAlpha(normalColor, 0.85),
       style: {
         filter: color === 'gradient' ? 'hue-rotate(40deg);' : 'none',
       },
@@ -353,7 +352,7 @@ export const getButtonDripColor = (
   props: ButtonProps
 ) => {
   const { color, bordered, flat, light } = props;
-  const colors: { [key in NormalColors]?: string } = {
+  const colors: { [key in any]: string } = {
     default: palette.accents_2,
     primary: palette.primary,
     secondary: palette.secondary,
@@ -362,10 +361,11 @@ export const getButtonDripColor = (
     error: palette.error,
     gradient: hexFromString(palette.gradient, palette.primary, true) as string,
   };
+
   const baseColor =
     color === 'default'
       ? palette.primary
-      : (color && colors[color]) || getNormalColor(color, palette);
+      : colors[color || 'default'] || getNormalColor(color, palette);
   if (light) return addColorAlpha(palette.accents_2, 0.8);
   if (flat) return addColorAlpha(baseColor || palette.accents_2, 0.4);
   const selectedColor = bordered ? baseColor : palette.accents_2;

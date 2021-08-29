@@ -1,4 +1,5 @@
-import { SnippetTypes } from '../../utils/prop-types';
+import { getNormalColor, isHex, invertHex } from './../../utils/color';
+import { TooltipTypes } from '../../utils/prop-types';
 import { NextUIThemesPalette } from '../../theme';
 
 export type TooltipColors = {
@@ -7,26 +8,17 @@ export type TooltipColors = {
 };
 
 export const getColors = (
-  type: SnippetTypes,
+  color: TooltipTypes | string,
   palette: NextUIThemesPalette
 ): TooltipColors => {
-  const colors: { [key in SnippetTypes]: string } = {
-    default: palette.background,
-    primary: palette.primary,
-    secondary: palette.secondary,
-    success: palette.success,
-    warning: palette.warning,
-    error: palette.error,
-    dark: palette.foreground,
-    lite: palette.background,
-  };
-  const color =
-    type === 'lite' || type === 'default'
+  const textColor =
+    color === 'default'
       ? palette.foreground
+      : isHex(color)
+      ? invertHex(color)
       : palette.background;
-
   return {
-    color,
-    bgColor: colors[type],
+    color: textColor,
+    bgColor: getNormalColor(color, palette, palette.background),
   };
 };

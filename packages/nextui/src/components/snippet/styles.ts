@@ -1,5 +1,6 @@
 import { SnippetTypes } from '../../utils/prop-types';
 import { NextUIThemesPalette } from '../../theme';
+import { hexFromString } from '../../utils/color';
 
 export type SnippetStyles = {
   color: string;
@@ -43,15 +44,15 @@ export const getStyles = (
       border: palette.secondary,
       bgColor: palette.background,
     },
-    lite: {
-      color: palette.foreground,
-      border: palette.border,
-      bgColor: palette.accents_1,
-    },
     dark: {
       color: palette.background,
       border: palette.foreground,
       bgColor: palette.foreground,
+    },
+    gradient: {
+      color: palette.foreground,
+      border: hexFromString(palette.gradient, palette.primary, true) as string,
+      bgColor: palette.gradient,
     },
   };
 

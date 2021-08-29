@@ -65,6 +65,7 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
       clearTimeout(clearClassesTimer);
     };
   }, [visible, renderable]);
+
   if (!React.isValidElement(children) || !renderable) return null;
 
   return React.cloneElement(children, {

@@ -37,6 +37,10 @@ export const Colors = () => (
     <Button color="error">Error</Button>
     <Spacer y={0.5} />
     <Button color="gradient">Gradient</Button>
+    <Spacer y={0.5} />
+    <Button flat auto color="#f4a">
+      Custom
+    </Button>
   </>
 );
 
@@ -93,6 +97,10 @@ export const Bordered = () => (
     <Button color="error" bordered>
       Error
     </Button>
+    <Spacer y={0.5} />
+    <Button bordered color="#f4a">
+      Custom
+    </Button>
   </>
 );
 
@@ -116,6 +124,10 @@ export const flat = () => (
     <Spacer y={0.5} />
     <Button color="error" flat>
       Error
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="#ab570a" flat>
+      Custom
     </Button>
   </>
 );
