@@ -2,13 +2,19 @@ import React, { useEffect, useRef, useState } from 'react';
 import withDefaults from '../../utils/with-defaults';
 import TooltipContent from './tooltip-content';
 import useClickAway from '../../hooks/use-click-away';
-import { TriggerTypes, Placement, TooltipTypes } from '../../utils/prop-types';
+import {
+  TriggerTypes,
+  Placement,
+  SimpleColors,
+  TooltipTypes,
+} from '../../utils/prop-types';
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
 
 interface Props {
   text: string | React.ReactNode;
   color?: TooltipTypes | string;
+  textColor?: SimpleColors | string;
   placement?: Placement;
   visible?: boolean;
   shadow?: boolean;
@@ -32,6 +38,7 @@ const defaultProps = {
   bordered: false,
   rounded: false,
   color: 'default' as TooltipTypes | string,
+  textColor: 'default' as SimpleColors | string,
   trigger: 'hover' as TriggerTypes,
   placement: 'top' as Placement,
   enterDelay: 0,
@@ -58,6 +65,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   bordered,
   rounded,
   color,
+  textColor,
   shadow,
   className,
   onVisibleChange,
@@ -70,6 +78,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   const [visible, setVisible] = useState<boolean>(initialVisible);
   const contentProps = {
     color,
+    textColor,
     visible,
     shadow,
     offset,

@@ -109,7 +109,7 @@ export const getIconPosition = (
       right: 'auto',
       left: '50%',
       bottom: `${offset}px`,
-      transform: 'translate(-50%, 100%) rotate(-90deg)',
+      transform: 'translate(-50%, 100%) rotate(45deg)',
     },
     topStart: {
       top: 'auto',

@@ -90,13 +90,25 @@ import { Tooltip } from '@nextui-org/react';
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="#ff4ecd">
+        <Tooltip text="Developers love Next.js" color="#ff4ecd55">
             <Button auto flat color="#ff4ecd">
                 Custom
             </Button>
         </Tooltip>
     </Grid>
 </Grid.Container>
+`}
+/>
+
+<Playground
+  title="Text Colors"
+  desc="You can change the `Tooltip` text color with `textColor` prop"
+  code={`
+  <>
+ <Tooltip text="Developers love Next.js" color="white" textColor="primary">
+    Primary
+ </Tooltip>
+ </>
 `}
 />
 

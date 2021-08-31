@@ -16,14 +16,16 @@ import {
   getPosition,
   TooltipPosition,
   defaultTooltipPosition,
+  getIconPosition,
 } from './placement';
-import TooltipIcon from './tooltip-icon';
-import { Placement, TooltipTypes } from '../../utils/prop-types';
+import { hexFromString } from '../../utils/color';
+import { Placement, SimpleColors, TooltipTypes } from '../../utils/prop-types';
 
 interface Props {
   parent?: MutableRefObject<HTMLElement | null> | undefined;
   placement: Placement;
   color: TooltipTypes | string;
+  textColor: SimpleColors | string;
   visible: boolean;
   offset: number;
   bordered?: boolean;
@@ -74,6 +76,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   offset,
   placement,
   color,
+  textColor,
   bordered,
   rounded,
   className,
@@ -86,14 +89,25 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   const selfRef = useRef<HTMLDivElement>(null);
   const [rect, setRect] = useState<TooltipPosition>(defaultTooltipPosition);
   const colors = useMemo(
-    () => getColors(color, theme.palette),
-    [color, theme.palette]
+    () => getColors(color, textColor, theme.palette),
+    [color, textColor, theme.palette]
   );
   if (!parent) return null;
   const updateRect = () => {
     const position = getPosition(placement, getRect(parent), offset);
     setRect(position);
   };
+
+  const { transform, top, left, right, bottom } = useMemo(
+    () => getIconPosition(placement, 5),
+    [placement]
+  );
+
+  const bgColorWithDark = useMemo(() => {
+    return colors.bgColor.includes('linear-gradient')
+      ? hexFromString(colors.bgColor, theme.palette.accents_2, true)
+      : colors.bgColor;
+  }, [theme.type, colors, shadow]);
 
   const borderRadius = useMemo(
     () => (rounded ? '20px' : theme.layout.radius),
@@ -126,16 +140,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
         onClick={preventHandler}
         {...props}
       >
-        <div className="inner">
-          {!hideArrow && (
-            <TooltipIcon
-              placement={placement}
-              bgColor={colors.bgColor}
-              shadow={shadow}
-            />
-          )}
-          {children}
-        </div>
+        <div className={`inner ${!hideArrow ? 'arrow' : ''}`}>{children}</div>
         <style jsx>{`
           .tooltip-content {
             position: absolute;
@@ -157,6 +162,20 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
             font-size: 0.875rem;
             padding: ${theme.layout.gapQuarter} ${theme.layout.gapHalf};
             position: relative;
+          }
+          .inner.arrow:after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            z-index: -2;
+            background: ${bgColorWithDark};
+            border-radius: 0px 0px 2px 0px;
+            position: absolute;
+            left: ${left};
+            top: ${top};
+            right: ${right};
+            bottom: ${bottom};
+            transform: ${transform};
           }
           .wrapper-enter-active {
             opacity: 1;
