@@ -44,7 +44,7 @@ export const getStyles = (
       border: palette.secondary,
       bgColor: palette.background,
     },
-    dark: {
+    invert: {
       color: palette.background,
       border: palette.foreground,
       bgColor: palette.foreground,

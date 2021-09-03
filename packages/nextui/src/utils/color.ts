@@ -40,7 +40,7 @@ export const getNormalColor = (
   palette: NextUIThemesPalette,
   defaultColor: string = 'inherit'
 ) => {
-  const colors: { [key in NormalColors | string]: string } = {
+  const colors: { [key in string]: string } = {
     default: defaultColor,
     primary: palette.primary,
     secondary: palette.secondary,
@@ -49,6 +49,7 @@ export const getNormalColor = (
     error: palette.error,
     gradient: palette.gradient,
     dark: palette.foreground,
+    invert: palette.foreground,
   };
   if (typeof color == 'boolean') {
     return color ? palette.primary : 'inherit';

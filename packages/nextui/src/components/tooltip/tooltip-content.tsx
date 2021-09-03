@@ -18,7 +18,6 @@ import {
   defaultTooltipPosition,
   getIconPosition,
 } from './placement';
-import { hexFromString } from '../../utils/color';
 import { Placement, SimpleColors, TooltipTypes } from '../../utils/prop-types';
 
 interface Props {
@@ -103,12 +102,6 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
     [placement]
   );
 
-  const bgColorWithDark = useMemo(() => {
-    return colors.bgColor.includes('linear-gradient')
-      ? hexFromString(colors.bgColor, theme.palette.accents_2, true)
-      : colors.bgColor;
-  }, [theme.type, colors, shadow]);
-
   const borderRadius = useMemo(
     () => (rounded ? '20px' : theme.layout.radius),
     [rounded]
@@ -155,8 +148,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
             opacity: 0;
             z-index: 1000;
             box-shadow: ${shadow ? theme.expressiveness.shadowSmall : 'none'};
-            transition: opacity 0.25s ease 0s, top 0.25s ease 0s,
-              right 0.25s ease 0s, bottom 0.25s ease 0s, left 0.25s ease 0s;
+            transition: opacity 0.25s ease 0s, top 0.25s ease 0s;
           }
           .inner {
             font-size: 0.875rem;
@@ -168,7 +160,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
             width: 10px;
             height: 10px;
             z-index: -2;
-            background: ${bgColorWithDark};
+            background: ${colors.bgColor};
             border-radius: 0px 0px 2px 0px;
             position: absolute;
             left: ${left};

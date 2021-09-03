@@ -109,11 +109,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           </Row>
         </Col>
         <Col className="navbar__search-container">
-          <Row
-            className="navbar__search-row"
-            justify={isMobile ? 'center' : 'flex-end'}
-            align="center"
-          >
+          <Row className="navbar__search-row" justify="flex-end" align="center">
             <Row
               className="navbar__social-icons-container"
               justify="flex-end"
@@ -231,6 +227,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
               : 'none'};
             min-height: 64px;
             max-height: 64px;
+          }
+          :global(.navbar__search-row) {
+            justify-content: center;
           }
           @supports (
             (-webkit-backdrop-filter: blur(10px)) or

@@ -104,6 +104,62 @@ export const Colors = () => {
   );
 };
 
+export const TextColors = () => {
+  return (
+    <Container>
+      <div>
+        <Tooltip text="Developers love Next.js">
+          <Button light auto>
+            Default
+          </Button>
+        </Tooltip>
+        <Spacer inline x={1.5} />
+        <Tooltip text="Developers love Next.js" textColor="primary">
+          <Button flat auto>
+            Primary
+          </Button>
+        </Tooltip>
+        <Spacer inline x={1.5} />
+        <Tooltip text="Developers love Next.js" textColor="secondary">
+          <Button flat auto color="secondary">
+            Secondary
+          </Button>
+        </Tooltip>
+        <Spacer inline x={1.5} />
+        <Tooltip text="Developers love Next.js" textColor="success">
+          <Button flat auto color="success">
+            Success
+          </Button>
+        </Tooltip>
+        <Spacer inline x={1.5} />
+        <Tooltip text="Developers love Next.js" textColor="warning">
+          <Button flat auto color="warning">
+            Warning
+          </Button>
+        </Tooltip>
+        <Spacer inline x={1.5} />
+        <Tooltip text="Developers love Next.js" textColor="error">
+          <Button flat auto color="error">
+            Error
+          </Button>
+        </Tooltip>
+        <Spacer inline x={1.5} />
+        <Tooltip text="Developers love Next.js" textColor="gradient">
+          <Button auto color="gradient">
+            Gradient
+          </Button>
+        </Tooltip>
+        <Spacer inline x={1.5} />
+        <Tooltip text="Developers love Next.js" textColor="#f4A">
+          <Button auto flat color="#f4A">
+            Custom
+          </Button>
+        </Tooltip>
+      </div>
+    </Container>
+  );
+};
+
 export const Placements = () => {
   const text = 'Developers love Next.js and NextUI';
   return (

@@ -19,7 +19,6 @@ import Header from '@layouts/header';
 import { Sticky, PageNav } from '@components';
 import { REPO_NAME, GITHUB_URL } from '@lib/github/constants';
 import { TAG, CONTENT_PATH } from '@lib/docs/config';
-import { useMediaQuery } from '@hooks/use-media-query';
 
 export interface Props {
   routes: Route[];
@@ -46,9 +45,6 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
     (typeof window !== 'undefined' && window.pageYOffset) || 0
   );
   const theme = useTheme() as NextUIThemes;
-  const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.max.replace('px', ''))
-  );
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll.bind(this));
@@ -77,7 +73,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         <Sticky offset={10} className="docs__left-sidebar">
           <Sidebar routes={routes} tag={tag} slug={slug} />
         </Sticky>
-        <Col className="docs__center" span={isMobile ? 12 : 8}>
+        <Col className="docs__center">
           {children}
           <PageNav tag={tag} prevRoute={prevRoute} nextRoute={nextRoute} />
           <footer>
@@ -94,7 +90,6 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             )}
           </footer>
         </Col>
-        {!isMobile && <Spacer x={1} />}
         <Sticky offset={10} className="docs__right-sidebar">
           <TableOfContent headings={headings} />
         </Sticky>
@@ -123,7 +118,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           }
           :global(.docs__center) {
             z-index: 99;
-            padding: 0 1.8rem !important;
+            padding: 0 1.4rem !important;
           }
           :global(.docs__left-sidebar::-webkit-scrollbar) {
             width: 0px;
@@ -131,8 +126,9 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           :global(.docs__content) {
             padding-top: 1rem;
           }
-          :global(.docs__right-sidebar) {
+          :global(.docs__right-sidebar, .docs__left-sidebar) {
             display: none;
+            width: 24%;
           }
           :global(.docs__gradient-blue, .docs__gradient-violet) {
             top: 0;

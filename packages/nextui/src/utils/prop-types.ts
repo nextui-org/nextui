@@ -28,7 +28,7 @@ export const extendedColors = tuple(
   'success',
   'warning',
   'error',
-  'dark',
+  'invert',
   'gradient'
 );
 
@@ -147,7 +147,7 @@ export type ThemeTypes = typeof themeTypes[number];
 
 export type SnippetTypes = typeof extendedColors[number];
 
-export type TooltipTypes = typeof normalColors[number];
+export type TooltipTypes = typeof extendedColors[number];
 
 export type CardColors = typeof extraColors[number];
 

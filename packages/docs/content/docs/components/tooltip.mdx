@@ -48,6 +48,13 @@ import { Tooltip } from '@nextui-org/react';
         </Tooltip>
     </Grid>
     <Grid>
+        <Tooltip text="Developers love Next.js" color="invert">
+            <Button light auto>
+                Invert
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
         <Tooltip text="Developers love Next.js" color="primary">
             <Button flat auto>
                 Primary
@@ -90,7 +97,7 @@ import { Tooltip } from '@nextui-org/react';
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="#ff4ecd55">
+        <Tooltip text="Developers love Next.js" color="#ff4ecd">
             <Button auto flat color="#ff4ecd">
                 Custom
             </Button>
@@ -104,11 +111,80 @@ import { Tooltip } from '@nextui-org/react';
   title="Text Colors"
   desc="You can change the `Tooltip` text color with `textColor` prop"
   code={`
-  <>
- <Tooltip text="Developers love Next.js" color="white" textColor="primary">
-    Primary
- </Tooltip>
- </>
+<Grid.Container gap={2}>
+    <Grid>
+        <Tooltip text="Developers love Next.js">
+            <Button light auto>
+                Default
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" textColor="primary" color="white">
+            <Button flat auto>
+                Primary
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" textColor="secondary" color="white">
+            <Button flat auto color="secondary">
+                Secondary
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" textColor="success" color="white">
+            <Button flat auto color="success">
+                Success
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" textColor="warning" color="white">
+            <Button flat auto color="warning">
+                Warning
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" textColor="error" color="white">
+            <Button flat auto color="error">
+                Error
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" textColor="primary" color="white">
+            <Button auto color="gradient">
+                Gradient
+            </Button>
+        </Tooltip>
+    </Grid>
+    <Grid>
+        <Tooltip text="Developers love Next.js" textColor="#ff4ecd" color="white">
+            <Button auto flat color="#ff4ecd">
+                Custom
+            </Button>
+        </Tooltip>
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Rounded"
+  desc="You can completely round the corners of the tooltip with the `rounded` property."
+  code={`
+<Grid.Container gap={2}>
+  <Grid>
+    <Tooltip rounded color="primary" text="Developers love Next.js">
+        <Button auto color="primary" flat rounded>
+            Primary
+        </Button>
+    </Tooltip>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -131,6 +207,110 @@ import { Tooltip } from '@nextui-org/react';
             </Button>
         </Tooltip>
     </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Placements"
+  desc="Change the position of the tooltip with the `placement`prop"
+  code={`
+<Grid.Container gap={2} justify="center" alignContent="center">
+    <Grid xs={4} justify="flex-end">
+        <Tooltip color="primary" text="Developers love Next.js" placement="topStart">
+        topStart
+        </Tooltip>
+    </Grid>
+    <Grid xs={4} justify="center">
+        <Tooltip color="primary" text="Developers love Next.js" placement="top">
+        top
+        </Tooltip>
+    </Grid>
+    <Grid xs={4}>
+        <Tooltip color="primary" text="Developers love Next.js" placement="topEnd">
+        topEnd
+        </Tooltip>
+    </Grid>
+    <Grid xs={3} justify="flex-end">
+        <Tooltip color="primary" text="Developers love Next.js" placement="leftStart">
+        leftStart
+        </Tooltip>
+    </Grid>
+    <Grid xs={6} />
+    <Grid xs={3}>
+        <Tooltip color="primary" text="Developers love Next.js" placement="rightStart">
+        rightStart
+        </Tooltip>
+    </Grid>
+    <Grid xs={3} justify="flex-end">
+        <Tooltip color="primary" text="Developers love Next.js" placement="left">
+        left
+        </Tooltip>
+    </Grid>
+    <Grid xs={6} />
+    <Grid xs={3}>
+        <Tooltip color="primary" text="Developers love Next.js" placement="right">
+        right
+        </Tooltip>
+    </Grid>
+    <Grid xs={3} justify="flex-end">
+        <Tooltip color="primary" text="Developers love Next.js" placement="leftEnd">
+        leftEnd
+        </Tooltip>
+    </Grid>
+    <Grid xs={6} />
+    <Grid xs={3}>
+        <Tooltip color="primary" text="Developers love Next.js" placement="rightEnd">
+        rightEnd
+        </Tooltip>
+    </Grid>
+    <Grid xs={4} justify="flex-end">
+        <Tooltip color="primary" text="Developers love Next.js" placement="bottomStart">
+        bottomStart
+        </Tooltip>
+    </Grid>
+    <Grid xs={4} justify="center">
+        <Tooltip color="primary" text="Developers love Next.js" placement="bottom">
+        bottom
+        </Tooltip>
+    </Grid>
+    <Grid xs={4}>
+        <Tooltip color="primary" text="Developers love Next.js" placement="bottomEnd">
+        bottomEnd
+        </Tooltip>
+    </Grid>
+</Grid.Container>
+  `}
+/>
+
+<Playground
+  title="Not Arrow"
+  desc="In some cases you may need to remove the arrow from the tooltip for this case you can use the `hideArrow` property"
+  code={`
+<Grid.Container>
+    <Grid>
+      <Tooltip text={'Developers love Next.js'} color="primary" hideArrow>
+        <Button auto flat>
+          Do hover me
+        </Button>
+      </Tooltip>
+    </Grid>
+</Grid.Container>
+  `}
+/>
+
+<Playground
+  title="Custom Content"
+  desc="You can customize the `Tooltip` content."
+  code={`
+<Grid.Container>
+  <Grid>
+    <Tooltip color="secondary" text={<div><b>Custom Content</b></div>}>
+        <Button color="error" auto flat>
+            Delete user
+        </Button>
+    </Tooltip>
+  </Grid>
 </Grid.Container>
 `}
 />
