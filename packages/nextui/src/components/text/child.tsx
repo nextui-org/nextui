@@ -13,7 +13,7 @@ export interface Props {
 }
 
 const defaultProps = {
-  color: 'default' as NormalColors,
+  color: 'default' as NormalColors | string,
   className: '',
   capitalize: false,
 };

@@ -42,6 +42,8 @@ export const getNormalColor = (
 ) => {
   const colors: { [key in string]: string } = {
     default: defaultColor,
+    background: palette.background,
+    foreground: palette.foreground,
     primary: palette.primary,
     secondary: palette.secondary,
     success: palette.success,

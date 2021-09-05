@@ -207,7 +207,6 @@ const Avatar: React.FC<AvatarProps> = ({
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
-          text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
         }
         .icon {
           display: flex;

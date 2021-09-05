@@ -218,65 +218,89 @@ import { Tooltip } from '@nextui-org/react';
 <Grid.Container gap={2} justify="center" alignContent="center">
     <Grid xs={4} justify="flex-end">
         <Tooltip color="primary" text="Developers love Next.js" placement="topStart">
-        topStart
+            <Button auto color="foreground" light>
+                topStart
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4} justify="center">
         <Tooltip color="primary" text="Developers love Next.js" placement="top">
-        top
+            <Button auto color="foreground" light>
+                top
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4}>
         <Tooltip color="primary" text="Developers love Next.js" placement="topEnd">
-        topEnd
+            <Button auto color="foreground" light>
+                topEnd
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={3} justify="flex-end">
         <Tooltip color="primary" text="Developers love Next.js" placement="leftStart">
-        leftStart
+            <Button auto color="foreground" light>
+                leftStart
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={6} />
     <Grid xs={3}>
         <Tooltip color="primary" text="Developers love Next.js" placement="rightStart">
-        rightStart
+            <Button auto color="foreground" light>
+                rightStart
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={3} justify="flex-end">
         <Tooltip color="primary" text="Developers love Next.js" placement="left">
-        left
+            <Button auto color="foreground" light>
+                left
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={6} />
     <Grid xs={3}>
         <Tooltip color="primary" text="Developers love Next.js" placement="right">
-        right
+            <Button auto color="foreground" light>
+                right
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={3} justify="flex-end">
         <Tooltip color="primary" text="Developers love Next.js" placement="leftEnd">
-        leftEnd
+            <Button auto color="foreground" light>
+                leftEnd
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={6} />
     <Grid xs={3}>
         <Tooltip color="primary" text="Developers love Next.js" placement="rightEnd">
-        rightEnd
+            <Button auto color="foreground" light>
+                rightEnd
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4} justify="flex-end">
         <Tooltip color="primary" text="Developers love Next.js" placement="bottomStart">
-        bottomStart
+            <Button auto color="foreground" light>
+                bottomStart
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4} justify="center">
         <Tooltip color="primary" text="Developers love Next.js" placement="bottom">
-        bottom
+            <Button auto color="foreground" light>
+                bottom
+            </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4}>
         <Tooltip color="primary" text="Developers love Next.js" placement="bottomEnd">
-        bottomEnd
+            <Button auto color="foreground" light>
+                bottomEnd
+            </Button>
         </Tooltip>
     </Grid>
 </Grid.Container>
@@ -303,12 +327,17 @@ import { Tooltip } from '@nextui-org/react';
   title="Custom Content"
   desc="You can customize the `Tooltip` content."
   code={`
-<Grid.Container>
+<Grid.Container gap={2} alignItems="center">
   <Grid>
-    <Tooltip color="secondary" text={<div><b>Custom Content</b></div>}>
+    <Tooltip trigger="click" color="background" text={<DeleteUser/>}>
         <Button color="error" auto flat>
-            Delete user
+            Click Delete User
         </Button>
+    </Tooltip>
+  </Grid>
+  <Grid>
+    <Tooltip placement="bottom" color="background" text={<UserTwitterCard/>}>
+        <Avatar pointer size="large" src="/avatars/avatar-2.png" color="gradient" bordered squared />   
     </Tooltip>
   </Grid>
 </Grid.Container>

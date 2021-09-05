@@ -219,12 +219,14 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           :global(.navbar__container) {
             top: 0;
             position: fixed;
-            background: ${showBlur
-              ? addColorAlpha(theme.palette.background, 0.6)
-              : 'transparent'};
-            box-shadow: ${detached
-              ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
-              : 'none'};
+            background: ${
+              showBlur
+                ? addColorAlpha(theme.palette.background, 0.6)
+                : 'transparent'
+            };
+            box-shadow: ${
+              detached ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)' : 'none'
+            };
             min-height: 64px;
             max-height: 64px;
           }
@@ -236,11 +238,10 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
               (backdrop-filter: blur(10px))
           ) {
             :global(.navbar__container) {
-              backdrop-filter: ${showBlur
-                ? 'saturate(180%) blur(10px)'
-                : 'none'};
+              backdrop-filter: ${
+                showBlur ? 'saturate(180%) blur(10px)' : 'none'
+              };
             }
-          }
           @supports (
             not (-webkit-backdrop-filter: blur(10px)) and not
               (backdrop-filter: blur(10px))
