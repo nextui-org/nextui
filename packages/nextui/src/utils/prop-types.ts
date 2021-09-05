@@ -64,7 +64,7 @@ const copyTypes = tuple('default', 'slient', 'prevent');
 
 const triggerTypes = tuple('hover', 'click');
 
-const placement = tuple(
+const position = tuple(
   'top',
   'topStart',
   'topEnd',
@@ -141,13 +141,13 @@ export type NormalColors = typeof normalColors[number];
 
 export type SimpleColors = typeof simpleColors[number];
 
+export type TooltipColors = typeof extendedColors[number];
+
 export type NormalLoaders = typeof normalLoaders[number];
 
 export type ThemeTypes = typeof themeTypes[number];
 
 export type SnippetTypes = typeof extendedColors[number];
-
-export type TooltipTypes = typeof extendedColors[number];
 
 export type CardColors = typeof extraColors[number];
 
@@ -155,7 +155,7 @@ export type CopyTypes = typeof copyTypes[number];
 
 export type TriggerTypes = typeof triggerTypes[number];
 
-export type Placement = typeof placement[number];
+export type Position = typeof position[number];
 
 export type DividerAlign = typeof dividerAlign[number];
 

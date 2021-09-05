@@ -23,7 +23,7 @@ type AppProps<P = {}> = AppPropsType<Router, P>;
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const [customTheme, setCustomTheme] = useState<DeepPartial<NextUIThemes>>({
     ...sharedTheme,
-    type: 'light',
+    type: 'dark',
   });
   const themeChangeHandle = (theme: DeepPartial<NextUIThemes>) => {
     setCustomTheme(theme);

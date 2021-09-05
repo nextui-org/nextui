@@ -1,4 +1,4 @@
-import { Placement } from '../../utils/prop-types';
+import { Position } from '../../utils/prop-types';
 
 interface ParentDomRect {
   top: number;
@@ -30,11 +30,11 @@ export interface TooltipIconPosition {
 }
 
 export const getPosition = (
-  placement: Placement,
+  placement: Position,
   rect: ParentDomRect,
   offset: number
 ): TooltipPosition => {
-  const positions: { [key in Placement]: TooltipPosition } = {
+  const positions: { [key in Position]: TooltipPosition } = {
     top: {
       top: `${rect.top - offset}px`,
       left: `${rect.left + rect.width / 2}px`,
@@ -100,10 +100,10 @@ export const getPosition = (
 };
 
 export const getIconPosition = (
-  placement: Placement,
+  placement: Position,
   offset: number
 ): TooltipIconPosition => {
-  const positions: { [key in Placement]?: TooltipIconPosition } = {
+  const positions: { [key in Position]?: TooltipIconPosition } = {
     top: {
       top: 'auto',
       right: 'auto',

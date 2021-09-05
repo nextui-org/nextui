@@ -68,7 +68,8 @@
                         },
                         {
                             "title": "Checkbox",
-                            "path": "/docs/components/checkbox.mdx"
+                            "path": "/docs/components/checkbox.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Radio",

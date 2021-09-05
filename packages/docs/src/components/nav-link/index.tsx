@@ -9,6 +9,7 @@ export interface Props {
   pathname: string;
   title: string;
   selected: boolean;
+  newPost?: boolean;
   color?: string | boolean;
 }
 

@@ -4,19 +4,19 @@ exports[`Avatar should render component of a specified size 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-209369632 avatar  ",
+      "class": "jsx-2111257940 avatar  ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-209369632 avatar-bg",
+          "class": "jsx-2111257940 avatar-bg",
         },
         "children": Array [],
         "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-209369632 avatar-text",
+            "class": "jsx-2111257940 avatar-text",
           },
           "children": Array [],
           "name": "span",
@@ -44,7 +44,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-209369632 avatar-text",
+          "class": "jsx-2111257940 avatar-text",
         },
         "children": Array [],
         "name": "span",
@@ -53,7 +53,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-209369632 avatar-bg",
+            "class": "jsx-2111257940 avatar-bg",
           },
           "children": Array [],
           "name": "span",
@@ -185,25 +185,25 @@ LoadedCheerio {
 }
 `;
 
-exports[`Avatar should render correctly with an icon 1`] = `"<span class=\\"jsx-1403202699 avatar  \\"><span class=\\"jsx-1403202699 avatar-bg\\"></span><span class=\\"jsx-1403202699 icon\\"><svg class=\\"\\"></svg></span></span>"`;
+exports[`Avatar should render correctly with an icon 1`] = `"<span class=\\"jsx-2194552607 avatar  \\"><span class=\\"jsx-2194552607 avatar-bg\\"></span><span class=\\"jsx-2194552607 icon\\"><svg class=\\"\\"></svg></span></span>"`;
 
 exports[`Avatar should render text element 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-1403202699 avatar  ",
+      "class": "jsx-2194552607 avatar  ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-1403202699 avatar-bg",
+          "class": "jsx-2194552607 avatar-bg",
         },
         "children": Array [],
         "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-1403202699 avatar-text",
+            "class": "jsx-2194552607 avatar-text",
           },
           "children": Array [],
           "name": "span",
@@ -231,7 +231,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-1403202699 avatar-text",
+          "class": "jsx-2194552607 avatar-text",
         },
         "children": Array [],
         "name": "span",
@@ -240,7 +240,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-1403202699 avatar-bg",
+            "class": "jsx-2194552607 avatar-bg",
           },
           "children": Array [],
           "name": "span",
@@ -376,19 +376,19 @@ exports[`Avatar should render text element 2`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "jsx-1403202699 avatar  ",
+      "class": "jsx-2194552607 avatar  ",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-1403202699 avatar-bg",
+          "class": "jsx-2194552607 avatar-bg",
         },
         "children": Array [],
         "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-1403202699 avatar-text",
+            "class": "jsx-2194552607 avatar-text",
           },
           "children": Array [
             Node {
@@ -424,7 +424,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-1403202699 avatar-text",
+          "class": "jsx-2194552607 avatar-text",
         },
         "children": Array [
           Node {
@@ -441,7 +441,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-1403202699 avatar-bg",
+            "class": "jsx-2194552607 avatar-bg",
           },
           "children": Array [],
           "name": "span",
@@ -573,12 +573,12 @@ LoadedCheerio {
 }
 `;
 
-exports[`Avatar should work correctly with different sizes 1`] = `"<div><span class=\\"jsx-1104040414 avatar  \\"><span class=\\"jsx-1104040414 avatar-bg\\"></span><span class=\\"jsx-1104040414 avatar-text\\"></span></span><span class=\\"jsx-3376429366 avatar  \\"><span class=\\"jsx-3376429366 avatar-bg\\"></span><span class=\\"jsx-3376429366 avatar-text\\"></span></span><span class=\\"jsx-1403202699 avatar  \\"><span class=\\"jsx-1403202699 avatar-bg\\"></span><span class=\\"jsx-1403202699 avatar-text\\"></span></span><span class=\\"jsx-2774985484 avatar  \\"><span class=\\"jsx-2774985484 avatar-bg\\"></span><span class=\\"jsx-2774985484 avatar-text\\"></span></span><span class=\\"jsx-2008276953 avatar  \\"><span class=\\"jsx-2008276953 avatar-bg\\"></span><span class=\\"jsx-2008276953 avatar-text\\"></span></span></div>"`;
+exports[`Avatar should work correctly with different sizes 1`] = `"<div><span class=\\"jsx-3493140074 avatar  \\"><span class=\\"jsx-3493140074 avatar-bg\\"></span><span class=\\"jsx-3493140074 avatar-text\\"></span></span><span class=\\"jsx-1259583618 avatar  \\"><span class=\\"jsx-1259583618 avatar-bg\\"></span><span class=\\"jsx-1259583618 avatar-text\\"></span></span><span class=\\"jsx-2194552607 avatar  \\"><span class=\\"jsx-2194552607 avatar-bg\\"></span><span class=\\"jsx-2194552607 avatar-text\\"></span></span><span class=\\"jsx-3987193592 avatar  \\"><span class=\\"jsx-3987193592 avatar-bg\\"></span><span class=\\"jsx-3987193592 avatar-text\\"></span></span><span class=\\"jsx-53296525 avatar  \\"><span class=\\"jsx-53296525 avatar-bg\\"></span><span class=\\"jsx-53296525 avatar-text\\"></span></span></div>"`;
 
-exports[`Avatar should work with a gradient color 1`] = `"<span class=\\"jsx-2316247310 avatar  \\"><span class=\\"jsx-2316247310 avatar-bg\\"></span><span class=\\"jsx-2316247310 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with a gradient color 1`] = `"<span class=\\"jsx-15809466 avatar  \\"><span class=\\"jsx-15809466 avatar-bg\\"></span><span class=\\"jsx-15809466 avatar-text\\"></span></span>"`;
 
-exports[`Avatar should work with different colors 1`] = `"<div><span class=\\"jsx-3009828747 avatar  \\"><span class=\\"jsx-3009828747 avatar-bg\\"></span><span class=\\"jsx-3009828747 avatar-text\\"></span></span><span class=\\"jsx-2113238027 avatar  \\"><span class=\\"jsx-2113238027 avatar-bg\\"></span><span class=\\"jsx-2113238027 avatar-text\\"></span></span><span class=\\"jsx-1733288331 avatar  \\"><span class=\\"jsx-1733288331 avatar-bg\\"></span><span class=\\"jsx-1733288331 avatar-text\\"></span></span><span class=\\"jsx-4285103627 avatar  \\"><span class=\\"jsx-4285103627 avatar-bg\\"></span><span class=\\"jsx-4285103627 avatar-text\\"></span></span><span class=\\"jsx-438797835 avatar  \\"><span class=\\"jsx-438797835 avatar-bg\\"></span><span class=\\"jsx-438797835 avatar-text\\"></span></span></div>"`;
+exports[`Avatar should work with different colors 1`] = `"<div><span class=\\"jsx-290980383 avatar  \\"><span class=\\"jsx-290980383 avatar-bg\\"></span><span class=\\"jsx-290980383 avatar-text\\"></span></span><span class=\\"jsx-3509919 avatar  \\"><span class=\\"jsx-3509919 avatar-bg\\"></span><span class=\\"jsx-3509919 avatar-text\\"></span></span><span class=\\"jsx-3375909919 avatar  \\"><span class=\\"jsx-3375909919 avatar-bg\\"></span><span class=\\"jsx-3375909919 avatar-text\\"></span></span><span class=\\"jsx-3192936607 avatar  \\"><span class=\\"jsx-3192936607 avatar-bg\\"></span><span class=\\"jsx-3192936607 avatar-text\\"></span></span><span class=\\"jsx-4117586079 avatar  \\"><span class=\\"jsx-4117586079 avatar-bg\\"></span><span class=\\"jsx-4117586079 avatar-text\\"></span></span></div>"`;
 
-exports[`Avatar should work with pointer 1`] = `"<span class=\\"jsx-447523775 avatar  \\"><span class=\\"jsx-447523775 avatar-bg\\"></span><span class=\\"jsx-447523775 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with pointer 1`] = `"<span class=\\"jsx-1614802795 avatar  \\"><span class=\\"jsx-1614802795 avatar-bg\\"></span><span class=\\"jsx-1614802795 avatar-text\\"></span></span>"`;
 
-exports[`Avatar should work with zoomed 1`] = `"<span class=\\"jsx-2874249574 avatar  \\"><span class=\\"jsx-2874249574 avatar-bg\\"></span><span class=\\"jsx-2874249574 avatar-text\\"></span></span>"`;
+exports[`Avatar should work with zoomed 1`] = `"<span class=\\"jsx-1764968146 avatar  \\"><span class=\\"jsx-1764968146 avatar-bg\\"></span><span class=\\"jsx-1764968146 avatar-text\\"></span></span>"`;

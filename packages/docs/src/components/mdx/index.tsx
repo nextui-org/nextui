@@ -40,7 +40,7 @@ const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
           font-size: 0.8rem;
           font-weight: 600;
           text-align: left;
-          padding: 0 ${theme.layout.gap};
+          padding: 0 ${theme.layout.gap} 0 0;
         }
         :global(th:nth-child(1)) {
           border-radius: ${theme.layout.radius} 0 0 ${theme.layout.radius};

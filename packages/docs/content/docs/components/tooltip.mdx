@@ -343,3 +343,94 @@ import { Tooltip } from '@nextui-org/react';
 </Grid.Container>
 `}
 />
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Checkbox Props
+
+| Attribute           | Type                       | Accepted values                                      | Description                                                | Default   |
+| ------------------- | -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- | --------- |
+| **text**            | `React.ReactNode` `string` | -                                                    | Tooltip content                                            | -         |
+| **color**           | `TooltipTypes` `string`    | [TooltipColors](#tooltip-colors)                     | Change tooltip background color                            | `default` |
+| **textColor**       | `SimpleColors` `string`    | [SimpleColors](#simple-colors)                       | Checkbox tooltip text color                                | `default` |
+| **position**        | `Position`                 | [Position](#position)                                | Tooltip position relative to the target                    | `top`     |
+| **initialVisible**  | `boolean`                  | `true/false`                                         | Determine if the tooltip is visible on initial             | `false`   |
+| **visible**         | `boolean`                  | `true/false`                                         | Force if the tooltip is visible or not                     | -         |
+| **shadow**          | `boolean`                  | `true/false`                                         | Display shadow effect                                      | `false`   |
+| **rounded**         | `boolean`                  | `true/false`                                         | Rounded tooltip                                            | `false`   |
+| **hideArrow**       | `boolean`                  | `true/false`                                         | Hide tooltip arrow icon                                    | -         |
+| **trigger**         | `TriggerTypes`             | [TriggerTypes](#trigger-types)                       | Tooltip trigger mode                                       | `hover`   |
+| **enterDelay(ms)**  | `number`                   | -                                                    | Delay before tooltip is shown                              | `0`       |
+| **leaveDelay(ms)**  | `number`                   | -                                                    | Delay before tooltip is hidden (only work in 'hover' mode) | `0`       |
+| **offset(px)**      | `number`                   | -                                                    | Distance between tooltip and target                        | `12`      |
+| **portalClassName** | `string`                   | -                                                    | Tooltip box content className                              | -         |
+| **onVisibleChange** | `number`                   | [TooltipOnVisibleChange](#tooltip-on-visible-change) | Callback when tooltip visibility has changed               | -         |
+| ...                 | `DivHTMLAttributes`        | `'className', 'id', ...`                             | Native div props                                           | -         |
+
+---
+
+<Spacer y={2} />
+
+### Tooltip types
+
+<Spacer y={1} />
+
+#### Tooltip Colors
+
+```ts
+type TooltipColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'invert'
+  | 'gradient';
+```
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Position
+
+```ts
+type Position =
+  | 'top'
+  | 'topStart'
+  | 'topEnd'
+  | 'left'
+  | 'leftStart'
+  | 'leftEnd'
+  | 'bottom'
+  | 'bottomStart'
+  | 'bottomEnd'
+  | 'right'
+  | 'rightStart'
+  | 'rightEnd';
+```
+
+#### Trigger Types
+
+```ts
+type TriggerTypes = 'hover' | 'click';
+```
+
+#### Tooltip On Visible Change
+
+```ts
+type TooltipOnVisibleChange = (visible: boolean) => void;
+```

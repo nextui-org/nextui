@@ -17,17 +17,16 @@ import {
   TooltipPosition,
   defaultTooltipPosition,
   getIconPosition,
-} from './placement';
-import { Placement, SimpleColors, TooltipTypes } from '../../utils/prop-types';
+} from './position';
+import { Position, SimpleColors, TooltipColors } from '../../utils/prop-types';
 
 interface Props {
   parent?: MutableRefObject<HTMLElement | null> | undefined;
-  placement: Placement;
-  color: TooltipTypes | string;
+  position: Position;
+  color: TooltipColors | string;
   textColor: SimpleColors | string;
   visible: boolean;
   offset: number;
-  bordered?: boolean;
   rounded?: boolean;
   hideArrow?: boolean;
   shadow?: boolean;
@@ -73,10 +72,9 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   parent,
   visible,
   offset,
-  placement,
+  position,
   color,
   textColor,
-  bordered,
   rounded,
   className,
   hideArrow,
@@ -93,13 +91,13 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   );
   if (!parent) return null;
   const updateRect = () => {
-    const position = getPosition(placement, getRect(parent), offset);
-    setRect(position);
+    const pos = getPosition(position, getRect(parent), offset);
+    setRect(pos);
   };
 
   const { transform, top, left, right, bottom } = useMemo(
-    () => getIconPosition(placement, 5),
-    [placement]
+    () => getIconPosition(position, 5),
+    [position]
   );
 
   const borderRadius = useMemo(

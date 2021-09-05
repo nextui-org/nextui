@@ -1,5 +1,5 @@
 // Tag to use if FORCE_TAG is enabled
-export const TAG = 'feat/tooltip';
+export const TAG = 'main';
 
 export const CONTENT_PATH = '/packages/docs/content';
 

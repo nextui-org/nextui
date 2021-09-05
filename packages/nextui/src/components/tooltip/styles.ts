@@ -1,17 +1,17 @@
 import { getNormalColor, invertHex, hexFromString } from './../../utils/color';
-import { SimpleColors, TooltipTypes } from '../../utils/prop-types';
+import { SimpleColors, TooltipColors } from '../../utils/prop-types';
 import { NextUIThemesPalette } from '../../theme';
 
-export type TooltipColors = {
+export type TooltipContentColors = {
   bgColor: string;
   color: string;
 };
 
 export const getColors = (
-  color: TooltipTypes | string,
+  color: TooltipColors | string,
   textColor: SimpleColors | string,
   palette: NextUIThemesPalette
-): TooltipColors => {
+): TooltipContentColors => {
   let bgColor = getNormalColor(color, palette, palette.background);
   bgColor = bgColor.includes('linear-gradient')
     ? (hexFromString(bgColor, palette.text, true) as string)

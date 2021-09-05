@@ -4,21 +4,20 @@ import TooltipContent from './tooltip-content';
 import useClickAway from '../../hooks/use-click-away';
 import {
   TriggerTypes,
-  Placement,
+  Position,
   SimpleColors,
-  TooltipTypes,
+  TooltipColors,
 } from '../../utils/prop-types';
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
 
 interface Props {
   text: string | React.ReactNode;
-  color?: TooltipTypes | string;
+  color?: TooltipColors | string;
   textColor?: SimpleColors | string;
-  placement?: Placement;
+  position?: Position;
   visible?: boolean;
   shadow?: boolean;
-  bordered?: boolean;
   rounded?: boolean;
   initialVisible?: boolean;
   hideArrow?: boolean;
@@ -35,12 +34,11 @@ const defaultProps = {
   initialVisible: false,
   hideArrow: false,
   shadow: true,
-  bordered: false,
   rounded: false,
-  color: 'default' as TooltipTypes | string,
+  color: 'default' as TooltipColors | string,
   textColor: 'default' as SimpleColors | string,
   trigger: 'hover' as TriggerTypes,
-  placement: 'top' as Placement,
+  position: 'top' as Position,
   enterDelay: 0,
   leaveDelay: 0,
   offset: 12,
@@ -57,12 +55,11 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   initialVisible,
   text,
   offset,
-  placement,
+  position,
   portalClassName,
   enterDelay,
   leaveDelay,
   trigger,
-  bordered,
   rounded,
   color,
   textColor,
@@ -82,8 +79,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     visible,
     shadow,
     offset,
-    placement,
-    bordered,
+    position,
     rounded,
     hideArrow,
     parent: ref,

@@ -27,7 +27,7 @@ const UserTwitterCard: React.FC = () => {
         <Button
           auto
           onClick={() => setFollowing(!following)}
-          color="foreground"
+          color={following ? 'foreground' : 'primary'}
           rounded
           bordered={following}
         >
@@ -44,7 +44,7 @@ const UserTwitterCard: React.FC = () => {
           <Text
             className="user-twitter-card__text"
             size={14}
-            color={theme.palette.accents_4}
+            color={theme.palette.accents_5}
           >
             @zoeylang
           </Text>
@@ -53,9 +53,9 @@ const UserTwitterCard: React.FC = () => {
           <Text
             className="user-twitter-card__text"
             size={14}
-            color={theme.palette.accents_4}
+            color={theme.palette.accents_5}
           >
-            @nextuiorg Lover
+            @getnextui Lover
           </Text>
         </Grid>
       </Grid.Container>
@@ -68,7 +68,7 @@ const UserTwitterCard: React.FC = () => {
         <Text
           className="user-twitter-card__text"
           size={14}
-          color={theme.palette.accents_4}
+          color={theme.palette.accents_5}
         >
           <Text
             b
@@ -84,7 +84,7 @@ const UserTwitterCard: React.FC = () => {
         <Text
           className="user-twitter-card__text"
           size={14}
-          color={theme.palette.accents_4}
+          color={theme.palette.accents_5}
         >
           <Text
             b
