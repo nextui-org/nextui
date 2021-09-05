@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './navbar';
 import Footer from './footer';
-import {
-  Container,
-  Row,
-  Col,
-  Spacer,
-  useTheme,
-  NextUIThemes,
-} from '@nextui-org/react';
+import { Container, Row, Col, useTheme, NextUIThemes } from '@nextui-org/react';
 import NextLink from 'next/link';
 import { Route } from '@lib/docs/page';
 import { Sidebar, TableOfContent } from '@components';
