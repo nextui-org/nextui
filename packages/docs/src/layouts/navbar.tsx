@@ -52,7 +52,6 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
   };
 
   const showBlur = !!expanded || !!detached;
-
   return (
     <nav className="navbar__container">
       <div className="navbar__wrapper">
@@ -199,9 +198,6 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           height: 100%;
           display: none;
         }
-        :global(.navbar__version-badge, .navbar__social-icons-container) {
-          display: none !important;
-        }
         :global(.navbar__social-icon) {
           margin: 0 3px;
         }
@@ -219,14 +215,12 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           :global(.navbar__container) {
             top: 0;
             position: fixed;
-            background: ${
-              showBlur
-                ? addColorAlpha(theme.palette.background, 0.6)
-                : 'transparent'
-            };
-            box-shadow: ${
-              detached ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)' : 'none'
-            };
+            background: ${showBlur
+              ? addColorAlpha(theme.palette.background, 0.6)
+              : 'transparent'};
+            box-shadow: ${detached
+              ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
+              : 'none'};
             min-height: 64px;
             max-height: 64px;
           }
@@ -238,10 +232,11 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
               (backdrop-filter: blur(10px))
           ) {
             :global(.navbar__container) {
-              backdrop-filter: ${
-                showBlur ? 'saturate(180%) blur(10px)' : 'none'
-              };
+              backdrop-filter: ${showBlur
+                ? 'saturate(180%) blur(10px)'
+                : 'none'};
             }
+          }
           @supports (
             not (-webkit-backdrop-filter: blur(10px)) and not
               (backdrop-filter: blur(10px))
@@ -252,11 +247,6 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           }
           :global(.navbar__logo-container a:active) {
             opacity: 0.7;
-          }
-        }
-        @media only screen and (min-width: ${theme.breakpoints.xs.max}) {
-          :global(.navbar__version-badge) {
-            display: inline-block !important;
           }
         }
         @media only screen and (max-width: ${theme.breakpoints.md.min}) {
@@ -272,10 +262,8 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           :global(.navbar__resources-container) {
             display: none;
           }
-        }
-        @media only screen and (min-width: ${theme.breakpoints.md.min}) {
-          :global(.navbar__social-icons-container) {
-            display: flex !important;
+          :global(.navbar__version-badge, .navbar__social-icons-container) {
+            display: none !important;
           }
         }
         @media only screen and (max-width: ${theme.breakpoints.lg.min}) {

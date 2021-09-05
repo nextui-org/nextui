@@ -54,7 +54,7 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
       />
       <Spacer inline x={0.2} />
       {route?.newPost && (
-        <Badge className="post__new-badge" label="New" type="success" />
+        <Badge className="post__new-badge" label="New" type="primary" />
       )}
       <style jsx>{`
         .link {

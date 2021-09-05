@@ -17,8 +17,8 @@ const Footer: React.FC = () => {
     Number(theme.breakpoints.sm.max.replace('px', ''))
   );
   return (
-    <Container className="footer__container" gap={0}>
-      <Row justify={isMobile ? 'space-between' : 'flex-end'}>
+    <Container fluid className="footer__container" gap={0}>
+      <Row>
         <Text span className="footer__copy" size={isMobile ? 12 : 14}>
           &copy; Copyright {year} NextUI
         </Text>
@@ -33,10 +33,15 @@ const Footer: React.FC = () => {
           :global(.footer__container) {
             z-index: 99;
             padding: 1rem 0;
+            padding-left: ${theme.layout.gapHalf} !important;
+            padding-right: ${theme.layout.gapHalf} !important;
           }
           :global(.footer__copy),
           :global(.footer__by) {
             color: ${theme.palette.accents_6} !important;
+          }
+          :global(.footer__container .row) {
+            justify-content: flex-end;
           }
           @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
             :global(.footer__container) {
@@ -44,7 +49,13 @@ const Footer: React.FC = () => {
               padding: 1rem;
             }
             :global(.footer__container .row) {
-              padding: 0 calc(2 * ${theme.layout.gapQuarter}) !important;
+              padding-left: calc(2 * ${theme.layout.gapQuarter}) !important;
+              padding-right: calc(2 * ${theme.layout.gapQuarter}) !important;
+            }
+          }
+          @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+            :global(.footer__container .row) {
+              justify-content: space-between !important;
             }
           }
         `}</style>
