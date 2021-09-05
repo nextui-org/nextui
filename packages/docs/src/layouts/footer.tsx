@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
     <Container fluid className="footer__container" gap={0}>
       <Row>
         <Text span className="footer__copy" size={isMobile ? 12 : 14}>
-          &copy; Copyright {year} NextUI
+          &copy; Copyright&nbsp;{year}&nbsp;NextUI
         </Text>
         <Spacer x={1} />
         <Text span className="footer__by" size={isMobile ? 12 : 14}>
