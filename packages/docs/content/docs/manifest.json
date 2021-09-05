@@ -68,8 +68,7 @@
                         },
                         {
                             "title": "Checkbox",
-                            "path": "/docs/components/checkbox.mdx",
-                            "newPost": true
+                            "path": "/docs/components/checkbox.mdx"
                         },
                         {
                             "title": "Radio",
@@ -77,7 +76,8 @@
                         },
                         {
                             "title": "Tooltip",
-                            "path": "/docs/components/tooltip.mdx"
+                            "path": "/docs/components/tooltip.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Loading",
