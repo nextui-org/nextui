@@ -68,15 +68,16 @@
                         },
                         {
                             "title": "Checkbox",
-                            "path": "/docs/components/checkbox.mdx"
+                            "path": "/docs/components/checkbox.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Radio",
                             "path": "/docs/components/radio.mdx"
                         },
                         {
-                            "title": "Input",
-                            "path": "/docs/components/input.mdx"
+                            "title": "Tooltip",
+                            "path": "/docs/components/tooltip.mdx"
                         },
                         {
                             "title": "Loading",

@@ -31,7 +31,7 @@ import {
 } from './styles';
 
 export interface Props {
-  color?: NormalColors;
+  color?: NormalColors | string;
   size?: NormalSizes;
   light?: boolean;
   flat?: boolean;
@@ -54,7 +54,7 @@ export interface Props {
 }
 
 const defaultProps = {
-  color: 'default' as NormalColors,
+  color: 'default' as NormalColors | string,
   size: 'medium' as NormalSizes,
   htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
   loaderType: 'default' as NormalLoaders,

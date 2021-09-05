@@ -109,11 +109,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           </Row>
         </Col>
         <Col className="navbar__search-container">
-          <Row
-            className="navbar__search-row"
-            justify={isMobile ? 'center' : 'flex-end'}
-            align="center"
-          >
+          <Row className="navbar__search-row" justify="flex-end" align="center">
             <Row
               className="navbar__social-icons-container"
               justify="flex-end"
@@ -223,25 +219,29 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           :global(.navbar__container) {
             top: 0;
             position: fixed;
-            background: ${showBlur
-              ? addColorAlpha(theme.palette.background, 0.6)
-              : 'transparent'};
-            box-shadow: ${detached
-              ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
-              : 'none'};
+            background: ${
+              showBlur
+                ? addColorAlpha(theme.palette.background, 0.6)
+                : 'transparent'
+            };
+            box-shadow: ${
+              detached ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)' : 'none'
+            };
             min-height: 64px;
             max-height: 64px;
+          }
+          :global(.navbar__search-row) {
+            justify-content: center;
           }
           @supports (
             (-webkit-backdrop-filter: blur(10px)) or
               (backdrop-filter: blur(10px))
           ) {
             :global(.navbar__container) {
-              backdrop-filter: ${showBlur
-                ? 'saturate(180%) blur(10px)'
-                : 'none'};
+              backdrop-filter: ${
+                showBlur ? 'saturate(180%) blur(10px)' : 'none'
+              };
             }
-          }
           @supports (
             not (-webkit-backdrop-filter: blur(10px)) and not
               (backdrop-filter: blur(10px))

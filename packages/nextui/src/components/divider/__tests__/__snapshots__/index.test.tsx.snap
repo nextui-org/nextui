@@ -11,13 +11,13 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-1245640475 divider ",
+          "class": "jsx-2699248486 divider ",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-1245640475 text start",
+              "class": "jsx-2699248486 text start",
             },
             "children": Array [
               Node {
@@ -46,13 +46,13 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-1245640475 divider ",
+            "class": "jsx-2699248486 divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-1245640475 text start",
+                "class": "jsx-2699248486 text start",
               },
               "children": Array [
                 Node {
@@ -81,13 +81,13 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "jsx-1245640475 divider ",
+              "class": "jsx-2699248486 divider ",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-1245640475 text end",
+                  "class": "jsx-2699248486 text end",
                 },
                 "children": Array [
                   Node {
@@ -116,13 +116,13 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "jsx-1010203768 divider ",
+                "class": "jsx-145750245 divider ",
                 "role": "separator",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1010203768 text start",
+                    "class": "jsx-145750245 text start",
                   },
                   "children": Array [
                     Node {
@@ -200,13 +200,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-1245640475 divider ",
+          "class": "jsx-2699248486 divider ",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-1245640475 text start",
+              "class": "jsx-2699248486 text start",
             },
             "children": Array [
               Node {
@@ -235,13 +235,13 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-1245640475 divider ",
+            "class": "jsx-2699248486 divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-1245640475 text end",
+                "class": "jsx-2699248486 text end",
               },
               "children": Array [
                 Node {
@@ -270,13 +270,13 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "jsx-1010203768 divider ",
+              "class": "jsx-145750245 divider ",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-1010203768 text start",
+                  "class": "jsx-145750245 text start",
                 },
                 "children": Array [
                   Node {
@@ -331,13 +331,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-1245640475 divider ",
+            "class": "jsx-2699248486 divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-1245640475 text start",
+                "class": "jsx-2699248486 text start",
               },
               "children": Array [
                 Node {
@@ -389,13 +389,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-1245640475 divider ",
+          "class": "jsx-2699248486 divider ",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-1245640475 text end",
+              "class": "jsx-2699248486 text end",
             },
             "children": Array [
               Node {
@@ -424,13 +424,13 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-1010203768 divider ",
+            "class": "jsx-145750245 divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-1010203768 text start",
+                "class": "jsx-145750245 text start",
               },
               "children": Array [
                 Node {
@@ -473,13 +473,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-1245640475 divider ",
+            "class": "jsx-2699248486 divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-1245640475 text start",
+                "class": "jsx-2699248486 text start",
               },
               "children": Array [
                 Node {
@@ -510,13 +510,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "jsx-1245640475 divider ",
+              "class": "jsx-2699248486 divider ",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-1245640475 text start",
+                  "class": "jsx-2699248486 text start",
                 },
                 "children": Array [
                   Node {
@@ -578,13 +578,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-1010203768 divider ",
+          "class": "jsx-145750245 divider ",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-1010203768 text start",
+              "class": "jsx-145750245 text start",
             },
             "children": Array [
               Node {
@@ -615,13 +615,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-1245640475 divider ",
+            "class": "jsx-2699248486 divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "jsx-1245640475 text end",
+                "class": "jsx-2699248486 text end",
               },
               "children": Array [
                 Node {
@@ -652,13 +652,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "jsx-1245640475 divider ",
+              "class": "jsx-2699248486 divider ",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "jsx-1245640475 text start",
+                  "class": "jsx-2699248486 text start",
                 },
                 "children": Array [
                   Node {
@@ -689,13 +689,13 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "jsx-1245640475 divider ",
+                "class": "jsx-2699248486 divider ",
                 "role": "separator",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "jsx-1245640475 text start",
+                    "class": "jsx-2699248486 text start",
                   },
                   "children": Array [
                     Node {
@@ -876,24 +876,27 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-1917779631 divider ",
+          "class": "jsx-2699248486 divider ",
           "role": "separator",
+          "type": "secondary",
         },
         "children": Array [],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-3244236143 divider ",
+            "class": "jsx-2699248486 divider ",
             "role": "separator",
+            "type": "warning",
           },
           "children": Array [],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "jsx-973279983 divider ",
+              "class": "jsx-2699248486 divider ",
               "role": "separator",
+              "type": "dark",
             },
             "children": Array [],
             "name": "div",
@@ -905,10 +908,12 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "class": undefined,
               "role": undefined,
+              "type": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
               "role": undefined,
+              "type": undefined,
             },
           },
           "parent": [Circular],
@@ -917,10 +922,12 @@ LoadedCheerio {
           "x-attribsNamespace": Object {
             "class": undefined,
             "role": undefined,
+            "type": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "role": undefined,
+            "type": undefined,
           },
         },
         "parent": [Circular],
@@ -929,24 +936,28 @@ LoadedCheerio {
         "x-attribsNamespace": Object {
           "class": undefined,
           "role": undefined,
+          "type": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
           "role": undefined,
+          "type": undefined,
         },
       },
       Node {
         "attribs": Object {
-          "class": "jsx-3244236143 divider ",
+          "class": "jsx-2699248486 divider ",
           "role": "separator",
+          "type": "warning",
         },
         "children": Array [],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-973279983 divider ",
+            "class": "jsx-2699248486 divider ",
             "role": "separator",
+            "type": "dark",
           },
           "children": Array [],
           "name": "div",
@@ -958,17 +969,20 @@ LoadedCheerio {
           "x-attribsNamespace": Object {
             "class": undefined,
             "role": undefined,
+            "type": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "role": undefined,
+            "type": undefined,
           },
         },
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-1917779631 divider ",
+            "class": "jsx-2699248486 divider ",
             "role": "separator",
+            "type": "secondary",
           },
           "children": Array [],
           "name": "div",
@@ -980,26 +994,31 @@ LoadedCheerio {
           "x-attribsNamespace": Object {
             "class": undefined,
             "role": undefined,
+            "type": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "role": undefined,
+            "type": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
           "role": undefined,
+          "type": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
           "role": undefined,
+          "type": undefined,
         },
       },
       Node {
         "attribs": Object {
-          "class": "jsx-973279983 divider ",
+          "class": "jsx-2699248486 divider ",
           "role": "separator",
+          "type": "dark",
         },
         "children": Array [],
         "name": "div",
@@ -1008,8 +1027,9 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-3244236143 divider ",
+            "class": "jsx-2699248486 divider ",
             "role": "separator",
+            "type": "warning",
           },
           "children": Array [],
           "name": "div",
@@ -1018,8 +1038,9 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "jsx-1917779631 divider ",
+              "class": "jsx-2699248486 divider ",
               "role": "separator",
+              "type": "secondary",
             },
             "children": Array [],
             "name": "div",
@@ -1031,30 +1052,36 @@ LoadedCheerio {
             "x-attribsNamespace": Object {
               "class": undefined,
               "role": undefined,
+              "type": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
               "role": undefined,
+              "type": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
             "role": undefined,
+            "type": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
             "role": undefined,
+            "type": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
           "role": undefined,
+          "type": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
           "role": undefined,
+          "type": undefined,
         },
       },
     ],
@@ -1168,7 +1195,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-4131917444 divider ",
+          "class": "jsx-1968956569 divider ",
           "role": "separator",
         },
         "children": Array [],
@@ -1176,7 +1203,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-3752882425 divider ",
+            "class": "jsx-3442024516 divider ",
             "role": "separator",
           },
           "children": Array [],
@@ -1209,7 +1236,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-3752882425 divider ",
+          "class": "jsx-3442024516 divider ",
           "role": "separator",
         },
         "children": Array [],
@@ -1219,7 +1246,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-4131917444 divider ",
+            "class": "jsx-1968956569 divider ",
             "role": "separator",
           },
           "children": Array [],

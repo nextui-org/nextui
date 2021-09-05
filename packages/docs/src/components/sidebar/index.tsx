@@ -45,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   );
   return (
     <>
-      {routes?.map(({ path, title, icon, routes, heading, open }) => {
+      {routes?.map(({ path, title, icon, routes, newPost, heading, open }) => {
         if (routes) {
           const pathname = getCategoryPath(routes);
           const categorySelected = slug.startsWith(pathname);
@@ -90,7 +90,15 @@ const Sidebar: React.FC<SidebarProps> = ({
         const pagePath: string | undefined = path && removeFromLast(path, '.');
         const pathname = pagePath && addTagToSlug(pagePath, tag);
         const selected = pagePath && pagePath === slug;
-        const route = { href, path, title, pathname, selected } as NavLinkProps;
+
+        const route = {
+          href,
+          path,
+          title,
+          pathname,
+          selected,
+          newPost,
+        } as NavLinkProps;
 
         return (
           <Post

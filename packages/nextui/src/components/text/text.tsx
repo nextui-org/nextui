@@ -41,7 +41,7 @@ const defaultProps = {
   em: false,
   blockquote: false,
   className: '',
-  color: 'default' as NormalColors,
+  color: 'default' as NormalColors | string,
 };
 
 type ElementMap = { [key in keyof JSX.IntrinsicElements]?: boolean };

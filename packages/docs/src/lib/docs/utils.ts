@@ -15,7 +15,6 @@ function getDocsSlug(slug: any): any {
 export function getSlug(params: SlugParams): SlugResponse {
   // Handle optional catch all route for `/docs`
   const slug = getDocsSlug(params?.slug);
-
   if (slug[0] === 'tag') {
     return {
       slug: `/docs/${getDocsSlug(slug.slice(2)).join('/')}`,

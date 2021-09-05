@@ -107,7 +107,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const renderInput = React.useCallback(
     (inputProps: RenderInputComponentProps) => {
       return (
-        <div className="search__input-container">
+        <label className="search__input-container">
           <input {...inputProps} />
           {!value ? (
             <span className="search__placeholder-container">
@@ -123,7 +123,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               <Close size={16} fill={theme.palette.accents_6} />
             </span>
           )}
-        </div>
+        </label>
       );
     },
     [value]

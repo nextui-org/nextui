@@ -5,7 +5,7 @@ interface Props {
   x: number;
   y: number;
   onCompleted: () => void;
-  color: string;
+  color?: string;
 }
 
 const defaultProps = {

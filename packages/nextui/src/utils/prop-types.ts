@@ -21,30 +21,18 @@ export const simpleColors = tuple(
   'error'
 );
 
-export const normalLoaders = tuple(
-  'default',
-  'points',
-  'points-opacity',
-  'gradient',
-  'spinner'
-);
-
-export const normalWeights = tuple('light', 'normal', 'bold');
-
-const themeTypes = tuple('dark', 'light');
-
-const snippetTypes = tuple(
+export const extendedColors = tuple(
   'default',
   'primary',
   'secondary',
   'success',
   'warning',
   'error',
-  'dark',
-  'lite'
+  'invert',
+  'gradient'
 );
 
-const cardColors = tuple(
+export const extraColors = tuple(
   'default',
   'primary',
   'secondary',
@@ -60,11 +48,23 @@ const cardColors = tuple(
   'cyan'
 );
 
+export const normalLoaders = tuple(
+  'default',
+  'points',
+  'points-opacity',
+  'gradient',
+  'spinner'
+);
+
+export const normalWeights = tuple('light', 'normal', 'bold');
+
+const themeTypes = tuple('dark', 'light');
+
 const copyTypes = tuple('default', 'slient', 'prevent');
 
 const triggerTypes = tuple('hover', 'click');
 
-const placement = tuple(
+const position = tuple(
   'top',
   'topStart',
   'topEnd',
@@ -141,19 +141,21 @@ export type NormalColors = typeof normalColors[number];
 
 export type SimpleColors = typeof simpleColors[number];
 
+export type TooltipColors = typeof extendedColors[number];
+
 export type NormalLoaders = typeof normalLoaders[number];
 
 export type ThemeTypes = typeof themeTypes[number];
 
-export type SnippetTypes = typeof snippetTypes[number];
+export type SnippetTypes = typeof extendedColors[number];
 
-export type CardColors = typeof cardColors[number];
+export type CardColors = typeof extraColors[number];
 
 export type CopyTypes = typeof copyTypes[number];
 
 export type TriggerTypes = typeof triggerTypes[number];
 
-export type Placement = typeof placement[number];
+export type Position = typeof position[number];
 
 export type DividerAlign = typeof dividerAlign[number];
 

@@ -6,3 +6,4 @@ export { default as usePortal } from './use-portal';
 export { default as useSSR } from './use-ssr';
 export { default as useBodyScroll } from './use-body-scroll';
 export { default as useClickAway } from './use-click-away';
+export { default as useClickAnywhere } from './use-click-anywhere';

@@ -40,19 +40,23 @@ export const getNormalColor = (
   palette: NextUIThemesPalette,
   defaultColor: string = 'inherit'
 ) => {
-  const colors: { [key in NormalColors | string]: string } = {
+  const colors: { [key in string]: string } = {
     default: defaultColor,
+    background: palette.background,
+    foreground: palette.foreground,
     primary: palette.primary,
     secondary: palette.secondary,
     success: palette.success,
     warning: palette.warning,
     error: palette.error,
     gradient: palette.gradient,
+    dark: palette.foreground,
+    invert: palette.foreground,
   };
   if (typeof color == 'boolean') {
     return color ? palette.primary : 'inherit';
   }
-  if (color && isNormalColor(color)) {
+  if (color && colors[color]) {
     return colors[color];
   }
   return color || defaultColor;
@@ -95,7 +99,7 @@ export const hexFromString = (
   str: string,
   defaultColor: string = '',
   returnLast = false
-): string | string[] => {
+) => {
   const fullReg = /#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}$/g;
   const hexCodes = str.match(fullReg);
   if (hexCodes && hexCodes.length > 0) {
@@ -127,4 +131,41 @@ export const addColorAlpha = (color: string, alpha: number) => {
   const [r, g, b] = colorToRgbValues(color);
   const safeAlpha = alpha > 1 ? 1 : alpha < 0 ? 0 : alpha;
   return `rgba(${r}, ${g}, ${b}, ${safeAlpha})`;
+};
+
+function padZero(str: string, len?: number): string {
+  len = len || 2;
+  var zeros = new Array(len).join('0');
+  return (zeros + str).slice(-len);
+}
+
+export const invertHex = (hex: string, smooth = true) => {
+  if (hex.indexOf('#') === 0) {
+    hex = hex.slice(1);
+  }
+  // convert 3-digit hex to 6-digits.
+  if (hex.length === 3) {
+    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+  }
+  if (hex.length !== 6) {
+    console.error('Invalid HEX color.');
+  }
+  let r = parseInt(hex.slice(0, 2), 16),
+    g = parseInt(hex.slice(2, 4), 16),
+    b = parseInt(hex.slice(4, 6), 16);
+  if (smooth) {
+    // http://stackoverflow.com/a/3943023/112731
+    return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? '#000000' : '#FFFFFF';
+  }
+  // invert color components
+  r = 255 - r;
+  g = 255 - g;
+  b = 255 - b;
+  // pad each with zeros and return
+  return (
+    '#' +
+    padZero(r.toString(16)) +
+    padZero(g.toString(16)) +
+    padZero(b.toString(16))
+  );
 };

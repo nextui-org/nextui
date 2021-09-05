@@ -2,7 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import cn from 'classnames';
 import NavLink, { NavLinkProps } from '../nav-link';
 import withDefaults from '@utils/with-defaults';
-import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { Badge } from '@components';
+import { useTheme, NextUIThemes, Spacer } from '@nextui-org/react';
 
 export interface Props {
   level: number;
@@ -51,6 +52,10 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
         color={!route.selected && theme.palette.accents_5}
         onClick={onClick}
       />
+      <Spacer inline x={0.2} />
+      {route?.newPost && (
+        <Badge className="post__new-badge" label="New" type="success" />
+      )}
       <style jsx>{`
         .link {
           margin: 18px 0;

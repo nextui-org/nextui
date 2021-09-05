@@ -10,6 +10,7 @@ export interface Route {
   open?: boolean;
   path?: string;
   routes?: Route[];
+  newPost?: boolean;
 }
 
 export interface RouteContext {
