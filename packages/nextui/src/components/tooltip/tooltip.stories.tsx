@@ -166,65 +166,65 @@ export const Placements = () => {
     <Container>
       <Grid.Container gap={1.5} justify="center" alignContent="center">
         <Grid xs={4} justify="flex-end">
-          <Tooltip color="primary" text={text} placement="topStart">
+          <Tooltip color="primary" text={text} position="topStart">
             topStart
           </Tooltip>
         </Grid>
         <Grid xs={4} justify="center">
-          <Tooltip color="primary" text={text} placement="top">
+          <Tooltip color="primary" text={text} position="top">
             top
           </Tooltip>
         </Grid>
         <Grid xs={4}>
-          <Tooltip color="primary" text={text} placement="topEnd">
+          <Tooltip color="primary" text={text} position="topEnd">
             topEnd
           </Tooltip>
         </Grid>
         <Grid xs={3} justify="flex-end">
-          <Tooltip color="primary" text={text} placement="leftStart">
+          <Tooltip color="primary" text={text} position="leftStart">
             leftStart
           </Tooltip>
         </Grid>
         <Grid xs={6} />
         <Grid xs={3}>
-          <Tooltip color="primary" text={text} placement="rightStart">
+          <Tooltip color="primary" text={text} position="rightStart">
             rightStart
           </Tooltip>
         </Grid>
         <Grid xs={3} justify="flex-end">
-          <Tooltip color="primary" text={text} placement="left">
+          <Tooltip color="primary" text={text} position="left">
             left
           </Tooltip>
         </Grid>
         <Grid xs={6} />
         <Grid xs={3}>
-          <Tooltip color="primary" text={text} placement="right">
+          <Tooltip color="primary" text={text} position="right">
             right
           </Tooltip>
         </Grid>
         <Grid xs={3} justify="flex-end">
-          <Tooltip color="primary" text={text} placement="leftEnd">
+          <Tooltip color="primary" text={text} position="leftEnd">
             leftEnd
           </Tooltip>
         </Grid>
         <Grid xs={6} />
         <Grid xs={3}>
-          <Tooltip color="primary" text={text} placement="rightEnd">
+          <Tooltip color="primary" text={text} position="rightEnd">
             rightEnd
           </Tooltip>
         </Grid>
         <Grid xs={4} justify="flex-end">
-          <Tooltip color="primary" text={text} placement="bottomStart">
+          <Tooltip color="primary" text={text} position="bottomStart">
             bottomStart
           </Tooltip>
         </Grid>
         <Grid xs={4} justify="center">
-          <Tooltip color="primary" text={text} placement="bottom">
+          <Tooltip color="primary" text={text} position="bottom">
             bottom
           </Tooltip>
         </Grid>
         <Grid xs={4}>
-          <Tooltip color="primary" text={text} placement="bottomEnd">
+          <Tooltip color="primary" text={text} position="bottomEnd">
             bottomEnd
           </Tooltip>
         </Grid>
