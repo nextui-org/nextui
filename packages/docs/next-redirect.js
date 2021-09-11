@@ -11,6 +11,16 @@ async function redirect() {
       permanent: true,
     },
     {
+      source: '/guide',
+      destination: '/docs/guide/getting-started',
+      permanent: true,
+    },
+    {
+      source: '/learn',
+      destination: '/docs/guide/getting-started',
+      permanent: true,
+    },
+    {
       source: '/components/:path*',
       permanent: true,
       destination: '/docs/components/:path*',
@@ -23,11 +33,6 @@ async function redirect() {
     {
       source: '/components',
       destination: '/docs/components/text',
-      permanent: true,
-    },
-    {
-      source: '/guide',
-      destination: '/docs/guide/getting-started',
       permanent: true,
     },
   ];

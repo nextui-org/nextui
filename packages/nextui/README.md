@@ -17,52 +17,38 @@
   </a>
 </p>
 
-## Browser support
+## Getting Started
 
-Recent versions of Firefox, Chrome, Edge, Opera and Safari. IE11+
+Visit <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextui.org/guide</a> to get started with NextUI.
 
-## Supporting through Patreon
+## Documentation
 
-Any additional information goes here
+Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full documentation.
 
-## Introduction
+## Quick Start
 
-A brief description of what this project does and who it's for
+1. Installation: Inside your React project directory, install NextUI by running either of the following `yarn add @nextui-org/react` or `npm i @nextui-org/react`.
 
-## Support
+2. Setup: For NextUI to work correctly, you need to set up the CssBaseline at the root of your application.
 
-If you feel awesome and want to support us in a small way, please consider starring and sharing the repo! This helps us getting known and grow the community. 🙏
+Go to the root of your application and do this:
 
-## Installation
+```jsx
+import { CssBaseline } from '@nextui-org/react';
 
-Install my-project with npm
-
-```bash
-  npm install my-project
-  cd my-project
+const Application = () => (
+  <>
+    <CssBaseline /> // ---> Normalize styles
+    <AppComponent /> // ---> Your App Component
+  </>
+);
 ```
 
-## Components
+3. Using NextUI components: Once NextUI is installed you can use any of the components as follows.
 
-You can also view all developed components in [Storybook](https://linktodocumentation)
-
-- [Component 1](https://linktodocumentation)
-- [Component 2](https://linktodocumentation)
-- [Component 3](https://linktodocumentation)
-- [Component 4](https://linktodocumentation)
-- [Component 5](https://linktodocumentation)
-- [Component 6](https://linktodocumentation)
-- [Component 7](https://linktodocumentation)
-- [Component 8](https://linktodocumentation)
-
-## Usage/Examples
-
-```javascript
-import Component from 'my-project';
-
-function App() {
-  return <Component />;
-}
+```jsx
+import { Button } from '@next-ui/react';
+const Component = () => <Button>Click me</Button>;
 ```
 
 ## Contributing
@@ -72,13 +58,6 @@ Contributions are always welcome!
 See `CONTRIBUTING.md` for ways to get started.
 
 Please adhere to this project's `CODE_OF_CONDUCT`.
-
-## Related
-
-Here are some related projects
-
-- [Vuesax](https://github.com/matiassingers/awesome-readme)
-- [Geist UI](https://github.com/matiassingers/awesome-readme)
 
 ## License
 

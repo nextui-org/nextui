@@ -46,7 +46,6 @@ const Footer: React.FC = () => {
           @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
             :global(.footer__container) {
               z-index: 99;
-              padding: 1rem;
             }
             :global(.footer__container .row) {
               padding-left: calc(2 * ${theme.layout.gapQuarter}) !important;
@@ -55,7 +54,7 @@ const Footer: React.FC = () => {
           }
           @media only screen and (max-width: ${theme.breakpoints.md.min}) {
             :global(.footer__container .row) {
-              justify-content: space-between !important;
+              justify-content: space-between;
             }
           }
         `}</style>
