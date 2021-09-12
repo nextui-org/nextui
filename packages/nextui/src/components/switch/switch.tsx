@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import withDefaults from '../../utils/with-defaults';
 import useTheme from '../../hooks/use-theme';
 import { NormalSizes, NormalColors } from '../../utils/prop-types';
-import { getNormalColor } from '../../utils/color';
+import { getNormalColor, hexToRGBA, isHex } from '../../utils/color';
 import { getSizes } from './styles';
 import useWarning from '../../hooks/use-warning';
 
@@ -171,10 +171,11 @@ const Switch: React.FC<SwitchProps> = ({
           height: calc(${height} * 0.76);
           justify-content: center;
           align-items: center;
-          top: 50%;
+          top: 49%;
+          bottom: 1px;
           transform: translateY(-50%);
           left: ${bordered ? '4%' : 0};
-          box-shadow: 0 5px 15px 0 rgb(0 0 0 / 15%);
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
           transition: left 0.25s ease;
           border-radius: ${radius};
           background: ${bordered
@@ -202,7 +203,9 @@ const Switch: React.FC<SwitchProps> = ({
         }
         .checked > .circle {
           left: calc(100% - (${height} * 0.8));
-          background: ${theme.palette.background};
+          background: ${isHex(theme.palette.background)
+            ? hexToRGBA(theme.palette.background, 0.6)
+            : theme.palette.background};
         }
         .disabled > .circle {
           background: ${theme.palette.accents_2};
