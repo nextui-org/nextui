@@ -43,6 +43,7 @@ const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
           padding: 0 ${theme.layout.gap} 0 0;
         }
         :global(th:nth-child(1)) {
+          padding-left: 1rem;
           border-radius: ${theme.layout.radius} 0 0 ${theme.layout.radius};
         }
         :global(th:last-child) {

@@ -1,6 +1,6 @@
 ---
 name: Report a bug / issue
-about: Report a bug / issue to help us improve SUI
+about: Report a bug / issue to help us improve NextUI
 title: ''
 labels: ''
 assignees: ''
