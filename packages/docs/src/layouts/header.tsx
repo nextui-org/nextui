@@ -3,14 +3,18 @@ import Head from 'next/head';
 import withDefaults from '@utils/with-defaults';
 import { toCapitalize } from '@utils/index';
 import { isProd } from '@utils/index';
+import { TWITTER_USER_NAME, SITE_URL } from '@lib/constants';
 
 export interface HeaderProps {
   title?: string;
   description?: string;
+  image?: string;
+  url?: string;
 }
 
 const defaultProps = {
   description: 'Beautiful, fast, modern React UI Library',
+  image: '/twitter-cards/nextui.png',
 };
 
 if (global.document) {
@@ -24,13 +28,27 @@ if (global.document) {
   }
 }
 
-const Header: React.FC<HeaderProps> = ({ title, description }) => {
+const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
   let pageTitle = title ? `${toCapitalize(title)} | ` : '';
   pageTitle += 'NextUI - Beautiful, fast,modern React UI Library';
   return (
     <Head>
       <title>{pageTitle}</title>
       <meta property="og:title" content={pageTitle} key="title" />
+      <meta name="twitter:site" content={`@${TWITTER_USER_NAME}`} />
+      <meta
+        name="twitter:card"
+        content={image ? 'summary_large_image' : 'summary'}
+      />
+      {image && (
+        <meta
+          property="og:image"
+          content={image.startsWith('https://') ? image : `${SITE_URL}${image}`}
+        />
+      )}
+      <meta property="og:title" content={pageTitle} />
+      {url && <meta property="og:url" content={url} />}
+      <meta property="og:description" content={description} />
       <meta name="description" content={description} />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="theme-color" content="#ffffff" />

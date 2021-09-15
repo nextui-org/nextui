@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { LiveEditor } from 'react-live';
-import { useTheme, Row, Col } from '@nextui-org/react';
+import { useTheme, Row, Col, Tooltip } from '@nextui-org/react';
+import { capitalize, join } from 'lodash';
 import CopyIcon from '../icons/copy';
 import BugIcon from '../icons/bug';
 import RightIcon from '../icons/arrow-right';
+import { ISSUE_REPORT_URL } from '../../lib/github/constants';
 
 const Editor: React.FC = () => {
   const theme = useTheme();
   const [visible, setVisible] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const router = useRouter();
+
+  const slug = router.query.slug || '';
+
+  const componentTitle = Array.isArray(slug)
+    ? join(
+        slug.map((s) => capitalize(s)),
+        '/'
+      )
+    : capitalize(slug);
+
   const clickHandler = (event: React.MouseEvent) => {
     event.stopPropagation();
     event.preventDefault();
@@ -17,26 +33,38 @@ const Editor: React.FC = () => {
   const copyHandler = (event: React.MouseEvent) => {
     event.stopPropagation();
     event.preventDefault();
+    setCopied(true);
+  };
+
+  const handleTooltipVisibleChange = () => {
+    setTimeout(() => {
+      setCopied(false);
+    }, 200);
   };
 
   return (
     <div className="editor">
       <details open={visible}>
-        <summary onClick={clickHandler}>
+        <summary>
           <Row
             justify="space-between"
             align="center"
             style={{ height: '100%', width: '100%' }}
           >
-            <Col className="action">
+            <Col className="action" onClick={clickHandler}>
               <span className="arrow">
                 <RightIcon size={16} fill={theme.palette.accents_6} />
               </span>
               <span className="title">Live Editor</span>
             </Col>
-            <Col className="action">
-              {visible && (
-                <>
+            <Col className="action right-side">
+              <>
+                <Tooltip
+                  hideArrow
+                  className="action-tooltip"
+                  text={copied ? 'Copied!' : 'Copy'}
+                  onVisibleChange={handleTooltipVisibleChange}
+                >
                   <span
                     className="icon"
                     onClick={copyHandler}
@@ -44,15 +72,23 @@ const Editor: React.FC = () => {
                   >
                     <CopyIcon fill={theme.palette.accents_6} size={18} />
                   </span>
-                  <span
+                </Tooltip>
+                <Tooltip
+                  hideArrow
+                  className="action-tooltip"
+                  text="Report a bug"
+                >
+                  <a
                     className="icon"
-                    onClick={copyHandler}
                     title="Report a bug"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href={`${ISSUE_REPORT_URL}${componentTitle}`}
                   >
                     <BugIcon fill={theme.palette.accents_6} size={18} />
-                  </span>
-                </>
-              )}
+                  </a>
+                </Tooltip>
+              </>
             </Col>
           </Row>
         </summary>
@@ -92,6 +128,13 @@ const Editor: React.FC = () => {
           display: flex;
           align-items: center;
           font-size: 0.8rem;
+        }
+        details :global(.right-side) {
+          opacity: 0;
+          transition: all 0.15s ease;
+        }
+        details:hover :global(.right-side) {
+          opacity: 1;
         }
         .area {
           position: relative;
