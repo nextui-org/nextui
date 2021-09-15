@@ -66,7 +66,7 @@ const getBorder = (size: NormalSizes | number): string => {
     large: '2px',
     xlarge: '2.5px',
   };
-  if (typeof size === 'number') return `1.5px`;
+  if (typeof size === 'number') return `${size}px`;
   return sizes[size];
 };
 
