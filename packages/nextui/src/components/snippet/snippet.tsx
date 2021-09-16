@@ -166,7 +166,6 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           width: calc(2 * ${theme.layout.gap});
           color: inherit;
           transition: opacity 0.2s ease 0s;
-          border-radius: ${theme.layout.radius};
           cursor: pointer;
           user-select: none;
         }
