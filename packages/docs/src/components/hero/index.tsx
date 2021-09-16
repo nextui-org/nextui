@@ -13,13 +13,10 @@ import {
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
 import NextLink from 'next/link';
-import { useMediaQuery } from '@hooks/use-media-query';
 
 const Hero: React.FC = () => {
   const theme = useTheme() as NextUIThemes;
-  const isMobile = useMediaQuery(
-    Number(theme.breakpoints.md.min.replace('px', ''))
-  );
+
   return (
     <Container
       lg
@@ -31,7 +28,7 @@ const Hero: React.FC = () => {
       as="section"
     >
       <Row className="hero__content" align="center">
-        <Col className="hero__left-container" span={isMobile ? 12 : 6}>
+        <Col className="hero__left-container">
           <Text h1 className="hero__title" size="4rem">
             Beautiful, fast and
           </Text>
@@ -197,10 +194,16 @@ const Hero: React.FC = () => {
             margin-top: 80px;
             padding: 0 8px;
           }
+          :global(.hero__left-container) {
+            width: 100% !important;
+          }
         }
         @media only screen and (min-width: ${theme.breakpoints.md.min}) {
           :global(.hero__right-container, .hero__gradient-violet) {
             display: block;
+          }
+          :global(.hero__left-container) {
+            width: 50% !important;
           }
         }
         @media only screen and (max-width: ${theme.breakpoints.lg.min}) {
