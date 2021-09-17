@@ -1,8 +1,8 @@
-function loadScript(src: string, container: HTMLElement) {
+function loadScript(src: string, container: HTMLElement | null) {
   const script = document.createElement('script');
   script.setAttribute('async', '');
   script.src = src;
-  container.appendChild(script);
+  container && container.appendChild(script);
   return script;
 }
 
