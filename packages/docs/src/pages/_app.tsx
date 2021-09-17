@@ -56,6 +56,9 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
           }
+          .npm__react-simple-code-editor__textarea {
+            padding: 3px !important;
+          }
         `}</style>
       </ThemeProvider>
     </>
