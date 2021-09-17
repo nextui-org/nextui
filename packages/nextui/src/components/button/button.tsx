@@ -24,11 +24,11 @@ import ButtonIcon from './button-icon';
 import {
   getButtonColors,
   getButtonCursor,
-  getButtonRadius,
   getButtonDripColor,
   getShadowColor,
   getButtonSize,
 } from './styles';
+import { getNormalRadius } from '../..//utils/dimensions';
 
 export interface Props {
   color?: NormalColors | string;
@@ -43,7 +43,7 @@ export interface Props {
   disabled?: boolean;
   bordered?: boolean;
   ghost?: boolean;
-  weight?: NormalWeights;
+  borderWeight?: NormalWeights;
   loaderType?: NormalLoaders;
   htmlType?: React.ButtonHTMLAttributes<unknown>['type'];
   icon?: React.ReactNode;
@@ -58,7 +58,7 @@ const defaultProps = {
   size: 'medium' as NormalSizes,
   htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
   loaderType: 'default' as NormalLoaders,
-  weight: 'normal' as NormalWeights,
+  borderWeight: 'normal' as NormalWeights,
   flat: false,
   light: false,
   loading: false,
@@ -125,7 +125,7 @@ const Button = React.forwardRef<
     [theme.palette, filteredProps]
   );
 
-  const radius = useMemo(() => getButtonRadius(size, rounded), [size, rounded]);
+  const radius = useMemo(() => getNormalRadius(size, rounded), [size, rounded]);
 
   const shadowColor = useMemo(
     () =>

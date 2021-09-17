@@ -20,7 +20,7 @@ interface Props {
   animated?: boolean;
   rounded?: boolean;
   ghost?: boolean;
-  weight?: NormalWeights;
+  borderWeight?: NormalWeights;
   size?: NormalSizes;
   color?: NormalColors;
   className?: string;
@@ -37,7 +37,7 @@ const defaultProps = {
   animated: false,
   rounded: false,
   ghost: false,
-  weight: 'normal' as NormalWeights,
+  borderWeight: 'normal' as NormalWeights,
   size: 'medium' as NormalSizes,
   color: 'default' as NormalColors,
   className: '',

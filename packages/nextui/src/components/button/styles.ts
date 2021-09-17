@@ -1,10 +1,6 @@
 import { CSSProperties } from 'react';
 import { NextUIThemesPalette } from '../../theme';
-import {
-  NormalSizes,
-  NormalColors,
-  NormalWeights,
-} from '../../utils/prop-types';
+import { NormalSizes, NormalColors } from '../../utils/prop-types';
 import { Props as ButtonProps } from './button';
 import { ButtonGroupProps } from './button-group';
 import {
@@ -13,6 +9,7 @@ import {
   hexFromString,
   getNormalColor,
 } from '../../utils/color';
+import { getNormalWeight } from '../../utils/dimensions';
 
 export interface ButtonBorder {
   display?: string;
@@ -48,8 +45,8 @@ export const getGroupBorder = (
   palette: NextUIThemesPalette,
   props: ButtonGroupProps
 ): ButtonBorder => {
-  const { bordered, color, weight } = props;
-  const border = getButtonWeight(weight);
+  const { bordered, color, borderWeight } = props;
+  const border = getNormalWeight(borderWeight);
   const common = {
     color: palette.background,
     width: bordered ? border : '0px',
@@ -62,15 +59,6 @@ export const getGroupBorder = (
   };
 
   return buttonColor;
-};
-
-const getButtonWeight = (weight?: NormalWeights): string | undefined => {
-  const weights: { [key in NormalWeights]?: string } = {
-    light: '1px',
-    normal: '2px',
-    bold: '3px',
-  };
-  return weights[weight || 'normal'];
 };
 
 export const getShadowColor = (
@@ -93,8 +81,8 @@ export const getButtonColors = (
   palette: NextUIThemesPalette,
   props: ButtonProps
 ): ButtonColorGroup => {
-  const { color, disabled, bordered, ghost, weight, flat, light } = props;
-  const border = getButtonWeight(weight);
+  const { color, disabled, bordered, ghost, borderWeight, flat, light } = props;
+  const border = getNormalWeight(borderWeight);
   const common = {
     color: palette.white,
     border: {
@@ -263,21 +251,6 @@ export const getButtonCursor = (
     cursor: 'pointer',
     events: 'auto',
   };
-};
-
-export const getButtonRadius = (
-  size: NormalSizes,
-  rounded?: boolean
-): string => {
-  const radius: { [key in NormalSizes]: string } = {
-    mini: '0.4375rem',
-    small: '0.5625rem',
-    medium: '0.7375rem',
-    large: '0.8rem',
-    xlarge: '0.9rem',
-  };
-  const baseRadius = radius[size];
-  return rounded ? `calc(${baseRadius} + 10rem)` : baseRadius;
 };
 
 export const getButtonSize = (
