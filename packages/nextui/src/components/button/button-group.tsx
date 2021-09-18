@@ -7,7 +7,8 @@ import {
   NormalWeights,
 } from '../../utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
-import { getButtonRadius, getGroupBorder } from './styles';
+import { getGroupBorder } from './styles';
+import { getNormalRadius } from '../../utils/dimensions';
 
 interface Props {
   disabled?: boolean;
@@ -89,7 +90,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     return getGroupBorder(theme.palette, groupProps);
   }, [theme, disabled, bordered]);
 
-  const radius = useMemo(() => getButtonRadius(size, rounded), [size, rounded]);
+  const radius = useMemo(() => getNormalRadius(size, rounded), [size, rounded]);
 
   return (
     <ButtonGroupContext.Provider value={initialValue}>
