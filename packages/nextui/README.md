@@ -31,9 +31,7 @@ Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full docume
 
 ```bash
 yarn add @nextui-org/react
-```
-
-```bash
+# or
 npm i @nextui-org/react
 ```
 
