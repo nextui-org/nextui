@@ -27,7 +27,15 @@ Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full docume
 
 ## Quick Start
 
-1. Installation: Inside your React project directory, install NextUI by running either of the following `yarn add @nextui-org/react` or `npm i @nextui-org/react`.
+1. Installation: Inside your React project directory, install NextUI by running either of the following:
+
+```bash
+yarn add @nextui-org/react
+```
+
+```bash
+npm i @nextui-org/react
+```
 
 2. Setup: For NextUI to work correctly, you need to set up the CssBaseline at the root of your application.
 
@@ -62,3 +70,7 @@ Please adhere to this project's `CODE_OF_CONDUCT`.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+```
+
+```
