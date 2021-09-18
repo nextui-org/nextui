@@ -1,0 +1,12 @@
+# Commands to start on workspace startup
+tasks:
+  - init: yarn install
+    command: >
+      yarn sb;
+
+
+# Ports to expose on workspace startup
+ports:
+  - port: 6006
+    onOpen: open-preview
+    visibility: public
