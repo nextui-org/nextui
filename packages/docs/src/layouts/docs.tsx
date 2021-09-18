@@ -173,7 +173,6 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             :global(.docs__right-sidebar) {
               display: block;
             }
-
             :global(.docs__right-sidebar, .docs__gradient-violet) {
               top: -50%;
               right: -50%;

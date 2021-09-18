@@ -1,20 +1,52 @@
 import React, { useEffect } from 'react';
-import loadScript from '@utils/load-script';
+import { useRouter } from 'next/router';
+import { loadScript, removeScript } from '@utils/scripts';
 import { useTheme } from '@nextui-org/react';
 
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
-
   const theme = useTheme();
+  const router = useRouter();
 
-  useEffect(() => {
+  const loadAd = () => {
     const scriptEl = document.getElementById('_carbonads_js');
-    if (!ref.current || !!scriptEl) return;
+    const carbonAds = document.getElementById('carbonads');
+    if (!ref.current) return;
+    if (scriptEl) {
+      scriptEl.innerHTML = '';
+      removeScript(scriptEl, ref.current);
+      carbonAds && carbonAds?.remove();
+    }
     const script = loadScript(
       'https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg',
       ref.current
     );
     script.id = '_carbonads_js';
+  };
+
+  useEffect(() => {
+    loadAd();
+  }, []);
+
+  useEffect(() => {
+    const handleRouteChange = (
+      url: string,
+      { shallow }: { shallow: boolean }
+    ) => {
+      console.log(
+        `NextUI 🚀 - is changing to ${url} ${
+          shallow ? 'with' : 'without'
+        } shallow routing`
+      );
+      loadAd();
+    };
+    router.events.on('routeChangeStart', handleRouteChange);
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    // ref: https://nextjs.org/docs/api-reference/next/router
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
   }, []);
 
   return (
@@ -40,6 +72,7 @@ const CarbonAd: React.FC<unknown> = () => {
           #carbonads a {
             color: inherit;
             text-decoration: none;
+            transition: all 0.25s ease;
           }
           #carbonads a:hover {
             color: inherit;
@@ -63,7 +96,7 @@ const CarbonAd: React.FC<unknown> = () => {
             display: block;
             max-width: none !important;
             width: 100%;
-            border-radius: ${theme.layout.radius};
+            border-radius: calc(${theme.layout.radius} - 4px);
             border: 0px;
             margin: 0px;
           }
@@ -85,12 +118,29 @@ const CarbonAd: React.FC<unknown> = () => {
             line-height: 0;
             transition: all 0.25 ease;
           }
+          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+            #carbonads {
+              max-width: 100%;
+            }
+            #carbonads .carbon-wrap {
+              flex-direction: row;
+            }
+            #carbonads .carbon-img {
+              max-width: 130px;
+              width: 100%;
+            }
+            #carbonads .carbon-img img {
+              max-width: 100% !important;
+              width: 100%;
+            }
+            #carbonads .carbon-text {
+              padding: ${theme.layout.gapHalf};
+            }
+          }
         `}
       </style>
     </span>
   );
 };
 
-const MemoCarbonAd = React.memo(CarbonAd);
-
-export default MemoCarbonAd;
+export default CarbonAd;

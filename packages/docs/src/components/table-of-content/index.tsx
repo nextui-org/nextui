@@ -3,8 +3,9 @@ import cn from 'classnames';
 import { useScrollSpy } from '@hooks/use-scroll-spy';
 import { Heading } from '@utils/get-headings';
 import { useTheme, NextUIThemes } from '@nextui-org/react';
-import { CarbonAd } from '@components';
+import CarbonAd from '../carbon-ad';
 import { isProd } from '../../utils/index';
+import { useIsMobile } from '@hooks/use-media-query';
 
 interface TableOfContentProps {
   headings: Heading[];
@@ -14,6 +15,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
   headings,
   ...props
 }) => {
+  const isMobile = useIsMobile();
   const activeId = useScrollSpy(
     headings.map(({ id }) => `[id="${id}"]`),
     {
@@ -23,7 +25,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
   const theme = useTheme() as NextUIThemes;
 
   if (headings.length <= 0) return null;
-
+  if (isMobile) return null;
   return (
     <div className="container" {...props}>
       <h4 className="title">Contents</h4>
@@ -51,7 +53,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
           z-index: 1;
         }
         .list {
-          max-height: 62vh;
+          max-height: 56vh;
           margin-bottom: 20px;
           overflow: auto;
         }
