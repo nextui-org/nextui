@@ -31,3 +31,7 @@ esm
 examples/**/yarn.lock
 examples/**/out
 examples/**/.next
+
+# storybook
+**/storybook-static/*
+*.DS_Store

@@ -59,6 +59,8 @@ const Component = () => <Button>Click me</Button>;
 
 ## Contributing
 
+[![Edit with Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/nextui-org/nextui)
+
 Contributions are always welcome!
 
 See `CONTRIBUTING.md` for ways to get started.
