@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { isEmpty } from 'lodash';
 import { loadScript, removeScript } from '@utils/scripts';
 import { useTheme } from '@nextui-org/react';
 import useIsMounted from '@hooks/use-is-mounted';
-// import { isProd } from '@utils/index';
+import { isProd } from '@utils/index';
 
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
@@ -22,11 +23,13 @@ const CarbonAd: React.FC<unknown> = () => {
       carbonAds && carbonAds?.remove();
       scriptEl?.remove();
     }
-    const script = loadScript(
-      'https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg',
-      ref.current
-    );
-    script.id = '_carbonads_js';
+    const script =
+      isEmpty(document.getElementById('carbonads')) &&
+      loadScript(
+        'https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg',
+        ref.current
+      );
+    if (script) script.id = '_carbonads_js';
   };
 
   useEffect(() => {
@@ -45,16 +48,16 @@ const CarbonAd: React.FC<unknown> = () => {
       );
       loadAd();
     };
-    router.events.on('routeChangeStart', handleRouteChange);
+    router.events.on('routeChangeComplete', handleRouteChange);
     // If the component is unmounted, unsubscribe
     // from the event with the `off` method:
     // ref: https://nextjs.org/docs/api-reference/next/router
     return () => {
-      router.events.off('routeChangeStart', handleRouteChange);
+      router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, []);
 
-  return null;
+  if (!isProd) return null;
 
   return (
     <span id="carbon-ad" ref={ref}>
