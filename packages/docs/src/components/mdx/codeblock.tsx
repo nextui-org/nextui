@@ -34,7 +34,7 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
       <style jsx>{`
         :global(pre) {
           border: 0px;
-          padding: 4px !important;
+          padding: 0px !important;
           color: ${textColor?.style.color} !important;
         }
         :global(.snippet, .copy) {

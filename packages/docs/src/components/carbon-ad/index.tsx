@@ -2,20 +2,25 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { loadScript, removeScript } from '@utils/scripts';
 import { useTheme } from '@nextui-org/react';
+import useIsMounted from '@hooks/use-is-mounted';
+import { isProd } from '@utils/index';
 
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
   const theme = useTheme();
   const router = useRouter();
 
+  const isMounted = useIsMounted();
+
   const loadAd = () => {
     const scriptEl = document.getElementById('_carbonads_js');
     const carbonAds = document.getElementById('carbonads');
     if (!ref.current) return;
     if (scriptEl) {
-      scriptEl.innerHTML = '';
       removeScript(scriptEl, ref.current);
+      scriptEl.innerHTML = '';
       carbonAds && carbonAds?.remove();
+      scriptEl?.remove();
     }
     const script = loadScript(
       'https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg',
@@ -25,8 +30,8 @@ const CarbonAd: React.FC<unknown> = () => {
   };
 
   useEffect(() => {
-    loadAd();
-  }, []);
+    isMounted() && loadAd();
+  }, [isMounted]);
 
   useEffect(() => {
     const handleRouteChange = (
@@ -49,6 +54,8 @@ const CarbonAd: React.FC<unknown> = () => {
     };
   }, []);
 
+  //   if (!isProd) return null;
+
   return (
     <span id="carbon-ad" ref={ref}>
       <style jsx global>
@@ -59,12 +66,12 @@ const CarbonAd: React.FC<unknown> = () => {
           }
           #carbonads {
             font-family: inherit;
-            padding: 16px;
+            max-width: 100%;
+            padding: calc(${theme.layout.gap} * 0.75) ${theme.layout.gap};
           }
           #carbonads {
             display: flex;
             width: 100%;
-            max-width: 200px;
             border-radius: ${theme.layout.radius};
             background-color: ${theme.palette.accents_1};
             z-index: 100;
@@ -78,23 +85,24 @@ const CarbonAd: React.FC<unknown> = () => {
             color: inherit;
           }
           #carbonads span {
+            width: 100%;
             position: relative;
             display: block;
             overflow: hidden;
           }
           #carbonads .carbon-wrap {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
           }
           #carbonads .carbon-img {
             display: block;
-            max-width: 200px;
             line-height: 1;
-            margin-bottom: 8px;
+            max-width: 130px;
+            width: 100%;
           }
           #carbonads .carbon-img img {
             display: block;
-            max-width: none !important;
+            max-width: 100% !important;
             width: 100%;
             border-radius: calc(${theme.layout.radius} - 4px);
             border: 0px;
@@ -102,13 +110,18 @@ const CarbonAd: React.FC<unknown> = () => {
           }
           #carbonads .carbon-text {
             display: block;
+            font-size: 1rem;
+            width: 100%;
             color: ${theme.palette.accents_6};
-            font-size: 0.8rem;
-            padding-bottom: 4px;
+            padding: ${theme.layout.gapHalf};
           }
           #carbonads .carbon-poweredby {
             display: flex;
-            justify-content: flex-start;
+            justify-content: flex-end;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            right: 0;
             padding: 10px 0;
             color: ${theme.palette.accents_4};
             text-transform: uppercase;
@@ -119,22 +132,8 @@ const CarbonAd: React.FC<unknown> = () => {
             transition: all 0.25 ease;
           }
           @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
-            #carbonads {
-              max-width: 100%;
-            }
-            #carbonads .carbon-wrap {
-              flex-direction: row;
-            }
-            #carbonads .carbon-img {
-              max-width: 130px;
-              width: 100%;
-            }
-            #carbonads .carbon-img img {
-              max-width: 100% !important;
-              width: 100%;
-            }
             #carbonads .carbon-text {
-              padding: ${theme.layout.gapHalf};
+              font-size: 0.9rem;
             }
           }
         `}
