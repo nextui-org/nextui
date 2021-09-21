@@ -24,7 +24,7 @@ const CarbonAd: React.FC<unknown> = () => {
     };
   }, []);
 
-  if (!isProd) return null;
+  if (isProd) return null;
 
   return (
     <span id="carbon-ad" ref={ref}>
@@ -83,7 +83,8 @@ const CarbonAd: React.FC<unknown> = () => {
             font-size: 1rem;
             width: 100%;
             color: ${theme.palette.accents_6};
-            padding: ${theme.layout.gapHalf};
+            padding-left: ${theme.layout.gapHalf};
+            padding-right: ${theme.layout.gapHalf};
           }
           #carbonads .carbon-poweredby {
             display: flex;
