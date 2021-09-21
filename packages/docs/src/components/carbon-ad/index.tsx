@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { loadScript, removeScript } from '@utils/scripts';
 import { useTheme } from '@nextui-org/react';
 import useIsMounted from '@hooks/use-is-mounted';
-import { isProd } from '@utils/index';
+// import { isProd } from '@utils/index';
 
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
@@ -54,7 +54,7 @@ const CarbonAd: React.FC<unknown> = () => {
     };
   }, []);
 
-  if (!isProd) return null;
+  return null;
 
   return (
     <span id="carbon-ad" ref={ref}>
