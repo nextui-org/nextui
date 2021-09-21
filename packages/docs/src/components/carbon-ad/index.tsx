@@ -1,59 +1,26 @@
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { isEmpty } from 'lodash';
-import { loadScript, removeScript } from '@utils/scripts';
+import { loadScript } from '@utils/scripts';
 import { useTheme } from '@nextui-org/react';
-import useIsMounted from '@hooks/use-is-mounted';
 import { isProd } from '@utils/index';
 
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
   const theme = useTheme();
-  const router = useRouter();
 
-  const isMounted = useIsMounted();
-
-  const loadAd = () => {
-    const scriptEl = document.getElementById('_carbonads_js');
-    const carbonAds = document.getElementById('carbonads');
-    if (!ref.current) return;
-    if (scriptEl) {
-      removeScript(scriptEl, ref.current);
-      scriptEl.innerHTML = '';
-      carbonAds && carbonAds?.remove();
-      scriptEl?.remove();
-    }
-    const script =
-      isEmpty(document.getElementById('carbonads')) &&
-      loadScript(
+  useEffect(() => {
+    // The isolation logic of carbonads is flawed.
+    // Once the script starts loading, it will asynchronous resolve, with no way to stop it.
+    // This leads to duplication of the ad. To solve the issue, we debounce the load action.
+    const load = setTimeout(() => {
+      const script = loadScript(
         'https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg',
         ref.current
       );
-    if (script) script.id = '_carbonads_js';
-  };
+      script.id = '_carbonads_js';
+    });
 
-  useEffect(() => {
-    isMounted() && loadAd();
-  }, [isMounted]);
-
-  useEffect(() => {
-    const handleRouteChange = (
-      url: string,
-      { shallow }: { shallow: boolean }
-    ) => {
-      console.log(
-        `NextUI 🚀 - is changing to ${url} ${
-          shallow ? 'with' : 'without'
-        } shallow routing`
-      );
-      loadAd();
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method:
-    // ref: https://nextjs.org/docs/api-reference/next/router
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
+      clearTimeout(load);
     };
   }, []);
 
