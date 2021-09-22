@@ -68,7 +68,3 @@ Please adhere to this project's `CODE_OF_CONDUCT`.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-```
-
-```
