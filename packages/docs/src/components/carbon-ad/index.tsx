@@ -27,7 +27,7 @@ const CarbonAd: React.FC<unknown> = () => {
     };
   }, [isMounted]);
 
-  if (isProd) return null;
+  if (!isProd) return null;
 
   return (
     <span id="carbon-ad" ref={ref}>
