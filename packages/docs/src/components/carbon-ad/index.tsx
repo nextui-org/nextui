@@ -2,29 +2,32 @@ import React, { useEffect } from 'react';
 import { loadScript } from '@utils/scripts';
 import { useTheme } from '@nextui-org/react';
 import { isProd } from '@utils/index';
+import useIsMounted from '@hooks/use-is-mounted';
 
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
   const theme = useTheme();
+  const isMounted = useIsMounted();
 
   useEffect(() => {
     // The isolation logic of carbonads is flawed.
     // Once the script starts loading, it will asynchronous resolve, with no way to stop it.
     // This leads to duplication of the ad. To solve the issue, we debounce the load action.
-    const load = setTimeout(() => {
-      const script = loadScript(
-        'https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg',
-        ref.current
-      );
-      script.id = '_carbonads_js';
-    });
-
+    const load =
+      isMounted() &&
+      setTimeout(() => {
+        const script = loadScript(
+          'https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg',
+          ref.current
+        );
+        script.id = '_carbonads_js';
+      });
     return () => {
-      clearTimeout(load);
+      load && clearTimeout(load);
     };
-  }, []);
+  }, [isMounted]);
 
-  if (!isProd) return null;
+  if (isProd) return null;
 
   return (
     <span id="carbon-ad" ref={ref}>

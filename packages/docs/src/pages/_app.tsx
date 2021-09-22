@@ -31,6 +31,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
 
   useEffect(() => {
     const theme = window.localStorage.getItem('theme');
+
     if (theme !== 'dark') return;
     themeChangeHandle({ type: 'dark' });
   }, []);

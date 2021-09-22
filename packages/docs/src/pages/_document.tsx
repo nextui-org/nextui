@@ -34,8 +34,8 @@ class MyDocument extends Document {
             (function(){
               if (!window.localStorage) return;
               if (window.localStorage.getItem('theme') === 'dark') {
-                document.documentElement.style.background = '#000';
-                document.body.style.background = '#000';
+                document.documentElement.style.background = '#000000';
+                document.body.style.background = '#000000';
               };
             })()
           `,

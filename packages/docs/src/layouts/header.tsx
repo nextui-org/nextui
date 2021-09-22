@@ -4,6 +4,7 @@ import withDefaults from '@utils/with-defaults';
 import { toCapitalize } from '@utils/index';
 import { isProd } from '@utils/index';
 import { TWITTER_USER_NAME, SITE_URL } from '@lib/constants';
+import { useTheme } from '@nextui-org/react';
 
 export interface HeaderProps {
   title?: string;
@@ -29,6 +30,8 @@ if (global.document) {
 }
 
 const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
+  const theme = useTheme();
+
   let pageTitle = title ? `${toCapitalize(title)} | ` : '';
   pageTitle += 'NextUI - Beautiful, fast,modern React UI Library';
   return (
@@ -50,8 +53,8 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
       {url && <meta property="og:url" content={url} />}
       <meta property="og:description" content={description} />
       <meta name="description" content={description} />
-      <meta name="msapplication-TileColor" content="#ffffff" />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="msapplication-TileColor" content={theme.palette.background} />
+      <meta name="theme-color" content={theme.palette.background} />
       <meta
         name="viewport"
         key="viewport"
@@ -76,7 +79,11 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
         sizes="16x16"
         href="/favicon-16x16.png"
       />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#181818" />
+      <link
+        rel="mask-icon"
+        href="/safari-pinned-tab.svg"
+        color={theme.palette.background}
+      />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
