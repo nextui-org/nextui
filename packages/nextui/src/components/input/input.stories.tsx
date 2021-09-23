@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Input from './index';
-import Spacer from '../spacer';
+import { Text, Spacer, Code } from '../index';
 
 export default {
   title: 'General/Input',
@@ -51,5 +51,23 @@ export const WithInitLabel = () => (
     <Input label="username" placeholder="Next UI" />
     <Spacer y={0.5} />
     <Input labelRight=".com" placeholder="https://github/nextui-org/nextui" />
+  </>
+);
+
+export const WithBloclkLabel = () => (
+  <>
+    <Input clearable placeholder="Next UI">
+      Username
+    </Input>
+    <Spacer />
+    <Input placeholder="Post title">
+      <Text h3>Title</Text>
+    </Input>
+    <Spacer />
+    <Input placeholder="GitHub Actions" label="Text">
+      <Text small>
+        Problem area for <Code>deployment</Code>
+      </Text>
+    </Input>
   </>
 );

@@ -51,13 +51,15 @@ const InputIconClear: React.FC<Props> = ({
           height: 100%;
           cursor: ${disabled ? 'not-allowed' : 'pointer'};
           box-sizing: border-box;
-          transition: color 150ms ease 0s;
+          transition: color 250ms ease 0s, transform 250ms ease 0s;
           color: ${theme.palette.accents_3};
           visibility: hidden;
+          transform: translateX(20%);
           opacity: 0;
         }
         .visible {
           visibility: visible;
+          transform: translateX(0);
           opacity: 1;
         }
         .clear-icon:hover {
