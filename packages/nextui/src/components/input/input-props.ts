@@ -11,6 +11,8 @@ export interface Props {
   readOnly?: boolean;
   disabled?: boolean;
   label?: string;
+  labelPlaceholder?: string;
+  labelLeft?: string;
   labelRight?: string;
   icon?: React.ReactNode;
   iconRight?: React.ReactNode;

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import useTheme from '../../hooks/use-theme';
+import ClearIcon from './clear-icon';
 
 interface Props {
   visible: boolean;
@@ -29,19 +30,7 @@ const InputIconClear: React.FC<Props> = ({
       onClick={clickHandler}
       className={`clear-icon ${visible ? 'visible' : ''}`}
     >
-      <svg
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-        shapeRendering="geometricPrecision"
-      >
-        <path d="M18 6L6 18" />
-        <path d="M6 6l12 12" />
-      </svg>
-
+      <ClearIcon fill="currentColor" />
       <style jsx>{`
         .clear-icon {
           padding: 0 ${theme.layout.gapHalf};
@@ -67,7 +56,7 @@ const InputIconClear: React.FC<Props> = ({
             ? theme.palette.accents_3
             : theme.palette.foreground};
         }
-        svg {
+        .clear-icon :global(svg) {
           color: currentColor;
           width: ${width};
           height: ${width};

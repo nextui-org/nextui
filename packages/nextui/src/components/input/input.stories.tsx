@@ -43,18 +43,24 @@ export const Sizes = () => (
     <Input size="large" placeholder="Large" />
     <Spacer y={0.5} />
     <Input size="xlarge" placeholder="xLarge" />
+    <Spacer y={0.5} />
+    <Input width="50%" placeholder="Custom" />
   </>
 );
 
-export const WithInitLabel = () => (
+export const WithLabels = () => (
   <>
-    <Input label="username" placeholder="Next UI" />
-    <Spacer y={0.5} />
+    <Input label="Name" placeholder="Enter your name" />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Enter Email" color="primary" />
+    <Spacer y={1.5} />
+    <Input labelLeft="username" placeholder="Next UI" />
+    <Spacer y={1.5} />
     <Input labelRight=".com" placeholder="https://github/nextui-org/nextui" />
   </>
 );
 
-export const WithBloclkLabel = () => (
+export const WithBlockLabel = () => (
   <>
     <Input clearable placeholder="Next UI">
       Username

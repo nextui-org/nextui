@@ -1,5 +1,6 @@
 import React from 'react';
 import useTheme from '../../hooks/use-theme';
+import clsx from '../../utils/clsx';
 
 export interface InputLabelProps {
   fontSize: string;
@@ -17,12 +18,13 @@ const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
 }) => {
   const theme = useTheme();
   return (
-    <span className={`input-label ${isRight ? 'right' : ''}`}>
+    <span className={clsx('input-label', { right: isRight })}>
       {children}
       <style jsx>{`
         span {
           display: inline-flex;
           width: initial;
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
           height: 100%;
           align-items: center;
           pointer-events: none;

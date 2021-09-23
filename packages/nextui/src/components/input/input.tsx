@@ -15,9 +15,11 @@ import InputClearIcon from './input-icon-clear';
 import Textarea from '../textarea/textarea';
 import InputPassword from './password';
 import { getSizes, getColors } from './styles';
+import { getId } from '../../utils/collections';
 import { addColorAlpha } from '../../utils/color';
 import { Props, defaultProps } from './input-props';
 import { getNormalRadius, getNormalWeight } from '../../utils/dimensions';
+import clsx from '../../utils/clsx';
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
 export type InputProps = Props & typeof defaultProps & NativeAttrs;
@@ -40,6 +42,8 @@ const Input = React.forwardRef<
   (
     {
       label,
+      labelPlaceholder,
+      labelLeft,
       labelRight,
       size,
       color: colorProp,
@@ -80,8 +84,16 @@ const Input = React.forwardRef<
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
 
     const labelClasses = useMemo(
-      () => (labelRight ? 'right-label' : label ? 'left-label' : ''),
-      [label, labelRight]
+      () => (labelRight ? 'right-label' : labelLeft ? 'left-label' : ''),
+      [labelLeft, labelRight]
+    );
+    const inputLabel = useMemo(
+      () => label || labelPlaceholder,
+      [label, labelPlaceholder]
+    );
+    const inputPlaceholder = useMemo(
+      () => (labelPlaceholder ? '' : placeholder),
+      [placeholder, labelPlaceholder]
     );
     const iconClasses = useMemo(
       () => (iconRight ? 'right-icon' : icon ? 'left-icon' : ''),
@@ -150,45 +162,61 @@ const Input = React.forwardRef<
     const controlledValue = isControlledComponent
       ? { value: selfValue }
       : { defaultValue: initialValue };
+
     const inputProps = {
       ...props,
       ...controlledValue,
     };
 
+    const inputId = useMemo(
+      () => inputProps.id || `next-ui-${getId()}`,
+      [inputProps.id]
+    );
+
     return (
       <div className="with-label">
-        {children && <InputBlockLabel>{children}</InputBlockLabel>}
+        {inputLabel && (
+          <InputBlockLabel
+            selfValue={selfValue}
+            heightRatio={heightRatio}
+            asPlaceholder={!!labelPlaceholder}
+            hover={hover}
+            htmlFor={inputId}
+            label={inputLabel}
+          />
+        )}
         <div
-          className={`input-container ${hover ? 'hover' : ''} ${
-            readOnly ? 'read-only' : ''
-          } ${className}`}
+          className={clsx(
+            'input-container',
+            { hover, 'read-only': readOnly },
+            className
+          )}
         >
-          {label && (
+          {labelLeft && (
             <InputLabel
               radius={radius}
               borderWeight={borderWeight}
               fontSize={fontSize}
             >
-              {label}
+              {labelLeft}
             </InputLabel>
           )}
           <div
-            className={`input-wrapper ${hover ? 'hover' : ''} ${
-              disabled ? 'disabled' : ''
-            } ${labelClasses}`}
+            className={clsx('input-wrapper', { hover, disabled }, labelClasses)}
           >
             {icon && <InputIcon icon={icon} {...iconProps} />}
             <input
               type="text"
               ref={inputRef}
-              className={`${disabled ? 'disabled' : ''} ${iconClasses}`}
-              placeholder={placeholder}
+              className={clsx({ disabled }, { iconClasses })}
+              placeholder={inputPlaceholder}
               disabled={disabled}
               readOnly={readOnly}
               onFocus={focusHandler}
               onBlur={blurHandler}
               onChange={changeHandler}
               autoComplete={autoComplete}
+              id={inputId}
               {...inputProps}
             />
             {clearable && (
@@ -216,15 +244,18 @@ const Input = React.forwardRef<
         </div>
         <style jsx>{`
           .with-label {
-            display: inline-block;
             width: ${width};
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
             box-sizing: border-box;
             -webkit-box-align: center;
           }
           .input-container {
+            width: 100%;
             display: inline-flex;
             align-items: center;
-            width: ${width};
             transition: all 0.25s ease;
             border-radius: ${radius};
             height: calc(${heightRatio} * ${theme.layout.gap});
