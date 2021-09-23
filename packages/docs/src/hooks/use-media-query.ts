@@ -27,5 +27,5 @@ export const useMediaQuery = (width: number): boolean => {
 };
 
 export const useIsMobile = () => {
-  return useMediaQuery(576);
+  return useMediaQuery(650);
 };

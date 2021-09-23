@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { useScrollSpy } from '@hooks/use-scroll-spy';
 import { Heading } from '@utils/get-headings';
 import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { useIsMobile } from '@hooks/use-media-query';
 
 interface TableOfContentProps {
   headings: Heading[];
@@ -12,6 +13,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
   headings,
   ...props
 }) => {
+  const isMobile = useIsMobile();
   const activeId = useScrollSpy(
     headings.map(({ id }) => `[id="${id}"]`),
     {
@@ -20,7 +22,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
   );
   const theme = useTheme() as NextUIThemes;
 
-  if (headings.length <= 0) return null;
+  if (headings.length <= 0 || isMobile) return null;
 
   return (
     <div className="container" {...props}>
@@ -40,15 +42,16 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
       <style jsx>{`
         .container {
           position: relative;
+          padding-left: 1rem;
         }
         .title {
-          padding-left: 1rem;
           font-size: 1.2rem;
           font-weight: 600;
           z-index: 1;
         }
         .list {
-          max-height: 62vh;
+          max-height: 56vh;
+          margin-bottom: 20px;
           overflow: auto;
         }
         .list::-webkit-scrollbar {

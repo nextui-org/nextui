@@ -31,6 +31,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
 
   useEffect(() => {
     const theme = window.localStorage.getItem('theme');
+
     if (theme !== 'dark') return;
     themeChangeHandle({ type: 'dark' });
   }, []);
@@ -55,6 +56,9 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
             -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+          }
+          .npm__react-simple-code-editor__textarea {
+            padding: 3px !important;
           }
         `}</style>
       </ThemeProvider>
