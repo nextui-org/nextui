@@ -13,6 +13,7 @@ export interface Props {
   shadow?: boolean;
   animated?: boolean;
   disabled?: boolean;
+  required?: boolean;
   label?: string;
   helperText?: string;
   labelPlaceholder?: string;
@@ -46,6 +47,7 @@ export const defaultProps = {
   underlined: false,
   shadow: true,
   iconClickable: false,
+  required: false,
   width: 'initial',
   size: 'medium' as NormalSizes,
   color: 'default' as SimpleColors,

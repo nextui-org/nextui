@@ -61,6 +61,7 @@ const Input = React.forwardRef<
       clearable,
       shadow,
       animated,
+      required,
       width,
       className,
       onBlur,
@@ -252,6 +253,8 @@ const Input = React.forwardRef<
               onBlur={blurHandler}
               onChange={changeHandler}
               autoComplete={autoComplete}
+              aria-readonly={readOnly}
+              aria-required={required}
               id={inputId}
               {...inputProps}
             />
