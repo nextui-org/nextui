@@ -109,6 +109,13 @@ const Editor: React.FC = () => {
           overflow: hidden;
           border-radius: ${theme.layout.radius};
         }
+        :global(.right-side) {
+          opacity: 0;
+          transition: opacity 0.25s ease;
+        }
+        details[open] :global(.right-side) {
+          opacity: 1;
+        }
         summary {
           display: flex;
           justify-content: space-between;
@@ -129,13 +136,6 @@ const Editor: React.FC = () => {
           align-items: center;
           font-size: 0.8rem;
         }
-        details :global(.right-side) {
-          opacity: 0;
-          transition: all 0.15s ease;
-        }
-        details:hover :global(.right-side) {
-          opacity: 1;
-        }
         .area {
           position: relative;
           box-sizing: border-box;
@@ -149,12 +149,15 @@ const Editor: React.FC = () => {
         }
         .arrow {
           transition: all 0.2s ease;
-          transform: rotate(${visible ? 90 : 0}deg);
+          transform: rotate(0deg);
           display: inline-flex;
           align-items: center;
           width: 1rem;
           height: 1rem;
           margin-right: 0.5rem;
+        }
+        details[open] .arrow {
+          transform: rotate(90deg);
         }
         .icon {
           display: inline-flex;
