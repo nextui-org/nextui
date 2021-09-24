@@ -67,6 +67,10 @@
                             "path": "/docs/components/button-group.mdx"
                         },
                         {
+                            "title": "Input",
+                            "path": "/docs/components/input.mdx"
+                        },
+                        {
                             "title": "Checkbox",
                             "path": "/docs/components/checkbox.mdx"
                         },
