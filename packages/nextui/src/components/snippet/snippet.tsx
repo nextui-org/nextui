@@ -143,6 +143,7 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           margin: 0;
           padding: 0;
           border: none;
+          border-radius: 0;
           width: ${snippetWidth};
           background-color: transparent;
           color: ${style.color};

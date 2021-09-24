@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^1.0.1-alpha.2",
+    "@nextui-org/react": "^1.0.1-alpha.32",
     "next": "11.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
