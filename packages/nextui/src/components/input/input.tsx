@@ -93,6 +93,12 @@ const Input = React.forwardRef<
       () => label || labelPlaceholder,
       [label, labelPlaceholder]
     );
+
+    const ComponentWrapper = useMemo(
+      () => (inputLabel ? 'div' : 'label'),
+      [inputLabel]
+    );
+
     const inputPlaceholder = useMemo(
       () => (labelPlaceholder ? '' : placeholder),
       [placeholder, labelPlaceholder]
@@ -220,7 +226,7 @@ const Input = React.forwardRef<
             className
           )}
         >
-          <div
+          <ComponentWrapper
             className={clsx('input-wrapper', {
               hover,
               disabled,
@@ -285,7 +291,7 @@ const Input = React.forwardRef<
                 {labelRight}
               </InputLabel>
             )}
-          </div>
+          </ComponentWrapper>
         </div>
         <div
           className={clsx('input-helper-text-container', {
