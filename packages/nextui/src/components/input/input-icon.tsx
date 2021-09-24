@@ -1,16 +1,21 @@
 import React, { useMemo } from 'react';
+import { SimpleColors } from '../../utils/prop-types';
 import useTheme from '../../hooks/use-theme';
+import { getNormalColor } from '../../utils/color';
 
 export interface InputIconProps {
   icon: React.ReactNode;
   ratio: string;
   clickable: boolean;
   onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
+  hover?: boolean;
+  status?: SimpleColors;
 }
 
 const InputIcon: React.FC<InputIconProps> = ({
   icon,
   ratio,
+  status,
   clickable,
   onClick,
 }) => {
@@ -37,6 +42,9 @@ const InputIcon: React.FC<InputIconProps> = ({
           vertical-align: center;
           margin: 0;
           padding: 0 ${padding};
+          color: ${status === 'default'
+            ? theme.palette.text
+            : getNormalColor(status, theme.palette)};
           line-height: 1;
           position: relative;
           cursor: ${clickable ? 'pointer' : 'default'};

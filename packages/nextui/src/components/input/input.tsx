@@ -16,10 +16,11 @@ import Textarea from '../textarea/textarea';
 import InputPassword from './password';
 import { getSizes, getColors } from './styles';
 import { getId } from '../../utils/collections';
-import { addColorAlpha } from '../../utils/color';
 import { Props, defaultProps } from './input-props';
 import { getNormalRadius, getNormalWeight } from '../../utils/dimensions';
 import clsx from '../../utils/clsx';
+import useWarning from '../../hooks/use-warning';
+import { addColorAlpha } from '../../utils/color';
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
 export type InputProps = Props & typeof defaultProps & NativeAttrs;
@@ -48,6 +49,7 @@ const Input = React.forwardRef<
       size,
       helperText,
       color: colorProp,
+      status,
       icon,
       iconRight,
       iconClickable,
@@ -58,6 +60,8 @@ const Input = React.forwardRef<
       value,
       onClearClick,
       clearable,
+      shadow,
+      animated,
       width,
       className,
       onBlur,
@@ -68,6 +72,7 @@ const Input = React.forwardRef<
       children,
       disabled,
       bordered,
+      underlined,
       rounded,
       ...props
     },
@@ -100,9 +105,24 @@ const Input = React.forwardRef<
       () => (iconRight ? 'right-icon' : icon ? 'left-icon' : ''),
       [icon, iconRight]
     );
-    const { color, helperColor, borderColor, hoverBorder } = useMemo(
-      () => getColors(theme.palette, colorProp),
-      [theme.palette, colorProp]
+
+    if (underlined && bordered) {
+      useWarning(
+        'Using underlined and bordered at the same time will have no effect.'
+      );
+    }
+
+    const {
+      bgColor,
+      color,
+      helperColor,
+      placeholderColor,
+      borderColor,
+      hoverBorder,
+      shadowColor,
+    } = useMemo(
+      () => getColors(theme, colorProp, status),
+      [theme.palette, theme.expressiveness, colorProp, status]
     );
 
     const radius = useMemo(
@@ -178,10 +198,14 @@ const Input = React.forwardRef<
       <div className="with-label">
         {inputLabel && (
           <InputBlockLabel
+            animated={animated}
+            color={hoverBorder}
+            status={status}
             hasIcon={!!icon}
             selfValue={selfValue}
             heightRatio={heightRatio}
             asPlaceholder={!!labelPlaceholder}
+            placeholderColor={placeholderColor}
             hover={hover}
             htmlFor={inputId}
             label={inputLabel}
@@ -190,12 +214,15 @@ const Input = React.forwardRef<
         <div
           className={clsx(
             'input-container',
-            { hover, 'read-only': readOnly },
+            { hover, 'read-only': readOnly, shadow },
             className
           )}
         >
           {labelLeft && (
             <InputLabel
+              bordered={bordered}
+              bgColor={bgColor}
+              color={placeholderColor}
               radius={radius}
               borderWeight={borderWeight}
               fontSize={fontSize}
@@ -206,11 +233,11 @@ const Input = React.forwardRef<
           <div
             className={clsx(
               'input-wrapper',
-              { hover, disabled, bordered },
+              { hover, disabled, bordered, underlined },
               labelClasses
             )}
           >
-            {icon && <InputIcon icon={icon} {...iconProps} />}
+            {icon && <InputIcon status={status} icon={icon} {...iconProps} />}
             <input
               type="text"
               ref={inputRef}
@@ -227,19 +254,23 @@ const Input = React.forwardRef<
             />
             {clearable && (
               <InputClearIcon
-                visible={Boolean(
-                  inputRef.current && inputRef.current.value !== ''
-                )}
+                status={status}
+                visible={Boolean(selfValue)}
                 hasIcon={!!iconRight}
                 heightRatio={heightRatio}
                 disabled={disabled || readOnly}
                 onClick={clearHandler}
               />
             )}
-            {iconRight && <InputIcon icon={iconRight} {...iconProps} />}
+            {iconRight && (
+              <InputIcon status={status} icon={iconRight} {...iconProps} />
+            )}
           </div>
           {labelRight && (
             <InputLabel
+              bordered={bordered}
+              bgColor={bgColor}
+              color={placeholderColor}
               radius={radius}
               borderWeight={borderWeight}
               fontSize={fontSize}
@@ -270,7 +301,7 @@ const Input = React.forwardRef<
             width: 100%;
             display: inline-flex;
             align-items: center;
-            transition: all 0.25s ease;
+            transition: ${animated ? 'all 0.25s ease' : 'none'};
             border-radius: ${radius};
             height: calc(${heightRatio} * ${theme.layout.gap});
           }
@@ -282,12 +313,39 @@ const Input = React.forwardRef<
             height: 100%;
             user-select: none;
             border-radius: ${radius};
-            background: ${addColorAlpha(theme.palette.accents_2, 0.7)};
+            background: ${bgColor};
           }
           .input-wrapper.bordered {
             background: transparent;
-            border: ${borderWeight} solid ${borderColor};
-            transition: border-color 0.25s ease;
+            border: ${!underlined ? borderWeight : '0px'} solid ${borderColor};
+            transition: ${animated ? 'border-color 0.25s ease' : 'none'};
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            z-index: 1;
+            background: ${borderColor};
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: ${hoverBorder};
+            transition: ${animated ? 'width 0.25s ease' : 'none'};
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
           }
           .input-wrapper.left-label {
             border-top-left-radius: 0;
@@ -306,7 +364,7 @@ const Input = React.forwardRef<
             position: absolute;
             bottom: calc(${heightRatio} * ${theme.layout.gapHalf} * -1);
             opacity: 0;
-            transition: opacity 0.25s ease;
+            transition: ${animated ? 'opacity 0.25s ease' : 'none'};
           }
           .input-helper-text-container.with-value {
             opacity: 1;
@@ -316,24 +374,37 @@ const Input = React.forwardRef<
             font-size: 0.7rem;
             color: ${helperColor};
           }
+          .input-container :global(.input-label.bordered) {
+            transition: border 0.25s ease;
+            color: ${addColorAlpha(hoverBorder, 0.6)};
+          }
+          .input-container:hover :global(.input-label.left.bordered),
+          .input-container.hover :global(.input-label.left.bordered) {
+            border-right: ${borderWeight};
+          }
+          .input-container:hover :global(.input-label.bordered),
+          .input-container.hover :global(.input-label.bordered) {
+            border-color: ${hoverBorder};
+            border-style: solid;
+          }
           input.disabled {
             color: ${theme.palette.accents_4};
             cursor: not-allowed;
           }
           .input-container.hover:not(.read-only) {
-            transform: translateY(-2px);
-            box-shadow: ${theme.expressiveness.shadowSmall};
+            transform: ${animated && !underlined ? 'translateY(-2px)' : 'none'};
           }
-          .input-container.hover:not(.read-only) .input-wrapper:not(.bordered) {
-            background: ${addColorAlpha(theme.palette.accents_2, 0.9)};
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: ${shadow && !underlined ? shadowColor : 'none'};
           }
-          .input-container:hover .input-wrapper,
-          .input-container.hover:not(.read-only) .input-wrapper {
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
             border-color: ${hoverBorder};
           }
+
           input:focus::placeholder {
             opacity: 0;
-            transition: opacity 0.25s ease 0s;
+            transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
           }
           input {
             margin: 4px 10px;
@@ -356,16 +427,11 @@ const Input = React.forwardRef<
             margin-right: 0;
           }
           input::placeholder {
-            transition: opacity 0.25s ease 0s;
-            -moz-transition: opacity 0.25s ease 0s;
-            -ms-transition: opacity 0.25s ease 0s;
-            -webkit-transition: opacity 0.25s ease 0s;
-          }
-          ::placeholder,
-          ::-moz-placeholder,
-          :-ms-input-placeholder,
-          ::-webkit-input-placeholder {
-            color: ${theme.palette.accents_3};
+            color: ${placeholderColor};
+            transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
+            -moz-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
+            -ms-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
+            -webkit-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
           }
           input:-webkit-autofill,
           input:-webkit-autofill:hover,

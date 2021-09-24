@@ -8,7 +8,10 @@ export interface Props {
   placeholder?: string;
   size?: NormalSizes;
   color?: SimpleColors;
+  status?: SimpleColors;
   readOnly?: boolean;
+  shadow?: boolean;
+  animated?: boolean;
   disabled?: boolean;
   label?: string;
   helperText?: string;
@@ -20,6 +23,7 @@ export interface Props {
   iconClickable?: boolean;
   rounded?: boolean;
   bordered?: boolean;
+  underlined?: boolean;
   borderWeight?: NormalWeights;
   width?: string;
   className?: string;
@@ -38,10 +42,14 @@ export const defaultProps = {
   readOnly: false,
   clearable: false,
   rounded: false,
+  animated: true,
+  underlined: false,
+  shadow: true,
   iconClickable: false,
   width: 'initial',
   size: 'medium' as NormalSizes,
   color: 'default' as SimpleColors,
+  status: 'default' as SimpleColors,
   borderWeight: 'normal' as NormalWeights,
   autoComplete: 'off',
   className: '',

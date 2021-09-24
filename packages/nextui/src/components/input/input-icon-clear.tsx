@@ -2,10 +2,13 @@ import React, { useMemo } from 'react';
 import clsx from '../../utils/clsx';
 import useTheme from '../../hooks/use-theme';
 import ClearIcon from './clear-icon';
+import { SimpleColors } from '../../utils/prop-types';
+import { getNormalColor } from '../../utils/color';
 
 interface Props {
   visible: boolean;
   hasIcon?: boolean;
+  status?: SimpleColors;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   heightRatio?: string | undefined;
   disabled?: boolean;
@@ -14,6 +17,7 @@ interface Props {
 const InputIconClear: React.FC<Props> = ({
   onClick,
   heightRatio,
+  status,
   disabled,
   visible,
   hasIcon,
@@ -46,7 +50,9 @@ const InputIconClear: React.FC<Props> = ({
           cursor: ${disabled ? 'not-allowed' : 'pointer'};
           box-sizing: border-box;
           transition: color 250ms ease 0s, transform 250ms ease 0s;
-          color: ${theme.palette.accents_3};
+          color: ${status === 'default'
+            ? theme.palette.accents_3
+            : getNormalColor(status, theme.palette)};
           visibility: hidden;
           transform: translateX(20%);
           opacity: 0;

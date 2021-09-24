@@ -1,22 +1,32 @@
 import React from 'react';
 import useTheme from '../../hooks/use-theme';
+import { addColorAlpha } from '../../utils/color';
 import clsx from '../../utils/clsx';
+import { SimpleColors } from '../../utils/prop-types';
 
 export interface InputBlockLabelLabel {
   label: string;
   htmlFor: string;
+  color?: string;
+  animated?: boolean;
   selfValue?: string;
   hasIcon?: boolean;
   asPlaceholder?: boolean;
+  status?: SimpleColors;
+  placeholderColor?: string;
   heightRatio?: string | undefined;
   hover?: boolean;
 }
 
 const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
   label,
+  animated,
   htmlFor,
   selfValue,
+  color,
+  status,
   asPlaceholder = false,
+  placeholderColor,
   heightRatio,
   hasIcon,
   hover,
@@ -37,7 +47,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
         .input-label-block {
           display: block;
           font-weight: normal;
-          color: ${theme.palette.text};
+          color: ${color || theme.palette.text};
           padding: 0 0 0 4px;
           margin-bottom: ${theme.layout.gapQuarter};
           font-size: 0.875rem;
@@ -64,15 +74,19 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
           top: 20%;
           margin-bottom: 0;
           cursor: text;
-          transition: left 0.25s ease 0s, color 0.25s ease 0s, top 0.25s ease 0s;
-          color: ${theme.palette.accents_3};
+          transition: ${animated
+            ? 'left 0.25s ease 0s, color 0.25s ease 0s, top 0.25s ease 0s'
+            : 'none'};
+          color: ${placeholderColor || theme.palette.accents_3};
         }
         .as-placeholder.has-icon-left {
           left: calc(12px + ${heightRatio} * ${theme.layout.gap} * 0.64);
         }
         .as-placeholder.hover,
         .as-placeholder.with-value {
-          color: ${theme.palette.text};
+          color: ${placeholderColor && status !== 'default'
+            ? addColorAlpha(placeholderColor, 1)
+            : color || theme.palette.text};
           top: calc(${heightRatio} * ${theme.layout.gapHalf} * -1 - 8px);
           left: 4px;
           cursor: inherit;

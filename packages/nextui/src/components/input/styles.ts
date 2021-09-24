@@ -1,6 +1,6 @@
-import { hexToRGBA } from './../../utils/color';
 import { NormalSizes, SimpleColors } from '../../utils/prop-types';
-import { NextUIThemesPalette } from '../../theme/index';
+import { NextUIThemes, NextUIThemesPalette } from '../../theme/index';
+import { addColorAlpha, getNormalColor, hexToRgb } from '../../utils/color';
 
 export type InputSize = {
   heightRatio: string;
@@ -35,55 +35,88 @@ export const getSizes = (size?: NormalSizes) => {
 };
 
 export type InputColor = {
+  bgColor: string;
   color: string;
+  placeholderColor: string;
   helperColor: string;
   borderColor: string;
   hoverBorder: string;
+  shadowColor: string;
+};
+
+export const getShadowColor = (
+  palette: NextUIThemesPalette,
+  color?: SimpleColors
+) => {
+  try {
+    const hexColor = getNormalColor(color, palette, palette.accents_4);
+    const [r, g, b] = hexToRgb(hexColor);
+    return `0 5px 20px -5px rgb(${r} ${g} ${b}/ 40%);`;
+  } catch (err) {
+    return 'none';
+  }
 };
 
 export const getColors = (
-  palette: NextUIThemesPalette,
-  color?: SimpleColors
+  theme: NextUIThemes,
+  color?: SimpleColors,
+  status?: SimpleColors
 ): InputColor => {
+  const palette = theme.palette;
+
+  const baseProps = {
+    color: palette.text,
+    bgColor: palette.accents_2,
+    placeholderColor: palette.accents_3,
+    borderColor: palette.accents_2,
+    shadowColor: theme.expressiveness.shadowSmall,
+  };
+
   const colors: { [key in SimpleColors]: InputColor } = {
     default: {
-      color: palette.text,
+      ...baseProps,
       helperColor: palette.text,
-      borderColor: palette.accents_2,
       hoverBorder: palette.foreground,
     },
     primary: {
-      color: palette.text,
+      ...baseProps,
       helperColor: palette.primary,
-      borderColor: palette.accents_2,
       hoverBorder: palette.primary,
     },
     secondary: {
-      color: palette.text,
+      ...baseProps,
       helperColor: palette.secondary,
-      borderColor: palette.accents_2,
       hoverBorder: palette.secondary,
     },
     success: {
-      color: palette.text,
+      ...baseProps,
       helperColor: palette.success,
-      borderColor: palette.accents_2,
       hoverBorder: palette.success,
     },
     warning: {
-      color: palette.text,
+      ...baseProps,
       helperColor: palette.warning,
-      borderColor: palette.accents_2,
       hoverBorder: palette.warning,
     },
     error: {
-      color: palette.text,
+      ...baseProps,
       helperColor: palette.error,
-      borderColor: palette.accents_2,
       hoverBorder: palette.error,
     },
   };
-
+  if (status) {
+    if (status === 'default' && color) {
+      return colors[color];
+    }
+    const statusColor = getNormalColor(status, palette);
+    return {
+      ...colors[status],
+      color: statusColor,
+      placeholderColor: addColorAlpha(statusColor, 0.5),
+      bgColor: addColorAlpha(statusColor, 0.2),
+      shadowColor: getShadowColor(palette, status),
+    };
+  }
   if (!color) return colors.default;
   return colors[color];
 };

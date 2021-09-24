@@ -3,7 +3,15 @@ import { Meta } from '@storybook/react';
 import Input from './index';
 import useInput from './use-input';
 import { Text, Spacer, Button, Grid } from '../index';
-import { Lock, Unlock, User, Activity } from '../../utils/icons';
+import {
+  Lock,
+  Unlock,
+  User,
+  Activity,
+  Notification,
+  Sun,
+  Moon,
+} from '../../utils/icons';
 import { useTheme } from '../../hooks';
 
 export default {
@@ -59,6 +67,29 @@ export const WithIcons = () => {
         labelPlaceholder="Icon right"
         iconRight={<Activity theme={theme} fill="currentColor" />}
       />
+      <Spacer y={1.5} />
+      <Input
+        clearable
+        status="success"
+        labelPlaceholder="Icon left"
+        iconRight={<Notification theme={theme} fill="currentColor" />}
+      />
+      <Spacer y={1.5} />
+      <Input
+        clearable
+        underlined
+        status="warning"
+        labelPlaceholder="Icon left"
+        iconRight={<Sun theme={theme} filled fill="currentColor" />}
+      />
+      <Spacer y={1.5} />
+      <Input
+        clearable
+        bordered
+        status="secondary"
+        labelPlaceholder="Icon left"
+        iconRight={<Moon theme={theme} filled fill="currentColor" />}
+      />
     </>
   );
 };
@@ -94,20 +125,86 @@ export const Sizes = () => (
   </>
 );
 
+export const Status = () => (
+  <>
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Primary" status="primary" />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Secondary" status="secondary" />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Success" status="success" />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Warning" status="warning" />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Error" status="error" />
+  </>
+);
+
+export const NoShadow = () => (
+  <>
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Default" shadow={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Primary" status="primary" shadow={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Secondary" status="secondary" shadow={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Success" status="success" shadow={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Warning" status="warning" shadow={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Error" status="error" shadow={false} />
+  </>
+);
+
+export const NoAnimated = () => (
+  <>
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Default" animated={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Primary" status="primary" animated={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Secondary" status="secondary" animated={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Success" status="success" animated={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Warning" status="warning" animated={false} />
+    <Spacer y={1.5} />
+    <Input labelPlaceholder="Error" status="error" animated={false} />
+  </>
+);
+
 export const Bordered = () => (
   <>
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Enter Email" color="default" />
+    <Input bordered labelPlaceholder="Default" color="default" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Enter Email" color="primary" />
+    <Input bordered labelPlaceholder="Primary" color="primary" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Enter Email" color="secondary" />
+    <Input bordered labelPlaceholder="Secondary" color="secondary" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Enter Email" color="success" />
+    <Input bordered labelPlaceholder="Success" color="success" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Enter Email" color="warning" />
+    <Input bordered labelPlaceholder="Warning" color="warning" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Enter Email" color="error" />
+    <Input bordered labelPlaceholder="Error" color="error" />
+  </>
+);
+
+export const Underlined = () => (
+  <>
+    <Spacer y={1.5} />
+    <Input underlined bordered labelPlaceholder="Default" color="default" />
+    <Spacer y={1.5} />
+    <Input underlined labelPlaceholder="Primary" color="primary" />
+    <Spacer y={1.5} />
+    <Input underlined labelPlaceholder="Secondary" color="secondary" />
+    <Spacer y={1.5} />
+    <Input underlined labelPlaceholder="Success" color="success" />
+    <Spacer y={1.5} />
+    <Input underlined labelPlaceholder="Warning" color="warning" />
+    <Spacer y={1.5} />
+    <Input underlined labelPlaceholder="Error" color="error" />
   </>
 );
 
@@ -126,15 +223,64 @@ export const Rounded = () => (
   </>
 );
 
+export const InputTypes = () => (
+  <Grid.Container gap={1}>
+    <Grid>
+      <Input label="Text" type="text" />
+    </Grid>
+    <Grid>
+      <Input label="Password" type="password" />
+    </Grid>
+    <Grid>
+      <Input label="Search" type="search" />
+    </Grid>
+    <Grid>
+      <Input label="Number" type="number" />
+    </Grid>
+    <Grid>
+      <Input label="Url" type="url" />
+    </Grid>
+    <Grid>
+      <Input label="Time" type="time" />
+    </Grid>
+    <Grid>
+      <Input label="Date" type="date" />
+    </Grid>
+  </Grid.Container>
+);
+
 export const WithLabels = () => (
   <>
     <Input label="Name" placeholder="Enter your name" />
     <Spacer y={1.5} />
     <Input labelPlaceholder="Label placeholder" color="primary" />
     <Spacer y={1.5} />
-    <Input labelLeft="username" placeholder="Next UI" />
+    <Input status="primary" labelLeft="username" placeholder="Next UI" />
     <Spacer y={1.5} />
-    <Input labelRight=".com" placeholder="https://github/nextui-org/nextui" />
+    <Input
+      status="error"
+      labelRight=".com"
+      placeholder="https://github/nextui-org/nextui"
+    />
+    <Spacer y={1.5} />
+    <Input
+      status="primary"
+      underlined
+      labelLeft="username"
+      placeholder="Next UI"
+    />
+    <Spacer y={1.5} />
+    <Input
+      bordered
+      labelRight=".com"
+      placeholder="https://github/nextui-org/nextui"
+    />
+    <Spacer y={1.5} />
+    <Input
+      bordered
+      labelLeft="https://"
+      placeholder="github/nextui-org/nextui"
+    />
   </>
 );
 
@@ -160,12 +306,21 @@ export const WithHelperText = () => {
       <Input
         {...bindings}
         clearable
+        status={helperColor}
+        shadow={false}
         onClearClick={reset}
         color={helperColor}
         helperText={helperText}
         type="email"
         label="Email"
         placeholder="With regex validation"
+      />
+      <Spacer y={1.4} />
+      <Input
+        clearable
+        helperText="Please enter your name"
+        label="Name"
+        placeholder="Enter your name"
       />
       <Spacer y={1.4} />
       <Input
