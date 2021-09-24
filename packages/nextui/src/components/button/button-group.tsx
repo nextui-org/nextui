@@ -38,7 +38,7 @@ const defaultProps = {
   animated: false,
   rounded: false,
   ghost: false,
-  borderWeight: 'normal' as NormalWeights,
+  borderWeight: 'normal' as NormalWeights | undefined,
   size: 'medium' as NormalSizes,
   color: 'default' as NormalColors,
   className: '',
@@ -91,6 +91,9 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
   }, [theme, disabled, bordered]);
 
   const radius = useMemo(() => getNormalRadius(size, rounded), [size, rounded]);
+
+  // to avoid passing borderweight prop to the html button element
+  delete props.borderWeight;
 
   return (
     <ButtonGroupContext.Provider value={initialValue}>

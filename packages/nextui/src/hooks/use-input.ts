@@ -1,5 +1,5 @@
 import React, { Dispatch, MutableRefObject, SetStateAction } from 'react';
-import useCurrentState from '../../hooks/use-current-state';
+import useCurrentState from './use-current-state';
 
 export type BindingsChangeTarget =
   | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

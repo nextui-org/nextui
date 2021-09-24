@@ -67,8 +67,8 @@ const Textarea = React.forwardRef<
     const [selfValue, setSelfValue] = useState<string>(initialValue);
     const [hover, setHover] = useState<boolean>(false);
     const { color, borderColor, hoverBorder } = useMemo(
-      () => getColors(theme.palette, colorProp),
-      [theme.palette, colorProp]
+      () => getColors(theme, colorProp),
+      [theme.palette, theme.expressiveness, colorProp]
     );
 
     const changeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {

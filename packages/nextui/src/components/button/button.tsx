@@ -59,7 +59,7 @@ const defaultProps = {
   size: 'medium' as NormalSizes,
   htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
   loaderType: 'default' as NormalLoaders,
-  borderWeight: 'normal' as NormalWeights,
+  borderWeight: 'normal' as NormalWeights | undefined,
   flat: false,
   light: false,
   loading: false,
@@ -185,6 +185,9 @@ const Button = React.forwardRef<
     }
     onClick && onClick(event);
   };
+
+  // to avoid passing borderweight prop to the html button element
+  delete props.borderWeight;
 
   return (
     <button

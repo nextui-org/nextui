@@ -21,6 +21,7 @@ const InputIconClear: React.FC<Props> = ({
   disabled,
   visible,
   hasIcon,
+  ...props
 }) => {
   const theme = useTheme();
   const width = useMemo(() => {
@@ -38,6 +39,7 @@ const InputIconClear: React.FC<Props> = ({
     <div
       onClick={clickHandler}
       className={clsx('clear-icon', { visible, 'has-icon-right': hasIcon })}
+      {...props}
     >
       <ClearIcon fill="currentColor" />
       <style jsx>{`

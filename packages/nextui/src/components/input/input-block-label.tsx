@@ -30,6 +30,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
   heightRatio,
   hasIcon,
   hover,
+  ...props
 }) => {
   const theme = useTheme();
   return (
@@ -41,6 +42,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
         hover,
       })}
       htmlFor={htmlFor}
+      {...props}
     >
       {label}
       <style jsx>{`

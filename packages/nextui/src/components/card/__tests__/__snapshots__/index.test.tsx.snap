@@ -14,7 +14,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "jsx-2685867176 card  ",
+              "class": "jsx-3393167581 card  ",
             },
             "children": Array [
               Node {
@@ -224,7 +224,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "jsx-3611481336 card  ",
+          "class": "jsx-2725312077 card  ",
         },
         "children": Array [
           Node {
@@ -258,7 +258,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-2685867176 card  ",
+            "class": "jsx-3393167581 card  ",
           },
           "children": Array [
             Node {
@@ -292,7 +292,7 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "jsx-2685867176 card  ",
+              "class": "jsx-3393167581 card  ",
             },
             "children": Array [
               Node {
@@ -357,7 +357,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-2685867176 card  ",
+          "class": "jsx-3393167581 card  ",
         },
         "children": Array [
           Node {
@@ -391,7 +391,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "jsx-2685867176 card  ",
+            "class": "jsx-3393167581 card  ",
           },
           "children": Array [
             Node {
@@ -437,7 +437,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-3611481336 card  ",
+            "class": "jsx-2725312077 card  ",
           },
           "children": Array [
             Node {
@@ -490,7 +490,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "jsx-2685867176 card  ",
+          "class": "jsx-3393167581 card  ",
         },
         "children": Array [
           Node {
@@ -526,7 +526,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "jsx-2685867176 card  ",
+            "class": "jsx-3393167581 card  ",
           },
           "children": Array [
             Node {
@@ -562,7 +562,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "jsx-3611481336 card  ",
+              "class": "jsx-2725312077 card  ",
             },
             "children": Array [
               Node {

@@ -33,7 +33,7 @@ export interface Props {
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onIconClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  autoComplete: string;
+  autoComplete?: string;
 }
 
 export const defaultProps = {

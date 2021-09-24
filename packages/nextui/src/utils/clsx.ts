@@ -1,5 +1,6 @@
+/* eslint-disable no-shadow-restricted-names */
 /* eslint-disable no-plusplus */
-function toVal(mix) {
+function toVal(mix: any) {
   var k,
     y,
     str = '';
@@ -29,13 +30,13 @@ function toVal(mix) {
   return str;
 }
 
-export default function () {
+export default function (...args: any[]) {
   var i = 0,
     tmp,
     x,
     str = '';
-  while (i < arguments.length) {
-    if ((tmp = arguments[i++])) {
+  while (i < args.length) {
+    if ((tmp = args[i++])) {
       if ((x = toVal(tmp))) {
         str && (str += ' ');
         str += x;

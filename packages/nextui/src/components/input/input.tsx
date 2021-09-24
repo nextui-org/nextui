@@ -20,7 +20,6 @@ import { Props, defaultProps } from './input-props';
 import { getNormalRadius, getNormalWeight } from '../../utils/dimensions';
 import clsx from '../../utils/clsx';
 import useWarning from '../../hooks/use-warning';
-import { addColorAlpha } from '../../utils/color';
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
 export type InputProps = Props & typeof defaultProps & NativeAttrs;
@@ -89,10 +88,6 @@ const Input = React.forwardRef<
 
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
 
-    const labelClasses = useMemo(
-      () => (labelRight ? 'right-label' : labelLeft ? 'left-label' : ''),
-      [labelLeft, labelRight]
-    );
     const inputLabel = useMemo(
       () => label || labelPlaceholder,
       [label, labelPlaceholder]
@@ -109,6 +104,11 @@ const Input = React.forwardRef<
     if (underlined && bordered) {
       useWarning(
         'Using underlined and bordered at the same time will have no effect.'
+      );
+    }
+    if (underlined && rounded) {
+      useWarning(
+        'Using underlined and rounded at the same time will have no effect.'
       );
     }
 
@@ -131,8 +131,9 @@ const Input = React.forwardRef<
     );
 
     const borderWeight = useMemo(
-      () => (bordered ? getNormalWeight(borderWeightProp) : '0px'),
-      [bordered, borderWeightProp]
+      () =>
+        bordered || underlined ? getNormalWeight(borderWeightProp) : '0px',
+      [bordered, underlined, borderWeightProp]
     );
 
     const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -218,25 +219,27 @@ const Input = React.forwardRef<
             className
           )}
         >
-          {labelLeft && (
-            <InputLabel
-              bordered={bordered}
-              bgColor={bgColor}
-              color={placeholderColor}
-              radius={radius}
-              borderWeight={borderWeight}
-              fontSize={fontSize}
-            >
-              {labelLeft}
-            </InputLabel>
-          )}
           <div
-            className={clsx(
-              'input-wrapper',
-              { hover, disabled, bordered, underlined },
-              labelClasses
-            )}
+            className={clsx('input-wrapper', {
+              hover,
+              disabled,
+              bordered,
+              underlined,
+            })}
           >
+            {labelLeft && (
+              <InputLabel
+                bgColor={bgColor}
+                borderWeight={borderWeight}
+                underlined={underlined}
+                bordered={bordered}
+                color={placeholderColor}
+                radius={radius}
+                fontSize={fontSize}
+              >
+                {labelLeft}
+              </InputLabel>
+            )}
             {icon && <InputIcon status={status} icon={icon} {...iconProps} />}
             <input
               type="text"
@@ -265,20 +268,21 @@ const Input = React.forwardRef<
             {iconRight && (
               <InputIcon status={status} icon={iconRight} {...iconProps} />
             )}
+            {labelRight && (
+              <InputLabel
+                bgColor={bgColor}
+                borderWeight={borderWeight}
+                bordered={bordered}
+                underlined={underlined}
+                color={placeholderColor}
+                radius={radius}
+                fontSize={fontSize}
+                isRight={true}
+              >
+                {labelRight}
+              </InputLabel>
+            )}
           </div>
-          {labelRight && (
-            <InputLabel
-              bordered={bordered}
-              bgColor={bgColor}
-              color={placeholderColor}
-              radius={radius}
-              borderWeight={borderWeight}
-              fontSize={fontSize}
-              isRight={true}
-            >
-              {labelRight}
-            </InputLabel>
-          )}
         </div>
         <div
           className={clsx('input-helper-text-container', {
@@ -317,8 +321,10 @@ const Input = React.forwardRef<
           }
           .input-wrapper.bordered {
             background: transparent;
-            border: ${!underlined ? borderWeight : '0px'} solid ${borderColor};
-            transition: ${animated ? 'border-color 0.25s ease' : 'none'};
+            border: none;
+            box-shadow: 0 0 0 ${!underlined ? borderWeight : '0px'}
+              ${borderColor};
+            transition: ${animated ? 'box-shadow 0.25s ease' : 'none'};
           }
           .input-wrapper.underlined {
             background: transparent;
@@ -328,7 +334,7 @@ const Input = React.forwardRef<
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 2px;
+            height: ${borderWeight};
             z-index: 1;
             background: ${borderColor};
           }
@@ -346,14 +352,6 @@ const Input = React.forwardRef<
           }
           .input-wrapper.hover.underlined::before {
             width: 100%;
-          }
-          .input-wrapper.left-label {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-          }
-          .input-wrapper.right-label {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
           }
           .input-wrapper.disabled {
             background-color: ${theme.palette.accents_2};
@@ -374,19 +372,6 @@ const Input = React.forwardRef<
             font-size: 0.7rem;
             color: ${helperColor};
           }
-          .input-container :global(.input-label.bordered) {
-            transition: border 0.25s ease;
-            color: ${addColorAlpha(hoverBorder, 0.6)};
-          }
-          .input-container:hover :global(.input-label.left.bordered),
-          .input-container.hover :global(.input-label.left.bordered) {
-            border-right: ${borderWeight};
-          }
-          .input-container:hover :global(.input-label.bordered),
-          .input-container.hover :global(.input-label.bordered) {
-            border-color: ${hoverBorder};
-            border-style: solid;
-          }
           input.disabled {
             color: ${theme.palette.accents_4};
             cursor: not-allowed;
@@ -400,6 +385,8 @@ const Input = React.forwardRef<
           .input-container:hover .input-wrapper.bordered,
           .input-container.hover:not(.read-only) .input-wrapper.bordered {
             border-color: ${hoverBorder};
+            box-shadow: 0 0 0 ${!underlined ? borderWeight : '0px'}
+              ${hoverBorder};
           }
 
           input:focus::placeholder {

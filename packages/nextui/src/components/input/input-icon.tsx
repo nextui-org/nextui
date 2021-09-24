@@ -18,6 +18,7 @@ const InputIcon: React.FC<InputIconProps> = ({
   status,
   clickable,
   onClick,
+  ...props
 }) => {
   const theme = useTheme();
 
@@ -30,7 +31,7 @@ const InputIcon: React.FC<InputIconProps> = ({
   }, [theme.layout.gap, ratio]);
 
   return (
-    <span className="input-icon" onClick={onClick}>
+    <span className="input-icon" onClick={onClick} {...props}>
       {icon}
       <style jsx>{`
         .input-icon {

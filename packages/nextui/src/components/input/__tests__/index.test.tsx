@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Input } from '../../index';
-import { nativeEvent } from 'tests/utils';
+import { nativeEvent } from '../../../../tests/utils';
 
 describe('Input', () => {
   it('should render correctly', () => {
@@ -15,6 +15,7 @@ describe('Input', () => {
         <Input size="mini" />
         <Input size="small" />
         <Input size="large" />
+        <Input size="xlarge" />
         <Input width="50%" />
       </div>
     );

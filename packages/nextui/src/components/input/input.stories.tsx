@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { Meta } from '@storybook/react';
 import Input from './index';
-import useInput from './use-input';
+import useInput from '../../hooks/use-input';
 import { Text, Spacer, Button, Grid } from '../index';
 import {
   Lock,
@@ -194,7 +194,7 @@ export const Bordered = () => (
 export const Underlined = () => (
   <>
     <Spacer y={1.5} />
-    <Input underlined bordered labelPlaceholder="Default" color="default" />
+    <Input underlined labelPlaceholder="Default" color="default" />
     <Spacer y={1.5} />
     <Input underlined labelPlaceholder="Primary" color="primary" />
     <Spacer y={1.5} />
@@ -280,6 +280,13 @@ export const WithLabels = () => (
       bordered
       labelLeft="https://"
       placeholder="github/nextui-org/nextui"
+    />
+    <Spacer y={1.5} />
+    <Input
+      bordered
+      labelLeft="https://"
+      labelRight=".org"
+      placeholder="nextui"
     />
   </>
 );
