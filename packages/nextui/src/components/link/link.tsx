@@ -4,6 +4,7 @@ import useTheme from '../../hooks/use-theme';
 import LinkIcon from './icon';
 import { addColorAlpha, getNormalColor } from '../../utils/color';
 import { SimpleColors } from '../../utils/prop-types';
+import { __DEV__ } from '../../utils/assertion';
 
 export interface Props {
   href?: string;
@@ -83,7 +84,9 @@ const Link = React.forwardRef<
   }
 );
 
-Link.displayName = 'Link';
+if (__DEV__) {
+  Link.displayName = 'Link';
+}
 const MemoLink = React.memo(Link);
 
 export default withDefaults(MemoLink, defaultProps);

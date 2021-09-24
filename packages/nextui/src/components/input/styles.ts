@@ -1,3 +1,4 @@
+import { hexToRGBA } from './../../utils/color';
 import { NormalSizes, SimpleColors } from '../../utils/prop-types';
 import { NextUIThemesPalette } from '../../theme/index';
 
@@ -35,47 +36,54 @@ export const getSizes = (size?: NormalSizes) => {
 
 export type InputColor = {
   color: string;
+  helperColor: string;
   borderColor: string;
   hoverBorder: string;
 };
 
 export const getColors = (
   palette: NextUIThemesPalette,
-  status?: SimpleColors
+  color?: SimpleColors
 ): InputColor => {
   const colors: { [key in SimpleColors]: InputColor } = {
     default: {
-      color: palette.foreground,
-      borderColor: palette.border,
-      hoverBorder: palette.accents_5,
+      color: palette.text,
+      helperColor: palette.text,
+      borderColor: palette.accents_2,
+      hoverBorder: palette.foreground,
     },
     primary: {
-      color: palette.foreground,
-      borderColor: palette.primary,
+      color: palette.text,
+      helperColor: palette.primary,
+      borderColor: palette.accents_2,
       hoverBorder: palette.primary,
     },
     secondary: {
-      color: palette.foreground,
-      borderColor: palette.secondary,
+      color: palette.text,
+      helperColor: palette.secondary,
+      borderColor: palette.accents_2,
       hoverBorder: palette.secondary,
     },
     success: {
-      color: palette.foreground,
-      borderColor: palette.successLight,
+      color: palette.text,
+      helperColor: palette.success,
+      borderColor: palette.accents_2,
       hoverBorder: palette.success,
     },
     warning: {
-      color: palette.foreground,
-      borderColor: palette.warningLight,
+      color: palette.text,
+      helperColor: palette.warning,
+      borderColor: palette.accents_2,
       hoverBorder: palette.warning,
     },
     error: {
-      color: palette.error,
-      borderColor: palette.error,
-      hoverBorder: palette.errorDark,
+      color: palette.text,
+      helperColor: palette.error,
+      borderColor: palette.accents_2,
+      hoverBorder: palette.error,
     },
   };
 
-  if (!status) return colors.default;
-  return colors[status];
+  if (!color) return colors.default;
+  return colors[color];
 };

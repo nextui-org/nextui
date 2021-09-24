@@ -29,6 +29,7 @@ import {
   getButtonSize,
 } from './styles';
 import { getNormalRadius } from '../..//utils/dimensions';
+import { __DEV__ } from '../../utils/assertion';
 
 export interface Props {
   color?: NormalColors | string;
@@ -332,8 +333,9 @@ type ButtonComponent<T, P = {}> = React.ForwardRefExoticComponent<
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs;
-
-Button.displayName = 'NextUI - Button';
+if (__DEV__) {
+  Button.displayName = 'NextUI - Button';
+}
 Button.defaultProps = defaultProps;
 
 export default Button as ButtonComponent<HTMLButtonElement, ComponentProps>;

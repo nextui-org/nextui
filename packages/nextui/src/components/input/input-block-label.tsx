@@ -6,6 +6,7 @@ export interface InputBlockLabelLabel {
   label: string;
   htmlFor: string;
   selfValue?: string;
+  hasIcon?: boolean;
   asPlaceholder?: boolean;
   heightRatio?: string | undefined;
   hover?: boolean;
@@ -17,6 +18,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
   selfValue,
   asPlaceholder = false,
   heightRatio,
+  hasIcon,
   hover,
 }) => {
   const theme = useTheme();
@@ -25,6 +27,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
       className={clsx('input-label-block', {
         'as-placeholder': asPlaceholder,
         'with-value': selfValue,
+        'has-icon-left': hasIcon,
         hover,
       })}
       htmlFor={htmlFor}
@@ -60,14 +63,19 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
           left: 12px;
           top: 20%;
           margin-bottom: 0;
+          cursor: text;
           transition: left 0.25s ease 0s, color 0.25s ease 0s, top 0.25s ease 0s;
           color: ${theme.palette.accents_3};
+        }
+        .as-placeholder.has-icon-left {
+          left: calc(12px + ${heightRatio} * ${theme.layout.gap} * 0.64);
         }
         .as-placeholder.hover,
         .as-placeholder.with-value {
           color: ${theme.palette.text};
           top: calc(${heightRatio} * ${theme.layout.gapHalf} * -1 - 8px);
           left: 4px;
+          cursor: inherit;
         }
       `}</style>
     </label>

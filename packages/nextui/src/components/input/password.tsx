@@ -3,14 +3,19 @@ import withDefaults from '../../utils/with-defaults';
 import { Props, defaultProps } from './input-props';
 import PasswordIcon from './password-icon';
 import Input from './input';
+import { __DEV__ } from '../../utils/assertion';
 
 interface PasswordProps extends Props {
   hideToggle?: boolean;
+  visibleIcon?: React.ReactNode;
+  hiddenIcon?: React.ReactNode;
 }
 
 const passwordDefaultProps = {
   ...defaultProps,
   hideToggle: false,
+  visibleIcon: <PasswordIcon visible />,
+  hiddenIcon: <PasswordIcon visible={false} />,
 };
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof PasswordProps>;
@@ -23,7 +28,7 @@ const InputPassword = React.forwardRef<
   React.PropsWithChildren<InputPasswordProps>
 >(
   (
-    { hideToggle, children, ...props },
+    { hideToggle, visibleIcon, hiddenIcon, children, ...props },
     ref: React.Ref<HTMLInputElement | null>
   ) => {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -32,10 +37,6 @@ const InputPassword = React.forwardRef<
 
     const iconClickHandler = () => {
       setVisible((v) => !v);
-      /* istanbul ignore next */
-      if (inputRef && inputRef.current) {
-        inputRef.current.focus();
-      }
     };
 
     const inputProps = useMemo(
@@ -50,8 +51,8 @@ const InputPassword = React.forwardRef<
     );
     const icon = useMemo(() => {
       if (hideToggle) return null;
-      return <PasswordIcon visible={visible} />;
-    }, [hideToggle, visible]);
+      return visible ? visibleIcon : hiddenIcon;
+    }, [hideToggle, visible, visibleIcon, hiddenIcon]);
 
     return (
       <Input iconRight={icon} {...inputProps}>
@@ -60,8 +61,9 @@ const InputPassword = React.forwardRef<
     );
   }
 );
-
-InputPassword.displayName = 'NextUI - Input Password';
+if (__DEV__) {
+  InputPassword.displayName = 'NextUI - Input Password';
+}
 InputPassword.defaultProps = defaultProps;
 
 export default withDefaults(InputPassword, passwordDefaultProps);

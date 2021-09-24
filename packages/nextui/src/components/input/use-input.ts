@@ -8,8 +8,8 @@ export type BindingsChangeTarget =
 const useInput = (
   initialValue: string
 ): {
-  state: string;
-  setState: Dispatch<SetStateAction<string>>;
+  value: string;
+  setValue: Dispatch<SetStateAction<string>>;
   currentRef: MutableRefObject<string>;
   reset: () => void;
   bindings: {
@@ -17,20 +17,20 @@ const useInput = (
     onChange: (event: BindingsChangeTarget) => void;
   };
 } => {
-  const [state, setState, currentRef] = useCurrentState<string>(initialValue);
+  const [value, setValue, currentRef] = useCurrentState<string>(initialValue);
 
   return {
-    state,
-    setState,
+    value,
+    setValue,
     currentRef,
-    reset: () => setState(initialValue),
+    reset: () => setValue(initialValue),
     bindings: {
-      value: state,
+      value,
       onChange: (event: BindingsChangeTarget) => {
         if (typeof event === 'object' && event.target) {
-          setState(event.target.value);
+          setValue(event.target.value);
         } else {
-          setState(event as string);
+          setValue(event as string);
         }
       },
     },

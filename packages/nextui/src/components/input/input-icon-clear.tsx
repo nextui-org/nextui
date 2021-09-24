@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react';
+import clsx from '../../utils/clsx';
 import useTheme from '../../hooks/use-theme';
 import ClearIcon from './clear-icon';
 
 interface Props {
   visible: boolean;
+  hasIcon?: boolean;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   heightRatio?: string | undefined;
   disabled?: boolean;
@@ -14,21 +16,24 @@ const InputIconClear: React.FC<Props> = ({
   heightRatio,
   disabled,
   visible,
+  hasIcon,
 }) => {
   const theme = useTheme();
   const width = useMemo(() => {
     return heightRatio ? `calc(10.66px * ${heightRatio})` : '18px';
   }, [heightRatio]);
+
   const clickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
     event.nativeEvent.stopImmediatePropagation();
     onClick && onClick(event);
   };
+
   return (
     <div
       onClick={clickHandler}
-      className={`clear-icon ${visible ? 'visible' : ''}`}
+      className={clsx('clear-icon', { visible, 'has-icon-right': hasIcon })}
     >
       <ClearIcon fill="currentColor" />
       <style jsx>{`
@@ -45,6 +50,10 @@ const InputIconClear: React.FC<Props> = ({
           visibility: hidden;
           transform: translateX(20%);
           opacity: 0;
+        }
+        .has-icon-right {
+          padding: 0;
+          transform: translateX(30%);
         }
         .visible {
           visibility: visible;

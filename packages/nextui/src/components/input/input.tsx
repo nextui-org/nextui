@@ -46,6 +46,7 @@ const Input = React.forwardRef<
       labelLeft,
       labelRight,
       size,
+      helperText,
       color: colorProp,
       icon,
       iconRight,
@@ -99,7 +100,7 @@ const Input = React.forwardRef<
       () => (iconRight ? 'right-icon' : icon ? 'left-icon' : ''),
       [icon, iconRight]
     );
-    const { color, borderColor, hoverBorder } = useMemo(
+    const { color, helperColor, borderColor, hoverBorder } = useMemo(
       () => getColors(theme.palette, colorProp),
       [theme.palette, colorProp]
     );
@@ -177,6 +178,7 @@ const Input = React.forwardRef<
       <div className="with-label">
         {inputLabel && (
           <InputBlockLabel
+            hasIcon={!!icon}
             selfValue={selfValue}
             heightRatio={heightRatio}
             asPlaceholder={!!labelPlaceholder}
@@ -202,13 +204,17 @@ const Input = React.forwardRef<
             </InputLabel>
           )}
           <div
-            className={clsx('input-wrapper', { hover, disabled }, labelClasses)}
+            className={clsx(
+              'input-wrapper',
+              { hover, disabled, bordered },
+              labelClasses
+            )}
           >
             {icon && <InputIcon icon={icon} {...iconProps} />}
             <input
               type="text"
               ref={inputRef}
-              className={clsx({ disabled }, { iconClasses })}
+              className={clsx({ disabled }, iconClasses)}
               placeholder={inputPlaceholder}
               disabled={disabled}
               readOnly={readOnly}
@@ -224,6 +230,7 @@ const Input = React.forwardRef<
                 visible={Boolean(
                   inputRef.current && inputRef.current.value !== ''
                 )}
+                hasIcon={!!iconRight}
                 heightRatio={heightRatio}
                 disabled={disabled || readOnly}
                 onClick={clearHandler}
@@ -241,6 +248,13 @@ const Input = React.forwardRef<
               {labelRight}
             </InputLabel>
           )}
+        </div>
+        <div
+          className={clsx('input-helper-text-container', {
+            'with-value': !!helperText,
+          })}
+        >
+          {helperText && <p className="input-helper-text">{helperText}</p>}
         </div>
         <style jsx>{`
           .with-label {
@@ -268,8 +282,12 @@ const Input = React.forwardRef<
             height: 100%;
             user-select: none;
             border-radius: ${radius};
-            border: ${borderWeight} solid ${borderColor};
             background: ${addColorAlpha(theme.palette.accents_2, 0.7)};
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: ${borderWeight} solid ${borderColor};
+            transition: border-color 0.25s ease;
           }
           .input-wrapper.left-label {
             border-top-left-radius: 0;
@@ -284,17 +302,34 @@ const Input = React.forwardRef<
             border-color: ${theme.palette.accents_2};
             cursor: not-allowed;
           }
+          .input-helper-text-container {
+            position: absolute;
+            bottom: calc(${heightRatio} * ${theme.layout.gapHalf} * -1);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: ${helperColor};
+          }
           input.disabled {
             color: ${theme.palette.accents_4};
             cursor: not-allowed;
           }
           .input-container.hover:not(.read-only) {
             transform: translateY(-2px);
-            box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: ${theme.expressiveness.shadowSmall};
           }
+          .input-container.hover:not(.read-only) .input-wrapper:not(.bordered) {
+            background: ${addColorAlpha(theme.palette.accents_2, 0.9)};
+          }
+          .input-container:hover .input-wrapper,
           .input-container.hover:not(.read-only) .input-wrapper {
             border-color: ${hoverBorder};
-            background: ${addColorAlpha(theme.palette.accents_2, 0.9)};
           }
           input:focus::placeholder {
             opacity: 0;

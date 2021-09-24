@@ -11,6 +11,7 @@ export interface Props {
   readOnly?: boolean;
   disabled?: boolean;
   label?: string;
+  helperText?: string;
   labelPlaceholder?: string;
   labelLeft?: string;
   labelRight?: string;

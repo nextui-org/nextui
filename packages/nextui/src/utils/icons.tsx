@@ -119,6 +119,7 @@ export const Lock: React.FC<IconProps> = ({
   label,
   ...props
 }) => {
+  const color = fill || theme.palette.accents_3;
   return (
     <svg
       data-name="Iconly/Curved/Lock"
@@ -128,22 +129,92 @@ export const Lock: React.FC<IconProps> = ({
       viewBox="0 0 24 24"
       {...props}
     >
-      <g
-        fill="none"
-        stroke={fill || theme.palette.accents_3}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeMiterlimit={10}
-        strokeWidth={1.5}
-      >
+      <g transform="translate(3.5 2)">
         <path
-          data-name="Stroke 1"
-          d="M16.471 9.403V7.25a4.561 4.561 0 00-9.121-.016v2.169"
+          d="M9.121,6.653V4.5A4.561,4.561,0,0,0,0,4.484V6.653"
+          transform="translate(3.85 0.75)"
+          fill="none"
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth={1.5}
         />
-        <path data-name="Stroke 3" d="M11.91 14.156v2.221" />
         <path
-          data-name="Stroke 5"
-          d="M11.91 8.824c-5.745 0-7.66 1.568-7.66 6.271s1.915 6.272 7.66 6.272 7.661-1.568 7.661-6.272-1.921-6.271-7.661-6.271z"
+          d="M.5,0V2.221"
+          transform="translate(7.91 12.156)"
+          fill="none"
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth={1.5}
+        />
+        <path
+          d="M7.66,0C1.915,0,0,1.568,0,6.271s1.915,6.272,7.66,6.272,7.661-1.568,7.661-6.272S13.4,0,7.66,0Z"
+          transform="translate(0.75 6.824)"
+          fill="none"
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth={1.5}
+        />
+      </g>
+    </svg>
+  );
+};
+
+export const Unlock: React.FC<IconProps> = ({
+  theme,
+  fill,
+  filled,
+  size,
+  height,
+  width,
+  label,
+  ...props
+}) => {
+  const color = fill || theme.palette.accents_3;
+  return (
+    <svg
+      data-name="Iconly/Curved/Lock"
+      xmlns="http://www.w3.org/2000/svg"
+      width={size || width || 24}
+      height={size || height || 24}
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <g transform="translate(3.5 2)">
+        <path
+          d="M8.927,3.237A4.562,4.562,0,0,0,0,4.484V6.653"
+          transform="translate(3.849 0.75)"
+          fill="none"
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth={1.5}
+        />
+        <path
+          d="M.5,0V2.221"
+          transform="translate(7.91 12.156)"
+          fill="none"
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth={1.5}
+        />
+        <path
+          d="M7.66,0C1.915,0,0,1.568,0,6.271s1.915,6.272,7.66,6.272,7.661-1.568,7.661-6.272S13.406,0,7.66,0Z"
+          transform="translate(0.75 6.824)"
+          fill="none"
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth={1.5}
         />
       </g>
     </svg>
