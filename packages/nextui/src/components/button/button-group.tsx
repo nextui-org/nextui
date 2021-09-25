@@ -7,7 +7,8 @@ import {
   NormalWeights,
 } from '../../utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
-import { getButtonRadius, getGroupBorder } from './styles';
+import { getGroupBorder } from './styles';
+import { getNormalRadius } from '../../utils/dimensions';
 
 interface Props {
   disabled?: boolean;
@@ -20,7 +21,7 @@ interface Props {
   animated?: boolean;
   rounded?: boolean;
   ghost?: boolean;
-  weight?: NormalWeights;
+  borderWeight?: NormalWeights;
   size?: NormalSizes;
   color?: NormalColors;
   className?: string;
@@ -37,7 +38,7 @@ const defaultProps = {
   animated: false,
   rounded: false,
   ghost: false,
-  weight: 'normal' as NormalWeights,
+  borderWeight: 'normal' as NormalWeights | undefined,
   size: 'medium' as NormalSizes,
   color: 'default' as NormalColors,
   className: '',
@@ -89,7 +90,10 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     return getGroupBorder(theme.palette, groupProps);
   }, [theme, disabled, bordered]);
 
-  const radius = useMemo(() => getButtonRadius(size, rounded), [size, rounded]);
+  const radius = useMemo(() => getNormalRadius(size, rounded), [size, rounded]);
+
+  // to avoid passing borderweight prop to the html button element
+  delete props.borderWeight;
 
   return (
     <ButtonGroupContext.Provider value={initialValue}>

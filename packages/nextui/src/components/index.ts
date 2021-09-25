@@ -21,3 +21,4 @@ export { default as Code } from './code';
 export { default as Container } from './container';
 export { default as Snippet } from './snippet';
 export { default as Tooltip } from './tooltip';
+export { default as Input } from './input';

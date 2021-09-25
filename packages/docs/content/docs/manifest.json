@@ -67,6 +67,11 @@
                             "path": "/docs/components/button-group.mdx"
                         },
                         {
+                            "title": "Input",
+                            "path": "/docs/components/input.mdx",
+                            "newPost": true
+                        },
+                        {
                             "title": "Checkbox",
                             "path": "/docs/components/checkbox.mdx"
                         },
@@ -76,8 +81,7 @@
                         },
                         {
                             "title": "Tooltip",
-                            "path": "/docs/components/tooltip.mdx",
-                            "newPost": true
+                            "path": "/docs/components/tooltip.mdx"
                         },
                         {
                             "title": "Loading",

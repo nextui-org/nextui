@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonGroup buttons should be displayed vertically 1`] = `"<div weight=\\"normal\\" class=\\"jsx-3471870812 button-group vertical  \\"><button type=\\"button\\" color=\\"default\\" weight=\\"normal\\" class=\\"jsx-2107858474 button \\"><div class=\\"jsx-2107858474 text\\">action1</div></button><button type=\\"button\\" color=\\"default\\" weight=\\"normal\\" class=\\"jsx-2107858474 button \\"><div class=\\"jsx-2107858474 text\\">action2</div></button></div>"`;
+exports[`ButtonGroup buttons should be displayed vertically 1`] = `"<div class=\\"jsx-1409713749 button-group vertical  \\"><button type=\\"button\\" color=\\"default\\" class=\\"jsx-1018608163 button \\"><div class=\\"jsx-1018608163 text\\">action1</div></button><button type=\\"button\\" color=\\"default\\" class=\\"jsx-1018608163 button \\"><div class=\\"jsx-1018608163 text\\">action2</div></button></div>"`;
 
-exports[`ButtonGroup props should be passed to each button 1`] = `"<div weight=\\"normal\\" class=\\"jsx-2901264991 button-group horizontal  \\"><button type=\\"button\\" color=\\"success\\" weight=\\"normal\\" class=\\"jsx-2158042418 button \\"><div class=\\"jsx-2158042418 text\\">action</div></button></div>"`;
+exports[`ButtonGroup props should be passed to each button 1`] = `"<div class=\\"jsx-1635087777 button-group horizontal  \\"><button type=\\"button\\" color=\\"success\\" class=\\"jsx-2393450700 button \\"><div class=\\"jsx-2393450700 text\\">action</div></button></div>"`;
 
-exports[`ButtonGroup props should be passed to each button 2`] = `"<div weight=\\"normal\\" class=\\"jsx-2901264991 button-group horizontal  \\"><button type=\\"button\\" color=\\"success\\" weight=\\"normal\\" class=\\"jsx-2175964210 button \\"><div class=\\"jsx-2175964210 text\\">action</div></button></div>"`;
+exports[`ButtonGroup props should be passed to each button 2`] = `"<div class=\\"jsx-1635087777 button-group horizontal  \\"><button type=\\"button\\" color=\\"success\\" class=\\"jsx-1756895052 button \\"><div class=\\"jsx-1756895052 text\\">action</div></button></div>"`;
 
-exports[`ButtonGroup should render correctly 1`] = `"<div weight=\\"normal\\" class=\\"jsx-3471870812 button-group horizontal  \\"><button type=\\"button\\" color=\\"default\\" weight=\\"normal\\" class=\\"jsx-2107858474 button \\"><div class=\\"jsx-2107858474 text\\">action</div></button></div>"`;
+exports[`ButtonGroup should render correctly 1`] = `"<div class=\\"jsx-1409713749 button-group horizontal  \\"><button type=\\"button\\" color=\\"default\\" class=\\"jsx-1018608163 button \\"><div class=\\"jsx-1018608163 text\\">action</div></button></div>"`;
 
 exports[`ButtonGroup should render different variants 1`] = `ReactWrapper {}`;
 
@@ -14,6 +14,7 @@ exports[`ButtonGroup should render different variants 2`] = `
 <NextUI - Button
   animated={true}
   auto={false}
+  borderWeight="normal"
   bordered={false}
   className=""
   color="default"
@@ -27,7 +28,6 @@ exports[`ButtonGroup should render different variants 2`] = `
   rounded={false}
   shadow={false}
   size="medium"
-  weight="normal"
 >
   button
 </NextUI - Button>

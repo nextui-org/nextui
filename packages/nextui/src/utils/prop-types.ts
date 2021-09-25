@@ -121,6 +121,8 @@ const display = tuple(
   'inline-grid'
 );
 
+const contentPosition = tuple('left', 'right');
+
 export type Display = typeof display[number];
 
 export type Justify = typeof justify[number];
@@ -158,5 +160,7 @@ export type TriggerTypes = typeof triggerTypes[number];
 export type Position = typeof position[number];
 
 export type DividerAlign = typeof dividerAlign[number];
+
+export type ContentPosition = typeof contentPosition[number];
 
 export type BreakpointsValue = number | boolean;

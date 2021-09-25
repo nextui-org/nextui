@@ -4,12 +4,8 @@ import { useTheme } from '@nextui-org/react';
 import makeCodeTheme from './code-theme';
 import Editor from './editor';
 import NextLink from 'next/link';
-import {
-  Palette,
-  ExampleBlock,
-  UserTwitterCard,
-  DeleteUser,
-} from '@components';
+import { Palette } from '@components';
+import * as TemplateComponents from '../templates';
 import { useMediaQuery } from '@hooks/use-media-query';
 import withDefaults from '@utils/with-defaults';
 import * as Components from '@nextui-org/react';
@@ -30,11 +26,9 @@ const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
   const scope = {
     ...Components,
     ...Icons,
+    ...TemplateComponents,
     NextLink,
     Palette,
-    ExampleBlock,
-    UserTwitterCard,
-    DeleteUser,
     useMediaQuery,
   };
   return (

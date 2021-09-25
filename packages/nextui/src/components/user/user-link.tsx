@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '../index';
 import withDefaults from '../../utils/with-defaults';
+import { __DEV__ } from '../../utils/assertion';
 
 interface Props {
   href?: string;
@@ -37,7 +38,9 @@ const UserLink = React.forwardRef<
   }
 );
 
-UserLink.displayName = 'UserLink';
+if (__DEV__) {
+  UserLink.displayName = 'UserLink';
+}
 const MemoUserLink = React.memo(UserLink);
 
 export default withDefaults(MemoUserLink, defaultProps);

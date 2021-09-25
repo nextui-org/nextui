@@ -1,6 +1,7 @@
 import React from 'react';
 import withDefaults from '../../utils/with-defaults';
 import useTheme from '../../hooks/use-theme';
+import { __DEV__ } from '../../utils/assertion';
 
 interface Props {
   opacity: number;
@@ -53,6 +54,8 @@ const ImageSkeleton: React.FC<ImageSkeletonProps> = React.memo(
   }
 );
 
-ImageSkeleton.displayName = 'ImageSkeleton';
+if (__DEV__) {
+  ImageSkeleton.displayName = 'ImageSkeleton';
+}
 
 export default withDefaults(ImageSkeleton, defaultProps);

@@ -5,6 +5,7 @@ import useTheme from '../../hooks/use-theme';
 import withDefaults from '../../utils/with-defaults';
 import ImageBrowserHttpsIcon from './image-browser-https-icon';
 import { getBrowserColors, BrowserColors } from './styles';
+import { __DEV__ } from '../../utils/assertion';
 
 type AnchorProps = Omit<React.AnchorHTMLAttributes<unknown>, keyof LinkProps>;
 
@@ -117,10 +118,10 @@ const ImageBrowser = React.forwardRef<
     ref: React.Ref<HTMLDivElement>
   ) => {
     const theme = useTheme();
-    const colors = useMemo(() => getBrowserColors(invert, theme.palette), [
-      invert,
-      theme.palette,
-    ]);
+    const colors = useMemo(
+      () => getBrowserColors(invert, theme.palette),
+      [invert, theme.palette]
+    );
     const input = useMemo(() => {
       if (url) return getAddressInput(url, showFullLink, colors, anchorProps);
       if (title) return getTitle(title, colors);
@@ -204,6 +205,8 @@ const ImageBrowser = React.forwardRef<
   }
 );
 
-ImageBrowser.displayName = 'ImageBrowser';
+if (__DEV__) {
+  ImageBrowser.displayName = 'ImageBrowser';
+}
 
 export default withDefaults(ImageBrowser, defaultProps);
