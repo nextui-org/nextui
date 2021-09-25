@@ -67,7 +67,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Test
-        run: yarn coverage
+        run: yarn coverage:update
       - uses: codecov/codecov-action@v2
         with:
           directory: './packages/nextui'
