@@ -8,12 +8,13 @@ import React, {
   useState,
 } from 'react';
 import useTheme from '../../hooks/use-theme';
+import { ContentPosition } from '../../utils/prop-types';
 import InputLabel from './input-label';
 import InputBlockLabel from './input-block-label';
-import InputIcon from './input-icon';
+import InputContent from './input-content';
 import InputClearIcon from './input-icon-clear';
 import Textarea from '../textarea/textarea';
-import InputPassword from './password';
+import InputPassword from './input-password';
 import { getSizes, getColors } from './styles';
 import { getId } from '../../utils/collections';
 import { Props, defaultProps } from './input-props';
@@ -49,10 +50,12 @@ const Input = React.forwardRef<
       helperText,
       color: colorProp,
       status,
-      icon,
-      iconRight,
-      iconClickable,
-      onIconClick,
+      contentLeft,
+      contentRight,
+      contentClickable,
+      contentLeftStyling,
+      contentRightStyling,
+      onContentClick,
       initialValue,
       onChange,
       readOnly,
@@ -89,23 +92,18 @@ const Input = React.forwardRef<
 
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
 
-    const inputLabel = useMemo(
-      () => label || labelPlaceholder,
-      [label, labelPlaceholder]
-    );
+    const inputLabel = useMemo(() => label || labelPlaceholder, [
+      label,
+      labelPlaceholder,
+    ]);
 
-    const ComponentWrapper = useMemo(
-      () => (inputLabel ? 'div' : 'label'),
-      [inputLabel]
-    );
+    const ComponentWrapper = useMemo(() => (inputLabel ? 'div' : 'label'), [
+      inputLabel,
+    ]);
 
     const inputPlaceholder = useMemo(
       () => (labelPlaceholder ? '' : placeholder),
       [placeholder, labelPlaceholder]
-    );
-    const iconClasses = useMemo(
-      () => (iconRight ? 'right-icon' : icon ? 'left-icon' : ''),
-      [icon, iconRight]
     );
 
     if (underlined && bordered) {
@@ -127,15 +125,17 @@ const Input = React.forwardRef<
       borderColor,
       hoverBorder,
       shadowColor,
-    } = useMemo(
-      () => getColors(theme, colorProp, status),
-      [theme.palette, theme.expressiveness, colorProp, status]
-    );
+    } = useMemo(() => getColors(theme, colorProp, status), [
+      theme.palette,
+      theme.expressiveness,
+      colorProp,
+      status,
+    ]);
 
-    const radius = useMemo(
-      () => getNormalRadius(size, rounded),
-      [size, rounded]
-    );
+    const radius = useMemo(() => getNormalRadius(size, rounded), [
+      size,
+      rounded,
+    ]);
 
     const borderWeight = useMemo(
       () =>
@@ -169,17 +169,21 @@ const Input = React.forwardRef<
       onBlur && onBlur(e);
     };
 
-    const iconClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    const contentClickHandler = (
+      key: ContentPosition,
+      e: React.MouseEvent<HTMLDivElement>
+    ) => {
       if (disabled) return;
-      onIconClick && onIconClick(e);
+      onContentClick && onContentClick(key, e);
     };
-    const iconProps = useMemo(
+
+    const contentProps = useMemo(
       () => ({
         ratio: heightRatio,
-        clickable: iconClickable,
-        onClick: iconClickHandler,
+        clickable: contentClickable,
+        onClick: contentClickHandler,
       }),
-      [heightRatio, iconClickable, iconClickHandler]
+      [heightRatio, contentClickable, contentClickHandler]
     );
 
     useEffect(() => {
@@ -197,19 +201,19 @@ const Input = React.forwardRef<
       ...controlledValue,
     };
 
-    const inputId = useMemo(
-      () => inputProps.id || `next-ui-${getId()}`,
-      [inputProps.id]
-    );
+    const inputId = useMemo(() => inputProps.id || `next-ui-${getId()}`, [
+      inputProps.id,
+    ]);
 
     return (
       <div className="with-label">
         {inputLabel && (
           <InputBlockLabel
+            bordered={bordered}
             animated={animated}
             color={hoverBorder}
             status={status}
-            hasIcon={!!icon}
+            hasLeftContent={!!contentLeft}
             selfValue={selfValue}
             heightRatio={heightRatio}
             asPlaceholder={!!labelPlaceholder}
@@ -236,6 +240,7 @@ const Input = React.forwardRef<
           >
             {labelLeft && (
               <InputLabel
+                status={status}
                 bgColor={bgColor}
                 borderWeight={borderWeight}
                 underlined={underlined}
@@ -247,11 +252,23 @@ const Input = React.forwardRef<
                 {labelLeft}
               </InputLabel>
             )}
-            {icon && <InputIcon status={status} icon={icon} {...iconProps} />}
+            {contentLeft && (
+              <InputContent
+                isLeft
+                applyStyles={contentLeftStyling}
+                status={status}
+                content={contentLeft}
+                {...contentProps}
+              />
+            )}
             <input
               type="text"
               ref={inputRef}
-              className={clsx({ disabled }, iconClasses)}
+              className={clsx({
+                disabled,
+                'right-content': contentRight,
+                'left-content': contentLeft,
+              })}
               placeholder={inputPlaceholder}
               disabled={disabled}
               readOnly={readOnly}
@@ -268,17 +285,23 @@ const Input = React.forwardRef<
               <InputClearIcon
                 status={status}
                 visible={Boolean(selfValue)}
-                hasIcon={!!iconRight}
+                hasContentRight={!!contentRight}
                 heightRatio={heightRatio}
                 disabled={disabled || readOnly}
                 onClick={clearHandler}
               />
             )}
-            {iconRight && (
-              <InputIcon status={status} icon={iconRight} {...iconProps} />
+            {contentRight && (
+              <InputContent
+                status={status}
+                content={contentRight}
+                applyStyles={contentRightStyling}
+                {...contentProps}
+              />
             )}
             {labelRight && (
               <InputLabel
+                status={status}
                 bgColor={bgColor}
                 borderWeight={borderWeight}
                 bordered={bordered}
@@ -369,8 +392,8 @@ const Input = React.forwardRef<
           }
           .input-helper-text-container {
             position: absolute;
-            bottom: calc(${heightRatio} * ${theme.layout.gapHalf} * -1);
             opacity: 0;
+            bottom: calc(${heightRatio} * ${theme.layout.gapHalf} * -1);
             transition: ${animated ? 'opacity 0.25s ease' : 'none'};
           }
           .input-helper-text-container.with-value {
@@ -416,14 +439,14 @@ const Input = React.forwardRef<
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-icon {
+          input.left-content {
             margin-left: 0;
           }
-          input.right-icon {
+          input.right-content {
             margin-right: 0;
           }
           input::placeholder {
-            color: ${placeholderColor};
+            color: ${disabled ? theme.palette.accents_4 : placeholderColor};
             transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
             -moz-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
             -ms-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};

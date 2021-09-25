@@ -63,60 +63,38 @@ export const getColors = (
   status?: SimpleColors
 ): InputColor => {
   const palette = theme.palette;
+  const isDark = theme.type === 'dark';
+  const normalColor = getNormalColor(color, palette);
 
   const baseProps = {
     color: palette.text,
-    bgColor: palette.accents_2,
-    placeholderColor: palette.accents_3,
+    bgColor: isDark ? palette.accents_1 : palette.accents_2,
+    placeholderColor: isDark ? palette.accents_6 : palette.accents_3,
     borderColor: palette.accents_2,
     shadowColor: theme.expressiveness.shadowSmall,
   };
 
-  const colors: { [key in SimpleColors]: InputColor } = {
-    default: {
-      ...baseProps,
-      helperColor: palette.text,
-      hoverBorder: palette.foreground,
-    },
-    primary: {
-      ...baseProps,
-      helperColor: palette.primary,
-      hoverBorder: palette.primary,
-    },
-    secondary: {
-      ...baseProps,
-      helperColor: palette.secondary,
-      hoverBorder: palette.secondary,
-    },
-    success: {
-      ...baseProps,
-      helperColor: palette.success,
-      hoverBorder: palette.success,
-    },
-    warning: {
-      ...baseProps,
-      helperColor: palette.warning,
-      hoverBorder: palette.warning,
-    },
-    error: {
-      ...baseProps,
-      helperColor: palette.error,
-      hoverBorder: palette.error,
-    },
-  };
-  if (status) {
-    if (status === 'default' && color) {
-      return colors[color];
-    }
-    const statusColor = getNormalColor(status, palette);
-    return {
-      ...colors[status],
-      color: statusColor,
-      placeholderColor: addColorAlpha(statusColor, 0.5),
-      bgColor: addColorAlpha(statusColor, 0.2),
-      shadowColor: getShadowColor(palette, status),
-    };
+  if (status === 'default' && color) {
+    return color === 'default'
+      ? {
+          ...baseProps,
+          helperColor: palette.text,
+          hoverBorder: palette.foreground,
+        }
+      : {
+          ...baseProps,
+          helperColor: normalColor,
+          hoverBorder: normalColor,
+        };
   }
-  if (!color) return colors.default;
-  return colors[color];
+  const statusColor = getNormalColor(status, palette);
+  return {
+    ...baseProps,
+    helperColor: normalColor,
+    hoverBorder: normalColor,
+    color: statusColor,
+    placeholderColor: addColorAlpha(statusColor, 0.5),
+    bgColor: addColorAlpha(statusColor, 0.2),
+    shadowColor: getShadowColor(palette, status),
+  };
 };

@@ -43,8 +43,8 @@ const InputPassword = React.forwardRef<
       () => ({
         ...props,
         ref: inputRef,
-        iconClickable: true,
-        onIconClick: iconClickHandler,
+        contentClickable: true,
+        onContentClick: iconClickHandler,
         type: visible ? 'text' : 'password',
       }),
       [props, iconClickHandler, visible, inputRef]
@@ -55,7 +55,7 @@ const InputPassword = React.forwardRef<
     }, [hideToggle, visible, visibleIcon, hiddenIcon]);
 
     return (
-      <Input iconRight={icon} {...inputProps}>
+      <Input contentRight={icon} {...inputProps}>
         {children}
       </Input>
     );

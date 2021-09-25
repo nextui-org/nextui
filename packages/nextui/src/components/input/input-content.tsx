@@ -1,22 +1,27 @@
 import React, { useMemo } from 'react';
-import { SimpleColors } from '../../utils/prop-types';
+import { ContentPosition, SimpleColors } from '../../utils/prop-types';
 import useTheme from '../../hooks/use-theme';
 import { getNormalColor } from '../../utils/color';
+import clsx from '../../utils/clsx';
 
-export interface InputIconProps {
-  icon: React.ReactNode;
+export interface InputContentProps {
+  content: React.ReactNode;
   ratio: string;
   clickable: boolean;
-  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClick: (key: ContentPosition, e: React.MouseEvent<HTMLDivElement>) => void;
+  applyStyles?: boolean;
+  isLeft?: boolean;
   hover?: boolean;
   status?: SimpleColors;
 }
 
-const InputIcon: React.FC<InputIconProps> = ({
-  icon,
+const InputContent: React.FC<InputContentProps> = ({
+  content,
   ratio,
   status,
+  isLeft,
   clickable,
+  applyStyles = true,
   onClick,
   ...props
 }) => {
@@ -31,10 +36,16 @@ const InputIcon: React.FC<InputIconProps> = ({
   }, [theme.layout.gap, ratio]);
 
   return (
-    <span className="input-icon" onClick={onClick} {...props}>
-      {icon}
+    <span
+      className={clsx({ 'input-content': applyStyles })}
+      onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+        onClick(isLeft ? 'left' : 'right', e)
+      }
+      {...props}
+    >
+      {content}
       <style jsx>{`
-        .input-icon {
+        .input-content {
           box-sizing: content-box;
           display: flex;
           width: ${width};
@@ -56,6 +67,6 @@ const InputIcon: React.FC<InputIconProps> = ({
   );
 };
 
-const MemoInputIcon = React.memo(InputIcon);
+const MemoContentIcon = React.memo(InputContent);
 
-export default MemoInputIcon;
+export default MemoContentIcon;

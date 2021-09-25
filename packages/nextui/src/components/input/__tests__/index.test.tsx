@@ -45,11 +45,11 @@ describe('Input', () => {
     );
     expect(wrapper.html()).toMatchSnapshot();
   });
-  it('should be work with icon', () => {
+  it('should be work with content', () => {
     const wrapper = mount(
       <div>
-        <Input icon={<span>test-icon</span>} />
-        <Input iconRight={<span>test-icon</span>} />
+        <Input contentLeft={<span>test-icon</span>} />
+        <Input contentRight={<span>test-icon</span>} />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();
@@ -141,26 +141,26 @@ describe('Input', () => {
     expect(blur).toHaveBeenCalled();
   });
 
-  it('should trigger icon event', () => {
+  it('should trigger content event', () => {
     const click = jest.fn();
     const wrapper = mount(
       <Input
-        icon={<span id="test-icon">icon</span>}
-        onIconClick={click}
-        iconClickable
+        contentLeft={<span id="test-icon">icon</span>}
+        onContentClick={click}
+        contentClickable
       />
     );
     wrapper.find('#test-icon').simulate('click', nativeEvent);
     expect(click).toHaveBeenCalled();
   });
 
-  it('should ignore icon event when input disabled', () => {
+  it('should ignore content event when input is disabled', () => {
     const click = jest.fn();
     const wrapper = mount(
       <Input
-        icon={<span id="test-icon">icon</span>}
-        onIconClick={click}
-        iconClickable
+        contentLeft={<span id="test-icon">icon</span>}
+        onContentClick={click}
+        contentClickable
         disabled
       />
     );

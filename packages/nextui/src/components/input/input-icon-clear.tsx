@@ -7,7 +7,7 @@ import { getNormalColor } from '../../utils/color';
 
 interface Props {
   visible: boolean;
-  hasIcon?: boolean;
+  hasContentRight?: boolean;
   status?: SimpleColors;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   heightRatio?: string | undefined;
@@ -20,10 +20,11 @@ const InputIconClear: React.FC<Props> = ({
   status,
   disabled,
   visible,
-  hasIcon,
+  hasContentRight,
   ...props
 }) => {
   const theme = useTheme();
+  const isDark = theme.type === 'dark';
   const width = useMemo(() => {
     return heightRatio ? `calc(10.66px * ${heightRatio})` : '18px';
   }, [heightRatio]);
@@ -38,7 +39,10 @@ const InputIconClear: React.FC<Props> = ({
   return (
     <div
       onClick={clickHandler}
-      className={clsx('clear-icon', { visible, 'has-icon-right': hasIcon })}
+      className={clsx('clear-icon', {
+        visible,
+        'has-content-right': hasContentRight,
+      })}
       {...props}
     >
       <ClearIcon fill="currentColor" />
@@ -53,13 +57,15 @@ const InputIconClear: React.FC<Props> = ({
           box-sizing: border-box;
           transition: color 250ms ease 0s, transform 250ms ease 0s;
           color: ${status === 'default'
-            ? theme.palette.accents_3
+            ? isDark
+              ? theme.palette.accents_6
+              : theme.palette.accents_3
             : getNormalColor(status, theme.palette)};
           visibility: hidden;
           transform: translateX(20%);
           opacity: 0;
         }
-        .has-icon-right {
+        .has-content-right {
           padding: 0;
           transform: translateX(30%);
         }

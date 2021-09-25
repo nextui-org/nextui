@@ -1,6 +1,10 @@
 import { NormalWeights } from './../../utils/prop-types';
 import React from 'react';
-import { NormalSizes, SimpleColors } from '../../utils/prop-types';
+import {
+  NormalSizes,
+  SimpleColors,
+  ContentPosition,
+} from '../../utils/prop-types';
 
 export interface Props {
   value?: string;
@@ -19,9 +23,11 @@ export interface Props {
   labelPlaceholder?: string;
   labelLeft?: string;
   labelRight?: string;
-  icon?: React.ReactNode;
-  iconRight?: React.ReactNode;
-  iconClickable?: boolean;
+  contentLeft?: React.ReactNode;
+  contentRight?: React.ReactNode;
+  contentClickable?: boolean;
+  contentRightStyling?: boolean;
+  contentLeftStyling?: boolean;
   rounded?: boolean;
   bordered?: boolean;
   underlined?: boolean;
@@ -33,7 +39,10 @@ export interface Props {
   onClearClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onIconClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onContentClick?: (
+    key: ContentPosition,
+    e: React.MouseEvent<HTMLDivElement>
+  ) => void;
   autoComplete?: string;
 }
 
@@ -46,7 +55,9 @@ export const defaultProps = {
   animated: true,
   underlined: false,
   shadow: true,
-  iconClickable: false,
+  contentClickable: false,
+  contentRightStyling: true,
+  contentLeftStyling: true,
   required: false,
   width: 'initial',
   size: 'medium' as NormalSizes,

@@ -68,7 +68,8 @@
                         },
                         {
                             "title": "Input",
-                            "path": "/docs/components/input.mdx"
+                            "path": "/docs/components/input.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Checkbox",
@@ -80,8 +81,7 @@
                         },
                         {
                             "title": "Tooltip",
-                            "path": "/docs/components/tooltip.mdx",
-                            "newPost": true
+                            "path": "/docs/components/tooltip.mdx"
                         },
                         {
                             "title": "Loading",

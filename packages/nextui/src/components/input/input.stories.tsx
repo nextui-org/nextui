@@ -59,20 +59,20 @@ export const WithIcons = () => {
       <Input
         clearable
         labelPlaceholder="Icon left"
-        icon={<User theme={theme} fill="currentColor" />}
+        contentLeft={<User theme={theme} fill="currentColor" />}
       />
       <Spacer y={1.5} />
       <Input
         clearable
         labelPlaceholder="Icon right"
-        iconRight={<Activity theme={theme} fill="currentColor" />}
+        contentRight={<Activity theme={theme} fill="currentColor" />}
       />
       <Spacer y={1.5} />
       <Input
         clearable
         status="success"
         labelPlaceholder="Icon left"
-        iconRight={<Notification theme={theme} fill="currentColor" />}
+        contentRight={<Notification theme={theme} fill="currentColor" />}
       />
       <Spacer y={1.5} />
       <Input
@@ -80,7 +80,7 @@ export const WithIcons = () => {
         underlined
         status="warning"
         labelPlaceholder="Icon left"
-        iconRight={<Sun theme={theme} filled fill="currentColor" />}
+        contentRight={<Sun theme={theme} filled fill="currentColor" />}
       />
       <Spacer y={1.5} />
       <Input
@@ -88,7 +88,7 @@ export const WithIcons = () => {
         bordered
         status="secondary"
         labelPlaceholder="Icon left"
-        iconRight={<Moon theme={theme} filled fill="currentColor" />}
+        contentRight={<Moon theme={theme} filled fill="currentColor" />}
       />
     </>
   );
@@ -162,7 +162,12 @@ export const NoAnimated = () => (
     <Spacer y={1.5} />
     <Input labelPlaceholder="Default" animated={false} />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Primary" status="primary" animated={false} />
+    <Input
+      underlined
+      animated={false}
+      labelPlaceholder="Primary"
+      color="primary"
+    />
     <Spacer y={1.5} />
     <Input labelPlaceholder="Secondary" status="secondary" animated={false} />
     <Spacer y={1.5} />
@@ -255,7 +260,7 @@ export const WithLabels = () => (
     <Spacer y={1.5} />
     <Input labelPlaceholder="Label placeholder" color="primary" />
     <Spacer y={1.5} />
-    <Input status="primary" labelLeft="username" placeholder="Next UI" />
+    <Input labelLeft="username" placeholder="Next UI" />
     <Spacer y={1.5} />
     <Input
       status="error"

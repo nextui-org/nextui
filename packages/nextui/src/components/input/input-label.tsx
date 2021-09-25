@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import useTheme from '../../hooks/use-theme';
+import { SimpleColors } from '../../utils/prop-types';
 import clsx from '../../utils/clsx';
+import { addColorAlpha } from '../../utils/color';
 
 export interface InputLabelProps {
   fontSize: string;
+  status?: SimpleColors;
   bgColor?: string;
   color?: string;
   radius?: string;
@@ -19,6 +22,7 @@ const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
   fontSize,
   bgColor,
   radius,
+  status,
   color,
   bordered,
   underlined,
@@ -26,6 +30,16 @@ const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
+  const isDark = theme.type === 'dark';
+  const inputBgColor = useMemo(() => {
+    return underlined
+      ? 'transparent'
+      : status === 'default' && !bordered
+      ? isDark
+        ? theme.palette.accents_3
+        : addColorAlpha(theme.palette.accents_3, 0.3)
+      : bgColor || theme.palette.accents_2;
+  }, [isDark, status, underlined, bgColor, bordered]);
   return (
     <span
       className={clsx('input-label', {
@@ -47,9 +61,7 @@ const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
           align-items: center;
           pointer-events: none;
           margin: 0;
-          background: ${underlined
-            ? 'transparent'
-            : bgColor || theme.palette.accents_2};
+          background: ${inputBgColor};
           padding: 0 ${theme.layout.gapHalf};
           color: ${color || theme.palette.accents_4};
           font-size: ${fontSize};
