@@ -164,8 +164,8 @@ export const NoAnimated = () => (
     <Spacer y={1.5} />
     <Input
       underlined
-      animated={false}
       labelPlaceholder="Primary"
+      animated={false}
       color="primary"
     />
     <Spacer y={1.5} />
@@ -318,11 +318,11 @@ export const WithHelperText = () => {
       <Input
         {...bindings}
         clearable
-        status={helperColor}
         shadow={false}
         onClearClick={reset}
-        color={helperColor}
         helperText={helperText}
+        helperColor={helperColor}
+        status={helperColor}
         type="email"
         label="Email"
         placeholder="With regex validation"

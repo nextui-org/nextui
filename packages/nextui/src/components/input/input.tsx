@@ -49,6 +49,7 @@ const Input = React.forwardRef<
       size,
       helperText,
       color: colorProp,
+      helperColor: helperColorProp,
       status,
       contentLeft,
       contentRight,
@@ -125,10 +126,11 @@ const Input = React.forwardRef<
       borderColor,
       hoverBorder,
       shadowColor,
-    } = useMemo(() => getColors(theme, colorProp, status), [
+    } = useMemo(() => getColors(theme, colorProp, status, helperColorProp), [
       theme.palette,
       theme.expressiveness,
       colorProp,
+      helperColorProp,
       status,
     ]);
 

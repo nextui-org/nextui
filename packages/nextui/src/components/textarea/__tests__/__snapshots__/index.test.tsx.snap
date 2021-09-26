@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Textarea should render correctly 1`] = `"<div class=\\"jsx-3985343982 wrapper   \\"><textarea placeholder=\\"placeholder\\" class=\\"jsx-3985343982 \\"></textarea></div>"`;
+exports[`Textarea should render correctly 1`] = `"<div class=\\"jsx-605782204 wrapper   \\"><textarea placeholder=\\"placeholder\\" class=\\"jsx-605782204 \\"></textarea></div>"`;
 
-exports[`Textarea should work with different styles 1`] = `"<div><div class=\\"jsx-2703617390 wrapper   \\"><textarea class=\\"jsx-2703617390 \\"></textarea></div><div class=\\"jsx-2787718423 wrapper   \\"><textarea class=\\"jsx-2787718423 \\"></textarea></div><div class=\\"jsx-3113545330 wrapper   \\"><textarea class=\\"jsx-3113545330 \\"></textarea></div></div>"`;
+exports[`Textarea should work with different styles 1`] = `"<div><div class=\\"jsx-1003226282 wrapper   \\"><textarea class=\\"jsx-1003226282 \\"></textarea></div><div class=\\"jsx-2933106757 wrapper   \\"><textarea class=\\"jsx-2933106757 \\"></textarea></div><div class=\\"jsx-303792544 wrapper   \\"><textarea class=\\"jsx-303792544 \\"></textarea></div></div>"`;
