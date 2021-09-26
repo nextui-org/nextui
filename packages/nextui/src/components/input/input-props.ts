@@ -12,6 +12,7 @@ export interface Props {
   placeholder?: string;
   size?: NormalSizes;
   color?: SimpleColors;
+  helperColor?: SimpleColors;
   status?: SimpleColors;
   readOnly?: boolean;
   shadow?: boolean;
@@ -62,6 +63,7 @@ export const defaultProps = {
   width: 'initial',
   size: 'medium' as NormalSizes,
   color: 'default' as SimpleColors,
+  helperColor: 'default' as SimpleColors,
   status: 'default' as SimpleColors,
   borderWeight: 'normal' as NormalWeights,
   autoComplete: 'off',

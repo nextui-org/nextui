@@ -1,6 +1,7 @@
 import { NormalSizes, SimpleColors } from '../../utils/prop-types';
 import { NextUIThemes, NextUIThemesPalette } from '../../theme/index';
 import { addColorAlpha, getNormalColor, hexToRgb } from '../../utils/color';
+import { isEmpty } from '../../utils/assertion';
 
 export type InputSize = {
   heightRatio: string;
@@ -60,11 +61,14 @@ export const getShadowColor = (
 export const getColors = (
   theme: NextUIThemes,
   color?: SimpleColors,
-  status?: SimpleColors
+  status?: SimpleColors,
+  helperColor?: SimpleColors
 ): InputColor => {
   const palette = theme.palette;
   const isDark = theme.type === 'dark';
   const normalColor = getNormalColor(color, palette);
+  const normalHelperColor = getNormalColor(helperColor, palette);
+  const normalStatusColor = getNormalColor(status, palette);
 
   const baseProps = {
     color: palette.text,
@@ -74,7 +78,7 @@ export const getColors = (
     shadowColor: theme.expressiveness.shadowSmall,
   };
 
-  if (status === 'default' && color) {
+  if (status === 'default' || isEmpty(status)) {
     return color === 'default'
       ? {
           ...baseProps,
@@ -83,18 +87,18 @@ export const getColors = (
         }
       : {
           ...baseProps,
-          helperColor: normalColor,
+          helperColor: normalHelperColor,
           hoverBorder: normalColor,
         };
   }
-  const statusColor = getNormalColor(status, palette);
+
   return {
     ...baseProps,
-    helperColor: normalColor,
     hoverBorder: normalColor,
-    color: statusColor,
-    placeholderColor: addColorAlpha(statusColor, 0.5),
-    bgColor: addColorAlpha(statusColor, 0.2),
+    helperColor: normalHelperColor,
+    color: normalStatusColor,
+    placeholderColor: addColorAlpha(normalStatusColor, 0.5),
+    bgColor: addColorAlpha(normalStatusColor, 0.2),
     shadowColor: getShadowColor(palette, status),
   };
 };

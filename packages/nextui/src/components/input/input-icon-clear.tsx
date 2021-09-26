@@ -29,6 +29,16 @@ const InputIconClear: React.FC<Props> = ({
     return heightRatio ? `calc(10.66px * ${heightRatio})` : '18px';
   }, [heightRatio]);
 
+  const color = useMemo(
+    () =>
+      status === 'default'
+        ? isDark
+          ? theme.palette.accents_6
+          : theme.palette.accents_3
+        : getNormalColor(status, theme.palette),
+    [status, isDark, theme.palette]
+  );
+
   const clickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -41,6 +51,7 @@ const InputIconClear: React.FC<Props> = ({
       onClick={clickHandler}
       className={clsx('clear-icon', {
         visible,
+        'dark-theme': isDark,
         'has-content-right': hasContentRight,
       })}
       {...props}
@@ -48,19 +59,17 @@ const InputIconClear: React.FC<Props> = ({
       <ClearIcon fill="currentColor" />
       <style jsx>{`
         .clear-icon {
-          padding: 0 ${theme.layout.gapHalf};
+          position: absolute;
+          right: 0;
           margin: 0;
           display: inline-flex;
           align-items: center;
           height: 100%;
+          padding: 0 ${theme.layout.gapHalf};
           cursor: ${disabled ? 'not-allowed' : 'pointer'};
           box-sizing: border-box;
           transition: color 250ms ease 0s, transform 250ms ease 0s;
-          color: ${status === 'default'
-            ? isDark
-              ? theme.palette.accents_6
-              : theme.palette.accents_3
-            : getNormalColor(status, theme.palette)};
+          color: ${color};
           visibility: hidden;
           transform: translateX(20%);
           opacity: 0;
