@@ -264,7 +264,7 @@ import { Input } from '@nextui-org/react';
 
 <Playground
   title="Helper text"
-  desc="You can add a helper text to `Input` with the property `helperText`. 
+  desc="You can add a helper text to `Input` with the prop `helperText` and customise its color with the `helperColor` prop. 
   The first example is using the hook [useInput](#useinput)"
   code={`
   () => {
@@ -273,13 +273,16 @@ import { Input } from '@nextui-org/react';
     const validateEmail = (value) => {
         return /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(value);
     };
-    const helperText = React.useMemo(() => {
-        if (!value) return '';
-        return !validateEmail(value) ? 'Enter a valid email' : 'Correct email';
-    }, [value]);
-    const helperColor = React.useMemo(() => {
-        if (!value) return 'default';
-        return !validateEmail(value) ? 'error' : 'success';
+    const helper = React.useMemo(() => {
+        if (!value) return { 
+            text:'', 
+            color:'' 
+        };
+        const isValid = validateEmail(value);
+        return { 
+            text: isValid ? 'Correct email' : 'Enter a valid email',
+            color: isValid ? 'success' : 'error'
+        };    
     }, [value]);
     return (
 <Grid.Container gap={2.5}>
@@ -287,11 +290,12 @@ import { Input } from '@nextui-org/react';
         <Input
             {...bindings}
             clearable
-            status={helperColor}
             shadow={false}
             onClearClick={reset}
-            color={helperColor}
-            helperText={helperText}
+            status={helper.color}
+            color={helper.color}
+            helperColor={helper.color}
+            helperText={helper.text}
             type="email"
             label="Email"
             placeholder="With regex validation"
@@ -482,6 +486,7 @@ import { Input } from '@nextui-org/react';
 | **size**                | `NormalSizes`                                         | [NormalSizes](#normal-sizes)         | Change input size                                                                                 | `medium`  |
 | **color**               | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input text, border and label color                                                         | `default` |
 | **status**              | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input status color                                                                         | `default` |
+| **helperColor**         | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change helper text color                                                                          | `default` |
 | **required**            | `boolean`                                             | `true/false`                         | Required input prop                                                                               | `false`   |
 | **readOnly**            | `boolean`                                             | `true/false`                         | It prevents the user from changing the value of the field                                         | `false`   |
 | **disabled**            | `boolean`                                             | `true/false`                         | Disable input                                                                                     | `false`   |
