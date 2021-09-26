@@ -111,7 +111,7 @@ export const getButtonColors = (
   const highlightColor = color === 'default' ? palette.primary : baseColor;
   const borderedGradientStyles = {
     ...buttonColor,
-    bg: palette.background,
+    bg: 'transparent',
     color: 'inherit',
     border: {
       display: 'none',
@@ -134,7 +134,7 @@ export const getButtonColors = (
       ? borderedGradientStyles
       : {
           ...buttonColor,
-          bg: palette.background,
+          bg: 'transparent',
           color: highlightColor,
           border: {
             display: 'solid',
@@ -180,7 +180,7 @@ export const getButtonColors = (
     }
     return {
       ...buttonColor,
-      bg: palette.background,
+      bg: 'transparent',
       border: {
         display: 'solid',
         width: border,
