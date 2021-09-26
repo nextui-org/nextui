@@ -158,9 +158,7 @@ const Switch: React.FC<SwitchProps> = ({
           position: relative;
           border: ${theme.layout.stroke} solid
             ${bordered ? theme.palette.border : 'transparent'};
-          background: ${bordered
-            ? theme.palette.background
-            : theme.palette.accents_2};
+          background: ${bordered ? 'transparent' : theme.palette.accents_2};
           box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
           padding: 0;
         }
@@ -171,10 +169,10 @@ const Switch: React.FC<SwitchProps> = ({
           height: calc(${height} * 0.76);
           justify-content: center;
           align-items: center;
-          top: 49%;
-          bottom: 1px;
+          top: 49.4%;
+          bottom: 0px;
           transform: translateY(-50%);
-          left: ${bordered ? '4%' : 0};
+          left: ${bordered ? 'calc(1px + ' + height + '* 0.02)' : '0px'};
           box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
           transition: left 0.25s ease;
           border-radius: ${radius};
@@ -202,7 +200,7 @@ const Switch: React.FC<SwitchProps> = ({
           width: calc(${height} * 0.44);
         }
         .checked > .circle {
-          left: calc(100% - (${height} * 0.8));
+          left: calc(${width} - ${height} * 0.88);
           background: ${isHex(theme.palette.background)
             ? hexToRGBA(theme.palette.background, 0.6)
             : theme.palette.background};

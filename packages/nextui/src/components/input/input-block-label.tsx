@@ -91,7 +91,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
           color: ${placeholderColor && status !== 'default'
             ? addColorAlpha(placeholderColor, 1)
             : color || theme.palette.text};
-          top: calc(${heightRatio} * ${theme.layout.gapHalf} * -1 - 8px);
+          top: -72%;
           left: 4px;
           cursor: inherit;
         }
