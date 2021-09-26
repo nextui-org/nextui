@@ -1,13 +1,13 @@
-import '../styles/globals.css'
-import {CssBaseline} from '@nextui-org/react'
+import '../styles/globals.css';
+import { CssBaseline } from '@nextui-org/react';
 
 function MyApp({ Component, pageProps }) {
   return (
-  <>
-    <CssBaseline/>
-    <Component {...pageProps} />
-  </>
-  )
+    <>
+      <CssBaseline />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
