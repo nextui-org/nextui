@@ -1,17 +1,17 @@
 import React from 'react';
 import {
   useTheme,
+  Container,
   NextUIThemes,
-  Text,
   Row,
   Col,
+  Text,
+  Spacer,
   Grid,
   Link,
-  Spacer,
-  Button,
-  Container,
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
+import Button from '@nextui-org/react/dist/button';
 import NextLink from 'next/link';
 
 const Hero: React.FC = () => {

@@ -1,14 +1,16 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import {
-  Container,
-  Input,
-  Spacer,
-  Text,
-  Link,
-  Button,
-} from '@nextui-org/react';
+import { Container, Input, Spacer, Text, Link } from '@nextui-org/react';
+import Button from '@nextui-org/react/';
+
+// import Button from '@geist-ui/react/esm/button';
+import { Avatar } from '@nextui-org/react';
+
+import { Badge } from '@mui/material';
+
+// or less ideally
+// import { Button } from 'react-bootstrap';
 
 export default function Home() {
   return (
