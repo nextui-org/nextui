@@ -17,6 +17,6 @@ module.exports = merge(common, {
     globalObject: 'this',
   },
   optimization: {
-    minimize: true,
+    minimize: false,
   },
 });
