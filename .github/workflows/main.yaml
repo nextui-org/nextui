@@ -79,9 +79,7 @@ jobs:
           cache: 'yarn'
           node-version: '12'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build
-        run: yarn build:nextui        
+        run: yarn install --frozen-lockfile     
       - name: Pre puiblish NextUI package
         run: yarn pre-publish:nextui
       - uses: JS-DevTools/npm-publish@v1

@@ -7,9 +7,9 @@ const error = require('./utils').error;
 const buildPkg = step('building...', () => shell(`yarn build`));
 
 Promise.resolve(true)
-  .then(setupPackage)
+  .then(buildPkg)
   .then(
-    Promise.all([buildPkg()]).then(() => {
+    Promise.all([setupPackage()]).then(() => {
       console.log(process.cwd());
       //   shell('pwd');
     })
