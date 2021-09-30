@@ -54,7 +54,7 @@ const Application = () => (
 
 ```jsx
 // import just the Button rather than the entire library.
-import Button from '@next-ui/react/Button';
+import Button from '@next-ui/react/button';
 
 // or less ideally
 import { Button } from '@next-ui/react';
