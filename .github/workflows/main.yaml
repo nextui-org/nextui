@@ -80,8 +80,8 @@ jobs:
           node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Pre puiblish
-        run: yarn pre-publish
+      - name: Pre puiblish NextUI package
+        run: yarn pre-publish:nextui
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
