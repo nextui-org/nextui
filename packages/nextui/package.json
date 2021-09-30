@@ -40,7 +40,7 @@
     "clear:packages": "rimraf ./dist/packages",
     "build": "node ./scripts/build.js",
     "build:types": "yarn tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types",
-    "build:dev-types": "tsc -p ./buildconfig",
+    "build:dev-types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir lib/esm",
     "build:webpack": "webpack --config ./buildconfig/webpack.common.js",
     "build:rollup": "yarn clear && yarn rollup -c && yarn build:types",
     "build:watch": "webpack ---config ./buildconfig/webpack.dev.js",
