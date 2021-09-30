@@ -80,13 +80,14 @@ jobs:
           node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build:nextui        
       - name: Pre puiblish NextUI package
         run: yarn pre-publish:nextui
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: './packages/nextui/lib/package.json'
-          dry-run: true
       - name: Show published version
         if: steps.publish.outputs.type != 'none'
         run: |
