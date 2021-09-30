@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Input } from '../../index';
-import { nativeEvent } from '../../../../tests/utils';
+import { nativeEvent } from '../../../tests/utils';
 
 describe('Input', () => {
   it('should render correctly', () => {

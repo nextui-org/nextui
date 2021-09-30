@@ -8,10 +8,10 @@ import {
   Text,
   Spacer,
   Grid,
+  Button,
   Link,
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
-import Button from '@nextui-org/react/dist/button';
 import NextLink from 'next/link';
 
 const Hero: React.FC = () => {

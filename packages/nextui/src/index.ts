@@ -20,10 +20,8 @@ export { default as useClickAnywhere } from './use-click-anywhere';
 export { default as useInput } from './use-input';
 
 export { default as Avatar } from './avatar';
-export * from './avatar';
 
 export { default as CssBaseline } from './css-baseline';
-export * from './css-baseline';
 
 export { default as Checkbox } from './checkbox';
 
@@ -31,34 +29,26 @@ export { default as Text } from './text';
 export * from './text';
 
 export { default as Radio } from './radio';
-export * from './radio';
 
 export { default as Switch } from './switch';
-export * from './switch';
 
 export { default as Spacer } from './spacer';
 export * from './spacer';
 
 export { default as User } from './user';
-export * from './user';
 
 export { default as Link } from './link';
 export * from './link';
 
 export { default as Loading } from './loading';
-export * from './loading';
 
 export { default as Button } from './button';
-export * from './button';
 
 export { default as Grid } from './grid';
-export * from './grid';
 
 export { default as Card } from './card';
-export * from './card';
 
 export { default as Image } from './image';
-export * from './image';
 
 export { default as Row } from './row';
 export * from './row';
@@ -67,19 +57,14 @@ export { default as Col } from './col';
 export * from './col';
 
 export { default as Divider } from './divider';
-export * from './divider';
 
 export { default as Code } from './code';
 export * from './code';
 
 export { default as Container } from './container';
-export * from './container';
 
 export { default as Snippet } from './snippet';
-export * from './snippet';
 
 export { default as Tooltip } from './tooltip';
-export * from './tooltip';
 
 export { default as Input } from './input';
-export * from './input';

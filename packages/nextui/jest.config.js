@@ -8,15 +8,15 @@ module.exports = {
   },
   testRegex: '.*\\.test\\.(j|t)sx?$',
   collectCoverageFrom: [
-    'src/components/**/*.{ts,tsx}',
-    '!src/components/**/styles.{ts,tsx}',
-    '!src/components/**/*stories.{ts,tsx}',
-    '!src/components/**/*types.{ts,tsx}',
-    '!src/components/styles/*',
-    '!src/components/index.ts',
+    'src/**/*.{ts,tsx}',
+    '!src/**/styles.{ts,tsx}',
+    '!src/**/*stories.{ts,tsx}',
+    '!src/**/*types.{ts,tsx}',
+    '!src/styles/*',
+    '!src/index.ts',
   ],
   moduleNameMapper: {
     'tests/(.*)$': '<rootDir>/tests/$1',
-    components: './src/components/index.ts',
+    components: './src/index.ts',
   },
 };

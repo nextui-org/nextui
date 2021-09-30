@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Textarea from '../textarea';
-import { nativeEvent } from '../../../../tests/utils';
+import { nativeEvent } from '../../../tests/utils';
 
 describe('Textarea', () => {
   it('should render correctly', () => {

@@ -1,43 +1,39 @@
-const { green, cyan, red } = require('chalk');
+const { green, red } = require('chalk');
 const webpack = require('webpack');
 
 const path = require('path');
 const fse = require('fs-extra');
-const execa = require('execa');
+
 const cherryPick = require('./cherry-pick').default;
-const getConfig = require('./webpack.config');
+const getConfig = require('../buildconfig/webpack.config');
+const setupPackage = require('./setup-package');
 
 const targets = process.argv.slice(2);
 
 const srcRoot = path.join(__dirname, '../src');
 const typesRoot = path.join(__dirname, '../types');
-const dirRoot = path.join(__dirname, '.');
+const buildConfRoot = path.join(__dirname, '../buildconfig');
 
 const libRoot = path.join(__dirname, '../lib');
 const umdRoot = path.join(libRoot, 'umd');
 const cjsRoot = path.join(libRoot, 'cjs');
 const esRoot = path.join(libRoot, 'esm');
 
+const step = require('./utils').step;
+const shell = require('./utils').shell;
+const error = require('./utils').error;
+
 const clean = () => fse.existsSync(libRoot) && fse.removeSync(libRoot);
-
-const step = (name, fn) => async () => {
-  console.log(cyan('Building: ') + green(name));
-  await fn();
-  console.log(cyan('Built: ') + green(name));
-};
-
-const shell = (cmd) =>
-  execa(cmd, { stdio: ['pipe', 'pipe', 'inherit'], shell: true });
 
 const has = (t) => !targets.length || targets.includes(t);
 
-const buildTypes = step('generating .d.ts', () => shell(`yarn build-types`));
+const buildTypes = step('generating .d.ts', () => shell(`yarn build:types`));
 
 const copyTypes = (dest) => fse.copySync(typesRoot, dest, { overwrite: true });
 
 const babel = (outDir, envName) =>
   shell(
-    `yarn babel ${srcRoot} --config-file ${dirRoot}/babel.config.js -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`
+    `yarn babel ${srcRoot} --config-file ${buildConfRoot}/babel.config.js -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`
   );
 
 /**
@@ -105,10 +101,4 @@ Promise.resolve(true)
     ])
   )
   .then(buildDirectories)
-  .catch((err) => {
-    if (err && Array.isArray(err))
-      console.log(red(err.map((e) => e.message).join('\n')));
-    if (err && typeof err === 'object')
-      console.error(red(err.stack || err.toString()));
-    process.exit(1);
-  });
+  .catch(error);

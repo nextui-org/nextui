@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "outDir": "../dist",
+      "outDir": "../lib/esm",
       "baseUrl": "../",
       "noEmit": false,
       "declaration": true,

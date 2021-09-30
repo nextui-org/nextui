@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Radio from '../index';
-import { nativeEvent } from '../../../../tests/utils';
+import { nativeEvent } from '../../../tests/utils';
 
 describe('Radio Group', () => {
   it('should render correctly', () => {
