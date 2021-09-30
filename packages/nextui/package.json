@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "1.0.1-alpha.43",
+  "version": "1.0.1-alpha.44",
   "license": "MIT",
   "description": "🚀 Beautiful and modern React UI library.",
   "homepage": "https://nextui.org",
@@ -78,6 +78,7 @@
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@storybook/addon-a11y": "^6.3.8",
+    "@react-bootstrap/babel-preset": "^2.1.0",
     "@storybook/addon-actions": "^6.3.7",
     "@storybook/addon-essentials": "^6.3.7",
     "@storybook/addon-links": "^6.3.7",

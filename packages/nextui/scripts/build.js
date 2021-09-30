@@ -1,4 +1,4 @@
-const { green, red } = require('chalk');
+const { green } = require('chalk');
 const webpack = require('webpack');
 
 const path = require('path');
@@ -6,7 +6,6 @@ const fse = require('fs-extra');
 
 const cherryPick = require('./cherry-pick').default;
 const getConfig = require('../buildconfig/webpack.config');
-const setupPackage = require('./setup-package');
 
 const targets = process.argv.slice(2);
 
@@ -33,9 +32,8 @@ const copyTypes = (dest) => fse.copySync(typesRoot, dest, { overwrite: true });
 
 const babel = (outDir, envName) =>
   shell(
-    `yarn babel ${srcRoot} --config-file ${buildConfRoot}/babel.config.js -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`
+    `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`
   );
-
 /**
  * Run babel over the src directory and output
  * compiled common js files to ./lib.
