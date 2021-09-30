@@ -80,7 +80,7 @@ const fileProxy = async (options, file) => {
 
   const proxyPkg = {
     // name: `${pkgName}/${file}`,
-    private: true,
+    // private: true,
     sideEffects: false,
     main: path.join('..', cjsDir, `${file}/index.js`),
     module: path.join('..', esmDir, `${file}/index.js`),
