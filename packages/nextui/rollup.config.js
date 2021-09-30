@@ -1,25 +1,49 @@
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import localResolve from 'rollup-plugin-local-resolve';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import babel from 'rollup-plugin-babel';
 import fs from 'fs-extra';
+import { terser } from 'rollup-plugin-terser';
 import path from 'path';
 const componentsPath = path.join(__dirname, 'src');
 const distPath = path.join(__dirname, 'dist');
+import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
+
+// Excluded dependencies - dev dependencies
+const external = Object.keys(pkg.devDependencies);
 
 const plugins = [
   babel({
     exclude: 'node_modules/**',
     extensions,
+    runtimeHelpers: true,
     presets: [
-      '@babel/preset-env',
-      '@babel/preset-react',
+      ['@babel/preset-env'],
+      [
+        '@babel/preset-react',
+        {
+          runtime: 'automatic',
+        },
+      ],
       '@babel/preset-typescript',
     ],
-    plugins: ['styled-jsx/babel'],
+    plugins: [
+      'babel-plugin-optimize-clsx',
+      ['styled-jsx/babel', { optimizeForSpeed: true }],
+      ['@babel/plugin-proposal-object-rest-spread', { loose: true }],
+      ['@babel/plugin-transform-runtime', { useESModules: true }],
+    ],
+    ignore: [
+      /@babel[\\|/]runtime/,
+      /__tests__\.(js|ts|tsx)$/,
+      /\.stories\.(js|ts|tsx)$/,
+    ],
   }),
+  //   terser(),
+  peerDepsExternal(),
   localResolve(),
   nodeResolve({
     browser: true,
@@ -34,15 +58,7 @@ const globals = {
   'react-dom': 'ReactDOM',
 };
 
-const external = (id) => /^react|react-dom|styled-jsx|next\/link/.test(id);
-
-const cjsOutput = {
-  format: 'cjs',
-  exports: 'named',
-  entryFileNames: '[name]/index.js',
-  dir: 'dist',
-  globals,
-};
+// const external = (id) => /^react|react-dom|styled-jsx|next\/link/.test(id);
 
 export default (async () => {
   await fs.remove(distPath);
@@ -62,42 +78,51 @@ export default (async () => {
       return { name, url: entry };
     })
   );
-
-  const makeConfig = (name, url) => ({
-    input: { [name]: url },
-    output: [
-      {
-        // file: 'dist/index.js',
-        format: 'cjs',
-        exports: 'named',
-        entryFileNames: '[name]/index.js',
-        dir: 'dist',
-        globals,
-      },
-    ],
-    external,
-    plugins,
-  });
+  const componentsEntries = components
+    .filter((r) => r)
+    .reduce((pre, current) => {
+      return Object.assign({}, pre, { [current.name]: current.url });
+    }, {});
 
   return [
-    ...components
-      .filter((r) => r)
-      .map(({ name, url }) => ({
-        input: { [name]: url },
-        output: [cjsOutput],
-        external,
-        plugins,
-      })),
     {
-      input: { index: path.join(componentsPath, 'index.ts') },
-      output: [
-        {
-          ...cjsOutput,
-          entryFileNames: 'index.js',
-        },
-      ],
       external,
       plugins,
+      input: {
+        index: 'src/index.ts',
+        ...componentsEntries,
+      },
+      output: [
+        {
+          format: 'esm',
+          exports: 'named',
+          dir: 'esm',
+          entryFileNames: '[name]/index.js',
+          globals,
+        },
+        {
+          format: 'es',
+          exports: 'named',
+          dir: 'dist',
+          entryFileNames: '[name]/index.js',
+          globals,
+        },
+      ],
+      experimentalOptimizeChunks: true,
+      optimizeChunks: true,
+    },
+    {
+      external,
+      plugins,
+      input: 'src/index.ts',
+      output: {
+        globals,
+        file: pkg.browser,
+        format: 'umd',
+        exports: 'named',
+        name: 'NextUI',
+        esModule: false,
+      },
     },
   ];
 })();

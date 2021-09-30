@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import useTheme from '../hooks/use-theme';
+import useTheme from '../use-theme';
 import ThemeContext from './theme-context';
 import { NextUIThemes } from './index';
 import { ThemeParam, getThemeByType, mergeTheme, switchTheme } from './utils';

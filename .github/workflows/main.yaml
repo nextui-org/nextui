@@ -48,10 +48,6 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build
         run: yarn build
-      - uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: ./packages/nextui/dist
 
   tests:
     needs: [lint, build]
@@ -84,14 +80,13 @@ jobs:
           node-version: '12'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - uses: actions/download-artifact@v2
-        with:
-          name: dist
-          path: ./packages/nextui/dist
+      - name: Pre puiblish NextUI package
+        run: yarn pre-publish:nextui
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: './packages/nextui/package.json'
+          package: './packages/nextui/lib/package.json'
+          dry-run: true
       - name: Show published version
         if: steps.publish.outputs.type != 'none'
         run: |

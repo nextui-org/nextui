@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-      "outDir": "../dist",
       "baseUrl": "../",
       "noEmit": false,
       "declaration": true,

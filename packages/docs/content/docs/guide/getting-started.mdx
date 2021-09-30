@@ -50,6 +50,15 @@ const Application = () => (
 Once NextUI is installed you can use any of the components as follows:
 
 ```jsx
+// import just the Button rather than the entire library.
+import Button from '@next-ui/react/button';
+
+// or less ideally
 import { Button } from '@next-ui/react';
-const Component = () => <Button>Action</Button>;
+
+const Component = () => <Button>Click me</Button>;
 ```
+
+You should import individual components like: `@next-ui/react/button` rather than the entire library.
+Doing so pulls in only the specific components that you use, which can significantly reduce the amount of code you
+end up sending to the client.

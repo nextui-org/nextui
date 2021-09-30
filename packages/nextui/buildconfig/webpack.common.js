@@ -6,7 +6,7 @@ module.exports = {
   entry: path.join(sourcePath, 'index.ts'),
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../lib/esm'),
     libraryTarget: 'commonjs',
   },
   resolve: {

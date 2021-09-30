@@ -3,11 +3,11 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import {
   Container,
+  Button,
   Input,
   Spacer,
   Text,
   Link,
-  Button,
 } from '@nextui-org/react';
 
 export default function Home() {

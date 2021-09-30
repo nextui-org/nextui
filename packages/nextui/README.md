@@ -53,7 +53,12 @@ const Application = () => (
 3. Using NextUI components: Once NextUI is installed you can use any of the components as follows.
 
 ```jsx
+// import just the Button rather than the entire library.
+import Button from '@next-ui/react/Button';
+
+// or less ideally
 import { Button } from '@next-ui/react';
+
 const Component = () => <Button>Click me</Button>;
 ```
 
