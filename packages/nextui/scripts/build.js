@@ -11,7 +11,7 @@ const targets = process.argv.slice(2);
 
 const srcRoot = path.join(__dirname, '../src');
 const typesRoot = path.join(__dirname, '../types');
-const buildConfRoot = path.join(__dirname, '../buildconfig');
+const rootDir = path.join(__dirname, '.');
 
 const libRoot = path.join(__dirname, '../lib');
 const umdRoot = path.join(libRoot, 'umd');
@@ -30,10 +30,12 @@ const buildTypes = step('generating .d.ts', () => shell(`yarn build:types`));
 
 const copyTypes = (dest) => fse.copySync(typesRoot, dest, { overwrite: true });
 
-const babel = (outDir, envName) =>
+const babel = (outDir, envName) => {
   shell(
     `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`
   );
+};
+
 /**
  * Run babel over the src directory and output
  * compiled common js files to ./lib.
@@ -93,9 +95,9 @@ Promise.resolve(true)
   .then(buildTypes)
   .then(() =>
     Promise.all([
-      has('lib') && buildLib(),
+      //   has('lib') && buildLib(),
       has('es') && buildEsm(),
-      has('umd') && buildUmd(),
+      //   has('umd') && buildUmd(),
     ])
   )
   .then(buildDirectories)

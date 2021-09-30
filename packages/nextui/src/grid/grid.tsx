@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from 'styled-jsx/css';
+import css from 'styled-jsx/css';
 import GridContainer from './grid-container';
 import GridBasicItem, { GridBasicItemComponentProps } from './basic-item';
 

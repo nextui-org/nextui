@@ -1,10 +1,11 @@
 module.exports = {
   verbose: true,
+  testEnvironment: 'jsdom',
   setupFiles: ['./tests/setup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   testPathIgnorePatterns: ['/dist/', '/lib/'],
   transform: {
-    '^.+\\.tsx?$': ['babel-jest', { configFile: './tests/.babelrc.js' }],
+    '^.+\\.[jt]sx?$': ['babel-jest', { configFile: './tests/.babelrc.js' }],
   },
   testRegex: '.*\\.test\\.(j|t)sx?$',
   collectCoverageFrom: [

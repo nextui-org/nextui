@@ -20,23 +20,34 @@ module.exports = (api) => {
       modules = 'commonjs';
   }
 
+  const presets =
+    env !== 'test'
+      ? [
+          [
+            '@react-bootstrap',
+            {
+              dev,
+              modules,
+              removePropTypes: !dev,
+            },
+          ],
+          '@babel/preset-typescript',
+        ]
+      : ['@babel/env', '@babel/react', '@babel/preset-typescript'];
+
+  const plugins =
+    env !== 'test' ? ['styled-jsx/babel'] : ['styled-jsx/babel-test'];
+
   return {
-    presets: [
-      [
-        '@react-bootstrap',
-        {
-          dev,
-          modules,
-          removePropTypes: !dev,
-        },
-      ],
-      '@babel/preset-typescript',
-    ],
-    plugins: ['styled-jsx/babel'],
-    ignore: [
-      /@babel[\\|/]runtime/,
-      /\.stories\.(js|ts|tsx)$/,
-      /\.test\.(js|ts|tsx)$/,
-    ],
+    presets,
+    plugins,
+    ignore:
+      env !== 'test'
+        ? [
+            /@babel[\\|/]runtime/,
+            /\.stories\.(js|ts|tsx)$/,
+            /\.test\.(js|ts|tsx)$/,
+          ]
+        : [],
   };
 };

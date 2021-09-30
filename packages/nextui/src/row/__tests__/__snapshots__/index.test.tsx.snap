@@ -1,9 +1,341 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Row should render correctly 1`] = `"<div class=\\"jsx-3082574807 row  fluid\\">row</div>"`;
+exports[`Row should render correctly 1`] = `
+"<div class=\\"row  fluid\\">row<style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div>"
+`;
 
-exports[`Row should work with nested 1`] = `"<div class=\\"jsx-3082574807 row  fluid\\"><div class=\\"jsx-3082574807 row  fluid\\"><div class=\\"jsx-3082574807 row  fluid\\"><div class=\\"jsx-3322142157 col \\"><div class=\\"jsx-3082574807 row  fluid\\">row</div></div></div></div></div>"`;
+exports[`Row should work with nested 1`] = `
+"<div class=\\"row  fluid\\"><div class=\\"row  fluid\\"><div class=\\"row  fluid\\"><div class=\\"col \\"><div class=\\"row  fluid\\">row<style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div>"
+`;
 
-exports[`Row the children should be aligned correctly 1`] = `"<div><div class=\\"jsx-3200193848 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div><div class=\\"jsx-994483558 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div><div class=\\"jsx-3498685799 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div><div class=\\"jsx-1874290286 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div><div class=\\"jsx-3082574807 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div><div class=\\"jsx-3289932870 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div><div class=\\"jsx-1246455512 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div></div>"`;
+exports[`Row the children should be aligned correctly 1`] = `
+"<div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: flex-end;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: center;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: space-around;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: flex-start;
+          align-items: center;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(0 * 16pt / 2);
+          margin-right: calc(0 * 16pt / 2);
+          --row-gap: calc(0 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-end;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div></div>"
+`;
 
-exports[`Row the children should have the correct spacing 1`] = `"<div><div class=\\"jsx-124898454 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div><div class=\\"jsx-1632509909 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div><div class=\\"jsx-1373338918 row  fluid\\"><div class=\\"jsx-3322142157 col \\"></div></div></div>"`;
+exports[`Row the children should have the correct spacing 1`] = `
+"<div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(1 * 16pt / 2);
+          margin-right: calc(1 * 16pt / 2);
+          --row-gap: calc(1 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(2 * 16pt / 2);
+          margin-right: calc(2 * 16pt / 2);
+          --row-gap: calc(2 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div><div class=\\"row  fluid\\"><div class=\\"col \\"><style>
+        .col {
+          float: left;
+          box-sizing: border-box;
+          padding-left: calc(var(--row-gap) / 2);
+          padding-right: calc(var(--row-gap) / 2);
+          width: 100%;
+          margin-left: 0%;
+        }
+      </style></div><style>
+        .row {
+          display: flex;
+          position: relative;
+          box-sizing: border-box;
+          flex-wrap: nowrap;
+          margin-left: calc(10 * 16pt / 2);
+          margin-right: calc(10 * 16pt / 2);
+          --row-gap: calc(10 * 16pt);
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .fluid {
+          width: 100%;
+        }
+      </style></div></div>"
+`;

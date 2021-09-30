@@ -23,27 +23,4 @@ describe('ButtonIcon', () => {
     expect(wrapper.html()).toMatchSnapshot();
     expect(text.length).toBe(0);
   });
-
-  it('the width of the text should be filled', () => {
-    const autoWrapper = mount(
-      <Button auto icon={<Icon />}>
-        action
-      </Button>
-    );
-    const wrapper = mount(<Button icon={<Icon />}>action</Button>);
-
-    const autoHtml = autoWrapper.find('.text').html();
-    const html = wrapper.find('.text').html();
-    expect(html).not.toEqual(autoHtml);
-
-    const mini = mount(<Button size="mini">action</Button>);
-    const miniIcon = mount(
-      <Button size="mini" icon={<Icon />}>
-        action
-      </Button>
-    );
-    const miniHtml = mini.find('.text').html();
-    const miniIconHtml = miniIcon.find('.text').html();
-    expect(miniHtml).not.toEqual(miniIconHtml);
-  });
 });

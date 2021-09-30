@@ -1,15 +1,1199 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Switch should render correctly 1`] = `"<label class=\\"jsx-626112937 \\"><input type=\\"checkbox\\" class=\\"jsx-626112937\\"><div class=\\"jsx-626112937 switch  \\"><span class=\\"jsx-626112937 circle\\"></span></div></label>"`;
+exports[`Switch should render correctly 1`] = `
+"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label>"
+`;
 
-exports[`Switch should render correctly with an icon 1`] = `"<label class=\\"jsx-626112937 \\"><input type=\\"checkbox\\" class=\\"jsx-626112937\\"><div class=\\"jsx-626112937 switch  \\"><span class=\\"jsx-626112937 circle\\"><svg class=\\"\\"></svg></span></div></label>"`;
+exports[`Switch should render correctly with an icon 1`] = `
+"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label>"
+`;
 
-exports[`Switch should render correctly with an iconOff 1`] = `"<label class=\\"jsx-626112937 \\"><input type=\\"checkbox\\" class=\\"jsx-626112937\\"><div class=\\"jsx-626112937 switch  \\"><span class=\\"jsx-626112937 circle\\"><svg class=\\"\\"></svg></span></div></label>"`;
+exports[`Switch should render correctly with an iconOff 1`] = `
+"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label>"
+`;
 
-exports[`Switch should render correctly with an iconOn 1`] = `"<label class=\\"jsx-626112937 \\"><input type=\\"checkbox\\" class=\\"jsx-626112937\\"><div class=\\"jsx-626112937 switch  \\"><span class=\\"jsx-626112937 circle\\"><svg class=\\"\\"></svg></span></div></label>"`;
+exports[`Switch should render correctly with an iconOn 1`] = `
+"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label>"
+`;
 
-exports[`Switch should render correctly with both icons on/off 1`] = `"<label class=\\"jsx-626112937 \\"><input type=\\"checkbox\\" class=\\"jsx-626112937\\"><div class=\\"jsx-626112937 switch  \\"><span class=\\"jsx-626112937 circle\\"><svg class=\\"\\"></svg></span></div></label>"`;
+exports[`Switch should render correctly with both icons on/off 1`] = `
+"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label>"
+`;
 
-exports[`Switch should work with different colors 1`] = `"<div><label class=\\"jsx-626112937 \\"><input type=\\"checkbox\\" class=\\"jsx-626112937\\"><div class=\\"jsx-626112937 switch  \\"><span class=\\"jsx-626112937 circle\\"></span></div></label><label class=\\"jsx-1593980509 \\"><input type=\\"checkbox\\" class=\\"jsx-1593980509\\"><div class=\\"jsx-1593980509 switch  \\"><span class=\\"jsx-1593980509 circle\\"></span></div></label><label class=\\"jsx-2856380485 \\"><input type=\\"checkbox\\" class=\\"jsx-2856380485\\"><div class=\\"jsx-2856380485 switch  \\"><span class=\\"jsx-2856380485 circle\\"></span></div></label><label class=\\"jsx-745784254 \\"><input type=\\"checkbox\\" class=\\"jsx-745784254\\"><div class=\\"jsx-745784254 switch  \\"><span class=\\"jsx-745784254 circle\\"></span></div></label><label class=\\"jsx-449270826 \\"><input type=\\"checkbox\\" class=\\"jsx-449270826\\"><div class=\\"jsx-449270826 switch  \\"><span class=\\"jsx-449270826 circle\\"></span></div></label></div>"`;
+exports[`Switch should work with different colors 1`] = `
+"<div><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #7928ca;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #17c964;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #f5a623;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #f21361;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label></div>"
+`;
 
-exports[`Switch should work with different sizes 1`] = `"<div><label class=\\"jsx-140314118 \\"><input type=\\"checkbox\\" class=\\"jsx-140314118\\"><div class=\\"jsx-140314118 switch  \\"><span class=\\"jsx-140314118 circle\\"></span></div></label><label class=\\"jsx-3747005096 \\"><input type=\\"checkbox\\" class=\\"jsx-3747005096\\"><div class=\\"jsx-3747005096 switch  \\"><span class=\\"jsx-3747005096 circle\\"></span></div></label><label class=\\"jsx-626112937 \\"><input type=\\"checkbox\\" class=\\"jsx-626112937\\"><div class=\\"jsx-626112937 switch  \\"><span class=\\"jsx-626112937 circle\\"></span></div></label><label class=\\"jsx-1428121347 \\"><input type=\\"checkbox\\" class=\\"jsx-1428121347\\"><div class=\\"jsx-1428121347 switch  \\"><span class=\\"jsx-1428121347 circle\\"></span></div></label><label class=\\"jsx-2738261355 \\"><input type=\\"checkbox\\" class=\\"jsx-2738261355\\"><div class=\\"jsx-2738261355 switch  \\"><span class=\\"jsx-2738261355 circle\\"></span></div></label></div>"`;
+exports[`Switch should work with different sizes 1`] = `
+"<div><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 32px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 32px;
+          height: 18px;
+          border-radius: 18px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(18px * 0.76);
+          height: calc(18px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(18px * 0.44);
+          width: calc(18px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(32px - 18px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 40px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 40px;
+          height: 20px;
+          border-radius: 20px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(20px * 0.76);
+          height: calc(20px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(20px * 0.44);
+          width: calc(20px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(40px - 20px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 45px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 45px;
+          height: 24px;
+          border-radius: 24px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(24px * 0.76);
+          height: calc(24px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(24px * 0.44);
+          width: calc(24px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(45px - 24px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 52px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 52px;
+          height: 28px;
+          border-radius: 28px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(28px * 0.76);
+          height: calc(28px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(28px * 0.44);
+          width: calc(28px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(52px - 28px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+        label {
+          -webkit-tap-highlight-color: transparent;
+          display: inline-block;
+          vertical-align: center;
+          white-space: nowrap;
+          user-select: none;
+          max-width: 62px;
+          transition: all 0.25s ease;
+          padding: 3px 0;
+          position: relative;
+          cursor: pointer;
+        }
+        input {
+          overflow: hidden;
+          visibility: hidden;
+          height: 0;
+          opacity: 0;
+          width: 0;
+          position: absolute;
+          background: transparent;
+          z-index: -1;
+        }
+        .switch {
+          width: 62px;
+          height: 32px;
+          border-radius: 32px;
+          opacity: 1;
+          transition: all 0.25s ease;
+          position: relative;
+          border: 2px solid
+            transparent;
+          background: #eaeaea;
+          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          padding: 0;
+        }
+        .circle {
+          position: absolute;
+          display: flex;
+          width: calc(32px * 0.76);
+          height: calc(32px * 0.76);
+          justify-content: center;
+          align-items: center;
+          top: 49.4%;
+          bottom: 0px;
+          transform: translateY(-50%);
+          left: 0px;
+          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          transition: left 0.25s ease;
+          border-radius: 50%;
+          background: #fff;
+        }
+        .switch.checked:hover {
+          opacity: 0.8;
+        }
+        .switch:hover:not(.checked) {
+          opacity: 0.8;
+        }
+        .disabled {
+          border-color: #999;
+          background-color: #999;
+        }
+        .checked {
+          border: 1px solid transparent;
+          background: #0070f3;
+        }
+        .circle :global(svg) {
+          background: transparent;
+          height: calc(32px * 0.44);
+          width: calc(32px * 0.44);
+        }
+        .checked > .circle {
+          left: calc(62px - 32px * 0.88);
+          background: rgba(255, 255,255,0.6);
+        }
+        .disabled > .circle {
+          background: #eaeaea;
+        }
+      </style></label></div>"
+`;

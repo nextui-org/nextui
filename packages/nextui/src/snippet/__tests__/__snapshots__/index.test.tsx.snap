@@ -1,11 +1,429 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snippet should render correctly 1`] = `"<div class=\\"jsx-1238157576 snippet \\"><pre class=\\"jsx-1238157576\\">yarn add @geist-ui/react</pre><div class=\\"jsx-303000714 tooltip \\"><span class=\\"jsx-1238157576 copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span></div></div>"`;
+exports[`Snippet should render correctly 1`] = `
+"<div class=\\"snippet \\"><pre>yarn add @geist-ui/react</pre><div class=\\"tooltip \\"><span class=\\"copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span><style>
+        .tooltip {
+          width: max-content;
+          display: inherit;
+        }
+      </style></div><style>
+        .snippet {
+          display: flex;
+          position: relative;
+          width: initial;
+          max-width: 100%;
+          padding: calc(16pt * 0.75) 16pt;
+          color: #000;
+          background: #fff;
+          border: 0px solid #eaeaea;
+          border-radius: 14px;
+        }
+        pre {
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          width: calc(100% - 2 * 16pt);
+          background-color: transparent;
+          color: #000;
+          font-size: 0.8125rem;
+        }
+        pre::before {
+          content: '$ ';
+          user-select: none;
+        }
+        pre :global(*) {
+          margin: 0;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+        }
+        .copy {
+          background-color: #fff;
+          display: inline-flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: calc(2 * 16pt);
+          color: inherit;
+          transition: opacity 0.2s ease 0s;
+          cursor: pointer;
+          user-select: none;
+        }
+        .copy:hover {
+          opacity: 0.7;
+        }
+      </style></div>"
+`;
 
-exports[`Snippet should work with custom symbol 1`] = `"<div class=\\"jsx-3013985234 snippet \\"><pre class=\\"jsx-3013985234\\">yarn add @geist-ui/react</pre><div class=\\"jsx-303000714 tooltip \\"><span class=\\"jsx-3013985234 copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span></div></div>"`;
+exports[`Snippet should work with custom symbol 1`] = `
+"<div class=\\"snippet \\"><pre>yarn add @geist-ui/react</pre><div class=\\"tooltip \\"><span class=\\"copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span><style>
+        .tooltip {
+          width: max-content;
+          display: inherit;
+        }
+      </style></div><style>
+        .snippet {
+          display: flex;
+          position: relative;
+          width: initial;
+          max-width: 100%;
+          padding: calc(16pt * 0.75) 16pt;
+          color: #000;
+          background: #fff;
+          border: 0px solid #eaeaea;
+          border-radius: 14px;
+        }
+        pre {
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          width: calc(100% - 2 * 16pt);
+          background-color: transparent;
+          color: #000;
+          font-size: 0.8125rem;
+        }
+        pre::before {
+          content: '> ';
+          user-select: none;
+        }
+        pre :global(*) {
+          margin: 0;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+        }
+        .copy {
+          background-color: #fff;
+          display: inline-flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: calc(2 * 16pt);
+          color: inherit;
+          transition: opacity 0.2s ease 0s;
+          cursor: pointer;
+          user-select: none;
+        }
+        .copy:hover {
+          opacity: 0.7;
+        }
+      </style></div>"
+`;
 
-exports[`Snippet should work with custom symbol 2`] = `"<div class=\\"jsx-1153379468 snippet \\"><pre class=\\"jsx-1153379468\\">yarn add @geist-ui/react</pre><div class=\\"jsx-303000714 tooltip \\"><span class=\\"jsx-1153379468 copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span></div></div>"`;
+exports[`Snippet should work with custom symbol 2`] = `
+"<div class=\\"snippet \\"><pre>yarn add @geist-ui/react</pre><div class=\\"tooltip \\"><span class=\\"copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span><style>
+        .tooltip {
+          width: max-content;
+          display: inherit;
+        }
+      </style></div><style>
+        .snippet {
+          display: flex;
+          position: relative;
+          width: initial;
+          max-width: 100%;
+          padding: calc(16pt * 0.75) 16pt;
+          color: #000;
+          background: #fff;
+          border: 0px solid #eaeaea;
+          border-radius: 14px;
+        }
+        pre {
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          width: calc(100% - 2 * 16pt);
+          background-color: transparent;
+          color: #000;
+          font-size: 0.8125rem;
+        }
+        pre::before {
+          content: '';
+          user-select: none;
+        }
+        pre :global(*) {
+          margin: 0;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+        }
+        .copy {
+          background-color: #fff;
+          display: inline-flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: calc(2 * 16pt);
+          color: inherit;
+          transition: opacity 0.2s ease 0s;
+          cursor: pointer;
+          user-select: none;
+        }
+        .copy:hover {
+          opacity: 0.7;
+        }
+      </style></div>"
+`;
 
-exports[`Snippet should work with different styles 1`] = `"<div><div class=\\"jsx-1238157576 snippet \\"><pre class=\\"jsx-1238157576\\">yarn add @geist-ui/react</pre><div class=\\"jsx-303000714 tooltip \\"><span class=\\"jsx-1238157576 copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span></div></div><div class=\\"jsx-2327349969 snippet \\"><pre class=\\"jsx-2327349969\\">yarn add @geist-ui/react</pre><div class=\\"jsx-303000714 tooltip \\"><span class=\\"jsx-2327349969 copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span></div></div><div class=\\"jsx-2477690794 snippet \\"><pre class=\\"jsx-2477690794\\">yarn add @geist-ui/react</pre><div class=\\"jsx-303000714 tooltip \\"><span class=\\"jsx-2477690794 copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span></div></div><div class=\\"jsx-3702686130 snippet \\"><pre class=\\"jsx-3702686130\\">yarn add @geist-ui/react</pre><div class=\\"jsx-303000714 tooltip \\"><span class=\\"jsx-3702686130 copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span></div></div></div>"`;
+exports[`Snippet should work with different styles 1`] = `
+"<div><div class=\\"snippet \\"><pre>yarn add @geist-ui/react</pre><div class=\\"tooltip \\"><span class=\\"copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span><style>
+        .tooltip {
+          width: max-content;
+          display: inherit;
+        }
+      </style></div><style>
+        .snippet {
+          display: flex;
+          position: relative;
+          width: initial;
+          max-width: 100%;
+          padding: calc(16pt * 0.75) 16pt;
+          color: #000;
+          background: #fff;
+          border: 0px solid #eaeaea;
+          border-radius: 14px;
+        }
+        pre {
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          width: calc(100% - 2 * 16pt);
+          background-color: transparent;
+          color: #000;
+          font-size: 0.8125rem;
+        }
+        pre::before {
+          content: '$ ';
+          user-select: none;
+        }
+        pre :global(*) {
+          margin: 0;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+        }
+        .copy {
+          background-color: #fff;
+          display: inline-flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: calc(2 * 16pt);
+          color: inherit;
+          transition: opacity 0.2s ease 0s;
+          cursor: pointer;
+          user-select: none;
+        }
+        .copy:hover {
+          opacity: 0.7;
+        }
+      </style></div><div class=\\"snippet \\"><pre>yarn add @geist-ui/react</pre><div class=\\"tooltip \\"><span class=\\"copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span><style>
+        .tooltip {
+          width: max-content;
+          display: inherit;
+        }
+      </style></div><style>
+        .snippet {
+          display: flex;
+          position: relative;
+          width: 20%;
+          max-width: 100%;
+          padding: calc(16pt * 0.75) 16pt;
+          color: #000;
+          background: #fff;
+          border: 0px solid #eaeaea;
+          border-radius: 14px;
+        }
+        pre {
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          width: calc(100% - 2 * 16pt);
+          background-color: transparent;
+          color: #000;
+          font-size: 0.8125rem;
+        }
+        pre::before {
+          content: '$ ';
+          user-select: none;
+        }
+        pre :global(*) {
+          margin: 0;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+        }
+        .copy {
+          background-color: #fff;
+          display: inline-flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: calc(2 * 16pt);
+          color: inherit;
+          transition: opacity 0.2s ease 0s;
+          cursor: pointer;
+          user-select: none;
+        }
+        .copy:hover {
+          opacity: 0.7;
+        }
+      </style></div><div class=\\"snippet \\"><pre>yarn add @geist-ui/react</pre><div class=\\"tooltip \\"><span class=\\"copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span><style>
+        .tooltip {
+          width: max-content;
+          display: inherit;
+        }
+      </style></div><style>
+        .snippet {
+          display: flex;
+          position: relative;
+          width: initial;
+          max-width: 100%;
+          padding: calc(16pt * 0.75) 16pt;
+          color: #7928ca;
+          background: #fff;
+          border: 0px solid #7928ca;
+          border-radius: 14px;
+        }
+        pre {
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          width: calc(100% - 2 * 16pt);
+          background-color: transparent;
+          color: #7928ca;
+          font-size: 0.8125rem;
+        }
+        pre::before {
+          content: '$ ';
+          user-select: none;
+        }
+        pre :global(*) {
+          margin: 0;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+        }
+        .copy {
+          background-color: #fff;
+          display: inline-flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: calc(2 * 16pt);
+          color: inherit;
+          transition: opacity 0.2s ease 0s;
+          cursor: pointer;
+          user-select: none;
+        }
+        .copy:hover {
+          opacity: 0.7;
+        }
+      </style></div><div class=\\"snippet \\"><pre>yarn add @geist-ui/react</pre><div class=\\"tooltip \\"><span class=\\"copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span><style>
+        .tooltip {
+          width: max-content;
+          display: inherit;
+        }
+      </style></div><style>
+        .snippet {
+          display: flex;
+          position: relative;
+          width: initial;
+          max-width: 100%;
+          padding: calc(16pt * 0.75) 16pt;
+          color: #fff;
+          background: #17c964;
+          border: 0px solid #17c964;
+          border-radius: 14px;
+        }
+        pre {
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          width: calc(100% - 2 * 16pt);
+          background-color: transparent;
+          color: #fff;
+          font-size: 0.8125rem;
+        }
+        pre::before {
+          content: '$ ';
+          user-select: none;
+        }
+        pre :global(*) {
+          margin: 0;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+        }
+        .copy {
+          background-color: #17c964;
+          display: inline-flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: calc(2 * 16pt);
+          color: inherit;
+          transition: opacity 0.2s ease 0s;
+          cursor: pointer;
+          user-select: none;
+        }
+        .copy:hover {
+          opacity: 0.7;
+        }
+      </style></div></div>"
+`;
 
-exports[`Snippet should work with multi-line 1`] = `"<div class=\\"jsx-1238157576 snippet \\"><pre class=\\"jsx-1238157576\\">cd project</pre><pre class=\\"jsx-1238157576\\">now</pre><div class=\\"jsx-303000714 tooltip \\"><span class=\\"jsx-1238157576 copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span></div></div>"`;
+exports[`Snippet should work with multi-line 1`] = `
+"<div class=\\"snippet \\"><pre>cd project</pre><pre>now</pre><div class=\\"tooltip \\"><span class=\\"copy\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"#444\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></span><style>
+        .tooltip {
+          width: max-content;
+          display: inherit;
+        }
+      </style></div><style>
+        .snippet {
+          display: flex;
+          position: relative;
+          width: initial;
+          max-width: 100%;
+          padding: calc(16pt * 0.75) 16pt;
+          color: #000;
+          background: #fff;
+          border: 0px solid #eaeaea;
+          border-radius: 14px;
+        }
+        pre {
+          margin: 0;
+          padding: 0;
+          border: none;
+          border-radius: 0;
+          width: calc(100% - 2 * 16pt);
+          background-color: transparent;
+          color: #000;
+          font-size: 0.8125rem;
+        }
+        pre::before {
+          content: '$ ';
+          user-select: none;
+        }
+        pre :global(*) {
+          margin: 0;
+          padding: 0;
+          font-size: inherit;
+          color: inherit;
+        }
+        .copy {
+          background-color: #fff;
+          display: inline-flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: calc(2 * 16pt);
+          color: inherit;
+          transition: opacity 0.2s ease 0s;
+          cursor: pointer;
+          user-select: none;
+        }
+        .copy:hover {
+          opacity: 0.7;
+        }
+      </style></div>"
+`;

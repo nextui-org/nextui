@@ -1,7 +1,367 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonIcon should render correctly 1`] = `"<button type=\\"button\\" color=\\"default\\" class=\\"jsx-1560888911 button \\"><div class=\\"jsx-1560888911\\"><span class=\\"jsx-2775745252 icon   \\"><svg></svg></span><div class=\\"jsx-1560888911 text left\\">action</div></div></button>"`;
+exports[`ButtonIcon should render correctly 1`] = `
+"<button type=\\"button\\" class=\\"button \\" color=\\"default\\"><div><span class=\\"icon   \\"><svg></svg><style>
+        .icon {
+          position: absolute;
+          left: var(--next-ui-button-padding);
+          right: auto;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--next-ui-button-color);
+          z-index: 1;
+        }
+        .right {
+          right: var(--next-ui-button-padding);
+          left: auto;
+        }
+        .icon :global(svg) {
+          background: transparent;
+          height: calc(var(--next-ui-button-height) / 2.35);
+          width: calc(var(--next-ui-button-height) / 2.35);
+        }
+        .single {
+          position: static;
+          transform: none;
+        }
+      </style></span><div class=\\"text left\\">action</div></div><style>
+        .button {
+          background: #0070f3;
+          box-sizing: border-box;
+          display: inline-block;
+          padding: 0 1.375rem;
+          height: 2.5rem;
+          line-height: 2.5rem;
+          min-width: 12.5rem;
+          width: auto;
+          border-radius: 12px;
+          border: 2px none
+            transparent;
+          font-weight: 500;
+          font-size: .875rem;
+          user-select: none;
+          outline: none;
+          text-transform: capitalize;
+          justify-content: center;
+          text-align: center;
+          white-space: nowrap;
+          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
+            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
+            color 250ms ease 0ms, transform 250ms ease 0ms;
+          position: relative;
+          overflow: hidden;
+          color: #fff;
+          cursor: pointer;
+          pointer-events: auto;
+          box-shadow: none;
+          --next-ui-button-border-radius: 12px;
+          --next-ui-button-padding: 1.375rem;
+          --next-ui-button-height: 2.5rem;
+          --next-ui-button-color: #fff;
+          --next-ui-button-bg: #0070f3;
+        }
+        .button:before {
+          content: '';
+          background: rgba(0, 112,243,0.85);
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          border-radius: 12px;
+          transition: all 0.2s ease;
+          z-index: 1;
+          opacity: 0;
+        }
+        .button:hover:before {
+          opacity: 0;
+        }
+        .button:active {
+          transform: scale(0.97);
+        }
+        .button:hover,
+        .button:focus {
+          background: rgba(0, 112,243,0.85);
+          --next-ui-button-color: undefined;
+          filter: none;
+          color: undefined;
+          border-color: transparent;
+          border-width: undefined;
+          padding: undefined !important;
+          cursor: pointer;
+          pointer-events: auto;
+        }
+        .text {
+          position: relative;
+          z-index: 1;
+          transform: translateY(
+            -0
+          );
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          line-height: inherit;
+          padding: 0 0;
+          opacity: 1;
+        }
+        .text p,
+        .text pre,
+        .text div {
+          margin: 0;
+        }
+        .text.left {
+          padding-left: 0;
+        }
+        .text.right {
+          padding-right: 0;
+        }
+      </style></button>"
+`;
 
-exports[`ButtonIcon should work with right 1`] = `"<button type=\\"button\\" color=\\"default\\" class=\\"jsx-1560888911 button \\"><div class=\\"jsx-1560888911\\"><span class=\\"jsx-2775745252 icon right  \\"><svg></svg></span><div class=\\"jsx-1560888911 text right\\">action</div></div></button>"`;
+exports[`ButtonIcon should work with right 1`] = `
+"<button type=\\"button\\" class=\\"button \\" color=\\"default\\"><div><span class=\\"icon right  \\"><svg></svg><style>
+        .icon {
+          position: absolute;
+          left: var(--next-ui-button-padding);
+          right: auto;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--next-ui-button-color);
+          z-index: 1;
+        }
+        .right {
+          right: var(--next-ui-button-padding);
+          left: auto;
+        }
+        .icon :global(svg) {
+          background: transparent;
+          height: calc(var(--next-ui-button-height) / 2.35);
+          width: calc(var(--next-ui-button-height) / 2.35);
+        }
+        .single {
+          position: static;
+          transform: none;
+        }
+      </style></span><div class=\\"text right\\">action</div></div><style>
+        .button {
+          background: #0070f3;
+          box-sizing: border-box;
+          display: inline-block;
+          padding: 0 1.375rem;
+          height: 2.5rem;
+          line-height: 2.5rem;
+          min-width: 12.5rem;
+          width: auto;
+          border-radius: 12px;
+          border: 2px none
+            transparent;
+          font-weight: 500;
+          font-size: .875rem;
+          user-select: none;
+          outline: none;
+          text-transform: capitalize;
+          justify-content: center;
+          text-align: center;
+          white-space: nowrap;
+          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
+            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
+            color 250ms ease 0ms, transform 250ms ease 0ms;
+          position: relative;
+          overflow: hidden;
+          color: #fff;
+          cursor: pointer;
+          pointer-events: auto;
+          box-shadow: none;
+          --next-ui-button-border-radius: 12px;
+          --next-ui-button-padding: 1.375rem;
+          --next-ui-button-height: 2.5rem;
+          --next-ui-button-color: #fff;
+          --next-ui-button-bg: #0070f3;
+        }
+        .button:before {
+          content: '';
+          background: rgba(0, 112,243,0.85);
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          border-radius: 12px;
+          transition: all 0.2s ease;
+          z-index: 1;
+          opacity: 0;
+        }
+        .button:hover:before {
+          opacity: 0;
+        }
+        .button:active {
+          transform: scale(0.97);
+        }
+        .button:hover,
+        .button:focus {
+          background: rgba(0, 112,243,0.85);
+          --next-ui-button-color: undefined;
+          filter: none;
+          color: undefined;
+          border-color: transparent;
+          border-width: undefined;
+          padding: undefined !important;
+          cursor: pointer;
+          pointer-events: auto;
+        }
+        .text {
+          position: relative;
+          z-index: 1;
+          transform: translateY(
+            -0
+          );
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          line-height: inherit;
+          padding: 0 0;
+          opacity: 1;
+        }
+        .text p,
+        .text pre,
+        .text div {
+          margin: 0;
+        }
+        .text.left {
+          padding-left: 0;
+        }
+        .text.right {
+          padding-right: 0;
+        }
+      </style></button>"
+`;
 
-exports[`ButtonIcon should work without text 1`] = `"<button type=\\"button\\" color=\\"default\\" class=\\"jsx-1560888911 button \\"><span class=\\"jsx-2775745252 icon right single \\"><svg></svg></span></button>"`;
+exports[`ButtonIcon should work without text 1`] = `
+"<button type=\\"button\\" class=\\"button \\" color=\\"default\\"><span class=\\"icon right single \\"><svg></svg><style>
+        .icon {
+          position: absolute;
+          left: var(--next-ui-button-padding);
+          right: auto;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--next-ui-button-color);
+          z-index: 1;
+        }
+        .right {
+          right: var(--next-ui-button-padding);
+          left: auto;
+        }
+        .icon :global(svg) {
+          background: transparent;
+          height: calc(var(--next-ui-button-height) / 2.35);
+          width: calc(var(--next-ui-button-height) / 2.35);
+        }
+        .single {
+          position: static;
+          transform: none;
+        }
+      </style></span><style>
+        .button {
+          background: #0070f3;
+          box-sizing: border-box;
+          display: inline-block;
+          padding: 0 1.375rem;
+          height: 2.5rem;
+          line-height: 2.5rem;
+          min-width: 12.5rem;
+          width: auto;
+          border-radius: 12px;
+          border: 2px none
+            transparent;
+          font-weight: 500;
+          font-size: .875rem;
+          user-select: none;
+          outline: none;
+          text-transform: capitalize;
+          justify-content: center;
+          text-align: center;
+          white-space: nowrap;
+          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
+            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
+            color 250ms ease 0ms, transform 250ms ease 0ms;
+          position: relative;
+          overflow: hidden;
+          color: #fff;
+          cursor: pointer;
+          pointer-events: auto;
+          box-shadow: none;
+          --next-ui-button-border-radius: 12px;
+          --next-ui-button-padding: 1.375rem;
+          --next-ui-button-height: 2.5rem;
+          --next-ui-button-color: #fff;
+          --next-ui-button-bg: #0070f3;
+        }
+        .button:before {
+          content: '';
+          background: rgba(0, 112,243,0.85);
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          border-radius: 12px;
+          transition: all 0.2s ease;
+          z-index: 1;
+          opacity: 0;
+        }
+        .button:hover:before {
+          opacity: 0;
+        }
+        .button:active {
+          transform: scale(0.97);
+        }
+        .button:hover,
+        .button:focus {
+          background: rgba(0, 112,243,0.85);
+          --next-ui-button-color: undefined;
+          filter: none;
+          color: undefined;
+          border-color: transparent;
+          border-width: undefined;
+          padding: undefined !important;
+          cursor: pointer;
+          pointer-events: auto;
+        }
+        .text {
+          position: relative;
+          z-index: 1;
+          transform: translateY(
+            -0
+          );
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          line-height: inherit;
+          padding: 0 0;
+          opacity: 1;
+        }
+        .text p,
+        .text pre,
+        .text div {
+          margin: 0;
+        }
+        .text.left {
+          padding-left: 0;
+        }
+        .text.right {
+          padding-right: 0;
+        }
+      </style></button>"
+`;
