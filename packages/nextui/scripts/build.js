@@ -95,9 +95,9 @@ Promise.resolve(true)
   .then(buildTypes)
   .then(() =>
     Promise.all([
-      //   has('lib') && buildLib(),
+      has('lib') && buildLib(),
       has('es') && buildEsm(),
-      //   has('umd') && buildUmd(),
+      has('umd') && buildUmd(),
     ])
   )
   .then(buildDirectories)
