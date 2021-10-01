@@ -7,6 +7,7 @@ import { act } from 'react-dom/test-utils';
 
 const expectTooltipIsShow = (wrapper: ReactWrapper) => {
   expect(wrapper.find('.inner').length).not.toBe(0);
+  expect(wrapper.find('.inner').prop("role")).toEqual("tooltip");
 };
 
 const expectTooltipIsHidden = (wrapper: ReactWrapper) => {
@@ -45,6 +46,21 @@ describe('Tooltip', () => {
     expectTooltipIsShow(wrapper);
 
     wrapper.find('.tooltip').simulate('mouseLeave', nativeEvent);
+    await updateWrapper(wrapper, 150);
+    expectTooltipIsHidden(wrapper);
+  });
+
+  it('should render text when focus it', async () => {
+    const wrapper = mount(
+      <div>
+        <Tooltip text="some text">some tips</Tooltip>
+      </div>
+    );
+    wrapper.find('.tooltip').simulate('focus', nativeEvent);
+    await updateWrapper(wrapper, 150);
+    expectTooltipIsShow(wrapper);
+
+    wrapper.find('.tooltip').simulate('blur', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsHidden(wrapper);
   });
