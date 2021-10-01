@@ -11,12 +11,12 @@ describe('Loading', () => {
 
   it('should render with default aria-label', () => {
     const wrapper = mount(<Loading />);
-    expect(wrapper.find('loading')).toHaveProperty('aria-label', 'Loading');
+    expect(wrapper.find('.loading').prop('aria-label')).toEqual('Loading');
   });
 
   it('should render with default aria-label for spinner', () => {
-    const wrapper = mount(<Loading />);
-    expect(wrapper.find('container')).toHaveProperty('aria-label', 'Loading');
+    const wrapper = mount(<Loading type="spinner"/>);
+    expect(wrapper.find('.container').prop('aria-label')).toEqual('Loading');
   });
 
   it('should work with children', () => {
