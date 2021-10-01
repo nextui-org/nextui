@@ -64,9 +64,12 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
       </Spinner>
     );
   }
+
+  const ariaLabel = !children && "Loading";
+
   return (
-    <div className="loading-container" {...props}>
-      <span className={`loading ${type}`}>
+    <div className="loading-container"  {...props}>
+      <span className={`loading ${type}`} aria-label={ariaLabel}>
         <i className="_1" />
         <i className="_2" />
         <i className="_3" />
