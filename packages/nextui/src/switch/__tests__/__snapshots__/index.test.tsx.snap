@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Switch should render correctly 1`] = `
-"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+"<label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -83,7 +83,7 @@ exports[`Switch should render correctly 1`] = `
 `;
 
 exports[`Switch should render correctly with an icon 1`] = `
-"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
+"<label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -165,7 +165,7 @@ exports[`Switch should render correctly with an icon 1`] = `
 `;
 
 exports[`Switch should render correctly with an iconOff 1`] = `
-"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
+"<label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -247,7 +247,7 @@ exports[`Switch should render correctly with an iconOff 1`] = `
 `;
 
 exports[`Switch should render correctly with an iconOn 1`] = `
-"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
+"<label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -329,7 +329,7 @@ exports[`Switch should render correctly with an iconOn 1`] = `
 `;
 
 exports[`Switch should render correctly with both icons on/off 1`] = `
-"<label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
+"<label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -411,7 +411,7 @@ exports[`Switch should render correctly with both icons on/off 1`] = `
 `;
 
 exports[`Switch should work with different colors 1`] = `
-"<div><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+"<div><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -489,7 +489,7 @@ exports[`Switch should work with different colors 1`] = `
         .disabled > .circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -567,7 +567,7 @@ exports[`Switch should work with different colors 1`] = `
         .disabled > .circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -645,7 +645,7 @@ exports[`Switch should work with different colors 1`] = `
         .disabled > .circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -723,7 +723,7 @@ exports[`Switch should work with different colors 1`] = `
         .disabled > .circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -805,7 +805,7 @@ exports[`Switch should work with different colors 1`] = `
 `;
 
 exports[`Switch should work with different sizes 1`] = `
-"<div><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+"<div><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -883,7 +883,7 @@ exports[`Switch should work with different sizes 1`] = `
         .disabled > .circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -961,7 +961,7 @@ exports[`Switch should work with different sizes 1`] = `
         .disabled > .circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -1039,7 +1039,7 @@ exports[`Switch should work with different sizes 1`] = `
         .disabled > .circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
@@ -1117,7 +1117,7 @@ exports[`Switch should work with different sizes 1`] = `
         .disabled > .circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
+      </style></label><label class=\\"\\"><input type=\\"checkbox\\"><div role=\\"switch\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch  \\"><span class=\\"circle\\"></span></div><style>
         label {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
