@@ -9,6 +9,16 @@ describe('Loading', () => {
     expect(() => wrapper.unmount()).toMatchSnapshot();
   });
 
+  it('should render with default aria-label', () => {
+    const wrapper = mount(<Loading />);
+    expect(wrapper.find('.loading').prop('aria-label')).toEqual('Loading');
+  });
+
+  it('should render with default aria-label for spinner', () => {
+    const wrapper = mount(<Loading type="spinner"/>);
+    expect(wrapper.find('.container').prop('aria-label')).toEqual('Loading');
+  });
+
   it('should work with children', () => {
     const wrapper = mount(<Loading>Loading</Loading>);
     expect(wrapper.find('label').text()).toContain('Loading');
