@@ -19,6 +19,24 @@ const expectSwitchIsUnChecked = (wrapper: ReactWrapper) => {
   expect(wrapper.find('.checked').length).toBe(0);
 };
 
+const getSwitchElement = (wrapper: ReactWrapper) => {
+  return wrapper.find('[role="switch"]');
+};
+
+const expectSwitchToHaveARIAChecked = (
+  wrapper: ReactWrapper,
+  value: boolean
+) => {
+  expect(getSwitchElement(wrapper).props()['aria-checked']).toBe(value);
+};
+
+const expectSwitchToHaveARIADisabled = (
+  wrapper: ReactWrapper,
+  value: boolean
+) => {
+  expect(getSwitchElement(wrapper).props()['aria-disabled']).toBe(value);
+};
+
 describe('Switch', () => {
   it('should render correctly', () => {
     const wrapper = mount(<Switch />);
@@ -121,14 +139,17 @@ describe('Switch', () => {
   it('should set switch follow checked prop', async () => {
     const wrapper = mount(<Switch initialChecked={true} />);
     expectSwitchIsChecked(wrapper);
+    expectSwitchToHaveARIAChecked(wrapper, true);
 
     wrapper.setProps({ checked: false });
     await updateWrapper(wrapper);
     expectSwitchIsUnChecked(wrapper);
+    expectSwitchToHaveARIAChecked(wrapper, false);
 
     wrapper.setProps({ checked: true });
     await updateWrapper(wrapper);
     expectSwitchIsChecked(wrapper);
+    expectSwitchToHaveARIAChecked(wrapper, true);
   });
 
   it('should trigger events when switch changed', async () => {
@@ -144,6 +165,7 @@ describe('Switch', () => {
     });
     await updateWrapper(wrapper);
     expectSwitchIsChecked(wrapper);
+    expectSwitchToHaveARIAChecked(wrapper, true);
 
     expect(changeHandler).toHaveBeenCalled();
     expect(checked).toEqual(true);
@@ -152,6 +174,8 @@ describe('Switch', () => {
   it('should ignore events when switch disabled', async () => {
     const changeHandler = jest.fn();
     const wrapper = mount(<Switch onChange={changeHandler} disabled />);
+
+    expectSwitchToHaveARIADisabled(wrapper, true);
 
     wrapper.find('input').simulate('change', {
       ...nativeEvent,
