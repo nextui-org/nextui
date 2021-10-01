@@ -104,7 +104,7 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
 }) => {
   const theme = useTheme();
 
-  const ariaLabel = !children && "Loading";
+  const ariaLabel = children ? "" : "Loading";
 
   return (
     <div className={`spinner ${className}`} {...props}>
