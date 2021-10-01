@@ -65,7 +65,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
     );
   }
 
-  const ariaLabel = !children && "Loading";
+  const ariaLabel = children ? "" : "Loading";
 
   return (
     <div className="loading-container"  {...props}>
