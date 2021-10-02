@@ -46,6 +46,8 @@ We use [Yarn](https://yarnpkg.com/) for dependency management and for the projec
 yarn dev
 ```
 
+This command will start the `Next.js` development server for the documentation and the `Storybook` server.
+
 ## Tests
 
 All commits that fix bugs or add features need a test. You can run `yarn test -- src/button ` for component specific tests.
