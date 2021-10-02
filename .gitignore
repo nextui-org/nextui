@@ -33,3 +33,6 @@ examples/**/out
 examples/**/.next
 
 .vercel
+
+# ignore sitemap
+/sitemap.xml
