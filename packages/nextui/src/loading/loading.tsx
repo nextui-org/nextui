@@ -45,10 +45,10 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
         : getLoaderBorder(size),
     [size]
   );
-  const labelColor = useMemo(
-    () => getNormalColor(textColor, theme.palette),
-    [color, theme.palette]
-  );
+  const labelColor = useMemo(() => getNormalColor(textColor, theme.palette), [
+    color,
+    theme.palette,
+  ]);
   const labelStyle = useMemo(
     () => getLabelStyle(type, theme, labelColor)[size],
     [type, size, theme, labelColor]
