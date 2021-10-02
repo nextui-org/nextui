@@ -11,6 +11,7 @@
     },
     "scripts": {
         "dev": "run-p dev:docs sb",
+        "prepare": "run-s build:nextui",
         "dev:docs": "yarn workspace @nextui-org/docs dev",
         "start:docs": "yarn workspace @nextui-org/docs start",
         "pre-publish:nextui": "yarn workspace @nextui-org/react pre-publish",
