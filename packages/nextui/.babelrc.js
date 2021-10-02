@@ -8,6 +8,7 @@ module.exports = (api) => {
     case 'docs':
     case 'test':
     case 'dist-dev':
+    case 'development':
       dev = true;
       modules = false;
       break;
@@ -21,7 +22,7 @@ module.exports = (api) => {
   }
 
   const presets =
-    env !== 'test'
+    env !== 'test' && env !== 'development'
       ? [
           [
             '@react-bootstrap',
@@ -42,7 +43,7 @@ module.exports = (api) => {
     presets,
     plugins,
     ignore:
-      env !== 'test'
+      env !== 'test' && env !== 'development'
         ? [
             /@babel[\\|/]runtime/,
             /\.stories\.(js|ts|tsx)$/,

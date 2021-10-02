@@ -13,12 +13,12 @@ import {
   Grid,
 } from '../index';
 import { CardColors } from '../utils/prop-types';
-import Headphones from '../../../assets/headphones.jpg';
-import Watch from '../../../assets/watch.jpeg';
-import Items from '../../../assets/items.jpeg';
-import Cup from '../../../assets/cup.jpeg';
-import Airpods from '../../../assets/airpods.jpeg';
-import Bicycle from '../../../assets/bicycle.jpeg';
+import Headphones from '../../assets/headphones.jpg';
+import Watch from '../../assets/watch.jpeg';
+import Items from '../../assets/items.jpeg';
+import Cup from '../../assets/cup.jpeg';
+import Airpods from '../../assets/airpods.jpeg';
+import Bicycle from '../../assets/bicycle.jpeg';
 
 export default {
   title: 'Surfaces/Card',
@@ -101,7 +101,7 @@ export const Shadow = () => (
 );
 
 export const WithFooter = () => (
-  <Row flexWrap justify="flex-start">
+  <Row wrap="wrap" justify="flex-start">
     <Card width="330px">
       <Text h4>Next UI</Text>
       <Text>🚀 Beautiful and modern React UI library.</Text>
