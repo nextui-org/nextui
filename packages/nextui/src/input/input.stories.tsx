@@ -12,7 +12,7 @@ import {
   Sun,
   Moon,
 } from '../utils/icons';
-import { useTheme } from '../../hooks';
+import useTheme from '../use-theme';
 
 export default {
   title: 'General/Input',

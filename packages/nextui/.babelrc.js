@@ -33,7 +33,7 @@ module.exports = (api) => {
           ],
           '@babel/preset-typescript',
         ]
-      : ['@babel/env', '@babel/react', '@babel/preset-typescript'];
+      : ['@babel/preset-env', '@babel/react', '@babel/preset-typescript'];
 
   const plugins =
     env !== 'test' ? ['styled-jsx/babel'] : ['styled-jsx/babel-test'];

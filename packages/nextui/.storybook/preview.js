@@ -1,10 +1,5 @@
 import React from 'react';
-import CssBaseline from '../src/components/css-baseline';
-import _JSXStyle from 'styled-jsx/style';
-
-if (typeof global !== 'undefined') {
-  Object.assign(global, { _JSXStyle });
-}
+import CssBaseline from '../src/css-baseline';
 
 export const decorators = [
   (Story) => (
