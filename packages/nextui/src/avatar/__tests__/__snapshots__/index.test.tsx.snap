@@ -1,0 +1,2789 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar should render component of a specified size 1`] = `
+LoadedCheerio {
+  "0": Node {
+    "attribs": Object {
+      "class": "avatar  ",
+    },
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "avatar-bg",
+        },
+        "children": Array [],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "avatar-text",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {},
+            "children": Array [
+              Node {
+                "data": "
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 20px;
+          min-height: 20px;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 20px;
+          height: 20px;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 20px * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      ",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "style",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "style",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "avatar-text",
+        },
+        "children": Array [],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "data": "
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 20px;
+          min-height: 20px;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 20px;
+          height: 20px;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 20px * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      ",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "style",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "style",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "avatar-bg",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {},
+        "children": Array [
+          Node {
+            "data": "
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 20px;
+          min-height: 20px;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 20px;
+          height: 20px;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 20px * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      ",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "style",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "avatar-text",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "avatar-bg",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "style",
+        "x-attribsNamespace": Object {},
+        "x-attribsPrefix": Object {},
+      },
+    ],
+    "name": "span",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": LoadedCheerio {
+    "0": Node {
+      "children": Array [
+        Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "head",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "body",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "body",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "head",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "html",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Avatar should render correctly with an icon 1`] = `
+"<span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"icon\\"><svg class=\\"\\"></svg></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span>"
+`;
+
+exports[`Avatar should render text element 1`] = `
+LoadedCheerio {
+  "0": Node {
+    "attribs": Object {
+      "class": "avatar  ",
+    },
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "avatar-bg",
+        },
+        "children": Array [],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "avatar-text",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {},
+            "children": Array [
+              Node {
+                "data": "
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      ",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "style",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "style",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "avatar-text",
+        },
+        "children": Array [],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "data": "
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      ",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "style",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "style",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "avatar-bg",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {},
+        "children": Array [
+          Node {
+            "data": "
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      ",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "style",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "avatar-text",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "avatar-bg",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "style",
+        "x-attribsNamespace": Object {},
+        "x-attribsPrefix": Object {},
+      },
+    ],
+    "name": "span",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": LoadedCheerio {
+    "0": Node {
+      "children": Array [
+        Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "head",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "body",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "body",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "head",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "html",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Avatar should render text element 2`] = `
+LoadedCheerio {
+  "0": Node {
+    "attribs": Object {
+      "class": "avatar  ",
+    },
+    "children": Array [
+      Node {
+        "attribs": Object {
+          "class": "avatar-bg",
+        },
+        "children": Array [],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {
+            "class": "avatar-text",
+          },
+          "children": Array [
+            Node {
+              "data": "text",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": Node {
+            "attribs": Object {},
+            "children": Array [
+              Node {
+                "data": "
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      ",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
+            "name": "style",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": [Circular],
+            "type": "style",
+            "x-attribsNamespace": Object {},
+            "x-attribsPrefix": Object {},
+          },
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {
+          "class": "avatar-text",
+        },
+        "children": Array [
+          Node {
+            "data": "text",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "span",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "data": "
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      ",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "style",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "style",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "avatar-bg",
+          },
+          "children": Array [],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Node {
+        "attribs": Object {},
+        "children": Array [
+          Node {
+            "data": "
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      ",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "text",
+          },
+        ],
+        "name": "style",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Node {
+          "attribs": Object {
+            "class": "avatar-text",
+          },
+          "children": Array [
+            Node {
+              "data": "text",
+              "next": null,
+              "parent": [Circular],
+              "prev": null,
+              "type": "text",
+            },
+          ],
+          "name": "span",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": [Circular],
+          "parent": [Circular],
+          "prev": Node {
+            "attribs": Object {
+              "class": "avatar-bg",
+            },
+            "children": Array [],
+            "name": "span",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": [Circular],
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "type": "style",
+        "x-attribsNamespace": Object {},
+        "x-attribsPrefix": Object {},
+      },
+    ],
+    "name": "span",
+    "namespace": "http://www.w3.org/1999/xhtml",
+    "next": null,
+    "parent": Node {
+      "children": Array [
+        [Circular],
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+    },
+    "prev": null,
+    "type": "tag",
+    "x-attribsNamespace": Object {
+      "class": undefined,
+    },
+    "x-attribsPrefix": Object {
+      "class": undefined,
+    },
+  },
+  "_root": LoadedCheerio {
+    "0": Node {
+      "children": Array [
+        Node {
+          "attribs": Object {},
+          "children": Array [
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "head",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "body",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+            Node {
+              "attribs": Object {},
+              "children": Array [],
+              "name": "body",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Node {
+                "attribs": Object {},
+                "children": Array [],
+                "name": "head",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {},
+                "x-attribsPrefix": Object {},
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {},
+              "x-attribsPrefix": Object {},
+            },
+          ],
+          "name": "html",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": null,
+          "type": "tag",
+          "x-attribsNamespace": Object {},
+          "x-attribsPrefix": Object {},
+        },
+      ],
+      "name": "root",
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Avatar should work correctly with different sizes 1`] = `
+"<div><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 1.375rem;
+          min-height: 1.375rem;
+          width: 1.375rem;
+          height: 1.375rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 1.375rem;
+          height: 1.375rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 1.375rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 1.823rem;
+          min-height: 1.823rem;
+          width: 1.823rem;
+          height: 1.823rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 1.823rem;
+          height: 1.823rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 1.823rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 3.23rem;
+          min-height: 3.23rem;
+          width: 3.23rem;
+          height: 3.23rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 3.23rem;
+          height: 3.23rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 2px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 2px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 3.23rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 4.3rem;
+          min-height: 4.3rem;
+          width: 4.3rem;
+          height: 4.3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 4.3rem;
+          height: 4.3rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 2.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 2.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 4.3rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span></div>"
+`;
+
+exports[`Avatar should work with a gradient color 1`] = `
+"<span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: linear-gradient(111.19deg,#aaffec -63.59%,#ff4ecd -20.3%,#0070f3 70.46%);
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: linear-gradient(111.19deg,#aaffec -63.59%,#ff4ecd -20.3%,#0070f3 70.46%);
+          filter: hue-rotate(40deg);
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span>"
+`;
+
+exports[`Avatar should work with different colors 1`] = `
+"<div><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #0070f3;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #0070f3;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #7928ca;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #7928ca;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #17c964;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #17c964;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #f5a623;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #f5a623;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span><span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #f21361;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #f21361;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span></div>"
+`;
+
+exports[`Avatar should work with pointer 1`] = `
+"<span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: pointer;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: false;
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span>"
+`;
+
+exports[`Avatar should work with zoomed 1`] = `
+"<span class=\\"avatar  \\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
+        .avatar {
+          position: relative;
+          z-index: 1;
+          min-width: 2.43rem;
+          min-height: 2.43rem;
+          width: 2.43rem;
+          height: 2.43rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          overflow: hidden;
+          border-radius: 50%;
+          vertical-align: top;
+          cursor: auto;
+          margin: 0 0 0 0;
+          transition: all 0.25s ease;
+        }
+        .avatar-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 2.43rem;
+          height: 2.43rem;
+          background: #eaeaea;
+          transition: all 0.25s ease;
+        }
+        .avatar.bordered {
+          padding: 1.5px;
+        }
+        .avatar:first-child {
+          margin: 0;
+        }
+        .avatar-img {
+          z-index: 99;
+          opacity: 0;
+          display: flex;
+          border-radius: 50%;
+          background: #fff;
+          border-radius: 50%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+        }
+        .avatar-ready {
+          opacity: 1;
+        }
+        .bordered .avatar-img {
+          border: 1.5px solid #fff;
+        }
+        .avatar-text {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          font-size: calc(0.8em + 2.43rem * 0.1);
+          text-align: center;
+          color: #2c3e50;
+          transform: translate(-50%, -50%) scale(0.65);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .icon {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          text-align: center;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+          user-select: none;
+        }
+        .bordered:hover .avatar-bg {
+          background: #eaeaea;
+          filter: none;
+        }
+        .avatar:hover .avatar-img {
+          transform: scale(1.125);
+        }
+        .avatar:hover .avatar-bg {
+          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+        }
+      </style></span>"
+`;

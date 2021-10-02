@@ -1,0 +1,458 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio Group should render correctly 1`] = `
+"<div><div class=\\"radio-group \\"><div class=\\"radio \\"><label><input type=\\"radio\\" value=\\"1\\"><span class=\\"name\\"><span class=\\"point active \\"></span>1</span></label><style>
+        input {
+          opacity: 0;
+          visibility: hidden;
+          overflow: hidden;
+          width: 1px;
+          height: 1px;
+          top: -1000px;
+          right: -1000px;
+          position: fixed;
+        }
+        .radio {
+          display: flex;
+          width: initial;
+          align-items: flex-start;
+          position: relative;
+          --radio-size: 20px;
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          color: #2c3e50;
+          cursor: pointer;
+        }
+        .name {
+          font-size: var(--radio-size);
+          user-select: none;
+          display: inline-flex;
+          align-items: center;
+        }
+        .point {
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          transition: all 0.25s ease;
+          position: relative;
+          display: inline-block;
+          margin-right: calc(var(--radio-size) * 0.375);
+        }
+        .point:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          box-sizing: border-box;
+          transition: all 0.25s ease;
+          border: 2px solid #eaeaea;
+        }
+        .point.active:after {
+          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+        }
+        label:hover .point:not(.active):not(.disabled) {
+          background: #eaeaea;
+        }
+      </style></div><div class=\\"radio \\"><label><input type=\\"radio\\" value=\\"2\\"><span class=\\"name\\"><span class=\\"point  \\"></span>2</span></label><style>
+        input {
+          opacity: 0;
+          visibility: hidden;
+          overflow: hidden;
+          width: 1px;
+          height: 1px;
+          top: -1000px;
+          right: -1000px;
+          position: fixed;
+        }
+        .radio {
+          display: flex;
+          width: initial;
+          align-items: flex-start;
+          position: relative;
+          --radio-size: 20px;
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          color: #2c3e50;
+          cursor: pointer;
+        }
+        .name {
+          font-size: var(--radio-size);
+          user-select: none;
+          display: inline-flex;
+          align-items: center;
+        }
+        .point {
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          transition: all 0.25s ease;
+          position: relative;
+          display: inline-block;
+          margin-right: calc(var(--radio-size) * 0.375);
+        }
+        .point:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          box-sizing: border-box;
+          transition: all 0.25s ease;
+          border: 2px solid #eaeaea;
+        }
+        .point.active:after {
+          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+        }
+        label:hover .point:not(.active):not(.disabled) {
+          background: #eaeaea;
+        }
+      </style></div></div><style>
+        .radio-group {
+          display: flex;
+          flex-direction: column;
+        }
+        .radio-group :global(.radio) {
+          margin-top: calc(20px * 1);
+          margin-right: 0;
+          --radio-size: 20px;
+        }
+      </style><div class=\\"radio-group \\"><div class=\\"radio \\"><label><input type=\\"radio\\" value=\\"1\\"><span class=\\"name\\"><span class=\\"point active \\"></span>1</span></label><style>
+        input {
+          opacity: 0;
+          visibility: hidden;
+          overflow: hidden;
+          width: 1px;
+          height: 1px;
+          top: -1000px;
+          right: -1000px;
+          position: fixed;
+        }
+        .radio {
+          display: flex;
+          width: initial;
+          align-items: flex-start;
+          position: relative;
+          --radio-size: 20px;
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          color: #2c3e50;
+          cursor: pointer;
+        }
+        .name {
+          font-size: var(--radio-size);
+          user-select: none;
+          display: inline-flex;
+          align-items: center;
+        }
+        .point {
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          transition: all 0.25s ease;
+          position: relative;
+          display: inline-block;
+          margin-right: calc(var(--radio-size) * 0.375);
+        }
+        .point:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          box-sizing: border-box;
+          transition: all 0.25s ease;
+          border: 2px solid #eaeaea;
+        }
+        .point.active:after {
+          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+        }
+        label:hover .point:not(.active):not(.disabled) {
+          background: #eaeaea;
+        }
+      </style></div><div class=\\"radio \\"><label><input type=\\"radio\\" value=\\"2\\"><span class=\\"name\\"><span class=\\"point  \\"></span>2</span></label><style>
+        input {
+          opacity: 0;
+          visibility: hidden;
+          overflow: hidden;
+          width: 1px;
+          height: 1px;
+          top: -1000px;
+          right: -1000px;
+          position: fixed;
+        }
+        .radio {
+          display: flex;
+          width: initial;
+          align-items: flex-start;
+          position: relative;
+          --radio-size: 20px;
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          color: #2c3e50;
+          cursor: pointer;
+        }
+        .name {
+          font-size: var(--radio-size);
+          user-select: none;
+          display: inline-flex;
+          align-items: center;
+        }
+        .point {
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          transition: all 0.25s ease;
+          position: relative;
+          display: inline-block;
+          margin-right: calc(var(--radio-size) * 0.375);
+        }
+        .point:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          box-sizing: border-box;
+          transition: all 0.25s ease;
+          border: 2px solid #eaeaea;
+        }
+        .point.active:after {
+          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+        }
+        label:hover .point:not(.active):not(.disabled) {
+          background: #eaeaea;
+        }
+      </style></div></div><style>
+        .radio-group {
+          display: flex;
+          flex-direction: row;
+        }
+        .radio-group :global(.radio) {
+          margin-top: 0;
+          margin-right: calc(20px * 1);
+          --radio-size: 20px;
+        }
+      </style></div>"
+`;
+
+exports[`Radio Group should work correctly with different sizes 1`] = `
+"<div><div class=\\"radio-group \\"><div class=\\"radio \\"><label><input type=\\"radio\\" value=\\"1\\"><span class=\\"name\\"><span class=\\"point active \\"></span>1</span></label><style>
+        input {
+          opacity: 0;
+          visibility: hidden;
+          overflow: hidden;
+          width: 1px;
+          height: 1px;
+          top: -1000px;
+          right: -1000px;
+          position: fixed;
+        }
+        .radio {
+          display: flex;
+          width: initial;
+          align-items: flex-start;
+          position: relative;
+          --radio-size: 20px;
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          color: #2c3e50;
+          cursor: pointer;
+        }
+        .name {
+          font-size: var(--radio-size);
+          user-select: none;
+          display: inline-flex;
+          align-items: center;
+        }
+        .point {
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          transition: all 0.25s ease;
+          position: relative;
+          display: inline-block;
+          margin-right: calc(var(--radio-size) * 0.375);
+        }
+        .point:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          box-sizing: border-box;
+          transition: all 0.25s ease;
+          border: 2px solid #eaeaea;
+        }
+        .point.active:after {
+          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+        }
+        label:hover .point:not(.active):not(.disabled) {
+          background: #eaeaea;
+        }
+      </style></div></div><style>
+        .radio-group {
+          display: flex;
+          flex-direction: column;
+        }
+        .radio-group :global(.radio) {
+          margin-top: calc(14px * 1);
+          margin-right: 0;
+          --radio-size: 14px;
+        }
+      </style><div class=\\"radio-group \\"><div class=\\"radio \\"><label><input type=\\"radio\\" value=\\"1\\"><span class=\\"name\\"><span class=\\"point active \\"></span>1</span></label><style>
+        input {
+          opacity: 0;
+          visibility: hidden;
+          overflow: hidden;
+          width: 1px;
+          height: 1px;
+          top: -1000px;
+          right: -1000px;
+          position: fixed;
+        }
+        .radio {
+          display: flex;
+          width: initial;
+          align-items: flex-start;
+          position: relative;
+          --radio-size: 20px;
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          color: #2c3e50;
+          cursor: pointer;
+        }
+        .name {
+          font-size: var(--radio-size);
+          user-select: none;
+          display: inline-flex;
+          align-items: center;
+        }
+        .point {
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          transition: all 0.25s ease;
+          position: relative;
+          display: inline-block;
+          margin-right: calc(var(--radio-size) * 0.375);
+        }
+        .point:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          box-sizing: border-box;
+          transition: all 0.25s ease;
+          border: 2px solid #eaeaea;
+        }
+        .point.active:after {
+          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+        }
+        label:hover .point:not(.active):not(.disabled) {
+          background: #eaeaea;
+        }
+      </style></div></div><style>
+        .radio-group {
+          display: flex;
+          flex-direction: column;
+        }
+        .radio-group :global(.radio) {
+          margin-top: calc(16px * 1);
+          margin-right: 0;
+          --radio-size: 16px;
+        }
+      </style><div class=\\"radio-group \\"><div class=\\"radio \\"><label><input type=\\"radio\\" value=\\"1\\"><span class=\\"name\\"><span class=\\"point active \\"></span>1</span></label><style>
+        input {
+          opacity: 0;
+          visibility: hidden;
+          overflow: hidden;
+          width: 1px;
+          height: 1px;
+          top: -1000px;
+          right: -1000px;
+          position: fixed;
+        }
+        .radio {
+          display: flex;
+          width: initial;
+          align-items: flex-start;
+          position: relative;
+          --radio-size: 20px;
+        }
+        label {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          color: #2c3e50;
+          cursor: pointer;
+        }
+        .name {
+          font-size: var(--radio-size);
+          user-select: none;
+          display: inline-flex;
+          align-items: center;
+        }
+        .point {
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          transition: all 0.25s ease;
+          position: relative;
+          display: inline-block;
+          margin-right: calc(var(--radio-size) * 0.375);
+        }
+        .point:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: var(--radio-size);
+          height: var(--radio-size);
+          border-radius: 50%;
+          box-sizing: border-box;
+          transition: all 0.25s ease;
+          border: 2px solid #eaeaea;
+        }
+        .point.active:after {
+          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+        }
+        label:hover .point:not(.active):not(.disabled) {
+          background: #eaeaea;
+        }
+      </style></div></div><style>
+        .radio-group {
+          display: flex;
+          flex-direction: column;
+        }
+        .radio-group :global(.radio) {
+          margin-top: calc(24px * 1);
+          margin-right: 0;
+          --radio-size: 24px;
+        }
+      </style></div>"
+`;

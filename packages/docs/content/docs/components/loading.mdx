@@ -1,0 +1,181 @@
+---
+title: 'Loading'
+description: 'Loaders express an unspecified wait time or display the length of a process.'
+url: https://nextui.com/docs/components/loading
+---
+
+# Loading
+
+Loaders express an unspecified wait time or display the length of a process.
+
+```jsx
+import { Loading } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Playground
+  title="Default"
+  desc="Indicate an action is running."
+  code={`
+  <Loading />
+`}
+/>
+
+<Playground
+  title="Text"
+  desc="You can include text in the `Loading` component."
+  code={`
+  <Loading>Loading</Loading>
+`}
+/>
+
+<Playground
+  title="Sizes"
+  desc="Change the size of the entire `Loading` with the `size` property, you can also set a custom size in px."
+  code={`
+  <>
+    <Loading size="mini"/>
+    <Spacer />
+    <Loading size="small"/>
+    <Spacer />
+    <Loading size="medium"/>
+    <Spacer />
+    <Loading size="large"/>
+    <Spacer />
+    <Loading size="xlarge"/>
+    <Spacer />
+    <Loading size={80}/>
+  </>
+`}
+/>
+
+<Playground
+  title="Types"
+  desc="You can change the type of loading with the `type` prop."
+  code={`
+  <Grid.Container gap={2}>
+    <Grid>
+        <Loading type="default"/>
+    </Grid>
+    <Grid>
+        <Loading type="spinner" size="large"/>
+    </Grid>
+    <Grid>
+        <Loading type="points" />
+    </Grid>
+    <Grid>
+        <Loading type="points-opacity"/>
+    </Grid>
+    <Grid>
+        <Loading type="gradient"/>
+    </Grid>
+  </Grid.Container>
+`}
+/>
+
+<Playground
+  title="Colors"
+  desc="You can change the color of the `loading` with the property color."
+  code={`
+ <Grid.Container gap={2}>
+    <Grid>
+        <Loading color="primary">Primary</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="secondary">Secondary</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="success">Success</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="warning">Warning</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="error">Error</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="#f81ce5">#f81ce5</Loading>
+    </Grid>
+  </Grid.Container>
+`}
+/>
+
+<Playground
+  title="Text Colors"
+  desc="You can change the `Loading` text color with `textColor` prop"
+  code={`
+  <Grid.Container gap={2}>
+    <Grid>
+        <Loading color="primary" textColor="primary">Primary</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="secondary" textColor="secondary">Secondary</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="success" textColor="success">Success</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="warning" textColor="warning">Warning</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="error" textColor="error">Error</Loading>
+    </Grid>
+    <Grid>
+        <Loading color="#f81ce5" textColor="#f81ce5">#f81ce5</Loading>
+    </Grid>
+  </Grid.Container>
+`}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Loading Props
+
+| Attribute              | Type                    | Accepted values                  | Description                                | Default   |
+| ---------------------- | ----------------------- | -------------------------------- | ------------------------------------------ | --------- |
+| **size**               | `NormalSizes` `number`  | [NormalSizes](#normal-sizes)     | Loading size                               | `medium`  |
+| **color**              | `SimpleColors` `string` | [SimpleColors](#simple-colors)   | Change loading color                       | `primary` |
+| **textColor**          | `SimpleColors`          | [SimpleColors](#simple-colors)   | Change loading text color                  | `default` |
+| **type**               | `NormalLoaders`         | [NormalLoaders](#normal-loaders) | Selected or not (in single)                | `default` |
+| **gradientBackground** | `string/null`           | -                                | Set a background for gradient loading type | -         |
+| ...                    | `HTMLAttributes`        | `'id', 'className', ...`         | Native props                               | -         |
+
+<Spacer y={2} />
+
+### Loading types
+
+<Spacer y={1} />
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+```
+
+#### Normal Loaders
+
+```ts
+type NormalLoaders =
+  | 'default'
+  | 'points'
+  | 'points-opacity'
+  | 'gradient'
+  | 'spinner';
+```

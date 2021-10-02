@@ -1,0 +1,582 @@
+---
+title: 'Input'
+description: 'Inputs fields are used to get the user input in a text field.'
+url: https://nextui.com/docs/components/button
+---
+
+# Input
+
+Inputs fields are used to get the user input in a text field.
+
+```jsx
+import { Input } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Playground
+  title="Default"
+  desc="The default `Input` contains an animation effect."
+  code={`
+<Input labelPlaceholder="Next UI" />
+`}
+/>
+
+<Playground
+  title="Disabled"
+  desc="Unusable and un-writtable `Input`."
+  code={`
+<>
+    <Input disabled placeholder="Disabled" />
+    <Spacer y={0.5} />
+    <Input readOnly initialValue="readOnly" />
+</>
+`}
+/>
+
+<Playground
+  title="Clearable"
+  desc="Add a clear button in the `Input` box."
+  code={`
+<>
+<Input clearable bordered labelPlaceholder="Name" initialValue="NextUI"/>
+<Spacer y={2.5} />
+<Input clearable underlined labelPlaceholder="Name" initialValue="NextUI"/>
+<Spacer y={1.5} />
+<Input clearable label="Name" placeholder="Name" initialValue="NextUI" />
+</>
+`}
+/>
+
+<Playground
+  title="Label"
+  desc="Add a label to the `Input` with the property `label`"
+  code={`
+<Input label="Full Name" placeholder="Guillermo Rauch" />
+`}
+/>
+
+<Playground
+  title="Label Placeholder"
+  desc="With the property `labelPlaceholder` the placeholder becomes a label with an great animation."
+  code={`
+<Input labelPlaceholder="NextUI" />
+`}
+/>
+
+<Playground
+  title="Password"
+  desc="`Input` component with a show/hide password functionality, Important: You have to use the `Input.Password`
+  component."
+  code={`
+<>
+    <Input.Password labelPlaceholder="Password" initialValue="nextui123" />
+    <Spacer y={1.6} />
+    <Input.Password 
+        labelPlaceholder="Custom icons" 
+        visibleIcon={<Unlock fill="currentColor" />} 
+        hiddenIcon={<Lock fill="currentColor" />}
+    />
+</>
+`}
+/>
+
+<Playground
+  title="Sizes"
+  desc="Change the size of the entire `Input` including `padding`, `font-size` and `border` with the `size` property."
+  code={`
+ <>
+    <Input size="mini" placeholder="Mini" />
+    <Spacer y={0.5} />
+    <Input size="small" placeholder="Small" />
+    <Spacer y={0.5} />
+    <Input size="medium" placeholder="Medium" />
+    <Spacer y={0.5} />
+    <Input size="large" placeholder="Large" />
+    <Spacer y={0.5} />
+    <Input size="xlarge" placeholder="xLarge" />
+    <Spacer y={0.5} />
+    <Input width="120px" placeholder="120px" />
+  </>
+`}
+/>
+
+<Playground
+  title="Bordered"
+  desc="You can change the full style towards a bodered `Input` with the `bordered` property and 
+  you can customze the color with the `color` prop."
+  code={`
+<Grid.Container gap={2.5}>
+  <Grid>
+    <Input bordered labelPlaceholder="Default" color="default" />
+  </Grid>    
+  <Grid>
+    <Input bordered labelPlaceholder="Primary" color="primary" />
+  </Grid>
+  <Grid>
+    <Input bordered labelPlaceholder="Secondary" color="secondary" />
+  </Grid>
+  <Grid>
+    <Input bordered labelPlaceholder="Success" color="success" />
+  </Grid>
+  <Grid>
+    <Input bordered labelPlaceholder="Warning" color="warning" />
+  </Grid>
+  <Grid>
+    <Input bordered labelPlaceholder="Error" color="error" />
+  </Grid>
+  <Grid>
+    <Input bordered labelPlaceholder="#ff4ecd" color="#ff4ecd" />
+  </Grid>  
+</Grid.Container>   
+`}
+/>
+
+<Playground
+  title="Underlined"
+  desc="You can change the full style towards an undelined `Input` like the material effect just adding 
+ the `underlined` prop."
+  code={`
+<Grid.Container gap={2.5}>
+  <Grid>
+    <Input underlined labelPlaceholder="Default" color="default" />
+  </Grid>    
+  <Grid>
+    <Input underlined labelPlaceholder="Primary" color="primary" />
+  </Grid>
+  <Grid>
+    <Input underlined labelPlaceholder="Secondary" color="secondary" />
+  </Grid>
+  <Grid>
+    <Input underlined labelPlaceholder="Success" color="success" />
+  </Grid>
+  <Grid>
+    <Input underlined labelPlaceholder="Warning" color="warning" />
+  </Grid>
+  <Grid>
+    <Input underlined labelPlaceholder="Error" color="error" />
+  </Grid>
+</Grid.Container>   
+`}
+/>
+
+<Playground
+  title="Rounded"
+  desc="You can completely round the corners of any type of `Input` with the `rounded` prop."
+  code={`
+<Grid.Container gap={2.5}>
+  <Grid>
+    <Input rounded bordered label="Default" placeholder="Default" color="default" />
+  </Grid>    
+  <Grid>
+    <Input rounded bordered label="Primary" placeholder="Primary" color="primary" />
+  </Grid>
+  <Grid>
+    <Input rounded bordered label="Secondary" placeholder="Secondary" color="secondary" />
+  </Grid>
+  <Grid>
+    <Input rounded bordered label="Success" placeholder="Success" color="success" />
+  </Grid>
+  <Grid>
+    <Input rounded bordered label="Warning" placeholder="Warning" color="warning" />
+  </Grid>
+  <Grid>
+    <Input rounded bordered label="Error" placeholder="Error" color="error" />
+  </Grid>
+</Grid.Container> 
+`}
+/>
+
+<Playground
+  title="Status"
+  desc="You can change the color of the entire `Input` with the property `status`."
+  code={`
+<Grid.Container gap={2.5}>
+  <Grid>
+    <Input labelPlaceholder="Default" status="default" />
+  </Grid>    
+  <Grid>
+    <Input labelPlaceholder="Primary" status="primary" />
+  </Grid>
+  <Grid>
+    <Input labelPlaceholder="Secondary" status="secondary" />
+  </Grid>
+  <Grid>
+    <Input labelPlaceholder="Success" status="success" />
+  </Grid>
+  <Grid>
+    <Input labelPlaceholder="Warning" status="warning" />
+  </Grid>
+  <Grid>
+    <Input labelPlaceholder="Error" status="error" />
+  </Grid>
+  <Grid>
+    <Input labelPlaceholder="#ff4ecd" status="#ff4ecd" />
+  </Grid>  
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="No Shadow"
+  desc="You can disable the shadow of the entire `Input` with the property `shadow={false}`."
+  code={`
+<Grid.Container gap={2.5}>
+  <Grid>
+    <Input shadow={false} labelPlaceholder="Default" status="default" />
+  </Grid>
+  <Grid>
+    <Input shadow={false} labelPlaceholder="Primary" status="primary" />
+  </Grid>
+  <Grid>
+    <Input shadow={false} labelPlaceholder="Secondary" status="secondary" />
+  </Grid>
+  <Grid>
+    <Input shadow={false} labelPlaceholder="Success" status="success" />
+  </Grid>
+  <Grid>
+    <Input shadow={false} labelPlaceholder="Warning" status="warning" />
+  </Grid>
+  <Grid>
+    <Input shadow={false} labelPlaceholder="Error" status="error" />
+  </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="No Animated"
+  desc="You can disable the animation of the entire `Input` with the property `animated={false}`."
+  code={`
+<Grid.Container gap={2.5}>
+  <Grid>
+    <Input animated={false} labelPlaceholder="Default" status="default" />
+  </Grid>
+  <Grid>
+    <Input underlined animated={false} labelPlaceholder="Primary" color="primary" />
+  </Grid>
+  <Grid>
+    <Input bordered animated={false} labelPlaceholder="Secondary" color="secondary" />
+  </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Helper text"
+  desc="You can add a helper text to `Input` with the prop `helperText` and customise its color with the `helperColor` prop. 
+  The first example is using the hook [useInput](#useinput)"
+  code={`
+  () => {
+    const { value, reset, bindings } = useInput('');      
+ 
+    const validateEmail = (value) => {
+        return /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+    };
+    const helper = React.useMemo(() => {
+        if (!value) return { 
+            text:'', 
+            color:'' 
+        };
+        const isValid = validateEmail(value);
+        return { 
+            text: isValid ? 'Correct email' : 'Enter a valid email',
+            color: isValid ? 'success' : 'error'
+        };    
+    }, [value]);
+    return (
+<Grid.Container gap={2.5}>
+     <Grid>
+        <Input
+            {...bindings}
+            clearable
+            shadow={false}
+            onClearClick={reset}
+            status={helper.color}
+            color={helper.color}
+            helperColor={helper.color}
+            helperText={helper.text}
+            type="email"
+            label="Email"
+            placeholder="With regex validation"
+        />
+      </Grid>   
+     <Grid>
+        <Input
+            clearable
+            helperText="Please enter your name"
+            label="Name"
+            placeholder="Enter your name"
+        />
+      </Grid>
+      <Grid>
+        <Input
+            clearable
+            color="error"
+            helperText="Required"
+            label="Error"
+            placeholder="Enter something"
+        />
+      </Grid>
+      <Grid>
+        <Input
+            clearable
+            color="success"
+            initialValue="getnextui"
+            helperText="Excelent username"
+            type="test"
+            label="Username"
+            placeholder="Enter your username"
+        />
+      </Grid>
+      <Grid>
+        <Input
+            clearable
+            color="warning"
+            helperText="Insecure password"
+            type="password"
+            label="Password"
+            placeholder="Enter your password"
+        />
+      </Grid>
+      <Grid>
+        <Input.Password
+            clearable
+            color="warning"
+            initialValue="123"
+            helperText="Insecure password"
+            type="password"
+            label="Password"
+            placeholder="Enter your password with eye"
+        />
+      </Grid>
+    </Grid.Container>
+    );
+ }
+`}
+/>
+
+<Playground
+  title="Left/right labels"
+  desc="You can put any content at the begining or at the end of the `Input`"
+  code={`
+<Grid.Container gap={2.5}>
+    <Grid>    
+     <Input
+        bordered
+        labelLeft="https://"
+        labelRight=".org"
+        placeholder="nextui"
+        />
+    </Grid>
+    <Grid>
+     <Input
+        bordered
+        labelRight=".org"
+        placeholder="https://nextui"
+        />
+    </Grid >
+    <Grid>
+     <Input
+        bordered
+        labelLeft="https://"
+        placeholder="nextui.org"
+        />
+    </Grid >    
+    <Grid>      
+        <Input labelLeft="username" placeholder="getnextui" />
+    </Grid>
+    <Grid>      
+        <Input
+        labelRight=".org"
+        placeholder="https://nextui"
+        />
+    </Grid>
+    <Grid>
+     <Input
+        underlined
+        labelLeft="username"
+        placeholder="Next UI"
+        />
+    </Grid>
+  </Grid.Container>
+`}
+/>
+
+<Playground
+  title="Content"
+  desc="You can put any content at the begining or at the end of the `Input` with the properties `contentLeft` and `contentRight`.
+  Impotant: If you want the `Input` component change the icon colors according to the current `status` color 
+  you should use `currentColor` as the icon/svg color to allows ."
+  code={`
+  <Grid.Container gap={2.5}>
+       <Grid>
+        <Input
+            clearable
+            contentRightStyling={false}
+            placeholder="Type your message..."
+            contentRight={<SendButton />}
+        />
+        </Grid>
+        <Grid>
+        <Input
+            clearable
+            underlined
+            status="warning"
+            labelPlaceholder="Sun icon"
+            contentRight={<Sun filled width="16" height="16" fill="currentColor" />}
+        />
+        </Grid>
+        <Grid>
+        <Input
+            clearable
+            bordered
+            color="primary"
+            labelPlaceholder="Loading..."
+            contentRight={<Loading size="mini" style={{transform:'translateY(-2px)'}} />}
+        /> 
+        </Grid>
+    </Grid.Container>
+`}
+/>
+
+<Playground
+  title="Input Types"
+  desc="Change the type of `Input` with the `type` property as a native html input, the default value is `text`"
+  code={`
+  <Grid.Container gap={2.5}>
+    <Grid>
+      <Input label="Text" type="text" />
+    </Grid>
+    <Grid>
+      <Input label="Password" type="password" />
+    </Grid>
+    <Grid>
+      <Input label="Search" type="search" />
+    </Grid>
+    <Grid>
+      <Input label="Number" type="number" />
+    </Grid>
+    <Grid>
+      <Input label="Url" type="url" />
+    </Grid>
+    <Grid>
+      <Input width="186px" label="Time" type="time" />
+    </Grid>
+    <Grid>
+      <Input width="186px" label="Date" type="date" />
+    </Grid>
+  </Grid.Container>
+`}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Input Props
+
+| Attribute               | Type                                                  | Accepted values                      | Description                                                                                       | Default   |
+| ----------------------- | ----------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------- | --------- |
+| **value**               | `string`                                              | -                                    | Input value                                                                                       | -         |
+| **initialValue**        | `string`                                              | -                                    | Input default value                                                                               | -         |
+| **placeholder**         | `string`                                              | -                                    | The short hint displayed in the input                                                             | -         |
+| **size**                | `NormalSizes`                                         | [NormalSizes](#normal-sizes)         | Change input size                                                                                 | `medium`  |
+| **color**               | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input text, border and label color                                                         | `default` |
+| **status**              | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input status color                                                                         | `default` |
+| **helperColor**         | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change helper text color                                                                          | `default` |
+| **required**            | `boolean`                                             | `true/false`                         | Required input prop                                                                               | `false`   |
+| **readOnly**            | `boolean`                                             | `true/false`                         | It prevents the user from changing the value of the field                                         | `false`   |
+| **disabled**            | `boolean`                                             | `true/false`                         | Disable input                                                                                     | `false`   |
+| **clearable**           | `boolean`                                             | `true/false`                         | Show clear button                                                                                 | `false`   |
+| **rounded**             | `boolean`                                             | `true/false`                         | Rounded input                                                                                     | `false`   |
+| **bordered**            | `boolean`                                             | `true/false`                         | Bordered input                                                                                    | `false`   |
+| **underlined**          | `boolean`                                             | `true/false`                         | Underlined input                                                                                  | `false`   |
+| **shadow**              | `boolean`                                             | `true/false`                         | Enable or disable the input shadow                                                                | `true`    |
+| **animated**            | `boolean`                                             | `true/false`                         | Enable or disable the input animation                                                             | `true`    |
+| **autoComplete**        | `string`                                              | -                                    | HTML input autocomplete attribute                                                                 | `off`     |
+| **borderWeight**        | `NormalWeights`                                       | [NormalWeights](#normal-weights)     | Border weight for `bordered` input                                                                | `normal`  |
+| **width**               | `string`                                              | -                                    | Input width                                                                                       | `initial` |
+| **label**               | `string`                                              | -                                    | Text label for input                                                                              | -         |
+| **labelPlaceholder**    | `string`                                              | -                                    | The placeholder becomes a label                                                                   | -         |
+| **labelLeft**           | `string`                                              | -                                    | Text label at left of the input                                                                   | -         |
+| **labelRight**          | `string`                                              | -                                    | Text label at right of the input                                                                  | -         |
+| **helperText**          | `string`                                              | -                                    | Add a helper text to Input                                                                        | -         |
+| **contentLeft**         | `React.ReactNode`                                     | -                                    | Left content for input                                                                            | -         |
+| **contentRight**        | `React.ReactNode`                                     | -                                    | Right content for input                                                                           | -         |
+| **contentClickable**    | `boolean`                                             | `true/false`                         | Left/right content are clickable (just applied when the styling prop is true, see the next props) | `false`   |
+| **contentLeftStyling**  | `boolean`                                             | `true/false`                         | Allows the Input component to wrap the `contentLeft` in a container                               | `true`    |
+| **contentRightStyling** | `boolean`                                             | `true/false`                         | Allows the Input component to wrap the `contentRight` in a container                              | `true`    |
+| **onChange**            | `(e: React.ChangeEvent) => void`                      | -                                    | Callback fired when the value is changed                                                          | -         |
+| **onFocus**             | `(e: React.FocusEvent) => void`                       | -                                    | Callback fired when the input is focused.                                                         | -         |
+| **onBlur**              | `(e: React.FocusEvent) => void`                       | -                                    | Callback fired when the input is blurred.                                                         | -         |
+| **onContentClick**      | `(key: ContentPosition, e: React.MouseEvent) => void` | [ContentPosition](#content-position) | click icon event                                                                                  | -         |
+| **onClearClick**        | `(e: React.MouseEvent) => void`                       | -                                    | clear icon event                                                                                  | -         |
+| **ref**                 | <Code>Ref<HTMLInputElement &#124; null></Code>        | -                                    | forwardRef                                                                                        | -         |
+| ...                     | `InputHTMLAttributes`                                 | `'alt', 'type', 'className', ...`    | Input native props                                                                                | -         |
+
+<Spacer y={2} />
+
+### Input.Password props
+
+| Attribute       | Type              | Accepted values             | Description                  | Default |
+| --------------- | ----------------- | --------------------------- | ---------------------------- | ------- |
+| **hideToggle**  | `boolean`         | -                           | Hide toggle icon             | `false` |
+| **visibleIcon** | `React.ReactNode` | -                           | Custom visible password icon | -       |
+| **hiddenIcon**  | `React.ReactNode` | -                           | Custom hidden password icon  | -       |
+| ...             | `Input Props`     | [Input Props](#input-props) | Input props                  | -       |
+
+<Spacer y={2} />
+
+### Input types
+
+<Spacer y={1} />
+
+#### Simple Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = 'normal' | 'light' | 'bold';
+```
+
+#### Content Position
+
+```ts
+type ContentPosition = 'left' | 'right';
+```
+
+#### useInput
+
+```ts
+type useInput = (
+  initialValue: string
+) => {
+  value: string;
+  setValue: Dispatch<SetStateAction<string>>;
+  currentRef: MutableRefObject<string>;
+  reset: () => void;
+  bindings: {
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  };
+};
+```

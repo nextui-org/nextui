@@ -1,0 +1,107 @@
+{
+    "routes": [
+        {
+            "title": "Documentation",
+            "heading": true,
+            "routes": [
+                {
+                    "title": "Guide",
+                    "open": true,
+                    "icon": "/paper.svg",
+                    "routes": [
+                        {
+                            "title": "Getting Started",
+                            "path": "/docs/guide/getting-started.mdx"
+                        },
+                        {
+                            "title": "NextUI + Next.js",
+                            "path": "/docs/guide/nextui-plus-nextjs.mdx"
+                        }
+                    ]
+                },
+                {
+                    "title": "Theme",
+                    "icon": "/category.svg",
+                    "open": true,
+                    "routes": [
+                        {
+                            "title": "Palette",
+                            "path": "/docs/theme/palette.mdx"
+                        }
+                    ]
+                },
+                {
+                    "title": "Layout",
+                    "icon": "/layout.svg",
+                    "open": true,
+                    "routes": [
+                        {
+                            "title": "Container",
+                            "path": "/docs/layout/container.mdx"
+                        },
+                        {
+                            "title": "Grid",
+                            "path": "/docs/layout/grid.mdx"
+                        },
+                        {
+                            "title": "Spacer",
+                            "path": "/docs/layout/spacer.mdx"
+                        }
+                    ]
+                },
+                {
+                    "title": "Components",
+                    "icon": "/components.svg",
+                    "open": true,
+                    "routes": [
+                        {
+                            "title": "Text",
+                            "path": "/docs/components/text.mdx"
+                        },
+                        {
+                            "title": "Button",
+                            "path": "/docs/components/button.mdx"
+                        },
+                        {
+                            "title": "Button Group",
+                            "path": "/docs/components/button-group.mdx"
+                        },
+                        {
+                            "title": "Input",
+                            "path": "/docs/components/input.mdx",
+                            "newPost": true
+                        },
+                        {
+                            "title": "Checkbox",
+                            "path": "/docs/components/checkbox.mdx"
+                        },
+                        {
+                            "title": "Radio",
+                            "path": "/docs/components/radio.mdx"
+                        },
+                        {
+                            "title": "Tooltip",
+                            "path": "/docs/components/tooltip.mdx"
+                        },
+                        {
+                            "title": "Loading",
+                            "path": "/docs/components/loading.mdx"
+                        },
+                        {
+                            "title": "Switch",
+                            "path": "/docs/components/switch.mdx"
+                        },
+                        {
+                            "title": "Link",
+                            "path": "/docs/components/link.mdx"
+                        },
+                        {
+                            "title": "Avatar",
+                            "path": "/docs/components/avatar.mdx"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

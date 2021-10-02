@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea should render correctly 1`] = `
+"<div class=\\"wrapper   \\"><textarea placeholder=\\"placeholder\\"></textarea><style>
+          .wrapper {
+            display: inline-flex;
+            box-sizing: border-box;
+            user-select: none;
+            width: initial;
+            min-width: 12.5rem;
+            max-width: 95vw;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid #eaeaea;
+            color: #2c3e50;
+            transition: border 0.2s ease 0s, color 0.2s ease 0s;
+          }
+
+          .wrapper.hover {
+            border-color: #000;
+          }
+
+          .wrapper.disabled {
+            background-color: #f6f6f6;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+
+          textarea {
+            background-color: transparent;
+            box-shadow: none;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
+            font-size: 0.875rem;
+            width: 100%;
+            height: 100%;
+            min-height: 6.25rem;
+            resize: none;
+            border: none;
+            outline: none;
+            padding: 8pt;
+          }
+
+          .disabled > textarea {
+            cursor: not-allowed;
+          }
+
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+          }
+        </style></div>"
+`;
+
+exports[`Textarea should work with different styles 1`] = `
+"<div><div class=\\"wrapper   \\"><textarea></textarea><style>
+          .wrapper {
+            display: inline-flex;
+            box-sizing: border-box;
+            user-select: none;
+            width: initial;
+            min-width: 12.5rem;
+            max-width: 95vw;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid #eaeaea;
+            color: #2c3e50;
+            transition: border 0.2s ease 0s, color 0.2s ease 0s;
+          }
+
+          .wrapper.hover {
+            border-color: #7928ca;
+          }
+
+          .wrapper.disabled {
+            background-color: #f6f6f6;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+
+          textarea {
+            background-color: transparent;
+            box-shadow: none;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
+            font-size: 0.875rem;
+            width: 100%;
+            height: 100%;
+            min-height: 6.25rem;
+            resize: none;
+            border: none;
+            outline: none;
+            padding: 8pt;
+          }
+
+          .disabled > textarea {
+            cursor: not-allowed;
+          }
+
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+          }
+        </style></div><div class=\\"wrapper   \\"><textarea></textarea><style>
+          .wrapper {
+            display: inline-flex;
+            box-sizing: border-box;
+            user-select: none;
+            width: 20%;
+            min-width: 12.5rem;
+            max-width: 95vw;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid #eaeaea;
+            color: #2c3e50;
+            transition: border 0.2s ease 0s, color 0.2s ease 0s;
+          }
+
+          .wrapper.hover {
+            border-color: #000;
+          }
+
+          .wrapper.disabled {
+            background-color: #f6f6f6;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+
+          textarea {
+            background-color: transparent;
+            box-shadow: none;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
+            font-size: 0.875rem;
+            width: 100%;
+            height: 100%;
+            min-height: 6.25rem;
+            resize: none;
+            border: none;
+            outline: none;
+            padding: 8pt;
+          }
+
+          .disabled > textarea {
+            cursor: not-allowed;
+          }
+
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+          }
+        </style></div><div class=\\"wrapper   \\"><textarea></textarea><style>
+          .wrapper {
+            display: inline-flex;
+            box-sizing: border-box;
+            user-select: none;
+            width: initial;
+            min-width: 12.5rem;
+            max-width: 95vw;
+            height: auto;
+            border-radius: 14px;
+            border: 1px solid #eaeaea;
+            color: #2c3e50;
+            transition: border 0.2s ease 0s, color 0.2s ease 0s;
+          }
+
+          .wrapper.hover {
+            border-color: #000;
+          }
+
+          .wrapper.disabled {
+            background-color: #f6f6f6;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+
+          textarea {
+            background-color: transparent;
+            box-shadow: none;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
+            font-size: 0.875rem;
+            width: 100%;
+            height: 100%;
+            min-height: 100px;
+            resize: none;
+            border: none;
+            outline: none;
+            padding: 8pt;
+          }
+
+          .disabled > textarea {
+            cursor: not-allowed;
+          }
+
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+          }
+        </style></div></div>"
+`;

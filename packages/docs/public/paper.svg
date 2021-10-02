@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="28.34" viewBox="0 0 24 28.34">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="gray"/>
+    </linearGradient>
+  </defs>
+  <g id="Paper" transform="translate(-4.25 -2.75)">
+    <path id="Path_24" data-name="Path 24" d="M20.433,2.762H10.166A5.9,5.9,0,0,0,4.25,8.517V25.049a5.905,5.905,0,0,0,5.917,6.035H22.495a6,6,0,0,0,5.755-6.035V10.9Z" transform="translate(0 0.006)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+    <path id="Path_25" data-name="Path 25" d="M14.474,2.75V7.239a3.973,3.973,0,0,0,3.963,3.974c2.032,0,4.111.006,4.252,0" transform="translate(5.554 0)" fill="url(#linear-gradient)"/>
+    <path id="Path_26" data-name="Path 26" d="M17.216,15.558H8.887" transform="translate(2.519 6.957)" stroke="#111" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" opacity="0.4" fill="url(#linear-gradient)"/>
+    <path id="Path_27" data-name="Path 27" d="M14.065,10.606H8.887" transform="translate(2.519 4.267)" fill="none" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" opacity="0.4"/>
+  </g>
+</svg>

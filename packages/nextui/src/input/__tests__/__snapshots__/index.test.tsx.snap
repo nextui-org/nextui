@@ -1,0 +1,1906 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should be work with content 1`] = `
+"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><span class=\\"input-content\\"><span>test-icon</span><style>
+        .input-content {
+          box-sizing: content-box;
+          display: flex;
+          width: calc(1.687 * 16pt * .42);
+          height: 100%;
+          align-items: center;
+          vertical-align: center;
+          margin: 0;
+          padding: 0 calc(1.687 * 16pt * .3);
+          color: #2c3e50;
+          line-height: 1;
+          position: relative;
+          cursor: default;
+          pointer-events: none;
+        }
+      </style></span><input type=\\"text\\" class=\\"left-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-7c696eun\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+            height: calc(1.687 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"right-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-l35flquv\\" value=\\"\\"><span class=\\"input-content\\"><span>test-icon</span><style>
+        .input-content {
+          box-sizing: content-box;
+          display: flex;
+          width: calc(1.687 * 16pt * .42);
+          height: 100%;
+          align-items: center;
+          vertical-align: center;
+          margin: 0;
+          padding: 0 calc(1.687 * 16pt * .3);
+          color: #2c3e50;
+          line-height: 1;
+          position: relative;
+          cursor: default;
+          pointer-events: none;
+        }
+      </style></span></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+            height: calc(1.687 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div></div>"
+`;
+
+exports[`Input should be work with label 1`] = `
+"<div><div class=\\"with-label\\"><label class=\\"input-label-block\\" for=\\"next-ui-l19cja9t\\">label<style>
+        .input-label-block {
+          display: block;
+          font-weight: normal;
+          color: #000;
+          padding: 0 0 0 4px;
+          margin-bottom: 4pt;
+          font-size: 0.875rem;
+          line-height: 1.5;
+          -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+          -khtml-user-select: none; /* Konqueror HTML */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+        }
+        .input-label-block > :global(*:first-child) {
+          margin-top: 0;
+        }
+        .input-label-block > :global(*:last-child) {
+          margin-bottom: 0;
+        }
+        .as-placeholder {
+          position: absolute;
+          padding: 0;
+          z-index: 1;
+          left: 12px;
+          top: 20%;
+          margin-bottom: 0;
+          cursor: text;
+          transition: left 0.25s ease 0s, color 0.25s ease 0s, top 0.25s ease 0s;
+          color: #999;
+        }
+        .as-placeholder.has-content-left {
+          left: calc(12px + 1.687 * 16pt * 0.64);
+        }
+        .as-placeholder.hover,
+        .as-placeholder.with-value {
+          color: #000;
+          top: -72%;
+          left: 4px;
+          cursor: inherit;
+        }
+      </style></label><div class=\\"input-container shadow\\"><div class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-l19cja9t\\" value=\\"\\"></div></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+            height: calc(1.687 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-837d17r4\\" value=\\"\\"><span class=\\"input-label right\\">label<style>
+        .input-label {
+          position: relative;
+          display: inline-flex;
+          width: initial;
+          height: 100%;
+          font-weight: 500;
+          align-items: center;
+          pointer-events: none;
+          margin: 0;
+          background: rgba(153, 153,153,0.3);
+          padding: 0 8pt;
+          color: #999;
+          font-size: .875rem;
+          line-height: 1;
+        }
+        .right {
+          border-top-right-radius: 12px;
+          border-bottom-right-radius: 12px;
+        }
+        .left {
+          border-top-left-radius: 12px;
+          border-bottom-left-radius: 12px;
+        }
+        .underlined.left:after,
+        .underlined.right:before {
+          position: absolute;
+          content: '';
+          height: 70%;
+          top: 15%;
+          bottom: 0;
+          width: calc(0px / 2);
+          box-shadow: 0 2px 4px 0px rgb(0 0 0 / 8%);
+          background: #999;
+        }
+        .underlined.left:after {
+          right: 0;
+        }
+        .underlined.right:before {
+          left: 0;
+        }
+        .bordered:after,
+        .bordered:before {
+          display: none;
+        }
+      </style></span></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+            height: calc(1.687 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-sokoc7bb\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+            height: calc(1.687 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div></div>"
+`;
+
+exports[`Input should work with different sizes 1`] = `
+"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-4382clr5\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 7px;
+            height: calc(1.2 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 7px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.2 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .75rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-vbenf3vd\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 9px;
+            height: calc(1.5 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 9px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.5 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .75rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-16to39rd\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 14px;
+            height: calc(1.875 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 14px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.875 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: 1rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-e7oqu19e\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 15px;
+            height: calc(2.25 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 15px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(2.25 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: 1.25rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-9riporav\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: 50%;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+            height: calc(1.687 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div></div>"
+`;
+
+exports[`Input should work with different status 1`] = `
+"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-hu8sqo8b\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+            height: calc(1.687 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #7928ca;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: inherit;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #7928ca;
+            box-shadow: 0 0 0 0px
+              #7928ca;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-rfh04d9c\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+            height: calc(1.687 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #17c964;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: inherit;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #17c964;
+            box-shadow: 0 0 0 0px
+              #17c964;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-ksn23plr\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+          .with-label {
+            width: initial;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .input-container {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+            height: calc(1.687 * 16pt);
+          }
+          .input-wrapper {
+            flex: 1;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            height: 100%;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .input-wrapper.underlined {
+            background: transparent;
+          }
+          .input-wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .input-wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #f5a623;
+            transition: width 0.25s ease;
+          }
+          .input-wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .input-wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            cursor: not-allowed;
+          }
+          .input-helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .input-helper-text-container.with-value {
+            opacity: 1;
+          }
+          .input-helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: inherit;
+          }
+          input.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .input-container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .input-container.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .input-container:hover .input-wrapper.bordered,
+          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+            border-color: #f5a623;
+            box-shadow: 0 0 0 0px
+              #f5a623;
+          }
+
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input {
+            margin: 4px 10px;
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          input.left-content {
+            margin-left: 0;
+          }
+          input.right-content {
+            margin-right: 0;
+          }
+          input::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div></div>"
+`;

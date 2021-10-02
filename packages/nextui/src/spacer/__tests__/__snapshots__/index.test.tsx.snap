@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spacer should render correctly 1`] = `
+"<span class=\\"\\"><style>
+        span {
+          display: block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(15.25pt + 1px * 0);
+          margin-top: calc(15.25pt + 1px * 0);
+        }
+      </style></span>"
+`;
+
+exports[`Spacer should support x and y 1`] = `
+"<div><span class=\\"\\"><style>
+        span {
+          display: block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(76.25pt + 1px * 4);
+          margin-top: calc(15.25pt + 1px * 0);
+        }
+      </style></span><span class=\\"\\"><style>
+        span {
+          display: block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(228.75pt + 1px * 14);
+          margin-top: calc(15.25pt + 1px * 0);
+        }
+      </style></span><span class=\\"\\"><style>
+        span {
+          display: block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(15.25pt + 1px * 0);
+          margin-top: calc(228.75pt + 1px * 14);
+        }
+      </style></span><span class=\\"\\"><style>
+        span {
+          display: block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(15.25pt + 1px * 0);
+          margin-top: calc(30.5pt + 1px * 1);
+        }
+      </style></span></div>"
+`;
+
+exports[`Spacer should work with float 1`] = `
+"<div><span class=\\"\\"><style>
+        span {
+          display: block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(33.550000000000004pt + 1px * 1.2000000000000002);
+          margin-top: calc(15.25pt + 1px * 0);
+        }
+      </style></span><span class=\\"\\"><style>
+        span {
+          display: block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(22.875pt + 1px * 0.5);
+          margin-top: calc(15.25pt + 1px * 0);
+        }
+      </style></span><span class=\\"\\"><style>
+        span {
+          display: block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(15.25pt + 1px * 0);
+          margin-top: calc(1.5250000000000001pt + 1px * -0.9);
+        }
+      </style></span><span class=\\"\\"><style>
+        span {
+          display: block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(15.25pt + 1px * 0);
+          margin-top: calc(27.45pt + 1px * 0.8);
+        }
+      </style></span></div>"
+`;
+
+exports[`Spacer should work with inline mode 1`] = `
+"<span class=\\"\\"><style>
+        span {
+          display: inline-block;
+          height: 1px;
+          width: 1px;
+          margin-left: calc(15.25pt + 1px * 0);
+          margin-top: calc(15.25pt + 1px * 0);
+        }
+      </style></span>"
+`;

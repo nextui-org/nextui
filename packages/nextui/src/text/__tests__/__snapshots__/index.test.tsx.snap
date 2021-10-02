@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text should be able to specify the size of text 1`] = `
+"<p class=\\"custom-size  \\">test-value</p><style>
+        p {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: 14px;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style>"
+`;
+
+exports[`Text should be able to specify the size of text 2`] = `
+"<p class=\\"custom-size  \\">test-value</p><style>
+        p {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: 12rem;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style>"
+`;
+
+exports[`Text should render P element in the default 1`] = `
+"<p class=\\"  \\">test-value</p><style>
+        p {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style>"
+`;
+
+exports[`Text should render default color when type missing 1`] = `
+"<p class=\\"  \\" type=\\"unknow\\">test-value</p><style>
+        p {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style>"
+`;
+
+exports[`Text should work with different styles 1`] = `
+"<div><p class=\\"  \\">test-value</p><style>
+        p {
+          color: #7928ca;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><p class=\\"  \\">test-value</p><style>
+        p {
+          color: #17c964;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><p class=\\"  \\">test-value</p><style>
+        p {
+          color: #f5a623;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><p class=\\"  \\">test-value</p><style>
+        p {
+          color: #f21361;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style></div>"
+`;
+
+exports[`Text the combined style should be rendered 1`] = `
+"<p class=\\"  \\"><b class=\\"  \\"><del class=\\"  \\">test-value</del><style>
+        del {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style></b><style>
+        b {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style></p><style>
+        p {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style>"
+`;
+
+exports[`Text the specified element should be rendered 1`] = `
+"<div><h1 class=\\"  \\">test-value</h1><style>
+        h1 {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><h2 class=\\"  \\">test-value</h2><style>
+        h2 {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><h3 class=\\"  \\">test-value</h3><style>
+        h3 {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><h4 class=\\"  \\">test-value</h4><style>
+        h4 {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><h5 class=\\"  \\">test-value</h5><style>
+        h5 {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><h6 class=\\"  \\">test-value</h6><style>
+        h6 {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><p class=\\"  \\">test-value</p><style>
+        p {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><small class=\\"  \\">test-value</small><style>
+        small {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><span class=\\"  \\">test-value</span><style>
+        span {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><del class=\\"  \\">test-value</del><style>
+        del {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><i class=\\"  \\">test-value</i><style>
+        i {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><em class=\\"  \\">test-value</em><style>
+        em {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style><b class=\\"  \\">test-value</b><style>
+        b {
+          color: inherit;
+        }
+        .custom-size {
+          font-size: inherit;
+        }
+        .capitalize {
+          text-transform: capitalize;
+        }
+      </style></div>"
+`;
