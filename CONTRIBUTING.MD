@@ -40,7 +40,7 @@ yarn install
 
 We use [Yarn](https://yarnpkg.com/) for dependency management and for the project workspaces.
 
-2. Up the development environment
+2. Run development environment
 
 ```bash
 yarn dev
