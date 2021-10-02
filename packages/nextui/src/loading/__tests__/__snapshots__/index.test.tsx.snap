@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading should render correctly 1`] = `
-"<div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+"<div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -171,7 +171,7 @@ exports[`Loading should render correctly 1`] = `
 exports[`Loading should render correctly 2`] = `[Function]`;
 
 exports[`Loading should work with different colors 1`] = `
-"<div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+"<div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -335,7 +335,7 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -499,7 +499,7 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -663,7 +663,7 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -827,7 +827,7 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -991,7 +991,7 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -1161,7 +1161,7 @@ exports[`Loading should work with different colors 1`] = `
 exports[`Loading should work with different colors 2`] = `[Function]`;
 
 exports[`Loading should work with different sizes 1`] = `
-"<div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+"<div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -1325,7 +1325,7 @@ exports[`Loading should work with different sizes 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -1489,7 +1489,7 @@ exports[`Loading should work with different sizes 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -1653,7 +1653,7 @@ exports[`Loading should work with different sizes 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -1817,7 +1817,7 @@ exports[`Loading should work with different sizes 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -1987,7 +1987,7 @@ exports[`Loading should work with different sizes 1`] = `
 exports[`Loading should work with different sizes 2`] = `[Function]`;
 
 exports[`Loading should work with different text colors 1`] = `
-"<div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+"<div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -2151,7 +2151,7 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -2315,7 +2315,7 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -2479,7 +2479,7 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -2643,7 +2643,7 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -2807,7 +2807,7 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -2977,7 +2977,7 @@ exports[`Loading should work with different text colors 1`] = `
 exports[`Loading should work with different text colors 2`] = `[Function]`;
 
 exports[`Loading should work with different types 1`] = `
-"<div><div class=\\"loading-container\\"><span class=\\"loading default\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+"<div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -3141,7 +3141,7 @@ exports[`Loading should work with different types 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"spinner \\"><div class=\\"container\\"><span><style>
+      </style></div><div class=\\"spinner \\"><div class=\\"container\\" aria-label=\\"Loading\\"><span><style>
         span {
           background-color: #0070f3;
           position: absolute;
@@ -3986,7 +3986,7 @@ exports[`Loading should work with different types 1`] = `
           left: 50%;
           top: 50%;
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading points\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading points\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -4150,7 +4150,7 @@ exports[`Loading should work with different types 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading points-opacity\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading points-opacity\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;
@@ -4314,7 +4314,7 @@ exports[`Loading should work with different types 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading gradient\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+      </style></div><div class=\\"loading-container\\"><span class=\\"loading gradient\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
         .loading-container {
           display: inline-flex;
           flex-direction: column;

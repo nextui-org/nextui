@@ -131,7 +131,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
         onClick={preventHandler}
         {...props}
       >
-        <div className={`inner ${!hideArrow ? 'arrow' : ''}`}>{children}</div>
+        <div role="tooltip" className={`inner ${!hideArrow ? 'arrow' : ''}`}>{children}</div>
         <style jsx>{`
           .tooltip-content {
             position: absolute;

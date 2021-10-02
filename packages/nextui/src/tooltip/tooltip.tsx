@@ -123,6 +123,8 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       onClick={clickEventHandler}
       onMouseEnter={() => mouseEventHandler(true)}
       onMouseLeave={() => mouseEventHandler(false)}
+      onFocus={() => mouseEventHandler(true)}
+      onBlur={() => mouseEventHandler(false)}
       {...props}
     >
       {children}
