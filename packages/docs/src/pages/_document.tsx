@@ -6,19 +6,21 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document';
+import flush from 'styled-jsx/server';
 import { CssBaseline } from '@nextui-org/react';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
     const styles = CssBaseline.flush();
-
+    const localStyles = flush();
     return {
       ...initialProps,
       styles: (
         <>
           {initialProps.styles}
           {styles}
+          {localStyles}
         </>
       ),
     };
