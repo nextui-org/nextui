@@ -17,7 +17,7 @@ exports[`Input should be work with content 1`] = `
           cursor: default;
           pointer-events: none;
         }
-      </style></span><input type=\\"text\\" class=\\"left-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-jtbqtdl0\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+      </style></span><input type=\\"text\\" class=\\"left-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-7c696eun\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -153,7 +153,7 @@ exports[`Input should be work with content 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"right-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-fdnobg3q\\" value=\\"\\"><span class=\\"input-content\\"><span>test-icon</span><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"right-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-l35flquv\\" value=\\"\\"><span class=\\"input-content\\"><span>test-icon</span><style>
         .input-content {
           box-sizing: content-box;
           display: flex;
@@ -309,7 +309,7 @@ exports[`Input should be work with content 1`] = `
 `;
 
 exports[`Input should be work with label 1`] = `
-"<div><div class=\\"with-label\\"><label class=\\"input-label-block\\" for=\\"next-ui-pr2bvea5\\">label<style>
+"<div><div class=\\"with-label\\"><label class=\\"input-label-block\\" for=\\"next-ui-l19cja9t\\">label<style>
         .input-label-block {
           display: block;
           font-weight: normal;
@@ -353,7 +353,7 @@ exports[`Input should be work with label 1`] = `
           left: 4px;
           cursor: inherit;
         }
-      </style></label><div class=\\"input-container shadow\\"><div class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-pr2bvea5\\" value=\\"\\"></div></div><div class=\\"input-helper-text-container\\"></div><style>
+      </style></label><div class=\\"input-container shadow\\"><div class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-l19cja9t\\" value=\\"\\"></div></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -489,7 +489,7 @@ exports[`Input should be work with label 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-o01ac0ua\\" value=\\"\\"><span class=\\"input-label right\\">label<style>
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-837d17r4\\" value=\\"\\"><span class=\\"input-label right\\">label<style>
         .input-label {
           position: relative;
           display: inline-flex;
@@ -670,7 +670,7 @@ exports[`Input should be work with label 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-0g2io5c6\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-sokoc7bb\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -810,7 +810,7 @@ exports[`Input should be work with label 1`] = `
 `;
 
 exports[`Input should work with different sizes 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-nk53srfd\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-4382clr5\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -946,7 +946,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-p5qd547h\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-vbenf3vd\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1082,7 +1082,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-u4eui2m6\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-16to39rd\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1218,7 +1218,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-6o2cc76r\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-e7oqu19e\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1354,7 +1354,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-61tivrm4\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-9riporav\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: 50%;
             display: inline-flex;
@@ -1494,7 +1494,7 @@ exports[`Input should work with different sizes 1`] = `
 `;
 
 exports[`Input should work with different status 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-rkfnrdm1\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-hu8sqo8b\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1630,7 +1630,7 @@ exports[`Input should work with different status 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-3l2h7bpn\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-rfh04d9c\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1766,7 +1766,7 @@ exports[`Input should work with different status 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-1shir20b\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-ksn23plr\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;

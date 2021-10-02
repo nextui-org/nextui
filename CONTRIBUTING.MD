@@ -5,6 +5,11 @@ Hello!, I am very excited that you are interested in contributing with Next UI. 
 - [Code of Conduct](https://github.com/jrgarciadev/nextui/blob/main/CODE_OF_CONDUCT.md)
 - [Extraction request guidelines](#pull-request-guidelines)
 - [Development Setup](#development-setup)
+- [Tests](#tests)
+- [Visual Changes](#visual-changes)
+- [Documentation](#documentation)
+- [Breaking Changes](#breaking-changes)
+- [Becoming a maintainer](#becoming-a-maintainer)
 
 ## Pull Request Guidelines
 
@@ -18,6 +23,28 @@ Hello!, I am very excited that you are interested in contributing with Next UI. 
   - If you are solving a special problem, add (fix #xxxx [, # xxx]) (# xxxx is the problem identification) in your PR title for a better launch record, for example update entities encoding / decoding (fix # 3899).
   - Provide a detailed description of the error in the PR. Favorite live demo.
   - Add the appropriate test coverage, if applicable.
+
+## Development Setup
+
+After cloning the repository, execute the following commands in the root folder:
+
+1. Install dependencies
+
+```bash
+yarn
+
+#or
+
+yarn install
+```
+
+We use [Yarn](https://yarnpkg.com/) for dependency management and for the project workspaces.
+
+2. Up the development environment
+
+```bash
+yarn dev
+```
 
 ## Tests
 
@@ -40,12 +67,6 @@ The main documentation lives in the `packages/docs/content` folder, the project 
 ## Breaking changes
 
 Breaking changes should be accompanied with deprecations of removed functionality. The deprecated APIs themselves should not be removed until the minor release after that.
-
-## Development Setup
-
-After cloning the repository, execute:
-
-TODO:
 
 ## Becoming a maintainer
 
