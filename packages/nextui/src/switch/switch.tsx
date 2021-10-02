@@ -120,6 +120,9 @@ const Switch: React.FC<SwitchProps> = ({
         onChange={changeHandle}
       />
       <div
+        role="switch"
+        aria-checked={selfChecked}
+        aria-disabled={disabled}
         className={`switch ${selfChecked ? 'checked' : ''} ${
           disabled ? 'disabled' : ''
         }`}
