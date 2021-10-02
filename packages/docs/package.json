@@ -34,7 +34,7 @@
     "react-markdown": "^6.0.2",
     "remark-autolink-headings": "^6.0.1",
     "remark-slug": "^6.0.0",
-    "styled-jsx": "^3.4.4",
+    "styled-jsx": "^4.0.1",
     "util.promisify": "^1.1.1"
   },
   "devDependencies": {
