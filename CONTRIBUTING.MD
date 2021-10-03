@@ -40,13 +40,42 @@ yarn install
 
 We use [Yarn](https://yarnpkg.com/) for dependency management and for the project workspaces.
 
-2. Run development environment
+2.
+
+- If you will be working on the components source code, you can use the following command to start the webpack dev server:
 
 ```bash
-yarn dev
+## Start the webpack dev server
+yarn build:watch
+
+## optional
+yarn dev:docs ## this will start the documentation next.js server and it will automatically detect the changes in the components.
+
+yarn start:sb ## this will start the storybook server for a faster development and testing.
 ```
 
-This command will start the `Next.js` development server for the documentation and the `Storybook` server.
+- If you will be working just on the documentation source code / mdx, you can use the following commands to build
+  NextUI components and then start the next.js dev server:
+
+```bash
+## Build NextUI source components
+yarn build:nextui
+
+## Start the next.js documentation dev server
+yarn dev:docs
+```
+
+- You also can use Storybook to test the components and faster development:
+
+```bash
+yarn sb
+
+#or
+
+yarn start:sb
+```
+
+Remember that these commands must be executed in the root folder of the project.
 
 ## Tests
 
