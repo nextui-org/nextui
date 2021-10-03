@@ -269,10 +269,6 @@ import { Input } from '@nextui-org/react';
   code={`
   () => {
     const { value, reset, bindings } = useInput('');      
- 
-    const validateEmail = (value) => {
-        return /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(value);
-    };
     const helper = React.useMemo(() => {
         if (!value) return { 
             text:'', 
