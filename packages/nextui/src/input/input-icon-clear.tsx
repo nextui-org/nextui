@@ -64,7 +64,7 @@ const InputIconClear: React.FC<Props> = ({
           margin: 0;
           display: inline-flex;
           align-items: center;
-          height: 100%;
+          height: auto;
           padding: 0 ${theme.layout.gapHalf};
           cursor: ${disabled ? 'not-allowed' : 'pointer'};
           box-sizing: border-box;
@@ -76,6 +76,7 @@ const InputIconClear: React.FC<Props> = ({
         }
         .has-content-right {
           padding: 0;
+          position: relative;
           transform: translateX(30%);
         }
         .visible {
