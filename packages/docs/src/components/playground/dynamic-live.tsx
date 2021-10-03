@@ -7,6 +7,7 @@ import NextLink from 'next/link';
 import { Palette } from '@components';
 import * as TemplateComponents from '../templates';
 import { useMediaQuery } from '@hooks/use-media-query';
+import { validateEmail } from '@utils/index';
 import withDefaults from '@utils/with-defaults';
 import * as Components from '@nextui-org/react';
 import * as Icons from '../icons';
@@ -30,6 +31,7 @@ const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
     NextLink,
     Palette,
     useMediaQuery,
+    validateEmail,
   };
   return (
     <LiveProvider code={code} scope={scope} theme={codeTheme}>

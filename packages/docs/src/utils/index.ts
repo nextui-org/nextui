@@ -6,6 +6,10 @@ export const toCapitalize = (name: string) => {
   return `${first.toUpperCase()}${rest.join('')}`;
 };
 
+export const validateEmail = (value: string) => {
+  return /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+};
+
 /**
  * This function allows validate if a string is a hexadecimal
  * value
