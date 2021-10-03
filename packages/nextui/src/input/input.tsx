@@ -12,8 +12,8 @@ import { ContentPosition } from '../utils/prop-types';
 import InputLabel from './input-label';
 import InputBlockLabel from './input-block-label';
 import InputContent from './input-content';
-import InputClearIcon from './input-icon-clear';
-import Textarea from '../textarea/textarea';
+import InputIconClear from './input-icon-clear';
+import Textarea from '../textarea';
 import InputPassword from './input-password';
 import { getSizes, getColors } from './styles';
 import { getId } from '../utils/collections';
@@ -283,7 +283,7 @@ const Input = React.forwardRef<
               {...inputProps}
             />
             {clearable && (
-              <InputClearIcon
+              <InputIconClear
                 status={status}
                 visible={Boolean(selfValue)}
                 hasContentRight={!!contentRight}
