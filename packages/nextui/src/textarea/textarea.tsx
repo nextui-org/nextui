@@ -9,6 +9,7 @@ import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import { SimpleColors } from '../utils/prop-types';
 import { getColors } from '../input/styles';
+import cslx from '../utils/clsx';
 
 interface Props {
   value?: string;
@@ -100,11 +101,7 @@ const Textarea = React.forwardRef<
     };
 
     return (
-      <div
-        className={`wrapper ${hover ? 'hover' : ''} ${
-          disabled ? 'disabled' : ''
-        } ${className}`}
-      >
+      <div className={cslx('wrapper', { hover, disabled }, className)}>
         <textarea
           ref={textareaRef}
           disabled={disabled}
@@ -129,17 +126,14 @@ const Textarea = React.forwardRef<
             color: ${color};
             transition: border 0.2s ease 0s, color 0.2s ease 0s;
           }
-
           .wrapper.hover {
             border-color: ${hoverBorder};
           }
-
           .wrapper.disabled {
             background-color: ${theme.palette.accents_1};
             border-color: ${theme.palette.accents_2};
             cursor: not-allowed;
           }
-
           textarea {
             background-color: transparent;
             box-shadow: none;
@@ -154,11 +148,9 @@ const Textarea = React.forwardRef<
             outline: none;
             padding: ${theme.layout.gapHalf};
           }
-
           .disabled > textarea {
             cursor: not-allowed;
           }
-
           textarea:-webkit-autofill,
           textarea:-webkit-autofill:hover,
           textarea:-webkit-autofill:active,

@@ -5,6 +5,7 @@ import clsx from '../utils/clsx';
 import { SimpleColors } from '../utils/prop-types';
 
 export interface InputBlockLabelLabel {
+  labelId: string;
   label: string;
   htmlFor: string;
   color?: string;
@@ -21,6 +22,7 @@ export interface InputBlockLabelLabel {
 
 const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
   label,
+  labelId,
   animated,
   htmlFor,
   selfValue,
@@ -37,6 +39,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
   const theme = useTheme();
   return (
     <label
+      id={labelId}
       className={clsx('input-label-block', {
         'as-placeholder': asPlaceholder,
         'with-value': selfValue,

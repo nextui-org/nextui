@@ -20,6 +20,7 @@ import { getId } from '../utils/collections';
 import { Props, defaultProps } from './input-props';
 import { getNormalRadius, getNormalWeight } from '../utils/dimensions';
 import clsx from '../utils/clsx';
+import { isEmpty } from '../utils/assertion';
 import useWarning from '../use-warning';
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
@@ -66,6 +67,7 @@ const Input = React.forwardRef<
       shadow,
       animated,
       required,
+      multiline,
       width,
       className,
       onBlur,
@@ -201,15 +203,25 @@ const Input = React.forwardRef<
       ...controlledValue,
     };
 
-    const inputId = useMemo(
-      () => inputProps.id || `next-ui-${getId()}`,
-      [inputProps.id]
-    );
+    const { inputId, labelId } = useMemo(() => {
+      const nextuiId = getId();
+      return {
+        inputId: inputProps.id || `next-ui-${nextuiId}`,
+        labelId: !isEmpty(inputProps.id)
+          ? `${inputProps.id}-label`
+          : `next-ui-${nextuiId}-label`,
+      };
+    }, [inputProps.id]);
+
+    if (inputLabel) {
+      inputProps['aria-labelledby'] = labelId;
+    }
 
     return (
       <div className="with-label">
         {inputLabel && (
           <InputBlockLabel
+            labelId={labelId}
             bordered={bordered}
             animated={animated}
             color={hoverBorder}
