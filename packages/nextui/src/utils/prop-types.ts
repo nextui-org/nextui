@@ -1,3 +1,5 @@
+import { ElementType } from 'react';
+
 export const tuple = <T extends string[]>(...args: T) => args;
 
 const normalSizes = tuple('mini', 'small', 'medium', 'large', 'xlarge');
@@ -164,3 +166,7 @@ export type DividerAlign = typeof dividerAlign[number];
 export type ContentPosition = typeof contentPosition[number];
 
 export type BreakpointsValue = number | boolean;
+
+export interface AsProp<As extends ElementType = ElementType> {
+  as?: As;
+}

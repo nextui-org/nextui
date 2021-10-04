@@ -17,7 +17,7 @@ import Textarea from '../textarea';
 import InputPassword from './input-password';
 import { getSizes, getColors } from './styles';
 import { getId } from '../utils/collections';
-import { Props, defaultProps } from './input-props';
+import { Props, FormElement, defaultProps } from './input-props';
 import { getNormalRadius, getNormalWeight } from '../utils/dimensions';
 import clsx from '../utils/clsx';
 import { isEmpty } from '../utils/assertion';
@@ -27,9 +27,9 @@ type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
 export type InputProps = Props & typeof defaultProps & NativeAttrs;
 
 const simulateChangeEvent = (
-  el: HTMLInputElement,
+  el: FormElement,
   event: React.MouseEvent<HTMLDivElement>
-): React.ChangeEvent<HTMLInputElement> => {
+): React.ChangeEvent<FormElement> => {
   return {
     ...event,
     target: el,
@@ -37,12 +37,10 @@ const simulateChangeEvent = (
   };
 };
 
-const Input = React.forwardRef<
-  HTMLInputElement,
-  React.PropsWithChildren<InputProps>
->(
+const Input = React.forwardRef<FormElement, InputProps>(
   (
     {
+      as: Component = 'input',
       label,
       labelPlaceholder,
       labelLeft,
@@ -67,7 +65,6 @@ const Input = React.forwardRef<
       shadow,
       animated,
       required,
-      multiline,
       width,
       className,
       onBlur,
@@ -75,17 +72,17 @@ const Input = React.forwardRef<
       autoComplete,
       placeholder,
       borderWeight: borderWeightProp,
-      children,
       disabled,
       bordered,
       underlined,
       rounded,
       ...props
     },
-    ref: React.Ref<HTMLInputElement | null>
+    ref: React.Ref<FormElement | null>
   ) => {
     const theme = useTheme();
-    const inputRef = useRef<HTMLInputElement>(null);
+    const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
+
     useImperativeHandle(ref, () => inputRef.current);
 
     const [selfValue, setSelfValue] = useState<string>(initialValue);
@@ -145,7 +142,7 @@ const Input = React.forwardRef<
       [bordered, underlined, borderWeightProp]
     );
 
-    const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const changeHandler = (event: React.ChangeEvent<FormElement>) => {
       if (disabled || readOnly) return;
       setSelfValue(event.target.value);
       onChange && onChange(event);
@@ -162,11 +159,11 @@ const Input = React.forwardRef<
       inputRef.current.focus();
     };
 
-    const focusHandler = (e: React.FocusEvent<HTMLInputElement>) => {
+    const focusHandler = (e: React.FocusEvent<FormElement>) => {
       setHover(true);
       onFocus && onFocus(e);
     };
-    const blurHandler = (e: React.FocusEvent<HTMLInputElement>) => {
+    const blurHandler = (e: React.FocusEvent<FormElement>) => {
       setHover(false);
       onBlur && onBlur(e);
     };
@@ -193,6 +190,8 @@ const Input = React.forwardRef<
         setSelfValue(value as string);
       }
     });
+
+    const isTextArea = useMemo(() => Component === 'textarea', [Component]);
 
     const controlledValue = isControlledComponent
       ? { value: selfValue }
@@ -224,6 +223,7 @@ const Input = React.forwardRef<
             labelId={labelId}
             bordered={bordered}
             animated={animated}
+            rounded={rounded}
             color={hoverBorder}
             status={status}
             hasLeftContent={!!contentLeft}
@@ -238,17 +238,25 @@ const Input = React.forwardRef<
         )}
         <div
           className={clsx(
-            'input-container',
-            { hover, 'read-only': readOnly, shadow },
+            'container',
+            {
+              'input-container': !isTextArea,
+              'textarea-container': isTextArea,
+              hover,
+              'read-only': readOnly,
+              shadow,
+            },
             className
           )}
         >
           <ComponentWrapper
-            className={clsx('input-wrapper', {
+            className={clsx('wrapper', {
               hover,
               disabled,
               bordered,
               underlined,
+              'input-wrapper': !isTextArea,
+              'textarea-wrapper': isTextArea,
             })}
           >
             {labelLeft && (
@@ -274,11 +282,12 @@ const Input = React.forwardRef<
                 {...contentProps}
               />
             )}
-            <input
+            <Component
               type="text"
               ref={inputRef}
               className={clsx({
                 disabled,
+                rounded,
                 'right-content': contentRight,
                 'left-content': contentLeft,
               })}
@@ -346,6 +355,10 @@ const Input = React.forwardRef<
             box-sizing: border-box;
             -webkit-box-align: center;
           }
+          .container {
+            transition: ${animated ? 'all 0.25s ease' : 'none'};
+            border-radius: ${radius};
+          }
           .input-container {
             width: 100%;
             display: inline-flex;
@@ -354,27 +367,33 @@ const Input = React.forwardRef<
             border-radius: ${radius};
             height: calc(${heightRatio} * ${theme.layout.gap});
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
+
             user-select: none;
             border-radius: ${radius};
             background: ${bgColor};
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .textarea-wrapper {
+            height: auto;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 ${!underlined ? borderWeight : '0px'}
               ${borderColor};
             transition: ${animated ? 'box-shadow 0.25s ease' : 'none'};
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -383,7 +402,7 @@ const Input = React.forwardRef<
             z-index: 1;
             background: ${borderColor};
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -395,10 +414,10 @@ const Input = React.forwardRef<
             background: ${hoverBorder};
             transition: ${animated ? 'width 0.25s ease' : 'none'};
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: ${theme.palette.accents_2};
             border-color: ${theme.palette.accents_2};
             cursor: not-allowed;
@@ -421,6 +440,9 @@ const Input = React.forwardRef<
             color: ${theme.palette.accents_4};
             cursor: not-allowed;
           }
+          input.rounded {
+            padding: 0 ${theme.layout.gapQuarter};
+          }
           .input-container.hover:not(.read-only) {
             transform: ${animated && !underlined ? 'translateY(-2px)' : 'none'};
           }
@@ -438,7 +460,8 @@ const Input = React.forwardRef<
             opacity: 0;
             transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
           }
-          input {
+          input,
+          textarea {
             margin: 4px 10px;
             padding: 0;
             box-shadow: none;
@@ -491,4 +514,4 @@ type ComponentProps = Partial<typeof defaultProps> &
 
 Input.defaultProps = defaultProps;
 
-export default Input as InputComponent<HTMLInputElement, ComponentProps>;
+export default Input as InputComponent<FormElement, ComponentProps>;
