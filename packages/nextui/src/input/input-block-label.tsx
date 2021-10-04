@@ -11,6 +11,7 @@ export interface InputBlockLabelLabel {
   color?: string;
   animated?: boolean;
   bordered?: boolean;
+  rounded?: boolean;
   selfValue?: string;
   hasLeftContent?: boolean;
   asPlaceholder?: boolean;
@@ -28,6 +29,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
   selfValue,
   color,
   status,
+  rounded,
   bordered,
   asPlaceholder = false,
   placeholderColor,
@@ -44,6 +46,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
         'as-placeholder': asPlaceholder,
         'with-value': selfValue,
         'has-content-left': hasLeftContent,
+        rounded,
         hover,
       })}
       htmlFor={htmlFor}
@@ -73,10 +76,13 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
         .input-label-block > :global(*:last-child) {
           margin-bottom: 0;
         }
+        .input-label-block.rounded {
+          padding: 0 0 0 ${theme.layout.gapQuarter};
+        }
         .as-placeholder {
           position: absolute;
           padding: 0;
-          z-index: ${bordered ? -1 : 1};
+          z-index: 1;
           left: 12px;
           top: 20%;
           margin-bottom: 0;
