@@ -1,17 +1,12 @@
-import React, {
-  useRef,
-  useImperativeHandle,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { useRef, useImperativeHandle } from 'react';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
+import Input from '../input';
 import { SimpleColors } from '../utils/prop-types';
-import { getColors } from '../input/styles';
-import cslx from '../utils/clsx';
+import { Props as InputProps } from '../input/input-props';
+import { __DEV__ } from '../utils/assertion';
 
-interface Props {
+interface Props extends InputProps {
   value?: string;
   initialValue?: string;
   placeholder?: string;
@@ -39,10 +34,7 @@ const defaultProps = {
 type NativeAttrs = Omit<React.TextareaHTMLAttributes<any>, keyof Props>;
 export type TextareaProps = Props & typeof defaultProps & NativeAttrs;
 
-const Textarea = React.forwardRef<
-  HTMLTextAreaElement,
-  React.PropsWithChildren<TextareaProps>
->(
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     {
       width,
@@ -56,85 +48,32 @@ const Textarea = React.forwardRef<
       initialValue,
       onChange,
       value,
-      placeholder,
       ...props
     },
     ref: React.Ref<HTMLTextAreaElement | null>
   ) => {
     const theme = useTheme();
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+
     useImperativeHandle(ref, () => textareaRef.current);
-    const isControlledComponent = useMemo(() => value !== undefined, [value]);
-    const [selfValue, setSelfValue] = useState<string>(initialValue);
-    const [hover, setHover] = useState<boolean>(false);
-    const { color, borderColor, hoverBorder } = useMemo(
-      () => getColors(theme, colorProp),
-      [theme.palette, theme.expressiveness, colorProp]
-    );
-
-    const changeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-      if (disabled || readOnly) return;
-      setSelfValue(event.target.value);
-      onChange && onChange(event);
-    };
-    const focusHandler = (e: React.FocusEvent<HTMLTextAreaElement>) => {
-      setHover(true);
-      onFocus && onFocus(e);
-    };
-    const blurHandler = (e: React.FocusEvent<HTMLTextAreaElement>) => {
-      setHover(false);
-      onBlur && onBlur(e);
-    };
-
-    useEffect(() => {
-      if (isControlledComponent) {
-        setSelfValue(value as string);
-      }
-    });
-
-    const controlledValue = isControlledComponent
-      ? { value: selfValue }
-      : { defaultValue: initialValue };
-    const textareaProps = {
-      ...props,
-      ...controlledValue,
-    };
 
     return (
-      <div className={cslx('wrapper', { hover, disabled }, className)}>
-        <textarea
+      <>
+        <Input
+          as="textarea"
           ref={textareaRef}
-          disabled={disabled}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          onFocus={focusHandler}
-          onBlur={blurHandler}
-          onChange={changeHandler}
-          {...textareaProps}
+          className={className}
+          {...props}
         />
         <style jsx>{`
-          .wrapper {
-            display: inline-flex;
+          :global(.textarea-wrapper) {
             box-sizing: border-box;
-            user-select: none;
             width: ${width};
             min-width: 12.5rem;
             max-width: 95vw;
             height: auto;
-            border-radius: ${theme.layout.radius};
-            border: 1px solid ${borderColor};
-            color: ${color};
-            transition: border 0.2s ease 0s, color 0.2s ease 0s;
           }
-          .wrapper.hover {
-            border-color: ${hoverBorder};
-          }
-          .wrapper.disabled {
-            background-color: ${theme.palette.accents_1};
-            border-color: ${theme.palette.accents_2};
-            cursor: not-allowed;
-          }
-          textarea {
+          :global(textarea) {
             background-color: transparent;
             box-shadow: none;
             display: block;
@@ -151,16 +90,20 @@ const Textarea = React.forwardRef<
           .disabled > textarea {
             cursor: not-allowed;
           }
-          textarea:-webkit-autofill,
-          textarea:-webkit-autofill:hover,
-          textarea:-webkit-autofill:active,
-          textarea:-webkit-autofill:focus {
+          :global(textarea:-webkit-autofill),
+          :global(textarea:-webkit-autofill:hover),
+          :global(textarea:-webkit-autofill:active),
+          :global(textarea:-webkit-autofill:focus) {
             -webkit-box-shadow: 0 0 0 30px ${theme.palette.background} inset !important;
           }
         `}</style>
-      </div>
+      </>
     );
   }
 );
+
+if (__DEV__) {
+  Textarea.displayName = 'NextUI - Textarea';
+}
 
 export default withDefaults(Textarea, defaultProps);

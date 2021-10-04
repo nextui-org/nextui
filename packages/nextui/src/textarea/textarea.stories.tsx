@@ -1,6 +1,7 @@
-import React, { useEffect, useMemo } from 'react';
+import React from 'react';
 import { Meta } from '@storybook/react';
 import Textarea from './index';
+import Spacer from '../spacer';
 
 export default {
   title: 'General/Textarea',
@@ -20,5 +21,8 @@ export default {
 } as Meta;
 
 export const Default = () => (
-  <Textarea placeholder="Enter your amazing thoughts." />
+  <>
+    <Spacer y={2} />
+    <Textarea labelPlaceholder="Enter your amazing thoughts." />
+  </>
 );
