@@ -145,8 +145,13 @@ const Checkbox: React.FC<CheckboxProps> = ({
       <div className="checkbox-container">
         <input
           type="checkbox"
+          role="checkbox"
           disabled={isDisabled}
           checked={selfChecked}
+          aria-checked={
+            selfChecked ? (indeterminate ? 'mixed' : selfChecked) : selfChecked
+          }
+          aria-disabled={isDisabled}
           onChange={changeHandle}
           {...props}
         />

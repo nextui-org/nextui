@@ -1,6 +1,10 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount, ReactWrapper, render } from 'enzyme';
 import Checkbox from '../index';
+
+const getCheckboxElement = (wrapper: ReactWrapper) => {
+  return wrapper.find('[role="checkbox"]');
+};
 
 describe('Checkbox Group', () => {
   it('should render correctly', () => {
@@ -48,9 +52,9 @@ describe('Checkbox Group', () => {
         <Checkbox value="beijing">BeiJing</Checkbox>
       </Checkbox.Group>
     );
-    const sydney = wrapper.find('input').at(0).getDOMNode();
+    const sydney = getCheckboxElement(wrapper).at(0).getDOMNode();
     expect((sydney as HTMLInputElement).checked).toBeTruthy();
-    const beijing = wrapper.find('input').at(1).getDOMNode();
+    const beijing = getCheckboxElement(wrapper).at(1).getDOMNode();
     expect((beijing as HTMLInputElement).checked).not.toBeTruthy();
   });
 
@@ -62,11 +66,11 @@ describe('Checkbox Group', () => {
         <Checkbox value="beijing">BeiJing</Checkbox>
       </Checkbox.Group>
     );
-    const sydney = wrapper.find('input').at(0);
+    const sydney = getCheckboxElement(wrapper).at(0);
     sydney.simulate('change');
     expect(value.length).toBe(0);
 
-    const beijing = wrapper.find('input').at(1);
+    const beijing = getCheckboxElement(wrapper).at(1);
     beijing.simulate('change');
     expect(value).toEqual(expect.arrayContaining(['beijing']));
   });
@@ -83,11 +87,11 @@ describe('Checkbox Group', () => {
         <Checkbox value="beijing">BeiJing</Checkbox>
       </Checkbox.Group>
     );
-    const sydney = wrapper.find('input').at(0);
+    const sydney = getCheckboxElement(wrapper).at(0);
     sydney.simulate('change');
     expect(value.length).not.toBe(0);
 
-    const beijing = wrapper.find('input').at(1);
+    const beijing = getCheckboxElement(wrapper).at(1);
     beijing.simulate('change');
     expect(value).not.toEqual(expect.arrayContaining(['beijing']));
   });
