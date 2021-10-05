@@ -90,12 +90,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           .disabled > textarea {
             cursor: not-allowed;
           }
-          :global(textarea:-webkit-autofill),
-          :global(textarea:-webkit-autofill:hover),
-          :global(textarea:-webkit-autofill:active),
-          :global(textarea:-webkit-autofill:focus) {
-            -webkit-box-shadow: 0 0 0 30px ${theme.palette.background} inset !important;
-          }
         `}</style>
       </>
     );

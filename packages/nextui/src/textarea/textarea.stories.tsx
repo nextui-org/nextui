@@ -23,6 +23,20 @@ export default {
 export const Default = () => (
   <>
     <Spacer y={2} />
-    <Textarea labelPlaceholder="Enter your amazing thoughts." />
+    <Textarea
+      label="Write your thoughts"
+      placeholder="Enter your amazing thoughts."
+    />
+    <Spacer y={1.5} />
+    <Textarea labelPlaceholder="Write your thoughts" />
+  </>
+);
+
+export const Types = () => (
+  <>
+    <Spacer y={1} />
+    <Textarea label="Default" placeholder="Default Textarea" />
+    <Spacer y={2} />
+    <Textarea underlined color="primary" placeholder="Underlined Textarea" />
   </>
 );

@@ -8,8 +8,11 @@ export interface InputBlockLabelLabel {
   labelId: string;
   label: string;
   htmlFor: string;
+  fontSize: string;
   color?: string;
+  isTextarea?: boolean;
   animated?: boolean;
+  underlined?: boolean;
   bordered?: boolean;
   rounded?: boolean;
   selfValue?: string;
@@ -26,15 +29,18 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
   labelId,
   animated,
   htmlFor,
+  fontSize,
   selfValue,
   color,
   status,
   rounded,
   bordered,
+  underlined,
   asPlaceholder = false,
   placeholderColor,
   heightRatio,
   hasLeftContent,
+  isTextarea,
   hover,
   ...props
 }) => {
@@ -46,6 +52,8 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
         'as-placeholder': asPlaceholder,
         'with-value': selfValue,
         'has-content-left': hasLeftContent,
+        'is-textarea': isTextarea,
+        underlined,
         rounded,
         hover,
       })}
@@ -60,7 +68,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
           color: ${color || theme.palette.text};
           padding: 0 0 0 4px;
           margin-bottom: ${theme.layout.gapQuarter};
-          font-size: 0.875rem;
+          font-size: ${fontSize};
           line-height: 1.5;
           -webkit-touch-callout: none; /* iOS Safari */
           -webkit-user-select: none; /* Safari */
@@ -92,6 +100,9 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
             : 'none'};
           color: ${placeholderColor || theme.palette.accents_3};
         }
+        .as-placeholder.underlined {
+          left: 4px;
+        }
         .as-placeholder.has-content-left {
           left: calc(12px + ${heightRatio} * ${theme.layout.gap} * 0.64);
         }
@@ -101,8 +112,15 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
             ? addColorAlpha(placeholderColor, 1)
             : color || theme.palette.text};
           top: -72%;
-          left: 4px;
+          left: ${underlined ? '0px' : '4px'};
           cursor: inherit;
+        }
+        .as-placeholder.is-textarea {
+          top: 10px;
+        }
+        .as-placeholder.is-textarea.hover,
+        .as-placeholder.is-textarea.with-value {
+          top: -22%;
         }
       `}</style>
     </label>
