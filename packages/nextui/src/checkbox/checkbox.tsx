@@ -257,6 +257,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         .icon-check span .line1:after {
           content: '';
           position: absolute;
+          left: 0px;
           width: 0%;
           height: 2px;
           background: ${theme.palette.white};
@@ -283,6 +284,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           height: 0%;
           background: ${theme.palette.white};
           transition: all 0.25s ease;
+          left: 0px;
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }
