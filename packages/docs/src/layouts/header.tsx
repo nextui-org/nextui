@@ -37,7 +37,6 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
   return (
     <Head>
       <title>{pageTitle}</title>
-      <meta property="og:title" content={pageTitle} key="title" />
       <meta name="twitter:site" content={`@${TWITTER_USER_NAME}`} />
       <meta
         name="twitter:card"
@@ -49,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
           content={image.startsWith('https://') ? image : `${SITE_URL}${image}`}
         />
       )}
-      <meta property="og:title" content={pageTitle} />
+      <meta property="og:title" content={pageTitle} key="title" />
       {url && <meta property="og:url" content={url} />}
       <meta property="og:description" content={description} />
       <meta name="description" content={description} />
