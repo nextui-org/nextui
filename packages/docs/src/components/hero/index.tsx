@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
   useTheme,
   Container,
@@ -39,11 +40,11 @@ const Hero: React.FC = () => {
           <Grid.Container gap={2} justify="center">
             <Grid xs={6}>
               <Row align="center">
-                <img
+                <Image
                   className="hero__feature-img"
                   src="/responsive.svg"
-                  width="24"
-                  height="27.9"
+                  width={24}
+                  height={27.9}
                   alt="responsive icon"
                 />
                 <Spacer />
@@ -54,11 +55,11 @@ const Hero: React.FC = () => {
             </Grid>
             <Grid xs={6}>
               <Row align="center">
-                <img
+                <Image
                   className="hero__feature-img"
                   src="/category.svg"
-                  width="24"
-                  height="27.9"
+                  width={24}
+                  height={27.9}
                   alt="category icon"
                 />
                 <Spacer />
@@ -69,11 +70,11 @@ const Hero: React.FC = () => {
             </Grid>
             <Grid xs={6}>
               <Row align="center">
-                <img
+                <Image
                   className="hero__feature-img"
                   src="/graph.svg"
-                  width="24"
-                  height="28.8"
+                  width={24}
+                  height={28.8}
                   alt="graph icon"
                 />
                 <Spacer />
@@ -84,11 +85,11 @@ const Hero: React.FC = () => {
             </Grid>
             <Grid xs={6}>
               <Row align="center">
-                <img
+                <Image
                   className="hero__feature-img"
                   src="/open_source.svg"
-                  width="24"
-                  height="25.06"
+                  width={24}
+                  height={25.06}
                   alt="open source icon"
                 />
                 <Spacer />
@@ -135,10 +136,6 @@ const Hero: React.FC = () => {
         :global(.hero__container) {
           position: relative;
         }
-        .hero__feature-img {
-          opacity: 0;
-          animation: appear 200ms 100ms ease forwards;
-        }
         :global(.hero__title) {
           margin-bottom: 0rem;
           line-height: 1.2;
@@ -159,8 +156,6 @@ const Hero: React.FC = () => {
         :global(.hero__browser-image) {
           position: relative;
           z-index: 20;
-          opacity: 0;
-          animation: appear 200ms 100ms ease forwards;
         }
         :global(.hero__gradient-blue, .hero__gradient-violet) {
           top: 0;
