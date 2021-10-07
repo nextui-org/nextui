@@ -2,69 +2,86 @@ import React, { useRef, useImperativeHandle } from 'react';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import Input from '../input';
-import { SimpleColors } from '../utils/prop-types';
 import { Props as InputProps } from '../input/input-props';
 import { __DEV__ } from '../utils/assertion';
 
-interface Props extends InputProps {
-  value?: string;
-  initialValue?: string;
-  placeholder?: string;
-  color?: SimpleColors;
-  width?: string;
+interface Props {
   minHeight?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
-  className?: string;
 }
 
 const defaultProps = {
   initialValue: '',
-  color: 'default' as SimpleColors,
   width: 'initial',
   minHeight: '6.25rem',
-  disabled: false,
-  readOnly: false,
-  className: '',
 };
 
-type NativeAttrs = Omit<React.TextareaHTMLAttributes<any>, keyof Props>;
-export type TextareaProps = Props & typeof defaultProps & NativeAttrs;
+type NativeAttrs = Omit<
+  React.TextareaHTMLAttributes<any>,
+  keyof Props | keyof InputProps
+>;
+
+type BaseAttrs = Omit<
+  InputProps,
+  | 'clearable'
+  | 'as'
+  | 'rounded'
+  | 'labelLeft'
+  | 'labelRight'
+  | 'contentLeft'
+  | 'contentRight'
+  | 'contentClickable'
+  | 'contentLeftStyling'
+  | 'contentRightStyling'
+  | 'onContentClick'
+>;
+
+export type TextareaProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  BaseAttrs;
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  (
-    {
-      width,
-      color: colorProp,
-      minHeight,
-      disabled,
-      readOnly,
-      onFocus,
-      onBlur,
-      className,
-      initialValue,
-      onChange,
-      value,
-      ...props
-    },
-    ref: React.Ref<HTMLTextAreaElement | null>
-  ) => {
+  (textareaProps, ref: React.Ref<HTMLTextAreaElement | null>) => {
     const theme = useTheme();
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    // Some lines has @ts-ignored becauses it's neecessary removed them from the props object
+    const {
+      // @ts-ignore
+      clearable,
+      // @ts-ignore
+      as,
+      // @ts-ignore
+      rounded,
+      // @ts-ignore
+      labelLeft,
+      // @ts-ignore
+      labelRight,
+      // @ts-ignore
+      contentLeft,
+      // @ts-ignore
+      contentRight,
+      // @ts-ignore
+      contentClickable,
+      // @ts-ignore
+      contentLeftStyling,
+      // @ts-ignore
+      contentRightStyling,
+      // @ts-ignore
+      onContentClick,
+      width,
+      minHeight,
+      ...props
+    } = textareaProps;
 
     useImperativeHandle(ref, () => textareaRef.current);
 
     return (
       <>
-        <Input
-          as="textarea"
-          ref={textareaRef}
-          className={className}
-          {...props}
-        />
+        <Input as="textarea" ref={textareaRef} width={width} {...props} />
         <style jsx>{`
           :global(.textarea-wrapper) {
             box-sizing: border-box;

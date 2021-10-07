@@ -217,7 +217,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
     if (inputLabel) {
       inputProps['aria-labelledby'] = labelId;
     }
-
     return (
       <div className="with-label">
         {inputLabel && (
@@ -247,9 +246,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
             {
               'input-container': !isTextarea,
               'textarea-container': isTextarea,
-              hover,
               'read-only': readOnly,
-              shadow,
+              hover,
             },
             className
           )}
@@ -260,6 +258,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
               disabled,
               bordered,
               underlined,
+              shadow,
               'input-wrapper': !isTextarea,
               'textarea-wrapper': isTextarea,
             })}
@@ -347,11 +346,11 @@ const Input = React.forwardRef<FormElement, InputProps>(
           </ComponentWrapper>
         </div>
         <div
-          className={clsx('input-helper-text-container', {
+          className={clsx('helper-text-container', {
             'with-value': !!helperText,
           })}
         >
-          {helperText && <p className="input-helper-text">{helperText}</p>}
+          {helperText && <p className="helper-text">{helperText}</p>}
         </div>
         <style jsx>{`
           .with-label {
@@ -364,15 +363,13 @@ const Input = React.forwardRef<FormElement, InputProps>(
             -webkit-box-align: center;
           }
           .container {
+            width: 100%;
             transition: ${animated ? 'all 0.25s ease' : 'none'};
             border-radius: ${radius};
           }
           .input-container {
-            width: 100%;
             display: inline-flex;
             align-items: center;
-            transition: ${animated ? 'all 0.25s ease' : 'none'};
-            border-radius: ${radius};
             height: calc(${heightRatio} * ${theme.layout.gap});
           }
           .wrapper {
@@ -387,6 +384,9 @@ const Input = React.forwardRef<FormElement, InputProps>(
           }
           .input-wrapper {
             height: 100%;
+          }
+          .wrapper.shadow {
+            transition: ${animated ? 'all 0.25s ease' : 'none'};
           }
           .wrapper.bordered {
             background: transparent;
@@ -425,39 +425,42 @@ const Input = React.forwardRef<FormElement, InputProps>(
           .wrapper.disabled {
             background-color: ${theme.palette.accents_2};
             border-color: ${theme.palette.accents_2};
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(${heightRatio} * ${theme.layout.gapHalf} * -1);
             transition: ${animated ? 'opacity 0.25s ease' : 'none'};
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: ${helperColor};
           }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: ${animated && !underlined ? 'translateY(-2px)' : 'none'};
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: ${shadow && !underlined ? shadowColor : 'none'};
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: ${hoverBorder};
             box-shadow: 0 0 0 ${!underlined ? borderWeight : '0px'}
               ${hoverBorder};
           }
-          input.disabled {
+          input.disabled,
+          textarea.disabled {
             color: ${theme.palette.accents_4};
             cursor: not-allowed;
           }
-          input.rounded {
+          input.rounded,
+          textarea.rounded {
             padding: 0 ${theme.layout.gapQuarter};
           }
           input:focus::placeholder,

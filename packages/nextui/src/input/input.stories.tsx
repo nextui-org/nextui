@@ -429,7 +429,7 @@ export const Uncontrolled = () => {
       />
       <Spacer y={0.5} />
       <Button auto color="secondary" size="small" onClick={onClick}>
-        set value
+        Set value
       </Button>
     </>
   );
