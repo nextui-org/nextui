@@ -113,7 +113,7 @@ const Button = React.forwardRef<
     ...props
   } = filteredProps;
   /* eslint-enable @typescript-eslint/no-unused-vars */
-  if (filteredProps.color === 'gradient' && (flat || light)) {
+  if (__DEV__ && filteredProps.color === 'gradient' && (flat || light)) {
     useWarning(
       'Using the gradient color on flat and light buttons will have no effect.'
     );
@@ -134,14 +134,18 @@ const Button = React.forwardRef<
     [theme.palette, filteredProps, shadow]
   );
 
-  const { cursor, events } = useMemo(
-    () => getButtonCursor(disabled, loading),
-    [disabled, loading]
-  );
-  const { height, minWidth, padding, width, fontSize, loaderSize } = useMemo(
-    () => getButtonSize(size, auto),
-    [size, auto]
-  );
+  const { cursor, events } = useMemo(() => getButtonCursor(disabled, loading), [
+    disabled,
+    loading,
+  ]);
+  const {
+    height,
+    minWidth,
+    padding,
+    width,
+    fontSize,
+    loaderSize,
+  } = useMemo(() => getButtonSize(size, auto), [size, auto]);
 
   const dripColor = useMemo(
     () => getButtonDripColor(theme.palette, filteredProps),

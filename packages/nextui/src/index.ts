@@ -63,3 +63,5 @@ export { default as Snippet } from './snippet';
 export { default as Tooltip } from './tooltip';
 
 export { default as Input } from './input';
+
+export { default as Textarea } from './textarea';

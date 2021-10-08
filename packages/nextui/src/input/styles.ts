@@ -95,6 +95,7 @@ export const getColors = (
   return {
     ...baseProps,
     hoverBorder: normalColor,
+    borderColor: normalColor,
     helperColor: normalHelperColor,
     color: normalStatusColor,
     placeholderColor: addColorAlpha(normalStatusColor, 0.5),

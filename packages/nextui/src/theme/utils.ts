@@ -1,5 +1,6 @@
 import { NextUIThemes } from './index';
 import useWarning from '../use-warning';
+import { __DEV__ } from '../utils/assertion';
 import { DeepPartial } from '../utils/types';
 import { deepMergeObject } from '../utils/object';
 import darkTheme from './dark';
@@ -19,7 +20,7 @@ export const mergeTheme = (
   if (!custom) return current;
   if (typeof custom === 'function') {
     const merged = custom(current);
-    if (!merged || typeof merged !== 'object') {
+    if ((!merged || typeof merged !== 'object') && __DEV__) {
       useWarning('The theme function must return object value.');
     }
     return merged as NextUIThemes;

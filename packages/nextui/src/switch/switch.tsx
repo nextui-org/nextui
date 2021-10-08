@@ -5,6 +5,7 @@ import { NormalSizes, NormalColors } from '../utils/prop-types';
 import { getNormalColor, hexToRGBA, isHex } from '../utils/color';
 import { getSizes } from './styles';
 import useWarning from '../use-warning';
+import { __DEV__ } from '../utils/assertion';
 
 interface SwitchEventTarget {
   checked: boolean;
@@ -64,7 +65,7 @@ const Switch: React.FC<SwitchProps> = ({
   const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
   const { width, height } = useMemo(() => getSizes(size), [size]);
 
-  if (icon && (iconOn || iconOff)) {
+  if (icon && __DEV__ && (iconOn || iconOff)) {
     useWarning('Remove props "icon" if iconOn or iconOff exists.', 'Switch');
   }
 

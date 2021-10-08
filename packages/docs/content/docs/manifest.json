@@ -68,7 +68,11 @@
                         },
                         {
                             "title": "Input",
-                            "path": "/docs/components/input.mdx",
+                            "path": "/docs/components/input.mdx"
+                        },
+                        {
+                            "title": "Textarea",
+                            "path": "/docs/components/textarea.mdx",
                             "newPost": true
                         },
                         {

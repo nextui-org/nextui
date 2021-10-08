@@ -3,6 +3,7 @@ import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
 import useTheme from '../use-theme';
 import useWarning from '../use-warning';
 import AvatarGroup from './avatar-group';
+import { __DEV__ } from '../utils/assertion';
 import {
   isColor,
   getNormalColor,
@@ -118,7 +119,7 @@ const Avatar: React.FC<AvatarProps> = ({
     [color, avatarColor, bordered]
   );
 
-  if (color && !isNormalColor(color) && !isColor(color)) {
+  if (__DEV__ && color && !isNormalColor(color) && !isColor(color)) {
     useWarning(`Props "color" ${color} is not a valid color.`, 'Avatar');
   }
 

@@ -1,174 +1,170 @@
-import React, {
-  useRef,
-  useImperativeHandle,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { useRef, useImperativeHandle, useLayoutEffect } from 'react';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
-import { SimpleColors } from '../utils/prop-types';
-import { getColors } from '../input/styles';
+import Input from '../input';
+import useResize from '../use-resize';
+import useWarning from '../use-warning';
+import { Props as InputProps } from '../input/input-props';
+import {
+  excludedInputPropsForTextarea,
+  ExcludedInputProps,
+} from '../utils/prop-types';
+import { __DEV__ } from '../utils/assertion';
+import { calculateNodeHeight, SizingData, getSizingData } from './utils';
+
+export type TextareaHeightChangeMeta = {
+  rowHeight: number;
+};
 
 interface Props {
-  value?: string;
-  initialValue?: string;
-  placeholder?: string;
-  color?: SimpleColors;
-  width?: string;
-  minHeight?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
+  rows?: number;
+  maxRows?: number;
+  minRows?: number;
+  onHeightChange?: (height: number, meta: TextareaHeightChangeMeta) => void;
+  cacheMeasurements?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
-  className?: string;
 }
 
 const defaultProps = {
+  minRows: 3,
+  maxRows: 6,
+  cacheMeasurements: true,
   initialValue: '',
-  color: 'default' as SimpleColors,
   width: 'initial',
-  minHeight: '6.25rem',
-  disabled: false,
-  readOnly: false,
-  className: '',
 };
 
-type NativeAttrs = Omit<React.TextareaHTMLAttributes<any>, keyof Props>;
-export type TextareaProps = Props & typeof defaultProps & NativeAttrs;
+type NativeAttrs = Omit<
+  React.TextareaHTMLAttributes<any>,
+  keyof Props | keyof InputProps
+>;
 
-const Textarea = React.forwardRef<
-  HTMLTextAreaElement,
-  React.PropsWithChildren<TextareaProps>
->(
-  (
-    {
-      width,
-      color: colorProp,
-      minHeight,
-      disabled,
-      readOnly,
-      onFocus,
-      onBlur,
-      className,
-      initialValue,
-      onChange,
-      value,
-      placeholder,
-      ...props
-    },
-    ref: React.Ref<HTMLTextAreaElement | null>
-  ) => {
+type BaseAttrs = Omit<InputProps, ExcludedInputProps>;
+
+export type TextareaProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  BaseAttrs;
+
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  (textareaProps, ref: React.Ref<HTMLTextAreaElement | null>) => {
     const theme = useTheme();
-    const textareaRef = useRef<HTMLTextAreaElement>(null);
-    useImperativeHandle(ref, () => textareaRef.current);
-    const isControlledComponent = useMemo(() => value !== undefined, [value]);
-    const [selfValue, setSelfValue] = useState<string>(initialValue);
-    const [hover, setHover] = useState<boolean>(false);
-    const { color, borderColor, hoverBorder } = useMemo(
-      () => getColors(theme, colorProp),
-      [theme.palette, theme.expressiveness, colorProp]
-    );
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+    const heightRef = React.useRef<number>(0);
+    const measurementsCacheRef = React.useRef<SizingData>();
 
-    const changeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-      if (disabled || readOnly) return;
-      setSelfValue(event.target.value);
-      onChange && onChange(event);
-    };
-    const focusHandler = (e: React.FocusEvent<HTMLTextAreaElement>) => {
-      setHover(true);
-      onFocus && onFocus(e);
-    };
-    const blurHandler = (e: React.FocusEvent<HTMLTextAreaElement>) => {
-      setHover(false);
-      onBlur && onBlur(e);
-    };
+    const {
+      width,
+      cacheMeasurements,
+      rows,
+      maxRows,
+      minRows,
+      onChange,
+      onHeightChange,
+      ...props
+    } = textareaProps;
 
-    useEffect(() => {
-      if (isControlledComponent) {
-        setSelfValue(value as string);
+    Object.keys(props).forEach((propNameKey: any) => {
+      if (excludedInputPropsForTextarea.indexOf(propNameKey) > -1) {
+        // @ts-ignored
+        delete props[propNameKey];
       }
     });
 
-    const controlledValue = isControlledComponent
-      ? { value: selfValue }
-      : { defaultValue: initialValue };
-    const textareaProps = {
-      ...props,
-      ...controlledValue,
+    const isControlled = props.value !== undefined;
+
+    if (__DEV__ && props.style) {
+      if ('maxHeight' in props.style) {
+        useWarning(
+          'Using `style.maxHeight` for <Textarea/> is not supported. Please use `maxRows`.'
+        );
+      }
+      if ('minHeight' in props.style) {
+        useWarning(
+          'Using `style.minHeight` for <Textarea/> is not supported. Please use `minRows`.'
+        );
+      }
+    }
+
+    useImperativeHandle(ref, () => textareaRef.current);
+
+    const resizeTextarea = () => {
+      const node = textareaRef.current!;
+      const nodeSizingData =
+        cacheMeasurements && measurementsCacheRef.current
+          ? measurementsCacheRef.current
+          : getSizingData(node);
+
+      if (!nodeSizingData) {
+        return;
+      }
+
+      measurementsCacheRef.current = nodeSizingData;
+
+      const [height, rowHeight] = calculateNodeHeight(
+        nodeSizingData,
+        node.value || node.placeholder || 'x',
+        rows || minRows,
+        rows || maxRows
+      );
+
+      if (heightRef.current !== height) {
+        heightRef.current = height;
+        node.style.setProperty('height', `${height}px`, 'important');
+        onHeightChange && onHeightChange(height, { rowHeight });
+      }
     };
 
+    const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      if (!isControlled) {
+        resizeTextarea();
+      }
+      onChange && onChange(event);
+    };
+
+    if (typeof document !== 'undefined') {
+      useLayoutEffect(resizeTextarea);
+      useResize(resizeTextarea);
+    }
+
     return (
-      <div
-        className={`wrapper ${hover ? 'hover' : ''} ${
-          disabled ? 'disabled' : ''
-        } ${className}`}
-      >
-        <textarea
+      <>
+        <Input
+          as="textarea"
           ref={textareaRef}
-          disabled={disabled}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          onFocus={focusHandler}
-          onBlur={blurHandler}
-          onChange={changeHandler}
-          {...textareaProps}
+          width={width}
+          onChange={handleChange}
+          {...props}
         />
         <style jsx>{`
-          .wrapper {
-            display: inline-flex;
+          :global(.textarea-wrapper) {
             box-sizing: border-box;
-            user-select: none;
             width: ${width};
             min-width: 12.5rem;
-            max-width: 95vw;
+            max-width: 100%;
             height: auto;
-            border-radius: ${theme.layout.radius};
-            border: 1px solid ${borderColor};
-            color: ${color};
-            transition: border 0.2s ease 0s, color 0.2s ease 0s;
           }
-
-          .wrapper.hover {
-            border-color: ${hoverBorder};
-          }
-
-          .wrapper.disabled {
-            background-color: ${theme.palette.accents_1};
-            border-color: ${theme.palette.accents_2};
-            cursor: not-allowed;
-          }
-
-          textarea {
+          :global(textarea) {
             background-color: transparent;
             box-shadow: none;
             display: block;
             font-family: ${theme.font.sans};
-            font-size: 0.875rem;
+            padding: ${theme.layout.gapHalf};
             width: 100%;
             height: 100%;
-            min-height: ${minHeight};
             resize: none;
             border: none;
             outline: none;
-            padding: ${theme.layout.gapHalf};
-          }
-
-          .disabled > textarea {
-            cursor: not-allowed;
-          }
-
-          textarea:-webkit-autofill,
-          textarea:-webkit-autofill:hover,
-          textarea:-webkit-autofill:active,
-          textarea:-webkit-autofill:focus {
-            -webkit-box-shadow: 0 0 0 30px ${theme.palette.background} inset !important;
           }
         `}</style>
-      </div>
+      </>
     );
   }
 );
+
+if (__DEV__) {
+  Textarea.displayName = 'NextUI - Textarea';
+}
 
 export default withDefaults(Textarea, defaultProps);
