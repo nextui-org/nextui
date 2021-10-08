@@ -149,9 +149,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           role="checkbox"
           disabled={isDisabled}
           checked={selfChecked}
-          aria-checked={
-            selfChecked ? (indeterminate ? 'mixed' : selfChecked) : selfChecked
-          }
+          aria-checked={selfChecked && indeterminate ? 'mixed' : selfChecked}
           aria-disabled={isDisabled}
           onChange={changeHandle}
           {...props}
