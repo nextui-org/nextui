@@ -16,10 +16,9 @@ exports[`Switch should render correctly 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -98,10 +97,9 @@ exports[`Switch should render correctly with an icon 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -180,10 +178,9 @@ exports[`Switch should render correctly with an iconOff 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -262,10 +259,9 @@ exports[`Switch should render correctly with an iconOn 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -344,10 +340,9 @@ exports[`Switch should render correctly with both icons on/off 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -426,10 +421,9 @@ exports[`Switch should work with different colors 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -504,10 +498,9 @@ exports[`Switch should work with different colors 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -582,10 +575,9 @@ exports[`Switch should work with different colors 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -660,10 +652,9 @@ exports[`Switch should work with different colors 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -738,10 +729,9 @@ exports[`Switch should work with different colors 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -820,10 +810,9 @@ exports[`Switch should work with different sizes 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 18px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -898,10 +887,9 @@ exports[`Switch should work with different sizes 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 20px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -976,10 +964,9 @@ exports[`Switch should work with different sizes 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 24px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -1054,10 +1041,9 @@ exports[`Switch should work with different sizes 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 28px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
@@ -1132,10 +1118,9 @@ exports[`Switch should work with different sizes 1`] = `
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: 32px;
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;

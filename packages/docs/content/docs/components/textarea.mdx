@@ -46,281 +46,178 @@ import { Textarea } from '@nextui-org/react';
 />
 
 <Playground
-  title="Label Placeholder"
-  desc="With the property `labelPlaceholder` the placeholder becomes a label with an great animation."
-  code={`
-<Textarea labelPlaceholder="NextUI" />
-`}
-/>
-
-<Playground
-  title="Sizes"
-  desc="Change the size of the entire `Textarea` including `padding`, `font-size` and `border` with the `size` property."
-  code={`
- <>
-    <Textarea size="mini" placeholder="Mini" />
-    <Spacer y={0.5} />
-    <Textarea size="small" placeholder="Small" />
-    <Spacer y={0.5} />
-    <Textarea size="medium" placeholder="Medium" />
-    <Spacer y={0.5} />
-    <Textarea size="large" placeholder="Large" />
-    <Spacer y={0.5} />
-    <Textarea size="xlarge" placeholder="xLarge" />
-    <Spacer y={0.5} />
-    <Textarea width="90px" placeholder="90px" />
-  </>
-`}
-/>
-
-<Playground
-  title="Bordered"
-  desc="You can change the full style towards a bodered `Input` with the `bordered` property and 
-  you can customze the color with the `color` prop."
+  title="Autosize"
+  desc="Unless the `rows` prop is set, the height of the text field dynamically 
+  matches its content. You can use the `minRows` and `maxRows` props to bound it."
   code={`
 <Grid.Container gap={2.5}>
-  <Grid>
-    <Input bordered labelPlaceholder="Default" color="default" />
-  </Grid>    
-  <Grid>
-    <Input bordered labelPlaceholder="Primary" color="primary" />
-  </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="Secondary" color="secondary" />
-  </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="Success" color="success" />
-  </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="Warning" color="warning" />
-  </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="Error" color="error" />
-  </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="#ff4ecd" color="#ff4ecd" />
-  </Grid>  
-</Grid.Container>   
+    <Grid>
+        <Textarea placeholder="Static rows, rows (4)" rows={4}/>
+    </Grid>
+    <Grid>
+        <Textarea placeholder="Min rows (2), write something large.." minRows={2}/>
+    </Grid>
+    <Grid>
+        <Textarea placeholder="Max rows (10), Min rows (1), write something large.." minRows={1} maxRows={10}/>
+    </Grid>
+</Grid.Container>
 `}
 />
 
 <Playground
-  title="Underlined"
-  desc="You can change the full style towards an undelined `Input` like the material effect just adding 
- the `underlined` prop."
+  title="Types"
+  desc="You can use the same `Input` types in `Textarea`."
   code={`
-<Grid.Container gap={2.5}>
+<Grid.Container gap={2.5} style={{marginTop: '4px'}}>
   <Grid>
-    <Input underlined labelPlaceholder="Default" color="default" />
+    <Textarea placeholder="Default Textarea" />
   </Grid>    
   <Grid>
-    <Input underlined labelPlaceholder="Primary" color="primary" />
+    <Textarea
+      underlined
+      color="primary"
+      labelPlaceholder="Underlined Textarea"
+    />
   </Grid>
   <Grid>
-    <Input underlined labelPlaceholder="Secondary" color="secondary" />
-  </Grid>
-  <Grid>
-    <Input underlined labelPlaceholder="Success" color="success" />
-  </Grid>
-  <Grid>
-    <Input underlined labelPlaceholder="Warning" color="warning" />
-  </Grid>
-  <Grid>
-    <Input underlined labelPlaceholder="Error" color="error" />
+    <Textarea bordered color="secondary" labelPlaceholder="Bordered Textarea" />
   </Grid>
 </Grid.Container>   
-`}
-/>
-
-<Playground
-  title="Rounded"
-  desc="You can completely round the corners of any type of `Input` with the `rounded` prop."
-  code={`
-<Grid.Container gap={2.5}>
-  <Grid>
-    <Input rounded bordered label="Default" placeholder="Default" color="default" />
-  </Grid>    
-  <Grid>
-    <Input rounded bordered label="Primary" placeholder="Primary" color="primary" />
-  </Grid>
-  <Grid>
-    <Input rounded bordered label="Secondary" placeholder="Secondary" color="secondary" />
-  </Grid>
-  <Grid>
-    <Input rounded bordered label="Success" placeholder="Success" color="success" />
-  </Grid>
-  <Grid>
-    <Input rounded bordered label="Warning" placeholder="Warning" color="warning" />
-  </Grid>
-  <Grid>
-    <Input rounded bordered label="Error" placeholder="Error" color="error" />
-  </Grid>
-</Grid.Container> 
 `}
 />
 
 <Playground
   title="Status"
-  desc="You can change the color of the entire `Input` with the property `status`."
+  desc="You can change the color of the entire `Textarea` with the property `status`."
   code={`
-<Grid.Container gap={2.5}>
+<Grid.Container gap={2.5} style={{marginTop: '4px'}}>
   <Grid>
-    <Input labelPlaceholder="Default" status="default" />
+    <Textarea labelPlaceholder="Default" status="default" />
   </Grid>    
   <Grid>
-    <Input labelPlaceholder="Primary" status="primary" />
+    <Textarea labelPlaceholder="Primary" status="primary" />
   </Grid>
   <Grid>
-    <Input labelPlaceholder="Secondary" status="secondary" />
+    <Textarea labelPlaceholder="Secondary" status="secondary" />
   </Grid>
   <Grid>
-    <Input labelPlaceholder="Success" status="success" />
+    <Textarea labelPlaceholder="Success" status="success" />
   </Grid>
   <Grid>
-    <Input labelPlaceholder="Warning" status="warning" />
+    <Textarea labelPlaceholder="Warning" status="warning" />
   </Grid>
   <Grid>
-    <Input labelPlaceholder="Error" status="error" />
+    <Textarea labelPlaceholder="Error" status="error" />
   </Grid>
   <Grid>
-    <Input labelPlaceholder="#ff4ecd" status="#ff4ecd" />
+    <Textarea labelPlaceholder="#ff4ecd" status="#ff4ecd" />
   </Grid>  
-</Grid.Container>
-`}
-/>
-
-<Playground
-  title="No Shadow"
-  desc="You can disable the shadow of the entire `Input` with the property `shadow={false}`."
-  code={`
-<Grid.Container gap={2.5}>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Default" status="default" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Primary" status="primary" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Secondary" status="secondary" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Success" status="success" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Warning" status="warning" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Error" status="error" />
-  </Grid>
-</Grid.Container>
-`}
-/>
-
-<Playground
-  title="No Animated"
-  desc="You can disable the animation of the entire `Input` with the property `animated={false}`."
-  code={`
-<Grid.Container gap={2.5}>
-  <Grid>
-    <Input animated={false} labelPlaceholder="Default" status="default" />
-  </Grid>
-  <Grid>
-    <Input underlined animated={false} labelPlaceholder="Primary" color="primary" />
-  </Grid>
-  <Grid>
-    <Input bordered animated={false} labelPlaceholder="Secondary" color="secondary" />
-  </Grid>
 </Grid.Container>
 `}
 />
 
 <Playground
   title="Helper text"
-  desc="You can add a helper text to `Input` with the prop `helperText` and customise its color with the `helperColor` prop. 
-  The first example is using the hook [useInput](#useinput)"
+  desc="As well as with `Input` you can set the prop `helperText` and customise its color with the `helperColor` prop in `Textarea`
+  to show a helper text."
   code={`
-  () => {
-    const { value, reset, bindings } = useInput('');      
-    const helper = React.useMemo(() => {
-        if (!value) return { 
-            text:'', 
-            color:'' 
-        };
-        const isValid = validateEmail(value);
-        return { 
-            text: isValid ? 'Correct email' : 'Enter a valid email',
-            color: isValid ? 'success' : 'error'
-        };    
-    }, [value]);
-    return (
-<Grid.Container gap={2.5}>
+<Grid.Container gap={2.5} style={{marginTop: '4px'}}>
      <Grid>
-        <Input
-            {...bindings}
-            clearable
-            shadow={false}
-            onClearClick={reset}
-            status={helper.color}
-            color={helper.color}
-            helperColor={helper.color}
-            helperText={helper.text}
-            type="email"
-            label="Email"
-            placeholder="With regex validation"
-        />
-      </Grid>   
-     <Grid>
-        <Input
-            clearable
-            helperText="Please enter your name"
-            label="Name"
-            placeholder="Enter your name"
-        />
-      </Grid>
+      <Textarea
+        label="Default"
+        helperText="Please enter your name"
+        placeholder="Enter your name"
+      />
+      </Grid>  
       <Grid>
-        <Input
-            clearable
+        <Textarea
+            status="success"
+            helperColor="success"
+            initialValue="NextUI is a Beautiful, fast and modern React UI library 🚀."
+            helperText="Excelent description"
+            placeholder="Description"
+            label="Success"
+        />
+      </Grid>       
+      <Grid>
+        <Textarea
+            bordered
             color="error"
-            helperText="Required"
-            label="Error"
-            placeholder="Enter something"
-        />
-      </Grid>
-      <Grid>
-        <Input
-            clearable
-            color="success"
-            initialValue="getnextui"
-            helperText="Excelent username"
-            type="test"
-            label="Username"
-            placeholder="Enter your username"
-        />
-      </Grid>
-      <Grid>
-        <Input
-            clearable
-            color="warning"
-            helperText="Insecure password"
-            type="password"
-            label="Password"
-            placeholder="Enter your password"
-        />
-      </Grid>
-      <Grid>
-        <Input.Password
-            clearable
-            color="warning"
-            initialValue="123"
-            helperText="Insecure password"
-            type="password"
-            label="Password"
-            placeholder="Enter your password with eye"
+            status="error"
+            helperColor="error"
+            helperText="Enter a larger description"
+            label="Description"
+            placeholder="Description"
         />
       </Grid>
     </Grid.Container>
-    );
- }
+`}
+/>
+
+<Playground
+  title="Controlled vs Uncontrolled"
+  desc="As well as the `Input` component, `Textarea` component can be controlled or uncontrolled. If you want to deep in this topic
+  you can go to the official React documentation for [Controlled Components](https://reactjs.org/docs/forms.html#controlled-components)
+  and [Uncontrolled Components](https://reactjs.org/docs/uncontrolled-components.html). The controlled Textarea example is using the hook [useInput](#useinput)"
+  code={`
+()=> {
+  // Controlled
+  const { value: controlledValue, setValue: setControlledValue, reset, bindings } = useInput('Controlled Textarea');
+  React.useEffect(() => console.log({controlledValue}), [controlledValue]);
+  // Uncontrolled
+  const textareaRef = React.useRef(null);
+  const onClick = () => {
+    if (textareaRef.current) {
+      textareaRef.current.value = Math.random().toString(32);
+    }
+  };
+  return (
+<Grid.Container gap={1}>
+    <Grid>
+        <Textarea {...bindings} />
+        <Spacer y={0.5}/>
+        <Grid.Container gap={0.5}>
+            <Grid>
+                <Button
+                    auto
+                    color="primary"
+                    size="small"
+                    onClick={() => setControlledValue(Math.random().toString(32))}
+                >
+                    Set value
+                </Button>
+            </Grid>
+            <Grid>
+                <Button auto flat size="small" onClick={() => reset()}>
+                    Reset value
+                </Button>
+            </Grid>
+        </Grid.Container>
+    </Grid>
+    <Spacer x={2}/>
+    <Grid>
+        <Textarea 
+            ref={textareaRef} 
+            initialValue="Uncontrolled Textarea"
+            onChange={(e) => console.log(e.target.value)} 
+        />
+        <Spacer y={0.5}/>
+        <Grid.Container gap={0.5}>
+            <Grid>
+                <Button
+                    auto
+                    color="secondary"
+                    size="small"
+                    onClick={onClick}
+                >
+                    Set value
+                </Button>
+            </Grid>
+        </Grid.Container>
+    </Grid>    
+</Grid.Container> 
+  );
+}
 `}
 />
 
@@ -330,61 +227,39 @@ import { Textarea } from '@nextui-org/react';
 
 <Spacer y={2} />
 
-#### Input Props
+#### Textarea Props
 
-| Attribute               | Type                                                  | Accepted values                      | Description                                                                                       | Default   |
-| ----------------------- | ----------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------- | --------- |
-| **value**               | `string`                                              | -                                    | Input value                                                                                       | -         |
-| **initialValue**        | `string`                                              | -                                    | Input default value                                                                               | -         |
-| **placeholder**         | `string`                                              | -                                    | The short hint displayed in the input                                                             | -         |
-| **size**                | `NormalSizes`                                         | [NormalSizes](#normal-sizes)         | Change input size                                                                                 | `medium`  |
-| **color**               | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input text, border and label color                                                         | `default` |
-| **status**              | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input status color                                                                         | `default` |
-| **helperColor**         | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change helper text color                                                                          | `default` |
-| **required**            | `boolean`                                             | `true/false`                         | Required input prop                                                                               | `false`   |
-| **readOnly**            | `boolean`                                             | `true/false`                         | It prevents the user from changing the value of the field                                         | `false`   |
-| **disabled**            | `boolean`                                             | `true/false`                         | Disable input                                                                                     | `false`   |
-| **clearable**           | `boolean`                                             | `true/false`                         | Show clear button                                                                                 | `false`   |
-| **rounded**             | `boolean`                                             | `true/false`                         | Rounded input                                                                                     | `false`   |
-| **bordered**            | `boolean`                                             | `true/false`                         | Bordered input                                                                                    | `false`   |
-| **underlined**          | `boolean`                                             | `true/false`                         | Underlined input                                                                                  | `false`   |
-| **shadow**              | `boolean`                                             | `true/false`                         | Enable or disable the input shadow                                                                | `true`    |
-| **animated**            | `boolean`                                             | `true/false`                         | Enable or disable the input animation                                                             | `true`    |
-| **autoComplete**        | `string`                                              | -                                    | HTML input autocomplete attribute                                                                 | `off`     |
-| **borderWeight**        | `NormalWeights`                                       | [NormalWeights](#normal-weights)     | Border weight for `bordered` input                                                                | `normal`  |
-| **width**               | `string`                                              | -                                    | Input width                                                                                       | `initial` |
-| **label**               | `string`                                              | -                                    | Text label for input                                                                              | -         |
-| **labelPlaceholder**    | `string`                                              | -                                    | The placeholder becomes a label                                                                   | -         |
-| **labelLeft**           | `string`                                              | -                                    | Text label at left of the input                                                                   | -         |
-| **labelRight**          | `string`                                              | -                                    | Text label at right of the input                                                                  | -         |
-| **helperText**          | `string`                                              | -                                    | Add a helper text to Input                                                                        | -         |
-| **contentLeft**         | `React.ReactNode`                                     | -                                    | Left content for input                                                                            | -         |
-| **contentRight**        | `React.ReactNode`                                     | -                                    | Right content for input                                                                           | -         |
-| **contentClickable**    | `boolean`                                             | `true/false`                         | Left/right content are clickable (just applied when the styling prop is true, see the next props) | `false`   |
-| **contentLeftStyling**  | `boolean`                                             | `true/false`                         | Allows the Input component to wrap the `contentLeft` in a container                               | `true`    |
-| **contentRightStyling** | `boolean`                                             | `true/false`                         | Allows the Input component to wrap the `contentRight` in a container                              | `true`    |
-| **onChange**            | `(e: React.ChangeEvent) => void`                      | -                                    | Callback fired when the value is changed                                                          | -         |
-| **onFocus**             | `(e: React.FocusEvent) => void`                       | -                                    | Callback fired when the input is focused.                                                         | -         |
-| **onBlur**              | `(e: React.FocusEvent) => void`                       | -                                    | Callback fired when the input is blurred.                                                         | -         |
-| **onContentClick**      | `(key: ContentPosition, e: React.MouseEvent) => void` | [ContentPosition](#content-position) | click icon event                                                                                  | -         |
-| **onClearClick**        | `(e: React.MouseEvent) => void`                       | -                                    | clear icon event                                                                                  | -         |
-| **ref**                 | <Code>Ref<HTMLInputElement &#124; null></Code>        | -                                    | forwardRef                                                                                        | -         |
-| ...                     | `InputHTMLAttributes`                                 | `'alt', 'type', 'className', ...`    | Input native props                                                                                | -         |
+| Attribute            | Type                                              | Accepted values                  | Description                                               | Default   |
+| -------------------- | ------------------------------------------------- | -------------------------------- | --------------------------------------------------------- | --------- |
+| **value**            | `string`                                          | -                                | Textarea value                                            | -         |
+| **initialValue**     | `string`                                          | -                                | Textarea default value                                    | -         |
+| **placeholder**      | `string`                                          | -                                | The short hint displayed in the textarea                  | -         |
+| **size**             | `NormalSizes`                                     | [NormalSizes](#normal-sizes)     | Change textarea size                                      | `medium`  |
+| **color**            | `SimpleColors`                                    | [SimpleColors](#simple-colors)   | Change textarea text, border and label color              | `default` |
+| **status**           | `SimpleColors`                                    | [SimpleColors](#simple-colors)   | Change textarea status color                              | `default` |
+| **helperColor**      | `SimpleColors`                                    | [SimpleColors](#simple-colors)   | Change helper text color                                  | `default` |
+| **required**         | `boolean`                                         | `true/false`                     | Required textarea prop                                    | `false`   |
+| **readOnly**         | `boolean`                                         | `true/false`                     | It prevents the user from changing the value of the field | `false`   |
+| **disabled**         | `boolean`                                         | `true/false`                     | Disable textarea                                          | `false`   |
+| **bordered**         | `boolean`                                         | `true/false`                     | Bordered textarea                                         | `false`   |
+| **underlined**       | `boolean`                                         | `true/false`                     | Underlined textarea                                       | `false`   |
+| **shadow**           | `boolean`                                         | `true/false`                     | Enable or disable the textarea shadow                     | `true`    |
+| **animated**         | `boolean`                                         | `true/false`                     | Enable or disable the textarea animation                  | `true`    |
+| **autoComplete**     | `string`                                          | -                                | HTML textarea autocomplete attribute                      | `off`     |
+| **borderWeight**     | `NormalWeights`                                   | [NormalWeights](#normal-weights) | Border weight for `bordered` textarea                     | `normal`  |
+| **width**            | `string`                                          | -                                | Textarea width                                            | `initial` |
+| **label**            | `string`                                          | -                                | Text label for input                                      | -         |
+| **labelPlaceholder** | `string`                                          | -                                | The placeholder becomes a label                           | -         |
+| **helperText**       | `string`                                          | -                                | Add a helper text to Input                                | -         |
+| **onChange**         | `(e: React.ChangeEvent) => void`                  | -                                | Callback fired when the value is changed                  | -         |
+| **onFocus**          | `(e: React.FocusEvent) => void`                   | -                                | Callback fired when the input is focused.                 | -         |
+| **onBlur**           | `(e: React.FocusEvent) => void`                   | -                                | Callback fired when the input is blurred.                 | -         |
+| **ref**              | <Code>Ref<HTMLTextAreaElement &#124; null></Code> | -                                | forwardRef                                                | -         |
+| ...                  | `TextareaHTMLAttributes`                          | `'className', ...`               | Textarea native props                                     | -         |
 
 <Spacer y={2} />
 
-### Input.Password props
-
-| Attribute       | Type              | Accepted values             | Description                  | Default |
-| --------------- | ----------------- | --------------------------- | ---------------------------- | ------- |
-| **hideToggle**  | `boolean`         | -                           | Hide toggle icon             | `false` |
-| **visibleIcon** | `React.ReactNode` | -                           | Custom visible password icon | -       |
-| **hiddenIcon**  | `React.ReactNode` | -                           | Custom hidden password icon  | -       |
-| ...             | `Input Props`     | [Input Props](#input-props) | Input props                  | -       |
-
-<Spacer y={2} />
-
-### Input types
+### Textarea types
 
 <Spacer y={1} />
 
@@ -410,12 +285,6 @@ type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
 
 ```ts
 type NormalWeights = 'normal' | 'light' | 'bold';
-```
-
-#### Content Position
-
-```ts
-type ContentPosition = 'left' | 'right';
 ```
 
 #### useInput
