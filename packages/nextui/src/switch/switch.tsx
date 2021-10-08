@@ -145,10 +145,9 @@ const Switch: React.FC<SwitchProps> = ({
         }
         input {
           overflow: hidden;
-          visibility: hidden;
-          height: 0;
+          height: ${height};
           opacity: 0;
-          width: 0;
+          width: 100%;
           position: absolute;
           background: transparent;
           z-index: -1;
