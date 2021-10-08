@@ -37,7 +37,6 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
   return (
     <Head>
       <title>{pageTitle}</title>
-      <meta property="og:title" content={pageTitle} key="title" />
       <meta name="twitter:site" content={`@${TWITTER_USER_NAME}`} />
       <meta
         name="twitter:card"
@@ -49,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
           content={image.startsWith('https://') ? image : `${SITE_URL}${image}`}
         />
       )}
-      <meta property="og:title" content={pageTitle} />
+      <meta property="og:title" content={pageTitle} key="title" />
       {url && <meta property="og:url" content={url} />}
       <meta property="og:description" content={description} />
       <meta name="description" content={description} />
@@ -86,7 +85,7 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
       />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter"
         rel="stylesheet"
       />
       {isProd && (

@@ -78,6 +78,7 @@ export const WithIcons = () => {
       <Input
         clearable
         underlined
+        color="warning"
         status="warning"
         labelPlaceholder="Icon left"
         contentRight={<Sun theme={theme} filled fill="currentColor" />}
@@ -86,6 +87,7 @@ export const WithIcons = () => {
       <Input
         clearable
         bordered
+        color="secondary"
         status="secondary"
         labelPlaceholder="Icon left"
         contentRight={<Moon theme={theme} filled fill="currentColor" />}
@@ -427,7 +429,7 @@ export const Uncontrolled = () => {
       />
       <Spacer y={0.5} />
       <Button auto color="secondary" size="small" onClick={onClick}>
-        set value
+        Set value
       </Button>
     </>
   );

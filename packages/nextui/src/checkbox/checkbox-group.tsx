@@ -3,6 +3,7 @@ import { CheckboxContext } from './checkbox-context';
 import useWarning from '../use-warning';
 import { NormalSizes, NormalColors } from '../utils/prop-types';
 import withDefaults from '../utils/with-defaults';
+import { __DEV__ } from '../utils/assertion';
 import { getCheckboxSize } from './styles';
 
 interface Props {
@@ -41,7 +42,7 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
   ...props
 }) => {
   const [selfVal, setSelfVal] = useState<string[]>([]);
-  if (!value) {
+  if (!value && __DEV__) {
     value = [];
     useWarning('Props "value" is required.', 'Checkbox Group');
   }

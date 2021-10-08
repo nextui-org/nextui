@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input should be work with content 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><span class=\\"input-content\\"><span>test-icon</span><style>
+"<div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><span class=\\"input-content\\"><span>test-icon</span><style>
         .input-content {
           box-sizing: content-box;
           display: flex;
@@ -17,7 +17,7 @@ exports[`Input should be work with content 1`] = `
           cursor: default;
           pointer-events: none;
         }
-      </style></span><input type=\\"text\\" class=\\"left-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-7gapp4nu\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+      </style></span><input type=\\"text\\" id=\\"next-ui-d6mq4brr\\" class=\\"left-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -27,35 +27,43 @@ exports[`Input should be work with content 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.687 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 12px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -64,7 +72,7 @@ exports[`Input should be work with content 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -76,51 +84,65 @@ exports[`Input should be work with content 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.687 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .875rem;
@@ -133,13 +155,19 @@ exports[`Input should be work with content 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -149,11 +177,15 @@ exports[`Input should be work with content 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"right-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-cqd0rv68\\" value=\\"\\"><span class=\\"input-content\\"><span>test-icon</span><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-pot25il2\\" class=\\"right-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"input-content\\"><span>test-icon</span><style>
         .input-content {
           box-sizing: content-box;
           display: flex;
@@ -169,7 +201,7 @@ exports[`Input should be work with content 1`] = `
           cursor: default;
           pointer-events: none;
         }
-      </style></span></label></div><div class=\\"input-helper-text-container\\"></div><style>
+      </style></span></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -179,35 +211,43 @@ exports[`Input should be work with content 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.687 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 12px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -216,7 +256,7 @@ exports[`Input should be work with content 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -228,51 +268,65 @@ exports[`Input should be work with content 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.687 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .875rem;
@@ -285,13 +339,19 @@ exports[`Input should be work with content 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -301,7 +361,11 @@ exports[`Input should be work with content 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
@@ -309,14 +373,14 @@ exports[`Input should be work with content 1`] = `
 `;
 
 exports[`Input should be work with label 1`] = `
-"<div><div class=\\"with-label\\"><label class=\\"input-label-block\\" for=\\"next-ui-54sadhso\\">label<style>
+"<div><div class=\\"with-label\\"><label id=\\"next-ui-cftpqibi-label\\" class=\\"input-label-block\\" for=\\"next-ui-cftpqibi\\">label<style>
         .input-label-block {
           display: block;
           font-weight: normal;
           color: #000;
           padding: 0 0 0 4px;
           margin-bottom: 4pt;
-          font-size: 0.875rem;
+          font-size: .875rem;
           line-height: 1.5;
           -webkit-touch-callout: none; /* iOS Safari */
           -webkit-user-select: none; /* Safari */
@@ -332,6 +396,9 @@ exports[`Input should be work with label 1`] = `
         .input-label-block > :global(*:last-child) {
           margin-bottom: 0;
         }
+        .input-label-block.rounded {
+          padding: 0 0 0 4pt;
+        }
         .as-placeholder {
           position: absolute;
           padding: 0;
@@ -343,6 +410,9 @@ exports[`Input should be work with label 1`] = `
           transition: left 0.25s ease 0s, color 0.25s ease 0s, top 0.25s ease 0s;
           color: #999;
         }
+        .as-placeholder.underlined {
+          left: 4px;
+        }
         .as-placeholder.has-content-left {
           left: calc(12px + 1.687 * 16pt * 0.64);
         }
@@ -353,7 +423,14 @@ exports[`Input should be work with label 1`] = `
           left: 4px;
           cursor: inherit;
         }
-      </style></label><div class=\\"input-container shadow\\"><div class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-54sadhso\\" value=\\"\\"></div></div><div class=\\"input-helper-text-container\\"></div><style>
+        .as-placeholder.is-textarea {
+          top: 10px;
+        }
+        .as-placeholder.is-textarea.hover,
+        .as-placeholder.is-textarea.with-value {
+          top: -28px;
+        }
+      </style></label><div class=\\"container input-container\\"><div class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-cftpqibi\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" aria-labelledby=\\"next-ui-cftpqibi-label\\" value=\\"\\"></div></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -363,35 +440,43 @@ exports[`Input should be work with label 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.687 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 12px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -400,7 +485,7 @@ exports[`Input should be work with label 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -412,51 +497,65 @@ exports[`Input should be work with label 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.687 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .875rem;
@@ -469,13 +568,19 @@ exports[`Input should be work with label 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -485,11 +590,15 @@ exports[`Input should be work with label 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-q60ghg80\\" value=\\"\\"><span class=\\"input-label right\\">label<style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-njbaaqvg\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"input-label right\\">label<style>
         .input-label {
           position: relative;
           display: inline-flex;
@@ -534,7 +643,7 @@ exports[`Input should be work with label 1`] = `
         .bordered:before {
           display: none;
         }
-      </style></span></label></div><div class=\\"input-helper-text-container\\"></div><style>
+      </style></span></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -544,35 +653,43 @@ exports[`Input should be work with label 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.687 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 12px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -581,7 +698,7 @@ exports[`Input should be work with label 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -593,51 +710,65 @@ exports[`Input should be work with label 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.687 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .875rem;
@@ -650,13 +781,19 @@ exports[`Input should be work with label 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -666,11 +803,60 @@ exports[`Input should be work with label 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-kjls9e54\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><span class=\\"input-label left\\">label<style>
+        .input-label {
+          position: relative;
+          display: inline-flex;
+          width: initial;
+          height: 100%;
+          font-weight: 500;
+          align-items: center;
+          pointer-events: none;
+          margin: 0;
+          background: rgba(153, 153,153,0.3);
+          padding: 0 8pt;
+          color: #999;
+          font-size: .875rem;
+          line-height: 1;
+        }
+        .right {
+          border-top-right-radius: 12px;
+          border-bottom-right-radius: 12px;
+        }
+        .left {
+          border-top-left-radius: 12px;
+          border-bottom-left-radius: 12px;
+        }
+        .underlined.left:after,
+        .underlined.right:before {
+          position: absolute;
+          content: '';
+          height: 70%;
+          top: 15%;
+          bottom: 0;
+          width: calc(0px / 2);
+          box-shadow: 0 2px 4px 0px rgb(0 0 0 / 8%);
+          background: #999;
+        }
+        .underlined.left:after {
+          right: 0;
+        }
+        .underlined.right:before {
+          left: 0;
+        }
+        .bordered:after,
+        .bordered:before {
+          display: none;
+        }
+      </style></span><input type=\\"text\\" id=\\"next-ui-ob3e0eun\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -680,35 +866,43 @@ exports[`Input should be work with label 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.687 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 12px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -717,7 +911,7 @@ exports[`Input should be work with label 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -729,51 +923,65 @@ exports[`Input should be work with label 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.687 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .875rem;
@@ -786,13 +994,19 @@ exports[`Input should be work with label 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -802,7 +1016,11 @@ exports[`Input should be work with label 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
@@ -810,7 +1028,7 @@ exports[`Input should be work with label 1`] = `
 `;
 
 exports[`Input should work with different sizes 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-ecojgpb6\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-55ac8l64\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -820,35 +1038,43 @@ exports[`Input should work with different sizes 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 7px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.2 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 7px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -857,7 +1083,7 @@ exports[`Input should work with different sizes 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -869,51 +1095,65 @@ exports[`Input should work with different sizes 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.2 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .75rem;
@@ -926,13 +1166,19 @@ exports[`Input should work with different sizes 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -942,11 +1188,15 @@ exports[`Input should work with different sizes 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-v7mv6vlb\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-4bn11t30\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -956,35 +1206,43 @@ exports[`Input should work with different sizes 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 9px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.5 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 9px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -993,7 +1251,7 @@ exports[`Input should work with different sizes 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -1005,51 +1263,65 @@ exports[`Input should work with different sizes 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.5 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .75rem;
@@ -1062,13 +1334,19 @@ exports[`Input should work with different sizes 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -1078,11 +1356,15 @@ exports[`Input should work with different sizes 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-usiu1uvi\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-28qhgcov\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1092,35 +1374,43 @@ exports[`Input should work with different sizes 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 14px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.875 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 14px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1129,7 +1419,7 @@ exports[`Input should work with different sizes 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -1141,51 +1431,65 @@ exports[`Input should work with different sizes 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.875 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: 1rem;
@@ -1198,13 +1502,19 @@ exports[`Input should work with different sizes 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -1214,11 +1524,15 @@ exports[`Input should work with different sizes 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-oekef6m1\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-aoj6tjfq\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1228,35 +1542,43 @@ exports[`Input should work with different sizes 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 15px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(2.25 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 15px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1265,7 +1587,7 @@ exports[`Input should work with different sizes 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -1277,51 +1599,65 @@ exports[`Input should work with different sizes 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(2.25 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: 1.25rem;
@@ -1334,13 +1670,19 @@ exports[`Input should work with different sizes 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -1350,11 +1692,15 @@ exports[`Input should work with different sizes 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-qtbpjhtl\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-2e5ldbpg\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: 50%;
             display: inline-flex;
@@ -1364,35 +1710,43 @@ exports[`Input should work with different sizes 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.687 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 12px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1401,7 +1755,7 @@ exports[`Input should work with different sizes 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -1413,51 +1767,65 @@ exports[`Input should work with different sizes 1`] = `
             background: #000;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.687 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: #2c3e50;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #000;
             box-shadow: 0 0 0 0px
               #000;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .875rem;
@@ -1470,13 +1838,19 @@ exports[`Input should work with different sizes 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -1486,7 +1860,11 @@ exports[`Input should work with different sizes 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
@@ -1494,7 +1872,7 @@ exports[`Input should work with different sizes 1`] = `
 `;
 
 exports[`Input should work with different status 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-lcqjavsk\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-eicm0oj8\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1504,35 +1882,43 @@ exports[`Input should work with different status 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.687 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 12px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1541,7 +1927,7 @@ exports[`Input should work with different status 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -1553,51 +1939,65 @@ exports[`Input should work with different status 1`] = `
             background: #7928ca;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.687 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: inherit;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #7928ca;
             box-shadow: 0 0 0 0px
               #7928ca;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .875rem;
@@ -1610,13 +2010,19 @@ exports[`Input should work with different status 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -1626,11 +2032,15 @@ exports[`Input should work with different status 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-qb6linav\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-lmbof58b\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1640,35 +2050,43 @@ exports[`Input should work with different status 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.687 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 12px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1677,7 +2095,7 @@ exports[`Input should work with different status 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -1689,51 +2107,65 @@ exports[`Input should work with different status 1`] = `
             background: #17c964;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.687 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: inherit;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #17c964;
             box-shadow: 0 0 0 0px
               #17c964;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .875rem;
@@ -1746,13 +2178,19 @@ exports[`Input should work with different status 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -1762,11 +2200,15 @@ exports[`Input should work with different status 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"input-container shadow\\"><label class=\\"input-wrapper\\"><input type=\\"text\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-readonly=\\"false\\" aria-required=\\"false\\" id=\\"next-ui-j0songs3\\" value=\\"\\"></label></div><div class=\\"input-helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"next-ui-dbahaptn\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1776,35 +2218,43 @@ exports[`Input should work with different status 1`] = `
             box-sizing: border-box;
             -webkit-box-align: center;
           }
-          .input-container {
+          .container {
             width: 100%;
-            display: inline-flex;
-            align-items: center;
             transition: all 0.25s ease;
             border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
             height: calc(1.687 * 16pt);
           }
-          .input-wrapper {
+          .wrapper {
             flex: 1;
+            position: relative;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
-            height: 100%;
             user-select: none;
             border-radius: 12px;
             background: #eaeaea;
           }
-          .input-wrapper.bordered {
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 0px
               #eaeaea;
             transition: box-shadow 0.25s ease;
           }
-          .input-wrapper.underlined {
+          .wrapper.underlined {
             background: transparent;
           }
-          .input-wrapper.underlined::after {
+          .wrapper.underlined::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1813,7 +2263,7 @@ exports[`Input should work with different status 1`] = `
             z-index: 1;
             background: #eaeaea;
           }
-          .input-wrapper.underlined::before {
+          .wrapper.underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -1825,51 +2275,65 @@ exports[`Input should work with different status 1`] = `
             background: #f5a623;
             transition: width 0.25s ease;
           }
-          .input-wrapper.hover.underlined::before {
+          .wrapper.hover.underlined::before {
             width: 100%;
           }
-          .input-wrapper.disabled {
+          .wrapper.disabled {
             background-color: #eaeaea;
             border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-          .input-helper-text-container {
+          .helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(1.687 * 8pt * -1);
             transition: opacity 0.25s ease;
           }
-          .input-helper-text-container.with-value {
+          .helper-text-container.with-value {
             opacity: 1;
           }
-          .input-helper-text {
+          .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: inherit;
           }
-          input.disabled {
-            color: #888;
-            cursor: not-allowed;
-          }
-          .input-container.hover:not(.read-only) {
+          .container.hover:not(.read-only) {
             transform: translateY(-2px);
           }
-          .input-container.shadow.hover:not(.read-only) {
+          .wrapper.shadow.hover:not(.read-only) {
             box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
-          .input-container:hover .input-wrapper.bordered,
-          .input-container.hover:not(.read-only) .input-wrapper.bordered {
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
             border-color: #f5a623;
             box-shadow: 0 0 0 0px
               #f5a623;
           }
-
-          input:focus::placeholder {
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input {
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
             margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
             padding: 0;
             box-shadow: none;
             font-size: .875rem;
@@ -1882,13 +2346,19 @@ exports[`Input should work with different status 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content {
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
             margin-left: 0;
           }
-          input.right-content {
+          input.right-content,
+          textarea.right-content {
             margin-right: 0;
           }
-          input::placeholder {
+          input::placeholder,
+          textarea::placeholder {
             color: #999;
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -1898,7 +2368,11 @@ exports[`Input should work with different status 1`] = `
           input:-webkit-autofill,
           input:-webkit-autofill:hover,
           input:-webkit-autofill:active,
-          input:-webkit-autofill:focus {
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #2c3e50 !important;
           }

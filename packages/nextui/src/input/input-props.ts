@@ -1,12 +1,17 @@
-import { NormalWeights } from './../utils/prop-types';
 import React from 'react';
 import {
   NormalSizes,
   SimpleColors,
   ContentPosition,
+  NormalWeights,
+  AsProp,
 } from '../utils/prop-types';
 
-export interface Props {
+export type FormElement = HTMLInputElement | HTMLTextAreaElement;
+
+export interface Props
+  extends AsProp<'input' | 'textarea'>,
+    React.HTMLAttributes<FormElement> {
   value?: string;
   initialValue?: string;
   placeholder?: string;
@@ -36,10 +41,10 @@ export interface Props {
   width?: string;
   className?: string;
   clearable?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<FormElement>) => void;
   onClearClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onFocus?: (e: React.FocusEvent<FormElement>) => void;
+  onBlur?: (e: React.FocusEvent<FormElement>) => void;
   onContentClick?: (
     key: ContentPosition,
     e: React.MouseEvent<HTMLDivElement>

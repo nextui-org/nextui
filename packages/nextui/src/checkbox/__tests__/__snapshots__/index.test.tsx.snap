@@ -96,6 +96,7 @@ exports[`Checkbox should render correctly 1`] = `
         .icon-check span .line1:after {
           content: &#x27;&#x27;;
           position: absolute;
+          left: 0px;
           width: 0%;
           height: 2px;
           background: #fff;
@@ -122,6 +123,7 @@ exports[`Checkbox should render correctly 1`] = `
           height: 0%;
           background: #fff;
           transition: all 0.25s ease;
+          left: 0px;
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }
@@ -326,6 +328,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .icon-check span .line1:after {
           content: '';
           position: absolute;
+          left: 0px;
           width: 0%;
           height: 2px;
           background: #fff;
@@ -352,6 +355,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           height: 0%;
           background: #fff;
           transition: all 0.25s ease;
+          left: 0px;
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }
@@ -552,6 +556,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .icon-check span .line1:after {
           content: '';
           position: absolute;
+          left: 0px;
           width: 0%;
           height: 2px;
           background: #fff;
@@ -578,6 +583,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           height: 0%;
           background: #fff;
           transition: all 0.25s ease;
+          left: 0px;
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }
@@ -778,6 +784,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .icon-check span .line1:after {
           content: '';
           position: absolute;
+          left: 0px;
           width: 0%;
           height: 2px;
           background: #fff;
@@ -804,6 +811,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           height: 0%;
           background: #fff;
           transition: all 0.25s ease;
+          left: 0px;
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }
@@ -1004,6 +1012,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .icon-check span .line1:after {
           content: '';
           position: absolute;
+          left: 0px;
           width: 0%;
           height: 2px;
           background: #fff;
@@ -1030,6 +1039,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           height: 0%;
           background: #fff;
           transition: all 0.25s ease;
+          left: 0px;
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }
@@ -1230,6 +1240,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .icon-check span .line1:after {
           content: '';
           position: absolute;
+          left: 0px;
           width: 0%;
           height: 2px;
           background: #fff;
@@ -1256,6 +1267,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           height: 0%;
           background: #fff;
           transition: all 0.25s ease;
+          left: 0px;
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }

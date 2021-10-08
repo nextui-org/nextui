@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCheckbox } from './checkbox-context';
 import CheckboxGroup from './checkbox-group';
 import useWarning from '../use-warning';
+import { __DEV__ } from '../utils/assertion';
 import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
 import useTheme from '../use-theme';
 import { getIconCheckStyle, getCheckboxSize } from './styles';
@@ -102,7 +103,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
   const iconCheckStyle = getIconCheckStyle(size, indeterminate);
 
-  if (inGroup && checked) {
+  if (__DEV__ && inGroup && checked) {
     useWarning(
       'Remove props "checked" when [Checkbox] component is in the group.',
       'Checkbox'
@@ -262,6 +263,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         .icon-check span .line1:after {
           content: '';
           position: absolute;
+          left: 0px;
           width: 0%;
           height: 2px;
           background: ${theme.palette.white};
@@ -288,6 +290,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           height: 0%;
           background: ${theme.palette.white};
           transition: all 0.25s ease;
+          left: 0px;
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }

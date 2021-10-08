@@ -45,13 +45,13 @@ const Editor: React.FC = () => {
   return (
     <div className="editor">
       <details open={visible}>
-        <summary>
+        <summary onClick={clickHandler}>
           <Row
             justify="space-between"
             align="center"
             style={{ height: '100%', width: '100%' }}
           >
-            <Col className="action" onClick={clickHandler}>
+            <Col className="action left-side">
               <span className="arrow">
                 <RightIcon size={16} fill={theme.palette.accents_6} />
               </span>
@@ -109,13 +109,14 @@ const Editor: React.FC = () => {
           overflow: hidden;
           border-radius: ${theme.layout.radius};
         }
-        :global(.right-side) {
-          opacity: 0;
-          transition: opacity 0.25s ease;
-        }
         details[open] :global(.right-side) {
-          opacity: 1;
+          display: inline-flex !important;
         }
+
+        :global(.right-side) {
+          display: none !important;
+        }
+
         summary {
           display: flex;
           justify-content: space-between;

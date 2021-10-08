@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import usePortal from '../use-portal';
 import useWarning from '../use-warning';
+import { __DEV__ } from '../utils/assertion';
 
 export type UseClipboardOptions = {
   onError: Function;
@@ -11,7 +12,7 @@ export type UseClipboardResult = {
 };
 
 const defaultOptions: UseClipboardOptions = {
-  onError: () => useWarning('Failed to copy.', 'use-clipboard'),
+  onError: () => __DEV__ && useWarning('Failed to copy.', 'use-clipboard'),
 };
 
 const useClipboard = (
