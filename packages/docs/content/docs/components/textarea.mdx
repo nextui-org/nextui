@@ -248,12 +248,12 @@ import { Textarea } from '@nextui-org/react';
 | **autoComplete**     | `string`                                          | -                                | HTML textarea autocomplete attribute                      | `off`     |
 | **borderWeight**     | `NormalWeights`                                   | [NormalWeights](#normal-weights) | Border weight for `bordered` textarea                     | `normal`  |
 | **width**            | `string`                                          | -                                | Textarea width                                            | `initial` |
-| **label**            | `string`                                          | -                                | Text label for input                                      | -         |
+| **label**            | `string`                                          | -                                | Text label for textarea                                   | -         |
 | **labelPlaceholder** | `string`                                          | -                                | The placeholder becomes a label                           | -         |
-| **helperText**       | `string`                                          | -                                | Add a helper text to Input                                | -         |
+| **helperText**       | `string`                                          | -                                | Add a helper text to textarea                             | -         |
 | **onChange**         | `(e: React.ChangeEvent) => void`                  | -                                | Callback fired when the value is changed                  | -         |
-| **onFocus**          | `(e: React.FocusEvent) => void`                   | -                                | Callback fired when the input is focused.                 | -         |
-| **onBlur**           | `(e: React.FocusEvent) => void`                   | -                                | Callback fired when the input is blurred.                 | -         |
+| **onFocus**          | `(e: React.FocusEvent) => void`                   | -                                | Callback fired when the textarea is focused.              | -         |
+| **onBlur**           | `(e: React.FocusEvent) => void`                   | -                                | Callback fired when the textarea is blurred.              | -         |
 | **ref**              | <Code>Ref<HTMLTextAreaElement &#124; null></Code> | -                                | forwardRef                                                | -         |
 | ...                  | `TextareaHTMLAttributes`                          | `'className', ...`               | Textarea native props                                     | -         |
 
@@ -290,9 +290,7 @@ type NormalWeights = 'normal' | 'light' | 'bold';
 #### useInput
 
 ```ts
-type useInput = (
-  initialValue: string
-) => {
+type useInput = (initialValue: string) => {
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   currentRef: MutableRefObject<string>;

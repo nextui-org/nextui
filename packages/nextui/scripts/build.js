@@ -11,7 +11,6 @@ const targets = process.argv.slice(2);
 
 const srcRoot = path.join(__dirname, '../src');
 const typesRoot = path.join(__dirname, '../types');
-const rootDir = path.join(__dirname, '.');
 
 const libRoot = path.join(__dirname, '../lib');
 const umdRoot = path.join(libRoot, 'umd');
