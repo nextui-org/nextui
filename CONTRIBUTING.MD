@@ -79,7 +79,13 @@ Remember that these commands must be executed in the root folder of the project.
 
 ## Tests
 
-All commits that fix bugs or add features need a test. You can run `yarn test -- src/button ` for component specific tests.
+All commits that fix bugs or add features need a test.
+You can run the nest command for component specific tests.
+
+```
+yarn test -- src/button
+
+```
 
 ## Visual Changes
 

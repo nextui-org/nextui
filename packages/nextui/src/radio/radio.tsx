@@ -5,6 +5,7 @@ import RadioGroup, { getRadioSize } from './radio-group';
 import RadioDescription from './radio-description';
 import { pickChild } from '../utils/collections';
 import useWarning from '../use-warning';
+import { __DEV__ } from '../utils/assertion';
 import { NormalSizes, SimpleColors } from '../utils/prop-types';
 import { getNormalColor } from '../utils/color';
 
@@ -72,7 +73,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     RadioDescription
   );
 
-  if (inGroup) {
+  if (inGroup && __DEV__) {
     if (checked !== undefined) {
       useWarning('Remove props "checked" if in the Radio.Group.', 'Radio');
     }
@@ -88,10 +89,10 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   }
 
   const fontSize = useMemo(() => getRadioSize(size), [size]);
-  const isDisabled = useMemo(
-    () => disabled || disabledAll,
-    [disabled, disabledAll]
-  );
+  const isDisabled = useMemo(() => disabled || disabledAll, [
+    disabled,
+    disabledAll,
+  ]);
   const radius = squared ? '2px' : '50%';
 
   const radioColor = useMemo(

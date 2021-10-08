@@ -8,6 +8,7 @@ import React, {
   useState,
 } from 'react';
 import useTheme from '../use-theme';
+import { __DEV__ } from '../utils/assertion';
 import { ContentPosition } from '../utils/prop-types';
 import InputLabel from './input-label';
 import InputBlockLabel from './input-block-label';
@@ -106,15 +107,15 @@ const Input = React.forwardRef<FormElement, InputProps>(
       [placeholder, labelPlaceholder]
     );
 
-    if (underlined && bordered) {
-      useWarning(
-        'Using underlined and bordered at the same time will have no effect.'
-      );
-    }
-    if (underlined && rounded) {
-      useWarning(
-        'Using underlined and rounded at the same time will have no effect.'
-      );
+    if (underlined && __DEV__) {
+      bordered &&
+        useWarning(
+          'Using underlined and bordered at the same time will have no effect.'
+        );
+      rounded &&
+        useWarning(
+          'Using underlined and rounded at the same time will have no effect.'
+        );
     }
 
     const {
@@ -296,7 +297,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
                 'right-content': contentRight,
                 'left-content': contentLeft,
               })}
-              contentEditable={!readOnly && !disabled}
               placeholder={inputPlaceholder}
               disabled={disabled}
               readOnly={readOnly}

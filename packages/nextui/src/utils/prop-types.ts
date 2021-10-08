@@ -125,6 +125,20 @@ const display = tuple(
 
 const contentPosition = tuple('left', 'right');
 
+export const excludedInputPropsForTextarea = tuple(
+  'clearable',
+  'as',
+  'rounded',
+  'labelLeft',
+  'labelRight',
+  'contentLeft',
+  'contentRight',
+  'contentClickable',
+  'contentLeftStyling',
+  'contentRightStyling',
+  'onContentClick'
+);
+
 export type Display = typeof display[number];
 
 export type Justify = typeof justify[number];
@@ -166,6 +180,8 @@ export type DividerAlign = typeof dividerAlign[number];
 export type ContentPosition = typeof contentPosition[number];
 
 export type BreakpointsValue = number | boolean;
+
+export type ExcludedInputProps = typeof excludedInputPropsForTextarea[number];
 
 export interface AsProp<As extends ElementType = ElementType> {
   as?: As;

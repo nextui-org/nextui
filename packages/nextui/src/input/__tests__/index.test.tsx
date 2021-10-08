@@ -38,9 +38,7 @@ describe('Input', () => {
       <div>
         <Input label="label" />
         <Input labelRight="label" />
-        <Input>
-          <span>Block Label</span>
-        </Input>
+        <Input labelLeft="label" />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();

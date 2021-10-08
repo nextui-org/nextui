@@ -1,209 +1,573 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Textarea should render correctly 1`] = `
-"<div class=\\"wrapper   \\"><textarea placeholder=\\"placeholder\\"></textarea><style>
-          .wrapper {
-            display: inline-flex;
-            box-sizing: border-box;
-            user-select: none;
+"<div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-076bahff\\" class=\\"\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+          .with-label {
             width: initial;
-            min-width: 12.5rem;
-            max-width: 95vw;
-            height: auto;
-            border-radius: 14px;
-            border: 1px solid #eaeaea;
-            color: #2c3e50;
-            transition: border 0.2s ease 0s, color 0.2s ease 0s;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
           }
-
-          .wrapper.hover {
-            border-color: #000;
-          }
-
-          .wrapper.disabled {
-            background-color: #f6f6f6;
-            border-color: #eaeaea;
-            cursor: not-allowed;
-          }
-
-          textarea {
-            background-color: transparent;
-            box-shadow: none;
-            display: block;
-            font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
-            font-size: 0.875rem;
+          .container {
             width: 100%;
-            height: 100%;
-            min-height: 6.25rem;
-            resize: none;
-            border: none;
-            outline: none;
-            padding: 8pt;
+            transition: all 0.25s ease;
+            border-radius: 12px;
           }
-
-          .disabled > textarea {
+          .input-container {
+            display: inline-flex;
+            align-items: center;
+            height: calc(1.687 * 16pt);
+          }
+          .wrapper {
+            flex: 1;
+            position: relative;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .wrapper.underlined {
+            background: transparent;
+          }
+          .wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-
+          .helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .helper-text-container.with-value {
+            opacity: 1;
+          }
+          .helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          .container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .wrapper.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
+            margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
+            margin-left: 0;
+          }
+          input.right-content,
+          textarea.right-content {
+            margin-right: 0;
+          }
+          input::placeholder,
+          textarea::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus,
           textarea:-webkit-autofill,
           textarea:-webkit-autofill:hover,
           textarea:-webkit-autofill:active,
           textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div>"
+        </style></div><style>
+          :global(.textarea-wrapper) {
+            box-sizing: border-box;
+            width: initial;
+            min-width: 12.5rem;
+            max-width: 100%;
+            height: auto;
+          }
+          :global(textarea) {
+            background-color: transparent;
+            box-shadow: none;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
+            padding: 8pt;
+            width: 100%;
+            height: 100%;
+            resize: none;
+            border: none;
+            outline: none;
+          }
+        </style>"
 `;
 
 exports[`Textarea should work with different styles 1`] = `
-"<div><div class=\\"wrapper   \\"><textarea></textarea><style>
-          .wrapper {
-            display: inline-flex;
-            box-sizing: border-box;
-            user-select: none;
+"<div><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-2im5imd1\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+          .with-label {
             width: initial;
-            min-width: 12.5rem;
-            max-width: 95vw;
-            height: auto;
-            border-radius: 14px;
-            border: 1px solid #eaeaea;
-            color: #2c3e50;
-            transition: border 0.2s ease 0s, color 0.2s ease 0s;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
           }
-
-          .wrapper.hover {
-            border-color: #7928ca;
-          }
-
-          .wrapper.disabled {
-            background-color: #f6f6f6;
-            border-color: #eaeaea;
-            cursor: not-allowed;
-          }
-
-          textarea {
-            background-color: transparent;
-            box-shadow: none;
-            display: block;
-            font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
-            font-size: 0.875rem;
+          .container {
             width: 100%;
-            height: 100%;
-            min-height: 6.25rem;
-            resize: none;
-            border: none;
-            outline: none;
-            padding: 8pt;
+            transition: all 0.25s ease;
+            border-radius: 12px;
           }
-
-          .disabled > textarea {
+          .input-container {
+            display: inline-flex;
+            align-items: center;
+            height: calc(1.687 * 16pt);
+          }
+          .wrapper {
+            flex: 1;
+            position: relative;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
+            user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .wrapper.underlined {
+            background: transparent;
+          }
+          .wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #7928ca;
+            transition: width 0.25s ease;
+          }
+          .wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
-
+          .helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .helper-text-container.with-value {
+            opacity: 1;
+          }
+          .helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: inherit;
+          }
+          .container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .wrapper.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
+            border-color: #7928ca;
+            box-shadow: 0 0 0 0px
+              #7928ca;
+          }
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
+            margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
+            margin-left: 0;
+          }
+          input.right-content,
+          textarea.right-content {
+            margin-right: 0;
+          }
+          input::placeholder,
+          textarea::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus,
           textarea:-webkit-autofill,
           textarea:-webkit-autofill:hover,
           textarea:-webkit-autofill:active,
           textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
           }
-        </style></div><div class=\\"wrapper   \\"><textarea></textarea><style>
-          .wrapper {
-            display: inline-flex;
+        </style></div><style>
+          :global(.textarea-wrapper) {
             box-sizing: border-box;
+            width: initial;
+            min-width: 12.5rem;
+            max-width: 100%;
+            height: auto;
+          }
+          :global(textarea) {
+            background-color: transparent;
+            box-shadow: none;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
+            padding: 8pt;
+            width: 100%;
+            height: 100%;
+            resize: none;
+            border: none;
+            outline: none;
+          }
+        </style><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-e6l15icl\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+          .with-label {
+            width: 20%;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            -webkit-box-align: center;
+          }
+          .container {
+            width: 100%;
+            transition: all 0.25s ease;
+            border-radius: 12px;
+          }
+          .input-container {
+            display: inline-flex;
+            align-items: center;
+            height: calc(1.687 * 16pt);
+          }
+          .wrapper {
+            flex: 1;
+            position: relative;
+            display: inline-flex;
+            vertical-align: middle;
+            align-items: center;
             user-select: none;
+            border-radius: 12px;
+            background: #eaeaea;
+          }
+          .input-wrapper {
+            height: 100%;
+          }
+          .wrapper.shadow {
+            transition: all 0.25s ease;
+          }
+          .wrapper.bordered {
+            background: transparent;
+            border: none;
+            box-shadow: 0 0 0 0px
+              #eaeaea;
+            transition: box-shadow 0.25s ease;
+          }
+          .wrapper.underlined {
+            background: transparent;
+          }
+          .wrapper.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0px;
+            z-index: 1;
+            background: #eaeaea;
+          }
+          .wrapper.underlined::before {
+            position: absolute;
+            content: '';
+            z-index: 2;
+            width: 0;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%);
+            background: #000;
+            transition: width 0.25s ease;
+          }
+          .wrapper.hover.underlined::before {
+            width: 100%;
+          }
+          .wrapper.disabled {
+            background-color: #eaeaea;
+            border-color: #eaeaea;
+            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
+            cursor: not-allowed;
+          }
+          .helper-text-container {
+            position: absolute;
+            opacity: 0;
+            bottom: calc(1.687 * 8pt * -1);
+            transition: opacity 0.25s ease;
+          }
+          .helper-text-container.with-value {
+            opacity: 1;
+          }
+          .helper-text {
+            margin: 2px 0 0 10px;
+            font-size: 0.7rem;
+            color: #2c3e50;
+          }
+          .container.hover:not(.read-only) {
+            transform: translateY(-2px);
+          }
+          .wrapper.shadow.hover:not(.read-only) {
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .container:hover .wrapper.bordered,
+          .container.hover:not(.read-only) .wrapper.bordered {
+            border-color: #000;
+            box-shadow: 0 0 0 0px
+              #000;
+          }
+          input.disabled,
+          textarea.disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          input.rounded,
+          textarea.rounded {
+            padding: 0 4pt;
+          }
+          input:focus::placeholder,
+          textarea:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          .wrapper:not(.underlined) input,
+          .wrapper:not(.underlined) textarea {
+            margin: 4px 10px;
+          }
+          .wrapper.underlined input,
+          .wrapper.underlined textarea {
+            margin: 4px 5px;
+          }
+          input,
+          textarea {
+            padding: 0;
+            box-shadow: none;
+            font-size: .875rem;
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            min-width: 0;
+            -webkit-appearance: none;
+          }
+          textarea:not(.underlined) {
+            padding: 4pt;
+          }
+          input.left-content,
+          textarea.left-content {
+            margin-left: 0;
+          }
+          input.right-content,
+          textarea.right-content {
+            margin-right: 0;
+          }
+          input::placeholder,
+          textarea::placeholder {
+            color: #999;
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover,
+          input:-webkit-autofill:active,
+          input:-webkit-autofill:focus,
+          textarea:-webkit-autofill,
+          textarea:-webkit-autofill:hover,
+          textarea:-webkit-autofill:active,
+          textarea:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+            -webkit-text-fill-color: #2c3e50 !important;
+          }
+        </style></div><style>
+          :global(.textarea-wrapper) {
+            box-sizing: border-box;
             width: 20%;
             min-width: 12.5rem;
-            max-width: 95vw;
+            max-width: 100%;
             height: auto;
-            border-radius: 14px;
-            border: 1px solid #eaeaea;
-            color: #2c3e50;
-            transition: border 0.2s ease 0s, color 0.2s ease 0s;
           }
-
-          .wrapper.hover {
-            border-color: #000;
-          }
-
-          .wrapper.disabled {
-            background-color: #f6f6f6;
-            border-color: #eaeaea;
-            cursor: not-allowed;
-          }
-
-          textarea {
+          :global(textarea) {
             background-color: transparent;
             box-shadow: none;
             display: block;
             font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
-            font-size: 0.875rem;
+            padding: 8pt;
             width: 100%;
             height: 100%;
-            min-height: 6.25rem;
             resize: none;
             border: none;
             outline: none;
-            padding: 8pt;
           }
-
-          .disabled > textarea {
-            cursor: not-allowed;
-          }
-
-          textarea:-webkit-autofill,
-          textarea:-webkit-autofill:hover,
-          textarea:-webkit-autofill:active,
-          textarea:-webkit-autofill:focus {
-            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
-          }
-        </style></div><div class=\\"wrapper   \\"><textarea></textarea><style>
-          .wrapper {
-            display: inline-flex;
-            box-sizing: border-box;
-            user-select: none;
-            width: initial;
-            min-width: 12.5rem;
-            max-width: 95vw;
-            height: auto;
-            border-radius: 14px;
-            border: 1px solid #eaeaea;
-            color: #2c3e50;
-            transition: border 0.2s ease 0s, color 0.2s ease 0s;
-          }
-
-          .wrapper.hover {
-            border-color: #000;
-          }
-
-          .wrapper.disabled {
-            background-color: #f6f6f6;
-            border-color: #eaeaea;
-            cursor: not-allowed;
-          }
-
-          textarea {
-            background-color: transparent;
-            box-shadow: none;
-            display: block;
-            font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
-            font-size: 0.875rem;
-            width: 100%;
-            height: 100%;
-            min-height: 100px;
-            resize: none;
-            border: none;
-            outline: none;
-            padding: 8pt;
-          }
-
-          .disabled > textarea {
-            cursor: not-allowed;
-          }
-
-          textarea:-webkit-autofill,
-          textarea:-webkit-autofill:hover,
-          textarea:-webkit-autofill:active,
-          textarea:-webkit-autofill:focus {
-            -webkit-box-shadow: 0 0 0 30px #fff inset !important;
-          }
-        </style></div></div>"
+        </style></div>"
 `;

@@ -35,6 +35,15 @@ export const Default = () => (
   </>
 );
 
+export const Rows = () => (
+  <>
+    <Textarea
+      label="Write your thoughts"
+      placeholder="Enter your amazing thoughts."
+    />
+  </>
+);
+
 export const Types = () => (
   <>
     <Textarea label="Default" placeholder="Default Textarea" />

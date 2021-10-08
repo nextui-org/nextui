@@ -54,9 +54,19 @@ const Application = () => (
 ```
 
 3. Using NextUI components: Once NextUI is installed you can use any of the components as follows.
+   NextUI uses tree-shaking so the unused modules will not be included in the bundle during the build process and
+   each component is exported separately.
 
 ```jsx
 import { Button } from '@nextui-org/react';
+
+const Component = () => <Button>Click me</Button>;
+```
+
+4. NextUI allows to manually import components if you need. E.g.
+
+```jsx
+import Button from '@nextui-org/react/button';
 
 const Component = () => <Button>Click me</Button>;
 ```
