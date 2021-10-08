@@ -74,7 +74,7 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
 
   return (
     <CheckboxContext.Provider value={providerValue}>
-      <div className={`checkbox-group ${className}`} {...props}>
+      <div className={`checkbox-group ${className}`} role="group" {...props}>
         {children}
         <style jsx>{`
           .checkbox-group :global(.checkbox) {

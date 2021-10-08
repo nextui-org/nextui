@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox should render correctly 1`] = `
-"<div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Buenos Aires</span><style>
+"<div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Buenos Aires</span><style>
         label {
           --checkbox-size: 20px;
           display: inline-flex;
@@ -233,7 +233,7 @@ exports[`Checkbox should render correctly 1`] = `
 `;
 
 exports[`Checkbox should work correctly with different sizes 1`] = `
-"<div><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -2px; transform: rotate(45deg) scale(0.5);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">mini</span><style>
+"<div><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -2px; transform: rotate(45deg) scale(0.5);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">mini</span><style>
         label {
           --checkbox-size: 14px;
           display: inline-flex;
@@ -461,7 +461,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           opcity: 0.8;
           transition: all 0.25s ease;
         }
-      </style></label><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -2px; transform: rotate(45deg) scale(0.5);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">small</span><style>
+      </style></label><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -2px; transform: rotate(45deg) scale(0.5);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">small</span><style>
         label {
           --checkbox-size: 16px;
           display: inline-flex;
@@ -689,7 +689,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           opcity: 0.8;
           transition: all 0.25s ease;
         }
-      </style></label><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">medium</span><style>
+      </style></label><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">medium</span><style>
         label {
           --checkbox-size: 20px;
           display: inline-flex;
@@ -917,7 +917,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           opcity: 0.8;
           transition: all 0.25s ease;
         }
-      </style></label><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">large</span><style>
+      </style></label><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">large</span><style>
         label {
           --checkbox-size: 24px;
           display: inline-flex;
@@ -1145,7 +1145,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           opcity: 0.8;
           transition: all 0.25s ease;
         }
-      </style></label><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">xlarge</span><style>
+      </style></label><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">xlarge</span><style>
         label {
           --checkbox-size: 28px;
           display: inline-flex;

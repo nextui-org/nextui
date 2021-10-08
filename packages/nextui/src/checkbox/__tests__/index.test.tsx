@@ -1,6 +1,31 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount, ReactWrapper, render } from 'enzyme';
 import Checkbox from '../index';
+
+const getCheckboxElement = (wrapper: ReactWrapper) => {
+  return wrapper.find('[role="checkbox"]');
+};
+
+const expectCheckboxIsChecked = (
+  wrapper: ReactWrapper,
+  value: boolean
+) => {
+  expect(getCheckboxElement(wrapper).props().checked).toBe(value);
+};
+
+const expectCheckboxToHaveARIAChecked = (
+  wrapper: ReactWrapper,
+  value: boolean
+) => {
+  expect(getCheckboxElement(wrapper).props()['aria-checked']).toBe(value);
+};
+
+const expectCheckboxToHaveARIADisabled = (
+  wrapper: ReactWrapper,
+  value: boolean
+) => {
+  expect(getCheckboxElement(wrapper).props()['aria-disabled']).toBe(value);
+};
 
 describe('Checkbox', () => {
   it('should render correctly', () => {
@@ -26,20 +51,16 @@ describe('Checkbox', () => {
 
   it('should work correctly with initial value', () => {
     let wrapper = mount(<Checkbox checked={true}>Buenos Aires</Checkbox>);
-    let input = wrapper.find('input').getDOMNode();
-    expect((input as HTMLInputElement).checked).toBeTruthy();
+    expectCheckboxIsChecked(wrapper, true);
 
     wrapper = mount(<Checkbox checked={false}>Buenos Aires</Checkbox>);
-    input = wrapper.find('input').getDOMNode();
-    expect((input as HTMLInputElement).checked).not.toBeTruthy();
+    expectCheckboxIsChecked(wrapper, false);
 
     wrapper = mount(<Checkbox initialChecked>Buenos Aires</Checkbox>);
-    input = wrapper.find('input').getDOMNode();
-    expect((input as HTMLInputElement).checked).toBeTruthy();
+    expectCheckboxIsChecked(wrapper, true);
 
     wrapper = mount(<Checkbox initialChecked={false}>Buenos Aires</Checkbox>);
-    input = wrapper.find('input').getDOMNode();
-    expect((input as HTMLInputElement).checked).not.toBeTruthy();
+    expectCheckboxIsChecked(wrapper, false);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -55,7 +76,7 @@ describe('Checkbox', () => {
       );
     };
     const wrapper = mount(<Wrapper />);
-    const input = wrapper.find('input').at(0);
+    const input = getCheckboxElement(wrapper);
     input.simulate('change');
     expect(wrapper.find('.text').text()).toContain('state2');
     expect(() => wrapper.unmount()).not.toThrow();
@@ -72,9 +93,12 @@ describe('Checkbox', () => {
       );
     };
     const wrapper = mount(<Wrapper />);
-    const input = wrapper.find('input').at(0);
+    const input = getCheckboxElement(wrapper);
     input.simulate('change');
     expect(wrapper.find('.text').text()).not.toContain('state2');
+    expectCheckboxIsChecked(wrapper, false);
+    expectCheckboxToHaveARIAChecked(wrapper, false);
+    expectCheckboxToHaveARIADisabled(wrapper, true);
     expect(() => wrapper.unmount()).not.toThrow();
   });
 

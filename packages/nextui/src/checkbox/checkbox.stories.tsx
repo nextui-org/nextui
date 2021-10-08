@@ -186,7 +186,7 @@ LineThrough.args = {
 };
 
 export const Group: React.VFC<{}> = (args) => (
-  <Checkbox.Group color="warning" value={['buenos-aires']} {...args}>
+  <Checkbox.Group color="warning" value={['buenos-aires']} aria-label="Select cities" {...args}>
     <Checkbox value="buenos-aires" {...Default.args}>
       Buenos Aires
     </Checkbox>
@@ -203,7 +203,7 @@ export const Group: React.VFC<{}> = (args) => (
 );
 
 export const Row = () => (
-  <Checkbox.Group value={['1']} row>
+  <Checkbox.Group value={['1']} aria-label="Select cities" row>
     <Checkbox value="1" {...Default.args}>
       Buenos Aires
     </Checkbox>

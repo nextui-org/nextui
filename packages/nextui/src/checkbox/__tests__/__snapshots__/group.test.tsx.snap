@@ -5,6 +5,7 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "class": "checkbox-group ",
+      "role": "group",
     },
     "children": Array [
       Node {
@@ -19,6 +20,9 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
+                  "aria-checked": "false",
+                  "aria-disabled": "false",
+                  "role": "checkbox",
                   "type": "checkbox",
                 },
                 "children": Array [],
@@ -155,9 +159,15 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-checked": undefined,
+                  "aria-disabled": undefined,
+                  "role": undefined,
                   "type": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-checked": undefined,
+                  "aria-disabled": undefined,
+                  "role": undefined,
                   "type": undefined,
                 },
               },
@@ -281,6 +291,9 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-checked": "false",
+                    "aria-disabled": "false",
+                    "role": "checkbox",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -291,9 +304,15 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                 },
@@ -862,6 +881,9 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-checked": "false",
+                    "aria-disabled": "false",
+                    "role": "checkbox",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -998,9 +1020,15 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                 },
@@ -1124,6 +1152,9 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -1134,9 +1165,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -1437,6 +1474,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -1573,9 +1613,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -1699,6 +1745,9 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -1709,9 +1758,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -1764,6 +1819,9 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-checked": "false",
+                    "aria-disabled": "false",
+                    "role": "checkbox",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -1900,9 +1958,15 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                 },
@@ -2026,6 +2090,9 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -2036,9 +2103,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -2607,6 +2680,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -2743,9 +2819,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -2869,6 +2951,9 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -2879,9 +2964,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -3182,6 +3273,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -3318,9 +3412,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -3444,6 +3544,9 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
+                          "aria-checked": "false",
+                          "aria-disabled": "false",
+                          "role": "checkbox",
                           "type": "checkbox",
                         },
                         "children": Array [],
@@ -3454,9 +3557,15 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                       },
@@ -3559,6 +3668,9 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
+                  "aria-checked": "false",
+                  "aria-disabled": "false",
+                  "role": "checkbox",
                   "type": "checkbox",
                 },
                 "children": Array [],
@@ -3695,9 +3807,15 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "aria-checked": undefined,
+                  "aria-disabled": undefined,
+                  "role": undefined,
                   "type": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "aria-checked": undefined,
+                  "aria-disabled": undefined,
+                  "role": undefined,
                   "type": undefined,
                 },
               },
@@ -3821,6 +3939,9 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
+                    "aria-checked": "false",
+                    "aria-disabled": "false",
+                    "role": "checkbox",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -3831,9 +3952,15 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                 },
@@ -4402,6 +4529,9 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-checked": "false",
+                    "aria-disabled": "false",
+                    "role": "checkbox",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -4538,9 +4668,15 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                 },
@@ -4664,6 +4800,9 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -4674,9 +4813,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -4977,6 +5122,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -5113,9 +5261,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -5239,6 +5393,9 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -5249,9 +5406,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -5335,6 +5498,9 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-checked": "false",
+                    "aria-disabled": "false",
+                    "role": "checkbox",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -5471,9 +5637,15 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                 },
@@ -5597,6 +5769,9 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -5607,9 +5782,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -6178,6 +6359,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -6314,9 +6498,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -6440,6 +6630,9 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -6450,9 +6643,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -6753,6 +6952,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -6889,9 +7091,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -7015,6 +7223,9 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
+                          "aria-checked": "false",
+                          "aria-disabled": "false",
+                          "role": "checkbox",
                           "type": "checkbox",
                         },
                         "children": Array [],
@@ -7025,9 +7236,15 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                       },
@@ -7124,6 +7341,9 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "attribs": Object {
+                    "aria-checked": "false",
+                    "aria-disabled": "false",
+                    "role": "checkbox",
                     "type": "checkbox",
                   },
                   "children": Array [],
@@ -7260,9 +7480,15 @@ LoadedCheerio {
                   "prev": null,
                   "type": "tag",
                   "x-attribsNamespace": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                   "x-attribsPrefix": Object {
+                    "aria-checked": undefined,
+                    "aria-disabled": undefined,
+                    "role": undefined,
                     "type": undefined,
                   },
                 },
@@ -7386,6 +7612,9 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -7396,9 +7625,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -7967,6 +8202,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -8103,9 +8341,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -8229,6 +8473,9 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -8239,9 +8486,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -8542,6 +8795,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -8678,9 +8934,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -8804,6 +9066,9 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
+                          "aria-checked": "false",
+                          "aria-disabled": "false",
+                          "role": "checkbox",
                           "type": "checkbox",
                         },
                         "children": Array [],
@@ -8814,9 +9079,15 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                       },
@@ -8871,6 +9142,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
+                      "aria-checked": "false",
+                      "aria-disabled": "false",
+                      "role": "checkbox",
                       "type": "checkbox",
                     },
                     "children": Array [],
@@ -9007,9 +9281,15 @@ LoadedCheerio {
                     "prev": null,
                     "type": "tag",
                     "x-attribsNamespace": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                     "x-attribsPrefix": Object {
+                      "aria-checked": undefined,
+                      "aria-disabled": undefined,
+                      "role": undefined,
                       "type": undefined,
                     },
                   },
@@ -9133,6 +9413,9 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -9143,9 +9426,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -9714,6 +10003,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
+                        "aria-checked": "false",
+                        "aria-disabled": "false",
+                        "role": "checkbox",
                         "type": "checkbox",
                       },
                       "children": Array [],
@@ -9850,9 +10142,15 @@ LoadedCheerio {
                       "prev": null,
                       "type": "tag",
                       "x-attribsNamespace": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                       "x-attribsPrefix": Object {
+                        "aria-checked": undefined,
+                        "aria-disabled": undefined,
+                        "role": undefined,
                         "type": undefined,
                       },
                     },
@@ -9976,6 +10274,9 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
+                          "aria-checked": "false",
+                          "aria-disabled": "false",
+                          "role": "checkbox",
                           "type": "checkbox",
                         },
                         "children": Array [],
@@ -9986,9 +10287,15 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                       },
@@ -10289,6 +10596,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
+                          "aria-checked": "false",
+                          "aria-disabled": "false",
+                          "role": "checkbox",
                           "type": "checkbox",
                         },
                         "children": Array [],
@@ -10425,9 +10735,15 @@ LoadedCheerio {
                         "prev": null,
                         "type": "tag",
                         "x-attribsNamespace": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                         "x-attribsPrefix": Object {
+                          "aria-checked": undefined,
+                          "aria-disabled": undefined,
+                          "role": undefined,
                           "type": undefined,
                         },
                       },
@@ -10551,6 +10867,9 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
+                            "aria-checked": "false",
+                            "aria-disabled": "false",
+                            "role": "checkbox",
                             "type": "checkbox",
                           },
                           "children": Array [],
@@ -10561,9 +10880,15 @@ LoadedCheerio {
                           "prev": null,
                           "type": "tag",
                           "x-attribsNamespace": Object {
+                            "aria-checked": undefined,
+                            "aria-disabled": undefined,
+                            "role": undefined,
                             "type": undefined,
                           },
                           "x-attribsPrefix": Object {
+                            "aria-checked": undefined,
+                            "aria-disabled": undefined,
+                            "role": undefined,
                             "type": undefined,
                           },
                         },
@@ -10645,9 +10970,11 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
+      "role": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
+      "role": undefined,
     },
   },
   "_root": LoadedCheerio {
@@ -10736,7 +11063,7 @@ LoadedCheerio {
 `;
 
 exports[`Checkbox Group should work correctly with different sizes 1`] = `
-"<div><div class=\\"checkbox-group \\"><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Sydney</span><style>
+"<div><div class=\\"checkbox-group \\" role=\\"group\\"><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Sydney</span><style>
         label {
           --checkbox-size: 20px;
           display: inline-flex;
@@ -10974,7 +11301,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
             display: flex;
             flex-direction: column;
           }
-        </style></div><div class=\\"checkbox-group \\"><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Sydney</span><style>
+        </style></div><div class=\\"checkbox-group \\" role=\\"group\\"><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Sydney</span><style>
         label {
           --checkbox-size: 20px;
           display: inline-flex;
@@ -11212,7 +11539,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
             display: flex;
             flex-direction: column;
           }
-        </style></div><div class=\\"checkbox-group \\"><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Sydney</span><style>
+        </style></div><div class=\\"checkbox-group \\" role=\\"group\\"><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Sydney</span><style>
         label {
           --checkbox-size: 20px;
           display: inline-flex;
@@ -11450,7 +11777,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
             display: flex;
             flex-direction: column;
           }
-        </style></div><div class=\\"checkbox-group \\"><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Sydney</span><style>
+        </style></div><div class=\\"checkbox-group \\" role=\\"group\\"><label class=\\"checkbox \\"><div class=\\"checkbox-container\\"><input type=\\"checkbox\\" role=\\"checkbox\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"checkbox-mask\\"><i class=\\"icon-check \\"><span style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"line1\\"></div><div class=\\"line2\\"></div></span></i></div></div><span class=\\"text \\">Sydney</span><style>
         label {
           --checkbox-size: 20px;
           display: inline-flex;
