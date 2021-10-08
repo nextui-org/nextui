@@ -120,7 +120,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
         }
         .as-placeholder.is-textarea.hover,
         .as-placeholder.is-textarea.with-value {
-          top: -22%;
+          top: -28px;
         }
       `}</style>
     </label>

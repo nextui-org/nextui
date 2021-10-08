@@ -27,35 +27,21 @@ import { Textarea } from '@nextui-org/react';
 
 <Playground
   title="Disabled"
-  desc="Unusable and un-writtable `Input`."
+  desc="Unusable and un-writtable `Textarea`."
   code={`
 <>
-    <Input disabled placeholder="Disabled" />
+    <Textarea
+        disabled
+        label="Name"
+        placeholder="Enter your name"
+      />
     <Spacer y={0.5} />
-    <Input readOnly initialValue="readOnly" />
+    <Textarea
+        readOnly
+        label="Read only Text"
+        initialValue="Almost before we knew it, we had left the ground."
+    />
 </>
-`}
-/>
-
-<Playground
-  title="Clearable"
-  desc="Add a clear button in the `Input` box."
-  code={`
-<>
-<Input clearable bordered labelPlaceholder="Name" initialValue="NextUI"/>
-<Spacer y={2.5} />
-<Input clearable underlined labelPlaceholder="Name" initialValue="NextUI"/>
-<Spacer y={1.5} />
-<Input clearable label="Name" placeholder="Name" initialValue="NextUI" />
-</>
-`}
-/>
-
-<Playground
-  title="Label"
-  desc="Add a label to the `Input` with the property `label`"
-  code={`
-<Input label="Full Name" placeholder="Guillermo Rauch" />
 `}
 />
 
@@ -63,43 +49,26 @@ import { Textarea } from '@nextui-org/react';
   title="Label Placeholder"
   desc="With the property `labelPlaceholder` the placeholder becomes a label with an great animation."
   code={`
-<Input labelPlaceholder="NextUI" />
-`}
-/>
-
-<Playground
-  title="Password"
-  desc="`Input` component with a show/hide password functionality, Important: You have to use the `Input.Password`
-  component."
-  code={`
-<>
-    <Input.Password labelPlaceholder="Password" initialValue="nextui123" />
-    <Spacer y={1.6} />
-    <Input.Password 
-        labelPlaceholder="Custom icons" 
-        visibleIcon={<Unlock fill="currentColor" />} 
-        hiddenIcon={<Lock fill="currentColor" />}
-    />
-</>
+<Textarea labelPlaceholder="NextUI" />
 `}
 />
 
 <Playground
   title="Sizes"
-  desc="Change the size of the entire `Input` including `padding`, `font-size` and `border` with the `size` property."
+  desc="Change the size of the entire `Textarea` including `padding`, `font-size` and `border` with the `size` property."
   code={`
  <>
-    <Input size="mini" placeholder="Mini" />
+    <Textarea size="mini" placeholder="Mini" />
     <Spacer y={0.5} />
-    <Input size="small" placeholder="Small" />
+    <Textarea size="small" placeholder="Small" />
     <Spacer y={0.5} />
-    <Input size="medium" placeholder="Medium" />
+    <Textarea size="medium" placeholder="Medium" />
     <Spacer y={0.5} />
-    <Input size="large" placeholder="Large" />
+    <Textarea size="large" placeholder="Large" />
     <Spacer y={0.5} />
-    <Input size="xlarge" placeholder="xLarge" />
+    <Textarea size="xlarge" placeholder="xLarge" />
     <Spacer y={0.5} />
-    <Input width="120px" placeholder="120px" />
+    <Textarea width="90px" placeholder="90px" />
   </>
 `}
 />
@@ -352,121 +321,6 @@ import { Textarea } from '@nextui-org/react';
     </Grid.Container>
     );
  }
-`}
-/>
-
-<Playground
-  title="Left/right labels"
-  desc="You can put any content at the begining or at the end of the `Input`"
-  code={`
-<Grid.Container gap={2.5}>
-    <Grid>    
-     <Input
-        bordered
-        labelLeft="https://"
-        labelRight=".org"
-        placeholder="nextui"
-        />
-    </Grid>
-    <Grid>
-     <Input
-        bordered
-        labelRight=".org"
-        placeholder="https://nextui"
-        />
-    </Grid >
-    <Grid>
-     <Input
-        bordered
-        labelLeft="https://"
-        placeholder="nextui.org"
-        />
-    </Grid >    
-    <Grid>      
-        <Input labelLeft="username" placeholder="getnextui" />
-    </Grid>
-    <Grid>      
-        <Input
-        labelRight=".org"
-        placeholder="https://nextui"
-        />
-    </Grid>
-    <Grid>
-     <Input
-        underlined
-        labelLeft="username"
-        placeholder="Next UI"
-        />
-    </Grid>
-  </Grid.Container>
-`}
-/>
-
-<Playground
-  title="Content"
-  desc="You can put any content at the begining or at the end of the `Input` with the properties `contentLeft` and `contentRight`.
-  Impotant: If you want the `Input` component change the icon colors according to the current `status` color 
-  you should use `currentColor` as the icon/svg color to allows ."
-  code={`
-  <Grid.Container gap={2.5}>
-       <Grid>
-        <Input
-            clearable
-            contentRightStyling={false}
-            placeholder="Type your message..."
-            contentRight={<SendButton />}
-        />
-        </Grid>
-        <Grid>
-        <Input
-            clearable
-            underlined
-            status="warning"
-            color="warning"
-            labelPlaceholder="Sun icon"
-            contentRight={<Sun filled width="16" height="16" fill="currentColor" />}
-        />
-        </Grid>
-        <Grid>
-        <Input
-            clearable
-            bordered
-            color="primary"
-            labelPlaceholder="Loading..."
-            contentRight={<Loading size="mini" style={{transform:'translateY(-2px)'}} />}
-        /> 
-        </Grid>
-    </Grid.Container>
-`}
-/>
-
-<Playground
-  title="Input Types"
-  desc="Change the type of `Input` with the `type` property as a native html input, the default value is `text`"
-  code={`
-  <Grid.Container gap={2.5}>
-    <Grid>
-      <Input label="Text" type="text" />
-    </Grid>
-    <Grid>
-      <Input label="Password" type="password" />
-    </Grid>
-    <Grid>
-      <Input label="Search" type="search" />
-    </Grid>
-    <Grid>
-      <Input label="Number" type="number" />
-    </Grid>
-    <Grid>
-      <Input label="Url" type="url" />
-    </Grid>
-    <Grid>
-      <Input width="186px" label="Time" type="time" />
-    </Grid>
-    <Grid>
-      <Input width="186px" label="Date" type="date" />
-    </Grid>
-  </Grid.Container>
 `}
 />
 

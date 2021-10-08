@@ -48,9 +48,13 @@ export const Types = () => (
   <>
     <Textarea label="Default" placeholder="Default Textarea" />
     <Spacer y={2} />
-    <Textarea underlined color="primary" placeholder="Underlined Textarea" />
+    <Textarea
+      underlined
+      color="primary"
+      labelPlaceholder="Underlined Textarea"
+    />
     <Spacer y={2} />
-    <Textarea bordered color="secondary" placeholder="Bordered Textarea" />
+    <Textarea bordered color="secondary" labelPlaceholder="Bordered Textarea" />
   </>
 );
 
