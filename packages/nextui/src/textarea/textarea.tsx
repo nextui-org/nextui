@@ -105,8 +105,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       const [height, rowHeight] = calculateNodeHeight(
         nodeSizingData,
         node.value || node.placeholder || 'x',
-        !!rows ? rows : minRows,
-        !!rows ? rows : maxRows
+        rows || minRows,
+        rows || maxRows
       );
 
       if (heightRef.current !== height) {
