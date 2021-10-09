@@ -418,10 +418,9 @@ import { Input } from '@nextui-org/react';
         <Input
             clearable
             underlined
-            status="warning"
             color="warning"
             labelPlaceholder="Sun icon"
-            contentRight={<Sun filled width="16" height="16" fill="currentColor" />}
+            contentRight={<Sun filled width="16" height="16" fill="#f5a623" />}
         />
         </Grid>
         <Grid>
@@ -564,9 +563,7 @@ type ContentPosition = 'left' | 'right';
 #### useInput
 
 ```ts
-type useInput = (
-  initialValue: string
-) => {
+type useInput = (initialValue: string) => {
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   currentRef: MutableRefObject<string>;
