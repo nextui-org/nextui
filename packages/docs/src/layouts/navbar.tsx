@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Logo,
-  SearchInput,
-  MenuToggle,
-  MobileNavigation,
-  Badge,
-  Twitter,
-  Discord,
-  Github,
-} from '@components';
+import { Logo, MenuToggle, Badge, Twitter, Discord, Github } from '@components';
 import cn from 'classnames';
 import NextLink from 'next/link';
+import dynamic from 'next/dynamic';
 import {
   Row,
   Col,
@@ -31,6 +23,20 @@ export interface Props {
   detached?: boolean;
   routes?: Route[];
 }
+
+const MobileNavigation = dynamic(
+  () => import('../components/mobile-navigation'),
+  {
+    ssr: false,
+  }
+);
+
+const SearchInput = dynamic(
+  () => import('../components/search/instant-search'),
+  {
+    ssr: true,
+  }
+);
 
 const Navbar: React.FC<Props> = ({ detached, routes }) => {
   const [expanded, setExpanded] = useState(false);
