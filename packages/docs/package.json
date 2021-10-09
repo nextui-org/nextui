@@ -21,6 +21,7 @@
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "next": "^11.0.0",
+    "shelljs": "^0.8.4",
     "next-mdx-remote": "^3.0.2",
     "prism-react-renderer": "^1.2.1",
     "querystring": "^0.2.1",
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.11",
+    "@types/shelljs": "^0.8.9",
     "@types/react-autosuggest": "^10.1.5",
     "@types/react-dom": "^17.0.8",
     "@types/react-instantsearch-dom": "^6.12.0",
