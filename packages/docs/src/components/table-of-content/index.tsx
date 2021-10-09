@@ -28,9 +28,9 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
     <div className="container" {...props}>
       <h4 className="title">Contents</h4>
       <ul className="list">
-        {headings.map((heading) => (
+        {headings.map((heading, i) => (
           <li
-            key={heading.id}
+            key={i}
             className={cn('list-item', {
               active: activeId == heading.id,
             })}
