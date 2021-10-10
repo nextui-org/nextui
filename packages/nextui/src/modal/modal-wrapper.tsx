@@ -8,6 +8,7 @@ import cslx from '../utils/clsx';
 interface Props {
   className?: string;
   visible?: boolean;
+  scroll?: boolean;
   fullScreen?: boolean;
 }
 
@@ -23,6 +24,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   children,
   visible,
   fullScreen,
+  scroll,
   ...props
 }) => {
   const theme = useTheme();
@@ -82,7 +84,8 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             max-width: 100%;
             vertical-align: middle;
             overflow: hidden;
-            max-height: calc(100vh - 200px);
+            height: fit-content(20em);
+            max-height: ${scroll ? 'calc(100vh - 200px)' : 'inherit'};
             display: flex;
             flex-direction: column;
             position: relative;
@@ -123,8 +126,6 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           .full-screen {
             width: 100%;
             height: 100%;
-            max-width: 100vw;
-            max-height: 100vh;
           }
         `}</style>
       </div>

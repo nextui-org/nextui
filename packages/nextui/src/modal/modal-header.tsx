@@ -46,7 +46,6 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
           align-items: center;
           overflow: hidden;
           color: inherit;
-          background-color: inherit;
           font-size: 0.875rem;
           padding: ${theme.layout.gapHalf} calc(${theme.layout.gap} + 0.25rem);
           border-bottom-left-radius: ${theme.layout.radius};

@@ -16,6 +16,7 @@ interface Props {
   onClose?: () => void;
   onOpen?: () => void;
   open?: boolean;
+  scroll?: boolean;
   fullScreen?: boolean;
   autoMargin?: boolean;
   escapeClose?: boolean;
@@ -29,7 +30,8 @@ const defaultProps = {
   className: '',
   disableBackdropClick: false,
   escapeClose: true,
-  fullScreen: false
+  fullScreen: false,
+  scroll: false
 };
 
 type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
