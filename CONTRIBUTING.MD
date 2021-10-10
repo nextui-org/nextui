@@ -83,7 +83,7 @@ All commits that fix bugs or add features need a test.
 You can run the nest command for component specific tests.
 
 ```
-yarn test -- src/button
+yarn test src/button
 
 ```
 
