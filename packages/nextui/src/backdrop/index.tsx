@@ -3,24 +3,27 @@ import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import CSSTransition from '../utils/css-transition';
 import useCurrentState from '../use-current-state';
+import cslx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 interface Props {
   onClick?: (event: MouseEvent<HTMLElement>) => void;
   visible?: boolean;
+  fullScreenContent?: boolean;
   width?: string;
 }
 
 const defaultProps = {
   onClick: () => {},
-  visible: false
+  visible: false,
+  fullScreenContent: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type BackdropProps = Props & typeof defaultProps & NativeAttrs;
 
 const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
-  ({ children, onClick, visible, width, ...props }) => {
+  ({ children, onClick, visible, width, fullScreenContent, ...props }) => {
     const theme = useTheme();
     const [, setIsContentMouseDown, IsContentMouseDownRef] =
       useCurrentState(false);
@@ -45,7 +48,9 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
     return (
       <CSSTransition name="backdrop-wrapper" visible={visible} clearTime={300}>
         <div
-          className="backdrop"
+          className={cslx('backdrop', {
+            fullscreen: fullScreenContent
+          })}
           onClick={clickHandler}
           onMouseUp={mouseUpHandler}
           {...props}
@@ -66,20 +71,26 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               right: 0;
               bottom: 0;
               overflow: auto;
-              z-index: 1000;
+              z-index: 99999;
               -webkit-overflow-scrolling: touch;
               box-sizing: border-box;
               text-align: center;
             }
             .content {
               position: relative;
-              z-index: 1001;
+              z-index: 999999;
               outline: none;
               width: 100%;
               max-width: ${width};
               margin: 20px auto;
               vertical-align: middle;
               display: inline-block;
+            }
+            .fullscreen .content {
+              width: 100vw;
+              max-width: 100vw;
+              height: 100vh;
+              margin: 0;
             }
             .backdrop:before {
               display: inline-block;
@@ -100,7 +111,10 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               background-color: black;
               transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
               pointer-events: none;
-              z-index: 1000;
+              z-index: 99999;
+            }
+            .fullscreen .layer {
+              display: none;
             }
             .backdrop-wrapper-enter .layer {
               opacity: 0;

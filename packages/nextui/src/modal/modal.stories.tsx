@@ -99,6 +99,79 @@ export const Default = () => {
   );
 };
 
+export const WithCloseButton = () => {
+  const [visible, setVisible] = useState(false);
+  const theme = useTheme();
+  const handler = () => setVisible(true);
+
+  const closeHandler = () => {
+    setVisible(false);
+    console.log('closed');
+  };
+  return (
+    <div>
+      <Button auto onClick={handler}>
+        Show Modal
+      </Button>
+      <Modal
+        closeButton
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+      >
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+            Welcome to&nbsp;
+            <Text b size={18}>
+              NextUI
+            </Text>
+          </Text>
+        </Modal.Header>
+
+        <Modal.Body>
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="large"
+            placeholder="Email"
+            contentLeft={<Mail theme={theme} />}
+          />
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="large"
+            placeholder="Password"
+            contentLeft={<Password theme={theme} />}
+          />
+          <Row justify="space-between">
+            <Checkbox>
+              <Text size={14} color={theme.palette.text}>
+                Remember me
+              </Text>
+            </Checkbox>
+            <Text size={14} color={theme.palette.accents_4}>
+              Forgot password?
+            </Text>
+          </Row>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button auto flat color="error" onClick={closeHandler}>
+            Close
+          </Button>
+          <Button auto onClick={closeHandler}>
+            Sign in
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};
+
 export const WithUseModal = () => {
   const { setVisible, bindings } = useModal();
   const theme = useTheme();
@@ -395,6 +468,8 @@ export const FullScreen = () => {
       </Button>
       <Modal
         scroll
+        closeButton
+        fullScreen
         width="40%"
         aria-labelledby="modal-title"
         aria-describedby="modal-description"

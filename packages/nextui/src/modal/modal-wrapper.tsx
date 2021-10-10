@@ -3,13 +3,16 @@ import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import CSSTransition from '../utils/css-transition';
 import { isChildElement } from '../utils/collections';
+import ModalCloseButton from './modal-close-button';
 import cslx from '../utils/clsx';
 
 interface Props {
   className?: string;
   visible?: boolean;
   scroll?: boolean;
+  onCloseButtonClick?: () => void;
   fullScreen?: boolean;
+  closeButton?: boolean;
 }
 
 const defaultProps = {
@@ -24,6 +27,8 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   children,
   visible,
   fullScreen,
+  closeButton,
+  onCloseButtonClick,
   scroll,
   ...props
 }) => {
@@ -55,10 +60,24 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
     }
   };
 
+  const handleClose = () => {
+    onCloseButtonClick && onCloseButtonClick();
+  };
+
   return (
-    <CSSTransition name="wrapper" visible={visible} clearTime={300}>
+    <CSSTransition
+      name="modal-wrapper"
+      visible={visible}
+      enterTime={20}
+      leaveTime={20}
+      clearTime={300}
+    >
       <div
-        className={cslx('wrapper', { 'full-screen': fullScreen }, className)}
+        className={cslx(
+          'modal-wrapper',
+          { fullscreen: fullScreen, 'with-close-button': closeButton },
+          className
+        )}
         role="dialog"
         aria-modal={visible}
         tabIndex={-1}
@@ -72,6 +91,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           aria-hidden="true"
           ref={tabStart}
         />
+        {closeButton && <ModalCloseButton onClick={handleClose} />}
         {children}
         <div
           tabIndex={0}
@@ -80,7 +100,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           ref={tabEnd}
         />
         <style jsx>{`
-          .wrapper {
+          .modal-wrapper {
             max-width: 100%;
             vertical-align: middle;
             overflow: hidden;
@@ -100,19 +120,19 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s,
               transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s;
           }
-          .wrapper-enter {
+          .modal-wrapper-enter {
             opacity: 0;
             transform: translate3d(0px, 15px, 0px) scale(0.9);
           }
-          .wrapper-enter-active {
+          .modal-wrapper-enter-active {
             opacity: 1;
             transform: translate3d(0px, 0px, 0px) scale(1);
           }
-          .wrapper-leave {
+          .modal-wrapper-leave {
             opacity: 1;
             transform: translate3d(0px, 0px, 0px) scale(1);
           }
-          .wrapper-leave-active {
+          .modal-wrapper-leave-active {
             opacity: 0;
             transform: translate3d(0px, 15px, 0px) scale(0.9);
           }
@@ -123,9 +143,21 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             height: 0;
             opacity: 0;
           }
-          .full-screen {
+          .fullscreen {
             width: 100%;
             height: 100%;
+            max-height: 100%;
+          }
+          .with-close-button {
+            padding-top: ${theme.layout.gap};
+          }
+          .fullscreen :global(.close-icon) {
+            top: ${theme.layout.gap};
+            right: calc(${theme.layout.gap} * 0.5);
+          }
+          .fullscreen :global(.close-icon svg) {
+            width: 24px;
+            height: 24px;
           }
         `}</style>
       </div>

@@ -13,15 +13,16 @@ import useKeyboard, { KeyCode } from '../use-keyboard';
 import { __DEV__ } from '../utils/assertion';
 
 interface Props {
-  onClose?: () => void;
   onOpen?: () => void;
   open?: boolean;
   scroll?: boolean;
+  closeButton?: boolean;
   fullScreen?: boolean;
   autoMargin?: boolean;
   escapeClose?: boolean;
   width?: string;
   disableBackdropClick?: boolean;
+  onClose?: () => void;
   className?: string;
 }
 
@@ -31,6 +32,7 @@ const defaultProps = {
   disableBackdropClick: false,
   escapeClose: true,
   fullScreen: false,
+  closeButton: false,
   scroll: false
 };
 
@@ -103,9 +105,16 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
         onClick={closeFromBackdrop}
         visible={visible}
         width={wrapperWidth}
+        fullScreenContent={fullScreen}
         {...bindings}
       >
-        <ModalWrapper visible={visible} className={className} {...props}>
+        <ModalWrapper
+          visible={visible}
+          onCloseButtonClick={closeModal}
+          className={className}
+          fullScreen={fullScreen}
+          {...props}
+        >
           {children}
         </ModalWrapper>
       </Backdrop>
