@@ -1,0 +1,89 @@
+---
+title: 'Modal'
+description: 'Display a dialog with a custom content that requires attention or provides additional information.'
+url: https://nextui.com/docs/components/modal
+---
+
+# Textarea
+
+Display a dialog with a custom content that requires attention or provides additional information.
+
+```jsx
+import { Modal } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Playground
+  title="Default"
+  desc="The default `Textarea` contains an animation effect."
+  code={`
+() => {
+const [visible, setVisible] = useState(false);
+const theme = useTheme();
+const handler = () => setVisible(true);
+const closeHandler = () => {
+    setVisible(false);
+    console.log('closed');
+};
+return (
+<div>
+    <Button auto onClick={handler}>
+        Show Modal
+    </Button>
+    <Modal
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+    >
+        <Modal.Header>
+            <Text id="modal-title" size={18}>
+            Welcome to&nbsp;
+            <Text b size={18}>
+                NextUI
+            </Text>
+            </Text>
+        </Modal.Header>
+        <Modal.Body>
+            <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="large"
+                placeholder="Email"
+                contentLeft={<Mail theme={theme} />}
+            />
+            <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="large"
+                placeholder="Password"
+                contentLeft={<Password theme={theme} />}
+            />
+            <Row justify="space-between">
+            <Checkbox>
+                <Text size={14} color={theme.palette.text}>
+                Remember me
+                </Text>
+            </Checkbox>
+            <Text size={14} color={theme.palette.accents_4}>
+                Forgot password?
+            </Text>
+            </Row>
+        </Modal.Body>
+        <Modal.Footer>
+            <Button auto flat color="error" onClick={closeHandler}>
+            Close
+            </Button>
+            <Button auto onClick={closeHandler}>
+            Sign in
+            </Button>
+        </Modal.Footer>
+    </Modal>
+</div>
+);    
+}`}
+/>
