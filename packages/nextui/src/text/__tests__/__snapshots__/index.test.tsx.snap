@@ -4,6 +4,7 @@ exports[`Text should be able to specify the size of text 1`] = `
 "<p class=\\"custom-size  \\">test-value</p><style>
         p {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: 14px;
@@ -18,6 +19,7 @@ exports[`Text should be able to specify the size of text 2`] = `
 "<p class=\\"custom-size  \\">test-value</p><style>
         p {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: 12rem;
@@ -32,6 +34,7 @@ exports[`Text should render P element in the default 1`] = `
 "<p class=\\"  \\">test-value</p><style>
         p {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -46,6 +49,7 @@ exports[`Text should render default color when type missing 1`] = `
 "<p class=\\"  \\" type=\\"unknow\\">test-value</p><style>
         p {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -60,6 +64,7 @@ exports[`Text should work with different styles 1`] = `
 "<div><p class=\\"  \\">test-value</p><style>
         p {
           color: #7928ca;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -70,6 +75,7 @@ exports[`Text should work with different styles 1`] = `
       </style><p class=\\"  \\">test-value</p><style>
         p {
           color: #17c964;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -80,6 +86,7 @@ exports[`Text should work with different styles 1`] = `
       </style><p class=\\"  \\">test-value</p><style>
         p {
           color: #f5a623;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -90,6 +97,7 @@ exports[`Text should work with different styles 1`] = `
       </style><p class=\\"  \\">test-value</p><style>
         p {
           color: #f21361;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -104,6 +112,7 @@ exports[`Text the combined style should be rendered 1`] = `
 "<p class=\\"  \\"><b class=\\"  \\"><del class=\\"  \\">test-value</del><style>
         del {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -114,6 +123,7 @@ exports[`Text the combined style should be rendered 1`] = `
       </style></b><style>
         b {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -124,6 +134,7 @@ exports[`Text the combined style should be rendered 1`] = `
       </style></p><style>
         p {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -138,6 +149,7 @@ exports[`Text the specified element should be rendered 1`] = `
 "<div><h1 class=\\"  \\">test-value</h1><style>
         h1 {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -148,6 +160,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><h2 class=\\"  \\">test-value</h2><style>
         h2 {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -158,6 +171,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><h3 class=\\"  \\">test-value</h3><style>
         h3 {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -168,6 +182,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><h4 class=\\"  \\">test-value</h4><style>
         h4 {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -178,6 +193,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><h5 class=\\"  \\">test-value</h5><style>
         h5 {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -188,6 +204,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><h6 class=\\"  \\">test-value</h6><style>
         h6 {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -198,6 +215,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><p class=\\"  \\">test-value</p><style>
         p {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -208,6 +226,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><small class=\\"  \\">test-value</small><style>
         small {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -218,6 +237,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><span class=\\"  \\">test-value</span><style>
         span {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -228,6 +248,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><del class=\\"  \\">test-value</del><style>
         del {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -238,6 +259,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><i class=\\"  \\">test-value</i><style>
         i {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -248,6 +270,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><em class=\\"  \\">test-value</em><style>
         em {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;
@@ -258,6 +281,7 @@ exports[`Text the specified element should be rendered 1`] = `
       </style><b class=\\"  \\">test-value</b><style>
         b {
           color: inherit;
+          margin: inherit;
         }
         .custom-size {
           font-size: inherit;

@@ -8,6 +8,7 @@ export interface Props {
   tag: keyof JSX.IntrinsicElements;
   color?: NormalColors | string;
   size?: string | number;
+  margin?: string | number;
   capitalize?: boolean;
   className?: '';
 }
@@ -27,6 +28,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   className,
   color: userColor,
   capitalize,
+  margin: marginProp,
   size,
   ...props
 }) => {
@@ -42,6 +44,12 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
     return size;
   }, [size]);
 
+  const margin = useMemo<string>(() => {
+    if (!marginProp) return 'inherit';
+    if (typeof marginProp === 'number') return `${size}px`;
+    return marginProp;
+  }, [marginProp]);
+
   return (
     <React.Fragment>
       <Component
@@ -55,6 +63,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
       <style jsx>{`
         ${tag} {
           color: ${color};
+          margin: ${margin};
         }
         .custom-size {
           font-size: ${fontSize};
