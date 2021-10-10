@@ -42,6 +42,17 @@ const Editor: React.FC = () => {
     }, 200);
   };
 
+  const linkHandler = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    event.preventDefault();
+    
+    Object.assign(document.createElement('a'), {
+      target: '_blank',
+      rel: "noopener noreferrer",
+      href: `${ISSUE_REPORT_URL}${componentTitle}`,
+    }).click();
+  };
+
   return (
     <div className="editor">
       <details open={visible}>
@@ -83,6 +94,7 @@ const Editor: React.FC = () => {
                     title="Report a bug"
                     rel="noopener noreferrer"
                     target="_blank"
+                    onClick={linkHandler}
                     href={`${ISSUE_REPORT_URL}${componentTitle}`}
                   >
                     <BugIcon fill={theme.palette.accents_6} size={18} />
