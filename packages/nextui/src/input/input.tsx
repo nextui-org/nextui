@@ -8,7 +8,6 @@ import React, {
   useState,
 } from 'react';
 import useTheme from '../use-theme';
-import { __DEV__ } from '../utils/assertion';
 import { ContentPosition } from '../utils/prop-types';
 import InputLabel from './input-label';
 import InputBlockLabel from './input-block-label';
@@ -23,6 +22,7 @@ import { getNormalRadius, getNormalWeight } from '../utils/dimensions';
 import clsx from '../utils/clsx';
 import { isEmpty } from '../utils/assertion';
 import useWarning from '../use-warning';
+import { __DEV__ } from '../utils/assertion';
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
 export type InputProps = Props & typeof defaultProps & NativeAttrs;
@@ -66,12 +66,13 @@ const Input = React.forwardRef<FormElement, InputProps>(
       shadow,
       animated,
       required,
-      width,
+      width: widthProp,
       className,
       onBlur,
       onFocus,
       autoComplete,
       placeholder,
+      fullWidth,
       borderWeight: borderWeightProp,
       disabled,
       bordered,
@@ -93,19 +94,26 @@ const Input = React.forwardRef<FormElement, InputProps>(
 
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
 
-    const inputLabel = useMemo(() => label || labelPlaceholder, [
-      label,
-      labelPlaceholder,
-    ]);
+    const inputLabel = useMemo(
+      () => label || labelPlaceholder,
+      [label, labelPlaceholder]
+    );
 
-    const ComponentWrapper = useMemo(() => (inputLabel ? 'div' : 'label'), [
-      inputLabel,
-    ]);
+    const ComponentWrapper = useMemo(
+      () => (inputLabel ? 'div' : 'label'),
+      [inputLabel]
+    );
 
     const inputPlaceholder = useMemo(
       () => (labelPlaceholder ? '' : placeholder),
       [placeholder, labelPlaceholder]
     );
+
+    const width = useMemo(() => {
+      if (fullWidth) return '100%';
+      if (widthProp) return widthProp;
+      return 'initial';
+    }, [fullWidth, widthProp]);
 
     if (underlined && __DEV__) {
       bordered &&
@@ -126,18 +134,15 @@ const Input = React.forwardRef<FormElement, InputProps>(
       borderColor,
       hoverBorder,
       shadowColor,
-    } = useMemo(() => getColors(theme, colorProp, status, helperColorProp), [
-      theme.palette,
-      theme.expressiveness,
-      colorProp,
-      helperColorProp,
-      status,
-    ]);
+    } = useMemo(
+      () => getColors(theme, colorProp, status, helperColorProp),
+      [theme.palette, theme.expressiveness, colorProp, helperColorProp, status]
+    );
 
-    const radius = useMemo(() => getNormalRadius(size, rounded), [
-      size,
-      rounded,
-    ]);
+    const radius = useMemo(
+      () => getNormalRadius(size, rounded),
+      [size, rounded]
+    );
 
     const borderWeight = useMemo(
       () =>

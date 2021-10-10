@@ -13,6 +13,7 @@ export interface Props
   extends AsProp<'input' | 'textarea'>,
     React.HTMLAttributes<FormElement> {
   value?: string;
+  fullWidth?: boolean;
   initialValue?: string;
   placeholder?: string;
   size?: NormalSizes;
@@ -61,6 +62,7 @@ export const defaultProps = {
   animated: true,
   underlined: false,
   shadow: true,
+  fullWidth: false,
   contentClickable: false,
   contentRightStyling: true,
   contentLeftStyling: true,

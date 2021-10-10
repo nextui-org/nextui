@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Textarea should render correctly 1`] = `
-"<div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-kjbd6p50\\" class=\\"\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-kojhhrqf\\" class=\\"\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -193,7 +193,7 @@ exports[`Textarea should render correctly 1`] = `
 `;
 
 exports[`Textarea should work with different styles 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-a66lbrqp\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-gmtutiu7\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -381,7 +381,7 @@ exports[`Textarea should work with different styles 1`] = `
             border: none;
             outline: none;
           }
-        </style><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-e5amm20t\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-ut2fbadg\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: 20%;
             display: inline-flex;
