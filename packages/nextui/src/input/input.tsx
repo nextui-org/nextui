@@ -5,7 +5,7 @@ import React, {
   useImperativeHandle,
   useMemo,
   useRef,
-  useState,
+  useState
 } from 'react';
 import useTheme from '../use-theme';
 import { ContentPosition } from '../utils/prop-types';
@@ -34,7 +34,7 @@ const simulateChangeEvent = (
   return {
     ...event,
     target: el,
-    currentTarget: el,
+    currentTarget: el
   };
 };
 
@@ -133,7 +133,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       placeholderColor,
       borderColor,
       hoverBorder,
-      shadowColor,
+      shadowColor
     } = useMemo(
       () => getColors(theme, colorProp, status, helperColorProp),
       [theme.palette, theme.expressiveness, colorProp, helperColorProp, status]
@@ -188,7 +188,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       () => ({
         ratio: heightRatio,
         clickable: contentClickable,
-        onClick: contentClickHandler,
+        onClick: contentClickHandler
       }),
       [heightRatio, contentClickable, contentClickHandler]
     );
@@ -207,7 +207,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
 
     const inputProps = {
       ...props,
-      ...controlledValue,
+      ...controlledValue
     };
 
     const { inputId, labelId } = useMemo(() => {
@@ -216,7 +216,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
         inputId: inputProps.id || `next-ui-${nextuiId}`,
         labelId: !isEmpty(inputProps.id)
           ? `${inputProps.id}-label`
-          : `next-ui-${nextuiId}-label`,
+          : `next-ui-${nextuiId}-label`
       };
     }, [inputProps.id]);
 
@@ -253,7 +253,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
               'input-container': !isTextarea,
               'textarea-container': isTextarea,
               'read-only': readOnly,
-              hover,
+              hover
             },
             className
           )}
@@ -266,7 +266,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
               underlined,
               shadow,
               'input-wrapper': !isTextarea,
-              'textarea-wrapper': isTextarea,
+              'textarea-wrapper': isTextarea
             })}
           >
             {labelLeft && (
@@ -300,7 +300,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
                 disabled,
                 rounded,
                 'right-content': contentRight,
-                'left-content': contentLeft,
+                'left-content': contentLeft
               })}
               placeholder={inputPlaceholder}
               disabled={disabled}
@@ -318,6 +318,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
             {clearable && (
               <InputIconClear
                 status={status}
+                underlined={underlined}
                 visible={Boolean(selfValue)}
                 hasContentRight={!!contentRight}
                 heightRatio={heightRatio}
@@ -352,7 +353,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
         </div>
         <div
           className={clsx('helper-text-container', {
-            'with-value': !!helperText,
+            'with-value': !!helperText
           })}
         >
           {helperText && <p className="helper-text">{helperText}</p>}

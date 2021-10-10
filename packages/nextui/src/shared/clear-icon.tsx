@@ -4,6 +4,7 @@ import withDefaults from '../utils/with-defaults';
 interface Props {
   width?: number;
   height?: number;
+  plain?: boolean;
   size?: number;
   fill?: string;
 }
@@ -11,9 +12,34 @@ interface Props {
 const defaultProps = {
   width: 24,
   height: 24,
+  plain: false
 };
 
-const Close: React.FC<Props> = ({ size, fill, width, height, ...props }) => {
+const Close: React.FC<Props> = ({
+  size,
+  fill,
+  plain,
+  width,
+  height,
+  ...props
+}) => {
+  if (plain) {
+    return (
+      <svg
+        width={size || width}
+        height={size || height}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={fill}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+      >
+        <path d="M18 6L6 18M6 6l12 12" />
+      </svg>
+    );
+  }
   return (
     <svg
       width={size || width}
