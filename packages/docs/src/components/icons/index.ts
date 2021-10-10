@@ -36,3 +36,5 @@ export { default as Twitter } from './twitter';
 export { default as Discord } from './discord';
 export { default as Github } from './github';
 export { default as Send } from './send';
+export { default as Mail } from './mail';
+export { default as Password } from './password';

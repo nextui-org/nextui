@@ -75,8 +75,8 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               position: relative;
               z-index: 1001;
               outline: none;
-              max-width: 90%;
-              width: ${width};
+              width: 100%;
+              max-width: ${width};
               margin: 20px auto;
               vertical-align: middle;
               display: inline-block;
@@ -113,6 +113,11 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
             }
             .backdrop-wrapper-leave-active .layer {
               opacity: 0;
+            }
+            @media only screen and (max-width: ${theme.breakpoints.sm.max}) {
+              .content {
+                width: 90%;
+              }
             }
           `}</style>
         </div>

@@ -97,27 +97,16 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   if (!portal) return null;
   return createPortal(
     <ModalContext.Provider value={modalConfig}>
-      {fullScreen ? (
-        <ModalWrapper
-          visible={visible}
-          fullScreen={fullScreen}
-          className={className}
-          {...props}
-        >
+      <Backdrop
+        onClick={closeFromBackdrop}
+        visible={visible}
+        width={wrapperWidth}
+        {...bindings}
+      >
+        <ModalWrapper visible={visible} className={className} {...props}>
           {children}
         </ModalWrapper>
-      ) : (
-        <Backdrop
-          onClick={closeFromBackdrop}
-          visible={visible}
-          width={wrapperWidth}
-          {...bindings}
-        >
-          <ModalWrapper visible={visible} className={className} {...props}>
-            {children}
-          </ModalWrapper>
-        </Backdrop>
-      )}
+      </Backdrop>
     </ModalContext.Provider>,
     portal
   );
