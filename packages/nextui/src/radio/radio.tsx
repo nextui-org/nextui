@@ -30,6 +30,7 @@ interface Props {
   className?: string;
   disabled?: boolean;
   onChange?: (e: RadioEvent) => void;
+  tabIndex?: number
 }
 
 const defaultProps = {
@@ -39,6 +40,7 @@ const defaultProps = {
   disabled: false,
   squared: false,
   className: '',
+  tabIndex: -1
 };
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
@@ -54,6 +56,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   color,
   textColor,
   value: radioValue,
+  tabIndex,
   children,
   ...props
 }) => {
@@ -142,7 +145,12 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   }, [checked]);
 
   return (
-    <div className={`radio ${className}`} {...props}>
+    <div
+      className={`radio ${className}`}
+      role="radio"
+      aria-checked={selfChecked}
+      {...props}
+    >
       <label>
         <input
           type="radio"
@@ -165,7 +173,6 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
       <style jsx>{`
         input {
           opacity: 0;
-          visibility: hidden;
           overflow: hidden;
           width: 1px;
           height: 1px;
@@ -217,6 +224,9 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           border: calc(var(--radio-size) * 0.34) solid ${radioColor};
         }
         label:hover .point:not(.active):not(.disabled) {
+          background: ${theme.palette.border};
+        }
+        radio:focus .point:not(.active):not(.disabled) {
           background: ${theme.palette.border};
         }
       `}</style>
