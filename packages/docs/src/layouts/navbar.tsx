@@ -176,6 +176,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           </Row>
         </Col>
         <Col className="navbar__menu-container">
+          <ThemeToggle className="navbar__social-icon-mobile" />
           <div
             className="navbar__menu-arrow noselect"
             onClick={onToggleNavigation}
@@ -219,7 +220,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
         :global(.navbar__menu-arrow) {
           height: 100%;
           min-height: 40px;
-          min-width: 40px;
+          min-width: 30px;
           display: flex;
           justify-content: flex-end;
           align-items: center;
@@ -231,6 +232,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
         }
         :global(.navbar__social-icon) {
           margin: 0 6px;
+        }
+        :global(.navbar__social-icon-mobile) {
+          margin: 0;
         }
         :global(.navbar__social-icon svg) {
           transition: all 0.25s ease;

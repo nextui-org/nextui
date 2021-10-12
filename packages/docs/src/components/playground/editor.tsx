@@ -142,6 +142,7 @@ const Editor: React.FC = () => {
           overflow: hidden;
           border-radius: ${theme.layout.radius};
           background-color: ${theme.type === 'light' ? '#363449' : '#111'};
+          box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
         }
         details[open] :global(.right-side) {
           display: inline-flex !important;
