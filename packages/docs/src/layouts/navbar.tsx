@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Logo, MenuToggle, Badge, Twitter, Discord, Github } from '@components';
+import {
+  Logo,
+  MenuToggle,
+  Badge,
+  Twitter,
+  Discord,
+  Github,
+  ThemeToggle,
+} from '@components';
 import cn from 'classnames';
 import NextLink from 'next/link';
 import dynamic from 'next/dynamic';
@@ -44,6 +52,8 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
+
+  const isDark = theme.type === 'dark';
 
   useEffect(() => {
     if (!isMobile) {
@@ -127,7 +137,12 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Twitter size={20} fill={theme.palette.accents_6} />
+                <Twitter
+                  size={20}
+                  fill={
+                    isDark ? theme.palette.accents_4 : theme.palette.accents_5
+                  }
+                />
               </Link>
               <Link
                 className="navbar__social-icon"
@@ -135,7 +150,12 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Discord size={20} fill={theme.palette.accents_6} />
+                <Discord
+                  size={20}
+                  fill={
+                    isDark ? theme.palette.accents_4 : theme.palette.accents_5
+                  }
+                />
               </Link>
               <Link
                 className="navbar__social-icon"
@@ -143,13 +163,20 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Github size={20} fill={theme.palette.accents_6} />
+                <Github
+                  size={20}
+                  fill={
+                    isDark ? theme.palette.accents_4 : theme.palette.accents_5
+                  }
+                />
               </Link>
+              <ThemeToggle className="navbar__social-icon" />
             </Row>
             <SearchInput />
           </Row>
         </Col>
         <Col className="navbar__menu-container">
+          <ThemeToggle className="navbar__social-icon-mobile" />
           <div
             className="navbar__menu-arrow noselect"
             onClick={onToggleNavigation}
@@ -179,7 +206,6 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           max-height: 64px;
           z-index: 9999;
         }
-
         :global(.navbar__search-row) {
           position: initial !important;
         }
@@ -194,7 +220,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
         :global(.navbar__menu-arrow) {
           height: 100%;
           min-height: 40px;
-          min-width: 40px;
+          min-width: 30px;
           display: flex;
           justify-content: flex-end;
           align-items: center;
@@ -205,7 +231,10 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           display: none;
         }
         :global(.navbar__social-icon) {
-          margin: 0 3px;
+          margin: 0 6px;
+        }
+        :global(.navbar__social-icon-mobile) {
+          margin: 0;
         }
         :global(.navbar__social-icon svg) {
           transition: all 0.25s ease;

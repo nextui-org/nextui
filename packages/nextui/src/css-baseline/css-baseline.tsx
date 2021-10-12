@@ -13,7 +13,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         html,
         body {
           background-color: ${theme.palette.background};
-          color: ${theme.palette.foreground};
+          color: ${theme.palette.text};
         }
         html {
           font-size: 16px;

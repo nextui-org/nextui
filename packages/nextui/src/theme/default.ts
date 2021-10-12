@@ -16,7 +16,7 @@ export const palette: NextUIThemesPalette = {
   accents_6: '#444',
   accents_7: '#333',
   accents_8: '#111',
-  text: '#2c3e50',
+  text: '#333',
   white: '#fff',
   background: '#fff',
   foreground: '#000',

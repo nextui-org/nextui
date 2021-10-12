@@ -60,6 +60,7 @@ const Badge: React.FC<BadgeProps> = ({ type, label, className, ...props }) => {
           letter-spacing: 0.6px;
           line-height: 1;
           text-shadow: 0 1px 1px rgba(0, 0, 0, 0.16);
+          box-shadow: 1px 2px 5px 0px rgb(0 0 0 / 10%);
           align-items: center;
           align-self: center;
         }

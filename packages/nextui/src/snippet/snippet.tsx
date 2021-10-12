@@ -2,7 +2,7 @@ import React, { useMemo, useState, useRef } from 'react';
 import Tooltip from '../tooltip';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
-import { SnippetTypes, CopyTypes } from '../utils/prop-types';
+import { SnippetTypes, CopyTypes, TooltipColors } from '../utils/prop-types';
 import { getStyles } from './styles';
 import SnippetIcon from './snippet-icon';
 import useClipboard from '../use-clipboard';
@@ -10,15 +10,16 @@ import useClipboard from '../use-clipboard';
 interface Props {
   text?: string | string[];
   symbol?: string;
-  toastText?: string;
   filled?: boolean;
   width?: string;
   bordered?: boolean;
   showTooltip?: boolean;
+  tooltipText?: string;
   tooltipCopyText?: string;
   tooltipCopiedText?: string;
   copy?: CopyTypes;
   type?: SnippetTypes;
+  tooltipColor?: TooltipColors | string;
   className?: string;
 }
 
@@ -27,10 +28,10 @@ const defaultProps = {
   bordered: false,
   showTooltip: true,
   symbol: '$',
-  toastText: 'Copied to clipboard!',
   width: 'initial',
   copy: 'default' as CopyTypes,
   type: 'default' as SnippetTypes,
+  tooltipColor: 'default' as TooltipColors | string,
   tooltipCopyText: 'Copy',
   tooltipCopiedText: 'Copied',
   className: '',
@@ -52,12 +53,12 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   bordered,
   children,
   symbol,
-  toastText,
   showTooltip,
   text,
   width,
   tooltipCopyText,
   tooltipCopiedText,
+  tooltipColor,
   copy: copyType,
   className,
   ...props
@@ -68,10 +69,11 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   const ref = useRef<HTMLPreElement>(null);
   const isMultiLine = text && Array.isArray(text);
 
-  const style = useMemo(
-    () => getStyles(type, theme.palette, filled),
-    [type, theme.palette, filled]
-  );
+  const style = useMemo(() => getStyles(type, theme.palette, filled), [
+    type,
+    theme.palette,
+    filled,
+  ]);
   const showCopyIcon = useMemo(() => copyType !== 'prevent', [copyType]);
   const childText = useMemo<string | undefined | null>(() => {
     if (isMultiLine) return textArrayToString(text as string[]);
@@ -113,6 +115,8 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
       {showCopyIcon && copyType !== 'slient' ? (
         <Tooltip
           hideArrow
+          rounded
+          color={tooltipColor}
           text={copied ? tooltipCopiedText : tooltipCopyText}
           onVisibleChange={handleTooltipVisibleChange}
         >
