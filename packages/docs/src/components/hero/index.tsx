@@ -15,7 +15,6 @@ import {
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
 import { addColorAlpha } from '@utils/index';
-import router from 'next/router';
 
 const Hero: React.FC = () => {
   const theme = useTheme() as NextUIThemes;
