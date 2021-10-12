@@ -40,6 +40,11 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
         :global(.snippet, .copy) {
           background-color: ${codeTheme.plain.backgroundColor} !important;
         }
+        :global(.copy path) {
+          fill: ${theme.type === 'light'
+            ? theme.palette.accents_2
+            : theme.palette.accents_5};
+        }
         :global(.snippet pre) {
           border-radius: 0px !important;
         }

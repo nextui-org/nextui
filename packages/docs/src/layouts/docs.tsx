@@ -38,6 +38,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
     (typeof window !== 'undefined' && window.pageYOffset) || 0
   );
   const theme = useTheme() as NextUIThemes;
+  const isDark = theme.type === 'dark';
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll.bind(this));
@@ -88,12 +89,14 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         </Sticky>
         <img
           className="docs__gradient-blue"
-          src="/gradient-blue.svg"
+          src={isDark ? '/gradient-left-dark.svg' : '/gradient-left-light.svg'}
           alt="gradient blue background"
         />
         <img
           className="docs__gradient-violet"
-          src="/gradient-violet.svg"
+          src={
+            isDark ? '/gradient-right-dark.svg' : '/gradient-right-light.svg'
+          }
           alt="gradient violet background"
         />
       </Row>

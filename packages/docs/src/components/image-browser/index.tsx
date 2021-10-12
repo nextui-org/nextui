@@ -1,5 +1,6 @@
 import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
+import { useTheme } from '@nextui-org/react';
 
 interface Props {
   width?: number;
@@ -23,20 +24,90 @@ const ImageBrowser: React.FC<Props> = ({
   className,
   ...props
 }) => {
+  const theme = useTheme();
+  const isDark = theme.type === 'dark';
+  const { firstWindow, secondWindow } = React.useMemo(() => {
+    if (isDark) {
+      return {
+        firstWindow: {
+          logo: '#fff',
+          logoText: '#000',
+          bg: '#171717',
+          bar: '#111',
+          miniBar: '#444',
+          elements: '#444',
+          elements2: '#333',
+        },
+        secondWindow: {
+          logo: '#000',
+          logoText: '#fff',
+          bg: '#eaeaea',
+          bar: '#d2d2d2',
+          miniBar: '#c1c1c1',
+          elements: '#c1c1c1',
+          elements2: '#999',
+        },
+      };
+    }
+    return {
+      firstWindow: {
+        logo: '#000',
+        logoText: '#fff',
+        bg: '#eaeaea',
+        bar: '#d2d2d2',
+        miniBar: '#c1c1c1',
+        elements: '#c1c1c1',
+        elements2: '#999',
+      },
+      secondWindow: {
+        logo: '#fff',
+        logoText: '#000',
+        bg: '#171717',
+        bar: '#111',
+        miniBar: '#444',
+        elements: '#444',
+        elements2: '#333',
+      },
+    };
+  }, [isDark]);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      className={className}
+      className={`image-browser-svg ${className}`}
       viewBox="0 0 1048 608"
       {...props}
     >
       <defs>
         <style>
-          {
-            '.prefix__cls-1{fill:rgba(23,23,23)}.prefix__cls-2{fill:rgba(43,43,43)}.prefix__cls-3{fill:#f21361}.prefix__cls-4{fill:#f5a623}.prefix__cls-5{fill:#17c964}.prefix__cls-7{fill:#666}.prefix__cls-8{fill:#0070f3}.prefix__cls-9{fill:#999}.prefix__cls-10{fill:#eaeaea}.prefix__cls-11{fill:#888}.prefix__cls-12{fill:#7928ca}.prefix__cls-13{fill:#fff}.prefix__cls-15{fill:#444}'
+          {`
+          .prefix__cls-1,.prefix__cls-2
+          .prefix__cls-7,.prefix__cls-9,
+          .prefix__cls-20,.prefix__cls-21,
+          .prefix__cls-23,.prefix__cls-73,
+          .prefix__cls-53,.prefix__cls-33,
+          .prefix__cls-15 {
+            transition: fill 200ms ease;
           }
+          .prefix__cls-1{fill:${firstWindow.bg}}
+          .prefix__cls-2{fill:${secondWindow.bg}}
+          .prefix__cls-3{fill:#f21361}
+          .prefix__cls-4{fill:#f5a623}
+          .prefix__cls-5{fill:#17c964}
+          .prefix__cls-7{fill:${secondWindow.miniBar}}
+          .prefix__cls-8{fill:#0070f3}
+          .prefix__cls-9{fill:${firstWindow.elements2}}
+          .prefix__cls-20{fill:${secondWindow.elements}}
+          .prefix__cls-21{fill:${secondWindow.elements2}}
+          .prefix__cls-10{fill:#eaeaea}
+          .prefix__cls-11{fill:#888}
+          .prefix__cls-12{fill:#7928ca}
+          .prefix__cls-23{fill:${firstWindow.logo}}
+          .prefix__cls-73{fill:${firstWindow.logoText}}
+          .prefix__cls-53{fill:${secondWindow.logo}}
+          .prefix__cls-33{fill:${secondWindow.logoText}}
+          .prefix__cls-15{fill:${firstWindow.elements}}`}
         </style>
       </defs>
       <g id="prefix__Group_26" transform="translate(-1072 -228)">
@@ -45,13 +116,13 @@ const ImageBrowser: React.FC<Props> = ({
             id="prefix__Rectangle_48"
             className="prefix__cls-2"
             d="M0 0h870v395a15 15 0 01-15 15H15a15 15 0 01-15-15V0z"
-            transform="translate(1106 449)"
+            transform="translate(1106 448)"
           />
           <g id="prefix__Component_1_3" transform="translate(1106 394)">
             <path
               id="prefix__Rectangle_23"
               d="M15 0h840a15 15 0 0115 15v40H0V15A15 15 0 0115 0z"
-              fill="#f6f6f6"
+              fill={secondWindow.bar}
             />
             <circle
               id="prefix__Ellipse_1"
@@ -81,7 +152,7 @@ const ImageBrowser: React.FC<Props> = ({
               id="prefix__Path_7"
               d="M8.5 0h265a8.5 8.5 0 010 17H8.5a8.5 8.5 0 010-17z"
               transform="translate(294 19)"
-              fill="#d6d6d6"
+              fill={secondWindow.miniBar}
             />
           </g>
           <rect
@@ -180,7 +251,7 @@ const ImageBrowser: React.FC<Props> = ({
           <g id="prefix__Group_15" transform="translate(1745.941 553)">
             <rect
               id="prefix__Rectangle_33"
-              className="prefix__cls-9"
+              className="prefix__cls-20"
               width={184}
               height={83}
               rx={15}
@@ -188,7 +259,7 @@ const ImageBrowser: React.FC<Props> = ({
             />
             <rect
               id="prefix__Rectangle_41"
-              className="prefix__cls-7"
+              className="prefix__cls-21"
               width={52}
               height={48}
               rx={7}
@@ -216,7 +287,7 @@ const ImageBrowser: React.FC<Props> = ({
           <g id="prefix__Group_16" transform="translate(1745.941 663.435)">
             <rect
               id="prefix__Rectangle_33-2"
-              className="prefix__cls-9"
+              className="prefix__cls-20"
               width={184}
               height={83}
               rx={15}
@@ -224,7 +295,7 @@ const ImageBrowser: React.FC<Props> = ({
             />
             <rect
               id="prefix__Rectangle_41-2"
-              className="prefix__cls-7"
+              className="prefix__cls-21"
               width={52}
               height={48}
               rx={7}
@@ -311,7 +382,7 @@ const ImageBrowser: React.FC<Props> = ({
           />
           <circle
             id="prefix__Ellipse_10"
-            className="prefix__cls-9"
+            className="prefix__cls-20"
             cx={8.5}
             cy={8.5}
             r={8.5}
@@ -319,7 +390,7 @@ const ImageBrowser: React.FC<Props> = ({
           />
           <circle
             id="prefix__Ellipse_11"
-            className="prefix__cls-9"
+            className="prefix__cls-20"
             cx={8.5}
             cy={8.5}
             r={8.5}
@@ -328,7 +399,7 @@ const ImageBrowser: React.FC<Props> = ({
           <g id="prefix__Group_25" transform="translate(371.382 130.382)">
             <rect
               id="prefix__Rectangle_1"
-              className="prefix__cls-13"
+              className="prefix__cls-53"
               width={43}
               height={43}
               rx={11}
@@ -336,6 +407,7 @@ const ImageBrowser: React.FC<Props> = ({
             />
             <path
               id="prefix__Path_2"
+              className="prefix__cls-33"
               d="M33.3-159.273h1.66v12.063a6.366 6.366 0 01-.872 3.323 6.192 6.192 0 01-2.424 2.3 7.459 7.459 0 01-3.607.841 7.434 7.434 0 01-3.6-.845 6.226 6.226 0 01-2.429-2.3 6.343 6.343 0 01-.872-3.318v-12.063h1.664v11.947a5.107 5.107 0 00.649 2.584 4.64 4.64 0 001.828 1.784 5.635 5.635 0 002.762.649 5.66 5.66 0 002.767-.649 4.6 4.6 0 001.828-1.784 5.135 5.135 0 00.645-2.584zm8.166 0v18.218H39.8v-18.218z"
               transform="translate(763.081 524.487)"
             />
@@ -361,12 +433,13 @@ const ImageBrowser: React.FC<Props> = ({
                 width={43}
                 height={43}
                 rx={11}
+                className="prefix__cls-23"
                 transform="translate(773 353)"
               />
               <path
                 id="prefix__Path_2-2"
-                className="prefix__cls-13"
                 d="M33.267-159.273h1.659v12.033a6.351 6.351 0 01-.87 3.315 6.177 6.177 0 01-2.418 2.3 7.441 7.441 0 01-3.6.839 7.416 7.416 0 01-3.594-.843 6.211 6.211 0 01-2.423-2.3 6.328 6.328 0 01-.87-3.31v-12.033h1.659v11.918a5.1 5.1 0 00.648 2.578A4.629 4.629 0 0025.284-143a5.621 5.621 0 002.755.648A5.647 5.647 0 0030.8-143a4.591 4.591 0 001.824-1.779 5.123 5.123 0 00.643-2.578zm8.147 0v18.173h-1.66v-18.174z"
+                className="prefix__cls-73"
                 transform="translate(763.161 524.565)"
               />
             </g>
@@ -374,7 +447,7 @@ const ImageBrowser: React.FC<Props> = ({
               <path
                 id="prefix__Rectangle_23-2"
                 d="M15 0h840a15 15 0 0115 15v40H0V15A15 15 0 0115 0z"
-                fill="#111"
+                fill={firstWindow.bar}
               />
               <circle
                 id="prefix__Ellipse_1-2"
@@ -653,6 +726,13 @@ const ImageBrowser: React.FC<Props> = ({
           </g>
         </g>
       </g>
+      <style jsx>
+        {`
+          .image-browser-svg {
+            filter: drop-shadow(10px 0px 60px rgb(245 135 174 / 25%));
+          }
+        `}
+      </style>
     </svg>
   );
 };

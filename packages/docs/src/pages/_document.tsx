@@ -27,19 +27,6 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <body>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            (function(){
-              if (!window.localStorage) return;
-              if (window.localStorage.getItem('theme') === 'dark') {
-                document.documentElement.style.background = '#000000';
-                document.body.style.background = '#000000';
-              };
-            })()
-          `,
-            }}
-          />
           <Main />
           <NextScript />
         </body>

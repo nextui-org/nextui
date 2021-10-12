@@ -46,7 +46,7 @@ const CarbonAd: React.FC<unknown> = () => {
             display: flex;
             width: 100%;
             border-radius: ${theme.layout.radius};
-            background-color: ${theme.palette.accents_1};
+            background-color: ${theme.type === 'light' ? '#363449' : '#111'};
             z-index: 100;
           }
           #carbonads a {
@@ -85,7 +85,9 @@ const CarbonAd: React.FC<unknown> = () => {
             display: block;
             font-size: 1rem;
             width: 100%;
-            color: ${theme.palette.accents_6};
+            color: ${theme.type === 'light'
+              ? theme.palette.accents_2
+              : theme.palette.accents_6};
             padding-left: ${theme.layout.gapHalf};
             padding-right: ${theme.layout.gapHalf};
           }
@@ -97,7 +99,9 @@ const CarbonAd: React.FC<unknown> = () => {
             bottom: 0;
             right: 0;
             padding: 10px 0;
-            color: ${theme.palette.accents_4};
+            color: ${theme.type === 'light'
+              ? theme.palette.accents_3
+              : theme.palette.accents_4};
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-weight: 600;

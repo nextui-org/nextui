@@ -3,8 +3,8 @@ import { NextUIThemes } from '@nextui-org/react';
 
 const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
   plain: {
-    backgroundColor: theme.palette.accents_1,
-    color: theme.palette.text,
+    backgroundColor: theme.type === 'light' ? '#363449' : '#111',
+    color: '#fff',
     fontWeight: '500',
     fontStyle: 'normal',
     fontFamily: theme.font.mono,
@@ -15,14 +15,17 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
     {
       types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
       style: {
-        color: theme.palette.accents_6,
+        color:
+          theme.type === 'light'
+            ? theme.palette.accents_3
+            : theme.palette.accents_6,
         opacity: 0.5,
       },
     },
     {
       types: ['punctuation', 'symbol', 'text'],
       style: {
-        color: theme.palette.text,
+        color: '#fff',
       },
     },
     {

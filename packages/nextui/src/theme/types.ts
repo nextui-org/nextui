@@ -1,5 +1,7 @@
 import { ThemeTypes } from '../utils/prop-types';
 
+export type ThemeType = ThemeTypes;
+
 export interface NextUIThemesPalette {
   accents_1: string;
   accents_2: string;
