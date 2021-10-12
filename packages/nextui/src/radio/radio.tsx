@@ -223,9 +223,6 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
         label:hover .point:not(.active):not(.disabled) {
           background: ${theme.palette.border};
         }
-        radio:focus .point:not(.active):not(.disabled) {
-          background: ${theme.palette.border};
-        }
       `}</style>
     </div>
   );
