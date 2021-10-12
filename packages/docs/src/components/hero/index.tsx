@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import {
   useTheme,
   Container,
@@ -10,16 +11,20 @@ import {
   Spacer,
   Button,
   Grid,
-  Link,
   Snippet,
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
-import NextLink from 'next/link';
 import { addColorAlpha } from '@utils/index';
 
 const Hero: React.FC = () => {
   const theme = useTheme() as NextUIThemes;
   const isDark = theme.type === 'dark';
+
+  const router = useRouter();
+
+  const handleGetStartedClick = () => {
+    router.push('docs/guide/getting-started');
+  };
 
   return (
     <Container
@@ -109,10 +114,9 @@ const Hero: React.FC = () => {
                 className="hero__get-started-button"
                 size="large"
                 shadow={!isDark}
+                onClick={handleGetStartedClick}
               >
-                <NextLink href="docs/guide/getting-started">
-                  <Link color="white">Get Started</Link>
-                </NextLink>
+                Get Started
               </Button>
             </Grid>
             <Grid xs={12} sm={9}>
@@ -121,24 +125,24 @@ const Hero: React.FC = () => {
               </Snippet>
             </Grid>
           </Grid.Container>
-          <img
-            className="hero__gradient-blue"
-            src={
-              isDark ? '/gradient-left-dark.svg' : '/gradient-left-light.svg'
-            }
-            alt="gradient blue background"
-          />
+          {isDark && (
+            <img
+              className="hero__gradient-blue"
+              src="/gradient-left-dark.svg"
+              alt="gradient blue background"
+            />
+          )}
         </Col>
         <Col span={6} className="hero__right-container">
           <ImageBrowser className="hero__browser-image" />
         </Col>
-        <img
-          className="hero__gradient-violet"
-          src={
-            isDark ? '/gradient-right-dark.svg' : '/gradient-right-light.svg'
-          }
-          alt="gradient violet background"
-        />
+        {isDark && (
+          <img
+            className="hero__gradient-violet"
+            src="/gradient-right-dark.svg"
+            alt="gradient violet background"
+          />
+        )}
       </Row>
       <style jsx>{`
         :global(.hero__container) {
@@ -191,7 +195,7 @@ const Hero: React.FC = () => {
         :global(.hero__snippet) {
           backdrop-filter: saturate(180%) blur(20px);
           background: ${addColorAlpha(theme.palette.accents_2, 0.5)} !important;
-          box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 10%);
+          box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 15%);
         }
         :global(.hero__snippet .copy) {
           background: transparent !important;
