@@ -38,7 +38,7 @@ const defaultProps = {
   textColor: 'default' as SimpleColors,
   disabled: false,
   squared: false,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
@@ -142,7 +142,12 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   }, [checked]);
 
   return (
-    <div className={`radio ${className}`} {...props}>
+    <div
+      className={`radio ${className}`}
+      role="radio"
+      aria-checked={selfChecked}
+      {...props}
+    >
       <label>
         <input
           type="radio"
@@ -165,7 +170,6 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
       <style jsx>{`
         input {
           opacity: 0;
-          visibility: hidden;
           overflow: hidden;
           width: 1px;
           height: 1px;
