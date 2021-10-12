@@ -30,7 +30,6 @@ interface Props {
   className?: string;
   disabled?: boolean;
   onChange?: (e: RadioEvent) => void;
-  tabIndex?: number
 }
 
 const defaultProps = {
@@ -39,8 +38,7 @@ const defaultProps = {
   textColor: 'default' as SimpleColors,
   disabled: false,
   squared: false,
-  className: '',
-  tabIndex: -1
+  className: ''
 };
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
@@ -56,7 +54,6 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   color,
   textColor,
   value: radioValue,
-  tabIndex,
   children,
   ...props
 }) => {
