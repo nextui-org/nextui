@@ -93,13 +93,6 @@ import { Tooltip } from '@nextui-org/react';
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="gradient">
-            <Button auto color="gradient">
-                Gradient
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid>
         <Tooltip text="Developers love Next.js" color="#ff4ecd">
             <Button auto flat color="#ff4ecd">
                 Custom
@@ -154,13 +147,6 @@ import { Tooltip } from '@nextui-org/react';
         <Tooltip text="Developers love Next.js" textColor="error" color="white">
             <Button flat auto color="error">
                 Error
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid>
-        <Tooltip text="Developers love Next.js" textColor="primary" color="white">
-            <Button auto color="gradient">
-                Gradient
             </Button>
         </Tooltip>
     </Grid>
@@ -353,7 +339,7 @@ import { Tooltip } from '@nextui-org/react';
 
 <Spacer y={2} />
 
-#### Checkbox Props
+#### Tooltip Props
 
 | Attribute           | Type                       | Accepted values                                      | Description                                                | Default   |
 | ------------------- | -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- | --------- |
@@ -390,8 +376,7 @@ type TooltipColors =
   | 'success'
   | 'warning'
   | 'error'
-  | 'invert'
-  | 'gradient';
+  | 'invert';
 ```
 
 #### Simple Colors

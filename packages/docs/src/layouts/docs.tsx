@@ -38,6 +38,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
     (typeof window !== 'undefined' && window.pageYOffset) || 0
   );
   const theme = useTheme() as NextUIThemes;
+  const isDark = theme.type === 'dark';
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll.bind(this));
@@ -86,16 +87,20 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         <Sticky offset={10} className="docs__right-sidebar">
           <TableOfContent headings={headings} />
         </Sticky>
-        <img
-          className="docs__gradient-blue"
-          src="/gradient-blue.svg"
-          alt="gradient blue background"
-        />
-        <img
-          className="docs__gradient-violet"
-          src="/gradient-violet.svg"
-          alt="gradient violet background"
-        />
+        {isDark && (
+          <img
+            className="docs__gradient-blue"
+            src="/gradient-left-dark.svg"
+            alt="gradient blue background"
+          />
+        )}
+        {isDark && (
+          <img
+            className="docs__gradient-violet"
+            src="/gradient-right-dark.svg"
+            alt="gradient violet background"
+          />
+        )}
       </Row>
       <Footer />
       <style jsx>

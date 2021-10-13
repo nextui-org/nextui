@@ -126,7 +126,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
         </label>
       );
     },
-    [value]
+    [value, theme.type]
   );
   const renderSuggestionsContainer = ({
     containerProps,
@@ -338,7 +338,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             .search__input-container {
               background: ${theme.palette.accents_2};
             }
-
             .react-autosuggest__suggestions-container,
             .no-results {
               background: ${theme.palette.accents_1};

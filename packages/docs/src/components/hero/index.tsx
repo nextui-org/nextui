@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import {
   useTheme,
   Container,
@@ -10,13 +11,20 @@ import {
   Spacer,
   Button,
   Grid,
-  Link,
+  Snippet,
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
-import NextLink from 'next/link';
+import { addColorAlpha } from '@utils/index';
 
 const Hero: React.FC = () => {
   const theme = useTheme() as NextUIThemes;
+  const isDark = theme.type === 'dark';
+
+  const router = useRouter();
+
+  const handleGetStartedClick = () => {
+    router.push('docs/guide/getting-started');
+  };
 
   return (
     <Container
@@ -42,27 +50,12 @@ const Hero: React.FC = () => {
               <Row align="center">
                 <Image
                   className="hero__feature-img"
-                  src="/responsive.svg"
-                  width={24}
-                  height={27.9}
-                  alt="responsive icon"
+                  src={isDark ? '/themeable-dark.svg' : '/themeable-light.svg'}
+                  quality={100}
+                  width={42}
+                  height={42}
                 />
-                <Spacer />
-                <Text b size="1.1rem">
-                  Responsive design
-                </Text>
-              </Row>
-            </Grid>
-            <Grid xs={6}>
-              <Row align="center">
-                <Image
-                  className="hero__feature-img"
-                  src="/category.svg"
-                  width={24}
-                  height={27.9}
-                  alt="category icon"
-                />
-                <Spacer />
+                <Spacer x={0.6} />
                 <Text b size="1.1rem">
                   Themeable
                 </Text>
@@ -72,14 +65,18 @@ const Hero: React.FC = () => {
               <Row align="center">
                 <Image
                   className="hero__feature-img"
-                  src="/graph.svg"
-                  width={24}
-                  height={28.8}
-                  alt="graph icon"
+                  src={
+                    isDark
+                      ? '/light-and-dark_dark.svg'
+                      : '/light-and-dark_light.svg'
+                  }
+                  quality={100}
+                  width={42}
+                  height={42}
                 />
-                <Spacer />
+                <Spacer x={0.6} />
                 <Text b size="1.1rem">
-                  Graph & analytics
+                  Light and dark UI
                 </Text>
               </Row>
             </Grid>
@@ -87,50 +84,73 @@ const Hero: React.FC = () => {
               <Row align="center">
                 <Image
                   className="hero__feature-img"
-                  src="/open_source.svg"
-                  width={24}
-                  height={25.06}
-                  alt="open source icon"
+                  src={
+                    isDark ? '/open-source-dark.svg' : '/open-source-light.svg'
+                  }
+                  quality={100}
+                  width={42}
+                  height={42}
                 />
-                <Spacer />
+                <Spacer x={0.6} />
                 <Text b size="1.1rem">
                   Open source
                 </Text>
               </Row>
             </Grid>
+            <Grid xs={6}>
+              <Row align="center">
+                <Image
+                  className="hero__feature-img"
+                  src={
+                    isDark ? '/responsive-dark.svg' : '/responsive-light.svg'
+                  }
+                  width={42}
+                  height={42}
+                />
+                <Spacer x={0.6} />
+                <Text b size="1.1rem">
+                  Responsive Design
+                </Text>
+              </Row>
+            </Grid>
           </Grid.Container>
           <Spacer y={2} />
-          <Row align="center">
-            <Button auto size="large">
-              <NextLink href="docs/guide/getting-started">
-                <Link>Get Started</Link>
-              </NextLink>
-            </Button>
-            <Spacer x={0.5} />
-            <Button light auto size="large">
-              <Link
-                rel="noreferrer"
-                target="_blank"
-                href="https://github.com/nextui-org/nextui"
+          <Grid.Container gap={1} alignItems="center">
+            <Grid xs={12} sm={3}>
+              <Button
+                auto
+                className="hero__get-started-button"
+                size="large"
+                shadow={!isDark}
+                onClick={handleGetStartedClick}
               >
-                View on Github
-              </Link>
-            </Button>
-          </Row>
-          <img
-            className="hero__gradient-blue"
-            src="/gradient-blue.svg"
-            alt="gradient blue background"
-          />
+                Get Started
+              </Button>
+            </Grid>
+            <Grid xs={12} sm={9}>
+              <Snippet className="hero__snippet" tooltipColor="primary">
+                npm install @nextui-org/react
+              </Snippet>
+            </Grid>
+          </Grid.Container>
+          {isDark && (
+            <img
+              className="hero__gradient-blue"
+              src="/gradient-left-dark.svg"
+              alt="gradient blue background"
+            />
+          )}
         </Col>
         <Col span={6} className="hero__right-container">
           <ImageBrowser className="hero__browser-image" />
         </Col>
-        <img
-          className="hero__gradient-violet"
-          src="/gradient-violet.svg"
-          alt="gradient violet background"
-        />
+        {isDark && (
+          <img
+            className="hero__gradient-violet"
+            src="/gradient-right-dark.svg"
+            alt="gradient violet background"
+          />
+        )}
       </Row>
       <style jsx>{`
         :global(.hero__container) {
@@ -138,10 +158,16 @@ const Hero: React.FC = () => {
         }
         :global(.hero__title) {
           margin-bottom: 0rem;
+          color: ${theme.palette.foreground} !important;
           line-height: 1.2;
         }
+        :global(.hero__github-link) {
+          color: ${theme.palette.text} !important;
+        }
         :global(.hero__title-smooth) {
-          color: #c1c1c1 !important;
+          color: ${theme.type === 'dark'
+            ? theme.palette.accents_6
+            : theme.palette.accents_3} !important;
         }
         :global(.hero__left-container, .hero__right-container) {
           position: relative;
@@ -174,10 +200,24 @@ const Hero: React.FC = () => {
           top: -100%;
           right: -50%;
         }
+        :global(.hero__snippet) {
+          backdrop-filter: saturate(180%) blur(20px);
+          background: ${addColorAlpha(theme.palette.accents_2, 0.5)} !important;
+          box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 15%);
+        }
+        :global(.hero__snippet .copy) {
+          background: transparent !important;
+        }
         @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
           :global(.hero__container) {
             height: calc(100vh - 64px);
             overflow: hidden;
+          }
+          :global(.hero__get-started-button) {
+            margin-bottom: ${theme.layout.gap};
+          }
+          :global(.hero__get-started-button, .hero__snippet) {
+            width: 100% !important;
           }
         }
         @media only screen and (max-width: ${theme.breakpoints.md.min}) {

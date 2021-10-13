@@ -42,6 +42,17 @@ const Editor: React.FC = () => {
     }, 200);
   };
 
+  const linkHandler = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    event.preventDefault();
+
+    Object.assign(document.createElement('a'), {
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      href: `${ISSUE_REPORT_URL}${componentTitle}`,
+    }).click();
+  };
+
   return (
     <div className="editor">
       <details open={visible}>
@@ -53,7 +64,14 @@ const Editor: React.FC = () => {
           >
             <Col className="action left-side">
               <span className="arrow">
-                <RightIcon size={16} fill={theme.palette.accents_6} />
+                <RightIcon
+                  size={16}
+                  fill={
+                    theme.type === 'light'
+                      ? theme.palette.accents_2
+                      : theme.palette.accents_6
+                  }
+                />
               </span>
               <span className="title">Live Editor</span>
             </Col>
@@ -70,7 +88,14 @@ const Editor: React.FC = () => {
                     onClick={copyHandler}
                     title="Copy Code"
                   >
-                    <CopyIcon fill={theme.palette.accents_6} size={18} />
+                    <CopyIcon
+                      fill={
+                        theme.type === 'light'
+                          ? theme.palette.accents_2
+                          : theme.palette.accents_5
+                      }
+                      size={18}
+                    />
                   </span>
                 </Tooltip>
                 <Tooltip
@@ -83,9 +108,17 @@ const Editor: React.FC = () => {
                     title="Report a bug"
                     rel="noopener noreferrer"
                     target="_blank"
+                    onClick={linkHandler}
                     href={`${ISSUE_REPORT_URL}${componentTitle}`}
                   >
-                    <BugIcon fill={theme.palette.accents_6} size={18} />
+                    <BugIcon
+                      fill={
+                        theme.type === 'light'
+                          ? theme.palette.accents_2
+                          : theme.palette.accents_5
+                      }
+                      size={18}
+                    />
                   </a>
                 </Tooltip>
               </>
@@ -108,21 +141,25 @@ const Editor: React.FC = () => {
           transition: all 0.2s ease;
           overflow: hidden;
           border-radius: ${theme.layout.radius};
+          background-color: ${theme.type === 'light' ? '#363449' : '#111'};
+          box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
         }
         details[open] :global(.right-side) {
           display: inline-flex !important;
         }
-
         :global(.right-side) {
           display: none !important;
         }
-
         summary {
           display: flex;
           justify-content: space-between;
           align-items: center;
           padding: 0 ${theme.layout.gap};
-          color: ${theme.palette.accents_5};
+          color: ${
+            theme.type === 'light'
+              ? theme.palette.accents_2
+              : theme.palette.accents_5
+          };
           height: 2.875rem;
           list-style: none;
           user-select: none;
@@ -142,8 +179,8 @@ const Editor: React.FC = () => {
           box-sizing: border-box;
           white-space: pre;
           font-family: ${theme.font.mono};
-          color: ${theme.palette.foreground};
-          background-color: ${theme.palette.accents_1};
+          color: #fff,
+          background-color: #111,
           font-size: 1em;
           overflow: hidden;
           padding: ${theme.layout.gapHalf};

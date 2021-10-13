@@ -23,7 +23,7 @@ const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({
               50%,
             linear-gradient(${theme.palette.background} 21px, transparent 1%)
               50%,
-            #444;
+            ${theme.palette.accents_2};
           background-size: var(--dot-space) var(--dot-space);
         }
       `}</style>
