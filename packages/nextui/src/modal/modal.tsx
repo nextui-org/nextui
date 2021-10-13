@@ -16,6 +16,8 @@ interface Props {
   onOpen?: () => void;
   open?: boolean;
   scroll?: boolean;
+  blur?: boolean;
+  noPadding?: boolean;
   closeButton?: boolean;
   fullScreen?: boolean;
   autoMargin?: boolean;
@@ -33,7 +35,9 @@ const defaultProps = {
   escapeClose: true,
   fullScreen: false,
   closeButton: false,
-  scroll: false
+  blur: false,
+  scroll: false,
+  noPadding: false
 };
 
 type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
@@ -49,7 +53,9 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   width: wrapperWidth,
   className,
   escapeClose,
+  blur,
   fullScreen,
+  noPadding,
   ...props
 }) => {
   const portal = usePortal('modal');
@@ -93,7 +99,8 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   const modalConfig: ModalConfig = useMemo(
     () => ({
       close: closeModal,
-      autoMargin
+      autoMargin,
+      noPadding
     }),
     []
   );
@@ -106,6 +113,7 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
         visible={visible}
         width={wrapperWidth}
         fullScreenContent={fullScreen}
+        blur={blur}
         {...bindings}
       >
         <ModalWrapper

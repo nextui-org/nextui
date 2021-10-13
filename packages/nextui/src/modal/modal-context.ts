@@ -2,6 +2,7 @@ import React from 'react';
 
 export interface ModalConfig {
   autoMargin?: boolean;
+  noPadding?: boolean;
   close?: () => void;
 }
 

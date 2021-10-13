@@ -11,11 +11,13 @@ interface Props {
   visible?: boolean;
   fullScreenContent?: boolean;
   width?: string;
+  blur?: boolean;
 }
 
 const defaultProps = {
   onClick: () => {},
   visible: false,
+  blur: false,
   fullScreenContent: false
 };
 
@@ -23,10 +25,19 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type BackdropProps = Props & typeof defaultProps & NativeAttrs;
 
 const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
-  ({ children, onClick, visible, width, fullScreenContent, ...props }) => {
+  ({
+    children,
+    onClick,
+    visible,
+    width,
+    blur,
+    fullScreenContent,
+    ...props
+  }) => {
     const theme = useTheme();
-    const [, setIsContentMouseDown, IsContentMouseDownRef] =
-      useCurrentState(false);
+    const [, setIsContentMouseDown, IsContentMouseDownRef] = useCurrentState(
+      false
+    );
     const clickHandler = (event: MouseEvent<HTMLElement>) => {
       if (IsContentMouseDownRef.current) return;
       onClick && onClick(event);
@@ -46,7 +57,13 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
     };
 
     return (
-      <CSSTransition name="backdrop-wrapper" visible={visible} clearTime={300}>
+      <CSSTransition
+        name="backdrop-wrapper"
+        visible={visible}
+        enterTime={20}
+        leaveTime={20}
+        clearTime={150}
+      >
         <div
           className={cslx('backdrop', {
             fullscreen: fullScreenContent
@@ -55,7 +72,9 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
           onMouseUp={mouseUpHandler}
           {...props}
         >
-          <div className="layer" />
+          <div
+            className={cslx('layer', blur ? 'layer-blur' : 'layer-default')}
+          />
           <div
             onClick={childrenClickHandler}
             className="content"
@@ -107,26 +126,46 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               bottom: 0;
               width: 100%;
               height: 100%;
-              opacity: ${theme.expressiveness.portalOpacity};
-              background-color: black;
-              transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
               pointer-events: none;
               z-index: 99999;
+            }
+            .layer-default {
+              background-color: black;
+              opacity: ${theme.expressiveness.portalOpacity};
+              transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .layer-blur {
+              opacity: 1;
+              transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+              backdrop-filter: saturate(180%) blur(20px);
+              background-color: rgba(0, 0, 0, 0.2);
             }
             .fullscreen .layer {
               display: none;
             }
-            .backdrop-wrapper-enter .layer {
+            .backdrop-wrapper-enter .layer-default {
               opacity: 0;
             }
-            .backdrop-wrapper-enter-active .layer {
+            .backdrop-wrapper-enter-active .layer-default {
               opacity: ${theme.expressiveness.portalOpacity};
             }
-            .backdrop-wrapper-leave .layer {
+            .backdrop-wrapper-leave .layer-default {
               opacity: ${theme.expressiveness.portalOpacity};
             }
-            .backdrop-wrapper-leave-active .layer {
+            .backdrop-wrapper-leave-active .layer-default {
               opacity: 0;
+            }
+            .backdrop-wrapper-enter .layer-blur {
+              background-color: rgba(0, 0, 0, 0.2);
+            }
+            .backdrop-wrapper-enter-active .layer-blur {
+              background-color: rgba(0, 0, 0, 0.4);
+            }
+            .backdrop-wrapper-leave .layer-blur {
+              background-color: rgba(0, 0, 0, 0.4);
+            }
+            .backdrop-wrapper-leave-active .layer-blur {
+              background-color: rgba(0, 0, 0, 0.2);
             }
             @media only screen and (max-width: ${theme.breakpoints.sm.max}) {
               .content {

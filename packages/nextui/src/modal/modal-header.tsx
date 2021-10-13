@@ -28,13 +28,17 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
-  const { autoMargin: autoMarginContext } = useContext(ModalContext);
+  const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
   }, [autoMarginProp, autoMarginContext]);
   return (
     <div
-      className={cslx('modal-header', { 'auto-margin': autoMargin }, className)}
+      className={cslx(
+        'modal-header',
+        { 'auto-margin': autoMargin, 'no-padding': noPadding },
+        className
+      )}
       {...props}
     >
       {children}
@@ -48,8 +52,9 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
           color: inherit;
           font-size: 0.875rem;
           padding: ${theme.layout.gapHalf} calc(${theme.layout.gap} + 0.25rem);
-          border-bottom-left-radius: ${theme.layout.radius};
-          border-bottom-right-radius: ${theme.layout.radius};
+        }
+        .no-padding {
+          padding: 0;
         }
         .auto-margin > :global(*:first-child) {
           margin-top: 0;

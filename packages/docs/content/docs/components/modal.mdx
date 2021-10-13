@@ -27,7 +27,7 @@ const closeHandler = () => {
 };
 return (
 <div>
-    <Button auto onClick={handler}>
+    <Button auto shadow onClick={handler}>
        Open modal
     </Button>
     <Modal
@@ -96,7 +96,7 @@ return (
  const { setVisible, bindings } = useModal();
 return (
 <div>
-    <Button auto color="secondary" onClick={() => setVisible(true)}>
+    <Button auto shadow color="secondary" onClick={() => setVisible(true)}>
         Open modal
     </Button>
     <Modal 
@@ -533,6 +533,116 @@ return (
           <Button onClick={() => setVisible(false)}>
             I'm agree
           </Button>
+        </Modal.Footer>
+    </Modal>
+</div>
+);    
+}`}
+/>
+
+<Playground
+  title="Without padding"
+  desc="The default `Modal` contains an animation effect."
+  code={`
+() => {
+const [visible, setVisible] = React.useState(false);
+const handler = () => setVisible(true);
+const closeHandler = () => {
+    setVisible(false);
+    console.log('closed');
+};
+return (
+<div>
+    <Button auto flat color="error" onClick={handler}>
+       Open modal
+    </Button>
+    <Modal
+       noPadding
+        open={visible}
+        onClose={closeHandler}
+    >
+        <Modal.Header style={{position:'absolute',zIndex:1, top: 5, right: 8}}>
+            <Text color="#363449">
+                Photo by <Link color rel="noopener noreferrer" target="_blank" href="https://unsplash.com/@vvaseemxkhan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Waseem Khan</Link> on <Link rel="noopener noreferrer" target="_blank" href="https://unsplash.com/s/visual/ef7937f3-0d44-43eb-b992-28050748f999?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</Link>
+            </Text>
+        </Modal.Header>    
+        <Modal.Body>
+            <img src="/images/modal-example.jpeg" width="100%" height="100%"/>
+        </Modal.Body>
+    </Modal>
+</div>
+);    
+}`}
+/>
+
+<Playground
+  title="Blur background"
+  desc="The default `Modal` contains an animation effect."
+  code={`
+() => {
+const [visible, setVisible] = React.useState(false);
+const handler = () => setVisible(true);
+const closeHandler = () => {
+    setVisible(false);
+    console.log('closed');
+};
+return (
+<div>
+    <Button auto shadow onClick={handler}>
+       Open modal
+    </Button>
+    <Modal
+        closeButton
+        blur
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+    >
+        <Modal.Header>
+            <Text id="modal-title" size={18}>
+            Welcome to
+            <Text b size={18}>
+                NextUI
+            </Text>
+            </Text>
+        </Modal.Header>
+        <Modal.Body>
+            <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="large"
+                placeholder="Email"
+                contentLeft={<Mail />}
+            />
+            <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="large"
+                placeholder="Password"
+                contentLeft={<Password />}
+            />
+            <Row justify="space-between">
+            <Checkbox>
+                <Text size={14}>
+                Remember me
+                </Text>
+            </Checkbox>
+            <Text size={14}>
+                Forgot password?
+            </Text>
+            </Row>
+        </Modal.Body>
+        <Modal.Footer>
+            <Button auto flat color="error" onClick={closeHandler}>
+            Close
+            </Button>
+            <Button auto onClick={closeHandler}>
+            Sign in
+            </Button>
         </Modal.Footer>
     </Modal>
 </div>

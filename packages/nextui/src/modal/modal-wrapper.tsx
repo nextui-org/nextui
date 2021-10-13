@@ -116,13 +116,13 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             box-shadow: ${theme.expressiveness.shadowLarge};
             opacity: 0;
             outline: none;
-            transform: translate3d(0px, 30px, 0px) scale(1.05);
+            transform: translate3d(0px, 20px, 0px) scale(1.02);
             transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s,
               transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s;
           }
           .modal-wrapper-enter {
             opacity: 0;
-            transform: translate3d(0px, 30px, 0px) scale(1.05);
+            transform: translate3d(0px, 20px, 0px) scale(1.02);
           }
           .modal-wrapper-enter-active {
             opacity: 1;
@@ -134,7 +134,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           }
           .modal-wrapper-leave-active {
             opacity: 0;
-            transform: translate3d(0px, 30px, 0px) scale(1.05);
+            transform: translate3d(0px, 20px, 0px) scale(1.02);
           }
           .hide-tab {
             outline: none;

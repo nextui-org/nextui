@@ -24,7 +24,7 @@ const ModalContent: React.FC<ModalContentProps> = ({
   ...props
 }) => {
   const theme = useTheme();
-  const { autoMargin: autoMarginContext } = useContext(ModalContext);
+  const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
   }, [autoMarginProp, autoMarginContext]);
@@ -32,18 +32,28 @@ const ModalContent: React.FC<ModalContentProps> = ({
   return (
     <>
       <div
-        className={cslx('modal-body', { 'auto-margin': autoMargin }, className)}
+        className={cslx(
+          'modal-body',
+          { 'auto-margin': autoMargin, 'no-padding': noPadding },
+          className
+        )}
         {...props}
       >
         {children}
       </div>
       <style jsx>{`
         .modal-body {
+          display: flex;
+          flex-direction: column;
           flex: 1 1 auto;
           padding: ${theme.layout.gapHalf} calc(${theme.layout.gap} + 0.25rem);
           overflow-y: auto;
           position: relative;
           text-align: left;
+        }
+        .no-padding {
+          flex: 1;
+          padding: 0;
         }
         .auto-margin > :global(*:first-child) {
           margin-top: 0;
