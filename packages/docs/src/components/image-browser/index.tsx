@@ -729,7 +729,7 @@ const ImageBrowser: React.FC<Props> = ({
       <style jsx>
         {`
           .image-browser-svg {
-            filter: drop-shadow(10px 0px 60px rgb(242 19 97 / 20%));
+            filter: drop-shadow(10px 0px 60px rgb(0 0 0 / 20%));
           }
         `}
       </style>
