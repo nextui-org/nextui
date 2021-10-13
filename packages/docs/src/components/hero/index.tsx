@@ -50,10 +50,10 @@ const Hero: React.FC = () => {
               <Row align="center">
                 <Image
                   className="hero__feature-img"
-                  src="/themeable.svg"
+                  src={isDark ? '/themeable-dark.svg' : '/themeable-light.svg'}
                   quality={100}
-                  width={30}
-                  height={31.28}
+                  width={42}
+                  height={42}
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">
@@ -65,10 +65,14 @@ const Hero: React.FC = () => {
               <Row align="center">
                 <Image
                   className="hero__feature-img"
-                  src="/light-and-dark.svg"
+                  src={
+                    isDark
+                      ? '/light-and-dark_dark.svg'
+                      : '/light-and-dark_light.svg'
+                  }
                   quality={100}
-                  width={30}
-                  height={24.41}
+                  width={42}
+                  height={42}
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">
@@ -80,10 +84,12 @@ const Hero: React.FC = () => {
               <Row align="center">
                 <Image
                   className="hero__feature-img"
-                  src="/open-source.svg"
+                  src={
+                    isDark ? '/open-source-dark.svg' : '/open-source-light.svg'
+                  }
                   quality={100}
-                  width={30}
-                  height={23.23}
+                  width={42}
+                  height={42}
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">
@@ -95,9 +101,11 @@ const Hero: React.FC = () => {
               <Row align="center">
                 <Image
                   className="hero__feature-img"
-                  src="/responsive.svg"
-                  width={30}
-                  height={31.57}
+                  src={
+                    isDark ? '/responsive-dark.svg' : '/responsive-light.svg'
+                  }
+                  width={42}
+                  height={42}
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">

@@ -55,7 +55,9 @@ const CarbonAd: React.FC<unknown> = () => {
             transition: all 0.25s ease;
           }
           #carbonads a:hover {
-            color: inherit;
+            color: ${theme.type === 'light'
+              ? theme.palette.accents_3
+              : theme.palette.accents_7};
           }
           #carbonads span {
             width: 100%;
@@ -100,7 +102,7 @@ const CarbonAd: React.FC<unknown> = () => {
             right: 0;
             padding: 10px 0;
             color: ${theme.type === 'light'
-              ? theme.palette.accents_3
+              ? theme.palette.accents_1
               : theme.palette.accents_4};
             text-transform: uppercase;
             letter-spacing: 0.5px;

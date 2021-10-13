@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="vuesax_bold_toggle-off-circle" data-name="vuesax/bold/toggle-off-circle" transform="translate(-108 -256)">
+    <g id="toggle-off-circle">
+      <rect id="Rectangle_76" data-name="Rectangle 76" width="24" height="24" rx="7" transform="translate(108 256)" fill="#b0d0f7"/>
+      <g id="Group_68" data-name="Group 68" transform="translate(4 4)">
+        <path id="Vector" d="M7.918,0H5.435a5.445,5.445,0,0,0,0,10.891H7.918A5.445,5.445,0,0,0,7.918,0ZM5.435,8.4A2.957,2.957,0,1,1,8.385,5.445,2.955,2.955,0,0,1,5.435,8.4Z" transform="translate(109.324 258.555)" fill="#0070f3"/>
+        <path id="Vector-2" data-name="Vector" d="M0,0H16V16H0Z" transform="translate(124 272) rotate(180)" fill="none" opacity="0"/>
+      </g>
+    </g>
+  </g>
+</svg>
