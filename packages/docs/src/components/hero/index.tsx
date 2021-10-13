@@ -52,8 +52,8 @@ const Hero: React.FC = () => {
                   className="hero__feature-img"
                   src={isDark ? '/themeable-dark.svg' : '/themeable-light.svg'}
                   quality={100}
-                  width={42}
-                  height={42}
+                  width={32}
+                  height={32}
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">
@@ -71,8 +71,8 @@ const Hero: React.FC = () => {
                       : '/light-and-dark_light.svg'
                   }
                   quality={100}
-                  width={42}
-                  height={42}
+                  width={32}
+                  height={32}
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">
@@ -88,8 +88,8 @@ const Hero: React.FC = () => {
                     isDark ? '/open-source-dark.svg' : '/open-source-light.svg'
                   }
                   quality={100}
-                  width={42}
-                  height={42}
+                  width={32}
+                  height={32}
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">
@@ -104,8 +104,8 @@ const Hero: React.FC = () => {
                   src={
                     isDark ? '/responsive-dark.svg' : '/responsive-light.svg'
                   }
-                  width={42}
-                  height={42}
+                  width={32}
+                  height={32}
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">
