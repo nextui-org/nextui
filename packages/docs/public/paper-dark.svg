@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1.082" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="gray"/>
+    </linearGradient>
+  </defs>
+  <g id="vuesax_bold_note-text" data-name="vuesax/bold/note-text" transform="translate(-748 -316)">
+    <g id="note-text">
+      <path id="Vector" d="M0,0H24V24H0Z" transform="translate(748 316)" fill="none" opacity="0"/>
+      <g id="Group">
+        <path id="Vector-2" data-name="Vector" d="M1.5,2.25V.75A.755.755,0,0,0,.75,0,.755.755,0,0,0,0,.75V2.31a6,6,0,0,1,.75-.06Z" transform="translate(755.25 317.25)" fill="#fff"/>
+        <path id="Vector-3" data-name="Vector" d="M1.5,2.31V.75A.755.755,0,0,0,.75,0,.755.755,0,0,0,0,.75v1.5H.75A6,6,0,0,1,1.5,2.31Z" transform="translate(763.25 317.25)" fill="#fff"/>
+        <path id="Vector-4" data-name="Vector" d="M13.75.06V1.5a.75.75,0,0,1-1.5,0V0H5.75V1.5a.75.75,0,0,1-1.5,0V.06C1.3.33,0,2.23,0,5v8.5c0,3,1.5,5,5,5h8c3.5,0,5-2,5-5V5C18,2.23,16.7.33,13.75.06ZM9,13.25H5a.75.75,0,0,1,0-1.5H9a.75.75,0,0,1,0,1.5Zm4-5H5a.75.75,0,0,1,0-1.5h8a.75.75,0,0,1,0,1.5Z" transform="translate(751 319.5)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+  </g>
+</svg>

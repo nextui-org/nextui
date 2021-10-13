@@ -1,5 +1,6 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import cn from 'classnames';
+import Image from 'next/image';
 import ArrowRight from '../icons/arrow-right';
 import withDefaults from '@utils/with-defaults';
 import { useTheme, NextUIThemes } from '@nextui-org/react';
@@ -38,6 +39,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const theme = useTheme() as NextUIThemes;
+  const isDark = theme.type === 'dark';
   const [toggle, setToggle] = useState<boolean>(selected || opened);
   const [shouldScroll, setShouldScroll] = useState<boolean>(false);
 
@@ -82,58 +84,62 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
       ref={ref}
       className={cn('category', levelClass, { open: toggle, selected })}
     >
-      <span className="label noselect" onClick={toggleCategory}>
+      <div className="label-container" onClick={toggleCategory}>
         {iconUrl && (
-          <img className="category-image" src={iconUrl} alt={`${title} icon`} />
+          <Image
+            width={24}
+            height={24}
+            className="category-image"
+            src={iconUrl.replace('.svg', isDark ? '-dark.svg' : '-light.svg')}
+            alt={`${title} icon`}
+          />
         )}
-        {title}
+        <span className="label noselect">{title}</span>
         <ArrowRight width={14} height={14} fill={theme.palette.accents_7} />
-      </span>
+      </div>
       <div className="posts">{children}</div>
       <style jsx>{`
         .category {
           margin: ${margin}px 0;
         }
-        .category:first-child {
-          margin-top: 0;
-        }
         .category:last-child {
           margin-bottom: 0;
         }
-        .category-image {
-          width: 20px;
-          margin-right: 20px;
+        :global(.category-image) {
           opacity: 0;
           animation: appear 200ms 100ms ease forwards;
+        }
+        .label-container {
+          display: flex;
+          align-items: center;
         }
         .label {
           font-size: 1rem;
           line-height: 1.5rem;
           font-weight: 400;
+          margin-left: 10px;
           cursor: pointer;
-          display: flex;
-          align-items: center;
           color: ${theme.palette.accents_7};
           transition: all 200ms ease 0ms;
         }
-        .label > :global(svg) {
+        .label-container :global(svg) {
           margin-top: 1px;
           margin-left: 14px;
           transition: transform 0.15s ease;
         }
-        .selected > .label {
+        .selected .label {
           font-weight: 600;
           color: ${theme.palette.accents_8};
         }
-        .open > .label {
+        .open .label {
           color: ${theme.palette.accents_8};
         }
-        .open > .label > :global(svg) {
+        .open .label-container :global(svg) {
           margin-right: 1px;
           margin-left: 13px;
           transform: rotate(90deg);
         }
-        .level-2 .label {
+        .level-2 .label-container {
           text-transform: none;
           letter-spacing: 0;
         }
@@ -151,7 +157,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           margin-left: 3px;
           transition: height 200ms ease;
         }
-        .open > .posts {
+        .open .posts {
           height: ${postsHeight}px;
         }
         @keyframes appear {
