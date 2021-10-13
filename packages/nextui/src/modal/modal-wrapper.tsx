@@ -10,6 +10,7 @@ interface Props {
   className?: string;
   visible?: boolean;
   scroll?: boolean;
+  rebound?: boolean;
   onCloseButtonClick?: () => void;
   fullScreen?: boolean;
   closeButton?: boolean;
@@ -17,7 +18,8 @@ interface Props {
 
 const defaultProps = {
   className: '',
-  visible: false
+  visible: false,
+  rebound: false
 };
 
 export type ModalWrapperProps = Props & typeof defaultProps;
@@ -28,6 +30,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   visible,
   fullScreen,
   closeButton,
+  rebound,
   onCloseButtonClick,
   scroll,
   ...props
@@ -75,7 +78,11 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
       <div
         className={cslx(
           'modal-wrapper',
-          { fullscreen: fullScreen, 'with-close-button': closeButton },
+          {
+            fullscreen: fullScreen,
+            'with-close-button': closeButton,
+            'modal-rebound': rebound
+          },
           className
         )}
         role="dialog"
@@ -120,6 +127,9 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s,
               transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s;
           }
+          .modal-rebound:not(.fullscreen) {
+            animation: rebound 0.25s ease;
+          }
           .modal-wrapper-enter {
             opacity: 0;
             transform: translate3d(0px, 20px, 0px) scale(1.02);
@@ -158,6 +168,20 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           .fullscreen :global(.close-icon svg) {
             width: 24px;
             height: 24px;
+          }
+          @keyframes rebound {
+            0% {
+              transform: scale(0.95);
+            }
+            40% {
+              transform: scale(1.02);
+            }
+            80% {
+              transform: scale(0.98);
+            }
+            100% {
+              transform: scale(1);
+            }
           }
         `}</style>
       </div>

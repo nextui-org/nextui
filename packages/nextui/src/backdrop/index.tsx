@@ -138,7 +138,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               opacity: 1;
               transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1);
               backdrop-filter: saturate(180%) blur(20px);
-              background-color: rgba(0, 0, 0, 0.2);
+              background-color: rgba(0, 0, 0, 0.1);
             }
             .fullscreen .layer {
               display: none;
@@ -156,7 +156,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               opacity: 0;
             }
             .backdrop-wrapper-enter .layer-blur {
-              background-color: rgba(0, 0, 0, 0.2);
+              background-color: rgba(0, 0, 0, 0.1);
             }
             .backdrop-wrapper-enter-active .layer-blur {
               background-color: rgba(0, 0, 0, 0.4);
@@ -165,7 +165,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               background-color: rgba(0, 0, 0, 0.4);
             }
             .backdrop-wrapper-leave-active .layer-blur {
-              background-color: rgba(0, 0, 0, 0.2);
+              background-color: rgba(0, 0, 0, 0.1);
             }
             @media only screen and (max-width: ${theme.breakpoints.sm.max}) {
               .content {

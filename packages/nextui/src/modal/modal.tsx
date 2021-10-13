@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import usePortal from '../use-portal';
 import ModalWrapper from './modal-wrapper';
@@ -21,9 +21,8 @@ interface Props {
   closeButton?: boolean;
   fullScreen?: boolean;
   autoMargin?: boolean;
-  escapeClose?: boolean;
   width?: string;
-  disableBackdropClick?: boolean;
+  preventClose?: boolean;
   onClose?: () => void;
   className?: string;
 }
@@ -31,8 +30,7 @@ interface Props {
 const defaultProps = {
   width: '400px',
   className: '',
-  disableBackdropClick: false,
-  escapeClose: true,
+  preventClose: false,
   fullScreen: false,
   closeButton: false,
   blur: false,
@@ -45,14 +43,13 @@ export type ModalProps = Props & typeof defaultProps & NativeAttrs;
 
 const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   children,
-  disableBackdropClick,
   onClose,
   onOpen,
   open,
   autoMargin,
   width: wrapperWidth,
   className,
-  escapeClose,
+  preventClose,
   blur,
   fullScreen,
   noPadding,
@@ -61,6 +58,7 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   const portal = usePortal('modal');
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
   const [visible, setVisible, visibleRef] = useCurrentState<boolean>(false);
+  const [rebound, setRebound] = useState(false);
 
   const closeModal = () => {
     onClose && onClose();
@@ -76,14 +74,25 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
     if (!open && visibleRef.current) {
       onClose && onClose();
     }
-
     setVisible(open);
     setBodyHidden(open);
   }, [open]);
 
+  const toggleRebound = () => {
+    setRebound(true);
+    const timer = setTimeout(() => {
+      setRebound(false);
+      clearTimeout(timer);
+    }, 300);
+  };
+
   const { bindings } = useKeyboard(
     () => {
-      escapeClose && closeModal();
+      if (preventClose) {
+        toggleRebound();
+        return;
+      }
+      closeModal();
     },
     KeyCode.Escape,
     {
@@ -92,7 +101,10 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   );
 
   const closeFromBackdrop = () => {
-    if (disableBackdropClick) return;
+    if (preventClose) {
+      toggleRebound();
+      return;
+    }
     closeModal();
   };
 
@@ -121,6 +133,7 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
           onCloseButtonClick={closeModal}
           className={className}
           fullScreen={fullScreen}
+          rebound={rebound}
           {...props}
         >
           {children}
