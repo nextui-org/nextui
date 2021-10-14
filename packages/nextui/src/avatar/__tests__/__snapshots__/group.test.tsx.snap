@@ -96,7 +96,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -234,7 +234,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -364,7 +364,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -539,7 +539,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -677,7 +677,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -807,7 +807,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -982,7 +982,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1120,7 +1120,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1250,7 +1250,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1425,7 +1425,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1563,7 +1563,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1693,7 +1693,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1949,7 +1949,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2087,7 +2087,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2217,7 +2217,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2392,7 +2392,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2530,7 +2530,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2660,7 +2660,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2835,7 +2835,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2973,7 +2973,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3103,7 +3103,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3340,7 +3340,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3478,7 +3478,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3608,7 +3608,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3802,7 +3802,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3940,7 +3940,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4070,7 +4070,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4245,7 +4245,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4383,7 +4383,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4513,7 +4513,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4740,7 +4740,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4878,7 +4878,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5008,7 +5008,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5185,7 +5185,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5323,7 +5323,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5453,7 +5453,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5655,7 +5655,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5793,7 +5793,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5923,7 +5923,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6140,7 +6140,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6278,7 +6278,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6408,7 +6408,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6585,7 +6585,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6723,7 +6723,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6853,7 +6853,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -7030,7 +7030,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -7168,7 +7168,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -7298,7 +7298,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -7544,7 +7544,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -7682,7 +7682,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -7812,7 +7812,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -7989,7 +7989,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -8127,7 +8127,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -8257,7 +8257,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -8434,7 +8434,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -8572,7 +8572,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -8702,7 +8702,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -8879,7 +8879,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -9017,7 +9017,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -9147,7 +9147,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -9468,7 +9468,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -9598,7 +9598,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -9728,7 +9728,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -9887,7 +9887,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -10017,7 +10017,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -10147,7 +10147,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -10367,7 +10367,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -10497,7 +10497,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -10627,7 +10627,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -10828,7 +10828,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -10958,7 +10958,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -11088,7 +11088,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -11302,7 +11302,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -11432,7 +11432,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -11562,7 +11562,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -11723,7 +11723,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -11853,7 +11853,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -11983,7 +11983,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 2.43rem * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;

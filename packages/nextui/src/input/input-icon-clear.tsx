@@ -1,13 +1,14 @@
 import React, { useMemo } from 'react';
 import clsx from '../utils/clsx';
 import useTheme from '../use-theme';
-import ClearIcon from './clear-icon';
+import ClearIcon from '../shared/clear-icon';
 import { SimpleColors } from '../utils/prop-types';
 import { getNormalColor } from '../utils/color';
 
 interface Props {
   visible: boolean;
   hasContentRight?: boolean;
+  underlined?: boolean;
   status?: SimpleColors;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   heightRatio?: string | undefined;
@@ -20,6 +21,7 @@ const InputIconClear: React.FC<Props> = ({
   status,
   disabled,
   visible,
+  underlined,
   hasContentRight,
   ...props
 }) => {
@@ -52,7 +54,8 @@ const InputIconClear: React.FC<Props> = ({
       className={clsx('clear-icon', {
         visible,
         'dark-theme': isDark,
-        'has-content-right': hasContentRight,
+        underlined: underlined,
+        'has-content-right': hasContentRight
       })}
       {...props}
     >
@@ -65,7 +68,7 @@ const InputIconClear: React.FC<Props> = ({
           display: inline-flex;
           align-items: center;
           height: auto;
-          padding: 0 ${theme.layout.gapHalf};
+          padding: 0 ${underlined ? '2px' : theme.layout.gapHalf};
           cursor: ${disabled ? 'not-allowed' : 'pointer'};
           box-sizing: border-box;
           transition: color 250ms ease 0s, transform 250ms ease 0s;

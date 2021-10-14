@@ -16,7 +16,7 @@ const defaultProps = {
   leaveTime: 60,
   clearTime: 60,
   className: '',
-  name: 'transition',
+  name: 'transition'
 };
 
 export type CSSTransitionProps = Props & typeof defaultProps;
@@ -70,7 +70,7 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
 
   return React.cloneElement(children, {
     ...props,
-    className: `${children.props.className} ${className} ${classes}`,
+    className: `${children.props.className} ${className} ${classes}`
   });
 };
 

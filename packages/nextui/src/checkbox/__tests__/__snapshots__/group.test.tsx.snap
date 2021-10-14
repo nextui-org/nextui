@@ -555,7 +555,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -570,7 +570,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -838,7 +838,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -853,7 +853,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -1420,7 +1420,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -1435,7 +1435,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -2354,7 +2354,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -2369,7 +2369,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -2637,7 +2637,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -2652,7 +2652,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -3219,7 +3219,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -3234,7 +3234,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -4203,7 +4203,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -4218,7 +4218,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -4486,7 +4486,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -4501,7 +4501,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -5068,7 +5068,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -5083,7 +5083,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -6033,7 +6033,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -6048,7 +6048,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -6316,7 +6316,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -6331,7 +6331,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -6898,7 +6898,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -6913,7 +6913,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -7876,7 +7876,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -7891,7 +7891,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -8159,7 +8159,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -8174,7 +8174,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -8741,7 +8741,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -8756,7 +8756,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -9677,7 +9677,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -9692,7 +9692,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -9960,7 +9960,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -9975,7 +9975,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -10542,7 +10542,7 @@ LoadedCheerio {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -10557,7 +10557,7 @@ LoadedCheerio {
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -11272,7 +11272,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -11287,7 +11287,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -11510,7 +11510,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -11525,7 +11525,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -11748,7 +11748,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -11763,7 +11763,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }
@@ -11986,7 +11986,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #2c3e50;
+          color: #333;
           font-size: var(--checkbox-size);
           line-height: var(--checkbox-size);
           padding-left: calc(var(--checkbox-size) * 0.57);
@@ -12001,7 +12001,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           position: absolute;
           width: 0px;
           height: 2px;
-          background: #2c3e50;
+          background: #333;
           opcity: 0.8;
           transition: all 0.25s ease;
         }

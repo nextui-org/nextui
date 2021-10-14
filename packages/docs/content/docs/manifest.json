@@ -72,8 +72,7 @@
                         },
                         {
                             "title": "Textarea",
-                            "path": "/docs/components/textarea.mdx",
-                            "newPost": true
+                            "path": "/docs/components/textarea.mdx"
                         },
                         {
                             "title": "Checkbox",
@@ -86,6 +85,11 @@
                         {
                             "title": "Tooltip",
                             "path": "/docs/components/tooltip.mdx"
+                        },
+                        {
+                            "title": "Modal",
+                            "path": "/docs/components/modal.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Loading",

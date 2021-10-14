@@ -8,20 +8,20 @@ import {
   useTheme,
   useBodyScroll,
   useClickAway,
-  usePortal,
+  usePortal
 } from '@nextui-org/react';
 import AutoSuggest, {
   ChangeEvent,
   OnSuggestionSelected,
   RenderSuggestionsContainerParams,
-  RenderInputComponentProps,
+  RenderInputComponentProps
 } from 'react-autosuggest';
 import { useMediaQuery } from '@hooks/use-media-query';
 import { SearchByAlgolia, Search, Close } from '../icons';
 import { addColorAlpha } from '@utils/index';
 import {
   connectAutoComplete,
-  connectStateResults,
+  connectStateResults
 } from 'react-instantsearch-dom';
 import { isEmpty, includes } from 'lodash';
 import { AutocompleteProvided } from 'react-instantsearch-core';
@@ -74,7 +74,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     ref: inputRef,
     type: 'search',
     onFocus: () => setIsFocused(true),
-    onBlur: () => setIsFocused(false),
+    onBlur: () => setIsFocused(false)
   };
 
   const onSuggestionsFetchRequested = ({ value }: any) => {
@@ -130,7 +130,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   );
   const renderSuggestionsContainer = ({
     containerProps,
-    children,
+    children
   }: RenderSuggestionsContainerParams) =>
     isMobile && suggestionsPortal ? (
       createPortal(
@@ -190,7 +190,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     <div
       className={cn('search__container', {
         focused: isFocused,
-        'has-value': !!value.length,
+        'has-value': !!value.length
       })}
     >
       <AutoSuggest

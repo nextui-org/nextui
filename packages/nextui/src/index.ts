@@ -65,3 +65,6 @@ export { default as Tooltip } from './tooltip';
 export { default as Input } from './input';
 
 export { default as Textarea } from './textarea';
+
+export { default as Modal } from './modal';
+export { default as useModal } from './modal/use-modal';

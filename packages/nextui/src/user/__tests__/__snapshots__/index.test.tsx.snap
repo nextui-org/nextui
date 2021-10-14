@@ -99,7 +99,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -237,7 +237,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -367,7 +367,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -568,7 +568,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -737,7 +737,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -861,7 +861,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -999,7 +999,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1129,7 +1129,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1255,7 +1255,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -1469,7 +1469,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1607,7 +1607,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1737,7 +1737,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -1936,7 +1936,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2069,7 +2069,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2201,7 +2201,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2397,7 +2397,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -2566,7 +2566,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -2683,7 +2683,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2816,7 +2816,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -2948,7 +2948,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3069,7 +3069,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -3276,7 +3276,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3409,7 +3409,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3541,7 +3541,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3756,7 +3756,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -3889,7 +3889,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4021,7 +4021,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4217,7 +4217,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -4386,7 +4386,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -4503,7 +4503,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4636,7 +4636,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4768,7 +4768,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -4889,7 +4889,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -5096,7 +5096,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5229,7 +5229,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5361,7 +5361,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5564,7 +5564,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5702,7 +5702,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -5832,7 +5832,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6033,7 +6033,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -6202,7 +6202,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -6326,7 +6326,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6464,7 +6464,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6594,7 +6594,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -6720,7 +6720,7 @@ LoadedCheerio {
         }
         .name {
           font-size: 0.89rem;
-          color: #2c3e50;
+          color: #333;
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -6934,7 +6934,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -7072,7 +7072,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;
@@ -7202,7 +7202,7 @@ LoadedCheerio {
           top: 50%;
           font-size: calc(0.8em + 32px * 0.1);
           text-align: center;
-          color: #2c3e50;
+          color: #333;
           transform: translate(-50%, -50%) scale(0.65);
           white-space: nowrap;
           user-select: none;

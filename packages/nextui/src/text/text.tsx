@@ -21,6 +21,7 @@ interface Props {
   blockquote?: boolean;
   className?: string;
   size?: string | number;
+  margin?: string | number;
   color?: NormalColors | string;
 }
 
@@ -83,6 +84,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   blockquote,
   capitalize,
   size,
+  margin,
   children,
   className,
   ...props
@@ -130,6 +132,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
       className={className}
       capitalize={capitalize}
       tag={tag}
+      margin={margin}
       size={size}
       {...props}
     >

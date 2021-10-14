@@ -3,7 +3,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-  useState,
+  useState
 } from 'react';
 import { createPortal } from 'react-dom';
 import useTheme from '../use-theme';
@@ -16,7 +16,7 @@ import {
   getPosition,
   TooltipPosition,
   defaultTooltipPosition,
-  getIconPosition,
+  getIconPosition
 } from './position';
 import { Position, SimpleColors, TooltipColors } from '../utils/prop-types';
 
@@ -48,7 +48,7 @@ const defaultRect: ReactiveDomReact = {
   right: -1000,
   bottom: -1000,
   width: 0,
-  height: 0,
+  height: 0
 };
 
 const getRect = (
@@ -63,7 +63,7 @@ const getRect = (
     top: rect.top + document.documentElement.scrollTop,
     bottom: rect.bottom + document.documentElement.scrollTop,
     left: rect.left + document.documentElement.scrollLeft,
-    right: rect.right + document.documentElement.scrollLeft,
+    right: rect.right + document.documentElement.scrollLeft
   };
 };
 
@@ -85,10 +85,11 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   const el = usePortal('tooltip');
   const selfRef = useRef<HTMLDivElement>(null);
   const [rect, setRect] = useState<TooltipPosition>(defaultTooltipPosition);
-  const colors = useMemo(
-    () => getColors(color, textColor, theme.palette),
-    [color, textColor, theme.palette]
-  );
+  const colors = useMemo(() => getColors(color, textColor, theme.palette), [
+    color,
+    textColor,
+    theme.palette
+  ]);
   if (!parent) return null;
   const updateRect = () => {
     const pos = getPosition(position, getRect(parent), offset);
@@ -100,10 +101,9 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
     [position]
   );
 
-  const borderRadius = useMemo(
-    () => (rounded ? '20px' : theme.layout.radius),
-    [rounded]
-  );
+  const borderRadius = useMemo(() => (rounded ? '20px' : theme.layout.radius), [
+    rounded
+  ]);
 
   useResize(updateRect);
   useClickAnyWhere(() => updateRect());
@@ -131,7 +131,9 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
         onClick={preventHandler}
         {...props}
       >
-        <div role="tooltip" className={`inner ${!hideArrow ? 'arrow' : ''}`}>{children}</div>
+        <div role="tooltip" className={`inner ${!hideArrow ? 'arrow' : ''}`}>
+          {children}
+        </div>
         <style jsx>{`
           .tooltip-content {
             position: absolute;
@@ -145,7 +147,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
             padding: 0;
             opacity: 0;
             z-index: 1000;
-            box-shadow: ${shadow ? theme.expressiveness.shadowSmall : 'none'};
+            box-shadow: ${shadow ? theme.expressiveness.shadowMedium : 'none'};
             transition: opacity 0.25s ease 0s, top 0.25s ease 0s;
           }
           .inner {
