@@ -11,7 +11,7 @@ import {
   Spacer,
   Button,
   Grid,
-  Snippet,
+  Snippet
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
 import { addColorAlpha } from '@utils/index';
@@ -128,7 +128,11 @@ const Hero: React.FC = () => {
               </Button>
             </Grid>
             <Grid xs={12} sm={9}>
-              <Snippet className="hero__snippet" tooltipColor="primary">
+              <Snippet
+                className="hero__snippet"
+                bordered={!isDark}
+                tooltipColor="primary"
+              >
                 npm install @nextui-org/react
               </Snippet>
             </Grid>
@@ -201,9 +205,10 @@ const Hero: React.FC = () => {
           right: -50%;
         }
         :global(.hero__snippet) {
+          border-width: ${isDark ? '0px' : '2px'} !important;
           backdrop-filter: saturate(180%) blur(20px);
           background: ${addColorAlpha(theme.palette.accents_2, 0.5)} !important;
-          box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 15%);
+          box-shadow: ${isDark ? '0px 5px 20px -5px rgb(0 0 0 / 15%)' : 'none'};
         }
         :global(.hero__snippet .copy) {
           background: transparent !important;
