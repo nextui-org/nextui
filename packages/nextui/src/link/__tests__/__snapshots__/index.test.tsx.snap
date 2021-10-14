@@ -20,7 +20,7 @@ exports[`Link should render correctly 1`] = `
           }
           .link:hover {
             background-color: inherit;
-            color: rgba(44, 62,80,0.8);
+            color: rgba(51, 51,51,0.8);
           }
         </style></a><a class=\\"link \\" href=\\"https://nextui.org\\">link<style>
           .link {
@@ -69,7 +69,7 @@ exports[`Link should render correctly 1`] = `
           }
           .link:hover {
             background-color: inherit;
-            color: rgba(44, 62,80,0.8);
+            color: rgba(51, 51,51,0.8);
           }
         </style></a><a class=\\"link \\" href=\\"https://nextui.org\\">link<style>
           .link {
@@ -90,7 +90,7 @@ exports[`Link should render correctly 1`] = `
           }
           .link:hover {
             background-color: inherit;
-            color: rgba(44, 62,80,0.8);
+            color: rgba(51, 51,51,0.8);
           }
         </style></a><a class=\\"link \\" href=\\"https://nextui.org\\">link<style>
           .link {

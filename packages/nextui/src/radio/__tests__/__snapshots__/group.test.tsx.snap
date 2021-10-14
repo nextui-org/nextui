@@ -22,7 +22,7 @@ exports[`Radio Group should render correctly 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -55,9 +55,6 @@ exports[`Radio Group should render correctly 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"2\\"><span class=\\"name\\"><span class=\\"point  \\"></span>2</span></label><style>
@@ -81,7 +78,7 @@ exports[`Radio Group should render correctly 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -114,9 +111,6 @@ exports[`Radio Group should render correctly 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div></fieldset><style>
@@ -155,7 +149,7 @@ exports[`Radio Group should render correctly 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -188,9 +182,6 @@ exports[`Radio Group should render correctly 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"2\\"><span class=\\"name\\"><span class=\\"point  \\"></span>2</span></label><style>
@@ -214,7 +205,7 @@ exports[`Radio Group should render correctly 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -247,9 +238,6 @@ exports[`Radio Group should render correctly 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div></fieldset><style>
@@ -292,7 +280,7 @@ exports[`Radio Group should work correctly with different sizes 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -325,9 +313,6 @@ exports[`Radio Group should work correctly with different sizes 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div></fieldset><style>
@@ -366,7 +351,7 @@ exports[`Radio Group should work correctly with different sizes 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -399,9 +384,6 @@ exports[`Radio Group should work correctly with different sizes 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div></fieldset><style>
@@ -440,7 +422,7 @@ exports[`Radio Group should work correctly with different sizes 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -473,9 +455,6 @@ exports[`Radio Group should work correctly with different sizes 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div></fieldset><style>

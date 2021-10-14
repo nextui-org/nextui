@@ -13,7 +13,6 @@ import useKeyboard, { KeyCode } from '../use-keyboard';
 import { __DEV__ } from '../utils/assertion';
 
 interface Props {
-  onOpen?: () => void;
   open?: boolean;
   scroll?: boolean;
   blur?: boolean;
@@ -23,6 +22,7 @@ interface Props {
   autoMargin?: boolean;
   width?: string;
   preventClose?: boolean;
+  onOpen?: () => void;
   onClose?: () => void;
   className?: string;
 }

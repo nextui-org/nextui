@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Modal from '../index';
 import { nativeEvent, updateWrapper } from 'tests/utils';
 import { expectModalIsClosed, expectModalIsOpened } from './use-modal.test';
+import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 
 const TabEvent = {
@@ -22,7 +23,6 @@ describe('Modal', () => {
         <Modal.Footer>Cancel</Modal.Footer>
       </Modal>
     );
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -34,6 +34,7 @@ describe('Modal', () => {
         <Modal.Header>Modal</Modal.Header>
       </Modal>
     );
+
     expectModalIsClosed(wrapper);
 
     wrapper.setProps({ open: true });
@@ -50,7 +51,7 @@ describe('Modal', () => {
   it('should disable backdrop event', async () => {
     const closeHandler = jest.fn();
     const wrapper = mount(
-      <Modal open={true} disableBackdropClick onClose={closeHandler}>
+      <Modal open={true} preventClose onClose={closeHandler}>
         <Modal.Header>Modal</Modal.Header>
         <Modal.Footer>Submit</Modal.Footer>
       </Modal>
@@ -67,8 +68,7 @@ describe('Modal', () => {
         <Modal.Header>Modal</Modal.Header>
       </Modal>
     );
-    const html = wrapper.find('.wrapper').html();
-    expect(html).toMatchSnapshot();
+    const html = wrapper.find('.modal-wrapper').html();
     expect(html).toContain('test-class');
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -81,7 +81,7 @@ describe('Modal', () => {
     );
     const tabStart = wrapper.find('.hide-tab').at(0).getDOMNode();
     const tabEnd = wrapper.find('.hide-tab').at(1).getDOMNode();
-    const eventElement = wrapper.find('.wrapper').at(0);
+    const eventElement = wrapper.find('.modal-wrapper').at(0);
     expect(document.activeElement).toBe(tabStart);
 
     act(() => {
@@ -99,5 +99,17 @@ describe('Modal', () => {
       });
     });
     expect(document.activeElement).toBe(tabStart);
+  });
+
+  it('should close modal when keyboard event is triggered', async () => {
+    const wrapper = mount(
+      <Modal open={true}>
+        <Modal.Header>Modal</Modal.Header>
+      </Modal>
+    );
+    expectModalIsOpened(wrapper);
+    userEvent.keyboard('{esc}');
+    await updateWrapper(wrapper, 500);
+    expectModalIsClosed(wrapper);
   });
 });

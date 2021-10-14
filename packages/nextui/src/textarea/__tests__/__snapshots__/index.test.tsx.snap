@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Textarea should render correctly 1`] = `
-"<div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-kojhhrqf\\" class=\\"\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-pbu2qkre\\" class=\\"\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -89,7 +89,7 @@ exports[`Textarea should render correctly 1`] = `
           .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
-            color: #2c3e50;
+            color: #333;
           }
           .container.hover:not(.read-only) {
             transform: translateY(-2px);
@@ -132,7 +132,7 @@ exports[`Textarea should render correctly 1`] = `
             font-size: .875rem;
             background-color: transparent;
             border: none;
-            color: #2c3e50;
+            color: #333;
             outline: none;
             border-radius: 0;
             width: 100%;
@@ -167,7 +167,7 @@ exports[`Textarea should render correctly 1`] = `
           textarea:-webkit-autofill:active,
           textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
-            -webkit-text-fill-color: #2c3e50 !important;
+            -webkit-text-fill-color: #333 !important;
           }
         </style></div><style>
           :global(.textarea-wrapper) {
@@ -193,7 +193,7 @@ exports[`Textarea should render correctly 1`] = `
 `;
 
 exports[`Textarea should work with different styles 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-gmtutiu7\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-53er4kqg\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -324,7 +324,7 @@ exports[`Textarea should work with different styles 1`] = `
             font-size: .875rem;
             background-color: transparent;
             border: none;
-            color: #2c3e50;
+            color: #333;
             outline: none;
             border-radius: 0;
             width: 100%;
@@ -359,7 +359,7 @@ exports[`Textarea should work with different styles 1`] = `
           textarea:-webkit-autofill:active,
           textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
-            -webkit-text-fill-color: #2c3e50 !important;
+            -webkit-text-fill-color: #333 !important;
           }
         </style></div><style>
           :global(.textarea-wrapper) {
@@ -381,7 +381,7 @@ exports[`Textarea should work with different styles 1`] = `
             border: none;
             outline: none;
           }
-        </style><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-ut2fbadg\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-f1vted5s\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: 20%;
             display: inline-flex;
@@ -469,7 +469,7 @@ exports[`Textarea should work with different styles 1`] = `
           .helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
-            color: #2c3e50;
+            color: #333;
           }
           .container.hover:not(.read-only) {
             transform: translateY(-2px);
@@ -512,7 +512,7 @@ exports[`Textarea should work with different styles 1`] = `
             font-size: .875rem;
             background-color: transparent;
             border: none;
-            color: #2c3e50;
+            color: #333;
             outline: none;
             border-radius: 0;
             width: 100%;
@@ -547,7 +547,7 @@ exports[`Textarea should work with different styles 1`] = `
           textarea:-webkit-autofill:active,
           textarea:-webkit-autofill:focus {
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
-            -webkit-text-fill-color: #2c3e50 !important;
+            -webkit-text-fill-color: #333 !important;
           }
         </style></div><style>
           :global(.textarea-wrapper) {

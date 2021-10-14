@@ -12,8 +12,9 @@ const useModal = (
     onClose: () => void;
   };
 } => {
-  const [visible, setVisible, currentRef] =
-    useCurrentState<boolean>(initialVisible);
+  const [visible, setVisible, currentRef] = useCurrentState<boolean>(
+    initialVisible
+  );
 
   return {
     visible,
@@ -21,8 +22,8 @@ const useModal = (
     currentRef,
     bindings: {
       open: visible,
-      onClose: () => setVisible(false),
-    },
+      onClose: () => setVisible(false)
+    }
   };
 };
 

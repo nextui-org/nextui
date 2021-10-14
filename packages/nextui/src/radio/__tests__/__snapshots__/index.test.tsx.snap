@@ -22,7 +22,7 @@ exports[`Radio should render correctly 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -55,9 +55,6 @@ exports[`Radio should render correctly 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div>"
@@ -85,7 +82,7 @@ exports[`Radio should support react-node in description 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -118,9 +115,6 @@ exports[`Radio should support react-node in description 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span>Option 1</span><span class=\\"\\">Description for Option1<style>
@@ -150,7 +144,7 @@ exports[`Radio should support react-node in description 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -183,9 +177,6 @@ exports[`Radio should support react-node in description 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span>Option 1</span><span class=\\"\\"><b>Description</b> for Option1<style>
@@ -215,7 +206,7 @@ exports[`Radio should support react-node in description 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -248,9 +239,6 @@ exports[`Radio should support react-node in description 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div></div>"
@@ -278,7 +266,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -311,9 +299,6 @@ exports[`Radio should work correctly with different sizes 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span>small</span></label><style>
@@ -337,7 +322,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -370,9 +355,6 @@ exports[`Radio should work correctly with different sizes 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span>medium</span></label><style>
@@ -396,7 +378,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -429,9 +411,6 @@ exports[`Radio should work correctly with different sizes 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span>large</span></label><style>
@@ -455,7 +434,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -488,9 +467,6 @@ exports[`Radio should work correctly with different sizes 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span>xlarge</span></label><style>
@@ -514,7 +490,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -547,9 +523,6 @@ exports[`Radio should work correctly with different sizes 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span>custom</span></label><style>
@@ -573,7 +546,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -606,9 +579,6 @@ exports[`Radio should work correctly with different sizes 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div></div>"
@@ -636,7 +606,7 @@ exports[`Radio should work with different colors 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -671,9 +641,6 @@ exports[`Radio should work with different colors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-        radio:focus .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span></span></label><style>
         input {
           opacity: 0;
@@ -695,7 +662,7 @@ exports[`Radio should work with different colors 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -730,9 +697,6 @@ exports[`Radio should work with different colors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-        radio:focus .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span></span></label><style>
         input {
           opacity: 0;
@@ -754,7 +718,7 @@ exports[`Radio should work with different colors 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -789,9 +753,6 @@ exports[`Radio should work with different colors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-        radio:focus .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span></span></label><style>
         input {
           opacity: 0;
@@ -813,7 +774,7 @@ exports[`Radio should work with different colors 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -848,9 +809,6 @@ exports[`Radio should work with different colors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-        radio:focus .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span></span></label><style>
         input {
           opacity: 0;
@@ -872,7 +830,7 @@ exports[`Radio should work with different colors 1`] = `
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          color: #2c3e50;
+          color: #333;
           cursor: pointer;
         }
         .name {
@@ -905,9 +863,6 @@ exports[`Radio should work with different colors 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #f21361;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div></div>"
@@ -970,9 +925,6 @@ exports[`Radio should work with different textColors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-        radio:focus .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span></span></label><style>
         input {
           opacity: 0;
@@ -1027,9 +979,6 @@ exports[`Radio should work with different textColors 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span></span></label><style>
@@ -1088,9 +1037,6 @@ exports[`Radio should work with different textColors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-        radio:focus .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span></span></label><style>
         input {
           opacity: 0;
@@ -1147,9 +1093,6 @@ exports[`Radio should work with different textColors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-        radio:focus .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
       </style></div><div class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><label><input type=\\"radio\\" value=\\"\\"><span class=\\"name\\"><span class=\\"point  \\"></span></span></label><style>
         input {
           opacity: 0;
@@ -1204,9 +1147,6 @@ exports[`Radio should work with different textColors 1`] = `
           border: calc(var(--radio-size) * 0.34) solid #0070f3;
         }
         label:hover .point:not(.active):not(.disabled) {
-          background: #eaeaea;
-        }
-        radio:focus .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
       </style></div></div>"
