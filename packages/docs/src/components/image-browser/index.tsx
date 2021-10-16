@@ -11,7 +11,7 @@ interface Props {
 const defaultProps = {
   width: 721,
   height: 424,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -36,7 +36,7 @@ const ImageBrowser: React.FC<Props> = ({
           bar: '#111',
           miniBar: '#444',
           elements: '#444',
-          elements2: '#333',
+          elements2: '#333'
         },
         secondWindow: {
           logo: '#000',
@@ -45,8 +45,8 @@ const ImageBrowser: React.FC<Props> = ({
           bar: '#d2d2d2',
           miniBar: '#c1c1c1',
           elements: '#c1c1c1',
-          elements2: '#999',
-        },
+          elements2: '#999'
+        }
       };
     }
     return {
@@ -57,7 +57,7 @@ const ImageBrowser: React.FC<Props> = ({
         bar: '#d2d2d2',
         miniBar: '#c1c1c1',
         elements: '#c1c1c1',
-        elements2: '#999',
+        elements2: '#999'
       },
       secondWindow: {
         logo: '#fff',
@@ -66,8 +66,8 @@ const ImageBrowser: React.FC<Props> = ({
         bar: '#111',
         miniBar: '#444',
         elements: '#444',
-        elements2: '#333',
-      },
+        elements2: '#333'
+      }
     };
   }, [isDark]);
   return (
@@ -87,9 +87,6 @@ const ImageBrowser: React.FC<Props> = ({
           .prefix__cls-20,.prefix__cls-21,
           .prefix__cls-23,.prefix__cls-73,
           .prefix__cls-53,.prefix__cls-33,
-          .prefix__cls-15 {
-            transition: fill 200ms ease;
-          }
           .prefix__cls-1{fill:${firstWindow.bg}}
           .prefix__cls-2{fill:${secondWindow.bg}}
           .prefix__cls-3{fill:#f21361}
@@ -729,7 +726,9 @@ const ImageBrowser: React.FC<Props> = ({
       <style jsx>
         {`
           .image-browser-svg {
-            filter: drop-shadow(10px 0px 60px rgb(0 0 0 / 20%));
+            filter: drop-shadow(
+              10px 0px 60px rgb(${isDark ? '121 40 202' : '0 0 0'} / 20%)
+            );
           }
         `}
       </style>

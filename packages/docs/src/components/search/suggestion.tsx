@@ -42,11 +42,10 @@ const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
         <style jsx>
           {`
             .suggestion__container {
-              padding: 16px 8px;
               display: flex;
               align-items: center;
               cursor: pointer;
-              padding: 0 12px;
+              padding: 16px 8px;
               justify-content: space-between;
               border-bottom: 1px solid
                 ${addColorAlpha(theme.palette.border, 0.6)};

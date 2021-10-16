@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { NextPage } from 'next';
-import { NextRouter, Router } from 'next/router';
+import dynamic from 'next/dynamic';
+import { NextRouter, Router, useRouter } from 'next/router';
 import { CssBaseline, NextUIThemes, ThemeProvider } from '@nextui-org/react';
 import useDarkMode from 'use-dark-mode';
 import { AppInitialProps } from 'next/app';
 import { DeepPartial } from '@utils/types';
 import { NextComponent } from '@lib/types';
+import generateKbarActions from '@lib/kbar-actions';
 import sharedTheme from '@theme/shared';
+import { KBarProvider } from 'kbar';
 
 type AppPropsType<
   R extends NextRouter = NextRouter,
@@ -20,28 +23,35 @@ type AppPropsType<
 
 type AppProps<P = {}> = AppPropsType<Router, P>;
 
+const KbarComponent = dynamic(() => import('../components/kbar'), {
+  ssr: false
+});
+
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const [mounted, setMounted] = useState(false);
   const [customTheme, setCustomTheme] = useState<DeepPartial<NextUIThemes>>({
-    ...sharedTheme,
+    ...sharedTheme
   });
+
+  const router = useRouter();
+  const kbarActions = generateKbarActions(router);
 
   const themeChangeHandle = (isDark: boolean) => {
     if (customTheme.type === 'dark' && !isDark) {
       setCustomTheme({
         ...customTheme,
-        type: 'light',
+        type: 'light'
       });
     } else if (customTheme.type === 'light' && isDark) {
       setCustomTheme({
         ...customTheme,
-        type: 'dark',
+        type: 'dark'
       });
     }
   };
 
   useDarkMode(true, {
-    onChange: themeChangeHandle,
+    onChange: themeChangeHandle
   });
 
   useEffect(() => {
@@ -50,7 +60,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
       : 'light';
     setCustomTheme((prevTheme) => ({
       ...prevTheme,
-      type: savedTheme || 'dark',
+      type: savedTheme || 'dark'
     }));
     setMounted(true);
   }, []);
@@ -58,14 +68,20 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   return (
     <>
       <ThemeProvider theme={customTheme}>
-        <>
-          <CssBaseline />
+        <CssBaseline />
+        <KBarProvider
+          actions={kbarActions}
+          options={{
+            animations: {
+              enterMs: 250,
+              exitMs: 100
+            }
+          }}
+        >
+          <KbarComponent />
           {mounted && <Component {...pageProps} />}
-        </>
+        </KBarProvider>
         <style global jsx>{`
-          html {
-            scroll-behavior: smooth;
-          }
           .noselect {
             -webkit-touch-callout: none; /* iOS Safari */
             -webkit-user-select: none; /* Safari */

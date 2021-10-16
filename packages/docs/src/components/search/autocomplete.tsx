@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
-import { browserName } from 'react-device-detect';
+import useDarkMode from 'use-dark-mode';
+import { browserName, isMacOs, isWindows } from 'react-device-detect';
 import { useRouter } from 'next/router';
 import {
   NextUIThemes,
@@ -17,19 +18,18 @@ import AutoSuggest, {
   RenderInputComponentProps
 } from 'react-autosuggest';
 import { useMediaQuery } from '@hooks/use-media-query';
-import { SearchByAlgolia, Search, Close } from '../icons';
+import { SearchByAlgolia, Close } from '../icons';
 import { addColorAlpha } from '@utils/index';
 import {
   connectAutoComplete,
   connectStateResults
 } from 'react-instantsearch-dom';
-import { isEmpty, includes } from 'lodash';
+import { isEmpty } from 'lodash';
 import { AutocompleteProvided } from 'react-instantsearch-core';
+import Keyboard from '../keyboard';
 import Suggestion from './suggestion';
 
 interface Props extends AutocompleteProvided {}
-
-const isSafari = includes(browserName, 'Safari');
 
 const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const [value, setValue] = React.useState('');
@@ -42,6 +42,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const isMobile = useMediaQuery(
     Number(theme.breakpoints.sm.max.replace('px', ''))
   );
+  const isDark = useDarkMode().value;
 
   let inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -108,15 +109,16 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     (inputProps: RenderInputComponentProps) => {
       return (
         <label className="search__input-container">
-          <input {...inputProps} />
+          <input {...inputProps} placeholder="Search..." />
           {!value ? (
             <span className="search__placeholder-container">
-              <Search
-                size={16}
-                fill={theme.palette.accents_8}
-                className="search__placeholder-icon"
-              />
-              <p className="search__placeholder-text">Search...</p>
+              <Keyboard
+                className="search__placeholder-kbd"
+                command={isMacOs}
+                ctrl={isWindows}
+              >
+                K
+              </Keyboard>
             </span>
           ) : (
             <span className="search__reset-container" onClick={onClear}>
@@ -233,21 +235,12 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             width: 100%;
             height: 100%;
           }
+          .search__placeholder-kbd {
+            position: absolute;
+            right: 4px;
+          }
           :global(.search__reset-container:hover path) {
             fill: ${addColorAlpha(theme.palette.accents_6, 0.8)};
-          }
-          .search__placeholder-text {
-            position: absolute;
-            margin: 0;
-            padding: 0;
-            left: 40%;
-            font-size: 1rem;
-            justify-content: center;
-            align-items: center;
-            line-height: 1px;
-            pointer-events: none;
-            color: ${theme.palette.accents_5};
-            transition: all 0.25s ease;
           }
           .search__placeholder-icon {
             position: absolute;
@@ -255,15 +248,9 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             z-index: -1;
             transition: all 0.25s ease;
           }
-          .search__container.focused .search__placeholder-text {
-            left: ${isSafari ? '25px' : '16px'};
-          }
           .search__container.focused .search__placeholder-icon {
             left: 0;
             opacity: 0;
-          }
-          .search__container:hover .search__placeholder-text {
-            color: ${theme.palette.accents_6};
           }
           .react-autosuggest__container {
             position: relative;
@@ -272,11 +259,14 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           .search__input-container {
             position: relative;
             display: flex;
+            height: 38px;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             background: ${addColorAlpha(theme.palette.background, 0.7)};
-            box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: ${isDark
+              ? '0px 5px 20px -5px rgba(0, 0, 0, 0.1)'
+              : 'none'};
             border-radius: 8px;
           }
           .react-autosuggest__input {
@@ -389,7 +379,21 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           ::-webkit-search-cancel-button {
             display: none;
           }
+          input:focus::placeholder {
+            opacity: 0;
+            transition: opacity 0.25s ease 0s;
+          }
+          input::placeholder {
+            color: ${theme.palette.accents_4};
+            transition: opacity 0.25s ease 0s;
+            -moz-transition: opacity 0.25s ease 0s;
+            -ms-transition: opacity 0.25s ease 0s;
+            -webkit-transition: opacity 0.25s ease 0s;
+          }
           @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+            input::placeholder {
+              text-align: center;
+            }
             .react-autosuggest__suggestions-container,
             .no-results {
               z-index: 1004;
@@ -401,6 +405,9 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               top: 0;
               left: 0;
               right: 0;
+            }
+            .search__placeholder-kbd {
+              display: none !important;
             }
             .react-autosuggest__suggestions-container {
               padding: 64px 0;
