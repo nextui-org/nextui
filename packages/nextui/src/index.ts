@@ -13,6 +13,7 @@ export { default as useBodyScroll } from './use-body-scroll';
 export { default as useClickAway } from './use-click-away';
 export { default as useClickAnywhere } from './use-click-anywhere';
 export { default as useInput } from './use-input';
+export { default as useKeyboard } from './use-keyboard';
 
 export { default as Avatar } from './avatar';
 
@@ -68,3 +69,5 @@ export { default as Textarea } from './textarea';
 
 export { default as Modal } from './modal';
 export { default as useModal } from './modal/use-modal';
+
+export { default as Backdrop } from './backdrop';
