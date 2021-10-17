@@ -35,7 +35,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         *,
         *:before,
         *:after {
-          box-sizing: inherit;
+          box-sizing: border-box;
           text-rendering: geometricPrecision;
           -webkit-tap-highlight-color: transparent;
         }
