@@ -42,7 +42,7 @@ const defaultProps = {
   del: false,
   em: false,
   blockquote: false,
-  weight: 'normal' as TextWeights,
+  weight: 'noset' as TextWeights,
   className: '',
   color: 'default' as NormalColors | string
 };

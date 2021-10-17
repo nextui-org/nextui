@@ -165,6 +165,7 @@ import { Text } from '@nextui-org/react';
 | **size**       | `string` `number`       | -                              | Text size       | `inherit` |
 | **margin**     | `string` `number`       | -                              | Text margin     | `inherit` |
 | **color**      | `NormalColors` `string` | [NormalColors](#normal-colors) | Text color      | `default` |
+| **weight**     | `TextWeights`           | [TextWeights](#text-weights)   | Text weight     | `noset`   |
 | ...            | `HTMLAttributes`        | `'id', 'className', ...`       | native props    | -         |
 
 <Spacer y={2} />
@@ -183,4 +184,31 @@ type NormalColors =
   | 'success'
   | 'warning'
   | 'error';
+```
+
+#### Text Weights
+
+```ts
+type TextWeights =
+  /* Keyword values */
+  | 'normal'
+  | 'bold'
+  /* Keyword values relative to the parent */
+  | 'lighter'
+  | 'bolder'
+  /* Global values */
+  | 'inherit'
+  | 'initial'
+  | 'revert'
+  | 'unset'
+  /* Numeric keyword values */
+  | 100
+  | 200
+  | 300
+  | 400 // normal
+  | 500
+  | 600
+  | 700 // bold
+  | 800
+  | 900;
 ```

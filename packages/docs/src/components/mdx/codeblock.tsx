@@ -3,7 +3,7 @@ import { Snippet, useTheme } from '@nextui-org/react';
 import makeCodeTheme from '../playground/code-theme';
 
 const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
-  children,
+  children
 }) => {
   const theme = useTheme();
   const codeTheme = makeCodeTheme(theme);
@@ -12,6 +12,9 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
   );
   const punctuationColor = codeTheme.styles.find((style) =>
     style.types.includes('punctuation')
+  );
+  const numberColor = codeTheme.styles.find((style) =>
+    style.types.includes('number')
   );
   const textColor = codeTheme.styles.find((style) =>
     style.types.includes('text')
@@ -56,6 +59,9 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
         }
         :global(.token.punctuation) {
           color: ${punctuationColor?.style.color};
+        }
+        :global(.token.number) {
+          color: ${numberColor?.style.color};
         }
         :global(.token.class-name) {
           color: ${classnameColor?.style.color};
