@@ -99,8 +99,8 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
         <div className="option-right-container">
           {action.shortcut?.length ? (
             <div className="kbd-container">
-              {action.shortcut.map((sc) => (
-                <Keyboard>{sc}</Keyboard>
+              {action.shortcut.map((sc, index) => (
+                <Keyboard key={`${sc}_${index}`}>{sc}</Keyboard>
               ))}
             </div>
           ) : null}

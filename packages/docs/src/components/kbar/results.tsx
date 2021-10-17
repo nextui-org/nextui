@@ -168,14 +168,17 @@ export default function KBarResults(props: KBarResultsProps) {
   return (
     <div className={cn('kbar-section', props.className)} style={props.style}>
       {!isEmpty(groupedMatches)
-        ? Object.keys(groupedMatches).map((section) => {
+        ? Object.keys(groupedMatches).map((section, sectionIndex) => {
             return (
-              <ul className="kbar-section-list">
+              <ul
+                key={`${section}_${sectionIndex}`}
+                className="kbar-section-list"
+              >
                 {section ? (
                   <b className="kbar-section-list__title">{section}</b>
                 ) : null}
                 {groupedMatches[section].map((action) => {
-                  idx++;
+                  idx = idx + 1;
                   return renderAction(action, idx);
                 })}
               </ul>
