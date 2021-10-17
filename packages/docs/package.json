@@ -38,7 +38,8 @@
     "shelljs": "^0.8.4",
     "styled-jsx": "^4.0.1",
     "use-dark-mode": "^2.3.1",
-    "util.promisify": "^1.1.1"
+    "util.promisify": "^1.1.1",
+    "match-sorter": "^6.3.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.11",
