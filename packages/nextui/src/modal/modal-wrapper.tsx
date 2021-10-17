@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import CSSTransition from '../utils/css-transition';
@@ -11,6 +11,7 @@ interface Props {
   visible?: boolean;
   scroll?: boolean;
   rebound?: boolean;
+  animated?: boolean;
   onCloseButtonClick?: () => void;
   fullScreen?: boolean;
   closeButton?: boolean;
@@ -31,6 +32,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   fullScreen,
   closeButton,
   rebound,
+  animated,
   onCloseButtonClick,
   scroll,
   ...props
@@ -74,14 +76,8 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
     onCloseButtonClick && onCloseButtonClick();
   };
 
-  return (
-    <CSSTransition
-      name="modal-wrapper"
-      visible={visible}
-      enterTime={20}
-      leaveTime={20}
-      clearTime={300}
-    >
+  const renderChildren = useMemo(() => {
+    return (
       <div
         className={cslx(
           'modal-wrapper',
@@ -214,7 +210,25 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           }
         `}</style>
       </div>
-    </CSSTransition>
+    );
+  }, [rebound, children]);
+
+  return (
+    <>
+      {animated ? (
+        <CSSTransition
+          name="modal-wrapper"
+          visible={visible}
+          enterTime={20}
+          leaveTime={20}
+          clearTime={300}
+        >
+          {renderChildren}
+        </CSSTransition>
+      ) : visible ? (
+        renderChildren
+      ) : null}
+    </>
   );
 };
 

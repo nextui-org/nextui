@@ -235,6 +235,69 @@ export const WithUseModal = () => {
   );
 };
 
+export const NoAnimated = () => {
+  const { setVisible, bindings } = useModal();
+  const theme = useTheme();
+
+  return (
+    <div>
+      <Button auto color="secondary" onClick={() => setVisible(true)}>
+        Show Modal
+      </Button>
+      <Modal aria-labelledby="modal-title" animated={false} {...bindings}>
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+            Welcome to&nbsp;
+            <Text b size={18}>
+              NextUI
+            </Text>
+          </Text>
+        </Modal.Header>
+
+        <Modal.Body>
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="large"
+            placeholder="Email"
+            contentLeft={<Mail theme={theme} />}
+          />
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="large"
+            placeholder="Password"
+            contentLeft={<Password theme={theme} />}
+          />
+          <Row justify="space-between">
+            <Checkbox>
+              <Text size={14} color={theme.palette.text}>
+                Remember me
+              </Text>
+            </Checkbox>
+            <Text size={14} color={theme.palette.accents_4}>
+              Forgot password?
+            </Text>
+          </Row>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button auto flat color="error" onClick={() => setVisible(false)}>
+            Close
+          </Button>
+          <Button auto onClick={() => setVisible(false)}>
+            Sign in
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+};
+
 export const LargeContent = () => {
   const { setVisible, bindings } = useModal();
 

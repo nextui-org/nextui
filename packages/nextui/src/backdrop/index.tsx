@@ -1,4 +1,4 @@
-import React, { MouseEvent, useCallback } from 'react';
+import React, { MouseEvent, useCallback, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import CSSTransition from '../utils/css-transition';
@@ -11,6 +11,7 @@ interface Props {
   visible?: boolean;
   fullScreenContent?: boolean;
   width?: string;
+  animated?: boolean;
   blur?: boolean;
 }
 
@@ -18,6 +19,7 @@ const defaultProps = {
   onClick: () => {},
   visible: false,
   blur: false,
+  animated: true,
   fullScreenContent: false
 };
 
@@ -31,12 +33,14 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
     visible,
     width,
     blur,
+    animated,
     fullScreenContent,
     ...props
   }) => {
     const theme = useTheme();
-    const [, setIsContentMouseDown, IsContentMouseDownRef] =
-      useCurrentState(false);
+    const [, setIsContentMouseDown, IsContentMouseDownRef] = useCurrentState(
+      false
+    );
     const clickHandler = (event: MouseEvent<HTMLElement>) => {
       if (IsContentMouseDownRef.current) return;
       onClick && onClick(event);
@@ -55,14 +59,8 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
       }, 0);
     };
 
-    return (
-      <CSSTransition
-        name="backdrop-wrapper"
-        visible={visible}
-        enterTime={20}
-        leaveTime={20}
-        clearTime={150}
-      >
+    const renderChildren = useMemo(() => {
+      return (
         <div
           className={cslx('backdrop', {
             fullscreen: fullScreenContent
@@ -173,7 +171,25 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
             }
           `}</style>
         </div>
-      </CSSTransition>
+      );
+    }, [children]);
+
+    return (
+      <>
+        {animated ? (
+          <CSSTransition
+            name="backdrop-wrapper"
+            visible={visible}
+            enterTime={20}
+            leaveTime={20}
+            clearTime={150}
+          >
+            {renderChildren}
+          </CSSTransition>
+        ) : visible ? (
+          renderChildren
+        ) : null}
+      </>
     );
   }
 );
