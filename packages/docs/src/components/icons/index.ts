@@ -8,9 +8,12 @@ export interface IconProps {
   className?: string;
 }
 
+export { default as Home } from './home';
 export { default as Anchor } from './anchor';
 export { default as Activity } from './activity';
 export { default as Camera } from './camera';
+export { default as ChevronLeft } from './chevron-left';
+export { default as ChevronRight } from './chevron-right';
 export { default as ArrowLeft } from './arrow-left';
 export { default as ArrowRight } from './arrow-right';
 export { default as Copy } from './copy';
@@ -38,3 +41,5 @@ export { default as Github } from './github';
 export { default as Send } from './send';
 export { default as Mail } from './mail';
 export { default as Password } from './password';
+export { default as Palette } from './palette';
+export { default as Note } from './note';

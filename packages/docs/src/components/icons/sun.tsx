@@ -15,8 +15,8 @@ const Sun: React.FC<IconProps> = ({
   if (filled) {
     return (
       <svg
-        width={size || width}
-        height={size || height}
+        width={size || width || 24}
+        height={size || height || 24}
         viewBox="0 0 24 24"
         {...props}
       >
@@ -30,8 +30,8 @@ const Sun: React.FC<IconProps> = ({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={size || width}
-      height={size || height}
+      width={size || width || 24}
+      height={size || height || 24}
       viewBox="0 0 24 24"
       {...props}
     >

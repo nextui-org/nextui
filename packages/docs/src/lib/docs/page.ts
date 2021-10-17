@@ -5,7 +5,10 @@ import { removeFromLast } from '@utils/index';
 
 export interface Route {
   title: string;
+  subtitle?: string;
+  section?: string;
   heading?: boolean;
+  keywords?: string;
   icon?: string;
   open?: boolean;
   path?: string;

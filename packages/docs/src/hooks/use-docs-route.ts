@@ -30,7 +30,7 @@ const getRouteContext = (
         title:
           parent && !parent.heading
             ? `${parent.title}: ${currentRoute?.title}` || ''
-            : currentRoute?.title || '',
+            : currentRoute?.title || ''
       };
       // Continue the loop until we know the next route
       continue;
