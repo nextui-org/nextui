@@ -9,7 +9,7 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
     fontStyle: 'normal',
     fontFamily: theme.font.mono,
     fontSize: '.875rem',
-    textRendering: 'geometricPrecision',
+    textRendering: 'geometricPrecision'
   },
   styles: [
     {
@@ -19,50 +19,50 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
           theme.type === 'light'
             ? theme.palette.accents_3
             : theme.palette.accents_6,
-        opacity: 0.5,
-      },
+        opacity: 0.5
+      }
     },
     {
       types: ['punctuation', 'symbol', 'text'],
       style: {
-        color: '#fff',
-      },
+        color: '#fff'
+      }
     },
     {
       types: ['function'],
       style: {
-        color: '#61AFEF',
-      },
+        color: '#61AFEF'
+      }
     },
     {
       types: ['namespace'],
       style: {
-        opacity: 1,
-      },
+        opacity: 1
+      }
     },
     {
       types: ['tag', 'operator', 'number'],
       style: {
-        color: '#E5C07B',
-      },
+        color: '#E5C07B'
+      }
     },
     {
       types: ['property', 'function'],
       style: {
-        color: theme.palette.success,
-      },
+        color: theme.palette.success
+      }
     },
     {
       types: ['tag-id', 'selector', 'atrule-id'],
       style: {
-        color: '#E06C75',
-      },
+        color: '#E06C75'
+      }
     },
     {
       types: ['attr-name'],
       style: {
-        color: theme.palette.warning,
-      },
+        color: theme.palette.warning
+      }
     },
     {
       types: [
@@ -79,49 +79,49 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
         'regex',
         'at-rule',
         'placeholder',
-        'variable',
+        'variable'
       ],
       style: {
-        color: '#98C379',
-      },
+        color: '#98C379'
+      }
     },
     {
       types: ['deleted'],
       style: {
-        textDecorationLine: 'line-through',
-      },
+        textDecorationLine: 'line-through'
+      }
     },
     {
       types: ['language-javascript', 'script'],
       style: {
-        color: theme.palette.success,
-      },
+        color: theme.palette.success
+      }
     },
     {
       types: ['inserted'],
       style: {
-        textDecorationLine: 'underline',
-      },
+        textDecorationLine: 'underline'
+      }
     },
     {
       types: ['italic'],
       style: {
-        fontStyle: 'italic',
-      },
+        fontStyle: 'italic'
+      }
     },
     {
       types: ['important', 'bold'],
       style: {
-        fontWeight: 'bold',
-      },
+        fontWeight: 'bold'
+      }
     },
     {
       types: ['important'],
       style: {
-        color: '#c678dd',
-      },
-    },
-  ],
+        color: '#c678dd'
+      }
+    }
+  ]
 });
 
 export default makeCodeTheme;

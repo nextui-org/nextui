@@ -34,7 +34,7 @@ const defaultProps = {
   tooltipColor: 'default' as TooltipColors | string,
   tooltipCopyText: 'Copy',
   tooltipCopiedText: 'Copied',
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -72,7 +72,7 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   const style = useMemo(() => getStyles(type, theme.palette, filled), [
     type,
     theme.palette,
-    filled,
+    filled
   ]);
   const showCopyIcon = useMemo(() => copyType !== 'prevent', [copyType]);
   const childText = useMemo<string | undefined | null>(() => {
@@ -117,7 +117,7 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           hideArrow
           rounded
           color={tooltipColor}
-          text={copied ? tooltipCopiedText : tooltipCopyText}
+          content={copied ? tooltipCopiedText : tooltipCopyText}
           onVisibleChange={handleTooltipVisibleChange}
         >
           <span className="copy" onClick={clickHandler}>

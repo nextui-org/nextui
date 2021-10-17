@@ -49,7 +49,7 @@ const Editor: React.FC = () => {
     Object.assign(document.createElement('a'), {
       target: '_blank',
       rel: 'noopener noreferrer',
-      href: `${ISSUE_REPORT_URL}${componentTitle}`,
+      href: `${ISSUE_REPORT_URL}${componentTitle}`
     }).click();
   };
 
@@ -80,7 +80,7 @@ const Editor: React.FC = () => {
                 <Tooltip
                   hideArrow
                   className="action-tooltip"
-                  text={copied ? 'Copied!' : 'Copy'}
+                  content={copied ? 'Copied!' : 'Copy'}
                   onVisibleChange={handleTooltipVisibleChange}
                 >
                   <span
@@ -101,7 +101,7 @@ const Editor: React.FC = () => {
                 <Tooltip
                   hideArrow
                   className="action-tooltip"
-                  text="Report a bug"
+                  content="Report a bug"
                 >
                   <a
                     className="icon"

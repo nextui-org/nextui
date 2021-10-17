@@ -24,7 +24,7 @@ interface Props {
   parent?: MutableRefObject<HTMLElement | null> | undefined;
   position: Position;
   color: TooltipColors | string;
-  textColor: SimpleColors | string;
+  contentColor: SimpleColors | string;
   visible: boolean;
   offset: number;
   rounded?: boolean;
@@ -74,7 +74,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   offset,
   position,
   color,
-  textColor,
+  contentColor,
   rounded,
   className,
   hideArrow,
@@ -85,9 +85,9 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   const el = usePortal('tooltip');
   const selfRef = useRef<HTMLDivElement>(null);
   const [rect, setRect] = useState<TooltipPosition>(defaultTooltipPosition);
-  const colors = useMemo(() => getColors(color, textColor, theme.palette), [
+  const colors = useMemo(() => getColors(color, contentColor, theme.palette), [
     color,
-    textColor,
+    contentColor,
     theme.palette
   ]);
   if (!parent) return null;
@@ -144,16 +144,16 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
             background: ${colors.bgColor};
             color: ${colors.color};
             border-radius: ${borderRadius};
-            padding: 0;
+            padding: ${theme.layout.gapQuarter} ${theme.layout.gapHalf};
             opacity: 0;
             z-index: 1000;
             box-shadow: ${shadow ? theme.expressiveness.shadowMedium : 'none'};
             transition: opacity 0.25s ease 0s, top 0.25s ease 0s;
           }
           .inner {
-            font-size: 0.875rem;
-            padding: ${theme.layout.gapQuarter} ${theme.layout.gapHalf};
             position: relative;
+            font-size: 0.875rem;
+            padding: 0;
           }
           .inner.arrow:after {
             content: '';
