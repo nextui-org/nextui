@@ -7,7 +7,7 @@ import * as Components from '@nextui-org/react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { MetaProps } from '@lib/docs/meta';
 import useDocsRoute from '@hooks/use-docs-route';
-import { ArrowLeft, MDXComponents } from '@components';
+import { MDXComponents } from '@components';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { getSlug } from '@lib/docs/utils';

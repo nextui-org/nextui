@@ -9,7 +9,7 @@ import { DeepPartial } from '@utils/types';
 import { NextComponent } from '@lib/types';
 import generateKbarActions from '@lib/kbar-actions';
 import sharedTheme from '@theme/shared';
-import { Action, KBarProvider } from 'kbar';
+import { KBarProvider } from 'kbar';
 
 type AppPropsType<
   R extends NextRouter = NextRouter,
