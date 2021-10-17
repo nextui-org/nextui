@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import CSSTransition from '../utils/css-transition';
@@ -39,6 +39,13 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   const modalContent = useRef<HTMLDivElement>(null);
   const tabStart = useRef<HTMLDivElement>(null);
   const tabEnd = useRef<HTMLDivElement>(null);
+  const [rendered, setRendered] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRendered(true);
+    }, 300);
+  }, []);
 
   useEffect(() => {
     if (!visible) return;
@@ -81,7 +88,8 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           {
             fullscreen: fullScreen,
             'with-close-button': closeButton,
-            'modal-rebound': rebound
+            'modal-rebound': rebound,
+            rendered
           },
           className
         )}
@@ -123,30 +131,8 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             color: ${theme.palette.foreground};
             border-radius: ${theme.layout.radius};
             box-shadow: ${theme.expressiveness.shadowLarge};
-            opacity: 0;
             outline: none;
-            transform: translate3d(0px, 20px, 0px) scale(1.02);
-            transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s,
-              transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-          }
-          .modal-rebound:not(.fullscreen) {
-            animation: rebound 0.25s ease;
-          }
-          .modal-wrapper-enter {
-            opacity: 0;
-            transform: translate3d(0px, 20px, 0px) scale(1.02);
-          }
-          .modal-wrapper-enter-active {
-            opacity: 1;
-            transform: translate3d(0px, 0px, 0px) scale(1);
-          }
-          .modal-wrapper-leave {
-            opacity: 1;
-            transform: translate3d(0px, 0px, 0px) scale(1);
-          }
-          .modal-wrapper-leave-active {
-            opacity: 0;
-            transform: translate3d(0px, 20px, 0px) scale(1.02);
+            animation-fill-mode: forwards;
           }
           .hide-tab {
             outline: none;
@@ -160,6 +146,23 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             height: 100%;
             max-height: 100%;
           }
+          .modal-rebound:not(.fullscreen) {
+            animation-duration: 250ms;
+            animation-name: rebound;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+          }
+          .modal-wrapper-enter:not(.rendered) {
+            animation-name: appearance-in;
+            animation-duration: 200ms;
+            animation-timing-function: ease-in;
+            animation-direction: normal;
+          }
+          .modal-wrapper-leave {
+            animation-name: appearance-out;
+            animation-duration: 50ms;
+            animation-timing-function: ease-out;
+          }
           .with-close-button {
             padding-top: ${theme.layout.gap};
           }
@@ -170,6 +173,30 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           .fullscreen :global(.close-icon svg) {
             width: 24px;
             height: 24px;
+          }
+          @keyframes appearance-in {
+            0% {
+              opacity: 0;
+              transform: scale(0.95);
+            }
+            60% {
+              opacity: 0.75;
+              transform: scale(1.02);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+          @keyframes appearance-out {
+            0% {
+              opacity: 1;
+              transform: scale(1);
+            }
+            100% {
+              opacity: 0;
+              transform: scale(0.95);
+            }
           }
           @keyframes rebound {
             0% {
