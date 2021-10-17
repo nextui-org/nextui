@@ -174,7 +174,7 @@ export default function KBarResults(props: KBarResultsProps) {
                 key={`${section}_${sectionIndex}`}
                 className="kbar-section-list"
               >
-                {section ? (
+                {section && section !== 'undefined' ? (
                   <b className="kbar-section-list__title">{section}</b>
                 ) : null}
                 {groupedMatches[section].map((action) => {
