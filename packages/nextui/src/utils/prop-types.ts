@@ -60,6 +60,20 @@ export const normalLoaders = tuple(
 
 export const normalWeights = tuple('light', 'normal', 'bold');
 
+export const textWeights = tuple(
+  /* Keyword values */
+  'normal',
+  'bold',
+  /* Keyword values relative to the parent */
+  'lighter',
+  'bolder',
+  /* Global values */
+  'inherit',
+  'initial',
+  'revert',
+  'unset'
+);
+
 const themeTypes = tuple('dark', 'light');
 
 const copyTypes = tuple('default', 'slient', 'prevent');
@@ -155,6 +169,18 @@ export type Wrap = typeof wrap[number];
 export type NormalSizes = typeof normalSizes[number];
 
 export type NormalWeights = typeof normalWeights[number];
+
+export type TextWeights =
+  | typeof textWeights[number]
+  | 100
+  | 200
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900;
 
 export type NormalColors = typeof normalColors[number];
 

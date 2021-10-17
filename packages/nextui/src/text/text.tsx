@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
-import { NormalColors } from '../utils/prop-types';
+import { NormalColors, TextWeights } from '../utils/prop-types';
 import TextChild from './child';
 
 interface Props {
@@ -22,6 +22,7 @@ interface Props {
   className?: string;
   size?: string | number;
   margin?: string | number;
+  weight?: TextWeights;
   color?: NormalColors | string;
 }
 
@@ -41,8 +42,9 @@ const defaultProps = {
   del: false,
   em: false,
   blockquote: false,
+  weight: 'normal' as TextWeights,
   className: '',
-  color: 'default' as NormalColors | string,
+  color: 'default' as NormalColors | string
 };
 
 type ElementMap = { [key in keyof JSX.IntrinsicElements]?: boolean };
@@ -85,6 +87,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   capitalize,
   size,
   margin,
+  weight,
   children,
   className,
   ...props
@@ -134,6 +137,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
       tag={tag}
       margin={margin}
       size={size}
+      weight={weight}
       {...props}
     >
       {modifers}

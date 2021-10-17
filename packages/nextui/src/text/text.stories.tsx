@@ -10,8 +10,8 @@ export default {
       <div style={{ maxWidth: '50%' }}>
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 } as Meta;
 
 const shortText = 'Almost before we knew it, we had left the ground.';
@@ -79,7 +79,9 @@ export const Sizes = () => (
 
 export const Composed = () => (
   <>
-    <Text p>{largeText}</Text>
+    <Text p weight={100}>
+      {largeText}
+    </Text>
     <Text>
       <Text small del>
         {shortText}
