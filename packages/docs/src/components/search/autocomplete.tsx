@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
 import useDarkMode from 'use-dark-mode';
-import { browserName, isMacOs, isWindows } from 'react-device-detect';
+import { isMacOs } from 'react-device-detect';
 import { useRouter } from 'next/router';
 import {
   NextUIThemes,
@@ -28,6 +28,7 @@ import { isEmpty } from 'lodash';
 import { AutocompleteProvided } from 'react-instantsearch-core';
 import Keyboard from '../keyboard';
 import Suggestion from './suggestion';
+import { VisualState, useKBar } from 'kbar';
 
 interface Props extends AutocompleteProvided {}
 
@@ -42,6 +43,9 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const isMobile = useMediaQuery(
     Number(theme.breakpoints.sm.max.replace('px', ''))
   );
+
+  const { query } = useKBar();
+
   const isDark = useDarkMode().value;
 
   let inputRef = React.useRef<HTMLInputElement>(null);
@@ -105,6 +109,14 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     inputRef && inputRef?.current?.blur();
   };
 
+  const handleKeyboardClick = () => {
+    query.setVisualState((vs) =>
+      [VisualState.animatingOut, VisualState.hidden].includes(vs)
+        ? VisualState.animatingIn
+        : VisualState.animatingOut
+    );
+  };
+
   const renderInput = React.useCallback(
     (inputProps: RenderInputComponentProps) => {
       return (
@@ -115,7 +127,8 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               <Keyboard
                 className="search__placeholder-kbd"
                 command={isMacOs}
-                ctrl={isWindows}
+                ctrl={!isMacOs}
+                onClick={handleKeyboardClick}
               >
                 K
               </Keyboard>

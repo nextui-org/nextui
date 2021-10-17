@@ -1,16 +1,17 @@
 /* eslint-disable react/display-name */
 import * as React from 'react';
-import { useRouter } from 'next/router';
+import router, { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import DocsLayout from '@layouts/docs';
 import * as Components from '@nextui-org/react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { MetaProps } from '@lib/docs/meta';
 import useDocsRoute from '@hooks/use-docs-route';
-import { MDXComponents } from '@components';
+import { ArrowLeft, MDXComponents } from '@components';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { getSlug } from '@lib/docs/utils';
+import { Action, useRegisterActions } from 'kbar';
 import fs from 'fs';
 import path from 'path';
 import {
@@ -20,13 +21,14 @@ import {
   fetchRawDoc,
   findRouteByPath,
   getRawAsset,
-  getPaths,
+  getPaths
 } from '@lib/docs/page';
 import { isProd } from '@utils/index';
+import { getId } from '@utils/collections';
 
 const components = {
   ...Components,
-  ...MDXComponents,
+  ...MDXComponents
 };
 
 interface Props {
@@ -40,6 +42,23 @@ const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
   const { route, prevRoute, nextRoute } = useDocsRoute(routes, currentRoute);
   const { query } = useRouter();
   const { tag, slug } = getSlug(query);
+
+  // kbar home action
+  const homeAction: Action = React.useMemo(() => {
+    return {
+      id: getId(),
+      name: 'Go Home',
+      section: 'Scope',
+      icon: 'home',
+      shortcut: [],
+      keywords: 'home, return, back, landing, page, init, initial',
+      children: [],
+      perform: () => router.push('/')
+    };
+  }, [routes]);
+
+  useRegisterActions([homeAction].filter(Boolean));
+
   return (
     <DocsLayout
       routes={routes}
@@ -75,7 +94,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   if (!route) {
     return {
-      props: {},
+      props: {}
     };
   }
 
@@ -99,17 +118,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     mdxOptions: {
       remarkPlugins: [
         require('remark-autolink-headings'),
-        require('remark-slug'),
+        require('remark-slug')
       ],
-      rehypePlugins: [require('@mapbox/rehype-prism')],
-    },
+      rehypePlugins: [require('@mapbox/rehype-prism')]
+    }
   });
 
   const routes = manifest.routes.map((route: any) => {
     if (route.icon) {
       return {
         ...route,
-        icon: getRawAsset(route.icon, currentTag),
+        icon: getRawAsset(route.icon, currentTag)
       };
     }
     return route;
@@ -120,8 +139,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       routes,
       meta,
       source: mdxSource,
-      currentRoute: route,
-    },
+      currentRoute: route
+    }
   };
 };
 

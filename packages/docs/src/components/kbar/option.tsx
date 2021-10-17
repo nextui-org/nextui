@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import cn from 'classnames';
+import Image from 'next/image';
 import { Action, ResultHandlers, ResultState } from 'kbar';
 import { useTheme } from '@nextui-org/react';
 import { addColorAlpha } from '@utils/index';
-import { ArrowRight } from '../icons';
 import Keyboard from '../keyboard';
+import useDarkMode from 'use-dark-mode';
+import Icon from '../icons/map-icons';
+import { isEmpty } from 'lodash';
 
 interface Props {
   action: Action;
@@ -13,9 +16,9 @@ interface Props {
 }
 
 const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
-  const ownRef = React.useRef<HTMLDivElement>(null);
+  const ownRef = React.useRef<HTMLLIElement>(null);
   const active = state.index === state.activeIndex;
-
+  const isDark = useDarkMode().value;
   const theme = useTheme();
 
   React.useEffect(() => {
@@ -39,11 +42,53 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
     }
   }, [active]);
 
+  const renderIcon = useCallback(() => {
+    if (isEmpty(action.icon)) {
+      return (
+        <div className="option-icon">
+          <Icon
+            fill={active ? theme.palette.accents_5 : theme.palette.accents_3}
+            name="arrow-right"
+          />
+        </div>
+      );
+    }
+    if (
+      action.icon &&
+      typeof action.icon === 'string' &&
+      action.icon.includes('.svg')
+    ) {
+      return (
+        <div className="option-icon">
+          <Image
+            width={24}
+            height={24}
+            src={action.icon?.replace(
+              '.svg',
+              isDark ? '-dark.svg' : '-light.svg'
+            )}
+            alt={`${action.name} icon`}
+          />
+        </div>
+      );
+    } else if (action.icon && typeof action.icon === 'string') {
+      return (
+        <div className="option-icon">
+          <Icon
+            fill={active ? theme.palette.accents_5 : theme.palette.accents_3}
+            name={action.icon}
+          />
+        </div>
+      );
+    }
+    return <div className="option-icon">{action.icon}</div>;
+  }, [active, isDark]);
+
   return (
-    <div ref={ownRef} className="kbar-option" {...handlers}>
+    <li ref={ownRef} className="kbar-option" {...handlers}>
       <div className={cn('option-container', { active })}>
         <div className="option-left-container">
-          {action.icon && <div className="option-icon"> {action.icon}</div>}
+          {renderIcon()}
           <div className="option-text-container">
             <span className="option-text-title">{action.name}</span>
             {action.subtitle && (
@@ -59,17 +104,13 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
               ))}
             </div>
           ) : null}
-          <ArrowRight
-            className="arrow-right"
-            fill={theme.palette.accents_6}
-            size={16}
-          />
         </div>
       </div>
 
       <style jsx>
         {`
           .kbar-option {
+            width: 100%;
             min-height: 54px;
           }
           .option-container {
@@ -80,17 +121,17 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
             align-items: center;
             cursor: pointer;
             justify-content: space-between;
+            border-radius: 4px;
             transition: all 0.2s ease;
           }
           .active {
-            border-radius: 4px;
             background: ${addColorAlpha(theme.palette.text, 0.1)};
           }
           .option-left-container {
             display: flex;
             align-items: center;
           }
-          .option-icon {
+          :global(.option-icon) {
             display: flex;
             align-items: center;
             padding-right: 12px;
@@ -104,9 +145,6 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
             display: flex;
             flex-direction: row;
             align-items: center;
-          }
-          .option-right-container :global(.arrow-right) {
-            margin-left: 8px;
           }
           .option-text-title {
             color: ${theme.palette.text};
@@ -122,8 +160,10 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
           }
         `}
       </style>
-    </div>
+    </li>
   );
 };
 
-export default KBarOption;
+const MemoKBarOption = React.memo(KBarOption);
+
+export default MemoKBarOption;

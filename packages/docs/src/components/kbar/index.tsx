@@ -4,13 +4,12 @@ import {
   KBarPortal,
   KBarPositioner,
   KBarAnimator,
-  KBarSearch,
-  KBarResults,
   VisualState,
   useKBar
 } from 'kbar';
 import KBarOption from './option';
-import KBarInput from './input';
+import KBarSearch from './search';
+import KBarResults from './results';
 import generateStyles from './styles';
 
 const KBar: React.FC<unknown> = () => {
@@ -20,19 +19,17 @@ const KBar: React.FC<unknown> = () => {
     visible: state.visualState !== VisualState.hidden
   }));
 
-  const closeFromBackdrop = () => console.log('close');
-
   return (
     <KBarPortal>
       <Backdrop
         blur
-        onClick={closeFromBackdrop}
+        className="backdrop"
         visible={visible}
         width={styles.container.maxWidth}
       >
         <KBarPositioner>
           <KBarAnimator style={styles.container}>
-            <KBarInput placeholder="What do you need?" />
+            <KBarSearch placeholder="What do you need?" />
             <KBarResults
               style={styles.result}
               onRender={(action, handlers, state) => (
@@ -42,6 +39,13 @@ const KBar: React.FC<unknown> = () => {
           </KBarAnimator>
         </KBarPositioner>
       </Backdrop>
+      <style jsx>
+        {`
+          :global(.backdrop .content) {
+            height: 100%;
+          }
+        `}
+      </style>
     </KBarPortal>
   );
 };

@@ -9,7 +9,7 @@ import { DeepPartial } from '@utils/types';
 import { NextComponent } from '@lib/types';
 import generateKbarActions from '@lib/kbar-actions';
 import sharedTheme from '@theme/shared';
-import { KBarProvider } from 'kbar';
+import { Action, KBarProvider } from 'kbar';
 
 type AppPropsType<
   R extends NextRouter = NextRouter,
@@ -34,7 +34,6 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   });
 
   const router = useRouter();
-  const kbarActions = generateKbarActions(router);
 
   const themeChangeHandle = (isDark: boolean) => {
     if (customTheme.type === 'dark' && !isDark) {
@@ -50,9 +49,11 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
     }
   };
 
-  useDarkMode(true, {
+  const darkMode = useDarkMode(true, {
     onChange: themeChangeHandle
   });
+
+  const kbarActions = generateKbarActions(router, darkMode);
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem('darkMode')

@@ -17,7 +17,7 @@ const defaultProps = {
   href: '',
   pathname: '',
   title: '',
-  selected: false,
+  selected: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -30,7 +30,7 @@ const NavLink: React.FC<NavLinkProps> = ({
   title,
   color,
   selected,
-  onClick,
+  onClick
 }) => {
   const router = useRouter();
   const onlyHashChange = pathname === router.pathname;

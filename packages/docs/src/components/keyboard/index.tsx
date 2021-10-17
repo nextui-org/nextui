@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import withDefaults from '@utils/with-defaults';
 import { useTheme, NextUIThemes } from '@nextui-org/react';
 import { addColorAlpha } from '@utils/index';
+import useDarkMode from 'use-dark-mode';
 
 interface Props {
   command?: boolean;
@@ -9,6 +10,7 @@ interface Props {
   option?: boolean;
   ctrl?: boolean;
   small?: boolean;
+  onClick?: () => void;
   className?: string;
 }
 
@@ -52,16 +54,18 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
   small,
   children,
   className,
+  onClick,
   ...props
 }) => {
   const theme = useTheme();
+  const isDark = useDarkMode().value;
   const { padding, fontSize, minWidth } = useMemo<CustomLayout>(
     () => getLayout(small, theme),
     [small, theme]
   );
 
   return (
-    <kbd className={className} {...props}>
+    <kbd className={className} onClick={onClick} {...props}>
       {command && <span>⌘</span>}
       {shift && <span>⇧</span>}
       {option && <span>⌥</span>}
@@ -73,11 +77,15 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
           line-height: 2em;
           text-align: center;
           display: inline-block;
+          cursor: ${onClick ? 'pointer' : 'default'};
           color: ${addColorAlpha(theme.palette.text, 0.6)};
-          background-color: ${addColorAlpha(theme.palette.text, 0.1)};
+          background-color: ${addColorAlpha(theme.palette.background, 0.8)};
+          border: ${isDark
+            ? `1px solid ${addColorAlpha(theme.palette.foreground, 0.2)}`
+            : 'none'};
+          box-shadow: ${isDark ? 'none' : '0 0 2px 0 rgb(0 0 0 / 14%)'};
           font-family: ${theme.font.sans};
           border-radius: 6px;
-          border: 1px solid ${addColorAlpha(theme.palette.accents_3, 0.2)};
           padding: 0 ${padding};
           min-width: ${minWidth};
           font-size: ${fontSize};

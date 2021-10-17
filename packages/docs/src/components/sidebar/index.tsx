@@ -20,7 +20,7 @@ export interface Props {
 const defaultProps = {
   level: 1,
   tag: '',
-  slug: '',
+  slug: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -37,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   level,
   tag,
   slug,
-  onPostClick,
+  onPostClick
 }) => {
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(
@@ -97,7 +97,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           title,
           pathname,
           selected,
-          newPost,
+          newPost
         } as NavLinkProps;
 
         return (
