@@ -121,7 +121,11 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     (inputProps: RenderInputComponentProps) => {
       return (
         <label className="search__input-container">
-          <input {...inputProps} placeholder="Search..." />
+          <input
+            className="search__input"
+            {...inputProps}
+            placeholder="Search..."
+          />
           {!value ? (
             <span className="search__placeholder-container">
               <Keyboard
@@ -392,11 +396,11 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           ::-webkit-search-cancel-button {
             display: none;
           }
-          input:focus::placeholder {
+          .search__input-container input:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          input::placeholder {
+          .search__input-container input::placeholder {
             color: ${theme.palette.accents_4};
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
@@ -404,9 +408,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             -webkit-transition: opacity 0.25s ease 0s;
           }
           @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
-            input::placeholder {
-              text-align: center;
-            }
             .react-autosuggest__suggestions-container,
             .no-results {
               z-index: 1004;
