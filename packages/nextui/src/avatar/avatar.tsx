@@ -1,15 +1,16 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react';
-import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
-import useTheme from '../use-theme';
-import useWarning from '../use-warning';
-import AvatarGroup from './avatar-group';
-import { __DEV__ } from '../utils/assertion';
 import {
-  isColor,
-  getNormalColor,
-  isNormalColor,
-  addColorAlpha,
-} from '../utils/color';
+  NormalSizes,
+  NormalColors,
+  SimpleColors,
+  NormalWeights
+} from '../utils/prop-types';
+import useTheme from '../use-theme';
+import AvatarGroup from './avatar-group';
+import { getNormalColor, addColorAlpha } from '../utils/color';
+import clsx from '../utils/clsx';
+import { __DEV__ } from '../utils/assertion';
+import { getNormalWeight } from '../utils/dimensions';
 
 interface Props {
   src?: string;
@@ -23,6 +24,7 @@ interface Props {
   alt?: string;
   text?: string;
   size?: NormalSizes | number;
+  borderWeight?: NormalWeights;
   squared?: boolean;
   className?: string;
 }
@@ -31,10 +33,11 @@ const defaultProps = {
   text: '',
   stacked: false,
   size: 'medium' as NormalSizes | number,
+  borderWeight: 'normal' as NormalWeights,
   textColor: 'default' as SimpleColors,
   squared: false,
   zoomed: false,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<
@@ -49,21 +52,9 @@ const getSize = (size: NormalSizes | number): string => {
     small: '1.823rem',
     medium: '2.43rem',
     large: '3.23rem',
-    xlarge: '4.3rem',
+    xlarge: '4.3rem'
   };
   if (typeof size === 'number') return `${size}px`;
-  return sizes[size];
-};
-
-const getBorder = (size: NormalSizes | number): string => {
-  const sizes: { [key in NormalSizes]: string } = {
-    mini: '1px',
-    small: '1px',
-    medium: '1.5px',
-    large: '2px',
-    xlarge: '2.5px',
-  };
-  if (typeof size === 'number') return `1.5px`;
   return sizes[size];
 };
 
@@ -77,6 +68,7 @@ const Avatar: React.FC<AvatarProps> = ({
   stacked,
   text,
   size,
+  borderWeight,
   squared,
   zoomed,
   bordered,
@@ -94,7 +86,7 @@ const Avatar: React.FC<AvatarProps> = ({
   const marginLeft = stacked ? '-.625rem' : 0;
   const [ready, setReady] = useState(false);
   const width = useMemo(() => getSize(size), [size]);
-  const border = useMemo(() => getBorder(size), [size]);
+  const border = useMemo(() => getNormalWeight(borderWeight), [borderWeight]);
 
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -115,24 +107,24 @@ const Avatar: React.FC<AvatarProps> = ({
     () =>
       color === 'gradient' || !bordered
         ? avatarColor
-        : addColorAlpha(avatarColor, 0.8),
+        : addColorAlpha(avatarColor, 0.6),
     [color, avatarColor, bordered]
   );
 
-  if (__DEV__ && color && !isNormalColor(color) && !isColor(color)) {
-    useWarning(`Props "color" ${color} is not a valid color.`, 'Avatar');
-  }
-
   return (
     <span
-      className={`avatar ${bordered ? 'bordered' : ''} ${className}`}
+      className={clsx(
+        'avatar',
+        { bordered, 'only-text-avatar': showText },
+        className
+      )}
       {...props}
     >
       <span className="avatar-bg" />
       {!showText && (
         <img
           ref={imgRef}
-          className={`avatar-img ${ready ? 'avatar-ready' : ''}`}
+          className={clsx('avatar-img', { 'avatar-ready': ready })}
           src={src}
           alt={alt}
           onLoad={() => setReady(true)}
@@ -217,7 +209,7 @@ const Avatar: React.FC<AvatarProps> = ({
         }
         .bordered:hover .avatar-bg {
           background: ${hoverBackground};
-          filter: ${color === 'gradient' ? 'hue-rotate(40deg)' : 'none'};
+          filter: ${color === 'gradient' ? 'opacity(0.6)' : 'none'};
         }
         .avatar:hover .avatar-img {
           transform: ${zoomed && 'scale(1.125)'};

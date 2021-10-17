@@ -552,7 +552,7 @@ type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
 #### Normal Weights
 
 ```ts
-type NormalWeights = 'normal' | 'light' | 'bold';
+type NormalWeights = 'light' | 'normal' | 'bold';
 ```
 
 #### Content Position
@@ -564,7 +564,9 @@ type ContentPosition = 'left' | 'right';
 #### useInput
 
 ```ts
-type useInput = (initialValue: string) => {
+type useInput = (
+  initialValue: string
+) => {
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   currentRef: MutableRefObject<string>;

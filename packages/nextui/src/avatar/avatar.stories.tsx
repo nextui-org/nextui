@@ -7,7 +7,7 @@ import { Lock, User, VolumeUp, Camera, Activity } from '../utils/icons';
 
 export default {
   title: 'Display/Avatar',
-  component: Avatar,
+  component: Avatar
 } as Meta;
 
 const nameUsers = ['Junior', 'Jane', 'W', 'John', 'JR'];
@@ -16,7 +16,7 @@ const pictureUsers = [
   'https://i.pravatar.cc/300?u=a042581f4e29026706d',
   'https://i.pravatar.cc/300?u=a042581f4e29026707d',
   'https://i.pravatar.cc/300?u=a042581f4e29026709d',
-  'https://i.pravatar.cc/300?u=a042581f4f29026709d',
+  'https://i.pravatar.cc/300?u=a042581f4f29026709d'
 ];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,7 +27,7 @@ const Container = ({ children }: any) => (
       justifyContent: 'space-between',
       flexWrap: 'wrap',
       width: '100%',
-      maxWidth: `${children.length * 45}px`,
+      maxWidth: `${children.length * 45}px`
     }}
   >
     {children}
@@ -59,6 +59,7 @@ export const Colors = () => {
         <Avatar color="warning" bordered src={pictureUsers[3]} squared />
         <Avatar color="error" bordered src={pictureUsers[4]} squared />
         <Avatar color="gradient" bordered src={pictureUsers[1]} squared />
+        <Avatar color="#ff4ecd" bordered src={pictureUsers[2]} squared />
       </Container>
       <Spacer />
       <Container>
@@ -95,7 +96,7 @@ export const Sizes = () => {
       style={{
         width: '100%',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'
       }}
     >
       <Container>

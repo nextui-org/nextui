@@ -1,6 +1,7 @@
 import React from 'react';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
+import clsx from '../utils/clsx';
 
 interface Props {
   count?: number;
@@ -10,7 +11,7 @@ interface Props {
 
 const defaultProps = {
   className: '',
-  animated: true,
+  animated: true
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -24,9 +25,12 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
-
+  const isDark = theme.type === 'dark';
   return (
-    <div className={`avatar-group ${className}`} {...props}>
+    <div
+      className={clsx('avatar-group', { 'is-dark': isDark }, className)}
+      {...props}
+    >
       {children}
       {count && <span className="count">+{count}</span>}
       <style jsx>{`
@@ -39,6 +43,12 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
         .avatar-group :global(.avatar) {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
+        }
+        .avatar-group :global(.only-text-avatar) {
+          box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
+        }
+        .is-dark :global(.only-text-avatar) {
+          box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
         }
         .avatar-group :global(.avatar:hover) {
           transform: ${animated ? 'translate(-0.625rem)' : ''};
