@@ -6,15 +6,15 @@ import {
   TriggerTypes,
   Position,
   SimpleColors,
-  TooltipColors,
+  TooltipColors
 } from '../utils/prop-types';
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
 
 interface Props {
-  text: string | React.ReactNode;
+  content: string | React.ReactNode;
   color?: TooltipColors | string;
-  textColor?: SimpleColors | string;
+  contentColor?: SimpleColors | string;
   position?: Position;
   visible?: boolean;
   shadow?: boolean;
@@ -36,7 +36,7 @@ const defaultProps = {
   shadow: true,
   rounded: false,
   color: 'default' as TooltipColors | string,
-  textColor: 'default' as SimpleColors | string,
+  contentColor: 'default' as SimpleColors | string,
   trigger: 'hover' as TriggerTypes,
   position: 'top' as Position,
   enterDelay: 0,
@@ -44,7 +44,7 @@ const defaultProps = {
   offset: 12,
   className: '',
   portalClassName: '',
-  onVisibleChange: (() => {}) as TooltipOnVisibleChange,
+  onVisibleChange: (() => {}) as TooltipOnVisibleChange
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>;
@@ -53,7 +53,7 @@ export type TooltipProps = Props & typeof defaultProps & NativeAttrs;
 const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   children,
   initialVisible,
-  text,
+  content,
   offset,
   position,
   portalClassName,
@@ -62,7 +62,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   trigger,
   rounded,
   color,
-  textColor,
+  contentColor,
   shadow,
   className,
   onVisibleChange,
@@ -75,7 +75,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   const [visible, setVisible] = useState<boolean>(initialVisible);
   const contentProps = {
     color,
-    textColor,
+    contentColor,
     visible,
     shadow,
     offset,
@@ -83,7 +83,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     rounded,
     hideArrow,
     parent: ref,
-    className: portalClassName,
+    className: portalClassName
   };
 
   const changeVisible = (nextState: boolean) => {
@@ -128,7 +128,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       {...props}
     >
       {children}
-      <TooltipContent {...contentProps}>{text}</TooltipContent>
+      <TooltipContent {...contentProps}>{content}</TooltipContent>
       <style jsx>{`
         .tooltip {
           width: max-content;

@@ -74,25 +74,25 @@ import { Avatar } from '@nextui-org/react';
   code={`
   <Grid.Container gap={2}>
     <Grid>
-        <Avatar text="Primary" color="primary" />
+        <Avatar text="Primary" color="primary" textColor="white" />
     </Grid>
     <Grid>
-        <Avatar text="Secondary" color="secondary" />
+        <Avatar text="Secondary" color="secondary" textColor="white" />
     </Grid>
     <Grid>
-        <Avatar text="S" color="success" />
+        <Avatar text="S" color="success" textColor="white" />
     </Grid>
     <Grid>
-        <Avatar text="Warn" color="warning" />
+        <Avatar text="Warn" color="warning" textColor="white" />
     </Grid>
     <Grid>
-        <Avatar text="Err" color="error" />
+        <Avatar text="Err" color="error" textColor="white" />
     </Grid>
     <Grid>
-        <Avatar text="Grad" color="gradient" />
+        <Avatar text="Grad" color="gradient" textColor="white" />
     </Grid>
     <Grid>
-        <Avatar text="#ff4ecd" color="#ff4ecd" />
+        <Avatar text="#ff4ecd" color="#ff4ecd" textColor="white" />
     </Grid>
  </Grid.Container>
 `}
@@ -271,21 +271,22 @@ import { Avatar } from '@nextui-org/react';
 
 #### Avatar Props
 
-| Attribute     | Type                    | Accepted values                          | Description                            | Default   |
-| ------------- | ----------------------- | ---------------------------------------- | -------------------------------------- | --------- |
-| **color**     | `NormalColors` `string` | [NormalColors](#normal-colors)           | Change avatar color                    | `default` |
-| **textColor** | `SimpleColors` `string` | [SimpleColors](#simple-colors)           | Change avatar text color               | `default` |
-| **src**       | `string`                | -                                        | Image source (local or remote)         | -         |
-| **text**      | `string`                | -                                        | Display text when image is missing     | -         |
-| **alt**       | `string`                | -                                        | Display alt text when image is missing | -         |
-| **size**      | `NormalSizes` `number`  | [NormalSizes](#normal-sizes)             | Avatar size                            | `medium`  |
-| **bordered**  | `boolean`               | `true/false`                             | Bodered avatar                         | `false`   |
-| **pointer**   | `boolean`               | `true/false`                             | Display pointer cursor on hover        | `false`   |
-| **stacked**   | `boolean`               | `true/false`                             | Stacked display group                  | `false`   |
-| **zoomed**    | `boolean`               | `true/false`                             | Zoomed avatar                          | `false`   |
-| **squared**   | `boolean`               | `true/false`                             | Squared avatar                         | `false`   |
-| **icon**      | `ReactNode`             | -                                        | Show icon in avatar                    | -         |
-| ...           | `ImgHTMLAttributes`     | `'alt', 'crossOrigin', 'className', ...` | Native props                           | -         |
+| Attribute        | Type                    | Accepted values                          | Description                            | Default   |
+| ---------------- | ----------------------- | ---------------------------------------- | -------------------------------------- | --------- |
+| **color**        | `NormalColors` `string` | [NormalColors](#normal-colors)           | Change avatar color                    | `default` |
+| **textColor**    | `SimpleColors` `string` | [SimpleColors](#simple-colors)           | Change avatar text color               | `default` |
+| **src**          | `string`                | -                                        | Image source (local or remote)         | -         |
+| **text**         | `string`                | -                                        | Display text when image is missing     | -         |
+| **alt**          | `string`                | -                                        | Display alt text when image is missing | -         |
+| **size**         | `NormalSizes` `number`  | [NormalSizes](#normal-sizes)             | Avatar size                            | `medium`  |
+| **bordered**     | `boolean`               | `true/false`                             | Bodered avatar                         | `false`   |
+| **borderWeight** | `NormalWeights`         | [NormalWeights](#normal-weights)         | Border weight for `bordered` avatar    | `normal`  |
+| **pointer**      | `boolean`               | `true/false`                             | Display pointer cursor on hover        | `false`   |
+| **stacked**      | `boolean`               | `true/false`                             | Stacked display group                  | `false`   |
+| **zoomed**       | `boolean`               | `true/false`                             | Zoomed avatar                          | `false`   |
+| **squared**      | `boolean`               | `true/false`                             | Squared avatar                         | `false`   |
+| **icon**         | `ReactNode`             | -                                        | Show icon in avatar                    | -         |
+| ...              | `ImgHTMLAttributes`     | `'alt', 'crossOrigin', 'className', ...` | Native props                           | -         |
 
 <Spacer y={2} />
 
@@ -332,4 +333,10 @@ type SimpleColors =
 
 ```ts
 type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = 'light' | 'normal' | 'bold';
 ```

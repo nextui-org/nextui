@@ -4,12 +4,12 @@ exports[`AvatarGroup should render correctly 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "avatar-group ",
+      "class": "avatar-group",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "avatar bordered ",
+          "class": "avatar bordered only-text-avatar",
         },
         "children": Array [
           Node {
@@ -70,7 +70,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -88,7 +88,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -112,7 +112,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -208,7 +208,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -226,7 +226,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -250,7 +250,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -338,7 +338,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -356,7 +356,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -380,7 +380,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -452,7 +452,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "avatar bordered ",
+            "class": "avatar bordered only-text-avatar",
           },
           "children": Array [
             Node {
@@ -513,7 +513,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -531,7 +531,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -555,7 +555,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -651,7 +651,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -669,7 +669,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -693,7 +693,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -781,7 +781,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -799,7 +799,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -823,7 +823,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -895,7 +895,7 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "avatar bordered ",
+              "class": "avatar bordered only-text-avatar",
             },
             "children": Array [
               Node {
@@ -956,7 +956,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -974,7 +974,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -998,7 +998,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -1094,7 +1094,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -1112,7 +1112,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -1136,7 +1136,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -1224,7 +1224,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -1242,7 +1242,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -1266,7 +1266,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -1338,7 +1338,7 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "avatar bordered ",
+                "class": "avatar bordered only-text-avatar",
               },
               "children": Array [
                 Node {
@@ -1399,7 +1399,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -1417,7 +1417,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -1441,7 +1441,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -1537,7 +1537,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -1555,7 +1555,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -1579,7 +1579,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -1667,7 +1667,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -1685,7 +1685,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -1709,7 +1709,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -1794,6 +1794,12 @@ LoadedCheerio {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
         }
+        .avatar-group :global(.only-text-avatar) {
+          box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
+        }
+        .is-dark :global(.only-text-avatar) {
+          box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
+        }
         .avatar-group :global(.avatar:hover) {
           transform: ;
         }
@@ -1862,7 +1868,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "avatar bordered ",
+          "class": "avatar bordered only-text-avatar",
         },
         "children": Array [
           Node {
@@ -1923,7 +1929,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -1941,7 +1947,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -1965,7 +1971,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -2061,7 +2067,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -2079,7 +2085,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -2103,7 +2109,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -2191,7 +2197,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -2209,7 +2215,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -2233,7 +2239,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -2305,7 +2311,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "avatar bordered ",
+            "class": "avatar bordered only-text-avatar",
           },
           "children": Array [
             Node {
@@ -2366,7 +2372,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -2384,7 +2390,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -2408,7 +2414,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -2504,7 +2510,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -2522,7 +2528,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -2546,7 +2552,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -2634,7 +2640,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -2652,7 +2658,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -2676,7 +2682,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -2748,7 +2754,7 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "avatar bordered ",
+              "class": "avatar bordered only-text-avatar",
             },
             "children": Array [
               Node {
@@ -2809,7 +2815,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -2827,7 +2833,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -2851,7 +2857,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -2947,7 +2953,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -2965,7 +2971,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -2989,7 +2995,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -3077,7 +3083,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -3095,7 +3101,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -3119,7 +3125,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -3204,6 +3210,12 @@ LoadedCheerio {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
         }
+        .avatar-group :global(.only-text-avatar) {
+          box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
+        }
+        .is-dark :global(.only-text-avatar) {
+          box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
+        }
         .avatar-group :global(.avatar:hover) {
           transform: ;
         }
@@ -3253,7 +3265,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar bordered ",
+            "class": "avatar bordered only-text-avatar",
           },
           "children": Array [
             Node {
@@ -3314,7 +3326,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -3332,7 +3344,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -3356,7 +3368,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -3452,7 +3464,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -3470,7 +3482,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -3494,7 +3506,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -3582,7 +3594,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -3600,7 +3612,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -3624,7 +3636,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -3715,7 +3727,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "avatar bordered ",
+          "class": "avatar bordered only-text-avatar",
         },
         "children": Array [
           Node {
@@ -3776,7 +3788,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -3794,7 +3806,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -3818,7 +3830,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -3914,7 +3926,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -3932,7 +3944,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -3956,7 +3968,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -4044,7 +4056,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -4062,7 +4074,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -4086,7 +4098,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -4158,7 +4170,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "avatar bordered ",
+            "class": "avatar bordered only-text-avatar",
           },
           "children": Array [
             Node {
@@ -4219,7 +4231,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -4237,7 +4249,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -4261,7 +4273,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -4357,7 +4369,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -4375,7 +4387,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -4399,7 +4411,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -4487,7 +4499,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -4505,7 +4517,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -4529,7 +4541,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -4614,6 +4626,12 @@ LoadedCheerio {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
         }
+        .avatar-group :global(.only-text-avatar) {
+          box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
+        }
+        .is-dark :global(.only-text-avatar) {
+          box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
+        }
         .avatar-group :global(.avatar:hover) {
           transform: ;
         }
@@ -4653,7 +4671,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar bordered ",
+            "class": "avatar bordered only-text-avatar",
           },
           "children": Array [
             Node {
@@ -4714,7 +4732,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -4732,7 +4750,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -4756,7 +4774,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -4852,7 +4870,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -4870,7 +4888,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -4894,7 +4912,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -4982,7 +5000,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -5000,7 +5018,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -5024,7 +5042,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -5098,7 +5116,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "avatar bordered ",
+              "class": "avatar bordered only-text-avatar",
             },
             "children": Array [
               Node {
@@ -5159,7 +5177,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -5177,7 +5195,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -5201,7 +5219,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -5297,7 +5315,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -5315,7 +5333,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -5339,7 +5357,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -5427,7 +5445,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -5445,7 +5463,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -5469,7 +5487,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -5568,7 +5586,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "avatar bordered ",
+          "class": "avatar bordered only-text-avatar",
         },
         "children": Array [
           Node {
@@ -5629,7 +5647,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -5647,7 +5665,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -5671,7 +5689,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -5767,7 +5785,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -5785,7 +5803,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -5809,7 +5827,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -5897,7 +5915,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -5915,7 +5933,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -5939,7 +5957,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -6024,6 +6042,12 @@ LoadedCheerio {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
         }
+        .avatar-group :global(.only-text-avatar) {
+          box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
+        }
+        .is-dark :global(.only-text-avatar) {
+          box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
+        }
         .avatar-group :global(.avatar:hover) {
           transform: ;
         }
@@ -6053,7 +6077,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar bordered ",
+            "class": "avatar bordered only-text-avatar",
           },
           "children": Array [
             Node {
@@ -6114,7 +6138,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -6132,7 +6156,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -6156,7 +6180,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -6252,7 +6276,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -6270,7 +6294,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -6294,7 +6318,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -6382,7 +6406,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -6400,7 +6424,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -6424,7 +6448,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -6498,7 +6522,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "avatar bordered ",
+              "class": "avatar bordered only-text-avatar",
             },
             "children": Array [
               Node {
@@ -6559,7 +6583,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -6577,7 +6601,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -6601,7 +6625,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -6697,7 +6721,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -6715,7 +6739,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -6739,7 +6763,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -6827,7 +6851,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -6845,7 +6869,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -6869,7 +6893,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -6943,7 +6967,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "avatar bordered ",
+                "class": "avatar bordered only-text-avatar",
               },
               "children": Array [
                 Node {
@@ -7004,7 +7028,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -7022,7 +7046,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -7046,7 +7070,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -7142,7 +7166,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -7160,7 +7184,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -7184,7 +7208,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -7272,7 +7296,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -7290,7 +7314,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -7314,7 +7338,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -7434,6 +7458,12 @@ LoadedCheerio {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
         }
+        .avatar-group :global(.only-text-avatar) {
+          box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
+        }
+        .is-dark :global(.only-text-avatar) {
+          box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
+        }
         .avatar-group :global(.avatar:hover) {
           transform: ;
         }
@@ -7457,7 +7487,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar bordered ",
+            "class": "avatar bordered only-text-avatar",
           },
           "children": Array [
             Node {
@@ -7518,7 +7548,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -7536,7 +7566,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -7560,7 +7590,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -7656,7 +7686,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -7674,7 +7704,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -7698,7 +7728,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -7786,7 +7816,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -7804,7 +7834,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -7828,7 +7858,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -7902,7 +7932,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "avatar bordered ",
+              "class": "avatar bordered only-text-avatar",
             },
             "children": Array [
               Node {
@@ -7963,7 +7993,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -7981,7 +8011,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -8005,7 +8035,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -8101,7 +8131,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -8119,7 +8149,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -8143,7 +8173,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -8231,7 +8261,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -8249,7 +8279,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -8273,7 +8303,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -8347,7 +8377,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "avatar bordered ",
+                "class": "avatar bordered only-text-avatar",
               },
               "children": Array [
                 Node {
@@ -8408,7 +8438,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -8426,7 +8456,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -8450,7 +8480,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -8546,7 +8576,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -8564,7 +8594,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -8588,7 +8618,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -8676,7 +8706,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -8694,7 +8724,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -8718,7 +8748,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -8792,7 +8822,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "avatar bordered ",
+                  "class": "avatar bordered only-text-avatar",
                 },
                 "children": Array [
                   Node {
@@ -8853,7 +8883,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -8871,7 +8901,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -8895,7 +8925,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -8991,7 +9021,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -9009,7 +9039,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -9033,7 +9063,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -9121,7 +9151,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -9139,7 +9169,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -9163,7 +9193,7 @@ LoadedCheerio {
           user-select: none;
         }
         .bordered:hover .avatar-bg {
-          background: rgba(234, 234,234,0.8);
+          background: rgba(234, 234,234,0.6);
           filter: none;
         }
         .avatar:hover .avatar-img {
@@ -9384,12 +9414,12 @@ exports[`AvatarGroup should stacked when avatars are in a group 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "avatar-group ",
+      "class": "avatar-group",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "avatar  ",
+          "class": "avatar only-text-avatar",
         },
         "children": Array [
           Node {
@@ -9442,7 +9472,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -9460,7 +9490,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -9572,7 +9602,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -9590,7 +9620,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -9702,7 +9732,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -9720,7 +9750,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -9808,7 +9838,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "avatar  ",
+            "class": "avatar only-text-avatar",
           },
           "children": Array [
             Node {
@@ -9861,7 +9891,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -9879,7 +9909,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -9991,7 +10021,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -10009,7 +10039,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -10121,7 +10151,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -10139,7 +10169,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -10240,6 +10270,12 @@ LoadedCheerio {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
         }
+        .avatar-group :global(.only-text-avatar) {
+          box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
+        }
+        .is-dark :global(.only-text-avatar) {
+          box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
+        }
         .avatar-group :global(.avatar:hover) {
           transform: translate(-0.625rem);
         }
@@ -10288,7 +10324,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "avatar  ",
+          "class": "avatar only-text-avatar",
         },
         "children": Array [
           Node {
@@ -10341,7 +10377,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -10359,7 +10395,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -10471,7 +10507,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -10489,7 +10525,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -10601,7 +10637,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -10619,7 +10655,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -10720,6 +10756,12 @@ LoadedCheerio {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
         }
+        .avatar-group :global(.only-text-avatar) {
+          box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
+        }
+        .is-dark :global(.only-text-avatar) {
+          box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
+        }
         .avatar-group :global(.avatar:hover) {
           transform: translate(-0.625rem);
         }
@@ -10749,7 +10791,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar  ",
+            "class": "avatar only-text-avatar",
           },
           "children": Array [
             Node {
@@ -10802,7 +10844,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -10820,7 +10862,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -10932,7 +10974,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -10950,7 +10992,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -11062,7 +11104,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -11080,7 +11122,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -11200,6 +11242,12 @@ LoadedCheerio {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
         }
+        .avatar-group :global(.only-text-avatar) {
+          box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
+        }
+        .is-dark :global(.only-text-avatar) {
+          box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
+        }
         .avatar-group :global(.avatar:hover) {
           transform: translate(-0.625rem);
         }
@@ -11223,7 +11271,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar  ",
+            "class": "avatar only-text-avatar",
           },
           "children": Array [
             Node {
@@ -11276,7 +11324,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -11294,7 +11342,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -11406,7 +11454,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -11424,7 +11472,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -11536,7 +11584,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -11554,7 +11602,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -11644,7 +11692,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "avatar  ",
+              "class": "avatar only-text-avatar",
             },
             "children": Array [
               Node {
@@ -11697,7 +11745,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -11715,7 +11763,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -11827,7 +11875,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -11845,7 +11893,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;
@@ -11957,7 +12005,7 @@ LoadedCheerio {
           transition: all 0.25s ease;
         }
         .avatar.bordered {
-          padding: 1.5px;
+          padding: 2px;
         }
         .avatar:first-child {
           margin: 0;
@@ -11975,7 +12023,7 @@ LoadedCheerio {
           opacity: 1;
         }
         .bordered .avatar-img {
-          border: 1.5px solid #fff;
+          border: 2px solid #fff;
         }
         .avatar-text {
           position: absolute;

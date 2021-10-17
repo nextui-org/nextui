@@ -5,6 +5,7 @@ exports[`Text should be able to specify the size of text 1`] = `
         p {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: 14px;
@@ -20,6 +21,7 @@ exports[`Text should be able to specify the size of text 2`] = `
         p {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: 12rem;
@@ -35,6 +37,7 @@ exports[`Text should render P element in the default 1`] = `
         p {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -50,6 +53,7 @@ exports[`Text should render default color when type missing 1`] = `
         p {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -65,6 +69,7 @@ exports[`Text should work with different styles 1`] = `
         p {
           color: #7928ca;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -76,6 +81,7 @@ exports[`Text should work with different styles 1`] = `
         p {
           color: #17c964;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -87,6 +93,7 @@ exports[`Text should work with different styles 1`] = `
         p {
           color: #f5a623;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -98,6 +105,7 @@ exports[`Text should work with different styles 1`] = `
         p {
           color: #f21361;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -113,6 +121,7 @@ exports[`Text the combined style should be rendered 1`] = `
         del {
           color: inherit;
           margin: inherit;
+          font-weight: undefined;
         }
         .custom-size {
           font-size: inherit;
@@ -124,6 +133,7 @@ exports[`Text the combined style should be rendered 1`] = `
         b {
           color: inherit;
           margin: inherit;
+          font-weight: undefined;
         }
         .custom-size {
           font-size: inherit;
@@ -135,6 +145,7 @@ exports[`Text the combined style should be rendered 1`] = `
         p {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -150,6 +161,7 @@ exports[`Text the specified element should be rendered 1`] = `
         h1 {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -161,6 +173,7 @@ exports[`Text the specified element should be rendered 1`] = `
         h2 {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -172,6 +185,7 @@ exports[`Text the specified element should be rendered 1`] = `
         h3 {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -183,6 +197,7 @@ exports[`Text the specified element should be rendered 1`] = `
         h4 {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -194,6 +209,7 @@ exports[`Text the specified element should be rendered 1`] = `
         h5 {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -205,6 +221,7 @@ exports[`Text the specified element should be rendered 1`] = `
         h6 {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -216,6 +233,7 @@ exports[`Text the specified element should be rendered 1`] = `
         p {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -227,6 +245,7 @@ exports[`Text the specified element should be rendered 1`] = `
         small {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -238,6 +257,7 @@ exports[`Text the specified element should be rendered 1`] = `
         span {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -249,6 +269,7 @@ exports[`Text the specified element should be rendered 1`] = `
         del {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -260,6 +281,7 @@ exports[`Text the specified element should be rendered 1`] = `
         i {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -271,6 +293,7 @@ exports[`Text the specified element should be rendered 1`] = `
         em {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;
@@ -282,6 +305,7 @@ exports[`Text the specified element should be rendered 1`] = `
         b {
           color: inherit;
           margin: inherit;
+          font-weight: noset;
         }
         .custom-size {
           font-size: inherit;

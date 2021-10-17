@@ -25,7 +25,7 @@ const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
         background: hexColor,
         marginRight: '10px',
         marginBottom: '10px',
-        boxShadow: `0 20px 35px -10px ${hexToRGBA(shadowColor, 0.4)}`,
+        boxShadow: `0 20px 35px -10px ${hexToRGBA(shadowColor, 0.4)}`
       }}
       {...props}
     >

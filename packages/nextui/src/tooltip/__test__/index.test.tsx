@@ -7,7 +7,7 @@ import { act } from 'react-dom/test-utils';
 
 const expectTooltipIsShow = (wrapper: ReactWrapper) => {
   expect(wrapper.find('.inner').length).not.toBe(0);
-  expect(wrapper.find('.inner').prop("role")).toEqual("tooltip");
+  expect(wrapper.find('.inner').prop('role')).toEqual('tooltip');
 };
 
 const expectTooltipIsHidden = (wrapper: ReactWrapper) => {
@@ -18,7 +18,7 @@ describe('Tooltip', () => {
   it('should render correctly', async () => {
     const wrapper = mount(
       <ThemeProvider theme={{ type: 'dark' }}>
-        <Tooltip text={<p id="test">custom-content</p>}>some tips</Tooltip>
+        <Tooltip content={<p id="test">custom-content</p>}>some tips</Tooltip>
       </ThemeProvider>
     );
 
@@ -38,7 +38,7 @@ describe('Tooltip', () => {
   it('should render text when hover it', async () => {
     const wrapper = mount(
       <div>
-        <Tooltip text="some text">some tips</Tooltip>
+        <Tooltip content="some text">some tips</Tooltip>
       </div>
     );
     wrapper.find('.tooltip').simulate('mouseEnter', nativeEvent);
@@ -53,7 +53,7 @@ describe('Tooltip', () => {
   it('should render text when focus it', async () => {
     const wrapper = mount(
       <div>
-        <Tooltip text="some text">some tips</Tooltip>
+        <Tooltip content="some text">some tips</Tooltip>
       </div>
     );
     wrapper.find('.tooltip').simulate('focus', nativeEvent);
@@ -67,7 +67,7 @@ describe('Tooltip', () => {
 
   it('should render react-node when click it', async () => {
     const wrapper = mount(
-      <Tooltip text={<p id="test">custom-content</p>} trigger="click">
+      <Tooltip content={<p id="test">custom-content</p>} trigger="click">
         <span>click me</span>
       </Tooltip>
     );
@@ -83,7 +83,7 @@ describe('Tooltip', () => {
         new MouseEvent('click', {
           view: window,
           bubbles: true,
-          cancelable: true,
+          cancelable: true
         })
       );
     });
@@ -94,7 +94,7 @@ describe('Tooltip', () => {
 
   it('should render inner components', async () => {
     const wrapper = mount(
-      <Tooltip text="some text">
+      <Tooltip content="some text">
         <Button auto size="small" id="test">
           button
         </Button>
@@ -107,7 +107,7 @@ describe('Tooltip', () => {
     const wrapper = mount(
       <div>
         <Tooltip
-          text={<p id="visible">custom-content</p>}
+          content={<p id="visible">custom-content</p>}
           visible={true}
           position="rightEnd"
         >
@@ -124,7 +124,7 @@ describe('Tooltip', () => {
     const wrapper = mount(
       <div>
         <Tooltip
-          text={<p id="initial-visible">custom-content</p>}
+          content={<p id="initial-visible">custom-content</p>}
           initialVisible={true}
           position={'test' as any}
         >

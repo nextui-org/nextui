@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
-import { NormalColors } from '../utils/prop-types';
+import { NormalColors, TextWeights } from '../utils/prop-types';
 import { getNormalColor } from '../utils/color';
 
 export interface Props {
@@ -10,13 +10,14 @@ export interface Props {
   size?: string | number;
   margin?: string | number;
   capitalize?: boolean;
+  weight?: TextWeights;
   className?: '';
 }
 
 const defaultProps = {
   color: 'default' as NormalColors | string,
   className: '',
-  capitalize: false,
+  capitalize: false
 };
 
 type NativeAttrs = Omit<React.DetailsHTMLAttributes<unknown>, keyof Props>;
@@ -29,15 +30,16 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   color: userColor,
   capitalize,
   margin: marginProp,
+  weight,
   size,
   ...props
 }) => {
   const theme = useTheme();
   const Component = tag;
-  const color = useMemo(
-    () => getNormalColor(userColor, theme.palette),
-    [userColor, theme.palette]
-  );
+  const color = useMemo(() => getNormalColor(userColor, theme.palette), [
+    userColor,
+    theme.palette
+  ]);
   const fontSize = useMemo<string>(() => {
     if (!size) return 'inherit';
     if (typeof size === 'number') return `${size}px`;
@@ -64,6 +66,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
         ${tag} {
           color: ${color};
           margin: ${margin};
+          font-weight: ${weight};
         }
         .custom-size {
           font-size: ${fontSize};

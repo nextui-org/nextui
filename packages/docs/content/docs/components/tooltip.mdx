@@ -18,7 +18,7 @@ import { Tooltip } from '@nextui-org/react';
   title="Default"
   desc="The default `Tooltip` has the background color."
   code={`
-<Tooltip text={'Developers love Next.js'}>
+<Tooltip content={'Developers love Next.js'}>
     <Button auto flat>
         Do hover here
     </Button>
@@ -30,7 +30,7 @@ import { Tooltip } from '@nextui-org/react';
   title="Rounded"
   desc="You can completely round the `Tooltip` corners with the `rounded` property."
   code={`
-<Tooltip text={'Developers love Next.js'} rounded color="primary">
+<Tooltip content={'Developers love Next.js'} rounded color="primary">
     <Button auto flat>
         Do hover here
     </Button>
@@ -44,56 +44,56 @@ import { Tooltip } from '@nextui-org/react';
   code={`
 <Grid.Container gap={2}>
     <Grid>
-        <Tooltip text="Developers love Next.js">
+        <Tooltip content="Developers love Next.js">
             <Button light auto>
                 Default
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="invert">
+        <Tooltip content="Developers love Next.js" color="invert">
             <Button light auto>
                 Invert
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="primary">
+        <Tooltip content="Developers love Next.js" color="primary">
             <Button flat auto>
                 Primary
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="secondary">
+        <Tooltip content="Developers love Next.js" color="secondary">
             <Button flat auto color="secondary">
                 Secondary
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="success">
+        <Tooltip content="Developers love Next.js" color="success">
             <Button flat auto color="success">
                 Success
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="warning">
+        <Tooltip content="Developers love Next.js" color="warning">
             <Button flat auto color="warning">
                 Warning
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="error">
+        <Tooltip content="Developers love Next.js" color="error">
             <Button flat auto color="error">
                 Error
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" color="#ff4ecd">
+        <Tooltip content="Developers love Next.js" color="#ff4ecd">
             <Button auto flat color="#ff4ecd">
                 Custom
             </Button>
@@ -105,53 +105,53 @@ import { Tooltip } from '@nextui-org/react';
 
 <Playground
   title="Text Colors"
-  desc="You can change the `Tooltip` text color with `textColor` prop"
+  desc="You can change the `Tooltip` text color with `contentColor` prop"
   code={`
 <Grid.Container gap={2}>
     <Grid>
-        <Tooltip text="Developers love Next.js">
+        <Tooltip content="Developers love Next.js">
             <Button light auto>
                 Default
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" textColor="primary" color="white">
+        <Tooltip content="Developers love Next.js" contentColor="primary" color="white">
             <Button flat auto>
                 Primary
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" textColor="secondary" color="white">
+        <Tooltip content="Developers love Next.js" contentColor="secondary" color="white">
             <Button flat auto color="secondary">
                 Secondary
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" textColor="success" color="white">
+        <Tooltip content="Developers love Next.js" contentColor="success" color="white">
             <Button flat auto color="success">
                 Success
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" textColor="warning" color="white">
+        <Tooltip content="Developers love Next.js" contentColor="warning" color="white">
             <Button flat auto color="warning">
                 Warning
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" textColor="error" color="white">
+        <Tooltip content="Developers love Next.js" contentColor="error" color="white">
             <Button flat auto color="error">
                 Error
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text="Developers love Next.js" textColor="#ff4ecd" color="white">
+        <Tooltip content="Developers love Next.js" contentColor="#ff4ecd" color="white">
             <Button auto flat color="#ff4ecd">
                 Custom
             </Button>
@@ -167,7 +167,7 @@ import { Tooltip } from '@nextui-org/react';
   code={`
 <Grid.Container gap={2}>
   <Grid>
-    <Tooltip rounded color="primary" text="Developers love Next.js">
+    <Tooltip rounded color="primary" content="Developers love Next.js">
         <Button auto color="primary" flat rounded>
             Primary
         </Button>
@@ -183,14 +183,14 @@ import { Tooltip } from '@nextui-org/react';
   code={`
 <Grid.Container gap={2}>
     <Grid>
-        <Tooltip text={'Developers love Next.js'} trigger="click" color="primary">
+        <Tooltip content={'Developers love Next.js'} trigger="click" color="primary">
             <Button auto flat>
                 Click me
             </Button>
         </Tooltip>
     </Grid>
     <Grid>
-        <Tooltip text={'Developers love Next.js'} trigger="hover" color="secondary">
+        <Tooltip content={'Developers love Next.js'} trigger="hover" color="secondary">
             <Button auto flat color="secondary">
                 Hover me
             </Button>
@@ -206,28 +206,28 @@ import { Tooltip } from '@nextui-org/react';
   code={`
 <Grid.Container gap={2} justify="center" alignContent="center">
     <Grid xs={4} justify="flex-end">
-        <Tooltip color="primary" text="Developers love Next.js" position="topStart">
+        <Tooltip color="primary" content="Developers love Next.js" position="topStart">
             <Button auto color="foreground" light>
                 topStart
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4} justify="center">
-        <Tooltip color="primary" text="Developers love Next.js" position="top">
+        <Tooltip color="primary" content="Developers love Next.js" position="top">
             <Button auto color="foreground" light>
                 top
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4}>
-        <Tooltip color="primary" text="Developers love Next.js" position="topEnd">
+        <Tooltip color="primary" content="Developers love Next.js" position="topEnd">
             <Button auto color="foreground" light>
                 topEnd
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={3} justify="flex-end">
-        <Tooltip color="primary" text="Developers love Next.js" position="leftStart">
+        <Tooltip color="primary" content="Developers love Next.js" position="leftStart">
             <Button auto color="foreground" light>
                 leftStart
             </Button>
@@ -235,14 +235,14 @@ import { Tooltip } from '@nextui-org/react';
     </Grid>
     <Grid xs={6} />
     <Grid xs={3}>
-        <Tooltip color="primary" text="Developers love Next.js" position="rightStart">
+        <Tooltip color="primary" content="Developers love Next.js" position="rightStart">
             <Button auto color="foreground" light>
                 rightStart
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={3} justify="flex-end">
-        <Tooltip color="primary" text="Developers love Next.js" position="left">
+        <Tooltip color="primary" content="Developers love Next.js" position="left">
             <Button auto color="foreground" light>
                 left
             </Button>
@@ -250,14 +250,14 @@ import { Tooltip } from '@nextui-org/react';
     </Grid>
     <Grid xs={6} />
     <Grid xs={3}>
-        <Tooltip color="primary" text="Developers love Next.js" position="right">
+        <Tooltip color="primary" content="Developers love Next.js" position="right">
             <Button auto color="foreground" light>
                 right
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={3} justify="flex-end">
-        <Tooltip color="primary" text="Developers love Next.js" position="leftEnd">
+        <Tooltip color="primary" content="Developers love Next.js" position="leftEnd">
             <Button auto color="foreground" light>
                 leftEnd
             </Button>
@@ -265,28 +265,28 @@ import { Tooltip } from '@nextui-org/react';
     </Grid>
     <Grid xs={6} />
     <Grid xs={3}>
-        <Tooltip color="primary" text="Developers love Next.js" position="rightEnd">
+        <Tooltip color="primary" content="Developers love Next.js" position="rightEnd">
             <Button auto color="foreground" light>
                 rightEnd
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4} justify="flex-end">
-        <Tooltip color="primary" text="Developers love Next.js" position="bottomStart">
+        <Tooltip color="primary" content="Developers love Next.js" position="bottomStart">
             <Button auto color="foreground" light>
                 bottomStart
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4} justify="center">
-        <Tooltip color="primary" text="Developers love Next.js" position="bottom">
+        <Tooltip color="primary" content="Developers love Next.js" position="bottom">
             <Button auto color="foreground" light>
                 bottom
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4}>
-        <Tooltip color="primary" text="Developers love Next.js" position="bottomEnd">
+        <Tooltip color="primary" content="Developers love Next.js" position="bottomEnd">
             <Button auto color="foreground" light>
                 bottomEnd
             </Button>
@@ -302,7 +302,7 @@ import { Tooltip } from '@nextui-org/react';
   code={`
 <Grid.Container>
     <Grid>
-      <Tooltip text={'Developers love Next.js'} color="primary" hideArrow>
+      <Tooltip content={'Developers love Next.js'} color="primary" hideArrow>
         <Button auto flat>
           Do hover me
         </Button>
@@ -318,14 +318,14 @@ import { Tooltip } from '@nextui-org/react';
   code={`
 <Grid.Container gap={2} alignItems="center">
   <Grid>
-    <Tooltip trigger="click" color="background" text={<DeleteUser/>}>
+    <Tooltip trigger="click" color="background" content={<DeleteUser/>}>
         <Button color="error" auto flat>
             Click Delete User
         </Button>
     </Tooltip>
   </Grid>
   <Grid>
-    <Tooltip placement="bottom" color="background" text={<UserTwitterCard/>}>
+    <Tooltip placement="bottom" color="background" content={<UserTwitterCard/>}>
         <Avatar pointer size="large" src="/avatars/avatar-2.png" color="gradient" bordered squared />   
     </Tooltip>
   </Grid>
@@ -343,9 +343,9 @@ import { Tooltip } from '@nextui-org/react';
 
 | Attribute           | Type                       | Accepted values                                      | Description                                                | Default   |
 | ------------------- | -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- | --------- |
-| **text**            | `React.ReactNode` `string` | -                                                    | Tooltip content                                            | -         |
+| **content**         | `React.ReactNode` `string` | -                                                    | Tooltip content                                            | -         |
 | **color**           | `TooltipTypes` `string`    | [TooltipColors](#tooltip-colors)                     | Change tooltip background color                            | `default` |
-| **textColor**       | `SimpleColors` `string`    | [SimpleColors](#simple-colors)                       | Checkbox tooltip text color                                | `default` |
+| **contentColor**    | `SimpleColors` `string`    | [SimpleColors](#simple-colors)                       | Checkbox tooltip text color                                | `default` |
 | **position**        | `Position`                 | [Position](#position)                                | Tooltip position relative to the target                    | `top`     |
 | **initialVisible**  | `boolean`                  | `true/false`                                         | Determine if the tooltip is visible on initial             | `false`   |
 | **visible**         | `boolean`                  | `true/false`                                         | Force if the tooltip is visible or not                     | -         |

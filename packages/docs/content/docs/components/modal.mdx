@@ -728,6 +728,81 @@ return (
 }`}
 />
 
+<Playground
+  title="No Animated"
+  desc="You can disable the animation of the entire `Modal` with the property `animated={false}`."
+  code={`
+() => {
+const [visible, setVisible] = React.useState(false);
+const handler = () => setVisible(true);
+const closeHandler = () => {
+    setVisible(false);
+    console.log('closed');
+};
+return (
+<div>
+    <Button auto ghost color="success" onClick={handler}>
+       Open modal
+    </Button>
+    <Modal
+        closeButton
+        animated={false}
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+    >
+        <Modal.Header>
+            <Text id="modal-title" size={18}>
+            Welcome to
+            <Text b size={18}>
+                NextUI
+            </Text>
+            </Text>
+        </Modal.Header>
+        <Modal.Body>
+            <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="large"
+                placeholder="Email"
+                contentLeft={<Mail />}
+            />
+            <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="large"
+                placeholder="Password"
+                contentLeft={<Password />}
+            />
+            <Row justify="space-between">
+            <Checkbox>
+                <Text size={14}>
+                Remember me
+                </Text>
+            </Checkbox>
+            <Text size={14}>
+                Forgot password?
+            </Text>
+            </Row>
+        </Modal.Body>
+        <Modal.Footer>
+            <Button auto flat color="error" onClick={closeHandler}>
+            Close
+            </Button>
+            <Button auto onClick={closeHandler}>
+            Sign in
+            </Button>
+        </Modal.Footer>
+    </Modal>
+</div>
+);    
+}`}
+/>
+
 <Spacer y={3} />
 
 ### APIs
@@ -741,6 +816,7 @@ return (
 | **open**         | `boolean`         | `true/false`             | Determine if the modal is visible or hidden                                                   | `false` |
 | **scroll**       | `boolean`         | `true/false`             | Makes the content a maximum high and gives the possibility to overflow the content add scroll | `false` |
 | **blur**         | `boolean`         | `true/false`             | Makes all elements blur when the modal opens                                                  | `false` |
+| **animated**     | `boolean`         | `true/false`             | Display the modal with opening and close animation                                            | `true`  |
 | **noPadding**    | `boolean`         | `true/false`             | Eliminates the padding of the base elements of the modal                                      | `false` |
 | **closeButton**  | `boolean`         | `true/false`             | Determine if the modal close button is visible or hidden                                      | `false` |
 | **fullScreen**   | `boolean`         | `true/false`             | Makes the modal the size of the window                                                        | `false` |

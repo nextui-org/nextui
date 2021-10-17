@@ -94,15 +94,4 @@ describe('Avatar', () => {
     const avatar = render(<Avatar size={20} />);
     expect(avatar).toMatchSnapshot();
   });
-
-  it('should throw error when avatar color is invalid', () => {
-    let errorMessage = '';
-    const errorSpy = jest
-      .spyOn(console, 'error')
-      .mockImplementation((msg) => (errorMessage = msg));
-    // @ts-ignore
-    mount(<Avatar color="#kajsdkl" />);
-    expect(errorMessage).toContain('is not a valid color');
-    errorSpy.mockRestore();
-  });
 });

@@ -18,6 +18,7 @@ interface Props {
   blur?: boolean;
   noPadding?: boolean;
   closeButton?: boolean;
+  animated?: boolean;
   fullScreen?: boolean;
   autoMargin?: boolean;
   width?: string;
@@ -33,6 +34,7 @@ const defaultProps = {
   preventClose: false,
   fullScreen: false,
   closeButton: false,
+  animated: true,
   blur: false,
   scroll: false,
   noPadding: false
@@ -51,6 +53,7 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   className,
   preventClose,
   blur,
+  animated,
   fullScreen,
   noPadding,
   ...props
@@ -126,6 +129,7 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
         width={wrapperWidth}
         fullScreenContent={fullScreen}
         blur={blur}
+        animated={animated}
         {...bindings}
       >
         <ModalWrapper
@@ -134,6 +138,7 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
           className={className}
           fullScreen={fullScreen}
           rebound={rebound}
+          animated={animated}
           {...props}
         >
           {children}

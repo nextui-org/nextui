@@ -4,7 +4,7 @@ import { Tooltip, Button, Code, Spacer, Grid } from '../index';
 
 export default {
   title: 'Display/Tooltip',
-  component: Tooltip,
+  component: Tooltip
 } as Meta;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,7 +17,7 @@ const Container = ({ children }: any) => (
       width: '100%',
       position: 'absolute',
       left: 100,
-      top: 80,
+      top: 80
     }}
   >
     {children}
@@ -27,7 +27,7 @@ const Container = ({ children }: any) => (
 export const Default = () => {
   return (
     <Container>
-      <Tooltip text={'Developers love Next.js'}>
+      <Tooltip content={'Developers love Next.js'}>
         <Button auto flat>
           Do hover here
         </Button>
@@ -39,7 +39,7 @@ export const Default = () => {
 export const Rounded = () => {
   return (
     <Container>
-      <Tooltip text={'Developers love Next.js'} rounded color="primary">
+      <Tooltip content={'Developers love Next.js'} rounded color="primary">
         <Button auto flat>
           Do hover here
         </Button>
@@ -52,49 +52,49 @@ export const Colors = () => {
   return (
     <Container>
       <div>
-        <Tooltip text="Developers love Next.js">
+        <Tooltip content="Developers love Next.js">
           <Button light auto>
             Default
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" color="primary">
+        <Tooltip content="Developers love Next.js" color="primary">
           <Button flat auto>
             Primary
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" color="secondary">
+        <Tooltip content="Developers love Next.js" color="secondary">
           <Button flat auto color="secondary">
             Secondary
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" color="success">
+        <Tooltip content="Developers love Next.js" color="success">
           <Button flat auto color="success">
             Success
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" color="warning">
+        <Tooltip content="Developers love Next.js" color="warning">
           <Button flat auto color="warning">
             Warning
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" color="error">
+        <Tooltip content="Developers love Next.js" color="error">
           <Button flat auto color="error">
             Error
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" color="gradient">
+        <Tooltip content="Developers love Next.js" color="gradient">
           <Button auto color="gradient">
             Gradient
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" color="#f4A">
+        <Tooltip content="Developers love Next.js" color="#f4A">
           <Button auto flat color="#f4A">
             Custom
           </Button>
@@ -108,49 +108,49 @@ export const TextColors = () => {
   return (
     <Container>
       <div>
-        <Tooltip text="Developers love Next.js">
+        <Tooltip content="Developers love Next.js">
           <Button light auto>
             Default
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" textColor="primary">
+        <Tooltip content="Developers love Next.js" contentColor="primary">
           <Button flat auto>
             Primary
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" textColor="secondary">
+        <Tooltip content="Developers love Next.js" contentColor="secondary">
           <Button flat auto color="secondary">
             Secondary
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" textColor="success">
+        <Tooltip content="Developers love Next.js" contentColor="success">
           <Button flat auto color="success">
             Success
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" textColor="warning">
+        <Tooltip content="Developers love Next.js" contentColor="warning">
           <Button flat auto color="warning">
             Warning
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" textColor="error">
+        <Tooltip content="Developers love Next.js" contentColor="error">
           <Button flat auto color="error">
             Error
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" textColor="gradient">
+        <Tooltip content="Developers love Next.js" contentColor="gradient">
           <Button auto color="gradient">
             Gradient
           </Button>
         </Tooltip>
         <Spacer inline x={1.5} />
-        <Tooltip text="Developers love Next.js" textColor="#f4A">
+        <Tooltip content="Developers love Next.js" contentColor="#f4A">
           <Button auto flat color="#f4A">
             Custom
           </Button>
@@ -166,65 +166,65 @@ export const Placements = () => {
     <Container>
       <Grid.Container gap={1.5} justify="center" alignContent="center">
         <Grid xs={4} justify="flex-end">
-          <Tooltip color="primary" text={text} position="topStart">
+          <Tooltip color="primary" content={text} position="topStart">
             topStart
           </Tooltip>
         </Grid>
         <Grid xs={4} justify="center">
-          <Tooltip color="primary" text={text} position="top">
+          <Tooltip color="primary" content={text} position="top">
             top
           </Tooltip>
         </Grid>
         <Grid xs={4}>
-          <Tooltip color="primary" text={text} position="topEnd">
+          <Tooltip color="primary" content={text} position="topEnd">
             topEnd
           </Tooltip>
         </Grid>
         <Grid xs={3} justify="flex-end">
-          <Tooltip color="primary" text={text} position="leftStart">
+          <Tooltip color="primary" content={text} position="leftStart">
             leftStart
           </Tooltip>
         </Grid>
         <Grid xs={6} />
         <Grid xs={3}>
-          <Tooltip color="primary" text={text} position="rightStart">
+          <Tooltip color="primary" content={text} position="rightStart">
             rightStart
           </Tooltip>
         </Grid>
         <Grid xs={3} justify="flex-end">
-          <Tooltip color="primary" text={text} position="left">
+          <Tooltip color="primary" content={text} position="left">
             left
           </Tooltip>
         </Grid>
         <Grid xs={6} />
         <Grid xs={3}>
-          <Tooltip color="primary" text={text} position="right">
+          <Tooltip color="primary" content={text} position="right">
             right
           </Tooltip>
         </Grid>
         <Grid xs={3} justify="flex-end">
-          <Tooltip color="primary" text={text} position="leftEnd">
+          <Tooltip color="primary" content={text} position="leftEnd">
             leftEnd
           </Tooltip>
         </Grid>
         <Grid xs={6} />
         <Grid xs={3}>
-          <Tooltip color="primary" text={text} position="rightEnd">
+          <Tooltip color="primary" content={text} position="rightEnd">
             rightEnd
           </Tooltip>
         </Grid>
         <Grid xs={4} justify="flex-end">
-          <Tooltip color="primary" text={text} position="bottomStart">
+          <Tooltip color="primary" content={text} position="bottomStart">
             bottomStart
           </Tooltip>
         </Grid>
         <Grid xs={4} justify="center">
-          <Tooltip color="primary" text={text} position="bottom">
+          <Tooltip color="primary" content={text} position="bottom">
             bottom
           </Tooltip>
         </Grid>
         <Grid xs={4}>
-          <Tooltip color="primary" text={text} position="bottomEnd">
+          <Tooltip color="primary" content={text} position="bottomEnd">
             bottomEnd
           </Tooltip>
         </Grid>
@@ -236,7 +236,11 @@ export const Placements = () => {
 export const Trigger = () => {
   return (
     <Container>
-      <Tooltip text={'Developers love Next.js'} trigger="click" color="primary">
+      <Tooltip
+        content={'Developers love Next.js'}
+        trigger="click"
+        color="primary"
+      >
         <Button auto flat>
           Click me
         </Button>
@@ -248,7 +252,7 @@ export const Trigger = () => {
 export const WithComponents = () => {
   return (
     <Container>
-      <Tooltip text={'Developers love Next.js'}>
+      <Tooltip content={'Developers love Next.js'}>
         <Button auto>Button</Button>
       </Tooltip>
     </Container>
@@ -258,7 +262,7 @@ export const WithComponents = () => {
 export const HideArrow = () => {
   return (
     <Container>
-      <Tooltip text={'Developers love Next.js'} color="primary" hideArrow>
+      <Tooltip content={'Developers love Next.js'} color="primary" hideArrow>
         <Button auto flat>
           Click me
         </Button>
@@ -270,7 +274,11 @@ export const HideArrow = () => {
 export const NoShadow = () => {
   return (
     <Container>
-      <Tooltip text={'Developers love Next.js'} color="primary" shadow={false}>
+      <Tooltip
+        content={'Developers love Next.js'}
+        color="primary"
+        shadow={false}
+      >
         <Button auto flat>
           Click me
         </Button>
@@ -283,7 +291,7 @@ export const CustomContent = () => {
   return (
     <Container>
       <Tooltip
-        text={
+        content={
           <>
             Developers love <Code>Next.js</Code>.
           </>
