@@ -4,7 +4,7 @@ import TooltipContent from './tooltip-content';
 import useClickAway from '../use-click-away';
 import {
   TriggerTypes,
-  Position,
+  Placement,
   SimpleColors,
   TooltipColors
 } from '../utils/prop-types';
@@ -15,7 +15,7 @@ interface Props {
   content: string | React.ReactNode;
   color?: TooltipColors | string;
   contentColor?: SimpleColors | string;
-  position?: Position;
+  placement?: Placement;
   visible?: boolean;
   shadow?: boolean;
   rounded?: boolean;
@@ -38,7 +38,7 @@ const defaultProps = {
   color: 'default' as TooltipColors | string,
   contentColor: 'default' as SimpleColors | string,
   trigger: 'hover' as TriggerTypes,
-  position: 'top' as Position,
+  placement: 'top' as Placement,
   enterDelay: 0,
   leaveDelay: 0,
   offset: 12,
@@ -55,7 +55,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   initialVisible,
   content,
   offset,
-  position,
+  placement,
   portalClassName,
   enterDelay,
   leaveDelay,
@@ -79,7 +79,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     visible,
     shadow,
     offset,
-    position,
+    placement,
     rounded,
     hideArrow,
     parent: ref,

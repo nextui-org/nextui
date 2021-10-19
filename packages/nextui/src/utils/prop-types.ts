@@ -80,7 +80,7 @@ const copyTypes = tuple('default', 'slient', 'prevent');
 
 const triggerTypes = tuple('hover', 'click');
 
-const position = tuple(
+const placement = tuple(
   'top',
   'topStart',
   'topEnd',
@@ -200,7 +200,7 @@ export type CopyTypes = typeof copyTypes[number];
 
 export type TriggerTypes = typeof triggerTypes[number];
 
-export type Position = typeof position[number];
+export type Placement = typeof placement[number];
 
 export type DividerAlign = typeof dividerAlign[number];
 

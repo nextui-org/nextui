@@ -109,7 +109,7 @@ describe('Tooltip', () => {
         <Tooltip
           content={<p id="visible">custom-content</p>}
           visible={true}
-          position="rightEnd"
+          placement="rightEnd"
         >
           some tips
         </Tooltip>
@@ -120,13 +120,13 @@ describe('Tooltip', () => {
     expect(wrapper.find('#visible').length).toBe(1);
   });
 
-  it('should render correctly by using wrong position', async () => {
+  it('should render correctly by using wrong placement', async () => {
     const wrapper = mount(
       <div>
         <Tooltip
           content={<p id="initial-visible">custom-content</p>}
           initialVisible={true}
-          position={'test' as any}
+          placement={'test' as any}
         >
           some tips
         </Tooltip>

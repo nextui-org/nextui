@@ -201,33 +201,33 @@ import { Tooltip } from '@nextui-org/react';
 />
 
 <Playground
-  title="Positions"
-  desc="Change the position of the tooltip with the `position` prop"
+  title="Placements"
+  desc="Change the placement of the tooltip with the `placement` prop"
   code={`
 <Grid.Container gap={2} justify="center" alignContent="center">
     <Grid xs={4} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" position="topStart">
+        <Tooltip color="primary" content="Developers love Next.js" placement="topStart">
             <Button auto color="foreground" light>
                 topStart
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4} justify="center">
-        <Tooltip color="primary" content="Developers love Next.js" position="top">
+        <Tooltip color="primary" content="Developers love Next.js" placement="top">
             <Button auto color="foreground" light>
                 top
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4}>
-        <Tooltip color="primary" content="Developers love Next.js" position="topEnd">
+        <Tooltip color="primary" content="Developers love Next.js" placement="topEnd">
             <Button auto color="foreground" light>
                 topEnd
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={3} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" position="leftStart">
+        <Tooltip color="primary" content="Developers love Next.js" placement="leftStart">
             <Button auto color="foreground" light>
                 leftStart
             </Button>
@@ -235,14 +235,14 @@ import { Tooltip } from '@nextui-org/react';
     </Grid>
     <Grid xs={6} />
     <Grid xs={3}>
-        <Tooltip color="primary" content="Developers love Next.js" position="rightStart">
+        <Tooltip color="primary" content="Developers love Next.js" placement="rightStart">
             <Button auto color="foreground" light>
                 rightStart
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={3} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" position="left">
+        <Tooltip color="primary" content="Developers love Next.js" placement="left">
             <Button auto color="foreground" light>
                 left
             </Button>
@@ -250,14 +250,14 @@ import { Tooltip } from '@nextui-org/react';
     </Grid>
     <Grid xs={6} />
     <Grid xs={3}>
-        <Tooltip color="primary" content="Developers love Next.js" position="right">
+        <Tooltip color="primary" content="Developers love Next.js" placement="right">
             <Button auto color="foreground" light>
                 right
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={3} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" position="leftEnd">
+        <Tooltip color="primary" content="Developers love Next.js" placement="leftEnd">
             <Button auto color="foreground" light>
                 leftEnd
             </Button>
@@ -265,28 +265,28 @@ import { Tooltip } from '@nextui-org/react';
     </Grid>
     <Grid xs={6} />
     <Grid xs={3}>
-        <Tooltip color="primary" content="Developers love Next.js" position="rightEnd">
+        <Tooltip color="primary" content="Developers love Next.js" placement="rightEnd">
             <Button auto color="foreground" light>
                 rightEnd
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" position="bottomStart">
+        <Tooltip color="primary" content="Developers love Next.js" placement="bottomStart">
             <Button auto color="foreground" light>
                 bottomStart
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4} justify="center">
-        <Tooltip color="primary" content="Developers love Next.js" position="bottom">
+        <Tooltip color="primary" content="Developers love Next.js" placement="bottom">
             <Button auto color="foreground" light>
                 bottom
             </Button>
         </Tooltip>
     </Grid>
     <Grid xs={4}>
-        <Tooltip color="primary" content="Developers love Next.js" position="bottomEnd">
+        <Tooltip color="primary" content="Developers love Next.js" placement="bottomEnd">
             <Button auto color="foreground" light>
                 bottomEnd
             </Button>
@@ -346,7 +346,7 @@ import { Tooltip } from '@nextui-org/react';
 | **content**         | `React.ReactNode` `string` | -                                                    | Tooltip content                                            | -         |
 | **color**           | `TooltipTypes` `string`    | [TooltipColors](#tooltip-colors)                     | Change tooltip background color                            | `default` |
 | **contentColor**    | `SimpleColors` `string`    | [SimpleColors](#simple-colors)                       | Checkbox tooltip text color                                | `default` |
-| **position**        | `Position`                 | [Position](#position)                                | Tooltip position relative to the target                    | `top`     |
+| **placement**       | `Placement`                | [Placement](#placement)                              | Tooltip placement relative to the target                   | `top`     |
 | **initialVisible**  | `boolean`                  | `true/false`                                         | Determine if the tooltip is visible on initial             | `false`   |
 | **visible**         | `boolean`                  | `true/false`                                         | Force if the tooltip is visible or not                     | -         |
 | **shadow**          | `boolean`                  | `true/false`                                         | Display shadow effect                                      | `false`   |
@@ -391,10 +391,10 @@ type SimpleColors =
   | 'error';
 ```
 
-#### Position
+#### Placement
 
 ```ts
-type Position =
+type Placement =
   | 'top'
   | 'topStart'
   | 'topEnd'
