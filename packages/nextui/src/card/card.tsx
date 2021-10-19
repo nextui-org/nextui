@@ -1,30 +1,33 @@
 import React, { useMemo } from 'react';
 import useTheme from '../use-theme';
-import { CardColors } from '../utils/prop-types';
+import { CardColors, NormalWeights } from '../utils/prop-types';
 import { getStyles } from './styles';
+import CardHeader from './card-header';
 import CardFooter from './card-footer';
-import CardContent from './card-content';
+import CardBody from './card-body';
 import Image from '../image';
+import clsx from '../utils/clsx';
 import { hasChild, pickChild } from '../utils/collections';
+import { getNormalWeight } from '../utils/dimensions';
 
 interface Props {
-  hoverable?: boolean;
   shadow?: boolean;
   bordered?: boolean;
   animated?: boolean;
   className?: string;
   width?: string;
   color?: CardColors;
+  borderWeight?: NormalWeights;
 }
 
 const defaultProps = {
   color: 'default' as CardColors,
   bordered: false,
-  hoverable: false,
-  animated: false,
-  shadow: false,
+  animated: true,
+  shadow: true,
+  borderWeight: 'normal' as NormalWeights,
   width: '100%',
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -32,68 +35,77 @@ export type CardProps = Props & typeof defaultProps & NativeAttrs;
 
 const Card: React.FC<React.PropsWithChildren<CardProps>> = ({
   children,
-  hoverable,
   bordered,
   className,
   shadow,
   animated,
   color: cardColor,
+  borderWeight: borderWeightProp,
   width,
   ...props
 }) => {
   const theme = useTheme();
-  const hoverShadow = useMemo(() => {
-    if (shadow) return theme.expressiveness.shadowMedium;
-    return hoverable ? theme.expressiveness.shadowSmall : 'none';
-  }, [hoverable, shadow, theme.expressiveness]);
-  const { color, bgColor, border } = useMemo(
-    () => getStyles(cardColor, theme.palette, shadow, bordered),
-    [cardColor, theme.palette, shadow, bordered]
+
+  const { color, bgColor, borderColor } = useMemo(
+    () => getStyles(cardColor, theme.palette, shadow),
+    [cardColor, theme.palette, shadow]
+  );
+
+  const [withoutHeaderChildren, headerChildren] = pickChild(
+    children,
+    CardHeader
   );
 
   const [withoutFooterChildren, footerChildren] = pickChild(
-    children,
+    withoutHeaderChildren,
     CardFooter
   );
+
   const [withoutImageChildren, imageChildren] = pickChild(
     withoutFooterChildren,
     Image
   );
-  const hasContent = hasChild(withoutImageChildren, CardContent);
 
-  const background =
-    cardColor === 'gradient'
-      ? `background-image: ${bgColor}`
-      : `background-color: ${bgColor}`;
+  const hasContent = hasChild(withoutImageChildren, CardBody);
+
+  const hasHeader = hasChild(children, CardHeader);
+
+  const borderWeight = useMemo(
+    () => (bordered ? getNormalWeight(borderWeightProp) : '0px'),
+    [bordered, borderWeightProp]
+  );
 
   return (
-    <div
-      className={`card ${animated ? 'animated' : ''} ${className}`}
-      {...props}
-    >
-      {imageChildren}
+    <div className={clsx('card', { animated }, className)} {...props}>
+      {hasHeader ? (
+        <>
+          {headerChildren}
+          {imageChildren}
+        </>
+      ) : (
+        imageChildren
+      )}
       {hasContent ? (
         withoutImageChildren
       ) : (
-        <CardContent>{withoutImageChildren}</CardContent>
+        <CardBody>{withoutImageChildren}</CardBody>
       )}
       {footerChildren}
       <style jsx>{`
         .card {
-          background: ${theme.palette.background};
+          background: ${bgColor};
           margin: 0;
           padding: 0;
+          position: relative;
           width: ${width};
           transition: all 0.25s ease;
           border-radius: ${theme.layout.radius};
-          box-shadow: ${shadow ? theme.expressiveness.shadowSmall : 'none'};
+          box-shadow: ${shadow && !bordered
+            ? theme.expressiveness.shadowMedium
+            : 'none'};
           box-sizing: border-box;
           color: ${color};
-          ${background};
-          border: ${border?.weight} solid ${border?.color};
-        }
-        .card:hover {
-          box-shadow: ${hoverShadow};
+          border: ${borderWeight} solid ${borderColor};
         }
         .card :global(img) {
           width: 100%;
@@ -114,11 +126,11 @@ const Card: React.FC<React.PropsWithChildren<CardProps>> = ({
 };
 
 type MemoCardComponent<P = {}> = React.NamedExoticComponent<P> & {
+  Header: typeof CardHeader;
+  Body: typeof CardBody;
   Footer: typeof CardFooter;
-  Actions: typeof CardFooter;
-  Content: typeof CardContent;
-  Body: typeof CardContent;
 };
+
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs;

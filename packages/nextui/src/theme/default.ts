@@ -1,7 +1,7 @@
 import {
   NextUIThemes,
   NextUIThemesPalette,
-  NextUIThemesExpressiveness,
+  NextUIThemesExpressiveness
 } from './index';
 import { defaultFont, defaultBreakpoints, defaultLayout } from './shared';
 import commonPalette from './common';
@@ -21,7 +21,7 @@ export const palette: NextUIThemesPalette = {
   background: '#fff',
   foreground: '#000',
   code: '#f81ce5',
-  border: '#eaeaea',
+  border: '#eaeaea'
 };
 
 export const expressiveness: NextUIThemesExpressiveness = {
@@ -33,7 +33,7 @@ export const expressiveness: NextUIThemesExpressiveness = {
   shadowSmall: '0 5px 20px -5px rgba(0, 0, 0, .1)',
   shadowMedium: '0 8px 30px rgba(0, 0, 0, 0.15)',
   shadowLarge: '0 30px 60px rgba(0, 0, 0, 0.15)',
-  portalOpacity: 0.25,
+  portalOpacity: 0.25
 };
 
 export const font = defaultFont;
@@ -48,7 +48,7 @@ export const themes: NextUIThemes = {
   layout,
   palette,
   breakpoints,
-  expressiveness,
+  expressiveness
 };
 
 export default themes;

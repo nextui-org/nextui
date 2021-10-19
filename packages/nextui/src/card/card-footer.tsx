@@ -1,15 +1,16 @@
 import React from 'react';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
+import clsx from '../utils/clsx';
 
 interface Props {
-  disableAutoMargin?: boolean;
+  autoMargin?: boolean;
   className?: string;
 }
 
 const defaultProps = {
-  disableAutoMargin: false,
-  className: '',
+  autoMargin: true,
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -18,19 +19,19 @@ export type CardFooterProps = Props & typeof defaultProps & NativeAttrs;
 const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
   children,
   className,
-  disableAutoMargin,
+  autoMargin,
   ...props
 }) => {
   const theme = useTheme();
 
   return (
-    <footer
-      className={`${disableAutoMargin ? '' : 'auto-margin'} ${className}`}
+    <div
+      className={clsx('card-footer', { 'auto-margin': autoMargin }, className)}
       {...props}
     >
       {children}
       <style jsx>{`
-        footer {
+        .card-footer {
           padding: ${theme.layout.gapHalf} ${theme.layout.gap};
           display: flex;
           align-items: center;
@@ -49,7 +50,7 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
           margin-right: ${theme.layout.gapQuarter};
         }
       `}</style>
-    </footer>
+    </div>
   );
 };
 

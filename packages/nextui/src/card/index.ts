@@ -1,10 +1,10 @@
 import Card from './card';
+import CardHeader from './card-header';
 import CardFooter from './card-footer';
-import CardContent from './card-content';
+import CardBody from './card-body';
 
+Card.Header = CardHeader;
+Card.Body = CardBody;
 Card.Footer = CardFooter;
-Card.Actions = CardFooter;
-Card.Content = CardContent;
-Card.Body = CardContent;
 
 export default Card;

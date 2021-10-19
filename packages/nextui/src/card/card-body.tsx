@@ -7,7 +7,7 @@ interface Props {
 }
 
 const defaultProps = {
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -25,8 +25,13 @@ const CardContent: React.FC<React.PropsWithChildren<CardContentProps>> = ({
       {children}
       <style jsx>{`
         .content {
-          width: 100%;
-          padding: ${theme.layout.gap} ${theme.layout.gap};
+          display: flex;
+          flex-direction: column;
+          flex: 1 1 auto;
+          padding: ${theme.layout.gapHalf} calc(${theme.layout.gap} + 0.25rem);
+          overflow-y: auto;
+          position: relative;
+          text-align: left;
         }
         .content > :global(*:first-child) {
           margin-top: 0;

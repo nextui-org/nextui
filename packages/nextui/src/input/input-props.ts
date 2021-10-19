@@ -4,7 +4,7 @@ import {
   SimpleColors,
   ContentPosition,
   NormalWeights,
-  AsProp,
+  AsProp
 } from '../utils/prop-types';
 
 export type FormElement = HTMLInputElement | HTMLTextAreaElement;
@@ -76,5 +76,5 @@ export const defaultProps = {
   autoComplete: 'off',
   className: '',
   placeholder: '',
-  initialValue: '',
+  initialValue: ''
 };

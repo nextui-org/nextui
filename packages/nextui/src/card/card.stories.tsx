@@ -10,26 +10,21 @@ import {
   Spacer,
   Divider,
   Code,
-  Grid,
+  Grid
 } from '../index';
 import { CardColors } from '../utils/prop-types';
-import Headphones from '../../assets/headphones.jpg';
-import Watch from '../../assets/watch.jpeg';
-import Items from '../../assets/items.jpeg';
-import Cup from '../../assets/cup.jpeg';
-import Airpods from '../../assets/airpods.jpeg';
-import Bicycle from '../../assets/bicycle.jpeg';
+import AppleEvent from '../../assets/apple-event.jpeg';
 
 export default {
   title: 'Surfaces/Card',
   component: Card,
   decorators: [
     (Story) => (
-      <Grid.Container gap={2} justify="center" direction="column">
+      <Grid.Container gap={1} justify="center" direction="column">
         <Story />
       </Grid.Container>
-    ),
-  ],
+    )
+  ]
 } as Meta;
 
 export const Default = () => (
@@ -40,7 +35,7 @@ export const Default = () => (
 
 export const Bordered = () => (
   <Card width="400px" bordered>
-    <p>A basic card.</p>
+    <p>A bordered card.</p>
   </Card>
 );
 
@@ -51,7 +46,7 @@ export const Colors = () => {
     'success',
     'warning',
     'error',
-    'dark',
+    'dark'
   ];
   const colorsRight: Array<CardColors> = [
     'alert',
@@ -59,42 +54,36 @@ export const Colors = () => {
     'violet',
     'cyan',
     'gradient',
-    'lite',
+    'lite'
   ];
   return (
     <>
       {colorsLeft.map((left, index) => (
-        <Row justify="space-around" key={left} style={{ marginBottom: '18px' }}>
-          <Col span={10}>
+        <Grid.Container gap={2} key={left} style={{ marginBottom: '18px' }}>
+          <Grid xs={6}>
             <Card color={left}>
               <Text h4 capitalize>
                 {left}
               </Text>
               <Text span>{left}</Text>
             </Card>
-          </Col>
-          <Col span={10}>
+          </Grid>
+          <Grid xs={6}>
             <Card color={colorsRight[index]}>
               <Text h4 capitalize>
                 {colorsRight[index]}
               </Text>
               <Text span>{colorsRight[index]}</Text>
             </Card>
-          </Col>
-        </Row>
+          </Grid>
+        </Grid.Container>
       ))}
     </>
   );
 };
 
-export const Hoverable = () => (
-  <Card hoverable width="400px">
-    <p>hoverable card.</p>
-  </Card>
-);
-
-export const Shadow = () => (
-  <Card shadow width="400px">
+export const NoShadow = () => (
+  <Card shadow={false} width="400px">
     <h4>The Evil Rabbit</h4>
     <p>shadow card.</p>
   </Card>
@@ -124,85 +113,37 @@ export const WithFooter = () => (
   </Row>
 );
 
-export const WithImage = () => {
-  const title = 'Next UI';
-  const description = '🚀 Beautiful and modern React UI library.';
-  const action = 'Visit source code on GitHub.';
-  const cards = [
-    {
-      title,
-      description,
-      image: Headphones,
-      action,
-    },
-    {
-      title,
-      description,
-      image: Items,
-      action: 'See articles',
-    },
-    {
-      title,
-      description,
-      image: Watch,
-      action: 'Order',
-    },
-    {
-      title,
-      description,
-      image: Cup,
-      action: 'Order',
-    },
-    {
-      title,
-      description,
-      image: Airpods,
-      action: 'Buy',
-    },
-    {
-      title,
-      description,
-      image: Bicycle,
-      action: 'See more information',
-    },
-  ];
+export const AbsImageWithHeader = () => {
   return (
     <Grid.Container gap={1} justify="center">
-      {cards.map((card, index) => (
-        <Grid key={index}>
-          <Card width="330px" animated>
-            <Image
-              disableAutoResize
-              src={card.image}
-              height={200}
-              width={400}
-              style={{ objectFit: 'cover' }}
-            />
-            <Text h4>{card.title}</Text>
-            <Text>{card.description}</Text>
-            <Card.Footer>
-              <Link
-                color
-                target="_blank"
-                href="https://github.com/jrgarciadev/nextui"
-              >
-                {card.action}
-              </Link>
-            </Card.Footer>
-          </Card>
-        </Grid>
-      ))}
+      <Grid>
+        <Card width="330px">
+          <Card.Header>
+            <Col>
+              <Text h4>What to watch</Text>
+              <Text h3>Stream the Apple event</Text>
+            </Col>
+          </Card.Header>
+          <Image
+            disableAutoResize
+            src={AppleEvent}
+            height={200}
+            width={400}
+            style={{ objectFit: 'cover' }}
+          />
+        </Card>
+      </Grid>
     </Grid.Container>
   );
 };
 
 export const WithDivider = () => (
   <Card width="400px">
-    <Card.Content>
+    <Card.Body>
       <Text b>Description</Text>
-    </Card.Content>
+    </Card.Body>
     <Divider y={0} />
-    <Card.Content>
+    <Card.Body>
       <Text>
         The Object constructor creates an object wrapper for the given value.
       </Text>
@@ -210,6 +151,6 @@ export const WithDivider = () => (
         When called in a non-constructor context, Object behaves identically to{' '}
         <Code>new Object()</Code>.
       </Text>
-    </Card.Content>
+    </Card.Body>
   </Card>
 );
