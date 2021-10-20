@@ -12,8 +12,8 @@ interface Props {
 }
 
 const defaultProps = {
-  autoMargin: true,
-  justify: 'center' as Justify,
+  autoMargin: false,
+  justify: 'flex-start' as Justify,
   noPadding: false,
   className: ''
 };
@@ -43,8 +43,10 @@ const CardHeader: React.FC<React.PropsWithChildren<CardHeaderProps>> = ({
       {children}
       <style jsx>{`
         .card-header {
+          width: 100%;
           display: flex;
           flex-shrink: 0;
+          z-index: 1;
           justify-content: ${justify};
           align-items: center;
           overflow: hidden;

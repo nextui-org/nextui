@@ -1,23 +1,23 @@
 import React, { useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
-import { NormalColors, TextWeights } from '../utils/prop-types';
+import { NormalColors, TextWeights, TextTransforms } from '../utils/prop-types';
 import { getNormalColor } from '../utils/color';
+import clsx from '../utils/clsx';
 
 export interface Props {
   tag: keyof JSX.IntrinsicElements;
   color?: NormalColors | string;
   size?: string | number;
   margin?: string | number;
-  capitalize?: boolean;
+  transform?: TextTransforms;
   weight?: TextWeights;
   className?: '';
 }
 
 const defaultProps = {
   color: 'default' as NormalColors | string,
-  className: '',
-  capitalize: false
+  className: ''
 };
 
 type NativeAttrs = Omit<React.DetailsHTMLAttributes<unknown>, keyof Props>;
@@ -28,7 +28,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   tag,
   className,
   color: userColor,
-  capitalize,
+  transform,
   margin: marginProp,
   weight,
   size,
@@ -36,10 +36,10 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
 }) => {
   const theme = useTheme();
   const Component = tag;
-  const color = useMemo(() => getNormalColor(userColor, theme.palette), [
-    userColor,
-    theme.palette
-  ]);
+  const color = useMemo(
+    () => getNormalColor(userColor, theme.palette),
+    [userColor, theme.palette]
+  );
   const fontSize = useMemo<string>(() => {
     if (!size) return 'inherit';
     if (typeof size === 'number') return `${size}px`;
@@ -55,9 +55,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   return (
     <React.Fragment>
       <Component
-        className={`${size ? 'custom-size' : ''} ${
-          capitalize ? 'capitalize' : ''
-        } ${className}`}
+        className={clsx({ 'custom-size': !!size }, className)}
         {...props}
       >
         {children}
@@ -67,12 +65,10 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
           color: ${color};
           margin: ${margin};
           font-weight: ${weight};
+          text-transform: ${transform};
         }
         .custom-size {
           font-size: ${fontSize};
-        }
-        .capitalize {
-          text-transform: capitalize;
         }
       `}</style>
     </React.Fragment>

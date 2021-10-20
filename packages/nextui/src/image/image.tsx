@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import useTheme from '../use-theme';
 import ImageSkeleton from './image.skeleton';
 import ImageBrowser from './image-browser';
@@ -10,7 +10,7 @@ interface Props {
   src: string;
   disableAutoResize?: boolean;
   disableSkeleton?: boolean;
-  width?: number;
+  width?: number | string;
   height?: number;
   className?: string;
   scale?: string;
@@ -22,7 +22,7 @@ const defaultProps = {
   disableAutoResize: false,
   className: '',
   scale: '100%',
-  maxDelay: 3000,
+  maxDelay: 3000
 };
 
 type NativeAttrs = Omit<React.ImgHTMLAttributes<unknown>, keyof Props>;
@@ -40,8 +40,13 @@ const Image: React.FC<ImageProps> = ({
   ...props
 }) => {
   const showAnimation = !disableSkeleton && width && height;
-  const w = width ? `${width}px` : 'auto';
-  const h = height ? `${height}px` : 'auto';
+
+  const { w, h } = useMemo(() => {
+    return {
+      w: width ? (typeof width === 'number' ? `${width}px` : width) : 'auto',
+      h: height ? (typeof height === 'number' ? `${height}px` : height) : 'auto'
+    };
+  }, [width, height]);
 
   const theme = useTheme();
   const [loading, setLoading] = useState<boolean>(true);
