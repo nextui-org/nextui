@@ -68,9 +68,9 @@
                     "open": true,
                     "routes": [
                         {
-                            "title": "Text",
-                            "keywords": "text, txt, paragraph",
-                            "path": "/docs/components/text.mdx"
+                            "title": "Avatar",
+                            "keywords": "avatar, avatar group, group",
+                            "path": "/docs/components/avatar.mdx"
                         },
                         {
                             "title": "Button",
@@ -81,6 +81,12 @@
                             "title": "Button Group",
                             "keywords": "btn, button, btn group, button group, group",
                             "path": "/docs/components/button-group.mdx"
+                        },
+                        {
+                            "title": "Card",
+                            "keywords": "card, content, action, media",
+                            "path": "/docs/components/card.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Input",
@@ -110,8 +116,7 @@
                         {
                             "title": "Modal",
                             "keywords": "modal, dialog, backdrop",
-                            "path": "/docs/components/modal.mdx",
-                            "newPost": true
+                            "path": "/docs/components/modal.mdx"
                         },
                         {
                             "title": "Loading",
@@ -124,14 +129,14 @@
                             "path": "/docs/components/switch.mdx"
                         },
                         {
-                            "title": "Link",
-                            "keywords": "link, href, next link",
-                            "path": "/docs/components/link.mdx"
+                            "title": "Text",
+                            "keywords": "text, txt, paragraph",
+                            "path": "/docs/components/text.mdx"
                         },
                         {
-                            "title": "Avatar",
-                            "keywords": "avatar, avatar group, group",
-                            "path": "/docs/components/avatar.mdx"
+                            "title": "Link",
+                            "keywords": "link, navigation, href, next link",
+                            "path": "/docs/components/link.mdx"
                         }
                     ]
                 }

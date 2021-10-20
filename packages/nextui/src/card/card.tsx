@@ -120,7 +120,8 @@ const Card = React.forwardRef<
 
   const cardConfig: CardConfig = useMemo(
     () => ({
-      background: bgColor
+      background: bgColor,
+      noPadding: cover
     }),
     []
   );

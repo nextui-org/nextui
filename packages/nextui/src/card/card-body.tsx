@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useContext } from 'react';
 import useTheme from '../use-theme';
 import {
   AlignContent,
@@ -6,6 +6,8 @@ import {
   Justify,
   Direction
 } from '../utils/prop-types';
+import { CardContext } from './card-context';
+import clsx from '../utils/clsx';
 import withDefaults from '../utils/with-defaults';
 
 interface Props {
@@ -13,6 +15,7 @@ interface Props {
   direction?: Direction;
   alignItems?: AlignItems;
   alignContent?: AlignContent;
+  noPadding?: boolean;
   width?: string;
   height?: string;
   className?: string;
@@ -25,17 +28,19 @@ const defaultProps = {
   alignItems: 'inherit',
   alignContent: 'inherit',
   direction: 'column',
+  noPadding: false,
   className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type CardContentProps = Props & typeof defaultProps & NativeAttrs;
+export type CardBodyProps = Props & typeof defaultProps & NativeAttrs;
 
-const CardContent: React.FC<React.PropsWithChildren<CardContentProps>> = ({
+const CardBody: React.FC<React.PropsWithChildren<CardBodyProps>> = ({
   className,
   justify,
   alignContent,
   alignItems,
+  noPadding: noPaddingProp,
   direction,
   width,
   height,
@@ -43,12 +48,18 @@ const CardContent: React.FC<React.PropsWithChildren<CardContentProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
-
+  const { noPadding: noPaddingContext } = useContext(CardContext);
+  const noPadding = useMemo(() => {
+    return noPaddingContext !== undefined ? noPaddingContext : noPaddingProp;
+  }, [noPaddingProp, noPaddingContext]);
   return (
-    <div className={`content ${className}`} {...props}>
+    <div
+      className={clsx('card-body', { 'no-padding': noPadding }, className)}
+      {...props}
+    >
       {children}
       <style jsx>{`
-        .content {
+        .card-body {
           display: flex;
           flex: 1 1 auto;
           width: ${width};
@@ -62,10 +73,13 @@ const CardContent: React.FC<React.PropsWithChildren<CardContentProps>> = ({
           position: relative;
           text-align: left;
         }
-        .content > :global(*:first-child) {
+        .card-body.no-padding {
+          padding: 0;
+        }
+        .card-body > :global(*:first-child) {
           margin-top: 0;
         }
-        .content > :global(*:last-child) {
+        .card-body > :global(*:last-child) {
           margin-bottom: 0;
         }
       `}</style>
@@ -73,6 +87,6 @@ const CardContent: React.FC<React.PropsWithChildren<CardContentProps>> = ({
   );
 };
 
-const MemoCardContent = React.memo(CardContent);
+const MemoCardBody = React.memo(CardBody);
 
-export default withDefaults(MemoCardContent, defaultProps);
+export default withDefaults(MemoCardBody, defaultProps);

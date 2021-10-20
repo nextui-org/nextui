@@ -58,7 +58,7 @@ const Drip: React.FC<DripProps> = ({
         }
         svg {
           position: absolute;
-          animation: 300ms ease-in expand;
+          animation: 350ms linear expand;
           animation-fill-mode: forwards;
           width: 1rem;
           height: 1rem;
@@ -66,7 +66,7 @@ const Drip: React.FC<DripProps> = ({
         @keyframes expand {
           0% {
             opacity: 0;
-            transform: scale(1);
+            transform: scale(0.25);
           }
           30% {
             opacity: 1;

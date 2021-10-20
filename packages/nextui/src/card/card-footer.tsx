@@ -17,6 +17,7 @@ interface Props {
   color?: NormalColors | string;
   borderColor?: NormalColors | string;
   borderWeight?: NormalWeights;
+  noPadding?: boolean;
 }
 
 const defaultProps = {
@@ -25,6 +26,7 @@ const defaultProps = {
   border: false,
   width: '100%',
   height: 'auto',
+  noPadding: false,
   borderWeight: 'light' as NormalWeights,
   className: ''
 };
@@ -42,11 +44,17 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
   border: borderProp,
   borderColor,
   borderWeight,
-  autoMargin,
+  noPadding,
+  autoMargin: autoMarginProp,
   ...props
 }) => {
   const theme = useTheme();
-  const { background } = useContext(CardContext);
+  const { background, autoMargin: autoMarginContext } = useContext(CardContext);
+
+  const autoMargin = useMemo(() => {
+    return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
+  }, [autoMarginProp, autoMarginContext]);
+
   const bgColor = useMemo(() => {
     if (color) {
       return getNormalColor(color, theme.palette);
@@ -67,7 +75,7 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
     <div
       className={clsx(
         'card-footer',
-        { 'auto-margin': autoMargin, blur },
+        { 'auto-margin': autoMargin, blur, 'no-padding': noPadding },
         className
       )}
       {...props}
@@ -91,6 +99,9 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
         .card-footer.blur {
           backdrop-filter: saturate(180%) blur(10px);
           background: ${addColorAlpha(bgColor, 0.4)};
+        }
+        .card-footer.no-padding {
+          padding: 0;
         }
         .auto-margin :global(*) {
           margin-top: 0;
