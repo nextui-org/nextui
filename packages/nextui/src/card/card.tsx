@@ -82,8 +82,8 @@ const Card = React.forwardRef<
   const theme = useTheme();
 
   const { color, bgColor, dripColor, borderColor } = useMemo(
-    () => getStyles(cardColor, textColor, shadow, bordered, theme.palette),
-    [cardColor, theme.palette, textColor, shadow, bordered]
+    () => getStyles(cardColor, textColor, shadow, bordered, theme),
+    [cardColor, theme, textColor, shadow, bordered]
   );
 
   const cardRef = useRef<HTMLDivElement>(null);
@@ -182,7 +182,7 @@ const Card = React.forwardRef<
             border: ${borderWeight} solid ${borderColor};
           }
           .card.animated {
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
           }
           .card.clickable.animated:active {
             transform: scale(0.97);
@@ -197,10 +197,8 @@ const Card = React.forwardRef<
             width: 100%;
           }
           .card.hoverable.animated:hover {
-            transform: scale(1.03) translateY(-2px);
-            box-shadow: ${shadow && !bordered
-              ? theme.expressiveness.shadowLarge
-              : 'none'};
+            transform: translateY(-2px);
+            box-shadow: ${shadow ? theme.expressiveness.shadowLarge : 'none'};
           }
           .card:not(.cover) :global(.image) {
             border-bottom-left-radius: 0;
@@ -218,6 +216,7 @@ type CardComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Header: typeof CardHeader;
   Body: typeof CardBody;
   Footer: typeof CardFooter;
+  Image: typeof Image;
 };
 
 type ComponentProps = Partial<typeof defaultProps> &

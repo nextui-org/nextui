@@ -1,25 +1,29 @@
 import React, { useEffect, useRef, useMemo, useState } from 'react';
+import { ObjectFit } from '../utils/prop-types';
 import useTheme from '../use-theme';
 import ImageSkeleton from './image.skeleton';
 import ImageBrowser from './image-browser';
 import useRealShape from '../use-real-shape';
 import useCurrentState from '../use-current-state';
 import useResize from '../use-resize';
+import cslx from '../utils/clsx';
 
 interface Props {
   src: string;
-  disableAutoResize?: boolean;
-  disableSkeleton?: boolean;
+  autoResize?: boolean;
+  showSkeleton?: boolean;
   width?: number | string;
   height?: number;
   className?: string;
   scale?: string;
   maxDelay?: number;
+  objectFit?: ObjectFit;
 }
 
 const defaultProps = {
-  disableSkeleton: false,
-  disableAutoResize: false,
+  showSkeleton: true,
+  autoResize: true,
+  objectFit: 'scale-down' as ObjectFit,
   className: '',
   scale: '100%',
   maxDelay: 3000
@@ -32,14 +36,17 @@ const Image: React.FC<ImageProps> = ({
   src,
   width,
   height,
-  disableSkeleton,
+  showSkeleton: showSkeletonProp,
   className,
   scale,
   maxDelay,
-  disableAutoResize,
+  autoResize,
+  objectFit,
   ...props
 }) => {
-  const showAnimation = !disableSkeleton && width && height;
+  const theme = useTheme();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [showSkeleton, setShowSkeleton] = useState<boolean>(true);
 
   const { w, h } = useMemo(() => {
     return {
@@ -48,12 +55,11 @@ const Image: React.FC<ImageProps> = ({
     };
   }, [width, height]);
 
-  const theme = useTheme();
-  const [loading, setLoading] = useState<boolean>(true);
-  const [showSkeleton, setShowSkeleton] = useState<boolean>(true);
   const [zoomHeight, setZoomHeight, zoomHeightRef] = useCurrentState<string>(h);
   const imageRef = useRef<HTMLImageElement>(null);
   const [shape, updateShape] = useRealShape(imageRef);
+
+  const showAnimation = showSkeletonProp && width && height;
 
   const imageLoaded = () => {
     if (!showAnimation) return;
@@ -87,7 +93,7 @@ const Image: React.FC<ImageProps> = ({
    * If the image is auto width, ignore all.
    */
   useEffect(() => {
-    if (disableAutoResize) return;
+    if (!autoResize) return;
     const notLoaded = shape.width === 0;
     const isAutoZoom = zoomHeightRef.current === 'auto';
     if (notLoaded || !width || !height) return;
@@ -99,12 +105,12 @@ const Image: React.FC<ImageProps> = ({
   }, [shape, width]);
 
   useResize(() => {
-    if (disableAutoResize) return;
+    if (!autoResize) return;
     updateShape();
   });
 
   return (
-    <div className={`image ${className}`}>
+    <div className={cslx('image', { 'image-ready': !loading }, className)}>
       {showSkeleton && showAnimation && (
         <ImageSkeleton opacity={loading ? 0.5 : 0} />
       )}
@@ -119,18 +125,22 @@ const Image: React.FC<ImageProps> = ({
       <style jsx>{`
         .image {
           width: ${w};
+          opacity: 0;
           height: ${zoomHeight};
           margin: 0 auto;
           position: relative;
           border-radius: ${theme.layout.radius};
           overflow: hidden;
           max-width: 100%;
+          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
         }
-
+        .image-ready {
+          opacity: 1;
+        }
         img {
           width: ${scale};
           height: ${scale};
-          object-fit: scale-down;
+          object-fit: ${objectFit};
           display: block;
         }
       `}</style>

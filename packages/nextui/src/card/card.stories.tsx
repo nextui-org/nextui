@@ -5,7 +5,6 @@ import {
   Row,
   Col,
   Link,
-  Image,
   Text,
   Spacer,
   Divider,
@@ -122,8 +121,8 @@ export const AbsImageWithHeader = () => {
               </Text>
             </Col>
           </Card.Header>
-          <Image
-            disableAutoResize
+          <Card.Image
+            autoResize={false}
             src={AppleEvent}
             height={440}
             width="100%"
@@ -160,8 +159,8 @@ export const AbsImgWithHeaderFooter = () => {
               </Text>
             </Col>
           </Card.Header>
-          <Image
-            disableAutoResize
+          <Card.Image
+            autoResize={false}
             src={Homepods}
             height={440}
             width="100%"
@@ -205,8 +204,8 @@ export const AbsImgWithHeaderFooter = () => {
             </Col>
           </Card.Header>
           <Card.Body>
-            <Image
-              disableAutoResize
+            <Card.Image
+              autoResize={false}
               src={Relaxing}
               height={440}
               width="100%"
@@ -225,8 +224,8 @@ export const AbsImgWithHeaderFooter = () => {
               <Col>
                 <Row>
                   <Col span={3}>
-                    <Image
-                      disableAutoResize
+                    <Card.Image
+                      autoResize={false}
                       src={BreathingApp}
                       style={{ background: 'black' }}
                       height={40}
@@ -311,8 +310,8 @@ export const CenterImgWithHeader = () => {
               </Text>
             </Card.Header>
             <Card.Body height="100%" justify="center">
-              <Image
-                disableAutoResize
+              <Card.Image
+                autoResize={false}
                 src={item.img}
                 width={180}
                 alt={item.title}

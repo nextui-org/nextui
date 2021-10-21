@@ -123,6 +123,19 @@ const position = tuple(
   'unset'
 );
 
+const objectFit = tuple(
+  'contain',
+  'cover',
+  'fill',
+  'none',
+  'scale-down',
+  /* Global values */
+  'inherit',
+  'initial',
+  'revert',
+  'unset'
+);
+
 const dividerAlign = tuple('start', 'center', 'end', 'left', 'right');
 
 const justify = tuple(
@@ -225,6 +238,8 @@ export type ThemeTypes = typeof themeTypes[number];
 export type SnippetTypes = typeof extendedColors[number];
 
 export type CopyTypes = typeof copyTypes[number];
+
+export type ObjectFit = typeof objectFit[number];
 
 export type TriggerTypes = typeof triggerTypes[number];
 

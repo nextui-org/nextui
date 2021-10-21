@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Image from '../index';
-import { updateWrapper } from '../../../../tests/utils';
+import { updateWrapper } from '../../../tests/utils';
 
 const url =
   'data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA' +
@@ -19,7 +19,9 @@ describe('Image', () => {
     expect(wrapper).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
 
-    wrapper = mount(<Image src={url} width={20} height={20} disableSkeleton />);
+    wrapper = mount(
+      <Image src={url} width={20} height={20} showSkeleton={false} />
+    );
     wrapper.find('img').at(0).simulate('load');
     expect(wrapper).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
@@ -37,7 +39,7 @@ describe('Image', () => {
     wrapper = mount(<Image src={url} width={20} />);
     expect(wrapper.find('.skeleton').length).toBe(0);
 
-    mount(<Image src={url} width={20} height={20} disableSkeleton />);
+    mount(<Image src={url} width={20} height={20} showSkeleton={false} />);
     expect(wrapper.find('.skeleton').length).toBe(0);
   });
 
@@ -46,7 +48,13 @@ describe('Image', () => {
       <Image src={url} width={20} height={20} maxDelay={100} />
     );
     const NoAnimation = mount(
-      <Image src={url} width={20} height={20} maxDelay={100} disableSkeleton />
+      <Image
+        src={url}
+        width={20}
+        height={20}
+        maxDelay={100}
+        showSkeleton={false}
+      />
     );
     expect(animation.find('.skeleton').length).not.toBe(0);
     await updateWrapper(animation, 300);
@@ -60,7 +68,7 @@ describe('Image', () => {
     Object.defineProperty((global as any).Image.prototype, 'complete', {
       get() {
         return true;
-      },
+      }
     });
     const wrapper = mount(<Image src={url} width={20} height={20} />);
     const img = wrapper.find('img').at(0);

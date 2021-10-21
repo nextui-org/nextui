@@ -7,7 +7,7 @@ import {
   Button,
   Spacer,
   Grid,
-  NextUIThemes,
+  NextUIThemes
 } from '@nextui-org/react';
 
 const UserTwitterCard: React.FC = () => {

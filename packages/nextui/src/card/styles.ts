@@ -1,3 +1,4 @@
+import { NextUIThemes } from './../theme/types';
 import { NormalColors, SimpleColors } from '../utils/prop-types';
 import { getNormalColor, hexFromString, addColorAlpha } from './../utils/color';
 import { NextUIThemesPalette } from '../theme';
@@ -37,9 +38,15 @@ export const getStyles = (
   textColor: SimpleColors | string,
   shadow: boolean,
   bordered: boolean,
-  palette: NextUIThemesPalette
+  theme: NextUIThemes
 ): CardStyles => {
-  const normalColor = getNormalColor(color, palette, palette.background);
+  const palette = theme.palette;
+  const isDark = theme.type === 'dark';
+  const normalColor = getNormalColor(
+    color,
+    palette,
+    isDark ? palette.accents_1 : palette.background
+  );
   const normalTextColor = getNormalColor(textColor, palette, palette.text);
   const dripColor = getDripColor(palette, color, bordered);
   return {

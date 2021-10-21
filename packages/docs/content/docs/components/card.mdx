@@ -1,0 +1,250 @@
+---
+title: 'Card'
+description: 'Card is a container for text, photos, and actions in the context of a single subject.'
+url: https://nextui.com/docs/components/card
+---
+
+# Card
+
+Card is a container for text, photos, and actions in the context of a single subject.
+
+```jsx
+import { Card } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Playground
+  title="Default"
+  desc="NextUI will wrap your content in a `Card.Body` component."
+  code={` 
+<Card width="400px">
+  <p>A basic card.</p>
+</Card>`}
+/>
+
+<Playground
+  title="Bordered"
+  desc="You can change the full style towards a bodered `Card` with the `bordered` property."
+  code={` 
+<Card width="400px" bordered>
+  <p>A bordered card.</p>
+</Card>`}
+/>
+
+<Playground
+  title="Hoverable"
+  desc="You can apply a fancy hover animation with the `hoverable` property."
+  code={` 
+<Card width="400px" bordered hoverable>
+  <p>A hoverable card.</p>
+</Card>`}
+/>
+
+<Playground
+  title="Clickable"
+  desc="You can use the `clickable` property to allow users to interact with the entirety of its surface 
+  to trigger its main action, be it an expansion, a link to another screen or some other behavior."
+  code={` 
+<Card width="400px" clickable>
+  <p>A clickable card.</p>
+</Card>`}
+/>
+
+<Playground
+  title="Colors"
+  desc="You can change the color of the `Card` with the property `color`."
+  code={`
+() => {
+const colors = [
+  'primary',
+  'secondary',
+  'success',
+  'warning',
+  'error',
+  'gradient'
+];
+return (
+<Grid.Container gap={2}>
+    {colors.map((color) => (
+        <Grid xs={4} key={color}>
+            <Card color={color} textColor="white">
+                <Text h5 transform="capitalize">
+                {color}
+                </Text>
+                <Text span>{color}</Text>
+            </Card>
+        </Grid>
+    ))}
+</Grid.Container>
+);    
+}`}
+/>
+
+<Playground
+  title="With divider"
+  desc="You can use the `Divider` component to split the `Card` sections."
+  code={` 
+<Grid.Container gap={2}> 
+  <Grid>  
+    <Card width="330px">
+        <Card.Header>
+            <Text b>Card Title</Text>
+        </Card.Header>
+        <Divider y={0} />
+        <Card.Body style={{ padding: '30px 20px' }}>
+            <Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+            </Text>
+        </Card.Body>
+        <Divider y={0}/>
+        <Card.Footer justify="flex-end">
+        <Row justify="flex-end">
+            <Button size="small" light>Cancel</Button>
+            <Button size="small">Agree</Button>
+        </Row>
+        </Card.Footer>
+    </Card>
+  </Grid>  
+  <Grid>  
+    <Card width="330px">
+        <Card.Header>
+            <Text b>Card Title</Text>
+        </Card.Header>
+        <Divider y={0} />
+        <Card.Body style={{ padding: '30px 20px' }}>
+            <Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+            </Text>
+        </Card.Body>
+        <Divider y={0}/>
+        <Card.Footer justify="flex-end">
+            <Row justify="flex-end">
+                <Button size="small" light>Share</Button>
+                <Button size="small" color="secondary">Learn more</Button>
+            </Row>
+        </Card.Footer>
+    </Card>
+  </Grid> 
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="With Footer"
+  desc="You can use the `Card.Footer` component to add actions, details or another information to the `Card`."
+  code={` 
+<Grid.Container gap={2}>
+    <Grid>
+        <Card width="330px">
+            <Text h4>Next UI</Text>
+            <Text>🚀  Beautiful and modern React UI library.</Text>
+            <Card.Footer>
+                <Link color target="_blank" href="https://github.com/nextui-org/nextui">
+                    Visit source code on GitHub.
+                </Link>
+            </Card.Footer>
+        </Card>
+    </Grid>  
+    <Grid> 
+        <Card width="330px" color="primary">
+            <Text h4 color="white">Next UI</Text>
+            <Text color="white">🚀  Beautiful and modern React UI library.</Text>
+            <Card.Footer>
+                <Link target="_blank" color="white" href="https://github.com/nextui-org/nextui">
+                    Visit source code on GitHub.
+                </Link>
+            </Card.Footer>
+        </Card>
+    </Grid>  
+</Grid.Container>`}
+/>
+
+<Playground
+  title="With Image"
+  desc="You can use the `Card.Image` component to add a cover, contain o centered image to the `Card.Body`."
+  code={` 
+<Grid.Container gap={2} justify="flex-start">
+    <Grid xs={4}>
+        <Card width="100%" cover>
+            <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+                <Col>
+                    <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                        color="#ffffffAA"
+                    >
+                        What to watch
+                    </Text>
+                    <Text h4 color="white">
+                        Stream the Acme event
+                    </Text>
+                </Col>
+            </Card.Header>
+            <Card.Image
+                autoResize={false}
+                src='/images/card-example-4.jpeg'
+                height={440}
+                width="100%"
+                objectFit="cover"
+                alt="Card image background"
+            />
+        </Card>
+    </Grid>
+    <Grid xs={4}>
+        <Card width="100%" cover>
+            <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+                <Col>
+                    <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                         color="#ffffffAA"
+                    >
+                        Plant a tree
+                    </Text>
+                    <Text h4 color="white">
+                       Contribute to the planet
+                    </Text>
+                </Col>
+            </Card.Header>
+            <Card.Image
+                autoResize={false}
+                src='/images/card-example-3.jpeg'
+                height={440}
+                width="100%"
+                objectFit="cover"
+                alt="Card image background"
+            />
+        </Card>
+    </Grid>
+    <Grid xs={4}>
+        <Card width="100%" cover>
+            <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+                <Col>
+                    <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                        color="#ffffffAA"
+                    >
+                        Supercharged
+                    </Text>
+                    <Text h4 color="white">
+                       Creates beauty like a beast
+                    </Text>
+                </Col>
+            </Card.Header>
+            <Card.Image
+                autoResize={false}
+                src='/images/card-example-2.jpeg'
+                height={440}
+                width="100%"
+                objectFit="cover"
+                alt="Card image background"
+            />
+        </Card>
+    </Grid>    
+</Grid.Container>`}
+/>
