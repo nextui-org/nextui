@@ -27,7 +27,6 @@ interface Props {
   animated?: boolean;
   hoverable?: boolean;
   clickable?: boolean;
-  disabled?: boolean;
   cover?: boolean;
   className?: string;
   width?: string;
@@ -44,7 +43,6 @@ const defaultProps = {
   bordered: false,
   cover: false,
   animated: true,
-  disabled: false,
   clickable: false,
   hoverable: false,
   shadow: true,
@@ -69,7 +67,6 @@ const Card = React.forwardRef<
     shadow,
     animated,
     clickable,
-    disabled,
     hoverable,
     color: cardColor,
     borderWeight: borderWeightProp,
@@ -121,13 +118,12 @@ const Card = React.forwardRef<
   const cardConfig: CardConfig = useMemo(
     () => ({
       background: bgColor,
-      noPadding: cover
+      noPadding: cover ? true : undefined
     }),
     []
   );
 
   const clickHandler = (event: MouseEvent<HTMLDivElement>) => {
-    if (disabled) return;
     if (animated && cardRef.current) {
       onDripClickHandler(event);
     }
@@ -193,12 +189,15 @@ const Card = React.forwardRef<
           .card.clickable {
             cursor: pointer;
           }
-          .card :global(img) {
+          .card :global(.image) {
             width: 100%;
           }
           .card.hoverable.animated:hover {
             transform: translateY(-2px);
             box-shadow: ${shadow ? theme.expressiveness.shadowLarge : 'none'};
+          }
+          .card.cover :global(img) {
+            object-fit: cover;
           }
           .card:not(.cover) :global(.image) {
             border-bottom-left-radius: 0;

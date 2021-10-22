@@ -1,88 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card Footer should render correctly 1`] = `
-"<div class=\\"card  \\"><div class=\\"content \\"><p>card</p><style>
-        .content {
-          width: 100%;
-          padding: 16pt 16pt;
-        }
-        .content > :global(*:first-child) {
-          margin-top: 0;
-        }
-        .content > :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      </style></div><footer class=\\"auto-margin \\">footer<style>
-        footer {
-          padding: 8pt 16pt;
+"<div class=\\"card animated\\"><div class=\\"card-body\\"><p>card</p><style>
+        .card-body {
           display: flex;
-          align-items: center;
-          overflow: hidden;
-          color: inherit;
-          background-color: inherit;
-          font-size: 0.875rem;
-          border-top: 1px solid #eaeaea;
-          border-bottom-left-radius: 14px;
-          border-bottom-right-radius: 14px;
-          min-height: calc(2.5 * 16pt);
+          flex: 1 1 auto;
+          width: 100%;
+          height: auto;
+          flex-direction: column;
+          justify-content: inherit;
+          align-items: inherit;
+          align-content: inherit;
+          padding: 8pt calc(16pt + 0.25rem);
+          overflow-y: auto;
+          position: relative;
+          text-align: left;
         }
-        .auto-margin :global(*) {
-          margin-top: 0;
-          margin-bottom: 0;
-          margin-right: 4pt;
-        }
-      </style></footer><style>
-        .card {
-          background: #fff;
-          margin: 0;
+        .card-body.no-padding {
           padding: 0;
+        }
+        .card-body > :global(*:first-child) {
+          margin-top: 0;
+        }
+        .card-body > :global(*:last-child) {
+          margin-bottom: 0;
+        }
+      </style></div><div class=\\"card-footer\\">footer<style>
+        .card-footer {
           width: 100%;
-          transition: all 0.25s ease;
-          border-radius: 14px;
-          box-shadow: none;
-          box-sizing: border-box;
-          color: #000;
-          background-color: #f6f6f6;
-          border: 0px solid transparent;
-        }
-        .card:hover {
-          box-shadow: none;
-        }
-        .card :global(img) {
-          width: 100%;
-        }
-        .card.animated :global(img) {
-          transition: all 0.25s ease;
-        }
-        .card.animated:hover :global(img) {
-          transform: scale(1.15);
-        }
-        .card :global(.image) {
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-      </style></div>"
-`;
-
-exports[`Card Footer should work with disable-auto-margin 1`] = `
-"<footer class=\\" \\">footer<style>
-        footer {
+          height: auto;
           padding: 8pt 16pt;
           display: flex;
           align-items: center;
           overflow: hidden;
           color: inherit;
-          background-color: inherit;
+          background-color: #fff;
           font-size: 0.875rem;
-          border-top: 1px solid #eaeaea;
+          border-top: none;
           border-bottom-left-radius: 14px;
           border-bottom-right-radius: 14px;
-          min-height: calc(2.5 * 16pt);
+        }
+        .card-footer.blur {
+          backdrop-filter: saturate(180%) blur(10px);
+          background: rgba(255, 255,255,0.4);
+        }
+        .card-footer.no-padding {
+          padding: 0;
         }
         .auto-margin :global(*) {
           margin-top: 0;
           margin-bottom: 0;
           margin-right: 4pt;
         }
-      </style></footer>"
+      </style></div><style>
+          .card {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            flex-direction: column;
+            background: #fff;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+            color: #333;
+            border: 0px solid #eaeaea;
+          }
+          .card.animated {
+            transition: all 0.25s ease;
+          }
+          .card.clickable.animated:active {
+            transform: scale(0.97);
+          }
+          .card.hoverable.clickable.animated:active {
+            transform: scale(0.99);
+          }
+          .card.clickable {
+            cursor: pointer;
+          }
+          .card :global(.image) {
+            width: 100%;
+          }
+          .card.hoverable.animated:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+          }
+          .card.cover :global(img) {
+            object-fit: cover;
+          }
+          .card:not(.cover) :global(.image) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        </style></div>"
 `;

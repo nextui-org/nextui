@@ -13,9 +13,8 @@ interface Props {
   autoResize?: boolean;
   showSkeleton?: boolean;
   width?: number | string;
-  height?: number;
+  height?: number | string;
   className?: string;
-  scale?: string;
   maxDelay?: number;
   objectFit?: ObjectFit;
 }
@@ -25,7 +24,6 @@ const defaultProps = {
   autoResize: true,
   objectFit: 'scale-down' as ObjectFit,
   className: '',
-  scale: '100%',
   maxDelay: 3000
 };
 
@@ -38,7 +36,6 @@ const Image: React.FC<ImageProps> = ({
   height,
   showSkeleton: showSkeletonProp,
   className,
-  scale,
   maxDelay,
   autoResize,
   objectFit,
@@ -62,7 +59,6 @@ const Image: React.FC<ImageProps> = ({
   const showAnimation = showSkeletonProp && width && height;
 
   const imageLoaded = () => {
-    if (!showAnimation) return;
     setLoading(false);
   };
 
@@ -138,8 +134,8 @@ const Image: React.FC<ImageProps> = ({
           opacity: 1;
         }
         img {
-          width: ${scale};
-          height: ${scale};
+          width: 100%;
+          height: 100%;
           object-fit: ${objectFit};
           display: block;
         }

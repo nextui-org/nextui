@@ -49,9 +49,11 @@ const CardBody: React.FC<React.PropsWithChildren<CardBodyProps>> = ({
 }) => {
   const theme = useTheme();
   const { noPadding: noPaddingContext } = useContext(CardContext);
+
   const noPadding = useMemo(() => {
     return noPaddingContext !== undefined ? noPaddingContext : noPaddingProp;
   }, [noPaddingProp, noPaddingContext]);
+
   return (
     <div
       className={clsx('card-body', { 'no-padding': noPadding }, className)}

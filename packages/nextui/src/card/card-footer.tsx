@@ -4,7 +4,7 @@ import withDefaults from '../utils/with-defaults';
 import clsx from '../utils/clsx';
 import { CardContext } from './card-context';
 import { addColorAlpha, getNormalColor } from '../utils/color';
-import { NormalColors, NormalWeights } from '../utils/prop-types';
+import { NormalColors, NormalWeights, SimpleColors } from '../utils/prop-types';
 import { getNormalWeight } from '../utils/dimensions';
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
   width?: string;
   height?: string;
   color?: NormalColors | string;
-  borderColor?: NormalColors | string;
+  borderColor?: SimpleColors | string;
   borderWeight?: NormalWeights;
   noPadding?: boolean;
 }

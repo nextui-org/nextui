@@ -6,7 +6,9 @@ export interface CardConfig {
   background?: string;
 }
 
-const defaultContext = {};
+const defaultContext = {
+  noPadding: undefined
+};
 
 export const CardContext = React.createContext<CardConfig>(defaultContext);
 

@@ -18,7 +18,7 @@ export interface Props {
 }
 
 const defaultProps = {
-  showEditor: true,
+  showEditor: true
 };
 
 const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
@@ -31,7 +31,7 @@ const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
     NextLink,
     Palette,
     useMediaQuery,
-    validateEmail,
+    validateEmail
   };
   return (
     <LiveProvider code={code} scope={scope} theme={codeTheme}>
@@ -47,7 +47,7 @@ const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
           margin-left: -${theme.layout.gapHalf};
           display: flex;
           flex-wrap: wrap;
-          overflow-x: auto;
+          overflow-x: visible;
           flex-direction: column;
           box-sizing: border-box;
         }

@@ -822,7 +822,7 @@ return (
 | **fullScreen**   | `boolean`         | `true/false`             | Makes the modal the size of the window                                                        | `false` |
 | **autoMargin**   | `boolean`         | `true/false`             | Apply or not a margin to the base elements of the modal                                       | -       |
 | **preventClose** | `boolean`         | `true/false`             | Modal cannot be closed by clicking outside or by pressing the esc key                         | `false` |
-| **width**        | `string` `number` | `%` `px` `rem` `em`      | Determine the width of the modal                                                              | `false` |
+| **width**        | `string` `number` | `%` `px` `rem` `em`      | Determine the width of the modal                                                              | `400px` |
 | **onClose**      | `() => void`      | -                        | Callback fired when the modal is closed                                                       | -       |
 | **onOpen**       | `() => void`      | -                        | Callback fired when the modal is open                                                         | -       |
 | ...              | `HTMLAttributes`  | `'id', 'className', ...` | Native props                                                                                  | -       |
@@ -833,7 +833,7 @@ return (
 
 | Attribute      | Type             | Accepted values          | Description                                             | Default  |
 | -------------- | ---------------- | ------------------------ | ------------------------------------------------------- | -------- |
-| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | true     |
+| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | `true`   |
 | **justify**    | `Justify`        | [Justify](#justify)      | CSS "justify-content" property                          | `center` |
 | ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                            | -        |
 
@@ -843,7 +843,7 @@ return (
 
 | Attribute      | Type             | Accepted values          | Description                                             | Default |
 | -------------- | ---------------- | ------------------------ | ------------------------------------------------------- | ------- |
-| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | true    |
+| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | `true`  |
 | ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                            | -       |
 
 <Spacer y={2} />
@@ -852,7 +852,7 @@ return (
 
 | Attribute      | Type             | Accepted values          | Description                                             | Default    |
 | -------------- | ---------------- | ------------------------ | ------------------------------------------------------- | ---------- |
-| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | true       |
+| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | `true`     |
 | **justify**    | `Justify`        | [Justify](#justify)      | CSS "justify-content" property                          | `flex-end` |
 | ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                            | -          |
 
@@ -877,9 +877,7 @@ type Justify =
 #### useModal
 
 ```ts
-type useModal = (
-  initialVisible: boolean
-) => {
+type useModal = (initialVisible: boolean) => {
   visible: boolean;
   setVisible: Dispatch<SetStateAction<boolean>>;
   currentRef: MutableRefObject<boolean>;

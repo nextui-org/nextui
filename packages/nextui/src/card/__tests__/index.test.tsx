@@ -8,14 +8,10 @@ describe('Card', () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should support shadow and hoverable', () => {
+  it('should support hoverable', () => {
     const wrapper = render(
       <div>
         <Card hoverable>card</Card>
-        <Card shadow>card</Card>
-        <Card shadow hoverable>
-          card
-        </Card>
       </div>
     );
     expect(wrapper).toMatchSnapshot();
@@ -27,9 +23,6 @@ describe('Card', () => {
         <Card color="default">card</Card>
         <Card color="primary">card</Card>
         <Card color="success">card</Card>
-        <Card color="violet">card</Card>
-        <Card color="lite">card</Card>
-        <Card color="cyan">card</Card>
         <Card color="secondary">card</Card>
         <Card color="warning">card</Card>
         <Card color="gradient">card</Card>
@@ -53,7 +46,7 @@ describe('Card', () => {
     const card = mount(<Card>test-value</Card>);
     const content = mount(
       <Card>
-        <Card.Content>test-value</Card.Content>
+        <Card.Body>test-value</Card.Body>
       </Card>
     );
     expect(card.html()).toEqual(content.html());
