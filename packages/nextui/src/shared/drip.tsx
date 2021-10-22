@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import withDefaults from '../utils/with-defaults';
 
 interface Props {
+  visible: boolean;
   x: number;
   y: number;
   onCompleted: () => void;
@@ -9,13 +10,15 @@ interface Props {
 }
 
 const defaultProps = {
+  visible: false,
   x: 0,
-  y: 0,
+  y: 0
 };
 
-export type ButtonDripProps = Props & typeof defaultProps;
+export type DripProps = Props & typeof defaultProps;
 
-const ButtonDrip: React.FC<ButtonDripProps> = ({
+const Drip: React.FC<DripProps> = ({
+  visible,
   x,
   y,
   color,
@@ -34,7 +37,7 @@ const ButtonDrip: React.FC<ButtonDripProps> = ({
       dripRef.current.removeEventListener('animationend', onCompleted);
     };
   });
-
+  if (!visible) return null;
   return (
     <div ref={dripRef} className="drip" {...props}>
       <svg width="20" height="20" viewBox="0 0 20 20" style={{ top, left }}>
@@ -55,7 +58,7 @@ const ButtonDrip: React.FC<ButtonDripProps> = ({
         }
         svg {
           position: absolute;
-          animation: 300ms ease-in expand;
+          animation: 350ms linear expand;
           animation-fill-mode: forwards;
           width: 1rem;
           height: 1rem;
@@ -63,7 +66,7 @@ const ButtonDrip: React.FC<ButtonDripProps> = ({
         @keyframes expand {
           0% {
             opacity: 0;
-            transform: scale(1);
+            transform: scale(0.25);
           }
           30% {
             opacity: 1;
@@ -81,6 +84,6 @@ const ButtonDrip: React.FC<ButtonDripProps> = ({
   );
 };
 
-const MemoButtonDrip = React.memo<ButtonDripProps>(ButtonDrip);
+const MemoDrip = React.memo<DripProps>(Drip);
 
-export default withDefaults(MemoButtonDrip, defaultProps);
+export default withDefaults(MemoDrip, defaultProps);

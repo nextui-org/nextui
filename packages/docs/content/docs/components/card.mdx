@@ -1,0 +1,617 @@
+---
+title: 'Card'
+description: 'Card is a container for text, photos, and actions in the context of a single subject.'
+url: https://nextui.com/docs/components/card
+---
+
+# Card
+
+Card is a container for text, photos, and actions in the context of a single subject.
+
+```jsx
+import { Card } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Playground
+  title="Default"
+  desc="NextUI will wrap your content in a `Card.Body` component."
+  code={` 
+<Card width="400px">
+  <p>A basic card.</p>
+</Card>`}
+/>
+
+<Playground
+  title="Bordered"
+  desc="You can change the full style towards a bodered `Card` with the `bordered` property."
+  code={` 
+<Card width="400px" bordered>
+  <p>A bordered card.</p>
+</Card>`}
+/>
+
+<Playground
+  title="Hoverable"
+  desc="You can apply a fancy hover animation with the `hoverable` property."
+  code={` 
+<Card width="400px" bordered hoverable>
+  <p>A hoverable card.</p>
+</Card>`}
+/>
+
+<Playground
+  title="Clickable"
+  desc="You can use the `clickable` property to allow users to interact with the entirety of its surface 
+  to trigger its main action, be it an expansion, a link to another screen or some other behavior."
+  code={` 
+<Card width="400px" clickable>
+  <p>A clickable card.</p>
+</Card>`}
+/>
+
+<Playground
+  title="Colors"
+  desc="You can change the color of the `Card` with the property `color`."
+  code={`
+() => {
+const colors = [
+  'primary',
+  'secondary',
+  'success',
+  'warning',
+  'error',
+  'gradient'
+];
+return (
+<Grid.Container gap={2}>
+    {colors.map((color) => (
+        <Grid xs={12} md={4} key={color}>
+            <Card color={color} textColor="white">
+                <Text h5 transform="capitalize">
+                {color}
+                </Text>
+                <Text span>{color}</Text>
+            </Card>
+        </Grid>
+    ))}
+</Grid.Container>
+);    
+}`}
+/>
+
+<Playground
+  title="With divider"
+  desc="You can use the `Divider` component to split the `Card` sections."
+  code={` 
+<Grid.Container gap={2}> 
+  <Grid>  
+    <Card width="330px">
+        <Card.Header>
+            <Text b>Card Title</Text>
+        </Card.Header>
+        <Divider y={0} />
+        <Card.Body style={{ padding: '30px 20px' }}>
+            <Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+            </Text>
+        </Card.Body>
+        <Divider y={0}/>
+        <Card.Footer justify="flex-end">
+        <Row justify="flex-end">
+            <Button size="small" light>Cancel</Button>
+            <Button size="small">Agree</Button>
+        </Row>
+        </Card.Footer>
+    </Card>
+  </Grid>  
+  <Grid>  
+    <Card width="330px">
+        <Card.Header>
+            <Text b>Card Title</Text>
+        </Card.Header>
+        <Divider y={0} />
+        <Card.Body style={{ padding: '30px 20px' }}>
+            <Text>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+            </Text>
+        </Card.Body>
+        <Divider y={0}/>
+        <Card.Footer justify="flex-end">
+            <Row justify="flex-end">
+                <Button size="small" light>Share</Button>
+                <Button size="small" color="secondary">Learn more</Button>
+            </Row>
+        </Card.Footer>
+    </Card>
+  </Grid> 
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="With Footer"
+  desc="You can use the `Card.Footer` component to add actions, details or another information to the `Card`."
+  code={` 
+<Grid.Container gap={2}>
+    <Grid>
+        <Card width="330px">
+            <Text h4>Next UI</Text>
+            <Text>🚀  Beautiful and modern React UI library.</Text>
+            <Card.Footer>
+                <Link color target="_blank" href="https://github.com/nextui-org/nextui">
+                    Visit source code on GitHub.
+                </Link>
+            </Card.Footer>
+        </Card>
+    </Grid>  
+    <Grid> 
+        <Card width="330px" color="primary">
+            <Text h4 color="white">Next UI</Text>
+            <Text color="white">🚀  Beautiful and modern React UI library.</Text>
+            <Card.Footer>
+                <Link target="_blank" color="white" href="https://github.com/nextui-org/nextui">
+                    Visit source code on GitHub.
+                </Link>
+            </Card.Footer>
+        </Card>
+    </Grid>  
+</Grid.Container>`}
+/>
+
+<Playground
+  title="Cover Image"
+  desc="You can use the `cover` prop and `Card.Image` component to add a coverred image to the `Card.Body`. NextUI automatically
+  applies `object-fit: cover` to the inner image."
+  code={` 
+<Grid.Container gap={2} justify="center">
+    <Grid xs={12} sm={4}>
+        <Card width="100%" cover>
+            <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+                <Col>
+                    <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                        color="#ffffffAA"
+                    >
+                        What to watch
+                    </Text>
+                    <Text h4 color="white">
+                        Stream the Acme event
+                    </Text>
+                </Col>
+            </Card.Header>
+            <Card.Image
+                autoResize={false}
+                src='/images/card-example-4.jpeg'
+                height={340}
+                width="100%"
+                alt="Card image background"
+            />
+        </Card>
+    </Grid>
+    <Grid xs={12} sm={4}>
+        <Card width="100%" cover>
+            <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+                <Col>
+                    <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                         color="#ffffffAA"
+                    >
+                        Plant a tree
+                    </Text>
+                    <Text h4 color="white">
+                       Contribute to the planet
+                    </Text>
+                </Col>
+            </Card.Header>
+            <Card.Image
+                autoResize={false}
+                src='/images/card-example-3.jpeg'
+                height={340}
+                width="100%"
+                alt="Card image background"
+            />
+        </Card>
+    </Grid>
+    <Grid xs={12} sm={4}>
+        <Card width="100%" cover>
+            <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+                <Col>
+                    <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                        color="#ffffffAA"
+                    >
+                        Supercharged
+                    </Text>
+                    <Text h4 color="white">
+                       Creates beauty like a beast
+                    </Text>
+                </Col>
+            </Card.Header>
+            <Card.Image
+                autoResize={false}
+                src='/images/card-example-2.jpeg'
+                height={340}
+                width="100%"
+                alt="Card image background"
+            />
+        </Card>
+    </Grid>  
+    <Grid xs={12} sm={5}>
+        <Card width="100%" color="#f6f6f6" cover>
+          <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+            <Col>
+              <Text
+                size={12}
+                weight="bold"
+                transform="uppercase"
+                color="#ffffffAA"
+              >
+                New
+              </Text>
+              <Text h3 color="black">
+                Acme camera
+              </Text>
+            </Col>
+          </Card.Header>
+          <Card.Image
+            autoResize={false}
+            src='/images/card-example-6.jpeg'
+            height={400}
+            width="100%"
+            alt="Card example background"
+          />
+          <Card.Footer             
+            blur
+            border
+            borderColor="rgba(255, 255, 255, 0.2)"
+            style={{ position: 'absolute', zIndex: 1, bottom: 0 }}>
+            <Row>
+              <Col>
+                <Text color="#000" size={12}>Available soon.</Text>
+                <Text color="#000" size={12}>Get notified.</Text>
+              </Col>
+              <Col>
+                <Row justify="flex-end">
+                  <Button flat auto rounded color="secondary">
+                    <Text size={12} weight="bold" transform="uppercase">
+                      Notify Me
+                    </Text>
+                  </Button>
+                </Row>
+              </Col>
+            </Row>
+          </Card.Footer>
+        </Card>
+    </Grid>    
+    <Grid xs={12} sm={7}>
+        <Card width="100%" color="#0f1114" cover>
+          <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+            <Col>
+              <Text
+                size={12}
+                weight="bold"
+                transform="uppercase"
+                color="#9E9E9E"
+              >
+                Your day your way
+              </Text>
+              <Text h3 color="white">
+                Your checklist for better sleep
+              </Text>
+            </Col>
+          </Card.Header>
+          <Card.Body>
+            <Card.Image
+              autoResize={false}
+              src='/images/card-example-5.jpeg'
+              height={400}
+              width="100%"
+              alt="Relaxing app background"
+            />
+          </Card.Body>
+          <Card.Footer
+            blur
+            border
+            borderColor="rgba(255, 255, 255, 0.1)"
+            style={{ position: 'absolute', zIndex: 1, bottom: 0 }}
+          >
+            <Row>
+              <Col>
+                <Row>
+                  <Col span={3}>
+                    <Card.Image
+                      autoResize={false}
+                      src='/images/breathing-app-icon.jpeg'
+                      style={{ background: 'black' }}
+                      height={40}
+                      width={40}
+                      alt="Breathing app icon"
+                    />
+                  </Col>
+                  <Col>
+                    <Text color="#d1d1d1" size={12}>
+                      Breathing App
+                    </Text>
+                    <Text color="#d1d1d1" size={12}>
+                      Get a good night's sleep.
+                    </Text>
+                  </Col>
+                </Row>
+              </Col>
+              <Col>
+                <Row justify="flex-end">
+                  <Button flat auto rounded color="#94f9f0">
+                    <Text size={12} weight="bold" transform="uppercase">
+                      Get App
+                    </Text>
+                  </Button>
+                </Row>
+              </Col>
+            </Row>
+          </Card.Footer>
+        </Card>
+    </Grid>
+</Grid.Container>`}
+/>
+
+<Playground
+  title="Primary Action"
+  desc="You can use the `clickable` property to allow users to interact with the `Card`."
+  code={`
+() => {
+const list = [
+    {
+      title: 'Orange',
+      img: '/images/fruit-1.jpeg',
+      price: '$5.50'
+    },
+    {
+      title: 'Tangerine',
+      img: '/images/fruit-2.jpeg',
+      price: '$3.00'
+    },
+    {
+      title: 'Raspberry',
+      img: '/images/fruit-3.jpeg',
+      price: '$10.00'
+    },
+    {
+      title: 'Lemon',
+      img: '/images/fruit-4.jpeg',
+      price: '$5.30'
+    },
+    {
+      title: 'Advocato',
+      img: '/images/fruit-5.jpeg',
+      price: '$15.70'
+    },
+    {
+      title: 'Lemon 2',
+      img: '/images/fruit-6.jpeg',
+      price: '$8.00'
+    },
+    {
+      title: 'Banana',
+      img: '/images/fruit-7.jpeg',
+      price: '$7.50'
+    },
+    {
+      title: 'Watermelon',
+      img: '/images/fruit-8.jpeg',
+      price: '$12.20'
+    }
+];
+return (
+<Grid.Container gap={2} justify="flex-start">
+    {list.map((item, index) => (
+        <Grid xs={6} sm={3} key={index}>
+            <Card hoverable clickable width="100%">
+                <Card.Body noPadding>
+                    <Card.Image
+                        objectFit="cover"
+                        autoResize={false}
+                        src={item.img}
+                        width='100%'
+                        height={140}
+                        alt={item.title}
+                    />
+                </Card.Body>
+                <Card.Footer justify="flex-start">
+                    <Row justify="space-between">
+                        <Text b>
+                            {item.title}
+                        </Text>
+                        <Text weight={500} style={{ opacity: 0.6 }}>
+                            {item.price}
+                        </Text>
+                    </Row>        
+                </Card.Footer>
+            </Card>
+        </Grid>
+    ))}
+</Grid.Container>
+); }`}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Card Props
+
+| Attribute        | Type                                         | Accepted values                  | Description                                                                                                | Default   |
+| ---------------- | -------------------------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------- | --------- |
+| **color**        | `NormalColors` `string`                      | [NormalColors](#normal-colors)   | Change card color                                                                                          | `default` |
+| **textColor**    | `SimpleColors`                               | [SimpleColors](#simple-colors)   | Change card text color                                                                                     | `default` |
+| **width**        | `string`                                     | `%` `px` `rem` `em`              | Determine the width of the card                                                                            | `100%`    |
+| **height**       | `string`                                     | `%` `px` `rem` `em`              | Determine the height of the card                                                                           | `auto`    |
+| **shadow**       | `boolean`                                    | `true/false`                     | Display shadow effect                                                                                      | `true`    |
+| **bordered**     | `boolean`                                    | `true/false`                     | Bordered card                                                                                              | `false`   |
+| **animated**     | `boolean`                                    | `true/false`                     | Display drip, shadow, hover and scale animation                                                            | `true`    |
+| **hoverable**    | `boolean`                                    | `true/false`                     | Display a translate and shadow animation on hover                                                          | `false`   |
+| **clickable**    | `boolean`                                    | `true/false`                     | Allow users to interact with the card                                                                      | `false`   |
+| **cover**        | `boolean`                                    | `true/false`                     | It removes the [Card.Body](#card.body-props) padding and set the property `object-fit: cover` to the image | `false`   |
+| **borderWeight** | `NormalWeights`                              | [NormalWeights](#normal-weights) | Border weight for `bordered` card                                                                          | `normal`  |
+| **onClick**      | `MouseEventHandler`                          | -                                | Clickable card click handler                                                                               | -         |
+| **ref**          | <Code>Ref<HTMLDivElement &#124; null></Code> | -                                | forwardRef                                                                                                 | -         |
+| ...              | `HTMLAttributes`                             | `'id', 'className', ...`         | Native props                                                                                               | -         |
+
+<Spacer y={2} />
+
+#### Card.Header Props
+
+| Attribute      | Type             | Accepted values          | Description                                                    | Default      |
+| -------------- | ---------------- | ------------------------ | -------------------------------------------------------------- | ------------ |
+| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the card header  | `false`      |
+| **justify**    | `Justify`        | [Justify](#justify)      | CSS "justify-content" property                                 | `flex-start` |
+| **noPadding**  | `boolean`        | `true/false`             | Eliminates the padding of the base elements of the card header | `false`      |
+| ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                                   | -            |
+
+<Spacer y={2} />
+
+#### Card.Body Props
+
+| Attribute        | Type             | Accepted values                | Description                                                  | Default   |
+| ---------------- | ---------------- | ------------------------------ | ------------------------------------------------------------ | --------- |
+| **width**        | `string`         | `%` `px` `rem` `em`            | Determine the width of the card body                         | `100%`    |
+| **height**       | `string`         | `%` `px` `rem` `em`            | Determine the height of the card body                        | `auto`    |
+| **autoMargin**   | `boolean`        | `true/false`                   | Apply or not a margin to the base elements of the modal      | true      |
+| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content" property                               | `inherit` |
+| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction" property                                | `column`  |
+| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items" property                                   | `inherit` |
+| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content" property                                 | `inherit` |
+| **noPadding**    | `boolean`        | `true/false`                   | Eliminates the padding of the base elements of the card body | `false`   |
+| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native props                                                 | -         |
+
+<Spacer y={2} />
+
+#### Card.Footer Props
+
+| Attribute        | Type                    | Accepted values                  | Description                                                    | Default    |
+| ---------------- | ----------------------- | -------------------------------- | -------------------------------------------------------------- | ---------- |
+| **color**        | `NormalColors` `string` | [NormalColors](#normal-colors)   | Change card footer color                                       | -          |
+| **width**        | `string`                | `%` `px` `rem` `em`              | Determine the width of the card footer                         | `100%`     |
+| **height**       | `string`                | `%` `px` `rem` `em`              | Determine the height of the card footer                        | `auto`     |
+| **blur**         | `boolean`               | `true/false`                     | Makes the card footer container blur                           | `false`    |
+| **border**       | `boolean`               | `true/false`                     | Set a border on the top of the card footer container           | `false`    |
+| **borderColor**  | `NormalColors` `string` | [NormalColors](#normal-colors)   | Change card footer border top color                            | -          |
+| **borderWeight** | `NormalWeights`         | [NormalWeights](#normal-weights) | Border weight for `border` card footer                         | `normal`   |
+| **autoMargin**   | `boolean`               | `true/false`                     | Apply or not a margin to the base elements of the modal        | `true`     |
+| **justify**      | `Justify`               | [Justify](#justify)              | CSS "justify-content" property                                 | `flex-end` |
+| **noPadding**    | `boolean`               | `true/false`                     | Eliminates the padding of the base elements of the card fppter | `false`    |
+| ...              | `HTMLAttributes`        | `'id', 'className', ...`         | Native props                                                   | -          |
+
+<Spacer y={2} />
+
+#### Card.Image Props
+
+| Attribute        | Type                | Accepted values                | Description                                       | Default      |
+| ---------------- | ------------------- | ------------------------------ | ------------------------------------------------- | ------------ |
+| **src**          | `string`            | -                              | Image source                                      | -            |
+| **width**        | `string` `number`   | `%` `px` `rem` `em`            | Determine the width of the card image             | `100%`       |
+| **height**       | `string` `number`   | `%` `px` `rem` `em`            | Determine the height of the card image            | `auto`       |
+| **showSkeleton** | `boolean`           | `true/false`                   | Show skeleton effect whereas the image is loading | `true`       |
+| **objectFit**    | `ObjectFit`         | [ObjectFit](#object-fit)       | CSS "object-fit" property                         | `scale-down` |
+| **maxDelay(ms)** | `number`            | -                              | Max duration of the skeleton animation            | `3000`       |
+| **autoResize**   | `boolean`           | `true/false`                   | Enables zooming when width is too small           | `true`       |
+| ...              | `ImgHTMLAttributes` | `'id', 'className', 'alt' ...` | Native props                                      | -            |
+
+<Spacer y={2} />
+
+### Card types
+
+<Spacer y={1} />
+
+#### Normal Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'gradient';
+```
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = 'light' | 'normal' | 'bold';
+```
+
+#### Justify
+
+```ts
+type Justify =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
+```
+
+#### Direction
+
+```ts
+type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+```
+
+#### Align Items
+
+```ts
+type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+```
+
+#### Align Content
+
+```ts
+type AlignContent =
+  | 'stretch'
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around';
+```
+
+### Object Fit
+
+```ts
+type;
+const ObjectFit =
+  'contain' |
+  'cover' |
+  'fill' |
+  'none' |
+  'scale-down' |
+  /* Global values */
+  'inherit' |
+  'initial' |
+  'revert' |
+  'unset';
+```

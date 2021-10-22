@@ -13,16 +13,16 @@ import CSSTransition from '../utils/css-transition';
 import useClickAnyWhere from '../use-click-anywhere';
 import { getColors } from './styles';
 import {
-  getPosition,
-  TooltipPosition,
-  defaultTooltipPosition,
-  getIconPosition
-} from './position';
-import { Position, SimpleColors, TooltipColors } from '../utils/prop-types';
+  getPlacement,
+  TooltipPlacement,
+  defaultTooltipPlacement,
+  getIconPlacement
+} from './placement';
+import { Placement, SimpleColors, TooltipColors } from '../utils/prop-types';
 
 interface Props {
   parent?: MutableRefObject<HTMLElement | null> | undefined;
-  position: Position;
+  placement: Placement;
   color: TooltipColors | string;
   contentColor: SimpleColors | string;
   visible: boolean;
@@ -72,7 +72,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   parent,
   visible,
   offset,
-  position,
+  placement,
   color,
   contentColor,
   rounded,
@@ -84,26 +84,26 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   const theme = useTheme();
   const el = usePortal('tooltip');
   const selfRef = useRef<HTMLDivElement>(null);
-  const [rect, setRect] = useState<TooltipPosition>(defaultTooltipPosition);
-  const colors = useMemo(() => getColors(color, contentColor, theme.palette), [
-    color,
-    contentColor,
-    theme.palette
-  ]);
+  const [rect, setRect] = useState<TooltipPlacement>(defaultTooltipPlacement);
+  const colors = useMemo(
+    () => getColors(color, contentColor, theme.palette),
+    [color, contentColor, theme.palette]
+  );
   if (!parent) return null;
   const updateRect = () => {
-    const pos = getPosition(position, getRect(parent), offset);
+    const pos = getPlacement(placement, getRect(parent), offset);
     setRect(pos);
   };
 
   const { transform, top, left, right, bottom } = useMemo(
-    () => getIconPosition(position, 5),
-    [position]
+    () => getIconPlacement(placement, 5),
+    [placement]
   );
 
-  const borderRadius = useMemo(() => (rounded ? '20px' : theme.layout.radius), [
-    rounded
-  ]);
+  const borderRadius = useMemo(
+    () => (rounded ? '20px' : theme.layout.radius),
+    [rounded]
+  );
 
   useResize(updateRect);
   useClickAnyWhere(() => updateRect());

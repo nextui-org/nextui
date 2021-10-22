@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
-import { NormalColors, TextWeights } from '../utils/prop-types';
+import { NormalColors, TextWeights, TextTransforms } from '../utils/prop-types';
 import TextChild from './child';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
   p?: boolean;
   b?: boolean;
   small?: boolean;
-  capitalize?: boolean;
+  transform?: TextTransforms;
   i?: boolean;
   span?: boolean;
   del?: boolean;
@@ -36,7 +36,8 @@ const defaultProps = {
   p: false,
   b: false,
   small: false,
-  capitalize: false,
+  transform: 'none' as TextTransforms,
+  upperCase: false,
   i: false,
   span: false,
   del: false,
@@ -58,12 +59,12 @@ const getModifierChild = (
   tags: TextRenderableElements,
   children: ReactNode,
   size?: string | number,
-  capitalize?: boolean
+  transform?: TextTransforms
 ) => {
   if (!tags.length) return children;
   const nextTag = tags.slice(1, tags.length);
   return (
-    <TextChild tag={tags[0]} size={size} capitalize={capitalize}>
+    <TextChild tag={tags[0]} size={size} transform={transform}>
       {getModifierChild(nextTag, children, size)}
     </TextChild>
   );
@@ -84,7 +85,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   del,
   em,
   blockquote,
-  capitalize,
+  transform,
   size,
   margin,
   weight,
@@ -122,18 +123,13 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
 
   const modifers = useMemo(() => {
     if (!renderableChildElements.length) return children;
-    return getModifierChild(
-      renderableChildElements,
-      children,
-      size,
-      capitalize
-    );
-  }, [renderableChildElements, children, size, capitalize]);
+    return getModifierChild(renderableChildElements, children, size, transform);
+  }, [renderableChildElements, children, size, transform]);
 
   return (
     <TextChild
       className={className}
-      capitalize={capitalize}
+      transform={transform}
       tag={tag}
       margin={margin}
       size={size}

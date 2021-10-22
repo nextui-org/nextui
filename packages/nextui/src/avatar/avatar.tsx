@@ -9,7 +9,6 @@ import useTheme from '../use-theme';
 import AvatarGroup from './avatar-group';
 import { getNormalColor, addColorAlpha } from '../utils/color';
 import clsx from '../utils/clsx';
-import { __DEV__ } from '../utils/assertion';
 import { getNormalWeight } from '../utils/dimensions';
 
 interface Props {

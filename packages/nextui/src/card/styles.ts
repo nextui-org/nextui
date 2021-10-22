@@ -1,83 +1,61 @@
-import { CardColors } from '../utils/prop-types';
+import { NextUIThemes } from './../theme/types';
+import { NormalColors, SimpleColors } from '../utils/prop-types';
+import { getNormalColor, hexFromString, addColorAlpha } from './../utils/color';
 import { NextUIThemesPalette } from '../theme';
 
-export interface CardBorder {
-  weight?: string;
-  color?: string;
-}
-
 export type CardStyles = {
-  color: string;
   bgColor: string;
-  border?: CardBorder;
+  color: string;
+  borderColor: string;
+  dripColor: string;
+};
+
+export const getDripColor = (
+  palette: NextUIThemesPalette,
+  color: NormalColors | string,
+  bordered: boolean
+) => {
+  const colors: { [key in any]: string } = {
+    default: palette.accents_2,
+    primary: palette.primary,
+    secondary: palette.secondary,
+    success: palette.success,
+    warning: palette.warning,
+    error: palette.error,
+    gradient: hexFromString(palette.gradient, palette.primary, true) as string
+  };
+  const baseColor =
+    color === 'default'
+      ? palette.primary
+      : colors[color || 'default'] || getNormalColor(color, palette);
+  const selectedColor = bordered ? baseColor : palette.accents_6;
+  if (selectedColor) return addColorAlpha(selectedColor, 0.25);
+  return palette.accents_2;
 };
 
 export const getStyles = (
-  type: CardColors,
-  palette: NextUIThemesPalette,
-  shadow?: boolean,
-  bordered?: boolean
+  color: NormalColors | string,
+  textColor: SimpleColors | string,
+  shadow: boolean,
+  bordered: boolean,
+  theme: NextUIThemes
 ): CardStyles => {
-  const colors: { [key in CardColors]: Omit<CardStyles, 'borderColor'> } = {
-    default: {
-      color: palette.foreground,
-      bgColor: palette.accents_1,
-    },
-    primary: {
-      color: palette.background,
-      bgColor: palette.primary,
-    },
-    dark: {
-      color: palette.background,
-      bgColor: palette.foreground,
-    },
-    secondary: {
-      color: palette.background,
-      bgColor: palette.secondary,
-    },
-    success: {
-      color: palette.background,
-      bgColor: palette.success,
-    },
-    warning: {
-      color: palette.background,
-      bgColor: palette.warning,
-    },
-    error: {
-      color: palette.background,
-      bgColor: palette.error,
-    },
-    lite: {
-      color: palette.foreground,
-      bgColor: palette.background,
-    },
-    gradient: {
-      color: palette.white,
-      bgColor: palette.gradient,
-    },
-    alert: {
-      color: palette.white,
-      bgColor: palette.alert,
-    },
-    purple: {
-      color: palette.white,
-      bgColor: palette.purple,
-    },
-    violet: {
-      color: palette.white,
-      bgColor: palette.violet,
-    },
-    cyan: {
-      color: palette.text,
-      bgColor: palette.cyan,
-    },
-  };
-  const showBorder = bordered && !shadow;
+  const palette = theme.palette;
+  const isDark = theme.type === 'dark';
+  const normalColor = getNormalColor(
+    color,
+    palette,
+    isDark ? palette.accents_1 : palette.background
+  );
+  const normalTextColor = getNormalColor(textColor, palette, palette.text);
+  const dripColor = getDripColor(palette, color, bordered);
   return {
-    ...colors[type],
-    border: {
-      weight: showBorder ? '2px' : '0px',
-      color: showBorder ? palette.border : 'transparent',
-    },
+    bgColor:
+      color === 'default' && !shadow && !bordered
+        ? palette.accents_1
+        : normalColor,
+    color: normalTextColor,
+    borderColor: color === 'default' ? palette.border : normalColor,
+    dripColor
   };
 };

@@ -1,21 +1,20 @@
 import React, {
   useRef,
-  useState,
   MouseEvent,
   useMemo,
   useImperativeHandle,
   PropsWithoutRef,
-  RefAttributes,
+  RefAttributes
 } from 'react';
 import useWarning from '../use-warning';
 import useTheme from '../use-theme';
-import ButtonDrip from './button.drip';
+import ButtonDrip from '../shared/drip';
 import ButtonLoading from './button-loading';
 import {
   NormalColors,
   NormalLoaders,
   NormalSizes,
-  NormalWeights,
+  NormalWeights
 } from '../utils/prop-types';
 import { filterPropsWithGroup } from './utils';
 import { useButtonGroupContext } from './button-group-context';
@@ -26,10 +25,11 @@ import {
   getButtonCursor,
   getButtonDripColor,
   getShadowColor,
-  getButtonSize,
+  getButtonSize
 } from './styles';
 import { getNormalRadius } from '../utils/dimensions';
 import { __DEV__ } from '../utils/assertion';
+import useDrip from '../use-drip';
 
 export interface Props {
   color?: NormalColors | string;
@@ -70,7 +70,7 @@ const defaultProps = {
   ghost: false,
   animated: true,
   disabled: false,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
@@ -83,10 +83,6 @@ const Button = React.forwardRef<
   const theme = useTheme();
   const buttonRef = useRef<HTMLButtonElement>(null);
   useImperativeHandle(ref, () => buttonRef.current);
-
-  const [dripShow, setDripShow] = useState<boolean>(false);
-  const [dripX, setDripX] = useState<number>(0);
-  const [dripY, setDripY] = useState<number>(0);
   const groupConfig = useButtonGroupContext();
   const filteredProps = filterPropsWithGroup(btnProps, groupConfig);
   /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -134,22 +130,23 @@ const Button = React.forwardRef<
     [theme.palette, filteredProps, shadow]
   );
 
-  const { cursor, events } = useMemo(() => getButtonCursor(disabled, loading), [
-    disabled,
-    loading,
-  ]);
-  const {
-    height,
-    minWidth,
-    padding,
-    width,
-    fontSize,
-    loaderSize,
-  } = useMemo(() => getButtonSize(size, auto), [size, auto]);
+  const { cursor, events } = useMemo(
+    () => getButtonCursor(disabled, loading),
+    [disabled, loading]
+  );
+  const { height, minWidth, padding, width, fontSize, loaderSize } = useMemo(
+    () => getButtonSize(size, auto),
+    [size, auto]
+  );
 
   const dripColor = useMemo(
     () => getButtonDripColor(theme.palette, filteredProps),
     [theme.palette, filteredProps]
+  );
+
+  const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
+    false,
+    buttonRef
   );
 
   const paddingForAutoMode = useMemo(
@@ -173,19 +170,10 @@ const Button = React.forwardRef<
     [filteredProps.color, bordered]
   );
 
-  const dripCompletedHandle = () => {
-    setDripShow(false);
-    setDripX(0);
-    setDripY(0);
-  };
-
   const clickHandler = (event: MouseEvent<HTMLButtonElement>) => {
     if (disabled || loading) return;
     if (animated && buttonRef.current) {
-      const rect = buttonRef.current.getBoundingClientRect();
-      setDripShow(true);
-      setDripX(event.clientX - rect.left);
-      setDripY(event.clientY - rect.top);
+      onDripClickHandler(event);
     }
     onClick && onClick(event);
   };
@@ -202,7 +190,7 @@ const Button = React.forwardRef<
       onClick={clickHandler}
       style={{
         ...style,
-        ...buttonStyle,
+        ...buttonStyle
       }}
       {...props}
     >
@@ -226,14 +214,7 @@ const Button = React.forwardRef<
       ) : (
         <div className="text">{children}</div>
       )}
-      {dripShow && (
-        <ButtonDrip
-          x={dripX}
-          y={dripY}
-          color={dripColor}
-          onCompleted={dripCompletedHandle}
-        />
-      )}
+      <ButtonDrip color={dripColor} {...dripBindings} />
       <style jsx>{`
         .button {
           background: ${bg};
@@ -340,9 +321,11 @@ type ButtonComponent<T, P = {}> = React.ForwardRefExoticComponent<
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs;
+
 if (__DEV__) {
   Button.displayName = 'NextUI - Button';
 }
+
 Button.defaultProps = defaultProps;
 
 export default Button as ButtonComponent<HTMLButtonElement, ComponentProps>;

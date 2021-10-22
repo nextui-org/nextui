@@ -12,24 +12,24 @@ export const getSizes = (size?: NormalSizes) => {
   const sizes: { [key in NormalSizes]: InputSize } = {
     mini: {
       heightRatio: '1.2',
-      fontSize: '.75rem',
+      fontSize: '.75rem'
     },
     small: {
       heightRatio: '1.5',
-      fontSize: '.75rem',
+      fontSize: '.75rem'
     },
     medium: {
       heightRatio: '1.687',
-      fontSize: '.875rem',
+      fontSize: '.875rem'
     },
     large: {
       heightRatio: '1.875',
-      fontSize: '1rem',
+      fontSize: '1rem'
     },
     xlarge: {
       heightRatio: '2.25',
-      fontSize: '1.25rem',
-    },
+      fontSize: '1.25rem'
+    }
   };
   if (!size) return sizes.medium;
   return sizes[size];
@@ -75,7 +75,7 @@ export const getColors = (
     bgColor: isDark ? palette.accents_1 : palette.accents_2,
     placeholderColor: isDark ? palette.accents_6 : palette.accents_3,
     borderColor: palette.accents_2,
-    shadowColor: theme.expressiveness.shadowSmall,
+    shadowColor: theme.expressiveness.shadowSmall
   };
 
   if (status === 'default' || isEmpty(status)) {
@@ -83,12 +83,12 @@ export const getColors = (
       ? {
           ...baseProps,
           helperColor: palette.text,
-          hoverBorder: palette.foreground,
+          hoverBorder: palette.foreground
         }
       : {
           ...baseProps,
           helperColor: normalHelperColor,
-          hoverBorder: normalColor,
+          hoverBorder: normalColor
         };
   }
 
@@ -100,6 +100,6 @@ export const getColors = (
     color: normalStatusColor,
     placeholderColor: addColorAlpha(normalStatusColor, 0.5),
     bgColor: addColorAlpha(normalStatusColor, 0.2),
-    shadowColor: getShadowColor(palette, status),
+    shadowColor: getShadowColor(palette, status)
   };
 };

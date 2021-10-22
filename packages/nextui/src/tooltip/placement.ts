@@ -1,4 +1,4 @@
-import { Position } from '../utils/prop-types';
+import { Placement } from '../utils/prop-types';
 
 interface ParentDomRect {
   top: number;
@@ -9,19 +9,19 @@ interface ParentDomRect {
   height: number;
 }
 
-export interface TooltipPosition {
+export interface TooltipPlacement {
   top: string;
   left: string;
   transform: string;
 }
 
-export const defaultTooltipPosition = {
+export const defaultTooltipPlacement = {
   top: '-1000px',
   left: '-1000px',
   transform: 'none'
 };
 
-export interface TooltipIconPosition {
+export interface TooltipIconPlacement {
   top: string;
   left: string;
   right: string;
@@ -29,12 +29,12 @@ export interface TooltipIconPosition {
   transform: string;
 }
 
-export const getPosition = (
-  placement: Position,
+export const getPlacement = (
+  placement: Placement,
   rect: ParentDomRect,
   offset: number
-): TooltipPosition => {
-  const positions: { [key in Position]: TooltipPosition } = {
+): TooltipPlacement => {
+  const placements: { [key in Placement]: TooltipPlacement } = {
     top: {
       top: `${rect.top - offset}px`,
       left: `${rect.left + rect.width / 2}px`,
@@ -96,14 +96,14 @@ export const getPosition = (
       transform: 'translate(0, -100%)'
     }
   };
-  return positions[placement] || (positions.top as TooltipPosition);
+  return placements[placement] || (placements.top as TooltipPlacement);
 };
 
-export const getIconPosition = (
-  placement: Position,
+export const getIconPlacement = (
+  placement: Placement,
   offset: number
-): TooltipIconPosition => {
-  const positions: { [key in Position]?: TooltipIconPosition } = {
+): TooltipIconPlacement => {
+  const placements: { [key in Placement]?: TooltipIconPlacement } = {
     top: {
       top: 'auto',
       right: 'auto',
@@ -190,5 +190,5 @@ export const getIconPosition = (
     }
   };
 
-  return positions[placement] || (positions.top as TooltipIconPosition);
+  return placements[placement] || (placements.top as TooltipIconPlacement);
 };

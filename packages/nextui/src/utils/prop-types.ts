@@ -74,13 +74,28 @@ export const textWeights = tuple(
   'unset'
 );
 
+export const textTransforms = tuple(
+  /* Keyword values */
+  'none',
+  'capitalize',
+  'uppercase',
+  'lowercase',
+  'full-width',
+  'full-size-kana',
+  /* Global values */
+  'inherit',
+  'initial',
+  'revert',
+  'unset'
+);
+
 const themeTypes = tuple('dark', 'light');
 
 const copyTypes = tuple('default', 'slient', 'prevent');
 
 const triggerTypes = tuple('hover', 'click');
 
-const position = tuple(
+const placement = tuple(
   'top',
   'topStart',
   'topEnd',
@@ -93,6 +108,32 @@ const position = tuple(
   'right',
   'rightStart',
   'rightEnd'
+);
+
+const position = tuple(
+  'static',
+  'relative',
+  'absolute',
+  'fixed',
+  'sticky',
+  /* Global values */
+  'inherit',
+  'initial',
+  'revert',
+  'unset'
+);
+
+const objectFit = tuple(
+  'contain',
+  'cover',
+  'fill',
+  'none',
+  'scale-down',
+  /* Global values */
+  'inherit',
+  'initial',
+  'revert',
+  'unset'
 );
 
 const dividerAlign = tuple('start', 'center', 'end', 'left', 'right');
@@ -182,6 +223,8 @@ export type TextWeights =
   | 800
   | 900;
 
+export type TextTransforms = typeof textTransforms[number];
+
 export type NormalColors = typeof normalColors[number];
 
 export type SimpleColors = typeof simpleColors[number];
@@ -194,11 +237,13 @@ export type ThemeTypes = typeof themeTypes[number];
 
 export type SnippetTypes = typeof extendedColors[number];
 
-export type CardColors = typeof extraColors[number];
-
 export type CopyTypes = typeof copyTypes[number];
 
+export type ObjectFit = typeof objectFit[number];
+
 export type TriggerTypes = typeof triggerTypes[number];
+
+export type Placement = typeof placement[number];
 
 export type Position = typeof position[number];
 
