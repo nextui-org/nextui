@@ -28,7 +28,6 @@ const KbarComponent = dynamic(() => import('../components/kbar'), {
 });
 
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
-  const [mounted, setMounted] = useState(false);
   const [customTheme, setCustomTheme] = useState<DeepPartial<NextUIThemes>>({
     ...sharedTheme
   });
@@ -63,7 +62,6 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
       ...prevTheme,
       type: savedTheme || 'dark'
     }));
-    setMounted(true);
   }, []);
 
   return (
@@ -80,7 +78,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
           }}
         >
           <KbarComponent />
-          {mounted && <Component {...pageProps} />}
+          <Component {...pageProps} />
         </KBarProvider>
         <style global jsx>{`
           .noselect {
