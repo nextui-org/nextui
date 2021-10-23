@@ -37,7 +37,6 @@ const defaultProps = {
   b: false,
   small: false,
   transform: 'none' as TextTransforms,
-  upperCase: false,
   i: false,
   span: false,
   del: false,
