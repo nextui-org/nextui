@@ -89,6 +89,12 @@
                             "newPost": true
                         },
                         {
+                            "title": "Collapse",
+                            "keywords": "collapse, accordion, expand, reveal",
+                            "path": "/docs/components/collapse.mdx",
+                            "newPost": true
+                        },
+                        {
                             "title": "Input",
                             "keywords": "text input, input, textarea",
                             "path": "/docs/components/input.mdx"

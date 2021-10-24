@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import withDefaults from './with-defaults';
+import withDefaults from '../utils/with-defaults';
 
 interface Props {
   visible?: boolean;

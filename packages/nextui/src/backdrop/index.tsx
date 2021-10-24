@@ -38,9 +38,8 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
     ...props
   }) => {
     const theme = useTheme();
-    const [, setIsContentMouseDown, IsContentMouseDownRef] = useCurrentState(
-      false
-    );
+    const [, setIsContentMouseDown, IsContentMouseDownRef] =
+      useCurrentState(false);
     const clickHandler = (event: MouseEvent<HTMLElement>) => {
       if (IsContentMouseDownRef.current) return;
       onClick && onClick(event);

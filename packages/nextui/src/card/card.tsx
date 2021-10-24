@@ -14,7 +14,7 @@ import CardFooter from './card-footer';
 import CardBody from './card-body';
 import Image from '../image';
 import clsx from '../utils/clsx';
-import Drip from '../shared/drip';
+import Drip from '../utils/drip';
 import useDrip from '../use-drip';
 import { __DEV__ } from '../utils/assertion';
 import { hasChild, pickChild } from '../utils/collections';

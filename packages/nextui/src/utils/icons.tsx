@@ -434,3 +434,61 @@ export const Activity: React.FC<IconProps> = ({
     </svg>
   );
 };
+
+export const Plus: React.FC<IconProps> = ({
+  theme,
+  fill,
+  size,
+  height,
+  width,
+  ...props
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size || width || 24}
+      height={size || height || 24}
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <g
+        fill="none"
+        stroke={fill || theme.palette.accents_3}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+      >
+        <path d="M6 12h12" />
+        <path d="M12 18V6" />
+      </g>
+    </svg>
+  );
+};
+
+export const Minus: React.FC<IconProps> = ({
+  theme,
+  fill,
+  size,
+  height,
+  width,
+  ...props
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size || width || 24}
+      height={size || height || 24}
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path
+        d="M6 12h12"
+        fill="none"
+        stroke={fill || theme.palette.accents_3}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+      />
+    </svg>
+  );
+};
