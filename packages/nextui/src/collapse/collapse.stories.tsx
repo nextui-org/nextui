@@ -20,7 +20,7 @@ export default {
 } as Meta;
 
 export const Default = () => (
-  <Collapse.Group>
+  <Collapse.Group onChange={(index, value) => console.log({ index, value })}>
     <Collapse title={<h3>Option 1</h3>}>
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

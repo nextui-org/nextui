@@ -26,9 +26,10 @@ interface Props {
   className?: string;
   index?: number;
   disabled?: boolean;
-  onClick?: (
+  onChange?: (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    index: number | undefined
+    index?: number | undefined,
+    value?: boolean
   ) => void;
 }
 
@@ -58,7 +59,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   arrowIcon,
   showArrow,
   disabled,
-  onClick,
+  onChange,
   bordered,
   contentLeft,
   animated: animatedProp,
@@ -87,10 +88,10 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     setVisible(isActive);
   }, [values.join(',')]);
 
-  const arrowComponent = useMemo(
-    () => (arrowIcon ? arrowIcon : showArrow ? <CollapseIcon /> : null),
-    [arrowIcon, showArrow]
-  );
+  const arrowComponent = useMemo(() => {
+    if (!showArrow) return null;
+    return arrowIcon ? arrowIcon : <CollapseIcon />;
+  }, [arrowIcon, showArrow]);
 
   const borderWeight = useMemo(() => {
     const withDivider = groupDivider === undefined ? divider : groupDivider;
@@ -124,7 +125,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     const next = !visibleRef.current;
     setVisible(next);
     updateValues && updateValues(index, next);
-    onClick && onClick(event, index);
+    onChange && onChange(event, index, next);
   };
 
   return (

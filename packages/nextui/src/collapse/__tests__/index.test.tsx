@@ -10,13 +10,38 @@ describe('Collapse', () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should work with subtitle and shadow', () => {
+  it('should work with content title', () => {
     const wrapper = render(
       <div>
         <Collapse title="title" subtitle="subtitle">
           content
         </Collapse>
-        <Collapse title="title" subtitle="subtitle" shadow>
+        <Collapse title={<h1>title</h1>} subtitle="subtitle" shadow>
+          content
+        </Collapse>
+      </div>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should work without divider', () => {
+    const wrapper = render(
+      <div>
+        <Collapse divider={false} title="title">
+          content
+        </Collapse>
+      </div>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should work with content subtitle and shadow', () => {
+    const wrapper = render(
+      <div>
+        <Collapse title="title" subtitle="subtitle">
+          content
+        </Collapse>
+        <Collapse title="title" subtitle={<h1>subtitle</h1>} shadow>
           content
         </Collapse>
       </div>
@@ -30,7 +55,7 @@ describe('Collapse', () => {
         <Collapse title="title" subtitle="subtitle">
           content
         </Collapse>
-        <Collapse title="title" initialVisible>
+        <Collapse title="title" initialExpanded>
           content
         </Collapse>
       </div>
@@ -55,5 +80,78 @@ describe('Collapse', () => {
     wrapper.find('.view').at(0).simulate('click');
     await updateWrapper(wrapper, 300);
     expect(wrapper.find('.expanded').length).not.toBe(0);
+  });
+
+  it('should work without animation', async () => {
+    const wrapper = mount(
+      <Collapse title="title" animated={false}>
+        content
+      </Collapse>
+    );
+    wrapper.find('.view').at(0).simulate('click');
+    await updateWrapper(wrapper, 300);
+    expect(wrapper.find('.expanded').length).not.toBe(0);
+  });
+
+  it('should be work with content', () => {
+    const wrapper = mount(
+      <div>
+        <Collapse
+          title="Content left test"
+          contentLeft={<span id="test-icon">test-icon</span>}
+        />
+      </div>
+    );
+    expect(wrapper.find('#test-icon').at(0)).not.toBeNull();
+  });
+
+  it('should be work with a custom arrow icon', () => {
+    const wrapper = mount(
+      <div>
+        <Collapse
+          title="Content left test"
+          arrowIcon={<span id="test-icon">test-icon</span>}
+        />
+      </div>
+    );
+    expect(wrapper.find('#test-icon').at(0)).not.toBeNull();
+  });
+
+  it('should be work without arrow icon', () => {
+    const wrapper = mount(
+      <div>
+        <Collapse
+          title="Content left test"
+          showArrow={false}
+          arrowIcon={<span id="test-icon">test-icon</span>}
+        />
+      </div>
+    );
+    expect(wrapper.find('#test-icon').length).toBe(0);
+  });
+
+  it('should trigger event when collapse changed', () => {
+    let value = false;
+
+    const callback = jest
+      .fn()
+      .mockImplementation(
+        (
+          _: React.MouseEvent<HTMLDivElement, MouseEvent>,
+          __: number | undefined,
+          val: boolean
+        ) => {
+          value = val;
+        }
+      );
+
+    const wrapper = mount(
+      <Collapse title="Changed test" onChange={callback} />
+    );
+
+    wrapper.find('.view').at(0).simulate('click');
+
+    expect(callback).toHaveBeenCalled();
+    expect(value).toBe(true);
   });
 });

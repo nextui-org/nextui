@@ -18,6 +18,7 @@ interface Props {
   shadow?: boolean;
   divider?: boolean;
   borderWeight?: NormalWeights;
+  onChange?: (index?: number | undefined, value?: boolean) => void;
 }
 
 const defaultProps = {
@@ -29,7 +30,7 @@ const defaultProps = {
   className: ''
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type CollapseGroupProps = Props & typeof defaultProps & NativeAttrs;
 
 const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
@@ -42,6 +43,7 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
   splitted,
   divider,
   borderWeight: borderWeightProp,
+  onChange,
   ...props
 }) => {
   const theme = useTheme();
@@ -49,6 +51,7 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
 
   const updateValues = (currentIndex: number, nextState: boolean) => {
     const hasChild = stateRef.current.find((val) => val === currentIndex);
+    onChange && onChange(currentIndex, nextState);
     if (accordion) {
       if (nextState) return setState([currentIndex]);
       return setState([]);
