@@ -85,8 +85,7 @@
                         {
                             "title": "Card",
                             "keywords": "card, content, action, media",
-                            "path": "/docs/components/card.mdx",
-                            "newPost": true
+                            "path": "/docs/components/card.mdx"
                         },
                         {
                             "title": "Collapse",
