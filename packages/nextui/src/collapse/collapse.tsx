@@ -19,12 +19,17 @@ interface Props {
   bordered?: boolean;
   borderWeight?: NormalWeights;
   arrowIcon?: React.ReactNode;
+  contentLeft?: React.ReactNode;
   initialExpanded?: boolean;
   showArrow?: boolean;
   shadow?: boolean;
   className?: string;
   index?: number;
   disabled?: boolean;
+  onClick?: (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    index: number | undefined
+  ) => void;
 }
 
 const defaultProps = {
@@ -53,7 +58,9 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   arrowIcon,
   showArrow,
   disabled,
+  onClick,
   bordered,
+  contentLeft,
   animated: animatedProp,
   borderWeight: borderWeightProp,
   index,
@@ -110,11 +117,14 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     };
   }, []);
 
-  const clickHandler = () => {
+  const clickHandler = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
     if (disabled) return;
     const next = !visibleRef.current;
     setVisible(next);
     updateValues && updateValues(index, next);
+    onClick && onClick(event, index);
   };
 
   return (
@@ -132,10 +142,15 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         onClick={clickHandler}
       >
         <div className={clsx('title', { animated })}>
-          {React.isValidElement(title) ? title : <h3>{title}</h3>}
-          {arrowComponent}
+          {contentLeft && (
+            <div className="title-content-left">{contentLeft}</div>
+          )}
+          <div className="title-content">
+            {React.isValidElement(title) ? title : <h3>{title}</h3>}
+            {subtitle && <div className="subtitle">{subtitle}</div>}
+          </div>
+          <div className="title-content-right">{arrowComponent}</div>
         </div>
-        {subtitle && <div className="subtitle">{subtitle}</div>}
       </div>
       <Expand isExpanded={visible} animated={animated}>
         <div
@@ -177,20 +192,39 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         .view.disabled .subtitle {
           opacity: 0.5;
         }
+        .title-content-left,
+        .title-content-right {
+          display: flex;
+          align-items: center;
+        }
+        .title-content-left {
+          margin-right: ${theme.layout.gapHalf};
+        }
+        .title-content {
+          width: 100%;
+        }
         .title {
           display: flex;
           justify-content: space-between;
           align-items: center;
           color: ${theme.palette.foreground};
         }
-        .title :global(svg) {
+        .title-content-right :global(svg) {
           transform: rotateZ(${visible ? '-90deg' : '0'});
         }
-        .title.animated :global(svg) {
+        .animated .title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
-        .title h3 {
-          margin: 0;
+        .title-content :global(h1),
+        .title-content :global(h2),
+        .title-content :global(h3),
+        .title-content :global(h4),
+        .title-content :global(h5),
+        .title-content :global(h6),
+        .title-content :global(p),
+        .title-content :global(span),
+        .title-content :global(b) {
+          margin: 0 !important;
         }
         .subtitle {
           color: ${theme.palette.accents_5};

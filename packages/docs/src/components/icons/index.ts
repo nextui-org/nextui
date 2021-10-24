@@ -43,3 +43,5 @@ export { default as Mail } from './mail';
 export { default as Password } from './password';
 export { default as Palette } from './palette';
 export { default as Note } from './note';
+export { default as Plus } from './plus';
+export { default as Minus } from './minus';

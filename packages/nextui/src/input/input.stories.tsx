@@ -10,7 +10,7 @@ import {
   Activity,
   Notification,
   Sun,
-  Moon,
+  Moon
 } from '../utils/icons';
 import useTheme from '../use-theme';
 
@@ -22,13 +22,13 @@ export default {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'column'
         }}
       >
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 } as Meta;
 
 export const Default = () => <Input placeholder="Next UI" />;

@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 import { Grid, Text } from '../index';
 import Collapse from './index';
 import useTheme from '../use-theme';
-import { Minus, Plus } from '../utils/icons';
+import { Minus, Plus, User, Mail, Activity } from '../utils/icons';
 
 export default {
   title: 'Surfaces/Collapse',
@@ -293,6 +293,52 @@ export const Splitted = () => (
     </Grid>
   </Grid.Container>
 );
+
+export const ContentLeft = () => {
+  const theme = useTheme();
+  return (
+    <Grid.Container gap={2} xs={12}>
+      <Grid xs={12}>
+        <Collapse.Group shadow>
+          <Collapse
+            title="User details"
+            contentLeft={<User theme={theme} fill="currentColor" />}
+          >
+            <Text>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Text>
+          </Collapse>
+
+          <Collapse
+            title="Notifications"
+            contentLeft={<Mail theme={theme} fill="currentColor" />}
+          >
+            <Text>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Text>
+          </Collapse>
+          <Collapse
+            title="User activity"
+            contentLeft={<Activity theme={theme} fill="currentColor" />}
+          >
+            <Text>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Text>
+          </Collapse>
+        </Collapse.Group>
+      </Grid>
+    </Grid.Container>
+  );
+};
 
 export const NoDivider = () => (
   <Collapse.Group shadow divider={false}>
