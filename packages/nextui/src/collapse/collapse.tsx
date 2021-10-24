@@ -12,14 +12,14 @@ import { getId } from '../utils/collections';
 import clsx from '../utils/clsx';
 
 interface Props {
-  title: string;
+  title: React.ReactNode | string;
+  subtitle?: React.ReactNode | string;
   divider?: boolean;
   animated?: boolean;
   bordered?: boolean;
-  subtitle?: React.ReactNode | string;
   borderWeight?: NormalWeights;
   arrowIcon?: React.ReactNode;
-  initialVisible?: boolean;
+  initialExpanded?: boolean;
   showArrow?: boolean;
   shadow?: boolean;
   className?: string;
@@ -36,7 +36,7 @@ const defaultProps = {
   animated: true,
   disabled: false,
   borderWeight: 'light' as NormalWeights,
-  initialVisible: false
+  initialExpanded: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -46,7 +46,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   children,
   title,
   subtitle,
-  initialVisible,
+  initialExpanded,
   shadow,
   className,
   divider,
@@ -61,7 +61,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
 }) => {
   const theme = useTheme();
   const [visible, setVisible, visibleRef] =
-    useCurrentState<boolean>(initialVisible);
+    useCurrentState<boolean>(initialExpanded);
 
   const {
     values,
@@ -94,6 +94,14 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     return groupAnimated === undefined ? animatedProp : groupAnimated;
   }, [groupAnimated, animatedProp]);
 
+  const bgColor = useMemo(
+    () =>
+      theme.type === 'dark'
+        ? theme.palette.accents_1
+        : theme.palette.background,
+    [theme.type]
+  );
+
   const { ariaLabelledById, ariaControlId } = useMemo(() => {
     const nextuiId = getId();
     return {
@@ -124,7 +132,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         onClick={clickHandler}
       >
         <div className={clsx('title', { animated })}>
-          <h3>{title}</h3>
+          {React.isValidElement(title) ? title : <h3>{title}</h3>}
           {arrowComponent}
         </div>
         {subtitle && <div className="subtitle">{subtitle}</div>}
@@ -146,8 +154,9 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
           border-bottom: ${borderWeight} solid ${theme.palette.border};
         }
         .shadow {
-          box-shadow: ${theme.expressiveness.shadowSmall};
           border: none;
+          background: ${bgColor};
+          box-shadow: ${theme.expressiveness.shadowMedium};
           border-radius: ${theme.layout.radius};
           padding: 0 ${theme.layout.gap};
         }

@@ -63,6 +63,14 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
     setState(stateRef.current.filter((item) => item !== currentIndex));
   };
 
+  const bgColor = useMemo(
+    () =>
+      theme.type === 'dark'
+        ? theme.palette.accents_1
+        : theme.palette.background,
+    [theme.type]
+  );
+
   const initialValue = useMemo<CollapseConfig>(
     () => ({
       values: state,
@@ -109,10 +117,13 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
           }
           .shadow {
             border: none;
-            box-shadow: ${theme.expressiveness.shadowSmall};
+            background: ${bgColor};
+            box-shadow: ${theme.expressiveness.shadowMedium};
           }
           .collapse-group.splitted :global(.collapse) {
-            box-shadow: ${theme.expressiveness.shadowSmall};
+            border: none;
+            background: ${bgColor};
+            box-shadow: ${theme.expressiveness.shadowMedium};
             margin: ${theme.layout.gapHalf} 0;
           }
           .bordered {

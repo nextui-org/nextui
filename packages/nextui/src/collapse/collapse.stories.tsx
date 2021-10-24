@@ -21,7 +21,7 @@ export default {
 
 export const Default = () => (
   <Collapse.Group>
-    <Collapse title="Option A">
+    <Collapse title={<h3>Option 1</h3>}>
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -95,7 +95,7 @@ export const NoAccordion = () => (
 
 export const Expanded = () => (
   <Collapse.Group>
-    <Collapse title="Option A" initialVisible>
+    <Collapse title="Option A" initialExpanded>
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
