@@ -7,7 +7,6 @@ import {
   VisualState,
   useKBar,
   Action,
-  ResultHandlers,
   ResultState
 } from 'kbar';
 import KBarOption from './option';
@@ -35,11 +34,7 @@ const KBar: React.FC<unknown> = () => {
             <KBarSearch placeholder="What do you need?" />
             <KBarResults
               style={styles.result}
-              onRender={(
-                action: Action,
-                handlers: ResultHandlers,
-                state: ResultState
-              ) => (
+              onRender={(action: Action, handlers: any, state: ResultState) => (
                 <KBarOption action={action} handlers={handlers} state={state} />
               )}
             />
