@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode, CSSProperties } from 'react';
 
 export type ActionId = string;
 
@@ -23,4 +23,14 @@ export interface ResultHandlers {
 export interface ResultState {
   index: number;
   activeIndex: number;
+}
+
+export interface KBarResultsProps {
+  style?: CSSProperties;
+  className?: string;
+  onRender?: (
+    action: Action,
+    handlers: ResultHandlers,
+    state: ResultState
+  ) => ReactElement;
 }

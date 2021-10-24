@@ -1,15 +1,10 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { matchSorter } from 'match-sorter';
-import type {
-  Action,
-  KBarResultsProps,
-  ResultHandlers,
-  ResultState
-} from 'kbar';
 import { VisualState, useKBar } from 'kbar';
 import { groupBy, isEmpty } from 'lodash';
 import { useTheme } from '@nextui-org/react';
+import { Action, ResultState, KBarResultsProps, ResultHandlers } from './types';
 
 function useMatches(term: string, actions: Action[]) {
   // TODO: we can throttle this if needed
