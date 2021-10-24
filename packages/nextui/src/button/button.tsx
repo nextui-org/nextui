@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import useWarning from '../use-warning';
 import useTheme from '../use-theme';
-import ButtonDrip from '../shared/drip';
+import ButtonDrip from '../utils/drip';
 import ButtonLoading from './button-loading';
 import {
   NormalColors,

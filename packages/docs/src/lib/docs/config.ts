@@ -1,5 +1,5 @@
 // Tag to use if FORCE_TAG is enabled
-export const TAG = 'feat/card';
+export const TAG = 'feat/collapse';
 
 export const CONTENT_PATH = '/packages/docs/content';
 

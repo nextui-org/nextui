@@ -21,7 +21,8 @@ export const palette: NextUIThemesPalette = {
   background: '#fff',
   foreground: '#000',
   code: '#f81ce5',
-  border: '#eaeaea'
+  border: '#eaeaea',
+  selection: '#0070f3'
 };
 
 export const expressiveness: NextUIThemesExpressiveness = {

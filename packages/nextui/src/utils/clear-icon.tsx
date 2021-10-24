@@ -1,5 +1,5 @@
 import * as React from 'react';
-import withDefaults from '../utils/with-defaults';
+import withDefaults from './with-defaults';
 
 interface Props {
   width?: number;

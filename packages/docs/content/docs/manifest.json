@@ -85,7 +85,12 @@
                         {
                             "title": "Card",
                             "keywords": "card, content, action, media",
-                            "path": "/docs/components/card.mdx",
+                            "path": "/docs/components/card.mdx"
+                        },
+                        {
+                            "title": "Collapse",
+                            "keywords": "collapse, accordion, expand, reveal",
+                            "path": "/docs/components/collapse.mdx",
                             "newPost": true
                         },
                         {
