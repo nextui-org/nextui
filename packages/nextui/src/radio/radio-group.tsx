@@ -21,7 +21,7 @@ const defaultProps = {
   color: 'primary' as SimpleColors,
   textColor: 'default' as SimpleColors,
   className: '',
-  row: false,
+  row: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -33,7 +33,7 @@ export const getRadioSize = (size: NormalSizes | number): string => {
     small: '16px',
     medium: '20px',
     large: '24px',
-    xlarge: '28px',
+    xlarge: '28px'
   };
   if (typeof size === 'number') return `${size}px`;
   return sizes[size];
@@ -67,7 +67,7 @@ const RadioGroup: React.FC<React.PropsWithChildren<RadioGroupProps>> = ({
       inGroup: true,
       color,
       textColor,
-      value: selfVal,
+      value: selfVal
     };
   }, [disabled, selfVal]);
 
@@ -81,7 +81,11 @@ const RadioGroup: React.FC<React.PropsWithChildren<RadioGroupProps>> = ({
 
   return (
     <RadioContext.Provider value={providerValue}>
-      <fieldset className={`radio-group ${className}`} role="radiogroup" {...props}>
+      <fieldset
+        className={`radio-group ${className}`}
+        role="radiogroup"
+        {...props}
+      >
         {children}
       </fieldset>
       <style jsx>{`

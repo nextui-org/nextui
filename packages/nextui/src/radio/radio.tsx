@@ -83,10 +83,11 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
         'Radio'
       );
     }
-    useEffect(() => {
-      setSelfChecked(groupValue === radioValue);
-    }, [groupValue, radioValue]);
   }
+
+  useEffect(() => {
+    setSelfChecked(groupValue === radioValue);
+  }, [groupValue, radioValue]);
 
   const fontSize = useMemo(() => getRadioSize(size), [size]);
   const isDisabled = useMemo(

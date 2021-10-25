@@ -11,13 +11,14 @@ const DynamicLive = dynamic(() => import('./dynamic-live'), {
     <div style={{ padding: '20pt 0' }}>
       <Loading type="spinner" />
     </div>
-  ),
+  )
 });
 
 interface Props {
   title?: React.ReactNode | string;
   desc?: React.ReactNode | string;
   showEditor?: boolean;
+  overflow?: 'auto' | 'visible' | 'hidden';
   code: string;
 }
 
@@ -25,7 +26,8 @@ const defaultProps = {
   desc: '',
   code: '',
   showEditor: true,
-  bindings: {},
+  overflow: 'visible',
+  bindings: {}
 };
 
 export type PlaygroundProps = Props & typeof defaultProps;
@@ -34,7 +36,8 @@ const Playground: React.FC<PlaygroundProps> = ({
   title: inputTitle,
   code: inputCode,
   showEditor,
-  desc,
+  overflow,
+  desc
 }) => {
   const theme = useTheme();
   const code = inputCode.trim();
@@ -44,7 +47,7 @@ const Playground: React.FC<PlaygroundProps> = ({
     <>
       <Title title={title} desc={desc} />
       <div className="playground">
-        <DynamicLive showEditor={showEditor} code={code} />
+        <DynamicLive showEditor={showEditor} code={code} overflow={overflow} />
         <style jsx>{`
           .playground {
             width: 100%;
