@@ -65,7 +65,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     inGroup,
     color: groupColor,
     textColor: textGroupColor,
-    updateState,
+    updateState
   } = useRadioContext();
 
   const [withoutDescChildren, DescChildren] = pickChild(
@@ -89,10 +89,10 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   }
 
   const fontSize = useMemo(() => getRadioSize(size), [size]);
-  const isDisabled = useMemo(() => disabled || disabledAll, [
-    disabled,
-    disabledAll,
-  ]);
+  const isDisabled = useMemo(
+    () => disabled || disabledAll,
+    [disabled, disabledAll]
+  );
   const radius = squared ? '2px' : '50%';
 
   const radioColor = useMemo(
@@ -123,11 +123,11 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     if (isDisabled) return;
     const selfEvent: RadioEvent = {
       target: {
-        checked: !selfChecked,
+        checked: !selfChecked
       },
       stopPropagation: event.stopPropagation,
       preventDefault: event.preventDefault,
-      nativeEvent: event,
+      nativeEvent: event
     };
     setSelfChecked(!selfChecked);
     if (inGroup) {

@@ -45,9 +45,10 @@ const CarbonAd: React.FC<unknown> = () => {
           #carbonads {
             display: flex;
             width: 100%;
+            z-index: 100;
             border-radius: ${theme.layout.radius};
             background-color: ${theme.type === 'light' ? '#363449' : '#111'};
-            z-index: 100;
+            box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
           }
           #carbonads a {
             color: inherit;
