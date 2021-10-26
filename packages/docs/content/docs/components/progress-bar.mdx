@@ -1,0 +1,76 @@
+---
+title: 'Progress Bar'
+description: 'The Progress Bar component allows you to view the progress of any activity.'
+url: https://nextui.com/docs/components/progress-bar
+---
+
+# Progress Bar
+
+The Progress Bar component allows you to view the progress of any activity.
+
+```jsx
+import { ProgressBar } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Playground
+  title="Default"
+  desc="You can control the current value of progress"
+  code={`
+ <Grid.Container gap={2}>
+    <Grid>
+        <ProgressBar value={75} />
+    </Grid>
+    <Grid>
+        <ProgressBar value={55} />
+    </Grid>
+    <Grid>
+        <ProgressBar value={35} />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Progress Bar Props
+
+| Attribute        | Type                    | Accepted values                          | Description                            | Default   |
+| ---------------- | ----------------------- | ---------------------------------------- | -------------------------------------- | --------- |
+| **color**        | `NormalColors` `string` | [NormalColors](#normal-colors)           | Change filler bar color                | `default` |
+| **value**        | `number`                | -                                        | Current value                          | -         |
+| **max**          | `number`                | -                                        | Max value                              | `100`     |
+| **bordered**     | `boolean`               | `true/false`                             | Bodered bar                            | `false`   |
+| **borderWeight** | `NormalWeights`         | [NormalWeights](#normal-weights)         | Border weight for `bordered` bar       | `normal`  |
+
+
+<Spacer y={2} />
+
+
+### Progress Bar types
+
+<Spacer y={1} />
+
+#### Normal Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'gradient';
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = 'light' | 'normal' | 'bold';
+```
