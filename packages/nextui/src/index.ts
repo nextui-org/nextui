@@ -82,4 +82,6 @@ export { default as useModal } from './modal/use-modal';
 
 export { default as Backdrop } from './backdrop';
 
+export { default as Collapse } from './collapse';
+
 export { default as ProgressBar } from './progress-bar';

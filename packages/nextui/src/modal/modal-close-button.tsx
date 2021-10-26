@@ -1,6 +1,6 @@
 import React from 'react';
 import useTheme from '../use-theme';
-import ClearIcon from '../shared/clear-icon';
+import ClearIcon from '../utils/clear-icon';
 
 interface Props {
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;

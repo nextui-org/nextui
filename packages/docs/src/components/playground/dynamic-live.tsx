@@ -15,13 +15,14 @@ import * as Icons from '../icons';
 export interface Props {
   code: string;
   showEditor?: boolean;
+  overflow?: 'auto' | 'visible' | 'hidden';
 }
 
 const defaultProps = {
   showEditor: true
 };
 
-const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
+const DynamicLive: React.FC<Props> = ({ code, showEditor, overflow }) => {
   const theme = useTheme();
   const codeTheme = makeCodeTheme(theme);
   const scope = {
@@ -47,7 +48,7 @@ const DynamicLive: React.FC<Props> = ({ code, showEditor }) => {
           margin-left: -${theme.layout.gapHalf};
           display: flex;
           flex-wrap: wrap;
-          overflow-x: visible;
+          overflow-x: ${overflow};
           flex-direction: column;
           box-sizing: border-box;
         }

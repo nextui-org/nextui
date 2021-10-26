@@ -18,7 +18,7 @@ import { Radio } from '@nextui-org/react';
   title="Default"
   desc="You can change the state with `checked` prop"
   code={`
- <Radio.Group value="A">
+  <Radio.Group value="A">
     <Radio value="A">Option A</Radio>
     <Radio value="B">Option B</Radio>
     <Radio value="C">Option C</Radio>
@@ -48,95 +48,167 @@ import { Radio } from '@nextui-org/react';
   title="Sizes"
   desc="Change the size of the entire `Radio` including `padding`, `font-size` and `border` with the `size` property."
   code={`
- <>
-    <Radio checked={true} size="mini">
+  () => {
+const [selected, setSelected] = React.useState('mini');      
+return(
+<>
+    <Radio
+        checked={selected === 'mini'}
+        onChange={() => setSelected('mini')}
+        size="mini"
+    >
         mini
     </Radio>
     <Spacer/>
-    <Radio size="small">
+    <Radio
+        checked={selected === 'small'}
+        onChange={() => setSelected('small')}
+        size="small"
+    >
         small
     </Radio>
     <Spacer/>
-    <Radio size="medium">
+    <Radio
+        checked={selected === 'medium'}
+        onChange={() => setSelected('medium')}
+        size="medium"
+    >
         medium
     </Radio>
     <Spacer/>
-    <Radio size="large">
+    <Radio
+        checked={selected === 'large'}
+        onChange={() => setSelected('large')}
+        size="large"
+    >
         large
     </Radio>
     <Spacer/>
-    <Radio size="xlarge">
+    <Radio
+        checked={selected === 'xlarge'}
+        onChange={() => setSelected('xlarge')}
+        size="xlarge"
+    >
         xlarge
     </Radio>
     <Spacer/>
-    <Radio size={40}>
+    <Radio
+        checked={selected === '40px'}
+        onChange={() => setSelected('40px')}
+        size={40}
+    >
         40px
     </Radio>
- </>
-`}
+</>
+)}
+  `}
 />
 
 <Playground
   title="Colors"
+  overflow="auto"
   desc="You can change the color with `color` prop"
   code={`
-  <>
-    <Radio color="primary" checked={true}>
+  <Radio.Group row value="primary">
+    <Radio 
+        value="primary"
+        color="primary"  
+    >
         Primary
     </Radio>
     <Spacer/>
-    <Radio color="secondary">
+    <Radio 
+        value="secondary"  
+        color="secondary"  
+    >
         Secondary
     </Radio>
     <Spacer/>
-    <Radio color="success" checked={true}>
+    <Radio 
+        value="success"  
+        color="success"  
+    >
         Success
     </Radio>
     <Spacer/>
-    <Radio color="warning">
+    <Radio 
+        value="warning"  
+        color="warning"  
+    >
         Warning
     </Radio>
     <Spacer/>
-    <Radio color="error" checked={true}>
+    <Radio 
+        value="error"  
+        color="error"  
+    >
         Error
     </Radio>
     <Spacer/>
-    <Radio color="#ff4ecd" checked={true}>
+    <Radio 
+        value="#ff4ecd"  
+        color="#ff4ecd"  
+    >
         #ff4ecd
     </Radio>
- </>
+ </Radio.Group>
 `}
 />
 
 <Playground
   title="Text Colors"
+  overflow="auto"
   desc="You can change the `Radio` text color with `textColor` prop"
   code={`
-  <>
- <Radio color="primary" textColor="primary"  checked={true}>
-    Primary
- </Radio>
- <Spacer/>
- <Radio color="secondary" textColor="secondary"  checked={true}>
-    Secondary
- </Radio>
-  <Spacer/>
- <Radio color="success" textColor="success" checked={true}>
-    Success
- </Radio>
-  <Spacer/>
- <Radio color="warning" textColor="warning" checked={true}>
-    Warning
- </Radio>
-  <Spacer/>
- <Radio color="error" textColor="error" checked={true}>
-    Error
- </Radio>
-  <Spacer/>
- <Radio color="#ff4ecd" textColor="#ff4ecd" checked={true}>
-    #ff4ecd
- </Radio>
- </>
+  <Radio.Group row value="primary">
+    <Radio 
+        value="primary"
+        color="primary"  
+        textColor="primary"
+    >
+        Primary
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="secondary"  
+        color="secondary"  
+        textColor="secondary"
+    >
+        Secondary
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="success"  
+        color="success"  
+        textColor="success"
+    >
+        Success
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="warning"  
+        color="warning"  
+        textColor="warning"
+    >
+        Warning
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="error"  
+        color="error"  
+        textColor="error"
+    >
+        Error
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="#ff4ecd"  
+        color="#ff4ecd"  
+        textColor="#ff4ecd"
+    >
+        #ff4ecd
+    </Radio>
+ </Radio.Group>
 `}
 />
 
@@ -177,6 +249,7 @@ import { Radio } from '@nextui-org/react';
 
 <Playground
   title="Row"
+  overflow="auto"
   desc="You can change the `Radio.Group` direction with `row` prop."
   code={`
  <Radio.Group value="1" row>

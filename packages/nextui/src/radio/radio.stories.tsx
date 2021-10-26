@@ -5,7 +5,7 @@ import Radio from './index';
 export default {
   title: 'Inputs/Radio',
   component: Radio,
-  onChange: { action: 'changed' },
+  onChange: { action: 'changed' }
 } as Meta;
 
 export const Default = () => (
@@ -65,25 +65,48 @@ export const TextColors = () => (
   </Radio.Group>
 );
 
-export const Sizes = () => (
-  <>
-    <Radio checked={false} size="mini">
-      mini
-    </Radio>
-    <Radio checked={false} size="small">
-      small
-    </Radio>
-    <Radio checked={false} size="medium">
-      medium
-    </Radio>
-    <Radio checked={false} size="large">
-      large
-    </Radio>
-    <Radio checked={false} size="xlarge">
-      xlarge
-    </Radio>
-  </>
-);
+export const Sizes = () => {
+  const [selected, setSelected] = React.useState('small');
+  return (
+    <>
+      <Radio
+        checked={selected === 'mini'}
+        onChange={() => setSelected('mini')}
+        size="mini"
+      >
+        mini
+      </Radio>
+      <Radio
+        checked={selected === 'small'}
+        onChange={() => setSelected('small')}
+        size="small"
+      >
+        small
+      </Radio>
+      <Radio
+        checked={selected === 'medium'}
+        onChange={() => setSelected('medium')}
+        size="medium"
+      >
+        medium
+      </Radio>
+      <Radio
+        checked={selected === 'large'}
+        onChange={() => setSelected('large')}
+        size="large"
+      >
+        large
+      </Radio>
+      <Radio
+        checked={selected === 'xlarge'}
+        onChange={() => setSelected('xlarge')}
+        size="xlarge"
+      >
+        xlarge
+      </Radio>
+    </>
+  );
+};
 
 export const Squared = () => (
   <Radio.Group value="primary">

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import clsx from '../utils/clsx';
 import useTheme from '../use-theme';
-import ClearIcon from '../shared/clear-icon';
+import ClearIcon from '../utils/clear-icon';
 import { SimpleColors } from '../utils/prop-types';
 import { getNormalColor } from '../utils/color';
 

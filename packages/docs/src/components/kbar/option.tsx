@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
-import { Action, ResultHandlers, ResultState } from 'kbar';
 import { useTheme } from '@nextui-org/react';
 import { addColorAlpha } from '@utils/index';
 import Keyboard from '../keyboard';
 import useDarkMode from 'use-dark-mode';
 import Icon from '../icons/map-icons';
 import { isEmpty } from 'lodash';
+import { Action, ResultHandlers, ResultState } from './types';
 
 interface Props {
   action: Action;

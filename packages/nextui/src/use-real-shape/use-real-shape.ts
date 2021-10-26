@@ -25,7 +25,7 @@ export const getRealShape = (el: HTMLElement | null): ShapeType => {
 
   return {
     width: getCSSStyleVal(`${width}`, rect.width),
-    height: getCSSStyleVal(`${height}`, rect.height),
+    height: getCSSStyleVal(`${height}`, rect.height)
   };
 };
 
@@ -36,7 +36,7 @@ const useRealShape = <T extends HTMLElement>(
 ): ShapeResult => {
   const [state, setState] = useState<ShapeType>({
     width: 0,
-    height: 0,
+    height: 0
   });
   const update = () => {
     const { width, height } = getRealShape(ref.current);

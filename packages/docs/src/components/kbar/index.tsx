@@ -11,6 +11,7 @@ import KBarOption from './option';
 import KBarSearch from './search';
 import KBarResults from './results';
 import generateStyles from './styles';
+import { Action, ResultHandlers, ResultState } from './types';
 
 const KBar: React.FC<unknown> = () => {
   const theme = useTheme();
@@ -32,7 +33,11 @@ const KBar: React.FC<unknown> = () => {
             <KBarSearch placeholder="What do you need?" />
             <KBarResults
               style={styles.result}
-              onRender={(action, handlers, state) => (
+              onRender={(
+                action: Action,
+                handlers: ResultHandlers,
+                state: ResultState
+              ) => (
                 <KBarOption action={action} handlers={handlers} state={state} />
               )}
             />

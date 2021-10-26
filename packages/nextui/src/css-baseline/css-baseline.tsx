@@ -243,7 +243,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         }
         ::selection {
           background-color: ${theme.palette.selection};
-          color: ${theme.palette.foreground};
+          color: ${theme.palette.background};
         }
       `}</style>
     </React.Fragment>
