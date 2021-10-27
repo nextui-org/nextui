@@ -84,4 +84,4 @@ export { default as Backdrop } from './backdrop';
 
 export { default as Collapse } from './collapse';
 
-export { default as ProgressBar } from './progress-bar';
+export { default as Progress } from './progress';

@@ -1,10 +1,10 @@
 import React from 'react';
-import ProgressBar from './index';
 import { Meta } from '@storybook/react';
+import ProgressBar from './index';
 import { Spacer } from '../index';
 
 export default {
-  title: 'General/ProgressBar',
+  title: 'General/Progress',
   component: ProgressBar
 } as Meta;
 
