@@ -1,9 +1,8 @@
 import { TAG, FORCE_TAG, CONTENT_PATH, ASSETS_PATH } from './config';
 import { getLatestTag } from '@lib/github/api';
 import { getRawFileFromRepo, getRawAssetFromRepo } from '@lib/github/raw';
-import { removeFromLast } from '@utils/index';
-import localManifest from '../../../content/docs/manifest.json';
-import { isProd } from '@utils/index';
+import { isProd, removeFromLast } from '@utils/index';
+import localManifest from '@content/docs/manifest.json';
 
 export interface Route {
   title: string;
@@ -44,7 +43,7 @@ export async function fetchRawDoc(doc: string, tag: string) {
 }
 
 export async function fetchDocsManifest(tag: string) {
-  if(!isProd) return localManifest;
+  if (!isProd) return localManifest;
 
   const res = await getRawFileFromRepo(
     `${CONTENT_PATH}/docs/manifest.json`,
