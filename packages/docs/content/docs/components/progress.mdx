@@ -1,0 +1,74 @@
+---
+title: 'Progress'
+description: 'The Progress component allows you to view the progress of any activity.'
+url: https://nextui.com/docs/components/progress-bar
+---
+
+# Progress
+
+The Progress Bar component allows you to view the progress of any activity.
+
+```jsx
+import { Progress } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Playground
+  title="Default"
+  desc="You can control the current value of progress"
+  code={`
+ <Grid.Container xs={6} gap={2}>
+    <Grid>
+        <Progress value={75} />
+    </Grid>
+    <Grid>
+        <Progress value={55} />
+    </Grid>
+    <Grid>
+        <Progress value={35} />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Progress Props
+
+| Attribute        | Type                    | Accepted values                  | Description                           | Default   |
+| ---------------- | ----------------------- | -------------------------------- | ------------------------------------- | --------- |
+| **color**        | `NormalColors` `string` | [NormalColors](#normal-colors)   | Change filler bar color               | `default` |
+| **value**        | `number`                | -                                | Current value                         | -         |
+| **max**          | `number`                | -                                | Progress max value                    | `100`     |
+| **bordered**     | `boolean`               | `true/false`                     | Bodered progress                      | `false`   |
+| **borderWeight** | `NormalWeights`         | [NormalWeights](#normal-weights) | Border weight for `bordered` progress | `normal`  |
+
+<Spacer y={2} />
+
+### Progress types
+
+<Spacer y={1} />
+
+#### Normal Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'gradient';
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = 'light' | 'normal' | 'bold';
+```

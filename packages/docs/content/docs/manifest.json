@@ -90,8 +90,7 @@
                         {
                             "title": "Collapse",
                             "keywords": "collapse, accordion, expand, reveal",
-                            "path": "/docs/components/collapse.mdx",
-                            "newPost": true
+                            "path": "/docs/components/collapse.mdx"
                         },
                         {
                             "title": "Input",
@@ -112,6 +111,12 @@
                             "title": "Radio",
                             "keywords": "check, radio, select",
                             "path": "/docs/components/radio.mdx"
+                        },
+                        {
+                            "title": "Progress",
+                            "keywords": "progress, bar, task, display, activity",
+                            "path": "/docs/components/progress.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Tooltip",
