@@ -30,14 +30,38 @@ export const Colors = () => (
   </>
 );
 
-export const Bordered = () => {
+export const Striped = () => {
   return (
     <>
-      <ProgressBar bordered={true} borderWeight="light" value={200} max={250} />
+      <ProgressBar striped value={200} max={250} />
       <Spacer y={0.5} />
-      <ProgressBar bordered={true} borderWeight="normal" value={45} />
+      <ProgressBar striped value={45} />
       <Spacer y={0.5} />
-      <ProgressBar bordered={true} borderWeight="bold" value={29} />
+      <ProgressBar striped value={29} />
+    </>
+  );
+};
+
+export const Squared = () => {
+  return (
+    <>
+      <ProgressBar squared value={200} max={250} />
+      <Spacer y={0.5} />
+      <ProgressBar squared value={45} />
+      <Spacer y={0.5} />
+      <ProgressBar squared value={29} />
+    </>
+  );
+};
+
+export const NoAnimated = () => {
+  return (
+    <>
+      <ProgressBar animated={false} value={200} max={250} />
+      <Spacer y={0.5} />
+      <ProgressBar animated={false} value={45} />
+      <Spacer y={0.5} />
+      <ProgressBar animated={false} value={29} />
     </>
   );
 };

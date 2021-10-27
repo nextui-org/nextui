@@ -21,15 +21,4 @@ describe('ProgressBar', () => {
     );
     expect(() => wrapper.unmount()).not.toThrow();
   });
-
-  it('should support all border weights', () => {
-    const wrapper = mount(
-      <div>
-        <ProgressBar value={20} bordered={true} borderWeight="light" />
-        <ProgressBar value={20} bordered={true} borderWeight="normal" />
-        <ProgressBar value={20} bordered={true} borderWeight="bold" />
-      </div>
-    );
-    expect(() => wrapper.unmount()).not.toThrow();
-  });
 });
