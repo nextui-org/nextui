@@ -98,8 +98,7 @@
                 {
                   "title": "Collapse",
                   "keywords": "collapse, accordion, expand, reveal",
-                  "path": "/docs/components/collapse.mdx",
-                  "newPost": true
+                  "path": "/docs/components/collapse.mdx"
                 },
                 {
                   "title": "Input",
@@ -152,9 +151,9 @@
                   "path": "/docs/components/link.mdx"
                 },
                 {
-                  "title": "Progress Bar",
-                  "keywords": "progress, bar",
-                  "path": "/docs/components/progress-bar.mdx",
+                  "title": "Progress",
+                  "keywords": "progress, bar, task, display, activity",
+                  "path": "/docs/components/progress.mdx",
                   "newPost": true
                 }
               ]
