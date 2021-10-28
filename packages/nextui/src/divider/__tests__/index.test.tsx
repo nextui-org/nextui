@@ -22,9 +22,9 @@ describe('Divider', () => {
   it('should work with type', () => {
     const wrapper = render(
       <div>
-        <Divider type="secondary" />
-        <Divider type="warning" />
-        <Divider type="dark" />
+        <Divider color="secondary" />
+        <Divider color="warning" />
+        <Divider color="dark" />
       </div>
     );
     expect(wrapper).toMatchSnapshot();
@@ -36,7 +36,7 @@ describe('Divider', () => {
         <Divider align="start">start</Divider>
         <Divider align="left">left</Divider>
         <Divider align="end">end</Divider>
-        <Divider align="start" volume={2}>
+        <Divider align="start" height={2}>
           start
         </Divider>
       </div>
@@ -48,7 +48,7 @@ describe('Divider', () => {
     const wrapper = mount(
       <div>
         <Divider x={1.1} y={2.5} />
-        <Divider volume={2.5} />
+        <Divider height={2.5} />
       </div>
     );
     expect(wrapper).toMatchSnapshot();
