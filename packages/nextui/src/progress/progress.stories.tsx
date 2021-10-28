@@ -59,11 +59,27 @@ export const Status = () => (
     <Spacer y={0.5} />
     <Progress value={70} color="success" status="success" />
     <Spacer y={0.5} />
-    <Progress value={150} color="warning" status="warning" />
+    <Progress value={90} color="warning" status="warning" />
     <Spacer y={0.5} />
     <Progress value={10} color="error" status="error" />
     <Spacer y={0.5} />
     <Progress value={45} color="#f4a" status="#f4a" />
+  </>
+);
+
+export const Shadow = () => (
+  <>
+    <Progress shadow value={50} color="primary" status="primary" />
+    <Spacer y={0.5} />
+    <Progress shadow value={30} color="secondary" status="secondary" />
+    <Spacer y={0.5} />
+    <Progress shadow value={70} color="success" status="success" />
+    <Spacer y={0.5} />
+    <Progress shadow value={90} color="warning" status="warning" />
+    <Spacer y={0.5} />
+    <Progress shadow value={10} color="error" status="error" />
+    <Spacer y={0.5} />
+    <Progress shadow value={45} color="#f4a" status="#f4a" />
   </>
 );
 

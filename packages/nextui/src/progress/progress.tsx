@@ -4,7 +4,7 @@ import CSSTransition from '../utils/css-transition';
 import { NormalColors, NormalSizes, SimpleColors } from '../utils/prop-types';
 import withDefaults from '../utils/with-defaults';
 import { addColorAlpha, getNormalColor } from '../utils/color';
-import { getSizes } from './styles';
+import { getShadowColor, getSizes } from './styles';
 import { valueToPercent } from '../utils/numbers';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
@@ -15,6 +15,7 @@ interface Props {
   animated?: boolean;
   squared?: boolean;
   indeterminated?: boolean;
+  shadow?: boolean;
   max?: number;
   min?: number;
   color?: NormalColors | string;
@@ -30,6 +31,7 @@ const defaultProps = {
   striped: false,
   animated: true,
   squared: false,
+  shadow: false,
   indeterminated: false,
   value: 0,
   min: 0,
@@ -54,6 +56,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   striped,
   status,
   animated,
+  shadow,
   squared,
   size,
   indeterminated,
@@ -70,6 +73,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const fillerColor = useMemo(
     () => getNormalColor(color, theme.palette, theme.palette.primary),
     [color, theme.palette]
+  );
+
+  const shadowColor = useMemo(
+    () => (shadow ? getShadowColor(color, theme.palette) : 'none'),
+    [color, shadow, theme.palette]
   );
 
   const { height, radius } = useMemo(
@@ -115,7 +123,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             width: 100%;
             height: ${height};
             position: relative;
-            overflow: hidden;
+            overflow: ${shadow && !indeterminated ? 'visible' : 'hidden'};
             background: ${bgColor};
             border-radius: ${radius};
           }
@@ -131,6 +139,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             transition: ${animated
               ? 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
               : 'none'};
+            box-shadow: ${shadowColor};
           }
           .progress-wrapper-enter {
             opacity: 0;
