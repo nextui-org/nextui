@@ -1,43 +1,80 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import ProgressBar from './index';
-import { Spacer } from '../index';
+import Progress from './index';
+import { Spacer, Grid } from '../index';
 
 export default {
   title: 'General/Progress',
-  component: ProgressBar
+  component: Progress,
+  decorators: [
+    (Story) => (
+      <Grid.Container xs={4}>
+        <Story />
+      </Grid.Container>
+    )
+  ]
 } as Meta;
 
 export const Default = () => {
-  return <ProgressBar value={50} />;
+  return <Progress value={50} />;
 };
 
 export const Colors = () => (
   <>
-    <ProgressBar value={50} color="primary" />
+    <Progress value={50} color="primary" />
     <Spacer y={0.5} />
-    <ProgressBar value={30} color="secondary" />
+    <Progress value={30} color="secondary" />
     <Spacer y={0.5} />
-    <ProgressBar value={70} color="success" />
+    <Progress value={70} color="success" />
     <Spacer y={0.5} />
-    <ProgressBar value={150} color="warning" />
+    <Progress value={90} color="warning" />
     <Spacer y={0.5} />
-    <ProgressBar value={10} color="error" />
+    <Progress value={10} color="error" />
     <Spacer y={0.5} />
-    <ProgressBar value={20} color="gradient" />
+    <Progress value={20} color="gradient" />
     <Spacer y={0.5} />
-    <ProgressBar value={45} color="#f4a" />
+    <Progress value={65} color="#f4a" />
+  </>
+);
+
+export const Sizes = () => (
+  <>
+    <Progress size="mini" value={10} />
+    <Spacer y={1} />
+    <Progress size="small" value={20} />
+    <Spacer y={1} />
+    <Progress size="medium" value={40} />
+    <Spacer y={1} />
+    <Progress size="large" value={60} />
+    <Spacer y={1} />
+    <Progress size="xlarge" value={80} />
+  </>
+);
+
+export const Status = () => (
+  <>
+    <Progress value={50} color="primary" status="primary" />
+    <Spacer y={0.5} />
+    <Progress value={30} color="secondary" status="secondary" />
+    <Spacer y={0.5} />
+    <Progress value={70} color="success" status="success" />
+    <Spacer y={0.5} />
+    <Progress value={150} color="warning" status="warning" />
+    <Spacer y={0.5} />
+    <Progress value={10} color="error" status="error" />
+    <Spacer y={0.5} />
+    <Progress value={45} color="#f4a" status="#f4a" />
   </>
 );
 
 export const Striped = () => {
   return (
     <>
-      <ProgressBar striped value={200} max={250} />
+      <Progress striped value={200} max={250} />
       <Spacer y={0.5} />
-      <ProgressBar striped value={45} />
+      <Progress striped value={45} />
       <Spacer y={0.5} />
-      <ProgressBar striped value={29} />
+      <Progress striped value={29} />
     </>
   );
 };
@@ -45,11 +82,19 @@ export const Striped = () => {
 export const Squared = () => {
   return (
     <>
-      <ProgressBar squared value={200} max={250} />
+      <Progress squared value={200} max={250} />
       <Spacer y={0.5} />
-      <ProgressBar squared value={45} />
+      <Progress squared value={45} />
       <Spacer y={0.5} />
-      <ProgressBar squared value={29} />
+      <Progress squared value={29} />
+    </>
+  );
+};
+
+export const indeterminated = () => {
+  return (
+    <>
+      <Progress indeterminated value={50} color="primary" />
     </>
   );
 };
@@ -57,11 +102,11 @@ export const Squared = () => {
 export const NoAnimated = () => {
   return (
     <>
-      <ProgressBar animated={false} value={200} max={250} />
+      <Progress animated={false} value={200} max={250} />
       <Spacer y={0.5} />
-      <ProgressBar animated={false} value={45} />
+      <Progress animated={false} value={45} />
       <Spacer y={0.5} />
-      <ProgressBar animated={false} value={29} />
+      <Progress animated={false} value={29} />
     </>
   );
 };
