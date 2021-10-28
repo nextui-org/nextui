@@ -1,12 +1,12 @@
 ---
 title: 'Progress'
 description: 'The Progress component allows you to view the progress of any activity.'
-url: https://nextui.com/docs/components/progress-bar
+url: https://nextui.com/docs/components/progress
 ---
 
 # Progress
 
-The Progress Bar component allows you to view the progress of any activity.
+The Progress component allows you to view the progress of any activity.
 
 ```jsx
 import { Progress } from '@nextui-org/react';
@@ -16,9 +16,9 @@ import { Progress } from '@nextui-org/react';
 
 <Playground
   title="Default"
-  desc="You can control the current value of progress"
+  desc="You can control the current `value` of progress."
   code={`
- <Grid.Container xs={6} gap={2}>
+ <Grid.Container xs={12} sm={6} gap={2}>
     <Grid>
         <Progress value={75} />
     </Grid>
@@ -32,6 +32,180 @@ import { Progress } from '@nextui-org/react';
 `}
 />
 
+<Playground
+  title="Indeterminated"
+  desc="You can have a `Progress` bar with indeterminate value with the `indeterminated` property."
+  code={`
+ <Grid.Container xs={12} sm={6} gap={2}>
+    <Grid>
+        <Progress indeterminated value={50} color="secondary" status="secondary" />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Colors"
+  desc="You can change the color of the `Progress` with the property `color`."
+  code={`
+ <Grid.Container xs={12} sm={6} gap={2}>
+    <Grid>
+        <Progress value={50} color="primary" />
+    </Grid>
+    <Grid>
+        <Progress value={30} color="secondary" />
+    </Grid>
+    <Grid>
+        <Progress value={70} color="success" />
+    </Grid>
+    <Grid>
+        <Progress value={90} color="warning" />
+    </Grid>
+    <Grid>
+        <Progress value={10} color="error" />
+    </Grid>
+    <Grid>
+        <Progress value={30} color="gradient" />
+    </Grid>
+    <Grid>
+        <Progress value={65} color="#f4a" />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Sizes"
+  desc="You can change the height of the progress with the property `size`."
+  code={`
+ <Grid.Container xs={12} sm={6} gap={2}>
+    <Grid>
+        <Progress size="mini" value={68} />
+    </Grid>
+    <Grid>
+        <Progress size="small" value={72} />
+    </Grid>
+    <Grid>
+        <Progress size="medium" value={74} />
+    </Grid>
+    <Grid>
+        <Progress size="large" value={76} />
+    </Grid>
+    <Grid>
+        <Progress size="xlarge" value={78} />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Status"
+  desc="You can change the background of the `Progress` with the property `status`."
+  code={`
+ <Grid.Container xs={12} sm={6} gap={2}>
+    <Grid>
+        <Progress value={50} color="primary" status="primary"/>
+    </Grid>
+    <Grid>
+        <Progress value={30} color="secondary" status="secondary"/>
+    </Grid>
+    <Grid>
+        <Progress value={70} color="success" status="success"/>
+    </Grid>
+    <Grid>
+        <Progress value={90} color="warning" status="warning"/>
+    </Grid>
+    <Grid>
+        <Progress value={10} color="error" status="error"/>
+    </Grid>
+    <Grid>
+        <Progress value={65} color="#f4a" status="#f4a"/>
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Shadow"
+  desc="You can add a shadow effect with the property `shadow`."
+  code={`
+ <Grid.Container xs={12} sm={6} gap={2}>
+    <Grid>
+        <Progress value={50} shadow color="primary" status="primary"/>
+    </Grid>
+    <Grid>
+        <Progress value={30} shadow color="secondary" status="secondary"/>
+    </Grid>
+    <Grid>
+        <Progress value={70} shadow color="success" status="success"/>
+    </Grid>
+    <Grid>
+        <Progress value={90} shadow color="warning" status="warning"/>
+    </Grid>
+    <Grid>
+        <Progress value={10} shadow color="error" status="error"/>
+    </Grid>
+    <Grid>
+        <Progress value={65} shadow color="#f4a" status="#f4a"/>
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Striped"
+  desc="You can add `striped` prop to `Progress` to apply a stripe over the progress bar's background color."
+  code={`
+ <Grid.Container xs={12} sm={6} gap={2}>
+    <Grid>
+       <Progress striped value={200} max={250} />
+    </Grid>
+    <Grid>
+       <Progress color="secondary" striped value={45} />
+    </Grid>
+    <Grid>
+       <Progress color="success" striped value={29} />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Squared"
+  desc="You can change the full style towards a squared `Progress` with the `squared` property."
+  code={`
+ <Grid.Container xs={12} sm={6} gap={2}>
+    <Grid>
+      <Progress squared value={200} max={250} />
+    </Grid>
+    <Grid>
+      <Progress squared value={45} />
+    </Grid>
+    <Grid>
+      <Progress squared value={29} />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="No Animated"
+  desc="You can disabled the initial animation setting `animated={false}`."
+  code={`
+ <Grid.Container xs={12} sm={6} gap={2}>
+    <Grid>
+      <Progress animated={false} value={200} max={250} />
+    </Grid>
+    <Grid>
+      <Progress animated={false} value={45} />
+    </Grid>
+    <Grid>
+      <Progress animated={false} value={29} />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
 <Spacer y={3} />
 
 ### APIs
@@ -40,13 +214,20 @@ import { Progress } from '@nextui-org/react';
 
 #### Progress Props
 
-| Attribute        | Type                    | Accepted values                  | Description                           | Default   |
-| ---------------- | ----------------------- | -------------------------------- | ------------------------------------- | --------- |
-| **color**        | `NormalColors` `string` | [NormalColors](#normal-colors)   | Change filler bar color               | `default` |
-| **value**        | `number`                | -                                | Current value                         | -         |
-| **max**          | `number`                | -                                | Progress max value                    | `100`     |
-| **bordered**     | `boolean`               | `true/false`                     | Bodered progress                      | `false`   |
-| **borderWeight** | `NormalWeights`         | [NormalWeights](#normal-weights) | Border weight for `bordered` progress | `normal`  |
+| Attribute          | Type                     | Accepted values                | Description                                     | Default   |
+| ------------------ | ------------------------ | ------------------------------ | ----------------------------------------------- | --------- |
+| **value**          | `number`                 | -                              | Current value                                   | -         |
+| **min**            | `number`                 | -                              | Progress min value                              | `0`       |
+| **max**            | `number`                 | -                              | Progress max value                              | `100`     |
+| **color**          | `NormalColors` `string`  | [NormalColors](#normal-colors) | Change filler bar color                         | `default` |
+| **status**         | `NormalColors` `string`  | [NormalColors](#normal-colors) | Change filler bar background color              | `default` |
+| **size**           | `NormalSizes`            | [NormalSizes](#normal-sizes)   | Change progress size                            | `medium`  |
+| **striped**        | `boolean`                | `true/false`                   | Stripe over the progress bar's background color | `false`   |
+| **indeterminated** | `boolean`                | `true/false`                   | Indeterminated progress                         | `false`   |
+| **shadow**         | `boolean`                | `true/false`                   | Display shadow effect                           | `false`   |
+| **squared**        | `boolean`                | `true/false`                   | Squared progress                                | `false`   |
+| **animated**       | `boolean`                | `true/false`                   | Enable or disable the progress animation        | `true`    |
+| ...                | `ProgressHTMLAttributes` | `'id', 'className', ...`       | Progress native props                           | -         |
 
 <Spacer y={2} />
 
@@ -67,8 +248,8 @@ type NormalColors =
   | 'gradient';
 ```
 
-#### Normal Weights
+#### Normal Sizes
 
 ```ts
-type NormalWeights = 'light' | 'normal' | 'bold';
+type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
 ```

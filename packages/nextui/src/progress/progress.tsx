@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import useTheme from '../use-theme';
 import CSSTransition from '../utils/css-transition';
-import { NormalColors, NormalSizes, SimpleColors } from '../utils/prop-types';
+import { NormalColors, NormalSizes } from '../utils/prop-types';
 import withDefaults from '../utils/with-defaults';
 import { addColorAlpha, getNormalColor } from '../utils/color';
 import { getShadowColor, getSizes } from './styles';
@@ -19,14 +19,14 @@ interface Props {
   max?: number;
   min?: number;
   color?: NormalColors | string;
-  status?: SimpleColors | string;
+  status?: NormalColors | string;
   size?: NormalSizes;
   className?: string;
 }
 
 const defaultProps = {
   color: 'primary' as NormalColors | string,
-  status: 'default' as SimpleColors | string,
+  status: 'default' as NormalColors | string,
   size: 'medium' as NormalSizes,
   striped: false,
   animated: true,

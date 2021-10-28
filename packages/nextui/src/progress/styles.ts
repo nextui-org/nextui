@@ -17,7 +17,7 @@ export const getShadowColor = (
         ? (hexFromString(palette.gradient, palette.primary, true) as string)
         : getNormalColor(color, palette, palette.primary);
     const [r, g, b] = hexToRgb(hexColor);
-    return `1px 2px 5px 0px rgb(${r} ${g} ${b}/ 60%);`;
+    return `1px 2px 10px 0px rgb(${r} ${g} ${b}/ 60%);`;
   } catch (err) {
     return 'none';
   }
@@ -44,7 +44,7 @@ export const getSizes = (size: NormalSizes, squared: boolean) => {
       radius: squared ? '4px' : '1rem'
     },
     xlarge: {
-      height: '2rem',
+      height: '1.75rem',
       radius: squared ? '5px' : '1.5rem'
     }
   };
