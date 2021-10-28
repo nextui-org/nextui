@@ -50,7 +50,7 @@ export type ProgressBarProps = Props & typeof defaultProps & NativeAttrs;
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
   color,
-  value,
+  value: valueProp,
   max,
   min,
   striped,
@@ -65,9 +65,14 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 }) => {
   const theme = useTheme();
 
+  const value = useMemo(
+    () => (valueProp > max ? max : valueProp < min ? min : valueProp),
+    [valueProp, min, max]
+  );
+
   const percent = useMemo(
-    () => valueToPercent(value, min, max),
-    [value, min, max]
+    () => valueToPercent(valueProp, min, max),
+    [valueProp, min, max]
   );
 
   const fillerColor = useMemo(
