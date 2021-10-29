@@ -91,6 +91,10 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               box-sizing: border-box;
               text-align: center;
             }
+            .backdrop.fullscreen {
+              display: inline-flex;
+              overflow: hidden;
+            }
             .content {
               position: relative;
               z-index: 999999;
