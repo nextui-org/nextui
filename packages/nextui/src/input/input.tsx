@@ -135,8 +135,15 @@ const Input = React.forwardRef<FormElement, InputProps>(
       hoverBorder,
       shadowColor
     } = useMemo(
-      () => getColors(theme, colorProp, status, helperColorProp),
-      [theme.palette, theme.expressiveness, colorProp, helperColorProp, status]
+      () => getColors(theme, disabled, colorProp, status, helperColorProp),
+      [
+        theme.palette,
+        theme.expressiveness,
+        colorProp,
+        helperColorProp,
+        status,
+        disabled
+      ]
     );
 
     const radius = useMemo(
@@ -407,10 +414,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
           .wrapper.underlined::after {
             content: '';
             position: absolute;
+            z-index: 1;
             bottom: 0;
             width: 100%;
             height: ${borderWeight};
-            z-index: 1;
             background: ${borderColor};
           }
           .wrapper.underlined::before {
@@ -429,9 +436,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
             width: 100%;
           }
           .wrapper.disabled {
-            background-color: ${theme.palette.accents_2};
-            border-color: ${theme.palette.accents_2};
-            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
           .helper-text-container {
@@ -509,7 +513,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
           }
           input::placeholder,
           textarea::placeholder {
-            color: ${disabled ? theme.palette.accents_4 : placeholderColor};
+            color: ${placeholderColor};
             transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
             -moz-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
             -ms-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};

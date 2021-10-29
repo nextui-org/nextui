@@ -32,7 +32,7 @@ import { Textarea } from '@nextui-org/react';
 <>
     <Textarea
         disabled
-        label="Name"
+        label="Disabled name"
         placeholder="Enter your name"
       />
     <Spacer y={0.5} />
@@ -297,9 +297,7 @@ type NormalWeights = 'light' | 'normal' | 'bold';
 #### useInput
 
 ```ts
-type useInput = (
-  initialValue: string
-) => {
+type useInput = (initialValue: string) => {
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   currentRef: MutableRefObject<string>;

@@ -1,6 +1,6 @@
 import { NormalSizes, SimpleColors } from '../utils/prop-types';
 import { NextUIThemes, NextUIThemesPalette } from '../theme';
-import { addColorAlpha, getNormalColor, hexToRgb } from '../utils/color';
+import { getNormalColor, addColorAlpha, hexToRgb } from '../utils/color';
 import { isEmpty } from '../utils/assertion';
 
 export type InputSize = {
@@ -36,8 +36,8 @@ export const getSizes = (size?: NormalSizes) => {
 };
 
 export type InputColor = {
-  bgColor: string;
   color: string;
+  bgColor: string;
   placeholderColor: string;
   helperColor: string;
   borderColor: string;
@@ -60,6 +60,7 @@ export const getShadowColor = (
 
 export const getColors = (
   theme: NextUIThemes,
+  disabled?: boolean,
   color?: SimpleColors,
   status?: SimpleColors,
   helperColor?: SimpleColors
@@ -77,6 +78,20 @@ export const getColors = (
     borderColor: palette.accents_2,
     shadowColor: theme.expressiveness.shadowSmall
   };
+
+  if (disabled) {
+    return {
+      ...baseProps,
+      placeholderColor: isDark
+        ? theme.palette.accents_4
+        : theme.palette.accents_3,
+      color: theme.palette.accents_3,
+      bgColor: isDark ? theme.palette.accents_2 : theme.palette.accents_1,
+      borderColor: theme.palette.accents_2,
+      helperColor: palette.text,
+      hoverBorder: palette.foreground
+    };
+  }
 
   if (status === 'default' || isEmpty(status)) {
     return color === 'default'

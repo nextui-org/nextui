@@ -18,7 +18,7 @@ import { Input } from '@nextui-org/react';
   title="Default"
   desc="The default `Input` contains an animation effect."
   code={`
-<Input labelPlaceholder="Next UI" />
+<Input placeholder="Next UI" />
 `}
 />
 
@@ -564,9 +564,7 @@ type ContentPosition = 'left' | 'right';
 #### useInput
 
 ```ts
-type useInput = (
-  initialValue: string
-) => {
+type useInput = (initialValue: string) => {
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   currentRef: MutableRefObject<string>;
