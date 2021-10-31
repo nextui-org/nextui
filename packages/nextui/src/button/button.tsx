@@ -85,7 +85,7 @@ const Button = React.forwardRef<
   useImperativeHandle(ref, () => buttonRef.current);
   const groupConfig = useButtonGroupContext();
   const filteredProps = filterPropsWithGroup(btnProps, groupConfig);
-  /* eslint-disable @typescript-eslint/no-unused-vars */
+
   const {
     children,
     disabled,
@@ -105,6 +105,7 @@ const Button = React.forwardRef<
     loaderType,
     bordered,
     ghost,
+    tabIndex,
     style: buttonStyle,
     ...props
   } = filteredProps;
@@ -115,6 +116,7 @@ const Button = React.forwardRef<
     );
   }
   const hasIcon = icon || iconRight;
+  const onlyIcon = hasIcon && React.Children.count(children) === 0;
   const isRight = Boolean(iconRight);
 
   const { bg, color, loaderBg, border, style, hover } = useMemo(
@@ -188,6 +190,9 @@ const Button = React.forwardRef<
       className={`button ${className}`}
       disabled={disabled}
       onClick={clickHandler}
+      aria-label={typeof children === 'string' ? children : undefined}
+      role={onlyIcon ? 'presentation' : undefined}
+      tabIndex={!disabled ? tabIndex ?? 0 : -1}
       style={{
         ...style,
         ...buttonStyle
@@ -202,7 +207,7 @@ const Button = React.forwardRef<
           background={loaderBg}
         />
       )}
-      {React.Children.count(children) === 0 ? (
+      {onlyIcon ? (
         <ButtonIcon isRight={isRight} isSingle>
           {hasIcon}
         </ButtonIcon>
