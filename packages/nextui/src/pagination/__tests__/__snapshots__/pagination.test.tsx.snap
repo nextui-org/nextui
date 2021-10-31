@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination should render correctly 1`] = `
+"<nav><li><button class=\\" disabled\\">prev</button><style>
+        li {
+          margin-right: 6px;
+          display: inline-block;
+        }
+        button {
+          border: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+          text-transform: capitalize;
+          user-select: none;
+          white-space: nowrap;
+          text-align: center;
+          vertical-align: middle;
+          box-shadow: none;
+          outline: none;
+          height: var(--pagination-size);
+          min-width: var(--pagination-size);
+          font-size: inherit;
+          cursor: pointer;
+          color: #0070f3;
+          border-radius: 5px;
+          background-color: #fff;
+          transition: all linear 200ms 0ms;
+        }
+
+        button:hover {
+          background-color: rgba(0, 112, 243, 0.1);
+        }
+
+        .active {
+          font-weight: bold;
+          background-color: #0070f3;
+          color: #fff;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        .active:hover {
+          background-color: rgba(0, 112, 243, 0.8);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .disabled {
+          color: #888;
+          cursor: not-allowed;
+        }
+
+        .disabled:hover {
+          background-color: #eaeaea;
+        }
+
+        button :global(svg) {
+          width: 1.3em;
+          height: 1.3em;
+        }
+      </style></li><li><button class=\\"active \\">1</button><style>
+        li {
+          margin-right: 6px;
+          display: inline-block;
+        }
+        button {
+          border: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+          text-transform: capitalize;
+          user-select: none;
+          white-space: nowrap;
+          text-align: center;
+          vertical-align: middle;
+          box-shadow: none;
+          outline: none;
+          height: var(--pagination-size);
+          min-width: var(--pagination-size);
+          font-size: inherit;
+          cursor: pointer;
+          color: #0070f3;
+          border-radius: 5px;
+          background-color: #fff;
+          transition: all linear 200ms 0ms;
+        }
+
+        button:hover {
+          background-color: rgba(0, 112, 243, 0.1);
+        }
+
+        .active {
+          font-weight: bold;
+          background-color: #0070f3;
+          color: #fff;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        .active:hover {
+          background-color: rgba(0, 112, 243, 0.8);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .disabled {
+          color: #888;
+          cursor: not-allowed;
+        }
+
+        .disabled:hover {
+          background-color: #eaeaea;
+        }
+
+        button :global(svg) {
+          width: 1.3em;
+          height: 1.3em;
+        }
+      </style></li><li><button class=\\" disabled\\">next</button><style>
+        li {
+          margin-right: 6px;
+          display: inline-block;
+        }
+        button {
+          border: none;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+          text-transform: capitalize;
+          user-select: none;
+          white-space: nowrap;
+          text-align: center;
+          vertical-align: middle;
+          box-shadow: none;
+          outline: none;
+          height: var(--pagination-size);
+          min-width: var(--pagination-size);
+          font-size: inherit;
+          cursor: pointer;
+          color: #0070f3;
+          border-radius: 5px;
+          background-color: #fff;
+          transition: all linear 200ms 0ms;
+        }
+
+        button:hover {
+          background-color: rgba(0, 112, 243, 0.1);
+        }
+
+        .active {
+          font-weight: bold;
+          background-color: #0070f3;
+          color: #fff;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        .active:hover {
+          background-color: rgba(0, 112, 243, 0.8);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .disabled {
+          color: #888;
+          cursor: not-allowed;
+        }
+
+        .disabled:hover {
+          background-color: #eaeaea;
+        }
+
+        button :global(svg) {
+          width: 1.3em;
+          height: 1.3em;
+        }
+      </style></li></nav><style>
+        nav {
+          margin: 0;
+          padding: 0;
+          font-variant: tabular-nums;
+          font-feature-settings: 'tnum';
+          font-size: .875rem;
+          --pagination-size: 2rem;
+        }
+
+        nav :global(button:last-of-type) {
+          margin-right: 0;
+        }
+      </style>"
+`;

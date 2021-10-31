@@ -12,6 +12,8 @@ export interface PaginationParams {
   onChange?: (page: number) => void;
 }
 
+export type PaginationItemParam = number | typeof DOTS;
+
 const usePagination = ({
   page,
   total,
@@ -45,7 +47,7 @@ const usePagination = ({
   const first = () => setPage(1);
   const last = () => setPage(total);
 
-  const paginationRange = useMemo((): (number | 'dots')[] => {
+  const paginationRange = useMemo((): PaginationItemParam[] => {
     const totalPageNumbers = siblings * 2 + 3 + boundaries * 2;
     if (totalPageNumbers >= total) {
       return range(1, total);
