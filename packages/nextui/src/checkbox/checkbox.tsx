@@ -45,7 +45,7 @@ const defaultProps = {
   rounded: false,
   size: 'medium' as NormalSizes | number,
   className: '',
-  value: '',
+  value: ''
 };
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
@@ -76,7 +76,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     updateState,
     inGroup,
     disabledAll,
-    values,
+    values
   } = useCheckbox();
 
   const isDisabled = inGroup ? disabledAll || disabled : disabled;
@@ -122,11 +122,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
       if (isDisabled) return;
       const selfEvent: CheckboxEvent = {
         target: {
-          checked: !selfChecked,
+          checked: !selfChecked
         },
         stopPropagation: ev.stopPropagation,
         preventDefault: ev.preventDefault,
-        nativeEvent: ev,
+        nativeEvent: ev
       };
       if (inGroup && updateState) {
         updateState && updateState(value, !selfChecked);

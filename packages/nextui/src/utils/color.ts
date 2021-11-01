@@ -51,7 +51,7 @@ export const getNormalColor = (
     error: palette.error,
     gradient: palette.gradient,
     dark: palette.foreground,
-    invert: palette.foreground,
+    invert: palette.foreground
   };
   if (typeof color == 'boolean') {
     return color ? palette.primary : 'inherit';
@@ -91,7 +91,7 @@ export const hexToRgb = (color: string): [number, number, number] => {
   return [
     Number.parseInt(values[1], 16),
     Number.parseInt(values[2], 16),
-    Number.parseInt(values[3], 16),
+    Number.parseInt(values[3], 16)
   ];
 };
 
@@ -168,4 +168,20 @@ export const invertHex = (hex: string, smooth = true) => {
     padZero(g.toString(16)) +
     padZero(b.toString(16))
   );
+};
+
+export const getNormalShadowColor = (
+  color: NormalColors | string,
+  palette: NextUIThemesPalette
+) => {
+  try {
+    const hexColor =
+      color === 'gradient'
+        ? (hexFromString(palette.gradient, palette.primary, true) as string)
+        : getNormalColor(color, palette, palette.primary);
+    const [r, g, b] = hexToRgb(hexColor);
+    return `0 4px 14px 0 rgb(${r} ${g} ${b}/ 60%);`;
+  } catch (err) {
+    return 'none';
+  }
 };

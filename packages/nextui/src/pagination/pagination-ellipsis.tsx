@@ -3,20 +3,31 @@ import PaginationItem from './pagination-item';
 
 interface Props {
   isBefore?: boolean;
+  onlyDots?: boolean;
+  animated?: boolean;
   onClick?: (e: React.MouseEvent) => void;
 }
 
-const PaginationEllipsis: React.FC<Props> = ({ isBefore, onClick }) => {
+const PaginationEllipsis: React.FC<Props> = ({
+  isBefore,
+  onlyDots,
+  animated,
+  onClick
+}) => {
   const [showMore, setShowMore] = useState(false);
 
   return (
     <PaginationItem
+      onlyDots={onlyDots}
+      animated={animated}
       onClick={(e) => onClick && onClick(e)}
       onMouseEnter={() => setShowMore(true)}
       onMouseLeave={() => setShowMore(false)}
     >
       {showMore ? (
         <svg
+          role="presentation"
+          focusable="false"
           className="more"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -43,13 +54,10 @@ const PaginationEllipsis: React.FC<Props> = ({ isBefore, onClick }) => {
           <circle cx="5" cy="12" r="1" fill="currentColor" />
         </svg>
       )}
-
       <style jsx>{`
         svg {
           color: currentColor;
           stroke: currentColor;
-          width: 1rem;
-          height: 1rem;
         }
         .more {
           transform: rotate(${isBefore ? '180deg' : '0deg'});

@@ -1,32 +1,36 @@
-import { NormalSizes } from '../utils/prop-types';
+import { NextUIThemesPalette } from '../theme';
+import { NormalSizes, NormalColors } from '../utils/prop-types';
+import { hexFromString, getNormalColor, hexToRgb } from '../utils/color';
 
 type PaginationSize = {
   font: string;
   width: string;
 };
 
-export const getPaginationSizes = (size: NormalSizes) => {
+export const getPaginationSizes = (size: NormalSizes | number) => {
   const sizes: { [key in NormalSizes]: PaginationSize } = {
     mini: {
-      font: '.75rem',
-      width: '1.25rem'
+      font: '10px',
+      width: '24px'
     },
     small: {
-      font: '.75rem',
-      width: '1.65rem'
+      font: '12px',
+      width: '28px'
     },
     medium: {
-      font: '.875rem',
-      width: '2rem'
+      font: '14px',
+      width: '34px'
     },
     large: {
-      font: '1rem',
-      width: '2.4rem'
+      font: '16px',
+      width: '40px'
     },
     xlarge: {
-      font: '1.4rem',
-      width: '2.8rem'
+      font: '18px',
+      width: '46px'
     }
   };
+  if (typeof size === 'number')
+    return { font: `calc(${size}px / 2.55)`, width: `${size}px` };
   return sizes[size];
 };

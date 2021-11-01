@@ -9,7 +9,7 @@ interface Props {
 
 const defaultProps = {
   isRight: false,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;

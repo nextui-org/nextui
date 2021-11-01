@@ -24,9 +24,9 @@ import {
   getButtonColors,
   getButtonCursor,
   getButtonDripColor,
-  getShadowColor,
   getButtonSize
 } from './styles';
+import { getNormalShadowColor } from '../utils/color';
 import { getNormalRadius } from '../utils/dimensions';
 import { __DEV__ } from '../utils/assertion';
 import useDrip from '../use-drip';
@@ -126,7 +126,9 @@ const Button = React.forwardRef<
 
   const shadowColor = useMemo(
     () =>
-      shadow ? getShadowColor(theme.palette, filteredProps.color) : 'none',
+      shadow
+        ? getNormalShadowColor(filteredProps.color, theme.palette)
+        : 'none',
     [theme.palette, filteredProps, shadow]
   );
 
