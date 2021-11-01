@@ -145,7 +145,6 @@ const Avatar: React.FC<AvatarProps> = ({
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: ${radius};
           vertical-align: top;
@@ -174,7 +173,6 @@ const Avatar: React.FC<AvatarProps> = ({
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: ${theme.palette.background};
           border-radius: ${radius};
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
