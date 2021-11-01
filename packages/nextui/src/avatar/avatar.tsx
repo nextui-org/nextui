@@ -176,6 +176,9 @@ const Avatar: React.FC<AvatarProps> = ({
           background: ${theme.palette.background};
           border-radius: ${radius};
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
