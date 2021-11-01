@@ -88,6 +88,11 @@
                             "path": "/docs/components/card.mdx"
                         },
                         {
+                            "title": "Checkbox",
+                            "keywords": "check, radio, selectable, checkbox, box",
+                            "path": "/docs/components/checkbox.mdx"
+                        },
+                        {
                             "title": "Collapse",
                             "keywords": "collapse, accordion, expand, reveal",
                             "path": "/docs/components/collapse.mdx"
@@ -98,19 +103,19 @@
                             "path": "/docs/components/input.mdx"
                         },
                         {
-                            "title": "Textarea",
-                            "keywords": "textarea, input, text input, large text input",
-                            "path": "/docs/components/textarea.mdx"
+                            "title": "Link",
+                            "keywords": "link, navigation, href, next link",
+                            "path": "/docs/components/link.mdx"
                         },
                         {
-                            "title": "Checkbox",
-                            "keywords": "check, radio, selectable, checkbox, box",
-                            "path": "/docs/components/checkbox.mdx"
+                            "title": "Loading",
+                            "keywords": "loading, spinner, loadable, progress",
+                            "path": "/docs/components/loading.mdx"
                         },
                         {
-                            "title": "Radio",
-                            "keywords": "check, radio, select",
-                            "path": "/docs/components/radio.mdx"
+                            "title": "Modal",
+                            "keywords": "modal, dialog, backdrop",
+                            "path": "/docs/components/modal.mdx"
                         },
                         {
                             "title": "Progress",
@@ -119,19 +124,9 @@
                             "newPost": true
                         },
                         {
-                            "title": "Tooltip",
-                            "keywords": "tool, popover, tooltip, hoverable",
-                            "path": "/docs/components/tooltip.mdx"
-                        },
-                        {
-                            "title": "Modal",
-                            "keywords": "modal, dialog, backdrop",
-                            "path": "/docs/components/modal.mdx"
-                        },
-                        {
-                            "title": "Loading",
-                            "keywords": "loading, spinner, loadable, progress",
-                            "path": "/docs/components/loading.mdx"
+                            "title": "Radio",
+                            "keywords": "check, radio, select",
+                            "path": "/docs/components/radio.mdx"
                         },
                         {
                             "title": "Switch",
@@ -144,9 +139,14 @@
                             "path": "/docs/components/text.mdx"
                         },
                         {
-                            "title": "Link",
-                            "keywords": "link, navigation, href, next link",
-                            "path": "/docs/components/link.mdx"
+                            "title": "Textarea",
+                            "keywords": "textarea, input, text input, large text input",
+                            "path": "/docs/components/textarea.mdx"
+                        },
+                        {
+                            "title": "Tooltip",
+                            "keywords": "tool, popover, tooltip, hoverable",
+                            "path": "/docs/components/tooltip.mdx"
                         }
                     ]
                 }
