@@ -40,7 +40,6 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
           position: absolute;
           contain: strict;
           top: 0px;
-          left: 0px;
           z-index: 10;
           background: ${color};
           border-radius: ${noMargin

@@ -83,6 +83,17 @@ export const Rounded = () => (
   </>
 );
 
+export const Bordered = () => (
+  <>
+    <Grid xs={12}>
+      <Pagination bordered total={20} initialPage={1} />
+    </Grid>
+    <Grid xs={12}>
+      <Pagination rounded bordered total={20} initialPage={1} />
+    </Grid>
+  </>
+);
+
 export const Shadow = () => (
   <>
     <Grid xs={12}>
@@ -137,18 +148,32 @@ export const Loop = () => (
   </>
 );
 
-export const NoAnimated = () => (
-  <>
-    <Grid xs={12}>
-      <Pagination animated={false} total={6} initialPage={1} />
-    </Grid>
-  </>
-);
-
 export const NoMargin = () => (
   <>
     <Grid xs={12}>
       <Pagination shadow noMargin color="secondary" total={6} initialPage={1} />
+    </Grid>
+  </>
+);
+
+export const NoControls = () => (
+  <>
+    <Grid xs={12}>
+      <Pagination
+        shadow
+        controls={false}
+        color="success"
+        total={20}
+        initialPage={1}
+      />
+    </Grid>
+  </>
+);
+
+export const NoAnimated = () => (
+  <>
+    <Grid xs={12}>
+      <Pagination animated={false} total={6} initialPage={1} />
     </Grid>
   </>
 );

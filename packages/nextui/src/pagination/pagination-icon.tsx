@@ -6,6 +6,7 @@ export interface PaginationIconProps {
   disabled?: boolean;
   onlyDots?: boolean;
   animated?: boolean;
+  bordered?: boolean;
   onClick?: (e: React.MouseEvent) => void;
 }
 
@@ -14,12 +15,15 @@ const PaginationIcon: React.FC<PaginationIconProps> = ({
   disabled,
   onlyDots,
   animated,
+  bordered,
   onClick,
   ...props
 }) => {
   return (
     <PaginationItem
       preserveContent
+      value={isPrev ? '<' : '>'}
+      bordered={bordered}
       animated={animated}
       onlyDots={onlyDots}
       disabled={disabled}

@@ -1,5 +1,5 @@
 import React, { useMemo, useCallback } from 'react';
-import { NormalColors, NormalSizes } from '../utils/prop-types';
+import { NormalColors, NormalSizes, NormalWeights } from '../utils/prop-types';
 import { getPaginationSizes } from './styles';
 import usePagination, { DOTS, PaginationItemParam } from '../use-pagination';
 import PaginationItem from './pagination-item';
@@ -10,6 +10,7 @@ import useTheme from '../use-theme';
 import clsx from '../utils/clsx';
 import { getNormalColor } from '../utils/color';
 import { __DEV__ } from '../utils/assertion';
+import { getNormalWeight } from '../utils/dimensions';
 
 interface Props {
   color?: NormalColors | string;
@@ -21,9 +22,12 @@ interface Props {
   initialPage?: number;
   loop?: boolean;
   animated?: boolean;
+  controls?: boolean;
   noMargin?: boolean;
   dotsJump?: number;
   total?: number;
+  bordered?: boolean;
+  borderWeight?: NormalWeights;
   siblings?: number;
   boundaries?: number;
   onChange?: (val: number) => void;
@@ -32,8 +36,11 @@ interface Props {
 const defaultProps = {
   color: 'primary' as NormalColors | string,
   size: 'medium' as NormalSizes | number,
+  borderWeight: 'normal' as NormalWeights,
   shadow: false,
   rounded: false,
+  controls: true,
+  bordered: false,
   onlyDots: false,
   noMargin: false,
   initialPage: 1,
@@ -60,8 +67,11 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
   shadow,
   rounded,
   animated,
+  bordered,
+  borderWeight,
   onlyDots,
   dotsJump,
+  controls,
   noMargin,
   onChange,
   ...props
@@ -90,6 +100,11 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
     [rounded, onlyDots, noMargin]
   );
 
+  const weight = useMemo(
+    () => (bordered ? getNormalWeight(borderWeight) : '0px'),
+    [bordered, borderWeight]
+  );
+
   const renderItem = useCallback(
     (value: PaginationItemParam, index: number) => {
       if (value === DOTS) {
@@ -97,6 +112,8 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
         return (
           <PaginationEllipsis
             key={`pagination-item-${value}-${index}`}
+            value={value}
+            bordered={bordered}
             animated={animated}
             isBefore={isBefore}
             onlyDots={onlyDots}
@@ -113,7 +130,9 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
       return (
         <PaginationItem
           key={`pagination-item-${value}-${index}`}
+          value={value}
           animated={animated}
+          bordered={bordered}
           active={value === active}
           onClick={() => setPage(value)}
           onlyDots={onlyDots}
@@ -122,7 +141,7 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
         </PaginationItem>
       );
     },
-    [total, onlyDots, active, animated]
+    [total, onlyDots, active, bordered, animated]
   );
 
   const handleNext = () => {
@@ -140,28 +159,37 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
   };
 
   return (
-    <nav className={clsx('pagination', { 'no-margin': noMargin })} {...props}>
-      <PaginationIcon
-        isPrev
-        animated={animated}
-        onlyDots={onlyDots}
-        onClick={handlePrevious}
-        disabled={!loop && active === 1}
-      />
+    <nav
+      className={clsx('pagination', { 'no-margin': noMargin, bordered })}
+      {...props}
+    >
+      {controls && (
+        <PaginationIcon
+          isPrev
+          bordered={bordered}
+          animated={animated}
+          onlyDots={onlyDots}
+          onClick={handlePrevious}
+          disabled={!loop && active === 1}
+        />
+      )}
       <PaginationHighlight
         noMargin={noMargin}
         animated={animated}
         color={bgColor}
         shadow={shadow}
-        active={range.indexOf(active) + 1}
+        active={controls ? range.indexOf(active) + 1 : range.indexOf(active)}
       />
       {range.map(renderItem)}
-      <PaginationIcon
-        animated={animated}
-        onlyDots={onlyDots}
-        onClick={handleNext}
-        disabled={!loop && active === total}
-      />
+      {controls && (
+        <PaginationIcon
+          bordered={bordered}
+          animated={animated}
+          onlyDots={onlyDots}
+          onClick={handleNext}
+          disabled={!loop && active === total}
+        />
+      )}
       <style jsx>{`
         .pagination {
           margin: 0;
@@ -172,6 +200,7 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
           font-feature-settings: 'tnum';
           font-size: ${font};
           --next-ui-pagination-item-radius: ${radius};
+          --next-ui-pagination-item-border-weight: ${weight};
           --next-ui-pagination-item-margin: ${noMargin ? '0' : '2px'};
           --next-ui-pagination-item-color: ${bgColor};
           --next-ui-pagination-size: ${onlyDots ? `calc(${width} / 2)` : width};
@@ -188,6 +217,9 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
         .no-margin :global(button:last-of-type) {
           border-top-right-radius: 33%;
           border-bottom-right-radius: 33%;
+        }
+        .no-margin.bordered :global(button:not(:last-child)) {
+          border-right: 0;
         }
       `}</style>
     </nav>

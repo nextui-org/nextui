@@ -1,0 +1,253 @@
+---
+title: 'Pagination'
+description: 'The Pagination component allows you to display active page and navigate between multiple pages.'
+url: https://nextui.com/docs/components/pagination
+---
+
+# Pagination
+
+The Pagination component allows you to display active page and navigate between multiple pages.
+
+```jsx
+import { Pagination } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Playground
+  title="Default"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+ <Pagination total={20} initialPage={1} />
+`}
+/>
+
+<Playground
+  title="Colors"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+() => {
+const [selectedColor, setSelectedColor] = React.useState('primary');
+const colors = ['primary', 'secondary', 'success', 'warning', 'error', '#f4a']
+const capitalize = (str) => {
+  const lower = str.toLowerCase();
+  return str.charAt(0).toUpperCase() + lower.slice(1);
+}
+return(
+<Grid.Container gap={2}>
+    <Grid xs={12}>
+      <Pagination color={selectedColor} total={10} />
+    </Grid>
+    <Grid xs={12}>
+        <Radio.Group row size="small" value={selectedColor} onChange={setSelectedColor}>
+            {colors.map((color) => (
+                <Radio key={color} value={color} color={color}>
+                    {capitalize(color)}
+                </Radio>
+            ))}
+        </Radio.Group>
+    </Grid>    
+</Grid.Container>
+)}  
+`}
+/>
+
+<Playground
+  title="Sizes"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+() => {
+const [selectedSize, setSelectedSize] = React.useState('medium');
+const sizes = ['mini', 'small', 'medium', 'large', 'xlarge']
+const capitalize = (str) => {
+  const lower = str.toLowerCase();
+  return str.charAt(0).toUpperCase() + lower.slice(1);
+}
+return(
+<Grid.Container gap={2}>
+    <Grid xs={12}>
+      <Pagination color='secondary' size={selectedSize} total={10} />
+    </Grid>
+    <Grid xs={12}>
+        <Radio.Group row size="small" value={selectedSize} onChange={setSelectedSize}>
+            {sizes.map((size) => (
+                <Radio color="secondary" key={size} value={size}>
+                    {capitalize(size)}
+                </Radio>
+            ))}
+        </Radio.Group>
+    </Grid>    
+</Grid.Container>
+)}  
+`}
+/>
+
+<Playground
+  title="Rounded"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+<Pagination rounded  total={10} initialPage={6} />
+`}
+/>
+
+<Playground
+  title="Bordered"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+<Grid.Container xs={12} gap={2} >  
+    <Grid>
+        <Pagination bordered total={10} initialPage={6} />
+    </Grid>
+    <Grid>
+        <Pagination rounded bordered total={10} initialPage={6} />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Shadow"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+() => {
+const [selectedColor, setSelectedColor] = React.useState('primary');
+const colors = ['primary', 'secondary', 'success', 'warning', 'error', '#f4a']
+const capitalize = (str) => {
+  const lower = str.toLowerCase();
+  return str.charAt(0).toUpperCase() + lower.slice(1);
+}
+return(
+<Grid.Container gap={2}>
+    <Grid xs={12}>
+      <Pagination shadow color={selectedColor} total={10} />
+    </Grid>
+    <Grid xs={12}>
+        <Radio.Group row size="small" value={selectedColor} onChange={setSelectedColor}>
+            {colors.map((color) => (
+                <Radio key={color} value={color} color={color}>
+                    {capitalize(color)}
+                </Radio>
+            ))}
+        </Radio.Group>
+    </Grid>    
+</Grid.Container>
+)}  
+`}
+/>
+
+<Playground
+  title="Only Dots"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+() => {
+const [selectedSize, setSelectedSize] = React.useState('medium');
+const sizes = ['mini', 'small', 'medium', 'large', 'xlarge']
+const capitalize = (str) => {
+  const lower = str.toLowerCase();
+  return str.charAt(0).toUpperCase() + lower.slice(1);
+}
+return(
+<Grid.Container gap={2}>
+    <Grid xs={12}>
+      <Pagination onlyDots size={selectedSize} total={6} />
+    </Grid>
+    <Grid xs={12}>
+        <Radio.Group row size="small" value={selectedSize} onChange={setSelectedSize}>
+            {sizes.map((size) => (
+                <Radio key={size} value={size}>
+                    {capitalize(size)}
+                </Radio>
+            ))}
+        </Radio.Group>
+    </Grid>    
+</Grid.Container>
+)}  
+`}
+/>
+
+<Playground
+  title="Loop"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+<Pagination loop color="success" total={10} initialPage={6} />
+`}
+/>
+
+<Playground
+  title="No Margin"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+<Pagination noMargin shadow total={10} initialPage={6} />
+`}
+/>
+
+<Playground
+  title="No Controls"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+<Grid.Container gap={2}> 
+    <Grid> 
+        <Pagination shadow controls={false} total={10} initialPage={6} />
+    </Grid>
+    <Grid>
+        <Pagination noMargin shadow controls={false} total={10} initialPage={6} />
+    </Grid>
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="No Animated"
+  desc="You can set a starting page with the `initialPage` prop."
+  code={`
+<Pagination animated={false} total={10} initialPage={6} />
+`}
+/>
+
+<Playground
+  title="Siblings"
+  desc="You can control the amount of active item siblings with `siblings` prop."
+  code={`
+<Grid.Container xs={12} gap={2}>  
+    <Grid>
+        <Text>1 Sibling (default)</Text>
+        <Spacer y={0.4}/>
+        <Pagination bordered total={14} initialPage={6} />
+    </Grid>
+    <Grid>
+        <Text>2 Siblings</Text>
+        <Spacer y={0.4}/>
+        <Pagination bordered siblings={2} total={14} initialPage={6} />
+    </Grid>
+    <Grid>
+        <Text>3 Siblings</Text>
+        <Spacer y={0.4}/>
+        <Pagination bordered siblings={3} total={14} initialPage={6} />
+    </Grid>    
+</Grid.Container>
+`}
+/>
+
+<Playground
+  title="Boundaries"
+  desc="You can control the amount of items displayed after previous and before next buttons with `boundaries` prop."
+  code={`
+<Grid.Container xs={12} gap={2}>  
+    <Grid>
+        <Text>1 Boundary (default)</Text>
+        <Spacer y={0.4}/>
+        <Pagination bordered total={14} initialPage={6} />
+    </Grid>
+    <Grid>
+        <Text>2 Boundaries</Text>
+        <Spacer y={0.4}/>
+        <Pagination bordered boundaries={2} total={14} initialPage={6} />
+    </Grid>
+    <Grid>
+        <Text>3 Boundaries</Text>
+        <Spacer y={0.4}/>
+        <Pagination bordered boundaries={3} total={14} initialPage={6} />
+    </Grid>    
+</Grid.Container>
+`}
+/>

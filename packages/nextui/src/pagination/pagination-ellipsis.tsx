@@ -2,24 +2,30 @@ import React, { useState } from 'react';
 import PaginationItem from './pagination-item';
 
 interface Props {
+  value?: string | number;
   isBefore?: boolean;
   onlyDots?: boolean;
   animated?: boolean;
+  bordered?: boolean;
   onClick?: (e: React.MouseEvent) => void;
 }
 
 const PaginationEllipsis: React.FC<Props> = ({
+  value,
   isBefore,
   onlyDots,
   animated,
+  bordered,
   onClick
 }) => {
   const [showMore, setShowMore] = useState(false);
 
   return (
     <PaginationItem
+      value={value}
       onlyDots={onlyDots}
       animated={animated}
+      bordered={bordered}
       onClick={(e) => onClick && onClick(e)}
       onMouseEnter={() => setShowMore(true)}
       onMouseLeave={() => setShowMore(false)}

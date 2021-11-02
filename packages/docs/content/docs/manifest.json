@@ -88,6 +88,12 @@
                             "path": "/docs/components/card.mdx"
                         },
                         {
+                            "title": "Pagination",
+                            "keywords": "pagination, paginate, table pagination, pages, navigate",
+                            "path": "/docs/components/pagination.mdx",
+                            "newPost": true
+                        },
+                        {
                             "title": "Collapse",
                             "keywords": "collapse, accordion, expand, reveal",
                             "path": "/docs/components/collapse.mdx"
@@ -115,8 +121,7 @@
                         {
                             "title": "Progress",
                             "keywords": "progress, bar, task, display, activity",
-                            "path": "/docs/components/progress.mdx",
-                            "newPost": true
+                            "path": "/docs/components/progress.mdx"
                         },
                         {
                             "title": "Tooltip",
