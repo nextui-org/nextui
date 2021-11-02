@@ -2,11 +2,14 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCheckbox } from './checkbox-context';
 import CheckboxGroup from './checkbox-group';
 import useWarning from '../use-warning';
-import { __DEV__ } from '../utils/assertion';
 import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
 import useTheme from '../use-theme';
 import { getIconCheckStyle, getCheckboxSize } from './styles';
 import { getNormalColor } from '../utils/color';
+import { getFocusStyles } from '../utils/styles';
+import useKeyboard, { KeyCode } from '../use-keyboard';
+import clsx from '../utils/clsx';
+import { __DEV__ } from '../utils/assertion';
 
 interface CheckboxEventTarget {
   checked: boolean;
@@ -89,6 +92,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
     [color, groupColor, theme.palette]
   );
 
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
+
   const labelColor = useMemo(
     () =>
       isDisabled
@@ -141,12 +147,28 @@ const Checkbox: React.FC<CheckboxProps> = ({
     if (checked === undefined) return;
     setSelfChecked(checked);
   }, [checked]);
+
+  const { bindings } = useKeyboard(
+    (event: any) => {
+      changeHandle(event);
+    },
+    [KeyCode.Enter, KeyCode.Space],
+    {
+      disableGlobalEvent: true
+    }
+  );
+
   return (
     <label className={`checkbox ${className}`} style={style}>
-      <div className="checkbox-container">
+      <div
+        tabIndex={disabled ? -1 : 0}
+        className={clsx('checkbox-container', focusClassName)}
+        {...bindings}
+      >
         <input
           type="checkbox"
           role="checkbox"
+          tabIndex={-1}
           disabled={isDisabled}
           checked={selfChecked}
           aria-checked={selfChecked && indeterminate ? 'mixed' : selfChecked}
@@ -163,7 +185,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           </i>
         </div>
       </div>
-      <span className={`text ${line ? 'line-through' : ''}`}>
+      <span className={clsx('text', { 'line-through': line })}>
         {children || label}
       </span>
       <style jsx>{`
@@ -179,6 +201,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         .checkbox-container {
           width: var(--checkbox-size);
           height: var(--checkbox-size);
+          border-radius: ${radius};
           position: relative;
           opacity: ${isDisabled ? '0.4' : '1'};
           z-index: 1;
@@ -395,11 +418,16 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: all 0.25s ease;
         }
       `}</style>
+      {focusStyles}
     </label>
   );
 };
 
 Checkbox.defaultProps = defaultProps;
+
+if (__DEV__) {
+  Checkbox.displayName = 'NextUI - Checkbox';
+}
 
 type CheckboxComponent<P = {}> = React.FC<P> & {
   Group: typeof CheckboxGroup;

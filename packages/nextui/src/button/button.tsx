@@ -27,6 +27,7 @@ import {
   getButtonSize
 } from './styles';
 import { getNormalShadowColor } from '../utils/color';
+import { getFocusStyles } from '../utils/styles';
 import { getNormalRadius } from '../utils/dimensions';
 import { __DEV__ } from '../utils/assertion';
 import useDrip from '../use-drip';
@@ -126,9 +127,7 @@ const Button = React.forwardRef<
 
   const shadowColor = useMemo(
     () =>
-      shadow
-        ? getNormalShadowColor(filteredProps.color, theme.palette)
-        : 'none',
+      shadow ? getNormalShadowColor(filteredProps.color, theme.palette) : '',
     [theme.palette, filteredProps, shadow]
   );
 
@@ -136,6 +135,10 @@ const Button = React.forwardRef<
     () => getButtonCursor(disabled, loading),
     [disabled, loading]
   );
+
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
+
   const { height, minWidth, padding, width, fontSize, loaderSize } = useMemo(
     () => getButtonSize(size, auto),
     [size, auto]
@@ -187,7 +190,7 @@ const Button = React.forwardRef<
     <button
       ref={buttonRef}
       type={htmlType}
-      className={`button ${className}`}
+      className={`button ${focusClassName} ${className} `}
       disabled={disabled}
       onClick={clickHandler}
       style={{
@@ -233,7 +236,6 @@ const Button = React.forwardRef<
           font-weight: 500;
           font-size: ${fontSize};
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
@@ -310,6 +312,7 @@ const Button = React.forwardRef<
           padding-right: ${paddingForAutoMode};
         }
       `}</style>
+      {focusStyles}
     </button>
   );
 });

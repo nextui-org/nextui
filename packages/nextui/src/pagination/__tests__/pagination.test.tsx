@@ -86,15 +86,15 @@ describe('Pagination', () => {
     expect(html).toEqual(wrapper.find('svg').at(0).html());
   });
 
-  it('custom buttons should be display', () => {
-    const wrapper = mount(
-      <Pagination total={20}>
-        <Pagination.Previous>custom-prev</Pagination.Previous>
-        <Pagination.Next>custom-next</Pagination.Next>
-      </Pagination>
-    );
-    const btns = wrapper.find('button');
-    expect(btns.at(0).text()).toEqual('custom-prev');
-    expect(btns.at(btns.length - 1).text()).toEqual('custom-next');
-  });
+  //   it('custom buttons should be display', () => {
+  //     const wrapper = mount(
+  //       <Pagination total={20}>
+  //         <Pagination.Previous>custom-prev</Pagination.Previous>
+  //         <Pagination.Next>custom-next</Pagination.Next>
+  //       </Pagination>
+  //     );
+  //     const btns = wrapper.find('button');
+  //     expect(btns.at(0).text()).toEqual('custom-prev');
+  //     expect(btns.at(btns.length - 1).text()).toEqual('custom-next');
+  //   });
 });

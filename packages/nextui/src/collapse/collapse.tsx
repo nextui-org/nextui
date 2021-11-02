@@ -9,6 +9,8 @@ import useWarning from '../use-warning';
 import { NormalWeights } from '../utils/prop-types';
 import { getNormalWeight } from '../utils/dimensions';
 import { getId } from '../utils/collections';
+import { getFocusStyles } from '../utils/styles';
+import useKeyboard, { KeyCode } from '../use-keyboard';
 import clsx from '../utils/clsx';
 
 interface Props {
@@ -88,6 +90,9 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     setVisible(isActive);
   }, [values.join(',')]);
 
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
+
   const arrowComponent = useMemo(() => {
     if (!showArrow) return null;
     return arrowIcon ? arrowIcon : <CollapseIcon />;
@@ -118,7 +123,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     };
   }, []);
 
-  const clickHandler = (
+  const handleChange = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     if (disabled) return;
@@ -128,10 +133,27 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     onChange && onChange(event, index, next);
   };
 
+  const { bindings } = useKeyboard(
+    (event: any) => {
+      handleChange(event);
+    },
+    [KeyCode.Enter, KeyCode.Space],
+    {
+      disableGlobalEvent: true
+    }
+  );
+
   return (
     <div
-      className={clsx('collapse', { shadow, bordered }, className)}
+      tabIndex={disabled ? -1 : 0}
+      className={clsx(
+        'collapse',
+        { shadow, bordered },
+        className,
+        focusClassName
+      )}
       {...props}
+      {...bindings}
     >
       <div
         role="button"
@@ -140,7 +162,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         aria-disabled={disabled}
         aria-expanded={visible}
         aria-controls={ariaControlId}
-        onClick={clickHandler}
+        onClick={handleChange}
       >
         <div className={clsx('title', { animated })}>
           {contentLeft && (
@@ -182,8 +204,12 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
           border: ${borderWeight} solid ${theme.palette.border};
         }
         .view {
+          width: 100%;
+          display: block;
+          text-align: left;
+          background: transparent;
+          border: none;
           cursor: pointer;
-          outline: none;
           padding: ${theme.layout.gap} 0;
         }
         .view.disabled {
@@ -246,6 +272,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
           margin-bottom: 0;
         }
       `}</style>
+      {focusStyles}
     </div>
   );
 };

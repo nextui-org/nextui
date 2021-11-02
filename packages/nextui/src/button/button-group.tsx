@@ -37,7 +37,7 @@ const defaultProps = {
   borderWeight: 'normal' as NormalWeights | undefined,
   size: 'medium' as NormalSizes,
   color: 'default' as NormalColors,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -77,7 +77,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       auto,
       animated,
       rounded,
-      isButtonGroup: true,
+      isButtonGroup: true
     }),
     [disabled, size, color, bordered, light, ghost, flat]
   );
@@ -107,7 +107,6 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
             margin: ${theme.layout.gapQuarter};
             border: ${borderWidth} solid ${borderColor};
             background-color: transparent;
-            overflow: hidden;
             height: min-content;
           }
           .vertical {

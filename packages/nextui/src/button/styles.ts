@@ -3,12 +3,7 @@ import { NextUIThemesPalette } from '../theme';
 import { NormalSizes, NormalColors } from '../utils/prop-types';
 import { Props as ButtonProps } from './button';
 import { ButtonGroupProps } from './button-group';
-import {
-  hexToRgb,
-  addColorAlpha,
-  hexFromString,
-  getNormalColor
-} from '../utils/color';
+import { addColorAlpha, hexFromString, getNormalColor } from '../utils/color';
 import { getNormalWeight } from '../utils/dimensions';
 
 export interface ButtonBorder {

@@ -1,6 +1,4 @@
-import { NextUIThemesPalette } from '../theme';
-import { NormalSizes, NormalColors } from '../utils/prop-types';
-import { hexFromString, getNormalColor, hexToRgb } from '../utils/color';
+import { NormalSizes } from '../utils/prop-types';
 
 type PaginationSize = {
   font: string;

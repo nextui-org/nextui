@@ -16,10 +16,11 @@ import Image from '../image';
 import clsx from '../utils/clsx';
 import Drip from '../utils/drip';
 import useDrip from '../use-drip';
-import { __DEV__ } from '../utils/assertion';
 import { hasChild, pickChild } from '../utils/collections';
 import { getNormalWeight } from '../utils/dimensions';
 import { CardConfig, CardContext } from './card-context';
+import { getFocusStyles } from '../utils/styles';
+import { __DEV__ } from '../utils/assertion';
 
 interface Props {
   shadow?: boolean;
@@ -106,6 +107,9 @@ const Card = React.forwardRef<
     Image
   );
 
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
+
   const hasContent = hasChild(withoutImageChildren, CardBody);
 
   const hasHeader = hasChild(children, CardHeader);
@@ -137,6 +141,7 @@ const Card = React.forwardRef<
         className={clsx(
           'card',
           { animated, cover, clickable, hoverable },
+          clickable && focusClassName,
           className
         )}
         onClick={clickHandler}
@@ -204,6 +209,7 @@ const Card = React.forwardRef<
             border-bottom-right-radius: 0;
           }
         `}</style>
+        {focusStyles}
       </div>
     </CardContext.Provider>
   );

@@ -1,8 +1,13 @@
 /// <reference types="styled-jsx" />
 
+/// Theme
 export * from './theme/types';
 export { default as ThemeProvider } from './theme/theme-provider';
 
+//Utils
+export * from './utils/prop-types';
+
+// Hooks
 export { default as useCurrentState } from './use-current-state';
 export { default as useRealShape } from './use-real-shape';
 export { default as useResize } from './use-resize';
@@ -17,6 +22,8 @@ export type { UseClipboardOptions, UseClipboardResult } from './use-clipboard';
 export { default as useClickAnywhere } from './use-click-anywhere';
 export { default as useInput } from './use-input';
 export { default as useKeyboard } from './use-keyboard';
+export { default as usePagination } from './use-pagination';
+export type { PaginationParams } from './use-pagination';
 export type {
   UseKeyboardHandler,
   KeyboardOptions,
@@ -25,6 +32,7 @@ export type {
 } from './use-keyboard';
 export { KeyMod, KeyCode } from './use-keyboard/codes';
 
+// Components
 export { default as Avatar } from './avatar';
 
 export { default as CssBaseline } from './css-baseline';
@@ -85,3 +93,5 @@ export { default as Backdrop } from './backdrop';
 export { default as Collapse } from './collapse';
 
 export { default as Progress } from './progress';
+
+export { default as Pagination } from './pagination';
