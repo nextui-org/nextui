@@ -41,7 +41,7 @@
     "build:types": "yarn tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types",
     "build:dev-types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir lib/esm",
     "build:webpack": "webpack --config ./buildconfig/webpack.common.js",
-    "build:watch": "webpack ---config ./buildconfig/webpack.dev.js",
+    "build:watch": "node ./scripts/build-watch.js",
     "watch": "yarn clear && yarn build:dev-types && yarn build:watch",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "lint": "eslint \"src/**/*.{js,ts,tsx}\"",

@@ -7,13 +7,13 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../lib/esm'),
-    libraryTarget: 'commonjs',
+    libraryTarget: 'commonjs'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      components: sourcePath,
-    },
+      components: sourcePath
+    }
   },
   externals: [
     {
@@ -21,21 +21,21 @@ module.exports = {
         root: 'React',
         commonjs2: 'react',
         commonjs: 'react',
-        amd: 'react',
+        amd: 'react'
       },
       'react-dom': {
         root: 'ReactDOM',
         commonjs2: 'react-dom',
         commonjs: 'react-dom',
-        amd: 'react-dom',
-      },
+        amd: 'react-dom'
+      }
     },
     function (context, request, done) {
       if (/^styled-jsx/.test(request)) {
         return done(null, 'commonjs ' + request);
       }
       done();
-    },
+    }
   ],
   module: {
     rules: [
@@ -47,11 +47,11 @@ module.exports = {
           presets: [
             '@babel/preset-env',
             '@babel/preset-react',
-            '@babel/preset-typescript',
+            '@babel/preset-typescript'
           ],
-          plugins: ['styled-jsx/babel'],
-        },
-      },
-    ],
-  },
+          plugins: ['styled-jsx/babel']
+        }
+      }
+    ]
+  }
 };
