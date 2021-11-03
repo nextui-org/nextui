@@ -120,7 +120,7 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
             color: ${theme.palette.text};
             background-color: ${theme.palette.accents_1};
             transition: ${animated
-              ? 'transform 0.25s ease 0s, background 0.25s ease 0s'
+              ? 'transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s'
               : 'none'};
           }
           .button-content {
