@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonIcon should render correctly 1`] = `
-"<button type=\\"button\\" class=\\"button \\" color=\\"default\\"><div><span class=\\"icon   \\"><svg></svg><style>
+"<button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><div><span class=\\"icon   \\"><svg></svg><style>
         .icon {
           position: absolute;
           left: var(--next-ui-button-padding);
@@ -43,20 +43,17 @@ exports[`ButtonIcon should render correctly 1`] = `
           font-weight: 500;
           font-size: .875rem;
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: #fff;
           cursor: pointer;
           pointer-events: auto;
-          box-shadow: none;
+          box-shadow: ;
           --next-ui-button-border-radius: 12px;
           --next-ui-button-padding: 1.375rem;
           --next-ui-button-height: 2.5rem;
@@ -79,7 +76,7 @@ exports[`ButtonIcon should render correctly 1`] = `
         .button:hover:before {
           opacity: 0;
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: scale(0.97);
         }
         .button:hover,
@@ -123,7 +120,7 @@ exports[`ButtonIcon should render correctly 1`] = `
 `;
 
 exports[`ButtonIcon should work with right 1`] = `
-"<button type=\\"button\\" class=\\"button \\" color=\\"default\\"><div><span class=\\"icon right  \\"><svg></svg><style>
+"<button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><div><span class=\\"icon right  \\"><svg></svg><style>
         .icon {
           position: absolute;
           left: var(--next-ui-button-padding);
@@ -165,20 +162,17 @@ exports[`ButtonIcon should work with right 1`] = `
           font-weight: 500;
           font-size: .875rem;
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: #fff;
           cursor: pointer;
           pointer-events: auto;
-          box-shadow: none;
+          box-shadow: ;
           --next-ui-button-border-radius: 12px;
           --next-ui-button-padding: 1.375rem;
           --next-ui-button-height: 2.5rem;
@@ -201,7 +195,7 @@ exports[`ButtonIcon should work with right 1`] = `
         .button:hover:before {
           opacity: 0;
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: scale(0.97);
         }
         .button:hover,
@@ -245,7 +239,7 @@ exports[`ButtonIcon should work with right 1`] = `
 `;
 
 exports[`ButtonIcon should work without text 1`] = `
-"<button type=\\"button\\" class=\\"button \\" color=\\"default\\"><span class=\\"icon right single \\"><svg></svg><style>
+"<button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><span class=\\"icon right single \\"><svg></svg><style>
         .icon {
           position: absolute;
           left: var(--next-ui-button-padding);
@@ -287,20 +281,17 @@ exports[`ButtonIcon should work without text 1`] = `
           font-weight: 500;
           font-size: .875rem;
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: #fff;
           cursor: pointer;
           pointer-events: auto;
-          box-shadow: none;
+          box-shadow: ;
           --next-ui-button-border-radius: 12px;
           --next-ui-button-padding: 1.375rem;
           --next-ui-button-height: 2.5rem;
@@ -323,7 +314,7 @@ exports[`ButtonIcon should work without text 1`] = `
         .button:hover:before {
           opacity: 0;
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: scale(0.97);
         }
         .button:hover,

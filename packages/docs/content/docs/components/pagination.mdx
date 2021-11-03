@@ -24,7 +24,7 @@ import { Pagination } from '@nextui-org/react';
 
 <Playground
   title="Colors"
-  desc="You can set a starting page with the `initialPage` prop."
+  desc="You can change the color of the `Pagination` with the property `color`."
   code={`
 () => {
 const [selectedColor, setSelectedColor] = React.useState('primary');
@@ -54,7 +54,7 @@ return(
 
 <Playground
   title="Sizes"
-  desc="You can set a starting page with the `initialPage` prop."
+  desc="Change the size of the entire `Pagination` including `width`, `height` and `font-size` with the `size` property."
   code={`
 () => {
 const [selectedSize, setSelectedSize] = React.useState('medium');
@@ -84,7 +84,7 @@ return(
 
 <Playground
   title="Rounded"
-  desc="You can set a starting page with the `initialPage` prop."
+  desc="You can completely round the corners of any type of `Pagination` with the `rounded` property."
   code={`
 <Pagination rounded  total={10} initialPage={6} />
 `}
@@ -137,7 +137,7 @@ return(
 
 <Playground
   title="Only Dots"
-  desc="You can set a starting page with the `initialPage` prop."
+  desc="You can completely change the style of the component and remove the internal numbers in each `Pagination` button with the property `onlyDots`."
   code={`
 () => {
 const [selectedSize, setSelectedSize] = React.useState('medium');
@@ -167,7 +167,8 @@ return(
 
 <Playground
   title="Loop"
-  desc="You can set a starting page with the `initialPage` prop."
+  desc="You can make the pagination infinite with the `loop` property, this means that 
+  the arrow buttons are no longer in the disabled state."
   code={`
 <Pagination loop color="success" total={10} initialPage={6} />
 `}
@@ -175,7 +176,8 @@ return(
 
 <Playground
   title="No Margin"
-  desc="You can set a starting page with the `initialPage` prop."
+  desc="You can change the style of the entire `Pagination` component by removing the 
+  margin between the buttons and changing the radius with the `noMargin` property."
   code={`
 <Pagination noMargin shadow total={10} initialPage={6} />
 `}
@@ -183,7 +185,7 @@ return(
 
 <Playground
   title="No Controls"
-  desc="You can set a starting page with the `initialPage` prop."
+  desc="You can remove the `next` and `previous` arrows with `controls={false}` property."
   code={`
 <Grid.Container gap={2}> 
     <Grid> 
@@ -198,7 +200,7 @@ return(
 
 <Playground
   title="No Animated"
-  desc="You can set a starting page with the `initialPage` prop."
+  desc="You can disable the animation of the entire `Modal` with the property `animated={false}`."
   code={`
 <Pagination animated={false} total={10} initialPage={6} />
 `}
@@ -251,3 +253,62 @@ return(
 </Grid.Container>
 `}
 />
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Pagination Props
+
+| Attribute        | Type                     | Accepted values                  | Description                                                      | Default   |
+| ---------------- | ------------------------ | -------------------------------- | ---------------------------------------------------------------- | --------- |
+| **color**        | `NormalColors` `string`  | [NormalColors](#normal-colors)   | Change pagination color                                          | `default` |
+| **size**         | `NormalSizes` `number`   | [NormalSizes](#normal-sizes)     | Change pagination size                                           | `medium`  |
+| **page**         | `number`                 | -                                | Active page number                                               | -         |
+| **initialPage**  | `number`                 | -                                | Selected page on initial render                                  | `1`       |
+| **total**        | `number`                 | -                                | Total amount of pages                                            | `1`       |
+| **siblings**     | `number`                 | -                                | Amount on left/right side of selected page                       | `1`       |
+| **boundaries**   | `number`                 | -                                | Amount of elements visible on left/right edges                   | `1`       |
+| **dotsJump**     | `number`                 | -                                | Number of pages that are added or subtracted on the '...' button | `5`       |
+| **bordered**     | `boolean`                | `true/false`                     | Bodered pagination                                               | `false`   |
+| **rounded**      | `boolean`                | `true/false`                     | Rounded pagination                                               | `false`   |
+| **shadow**       | `boolean`                | `true/false`                     | Display shadow effect                                            | `false`   |
+| **animated**     | `boolean`                | `true/false`                     | Display move and scale animation                                 | `true`    |
+| **borderWeight** | `NormalWeights`          | [NormalWeights](#normal-weights) | Border weight for `bordered` pagination                          | `normal`  |
+| **loop**         | `boolean`                | `true/false`                     | Non disable next/previous controls                               | `false`   |
+| **noMargin**     | `boolean`                | `true/false`                     | Remove margin amongst pagination items                           | `false`   |
+| **controls**     | `boolean`                | `true/false`                     | Enable/Disable pagination controls                               | `true`    |
+| **onlyDots**     | `boolean`                | `true/false`                     | Show only dots as pagination elements                            | `false`   |
+| **onChange**     | `(page: number) => void` | -                                | Callback fired after change of each page                         | -         |
+| ...              | `HTMLAttributes`         | `'id', 'className', ...`         | Native props                                                     | -         |
+
+### Pagination types
+
+<Spacer y={1} />
+
+#### Normal Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'gradient';
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = 'light' | 'normal' | 'bold';
+```

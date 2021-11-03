@@ -1,189 +1,268 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination should render correctly 1`] = `
-"<nav><li><button class=\\" disabled\\">prev</button><style>
-        li {
-          margin-right: 6px;
-          display: inline-block;
+"<nav class=\\"pagination\\"><button class=\\"animated disabled preserve-content mock\\" aria-label=\\"previous page button\\" tabindex=\\"-1\\"><span class=\\"button-content\\"><svg role=\\"presentation\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M15.5 19l-7-7 7-7\\" stroke=\\"currentColor\\" stroke-width=\\"1.5\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\"></path></svg><style>
+        svg {
+          transform: rotate(0deg);
         }
-        button {
-          border: none;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          box-sizing: border-box;
-          text-transform: capitalize;
-          user-select: none;
-          white-space: nowrap;
-          text-align: center;
-          vertical-align: middle;
+      </style></span><style>
+          button {
+            border: none;
+            position: relative;
+            display: inline-flex;
+            margin: 0 var(--next-ui-pagination-item-margin);
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            user-select: none;
+            white-space: nowrap;
+            text-align: center;
+            vertical-align: middle;
+            box-shadow: none;
+            outline: none;
+            height: var(--next-ui-pagination-size);
+            min-width: var(--next-ui-pagination-size);
+            font-size: inherit;
+            cursor: pointer;
+            border-radius: var(--next-ui-pagination-item-radius);
+            color: #333;
+            background-color: #f6f6f6;
+            transition: transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s;
+          }
+          .button-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            top: 0;
+            left: 0;
+            z-index: 20;
+          }
+          .only-dots:not(.preserve-content) .button-content {
+            display: none;
+          }
+          button:hover {
+            background: rgba(153, 153,153,0.2);
+          }
+          .animated:not(.disabled):not(.active):active {
+            transform: scale(var(--next-ui-pagination-scale-transform));
+            font-size: calc(var(--next-ui-pagination-font-size) * 0.9);
+          }
+          .active {
+            font-weight: bold;
+            cursor: default;
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .active .button-content {
+            color: white;
+          }
+          .disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .bordered {
+            background-color: transparent;
+            border: var(--next-ui-pagination-item-border-weight) solid
+              #eaeaea;
+          }
+          button :global(svg) {
+            width: var(--next-ui-pagination-font-size);
+            height: var(--next-ui-pagination-font-size);
+          }
+        </style></button><div aria-hidden=\\"true\\" class=\\"\\"><style>
+        div {
+          position: absolute;
+          contain: strict;
+          top: 0px;
+          z-index: 10;
+          background: #0070f3;
+          border-radius: var(--next-ui-pagination-item-radius);
+          height: var(--next-ui-pagination-size);
+          min-width: var(--next-ui-pagination-size);
+          animation-name: move-pagination;
+          animation-duration: 350ms;
+          animation-direction: normal;
+          animation-timing-function: ease;
+          transition: left 350ms ease;
           box-shadow: none;
-          outline: none;
-          height: var(--pagination-size);
-          min-width: var(--pagination-size);
-          font-size: inherit;
-          cursor: pointer;
-          color: #0070f3;
-          border-radius: 5px;
-          background-color: #fff;
-          transition: all linear 200ms 0ms;
+          left: calc(var(--next-ui-pagination-size) * 1 + 6px);
         }
-
-        button:hover {
-          background-color: rgba(0, 112, 243, 0.1);
+        @keyframes move-pagination {
+          0% {
+            transform: scale(1);
+          }
+          60% {
+            transform: scale(var(--next-ui-pagination-scale-transform));
+          }
+          100% {
+            transform: scale(1);
+          }
         }
-
-        .active {
-          font-weight: bold;
-          background-color: #0070f3;
-          color: #fff;
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+      </style></div><button class=\\"active animated mock\\" aria-label=\\"1 item active\\" tabindex=\\"0\\"><span class=\\"button-content\\">1</span><style>
+          button {
+            border: none;
+            position: relative;
+            display: inline-flex;
+            margin: 0 var(--next-ui-pagination-item-margin);
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            user-select: none;
+            white-space: nowrap;
+            text-align: center;
+            vertical-align: middle;
+            box-shadow: none;
+            outline: none;
+            height: var(--next-ui-pagination-size);
+            min-width: var(--next-ui-pagination-size);
+            font-size: inherit;
+            cursor: pointer;
+            border-radius: var(--next-ui-pagination-item-radius);
+            color: #333;
+            background-color: #f6f6f6;
+            transition: transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s;
+          }
+          .button-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            top: 0;
+            left: 0;
+            z-index: 20;
+          }
+          .only-dots:not(.preserve-content) .button-content {
+            display: none;
+          }
+          button:hover {
+            background: rgba(153, 153,153,0.2);
+          }
+          .animated:not(.disabled):not(.active):active {
+            transform: scale(var(--next-ui-pagination-scale-transform));
+            font-size: calc(var(--next-ui-pagination-font-size) * 0.9);
+          }
+          .active {
+            font-weight: bold;
+            cursor: default;
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .active .button-content {
+            color: white;
+          }
+          .disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .bordered {
+            background-color: transparent;
+            border: var(--next-ui-pagination-item-border-weight) solid
+              #eaeaea;
+          }
+          button :global(svg) {
+            width: var(--next-ui-pagination-font-size);
+            height: var(--next-ui-pagination-font-size);
+          }
+        </style></button><button class=\\"animated disabled preserve-content mock\\" aria-label=\\"next page button\\" tabindex=\\"-1\\"><span class=\\"button-content\\"><svg role=\\"presentation\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M15.5 19l-7-7 7-7\\" stroke=\\"currentColor\\" stroke-width=\\"1.5\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\"></path></svg><style>
+        svg {
+          transform: rotate(180deg);
         }
-
-        .active:hover {
-          background-color: rgba(0, 112, 243, 0.8);
-          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .disabled {
-          color: #888;
-          cursor: not-allowed;
-        }
-
-        .disabled:hover {
-          background-color: #eaeaea;
-        }
-
-        button :global(svg) {
-          width: 1.3em;
-          height: 1.3em;
-        }
-      </style></li><li><button class=\\"active \\">1</button><style>
-        li {
-          margin-right: 6px;
-          display: inline-block;
-        }
-        button {
-          border: none;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          box-sizing: border-box;
-          text-transform: capitalize;
-          user-select: none;
-          white-space: nowrap;
-          text-align: center;
-          vertical-align: middle;
-          box-shadow: none;
-          outline: none;
-          height: var(--pagination-size);
-          min-width: var(--pagination-size);
-          font-size: inherit;
-          cursor: pointer;
-          color: #0070f3;
-          border-radius: 5px;
-          background-color: #fff;
-          transition: all linear 200ms 0ms;
-        }
-
-        button:hover {
-          background-color: rgba(0, 112, 243, 0.1);
-        }
-
-        .active {
-          font-weight: bold;
-          background-color: #0070f3;
-          color: #fff;
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-        }
-
-        .active:hover {
-          background-color: rgba(0, 112, 243, 0.8);
-          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .disabled {
-          color: #888;
-          cursor: not-allowed;
-        }
-
-        .disabled:hover {
-          background-color: #eaeaea;
-        }
-
-        button :global(svg) {
-          width: 1.3em;
-          height: 1.3em;
-        }
-      </style></li><li><button class=\\" disabled\\">next</button><style>
-        li {
-          margin-right: 6px;
-          display: inline-block;
-        }
-        button {
-          border: none;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          box-sizing: border-box;
-          text-transform: capitalize;
-          user-select: none;
-          white-space: nowrap;
-          text-align: center;
-          vertical-align: middle;
-          box-shadow: none;
-          outline: none;
-          height: var(--pagination-size);
-          min-width: var(--pagination-size);
-          font-size: inherit;
-          cursor: pointer;
-          color: #0070f3;
-          border-radius: 5px;
-          background-color: #fff;
-          transition: all linear 200ms 0ms;
-        }
-
-        button:hover {
-          background-color: rgba(0, 112, 243, 0.1);
-        }
-
-        .active {
-          font-weight: bold;
-          background-color: #0070f3;
-          color: #fff;
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-        }
-
-        .active:hover {
-          background-color: rgba(0, 112, 243, 0.8);
-          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .disabled {
-          color: #888;
-          cursor: not-allowed;
-        }
-
-        .disabled:hover {
-          background-color: #eaeaea;
-        }
-
-        button :global(svg) {
-          width: 1.3em;
-          height: 1.3em;
-        }
-      </style></li></nav><style>
-        nav {
+      </style></span><style>
+          button {
+            border: none;
+            position: relative;
+            display: inline-flex;
+            margin: 0 var(--next-ui-pagination-item-margin);
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            user-select: none;
+            white-space: nowrap;
+            text-align: center;
+            vertical-align: middle;
+            box-shadow: none;
+            outline: none;
+            height: var(--next-ui-pagination-size);
+            min-width: var(--next-ui-pagination-size);
+            font-size: inherit;
+            cursor: pointer;
+            border-radius: var(--next-ui-pagination-item-radius);
+            color: #333;
+            background-color: #f6f6f6;
+            transition: transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s;
+          }
+          .button-content {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            top: 0;
+            left: 0;
+            z-index: 20;
+          }
+          .only-dots:not(.preserve-content) .button-content {
+            display: none;
+          }
+          button:hover {
+            background: rgba(153, 153,153,0.2);
+          }
+          .animated:not(.disabled):not(.active):active {
+            transform: scale(var(--next-ui-pagination-scale-transform));
+            font-size: calc(var(--next-ui-pagination-font-size) * 0.9);
+          }
+          .active {
+            font-weight: bold;
+            cursor: default;
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          }
+          .active .button-content {
+            color: white;
+          }
+          .disabled {
+            color: #888;
+            cursor: not-allowed;
+          }
+          .bordered {
+            background-color: transparent;
+            border: var(--next-ui-pagination-item-border-weight) solid
+              #eaeaea;
+          }
+          button :global(svg) {
+            width: var(--next-ui-pagination-font-size);
+            height: var(--next-ui-pagination-font-size);
+          }
+        </style></button><style>
+        .pagination {
           margin: 0;
           padding: 0;
+          display: inline-flex;
+          position: relative;
           font-variant: tabular-nums;
           font-feature-settings: 'tnum';
-          font-size: .875rem;
-          --pagination-size: 2rem;
+          font-size: 14px;
+          --next-ui-pagination-item-radius: 33%;
+          --next-ui-pagination-item-border-weight: 0px;
+          --next-ui-pagination-item-margin: 2px;
+          --next-ui-pagination-item-color: #0070f3;
+          --next-ui-pagination-size: 34px;
+          --next-ui-pagination-font-size: 14px;
+          --next-ui-pagination-scale-transform: 0.9;
         }
-
-        nav :global(button:last-of-type) {
+        .pagination :global(button:last-of-type) {
           margin-right: 0;
         }
-      </style>"
+        .no-margin :global(button:first-of-type) {
+          border-top-left-radius: 33%;
+          border-bottom-left-radius: 33%;
+        }
+        .no-margin :global(button:last-of-type) {
+          border-top-right-radius: 33%;
+          border-bottom-right-radius: 33%;
+        }
+        .no-margin.bordered :global(button:not(:last-child)) {
+          border-right: 0;
+        }
+      </style></nav>"
 `;

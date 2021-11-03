@@ -30,7 +30,7 @@ interface Props {
   borderWeight?: NormalWeights;
   siblings?: number;
   boundaries?: number;
-  onChange?: (val: number) => void;
+  onChange?: (page: number) => void;
 }
 
 const defaultProps = {

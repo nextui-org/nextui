@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Textarea should render correctly 1`] = `
-"<div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-kqnh7fl0\\" class=\\"\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div class=\\"with-label\\"><div tabindex=\\"0\\" class=\\"container textarea-container mock\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-fb9g6u12\\" class=\\"\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -10,6 +10,7 @@ exports[`Textarea should render correctly 1`] = `
             position: relative;
             box-sizing: border-box;
             -webkit-box-align: center;
+            border-radius: 12px;
           }
           .container {
             width: 100%;
@@ -50,10 +51,10 @@ exports[`Textarea should render correctly 1`] = `
           .wrapper.underlined::after {
             content: '';
             position: absolute;
+            z-index: 1;
             bottom: 0;
             width: 100%;
             height: 0px;
-            z-index: 1;
             background: #eaeaea;
           }
           .wrapper.underlined::before {
@@ -72,9 +73,6 @@ exports[`Textarea should render correctly 1`] = `
             width: 100%;
           }
           .wrapper.disabled {
-            background-color: #eaeaea;
-            border-color: #eaeaea;
-            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
           .helper-text-container {
@@ -128,12 +126,10 @@ exports[`Textarea should render correctly 1`] = `
           input,
           textarea {
             padding: 0;
-            box-shadow: none;
             font-size: .875rem;
             background-color: transparent;
             border: none;
             color: #333;
-            outline: none;
             border-radius: 0;
             width: 100%;
             min-width: 0;
@@ -193,7 +189,7 @@ exports[`Textarea should render correctly 1`] = `
 `;
 
 exports[`Textarea should work with different styles 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-36gj1lk3\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div tabindex=\\"0\\" class=\\"container textarea-container mock\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-qptprrj8\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -202,6 +198,7 @@ exports[`Textarea should work with different styles 1`] = `
             position: relative;
             box-sizing: border-box;
             -webkit-box-align: center;
+            border-radius: 12px;
           }
           .container {
             width: 100%;
@@ -242,10 +239,10 @@ exports[`Textarea should work with different styles 1`] = `
           .wrapper.underlined::after {
             content: '';
             position: absolute;
+            z-index: 1;
             bottom: 0;
             width: 100%;
             height: 0px;
-            z-index: 1;
             background: #eaeaea;
           }
           .wrapper.underlined::before {
@@ -264,9 +261,6 @@ exports[`Textarea should work with different styles 1`] = `
             width: 100%;
           }
           .wrapper.disabled {
-            background-color: #eaeaea;
-            border-color: #eaeaea;
-            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
           .helper-text-container {
@@ -320,12 +314,10 @@ exports[`Textarea should work with different styles 1`] = `
           input,
           textarea {
             padding: 0;
-            box-shadow: none;
             font-size: .875rem;
             background-color: transparent;
             border: none;
             color: #333;
-            outline: none;
             border-radius: 0;
             width: 100%;
             min-width: 0;
@@ -381,7 +373,7 @@ exports[`Textarea should work with different styles 1`] = `
             border: none;
             outline: none;
           }
-        </style><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-r5p7pj7o\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style><div class=\\"with-label\\"><div tabindex=\\"0\\" class=\\"container textarea-container mock\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"next-ui-2j4pms62\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: 20%;
             display: inline-flex;
@@ -390,6 +382,7 @@ exports[`Textarea should work with different styles 1`] = `
             position: relative;
             box-sizing: border-box;
             -webkit-box-align: center;
+            border-radius: 12px;
           }
           .container {
             width: 100%;
@@ -430,10 +423,10 @@ exports[`Textarea should work with different styles 1`] = `
           .wrapper.underlined::after {
             content: '';
             position: absolute;
+            z-index: 1;
             bottom: 0;
             width: 100%;
             height: 0px;
-            z-index: 1;
             background: #eaeaea;
           }
           .wrapper.underlined::before {
@@ -452,9 +445,6 @@ exports[`Textarea should work with different styles 1`] = `
             width: 100%;
           }
           .wrapper.disabled {
-            background-color: #eaeaea;
-            border-color: #eaeaea;
-            box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
             cursor: not-allowed;
           }
           .helper-text-container {
@@ -508,12 +498,10 @@ exports[`Textarea should work with different styles 1`] = `
           input,
           textarea {
             padding: 0;
-            box-shadow: none;
             font-size: .875rem;
             background-color: transparent;
             border: none;
             color: #333;
-            outline: none;
             border-radius: 0;
             width: 100%;
             min-width: 0;
