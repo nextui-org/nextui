@@ -5,7 +5,6 @@ export function getFocusStyles(theme: NextUIThemes) {
   return css.resolve`
     :focus {
       outline: none;
-      transition: box-shadow 250ms ease;
       box-shadow: 0 0 0 2px
           ${theme.type === 'dark'
             ? theme.palette.accents_2

@@ -30,6 +30,7 @@ import { getNormalShadowColor } from '../utils/color';
 import { getFocusStyles } from '../utils/styles';
 import { getNormalRadius } from '../utils/dimensions';
 import { __DEV__ } from '../utils/assertion';
+import clsx from '../utils/clsx';
 import useDrip from '../use-drip';
 
 export interface Props {
@@ -190,7 +191,7 @@ const Button = React.forwardRef<
     <button
       ref={buttonRef}
       type={htmlType}
-      className={`button ${focusClassName} ${className} `}
+      className={clsx('button', { disabled }, focusClassName, className)}
       disabled={disabled}
       onClick={clickHandler}
       style={{
@@ -240,9 +241,7 @@ const Button = React.forwardRef<
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: ${color};
@@ -271,7 +270,7 @@ const Button = React.forwardRef<
         .button:hover:before {
           opacity: ${hoverBeforeOpacity};
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: ${animated ? 'scale(0.97)' : 'none'};
         }
         .button:hover,
