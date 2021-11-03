@@ -1,4 +1,3 @@
-import React from 'react';
 import { NextUIThemes } from '../theme';
 import css from 'styled-jsx/css';
 
