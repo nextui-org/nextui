@@ -2,17 +2,17 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Snippet from '../index';
 
-const command = 'yarn add @geist-ui/react';
+const command = 'yarn add @nextui-org/react';
 const multiLine = ['cd project', 'now'];
 
 describe('Snippet', () => {
   beforeAll(() => {
     window.getSelection = jest.fn().mockImplementation(() => ({
       removeAllRanges: jest.fn(),
-      addRange: jest.fn(),
+      addRange: jest.fn()
     }));
     document.createRange = jest.fn().mockImplementation(() => ({
-      selectNode: jest.fn(),
+      selectNode: jest.fn()
     }));
   });
 
@@ -87,7 +87,9 @@ describe('Snippet', () => {
 
   it('should work with custom toast', () => {
     document.execCommand = jest.fn();
-    const wrapper = mount(<Snippet text={command} toastText="Code copied!" />);
+    const wrapper = mount(
+      <Snippet text={command} tooltipText="Code copied!" />
+    );
     wrapper.find('.copy').simulate('click');
     expect(document.execCommand).toHaveBeenCalled();
     (document.execCommand as jest.Mock).mockRestore();
