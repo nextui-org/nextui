@@ -5,6 +5,8 @@ import { NormalSizes, NormalColors } from '../utils/prop-types';
 import { getNormalColor, hexToRGBA, isHex } from '../utils/color';
 import { getSizes } from './styles';
 import useWarning from '../use-warning';
+import useKeyboard, { KeyCode } from '../use-keyboard';
+import { getFocusStyles } from '../utils/styles';
 import { __DEV__ } from '../utils/assertion';
 
 interface SwitchEventTarget {
@@ -40,7 +42,7 @@ const defaultProps = {
   bordered: false,
   squared: false,
   initialChecked: false,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.LabelHTMLAttributes<unknown>, keyof Props>;
@@ -74,11 +76,11 @@ const Switch: React.FC<SwitchProps> = ({
       if (disabled) return;
       const selfEvent: SwitchEvent = {
         target: {
-          checked: !selfChecked,
+          checked: !selfChecked
         },
         stopPropagation: ev.stopPropagation,
         preventDefault: ev.preventDefault,
-        nativeEvent: ev,
+        nativeEvent: ev
       };
 
       setSelfChecked(!selfChecked);
@@ -86,6 +88,19 @@ const Switch: React.FC<SwitchProps> = ({
     },
     [disabled, selfChecked, onChange]
   );
+
+  const { bindings } = useKeyboard(
+    (event: any) => {
+      changeHandle(event);
+    },
+    [KeyCode.Enter, KeyCode.Space],
+    {
+      disableGlobalEvent: true
+    }
+  );
+
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
 
   const radius = useMemo(() => (squared ? '2px' : '50%'), [squared]);
 
@@ -115,6 +130,7 @@ const Switch: React.FC<SwitchProps> = ({
   return (
     <label className={`${className}`} {...props}>
       <input
+        tabIndex={-1}
         type="checkbox"
         disabled={disabled}
         checked={selfChecked}
@@ -122,11 +138,13 @@ const Switch: React.FC<SwitchProps> = ({
       />
       <div
         role="switch"
+        tabIndex={disabled ? -1 : 0}
         aria-checked={selfChecked}
         aria-disabled={disabled}
         className={`switch ${selfChecked ? 'checked' : ''} ${
           disabled ? 'disabled' : ''
-        }`}
+        } ${focusClassName}`}
+        {...bindings}
       >
         <span className="circle">{circleIcon}</span>
       </div>
@@ -212,6 +230,7 @@ const Switch: React.FC<SwitchProps> = ({
           background: ${theme.palette.accents_2};
         }
       `}</style>
+      {focusStyles}
     </label>
   );
 };

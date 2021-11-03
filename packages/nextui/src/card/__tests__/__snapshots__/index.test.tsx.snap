@@ -5,6 +5,7 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "class": "card animated",
+      "tabindex": "-1",
     },
     "children": Array [
       Node {
@@ -15,6 +16,7 @@ LoadedCheerio {
           Node {
             "attribs": Object {
               "class": "card animated",
+              "tabindex": "-1",
             },
             "children": Array [
               Node {
@@ -25,6 +27,7 @@ LoadedCheerio {
                   Node {
                     "attribs": Object {
                       "class": "card animated",
+                      "tabindex": "-1",
                     },
                     "children": Array [
                       Node {
@@ -443,9 +446,11 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "tabindex": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "tabindex": undefined,
                     },
                   },
                   Node {
@@ -490,6 +495,7 @@ LoadedCheerio {
                     "prev": Node {
                       "attribs": Object {
                         "class": "card animated",
+                        "tabindex": "-1",
                       },
                       "children": Array [
                         Node {
@@ -865,9 +871,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "tabindex": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "tabindex": undefined,
                       },
                     },
                     "type": "style",
@@ -1018,6 +1026,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "card animated",
+                        "tabindex": "-1",
                       },
                       "children": Array [
                         Node {
@@ -1436,9 +1445,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "tabindex": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "tabindex": undefined,
                       },
                     },
                     Node {
@@ -1483,6 +1494,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "card animated",
+                          "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
@@ -1858,9 +1870,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                       },
                       "type": "style",
@@ -1937,9 +1951,11 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "tabindex": undefined,
             },
           },
           Node {
@@ -1984,6 +2000,7 @@ LoadedCheerio {
             "prev": Node {
               "attribs": Object {
                 "class": "card animated",
+                "tabindex": "-1",
               },
               "children": Array [
                 Node {
@@ -1994,6 +2011,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "card animated",
+                        "tabindex": "-1",
                       },
                       "children": Array [
                         Node {
@@ -2412,9 +2430,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "tabindex": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "tabindex": undefined,
                       },
                     },
                     Node {
@@ -2459,6 +2479,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "card animated",
+                          "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
@@ -2834,9 +2855,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                       },
                       "type": "style",
@@ -2987,6 +3010,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "card animated",
+                          "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
@@ -3405,9 +3429,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                       },
                       Node {
@@ -3452,6 +3478,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "card animated",
+                            "tabindex": "-1",
                           },
                           "children": Array [
                             Node {
@@ -3827,9 +3854,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "tabindex": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "tabindex": undefined,
                           },
                         },
                         "type": "style",
@@ -3863,9 +3892,11 @@ LoadedCheerio {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "tabindex": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "tabindex": undefined,
               },
             },
             "type": "style",
@@ -4016,6 +4047,7 @@ LoadedCheerio {
             Node {
               "attribs": Object {
                 "class": "card animated",
+                "tabindex": "-1",
               },
               "children": Array [
                 Node {
@@ -4026,6 +4058,7 @@ LoadedCheerio {
                     Node {
                       "attribs": Object {
                         "class": "card animated",
+                        "tabindex": "-1",
                       },
                       "children": Array [
                         Node {
@@ -4444,9 +4477,11 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "tabindex": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "tabindex": undefined,
                       },
                     },
                     Node {
@@ -4491,6 +4526,7 @@ LoadedCheerio {
                       "prev": Node {
                         "attribs": Object {
                           "class": "card animated",
+                          "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
@@ -4866,9 +4902,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                       },
                       "type": "style",
@@ -5019,6 +5057,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "card animated",
+                          "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
@@ -5437,9 +5476,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                       },
                       Node {
@@ -5484,6 +5525,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "card animated",
+                            "tabindex": "-1",
                           },
                           "children": Array [
                             Node {
@@ -5859,9 +5901,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "tabindex": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "tabindex": undefined,
                           },
                         },
                         "type": "style",
@@ -5938,9 +5982,11 @@ LoadedCheerio {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "tabindex": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "tabindex": undefined,
               },
             },
             Node {
@@ -5985,6 +6031,7 @@ LoadedCheerio {
               "prev": Node {
                 "attribs": Object {
                   "class": "card animated",
+                  "tabindex": "-1",
                 },
                 "children": Array [
                   Node {
@@ -5995,6 +6042,7 @@ LoadedCheerio {
                       Node {
                         "attribs": Object {
                           "class": "card animated",
+                          "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
@@ -6413,9 +6461,11 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "tabindex": undefined,
                         },
                       },
                       Node {
@@ -6460,6 +6510,7 @@ LoadedCheerio {
                         "prev": Node {
                           "attribs": Object {
                             "class": "card animated",
+                            "tabindex": "-1",
                           },
                           "children": Array [
                             Node {
@@ -6835,9 +6886,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "tabindex": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "tabindex": undefined,
                           },
                         },
                         "type": "style",
@@ -6988,6 +7041,7 @@ LoadedCheerio {
                         Node {
                           "attribs": Object {
                             "class": "card animated",
+                            "tabindex": "-1",
                           },
                           "children": Array [
                             Node {
@@ -7406,9 +7460,11 @@ LoadedCheerio {
                           "type": "tag",
                           "x-attribsNamespace": Object {
                             "class": undefined,
+                            "tabindex": undefined,
                           },
                           "x-attribsPrefix": Object {
                             "class": undefined,
+                            "tabindex": undefined,
                           },
                         },
                         Node {
@@ -7453,6 +7509,7 @@ LoadedCheerio {
                           "prev": Node {
                             "attribs": Object {
                               "class": "card animated",
+                              "tabindex": "-1",
                             },
                             "children": Array [
                               Node {
@@ -7828,9 +7885,11 @@ LoadedCheerio {
                             "type": "tag",
                             "x-attribsNamespace": Object {
                               "class": undefined,
+                              "tabindex": undefined,
                             },
                             "x-attribsPrefix": Object {
                               "class": undefined,
+                              "tabindex": undefined,
                             },
                           },
                           "type": "style",
@@ -7864,9 +7923,11 @@ LoadedCheerio {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "tabindex": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "tabindex": undefined,
                 },
               },
               "type": "style",
@@ -7909,9 +7970,11 @@ LoadedCheerio {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
+      "tabindex": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
+      "tabindex": undefined,
     },
   },
   "_root": LoadedCheerio {
@@ -8007,6 +8070,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "card animated hoverable",
+          "tabindex": "-1",
         },
         "children": Array [
           Node {
@@ -8382,9 +8446,11 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "tabindex": undefined,
         },
       },
     ],

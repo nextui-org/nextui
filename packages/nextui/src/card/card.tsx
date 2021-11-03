@@ -16,10 +16,12 @@ import Image from '../image';
 import clsx from '../utils/clsx';
 import Drip from '../utils/drip';
 import useDrip from '../use-drip';
-import { __DEV__ } from '../utils/assertion';
 import { hasChild, pickChild } from '../utils/collections';
 import { getNormalWeight } from '../utils/dimensions';
 import { CardConfig, CardContext } from './card-context';
+import { getFocusStyles } from '../utils/styles';
+import useKeyboard, { KeyCode } from '../use-keyboard';
+import { __DEV__ } from '../utils/assertion';
 
 interface Props {
   shadow?: boolean;
@@ -106,6 +108,9 @@ const Card = React.forwardRef<
     Image
   );
 
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
+
   const hasContent = hasChild(withoutImageChildren, CardBody);
 
   const hasHeader = hasChild(children, CardHeader);
@@ -130,17 +135,33 @@ const Card = React.forwardRef<
     onClick && onClick(event);
   };
 
+  const { bindings } = useKeyboard(
+    (event: any) => {
+      if (!clickable) {
+        return;
+      }
+      clickHandler(event);
+    },
+    [KeyCode.Enter, KeyCode.Space],
+    {
+      disableGlobalEvent: true
+    }
+  );
+
   return (
     <CardContext.Provider value={cardConfig}>
       <div
         ref={cardRef}
+        tabIndex={clickable ? 0 : -1}
         className={clsx(
           'card',
           { animated, cover, clickable, hoverable },
+          clickable && focusClassName,
           className
         )}
         onClick={clickHandler}
         {...props}
+        {...bindings}
       >
         {hasHeader ? (
           <>
@@ -194,7 +215,7 @@ const Card = React.forwardRef<
           }
           .card.hoverable.animated:hover {
             transform: translateY(-2px);
-            box-shadow: ${shadow ? theme.expressiveness.shadowLarge : 'none'};
+            box-shadow: ${shadow ? theme.expressiveness.shadowLarge : ''};
           }
           .card.cover :global(img) {
             object-fit: cover;
@@ -204,6 +225,7 @@ const Card = React.forwardRef<
             border-bottom-right-radius: 0;
           }
         `}</style>
+        {focusStyles}
       </div>
     </CardContext.Provider>
   );

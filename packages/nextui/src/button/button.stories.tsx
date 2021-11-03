@@ -13,13 +13,13 @@ export default {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'column'
         }}
       >
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 } as Meta;
 
 export const Default = () => <Button>Action</Button>;

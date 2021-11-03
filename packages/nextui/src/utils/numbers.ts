@@ -8,3 +8,8 @@
 export function valueToPercent(value: number, min: number, max: number) {
   return ((value - min) * 100) / (max - min);
 }
+
+export function range(start: number, end: number) {
+  const length = end - start + 1;
+  return Array.from({ length }, (_, index) => index + start);
+}

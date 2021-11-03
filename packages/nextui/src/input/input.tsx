@@ -20,6 +20,7 @@ import { getId } from '../utils/collections';
 import { Props, FormElement, defaultProps } from './input-props';
 import { getNormalRadius, getNormalWeight } from '../utils/dimensions';
 import clsx from '../utils/clsx';
+import { getFocusStyles } from '../utils/styles';
 import { isEmpty } from '../utils/assertion';
 import useWarning from '../use-warning';
 import { __DEV__ } from '../utils/assertion';
@@ -93,6 +94,9 @@ const Input = React.forwardRef<FormElement, InputProps>(
     const { heightRatio, fontSize } = useMemo(() => getSizes(size), [size]);
 
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
+
+    const { className: focusClassName, styles: focusStyles } =
+      getFocusStyles(theme);
 
     const inputLabel = useMemo(
       () => label || labelPlaceholder,
@@ -254,6 +258,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
           />
         )}
         <div
+          tabIndex={disabled ? -1 : 0}
           className={clsx(
             'container',
             {
@@ -262,7 +267,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
               'read-only': readOnly,
               hover
             },
-            className
+            className,
+            focusClassName
           )}
         >
           <ComponentWrapper
@@ -374,6 +380,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
             position: relative;
             box-sizing: border-box;
             -webkit-box-align: center;
+            border-radius: ${radius};
           }
           .container {
             width: 100%;
@@ -489,12 +496,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
           input,
           textarea {
             padding: 0;
-            box-shadow: none;
             font-size: ${fontSize};
             background-color: transparent;
             border: none;
             color: ${color};
-            outline: none;
             border-radius: 0;
             width: 100%;
             min-width: 0;
@@ -531,6 +536,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
             -webkit-text-fill-color: ${color} !important;
           }
         `}</style>
+        {focusStyles}
       </div>
     );
   }

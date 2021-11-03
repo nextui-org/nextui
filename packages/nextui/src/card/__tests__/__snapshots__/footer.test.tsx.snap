@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card Footer should render correctly 1`] = `
-"<div class=\\"card animated\\"><div class=\\"card-body\\"><p>card</p><style>
+"<div tabindex=\\"-1\\" class=\\"card animated\\"><div class=\\"card-body\\"><p>card</p><style>
         .card-body {
           display: flex;
           flex: 1 1 auto;

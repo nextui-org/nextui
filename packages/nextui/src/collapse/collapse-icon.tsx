@@ -5,20 +5,22 @@ const CollapseIcon: React.FC<unknown> = ({ ...props }) => {
   const theme = useTheme();
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      role="presentation"
+      focusable="false"
       className="collapse-icon"
       width="20"
       height="20"
+      fill="none"
       viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
-        d="M15.002 19.92L8.479 13.4a1.986 1.986 0 010-2.8l6.523-6.52"
-        fill="none"
+        d="M15.5 19l-7-7 7-7"
         stroke={theme.palette.accents_5}
+        strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={1.5}
       />
     </svg>
   );

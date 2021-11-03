@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonGroup buttons should be displayed vertically 1`] = `
-"<div class=\\"button-group vertical  \\"><button type=\\"button\\" class=\\"button \\" color=\\"default\\"><div class=\\"text\\">action1</div><style>
+"<div class=\\"button-group vertical  \\"><button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><div class=\\"text\\">action1</div><style>
         .button {
           background: #0070f3;
           box-sizing: border-box;
@@ -17,20 +17,17 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           font-weight: 500;
           font-size: .875rem;
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: #fff;
           cursor: pointer;
           pointer-events: auto;
-          box-shadow: none;
+          box-shadow: ;
           --next-ui-button-border-radius: 12px;
           --next-ui-button-padding: 1.25rem;
           --next-ui-button-height: 2.5rem;
@@ -53,7 +50,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         .button:hover:before {
           opacity: 0;
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: scale(0.97);
         }
         .button:hover,
@@ -93,7 +90,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         .text.right {
           padding-right: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
         }
-      </style></button><button type=\\"button\\" class=\\"button \\" color=\\"default\\"><div class=\\"text\\">action2</div><style>
+      </style></button><button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><div class=\\"text\\">action2</div><style>
         .button {
           background: #0070f3;
           box-sizing: border-box;
@@ -109,20 +106,17 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           font-weight: 500;
           font-size: .875rem;
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: #fff;
           cursor: pointer;
           pointer-events: auto;
-          box-shadow: none;
+          box-shadow: ;
           --next-ui-button-border-radius: 12px;
           --next-ui-button-padding: 1.25rem;
           --next-ui-button-height: 2.5rem;
@@ -145,7 +139,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         .button:hover:before {
           opacity: 0;
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: scale(0.97);
         }
         .button:hover,
@@ -192,7 +186,6 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
             margin: 4pt;
             border: 0px solid #fff;
             background-color: transparent;
-            overflow: hidden;
             height: min-content;
           }
           .vertical {
@@ -256,7 +249,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
 `;
 
 exports[`ButtonGroup props should be passed to each button 1`] = `
-"<div class=\\"button-group horizontal  \\"><button type=\\"button\\" class=\\"button \\" color=\\"success\\"><div class=\\"text\\">action</div><style>
+"<div class=\\"button-group horizontal  \\"><button type=\\"button\\" class=\\"button mock\\" color=\\"success\\"><div class=\\"text\\">action</div><style>
         .button {
           background: #17c964;
           box-sizing: border-box;
@@ -272,20 +265,17 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           font-weight: 500;
           font-size: .75rem;
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: #fff;
           cursor: pointer;
           pointer-events: auto;
-          box-shadow: none;
+          box-shadow: ;
           --next-ui-button-border-radius: 7px;
           --next-ui-button-padding: 0.625rem;
           --next-ui-button-height: 1.5rem;
@@ -308,7 +298,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
         .button:hover:before {
           opacity: 0;
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: scale(0.97);
         }
         .button:hover,
@@ -355,7 +345,6 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
             margin: 4pt;
             border: 0px solid #fff;
             background-color: transparent;
-            overflow: hidden;
             height: min-content;
           }
           .vertical {
@@ -419,7 +408,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
 `;
 
 exports[`ButtonGroup props should be passed to each button 2`] = `
-"<div class=\\"button-group horizontal  \\"><button type=\\"button\\" class=\\"button \\" color=\\"success\\"><div class=\\"text\\">action</div><style>
+"<div class=\\"button-group horizontal  \\"><button type=\\"button\\" class=\\"button mock\\" color=\\"success\\"><div class=\\"text\\">action</div><style>
         .button {
           background: rgba(23, 201,100,0.15);
           box-sizing: border-box;
@@ -435,20 +424,17 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           font-weight: 500;
           font-size: .75rem;
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: #17c964;
           cursor: pointer;
           pointer-events: auto;
-          box-shadow: none;
+          box-shadow: ;
           --next-ui-button-border-radius: 7px;
           --next-ui-button-padding: 0.625rem;
           --next-ui-button-height: 1.5rem;
@@ -471,7 +457,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
         .button:hover:before {
           opacity: 0;
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: scale(0.97);
         }
         .button:hover,
@@ -518,7 +504,6 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
             margin: 4pt;
             border: 0px solid #fff;
             background-color: transparent;
-            overflow: hidden;
             height: min-content;
           }
           .vertical {
@@ -582,7 +567,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
 `;
 
 exports[`ButtonGroup should render correctly 1`] = `
-"<div class=\\"button-group horizontal  \\"><button type=\\"button\\" class=\\"button \\" color=\\"default\\"><div class=\\"text\\">action</div><style>
+"<div class=\\"button-group horizontal  \\"><button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><div class=\\"text\\">action</div><style>
         .button {
           background: #0070f3;
           box-sizing: border-box;
@@ -598,20 +583,17 @@ exports[`ButtonGroup should render correctly 1`] = `
           font-weight: 500;
           font-size: .875rem;
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: #fff;
           cursor: pointer;
           pointer-events: auto;
-          box-shadow: none;
+          box-shadow: ;
           --next-ui-button-border-radius: 12px;
           --next-ui-button-padding: 1.25rem;
           --next-ui-button-height: 2.5rem;
@@ -634,7 +616,7 @@ exports[`ButtonGroup should render correctly 1`] = `
         .button:hover:before {
           opacity: 0;
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: scale(0.97);
         }
         .button:hover,
@@ -681,7 +663,6 @@ exports[`ButtonGroup should render correctly 1`] = `
             margin: 4pt;
             border: 0px solid #fff;
             background-color: transparent;
-            overflow: hidden;
             height: min-content;
           }
           .vertical {

@@ -106,8 +106,10 @@ const Avatar: React.FC<AvatarProps> = ({
     () =>
       color === 'gradient' || !bordered
         ? avatarColor
+        : !src
+        ? avatarColor
         : addColorAlpha(avatarColor, 0.6),
-    [color, avatarColor, bordered]
+    [src, color, avatarColor, bordered]
   );
 
   return (

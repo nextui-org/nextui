@@ -5,9 +5,11 @@ import RadioGroup, { getRadioSize } from './radio-group';
 import RadioDescription from './radio-description';
 import { pickChild } from '../utils/collections';
 import useWarning from '../use-warning';
-import { __DEV__ } from '../utils/assertion';
+import useKeyboard, { KeyCode } from '../use-keyboard';
+import { getFocusStyles } from '../utils/styles';
 import { NormalSizes, SimpleColors } from '../utils/prop-types';
 import { getNormalColor } from '../utils/color';
+import { __DEV__ } from '../utils/assertion';
 
 interface RadioEventTarget {
   checked: boolean;
@@ -120,6 +122,9 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     [textColor, textGroupColor, isDisabled, theme.palette]
   );
 
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
+
   const changeHandler = (event: React.ChangeEvent) => {
     if (isDisabled) return;
     const selfEvent: RadioEvent = {
@@ -137,37 +142,46 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     onChange && onChange(selfEvent);
   };
 
+  const { bindings } = useKeyboard(
+    (event: any) => {
+      changeHandler(event);
+    },
+    [KeyCode.Enter, KeyCode.Space],
+    {
+      disableGlobalEvent: true
+    }
+  );
   useEffect(() => {
     if (checked === undefined) return;
     setSelfChecked(Boolean(checked));
   }, [checked]);
 
   return (
-    <div
+    <label
       className={`radio ${className}`}
       role="radio"
       aria-checked={selfChecked}
       {...props}
+      {...bindings}
     >
-      <label>
-        <input
-          type="radio"
-          value={radioValue}
-          checked={selfChecked}
-          onChange={changeHandler}
-          {...props}
+      <input
+        type="radio"
+        tabIndex={-1}
+        value={radioValue}
+        checked={selfChecked}
+        onChange={changeHandler}
+        {...props}
+      />
+      <span className="name">
+        <span
+          tabIndex={disabled ? -1 : 0}
+          className={`point ${selfChecked ? 'active' : ''} ${
+            isDisabled ? 'disabled' : ''
+          } ${focusClassName}`}
         />
-        <span className="name">
-          <span
-            className={`point ${selfChecked ? 'active' : ''} ${
-              isDisabled ? 'disabled' : ''
-            }`}
-          />
-          {withoutDescChildren}
-        </span>
-        {DescChildren && DescChildren}
-      </label>
-
+        {withoutDescChildren}
+      </span>
+      {DescChildren && DescChildren}
       <style jsx>{`
         input {
           opacity: 0;
@@ -225,7 +239,8 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           background: ${theme.palette.border};
         }
       `}</style>
-    </div>
+      {focusStyles}
+    </label>
   );
 };
 
@@ -239,5 +254,9 @@ type ComponentProps = Partial<typeof defaultProps> &
   NativeAttrs;
 
 Radio.defaultProps = defaultProps;
+
+if (__DEV__) {
+  Radio.displayName = 'NextUI - Radio';
+}
 
 export default Radio as RadioComponent<ComponentProps>;

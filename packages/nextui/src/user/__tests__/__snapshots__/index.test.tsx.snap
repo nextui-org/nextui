@@ -53,7 +53,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -82,10 +81,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -191,7 +192,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -220,10 +220,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -321,7 +323,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -350,10 +351,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -815,7 +818,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -844,10 +846,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -953,7 +957,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -982,10 +985,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -1083,7 +1088,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -1112,10 +1116,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -1423,7 +1429,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -1452,10 +1457,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -1561,7 +1568,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -1590,10 +1596,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -1691,7 +1699,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -1720,10 +1727,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -1890,7 +1899,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -1919,10 +1927,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -2023,7 +2033,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -2052,10 +2061,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -2155,7 +2166,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -2184,10 +2194,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -2637,7 +2649,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -2666,10 +2677,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -2770,7 +2783,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -2799,10 +2811,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -2902,7 +2916,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -2931,10 +2944,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -3230,7 +3245,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -3259,10 +3273,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -3363,7 +3379,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -3392,10 +3407,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -3495,7 +3512,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -3524,10 +3540,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -3710,7 +3728,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -3739,10 +3756,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -3843,7 +3862,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -3872,10 +3890,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -3975,7 +3995,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -4004,10 +4023,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -4457,7 +4478,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -4486,10 +4506,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -4590,7 +4612,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -4619,10 +4640,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -4722,7 +4745,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -4751,10 +4773,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -5050,7 +5074,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -5079,10 +5102,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -5183,7 +5208,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -5212,10 +5236,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -5315,7 +5341,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -5344,10 +5369,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -5518,7 +5545,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -5547,10 +5573,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -5656,7 +5684,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -5685,10 +5712,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -5786,7 +5815,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -5815,10 +5843,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -6280,7 +6310,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -6309,10 +6338,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -6418,7 +6449,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -6447,10 +6477,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -6548,7 +6580,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -6577,10 +6608,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -6888,7 +6921,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -6917,10 +6949,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -7026,7 +7060,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -7055,10 +7088,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;
@@ -7156,7 +7191,6 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           box-sizing: border-box;
-          position: relative;
           overflow: hidden;
           border-radius: 50%;
           vertical-align: top;
@@ -7185,10 +7219,12 @@ LoadedCheerio {
           z-index: 99;
           opacity: 0;
           display: flex;
-          border-radius: 50%;
           background: #fff;
           border-radius: 50%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .avatar-ready {
           opacity: 1;

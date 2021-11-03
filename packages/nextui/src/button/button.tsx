@@ -24,11 +24,13 @@ import {
   getButtonColors,
   getButtonCursor,
   getButtonDripColor,
-  getShadowColor,
   getButtonSize
 } from './styles';
+import { getNormalShadowColor } from '../utils/color';
+import { getFocusStyles } from '../utils/styles';
 import { getNormalRadius } from '../utils/dimensions';
 import { __DEV__ } from '../utils/assertion';
+import clsx from '../utils/clsx';
 import useDrip from '../use-drip';
 
 export interface Props {
@@ -126,7 +128,7 @@ const Button = React.forwardRef<
 
   const shadowColor = useMemo(
     () =>
-      shadow ? getShadowColor(theme.palette, filteredProps.color) : 'none',
+      shadow ? getNormalShadowColor(filteredProps.color, theme.palette) : '',
     [theme.palette, filteredProps, shadow]
   );
 
@@ -134,6 +136,10 @@ const Button = React.forwardRef<
     () => getButtonCursor(disabled, loading),
     [disabled, loading]
   );
+
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
+
   const { height, minWidth, padding, width, fontSize, loaderSize } = useMemo(
     () => getButtonSize(size, auto),
     [size, auto]
@@ -185,7 +191,7 @@ const Button = React.forwardRef<
     <button
       ref={buttonRef}
       type={htmlType}
-      className={`button ${className}`}
+      className={clsx('button', { disabled }, focusClassName, className)}
       disabled={disabled}
       onClick={clickHandler}
       style={{
@@ -231,14 +237,11 @@ const Button = React.forwardRef<
           font-weight: 500;
           font-size: ${fontSize};
           user-select: none;
-          outline: none;
           text-transform: capitalize;
           justify-content: center;
           text-align: center;
           white-space: nowrap;
-          transition: background-color 250ms ease 0ms, filter 250ms ease 0ms,
-            box-shadow 250ms ease 0ms, border 250ms ease 0ms,
-            color 250ms ease 0ms, transform 250ms ease 0ms;
+          transition: all 250ms ease;
           position: relative;
           overflow: hidden;
           color: ${color};
@@ -267,7 +270,7 @@ const Button = React.forwardRef<
         .button:hover:before {
           opacity: ${hoverBeforeOpacity};
         }
-        .button:active {
+        .button:not(.disabled):active {
           transform: ${animated ? 'scale(0.97)' : 'none'};
         }
         .button:hover,
@@ -308,6 +311,7 @@ const Button = React.forwardRef<
           padding-right: ${paddingForAutoMode};
         }
       `}</style>
+      {focusStyles}
     </button>
   );
 });

@@ -6,6 +6,7 @@ import withDefaults from '../utils/with-defaults';
 import { addColorAlpha, getNormalColor } from '../utils/color';
 import { getShadowColor, getSizes } from './styles';
 import { valueToPercent } from '../utils/numbers';
+import { getFocusStyles } from '../utils/styles';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
@@ -71,8 +72,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   );
 
   const percent = useMemo(
-    () => valueToPercent(valueProp, min, max),
-    [valueProp, min, max]
+    () => valueToPercent(value, min, max),
+    [value, min, max]
   );
 
   const fillerColor = useMemo(
@@ -102,18 +103,25 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     return addColorAlpha(normalColor, 0.2);
   }, [status, theme.palette]);
 
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
+
   return (
-    <div className={clsx('progress', className)} {...props}>
+    <div role="progressbar" className={clsx('progress', className)} {...props}>
       <CSSTransition
         visible
         name="progress-wrapper"
-        enterTime={0}
-        leaveTime={0}
+        enterTime={10}
+        leaveTime={20}
         clearTime={300}
       >
         <div
-          role="progressbar"
-          className={clsx('filler', { striped, indeterminated })}
+          className={clsx(
+            'filler',
+            { striped, indeterminated },
+            focusClassName
+          )}
+          tabIndex={0}
           aria-valuenow={value}
           aria-valuemin={min}
           aria-valuemax={max}
@@ -128,7 +136,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             width: 100%;
             height: ${height};
             position: relative;
-            overflow: ${shadow && !indeterminated ? 'visible' : 'hidden'};
+            overflow: ${!indeterminated ? 'visible' : 'hidden'};
             background: ${bgColor};
             border-radius: ${radius};
           }
@@ -145,6 +153,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
               ? 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
               : 'none'};
             box-shadow: ${shadowColor};
+            transition: all 0.25s ease;
           }
           .progress-wrapper-enter {
             opacity: 0;
@@ -187,6 +196,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
           }
         `}
       </style>
+      {focusStyles}
     </div>
   );
 };

@@ -29,10 +29,10 @@ module.exports = (api) => {
             {
               dev,
               modules,
-              removePropTypes: !dev,
-            },
+              removePropTypes: !dev
+            }
           ],
-          '@babel/preset-typescript',
+          '@babel/preset-typescript'
         ]
       : ['@babel/preset-env', '@babel/react', '@babel/preset-typescript'];
 
@@ -47,8 +47,8 @@ module.exports = (api) => {
         ? [
             /@babel[\\|/]runtime/,
             /\.stories\.(js|ts|tsx)$/,
-            /\.test\.(js|ts|tsx)$/,
+            /\.test\.(js|ts|tsx)$/
           ]
-        : [],
+        : []
   };
 };

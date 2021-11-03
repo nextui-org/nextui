@@ -13,7 +13,7 @@ interface Props {
 const defaultProps = {
   gap: 0,
   wrap: 'wrap' as Wrap,
-  className: '',
+  className: ''
 };
 
 export type GridContainerProps = Props &
