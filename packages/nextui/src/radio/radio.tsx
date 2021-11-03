@@ -151,41 +151,37 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
       disableGlobalEvent: true
     }
   );
-
   useEffect(() => {
     if (checked === undefined) return;
     setSelfChecked(Boolean(checked));
   }, [checked]);
 
   return (
-    <div
+    <label
       className={`radio ${className}`}
       role="radio"
       aria-checked={selfChecked}
       {...props}
       {...bindings}
     >
-      <label>
-        <input
-          type="radio"
-          tabIndex={-1}
-          value={radioValue}
-          checked={selfChecked}
-          onChange={changeHandler}
-          {...props}
+      <input
+        type="radio"
+        tabIndex={-1}
+        value={radioValue}
+        checked={selfChecked}
+        onChange={changeHandler}
+        {...props}
+      />
+      <span className="name">
+        <span
+          tabIndex={disabled ? -1 : 0}
+          className={`point ${selfChecked ? 'active' : ''} ${
+            isDisabled ? 'disabled' : ''
+          } ${focusClassName}`}
         />
-        <span className="name">
-          <span
-            tabIndex={disabled ? -1 : 0}
-            className={`point ${selfChecked ? 'active' : ''} ${
-              isDisabled ? 'disabled' : ''
-            } ${focusClassName}`}
-          />
-          {withoutDescChildren}
-        </span>
-        {DescChildren && DescChildren}
-      </label>
-
+        {withoutDescChildren}
+      </span>
+      {DescChildren && DescChildren}
       <style jsx>{`
         input {
           opacity: 0;
@@ -244,7 +240,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
         }
       `}</style>
       {focusStyles}
-    </div>
+    </label>
   );
 };
 
