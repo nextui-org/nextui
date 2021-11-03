@@ -72,8 +72,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   );
 
   const percent = useMemo(
-    () => valueToPercent(valueProp, min, max),
-    [valueProp, min, max]
+    () => valueToPercent(value, min, max),
+    [value, min, max]
   );
 
   const fillerColor = useMemo(
@@ -136,7 +136,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             width: 100%;
             height: ${height};
             position: relative;
-            overflow: ${shadow && !indeterminated ? 'visible' : 'hidden'};
+            overflow: ${!indeterminated ? 'visible' : 'hidden'};
             background: ${bgColor};
             border-radius: ${radius};
           }
@@ -153,6 +153,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
               ? 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
               : 'none'};
             box-shadow: ${shadowColor};
+            transition: all 0.25s ease;
           }
           .progress-wrapper-enter {
             opacity: 0;

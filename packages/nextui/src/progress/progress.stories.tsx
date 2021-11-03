@@ -16,7 +16,7 @@ export default {
 } as Meta;
 
 export const Default = () => {
-  return <Progress value={50} />;
+  return <Progress value={70} />;
 };
 
 export const Colors = () => (
