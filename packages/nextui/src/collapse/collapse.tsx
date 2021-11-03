@@ -190,6 +190,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         .collapse {
           border-top: ${borderWeight} solid ${theme.palette.border};
           border-bottom: ${borderWeight} solid ${theme.palette.border};
+          transition: box-shadow 0.25s ease;
         }
         .shadow {
           border: none;
