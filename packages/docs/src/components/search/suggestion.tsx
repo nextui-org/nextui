@@ -17,7 +17,7 @@ const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
   const theme = useTheme() as NextUIThemes;
   return (
     <NextLink href={hit.url}>
-      <a className={cn('suggestion__container', { highlighted })}>
+      <span className={cn('suggestion__container', { highlighted })}>
         <div className="suggestion__icon-container">
           {hit.type !== 'lvl1' || includes(hit.url, '#') ? (
             <Hash fill={theme.palette.accents_6} />
@@ -96,7 +96,7 @@ const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
             }
           `}
         </style>
-      </a>
+      </span>
     </NextLink>
   );
 };

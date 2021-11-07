@@ -81,7 +81,12 @@ export const WithFooter = () => (
   <Row wrap="wrap" justify="flex-start">
     <Card width="330px">
       <Text h4>Next UI</Text>
-      <Text>🚀 Beautiful and modern React UI library.</Text>
+      <Text>
+        <span role="img" aria-label="Rocket">
+          🚀
+        </span>
+        Beautiful and modern React UI library.
+      </Text>
       <Card.Footer>
         <Link color target="_blank" href="https://github.com/geist-org/react">
           Visit source code on GitHub.
@@ -91,7 +96,12 @@ export const WithFooter = () => (
     <Spacer x={1} />
     <Card width="330px" color="primary">
       <Text h4>Next UI</Text>
-      <Text>🚀 Beautiful and modern React UI library.</Text>
+      <Text>
+        <span role="img" aria-label="Rocket">
+          🚀
+        </span>
+        Beautiful and modern React UI library.
+      </Text>
       <Card.Footer>
         <Link target="_blank" href="https://github.com/geist-org/react">
           Visit source code on GitHub.

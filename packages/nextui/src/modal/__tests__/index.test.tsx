@@ -25,7 +25,6 @@ describe('Modal', () => {
     );
     expect(() => wrapper.unmount()).not.toThrow();
   });
-
   it('should trigger event when modal changed', async () => {
     const openHandler = jest.fn();
     const closeHandler = jest.fn();
@@ -34,20 +33,16 @@ describe('Modal', () => {
         <Modal.Header>Modal</Modal.Header>
       </Modal>
     );
-
     expectModalIsClosed(wrapper);
-
     wrapper.setProps({ open: true });
     await updateWrapper(wrapper, 350);
     expectModalIsOpened(wrapper);
     expect(openHandler).toHaveBeenCalled();
-
     wrapper.find('.backdrop').simulate('click', nativeEvent);
     await updateWrapper(wrapper, 500);
     expectModalIsClosed(wrapper);
     expect(closeHandler).toHaveBeenCalled();
   });
-
   it('should disable backdrop event', async () => {
     const closeHandler = jest.fn();
     const wrapper = mount(
@@ -61,7 +56,6 @@ describe('Modal', () => {
     expectModalIsOpened(wrapper);
     expect(closeHandler).not.toHaveBeenCalled();
   });
-
   it('customization should be supported', () => {
     const wrapper = mount(
       <Modal open={true} width="100px" className="test-class">
@@ -72,7 +66,6 @@ describe('Modal', () => {
     expect(html).toContain('test-class');
     expect(() => wrapper.unmount()).not.toThrow();
   });
-
   it('focus should only be switched within modal', () => {
     const wrapper = mount(
       <Modal open={true} width="100px" className="test-class">
@@ -83,7 +76,6 @@ describe('Modal', () => {
     const tabEnd = wrapper.find('.hide-tab').at(1).getDOMNode();
     const eventElement = wrapper.find('.modal-wrapper').at(0);
     expect(document.activeElement).toBe(tabStart);
-
     act(() => {
       eventElement.simulate('keydown', {
         ...TabEvent,
@@ -91,7 +83,6 @@ describe('Modal', () => {
       });
     });
     expect(document.activeElement).toBe(tabEnd);
-
     act(() => {
       eventElement.simulate('keydown', {
         ...TabEvent,
@@ -100,7 +91,6 @@ describe('Modal', () => {
     });
     expect(document.activeElement).toBe(tabStart);
   });
-
   it('should close modal when keyboard event is triggered', async () => {
     const wrapper = mount(
       <Modal open={true}>

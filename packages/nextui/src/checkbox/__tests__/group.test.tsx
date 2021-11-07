@@ -3,7 +3,7 @@ import { mount, ReactWrapper, render } from 'enzyme';
 import Checkbox from '../index';
 
 const getCheckboxElement = (wrapper: ReactWrapper) => {
-  return wrapper.find('[role="checkbox"]');
+  return wrapper.find('[type="checkbox"]');
 };
 
 describe('Checkbox Group', () => {

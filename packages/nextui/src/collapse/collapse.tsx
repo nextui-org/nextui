@@ -157,6 +157,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     >
       <div
         role="button"
+        tabIndex={-1}
         className={clsx('view', { disabled })}
         id={ariaLabelledById}
         aria-disabled={disabled}

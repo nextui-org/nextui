@@ -81,15 +81,11 @@ const RadioGroup: React.FC<React.PropsWithChildren<RadioGroupProps>> = ({
 
   return (
     <RadioContext.Provider value={providerValue}>
-      <fieldset
-        className={`radio-group ${className}`}
-        role="radiogroup"
-        {...props}
-      >
+      <div role="radiogroup" className={`radio-group ${className}`} {...props}>
         {children}
-      </fieldset>
+      </div>
       <style jsx>{`
-        fieldset {
+        div {
           border: 0;
           margin: 0;
           padding: 0;

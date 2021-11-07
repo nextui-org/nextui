@@ -116,6 +116,7 @@ const Image: React.FC<ImageProps> = ({
         height={height}
         onLoad={imageLoaded}
         src={src}
+        alt={props.alt || ''}
         {...props}
       />
       <style jsx>{`

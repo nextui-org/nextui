@@ -4,10 +4,12 @@ import useTheme from '../use-theme';
 import CSSTransition from '../utils/css-transition';
 import useCurrentState from '../use-current-state';
 import cslx from '../utils/clsx';
+import useKeyboard, { KeyCode } from '../use-keyboard';
 import { __DEV__ } from '../utils/assertion';
 
 interface Props {
   onClick?: (event: MouseEvent<HTMLElement>) => void;
+  onKeyPress?: (event: React.KeyboardEvent | KeyboardEvent) => void;
   visible?: boolean;
   fullScreenContent?: boolean;
   width?: string;
@@ -30,6 +32,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
   ({
     children,
     onClick,
+    onKeyPress,
     visible,
     width,
     blur,
@@ -58,22 +61,36 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
       }, 0);
     };
 
+    const { bindings } = useKeyboard(
+      (ev: React.KeyboardEvent | KeyboardEvent) => {
+        onKeyPress && onKeyPress(ev);
+      },
+      [KeyCode.Escape, KeyCode.Space],
+      {
+        disableGlobalEvent: true
+      }
+    );
+
     const renderChildren = useMemo(() => {
       return (
         <div
+          tabIndex={-1}
+          role="button"
+          aria-hidden={true}
           className={cslx('backdrop', {
             fullscreen: fullScreenContent
           })}
           onClick={clickHandler}
           onMouseUp={mouseUpHandler}
+          {...bindings}
           {...props}
         >
           <div
             className={cslx('layer', blur ? 'layer-blur' : 'layer-default')}
           />
           <div
-            onClick={childrenClickHandler}
             className="content"
+            onClick={childrenClickHandler}
             onMouseDown={() => setIsContentMouseDown(true)}
           >
             {children}

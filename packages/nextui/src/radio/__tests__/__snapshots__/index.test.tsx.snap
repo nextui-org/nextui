@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Radio should render correctly 1`] = `
-"<label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"false\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point   mock\\"></span>Option</span><style>
+"<label class=\\"radio \\" aria-checked=\\"false\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point   mock\\"></span>Option</span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -61,7 +61,7 @@ exports[`Radio should render correctly 1`] = `
 `;
 
 exports[`Radio should support react-node in description 1`] = `
-"<div><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>Option</span><style>
+"<div><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>Option</span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -117,7 +117,7 @@ exports[`Radio should support react-node in description 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>Option 1</span><span class=\\"\\">Description for Option1<style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>Option 1</span><span class=\\"\\">Description for Option1<style>
         span {
           color: #666;
           font-size: calc(var(--radio-size) * 0.85);
@@ -179,7 +179,7 @@ exports[`Radio should support react-node in description 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>Option 1</span><span class=\\"\\"><b>Description</b> for Option1<style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>Option 1</span><span class=\\"\\"><b>Description</b> for Option1<style>
         span {
           color: #666;
           font-size: calc(var(--radio-size) * 0.85);
@@ -245,7 +245,7 @@ exports[`Radio should support react-node in description 1`] = `
 `;
 
 exports[`Radio should work correctly with different sizes 1`] = `
-"<div><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>mini</span><style>
+"<div><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>mini</span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -301,7 +301,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>small</span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>small</span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -357,7 +357,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>medium</span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>medium</span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -413,7 +413,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>large</span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>large</span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -469,7 +469,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>xlarge</span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>xlarge</span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -525,7 +525,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>custom</span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span>custom</span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -585,7 +585,7 @@ exports[`Radio should work correctly with different sizes 1`] = `
 `;
 
 exports[`Radio should work with different colors 1`] = `
-"<div><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+"<div><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -641,7 +641,7 @@ exports[`Radio should work with different colors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -697,7 +697,7 @@ exports[`Radio should work with different colors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -753,7 +753,7 @@ exports[`Radio should work with different colors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -809,7 +809,7 @@ exports[`Radio should work with different colors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -869,7 +869,7 @@ exports[`Radio should work with different colors 1`] = `
 `;
 
 exports[`Radio should work with different textColors 1`] = `
-"<div><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+"<div><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -925,7 +925,7 @@ exports[`Radio should work with different textColors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -981,7 +981,7 @@ exports[`Radio should work with different textColors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -1037,7 +1037,7 @@ exports[`Radio should work with different textColors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
@@ -1093,7 +1093,7 @@ exports[`Radio should work with different textColors 1`] = `
         label:hover .point:not(.active):not(.disabled) {
           background: #eaeaea;
         }
-      </style></label><label class=\\"radio \\" role=\\"radio\\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
+      </style></label><label class=\\"radio \\" aria-checked=\\"true\\"><input type=\\"radio\\" tabindex=\\"-1\\" class=\\"undefined mock\\" value=\\"\\"><span class=\\"name\\"><span tabindex=\\"0\\" class=\\"point active  mock\\"></span></span><style>
         input {
           opacity: 0;
           overflow: hidden;
