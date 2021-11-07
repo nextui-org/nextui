@@ -1,6 +1,6 @@
 {
-  "plugins": ["prettier", "@typescript-eslint"],
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  "plugins": ["prettier", "@typescript-eslint", "jsx-a11y"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier", "plugin:jsx-a11y/recommended"],
   "parser": "@typescript-eslint/parser",
   "globals": {
     "JSX": true
@@ -36,6 +36,8 @@
         "args": "none"
       }
     ],
+    "jsx-a11y/no-static-element-interactions": ["warn"],
+    "jsx-a11y/click-events-have-key-events": ["warn"],
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
