@@ -2230,6 +2230,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "alt": "",
                 "src": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
               },
               "children": Array [],
@@ -2280,9 +2281,11 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "src": undefined,
               },
             },
@@ -2324,6 +2327,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "alt": "",
                   "src": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
                 },
                 "children": Array [],
@@ -2334,9 +2338,11 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "src": undefined,
                 },
               },
@@ -2450,6 +2456,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
+              "alt": "",
               "src": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
             },
             "children": Array [],
@@ -2500,9 +2507,11 @@ LoadedCheerio {
             "prev": null,
             "type": "tag",
             "x-attribsNamespace": Object {
+              "alt": undefined,
               "src": undefined,
             },
             "x-attribsPrefix": Object {
+              "alt": undefined,
               "src": undefined,
             },
           },
@@ -2544,6 +2553,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
+                "alt": "",
                 "src": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
               },
               "children": Array [],
@@ -2554,9 +2564,11 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "src": undefined,
               },
             },
@@ -4961,6 +4973,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
+                "alt": "",
                 "src": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
               },
               "children": Array [],
@@ -5011,9 +5024,11 @@ LoadedCheerio {
               "prev": null,
               "type": "tag",
               "x-attribsNamespace": Object {
+                "alt": undefined,
                 "src": undefined,
               },
               "x-attribsPrefix": Object {
+                "alt": undefined,
                 "src": undefined,
               },
             },
@@ -5055,6 +5070,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
+                  "alt": "",
                   "src": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
                 },
                 "children": Array [],
@@ -5065,9 +5081,11 @@ LoadedCheerio {
                 "prev": null,
                 "type": "tag",
                 "x-attribsNamespace": Object {
+                  "alt": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
+                  "alt": undefined,
                   "src": undefined,
                 },
               },

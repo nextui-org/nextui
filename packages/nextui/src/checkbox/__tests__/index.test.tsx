@@ -3,13 +3,10 @@ import { mount, ReactWrapper, render } from 'enzyme';
 import Checkbox from '../index';
 
 const getCheckboxElement = (wrapper: ReactWrapper) => {
-  return wrapper.find('[role="checkbox"]');
+  return wrapper.find('[type="checkbox"]');
 };
 
-const expectCheckboxIsChecked = (
-  wrapper: ReactWrapper,
-  value: boolean
-) => {
+const expectCheckboxIsChecked = (wrapper: ReactWrapper, value: boolean) => {
   expect(getCheckboxElement(wrapper).props().checked).toBe(value);
 };
 

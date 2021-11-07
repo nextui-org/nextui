@@ -79,6 +79,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
 
   const renderChildren = useMemo(() => {
     return (
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <section
         role="dialog"
         tabIndex={-1}
@@ -95,6 +96,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           className
         )}
         {...props}
+        onKeyDown={onKeyDown}
       >
         <div
           role="button"
@@ -102,7 +104,6 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           className="hide-tab"
           aria-hidden="true"
           ref={tabStart}
-          onKeyDown={onKeyDown}
         />
         {closeButton && <ModalCloseButton onClick={handleClose} />}
         {children}
@@ -112,7 +113,6 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           className="hide-tab"
           aria-hidden="true"
           ref={tabEnd}
-          onKeyDown={onKeyDown}
         />
         <style jsx>{`
           .modal-wrapper {

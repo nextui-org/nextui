@@ -14,7 +14,6 @@ interface Props {
   width?: string;
   bordered?: boolean;
   showTooltip?: boolean;
-  tooltipText?: string;
   tooltipCopyText?: string;
   tooltipCopiedText?: string;
   copy?: CopyTypes;
@@ -69,11 +68,10 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   const ref = useRef<HTMLPreElement>(null);
   const isMultiLine = text && Array.isArray(text);
 
-  const style = useMemo(() => getStyles(type, theme.palette, filled), [
-    type,
-    theme.palette,
-    filled
-  ]);
+  const style = useMemo(
+    () => getStyles(type, theme.palette, filled),
+    [type, theme.palette, filled]
+  );
   const showCopyIcon = useMemo(() => copyType !== 'prevent', [copyType]);
   const childText = useMemo<string | undefined | null>(() => {
     if (isMultiLine) return textArrayToString(text as string[]);
