@@ -6,7 +6,6 @@ import withDefaults from '../utils/with-defaults';
 import { addColorAlpha, getNormalColor } from '../utils/color';
 import { getShadowColor, getSizes } from './styles';
 import { valueToPercent } from '../utils/numbers';
-import { getFocusStyles } from '../utils/styles';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
@@ -103,9 +102,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     return addColorAlpha(normalColor, 0.2);
   }, [status, theme.palette]);
 
-  const { className: focusClassName, styles: focusStyles } =
-    getFocusStyles(theme);
-
   return (
     <div role="progressbar" className={clsx('progress', className)} {...props}>
       <CSSTransition
@@ -116,12 +112,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         clearTime={300}
       >
         <div
-          className={clsx(
-            'filler',
-            { striped, indeterminated },
-            focusClassName
-          )}
-          tabIndex={0}
+          className={clsx('filler', { striped, indeterminated })}
           aria-valuenow={value}
           aria-valuemin={min}
           aria-valuemax={max}
@@ -196,7 +187,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
           }
         `}
       </style>
-      {focusStyles}
     </div>
   );
 };

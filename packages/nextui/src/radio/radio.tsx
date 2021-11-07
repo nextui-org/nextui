@@ -9,6 +9,7 @@ import useKeyboard, { KeyCode } from '../use-keyboard';
 import { getFocusStyles } from '../utils/styles';
 import { NormalSizes, SimpleColors } from '../utils/prop-types';
 import { getNormalColor } from '../utils/color';
+import VisuallyHidden from '../utils/visually-hidden';
 import { __DEV__ } from '../utils/assertion';
 
 interface RadioEventTarget {
@@ -126,7 +127,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     getFocusStyles(theme);
 
   const changeHandler = (event: React.ChangeEvent) => {
-    if (isDisabled) return;
+    if (isDisabled || (inGroup && selfChecked)) return;
     const selfEvent: RadioEvent = {
       target: {
         checked: !selfChecked
@@ -159,19 +160,20 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   return (
     <label
       className={`radio ${className}`}
-      role="radio"
       aria-checked={selfChecked}
       {...props}
       {...bindings}
     >
-      <input
-        type="radio"
-        tabIndex={-1}
-        value={radioValue}
-        checked={selfChecked}
-        onChange={changeHandler}
-        {...props}
-      />
+      <VisuallyHidden>
+        <input
+          type="radio"
+          tabIndex={-1}
+          value={radioValue}
+          checked={selfChecked}
+          onChange={changeHandler}
+          {...props}
+        />
+      </VisuallyHidden>
       <span className="name">
         <span
           tabIndex={disabled ? -1 : 0}

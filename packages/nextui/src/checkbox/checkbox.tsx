@@ -167,7 +167,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
       >
         <input
           type="checkbox"
-          role="checkbox"
           tabIndex={-1}
           disabled={isDisabled}
           checked={selfChecked}
@@ -204,6 +203,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           border-radius: ${radius};
           position: relative;
           opacity: ${isDisabled ? '0.4' : '1'};
+          transition: box-shadow 0.25s ease;
           z-index: 1;
         }
         .checkbox-mask {

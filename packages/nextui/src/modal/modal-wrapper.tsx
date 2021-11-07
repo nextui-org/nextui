@@ -4,6 +4,7 @@ import useTheme from '../use-theme';
 import CSSTransition from '../utils/css-transition';
 import { isChildElement } from '../utils/collections';
 import ModalCloseButton from './modal-close-button';
+import { KeyCode } from '../use-keyboard';
 import cslx from '../utils/clsx';
 
 interface Props {
@@ -58,7 +59,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   }, [visible]);
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const isTabDown = event.keyCode === 9;
+    const isTabDown = event.keyCode === KeyCode.Tab;
     if (!visible || !isTabDown) return;
     const activeElement = document.activeElement;
     if (event.shiftKey) {
@@ -78,7 +79,11 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
 
   const renderChildren = useMemo(() => {
     return (
-      <div
+      <section
+        role="dialog"
+        tabIndex={-1}
+        aria-modal={visible}
+        ref={modalContent}
         className={cslx(
           'modal-wrapper',
           {
@@ -89,26 +94,25 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
           },
           className
         )}
-        role="dialog"
-        aria-modal={visible}
-        tabIndex={-1}
-        onKeyDown={onKeyDown}
-        ref={modalContent}
         {...props}
       >
         <div
+          role="button"
           tabIndex={0}
           className="hide-tab"
           aria-hidden="true"
           ref={tabStart}
+          onKeyDown={onKeyDown}
         />
         {closeButton && <ModalCloseButton onClick={handleClose} />}
         {children}
         <div
+          role="button"
           tabIndex={0}
           className="hide-tab"
           aria-hidden="true"
           ref={tabEnd}
+          onKeyDown={onKeyDown}
         />
         <style jsx>{`
           .modal-wrapper {
@@ -209,7 +213,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             }
           }
         `}</style>
-      </div>
+      </section>
     );
   }, [rebound, children]);
 

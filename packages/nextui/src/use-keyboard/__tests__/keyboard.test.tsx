@@ -126,7 +126,7 @@ describe('UseKeyboard', () => {
       useKeyboard(handler, KeyCode.Escape)
     );
     const wrapper = mount(
-      <div onKeyDown={nativeHandler}>
+      <div role="button" tabIndex={0} onKeyDown={nativeHandler}>
         <span id="inner" {...result.current.bindings} />
       </div>
     );
@@ -157,7 +157,7 @@ describe('UseKeyboard', () => {
       })
     );
     const wrapper = mount(
-      <div onKeyDown={nativeHandler}>
+      <div role="button" tabIndex={0} onKeyDown={nativeHandler}>
         <span id="inner" {...result.current.bindings} />
       </div>
     );

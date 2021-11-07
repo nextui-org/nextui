@@ -151,6 +151,7 @@ const Card = React.forwardRef<
   return (
     <CardContext.Provider value={cardConfig}>
       <div
+        role={clickable ? 'button' : ''}
         ref={cardRef}
         tabIndex={clickable ? 0 : -1}
         className={clsx(

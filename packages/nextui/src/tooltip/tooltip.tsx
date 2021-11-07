@@ -119,8 +119,11 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   return (
     <div
       ref={ref}
+      role="button"
+      tabIndex={-1}
       className={`tooltip ${className}`}
       onClick={clickEventHandler}
+      onKeyUp={() => mouseEventHandler(true)}
       onMouseEnter={() => mouseEventHandler(true)}
       onMouseLeave={() => mouseEventHandler(false)}
       onFocus={() => mouseEventHandler(true)}

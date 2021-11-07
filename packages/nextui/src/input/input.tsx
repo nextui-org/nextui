@@ -22,6 +22,7 @@ import { getNormalRadius, getNormalWeight } from '../utils/dimensions';
 import clsx from '../utils/clsx';
 import { isEmpty } from '../utils/assertion';
 import useWarning from '../use-warning';
+import VisuallyHidden from '../utils/visually-hidden';
 import { __DEV__ } from '../utils/assertion';
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
@@ -276,6 +277,11 @@ const Input = React.forwardRef<FormElement, InputProps>(
               'textarea-wrapper': isTextarea
             })}
           >
+            {!inputLabel && placeholder && (
+              <VisuallyHidden>
+                <span>{placeholder}</span>
+              </VisuallyHidden>
+            )}
             {labelLeft && (
               <InputLabel
                 status={status}
