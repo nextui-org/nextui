@@ -12676,7 +12676,7 @@ junk@^3.1.0:
   resolved "https://registry.yarnpkg.com/junk/-/junk-3.1.0.tgz#31499098d902b7e98c5d9b9c80f43457a88abfa1"
   integrity sha512-pBxcB3LFc8QVgdggvZWyeys+hnrNWg4OcZIU/1X59k5jQdLBlCsYGRQaz234SqoRLTCgMH00fY0xRJH+F9METQ==
 
-kbar@^0.1.0-beta.6:
+kbar@0.1.0-beta.6:
   version "0.1.0-beta.6"
   resolved "https://registry.yarnpkg.com/kbar/-/kbar-0.1.0-beta.6.tgz#d4a456e8d6e1bc8a1937be5e09ceb44956d72d73"
   integrity sha512-xUtLV7rZjmLfIypqyxtYcY/Uwoj7BxS7Uj1/E73NvhJ5qLJ1Li8jdYmbJylYLfINIPm1u+IV59Mz352Xfvtu2A==

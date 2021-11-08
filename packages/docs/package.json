@@ -19,7 +19,7 @@
     "algoliasearch": "^4.10.3",
     "classnames": "^2.3.1",
     "gray-matter": "^4.0.3",
-    "kbar": "^0.1.0-beta.6",
+    "kbar": "0.1.0-beta.6",
     "lodash": "^4.17.21",
     "next": "^11.0.0",
     "next-mdx-remote": "^3.0.2",
