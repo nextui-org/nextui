@@ -46,7 +46,7 @@ const defaultProps = {
   initialChecked: false,
   indeterminate: false,
   rounded: false,
-  size: 'medium' as NormalSizes | number,
+  size: 'md' as NormalSizes | number,
   className: '',
   value: ''
 };

@@ -36,7 +36,7 @@ interface Props {
 }
 
 const defaultProps = {
-  size: 'medium' as NormalSizes | number,
+  size: 'md' as NormalSizes | number,
   color: 'primary' as SimpleColors,
   textColor: 'default' as SimpleColors,
   disabled: false,

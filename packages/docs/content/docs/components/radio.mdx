@@ -49,45 +49,45 @@ import { Radio } from '@nextui-org/react';
   desc="Change the size of the entire `Radio` including `padding`, `font-size` and `border` with the `size` property."
   code={`
   () => {
-const [selected, setSelected] = React.useState('mini');      
+const [selected, setSelected] = React.useState('xs');      
 return(
 <>
     <Radio
-        checked={selected === 'mini'}
-        onChange={() => setSelected('mini')}
-        size="mini"
+        checked={selected === 'xs'}
+        onChange={() => setSelected('xs')}
+        size="xs"
     >
-        mini
+        xs
     </Radio>
     <Spacer/>
     <Radio
-        checked={selected === 'small'}
-        onChange={() => setSelected('small')}
-        size="small"
+        checked={selected === 'sm'}
+        onChange={() => setSelected('sm')}
+        size="sm"
     >
         small
     </Radio>
     <Spacer/>
     <Radio
-        checked={selected === 'medium'}
-        onChange={() => setSelected('medium')}
-        size="medium"
+        checked={selected === 'md'}
+        onChange={() => setSelected('md')}
+        size="md"
     >
         medium
     </Radio>
     <Spacer/>
     <Radio
-        checked={selected === 'large'}
-        onChange={() => setSelected('large')}
-        size="large"
+        checked={selected === 'lg'}
+        onChange={() => setSelected('lg')}
+        size="lg"
     >
         large
     </Radio>
     <Spacer/>
     <Radio
-        checked={selected === 'xlarge'}
-        onChange={() => setSelected('xlarge')}
-        size="xlarge"
+        checked={selected === 'xl'}
+        onChange={() => setSelected('xl')}
+        size="xl"
     >
         xlarge
     </Radio>
@@ -332,7 +332,7 @@ type SimpleColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Radio Event

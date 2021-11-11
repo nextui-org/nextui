@@ -72,35 +72,35 @@ export const Sizes = () => {
       <Radio
         checked={selected === 'mini'}
         onChange={() => setSelected('mini')}
-        size="mini"
+        size="xs"
       >
         mini
       </Radio>
       <Radio
         checked={selected === 'small'}
         onChange={() => setSelected('small')}
-        size="small"
+        size="sm"
       >
         small
       </Radio>
       <Radio
         checked={selected === 'medium'}
         onChange={() => setSelected('medium')}
-        size="medium"
+        size="md"
       >
         medium
       </Radio>
       <Radio
         checked={selected === 'large'}
         onChange={() => setSelected('large')}
-        size="large"
+        size="lg"
       >
         large
       </Radio>
       <Radio
         checked={selected === 'xlarge'}
         onChange={() => setSelected('xlarge')}
-        size="xlarge"
+        size="xl"
       >
         xlarge
       </Radio>

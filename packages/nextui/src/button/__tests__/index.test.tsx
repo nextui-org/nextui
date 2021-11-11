@@ -26,11 +26,11 @@ describe('Button', () => {
   it('should support all sizes', () => {
     const wrapper = mount(
       <div>
-        <Button size="mini" />
-        <Button size="small" />
-        <Button size="medium" />
-        <Button size="large" />
-        <Button size="xlarge" />
+        <Button size="xs" />
+        <Button size="sm" />
+        <Button size="md" />
+        <Button size="lg" />
+        <Button size="xl" />
       </div>
     );
     expect(() => wrapper.unmount()).not.toThrow();

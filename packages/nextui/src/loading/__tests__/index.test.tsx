@@ -15,7 +15,7 @@ describe('Loading', () => {
   });
 
   it('should render with default aria-label for spinner', () => {
-    const wrapper = mount(<Loading type="spinner"/>);
+    const wrapper = mount(<Loading type="spinner" />);
     expect(wrapper.find('.container').prop('aria-label')).toEqual('Loading');
   });
 
@@ -57,11 +57,11 @@ describe('Loading', () => {
   it('should work with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Loading size="mini" />
-        <Loading size="small" />
-        <Loading size="medium" />
-        <Loading size="large" />
-        <Loading size="xlarge" />
+        <Loading size="xs" />
+        <Loading size="sm" />
+        <Loading size="md" />
+        <Loading size="lg" />
+        <Loading size="xl" />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();

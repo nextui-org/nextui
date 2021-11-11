@@ -27,16 +27,16 @@ describe('Checkbox Group', () => {
   it('should work correctly with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Checkbox.Group value={[]} size="mini">
+        <Checkbox.Group value={[]} size="xs">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
-        <Checkbox.Group value={[]} size="small">
+        <Checkbox.Group value={[]} size="sm">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
-        <Checkbox.Group value={[]} size="medium">
+        <Checkbox.Group value={[]} size="md">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
-        <Checkbox.Group value={[]} size="large">
+        <Checkbox.Group value={[]} size="lg">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
       </div>

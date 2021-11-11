@@ -10,28 +10,28 @@ export type InputSize = {
 
 export const getSizes = (size?: NormalSizes) => {
   const sizes: { [key in NormalSizes]: InputSize } = {
-    mini: {
+    xs: {
       heightRatio: '1.2',
       fontSize: '.75rem'
     },
-    small: {
+    sm: {
       heightRatio: '1.6',
       fontSize: '.75rem'
     },
-    medium: {
-      heightRatio: '1.8',
+    md: {
+      heightRatio: '2',
       fontSize: '.875rem'
     },
-    large: {
-      heightRatio: '2',
+    lg: {
+      heightRatio: '2.2',
       fontSize: '1rem'
     },
-    xlarge: {
-      heightRatio: '2.3',
+    xl: {
+      heightRatio: '2.6',
       fontSize: '1.25rem'
     }
   };
-  if (!size) return sizes.medium;
+  if (!size) return sizes.md;
   return sizes[size];
 };
 

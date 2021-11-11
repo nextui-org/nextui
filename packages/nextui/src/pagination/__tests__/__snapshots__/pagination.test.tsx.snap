@@ -52,7 +52,7 @@ exports[`Pagination should render correctly 1`] = `
           .active {
             font-weight: bold;
             cursor: default;
-            box-shadow: undefined;
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
           .active .button-content {
             color: white;
@@ -146,7 +146,7 @@ exports[`Pagination should render correctly 1`] = `
           .active {
             font-weight: bold;
             cursor: default;
-            box-shadow: undefined;
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
           .active .button-content {
             color: white;
@@ -215,7 +215,7 @@ exports[`Pagination should render correctly 1`] = `
           .active {
             font-weight: bold;
             cursor: default;
-            box-shadow: undefined;
+            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           }
           .active .button-content {
             color: white;

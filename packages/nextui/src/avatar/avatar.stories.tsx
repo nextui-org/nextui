@@ -100,19 +100,19 @@ export const Sizes = () => {
       }}
     >
       <Container>
-        <Avatar src={pictureUsers[0]} size="mini" />
-        <Avatar src={pictureUsers[1]} size="small" />
-        <Avatar src={pictureUsers[2]} size="medium" />
-        <Avatar src={pictureUsers[3]} size="large" />
-        <Avatar src={pictureUsers[4]} size="xlarge" />
+        <Avatar src={pictureUsers[0]} size="xs" />
+        <Avatar src={pictureUsers[1]} size="sm" />
+        <Avatar src={pictureUsers[2]} size="md" />
+        <Avatar src={pictureUsers[3]} size="lg" />
+        <Avatar src={pictureUsers[4]} size="xl" />
       </Container>
       <Spacer />
       <Container>
-        <Avatar squared src={pictureUsers[0]} size="mini" />
-        <Avatar squared src={pictureUsers[1]} size="small" />
-        <Avatar squared src={pictureUsers[2]} size="medium" />
-        <Avatar squared src={pictureUsers[3]} size="large" />
-        <Avatar squared src={pictureUsers[4]} size="xlarge" />
+        <Avatar squared src={pictureUsers[0]} size="xs" />
+        <Avatar squared src={pictureUsers[1]} size="sm" />
+        <Avatar squared src={pictureUsers[2]} size="md" />
+        <Avatar squared src={pictureUsers[3]} size="lg" />
+        <Avatar squared src={pictureUsers[4]} size="xl" />
       </Container>
     </div>
   );
@@ -122,7 +122,7 @@ export const Zoomed = () => {
   return (
     <Container>
       {pictureUsers.map((url, index) => (
-        <Avatar key={index} size="medium" zoomed bordered pointer src={url} />
+        <Avatar key={index} size="md" zoomed bordered pointer src={url} />
       ))}
     </Container>
   );

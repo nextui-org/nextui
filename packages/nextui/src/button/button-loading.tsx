@@ -11,7 +11,7 @@ interface Props {
 }
 
 const defaultProps = {
-  size: 'small' as NormalSizes,
+  size: 'sm' as NormalSizes,
   type: 'default' as NormalLoaders
 };
 

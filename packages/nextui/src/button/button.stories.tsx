@@ -188,15 +188,15 @@ export const Light = () => (
 
 export const Sizes = () => (
   <>
-    <Button size="mini">mini</Button>
+    <Button size="xs">mini</Button>
     <Spacer y={0.5} />
-    <Button size="small">small</Button>
+    <Button size="sm">small</Button>
     <Spacer y={0.5} />
     <Button>medium</Button>
     <Spacer y={0.5} />
-    <Button size="large">large</Button>
+    <Button size="lg">large</Button>
     <Spacer y={0.5} />
-    <Button size="xlarge">xlarge</Button>
+    <Button size="xl">xlarge</Button>
     <Spacer y={0.5} />
     <Button auto>auto width</Button>
   </>

@@ -35,15 +35,15 @@ import { Loading } from '@nextui-org/react';
   desc="Change the size of the entire `Loading` with the `size` property, you can also set a custom size in px."
   code={`
   <>
-    <Loading size="mini"/>
+    <Loading size="xs"/>
     <Spacer />
-    <Loading size="small"/>
+    <Loading size="sm"/>
     <Spacer />
-    <Loading size="medium"/>
+    <Loading size="md"/>
     <Spacer />
-    <Loading size="large"/>
+    <Loading size="lg"/>
     <Spacer />
-    <Loading size="xlarge"/>
+    <Loading size="xl"/>
     <Spacer />
     <Loading size={80}/>
   </>
@@ -59,7 +59,7 @@ import { Loading } from '@nextui-org/react';
         <Loading type="default"/>
     </Grid>
     <Grid>
-        <Loading type="spinner" size="large"/>
+        <Loading type="spinner" size="lg"/>
     </Grid>
     <Grid>
         <Loading type="points" />
@@ -166,7 +166,7 @@ type SimpleColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Normal Loaders

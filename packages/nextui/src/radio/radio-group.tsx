@@ -17,7 +17,7 @@ interface Props {
 
 const defaultProps = {
   disabled: false,
-  size: 'medium' as NormalSizes,
+  size: 'md' as NormalSizes | number,
   color: 'primary' as SimpleColors,
   textColor: 'default' as SimpleColors,
   className: '',
@@ -29,11 +29,11 @@ export type RadioGroupProps = Props & typeof defaultProps & NativeAttrs;
 
 export const getRadioSize = (size: NormalSizes | number): string => {
   const sizes: { [key in NormalSizes]: string } = {
-    mini: '14px',
-    small: '16px',
-    medium: '20px',
-    large: '24px',
-    xlarge: '28px'
+    xs: '14px',
+    sm: '16px',
+    md: '20px',
+    lg: '24px',
+    xl: '28px'
   };
   if (typeof size === 'number') return `${size}px`;
   return sizes[size];

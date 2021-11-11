@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
               <Button
                 auto
                 className="hero__get-started-button"
-                size="large"
+                size="lg"
                 shadow={!isDark}
                 onClick={handleGetStartedClick}
               >

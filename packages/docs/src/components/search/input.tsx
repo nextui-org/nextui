@@ -31,7 +31,7 @@ const Input: React.FC<InputProps> = ({
       ) : (
         <span className="search__reset-container" onClick={() => onClear()}>
           {searching ? (
-            <Loading size="mini" />
+            <Loading size="xs" />
           ) : (
             <Close size={16} fill={theme.palette.accents_6} />
           )}

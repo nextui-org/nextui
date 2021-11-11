@@ -68,7 +68,7 @@ export const defaultProps = {
   contentLeftStyling: true,
   required: false,
   width: 'initial',
-  size: 'medium' as NormalSizes,
+  size: 'md' as NormalSizes,
   color: 'default' as SimpleColors,
   helperColor: 'default' as SimpleColors,
   status: 'default' as SimpleColors,

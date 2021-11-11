@@ -27,7 +27,7 @@ interface Props {
 const defaultProps = {
   color: 'primary' as NormalColors | string,
   status: 'default' as NormalColors | string,
-  size: 'medium' as NormalSizes,
+  size: 'md' as NormalSizes,
   striped: false,
   animated: true,
   squared: false,

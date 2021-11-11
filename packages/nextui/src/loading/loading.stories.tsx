@@ -5,7 +5,7 @@ import { Spacer } from '../index';
 
 export default {
   title: 'Feedback/Loading',
-  component: Loading,
+  component: Loading
 } as Meta;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,7 +18,7 @@ const Container = ({ children }: any) => (
       alignItems: 'flex-start',
       marginLeft: '1rem',
       width: '100%',
-      maxWidth: '340px',
+      maxWidth: '340px'
     }}
   >
     {children}
@@ -33,15 +33,15 @@ export const Default = () => (
 
 export const Text = () => (
   <Container>
-    <Loading size="mini">Loading</Loading>
+    <Loading size="xs">Loading</Loading>
     <Spacer y={2} />
-    <Loading size="small">Loading</Loading>
+    <Loading size="sm">Loading</Loading>
     <Spacer y={2} />
-    <Loading size="medium">Loading</Loading>
+    <Loading size="md">Loading</Loading>
     <Spacer y={2} />
-    <Loading size="large">Loading</Loading>
+    <Loading size="lg">Loading</Loading>
     <Spacer y={2} />
-    <Loading size="xlarge">Loading</Loading>
+    <Loading size="xl">Loading</Loading>
     <Spacer y={2} />
   </Container>
 );
@@ -82,15 +82,15 @@ export const TextColors = () => (
 
 export const Sizes = () => (
   <Container>
-    <Loading size="mini">mini</Loading>
+    <Loading size="xs">mini</Loading>
     <Spacer y={2} />
-    <Loading size="small">small</Loading>
+    <Loading size="sm">small</Loading>
     <Spacer y={2} />
-    <Loading size="medium">medium</Loading>
+    <Loading size="md">medium</Loading>
     <Spacer y={2} />
-    <Loading size="large">large</Loading>
+    <Loading size="lg">large</Loading>
     <Spacer y={2} />
-    <Loading size="xlarge">xlarge</Loading>
+    <Loading size="xl">xlarge</Loading>
     <Spacer y={2} />
   </Container>
 );
@@ -99,7 +99,7 @@ export const Types = () => (
   <Container>
     <Loading type="default">default</Loading>
     <Spacer y={2} />
-    <Loading type="spinner" size="large">
+    <Loading type="spinner" size="lg">
       spinner
     </Loading>
     <Spacer y={2} />

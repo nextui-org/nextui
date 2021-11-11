@@ -79,11 +79,11 @@ describe('Avatar', () => {
   it('should work correctly with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Avatar size="mini" />
-        <Avatar size="small" />
-        <Avatar size="medium" />
-        <Avatar size="large" />
-        <Avatar size="xlarge" />
+        <Avatar size="xs" />
+        <Avatar size="sm" />
+        <Avatar size="md" />
+        <Avatar size="lg" />
+        <Avatar size="xl" />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();

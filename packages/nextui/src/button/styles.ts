@@ -188,13 +188,13 @@ export const getButtonColors = (
 
 export const getLoadingSize = (size: NormalSizes): NormalSizes => {
   const loaderSizes: { [key in NormalSizes]?: NormalSizes } = {
-    mini: 'mini',
-    small: 'small',
-    medium: 'small',
-    large: 'medium',
-    xlarge: 'medium'
+    xs: 'xs',
+    sm: 'sm',
+    md: 'sm',
+    lg: 'md',
+    xl: 'md'
   };
-  return loaderSizes[size] || 'small';
+  return loaderSizes[size] || 'sm';
 };
 
 export const getLoadingBackground = (
@@ -233,7 +233,7 @@ export const getButtonCursor = (
 };
 
 export const getButtonSize = (
-  size: NormalSizes = 'medium',
+  size: NormalSizes = 'md',
   auto: boolean
 ): ButtonSizeGroup => {
   const loaderSize = getLoadingSize(size);
@@ -246,14 +246,14 @@ export const getButtonSize = (
     minWidth: '12.5rem'
   };
   const autoPaddings: { [key in NormalSizes]: string } = {
-    mini: '0.625rem',
-    small: '0.9375rem',
-    medium: '1.25rem',
-    large: '1.5625rem',
-    xlarge: '1.875rem'
+    xs: '0.625rem',
+    sm: '0.9375rem',
+    md: '1.25rem',
+    lg: '1.5625rem',
+    xl: '1.875rem'
   };
   const layouts: { [key in NormalSizes]: ButtonSizeGroup } = {
-    mini: {
+    xs: {
       loaderSize,
       height: '1.5rem',
       width: 'initial',
@@ -261,7 +261,7 @@ export const getButtonSize = (
       fontSize: '.75rem',
       minWidth: '5.25rem'
     },
-    small: {
+    sm: {
       loaderSize,
       height: '2rem',
       width: 'initial',
@@ -269,8 +269,8 @@ export const getButtonSize = (
       fontSize: '.875rem',
       minWidth: '9.375rem'
     },
-    medium: defaultLayout,
-    large: {
+    md: defaultLayout,
+    lg: {
       loaderSize,
       height: '2.75rem',
       width: 'initial',
@@ -278,7 +278,7 @@ export const getButtonSize = (
       fontSize: '1rem',
       minWidth: '15.625rem'
     },
-    xlarge: {
+    xl: {
       loaderSize,
       height: '3.5rem',
       width: 'initial',
@@ -291,7 +291,7 @@ export const getButtonSize = (
   if (auto)
     return {
       ...(layouts[size] || defaultLayout),
-      padding: autoPaddings[size] || autoPaddings.medium,
+      padding: autoPaddings[size] || autoPaddings.md,
       minWidth: 'min-content',
       width: 'auto'
     };

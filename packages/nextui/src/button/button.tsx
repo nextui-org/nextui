@@ -58,7 +58,7 @@ export interface Props {
 
 const defaultProps = {
   color: 'default' as NormalColors | string,
-  size: 'medium' as NormalSizes,
+  size: 'md' as NormalSizes,
   htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
   loaderType: 'default' as NormalLoaders,
   borderWeight: 'normal' as NormalWeights | undefined,
@@ -157,7 +157,7 @@ const Button = React.forwardRef<
 
   const paddingForAutoMode = useMemo(
     () =>
-      auto || size === 'mini'
+      auto || size === 'xs'
         ? `calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5)`
         : 0,
     [auto, size]

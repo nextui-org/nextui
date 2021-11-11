@@ -44,15 +44,15 @@ import { Switch } from '@nextui-org/react';
   desc="Change the size of the entire `Switch` including `padding` and `border` with the `size` property."
   code={`
  <>
-    <Switch initialChecked size="mini" />
+    <Switch initialChecked size="xs" />
     <Spacer />
-    <Switch size="small" />
+    <Switch size="sm" />
     <Spacer />
-    <Switch initialChecked size="medium" />
+    <Switch initialChecked size="md" />
     <Spacer />
-    <Switch size="large" />
+    <Switch size="lg" />
     <Spacer />
-    <Switch initialChecked size="xlarge" />
+    <Switch initialChecked size="xl" />
   </>
 `}
 />
@@ -102,15 +102,15 @@ import { Switch } from '@nextui-org/react';
   desc="You can change the full style towards a bodered `Switch` with the `bordered` property."
   code={`
  <>
-    <Switch bordered size="mini" />
+    <Switch bordered size="xs" />
     <Spacer />
-    <Switch bordered size="small" />
+    <Switch bordered size="sm" />
     <Spacer />
-    <Switch bordered size="medium" />
+    <Switch bordered size="md" />
     <Spacer />
-    <Switch bordered size="large" />
+    <Switch bordered size="lg" />
     <Spacer />
-    <Switch bordered size="xlarge" />
+    <Switch bordered size="xl" />
   </>
 `}
 />
@@ -123,7 +123,7 @@ import { Switch } from '@nextui-org/react';
       <Grid>
         <Switch
             checked={true}
-            size="xlarge"
+            size="xl"
             color="success"
             icon={<Notification />}
         />
@@ -131,7 +131,7 @@ import { Switch } from '@nextui-org/react';
       <Grid>
         <Switch
             checked={true}
-            size="xlarge"
+            size="xl"
             iconOn={<Sun filled />}
             iconOff={<Moon filled />}
         />
@@ -139,7 +139,7 @@ import { Switch } from '@nextui-org/react';
       <Grid>
         <Switch
             checked={true}
-            size="xlarge"
+            size="xl"
             color="error"
             iconOn={<MicrophoneOff filled />}
             iconOff={<Microphone filled />}
@@ -148,7 +148,7 @@ import { Switch } from '@nextui-org/react';
       <Grid>
         <Switch
             checked={true}
-            size="xlarge"
+            size="xl"
             color="warning"
             iconOn={<VideoOff filled />}
             iconOff={<Video filled/>}
@@ -157,7 +157,7 @@ import { Switch } from '@nextui-org/react';
       <Grid>
         <Switch
             checked={true}
-            size="xlarge"
+            size="xl"
             color="secondary"
             icon={<VolumeUp filled />}
         />
@@ -211,7 +211,7 @@ type NormalColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Switch Event

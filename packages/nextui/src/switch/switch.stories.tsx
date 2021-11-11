@@ -7,7 +7,7 @@ import useTheme from '../use-theme';
 export default {
   title: 'Inputs/Switch',
   component: Switch,
-  onChange: { action: 'changed' },
+  onChange: { action: 'changed' }
 } as Meta;
 
 export const Default = () => (
@@ -44,15 +44,15 @@ export const Colors = () => (
 
 export const Sizes = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Switch initialChecked size="mini" />
+    <Switch initialChecked size="xs" />
     <br />
-    <Switch size="small" />
+    <Switch size="sm" />
     <br />
-    <Switch initialChecked size="medium" />
+    <Switch initialChecked size="md" />
     <br />
-    <Switch size="large" />
+    <Switch size="lg" />
     <br />
-    <Switch initialChecked size="xlarge" />
+    <Switch initialChecked size="xl" />
   </div>
 );
 
@@ -93,15 +93,15 @@ export const Icons = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <Switch
-        size="xlarge"
+        size="xl"
         icon={<Lock theme={theme} fill={theme.palette.secondary} />}
       />
       <Switch
-        size="xlarge"
+        size="xl"
         icon={<Notification theme={theme} fill={theme.palette.primary} />}
       />
       <Switch
-        size="xlarge"
+        size="xl"
         iconOn={<Sun theme={theme} fill={theme.palette.primary} />}
         iconOff={<Moon theme={theme} />}
       />

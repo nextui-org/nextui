@@ -7,26 +7,26 @@ export type SwitchSize = {
 
 export const getSizes = (size: NormalSizes) => {
   const sizes: { [key in NormalSizes]: SwitchSize } = {
-    mini: {
+    xs: {
       width: '32px',
-      height: '18px',
+      height: '18px'
     },
-    small: {
+    sm: {
       width: '40px',
-      height: '20px',
+      height: '20px'
     },
-    medium: {
+    md: {
       width: '45px',
-      height: '24px',
+      height: '24px'
     },
-    large: {
+    lg: {
       width: '52px',
-      height: '28px',
+      height: '28px'
     },
-    xlarge: {
+    xl: {
       width: '62px',
-      height: '32px',
-    },
+      height: '32px'
+    }
   };
   return sizes[size];
 };

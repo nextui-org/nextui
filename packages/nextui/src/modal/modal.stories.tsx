@@ -61,7 +61,7 @@ export const Default = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Email"
             contentLeft={<Mail theme={theme} />}
           />
@@ -70,7 +70,7 @@ export const Default = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Password"
             contentLeft={<Password theme={theme} />}
           />
@@ -134,7 +134,7 @@ export const WithCloseButton = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Email"
             contentLeft={<Mail theme={theme} />}
           />
@@ -143,7 +143,7 @@ export const WithCloseButton = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Password"
             contentLeft={<Password theme={theme} />}
           />
@@ -197,7 +197,7 @@ export const WithUseModal = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Email"
             contentLeft={<Mail theme={theme} />}
           />
@@ -206,7 +206,7 @@ export const WithUseModal = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Password"
             contentLeft={<Password theme={theme} />}
           />
@@ -260,7 +260,7 @@ export const NoAnimated = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Email"
             contentLeft={<Mail theme={theme} />}
           />
@@ -269,7 +269,7 @@ export const NoAnimated = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Password"
             contentLeft={<Password theme={theme} />}
           />

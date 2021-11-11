@@ -35,7 +35,7 @@ const defaultProps = {
   rounded: false,
   ghost: false,
   borderWeight: 'normal' as NormalWeights | undefined,
-  size: 'medium' as NormalSizes,
+  size: 'md' as NormalSizes,
   color: 'default' as NormalColors,
   className: ''
 };

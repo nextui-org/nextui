@@ -113,15 +113,15 @@ export const ReadOnly = () => (
 
 export const Sizes = () => (
   <>
-    <Input size="mini" placeholder="Mini" />
+    <Input size="xs" placeholder="Mini" />
     <Spacer y={0.5} />
-    <Input size="small" placeholder="Small" />
+    <Input size="sm" placeholder="Small" />
     <Spacer y={0.5} />
-    <Input size="medium" placeholder="Medium" />
+    <Input size="md" placeholder="Medium" />
     <Spacer y={0.5} />
-    <Input size="large" placeholder="Large" />
+    <Input size="lg" placeholder="Large" />
     <Spacer y={0.5} />
-    <Input size="xlarge" placeholder="xLarge" />
+    <Input size="xl" placeholder="xLarge" />
     <Spacer y={0.5} />
     <Input width="50%" placeholder="Custom" />
   </>
@@ -398,14 +398,14 @@ export const WithUseInput = () => {
           <Button
             auto
             color="primary"
-            size="small"
+            size="sm"
             onClick={() => setValue(Math.random().toString(32))}
           >
             Set value
           </Button>
         </Grid>
         <Grid>
-          <Button auto flat size="small" onClick={() => reset()}>
+          <Button auto flat size="sm" onClick={() => reset()}>
             Reset value
           </Button>
         </Grid>
@@ -428,7 +428,7 @@ export const Uncontrolled = () => {
         onChange={(e) => console.log(e.target.value)}
       />
       <Spacer y={0.5} />
-      <Button auto color="secondary" size="small" onClick={onClick}>
+      <Button auto color="secondary" size="sm" onClick={onClick}>
         Set value
       </Button>
     </>

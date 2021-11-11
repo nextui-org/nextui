@@ -744,7 +744,7 @@ exports[`ButtonGroup should render different variants 2`] = `
   loading={true}
   rounded={false}
   shadow={false}
-  size="medium"
+  size="md"
 >
   button
 </NextUI - Button>

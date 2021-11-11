@@ -20,11 +20,11 @@ describe('Radio', () => {
   it('should work correctly with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Radio size="mini">mini</Radio>
-        <Radio size="small">small</Radio>
-        <Radio size="medium">medium</Radio>
-        <Radio size="large">large</Radio>
-        <Radio size="xlarge">xlarge</Radio>
+        <Radio size="xs">mini</Radio>
+        <Radio size="sm">small</Radio>
+        <Radio size="md">medium</Radio>
+        <Radio size="lg">large</Radio>
+        <Radio size="xl">xlarge</Radio>
         <Radio size={24}>custom</Radio>
       </div>
     );
@@ -79,7 +79,7 @@ describe('Radio', () => {
       .at(0)
       .simulate('change', {
         ...nativeEvent,
-        target: { checked: true },
+        target: { checked: true }
       });
     expect(changeHandler).toHaveBeenCalled();
     changeHandler.mockRestore();
@@ -97,7 +97,7 @@ describe('Radio', () => {
       .at(0)
       .simulate('change', {
         ...nativeEvent,
-        target: { checked: true },
+        target: { checked: true }
       });
     expect(changeHandler).not.toHaveBeenCalled();
     changeHandler.mockRestore();

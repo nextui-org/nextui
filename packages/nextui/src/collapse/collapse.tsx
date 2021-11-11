@@ -212,6 +212,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
           background: transparent;
           border: none;
           cursor: pointer;
+          outline: none;
           padding: ${theme.spacing.lg} 0;
         }
         .view.disabled {

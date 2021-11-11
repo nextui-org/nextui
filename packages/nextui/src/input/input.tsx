@@ -485,9 +485,12 @@ const Input = React.forwardRef<FormElement, InputProps>(
             opacity: 0;
             transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: ${theme.spacing.xs} ${theme.spacing.sm};
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -506,9 +509,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: ${theme.spacing.sm};
           }
           input.left-content,
           textarea.left-content {

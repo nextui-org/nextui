@@ -35,11 +35,11 @@ describe('Checkbox', () => {
   it('should work correctly with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Checkbox size="mini">mini</Checkbox>
-        <Checkbox size="small">small</Checkbox>
-        <Checkbox size="medium">medium</Checkbox>
-        <Checkbox size="large">large</Checkbox>
-        <Checkbox size="xlarge">xlarge</Checkbox>
+        <Checkbox size="xs">mini</Checkbox>
+        <Checkbox size="sm">small</Checkbox>
+        <Checkbox size="md">medium</Checkbox>
+        <Checkbox size="lg">large</Checkbox>
+        <Checkbox size="xl">xlarge</Checkbox>
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();

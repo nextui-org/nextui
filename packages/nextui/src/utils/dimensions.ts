@@ -24,11 +24,11 @@ export const getNormalRadius = (
   rounded?: boolean
 ): string => {
   const radius: { [key in NormalSizes]: string } = {
-    mini: '7px',
-    small: '9px',
-    medium: '12px',
-    large: '14px',
-    xlarge: '15px'
+    xs: '7px',
+    sm: '9px',
+    md: '12px',
+    lg: '14px',
+    xl: '15px'
   };
   const baseRadius = radius[size];
   return rounded ? `calc(${baseRadius} + 10rem)` : baseRadius;

@@ -21,9 +21,9 @@ const defaultProps = {
   color: 'primary' as NormalColors,
   textColor: 'default' as NormalColors,
   disabled: false,
-  size: 'medium' as NormalSizes,
+  size: 'md' as NormalSizes | number,
   className: '',
-  row: false,
+  row: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -61,7 +61,7 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
       textColor,
       disabledAll: disabled,
       inGroup: true,
-      values: selfVal,
+      values: selfVal
     };
   }, [disabled, selfVal]);
 

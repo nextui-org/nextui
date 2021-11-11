@@ -32,7 +32,7 @@ import { Button } from '@nextui-org/react';
   desc="You can disabled all buttons with the property `disabled`."
   code={`
 <>
-     <Button.Group size="small" disabled>
+     <Button.Group size="sm" disabled>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
@@ -62,26 +62,27 @@ import { Button } from '@nextui-org/react';
   desc="Change the size of the entire group button including `padding`, `font-size` and `border` with the size property."
   code={`
 <Container display="flex" direction="column">
-    <Button.Group size="mini">
-      <Button>One</Button>
-      <Button>Two</Button>
-    </Button.Group>
-    <Button.Group size="small">
+    <Button.Group size="xs">
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
     </Button.Group>
-    <Button.Group size="medium">
+    <Button.Group size="sm">
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
     </Button.Group>
-    <Button.Group size="large">
+    <Button.Group size="md">
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
     </Button.Group>
-    <Button.Group size="xlarge">
+    <Button.Group size="lg">
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+    <Button.Group size="xl">
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
@@ -95,31 +96,31 @@ import { Button } from '@nextui-org/react';
   desc="You can use the `vertical` property to sort the buttons vertically."
   code={`
 <>
-    <Button.Group size="mini" vertical>
+    <Button.Group size="xs" vertical>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
       <Button>Four</Button>
     </Button.Group>
-     <Button.Group size="small" vertical flat>
+     <Button.Group size="sm" vertical flat>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
       <Button>Four</Button>
     </Button.Group>
-    <Button.Group size="medium" vertical bordered>
+    <Button.Group size="md" vertical bordered>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
       <Button>Four</Button>
     </Button.Group>
-    <Button.Group size="large" vertical flat>
+    <Button.Group size="lg" vertical flat>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
       <Button>Four</Button>
     </Button.Group>
-    <Button.Group size="xlarge" vertical color="gradient" bordered>
+    <Button.Group size="xl" vertical color="gradient" bordered>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
@@ -159,7 +160,7 @@ import { Button } from '@nextui-org/react';
       <Button>Action2</Button>
       <Button>Action2</Button>
     </Button.Group>
-    <Button.Group color="secondary" size="small">
+    <Button.Group color="secondary" size="sm">
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
@@ -217,7 +218,7 @@ type NormalColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Normal Weights

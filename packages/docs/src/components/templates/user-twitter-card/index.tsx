@@ -18,7 +18,7 @@ const UserTwitterCard: React.FC = () => {
     <Grid.Container className="user-twitter-card__container">
       <Row justify="space-between">
         <Avatar
-          size="large"
+          size="lg"
           src="/avatars/avatar-2.png"
           color="gradient"
           bordered

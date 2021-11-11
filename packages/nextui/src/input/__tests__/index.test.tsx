@@ -12,10 +12,10 @@ describe('Input', () => {
   it('should work with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Input size="mini" />
-        <Input size="small" />
-        <Input size="large" />
-        <Input size="xlarge" />
+        <Input size="xs" />
+        <Input size="sm" />
+        <Input size="lg" />
+        <Input size="xl" />
         <Input width="50%" />
       </div>
     );

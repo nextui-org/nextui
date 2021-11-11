@@ -2360,7 +2360,7 @@ LoadedCheerio {
                 "data": "
           .browser {
             background-color: transparent;
-            box-shadow: undefined;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             width: max-content;
             max-width: 100%;
             margin: 0 auto;
@@ -2586,7 +2586,7 @@ LoadedCheerio {
               "data": "
           .browser {
             background-color: transparent;
-            box-shadow: undefined;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             width: max-content;
             max-width: 100%;
             margin: 0 auto;
@@ -4898,7 +4898,7 @@ LoadedCheerio {
             "data": "
           .browser {
             background-color: transparent;
-            box-shadow: undefined;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             width: max-content;
             max-width: 100%;
             margin: 0 auto;

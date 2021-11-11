@@ -150,7 +150,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             box-shadow: none;
             display: block;
             font-family: ${theme.fonts.sans};
-            padding: ${theme.spacing.sm};
             width: 100%;
             height: 100%;
             resize: none;

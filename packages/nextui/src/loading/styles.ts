@@ -5,39 +5,39 @@ import { NextUIThemes } from '../theme';
 export const getLoaderSize = (type: NormalLoaders) => {
   const sizes: { [key in NormalLoaders]: { [key in NormalSizes]: string } } = {
     default: {
-      mini: '1rem',
-      small: '1.5rem',
-      medium: '2rem',
-      large: '2.8rem',
-      xlarge: '4rem'
+      xs: '1rem',
+      sm: '1.5rem',
+      md: '2rem',
+      lg: '2.8rem',
+      xl: '4rem'
     },
     'points-opacity': {
-      mini: '2px',
-      small: '4px',
-      medium: '6px',
-      large: '8px',
-      xlarge: '10px'
+      xs: '2px',
+      sm: '4px',
+      md: '6px',
+      lg: '8px',
+      xl: '10px'
     },
     points: {
-      mini: '2px',
-      small: '4px',
-      medium: '6px',
-      large: '8px',
-      xlarge: '10px'
+      xs: '2px',
+      sm: '4px',
+      md: '6px',
+      lg: '8px',
+      xl: '10px'
     },
     spinner: {
-      mini: '.75rem',
-      small: '1rem',
-      medium: '1.25rem',
-      large: '1.875rem',
-      xlarge: '2rem'
+      xs: '.75rem',
+      sm: '1rem',
+      md: '1.25rem',
+      lg: '1.875rem',
+      xl: '2rem'
     },
     gradient: {
-      mini: '1rem',
-      small: '1.5rem',
-      medium: '2rem',
-      large: '2.8rem',
-      xlarge: '4rem'
+      xs: '1rem',
+      sm: '1.5rem',
+      md: '2rem',
+      lg: '2.8rem',
+      xl: '4rem'
     }
   };
   return sizes[type];
@@ -46,11 +46,11 @@ export const getLoaderSize = (type: NormalLoaders) => {
 export const getLoaderBorder = (size: NormalSizes): string => {
   const defaultBorder = '3px';
   const sizes: { [key in NormalSizes]: string } = {
-    mini: '2px',
-    small: '2px',
-    medium: '3px',
-    large: '3px',
-    xlarge: '3px'
+    xs: '2px',
+    sm: '2px',
+    md: '3px',
+    lg: '3px',
+    xl: '3px'
   };
   return sizes[size] || defaultBorder;
 };
@@ -68,131 +68,131 @@ export const getLabelStyle = (
     [key in NormalLoaders]: { [key in NormalSizes]: CSSProperties };
   } = {
     default: {
-      mini: {
+      xs: {
         ...common,
         marginRight: '0px',
         // marginTop: 'calc(100% + 1.6rem)',
         fontSize: '0.6rem'
       },
-      small: {
+      sm: {
         ...common,
         marginRight: '0px',
         marginTop: 'calc(100% + 2rem)',
         fontSize: '0.745rem'
       },
-      medium: {
+      md: {
         ...common,
         marginRight: '0px',
         // marginTop: 'calc(100% + 2.4rem)',
         fontSize: '0.875rem'
       },
-      large: {
+      lg: {
         ...common,
         // marginTop: 'calc(100% + 3rem)',
         fontSize: '0.875rem'
       },
-      xlarge: {
+      xl: {
         ...common,
         // marginTop: 'calc(100% + 3.4rem)',
         fontSize: '0.875rem'
       }
     },
     'points-opacity': {
-      mini: {
+      xs: {
         ...common,
         marginRight: theme.spacing.sm
       },
-      small: {
+      sm: {
         ...common,
         marginRight: theme.spacing.sm
       },
-      medium: {
+      md: {
         ...common,
         marginRight: theme.spacing.sm
       },
-      large: {
+      lg: {
         ...common,
         marginRight: theme.spacing.sm
       },
-      xlarge: {
+      xl: {
         ...common,
         marginRight: theme.spacing.sm
       }
     },
     points: {
-      mini: {
+      xs: {
         ...common,
         marginRight: theme.spacing.sm
       },
-      small: {
+      sm: {
         ...common,
         marginRight: theme.spacing.sm
       },
-      medium: {
+      md: {
         ...common,
         marginRight: theme.spacing.sm
       },
-      large: {
+      lg: {
         ...common,
         marginRight: theme.spacing.sm
       },
-      xlarge: {
+      xl: {
         ...common,
         marginRight: theme.spacing.sm
       }
     },
     spinner: {
-      mini: {
+      xs: {
         ...common,
         position: 'absolute',
         marginTop: 'calc(100% + 1.6rem)'
       },
-      small: {
+      sm: {
         ...common,
         position: 'absolute',
         marginTop: 'calc(100% + 1.8rem)'
       },
-      medium: {
+      md: {
         ...common,
         position: 'absolute',
         marginTop: 'calc(100% + 2rem)'
       },
-      large: {
+      lg: {
         ...common,
         position: 'absolute',
         marginTop: 'calc(100% + 2rem)'
       },
-      xlarge: {
+      xl: {
         ...common,
         position: 'absolute',
         marginTop: 'calc(100% + 2.2rem)'
       }
     },
     gradient: {
-      mini: {
+      xs: {
         ...common,
         marginRight: '0px',
         marginTop: 'calc(100% + 1.6rem)',
         fontSize: '0.6rem'
       },
-      small: {
+      sm: {
         ...common,
         marginRight: '0px',
         marginTop: 'calc(100% + 2rem)',
         fontSize: '0.745rem'
       },
-      medium: {
+      md: {
         ...common,
         marginRight: '0px',
         marginTop: 'calc(100% + 2.4rem)',
         fontSize: '0.875rem'
       },
-      large: {
+      lg: {
         ...common,
         marginTop: 'calc(100% + 3rem)',
         fontSize: '0.875rem'
       },
-      xlarge: {
+      xl: {
         ...common,
         marginTop: 'calc(100% + 3.4rem)',
         fontSize: '0.875rem'

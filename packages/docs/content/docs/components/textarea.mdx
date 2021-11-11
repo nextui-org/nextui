@@ -182,14 +182,14 @@ import { Textarea } from '@nextui-org/react';
                 <Button
                     auto
                     color="primary"
-                    size="small"
+                    size="sm"
                     onClick={() => setControlledValue(Math.random().toString(32))}
                 >
                     Set value
                 </Button>
             </Grid>
             <Grid>
-                <Button auto flat size="small" onClick={() => reset()}>
+                <Button auto flat size="sm" onClick={() => reset()}>
                     Reset value
                 </Button>
             </Grid>
@@ -208,7 +208,7 @@ import { Textarea } from '@nextui-org/react';
                 <Button
                     auto
                     color="secondary"
-                    size="small"
+                    size="sm"
                     onClick={onClick}
                 >
                     Set value
@@ -285,7 +285,7 @@ type NormalColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Normal Weights

@@ -3,11 +3,11 @@ import { NormalSizes } from '../utils/prop-types';
 
 export const getCheckboxSize = (size: NormalSizes | number): string => {
   const sizes: { [key in NormalSizes]: string } = {
-    mini: '14px',
-    small: '16px',
-    medium: '20px',
-    large: '24px',
-    xlarge: '28px',
+    xs: '14px',
+    sm: '16px',
+    md: '20px',
+    lg: '24px',
+    xl: '28px'
   };
   if (typeof size === 'number') return `${size}px`;
   return sizes[size];
@@ -22,52 +22,52 @@ export const getIconCheckStyle = (
         transform: 'rotate(0deg)',
         height: 'auto',
         margin: '0px',
-        width: 'auto',
+        width: 'auto'
       }
     : {
         display: 'block',
         position: 'relative',
         width: '8px',
         height: '14px',
-        marginTop: '-4px',
+        marginTop: '-4px'
       };
 
   const sizes: { [key in NormalSizes]: CSSProperties } = {
-    mini: {
+    xs: {
       ...common,
       marginTop: '-2px',
-      transform: indeterminate ? 'scale(0.5)' : 'rotate(45deg) scale(0.5)',
+      transform: indeterminate ? 'scale(0.5)' : 'rotate(45deg) scale(0.5)'
     },
-    small: {
+    sm: {
       ...common,
       marginTop: '-2px',
-      transform: indeterminate ? 'scale(0.5)' : 'rotate(45deg) scale(0.5)',
+      transform: indeterminate ? 'scale(0.5)' : 'rotate(45deg) scale(0.5)'
     },
-    medium: {
+    md: {
       ...common,
-      transform: indeterminate ? 'scale(0.8)' : 'rotate(45deg) scale(0.8)',
+      transform: indeterminate ? 'scale(0.8)' : 'rotate(45deg) scale(0.8)'
     },
-    large: {
+    lg: {
       ...common,
-      transform: indeterminate ? '' : 'rotate(45deg)',
+      transform: indeterminate ? '' : 'rotate(45deg)'
     },
-    xlarge: {
+    xl: {
       ...common,
-      transform: indeterminate ? '' : 'rotate(45deg)',
-    },
+      transform: indeterminate ? '' : 'rotate(45deg)'
+    }
   };
   if (typeof size === 'number') {
     const fr = size / 100;
     if (size < 20) {
-      return sizes.small;
+      return sizes.sm;
     } else if (size > 20 && size < 24) {
-      return sizes.medium;
+      return sizes.md;
     } else {
       return {
-        ...sizes.large,
+        ...sizes.lg,
         transform: indeterminate
           ? ''
-          : `translateY(-${fr}px) rotate(45deg) scale(calc(1 + (${fr})))`,
+          : `translateY(-${fr}px) rotate(45deg) scale(calc(1 + (${fr})))`
       };
     }
   }

@@ -95,7 +95,7 @@ describe('Tooltip', () => {
   it('should render inner components', async () => {
     const wrapper = mount(
       <Tooltip content="some text">
-        <Button auto size="small" id="test">
+        <Button auto size="sm" id="test">
           button
         </Button>
       </Tooltip>

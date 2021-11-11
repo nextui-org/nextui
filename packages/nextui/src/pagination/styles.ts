@@ -7,23 +7,23 @@ type PaginationSize = {
 
 export const getPaginationSizes = (size: NormalSizes | number) => {
   const sizes: { [key in NormalSizes]: PaginationSize } = {
-    mini: {
+    xs: {
       font: '10px',
       width: '24px'
     },
-    small: {
+    sm: {
       font: '12px',
       width: '28px'
     },
-    medium: {
+    md: {
       font: '14px',
       width: '34px'
     },
-    large: {
+    lg: {
       font: '16px',
       width: '40px'
     },
-    xlarge: {
+    xl: {
       font: '18px',
       width: '46px'
     }

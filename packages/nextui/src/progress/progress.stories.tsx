@@ -39,15 +39,15 @@ export const Colors = () => (
 
 export const Sizes = () => (
   <>
-    <Progress size="mini" value={10} />
+    <Progress size="xs" value={10} />
     <Spacer y={1} />
-    <Progress size="small" value={20} />
+    <Progress size="sm" value={20} />
     <Spacer y={1} />
-    <Progress size="medium" value={40} />
+    <Progress size="md" value={40} />
     <Spacer y={1} />
-    <Progress size="large" value={60} />
+    <Progress size="lg" value={60} />
     <Spacer y={1} />
-    <Progress size="xlarge" value={80} />
+    <Progress size="xl" value={80} />
   </>
 );
 

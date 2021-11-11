@@ -9,8 +9,8 @@ const argTypes = {
     type: { name: 'NormalTypes', required: false },
     control: {
       type: 'radio',
-      options: ['primary', 'secondary', 'success', 'warning', 'error'],
-    },
+      options: ['primary', 'secondary', 'success', 'warning', 'error']
+    }
   },
   textColor: {
     name: 'textColor',
@@ -23,30 +23,30 @@ const argTypes = {
         'secondary',
         'success',
         'warning',
-        'error',
-      ],
-    },
+        'error'
+      ]
+    }
   },
   size: {
     name: 'size',
     control: {
       type: 'radio',
-      options: ['mini', 'small', 'medium', 'large', 'xlarge'],
-    },
+      options: ['mini', 'small', 'medium', 'large', 'xlarge']
+    }
   },
   disabled: {
     name: 'disabled',
     type: { name: 'boolean', required: false },
     control: {
-      type: 'boolean',
-    },
-  },
+      type: 'boolean'
+    }
+  }
 };
 
 export default {
   title: 'Inputs/Checkbox',
   component: Checkbox,
-  argTypes,
+  argTypes
 } as Meta;
 
 const Template: Story<Props> = (args) => <Checkbox {...args} />;
@@ -56,7 +56,7 @@ Default.args = {
   label: 'Option',
   color: 'primary' as NormalColors,
   textColor: 'default' as NormalColors,
-  size: 'medium' as NormalSizes,
+  size: 'md' as NormalSizes
 };
 
 export const Colors = () => (
@@ -109,23 +109,23 @@ export const TextColors = () => (
 
 export const Sizes = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox checked={true} size="mini">
+    <Checkbox checked={true} size="xs">
       mini
     </Checkbox>
     <br />
-    <Checkbox checked={true} size="small">
+    <Checkbox checked={true} size="sm">
       small
     </Checkbox>
     <br />
-    <Checkbox checked={true} size="medium">
+    <Checkbox checked={true} size="md">
       medium
     </Checkbox>
     <br />
-    <Checkbox checked={true} size="large">
+    <Checkbox checked={true} size="lg">
       large
     </Checkbox>
     <br />
-    <Checkbox checked={true} size="xlarge">
+    <Checkbox checked={true} size="xl">
       xlarge
     </Checkbox>
   </div>
@@ -157,11 +157,11 @@ export const Rounded = () => (
 
 export const Disabled = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox checked={true} size="xlarge">
+    <Checkbox checked={true} size="xl">
       Enabled
     </Checkbox>
     <br />
-    <Checkbox disabled checked={true} size="xlarge">
+    <Checkbox disabled checked={true} size="xl">
       Disabled
     </Checkbox>
   </div>
@@ -173,7 +173,7 @@ Indeterminate.args = {
   indeterminate: true,
   label: 'Option',
   color: 'primary' as NormalColors,
-  size: 'large' as NormalSizes,
+  size: 'large' as NormalSizes
 };
 
 export const LineThrough = Template.bind({});
@@ -182,11 +182,16 @@ LineThrough.args = {
   line: true,
   label: 'Option',
   color: 'primary' as NormalColors,
-  size: 'large' as NormalSizes,
+  size: 'large' as NormalSizes
 };
 
 export const Group: React.VFC<{}> = (args) => (
-  <Checkbox.Group color="warning" value={['buenos-aires']} aria-label="Select cities" {...args}>
+  <Checkbox.Group
+    color="warning"
+    value={['buenos-aires']}
+    aria-label="Select cities"
+    {...args}
+  >
     <Checkbox value="buenos-aires" {...Default.args}>
       Buenos Aires
     </Checkbox>

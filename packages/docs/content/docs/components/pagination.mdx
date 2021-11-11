@@ -41,7 +41,7 @@ return(
       <Pagination color={selectedColor} total={10} />
     </Grid>
     <Grid xs={12}>
-        <Radio.Group row size="small" value={selectedColor} onChange={setSelectedColor}>
+        <Radio.Group row size="sm" value={selectedColor} onChange={setSelectedColor}>
             {colors.map((color) => (
                 <Radio key={color} value={color} color={color}>
                     {capitalize(color)}
@@ -60,8 +60,8 @@ return(
   desc="Change the size of the entire `Pagination` including `width`, `height` and `font-size` with the `size` property."
   code={`
 () => {
-const [selectedSize, setSelectedSize] = React.useState('medium');
-const sizes = ['mini', 'small', 'medium', 'large', 'xlarge']
+const [selectedSize, setSelectedSize] = React.useState('md');
+const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
 const capitalize = (str) => {
   const lower = str.toLowerCase();
   return str.charAt(0).toUpperCase() + lower.slice(1);
@@ -72,7 +72,7 @@ return(
       <Pagination color='secondary' size={selectedSize} total={10} />
     </Grid>
     <Grid xs={12}>
-        <Radio.Group row size="small" value={selectedSize} onChange={setSelectedSize}>
+        <Radio.Group row size="sm" value={selectedSize} onChange={setSelectedSize}>
             {sizes.map((size) => (
                 <Radio color="secondary" key={size} value={size}>
                     {capitalize(size)}
@@ -128,7 +128,7 @@ return(
       <Pagination shadow color={selectedColor} total={10} />
     </Grid>
     <Grid xs={12}>
-        <Radio.Group row size="small" value={selectedColor} onChange={setSelectedColor}>
+        <Radio.Group row size="sm" value={selectedColor} onChange={setSelectedColor}>
             {colors.map((color) => (
                 <Radio key={color} value={color} color={color}>
                     {capitalize(color)}
@@ -147,8 +147,8 @@ return(
   desc="You can completely change the style of the component and remove the internal numbers in each `Pagination` button with the property `onlyDots`."
   code={`
 () => {
-const [selectedSize, setSelectedSize] = React.useState('medium');
-const sizes = ['mini', 'small', 'medium', 'large', 'xlarge']
+const [selectedSize, setSelectedSize] = React.useState('md');
+const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
 const capitalize = (str) => {
   const lower = str.toLowerCase();
   return str.charAt(0).toUpperCase() + lower.slice(1);
@@ -159,7 +159,7 @@ return(
       <Pagination onlyDots size={selectedSize} total={6} />
     </Grid>
     <Grid xs={12}>
-        <Radio.Group row size="small" value={selectedSize} onChange={setSelectedSize}>
+        <Radio.Group row size="sm" value={selectedSize} onChange={setSelectedSize}>
             {sizes.map((size) => (
                 <Radio key={size} value={size}>
                     {capitalize(size)}
@@ -226,17 +226,17 @@ return(
     <Grid>
         <Text>1 Sibling (default)</Text>
         <Spacer y={0.4}/>
-        <Pagination bordered total={14} initialPage={6} />
+        <Pagination total={14} initialPage={6} />
     </Grid>
     <Grid>
         <Text>2 Siblings</Text>
         <Spacer y={0.4}/>
-        <Pagination bordered siblings={2} total={14} initialPage={6} />
+        <Pagination siblings={2} total={14} initialPage={6} />
     </Grid>
     <Grid>
         <Text>3 Siblings</Text>
         <Spacer y={0.4}/>
-        <Pagination bordered siblings={3} total={14} initialPage={6} />
+        <Pagination siblings={3} total={14} initialPage={6} />
     </Grid>    
 </Grid.Container>
 `}
@@ -251,17 +251,17 @@ return(
     <Grid>
         <Text>1 Boundary (default)</Text>
         <Spacer y={0.4}/>
-        <Pagination bordered total={14} initialPage={6} />
+        <Pagination total={14} initialPage={6} />
     </Grid>
     <Grid>
         <Text>2 Boundaries</Text>
         <Spacer y={0.4}/>
-        <Pagination bordered boundaries={2} total={14} initialPage={6} />
+        <Pagination boundaries={2} total={14} initialPage={6} />
     </Grid>
     <Grid>
         <Text>3 Boundaries</Text>
         <Spacer y={0.4}/>
-        <Pagination bordered boundaries={3} total={14} initialPage={6} />
+        <Pagination boundaries={3} total={14} initialPage={6} />
     </Grid>    
 </Grid.Container>
 `}
@@ -317,7 +317,7 @@ type NormalColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Normal Weights
