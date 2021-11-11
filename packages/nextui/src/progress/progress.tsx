@@ -164,7 +164,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
               transparent 75%,
               transparent
             );
-            background-size: ${theme.layout.gap} ${theme.layout.gap};
+            background-size: ${theme.spacing.lg} ${theme.spacing.lg};
           }
           .filler.indeterminated {
             position: absolute;

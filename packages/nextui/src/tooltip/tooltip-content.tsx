@@ -101,7 +101,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   );
 
   const borderRadius = useMemo(
-    () => (rounded ? '20px' : theme.layout.radius),
+    () => (rounded ? '20px' : theme.radius.lg),
     [rounded]
   );
 
@@ -144,10 +144,10 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
             background: ${colors.bgColor};
             color: ${colors.color};
             border-radius: ${borderRadius};
-            padding: ${theme.layout.gapQuarter} ${theme.layout.gapHalf};
+            padding: calc(${theme.spacing.sm} * 0.5) ${theme.spacing.sm};
             opacity: 0;
             z-index: 1000;
-            box-shadow: ${shadow ? theme.expressiveness.shadowMedium : 'none'};
+            box-shadow: ${shadow ? theme.shadows.md : 'none'};
             transition: opacity 0.25s ease 0s, top 0.25s ease 0s;
           }
           .inner {

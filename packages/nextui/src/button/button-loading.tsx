@@ -12,7 +12,7 @@ interface Props {
 
 const defaultProps = {
   size: 'small' as NormalSizes,
-  type: 'default' as NormalLoaders,
+  type: 'default' as NormalLoaders
 };
 
 export type ButtonLoadingProps = Props & typeof defaultProps;

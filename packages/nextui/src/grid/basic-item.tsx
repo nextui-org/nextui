@@ -5,7 +5,7 @@ import {
   Justify,
   Direction,
   AlignItems,
-  AlignContent,
+  AlignContent
 } from '../utils/prop-types';
 
 interface Props {
@@ -27,7 +27,7 @@ const defaultProps = {
   md: false as BreakpointsValue,
   lg: false as BreakpointsValue,
   xl: false as BreakpointsValue,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -48,14 +48,14 @@ const getItemLayout = (val: BreakpointsValue): ItemLayoutValue => {
       grow: 0,
       display,
       width: ratio,
-      basis: ratio,
+      basis: ratio
     };
   }
   return {
     grow: 1,
     display,
     width: '100%',
-    basis: '0',
+    basis: '0'
   };
 };
 
@@ -84,7 +84,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
       sm,
       md,
       lg,
-      xl,
+      xl
     };
     const classString = Object.keys(aligns).reduce((pre, name) => {
       if (aligns[name] !== undefined && aligns[name] !== false)
@@ -104,7 +104,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
       sm: getItemLayout(sm),
       md: getItemLayout(md),
       lg: getItemLayout(lg),
-      xl: getItemLayout(xl),
+      xl: getItemLayout(xl)
     }),
     [xs, sm, md, lg, xl]
   );
@@ -132,7 +132,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
           flex-basis: ${layout.xs.basis};
           ${layout.xs.display}
         }
-        @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+        @media only screen and (max-width: ${theme.breakpoints.xs}) {
           .xs {
             flex-grow: ${layout.xs.grow};
             max-width: ${layout.xs.width};
@@ -140,7 +140,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
             ${layout.xs.display}
           }
         }
-        @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
+        @media only screen and (min-width: ${theme.breakpoints.sm}) {
           .sm {
             flex-grow: ${layout.sm.grow};
             max-width: ${layout.sm.width};
@@ -148,7 +148,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
             ${layout.sm.display}
           }
         }
-        @media only screen and (min-width: ${theme.breakpoints.md.min}) {
+        @media only screen and (min-width: ${theme.breakpoints.md}) {
           .md {
             flex-grow: ${layout.md.grow};
             max-width: ${layout.md.width};
@@ -156,7 +156,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
             ${layout.md.display}
           }
         }
-        @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
+        @media only screen and (min-width: ${theme.breakpoints.lg}) {
           .lg {
             flex-grow: ${layout.lg.grow};
             max-width: ${layout.lg.width};
@@ -164,7 +164,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
             ${layout.lg.display}
           }
         }
-        @media only screen and (min-width: ${theme.breakpoints.xl.min}) {
+        @media only screen and (min-width: ${theme.breakpoints.xl}) {
           .xl {
             flex-grow: ${layout.xl.grow};
             max-width: ${layout.xl.width};

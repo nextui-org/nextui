@@ -55,7 +55,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
         'is-textarea': isTextarea,
         underlined,
         rounded,
-        hover,
+        hover
       })}
       htmlFor={htmlFor}
       {...props}
@@ -67,7 +67,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
           font-weight: normal;
           color: ${color || theme.palette.text};
           padding: 0 0 0 4px;
-          margin-bottom: ${theme.layout.gapQuarter};
+          margin-bottom: calc(${theme.spacing.sm} * 0.5);
           font-size: ${fontSize};
           line-height: 1.5;
           -webkit-touch-callout: none; /* iOS Safari */
@@ -85,7 +85,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
           margin-bottom: 0;
         }
         .input-label-block.rounded {
-          padding: 0 0 0 ${theme.layout.gapQuarter};
+          padding: 0 0 0 calc(${theme.spacing.sm} * 0.5);
         }
         .as-placeholder {
           position: absolute;
@@ -104,7 +104,7 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
           left: 4px;
         }
         .as-placeholder.has-content-left {
-          left: calc(12px + ${heightRatio} * ${theme.layout.gap} * 0.64);
+          left: calc(12px + ${heightRatio} * ${theme.spacing.lg} * 0.64);
         }
         .as-placeholder.hover,
         .as-placeholder.with-value {

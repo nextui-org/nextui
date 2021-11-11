@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Button from '../index';
-import { sleep } from '../../../../tests/utils';
+import { sleep } from '../../../tests/utils';
 
 describe('Button', () => {
   it('should render correctly', () => {
@@ -41,7 +41,7 @@ describe('Button', () => {
     expect(wrapper.text()).toContain('button');
 
     wrapper.setProps({
-      children: <span>Hello</span>,
+      children: <span>Hello</span>
     });
     expect(wrapper.text()).toContain('Hello');
   });

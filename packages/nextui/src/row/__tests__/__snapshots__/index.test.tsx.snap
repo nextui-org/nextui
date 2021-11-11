@@ -7,9 +7,9 @@ exports[`Row should render correctly 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -26,9 +26,9 @@ exports[`Row should work with nested 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -50,9 +50,9 @@ exports[`Row should work with nested 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -65,9 +65,9 @@ exports[`Row should work with nested 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -80,9 +80,9 @@ exports[`Row should work with nested 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -108,9 +108,9 @@ exports[`Row the children should be aligned correctly 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: flex-end;
           align-items: flex-start;
         }
@@ -132,9 +132,9 @@ exports[`Row the children should be aligned correctly 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: center;
           align-items: flex-start;
         }
@@ -156,9 +156,9 @@ exports[`Row the children should be aligned correctly 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: space-around;
           align-items: flex-start;
         }
@@ -180,9 +180,9 @@ exports[`Row the children should be aligned correctly 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: space-between;
           align-items: flex-start;
         }
@@ -204,9 +204,9 @@ exports[`Row the children should be aligned correctly 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -228,9 +228,9 @@ exports[`Row the children should be aligned correctly 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: center;
         }
@@ -252,9 +252,9 @@ exports[`Row the children should be aligned correctly 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(0 * 16pt / 2);
-          margin-right: calc(0 * 16pt / 2);
-          --row-gap: calc(0 * 16pt);
+          margin-left: calc(0 * 20px / 2);
+          margin-right: calc(0 * 20px / 2);
+          --row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-end;
         }
@@ -280,9 +280,9 @@ exports[`Row the children should have the correct spacing 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(1 * 16pt / 2);
-          margin-right: calc(1 * 16pt / 2);
-          --row-gap: calc(1 * 16pt);
+          margin-left: calc(1 * 20px / 2);
+          margin-right: calc(1 * 20px / 2);
+          --row-gap: calc(1 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -304,9 +304,9 @@ exports[`Row the children should have the correct spacing 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(2 * 16pt / 2);
-          margin-right: calc(2 * 16pt / 2);
-          --row-gap: calc(2 * 16pt);
+          margin-left: calc(2 * 20px / 2);
+          margin-right: calc(2 * 20px / 2);
+          --row-gap: calc(2 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -328,9 +328,9 @@ exports[`Row the children should have the correct spacing 1`] = `
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
-          margin-left: calc(10 * 16pt / 2);
-          margin-right: calc(10 * 16pt / 2);
-          --row-gap: calc(10 * 16pt);
+          margin-left: calc(10 * 20px / 2);
+          margin-right: calc(10 * 20px / 2);
+          --row-gap: calc(10 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }

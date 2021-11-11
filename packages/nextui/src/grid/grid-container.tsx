@@ -29,8 +29,8 @@ const GridContainer: React.FC<React.PropsWithChildren<GridContainerProps>> = ({
 }) => {
   const theme = useTheme();
   const gapUnit = useMemo(() => {
-    return `calc(${gap} * ${theme.layout.gapQuarter})`;
-  }, [gap, theme.layout.gapQuarter]);
+    return `calc(${gap} * ${theme.spacing[1]})`;
+  }, [gap, theme.spacing]);
 
   const { className: resolveClassName, styles } = css.resolve`
     --grid-gap-unit: ${gapUnit};

@@ -36,8 +36,8 @@ const ModalCloseButton: React.FC<Props> = ({ onClick, disabled, ...props }) => {
           background: transparent;
           border: none;
           z-index: 1;
-          top: ${theme.layout.gapQuarter};
-          right: calc(${theme.layout.gapQuarter} * 0.5);
+          top: calc(${theme.spacing.sm} * 0.5);
+          right: calc(calc(${theme.spacing.sm} * 0.5) * 0.5);
           margin: 0;
           display: inline-flex;
           align-items: center;
@@ -45,7 +45,7 @@ const ModalCloseButton: React.FC<Props> = ({ onClick, disabled, ...props }) => {
           cursor: ${disabled ? 'not-allowed' : 'pointer'};
           box-sizing: border-box;
           transition: all 250ms ease 0s;
-          padding: ${theme.layout.gapQuarter};
+          padding: calc(${theme.spacing.sm} * 0.5);
           color: ${theme.palette.accents_4};
           border-radius: 9px;
         }

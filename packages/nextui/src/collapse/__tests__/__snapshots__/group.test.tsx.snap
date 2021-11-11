@@ -19,11 +19,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-next-ui-h8jfin2j",
+              "aria-controls": "collapse-next-ui-2fveg0jr",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-next-ui-h8jfin2j",
+              "id": "collapse-button-next-ui-2fveg0jr",
               "role": "button",
               "tabindex": "-1",
             },
@@ -316,9 +316,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                        "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                         "class": "content",
-                        "id": "collapse-next-ui-h8jfin2j",
+                        "id": "collapse-next-ui-2fveg0jr",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -439,9 +439,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                          "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                           "class": "content",
-                          "id": "collapse-next-ui-h8jfin2j",
+                          "id": "collapse-next-ui-2fveg0jr",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -511,10 +511,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -525,7 +525,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -540,7 +540,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -578,7 +578,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -646,9 +646,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                      "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                       "class": "content",
-                      "id": "collapse-next-ui-h8jfin2j",
+                      "id": "collapse-next-ui-2fveg0jr",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -769,9 +769,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                        "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                         "class": "content",
-                        "id": "collapse-next-ui-h8jfin2j",
+                        "id": "collapse-next-ui-2fveg0jr",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -841,10 +841,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -855,7 +855,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -870,7 +870,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -908,7 +908,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -935,11 +935,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-h8jfin2j",
+                "aria-controls": "collapse-next-ui-2fveg0jr",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-h8jfin2j",
+                "id": "collapse-button-next-ui-2fveg0jr",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -1266,10 +1266,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -1280,7 +1280,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -1295,7 +1295,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -1333,7 +1333,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -1364,9 +1364,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                        "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                         "class": "content",
-                        "id": "collapse-next-ui-h8jfin2j",
+                        "id": "collapse-next-ui-2fveg0jr",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -1487,9 +1487,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                          "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                           "class": "content",
-                          "id": "collapse-next-ui-h8jfin2j",
+                          "id": "collapse-next-ui-2fveg0jr",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -1548,11 +1548,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-h8jfin2j",
+                  "aria-controls": "collapse-next-ui-2fveg0jr",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-h8jfin2j",
+                  "id": "collapse-button-next-ui-2fveg0jr",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -1879,11 +1879,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-jdf8ghk8",
+                "aria-controls": "collapse-next-ui-mu0p863g",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-jdf8ghk8",
+                "id": "collapse-button-next-ui-mu0p863g",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -2176,9 +2176,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                          "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                           "class": "content",
-                          "id": "collapse-next-ui-jdf8ghk8",
+                          "id": "collapse-next-ui-mu0p863g",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -2299,9 +2299,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                            "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                             "class": "content",
-                            "id": "collapse-next-ui-jdf8ghk8",
+                            "id": "collapse-next-ui-mu0p863g",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -2371,10 +2371,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -2385,7 +2385,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -2400,7 +2400,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -2438,7 +2438,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -2506,9 +2506,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                        "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                         "class": "content",
-                        "id": "collapse-next-ui-jdf8ghk8",
+                        "id": "collapse-next-ui-mu0p863g",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -2629,9 +2629,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                          "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                           "class": "content",
-                          "id": "collapse-next-ui-jdf8ghk8",
+                          "id": "collapse-next-ui-mu0p863g",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -2701,10 +2701,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -2715,7 +2715,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -2730,7 +2730,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -2768,7 +2768,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -2795,11 +2795,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-jdf8ghk8",
+                  "aria-controls": "collapse-next-ui-mu0p863g",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-jdf8ghk8",
+                  "id": "collapse-button-next-ui-mu0p863g",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -3126,10 +3126,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -3140,7 +3140,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -3155,7 +3155,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -3193,7 +3193,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -3224,9 +3224,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                          "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                           "class": "content",
-                          "id": "collapse-next-ui-jdf8ghk8",
+                          "id": "collapse-next-ui-mu0p863g",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -3347,9 +3347,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                            "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                             "class": "content",
-                            "id": "collapse-next-ui-jdf8ghk8",
+                            "id": "collapse-next-ui-mu0p863g",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -3408,11 +3408,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-next-ui-jdf8ghk8",
+                    "aria-controls": "collapse-next-ui-mu0p863g",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-next-ui-jdf8ghk8",
+                    "id": "collapse-button-next-ui-mu0p863g",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -3738,7 +3738,7 @@ LoadedCheerio {
                 "data": "
           .collapse-group {
             width: auto;
-            padding: 0 8pt;
+            padding: 0 12px;
           }
           .collapse-group &gt; :global(div + div) {
             border-top: none;
@@ -3747,7 +3747,7 @@ LoadedCheerio {
           .bordered,
           .collapse-group.splitted :global(.collapse) {
             border-radius: 14px;
-            padding: 0 16pt;
+            padding: 0 20px;
           }
           .shadow {
             border: none;
@@ -3758,7 +3758,7 @@ LoadedCheerio {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            margin: 8pt 0;
+            margin: 12px 0;
           }
           .bordered {
             border: 1px solid #eaeaea;
@@ -3821,11 +3821,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-next-ui-jdf8ghk8",
+              "aria-controls": "collapse-next-ui-mu0p863g",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-next-ui-jdf8ghk8",
+              "id": "collapse-button-next-ui-mu0p863g",
               "role": "button",
               "tabindex": "-1",
             },
@@ -4118,9 +4118,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                        "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                         "class": "content",
-                        "id": "collapse-next-ui-jdf8ghk8",
+                        "id": "collapse-next-ui-mu0p863g",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -4241,9 +4241,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                          "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                           "class": "content",
-                          "id": "collapse-next-ui-jdf8ghk8",
+                          "id": "collapse-next-ui-mu0p863g",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -4313,10 +4313,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -4327,7 +4327,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -4342,7 +4342,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -4380,7 +4380,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -4448,9 +4448,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                      "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                       "class": "content",
-                      "id": "collapse-next-ui-jdf8ghk8",
+                      "id": "collapse-next-ui-mu0p863g",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -4571,9 +4571,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                        "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                         "class": "content",
-                        "id": "collapse-next-ui-jdf8ghk8",
+                        "id": "collapse-next-ui-mu0p863g",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -4643,10 +4643,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -4657,7 +4657,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -4672,7 +4672,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -4710,7 +4710,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -4737,11 +4737,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-jdf8ghk8",
+                "aria-controls": "collapse-next-ui-mu0p863g",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-jdf8ghk8",
+                "id": "collapse-button-next-ui-mu0p863g",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -5068,10 +5068,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -5082,7 +5082,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -5097,7 +5097,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -5135,7 +5135,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -5166,9 +5166,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                        "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                         "class": "content",
-                        "id": "collapse-next-ui-jdf8ghk8",
+                        "id": "collapse-next-ui-mu0p863g",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -5289,9 +5289,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                          "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                           "class": "content",
-                          "id": "collapse-next-ui-jdf8ghk8",
+                          "id": "collapse-next-ui-mu0p863g",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -5350,11 +5350,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-jdf8ghk8",
+                  "aria-controls": "collapse-next-ui-mu0p863g",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-jdf8ghk8",
+                  "id": "collapse-button-next-ui-mu0p863g",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -5680,7 +5680,7 @@ LoadedCheerio {
               "data": "
           .collapse-group {
             width: auto;
-            padding: 0 8pt;
+            padding: 0 12px;
           }
           .collapse-group &gt; :global(div + div) {
             border-top: none;
@@ -5689,7 +5689,7 @@ LoadedCheerio {
           .bordered,
           .collapse-group.splitted :global(.collapse) {
             border-radius: 14px;
-            padding: 0 16pt;
+            padding: 0 20px;
           }
           .shadow {
             border: none;
@@ -5700,7 +5700,7 @@ LoadedCheerio {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            margin: 8pt 0;
+            margin: 12px 0;
           }
           .bordered {
             border: 1px solid #eaeaea;
@@ -5740,11 +5740,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-h8jfin2j",
+                "aria-controls": "collapse-next-ui-2fveg0jr",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-h8jfin2j",
+                "id": "collapse-button-next-ui-2fveg0jr",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -6037,9 +6037,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                          "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                           "class": "content",
-                          "id": "collapse-next-ui-h8jfin2j",
+                          "id": "collapse-next-ui-2fveg0jr",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -6160,9 +6160,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                            "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                             "class": "content",
-                            "id": "collapse-next-ui-h8jfin2j",
+                            "id": "collapse-next-ui-2fveg0jr",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -6232,10 +6232,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -6246,7 +6246,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -6261,7 +6261,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -6299,7 +6299,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -6367,9 +6367,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                        "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                         "class": "content",
-                        "id": "collapse-next-ui-h8jfin2j",
+                        "id": "collapse-next-ui-2fveg0jr",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -6490,9 +6490,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                          "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                           "class": "content",
-                          "id": "collapse-next-ui-h8jfin2j",
+                          "id": "collapse-next-ui-2fveg0jr",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -6562,10 +6562,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -6576,7 +6576,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -6591,7 +6591,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -6629,7 +6629,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -6656,11 +6656,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-h8jfin2j",
+                  "aria-controls": "collapse-next-ui-2fveg0jr",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-h8jfin2j",
+                  "id": "collapse-button-next-ui-2fveg0jr",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -6987,10 +6987,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -7001,7 +7001,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -7016,7 +7016,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -7054,7 +7054,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -7085,9 +7085,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                          "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                           "class": "content",
-                          "id": "collapse-next-ui-h8jfin2j",
+                          "id": "collapse-next-ui-2fveg0jr",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -7208,9 +7208,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                            "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                             "class": "content",
-                            "id": "collapse-next-ui-h8jfin2j",
+                            "id": "collapse-next-ui-2fveg0jr",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -7269,11 +7269,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-next-ui-h8jfin2j",
+                    "aria-controls": "collapse-next-ui-2fveg0jr",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-next-ui-h8jfin2j",
+                    "id": "collapse-button-next-ui-2fveg0jr",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -7622,7 +7622,7 @@ LoadedCheerio {
             "data": "
           .collapse-group {
             width: auto;
-            padding: 0 8pt;
+            padding: 0 12px;
           }
           .collapse-group &gt; :global(div + div) {
             border-top: none;
@@ -7631,7 +7631,7 @@ LoadedCheerio {
           .bordered,
           .collapse-group.splitted :global(.collapse) {
             border-radius: 14px;
-            padding: 0 16pt;
+            padding: 0 20px;
           }
           .shadow {
             border: none;
@@ -7642,7 +7642,7 @@ LoadedCheerio {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            margin: 8pt 0;
+            margin: 12px 0;
           }
           .bordered {
             border: 1px solid #eaeaea;
@@ -7676,11 +7676,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-jdf8ghk8",
+                "aria-controls": "collapse-next-ui-mu0p863g",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-jdf8ghk8",
+                "id": "collapse-button-next-ui-mu0p863g",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -7973,9 +7973,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                          "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                           "class": "content",
-                          "id": "collapse-next-ui-jdf8ghk8",
+                          "id": "collapse-next-ui-mu0p863g",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -8096,9 +8096,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                            "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                             "class": "content",
-                            "id": "collapse-next-ui-jdf8ghk8",
+                            "id": "collapse-next-ui-mu0p863g",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -8168,10 +8168,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -8182,7 +8182,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -8197,7 +8197,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -8235,7 +8235,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -8303,9 +8303,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                        "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                         "class": "content",
-                        "id": "collapse-next-ui-jdf8ghk8",
+                        "id": "collapse-next-ui-mu0p863g",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -8426,9 +8426,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                          "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                           "class": "content",
-                          "id": "collapse-next-ui-jdf8ghk8",
+                          "id": "collapse-next-ui-mu0p863g",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -8498,10 +8498,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -8512,7 +8512,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -8527,7 +8527,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -8565,7 +8565,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -8592,11 +8592,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-jdf8ghk8",
+                  "aria-controls": "collapse-next-ui-mu0p863g",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-jdf8ghk8",
+                  "id": "collapse-button-next-ui-mu0p863g",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -8923,10 +8923,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -8937,7 +8937,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -8952,7 +8952,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -8990,7 +8990,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -9021,9 +9021,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                          "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                           "class": "content",
-                          "id": "collapse-next-ui-jdf8ghk8",
+                          "id": "collapse-next-ui-mu0p863g",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -9144,9 +9144,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-jdf8ghk8",
+                            "aria-labelledby": "collapse-button-next-ui-mu0p863g",
                             "class": "content",
-                            "id": "collapse-next-ui-jdf8ghk8",
+                            "id": "collapse-next-ui-mu0p863g",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -9205,11 +9205,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-next-ui-jdf8ghk8",
+                    "aria-controls": "collapse-next-ui-mu0p863g",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-next-ui-jdf8ghk8",
+                    "id": "collapse-button-next-ui-mu0p863g",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -9538,11 +9538,11 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-h8jfin2j",
+                  "aria-controls": "collapse-next-ui-2fveg0jr",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-h8jfin2j",
+                  "id": "collapse-button-next-ui-2fveg0jr",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -9835,9 +9835,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                            "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                             "class": "content",
-                            "id": "collapse-next-ui-h8jfin2j",
+                            "id": "collapse-next-ui-2fveg0jr",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -9958,9 +9958,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                              "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                               "class": "content",
-                              "id": "collapse-next-ui-h8jfin2j",
+                              "id": "collapse-next-ui-2fveg0jr",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -10030,10 +10030,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -10044,7 +10044,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -10059,7 +10059,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -10097,7 +10097,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -10165,9 +10165,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                          "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                           "class": "content",
-                          "id": "collapse-next-ui-h8jfin2j",
+                          "id": "collapse-next-ui-2fveg0jr",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -10288,9 +10288,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                            "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                             "class": "content",
-                            "id": "collapse-next-ui-h8jfin2j",
+                            "id": "collapse-next-ui-2fveg0jr",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -10360,10 +10360,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -10374,7 +10374,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -10389,7 +10389,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -10427,7 +10427,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -10454,11 +10454,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-next-ui-h8jfin2j",
+                    "aria-controls": "collapse-next-ui-2fveg0jr",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-next-ui-h8jfin2j",
+                    "id": "collapse-button-next-ui-2fveg0jr",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -10785,10 +10785,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -10799,7 +10799,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -10814,7 +10814,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -10852,7 +10852,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -10883,9 +10883,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                            "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                             "class": "content",
-                            "id": "collapse-next-ui-h8jfin2j",
+                            "id": "collapse-next-ui-2fveg0jr",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -11006,9 +11006,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "collapse-button-next-ui-h8jfin2j",
+                              "aria-labelledby": "collapse-button-next-ui-2fveg0jr",
                               "class": "content",
-                              "id": "collapse-next-ui-h8jfin2j",
+                              "id": "collapse-next-ui-2fveg0jr",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -11067,11 +11067,11 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "aria-controls": "collapse-next-ui-h8jfin2j",
+                      "aria-controls": "collapse-next-ui-2fveg0jr",
                       "aria-disabled": "false",
                       "aria-expanded": "false",
                       "class": "view",
-                      "id": "collapse-button-next-ui-h8jfin2j",
+                      "id": "collapse-button-next-ui-2fveg0jr",
                       "role": "button",
                       "tabindex": "-1",
                     },
@@ -11540,11 +11540,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-next-ui-2opn6rqo",
+              "aria-controls": "collapse-next-ui-na215fh5",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-next-ui-2opn6rqo",
+              "id": "collapse-button-next-ui-na215fh5",
               "role": "button",
               "tabindex": "-1",
             },
@@ -11837,9 +11837,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                        "aria-labelledby": "collapse-button-next-ui-na215fh5",
                         "class": "content",
-                        "id": "collapse-next-ui-2opn6rqo",
+                        "id": "collapse-next-ui-na215fh5",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -11960,9 +11960,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                          "aria-labelledby": "collapse-button-next-ui-na215fh5",
                           "class": "content",
-                          "id": "collapse-next-ui-2opn6rqo",
+                          "id": "collapse-next-ui-na215fh5",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -12032,10 +12032,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -12046,7 +12046,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -12061,7 +12061,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -12099,7 +12099,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -12167,9 +12167,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                      "aria-labelledby": "collapse-button-next-ui-na215fh5",
                       "class": "content",
-                      "id": "collapse-next-ui-2opn6rqo",
+                      "id": "collapse-next-ui-na215fh5",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -12290,9 +12290,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                        "aria-labelledby": "collapse-button-next-ui-na215fh5",
                         "class": "content",
-                        "id": "collapse-next-ui-2opn6rqo",
+                        "id": "collapse-next-ui-na215fh5",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -12362,10 +12362,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -12376,7 +12376,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -12391,7 +12391,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -12429,7 +12429,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -12456,11 +12456,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-2opn6rqo",
+                "aria-controls": "collapse-next-ui-na215fh5",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-2opn6rqo",
+                "id": "collapse-button-next-ui-na215fh5",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -12787,10 +12787,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -12801,7 +12801,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -12816,7 +12816,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -12854,7 +12854,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -12885,9 +12885,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                        "aria-labelledby": "collapse-button-next-ui-na215fh5",
                         "class": "content",
-                        "id": "collapse-next-ui-2opn6rqo",
+                        "id": "collapse-next-ui-na215fh5",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -13008,9 +13008,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                          "aria-labelledby": "collapse-button-next-ui-na215fh5",
                           "class": "content",
-                          "id": "collapse-next-ui-2opn6rqo",
+                          "id": "collapse-next-ui-na215fh5",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -13069,11 +13069,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-2opn6rqo",
+                  "aria-controls": "collapse-next-ui-na215fh5",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-2opn6rqo",
+                  "id": "collapse-button-next-ui-na215fh5",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -13400,11 +13400,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-68u15qsl",
+                "aria-controls": "collapse-next-ui-l13kcvr6",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-68u15qsl",
+                "id": "collapse-button-next-ui-l13kcvr6",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -13697,9 +13697,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                          "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                           "class": "content",
-                          "id": "collapse-next-ui-68u15qsl",
+                          "id": "collapse-next-ui-l13kcvr6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -13820,9 +13820,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                            "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                             "class": "content",
-                            "id": "collapse-next-ui-68u15qsl",
+                            "id": "collapse-next-ui-l13kcvr6",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -13892,10 +13892,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -13906,7 +13906,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -13921,7 +13921,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -13959,7 +13959,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -14027,9 +14027,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                        "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                         "class": "content",
-                        "id": "collapse-next-ui-68u15qsl",
+                        "id": "collapse-next-ui-l13kcvr6",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -14150,9 +14150,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                          "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                           "class": "content",
-                          "id": "collapse-next-ui-68u15qsl",
+                          "id": "collapse-next-ui-l13kcvr6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -14222,10 +14222,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -14236,7 +14236,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -14251,7 +14251,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -14289,7 +14289,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -14316,11 +14316,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-68u15qsl",
+                  "aria-controls": "collapse-next-ui-l13kcvr6",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-68u15qsl",
+                  "id": "collapse-button-next-ui-l13kcvr6",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -14647,10 +14647,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -14661,7 +14661,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -14676,7 +14676,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -14714,7 +14714,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -14745,9 +14745,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                          "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                           "class": "content",
-                          "id": "collapse-next-ui-68u15qsl",
+                          "id": "collapse-next-ui-l13kcvr6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -14868,9 +14868,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                            "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                             "class": "content",
-                            "id": "collapse-next-ui-68u15qsl",
+                            "id": "collapse-next-ui-l13kcvr6",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -14929,11 +14929,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-next-ui-68u15qsl",
+                    "aria-controls": "collapse-next-ui-l13kcvr6",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-next-ui-68u15qsl",
+                    "id": "collapse-button-next-ui-l13kcvr6",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -15259,7 +15259,7 @@ LoadedCheerio {
                 "data": "
           .collapse-group {
             width: auto;
-            padding: 0 8pt;
+            padding: 0 12px;
           }
           .collapse-group &gt; :global(div + div) {
             border-top: none;
@@ -15268,7 +15268,7 @@ LoadedCheerio {
           .bordered,
           .collapse-group.splitted :global(.collapse) {
             border-radius: 14px;
-            padding: 0 16pt;
+            padding: 0 20px;
           }
           .shadow {
             border: none;
@@ -15279,7 +15279,7 @@ LoadedCheerio {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            margin: 8pt 0;
+            margin: 12px 0;
           }
           .bordered {
             border: 0px solid #eaeaea;
@@ -15342,11 +15342,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-next-ui-68u15qsl",
+              "aria-controls": "collapse-next-ui-l13kcvr6",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-next-ui-68u15qsl",
+              "id": "collapse-button-next-ui-l13kcvr6",
               "role": "button",
               "tabindex": "-1",
             },
@@ -15639,9 +15639,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                        "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                         "class": "content",
-                        "id": "collapse-next-ui-68u15qsl",
+                        "id": "collapse-next-ui-l13kcvr6",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -15762,9 +15762,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                          "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                           "class": "content",
-                          "id": "collapse-next-ui-68u15qsl",
+                          "id": "collapse-next-ui-l13kcvr6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -15834,10 +15834,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -15848,7 +15848,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -15863,7 +15863,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -15901,7 +15901,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -15969,9 +15969,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                      "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                       "class": "content",
-                      "id": "collapse-next-ui-68u15qsl",
+                      "id": "collapse-next-ui-l13kcvr6",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -16092,9 +16092,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                        "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                         "class": "content",
-                        "id": "collapse-next-ui-68u15qsl",
+                        "id": "collapse-next-ui-l13kcvr6",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -16164,10 +16164,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -16178,7 +16178,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -16193,7 +16193,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -16231,7 +16231,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -16258,11 +16258,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-68u15qsl",
+                "aria-controls": "collapse-next-ui-l13kcvr6",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-68u15qsl",
+                "id": "collapse-button-next-ui-l13kcvr6",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -16589,10 +16589,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -16603,7 +16603,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -16618,7 +16618,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -16656,7 +16656,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -16687,9 +16687,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                        "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                         "class": "content",
-                        "id": "collapse-next-ui-68u15qsl",
+                        "id": "collapse-next-ui-l13kcvr6",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -16810,9 +16810,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                          "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                           "class": "content",
-                          "id": "collapse-next-ui-68u15qsl",
+                          "id": "collapse-next-ui-l13kcvr6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -16871,11 +16871,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-68u15qsl",
+                  "aria-controls": "collapse-next-ui-l13kcvr6",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-68u15qsl",
+                  "id": "collapse-button-next-ui-l13kcvr6",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -17201,7 +17201,7 @@ LoadedCheerio {
               "data": "
           .collapse-group {
             width: auto;
-            padding: 0 8pt;
+            padding: 0 12px;
           }
           .collapse-group &gt; :global(div + div) {
             border-top: none;
@@ -17210,7 +17210,7 @@ LoadedCheerio {
           .bordered,
           .collapse-group.splitted :global(.collapse) {
             border-radius: 14px;
-            padding: 0 16pt;
+            padding: 0 20px;
           }
           .shadow {
             border: none;
@@ -17221,7 +17221,7 @@ LoadedCheerio {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            margin: 8pt 0;
+            margin: 12px 0;
           }
           .bordered {
             border: 0px solid #eaeaea;
@@ -17261,11 +17261,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-2opn6rqo",
+                "aria-controls": "collapse-next-ui-na215fh5",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-2opn6rqo",
+                "id": "collapse-button-next-ui-na215fh5",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -17558,9 +17558,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                          "aria-labelledby": "collapse-button-next-ui-na215fh5",
                           "class": "content",
-                          "id": "collapse-next-ui-2opn6rqo",
+                          "id": "collapse-next-ui-na215fh5",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -17681,9 +17681,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                            "aria-labelledby": "collapse-button-next-ui-na215fh5",
                             "class": "content",
-                            "id": "collapse-next-ui-2opn6rqo",
+                            "id": "collapse-next-ui-na215fh5",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -17753,10 +17753,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -17767,7 +17767,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -17782,7 +17782,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -17820,7 +17820,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -17888,9 +17888,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                        "aria-labelledby": "collapse-button-next-ui-na215fh5",
                         "class": "content",
-                        "id": "collapse-next-ui-2opn6rqo",
+                        "id": "collapse-next-ui-na215fh5",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -18011,9 +18011,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                          "aria-labelledby": "collapse-button-next-ui-na215fh5",
                           "class": "content",
-                          "id": "collapse-next-ui-2opn6rqo",
+                          "id": "collapse-next-ui-na215fh5",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -18083,10 +18083,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -18097,7 +18097,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -18112,7 +18112,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -18150,7 +18150,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -18177,11 +18177,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-2opn6rqo",
+                  "aria-controls": "collapse-next-ui-na215fh5",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-2opn6rqo",
+                  "id": "collapse-button-next-ui-na215fh5",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -18508,10 +18508,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -18522,7 +18522,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -18537,7 +18537,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -18575,7 +18575,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -18606,9 +18606,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                          "aria-labelledby": "collapse-button-next-ui-na215fh5",
                           "class": "content",
-                          "id": "collapse-next-ui-2opn6rqo",
+                          "id": "collapse-next-ui-na215fh5",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -18729,9 +18729,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                            "aria-labelledby": "collapse-button-next-ui-na215fh5",
                             "class": "content",
-                            "id": "collapse-next-ui-2opn6rqo",
+                            "id": "collapse-next-ui-na215fh5",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -18790,11 +18790,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-next-ui-2opn6rqo",
+                    "aria-controls": "collapse-next-ui-na215fh5",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-next-ui-2opn6rqo",
+                    "id": "collapse-button-next-ui-na215fh5",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -19143,7 +19143,7 @@ LoadedCheerio {
             "data": "
           .collapse-group {
             width: auto;
-            padding: 0 8pt;
+            padding: 0 12px;
           }
           .collapse-group &gt; :global(div + div) {
             border-top: none;
@@ -19152,7 +19152,7 @@ LoadedCheerio {
           .bordered,
           .collapse-group.splitted :global(.collapse) {
             border-radius: 14px;
-            padding: 0 16pt;
+            padding: 0 20px;
           }
           .shadow {
             border: none;
@@ -19163,7 +19163,7 @@ LoadedCheerio {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            margin: 8pt 0;
+            margin: 12px 0;
           }
           .bordered {
             border: 0px solid #eaeaea;
@@ -19197,11 +19197,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-next-ui-68u15qsl",
+                "aria-controls": "collapse-next-ui-l13kcvr6",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-next-ui-68u15qsl",
+                "id": "collapse-button-next-ui-l13kcvr6",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -19494,9 +19494,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                          "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                           "class": "content",
-                          "id": "collapse-next-ui-68u15qsl",
+                          "id": "collapse-next-ui-l13kcvr6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -19617,9 +19617,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                            "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                             "class": "content",
-                            "id": "collapse-next-ui-68u15qsl",
+                            "id": "collapse-next-ui-l13kcvr6",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -19689,10 +19689,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -19703,7 +19703,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -19718,7 +19718,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -19756,7 +19756,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -19824,9 +19824,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                        "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                         "class": "content",
-                        "id": "collapse-next-ui-68u15qsl",
+                        "id": "collapse-next-ui-l13kcvr6",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -19947,9 +19947,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                          "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                           "class": "content",
-                          "id": "collapse-next-ui-68u15qsl",
+                          "id": "collapse-next-ui-l13kcvr6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -20019,10 +20019,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -20033,7 +20033,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -20048,7 +20048,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -20086,7 +20086,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -20113,11 +20113,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-68u15qsl",
+                  "aria-controls": "collapse-next-ui-l13kcvr6",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-68u15qsl",
+                  "id": "collapse-button-next-ui-l13kcvr6",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -20444,10 +20444,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -20458,7 +20458,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -20473,7 +20473,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -20511,7 +20511,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -20542,9 +20542,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                          "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                           "class": "content",
-                          "id": "collapse-next-ui-68u15qsl",
+                          "id": "collapse-next-ui-l13kcvr6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -20665,9 +20665,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-68u15qsl",
+                            "aria-labelledby": "collapse-button-next-ui-l13kcvr6",
                             "class": "content",
-                            "id": "collapse-next-ui-68u15qsl",
+                            "id": "collapse-next-ui-l13kcvr6",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -20726,11 +20726,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-next-ui-68u15qsl",
+                    "aria-controls": "collapse-next-ui-l13kcvr6",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-next-ui-68u15qsl",
+                    "id": "collapse-button-next-ui-l13kcvr6",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -21059,11 +21059,11 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-next-ui-2opn6rqo",
+                  "aria-controls": "collapse-next-ui-na215fh5",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-next-ui-2opn6rqo",
+                  "id": "collapse-button-next-ui-na215fh5",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -21356,9 +21356,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                            "aria-labelledby": "collapse-button-next-ui-na215fh5",
                             "class": "content",
-                            "id": "collapse-next-ui-2opn6rqo",
+                            "id": "collapse-next-ui-na215fh5",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -21479,9 +21479,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                              "aria-labelledby": "collapse-button-next-ui-na215fh5",
                               "class": "content",
-                              "id": "collapse-next-ui-2opn6rqo",
+                              "id": "collapse-next-ui-na215fh5",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -21551,10 +21551,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -21565,7 +21565,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -21580,7 +21580,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -21618,7 +21618,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -21686,9 +21686,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                          "aria-labelledby": "collapse-button-next-ui-na215fh5",
                           "class": "content",
-                          "id": "collapse-next-ui-2opn6rqo",
+                          "id": "collapse-next-ui-na215fh5",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -21809,9 +21809,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                            "aria-labelledby": "collapse-button-next-ui-na215fh5",
                             "class": "content",
-                            "id": "collapse-next-ui-2opn6rqo",
+                            "id": "collapse-next-ui-na215fh5",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -21881,10 +21881,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -21895,7 +21895,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -21910,7 +21910,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -21948,7 +21948,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -21975,11 +21975,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-next-ui-2opn6rqo",
+                    "aria-controls": "collapse-next-ui-na215fh5",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-next-ui-2opn6rqo",
+                    "id": "collapse-button-next-ui-na215fh5",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -22306,10 +22306,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 16pt;
+          padding: 0 20px;
         }
         .bordered {
-          padding: 0 16pt;
+          padding: 0 20px;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -22320,7 +22320,7 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 16pt 0;
+          padding: 20px 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -22335,7 +22335,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 8pt;
+          margin-right: 12px;
         }
         .title-content {
           width: 100%;
@@ -22373,7 +22373,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 16pt;
+          padding-bottom: 20px;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -22404,9 +22404,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                            "aria-labelledby": "collapse-button-next-ui-na215fh5",
                             "class": "content",
-                            "id": "collapse-next-ui-2opn6rqo",
+                            "id": "collapse-next-ui-na215fh5",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -22527,9 +22527,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "collapse-button-next-ui-2opn6rqo",
+                              "aria-labelledby": "collapse-button-next-ui-na215fh5",
                               "class": "content",
-                              "id": "collapse-next-ui-2opn6rqo",
+                              "id": "collapse-next-ui-na215fh5",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -22588,11 +22588,11 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "aria-controls": "collapse-next-ui-2opn6rqo",
+                      "aria-controls": "collapse-next-ui-na215fh5",
                       "aria-disabled": "false",
                       "aria-expanded": "false",
                       "class": "view",
-                      "id": "collapse-button-next-ui-2opn6rqo",
+                      "id": "collapse-button-next-ui-na215fh5",
                       "role": "button",
                       "tabindex": "-1",
                     },

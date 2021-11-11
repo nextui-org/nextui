@@ -191,10 +191,8 @@ const Card = React.forwardRef<
             width: 100%;
             max-width: ${width};
             height: ${height};
-            border-radius: ${theme.layout.radius};
-            box-shadow: ${shadow && !bordered
-              ? theme.expressiveness.shadowMedium
-              : 'none'};
+            border-radius: ${theme.radius.lg};
+            box-shadow: ${shadow && !bordered ? theme.shadows.md : 'none'};
             box-sizing: border-box;
             color: ${color};
             border: ${borderWeight} solid ${borderColor};
@@ -216,7 +214,7 @@ const Card = React.forwardRef<
           }
           .card.hoverable.animated:hover {
             transform: translateY(-2px);
-            box-shadow: ${shadow ? theme.expressiveness.shadowLarge : ''};
+            box-shadow: ${shadow ? theme.shadows.lg : ''};
           }
           .card.cover :global(img) {
             object-fit: cover;

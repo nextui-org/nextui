@@ -129,8 +129,8 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
               ? theme.palette.background
               : theme.palette.accents_1};
             color: ${theme.palette.foreground};
-            border-radius: ${theme.layout.radius};
-            box-shadow: ${theme.expressiveness.shadowLarge};
+            border-radius: ${theme.radius.lg};
+            box-shadow: ${theme.shadows.lg};
             outline: none;
             animation-fill-mode: forwards;
           }
@@ -164,11 +164,11 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             animation-timing-function: ease-out;
           }
           .with-close-button {
-            padding-top: ${theme.layout.gap};
+            padding-top: ${theme.spacing.lg};
           }
           .fullscreen :global(.close-icon) {
-            top: ${theme.layout.gap};
-            right: calc(${theme.layout.gap} * 0.5);
+            top: ${theme.spacing.lg};
+            right: calc(${theme.spacing.lg} * 0.5);
           }
           .fullscreen :global(.close-icon svg) {
             width: 24px;

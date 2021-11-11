@@ -31,7 +31,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   currentRoute,
   tag,
   slug,
-  meta,
+  meta
 }) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [scrollPosition, setScrollPosition] = useState(
@@ -145,7 +145,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             top: -50%;
             right: -50%;
           }
-          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+          @media only screen and (max-width: ${theme.breakpoints.xs}) {
             :global(.docs__content) {
               margin-top: 64px;
               padding-left: 0 !important;
@@ -155,12 +155,12 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               padding: 0;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.sm.max}) {
+          @media only screen and (min-width: ${theme.breakpoints.sm}) {
             :global(.docs__left-sidebar) {
               display: block;
             }
           }
-          @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+          @media only screen and (max-width: ${theme.breakpoints.md}) {
             :global(.docs__center) {
               padding: 0 1rem !important;
             }
@@ -169,12 +169,12 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               right: -45%;
             }
           }
-          @media only screen and (max-width: ${theme.breakpoints.lg.min}) {
+          @media only screen and (max-width: ${theme.breakpoints.lg}) {
             :global(.docs__content) {
               padding: 0 20px;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
+          @media only screen and (min-width: ${theme.breakpoints.lg}) {
             :global(.docs__right-sidebar) {
               display: block;
             }

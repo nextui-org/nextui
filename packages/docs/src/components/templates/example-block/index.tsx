@@ -9,7 +9,7 @@ interface Props {
 
 const defaultProps = {
   plain: false,
-  height: 30,
+  height: 30
 };
 
 export type ExampleBlockProps = Props & typeof defaultProps;
@@ -22,7 +22,7 @@ const getBackground = (theme: NextUIThemes, plain: number | boolean) => {
     theme.palette.accents_3,
     theme.palette.accents_4,
     theme.palette.accents_5,
-    theme.palette.accents_6,
+    theme.palette.accents_6
   ];
   return colors[plain - 1] || theme.palette.primary;
 };
@@ -44,7 +44,7 @@ const ExampleBlock: React.FC<React.PropsWithChildren<ExampleBlockProps>> = ({
           width: 100%;
           min-height: ${height}px;
           background: ${bg};
-          padding: ${theme.layout.gapHalf};
+          padding: ${theme.spacing.sm};
           border-radius: 10px;
           color: ${theme.palette.background};
           font-size: 0.75rem;

@@ -22,7 +22,7 @@ const defaultProps = {
   className: '',
   size: 32,
   squared: false,
-  bordered: false,
+  bordered: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -61,14 +61,14 @@ const User: React.FC<React.PropsWithChildren<UserProps>> = ({
       <style jsx>{`
         .user {
           display: inline-flex;
-          padding: 0 ${theme.layout.gapHalf};
+          padding: 0 ${theme.spacing.sm};
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: ${theme.layout.gapHalf};
+          margin-left: ${theme.spacing.sm};
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;

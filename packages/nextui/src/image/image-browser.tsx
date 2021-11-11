@@ -21,7 +21,7 @@ const defaultProps = {
   className: '',
   showFullLink: false,
   anchorProps: {} as AnchorProps,
-  invert: false,
+  invert: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -141,11 +141,11 @@ const ImageBrowser = React.forwardRef<
         <style jsx>{`
           .browser {
             background-color: transparent;
-            box-shadow: ${theme.expressiveness.shadowLarge};
+            box-shadow: ${theme.shadows.lg};
             width: max-content;
             max-width: 100%;
             margin: 0 auto;
-            border-radius: ${theme.layout.radius};
+            border-radius: ${theme.radius.lg};
             overflow: hidden;
           }
 
@@ -169,7 +169,7 @@ const ImageBrowser = React.forwardRef<
           .traffic {
             width: auto;
             position: absolute;
-            left: ${theme.layout.gapHalf};
+            left: ${theme.spacing.sm};
             top: 50%;
             transform: translateY(-50%);
             bottom: 0;

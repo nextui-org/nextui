@@ -20,7 +20,7 @@ const defaultProps = {
   justify: 'flex-start' as Justify,
   align: 'flex-start' as AlignItems,
   as: 'div' as keyof JSX.IntrinsicElements,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -49,9 +49,9 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
           position: relative;
           box-sizing: border-box;
           flex-wrap: ${wrap};
-          margin-left: calc(${gap} * ${theme.layout.gap} / 2);
-          margin-right: calc(${gap} * ${theme.layout.gap} / 2);
-          --row-gap: calc(${gap} * ${theme.layout.gap});
+          margin-left: calc(${gap} * ${theme.spacing.lg} / 2);
+          margin-right: calc(${gap} * ${theme.spacing.lg} / 2);
+          --row-gap: calc(${gap} * ${theme.spacing.lg});
           justify-content: ${justify};
           align-items: ${align};
         }

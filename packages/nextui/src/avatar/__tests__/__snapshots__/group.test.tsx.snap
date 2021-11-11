@@ -1819,7 +1819,7 @@ LoadedCheerio {
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
-          padding-left: 4pt;
+          padding-left: undefined
           color: #333;
         }
       ",
@@ -3244,7 +3244,7 @@ LoadedCheerio {
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
-          padding-left: 4pt;
+          padding-left: undefined
           color: #333;
         }
       ",
@@ -4669,7 +4669,7 @@ LoadedCheerio {
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
-          padding-left: 4pt;
+          padding-left: undefined
           color: #333;
         }
       ",
@@ -6094,7 +6094,7 @@ LoadedCheerio {
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
-          padding-left: 4pt;
+          padding-left: undefined
           color: #333;
         }
       ",
@@ -7519,7 +7519,7 @@ LoadedCheerio {
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
-          padding-left: 4pt;
+          padding-left: undefined
           color: #333;
         }
       ",
@@ -10349,7 +10349,7 @@ LoadedCheerio {
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
-          padding-left: 4pt;
+          padding-left: undefined
           color: #333;
         }
       ",
@@ -10838,7 +10838,7 @@ LoadedCheerio {
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
-          padding-left: 4pt;
+          padding-left: undefined
           color: #333;
         }
       ",
@@ -11327,7 +11327,7 @@ LoadedCheerio {
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
-          padding-left: 4pt;
+          padding-left: undefined
           color: #333;
         }
       ",

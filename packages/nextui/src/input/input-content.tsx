@@ -28,12 +28,12 @@ const InputContent: React.FC<InputContentProps> = ({
   const theme = useTheme();
 
   const width = useMemo(() => {
-    return `calc(${ratio} * ${theme.layout.gap} * .42)`;
-  }, [theme.layout.gap, ratio]);
+    return `calc(${ratio} * ${theme.spacing.lg} * .42)`;
+  }, [theme.spacing.lg, ratio]);
 
   const padding = useMemo(() => {
-    return `calc(${ratio} * ${theme.layout.gap} * .3)`;
-  }, [theme.layout.gap, ratio]);
+    return `calc(${ratio} * ${theme.spacing.lg} * .3)`;
+  }, [theme.spacing.lg, ratio]);
 
   return (
     <span

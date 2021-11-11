@@ -6,7 +6,7 @@ import {
   Text,
   Spacer,
   Link,
-  NextUIThemes,
+  NextUIThemes
 } from '@nextui-org/react';
 import { useMediaQuery } from '@hooks/use-media-query';
 
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
   const theme = useTheme() as NextUIThemes;
   const year = new Date().getFullYear();
   const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.max.replace('px', ''))
+    Number(theme.breakpoints.sm.replace('px', ''))
   );
   return (
     <Container fluid className="footer__container" gap={0}>
@@ -33,8 +33,8 @@ const Footer: React.FC = () => {
           :global(.footer__container) {
             z-index: 99;
             padding: 1rem 0;
-            padding-left: ${theme.layout.gapHalf} !important;
-            padding-right: ${theme.layout.gapHalf} !important;
+            padding-left: ${theme.spacing.sm} !important;
+            padding-right: ${theme.spacing.sm} !important;
           }
           :global(.footer__copy),
           :global(.footer__by) {
@@ -43,17 +43,21 @@ const Footer: React.FC = () => {
           :global(.footer__container .row) {
             justify-content: flex-end !important;
           }
-          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+          @media only screen and (max-width: ${theme.breakpoints.xs}) {
             :global(.footer__container) {
               z-index: 99;
             }
             :global(.footer__container .row) {
               justify-content: flex-start !important;
-              padding-left: calc(2 * ${theme.layout.gapQuarter}) !important;
-              padding-right: calc(2 * ${theme.layout.gapQuarter}) !important;
+              padding-left: calc(
+                2 * calc(${theme.spacing.sm} * 0.5)
+              ) !important;
+              padding-right: calc(
+                2 * calc(${theme.spacing.sm} * 0.5)
+              ) !important;
             }
           }
-          @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+          @media only screen and (max-width: ${theme.breakpoints.md}) {
             :global(.footer__container .row) {
               justify-content: space-between;
             }

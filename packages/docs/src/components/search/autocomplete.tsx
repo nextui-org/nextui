@@ -41,7 +41,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const noResultsPortal = usePortal('no-results');
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.max.replace('px', ''))
+    Number(theme.breakpoints.sm.replace('px', ''))
   );
 
   const { query } = useKBar();
@@ -407,7 +407,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             -ms-transition: opacity 0.25s ease 0s;
             -webkit-transition: opacity 0.25s ease 0s;
           }
-          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+          @media only screen and (max-width: ${theme.breakpoints.xs}) {
             .react-autosuggest__suggestions-container,
             .no-results {
               z-index: 1004;
@@ -441,8 +441,8 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               right: 0;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.xs
-              .max}) and (max-width: ${theme.breakpoints.md.min}) {
+          @media only screen and (min-width: ${theme.breakpoints
+              .xs}) and (max-width: ${theme.breakpoints.md}) {
             .react-autosuggest__suggestions-container,
             .no-results {
               top: 60px;
