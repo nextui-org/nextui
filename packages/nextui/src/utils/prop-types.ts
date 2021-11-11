@@ -2,7 +2,7 @@ import { ElementType } from 'react';
 
 export const tuple = <T extends string[]>(...args: T) => args;
 
-const normalSizes = tuple('mini', 'small', 'medium', 'large', 'xlarge');
+const normalSizes = tuple('xs', 'sm', 'md', 'lg', 'xl');
 
 export const normalColors = tuple(
   'default',

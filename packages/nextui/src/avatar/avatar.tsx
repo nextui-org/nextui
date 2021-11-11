@@ -8,8 +8,8 @@ import {
 import useTheme from '../use-theme';
 import AvatarGroup from './avatar-group';
 import { getNormalColor, addColorAlpha } from '../utils/color';
-import clsx from '../utils/clsx';
 import { getNormalWeight } from '../utils/dimensions';
+import clsx from '../utils/clsx';
 
 interface Props {
   src?: string;
@@ -31,7 +31,7 @@ interface Props {
 const defaultProps = {
   text: '',
   stacked: false,
-  size: 'medium' as NormalSizes | number,
+  size: 'md' as NormalSizes | number,
   borderWeight: 'normal' as NormalWeights,
   textColor: 'default' as SimpleColors,
   squared: false,
@@ -47,11 +47,11 @@ export type AvatarProps = Props & typeof defaultProps & NativeAttrs;
 
 const getSize = (size: NormalSizes | number): string => {
   const sizes: { [key in NormalSizes]: string } = {
-    mini: '1.375rem',
-    small: '1.823rem',
-    medium: '2.43rem',
-    large: '3.23rem',
-    xlarge: '4.3rem'
+    xs: '1.375rem',
+    sm: '1.823rem',
+    md: '2.43rem',
+    lg: '3.23rem',
+    xl: '4.3rem'
   };
   if (typeof size === 'number') return `${size}px`;
   return sizes[size];
@@ -108,7 +108,7 @@ const Avatar: React.FC<AvatarProps> = ({
         ? avatarColor
         : !src
         ? avatarColor
-        : addColorAlpha(avatarColor, 0.6),
+        : addColorAlpha(avatarColor, 0.8),
     [src, color, avatarColor, bordered]
   );
 
