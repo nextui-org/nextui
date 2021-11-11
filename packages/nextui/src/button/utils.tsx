@@ -19,6 +19,6 @@ export const filterPropsWithGroup = (
     light: config.light || props.light,
     size: config.size || props.size,
     color: config.color || props.color,
-    disabled: config.disabled || props.disabled,
+    disabled: config.disabled || props.disabled
   };
 };

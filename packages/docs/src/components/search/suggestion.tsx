@@ -58,7 +58,7 @@ const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
               align-items: center;
             }
             .suggestion__icon-container {
-              margin-right: ${theme.layout.gapQuarter};
+              margin-right: calc(${theme.spacing.sm} * 0.5);
             }
             .suggestion__data-container {
               width: 100%;

@@ -6,7 +6,7 @@ import {
   Twitter,
   Discord,
   Github,
-  ThemeToggle,
+  ThemeToggle
 } from '@components';
 import cn from 'classnames';
 import NextLink from 'next/link';
@@ -18,7 +18,7 @@ import {
   Link,
   useTheme,
   useBodyScroll,
-  NextUIThemes,
+  NextUIThemes
 } from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
 import { useRouter } from 'next/router';
@@ -35,14 +35,14 @@ export interface Props {
 const MobileNavigation = dynamic(
   () => import('../components/mobile-navigation'),
   {
-    ssr: false,
+    ssr: false
   }
 );
 
 const SearchInput = dynamic(
   () => import('../components/search/instant-search'),
   {
-    ssr: true,
+    ssr: true
   }
 );
 
@@ -92,7 +92,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             <NextLink href="/docs/guide/getting-started">
               <Link
                 className={cn('navbar__link', {
-                  active: isActive(router.pathname, '/docs/[[...slug]]'),
+                  active: isActive(router.pathname, '/docs/[[...slug]]')
                 })}
                 href="#"
               >
@@ -246,7 +246,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           cursor: not-allowed;
           events: none;
         }
-        @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+        @media only screen and (max-width: ${theme.breakpoints.xs}) {
           :global(.navbar__container) {
             top: 0;
             position: fixed;
@@ -284,7 +284,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             opacity: 0.7;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+        @media only screen and (max-width: ${theme.breakpoints.md}) {
           :global(.navbar__logo-container) {
             display: flex;
             width: 24px;
@@ -301,7 +301,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             display: none !important;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.lg.min}) {
+        @media only screen and (max-width: ${theme.breakpoints.lg}) {
           .navbar__wrapper {
             padding: 0 16px;
           }

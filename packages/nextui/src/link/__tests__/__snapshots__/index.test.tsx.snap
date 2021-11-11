@@ -99,7 +99,7 @@ exports[`Link should render correctly 1`] = `
             line-height: inherit;
             color: #0070f3;
             text-decoration: none;
-            padding: calc(4pt * 0.8) calc(4pt * 1.7);
+            padding: calc(12px * 0.8) calc(12px * 1.7);
             border-radius: 14px;
             width: fit-content;
             transition: all 0.25s ease;

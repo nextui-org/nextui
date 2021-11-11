@@ -12,14 +12,14 @@ export interface StickyProps {
 const defaultProps = {
   offset: 0,
   shadow: false,
-  className: '',
+  className: ''
 };
 
 const Sticky: React.FC<React.PropsWithChildren<StickyProps>> = ({
   offset,
   children,
   shadow,
-  className,
+  className
 }) => {
   const theme = useTheme() as NextUIThemes;
   return (
@@ -32,7 +32,7 @@ const Sticky: React.FC<React.PropsWithChildren<StickyProps>> = ({
           z-index: 1000;
         }
         div.shadow {
-          box-shadow: ${theme.expressiveness.shadowSmall};
+          box-shadow: ${theme.shadows.sm};
         }
       `}</style>
     </div>

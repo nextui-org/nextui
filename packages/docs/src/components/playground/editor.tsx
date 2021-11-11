@@ -140,7 +140,7 @@ const Editor: React.FC = () => {
         details {
           transition: all 0.2s ease;
           overflow: hidden;
-          border-radius: ${theme.layout.radius};
+          border-radius: ${theme.radius.lg};
           background-color: ${theme.type === 'light' ? '#363449' : '#111'};
           box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
         }
@@ -154,7 +154,7 @@ const Editor: React.FC = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 0 ${theme.layout.gap};
+          padding: 0 ${theme.spacing.lg};
           color: ${
             theme.type === 'light'
               ? theme.palette.accents_2
@@ -178,12 +178,12 @@ const Editor: React.FC = () => {
           position: relative;
           box-sizing: border-box;
           white-space: pre;
-          font-family: ${theme.font.mono};
+          font-family: ${theme.fonts.mono};
           color: #fff,
           background-color: #111,
           font-size: 1em;
           overflow: hidden;
-          padding: ${theme.layout.gapHalf};
+          padding: ${theme.spacing.sm};
         }
         .arrow {
           transition: all 0.2s ease;

@@ -41,14 +41,14 @@ const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
           font-size: 0.8rem;
           font-weight: 600;
           text-align: left;
-          padding: 0 ${theme.layout.gap} 0 0;
+          padding: 0 ${theme.spacing.lg} 0 0;
         }
         :global(th:nth-child(1)) {
           padding-left: 1rem;
-          border-radius: ${theme.layout.radius} 0 0 ${theme.layout.radius};
+          border-radius: ${theme.radius.lg} 0 0 ${theme.radius.lg};
         }
         :global(th:last-child) {
-          border-radius: 0 ${theme.layout.radius} ${theme.layout.radius} 0;
+          border-radius: 0 ${theme.radius.lg} ${theme.radius.lg} 0;
         }
       `}</style>
     </thead>
@@ -62,7 +62,7 @@ const Trow: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
       <style jsx>{`
         :global(tr td) {
           font-size: 0.9rem;
-          padding: 0 ${theme.layout.gapHalf};
+          padding: 0 ${theme.spacing.sm};
         }
       `}</style>
     </tr>
@@ -127,7 +127,7 @@ const MDXComponents = {
   td: Tcol,
   Playground,
   CarbonAd,
-  code: Codeblock,
+  code: Codeblock
 };
 
 export default MDXComponents;

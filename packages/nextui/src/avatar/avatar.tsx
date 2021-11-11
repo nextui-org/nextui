@@ -211,7 +211,7 @@ const Avatar: React.FC<AvatarProps> = ({
         }
         .bordered:hover .avatar-bg {
           background: ${hoverBackground};
-          filter: ${color === 'gradient' ? 'opacity(0.6)' : 'none'};
+          filter: ${color === 'gradient' ? 'opacity(0.8)' : 'none'};
         }
         .avatar:hover .avatar-img {
           transform: ${zoomed && 'scale(1.125)'};

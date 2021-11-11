@@ -11,7 +11,7 @@ exports[`Card Footer should render correctly 1`] = `
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 8pt calc(16pt + 0.25rem);
+          padding: 12px 20px;
           overflow-y: auto;
           position: relative;
           text-align: left;
@@ -29,7 +29,7 @@ exports[`Card Footer should render correctly 1`] = `
         .card-footer {
           width: 100%;
           height: auto;
-          padding: 8pt 16pt;
+          padding: 12px 20px;
           display: flex;
           align-items: center;
           overflow: hidden;
@@ -50,7 +50,7 @@ exports[`Card Footer should render correctly 1`] = `
         .auto-margin :global(*) {
           margin-top: 0;
           margin-bottom: 0;
-          margin-right: 4pt;
+          margin-right: calc(12px * 0.5);
         }
       </style></div><style>
           .card {

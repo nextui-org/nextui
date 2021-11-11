@@ -107,7 +107,7 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
         <style jsx>{`
           .collapse-group {
             width: auto;
-            padding: 0 ${theme.layout.gapHalf};
+            padding: 0 ${theme.spacing.sm};
           }
           .collapse-group > :global(div + div) {
             border-top: none;
@@ -115,19 +115,19 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
           .shadow,
           .bordered,
           .collapse-group.splitted :global(.collapse) {
-            border-radius: ${theme.layout.radius};
-            padding: 0 ${theme.layout.gap};
+            border-radius: ${theme.radius.lg};
+            padding: 0 ${theme.spacing.lg};
           }
           .shadow {
             border: none;
             background: ${bgColor};
-            box-shadow: ${theme.expressiveness.shadowMedium};
+            box-shadow: ${theme.shadows.md};
           }
           .collapse-group.splitted :global(.collapse) {
             border: none;
             background: ${bgColor};
-            box-shadow: ${theme.expressiveness.shadowMedium};
-            margin: ${theme.layout.gapHalf} 0;
+            box-shadow: ${theme.shadows.md};
+            margin: ${theme.spacing.sm} 0;
           }
           .bordered {
             border: ${borderWeight} solid ${theme.palette.border};
