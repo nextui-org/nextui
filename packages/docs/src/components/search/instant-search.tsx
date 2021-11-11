@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {
   InstantSearch as BaseInstantSearch,
-  Configure,
+  Configure
 } from 'react-instantsearch-dom';
 import getAlgoliaClient from '@lib/get-algolia';
 import Autocomplete from './autocomplete';
@@ -14,7 +14,7 @@ const INDEX_NAME = process.env.NEXT_PUBLIC_ALGOLIA_INDEX;
 const InstantSearch: React.FC<unknown> = () => {
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.max.replace('px', ''))
+    Number(theme.breakpoints.sm.replace('px', ''))
   );
   return (
     <BaseInstantSearch

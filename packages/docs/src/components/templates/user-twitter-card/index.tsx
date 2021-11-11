@@ -101,8 +101,8 @@ const UserTwitterCard: React.FC = () => {
         {`
           :global(.user-twitter-card__container) {
             max-width: 250px;
-            border-radius: ${theme.layout.radius};
-            padding: ${theme.layout.gapHalf};
+            border-radius: ${theme.radius.lg};
+            padding: ${theme.spacing.sm};
           }
           :global(.user-twitter-card__username-container) {
             padding: 4px 0;

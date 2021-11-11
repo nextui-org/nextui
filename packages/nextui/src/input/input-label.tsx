@@ -46,7 +46,7 @@ const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
         right: isRight,
         left: !isRight,
         underlined,
-        bordered,
+        bordered
       })}
       {...props}
     >
@@ -62,7 +62,7 @@ const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
           pointer-events: none;
           margin: 0;
           background: ${inputBgColor};
-          padding: 0 ${theme.layout.gapHalf};
+          padding: 0 ${theme.spacing.sm};
           color: ${color || theme.palette.accents_4};
           font-size: ${fontSize};
           line-height: 1;

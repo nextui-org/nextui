@@ -20,7 +20,7 @@ const defaultProps = {
   level: 1,
   isMobile: false,
   selected: false,
-  opened: false,
+  opened: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
@@ -35,7 +35,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   routes,
   iconUrl,
   opened,
-  children,
+  children
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const theme = useTheme() as NextUIThemes;
@@ -168,7 +168,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
             opacity: 1;
           }
         }
-        @media screen and (max-width: ${theme.breakpoints.md.min}) {
+        @media screen and (max-width: ${theme.breakpoints.md}) {
           .category {
             margin: 24px 0;
           }

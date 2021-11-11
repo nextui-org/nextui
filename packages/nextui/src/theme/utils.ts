@@ -4,7 +4,7 @@ import { __DEV__ } from '../utils/assertion';
 import { DeepPartial } from '../utils/types';
 import { deepMergeObject } from '../utils/object';
 import darkTheme from './dark';
-import lightTheme from './default';
+import lightTheme from './light';
 
 export type PartialTheme = DeepPartial<NextUIThemes>;
 
@@ -31,7 +31,7 @@ export const mergeTheme = (
 export const getThemeByType = (type: NextUIThemes['type']) => {
   const themes: { [key in NextUIThemes['type']]: NextUIThemes } = {
     light: lightTheme,
-    dark: darkTheme,
+    dark: darkTheme
   };
   return themes[type];
 };

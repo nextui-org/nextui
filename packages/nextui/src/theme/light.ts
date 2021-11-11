@@ -12,32 +12,32 @@ import {
 
 export const palette: NextUIThemesPalette = {
   ...defaultPalette,
-  accents_1: '#111',
-  accents_2: '#333',
-  accents_3: '#444',
-  accents_4: '#666',
-  accents_5: '#888',
-  accents_6: '#999',
-  accents_7: '#eaeaea',
-  accents_8: '#fafafa',
-  text: '#fff',
-  background: '#000',
-  foreground: '#fff',
-  code: '#77C8E6',
-  border: '#333',
-  selection: '#ff4ecd'
+  accents_1: '#f6f6f6',
+  accents_2: '#eaeaea',
+  accents_3: '#999',
+  accents_4: '#888',
+  accents_5: '#666',
+  accents_6: '#444',
+  accents_7: '#333',
+  accents_8: '#111',
+  text: '#333',
+  background: '#fff',
+  foreground: '#000',
+  code: '#f81ce5',
+  border: '#eaeaea',
+  selection: '#0070f3'
 };
 
 export const shadows: NextUICommonSizes = {
-  xs: '0 2px 10px -3px rgba(20, 20, 20, .1)',
-  sm: '0 5px 20px -5px rgba(20, 20, 20, .1)',
-  md: '0 8px 30px rgba(20, 20, 20, 0.15)',
-  lg: '0 30px 60px rgba(20, 20, 20, 0.15)',
-  xl: '0 40px 80px rgba(20, 20, 20, 0.25)'
+  xs: '0 2px 10px -3px rgba(0, 0, 0, .1)',
+  sm: '0 5px 20px -5px rgba(0, 0, 0, .1)',
+  md: '0 8px 30px rgba(0, 0, 0, 0.15)',
+  lg: '0 30px 60px rgba(0, 0, 0, 0.15)',
+  xl: '0 40px 80px rgba(0, 0, 0, 0.25)'
 };
 
 export const themes: NextUIThemes = {
-  type: 'dark',
+  type: 'light',
   fonts: defaultFonts,
   palette,
   breakpoints: defaultBreakpoints,

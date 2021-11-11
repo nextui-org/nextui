@@ -40,7 +40,7 @@ const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
           display: flex;
           justify-content: center;
           align-items: center;
-          border-radius: ${theme.layout.radius};
+          border-radius: ${theme.radius.lg};
           transition: all 0.25s ease;
         }
         :global(.color:hover) {
@@ -52,7 +52,7 @@ const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
           text-transform: capitalize;
           font-size: 13px;
         }
-        @media only screen and (max-width: ${theme.breakpoints.sm.min}) {
+        @media only screen and (max-width: ${theme.breakpoints.sm}) {
           :global(.color) {
             width: 80px;
             height: 80px;

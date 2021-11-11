@@ -17,7 +17,7 @@ interface Props {
 const defaultProps = {
   size: 'medium' as NormalSizes | number,
   color: 'primary' as SimpleColors | string,
-  type: 'default' as NormalLoaders,
+  type: 'default' as NormalLoaders
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -45,10 +45,10 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
         : getLoaderBorder(size),
     [size]
   );
-  const labelColor = useMemo(() => getNormalColor(textColor, theme.palette), [
-    color,
-    theme.palette,
-  ]);
+  const labelColor = useMemo(
+    () => getNormalColor(textColor, theme.palette),
+    [color, theme.palette]
+  );
   const labelStyle = useMemo(
     () => getLabelStyle(type, theme, labelColor)[size],
     [type, size, theme, labelColor]
@@ -65,10 +65,10 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
     );
   }
 
-  const ariaLabel = children ? "" : "Loading";
+  const ariaLabel = children ? '' : 'Loading';
 
   return (
-    <div className="loading-container"  {...props}>
+    <div className="loading-container" {...props}>
       <span className={`loading ${type}`} aria-label={ariaLabel}>
         <i className="_1" />
         <i className="_2" />
@@ -83,7 +83,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           position: relative;
         }
         label {
-          margin-top: ${theme.layout.gapQuarter};
+          margin-top: ${theme.spacing[1]};
         }
         label :global(*) {
           margin: 0;

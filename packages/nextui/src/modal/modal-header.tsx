@@ -51,7 +51,7 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
           overflow: hidden;
           color: inherit;
           font-size: 0.875rem;
-          padding: ${theme.layout.gapHalf} calc(${theme.layout.gap} + 0.25rem);
+          padding: ${theme.spacing.sm} calc(${theme.spacing.lg} + 0.25rem);
         }
         .no-padding {
           padding: 0;

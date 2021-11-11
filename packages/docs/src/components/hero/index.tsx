@@ -213,19 +213,19 @@ const Hero: React.FC = () => {
         :global(.hero__snippet .copy) {
           background: transparent !important;
         }
-        @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+        @media only screen and (max-width: ${theme.breakpoints.xs}) {
           :global(.hero__container) {
             height: calc(100vh - 64px);
             overflow: hidden;
           }
           :global(.hero__get-started-button) {
-            margin-bottom: ${theme.layout.gap};
+            margin-bottom: ${theme.spacing.lg};
           }
           :global(.hero__get-started-button, .hero__snippet) {
             width: 100% !important;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+        @media only screen and (max-width: ${theme.breakpoints.md}) {
           :global(.hero__gradient-violet) {
             top: -65%;
             right: -52%;
@@ -238,7 +238,7 @@ const Hero: React.FC = () => {
             width: 100% !important;
           }
         }
-        @media only screen and (min-width: ${theme.breakpoints.md.min}) {
+        @media only screen and (min-width: ${theme.breakpoints.md}) {
           :global(.hero__right-container, .hero__gradient-violet) {
             display: block;
           }
@@ -246,7 +246,7 @@ const Hero: React.FC = () => {
             width: 50% !important;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.lg.min}) {
+        @media only screen and (max-width: ${theme.breakpoints.lg}) {
           :global(.hero__title, .hero__title-smooth) {
             font-size: calc(2rem + 2.5vw) !important;
           }
