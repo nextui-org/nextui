@@ -144,7 +144,7 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
           .active {
             font-weight: bold;
             cursor: default;
-            box-shadow: ${theme.shadows.sm};
+            box-shadow: ${theme.expressiveness.shadowSmall};
           }
           .active .button-content {
             color: white;

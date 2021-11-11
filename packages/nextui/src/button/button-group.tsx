@@ -104,7 +104,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           .button-group {
             display: inline-flex;
             border-radius: ${radius};
-            margin: calc(${theme.spacing.sm} * 0.5);
+            margin: ${theme.layout.gapQuarter};
             border: ${borderWidth} solid ${borderColor};
             background-color: transparent;
             height: min-content;

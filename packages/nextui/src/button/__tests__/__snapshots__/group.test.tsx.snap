@@ -183,7 +183,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           .button-group {
             display: inline-flex;
             border-radius: 12px;
-            margin: calc(12px * 0.5);
+            margin: 4pt;
             border: 0px solid #fff;
             background-color: transparent;
             height: min-content;
@@ -342,7 +342,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           .button-group {
             display: inline-flex;
             border-radius: 7px;
-            margin: calc(12px * 0.5);
+            margin: 4pt;
             border: 0px solid #fff;
             background-color: transparent;
             height: min-content;
@@ -501,7 +501,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           .button-group {
             display: inline-flex;
             border-radius: 7px;
-            margin: calc(12px * 0.5);
+            margin: 4pt;
             border: 0px solid #fff;
             background-color: transparent;
             height: min-content;
@@ -660,7 +660,7 @@ exports[`ButtonGroup should render correctly 1`] = `
           .button-group {
             display: inline-flex;
             border-radius: 12px;
-            margin: calc(12px * 0.5);
+            margin: 4pt;
             border: 0px solid #fff;
             background-color: transparent;
             height: min-content;

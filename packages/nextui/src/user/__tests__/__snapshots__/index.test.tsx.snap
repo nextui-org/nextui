@@ -557,14 +557,14 @@ LoadedCheerio {
                     "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -726,14 +726,14 @@ LoadedCheerio {
                   "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -1247,14 +1247,14 @@ LoadedCheerio {
                 "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -2395,14 +2395,14 @@ LoadedCheerio {
                       "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -2564,14 +2564,14 @@ LoadedCheerio {
                     "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -3070,14 +3070,14 @@ LoadedCheerio {
                   "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -4224,14 +4224,14 @@ LoadedCheerio {
                     "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -4393,14 +4393,14 @@ LoadedCheerio {
                   "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -4899,14 +4899,14 @@ LoadedCheerio {
                 "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -6049,14 +6049,14 @@ LoadedCheerio {
                       "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -6218,14 +6218,14 @@ LoadedCheerio {
                     "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -6739,14 +6739,14 @@ LoadedCheerio {
                   "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 8pt;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 8pt;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;

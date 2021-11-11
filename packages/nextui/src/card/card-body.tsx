@@ -70,7 +70,7 @@ const CardBody: React.FC<React.PropsWithChildren<CardBodyProps>> = ({
           justify-content: ${justify};
           align-items: ${alignItems};
           align-content: ${alignContent};
-          padding: ${theme.spacing.sm} ${theme.spacing.lg};
+          padding: ${theme.layout.gapHalf} calc(${theme.layout.gap} + 0.25rem);
           overflow-y: auto;
           position: relative;
           text-align: left;

@@ -177,7 +177,7 @@ const Switch: React.FC<SwitchProps> = ({
           opacity: 1;
           transition: all 0.25s ease;
           position: relative;
-          border: ${theme.borderWeights.normal} solid
+          border: ${theme.layout.stroke} solid
             ${bordered ? theme.palette.border : 'transparent'};
           background: ${bordered ? 'transparent' : theme.palette.accents_2};
           box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);

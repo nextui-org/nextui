@@ -51,7 +51,7 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
           color: inherit;
           align-items: center;
           font-size: 0.875rem;
-          padding: ${theme.spacing.sm} ${theme.spacing.lg};
+          padding: ${theme.layout.gapHalf} ${theme.layout.gap};
           justify-content: ${justify};
         }
         .no-padding {

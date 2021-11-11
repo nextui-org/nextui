@@ -8,32 +8,33 @@ import commonPalette from './common';
 
 export const palette: NextUIThemesPalette = {
   ...commonPalette,
-  accents_1: '#111',
-  accents_2: '#333',
-  accents_3: '#444',
-  accents_4: '#666',
-  accents_5: '#888',
-  accents_6: '#999',
-  accents_7: '#eaeaea',
-  accents_8: '#fafafa',
-  text: '#fff',
-  background: '#000',
-  foreground: '#fff',
-  code: '#77C8E6',
-  border: '#333',
-  selection: '#ff4ecd'
+  accents_1: '#f6f6f6',
+  accents_2: '#eaeaea',
+  accents_3: '#999',
+  accents_4: '#888',
+  accents_5: '#666',
+  accents_6: '#444',
+  accents_7: '#333',
+  accents_8: '#111',
+  text: '#333',
+  white: '#fff',
+  background: '#fff',
+  foreground: '#000',
+  code: '#f81ce5',
+  border: '#eaeaea',
+  selection: '#0070f3'
 };
 
 export const expressiveness: NextUIThemesExpressiveness = {
   linkStyle: 'none',
   linkHoverStyle: 'none',
-  dropdownBoxShadow: '0 0 0 1px #333',
+  dropdownBoxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.02)',
   scrollerStart: 'rgba(255, 255, 255, 1)',
   scrollerEnd: 'rgba(255, 255, 255, 0)',
-  shadowSmall: '0 10px 20px -10px rgba(0, 0, 0, 0.1)',
-  shadowMedium: '0 15px 22px -10px rgba(0, 0, 0, 0.1)',
-  shadowLarge: '0 20px 24px -10px rgba(0, 0, 0, 0.1)',
-  portalOpacity: 0.75
+  shadowSmall: '0 5px 20px -5px rgba(0, 0, 0, .1)',
+  shadowMedium: '0 8px 30px rgba(0, 0, 0, 0.15)',
+  shadowLarge: '0 30px 60px rgba(0, 0, 0, 0.15)',
+  portalOpacity: 0.25
 };
 
 export const font = defaultFont;
@@ -43,7 +44,7 @@ export const breakpoints = defaultBreakpoints;
 export const layout = defaultLayout;
 
 export const themes: NextUIThemes = {
-  type: 'dark',
+  type: 'light',
   font,
   layout,
   palette,

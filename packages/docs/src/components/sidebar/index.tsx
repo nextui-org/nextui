@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.replace('px', ''))
+    Number(theme.breakpoints.sm.max.replace('px', ''))
   );
   return (
     <>

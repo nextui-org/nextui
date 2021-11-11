@@ -9,7 +9,7 @@ exports[`Loading should render correctly 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -179,7 +179,7 @@ exports[`Loading should work with different colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -343,7 +343,7 @@ exports[`Loading should work with different colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -507,7 +507,7 @@ exports[`Loading should work with different colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -671,7 +671,7 @@ exports[`Loading should work with different colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -835,7 +835,7 @@ exports[`Loading should work with different colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -999,7 +999,7 @@ exports[`Loading should work with different colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -1169,7 +1169,7 @@ exports[`Loading should work with different sizes 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -1333,7 +1333,7 @@ exports[`Loading should work with different sizes 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -1497,7 +1497,7 @@ exports[`Loading should work with different sizes 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -1661,7 +1661,7 @@ exports[`Loading should work with different sizes 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -1825,7 +1825,7 @@ exports[`Loading should work with different sizes 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -1995,7 +1995,7 @@ exports[`Loading should work with different text colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -2159,7 +2159,7 @@ exports[`Loading should work with different text colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -2323,7 +2323,7 @@ exports[`Loading should work with different text colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -2487,7 +2487,7 @@ exports[`Loading should work with different text colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -2651,7 +2651,7 @@ exports[`Loading should work with different text colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -2815,7 +2815,7 @@ exports[`Loading should work with different text colors 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -2985,7 +2985,7 @@ exports[`Loading should work with different types 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -3994,7 +3994,7 @@ exports[`Loading should work with different types 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -4158,7 +4158,7 @@ exports[`Loading should work with different types 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;
@@ -4322,7 +4322,7 @@ exports[`Loading should work with different types 1`] = `
           position: relative;
         }
         label {
-          margin-top: undefined;
+          margin-top: 4pt;
         }
         label :global(*) {
           margin: 0;

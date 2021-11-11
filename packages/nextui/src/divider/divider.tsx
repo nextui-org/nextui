@@ -76,7 +76,7 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 ${theme.spacing.lg};
+          padding: 0 ${theme.layout.gap};
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;

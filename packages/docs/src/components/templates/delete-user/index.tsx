@@ -5,7 +5,7 @@ import {
   Button,
   Grid,
   Row,
-  NextUIThemes
+  NextUIThemes,
 } from '@nextui-org/react';
 
 const DeleteUser: React.FC = () => {
@@ -38,8 +38,8 @@ const DeleteUser: React.FC = () => {
         {`
           :global(.delete-user__container) {
             max-width: 330px;
-            border-radius: ${theme.radius.lg};
-            padding: ${theme.spacing.sm};
+            border-radius: ${theme.layout.radius};
+            padding: ${theme.layout.gapHalf};
           }
         `}
       </style>

@@ -68,7 +68,7 @@ const InputIconClear: React.FC<Props> = ({
           display: inline-flex;
           align-items: center;
           height: auto;
-          padding: 0 ${underlined ? '2px' : theme.spacing.sm};
+          padding: 0 ${underlined ? '2px' : theme.layout.gapHalf};
           cursor: ${disabled ? 'not-allowed' : 'pointer'};
           box-sizing: border-box;
           transition: color 250ms ease 0s, transform 250ms ease 0s;

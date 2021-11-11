@@ -51,7 +51,7 @@ const Playground: React.FC<PlaygroundProps> = ({
         <style jsx>{`
           .playground {
             width: 100%;
-            border-radius: ${theme.radius.lg};
+            border-radius: ${theme.layout.radius};
           }
         `}</style>
       </div>

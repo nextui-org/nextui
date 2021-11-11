@@ -40,13 +40,13 @@ const CarbonAd: React.FC<unknown> = () => {
           #carbonads {
             font-family: inherit;
             max-width: 100%;
-            padding: ${theme.spacing.md};
+            padding: calc(${theme.layout.gap} * 0.75) ${theme.layout.gap};
           }
           #carbonads {
             display: flex;
             width: 100%;
             z-index: 100;
-            border-radius: ${theme.radius.lg};
+            border-radius: ${theme.layout.radius};
             background-color: ${theme.type === 'light' ? '#363449' : '#111'};
             box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
           }
@@ -80,7 +80,7 @@ const CarbonAd: React.FC<unknown> = () => {
             display: block;
             max-width: 100% !important;
             width: 100%;
-            border-radius: ${theme.radius.md};
+            border-radius: calc(${theme.layout.radius} - 4px);
             border: 0px;
             margin: 0px;
           }
@@ -91,8 +91,8 @@ const CarbonAd: React.FC<unknown> = () => {
             color: ${theme.type === 'light'
               ? theme.palette.accents_2
               : theme.palette.accents_6};
-            padding-left: ${theme.spacing.md};
-            padding-right: ${theme.spacing.md};
+            padding-left: ${theme.layout.gapHalf};
+            padding-right: ${theme.layout.gapHalf};
           }
           #carbonads .carbon-poweredby {
             display: flex;
@@ -112,7 +112,7 @@ const CarbonAd: React.FC<unknown> = () => {
             line-height: 0;
             transition: all 0.25 ease;
           }
-          @media only screen and (max-width: ${theme.breakpoints.xs}) {
+          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
             #carbonads .carbon-text {
               font-size: 0.9rem;
             }

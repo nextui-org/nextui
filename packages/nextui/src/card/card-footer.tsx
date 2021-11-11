@@ -85,7 +85,7 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
         .card-footer {
           width: ${width};
           height: ${height};
-          padding: ${theme.spacing.sm} ${theme.spacing.lg};
+          padding: ${theme.layout.gapHalf} ${theme.layout.gap};
           display: flex;
           align-items: center;
           overflow: hidden;
@@ -93,8 +93,8 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
           background-color: ${bgColor};
           font-size: 0.875rem;
           border-top: ${border};
-          border-bottom-left-radius: ${theme.radius.lg};
-          border-bottom-right-radius: ${theme.radius.lg};
+          border-bottom-left-radius: ${theme.layout.radius};
+          border-bottom-right-radius: ${theme.layout.radius};
         }
         .card-footer.blur {
           backdrop-filter: saturate(180%) blur(10px);
@@ -106,7 +106,7 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
         .auto-margin :global(*) {
           margin-top: 0;
           margin-bottom: 0;
-          margin-right: calc(${theme.spacing.sm} * 0.5);
+          margin-right: ${theme.layout.gapQuarter};
         }
       `}</style>
     </div>

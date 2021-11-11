@@ -20,7 +20,7 @@ const defaultProps = {
   icon: false,
   underline: false,
   block: false,
-  className: ''
+  className: '',
 };
 
 type NativeAttrs = Omit<React.AnchorHTMLAttributes<unknown>, keyof Props>;
@@ -48,7 +48,7 @@ const Link = React.forwardRef<
       [color, block, theme, linkColor]
     );
 
-    const padding = block ? theme.spacing.sm : '0';
+    const padding = block ? theme.layout.gapQuarter : '0';
     const decoration = underline ? 'underline' : 'none';
 
     return (
@@ -63,7 +63,7 @@ const Link = React.forwardRef<
             color: ${linkColor};
             text-decoration: none;
             padding: calc(${padding} * 0.8) calc(${padding} * 1.7);
-            border-radius: ${block ? theme.radius.lg : 0};
+            border-radius: ${block ? theme.layout.radius : 0};
             width: fit-content;
             transition: all 0.25s ease;
           }

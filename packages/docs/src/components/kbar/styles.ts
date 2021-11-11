@@ -9,7 +9,7 @@ export default function generateStyles(theme: NextUIThemes) {
       color: theme.palette.text,
       borderRadius: '8px',
       overflow: 'hidden',
-      boxShadow: theme.shadows.md
+      boxShadow: theme.expressiveness.shadowMedium
     },
     result: {
       maxHeight: 400,

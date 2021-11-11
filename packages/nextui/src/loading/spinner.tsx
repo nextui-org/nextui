@@ -11,7 +11,7 @@ interface Props {
 }
 
 const defaultProps = {
-  className: ''
+  className: '',
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -28,7 +28,7 @@ const getSpans = (color: string, theme: NextUIThemes) => {
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: ${theme.radius.lg};
+          border-radius: ${theme.layout.radius};
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -104,13 +104,11 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
 }) => {
   const theme = useTheme();
 
-  const ariaLabel = children ? '' : 'Loading';
+  const ariaLabel = children ? "" : "Loading";
 
   return (
     <div className={`spinner ${className}`} {...props}>
-      <div className="container" aria-label={ariaLabel}>
-        {getSpans(color, theme)}
-      </div>
+      <div className="container" aria-label={ariaLabel}>{getSpans(color, theme)}</div>
       {children && <label style={labelStyle}>{children}</label>}
       <style jsx>{`
         .spinner {

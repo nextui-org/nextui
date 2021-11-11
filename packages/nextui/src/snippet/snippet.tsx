@@ -81,7 +81,7 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   }, [ref.current, children, text]);
 
   const snippetWidth = useMemo(() => {
-    return showCopyIcon ? `calc(100% - 2 * ${theme.spacing.lg})` : '100%';
+    return showCopyIcon ? `calc(100% - 2 * ${theme.layout.gap})` : '100%';
   }, [showCopyIcon]);
 
   const symbolBefore = useMemo(() => {
@@ -135,11 +135,11 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           position: relative;
           width: ${width};
           max-width: 100%;
-          padding: calc(${theme.spacing.lg} * 0.75) ${theme.spacing.lg};
+          padding: calc(${theme.layout.gap} * 0.75) ${theme.layout.gap};
           color: ${style.color};
           background: ${style.bgColor};
           border: ${bordered ? '1px' : '0px'} solid ${style.border};
-          border-radius: ${theme.radius.lg};
+          border-radius: ${theme.layout.radius};
         }
         pre {
           margin: 0;
@@ -166,7 +166,7 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           display: inline-flex;
           justify-content: center;
           align-items: flex-start;
-          width: calc(2 * ${theme.spacing.lg});
+          width: calc(2 * ${theme.layout.gap});
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;

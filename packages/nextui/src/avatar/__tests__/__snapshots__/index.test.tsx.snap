@@ -2200,7 +2200,7 @@ exports[`Avatar should work with a gradient color 1`] = `
         }
         .bordered:hover .avatar-bg {
           background: linear-gradient(111.19deg,#aaffec -63.59%,#ff4ecd -20.3%,#0070f3 70.46%);
-          filter: opacity(0.8);
+          filter: opacity(0.6);
         }
         .avatar:hover .avatar-img {
           transform: false;

@@ -46,7 +46,7 @@ const ModalContent: React.FC<ModalContentProps> = ({
           display: flex;
           flex-direction: column;
           flex: 1 1 auto;
-          padding: ${theme.spacing.sm} calc(${theme.spacing.lg} + 0.25rem);
+          padding: ${theme.layout.gapHalf} calc(${theme.layout.gap} + 0.25rem);
           overflow-y: auto;
           position: relative;
           text-align: left;

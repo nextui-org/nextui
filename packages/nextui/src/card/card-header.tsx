@@ -52,7 +52,8 @@ const CardHeader: React.FC<React.PropsWithChildren<CardHeaderProps>> = ({
           overflow: hidden;
           color: inherit;
           font-size: 0.875rem;
-          padding: ${theme.spacing.sm};
+          padding: ${theme.layout.gapHalf}
+            calc(${theme.layout.gapHalf} + 0.25rem);
         }
         .no-padding {
           padding: 0;

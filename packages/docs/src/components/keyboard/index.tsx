@@ -37,12 +37,12 @@ const getLayout = (small: boolean, theme: NextUIThemes): CustomLayout => {
     return {
       padding: 0,
       fontSize: '.75rem',
-      minWidth: theme.spacing.lg
+      minWidth: theme.layout.gap
     };
   return {
-    padding: theme.spacing[1.5],
+    padding: theme.layout.gapQuarter,
     fontSize: '0.875rem',
-    minWidth: `calc(1.5 * ${theme.spacing.lg})`
+    minWidth: `calc(1.5 * ${theme.layout.gap})`
   };
 };
 
@@ -59,20 +59,13 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
 }) => {
   const theme = useTheme();
   const isDark = useDarkMode().value;
-
   const { padding, fontSize, minWidth } = useMemo<CustomLayout>(
     () => getLayout(small, theme),
     [small, theme]
   );
 
   return (
-    <kbd
-      role="button"
-      tabIndex={0}
-      className={className}
-      onClick={onClick}
-      {...props}
-    >
+    <kbd className={className} onClick={onClick} {...props}>
       {command && <span>⌘</span>}
       {shift && <span>⇧</span>}
       {option && <span>⌥</span>}
@@ -91,14 +84,14 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
             ? `1px solid ${addColorAlpha(theme.palette.foreground, 0.2)}`
             : 'none'};
           box-shadow: ${isDark ? 'none' : '0 0 2px 0 rgb(0 0 0 / 14%)'};
-          font-family: ${theme.fonts.sans};
+          font-family: ${theme.font.sans};
           border-radius: 6px;
           padding: 0 ${padding};
           min-width: ${minWidth};
           font-size: ${fontSize};
         }
         kbd + kbd {
-          margin-left: calc(${theme.spacing.sm} * 0.5);
+          margin-left: ${theme.layout.gapQuarter};
         }
         span {
           line-height: 2em;
@@ -106,7 +99,7 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
           text-align: center;
         }
         span + span {
-          margin-left: calc(${theme.spacing.sm} * 0.5);
+          margin-left: ${theme.layout.gapQuarter};
         }
       `}</style>
     </kbd>

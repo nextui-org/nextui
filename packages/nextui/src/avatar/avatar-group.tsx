@@ -57,7 +57,7 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
-          padding-left: ${theme.spacing[1]}
+          padding-left: ${theme.layout.gapQuarter};
           color: ${theme.palette.accents_7};
         }
       `}</style>

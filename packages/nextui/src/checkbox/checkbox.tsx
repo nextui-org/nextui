@@ -253,7 +253,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           border-radius: inherit;
           transition: all 0.25s ease;
           z-index: -1;
-          border: ${theme.borderWeights.normal} solid ${theme.palette.border};
+          border: ${theme.layout.stroke} solid ${theme.palette.border};
           box-sizing: border-box;
         }
 

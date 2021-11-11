@@ -67,7 +67,7 @@ const Logo: React.FC<LogoProps> = ({
             :global(.logo__large) {
               display: block;
             }
-            @media only screen and (max-width: ${theme.breakpoints.md}) {
+            @media only screen and (max-width: ${theme.breakpoints.md.min}) {
               :global(.logo__small) {
                 display: block;
               }

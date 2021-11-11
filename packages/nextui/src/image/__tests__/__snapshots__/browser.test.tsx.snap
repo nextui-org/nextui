@@ -2360,7 +2360,7 @@ LoadedCheerio {
                 "data": "
           .browser {
             background-color: transparent;
-            box-shadow: undefined;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             width: max-content;
             max-width: 100%;
             margin: 0 auto;
@@ -2388,7 +2388,7 @@ LoadedCheerio {
           .traffic {
             width: auto;
             position: absolute;
-            left: 12px;
+            left: 8pt;
             top: 50%;
             transform: translateY(-50%);
             bottom: 0;
@@ -2586,7 +2586,7 @@ LoadedCheerio {
               "data": "
           .browser {
             background-color: transparent;
-            box-shadow: undefined;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             width: max-content;
             max-width: 100%;
             margin: 0 auto;
@@ -2614,7 +2614,7 @@ LoadedCheerio {
           .traffic {
             width: auto;
             position: absolute;
-            left: 12px;
+            left: 8pt;
             top: 50%;
             transform: translateY(-50%);
             bottom: 0;
@@ -4898,7 +4898,7 @@ LoadedCheerio {
             "data": "
           .browser {
             background-color: transparent;
-            box-shadow: undefined;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
             width: max-content;
             max-width: 100%;
             margin: 0 auto;
@@ -4926,7 +4926,7 @@ LoadedCheerio {
           .traffic {
             width: auto;
             position: absolute;
-            left: 12px;
+            left: 8pt;
             top: 50%;
             transform: translateY(-50%);
             bottom: 0;

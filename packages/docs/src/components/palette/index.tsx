@@ -17,7 +17,7 @@ const Palette: React.FC<Props> = ({ colors, inverted }) => {
       ))}
       <style jsx>{`
         :global(.palette) {
-          padding-bottom: ${theme.spacing.sm};
+          padding-bottom: ${theme.layout.gapHalf};
         }
       `}</style>
     </Grid.Container>

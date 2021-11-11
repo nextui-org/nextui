@@ -14,12 +14,7 @@ const SendButton: React.FC<Props> = ({ onClick }) => {
   };
 
   return (
-    <span
-      role="button"
-      tabIndex={0}
-      className="send-button-container"
-      onClick={handleClick}
-    >
+    <div className="send-button-container" onClick={handleClick}>
       <Send fill="white" className="send-button__arrow-icon" />
       <style jsx>{`
         .send-button-container {
@@ -38,7 +33,7 @@ const SendButton: React.FC<Props> = ({ onClick }) => {
           height: 100%;
           padding: 4px;
           transition: transform 0.25s ease 0s, opacity 200ms ease-in-out 50ms;
-          box-shadow: ${theme.shadows.sm};
+          box-shadow: ${theme.expressiveness.shadowSmall};
         }
         .send-button-container:hover {
           opacity: 0.8;
@@ -51,7 +46,7 @@ const SendButton: React.FC<Props> = ({ onClick }) => {
           opacity: 0;
         }
       `}</style>
-    </span>
+    </div>
   );
 };
 

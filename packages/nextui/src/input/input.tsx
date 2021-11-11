@@ -128,8 +128,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
     }
 
     const {
-      color,
       bgColor,
+      color,
       helperColor,
       placeholderColor,
       borderColor,
@@ -139,7 +139,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       () => getColors(theme, disabled, colorProp, status, helperColorProp),
       [
         theme.palette,
-        theme.shadows,
+        theme.expressiveness,
         colorProp,
         helperColorProp,
         status,
@@ -390,7 +390,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(${heightRatio} * ${theme.spacing[5]});
+            height: calc(${heightRatio} * ${theme.layout.gap});
           }
           .wrapper {
             flex: 1;
@@ -448,7 +448,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(${heightRatio} * ${theme.spacing.sm} * -1);
+            bottom: calc(${heightRatio} * ${theme.layout.gapHalf} * -1);
             transition: ${animated ? 'opacity 0.25s ease' : 'none'};
           }
           .helper-text-container.with-value {
@@ -478,7 +478,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(${theme.spacing.sm} * 0.5);
+            padding: 0 ${theme.layout.gapQuarter};
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
@@ -508,7 +508,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
             -webkit-appearance: none;
           }
           textarea:not(.underlined) {
-            padding: ${theme.spacing.sm};
+            padding: ${theme.layout.gapQuarter};
           }
           input.left-content,
           textarea.left-content {

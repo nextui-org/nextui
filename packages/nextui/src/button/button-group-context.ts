@@ -18,7 +18,7 @@ export interface ButtonGroupConfig {
 
 const defaultContext = {
   isButtonGroup: false,
-  disabled: false
+  disabled: false,
 };
 
 export const ButtonGroupContext =

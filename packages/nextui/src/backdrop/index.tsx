@@ -148,7 +148,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
             }
             .layer-default {
               background-color: black;
-              opacity: 0.75;
+              opacity: ${theme.expressiveness.portalOpacity};
               transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             }
             .layer-blur {
@@ -164,10 +164,10 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               opacity: 0;
             }
             .backdrop-wrapper-enter-active .layer-default {
-              opacity: 0.75;
+              opacity: ${theme.expressiveness.portalOpacity};
             }
             .backdrop-wrapper-leave .layer-default {
-              opacity: 0.75;
+              opacity: ${theme.expressiveness.portalOpacity};
             }
             .backdrop-wrapper-leave-active .layer-default {
               opacity: 0;
@@ -184,7 +184,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
             .backdrop-wrapper-leave-active .layer-blur {
               background-color: rgba(0, 0, 0, 0.1);
             }
-            @media only screen and (max-width: ${theme.breakpoints.sm}) {
+            @media only screen and (max-width: ${theme.breakpoints.sm.max}) {
               .content {
                 width: 90%;
               }

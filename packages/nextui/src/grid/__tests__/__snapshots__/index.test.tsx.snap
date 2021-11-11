@@ -22,7 +22,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           flex-basis: 8.333333333333334%;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 0;
             max-width: 8.333333333333334%;
@@ -30,7 +30,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 0;
             max-width: 16.666666666666668%;
@@ -38,7 +38,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 0;
             max-width: 25%;
@@ -46,7 +46,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 0;
             max-width: 33.333333333333336%;
@@ -54,7 +54,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 0;
             max-width: 41.66666666666667%;
@@ -83,7 +83,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           flex-basis: 8.333333333333334%;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 0;
             max-width: 8.333333333333334%;
@@ -91,7 +91,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 0;
             max-width: 16.666666666666668%;
@@ -99,7 +99,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 0;
             max-width: 25%;
@@ -107,7 +107,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 0;
             max-width: 33.333333333333336%;
@@ -115,7 +115,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 0;
             max-width: 41.66666666666667%;
@@ -148,7 +148,7 @@ exports[`Grid css value should be passed through 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -156,7 +156,7 @@ exports[`Grid css value should be passed through 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -164,7 +164,7 @@ exports[`Grid css value should be passed through 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -172,7 +172,7 @@ exports[`Grid css value should be passed through 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -180,7 +180,7 @@ exports[`Grid css value should be passed through 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -209,7 +209,7 @@ exports[`Grid css value should be passed through 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -217,7 +217,7 @@ exports[`Grid css value should be passed through 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -225,7 +225,7 @@ exports[`Grid css value should be passed through 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -233,7 +233,7 @@ exports[`Grid css value should be passed through 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -241,7 +241,7 @@ exports[`Grid css value should be passed through 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -274,7 +274,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -282,7 +282,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -290,7 +290,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -298,7 +298,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -306,7 +306,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -335,7 +335,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -343,7 +343,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -351,7 +351,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -359,7 +359,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -367,7 +367,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -400,7 +400,7 @@ exports[`Grid nested components should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -408,7 +408,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -416,7 +416,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -424,7 +424,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -432,7 +432,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -461,7 +461,7 @@ exports[`Grid nested components should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -469,7 +469,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -477,7 +477,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -485,7 +485,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -493,7 +493,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -522,7 +522,7 @@ exports[`Grid nested components should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -530,7 +530,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -538,7 +538,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -546,7 +546,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -554,7 +554,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -583,7 +583,7 @@ exports[`Grid nested components should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -591,7 +591,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -599,7 +599,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -607,7 +607,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -615,7 +615,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -644,7 +644,7 @@ exports[`Grid nested components should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -652,7 +652,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -660,7 +660,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -668,7 +668,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -676,7 +676,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -705,7 +705,7 @@ exports[`Grid nested components should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -713,7 +713,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -721,7 +721,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -729,7 +729,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -737,7 +737,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -766,7 +766,7 @@ exports[`Grid nested components should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -774,7 +774,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -782,7 +782,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -790,7 +790,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -798,7 +798,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -827,7 +827,7 @@ exports[`Grid nested components should be supported 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -835,7 +835,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -843,7 +843,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -851,7 +851,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -859,7 +859,7 @@ exports[`Grid nested components should be supported 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -892,7 +892,7 @@ exports[`Grid should render correctly 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -900,7 +900,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -908,7 +908,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -916,7 +916,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -924,7 +924,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -953,7 +953,7 @@ exports[`Grid should render correctly 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -961,7 +961,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -969,7 +969,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -977,7 +977,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -985,7 +985,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -1014,7 +1014,7 @@ exports[`Grid should render correctly 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -1022,7 +1022,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -1030,7 +1030,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -1038,7 +1038,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -1046,7 +1046,7 @@ exports[`Grid should render correctly 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -1079,7 +1079,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           flex-basis: 100%;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 0;
             max-width: 100%;
@@ -1087,7 +1087,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -1095,7 +1095,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -1103,7 +1103,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -1111,7 +1111,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -1140,7 +1140,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 0;
             max-width: 0;
@@ -1148,7 +1148,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -1156,7 +1156,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -1164,7 +1164,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -1172,7 +1172,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;
@@ -1201,7 +1201,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           flex-basis: 0;
           display: inherit
         }
-        @media only screen and (max-width: 576px) {
+        @media only screen and (max-width: 650px) {
           .xs {
             flex-grow: 1;
             max-width: 100%;
@@ -1209,7 +1209,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 650px) {
           .sm {
             flex-grow: 1;
             max-width: 100%;
@@ -1217,7 +1217,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 960px) {
           .md {
             flex-grow: 1;
             max-width: 100%;
@@ -1225,7 +1225,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1280px) {
           .lg {
             flex-grow: 1;
             max-width: 100%;
@@ -1233,7 +1233,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
             display: inherit
           }
         }
-        @media only screen and (min-width: undefined) {
+        @media only screen and (min-width: 1400px) {
           .xl {
             flex-grow: 1;
             max-width: 100%;

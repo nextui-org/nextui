@@ -196,13 +196,13 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         .shadow {
           border: none;
           background: ${bgColor};
-          box-shadow: ${theme.shadows.md};
-          border-radius: ${theme.radius.lg};
-          padding: 0 ${theme.spacing.lg};
+          box-shadow: ${theme.expressiveness.shadowMedium};
+          border-radius: ${theme.layout.radius};
+          padding: 0 ${theme.layout.gap};
         }
         .bordered {
-          padding: 0 ${theme.spacing.lg};
-          border-radius: ${theme.radius.lg};
+          padding: 0 ${theme.layout.gap};
+          border-radius: ${theme.layout.radius};
           border: ${borderWeight} solid ${theme.palette.border};
         }
         .view {
@@ -212,7 +212,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: ${theme.spacing.lg} 0;
+          padding: ${theme.layout.gap} 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -227,7 +227,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
           align-items: center;
         }
         .title-content-left {
-          margin-right: ${theme.spacing.sm};
+          margin-right: ${theme.layout.gapHalf};
         }
         .title-content {
           width: 100%;
@@ -265,7 +265,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: ${theme.spacing.lg};
+          padding-bottom: ${theme.layout.gap};
         }
         .content > :global(*:first-child) {
           margin-top: 0;

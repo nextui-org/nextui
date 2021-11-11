@@ -53,7 +53,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -119,7 +119,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -224,7 +224,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -290,7 +290,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -395,7 +395,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -461,7 +461,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -566,7 +566,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -632,7 +632,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -786,7 +786,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -852,7 +852,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -957,7 +957,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1023,7 +1023,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1128,7 +1128,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1194,7 +1194,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1325,7 +1325,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1391,7 +1391,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1519,7 +1519,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1585,7 +1585,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1690,7 +1690,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1756,7 +1756,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1875,7 +1875,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1941,7 +1941,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2048,7 +2048,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2114,7 +2114,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2252,7 +2252,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2318,7 +2318,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2425,7 +2425,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2491,7 +2491,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2598,7 +2598,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2664,7 +2664,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2771,7 +2771,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2837,7 +2837,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3079,7 +3079,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3144,7 +3144,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3209,7 +3209,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3311,7 +3311,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3376,7 +3376,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3455,7 +3455,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3543,7 +3543,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3610,7 +3610,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3677,7 +3677,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3884,7 +3884,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3949,7 +3949,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -4039,7 +4039,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -4106,7 +4106,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 16pt;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;

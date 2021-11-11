@@ -6,7 +6,7 @@ import {
   Justify,
   Direction,
   AlignItems,
-  AlignContent
+  AlignContent,
 } from '../utils/prop-types';
 
 interface Props {
@@ -40,7 +40,7 @@ const defaultProps = {
   wrap: 'wrap' as Wrap,
   as: 'div' as keyof JSX.IntrinsicElements,
   display: 'block' as Display,
-  className: ''
+  className: '',
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -81,7 +81,7 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
       justify,
       direction,
       alignItems,
-      alignContent
+      alignContent,
     };
     const classString = Object.keys(aligns).reduce((pre, name) => {
       if (aligns[name] !== undefined && aligns[name] !== false)
@@ -101,11 +101,11 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
     justify,
     direction,
     alignItems,
-    alignContent
+    alignContent,
   ]);
   const gapUnit = useMemo(() => {
-    return `calc(${gap} * ${theme.spacing.sm})`;
-  }, [gap, theme.spacing.sm]);
+    return `calc(${gap} * ${theme.layout.gapQuarter})`;
+  }, [gap, theme.layout.gapQuarter]);
 
   const Component = as;
 
@@ -145,9 +145,9 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
         .alignItems {
           align-items: ${alignItems};
         }
-        @media only screen and (min-width: ${theme.breakpoints.xs}) {
+        @media only screen and (min-width: ${theme.breakpoints.xs.max}) {
           .container {
-            max-width: ${theme.breakpoints.xs};
+            max-width: ${theme.breakpoints.xs.max};
           }
           .sm,
           .md,
@@ -156,9 +156,9 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
             max-width: 100%;
           }
         }
-        @media only screen and (min-width: ${theme.breakpoints.sm}) {
+        @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
           .container {
-            max-width: ${theme.breakpoints.sm};
+            max-width: ${theme.breakpoints.sm.min};
           }
           .md,
           .lg,
@@ -166,26 +166,26 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
             max-width: 100%;
           }
         }
-        @media only screen and (min-width: ${theme.breakpoints.md}) {
+        @media only screen and (min-width: ${theme.breakpoints.md.min}) {
           .container {
-            max-width: ${theme.breakpoints.md};
+            max-width: ${theme.breakpoints.md.min};
           }
           .lg,
           .xl {
             max-width: 100%;
           }
         }
-        @media only screen and (min-width: ${theme.breakpoints.lg}) {
+        @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
           .container {
-            max-width: ${theme.breakpoints.lg};
+            max-width: ${theme.breakpoints.lg.min};
           }
           .xl {
             max-width: 100%;
           }
         }
-        @media only screen and (min-width: ${theme.breakpoints.xl}) {
+        @media only screen and (min-width: ${theme.breakpoints.xl.min}) {
           .container {
-            max-width: ${theme.breakpoints.xl};
+            max-width: ${theme.breakpoints.xl.min};
           }
         }
       `}</style>

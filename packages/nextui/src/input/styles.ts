@@ -15,19 +15,19 @@ export const getSizes = (size?: NormalSizes) => {
       fontSize: '.75rem'
     },
     small: {
-      heightRatio: '1.6',
+      heightRatio: '1.5',
       fontSize: '.75rem'
     },
     medium: {
-      heightRatio: '1.8',
+      heightRatio: '1.687',
       fontSize: '.875rem'
     },
     large: {
-      heightRatio: '2',
+      heightRatio: '1.875',
       fontSize: '1rem'
     },
     xlarge: {
-      heightRatio: '2.3',
+      heightRatio: '2.25',
       fontSize: '1.25rem'
     }
   };
@@ -76,7 +76,7 @@ export const getColors = (
     bgColor: isDark ? palette.accents_1 : palette.accents_2,
     placeholderColor: isDark ? palette.accents_6 : palette.accents_3,
     borderColor: palette.accents_2,
-    shadowColor: theme.shadows.sm
+    shadowColor: theme.expressiveness.shadowSmall
   };
 
   if (disabled) {

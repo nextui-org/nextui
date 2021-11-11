@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextUIThemes } from './index';
-import defaultTheme from './light';
+import defaultTheme from './default';
 
 const ThemeContext: React.Context<NextUIThemes> =
   React.createContext<NextUIThemes>(defaultTheme);

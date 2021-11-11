@@ -7,7 +7,7 @@ import useWarning from '../use-warning';
 import { Props as InputProps } from '../input/input-props';
 import {
   excludedInputPropsForTextarea,
-  ExcludedInputProps
+  ExcludedInputProps,
 } from '../utils/prop-types';
 import { __DEV__ } from '../utils/assertion';
 import { calculateNodeHeight, SizingData, getSizingData } from './utils';
@@ -32,7 +32,7 @@ const defaultProps = {
   maxRows: 6,
   cacheMeasurements: true,
   initialValue: '',
-  width: 'initial'
+  width: 'initial',
 };
 
 type NativeAttrs = Omit<
@@ -149,8 +149,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             background-color: transparent;
             box-shadow: none;
             display: block;
-            font-family: ${theme.fonts.sans};
-            padding: ${theme.spacing.sm};
+            font-family: ${theme.font.sans};
+            padding: ${theme.layout.gapHalf};
             width: 100%;
             height: 100%;
             resize: none;
