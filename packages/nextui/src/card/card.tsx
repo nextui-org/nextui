@@ -125,7 +125,7 @@ const Card = React.forwardRef<
       background: bgColor,
       noPadding: cover ? true : undefined
     }),
-    [bgColor, cover]
+    []
   );
 
   const clickHandler = (event: MouseEvent<HTMLDivElement>) => {
