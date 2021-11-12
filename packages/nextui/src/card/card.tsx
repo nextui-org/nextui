@@ -223,6 +223,11 @@ const Card = React.forwardRef<
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }
+          .card:focus:not(:focus-visible) {
+            box-shadow: ${shadow && !bordered
+              ? theme.shadows.md
+              : 'none'} !important;
+          }
         `}</style>
         {focusStyles}
       </div>
