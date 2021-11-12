@@ -1,3 +1,4 @@
+import { DefaultProps } from './default-props';
 import { NextUIThemes } from '../theme';
 import { detectBrowser } from './dom';
 import css from 'styled-jsx/css';

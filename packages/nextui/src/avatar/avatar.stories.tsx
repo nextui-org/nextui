@@ -38,7 +38,7 @@ export const Default = () => {
   return (
     <>
       <Container>
-        <Avatar text={nameUsers[0]} />
+        <Avatar m="xl" text={nameUsers[0]} />
         <Avatar pointer src={pictureUsers[1]} />
         <Avatar text={nameUsers[1]} />
         <Avatar src={pictureUsers[3]} squared />

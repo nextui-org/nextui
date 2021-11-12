@@ -4,8 +4,6 @@ import {
   NextUIBorderWeights,
   NextUIFontSizes,
   NextUISpacing,
-  NextUIPadding,
-  NextUIMargin,
   NextUIThemes
 } from './types';
 
@@ -65,16 +63,6 @@ export const defaultSpacing: NextUISpacing = {
   '96': '24rem'
 };
 
-export const defaultPadding: NextUIPadding = {
-  ...defaultSpacing,
-  auto: 'auto'
-};
-
-export const defaultMargin: NextUIMargin = {
-  ...defaultSpacing,
-  auto: 'auto'
-};
-
 export const defaultFontSizes: NextUIFontSizes = {
   xs: '0.875rem',
   base: '1rem',
@@ -128,7 +116,5 @@ export const defaultTheme: Omit<NextUIThemes, 'type' | 'palette' | 'shadows'> =
     lineHeights: defaultLineHeights,
     fontSizes: defaultFontSizes,
     radius: defaultRadius,
-    spacing: defaultSpacing,
-    padding: defaultPadding,
-    margin: defaultMargin
+    spacing: defaultSpacing
   };
