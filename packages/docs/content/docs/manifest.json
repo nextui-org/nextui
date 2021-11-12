@@ -33,7 +33,15 @@
                     "open": true,
                     "routes": [
                         {
-                            "title": "Palette",
+                            "title": "Default theme",
+                            "path": "/docs/theme/palette.mdx"
+                        },
+                        {
+                            "title": "Customize theme",
+                            "path": "/docs/theme/palette.mdx"
+                        },
+                        {
+                            "title": "Dark mode",
                             "path": "/docs/theme/palette.mdx"
                         }
                     ]
