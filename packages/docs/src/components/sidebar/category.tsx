@@ -95,12 +95,18 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           />
         )}
         <span className="label noselect">{title}</span>
-        <ArrowRight width={14} height={14} fill={theme.palette.accents_7} />
+        <ArrowRight
+          className="arrow-right"
+          width={14}
+          height={14}
+          fill={theme.palette.accents_7}
+        />
       </div>
       <div className="posts">{children}</div>
       <style jsx>{`
         .category {
           margin: ${margin}px 0;
+          cursor: pointer;
         }
         .category:last-child {
           margin-bottom: 0;
