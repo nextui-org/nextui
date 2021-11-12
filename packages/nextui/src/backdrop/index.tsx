@@ -15,6 +15,7 @@ interface Props {
   width?: string;
   animated?: boolean;
   blur?: boolean;
+  opacity?: number;
 }
 
 const defaultProps = {
@@ -22,6 +23,7 @@ const defaultProps = {
   visible: false,
   blur: false,
   animated: true,
+  opacity: 0.5,
   fullScreenContent: false
 };
 
@@ -37,6 +39,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
     width,
     blur,
     animated,
+    opacity,
     fullScreenContent,
     ...props
   }) => {
@@ -148,7 +151,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
             }
             .layer-default {
               background-color: black;
-              opacity: 0.75;
+              opacity: ${opacity};
               transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             }
             .layer-blur {
@@ -164,10 +167,10 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               opacity: 0;
             }
             .backdrop-wrapper-enter-active .layer-default {
-              opacity: 0.75;
+              opacity: ${opacity};
             }
             .backdrop-wrapper-leave .layer-default {
-              opacity: 0.75;
+              opacity: ${opacity};
             }
             .backdrop-wrapper-leave-active .layer-default {
               opacity: 0;
