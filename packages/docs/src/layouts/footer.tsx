@@ -16,15 +16,16 @@ const Footer: React.FC = () => {
   const isMobile = useMediaQuery(
     Number(theme.breakpoints.sm.replace('px', ''))
   );
+  const fontSize = isMobile ? 12 : 14;
   return (
     <Container fluid className="footer__container" gap={0}>
       <Row>
-        <Text span className="footer__copy" size={isMobile ? 12 : 14}>
-          &copy; Copyright&nbsp;{year}&nbsp;NextUI
+        <Text span className="footer__copy" size={fontSize}>
+          &copy;&nbsp;Copyright&nbsp;{year}&nbsp;NextUI
         </Text>
         <Spacer x={1} />
-        <Text span className="footer__by" size={isMobile ? 12 : 14}>
-          Created by&nbsp;
+        <Text span className="footer__by" size={fontSize}>
+          Created&nbsp;by&nbsp;
           <Link href="https://jrgarciadev.com" rel="noreferrer" target="_blank">
             Junior Garcia
           </Link>
