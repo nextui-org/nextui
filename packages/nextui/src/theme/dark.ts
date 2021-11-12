@@ -1,14 +1,5 @@
 import { NextUIThemes, NextUIThemesPalette, NextUICommonSizes } from './types';
-import {
-  defaultFonts,
-  defaultBreakpoints,
-  defaultBorderWeights,
-  defaultLineHeights,
-  defaultFontSizes,
-  defaultRadius,
-  defaultSpacing,
-  defaultPalette
-} from './common';
+import { defaultPalette, defaultTheme } from './common';
 
 export const palette: NextUIThemesPalette = {
   ...defaultPalette,
@@ -37,15 +28,9 @@ export const shadows: NextUICommonSizes = {
 };
 
 export const themes: NextUIThemes = {
+  ...defaultTheme,
   type: 'dark',
-  fonts: defaultFonts,
   palette,
-  breakpoints: defaultBreakpoints,
-  borderWeights: defaultBorderWeights,
-  lineHeights: defaultLineHeights,
-  fontSizes: defaultFontSizes,
-  radius: defaultRadius,
-  spacing: defaultSpacing,
   shadows
 };
 

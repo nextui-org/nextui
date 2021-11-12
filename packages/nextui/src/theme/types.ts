@@ -70,7 +70,6 @@ export interface NextUISpacing extends NextUICommonSizes {
   '10': string;
   '11': string;
   '12': string;
-  '13': string;
   '14': string;
   '16': string;
   '20': string;
@@ -90,6 +89,14 @@ export interface NextUISpacing extends NextUICommonSizes {
   '96': string;
 }
 
+export interface NextUIPadding extends NextUISpacing {
+  auto: string;
+}
+
+export interface NextUIMargin extends NextUISpacing {
+  auto: string;
+}
+
 export interface NextUIThemes {
   type: ThemeTypes;
   fonts: NextUIThemesFonts;
@@ -99,6 +106,8 @@ export interface NextUIThemes {
   fontSizes: NextUIFontSizes;
   radius: NextUICommonSizes;
   spacing: NextUISpacing;
+  padding: NextUIPadding;
+  margin: NextUIMargin;
   breakpoints: NextUICommonSizes;
   shadows: NextUICommonSizes;
 }
