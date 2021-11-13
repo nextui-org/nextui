@@ -92,3 +92,10 @@ export const setChildrenIndex = (
     return item;
   });
 };
+
+export const flattenArray = (arr: any[]): any[] => {
+  return arr.reduce(
+    (acc, val) => acc.concat(Array.isArray(val) ? flattenArray(val) : val),
+    []
+  );
+};

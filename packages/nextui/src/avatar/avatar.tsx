@@ -10,6 +10,7 @@ import useTheme from '../use-theme';
 import AvatarGroup from './avatar-group';
 import { getNormalColor, addColorAlpha } from '../utils/color';
 import { getNormalWeight, getSpacings } from '../utils/dimensions';
+import { getSpacingsStyles } from '../utils/styles';
 import clsx from '../utils/clsx';
 
 interface Props extends DefaultProps {
@@ -96,12 +97,13 @@ const Avatar: React.FC<AvatarProps> = ({
 
   const spacings = getSpacings(theme, props);
 
-  console.log({ spacings });
+  const spacingStyles = getSpacingsStyles(spacings);
 
   const avatarColor = useMemo(
     () => getNormalColor(color, theme.palette, theme.palette.accents_2),
     [color, theme.palette]
   );
+
   const avatarTextColor = useMemo(
     () => getNormalColor(textColor, theme.palette, theme.palette.text),
     [textColor, theme.palette]
@@ -125,6 +127,7 @@ const Avatar: React.FC<AvatarProps> = ({
         className
       )}
       {...props}
+      style={{ ...props.style, ...spacingStyles }}
     >
       <span className="avatar-bg" />
       {!showText && (

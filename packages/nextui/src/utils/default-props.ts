@@ -25,6 +25,8 @@ export interface NextUIPaddings {
 
 export type NextUISpaces = NextUIMargins & NextUIPaddings;
 
+export type NextUISpacesKeys = { [key in keyof NextUISpaces]?: string };
+
 export interface DefaultProps<T extends string = never>
   extends NextUIMargins,
     NextUIPaddings {

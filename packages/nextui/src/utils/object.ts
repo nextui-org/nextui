@@ -29,3 +29,12 @@ export const deepMergeObject = <T extends MergeObject>(
   }
   return result;
 };
+
+export const renameProp = (
+  oldProp: string,
+  newProp: string,
+  { [oldProp]: old, ...others }
+) => ({
+  [newProp]: old,
+  ...others
+});

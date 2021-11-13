@@ -1,6 +1,8 @@
-import { DefaultProps } from './default-props';
 import { NextUIThemes } from '../theme';
 import { detectBrowser } from './dom';
+import { NextUISpaces, NextUISpacesKeys } from './default-props';
+import { getSpaceTransform } from './spaces';
+import { flattenArray } from './collections';
 import css from 'styled-jsx/css';
 
 export function getFocusStyles(theme: NextUIThemes) {
@@ -21,4 +23,28 @@ export function getFocusStyles(theme: NextUIThemes) {
             0 0 0 4px ${theme.palette.primary} !important;
         }
       `;
+}
+
+export function getSpacingsStyles(spacings: NextUISpacesKeys) {
+  try {
+    let cssStyles = {} as { [key: string]: string };
+    const cssStylesArray = flattenArray(
+      Object.entries(spacings).map(([key, value]) => {
+        const transforms = getSpaceTransform(key as keyof NextUISpaces);
+        return Array.isArray(transforms)
+          ? transforms.map((el) => {
+              return { [el]: value };
+            })
+          : transforms
+          ? { [transforms]: value }
+          : {};
+      })
+    );
+    cssStyles = cssStylesArray.reduce((acc, curr) => {
+      return { ...acc, ...curr };
+    }, cssStyles);
+    return cssStyles || {};
+  } catch (error) {
+    return {};
+  }
 }
