@@ -19,7 +19,7 @@ describe('ButtonIcon', () => {
 
   it('should work without text', () => {
     const wrapper = mount(<Button iconRight={<Icon />} />);
-    const text = wrapper.find('.text');
+    const text = wrapper.find('.nextui-button-text');
     expect(wrapper.html()).toMatchSnapshot();
     expect(text.length).toBe(0);
   });

@@ -25,7 +25,7 @@ const ButtonLoading: React.FC<React.PropsWithChildren<ButtonLoadingProps>> = ({
   ...props
 }) => {
   return (
-    <div className="button-loading" {...props}>
+    <div className="nextui-button-loading" {...props}>
       <Loading
         size={size}
         color={color}
@@ -33,7 +33,7 @@ const ButtonLoading: React.FC<React.PropsWithChildren<ButtonLoadingProps>> = ({
         type={type}
       />
       <style jsx>{`
-        .button-loading {
+        .nextui-button-loading {
           top: 0;
           left: 0;
           right: 0;

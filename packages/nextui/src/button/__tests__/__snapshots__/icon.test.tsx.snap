@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonIcon should render correctly 1`] = `
-"<button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><div><span class=\\"icon   \\"><svg></svg><style>
-        .icon {
+"<button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div><span class=\\"nextui-button-icon\\"><svg></svg><style>
+        .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
           right: auto;
@@ -14,21 +14,21 @@ exports[`ButtonIcon should render correctly 1`] = `
           color: var(--nextui-button-color);
           z-index: 1;
         }
-        .right {
-          right: var(--nextui-button-padding);
-          left: auto;
-        }
-        .icon :global(svg) {
+        .nextui-button-icon :global(svg) {
           background: transparent;
           height: calc(var(--nextui-button-height) / 2.35);
           width: calc(var(--nextui-button-height) / 2.35);
         }
-        .single {
+        .nextui-button-icon-right {
+          right: var(--nextui-button-padding);
+          left: auto;
+        }
+        .nextui-button-icon-single {
           position: static;
           transform: none;
         }
-      </style></span><div class=\\"text left\\">action</div></div><style>
-        .button {
+      </style></span><div class=\\"nextui-button-text nextui-button-text-left\\">action</div></div><style>
+        .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
           display: inline-block;
@@ -60,7 +60,7 @@ exports[`ButtonIcon should render correctly 1`] = `
           --nextui-button-color: #fff;
           --nextui-button-bg: #0070f3;
         }
-        .button:before {
+        .nextui-button:before {
           content: '';
           background: rgba(0, 112,243,0.85);
           position: absolute;
@@ -73,14 +73,14 @@ exports[`ButtonIcon should render correctly 1`] = `
           z-index: 1;
           opacity: 0;
         }
-        .button:hover:before {
+        .nextui-button:hover:before {
           opacity: 0;
         }
-        .button:not(.disabled):active {
+        .nextui-button:not(.nextui-button-disabled):active {
           transform: scale(0.97);
         }
-        .button:hover,
-        .button:focus {
+        .nextui-button:hover,
+        .nextui-button:focus {
           background: rgba(0, 112,243,0.85);
           --nextui-button-color: undefined;
           filter: none;
@@ -91,7 +91,7 @@ exports[`ButtonIcon should render correctly 1`] = `
           cursor: pointer;
           pointer-events: auto;
         }
-        .text {
+        .nextui-button-text {
           position: relative;
           z-index: 1;
           transform: translateY(
@@ -105,23 +105,23 @@ exports[`ButtonIcon should render correctly 1`] = `
           padding: 0 0;
           opacity: 1;
         }
-        .text p,
-        .text pre,
-        .text div {
+        .nextui-button-text p,
+        .nextui-button-text pre,
+        .nextui-button-text div {
           margin: 0;
         }
-        .text.left {
+        .nextui-button-text.nextui-button-text-left {
           padding-left: 0;
         }
-        .text.right {
+        .nextui-button-text.nextui-button-text-right {
           padding-right: 0;
         }
       </style></button>"
 `;
 
 exports[`ButtonIcon should work with right 1`] = `
-"<button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><div><span class=\\"icon right  \\"><svg></svg><style>
-        .icon {
+"<button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div><span class=\\"nextui-button-icon nextui-button-icon-right\\"><svg></svg><style>
+        .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
           right: auto;
@@ -133,21 +133,21 @@ exports[`ButtonIcon should work with right 1`] = `
           color: var(--nextui-button-color);
           z-index: 1;
         }
-        .right {
-          right: var(--nextui-button-padding);
-          left: auto;
-        }
-        .icon :global(svg) {
+        .nextui-button-icon :global(svg) {
           background: transparent;
           height: calc(var(--nextui-button-height) / 2.35);
           width: calc(var(--nextui-button-height) / 2.35);
         }
-        .single {
+        .nextui-button-icon-right {
+          right: var(--nextui-button-padding);
+          left: auto;
+        }
+        .nextui-button-icon-single {
           position: static;
           transform: none;
         }
-      </style></span><div class=\\"text right\\">action</div></div><style>
-        .button {
+      </style></span><div class=\\"nextui-button-text nextui-button-text-right\\">action</div></div><style>
+        .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
           display: inline-block;
@@ -179,7 +179,7 @@ exports[`ButtonIcon should work with right 1`] = `
           --nextui-button-color: #fff;
           --nextui-button-bg: #0070f3;
         }
-        .button:before {
+        .nextui-button:before {
           content: '';
           background: rgba(0, 112,243,0.85);
           position: absolute;
@@ -192,14 +192,14 @@ exports[`ButtonIcon should work with right 1`] = `
           z-index: 1;
           opacity: 0;
         }
-        .button:hover:before {
+        .nextui-button:hover:before {
           opacity: 0;
         }
-        .button:not(.disabled):active {
+        .nextui-button:not(.nextui-button-disabled):active {
           transform: scale(0.97);
         }
-        .button:hover,
-        .button:focus {
+        .nextui-button:hover,
+        .nextui-button:focus {
           background: rgba(0, 112,243,0.85);
           --nextui-button-color: undefined;
           filter: none;
@@ -210,7 +210,7 @@ exports[`ButtonIcon should work with right 1`] = `
           cursor: pointer;
           pointer-events: auto;
         }
-        .text {
+        .nextui-button-text {
           position: relative;
           z-index: 1;
           transform: translateY(
@@ -224,23 +224,23 @@ exports[`ButtonIcon should work with right 1`] = `
           padding: 0 0;
           opacity: 1;
         }
-        .text p,
-        .text pre,
-        .text div {
+        .nextui-button-text p,
+        .nextui-button-text pre,
+        .nextui-button-text div {
           margin: 0;
         }
-        .text.left {
+        .nextui-button-text.nextui-button-text-left {
           padding-left: 0;
         }
-        .text.right {
+        .nextui-button-text.nextui-button-text-right {
           padding-right: 0;
         }
       </style></button>"
 `;
 
 exports[`ButtonIcon should work without text 1`] = `
-"<button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><span class=\\"icon right single \\"><svg></svg><style>
-        .icon {
+"<button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><span class=\\"nextui-button-icon nextui-button-icon-right nextui-button-icon-single\\"><svg></svg><style>
+        .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
           right: auto;
@@ -252,21 +252,21 @@ exports[`ButtonIcon should work without text 1`] = `
           color: var(--nextui-button-color);
           z-index: 1;
         }
-        .right {
-          right: var(--nextui-button-padding);
-          left: auto;
-        }
-        .icon :global(svg) {
+        .nextui-button-icon :global(svg) {
           background: transparent;
           height: calc(var(--nextui-button-height) / 2.35);
           width: calc(var(--nextui-button-height) / 2.35);
         }
-        .single {
+        .nextui-button-icon-right {
+          right: var(--nextui-button-padding);
+          left: auto;
+        }
+        .nextui-button-icon-single {
           position: static;
           transform: none;
         }
       </style></span><style>
-        .button {
+        .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
           display: inline-block;
@@ -298,7 +298,7 @@ exports[`ButtonIcon should work without text 1`] = `
           --nextui-button-color: #fff;
           --nextui-button-bg: #0070f3;
         }
-        .button:before {
+        .nextui-button:before {
           content: '';
           background: rgba(0, 112,243,0.85);
           position: absolute;
@@ -311,14 +311,14 @@ exports[`ButtonIcon should work without text 1`] = `
           z-index: 1;
           opacity: 0;
         }
-        .button:hover:before {
+        .nextui-button:hover:before {
           opacity: 0;
         }
-        .button:not(.disabled):active {
+        .nextui-button:not(.nextui-button-disabled):active {
           transform: scale(0.97);
         }
-        .button:hover,
-        .button:focus {
+        .nextui-button:hover,
+        .nextui-button:focus {
           background: rgba(0, 112,243,0.85);
           --nextui-button-color: undefined;
           filter: none;
@@ -329,7 +329,7 @@ exports[`ButtonIcon should work without text 1`] = `
           cursor: pointer;
           pointer-events: auto;
         }
-        .text {
+        .nextui-button-text {
           position: relative;
           z-index: 1;
           transform: translateY(
@@ -343,15 +343,15 @@ exports[`ButtonIcon should work without text 1`] = `
           padding: 0 0;
           opacity: 1;
         }
-        .text p,
-        .text pre,
-        .text div {
+        .nextui-button-text p,
+        .nextui-button-text pre,
+        .nextui-button-text div {
           margin: 0;
         }
-        .text.left {
+        .nextui-button-text.nextui-button-text-left {
           padding-left: 0;
         }
-        .text.right {
+        .nextui-button-text.nextui-button-text-right {
           padding-right: 0;
         }
       </style></button>"

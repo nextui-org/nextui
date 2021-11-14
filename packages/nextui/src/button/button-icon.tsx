@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from '../utils/clsx';
 import withDefaults from '../utils/with-defaults';
 
 interface Props {
@@ -24,14 +25,19 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
 }) => {
   return (
     <span
-      className={`icon ${isRight ? 'right' : ''} ${
-        isSingle ? 'single' : ''
-      } ${className}`}
+      className={clsx(
+        'nextui-button-icon',
+        {
+          'nextui-button-icon-right': isRight,
+          'nextui-button-icon-single': isSingle
+        },
+        className
+      )}
       {...props}
     >
       {children}
       <style jsx>{`
-        .icon {
+        .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
           right: auto;
@@ -43,16 +49,16 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
           color: var(--nextui-button-color);
           z-index: 1;
         }
-        .right {
-          right: var(--nextui-button-padding);
-          left: auto;
-        }
-        .icon :global(svg) {
+        .nextui-button-icon :global(svg) {
           background: transparent;
           height: calc(var(--nextui-button-height) / 2.35);
           width: calc(var(--nextui-button-height) / 2.35);
         }
-        .single {
+        .nextui-button-icon-right {
+          right: var(--nextui-button-padding);
+          left: auto;
+        }
+        .nextui-button-icon-single {
           position: static;
           transform: none;
         }

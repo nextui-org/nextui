@@ -191,7 +191,12 @@ const Button = React.forwardRef<
     <button
       ref={buttonRef}
       type={htmlType}
-      className={clsx('button', { disabled }, focusClassName, className)}
+      className={clsx(
+        'nextui-button',
+        { 'nextui-button-disabled': disabled },
+        focusClassName,
+        className
+      )}
       disabled={disabled}
       onClick={clickHandler}
       style={{
@@ -215,14 +220,21 @@ const Button = React.forwardRef<
       ) : hasIcon ? (
         <div>
           <ButtonIcon isRight={isRight}>{hasIcon}</ButtonIcon>
-          <div className={`text ${isRight ? 'right' : 'left'}`}>{children}</div>
+          <div
+            className={clsx('nextui-button-text', {
+              'nextui-button-text-right': isRight,
+              'nextui-button-text-left': !isRight
+            })}
+          >
+            {children}
+          </div>
         </div>
       ) : (
-        <div className="text">{children}</div>
+        <div className="nextui-button-text">{children}</div>
       )}
       <ButtonDrip color={dripColor} {...dripBindings} />
       <style jsx>{`
-        .button {
+        .nextui-button {
           background: ${bg};
           box-sizing: border-box;
           display: inline-block;
@@ -254,7 +266,7 @@ const Button = React.forwardRef<
           --nextui-button-color: ${color};
           --nextui-button-bg: ${bg};
         }
-        .button:before {
+        .nextui-button:before {
           content: '';
           background: ${hover?.bg};
           position: absolute;
@@ -267,14 +279,14 @@ const Button = React.forwardRef<
           z-index: 1;
           opacity: 0;
         }
-        .button:hover:before {
+        .nextui-button:hover:before {
           opacity: ${hoverBeforeOpacity};
         }
-        .button:not(.disabled):active {
+        .nextui-button:not(.nextui-button-disabled):active {
           transform: ${animated ? 'scale(0.97)' : 'none'};
         }
-        .button:hover,
-        .button:focus {
+        .nextui-button:hover,
+        .nextui-button:focus {
           background: ${hover?.bg || 'inherit'};
           --nextui-button-color: ${hover?.color};
           filter: ${hover?.style?.filter || 'none'};
@@ -285,7 +297,7 @@ const Button = React.forwardRef<
           cursor: ${cursor};
           pointer-events: ${events};
         }
-        .text {
+        .nextui-button-text {
           position: relative;
           z-index: 1;
           transform: translateY(
@@ -299,15 +311,15 @@ const Button = React.forwardRef<
           padding: 0 ${paddingForBorderedGradient};
           opacity: ${loading ? 0 : 1};
         }
-        .text p,
-        .text pre,
-        .text div {
+        .nextui-button-text p,
+        .nextui-button-text pre,
+        .nextui-button-text div {
           margin: 0;
         }
-        .text.left {
+        .nextui-button-text.nextui-button-text-left {
           padding-left: ${paddingForAutoMode};
         }
-        .text.right {
+        .nextui-button-text.nextui-button-text-right {
           padding-right: ${paddingForAutoMode};
         }
       `}</style>

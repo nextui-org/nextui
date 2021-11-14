@@ -5,6 +5,7 @@ import { NormalSizes, NormalColors, NormalWeights } from '../utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
 import { getGroupBorder } from './styles';
 import { getNormalRadius } from '../utils/dimensions';
+import clsx from '../utils/clsx';
 
 interface Props {
   disabled?: boolean;
@@ -94,14 +95,20 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
   return (
     <ButtonGroupContext.Provider value={initialValue}>
       <div
-        className={`button-group ${vertical ? 'vertical' : 'horizontal'} ${
-          groupProps.color === 'gradient' ? 'gradient' : ''
-        } ${className}`}
+        className={clsx(
+          'nextui-button-group',
+          {
+            'nextui-button-group-vertical': vertical,
+            'nextui-button-group-horizontal': !vertical,
+            'nextui-button-group-gradient': groupProps.color === 'gradient'
+          },
+          className
+        )}
         {...props}
       >
         {children}
         <style jsx>{`
-          .button-group {
+          .nextui-button-group {
             display: inline-flex;
             border-radius: ${radius};
             margin: calc(${theme.spacing.sm} * 0.5);
@@ -109,60 +116,70 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
             background-color: transparent;
             height: min-content;
           }
-          .vertical {
-            flex-direction: column;
-          }
-          .button-group :global(.button .text) {
+          .nextui-button-group :global(.nextui-button .nextui-button-text) {
             top: 0;
           }
-          .button-group :global(.button) {
+          .nextui-button-group :global(.nextui-button) {
             border: none;
           }
-          .horizontal :global(.button:not(:first-child)) {
+          .nextui-button-group-vertical {
+            flex-direction: column;
+          }
+          .nextui-button-group-horizontal
+            :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-left: ${borderWidth} solid ${borderColor};
           }
-          .horizontal :global(.button:not(:first-child):before) {
+          .nextui-button-group-horizontal
+            :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .horizontal :global(.button:not(:last-child)) {
+          .nextui-button-group-horizontal
+            :global(.nextui-button:not(:last-child)) {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
           }
-          .horizontal :global(.button:not(:last-child):before) {
+          .nextui-button-group-horizontal
+            :global(.nextui-button:not(:last-child):before) {
             border-radius: 0;
           }
-          .gradient.horizontal
-            :global(.button:not(:last-child):not(:first-child)) {
+          .nextui-button-group-gradient.nextui-button-group-horizontal
+            :global(.nextui-button:not(:last-child):not(:first-child)) {
             padding-left: 0 !important;
             filter: hue-rotate(310deg);
           }
-          .gradient.horizontal :global(.button:last-child) {
+          .nextui-button-group-gradient.nextui-button-group-horizontal
+            :global(.nextui-button:last-child) {
             filter: hue-rotate(250deg);
             padding-left: 0 !important;
           }
-          .gradient.vertical
-            :global(.button:not(:last-child):not(:first-child)) {
+          .nextui-button-group-gradient.nextui-button-group-vertical
+            :global(.nextui-button:not(:last-child):not(:first-child)) {
             padding-top: 0 !important;
           }
-          .gradient.vertical :global(.button:last-child) {
+          .nextui-button-group-gradient.nextui-button-group-vertical
+            :global(.nextui-button:last-child) {
             padding-top: 0 !important;
           }
-          .vertical :global(.button:not(:first-child)) {
+          .nextui-button-group-vertical
+            :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             border-top: ${borderWidth} solid ${borderColor};
           }
-          .vertical :global(.button:not(:first-child):before) {
+          .nextui-button-group-vertical
+            :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .vertical :global(.button:not(:last-child)) {
+          .nextui-button-group-vertical
+            :global(.nextui-button:not(:last-child)) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }
 
-          .vertical :global(.button:not(:last-child):before) {
+          .nextui-button-group-vertical
+            :global(.nextui-button:not(:last-child):before) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }
