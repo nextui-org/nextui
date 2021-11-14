@@ -140,8 +140,6 @@ const Button = React.forwardRef<
   const { className: focusClassName, styles: focusStyles } =
     getFocusStyles(theme);
 
-  console.log({ focusClassName, focusStyles });
-
   const { height, minWidth, padding, width, fontSize, loaderSize } = useMemo(
     () => getButtonSize(size, auto),
     [size, auto]

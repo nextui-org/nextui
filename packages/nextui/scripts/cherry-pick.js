@@ -21,7 +21,7 @@ const withDefaults = (
   inputDir: 'src',
   cwd: path.resolve(process.cwd(), cwd),
   ...additionalDefaults,
-  ...options,
+  ...options
 });
 
 const noop = () => {};
@@ -84,7 +84,7 @@ const fileProxy = async (options, file) => {
     sideEffects: false,
     main: path.join('..', cjsDir, `${file}/index.js`),
     module: path.join('..', esmDir, `${file}/index.js`),
-    types: path.join('..', esmDir, `${file}/index.d.ts`),
+    types: path.join('..', esmDir, `${file}/index.d.ts`)
   };
 
   if (typeof typesDir === 'string') {
@@ -102,7 +102,7 @@ const fileProxy = async (options, file) => {
 const cherryPick = async (inputOptions) => {
   const options = withDefaults(inputOptions, {
     cjsDir: 'lib',
-    esmDir: 'es',
+    esmDir: 'es'
   });
 
   const files = await findFiles(options);

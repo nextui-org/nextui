@@ -122,29 +122,31 @@ const Avatar: React.FC<AvatarProps> = ({
   return (
     <span
       className={clsx(
-        'avatar',
-        { bordered, 'only-text-avatar': showText },
+        'nextui-avatar',
+        { 'nextui-avatar-bordered': bordered, 'only-text-avatar': showText },
         className
       )}
       {...props}
       style={{ ...props.style, ...spacingStyles }}
     >
-      <span className="avatar-bg" />
+      <span className="nextui-avatar-bg" />
       {!showText && (
         <img
           ref={imgRef}
-          className={clsx('avatar-img', { 'avatar-ready': ready })}
+          className={clsx('nextui-avatar-img', {
+            'nextui-avatar-ready': ready
+          })}
           src={src}
           alt={alt}
           onLoad={() => setReady(true)}
         />
       )}
       {showText && !icon && (
-        <span className="avatar-text">{safeText(text)}</span>
+        <span className="nextui-avatar-text">{safeText(text)}</span>
       )}
-      {icon && <span className="icon">{icon}</span>}
+      {icon && <span className="nextui-avatar-icon">{icon}</span>}
       <style jsx>{`
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: ${width};
@@ -162,7 +164,7 @@ const Avatar: React.FC<AvatarProps> = ({
           margin: 0 0 0 ${marginLeft};
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -173,13 +175,13 @@ const Avatar: React.FC<AvatarProps> = ({
           background: ${avatarColor};
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: ${border};
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -190,13 +192,13 @@ const Avatar: React.FC<AvatarProps> = ({
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: ${border} solid ${theme.palette.background};
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -207,7 +209,7 @@ const Avatar: React.FC<AvatarProps> = ({
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -217,14 +219,14 @@ const Avatar: React.FC<AvatarProps> = ({
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: ${hoverBackground};
           filter: ${color === 'gradient' ? 'opacity(0.8)' : 'none'};
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: ${zoomed && 'scale(1.125)'};
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       `}</style>

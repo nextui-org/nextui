@@ -7,7 +7,7 @@ import {
   Input,
   Spacer,
   Text,
-  Link,
+  Link
 } from '@nextui-org/react';
 
 export default function Home() {
