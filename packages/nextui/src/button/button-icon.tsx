@@ -33,24 +33,24 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
       <style jsx>{`
         .icon {
           position: absolute;
-          left: var(--next-ui-button-padding);
+          left: var(--nextui-button-padding);
           right: auto;
           top: 50%;
           transform: translateY(-50%);
           display: flex;
           justify-content: center;
           align-items: center;
-          color: var(--next-ui-button-color);
+          color: var(--nextui-button-color);
           z-index: 1;
         }
         .right {
-          right: var(--next-ui-button-padding);
+          right: var(--nextui-button-padding);
           left: auto;
         }
         .icon :global(svg) {
           background: transparent;
-          height: calc(var(--next-ui-button-height) / 2.35);
-          width: calc(var(--next-ui-button-height) / 2.35);
+          height: calc(var(--nextui-button-height) / 2.35);
+          width: calc(var(--nextui-button-height) / 2.35);
         }
         .single {
           position: static;

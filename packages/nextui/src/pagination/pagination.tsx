@@ -199,13 +199,13 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
           font-variant: tabular-nums;
           font-feature-settings: 'tnum';
           font-size: ${font};
-          --next-ui-pagination-item-radius: ${radius};
-          --next-ui-pagination-item-border-weight: ${weight};
-          --next-ui-pagination-item-margin: ${noMargin ? '0' : '2px'};
-          --next-ui-pagination-item-color: ${bgColor};
-          --next-ui-pagination-size: ${onlyDots ? `calc(${width} / 2)` : width};
-          --next-ui-pagination-font-size: ${font};
-          --next-ui-pagination-scale-transform: ${onlyDots ? 0.8 : 0.9};
+          --nextui-pagination-item-radius: ${radius};
+          --nextui-pagination-item-border-weight: ${weight};
+          --nextui-pagination-item-margin: ${noMargin ? '0' : '2px'};
+          --nextui-pagination-item-color: ${bgColor};
+          --nextui-pagination-size: ${onlyDots ? `calc(${width} / 2)` : width};
+          --nextui-pagination-font-size: ${font};
+          --nextui-pagination-scale-transform: ${onlyDots ? 0.8 : 0.9};
         }
         .pagination :global(button:last-of-type) {
           margin-right: 0;

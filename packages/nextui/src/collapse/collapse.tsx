@@ -118,8 +118,8 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   const { ariaLabelledById, ariaControlId } = useMemo(() => {
     const nextuiId = getId();
     return {
-      ariaLabelledById: `collapse-button-next-ui-${nextuiId}`,
-      ariaControlId: `collapse-next-ui-${nextuiId}`
+      ariaLabelledById: `collapse-button-nextui-${nextuiId}`,
+      ariaControlId: `collapse-nextui-${nextuiId}`
     };
   }, []);
 

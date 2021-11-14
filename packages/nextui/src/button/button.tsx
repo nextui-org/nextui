@@ -158,7 +158,7 @@ const Button = React.forwardRef<
   const paddingForAutoMode = useMemo(
     () =>
       auto || size === 'xs'
-        ? `calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5)`
+        ? `calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5)`
         : 0,
     [auto, size]
   );
@@ -171,7 +171,7 @@ const Button = React.forwardRef<
   const paddingForBorderedGradient = useMemo(
     () =>
       filteredProps.color === 'gradient' && (bordered || ghost)
-        ? `var(--next-ui-button-padding)`
+        ? `var(--nextui-button-padding)`
         : 0,
     [filteredProps.color, bordered]
   );
@@ -248,11 +248,11 @@ const Button = React.forwardRef<
           cursor: ${cursor};
           pointer-events: ${events};
           box-shadow: ${shadowColor};
-          --next-ui-button-border-radius: ${radius};
-          --next-ui-button-padding: ${padding};
-          --next-ui-button-height: ${height};
-          --next-ui-button-color: ${color};
-          --next-ui-button-bg: ${bg};
+          --nextui-button-border-radius: ${radius};
+          --nextui-button-padding: ${padding};
+          --nextui-button-height: ${height};
+          --nextui-button-color: ${color};
+          --nextui-button-bg: ${bg};
         }
         .button:before {
           content: '';
@@ -276,7 +276,7 @@ const Button = React.forwardRef<
         .button:hover,
         .button:focus {
           background: ${hover?.bg || 'inherit'};
-          --next-ui-button-color: ${hover?.color};
+          --nextui-button-color: ${hover?.color};
           filter: ${hover?.style?.filter || 'none'};
           color: ${hover?.color};
           border-color: ${hover?.border?.color || 'transparent'};

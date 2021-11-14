@@ -10,7 +10,7 @@ exports[`Pagination should render correctly 1`] = `
             border: none;
             position: relative;
             display: inline-flex;
-            margin: 0 var(--next-ui-pagination-item-margin);
+            margin: 0 var(--nextui-pagination-item-margin);
             align-items: center;
             justify-content: center;
             padding: 0;
@@ -22,11 +22,11 @@ exports[`Pagination should render correctly 1`] = `
             vertical-align: middle;
             box-shadow: none;
             outline: none;
-            height: var(--next-ui-pagination-size);
-            min-width: var(--next-ui-pagination-size);
+            height: var(--nextui-pagination-size);
+            min-width: var(--nextui-pagination-size);
             font-size: inherit;
             cursor: pointer;
-            border-radius: var(--next-ui-pagination-item-radius);
+            border-radius: var(--nextui-pagination-item-radius);
             color: #333;
             background-color: #f6f6f6;
             transition: transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s;
@@ -46,8 +46,8 @@ exports[`Pagination should render correctly 1`] = `
             background: rgba(153, 153,153,0.2);
           }
           .animated:not(.disabled):not(.active):active {
-            transform: scale(var(--next-ui-pagination-scale-transform));
-            font-size: calc(var(--next-ui-pagination-font-size) * 0.9);
+            transform: scale(var(--nextui-pagination-scale-transform));
+            font-size: calc(var(--nextui-pagination-font-size) * 0.9);
           }
           .active {
             font-weight: bold;
@@ -63,12 +63,12 @@ exports[`Pagination should render correctly 1`] = `
           }
           .bordered {
             background-color: transparent;
-            border: var(--next-ui-pagination-item-border-weight) solid
+            border: var(--nextui-pagination-item-border-weight) solid
               #eaeaea;
           }
           button :global(svg) {
-            width: var(--next-ui-pagination-font-size);
-            height: var(--next-ui-pagination-font-size);
+            width: var(--nextui-pagination-font-size);
+            height: var(--nextui-pagination-font-size);
           }
         </style></button><div aria-hidden=\\"true\\" class=\\"\\"><style>
         div {
@@ -77,23 +77,23 @@ exports[`Pagination should render correctly 1`] = `
           top: 0px;
           z-index: 10;
           background: #0070f3;
-          border-radius: var(--next-ui-pagination-item-radius);
-          height: var(--next-ui-pagination-size);
-          min-width: var(--next-ui-pagination-size);
+          border-radius: var(--nextui-pagination-item-radius);
+          height: var(--nextui-pagination-size);
+          min-width: var(--nextui-pagination-size);
           animation-name: move-pagination;
           animation-duration: 350ms;
           animation-direction: normal;
           animation-timing-function: ease;
           transition: left 350ms ease;
           box-shadow: none;
-          left: calc(var(--next-ui-pagination-size) * 1 + 6px);
+          left: calc(var(--nextui-pagination-size) * 1 + 6px);
         }
         @keyframes move-pagination {
           0% {
             transform: scale(1);
           }
           60% {
-            transform: scale(var(--next-ui-pagination-scale-transform));
+            transform: scale(var(--nextui-pagination-scale-transform));
           }
           100% {
             transform: scale(1);
@@ -104,7 +104,7 @@ exports[`Pagination should render correctly 1`] = `
             border: none;
             position: relative;
             display: inline-flex;
-            margin: 0 var(--next-ui-pagination-item-margin);
+            margin: 0 var(--nextui-pagination-item-margin);
             align-items: center;
             justify-content: center;
             padding: 0;
@@ -116,11 +116,11 @@ exports[`Pagination should render correctly 1`] = `
             vertical-align: middle;
             box-shadow: none;
             outline: none;
-            height: var(--next-ui-pagination-size);
-            min-width: var(--next-ui-pagination-size);
+            height: var(--nextui-pagination-size);
+            min-width: var(--nextui-pagination-size);
             font-size: inherit;
             cursor: pointer;
-            border-radius: var(--next-ui-pagination-item-radius);
+            border-radius: var(--nextui-pagination-item-radius);
             color: #333;
             background-color: #f6f6f6;
             transition: transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s;
@@ -140,8 +140,8 @@ exports[`Pagination should render correctly 1`] = `
             background: rgba(153, 153,153,0.2);
           }
           .animated:not(.disabled):not(.active):active {
-            transform: scale(var(--next-ui-pagination-scale-transform));
-            font-size: calc(var(--next-ui-pagination-font-size) * 0.9);
+            transform: scale(var(--nextui-pagination-scale-transform));
+            font-size: calc(var(--nextui-pagination-font-size) * 0.9);
           }
           .active {
             font-weight: bold;
@@ -157,12 +157,12 @@ exports[`Pagination should render correctly 1`] = `
           }
           .bordered {
             background-color: transparent;
-            border: var(--next-ui-pagination-item-border-weight) solid
+            border: var(--nextui-pagination-item-border-weight) solid
               #eaeaea;
           }
           button :global(svg) {
-            width: var(--next-ui-pagination-font-size);
-            height: var(--next-ui-pagination-font-size);
+            width: var(--nextui-pagination-font-size);
+            height: var(--nextui-pagination-font-size);
           }
         </style></button><button class=\\"animated disabled preserve-content mock\\" aria-label=\\"next page button\\" tabindex=\\"-1\\"><span class=\\"button-content\\"><svg role=\\"presentation\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M15.5 19l-7-7 7-7\\" stroke=\\"currentColor\\" stroke-width=\\"1.5\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\"></path></svg><style>
         svg {
@@ -173,7 +173,7 @@ exports[`Pagination should render correctly 1`] = `
             border: none;
             position: relative;
             display: inline-flex;
-            margin: 0 var(--next-ui-pagination-item-margin);
+            margin: 0 var(--nextui-pagination-item-margin);
             align-items: center;
             justify-content: center;
             padding: 0;
@@ -185,11 +185,11 @@ exports[`Pagination should render correctly 1`] = `
             vertical-align: middle;
             box-shadow: none;
             outline: none;
-            height: var(--next-ui-pagination-size);
-            min-width: var(--next-ui-pagination-size);
+            height: var(--nextui-pagination-size);
+            min-width: var(--nextui-pagination-size);
             font-size: inherit;
             cursor: pointer;
-            border-radius: var(--next-ui-pagination-item-radius);
+            border-radius: var(--nextui-pagination-item-radius);
             color: #333;
             background-color: #f6f6f6;
             transition: transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s;
@@ -209,8 +209,8 @@ exports[`Pagination should render correctly 1`] = `
             background: rgba(153, 153,153,0.2);
           }
           .animated:not(.disabled):not(.active):active {
-            transform: scale(var(--next-ui-pagination-scale-transform));
-            font-size: calc(var(--next-ui-pagination-font-size) * 0.9);
+            transform: scale(var(--nextui-pagination-scale-transform));
+            font-size: calc(var(--nextui-pagination-font-size) * 0.9);
           }
           .active {
             font-weight: bold;
@@ -226,12 +226,12 @@ exports[`Pagination should render correctly 1`] = `
           }
           .bordered {
             background-color: transparent;
-            border: var(--next-ui-pagination-item-border-weight) solid
+            border: var(--nextui-pagination-item-border-weight) solid
               #eaeaea;
           }
           button :global(svg) {
-            width: var(--next-ui-pagination-font-size);
-            height: var(--next-ui-pagination-font-size);
+            width: var(--nextui-pagination-font-size);
+            height: var(--nextui-pagination-font-size);
           }
         </style></button><style>
         .pagination {
@@ -242,13 +242,13 @@ exports[`Pagination should render correctly 1`] = `
           font-variant: tabular-nums;
           font-feature-settings: 'tnum';
           font-size: 14px;
-          --next-ui-pagination-item-radius: 33%;
-          --next-ui-pagination-item-border-weight: 0px;
-          --next-ui-pagination-item-margin: 2px;
-          --next-ui-pagination-item-color: #0070f3;
-          --next-ui-pagination-size: 34px;
-          --next-ui-pagination-font-size: 14px;
-          --next-ui-pagination-scale-transform: 0.9;
+          --nextui-pagination-item-radius: 33%;
+          --nextui-pagination-item-border-weight: 0px;
+          --nextui-pagination-item-margin: 2px;
+          --nextui-pagination-item-color: #0070f3;
+          --nextui-pagination-size: 34px;
+          --nextui-pagination-font-size: 14px;
+          --nextui-pagination-scale-transform: 0.9;
         }
         .pagination :global(button:last-of-type) {
           margin-right: 0;

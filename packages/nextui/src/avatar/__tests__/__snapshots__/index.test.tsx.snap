@@ -4,19 +4,19 @@ exports[`Avatar should render component of a specified size 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "avatar only-text-avatar",
+      "class": "nextui-avatar only-text-avatar",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "avatar-bg",
+          "class": "nextui-avatar-bg",
         },
         "children": Array [],
         "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "avatar-text",
+            "class": "nextui-avatar-text",
           },
           "children": Array [],
           "name": "span",
@@ -26,7 +26,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 20px;
@@ -44,7 +44,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -55,13 +55,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -72,13 +72,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -89,7 +89,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -99,14 +99,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -147,7 +147,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "avatar-text",
+          "class": "nextui-avatar-text",
         },
         "children": Array [],
         "name": "span",
@@ -157,7 +157,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 20px;
@@ -175,7 +175,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -186,13 +186,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -203,13 +203,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -220,7 +220,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -230,14 +230,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -259,7 +259,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar-bg",
+            "class": "nextui-avatar-bg",
           },
           "children": Array [],
           "name": "span",
@@ -288,7 +288,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 20px;
@@ -306,7 +306,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -317,13 +317,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -334,13 +334,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -351,7 +351,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -361,14 +361,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -384,7 +384,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar-text",
+            "class": "nextui-avatar-text",
           },
           "children": Array [],
           "name": "span",
@@ -393,7 +393,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "avatar-bg",
+              "class": "nextui-avatar-bg",
             },
             "children": Array [],
             "name": "span",
@@ -530,8 +530,8 @@ LoadedCheerio {
 `;
 
 exports[`Avatar should render correctly with an icon 1`] = `
-"<span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"icon\\"><svg class=\\"\\"></svg></span><style>
-        .avatar {
+"<span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-icon\\"><svg class=\\"\\"></svg></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -549,7 +549,7 @@ exports[`Avatar should render correctly with an icon 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -560,13 +560,13 @@ exports[`Avatar should render correctly with an icon 1`] = `
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -577,13 +577,13 @@ exports[`Avatar should render correctly with an icon 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -594,7 +594,7 @@ exports[`Avatar should render correctly with an icon 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -604,14 +604,14 @@ exports[`Avatar should render correctly with an icon 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       </style></span>"
@@ -621,19 +621,19 @@ exports[`Avatar should render text element 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "avatar only-text-avatar",
+      "class": "nextui-avatar only-text-avatar",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "avatar-bg",
+          "class": "nextui-avatar-bg",
         },
         "children": Array [],
         "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "avatar-text",
+            "class": "nextui-avatar-text",
           },
           "children": Array [],
           "name": "span",
@@ -643,7 +643,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -661,7 +661,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -672,13 +672,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -689,13 +689,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -706,7 +706,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -716,14 +716,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -764,7 +764,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "avatar-text",
+          "class": "nextui-avatar-text",
         },
         "children": Array [],
         "name": "span",
@@ -774,7 +774,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -792,7 +792,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -803,13 +803,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -820,13 +820,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -837,7 +837,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -847,14 +847,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -876,7 +876,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar-bg",
+            "class": "nextui-avatar-bg",
           },
           "children": Array [],
           "name": "span",
@@ -905,7 +905,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -923,7 +923,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -934,13 +934,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -951,13 +951,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -968,7 +968,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -978,14 +978,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1001,7 +1001,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar-text",
+            "class": "nextui-avatar-text",
           },
           "children": Array [],
           "name": "span",
@@ -1010,7 +1010,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "avatar-bg",
+              "class": "nextui-avatar-bg",
             },
             "children": Array [],
             "name": "span",
@@ -1150,19 +1150,19 @@ exports[`Avatar should render text element 2`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "avatar only-text-avatar",
+      "class": "nextui-avatar only-text-avatar",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "avatar-bg",
+          "class": "nextui-avatar-bg",
         },
         "children": Array [],
         "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "avatar-text",
+            "class": "nextui-avatar-text",
           },
           "children": Array [
             Node {
@@ -1180,7 +1180,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -1198,7 +1198,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1209,13 +1209,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1226,13 +1226,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1243,7 +1243,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1253,14 +1253,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1301,7 +1301,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "avatar-text",
+          "class": "nextui-avatar-text",
         },
         "children": Array [
           Node {
@@ -1319,7 +1319,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -1337,7 +1337,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1348,13 +1348,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1365,13 +1365,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1382,7 +1382,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1392,14 +1392,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1421,7 +1421,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar-bg",
+            "class": "nextui-avatar-bg",
           },
           "children": Array [],
           "name": "span",
@@ -1450,7 +1450,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -1468,7 +1468,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1479,13 +1479,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1496,13 +1496,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1513,7 +1513,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1523,14 +1523,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1546,7 +1546,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "avatar-text",
+            "class": "nextui-avatar-text",
           },
           "children": Array [
             Node {
@@ -1563,7 +1563,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "avatar-bg",
+              "class": "nextui-avatar-bg",
             },
             "children": Array [],
             "name": "span",
@@ -1700,8 +1700,8 @@ LoadedCheerio {
 `;
 
 exports[`Avatar should work correctly with different sizes 1`] = `
-"<div><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+"<div><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 1.375rem;
@@ -1719,7 +1719,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1730,13 +1730,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1747,13 +1747,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1764,7 +1764,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1774,18 +1774,18 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 1.823rem;
@@ -1803,7 +1803,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1814,13 +1814,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1831,13 +1831,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1848,7 +1848,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1858,18 +1858,18 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -1887,7 +1887,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1898,13 +1898,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1915,13 +1915,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1932,7 +1932,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1942,18 +1942,18 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 3.23rem;
@@ -1971,7 +1971,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1982,13 +1982,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1999,13 +1999,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2016,7 +2016,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2026,18 +2026,18 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 4.3rem;
@@ -2055,7 +2055,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2066,13 +2066,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2083,13 +2083,13 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2100,7 +2100,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2110,22 +2110,22 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       </style></span></div>"
 `;
 
 exports[`Avatar should work with a gradient color 1`] = `
-"<span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+"<span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -2143,7 +2143,7 @@ exports[`Avatar should work with a gradient color 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2154,13 +2154,13 @@ exports[`Avatar should work with a gradient color 1`] = `
           background: linear-gradient(111.19deg,#aaffec -63.59%,#ff4ecd -20.3%,#0070f3 70.46%);
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2171,13 +2171,13 @@ exports[`Avatar should work with a gradient color 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2188,7 +2188,7 @@ exports[`Avatar should work with a gradient color 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2198,22 +2198,22 @@ exports[`Avatar should work with a gradient color 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: linear-gradient(111.19deg,#aaffec -63.59%,#ff4ecd -20.3%,#0070f3 70.46%);
           filter: opacity(0.8);
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       </style></span>"
 `;
 
 exports[`Avatar should work with different colors 1`] = `
-"<div><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+"<div><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -2231,7 +2231,7 @@ exports[`Avatar should work with different colors 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2242,13 +2242,13 @@ exports[`Avatar should work with different colors 1`] = `
           background: #0070f3;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2259,13 +2259,13 @@ exports[`Avatar should work with different colors 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2276,7 +2276,7 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2286,18 +2286,18 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #0070f3;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -2315,7 +2315,7 @@ exports[`Avatar should work with different colors 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2326,13 +2326,13 @@ exports[`Avatar should work with different colors 1`] = `
           background: #7928ca;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2343,13 +2343,13 @@ exports[`Avatar should work with different colors 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2360,7 +2360,7 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2370,18 +2370,18 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #7928ca;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -2399,7 +2399,7 @@ exports[`Avatar should work with different colors 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2410,13 +2410,13 @@ exports[`Avatar should work with different colors 1`] = `
           background: #17c964;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2427,13 +2427,13 @@ exports[`Avatar should work with different colors 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2444,7 +2444,7 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2454,18 +2454,18 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #17c964;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -2483,7 +2483,7 @@ exports[`Avatar should work with different colors 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2494,13 +2494,13 @@ exports[`Avatar should work with different colors 1`] = `
           background: #f5a623;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2511,13 +2511,13 @@ exports[`Avatar should work with different colors 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2528,7 +2528,7 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2538,18 +2538,18 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #f5a623;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -2567,7 +2567,7 @@ exports[`Avatar should work with different colors 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2578,13 +2578,13 @@ exports[`Avatar should work with different colors 1`] = `
           background: #f21361;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2595,13 +2595,13 @@ exports[`Avatar should work with different colors 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2612,7 +2612,7 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2622,22 +2622,22 @@ exports[`Avatar should work with different colors 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #f21361;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       </style></span></div>"
 `;
 
 exports[`Avatar should work with pointer 1`] = `
-"<span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+"<span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -2655,7 +2655,7 @@ exports[`Avatar should work with pointer 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2666,13 +2666,13 @@ exports[`Avatar should work with pointer 1`] = `
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2683,13 +2683,13 @@ exports[`Avatar should work with pointer 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2700,7 +2700,7 @@ exports[`Avatar should work with pointer 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2710,22 +2710,22 @@ exports[`Avatar should work with pointer 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       </style></span>"
 `;
 
 exports[`Avatar should work with zoomed 1`] = `
-"<span class=\\"avatar only-text-avatar\\"><span class=\\"avatar-bg\\"></span><span class=\\"avatar-text\\"></span><style>
-        .avatar {
+"<span class=\\"nextui-avatar only-text-avatar\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 2.43rem;
@@ -2743,7 +2743,7 @@ exports[`Avatar should work with zoomed 1`] = `
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2754,13 +2754,13 @@ exports[`Avatar should work with zoomed 1`] = `
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2771,13 +2771,13 @@ exports[`Avatar should work with zoomed 1`] = `
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2788,7 +2788,7 @@ exports[`Avatar should work with zoomed 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2798,14 +2798,14 @@ exports[`Avatar should work with zoomed 1`] = `
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: scale(1.125);
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       </style></span>"

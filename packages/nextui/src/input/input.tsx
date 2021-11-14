@@ -221,10 +221,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
     const { inputId, labelId } = useMemo(() => {
       const nextuiId = getId();
       return {
-        inputId: inputProps.id || `next-ui-${nextuiId}`,
+        inputId: inputProps.id || `nextui-${nextuiId}`,
         labelId: !isEmpty(inputProps.id)
           ? `${inputProps.id}-label`
-          : `next-ui-${nextuiId}-label`
+          : `nextui-${nextuiId}-label`
       };
     }, [inputProps.id]);
 

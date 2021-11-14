@@ -100,7 +100,7 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
             border: none;
             position: relative;
             display: inline-flex;
-            margin: 0 var(--next-ui-pagination-item-margin);
+            margin: 0 var(--nextui-pagination-item-margin);
             align-items: center;
             justify-content: center;
             padding: 0;
@@ -112,11 +112,11 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
             vertical-align: middle;
             box-shadow: none;
             outline: none;
-            height: var(--next-ui-pagination-size);
-            min-width: var(--next-ui-pagination-size);
+            height: var(--nextui-pagination-size);
+            min-width: var(--nextui-pagination-size);
             font-size: inherit;
             cursor: pointer;
-            border-radius: var(--next-ui-pagination-item-radius);
+            border-radius: var(--nextui-pagination-item-radius);
             color: ${theme.palette.text};
             background-color: ${theme.palette.accents_1};
             transition: ${animated
@@ -138,8 +138,8 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
             background: ${hover};
           }
           .animated:not(.disabled):not(.active):active {
-            transform: scale(var(--next-ui-pagination-scale-transform));
-            font-size: calc(var(--next-ui-pagination-font-size) * 0.9);
+            transform: scale(var(--nextui-pagination-scale-transform));
+            font-size: calc(var(--nextui-pagination-font-size) * 0.9);
           }
           .active {
             font-weight: bold;
@@ -155,12 +155,12 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
           }
           .bordered {
             background-color: transparent;
-            border: var(--next-ui-pagination-item-border-weight) solid
+            border: var(--nextui-pagination-item-border-weight) solid
               ${theme.palette.accents_2};
           }
           button :global(svg) {
-            width: var(--next-ui-pagination-font-size);
-            height: var(--next-ui-pagination-font-size);
+            width: var(--nextui-pagination-font-size);
+            height: var(--nextui-pagination-font-size);
           }
         `}</style>
         {focusStyles}

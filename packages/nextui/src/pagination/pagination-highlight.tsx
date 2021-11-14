@@ -28,8 +28,8 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   const leftValue = useMemo(
     () =>
       noMargin
-        ? `var(--next-ui-pagination-size) * ${active}`
-        : `var(--next-ui-pagination-size) * ${active} + ${active * 4 + 2}px`,
+        ? `var(--nextui-pagination-size) * ${active}`
+        : `var(--nextui-pagination-size) * ${active} + ${active * 4 + 2}px`,
     [active, noMargin]
   );
 
@@ -44,9 +44,9 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
           background: ${color};
           border-radius: ${noMargin
             ? '33%'
-            : 'var(--next-ui-pagination-item-radius)'};
-          height: var(--next-ui-pagination-size);
-          min-width: var(--next-ui-pagination-size);
+            : 'var(--nextui-pagination-item-radius)'};
+          height: var(--nextui-pagination-size);
+          min-width: var(--nextui-pagination-size);
           animation-name: move-pagination;
           animation-duration: ${animated ? '350ms' : 'none'};
           animation-direction: normal;
@@ -60,7 +60,7 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
             transform: scale(1);
           }
           60% {
-            transform: scale(var(--next-ui-pagination-scale-transform));
+            transform: scale(var(--nextui-pagination-scale-transform));
           }
           100% {
             transform: scale(1);

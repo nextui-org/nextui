@@ -65,7 +65,7 @@ describe('Avatar', () => {
 
   it('should omit long chars automatically', () => {
     const avatar = mount(<Avatar text="loremipsumtextlarge" />);
-    const text = avatar.find('.avatar-text').text();
+    const text = avatar.find('.nextui-avatar-text').text();
     expect(text.length).toBeLessThan(4);
   });
 

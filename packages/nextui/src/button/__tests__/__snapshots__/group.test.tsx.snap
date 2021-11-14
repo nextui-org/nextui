@@ -28,11 +28,11 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
-          --next-ui-button-border-radius: 12px;
-          --next-ui-button-padding: 1.25rem;
-          --next-ui-button-height: 2.5rem;
-          --next-ui-button-color: #fff;
-          --next-ui-button-bg: #0070f3;
+          --nextui-button-border-radius: 12px;
+          --nextui-button-padding: 1.25rem;
+          --nextui-button-height: 2.5rem;
+          --nextui-button-color: #fff;
+          --nextui-button-bg: #0070f3;
         }
         .button:before {
           content: '';
@@ -56,7 +56,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         .button:hover,
         .button:focus {
           background: rgba(0, 112,243,0.85);
-          --next-ui-button-color: undefined;
+          --nextui-button-color: undefined;
           filter: none;
           color: undefined;
           border-color: transparent;
@@ -85,10 +85,10 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           margin: 0;
         }
         .text.left {
-          padding-left: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
         .text.right {
-          padding-right: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
       </style></button><button type=\\"button\\" class=\\"button mock\\" color=\\"default\\"><div class=\\"text\\">action2</div><style>
         .button {
@@ -117,11 +117,11 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
-          --next-ui-button-border-radius: 12px;
-          --next-ui-button-padding: 1.25rem;
-          --next-ui-button-height: 2.5rem;
-          --next-ui-button-color: #fff;
-          --next-ui-button-bg: #0070f3;
+          --nextui-button-border-radius: 12px;
+          --nextui-button-padding: 1.25rem;
+          --nextui-button-height: 2.5rem;
+          --nextui-button-color: #fff;
+          --nextui-button-bg: #0070f3;
         }
         .button:before {
           content: '';
@@ -145,7 +145,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         .button:hover,
         .button:focus {
           background: rgba(0, 112,243,0.85);
-          --next-ui-button-color: undefined;
+          --nextui-button-color: undefined;
           filter: none;
           color: undefined;
           border-color: transparent;
@@ -174,10 +174,10 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           margin: 0;
         }
         .text.left {
-          padding-left: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
         .text.right {
-          padding-right: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
       </style></button><style>
           .button-group {
@@ -276,11 +276,11 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
-          --next-ui-button-border-radius: 7px;
-          --next-ui-button-padding: 0.625rem;
-          --next-ui-button-height: 1.5rem;
-          --next-ui-button-color: #fff;
-          --next-ui-button-bg: #17c964;
+          --nextui-button-border-radius: 7px;
+          --nextui-button-padding: 0.625rem;
+          --nextui-button-height: 1.5rem;
+          --nextui-button-color: #fff;
+          --nextui-button-bg: #17c964;
         }
         .button:before {
           content: '';
@@ -304,7 +304,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
         .button:hover,
         .button:focus {
           background: rgba(23, 201,100,0.85);
-          --next-ui-button-color: undefined;
+          --nextui-button-color: undefined;
           filter: none;
           color: undefined;
           border-color: transparent;
@@ -333,10 +333,10 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           margin: 0;
         }
         .text.left {
-          padding-left: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
         .text.right {
-          padding-right: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
       </style></button><style>
           .button-group {
@@ -435,11 +435,11 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
-          --next-ui-button-border-radius: 7px;
-          --next-ui-button-padding: 0.625rem;
-          --next-ui-button-height: 1.5rem;
-          --next-ui-button-color: #17c964;
-          --next-ui-button-bg: rgba(23, 201,100,0.15);
+          --nextui-button-border-radius: 7px;
+          --nextui-button-padding: 0.625rem;
+          --nextui-button-height: 1.5rem;
+          --nextui-button-color: #17c964;
+          --nextui-button-bg: rgba(23, 201,100,0.15);
         }
         .button:before {
           content: '';
@@ -463,7 +463,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
         .button:hover,
         .button:focus {
           background: rgba(23, 201,100,0.25);
-          --next-ui-button-color: undefined;
+          --nextui-button-color: undefined;
           filter: none;
           color: undefined;
           border-color: transparent;
@@ -492,10 +492,10 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           margin: 0;
         }
         .text.left {
-          padding-left: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
         .text.right {
-          padding-right: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
       </style></button><style>
           .button-group {
@@ -594,11 +594,11 @@ exports[`ButtonGroup should render correctly 1`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
-          --next-ui-button-border-radius: 12px;
-          --next-ui-button-padding: 1.25rem;
-          --next-ui-button-height: 2.5rem;
-          --next-ui-button-color: #fff;
-          --next-ui-button-bg: #0070f3;
+          --nextui-button-border-radius: 12px;
+          --nextui-button-padding: 1.25rem;
+          --nextui-button-height: 2.5rem;
+          --nextui-button-color: #fff;
+          --nextui-button-bg: #0070f3;
         }
         .button:before {
           content: '';
@@ -622,7 +622,7 @@ exports[`ButtonGroup should render correctly 1`] = `
         .button:hover,
         .button:focus {
           background: rgba(0, 112,243,0.85);
-          --next-ui-button-color: undefined;
+          --nextui-button-color: undefined;
           filter: none;
           color: undefined;
           border-color: transparent;
@@ -651,10 +651,10 @@ exports[`ButtonGroup should render correctly 1`] = `
           margin: 0;
         }
         .text.left {
-          padding-left: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
         .text.right {
-          padding-right: calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5);
+          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
       </style></button><style>
           .button-group {

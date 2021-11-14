@@ -28,32 +28,36 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
   const isDark = theme.type === 'dark';
   return (
     <div
-      className={clsx('avatar-group', { 'is-dark': isDark }, className)}
+      className={clsx(
+        'nextui-avatar-group',
+        { 'nextui-avatar-group-is-dark': isDark },
+        className
+      )}
       {...props}
     >
       {children}
-      {count && <span className="count">+{count}</span>}
+      {count && <span className="nextui-avatar-group-count">+{count}</span>}
       <style jsx>{`
-        .avatar-group {
+        .nextui-avatar-group {
           display: flex;
           align-items: center;
           height: auto;
           width: max-content;
         }
-        .avatar-group :global(.avatar) {
+        .nextui-avatar-group :global(.nextui-avatar) {
           margin-left: -0.625rem;
           transition: transform 0.25s ease;
         }
-        .avatar-group :global(.only-text-avatar) {
+        .nextui-avatar-group :global(.only-text-avatar) {
           box-shadow: -4px 0 4px rgb(0 0 0 / 5%);
         }
-        .is-dark :global(.only-text-avatar) {
+        .nextui-avatar-group-is-dark :global(.only-text-avatar) {
           box-shadow: -4px 0 15px rgb(0 0 0 / 50%);
         }
-        .avatar-group :global(.avatar:hover) {
+        .nextui-avatar-group :global(.nextui-avatar:hover) {
           transform: ${animated ? 'translate(-0.625rem)' : ''};
         }
-        .count {
+        .nextui-avatar-group-count {
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
