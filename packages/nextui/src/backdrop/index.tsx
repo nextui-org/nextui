@@ -80,8 +80,8 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
           tabIndex={-1}
           role="button"
           aria-hidden={true}
-          className={cslx('backdrop', {
-            fullscreen: fullScreenContent
+          className={cslx('nextui-backdrop', {
+            'nextui-backdrop-fullscreen': fullScreenContent
           })}
           onClick={clickHandler}
           onMouseUp={mouseUpHandler}
@@ -89,17 +89,20 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
           {...props}
         >
           <div
-            className={cslx('layer', blur ? 'layer-blur' : 'layer-default')}
+            className={cslx(
+              'nextui-backdrop-layer',
+              blur ? 'nextui-layer-blur' : 'nextui-layer-default'
+            )}
           />
           <div
-            className="content"
+            className="nextui-backdrop-content"
             onClick={childrenClickHandler}
             onMouseDown={() => setIsContentMouseDown(true)}
           >
             {children}
           </div>
           <style jsx>{`
-            .backdrop {
+            .nextui-backdrop {
               position: fixed;
               top: 0;
               left: 0;
@@ -111,11 +114,18 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               box-sizing: border-box;
               text-align: center;
             }
-            .backdrop.fullscreen {
+            .nextui-backdrop.nextui-backdrop-fullscreen {
               display: inline-flex;
               overflow: hidden;
             }
-            .content {
+            .nextui-backdrop:before {
+              display: inline-block;
+              width: 0;
+              height: 100%;
+              vertical-align: middle;
+              content: '';
+            }
+            .nextui-backdrop-content {
               position: relative;
               z-index: 999999;
               outline: none;
@@ -125,20 +135,13 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               vertical-align: middle;
               display: inline-block;
             }
-            .fullscreen .content {
+            .nextui-backdrop-fullscreen .nextui-backdrop-content {
               width: 100vw;
               max-width: 100vw;
               height: 100vh;
               margin: 0;
             }
-            .backdrop:before {
-              display: inline-block;
-              width: 0;
-              height: 100%;
-              vertical-align: middle;
-              content: '';
-            }
-            .layer {
+            .nextui-backdrop-layer {
               position: fixed;
               top: 0;
               left: 0;
@@ -149,46 +152,50 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
               pointer-events: none;
               z-index: 99999;
             }
-            .layer-default {
+            .nextui-layer-default {
               background-color: black;
               opacity: ${opacity};
-              transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+              transition: ${animated
+                ? 'opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1)'
+                : 'none'};
             }
-            .layer-blur {
+            .nextui-layer-blur {
               opacity: 1;
-              transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+              transition: ${animated
+                ? 'background 0.35s cubic-bezier(0.4, 0, 0.2, 1)'
+                : 'none'};
               backdrop-filter: saturate(180%) blur(20px);
               background-color: rgba(0, 0, 0, 0.1);
             }
-            .fullscreen .layer {
+            .nextui-backdrop-fullscreen .nextui-backdrop-layer {
               display: none;
             }
-            .backdrop-wrapper-enter .layer-default {
+            .nextui-backdrop-wrapper-enter .nextui-layer-default {
               opacity: 0;
             }
-            .backdrop-wrapper-enter-active .layer-default {
+            .nextui-backdrop-wrapper-enter-active .nextui-layer-default {
               opacity: ${opacity};
             }
-            .backdrop-wrapper-leave .layer-default {
+            .nextui-backdrop-wrapper-leave .nextui-layer-default {
               opacity: ${opacity};
             }
-            .backdrop-wrapper-leave-active .layer-default {
+            .nextui-backdrop-wrapper-leave-active .nextui-layer-default {
               opacity: 0;
             }
-            .backdrop-wrapper-enter .layer-blur {
+            .nextui-backdrop-wrapper-enter .nextui-layer-blur {
               background-color: rgba(0, 0, 0, 0.1);
             }
-            .backdrop-wrapper-enter-active .layer-blur {
+            .nextui-backdrop-wrapper-enter-active .nextui-layer-blur {
               background-color: rgba(0, 0, 0, 0.4);
             }
-            .backdrop-wrapper-leave .layer-blur {
+            .nextui-backdrop-wrapper-leave .nextui-layer-blur {
               background-color: rgba(0, 0, 0, 0.4);
             }
-            .backdrop-wrapper-leave-active .layer-blur {
+            .nextui-backdrop-wrapper-leave-active .nextui-layer-blur {
               background-color: rgba(0, 0, 0, 0.1);
             }
             @media only screen and (max-width: ${theme.breakpoints.sm}) {
-              .content {
+              .nextui-backdrop-content {
                 width: 90%;
               }
             }
@@ -201,7 +208,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
       <>
         {animated ? (
           <CSSTransition
-            name="backdrop-wrapper"
+            name="nextui-backdrop-wrapper"
             visible={visible}
             enterTime={20}
             leaveTime={20}
