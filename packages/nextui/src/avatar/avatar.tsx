@@ -79,6 +79,7 @@ const Avatar: React.FC<AvatarProps> = ({
   pointer,
   alt,
   className,
+  style,
   ...props
 }) => {
   const theme = useTheme();
@@ -127,7 +128,7 @@ const Avatar: React.FC<AvatarProps> = ({
         className
       )}
       {...props}
-      style={{ ...props.style, ...spacingStyles }}
+      style={{ ...style, ...spacingStyles }}
     >
       <span className="nextui-avatar-bg" />
       {!showText && (
