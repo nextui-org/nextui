@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useCallback, useMemo } from 'react';
 import CollapseIcon from './collapse-icon';
 import useTheme from '../use-theme';
 import Expand from '../utils/expand';
@@ -148,6 +148,10 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     }
   );
 
+  const getState = useCallback(() => {
+    return visible ? 'open' : 'closed';
+  }, [visible]);
+
   return (
     <div
       tabIndex={disabled ? -1 : 0}
@@ -160,6 +164,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         className,
         focusClassName
       )}
+      data-state={getState()}
       style={{ ...style, ...spacingStyles }}
       {...props}
       {...bindings}
@@ -167,11 +172,12 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
       <div
         role="button"
         tabIndex={-1}
+        id={ariaLabelledById}
         className={clsx('nextui-collapse-view', {
           'nextui-collapse-view-disabled': disabled,
           'nextui-collapse-animated': animated
         })}
-        id={ariaLabelledById}
+        data-state={getState()}
         aria-disabled={disabled}
         aria-expanded={visible}
         aria-controls={ariaControlId}

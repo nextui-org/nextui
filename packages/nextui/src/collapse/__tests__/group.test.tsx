@@ -51,7 +51,7 @@ describe('Collapse Group', () => {
       </Collapse.Group>
     );
 
-    const views = wrapper.find('.view');
+    const views = wrapper.find('.nextui-collapse-view');
     views.at(0).simulate('click');
     views.at(1).simulate('click');
     await updateWrapper(wrapper, 300);
@@ -71,7 +71,7 @@ describe('Collapse Group', () => {
       </Collapse.Group>
     );
 
-    const views = wrapper.find('.view');
+    const views = wrapper.find('.nextui-collapse-view');
     views.at(0).simulate('click');
     views.at(1).simulate('click');
     await updateWrapper(wrapper, 300);
@@ -100,7 +100,7 @@ describe('Collapse Group', () => {
         <Collapse title="title2">content3</Collapse>
       </Collapse.Group>
     );
-    const views = wrapper.find('.view');
+    const views = wrapper.find('.nextui-collapse-view');
     views.at(2).simulate('click');
 
     expect(callback).toHaveBeenCalled();

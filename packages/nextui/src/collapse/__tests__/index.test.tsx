@@ -77,7 +77,7 @@ describe('Collapse', () => {
 
   it('should expand when title clicked', async () => {
     const wrapper = mount(<Collapse title="title">content</Collapse>);
-    wrapper.find('.view').at(0).simulate('click');
+    wrapper.find('.nextui-collapse-view').at(0).simulate('click');
     await updateWrapper(wrapper, 300);
     expect(wrapper.find('.expanded').length).not.toBe(0);
   });
@@ -88,7 +88,7 @@ describe('Collapse', () => {
         content
       </Collapse>
     );
-    wrapper.find('.view').at(0).simulate('click');
+    wrapper.find('.nextui-collapse-view').at(0).simulate('click');
     await updateWrapper(wrapper, 300);
     expect(wrapper.find('.expanded').length).not.toBe(0);
   });
@@ -149,7 +149,7 @@ describe('Collapse', () => {
       <Collapse title="Changed test" onChange={callback} />
     );
 
-    wrapper.find('.view').at(0).simulate('click');
+    wrapper.find('.nextui-collapse-view').at(0).simulate('click');
 
     expect(callback).toHaveBeenCalled();
     expect(value).toBe(true);
