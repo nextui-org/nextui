@@ -4,8 +4,10 @@ import withDefaults from '../utils/with-defaults';
 import { DividerAlign, SimpleColors } from '../utils/prop-types';
 import { getMargin } from '../utils/dimensions';
 import { getNormalColor } from '../utils/color';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 
-interface Props {
+interface Props extends DefaultProps {
   x?: number;
   y?: number;
   height?: number;
@@ -34,9 +36,12 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   align,
   children,
   className,
+  style,
   ...props
 }) => {
   const theme = useTheme();
+
+  const spacingStyles = getSpacingsStyles(theme, props);
 
   const bgColor = useMemo(
     () => getNormalColor(color, theme.palette, theme.palette.border),
@@ -55,10 +60,19 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   const left = x ? getMargin(x / 2) : 0;
 
   return (
-    <div role="separator" className={`divider ${className}`} {...props}>
-      {children && <span className={`text ${alignClassName}`}>{children}</span>}
+    <div
+      role="separator"
+      className={`nextui-divider ${className}`}
+      style={{ ...style, ...spacingStyles }}
+      {...props}
+    >
+      {children && (
+        <span className={`nextui-divider-text ${alignClassName}`}>
+          {children}
+        </span>
+      )}
       <style jsx>{`
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -67,7 +81,7 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
           margin: ${top} ${left};
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -84,11 +98,11 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
           color: ${textColor};
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
