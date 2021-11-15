@@ -74,15 +74,19 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
   return (
     <div
       className={clsx(
-        'card-footer',
-        { 'auto-margin': autoMargin, blur, 'no-padding': noPadding },
+        'nextui-card-footer',
+        {
+          'nextui-card-footer-auto-margin': autoMargin,
+          'nextui-card-footer-blur': blur,
+          'nextui-card-footer-no-padding': noPadding
+        },
         className
       )}
       {...props}
     >
       {children}
       <style jsx>{`
-        .card-footer {
+        .nextui-card-footer {
           width: ${width};
           height: ${height};
           padding: ${theme.spacing.sm} ${theme.spacing.lg};
@@ -96,14 +100,14 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
           border-bottom-left-radius: ${theme.radius.lg};
           border-bottom-right-radius: ${theme.radius.lg};
         }
-        .card-footer.blur {
+        .nextui-card-footer.nextui-card-footer-blur {
           backdrop-filter: saturate(180%) blur(10px);
           background: ${addColorAlpha(bgColor, 0.4)};
         }
-        .card-footer.no-padding {
+        .nextui-card-footer.nextui-card-footer-no-padding {
           padding: 0;
         }
-        .auto-margin :global(*) {
+        .nextui-card-footer-auto-margin :global(*) {
           margin-top: 0;
           margin-bottom: 0;
           margin-right: calc(${theme.spacing.sm} * 0.5);

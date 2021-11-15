@@ -56,12 +56,16 @@ const CardBody: React.FC<React.PropsWithChildren<CardBodyProps>> = ({
 
   return (
     <div
-      className={clsx('card-body', { 'no-padding': noPadding }, className)}
+      className={clsx(
+        'nextui-card-body',
+        { 'nextui-card-body-no-padding': noPadding },
+        className
+      )}
       {...props}
     >
       {children}
       <style jsx>{`
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: ${width};
@@ -75,13 +79,13 @@ const CardBody: React.FC<React.PropsWithChildren<CardBodyProps>> = ({
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body > :global(*:first-child) {
+        .nextui-card-body > :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body > :global(*:last-child) {
+        .nextui-card-body > :global(*:last-child) {
           margin-bottom: 0;
         }
       `}</style>

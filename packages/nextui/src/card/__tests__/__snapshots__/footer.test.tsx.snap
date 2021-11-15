@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card Footer should render correctly 1`] = `
-"<div role=\\"\\" tabindex=\\"-1\\" class=\\"card animated\\"><div class=\\"card-body\\"><p>card</p><style>
-        .card-body {
+"<div role=\\"\\" tabindex=\\"-1\\" class=\\"nextui-card nextui-card-animated\\"><div class=\\"nextui-card-body\\"><p>card</p><style>
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -11,25 +11,25 @@ exports[`Card Footer should render correctly 1`] = `
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body > :global(*:first-child) {
+        .nextui-card-body > :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body > :global(*:last-child) {
+        .nextui-card-body > :global(*:last-child) {
           margin-bottom: 0;
         }
-      </style></div><div class=\\"card-footer\\">footer<style>
-        .card-footer {
+      </style></div><div class=\\"nextui-card-footer\\">footer<style>
+        .nextui-card-footer {
           width: 100%;
           height: auto;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           display: flex;
           align-items: center;
           overflow: hidden;
@@ -40,20 +40,20 @@ exports[`Card Footer should render correctly 1`] = `
           border-bottom-left-radius: 14px;
           border-bottom-right-radius: 14px;
         }
-        .card-footer.blur {
+        .nextui-card-footer.nextui-card-footer-blur {
           backdrop-filter: saturate(180%) blur(10px);
           background: rgba(255, 255,255,0.4);
         }
-        .card-footer.no-padding {
+        .nextui-card-footer.nextui-card-footer-no-padding {
           padding: 0;
         }
-        .auto-margin :global(*) {
+        .nextui-card-footer-auto-margin :global(*) {
           margin-top: 0;
           margin-bottom: 0;
-          margin-right: calc(12px * 0.5);
+          margin-right: calc(0.75rem * 0.5);
         }
       </style></div><style>
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -70,31 +70,34 @@ exports[`Card Footer should render correctly 1`] = `
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         </style></div>"
 `;

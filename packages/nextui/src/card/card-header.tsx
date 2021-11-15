@@ -34,15 +34,18 @@ const CardHeader: React.FC<React.PropsWithChildren<CardHeaderProps>> = ({
   return (
     <div
       className={clsx(
-        'card-header',
-        { 'auto-margin': autoMargin, 'no-padding': noPadding },
+        'nextui-card-header',
+        {
+          'nextui-card-header-auto-margin': autoMargin,
+          'nextui-card-header-no-padding': noPadding
+        },
         className
       )}
       {...props}
     >
       {children}
       <style jsx>{`
-        .card-header {
+        .nextui-card-header {
           width: 100%;
           display: flex;
           flex-shrink: 0;
@@ -54,13 +57,13 @@ const CardHeader: React.FC<React.PropsWithChildren<CardHeaderProps>> = ({
           font-size: 0.875rem;
           padding: ${theme.spacing.sm};
         }
-        .no-padding {
+        .nextui-card-header-no-padding {
           padding: 0;
         }
-        .auto-margin > :global(*:first-child) {
+        .nextui-card-header-auto-margin > :global(*:first-child) {
           margin-top: 0;
         }
-        .auto-margin > :global(*:last-child) {
+        .nextui-card-header-auto-margin > :global(*:last-child) {
           margin-bottom: 0;
         }
       `}</style>

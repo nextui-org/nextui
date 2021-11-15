@@ -4,38 +4,38 @@ exports[`Card should render correctly when nested 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "card animated",
+      "class": "nextui-card nextui-card-animated",
       "role": "",
       "tabindex": "-1",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "card-body",
+          "class": "nextui-card-body",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "card animated",
+              "class": "nextui-card nextui-card-animated",
               "role": "",
               "tabindex": "-1",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "card-body",
+                  "class": "nextui-card-body",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "card animated",
+                      "class": "nextui-card nextui-card-animated",
                       "role": "",
                       "tabindex": "-1",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "card-body",
+                          "class": "nextui-card-body",
                         },
                         "children": Array [
                           Node {
@@ -45,7 +45,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -54,18 +54,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -93,7 +93,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -102,18 +102,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -146,7 +146,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -163,31 +163,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                               "next": null,
@@ -220,7 +223,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -237,31 +240,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                             "next": null,
@@ -276,7 +282,7 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
-                            "class": "card-body",
+                            "class": "nextui-card-body",
                           },
                           "children": Array [
                             Node {
@@ -286,7 +292,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -295,18 +301,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -334,7 +340,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -343,18 +349,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -405,7 +411,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -414,18 +420,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -463,7 +469,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -472,18 +478,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -499,14 +505,14 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "card animated",
+                        "class": "nextui-card nextui-card-animated",
                         "role": "",
                         "tabindex": "-1",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "card-body",
+                            "class": "nextui-card-body",
                           },
                           "children": Array [
                             Node {
@@ -516,7 +522,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -525,18 +531,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -564,7 +570,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -573,18 +579,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -617,7 +623,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -634,31 +640,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -691,7 +700,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -708,31 +717,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                               "next": null,
@@ -747,7 +759,7 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -757,7 +769,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -766,18 +778,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -805,7 +817,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -814,18 +826,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -898,7 +910,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -915,31 +927,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                       "next": null,
@@ -972,7 +987,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -989,31 +1004,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                     "next": null,
@@ -1028,19 +1046,19 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "card-body",
+                    "class": "nextui-card-body",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "card animated",
+                        "class": "nextui-card nextui-card-animated",
                         "role": "",
                         "tabindex": "-1",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "card-body",
+                            "class": "nextui-card-body",
                           },
                           "children": Array [
                             Node {
@@ -1050,7 +1068,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1059,18 +1077,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1098,7 +1116,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1107,18 +1125,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1151,7 +1169,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -1168,31 +1186,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -1225,7 +1246,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -1242,31 +1263,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                               "next": null,
@@ -1281,7 +1305,7 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -1291,7 +1315,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1300,18 +1324,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1339,7 +1363,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1348,18 +1372,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1410,7 +1434,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1419,18 +1443,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1468,7 +1492,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1477,18 +1501,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1504,14 +1528,14 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "card animated",
+                          "class": "nextui-card nextui-card-animated",
                           "role": "",
                           "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -1521,7 +1545,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1530,18 +1554,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1569,7 +1593,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1578,18 +1602,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1622,7 +1646,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -1639,31 +1663,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -1696,7 +1723,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -1713,31 +1740,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -1752,7 +1782,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -1762,7 +1792,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1771,18 +1801,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1810,7 +1840,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1819,18 +1849,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1921,7 +1951,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1930,18 +1960,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1979,7 +2009,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -1988,18 +2018,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2015,26 +2045,26 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "card animated",
+                "class": "nextui-card nextui-card-animated",
                 "role": "",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "card-body",
+                    "class": "nextui-card-body",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "card animated",
+                        "class": "nextui-card nextui-card-animated",
                         "role": "",
                         "tabindex": "-1",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "card-body",
+                            "class": "nextui-card-body",
                           },
                           "children": Array [
                             Node {
@@ -2044,7 +2074,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2053,18 +2083,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2092,7 +2122,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2101,18 +2131,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2145,7 +2175,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -2162,31 +2192,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -2219,7 +2252,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -2236,31 +2269,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                               "next": null,
@@ -2275,7 +2311,7 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -2285,7 +2321,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2294,18 +2330,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2333,7 +2369,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2342,18 +2378,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2404,7 +2440,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2413,18 +2449,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2462,7 +2498,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2471,18 +2507,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2498,14 +2534,14 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "card animated",
+                          "class": "nextui-card nextui-card-animated",
                           "role": "",
                           "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -2515,7 +2551,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2524,18 +2560,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2563,7 +2599,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2572,18 +2608,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2616,7 +2652,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -2633,31 +2669,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -2690,7 +2729,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -2707,31 +2746,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -2746,7 +2788,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -2756,7 +2798,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2765,18 +2807,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2804,7 +2846,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -2813,18 +2855,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2897,7 +2939,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -2914,31 +2956,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                         "next": null,
@@ -2971,7 +3016,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -2988,31 +3033,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                       "next": null,
@@ -3027,19 +3075,19 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "card-body",
+                      "class": "nextui-card-body",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "card animated",
+                          "class": "nextui-card nextui-card-animated",
                           "role": "",
                           "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -3049,7 +3097,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3058,18 +3106,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3097,7 +3145,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3106,18 +3154,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3150,7 +3198,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -3167,31 +3215,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -3224,7 +3275,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -3241,31 +3292,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -3280,7 +3334,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -3290,7 +3344,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3299,18 +3353,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3338,7 +3392,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3347,18 +3401,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3409,7 +3463,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3418,18 +3472,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3467,7 +3521,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3476,18 +3530,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3503,14 +3557,14 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
-                            "class": "card animated",
+                            "class": "nextui-card nextui-card-animated",
                             "role": "",
                             "tabindex": "-1",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -3520,7 +3574,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3529,18 +3583,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3568,7 +3622,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3577,18 +3631,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3621,7 +3675,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -3638,31 +3692,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                     "next": null,
@@ -3695,7 +3752,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -3712,31 +3769,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -3751,7 +3811,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "card-body",
+                                  "class": "nextui-card-body",
                                 },
                                 "children": Array [
                                   Node {
@@ -3761,7 +3821,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3770,18 +3830,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3809,7 +3869,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -3818,18 +3878,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3942,7 +4002,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -3959,31 +4019,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
               "next": null,
@@ -4016,7 +4079,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -4033,31 +4096,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
             "next": null,
@@ -4072,31 +4138,31 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "card-body",
+            "class": "nextui-card-body",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "card animated",
+                "class": "nextui-card nextui-card-animated",
                 "role": "",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "card-body",
+                    "class": "nextui-card-body",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "card animated",
+                        "class": "nextui-card nextui-card-animated",
                         "role": "",
                         "tabindex": "-1",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "card-body",
+                            "class": "nextui-card-body",
                           },
                           "children": Array [
                             Node {
@@ -4106,7 +4172,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4115,18 +4181,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4154,7 +4220,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4163,18 +4229,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4207,7 +4273,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -4224,31 +4290,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -4281,7 +4350,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -4298,31 +4367,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                               "next": null,
@@ -4337,7 +4409,7 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -4347,7 +4419,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4356,18 +4428,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4395,7 +4467,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4404,18 +4476,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4466,7 +4538,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4475,18 +4547,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4524,7 +4596,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4533,18 +4605,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4560,14 +4632,14 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "card animated",
+                          "class": "nextui-card nextui-card-animated",
                           "role": "",
                           "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -4577,7 +4649,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4586,18 +4658,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4625,7 +4697,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4634,18 +4706,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4678,7 +4750,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -4695,31 +4767,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -4752,7 +4827,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -4769,31 +4844,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -4808,7 +4886,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -4818,7 +4896,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4827,18 +4905,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4866,7 +4944,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -4875,18 +4953,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4959,7 +5037,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -4976,31 +5054,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                         "next": null,
@@ -5033,7 +5114,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -5050,31 +5131,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                       "next": null,
@@ -5089,19 +5173,19 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "card-body",
+                      "class": "nextui-card-body",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "card animated",
+                          "class": "nextui-card nextui-card-animated",
                           "role": "",
                           "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -5111,7 +5195,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5120,18 +5204,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5159,7 +5243,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5168,18 +5252,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5212,7 +5296,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -5229,31 +5313,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -5286,7 +5373,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -5303,31 +5390,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -5342,7 +5432,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -5352,7 +5442,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5361,18 +5451,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5400,7 +5490,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5409,18 +5499,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5471,7 +5561,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5480,18 +5570,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5529,7 +5619,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5538,18 +5628,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5565,14 +5655,14 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
-                            "class": "card animated",
+                            "class": "nextui-card nextui-card-animated",
                             "role": "",
                             "tabindex": "-1",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -5582,7 +5672,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5591,18 +5681,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5630,7 +5720,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5639,18 +5729,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5683,7 +5773,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -5700,31 +5790,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                     "next": null,
@@ -5757,7 +5850,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -5774,31 +5867,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -5813,7 +5909,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "card-body",
+                                  "class": "nextui-card-body",
                                 },
                                 "children": Array [
                                   Node {
@@ -5823,7 +5919,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5832,18 +5928,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5871,7 +5967,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5880,18 +5976,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5982,7 +6078,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -5991,18 +6087,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6040,7 +6136,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6049,18 +6145,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6076,26 +6172,26 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "card animated",
+                  "class": "nextui-card nextui-card-animated",
                   "role": "",
                   "tabindex": "-1",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "card-body",
+                      "class": "nextui-card-body",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "card animated",
+                          "class": "nextui-card nextui-card-animated",
                           "role": "",
                           "tabindex": "-1",
                         },
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "class": "card-body",
+                              "class": "nextui-card-body",
                             },
                             "children": Array [
                               Node {
@@ -6105,7 +6201,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6114,18 +6210,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6153,7 +6249,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6162,18 +6258,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6206,7 +6302,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -6223,31 +6319,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -6280,7 +6379,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -6297,31 +6396,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                 "next": null,
@@ -6336,7 +6438,7 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -6346,7 +6448,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6355,18 +6457,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6394,7 +6496,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6403,18 +6505,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6465,7 +6567,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6474,18 +6576,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6523,7 +6625,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6532,18 +6634,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6559,14 +6661,14 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
-                            "class": "card animated",
+                            "class": "nextui-card nextui-card-animated",
                             "role": "",
                             "tabindex": "-1",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -6576,7 +6678,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6585,18 +6687,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6624,7 +6726,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6633,18 +6735,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6677,7 +6779,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -6694,31 +6796,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                     "next": null,
@@ -6751,7 +6856,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -6768,31 +6873,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -6807,7 +6915,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "card-body",
+                                  "class": "nextui-card-body",
                                 },
                                 "children": Array [
                                   Node {
@@ -6817,7 +6925,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6826,18 +6934,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6865,7 +6973,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -6874,18 +6982,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6958,7 +7066,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -6975,31 +7083,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                           "next": null,
@@ -7032,7 +7143,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -7049,31 +7160,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                         "next": null,
@@ -7088,19 +7202,19 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "card-body",
+                        "class": "nextui-card-body",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "card animated",
+                            "class": "nextui-card nextui-card-animated",
                             "role": "",
                             "tabindex": "-1",
                           },
                           "children": Array [
                             Node {
                               "attribs": Object {
-                                "class": "card-body",
+                                "class": "nextui-card-body",
                               },
                               "children": Array [
                                 Node {
@@ -7110,7 +7224,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7119,18 +7233,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -7158,7 +7272,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7167,18 +7281,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -7211,7 +7325,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -7228,31 +7342,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                     "next": null,
@@ -7285,7 +7402,7 @@ LoadedCheerio {
                               "children": Array [
                                 Node {
                                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -7302,31 +7419,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                   "next": null,
@@ -7341,7 +7461,7 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": Node {
                                 "attribs": Object {
-                                  "class": "card-body",
+                                  "class": "nextui-card-body",
                                 },
                                 "children": Array [
                                   Node {
@@ -7351,7 +7471,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7360,18 +7480,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -7399,7 +7519,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7408,18 +7528,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -7470,7 +7590,7 @@ LoadedCheerio {
                             "children": Array [
                               Node {
                                 "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7479,18 +7599,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -7528,7 +7648,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7537,18 +7657,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -7564,14 +7684,14 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": Node {
                             "attribs": Object {
-                              "class": "card animated",
+                              "class": "nextui-card nextui-card-animated",
                               "role": "",
                               "tabindex": "-1",
                             },
                             "children": Array [
                               Node {
                                 "attribs": Object {
-                                  "class": "card-body",
+                                  "class": "nextui-card-body",
                                 },
                                 "children": Array [
                                   Node {
@@ -7581,7 +7701,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7590,18 +7710,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -7629,7 +7749,7 @@ LoadedCheerio {
                                     "children": Array [
                                       Node {
                                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7638,18 +7758,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -7682,7 +7802,7 @@ LoadedCheerio {
                                   "children": Array [
                                     Node {
                                       "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -7699,31 +7819,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                       "next": null,
@@ -7756,7 +7879,7 @@ LoadedCheerio {
                                 "children": Array [
                                   Node {
                                     "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -7773,31 +7896,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                                     "next": null,
@@ -7812,7 +7938,7 @@ LoadedCheerio {
                                 "parent": [Circular],
                                 "prev": Node {
                                   "attribs": Object {
-                                    "class": "card-body",
+                                    "class": "nextui-card-body",
                                   },
                                   "children": Array [
                                     Node {
@@ -7822,7 +7948,7 @@ LoadedCheerio {
                                         "children": Array [
                                           Node {
                                             "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7831,18 +7957,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -7870,7 +7996,7 @@ LoadedCheerio {
                                       "children": Array [
                                         Node {
                                           "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -7879,18 +8005,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -8132,14 +8258,14 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "card animated hoverable",
+          "class": "nextui-card nextui-card-animated nextui-card-hoverable",
           "role": "",
           "tabindex": "-1",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "card-body",
+              "class": "nextui-card-body",
             },
             "children": Array [
               Node {
@@ -8149,7 +8275,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -8158,18 +8284,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -8197,7 +8323,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -8206,18 +8332,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -8250,7 +8376,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -8267,31 +8393,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                   "next": null,
@@ -8324,7 +8453,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -8341,31 +8470,34 @@ LoadedCheerio {
             color: #333;
             border: 0px solid #eaeaea;
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+          }
+          .nextui-card:focus:not(:focus-visible) {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
           }
         ",
                 "next": null,
@@ -8380,7 +8512,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "card-body",
+                "class": "nextui-card-body",
               },
               "children": Array [
                 Node {
@@ -8390,7 +8522,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -8399,18 +8531,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -8438,7 +8570,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .card-body {
+        .nextui-card-body {
           display: flex;
           flex: 1 1 auto;
           width: 100%;
@@ -8447,18 +8579,18 @@ LoadedCheerio {
           justify-content: inherit;
           align-items: inherit;
           align-content: inherit;
-          padding: 12px 20px;
+          padding: 0.75rem 1.25rem;
           overflow-y: auto;
           position: relative;
           text-align: left;
         }
-        .card-body.no-padding {
+        .nextui-card-body.nextui-card-body-no-padding {
           padding: 0;
         }
-        .card-body &gt; :global(*:first-child) {
+        .nextui-card-body &gt; :global(*:first-child) {
           margin-top: 0;
         }
-        .card-body &gt; :global(*:last-child) {
+        .nextui-card-body &gt; :global(*:last-child) {
           margin-bottom: 0;
         }
       ",

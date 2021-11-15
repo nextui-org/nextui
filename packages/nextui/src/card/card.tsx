@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import useTheme from '../use-theme';
 import { NormalColors, NormalWeights, SimpleColors } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
 import { getStyles } from './styles';
 import CardHeader from './card-header';
 import CardFooter from './card-footer';
@@ -19,11 +20,11 @@ import useDrip from '../use-drip';
 import { hasChild, pickChild } from '../utils/collections';
 import { getNormalWeight } from '../utils/dimensions';
 import { CardConfig, CardContext } from './card-context';
-import { getFocusStyles } from '../utils/styles';
+import { getFocusStyles, getSpacingsStyles } from '../utils/styles';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import { __DEV__ } from '../utils/assertion';
 
-interface Props {
+interface Props extends DefaultProps {
   shadow?: boolean;
   bordered?: boolean;
   animated?: boolean;
@@ -76,9 +77,12 @@ const Card = React.forwardRef<
     height,
     textColor,
     onClick,
+    style,
     ...props
   } = cardProps;
   const theme = useTheme();
+
+  const spacingStyles = getSpacingsStyles(theme, props);
 
   const { color, bgColor, dripColor, borderColor } = useMemo(
     () => getStyles(cardColor, textColor, shadow, bordered, theme),
@@ -155,12 +159,18 @@ const Card = React.forwardRef<
         ref={cardRef}
         tabIndex={clickable ? 0 : -1}
         className={clsx(
-          'card',
-          { animated, cover, clickable, hoverable },
+          'nextui-card',
+          {
+            'nextui-card-animated': animated,
+            'nextui-card-with-cover': cover,
+            'nextui-card-clickable': clickable,
+            'nextui-card-hoverable': hoverable
+          },
           clickable && focusClassName,
           className
         )}
         onClick={clickHandler}
+        style={{ ...style, ...spacingStyles }}
         {...props}
         {...bindings}
       >
@@ -180,7 +190,7 @@ const Card = React.forwardRef<
         {clickable && animated && <Drip color={dripColor} {...dripBindings} />}
         {footerChildren}
         <style jsx>{`
-          .card {
+          .nextui-card {
             margin: 0;
             padding: 0;
             position: relative;
@@ -197,33 +207,33 @@ const Card = React.forwardRef<
             color: ${color};
             border: ${borderWeight} solid ${borderColor};
           }
-          .card.animated {
+          .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;
           }
-          .card.clickable.animated:active {
+          .nextui-card.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.97);
           }
-          .card.hoverable.clickable.animated:active {
+          .nextui-card.nextui-card-hoverable.nextui-card-clickable.nextui-card-animated:active {
             transform: scale(0.99);
           }
-          .card.clickable {
+          .nextui-card.nextui-card-clickable {
             cursor: pointer;
           }
-          .card :global(.image) {
+          .nextui-card :global(.nextui-image) {
             width: 100%;
           }
-          .card.hoverable.animated:hover {
+          .nextui-card.nextui-card-hoverable.nextui-card-animated:hover {
             transform: translateY(-2px);
             box-shadow: ${shadow ? theme.shadows.lg : ''};
           }
-          .card.cover :global(img) {
+          .nextui-card.nextui-card-with-cover :global(img) {
             object-fit: cover;
           }
-          .card:not(.cover) :global(.image) {
+          .nextui-card:not(.nextui-card-with-cover) :global(.image) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }
-          .card:focus:not(:focus-visible) {
+          .nextui-card:focus:not(:focus-visible) {
             box-shadow: ${shadow && !bordered
               ? theme.shadows.md
               : 'none'} !important;
