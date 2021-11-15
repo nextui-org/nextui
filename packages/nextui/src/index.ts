@@ -1,6 +1,6 @@
 /// <reference types="styled-jsx" />
 
-/// Theme
+//Theme
 export * from './theme/types';
 export { default as ThemeProvider } from './theme/theme-provider';
 
