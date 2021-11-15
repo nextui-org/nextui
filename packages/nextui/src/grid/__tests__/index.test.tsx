@@ -86,17 +86,28 @@ describe('Grid', () => {
 
   it('there should be no alignment class when not set', () => {
     let wrapper = mount(<Grid.Container justify="flex-end" />);
-    expect(wrapper.find('.item').hasClass('justify')).toBeTruthy();
+    expect(
+      wrapper.find('.nextui-grid-item').hasClass('nextui-grid-item-justify')
+    ).toBeTruthy();
     wrapper = mount(<Grid.Container />);
-    expect(wrapper.find('.item').hasClass('justify')).not.toBeTruthy();
+
+    expect(
+      wrapper.find('.nextui-grid-item').hasClass('nextui-grid-item-justify')
+    ).not.toBeTruthy();
   });
 
   it('there should be no responsive class when not set', () => {
     let wrapper = mount(<Grid.Container sm={2} />);
-    expect(wrapper.find('.item').hasClass('sm')).toBeTruthy();
-    expect(wrapper.find('.item').hasClass('xs')).not.toBeTruthy();
+    expect(
+      wrapper.find('.nextui-grid-item').hasClass('nextui-grid-item-sm')
+    ).toBeTruthy();
+    expect(
+      wrapper.find('.nextui-grid-item').hasClass('nextui-grid-item-xs')
+    ).not.toBeTruthy();
     wrapper = mount(<Grid.Container />);
-    expect(wrapper.find('.item').hasClass('sm')).not.toBeTruthy();
+    expect(
+      wrapper.find('.nextui-grid-item').hasClass('nextui-grid-item-sm')
+    ).not.toBeTruthy();
   });
 
   it('should work correctly when use alone', () => {

@@ -1,29 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Grid all breakpoint values should be supported 1`] = `
-"<div class=\\"item xs sm md lg xl mock \\"><div class=\\"item xs sm md lg xl mock \\">test<style>
-        .item {
+"<div class=\\"nextui-grid-item nextui-grid-item-xs nextui-grid-item-sm nextui-grid-item-md nextui-grid-item-lg nextui-grid-item-xl nextui-grid-container mock \\"><div class=\\"nextui-grid-item nextui-grid-item-xs nextui-grid-item-sm nextui-grid-item-md nextui-grid-item-lg nextui-grid-item-xl mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 0;
           max-width: 8.333333333333334%;
           flex-basis: 8.333333333333334%;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 0;
             max-width: 8.333333333333334%;
             flex-basis: 8.333333333333334%;
@@ -31,7 +31,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 0;
             max-width: 16.666666666666668%;
             flex-basis: 16.666666666666668%;
@@ -39,7 +39,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 0;
             max-width: 25%;
             flex-basis: 25%;
@@ -47,7 +47,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 0;
             max-width: 33.333333333333336%;
             flex-basis: 33.333333333333336%;
@@ -55,7 +55,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 0;
             max-width: 41.66666666666667%;
             flex-basis: 41.66666666666667%;
@@ -63,28 +63,28 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           }
         }
       </style></div><style>
-        .item {
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 0;
           max-width: 8.333333333333334%;
           flex-basis: 8.333333333333334%;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 0;
             max-width: 8.333333333333334%;
             flex-basis: 8.333333333333334%;
@@ -92,7 +92,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 0;
             max-width: 16.666666666666668%;
             flex-basis: 16.666666666666668%;
@@ -100,7 +100,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 0;
             max-width: 25%;
             flex-basis: 25%;
@@ -108,7 +108,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 0;
             max-width: 33.333333333333336%;
             flex-basis: 33.333333333333336%;
@@ -116,7 +116,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 0;
             max-width: 41.66666666666667%;
             flex-basis: 41.66666666666667%;
@@ -127,29 +127,29 @@ exports[`Grid all breakpoint values should be supported 1`] = `
 `;
 
 exports[`Grid css value should be passed through 1`] = `
-"<div class=\\"item justify direction alignItems alignContent mock \\"><div class=\\"item justify direction alignItems alignContent mock \\">test<style>
-        .item {
+"<div class=\\"nextui-grid-item nextui-grid-item-justify nextui-grid-item-direction nextui-grid-item-align-items nextui-grid-item-align-content nextui-grid-container mock \\"><div class=\\"nextui-grid-item nextui-grid-item-justify nextui-grid-item-direction nextui-grid-item-align-items nextui-grid-item-align-content mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: center;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: column;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: center;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: center;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -157,7 +157,7 @@ exports[`Grid css value should be passed through 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -165,7 +165,7 @@ exports[`Grid css value should be passed through 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -173,7 +173,7 @@ exports[`Grid css value should be passed through 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -181,7 +181,7 @@ exports[`Grid css value should be passed through 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -189,28 +189,28 @@ exports[`Grid css value should be passed through 1`] = `
           }
         }
       </style></div><style>
-        .item {
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: center;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: column;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: center;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: center;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -218,7 +218,7 @@ exports[`Grid css value should be passed through 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -226,7 +226,7 @@ exports[`Grid css value should be passed through 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -234,7 +234,7 @@ exports[`Grid css value should be passed through 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -242,7 +242,7 @@ exports[`Grid css value should be passed through 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -253,29 +253,29 @@ exports[`Grid css value should be passed through 1`] = `
 `;
 
 exports[`Grid decimal spacing should be supported 1`] = `
-"<div class=\\"item  mock \\"><div class=\\"item  mock \\">test<style>
-        .item {
+"<div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -283,7 +283,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -291,7 +291,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -299,7 +299,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -307,7 +307,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -315,28 +315,28 @@ exports[`Grid decimal spacing should be supported 1`] = `
           }
         }
       </style></div><style>
-        .item {
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -344,7 +344,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -352,7 +352,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -360,7 +360,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -368,7 +368,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -379,29 +379,29 @@ exports[`Grid decimal spacing should be supported 1`] = `
 `;
 
 exports[`Grid nested components should be supported 1`] = `
-"<div class=\\"item  mock \\"><div class=\\"item  mock \\">test<style>
-        .item {
+"<div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -409,7 +409,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -417,7 +417,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -425,7 +425,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -433,36 +433,36 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
             display: inherit
           }
         }
-      </style></div><div class=\\"item  mock \\"><div class=\\"item  mock \\">test<style>
-        .item {
+      </style></div><div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -470,7 +470,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -478,7 +478,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -486,7 +486,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -494,36 +494,36 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
             display: inherit
           }
         }
-      </style></div><div class=\\"item  mock \\"><div class=\\"item  mock \\">test<style>
-        .item {
+      </style></div><div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -531,7 +531,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -539,7 +539,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -547,7 +547,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -555,36 +555,36 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
             display: inherit
           }
         }
-      </style></div><div class=\\"item  mock \\"><div class=\\"item  mock \\">test<style>
-        .item {
+      </style></div><div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -592,7 +592,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -600,7 +600,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -608,7 +608,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -616,7 +616,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -624,28 +624,28 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
       </style></div><style>
-        .item {
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -653,7 +653,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -661,7 +661,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -669,7 +669,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -677,7 +677,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -685,28 +685,28 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
       </style></div>,<style>
-        .item {
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -714,7 +714,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -722,7 +722,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -730,7 +730,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -738,7 +738,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -746,28 +746,28 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
       </style></div>,<style>
-        .item {
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -775,7 +775,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -783,7 +783,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -791,7 +791,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -799,7 +799,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -807,28 +807,28 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
       </style></div>,<style>
-        .item {
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -836,7 +836,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -844,7 +844,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -852,7 +852,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -860,7 +860,7 @@ exports[`Grid nested components should be supported 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -871,29 +871,29 @@ exports[`Grid nested components should be supported 1`] = `
 `;
 
 exports[`Grid should render correctly 1`] = `
-"<div class=\\"item  mock \\"><div class=\\"item  mock \\">test<style>
-        .item {
+"<div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -901,7 +901,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -909,7 +909,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -917,7 +917,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -925,36 +925,36 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
             display: inherit
           }
         }
-      </style></div><div class=\\"item  mock \\">test<style>
-        .item {
+      </style></div><div class=\\"nextui-grid-item  mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -962,7 +962,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -970,7 +970,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -978,7 +978,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -986,7 +986,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -994,28 +994,28 @@ exports[`Grid should render correctly 1`] = `
           }
         }
       </style></div><style>
-        .item {
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1023,7 +1023,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1031,7 +1031,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1039,7 +1039,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1047,7 +1047,7 @@ exports[`Grid should render correctly 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1058,29 +1058,29 @@ exports[`Grid should render correctly 1`] = `
 `;
 
 exports[`Grid should work correctly when size exceeds 1`] = `
-"<div class=\\"item  mock \\"><div class=\\"item xs mock \\">test<style>
-        .item {
+"<div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item nextui-grid-item-xs mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 0;
           max-width: 100%;
           flex-basis: 100%;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 0;
             max-width: 100%;
             flex-basis: 100%;
@@ -1088,7 +1088,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1096,7 +1096,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1104,7 +1104,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1112,36 +1112,36 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
             display: inherit
           }
         }
-      </style></div><div class=\\"item xs mock \\">test<style>
-        .item {
+      </style></div><div class=\\"nextui-grid-item nextui-grid-item-xs mock \\">test<style>
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 0;
           max-width: 0;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 0;
             max-width: 0;
             flex-basis: 0;
@@ -1149,7 +1149,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1157,7 +1157,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1165,7 +1165,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1173,7 +1173,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1181,28 +1181,28 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
       </style></div><style>
-        .item {
+        .nextui-grid-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: undefined;
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: undefined;
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: undefined;
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: undefined;
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: 1;
           max-width: 100%;
           flex-basis: 0;
           display: inherit
         }
         @media only screen and (max-width: 576px) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1210,7 +1210,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 768px) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1218,7 +1218,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 992px) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1226,7 +1226,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 1200px) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;
@@ -1234,7 +1234,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
           }
         }
         @media only screen and (min-width: 1400px) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: 1;
             max-width: 100%;
             flex-basis: 0;

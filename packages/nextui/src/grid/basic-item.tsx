@@ -116,13 +116,13 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
   );
   return (
     <div
-      className={`nextui-grid-item-item ${classes} ${className}`}
+      className={`nextui-grid-item ${classes} ${className}`}
       style={{ ...style, ...spacingStyles }}
       {...props}
     >
       {children}
       <style jsx>{`
-        .nextui-grid-item-item {
+        .nextui-grid-item {
         }
         .nextui-grid-item-justify {
           justify-content: ${justify};
