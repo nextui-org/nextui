@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
 import useTheme from '../use-theme';
+import { DefaultProps } from '../utils/default-props';
 import GridBasicItem, { GridBasicItemComponentProps } from './basic-item';
 import { Wrap } from '../utils/prop-types';
 import css from 'styled-jsx/css';
 
-interface Props {
+interface Props extends DefaultProps {
   gap: number;
   wrap: Wrap;
   className: string;
@@ -42,7 +43,10 @@ const GridContainer: React.FC<React.PropsWithChildren<GridContainerProps>> = ({
   `;
 
   return (
-    <GridBasicItem className={`${resolveClassName} ${className}`} {...props}>
+    <GridBasicItem
+      className={`nextui-grid-container ${resolveClassName} ${className}`}
+      {...props}
+    >
       {children}
       {styles}
     </GridBasicItem>

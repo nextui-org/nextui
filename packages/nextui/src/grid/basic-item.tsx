@@ -7,8 +7,10 @@ import {
   AlignItems,
   AlignContent
 } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 
-interface Props {
+interface Props extends DefaultProps {
   xs?: BreakpointsValue;
   sm?: BreakpointsValue;
   md?: BreakpointsValue;
@@ -71,20 +73,24 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
   alignContent,
   children,
   className,
+  style,
   ...props
 }) => {
   const theme = useTheme();
+
+  const spacingStyles = getSpacingsStyles(theme, props);
+
   const classes = useMemo(() => {
     const aligns: { [key: string]: unknown } = {
-      justify,
-      direction,
-      alignItems,
-      alignContent,
-      xs,
-      sm,
-      md,
-      lg,
-      xl
+      'nextui-grid-item-justify': justify,
+      'nextui-grid-item-direction': direction,
+      'nextui-grid-item-align-items': alignItems,
+      'nextui-grid-item-align-content': alignContent,
+      'nextui-grid-item-xs': xs,
+      'nextui-grid-item-sm': sm,
+      'nextui-grid-item-md': md,
+      'nextui-grid-item-lg': lg,
+      'nextui-grid-item-xl': xl
     };
     const classString = Object.keys(aligns).reduce((pre, name) => {
       if (aligns[name] !== undefined && aligns[name] !== false)
@@ -109,31 +115,35 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
     [xs, sm, md, lg, xl]
   );
   return (
-    <div className={`item ${classes} ${className}`} {...props}>
+    <div
+      className={`nextui-grid-item-item ${classes} ${className}`}
+      style={{ ...style, ...spacingStyles }}
+      {...props}
+    >
       {children}
       <style jsx>{`
-        .item {
+        .nextui-grid-item-item {
         }
-        .justify {
+        .nextui-grid-item-justify {
           justify-content: ${justify};
         }
-        .direction {
+        .nextui-grid-item-direction {
           flex-direction: ${direction};
         }
-        .alignContent {
+        .nextui-grid-item-align-content {
           align-content: ${alignContent};
         }
-        .alignItems {
+        .nextui-grid-item-align-items {
           align-items: ${alignItems};
         }
-        .xs {
+        .nextui-grid-item-xs {
           flex-grow: ${layout.xs.grow};
           max-width: ${layout.xs.width};
           flex-basis: ${layout.xs.basis};
           ${layout.xs.display}
         }
         @media only screen and (max-width: ${theme.breakpoints.xs}) {
-          .xs {
+          .nextui-grid-item-xs {
             flex-grow: ${layout.xs.grow};
             max-width: ${layout.xs.width};
             flex-basis: ${layout.xs.basis};
@@ -141,7 +151,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.sm}) {
-          .sm {
+          .nextui-grid-item-sm {
             flex-grow: ${layout.sm.grow};
             max-width: ${layout.sm.width};
             flex-basis: ${layout.sm.basis};
@@ -149,7 +159,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md}) {
-          .md {
+          .nextui-grid-item-md {
             flex-grow: ${layout.md.grow};
             max-width: ${layout.md.width};
             flex-basis: ${layout.md.basis};
@@ -157,7 +167,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.lg}) {
-          .lg {
+          .nextui-grid-item-lg {
             flex-grow: ${layout.lg.grow};
             max-width: ${layout.lg.width};
             flex-basis: ${layout.lg.basis};
@@ -165,7 +175,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.xl}) {
-          .xl {
+          .nextui-grid-item-xl {
             flex-grow: ${layout.xl.grow};
             max-width: ${layout.xl.width};
             flex-basis: ${layout.xl.basis};

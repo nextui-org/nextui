@@ -2,13 +2,14 @@ import React from 'react';
 import css from 'styled-jsx/css';
 import GridContainer from './grid-container';
 import GridBasicItem, { GridBasicItemComponentProps } from './basic-item';
+import { DefaultProps } from '../utils/default-props';
 
-interface Props {
+interface Props extends DefaultProps {
   className: string;
 }
 
 const defaultProps = {
-  className: '',
+  className: ''
 };
 
 export type GridProps = Props &
@@ -18,6 +19,7 @@ export type GridProps = Props &
 const Grid: React.FC<React.PropsWithChildren<GridProps>> = ({
   children,
   className,
+  style,
   ...props
 }) => {
   const { className: resolveClassName, styles } = css.resolve`
