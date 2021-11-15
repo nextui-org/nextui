@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonIcon should render correctly 1`] = `
-"<button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div><span class=\\"nextui-button-icon\\"><svg></svg><style>
+"<button type=\\"button\\" class=\\"nextui-button mock\\"><div><span class=\\"nextui-button-icon\\"><svg></svg><style>
         .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
@@ -31,7 +31,8 @@ exports[`ButtonIcon should render correctly 1`] = `
         .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
-          display: inline-block;
+          display: flex;
+          align-items: center;
           padding: 0 1.375rem;
           height: 2.5rem;
           line-height: 2.5rem;
@@ -120,7 +121,7 @@ exports[`ButtonIcon should render correctly 1`] = `
 `;
 
 exports[`ButtonIcon should work with right 1`] = `
-"<button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div><span class=\\"nextui-button-icon nextui-button-icon-right\\"><svg></svg><style>
+"<button type=\\"button\\" class=\\"nextui-button mock\\"><div><span class=\\"nextui-button-icon nextui-button-icon-right\\"><svg></svg><style>
         .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
@@ -150,7 +151,8 @@ exports[`ButtonIcon should work with right 1`] = `
         .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
-          display: inline-block;
+          display: flex;
+          align-items: center;
           padding: 0 1.375rem;
           height: 2.5rem;
           line-height: 2.5rem;
@@ -239,7 +241,7 @@ exports[`ButtonIcon should work with right 1`] = `
 `;
 
 exports[`ButtonIcon should work without text 1`] = `
-"<button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><span class=\\"nextui-button-icon nextui-button-icon-right nextui-button-icon-single\\"><svg></svg><style>
+"<button type=\\"button\\" class=\\"nextui-button mock\\"><span class=\\"nextui-button-icon nextui-button-icon-right nextui-button-icon-single\\"><svg></svg><style>
         .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
@@ -269,7 +271,8 @@ exports[`ButtonIcon should work without text 1`] = `
         .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
-          display: inline-block;
+          display: flex;
+          align-items: center;
           padding: 0 1.375rem;
           height: 2.5rem;
           line-height: 2.5rem;

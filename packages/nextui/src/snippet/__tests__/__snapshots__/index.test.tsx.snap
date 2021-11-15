@@ -12,7 +12,7 @@ exports[`Snippet should render correctly 1`] = `
           position: relative;
           width: initial;
           max-width: 100%;
-          padding: calc(20px * 0.75) 20px;
+          padding: calc(1.25rem * 0.75) 1.25rem;
           color: #000;
           background: #fff;
           border: 0px solid #eaeaea;
@@ -23,7 +23,7 @@ exports[`Snippet should render correctly 1`] = `
           padding: 0;
           border: none;
           border-radius: 0;
-          width: calc(100% - 2 * 20px);
+          width: calc(100% - 2 * 1.25rem);
           background-color: transparent;
           color: #000;
           font-size: 0.8125rem;
@@ -43,7 +43,7 @@ exports[`Snippet should render correctly 1`] = `
           display: inline-flex;
           justify-content: center;
           align-items: flex-start;
-          width: calc(2 * 20px);
+          width: calc(2 * 1.25rem);
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;
@@ -67,7 +67,7 @@ exports[`Snippet should work with custom symbol 1`] = `
           position: relative;
           width: initial;
           max-width: 100%;
-          padding: calc(20px * 0.75) 20px;
+          padding: calc(1.25rem * 0.75) 1.25rem;
           color: #000;
           background: #fff;
           border: 0px solid #eaeaea;
@@ -78,7 +78,7 @@ exports[`Snippet should work with custom symbol 1`] = `
           padding: 0;
           border: none;
           border-radius: 0;
-          width: calc(100% - 2 * 20px);
+          width: calc(100% - 2 * 1.25rem);
           background-color: transparent;
           color: #000;
           font-size: 0.8125rem;
@@ -98,7 +98,7 @@ exports[`Snippet should work with custom symbol 1`] = `
           display: inline-flex;
           justify-content: center;
           align-items: flex-start;
-          width: calc(2 * 20px);
+          width: calc(2 * 1.25rem);
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;
@@ -122,7 +122,7 @@ exports[`Snippet should work with custom symbol 2`] = `
           position: relative;
           width: initial;
           max-width: 100%;
-          padding: calc(20px * 0.75) 20px;
+          padding: calc(1.25rem * 0.75) 1.25rem;
           color: #000;
           background: #fff;
           border: 0px solid #eaeaea;
@@ -133,7 +133,7 @@ exports[`Snippet should work with custom symbol 2`] = `
           padding: 0;
           border: none;
           border-radius: 0;
-          width: calc(100% - 2 * 20px);
+          width: calc(100% - 2 * 1.25rem);
           background-color: transparent;
           color: #000;
           font-size: 0.8125rem;
@@ -153,7 +153,7 @@ exports[`Snippet should work with custom symbol 2`] = `
           display: inline-flex;
           justify-content: center;
           align-items: flex-start;
-          width: calc(2 * 20px);
+          width: calc(2 * 1.25rem);
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;
@@ -177,7 +177,7 @@ exports[`Snippet should work with different styles 1`] = `
           position: relative;
           width: initial;
           max-width: 100%;
-          padding: calc(20px * 0.75) 20px;
+          padding: calc(1.25rem * 0.75) 1.25rem;
           color: #000;
           background: #fff;
           border: 0px solid #eaeaea;
@@ -188,7 +188,7 @@ exports[`Snippet should work with different styles 1`] = `
           padding: 0;
           border: none;
           border-radius: 0;
-          width: calc(100% - 2 * 20px);
+          width: calc(100% - 2 * 1.25rem);
           background-color: transparent;
           color: #000;
           font-size: 0.8125rem;
@@ -208,7 +208,7 @@ exports[`Snippet should work with different styles 1`] = `
           display: inline-flex;
           justify-content: center;
           align-items: flex-start;
-          width: calc(2 * 20px);
+          width: calc(2 * 1.25rem);
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;
@@ -228,7 +228,7 @@ exports[`Snippet should work with different styles 1`] = `
           position: relative;
           width: 20%;
           max-width: 100%;
-          padding: calc(20px * 0.75) 20px;
+          padding: calc(1.25rem * 0.75) 1.25rem;
           color: #000;
           background: #fff;
           border: 0px solid #eaeaea;
@@ -239,7 +239,7 @@ exports[`Snippet should work with different styles 1`] = `
           padding: 0;
           border: none;
           border-radius: 0;
-          width: calc(100% - 2 * 20px);
+          width: calc(100% - 2 * 1.25rem);
           background-color: transparent;
           color: #000;
           font-size: 0.8125rem;
@@ -259,7 +259,7 @@ exports[`Snippet should work with different styles 1`] = `
           display: inline-flex;
           justify-content: center;
           align-items: flex-start;
-          width: calc(2 * 20px);
+          width: calc(2 * 1.25rem);
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;
@@ -279,7 +279,7 @@ exports[`Snippet should work with different styles 1`] = `
           position: relative;
           width: initial;
           max-width: 100%;
-          padding: calc(20px * 0.75) 20px;
+          padding: calc(1.25rem * 0.75) 1.25rem;
           color: #7928ca;
           background: #fff;
           border: 0px solid #7928ca;
@@ -290,7 +290,7 @@ exports[`Snippet should work with different styles 1`] = `
           padding: 0;
           border: none;
           border-radius: 0;
-          width: calc(100% - 2 * 20px);
+          width: calc(100% - 2 * 1.25rem);
           background-color: transparent;
           color: #7928ca;
           font-size: 0.8125rem;
@@ -310,7 +310,7 @@ exports[`Snippet should work with different styles 1`] = `
           display: inline-flex;
           justify-content: center;
           align-items: flex-start;
-          width: calc(2 * 20px);
+          width: calc(2 * 1.25rem);
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;
@@ -330,7 +330,7 @@ exports[`Snippet should work with different styles 1`] = `
           position: relative;
           width: initial;
           max-width: 100%;
-          padding: calc(20px * 0.75) 20px;
+          padding: calc(1.25rem * 0.75) 1.25rem;
           color: #fff;
           background: #17c964;
           border: 0px solid #17c964;
@@ -341,7 +341,7 @@ exports[`Snippet should work with different styles 1`] = `
           padding: 0;
           border: none;
           border-radius: 0;
-          width: calc(100% - 2 * 20px);
+          width: calc(100% - 2 * 1.25rem);
           background-color: transparent;
           color: #fff;
           font-size: 0.8125rem;
@@ -361,7 +361,7 @@ exports[`Snippet should work with different styles 1`] = `
           display: inline-flex;
           justify-content: center;
           align-items: flex-start;
-          width: calc(2 * 20px);
+          width: calc(2 * 1.25rem);
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;
@@ -385,7 +385,7 @@ exports[`Snippet should work with multi-line 1`] = `
           position: relative;
           width: initial;
           max-width: 100%;
-          padding: calc(20px * 0.75) 20px;
+          padding: calc(1.25rem * 0.75) 1.25rem;
           color: #000;
           background: #fff;
           border: 0px solid #eaeaea;
@@ -396,7 +396,7 @@ exports[`Snippet should work with multi-line 1`] = `
           padding: 0;
           border: none;
           border-radius: 0;
-          width: calc(100% - 2 * 20px);
+          width: calc(100% - 2 * 1.25rem);
           background-color: transparent;
           color: #000;
           font-size: 0.8125rem;
@@ -416,7 +416,7 @@ exports[`Snippet should work with multi-line 1`] = `
           display: inline-flex;
           justify-content: center;
           align-items: flex-start;
-          width: calc(2 * 20px);
+          width: calc(2 * 1.25rem);
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;

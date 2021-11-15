@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Textarea should render correctly 1`] = `
-"<div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><span class=\\"undefined mock\\">placeholder</span><textarea type=\\"text\\" id=\\"nextui-b5v2cmjv\\" class=\\"\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><span class=\\"undefined mock\\">placeholder</span><textarea type=\\"text\\" id=\\"nextui-ak2s3j9u\\" class=\\"\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -20,7 +20,7 @@ exports[`Textarea should render correctly 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -78,7 +78,7 @@ exports[`Textarea should render correctly 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -108,16 +108,19 @@ exports[`Textarea should render correctly 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -136,9 +139,6 @@ exports[`Textarea should render correctly 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -180,7 +180,6 @@ exports[`Textarea should render correctly 1`] = `
             box-shadow: none;
             display: block;
             font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
-            padding: 12px;
             width: 100%;
             height: 100%;
             resize: none;
@@ -191,7 +190,7 @@ exports[`Textarea should render correctly 1`] = `
 `;
 
 exports[`Textarea should work with different styles 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"nextui-arbbfp1p\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"nextui-kr7be0na\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -210,7 +209,7 @@ exports[`Textarea should work with different styles 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -268,7 +267,7 @@ exports[`Textarea should work with different styles 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -298,16 +297,19 @@ exports[`Textarea should work with different styles 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -326,9 +328,6 @@ exports[`Textarea should work with different styles 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -370,14 +369,13 @@ exports[`Textarea should work with different styles 1`] = `
             box-shadow: none;
             display: block;
             font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
-            padding: 12px;
             width: 100%;
             height: 100%;
             resize: none;
             border: none;
             outline: none;
           }
-        </style><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"nextui-us8v3sbi\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style><div class=\\"with-label\\"><div class=\\"container textarea-container\\"><label class=\\"wrapper shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"nextui-g527dp8u\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: 20%;
             display: inline-flex;
@@ -396,7 +394,7 @@ exports[`Textarea should work with different styles 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -454,7 +452,7 @@ exports[`Textarea should work with different styles 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -484,16 +482,19 @@ exports[`Textarea should work with different styles 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -512,9 +513,6 @@ exports[`Textarea should work with different styles 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -556,7 +554,6 @@ exports[`Textarea should work with different styles 1`] = `
             box-shadow: none;
             display: block;
             font-family: -apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif;
-            padding: 12px;
             width: 100%;
             height: 100%;
             resize: none;

@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonGroup buttons should be displayed vertically 1`] = `
-"<div class=\\"nextui-button-group nextui-button-group-vertical\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action1</div><style>
+"<div class=\\"nextui-button-group nextui-button-group-vertical\\"><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action1</div><style>
         .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
-          display: inline-block;
+          display: flex;
+          align-items: center;
           padding: 0 1.25rem;
           height: 2.5rem;
           line-height: 2.5rem;
@@ -90,11 +91,12 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         .nextui-button-text.nextui-button-text-right {
           padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
-      </style></button><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action2</div><style>
+      </style></button><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action2</div><style>
         .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
-          display: inline-block;
+          display: flex;
+          align-items: center;
           padding: 0 1.25rem;
           height: 2.5rem;
           line-height: 2.5rem;
@@ -259,11 +261,12 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
 `;
 
 exports[`ButtonGroup props should be passed to each button 1`] = `
-"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"success\\"><div class=\\"nextui-button-text\\">action</div><style>
+"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action</div><style>
         .nextui-button {
           background: #17c964;
           box-sizing: border-box;
-          display: inline-block;
+          display: flex;
+          align-items: center;
           padding: 0 0.625rem;
           height: 1.5rem;
           line-height: 1.5rem;
@@ -428,11 +431,12 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
 `;
 
 exports[`ButtonGroup props should be passed to each button 2`] = `
-"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"success\\"><div class=\\"nextui-button-text\\">action</div><style>
+"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action</div><style>
         .nextui-button {
           background: rgba(23, 201,100,0.15);
           box-sizing: border-box;
-          display: inline-block;
+          display: flex;
+          align-items: center;
           padding: 0 0.625rem;
           height: 1.5rem;
           line-height: 1.5rem;
@@ -597,11 +601,12 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
 `;
 
 exports[`ButtonGroup should render correctly 1`] = `
-"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action</div><style>
+"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action</div><style>
         .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
-          display: inline-block;
+          display: flex;
+          align-items: center;
           padding: 0 1.25rem;
           height: 2.5rem;
           line-height: 2.5rem;

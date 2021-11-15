@@ -86,7 +86,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
         aria-modal={visible}
         ref={modalContent}
         className={cslx(
-          'modal-wrapper',
+          'nextui-modal-wrapper',
           {
             fullscreen: fullScreen,
             'with-close-button': closeButton,

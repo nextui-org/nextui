@@ -10,6 +10,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+          "data-state": "loading",
         },
         "children": Array [
           Node {
@@ -456,6 +457,7 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -902,6 +904,7 @@ LoadedCheerio {
           "next": Node {
             "attribs": Object {
               "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+              "data-state": "loading",
             },
             "children": Array [
               Node {
@@ -1348,6 +1351,7 @@ LoadedCheerio {
             "next": Node {
               "attribs": Object {
                 "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+                "data-state": "loading",
               },
               "children": Array [
                 Node {
@@ -1843,9 +1847,11 @@ LoadedCheerio {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
             },
             "parent": [Circular],
@@ -1853,9 +1859,11 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
             },
           },
           "parent": [Circular],
@@ -1863,9 +1871,11 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "parent": [Circular],
@@ -1873,14 +1883,17 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
         },
       },
       Node {
         "attribs": Object {
           "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+          "data-state": "loading",
         },
         "children": Array [
           Node {
@@ -2327,6 +2340,7 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -2773,6 +2787,7 @@ LoadedCheerio {
           "next": Node {
             "attribs": Object {
               "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+              "data-state": "loading",
             },
             "children": Array [
               Node {
@@ -3268,9 +3283,11 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
             },
           },
           "parent": [Circular],
@@ -3278,15 +3295,18 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
             "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -3736,22 +3756,27 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
         },
       },
       Node {
         "attribs": Object {
           "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+          "data-state": "loading",
         },
         "children": Array [
           Node {
@@ -4198,6 +4223,7 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -4693,15 +4719,18 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
             "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -5150,6 +5179,7 @@ LoadedCheerio {
           "prev": Node {
             "attribs": Object {
               "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+              "data-state": "loading",
             },
             "children": Array [
               Node {
@@ -5599,30 +5629,37 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
         },
       },
       Node {
         "attribs": Object {
           "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+          "data-state": "loading",
         },
         "children": Array [
           Node {
@@ -6117,6 +6154,7 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -6565,6 +6603,7 @@ LoadedCheerio {
           "prev": Node {
             "attribs": Object {
               "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+              "data-state": "loading",
             },
             "children": Array [
               Node {
@@ -7013,6 +7052,7 @@ LoadedCheerio {
             "prev": Node {
               "attribs": Object {
                 "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+                "data-state": "loading",
               },
               "children": Array [
                 Node {
@@ -7462,33 +7502,41 @@ LoadedCheerio {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
         },
       },
       Node {
@@ -7536,6 +7584,7 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -7984,6 +8033,7 @@ LoadedCheerio {
           "prev": Node {
             "attribs": Object {
               "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+              "data-state": "loading",
             },
             "children": Array [
               Node {
@@ -8432,6 +8482,7 @@ LoadedCheerio {
             "prev": Node {
               "attribs": Object {
                 "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+                "data-state": "loading",
               },
               "children": Array [
                 Node {
@@ -8880,6 +8931,7 @@ LoadedCheerio {
               "prev": Node {
                 "attribs": Object {
                   "class": "nextui-avatar nextui-avatar-bordered only-text-avatar",
+                  "data-state": "loading",
                 },
                 "children": Array [
                   Node {
@@ -9329,33 +9381,41 @@ LoadedCheerio {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
               },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
             },
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "type": "style",
@@ -9480,6 +9540,7 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "nextui-avatar only-text-avatar",
+          "data-state": "loading",
         },
         "children": Array [
           Node {
@@ -9902,6 +9963,7 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "nextui-avatar only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -10373,9 +10435,11 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "parent": [Circular],
@@ -10383,14 +10447,17 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
         },
       },
       Node {
         "attribs": Object {
           "class": "nextui-avatar only-text-avatar",
+          "data-state": "loading",
         },
         "children": Array [
           Node {
@@ -10861,6 +10928,7 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "nextui-avatar only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -11286,17 +11354,21 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
         },
       },
       Node {
@@ -11344,6 +11416,7 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "nextui-avatar only-text-avatar",
+            "data-state": "loading",
           },
           "children": Array [
             Node {
@@ -11768,6 +11841,7 @@ LoadedCheerio {
           "prev": Node {
             "attribs": Object {
               "class": "nextui-avatar only-text-avatar",
+              "data-state": "loading",
             },
             "children": Array [
               Node {
@@ -12193,17 +12267,21 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
           },
         },
         "type": "style",

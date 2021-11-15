@@ -5,19 +5,19 @@ exports[`Input should be work with content 1`] = `
         .input-content {
           box-sizing: content-box;
           display: flex;
-          width: calc(1.8 * 20px * .42);
+          width: calc(2 * 1.25rem * .42);
           height: 100%;
           align-items: center;
           vertical-align: center;
           margin: 0;
-          padding: 0 calc(1.8 * 20px * .3);
+          padding: 0 calc(2 * 1.25rem * .3);
           color: #333;
           line-height: 1;
           position: relative;
           cursor: default;
           pointer-events: none;
         }
-      </style></span><input type=\\"text\\" id=\\"nextui-q6ivptkc\\" class=\\"left-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+      </style></span><input type=\\"text\\" id=\\"nextui-u6dv2m5t\\" class=\\"left-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -36,7 +36,7 @@ exports[`Input should be work with content 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -94,7 +94,7 @@ exports[`Input should be work with content 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -124,16 +124,19 @@ exports[`Input should be work with content 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -152,9 +155,6 @@ exports[`Input should be work with content 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -183,16 +183,16 @@ exports[`Input should be work with content 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #333 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-9lvb5rn9\\" class=\\"right-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"input-content\\"><span>test-icon</span><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-i1ncppqv\\" class=\\"right-content\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"input-content\\"><span>test-icon</span><style>
         .input-content {
           box-sizing: content-box;
           display: flex;
-          width: calc(1.8 * 20px * .42);
+          width: calc(2 * 1.25rem * .42);
           height: 100%;
           align-items: center;
           vertical-align: center;
           margin: 0;
-          padding: 0 calc(1.8 * 20px * .3);
+          padding: 0 calc(2 * 1.25rem * .3);
           color: #333;
           line-height: 1;
           position: relative;
@@ -218,7 +218,7 @@ exports[`Input should be work with content 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -276,7 +276,7 @@ exports[`Input should be work with content 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -306,16 +306,19 @@ exports[`Input should be work with content 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -334,9 +337,6 @@ exports[`Input should be work with content 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -369,13 +369,13 @@ exports[`Input should be work with content 1`] = `
 `;
 
 exports[`Input should be work with label 1`] = `
-"<div><div class=\\"with-label\\"><label id=\\"nextui-r5h7bk8v-label\\" class=\\"input-label-block\\" for=\\"nextui-r5h7bk8v\\">label<style>
+"<div><div class=\\"with-label\\"><label id=\\"nextui-52dv2cn8-label\\" class=\\"input-label-block\\" for=\\"nextui-52dv2cn8\\">label<style>
         .input-label-block {
           display: block;
           font-weight: normal;
           color: #000;
           padding: 0 0 0 4px;
-          margin-bottom: calc(12px * 0.5);
+          margin-bottom: calc(0.75rem * 0.5);
           font-size: .875rem;
           line-height: 1.5;
           -webkit-touch-callout: none; /* iOS Safari */
@@ -393,7 +393,7 @@ exports[`Input should be work with label 1`] = `
           margin-bottom: 0;
         }
         .input-label-block.rounded {
-          padding: 0 0 0 calc(12px * 0.5);
+          padding: 0 0 0 calc(0.75rem * 0.5);
         }
         .as-placeholder {
           position: absolute;
@@ -410,7 +410,7 @@ exports[`Input should be work with label 1`] = `
           left: 4px;
         }
         .as-placeholder.has-content-left {
-          left: calc(12px + 1.8 * 20px * 0.64);
+          left: calc(12px + 2 * 1.25rem * 0.64);
         }
         .as-placeholder.hover,
         .as-placeholder.with-value {
@@ -426,7 +426,7 @@ exports[`Input should be work with label 1`] = `
         .as-placeholder.is-textarea.with-value {
           top: -28px;
         }
-      </style></label><div class=\\"container input-container\\"><div class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-r5h7bk8v\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" aria-labelledby=\\"nextui-r5h7bk8v-label\\" value=\\"\\"></div></div><div class=\\"helper-text-container\\"></div><style>
+      </style></label><div class=\\"container input-container\\"><div class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-52dv2cn8\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" aria-labelledby=\\"nextui-52dv2cn8-label\\" value=\\"\\"></div></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -445,7 +445,7 @@ exports[`Input should be work with label 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -503,7 +503,7 @@ exports[`Input should be work with label 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -533,16 +533,19 @@ exports[`Input should be work with label 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -561,9 +564,6 @@ exports[`Input should be work with label 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -592,7 +592,7 @@ exports[`Input should be work with label 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #333 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-856070fl\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"input-label right\\">label<style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-9ufqmv6b\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"input-label right\\">label<style>
         .input-label {
           position: relative;
           display: inline-flex;
@@ -603,7 +603,7 @@ exports[`Input should be work with label 1`] = `
           pointer-events: none;
           margin: 0;
           background: rgba(153, 153,153,0.3);
-          padding: 0 12px;
+          padding: 0 0.75rem;
           color: #999;
           font-size: .875rem;
           line-height: 1;
@@ -656,7 +656,7 @@ exports[`Input should be work with label 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -714,7 +714,7 @@ exports[`Input should be work with label 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -744,16 +744,19 @@ exports[`Input should be work with label 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -772,9 +775,6 @@ exports[`Input should be work with label 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -814,7 +814,7 @@ exports[`Input should be work with label 1`] = `
           pointer-events: none;
           margin: 0;
           background: rgba(153, 153,153,0.3);
-          padding: 0 12px;
+          padding: 0 0.75rem;
           color: #999;
           font-size: .875rem;
           line-height: 1;
@@ -848,7 +848,7 @@ exports[`Input should be work with label 1`] = `
         .bordered:before {
           display: none;
         }
-      </style></span><input type=\\"text\\" id=\\"nextui-tenv9po3\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+      </style></span><input type=\\"text\\" id=\\"nextui-29db9qlt\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -867,7 +867,7 @@ exports[`Input should be work with label 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -925,7 +925,7 @@ exports[`Input should be work with label 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -955,16 +955,19 @@ exports[`Input should be work with label 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -983,9 +986,6 @@ exports[`Input should be work with label 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -1018,7 +1018,7 @@ exports[`Input should be work with label 1`] = `
 `;
 
 exports[`Input should work with different sizes 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-0ab5eogu\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-067g6g89\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1037,7 +1037,7 @@ exports[`Input should work with different sizes 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.2 * 20px);
+            height: calc(1.2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -1095,7 +1095,7 @@ exports[`Input should work with different sizes 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.2 * 12px * -1);
+            bottom: calc(1.2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -1125,16 +1125,19 @@ exports[`Input should work with different sizes 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -1153,9 +1156,6 @@ exports[`Input should work with different sizes 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -1184,7 +1184,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #333 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-fq77r7aa\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-oiupoqm9\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1203,7 +1203,7 @@ exports[`Input should work with different sizes 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.6 * 20px);
+            height: calc(1.6 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -1261,7 +1261,7 @@ exports[`Input should work with different sizes 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.6 * 12px * -1);
+            bottom: calc(1.6 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -1291,16 +1291,19 @@ exports[`Input should work with different sizes 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -1319,9 +1322,6 @@ exports[`Input should work with different sizes 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -1350,7 +1350,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #333 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-igr4rk2s\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-ecu1er0t\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1369,7 +1369,7 @@ exports[`Input should work with different sizes 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(2 * 20px);
+            height: calc(2.2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -1427,7 +1427,7 @@ exports[`Input should work with different sizes 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(2 * 12px * -1);
+            bottom: calc(2.2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -1457,16 +1457,19 @@ exports[`Input should work with different sizes 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -1486,9 +1489,6 @@ exports[`Input should work with different sizes 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          textarea:not(.underlined) {
-            padding: 12px;
-          }
           input.left-content,
           textarea.left-content {
             margin-left: 0;
@@ -1516,7 +1516,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #333 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-gq6d9m39\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-qh8btht2\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1535,7 +1535,7 @@ exports[`Input should work with different sizes 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(2.3 * 20px);
+            height: calc(2.6 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -1593,7 +1593,7 @@ exports[`Input should work with different sizes 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(2.3 * 12px * -1);
+            bottom: calc(2.6 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -1623,16 +1623,19 @@ exports[`Input should work with different sizes 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -1652,9 +1655,6 @@ exports[`Input should work with different sizes 1`] = `
             min-width: 0;
             -webkit-appearance: none;
           }
-          textarea:not(.underlined) {
-            padding: 12px;
-          }
           input.left-content,
           textarea.left-content {
             margin-left: 0;
@@ -1682,7 +1682,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #333 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-irs5u245\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-7jam6drj\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: 50%;
             display: inline-flex;
@@ -1701,7 +1701,7 @@ exports[`Input should work with different sizes 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -1759,7 +1759,7 @@ exports[`Input should work with different sizes 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -1789,16 +1789,19 @@ exports[`Input should work with different sizes 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -1817,9 +1820,6 @@ exports[`Input should work with different sizes 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -1852,7 +1852,7 @@ exports[`Input should work with different sizes 1`] = `
 `;
 
 exports[`Input should work with different status 1`] = `
-"<div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-lkciaumr\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+"<div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-48etr59g\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -1871,7 +1871,7 @@ exports[`Input should work with different status 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -1929,7 +1929,7 @@ exports[`Input should work with different status 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -1959,16 +1959,19 @@ exports[`Input should work with different status 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -1987,9 +1990,6 @@ exports[`Input should work with different status 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -2018,7 +2018,7 @@ exports[`Input should work with different status 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #333 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-d4sg19dg\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-d2719r4d\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -2037,7 +2037,7 @@ exports[`Input should work with different status 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -2095,7 +2095,7 @@ exports[`Input should work with different status 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -2125,16 +2125,19 @@ exports[`Input should work with different status 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -2153,9 +2156,6 @@ exports[`Input should work with different status 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {
@@ -2184,7 +2184,7 @@ exports[`Input should work with different status 1`] = `
             -webkit-box-shadow: 0 0 0 30px #fff inset !important;
             -webkit-text-fill-color: #333 !important;
           }
-        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-b3a96ef9\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
+        </style></div><div class=\\"with-label\\"><div class=\\"container input-container\\"><label class=\\"wrapper shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-r5gra9v4\\" class=\\"\\" placeholder=\\"\\" autocomplete=\\"off\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"helper-text-container\\"></div><style>
           .with-label {
             width: initial;
             display: inline-flex;
@@ -2203,7 +2203,7 @@ exports[`Input should work with different status 1`] = `
           .input-container {
             display: inline-flex;
             align-items: center;
-            height: calc(1.8 * 20px);
+            height: calc(2 * 1.25rem);
           }
           .wrapper {
             flex: 1;
@@ -2261,7 +2261,7 @@ exports[`Input should work with different status 1`] = `
           .helper-text-container {
             position: absolute;
             opacity: 0;
-            bottom: calc(1.8 * 12px * -1);
+            bottom: calc(2 * 0.75rem * -1);
             transition: opacity 0.25s ease;
           }
           .helper-text-container.with-value {
@@ -2291,16 +2291,19 @@ exports[`Input should work with different status 1`] = `
           }
           input.rounded,
           textarea.rounded {
-            padding: 0 calc(12px * 0.5);
+            padding: 0 calc(0.75rem * 0.5);
           }
           input:focus::placeholder,
           textarea:focus::placeholder {
             opacity: 0;
             transition: opacity 0.25s ease 0s;
           }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
+          .wrapper:not(.underlined) input {
             margin: 4px 10px;
+          }
+          .wrapper:not(.underlined) textarea {
+            margin: 0px;
+            padding: 0.5rem 0.75rem;
           }
           .wrapper.underlined input,
           .wrapper.underlined textarea {
@@ -2319,9 +2322,6 @@ exports[`Input should work with different status 1`] = `
             height: 100%;
             min-width: 0;
             -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: 12px;
           }
           input.left-content,
           textarea.left-content {

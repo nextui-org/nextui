@@ -38,7 +38,7 @@ describe('Modal', () => {
     await updateWrapper(wrapper, 350);
     expectModalIsOpened(wrapper);
     expect(openHandler).toHaveBeenCalled();
-    wrapper.find('.backdrop').simulate('click', nativeEvent);
+    wrapper.find('.nextui-backdrop').simulate('click', nativeEvent);
     await updateWrapper(wrapper, 500);
     expectModalIsClosed(wrapper);
     expect(closeHandler).toHaveBeenCalled();
@@ -51,7 +51,7 @@ describe('Modal', () => {
         <Modal.Footer>Submit</Modal.Footer>
       </Modal>
     );
-    wrapper.find('.backdrop').simulate('click', nativeEvent);
+    wrapper.find('.nextui-backdrop').simulate('click', nativeEvent);
     await updateWrapper(wrapper, 500);
     expectModalIsOpened(wrapper);
     expect(closeHandler).not.toHaveBeenCalled();
@@ -62,7 +62,7 @@ describe('Modal', () => {
         <Modal.Header>Modal</Modal.Header>
       </Modal>
     );
-    const html = wrapper.find('.modal-wrapper').html();
+    const html = wrapper.find('.nextui-modal-wrapper').html();
     expect(html).toContain('test-class');
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -74,7 +74,7 @@ describe('Modal', () => {
     );
     const tabStart = wrapper.find('.hide-tab').at(0).getDOMNode();
     const tabEnd = wrapper.find('.hide-tab').at(1).getDOMNode();
-    const eventElement = wrapper.find('.modal-wrapper').at(0);
+    const eventElement = wrapper.find('.nextui-modal-wrapper').at(0);
     expect(document.activeElement).toBe(tabStart);
     act(() => {
       eventElement.simulate('keydown', {

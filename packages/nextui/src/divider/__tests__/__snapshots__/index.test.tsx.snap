@@ -11,13 +11,13 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "divider ",
+          "class": "nextui-divider ",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "text start",
+              "class": "nextui-divider-text start",
             },
             "children": Array [
               Node {
@@ -35,7 +35,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -44,7 +44,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -53,7 +53,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -61,11 +61,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -101,7 +101,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -110,7 +110,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -119,7 +119,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -127,11 +127,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -149,7 +149,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "text start",
+                "class": "nextui-divider-text start",
               },
               "children": Array [
                 Node {
@@ -182,13 +182,13 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "text start",
+                "class": "nextui-divider-text start",
               },
               "children": Array [
                 Node {
@@ -206,7 +206,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -215,7 +215,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -224,7 +224,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -232,11 +232,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -272,7 +272,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -281,7 +281,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -290,7 +290,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -298,11 +298,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -320,7 +320,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "text start",
+                  "class": "nextui-divider-text start",
                 },
                 "children": Array [
                   Node {
@@ -353,13 +353,13 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "divider ",
+              "class": "nextui-divider ",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "text end",
+                  "class": "nextui-divider-text end",
                 },
                 "children": Array [
                   Node {
@@ -377,7 +377,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -386,7 +386,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -395,7 +395,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -403,11 +403,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -443,7 +443,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -452,7 +452,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -461,7 +461,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -469,11 +469,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -491,7 +491,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "text end",
+                    "class": "nextui-divider-text end",
                   },
                   "children": Array [
                     Node {
@@ -524,13 +524,13 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "divider ",
+                "class": "nextui-divider ",
                 "role": "separator",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "text start",
+                    "class": "nextui-divider-text start",
                   },
                   "children": Array [
                     Node {
@@ -548,7 +548,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -557,7 +557,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -566,7 +566,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -574,11 +574,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -614,7 +614,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -623,7 +623,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -632,7 +632,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -640,11 +640,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -662,7 +662,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "text start",
+                      "class": "nextui-divider-text start",
                     },
                     "children": Array [
                       Node {
@@ -744,13 +744,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "divider ",
+          "class": "nextui-divider ",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "text start",
+              "class": "nextui-divider-text start",
             },
             "children": Array [
               Node {
@@ -768,7 +768,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -777,7 +777,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -786,7 +786,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -794,11 +794,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -834,7 +834,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -843,7 +843,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -852,7 +852,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -860,11 +860,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -882,7 +882,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "text start",
+                "class": "nextui-divider-text start",
               },
               "children": Array [
                 Node {
@@ -915,13 +915,13 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "text end",
+                "class": "nextui-divider-text end",
               },
               "children": Array [
                 Node {
@@ -939,7 +939,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -948,7 +948,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -957,7 +957,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -965,11 +965,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1005,7 +1005,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1014,7 +1014,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1023,7 +1023,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1031,11 +1031,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1053,7 +1053,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "text end",
+                  "class": "nextui-divider-text end",
                 },
                 "children": Array [
                   Node {
@@ -1086,13 +1086,13 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "divider ",
+              "class": "nextui-divider ",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "text start",
+                  "class": "nextui-divider-text start",
                 },
                 "children": Array [
                   Node {
@@ -1110,7 +1110,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1119,7 +1119,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1128,7 +1128,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1136,11 +1136,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1176,7 +1176,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1185,7 +1185,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1194,7 +1194,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1202,11 +1202,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1224,7 +1224,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "text start",
+                    "class": "nextui-divider-text start",
                   },
                   "children": Array [
                     Node {
@@ -1283,13 +1283,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "text start",
+                "class": "nextui-divider-text start",
               },
               "children": Array [
                 Node {
@@ -1307,7 +1307,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1316,7 +1316,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1325,7 +1325,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1333,11 +1333,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1373,7 +1373,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1382,7 +1382,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1391,7 +1391,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1399,11 +1399,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1421,7 +1421,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "text start",
+                  "class": "nextui-divider-text start",
                 },
                 "children": Array [
                   Node {
@@ -1477,13 +1477,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "divider ",
+          "class": "nextui-divider ",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "text end",
+              "class": "nextui-divider-text end",
             },
             "children": Array [
               Node {
@@ -1501,7 +1501,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1510,7 +1510,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1519,7 +1519,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1527,11 +1527,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1567,7 +1567,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1576,7 +1576,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1585,7 +1585,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1593,11 +1593,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1615,7 +1615,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "text end",
+                "class": "nextui-divider-text end",
               },
               "children": Array [
                 Node {
@@ -1648,13 +1648,13 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "text start",
+                "class": "nextui-divider-text start",
               },
               "children": Array [
                 Node {
@@ -1672,7 +1672,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1681,7 +1681,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1690,7 +1690,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1698,11 +1698,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1738,7 +1738,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1747,7 +1747,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1756,7 +1756,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1764,11 +1764,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1786,7 +1786,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "text start",
+                  "class": "nextui-divider-text start",
                 },
                 "children": Array [
                   Node {
@@ -1833,13 +1833,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "text start",
+                "class": "nextui-divider-text start",
               },
               "children": Array [
                 Node {
@@ -1857,7 +1857,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1866,7 +1866,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1875,7 +1875,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1883,11 +1883,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1923,7 +1923,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -1932,7 +1932,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1941,7 +1941,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -1949,11 +1949,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -1971,7 +1971,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "text start",
+                  "class": "nextui-divider-text start",
                 },
                 "children": Array [
                   Node {
@@ -2006,13 +2006,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "divider ",
+              "class": "nextui-divider ",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "text start",
+                  "class": "nextui-divider-text start",
                 },
                 "children": Array [
                   Node {
@@ -2030,7 +2030,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2039,7 +2039,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2048,7 +2048,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2056,11 +2056,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2096,7 +2096,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2105,7 +2105,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2114,7 +2114,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2122,11 +2122,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2144,7 +2144,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "text start",
+                    "class": "nextui-divider-text start",
                   },
                   "children": Array [
                     Node {
@@ -2210,13 +2210,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "divider ",
+          "class": "nextui-divider ",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "text start",
+              "class": "nextui-divider-text start",
             },
             "children": Array [
               Node {
@@ -2234,7 +2234,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2243,7 +2243,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2252,7 +2252,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2260,11 +2260,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2300,7 +2300,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2309,7 +2309,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2318,7 +2318,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2326,11 +2326,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2348,7 +2348,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "text start",
+                "class": "nextui-divider-text start",
               },
               "children": Array [
                 Node {
@@ -2383,13 +2383,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "text end",
+                "class": "nextui-divider-text end",
               },
               "children": Array [
                 Node {
@@ -2407,7 +2407,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2416,7 +2416,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2425,7 +2425,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2433,11 +2433,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2473,7 +2473,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2482,7 +2482,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2491,7 +2491,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2499,11 +2499,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2521,7 +2521,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "text end",
+                  "class": "nextui-divider-text end",
                 },
                 "children": Array [
                   Node {
@@ -2556,13 +2556,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "divider ",
+              "class": "nextui-divider ",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "text start",
+                  "class": "nextui-divider-text start",
                 },
                 "children": Array [
                   Node {
@@ -2580,7 +2580,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2589,7 +2589,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2598,7 +2598,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2606,11 +2606,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2646,7 +2646,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2655,7 +2655,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2664,7 +2664,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2672,11 +2672,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2694,7 +2694,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "text start",
+                    "class": "nextui-divider-text start",
                   },
                   "children": Array [
                     Node {
@@ -2729,13 +2729,13 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "divider ",
+                "class": "nextui-divider ",
                 "role": "separator",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "text start",
+                    "class": "nextui-divider-text start",
                   },
                   "children": Array [
                     Node {
@@ -2753,7 +2753,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2762,7 +2762,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2771,7 +2771,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2779,11 +2779,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2819,7 +2819,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -2828,7 +2828,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2837,7 +2837,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -2845,11 +2845,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -2867,7 +2867,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "text start",
+                      "class": "nextui-divider-text start",
                     },
                     "children": Array [
                       Node {
@@ -3052,7 +3052,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "divider ",
+          "class": "nextui-divider ",
           "role": "separator",
         },
         "children": Array [
@@ -3061,7 +3061,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3070,7 +3070,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3079,7 +3079,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3087,11 +3087,11 @@ LoadedCheerio {
           color: secondary;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3117,7 +3117,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
@@ -3126,7 +3126,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3135,7 +3135,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3144,7 +3144,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3152,11 +3152,11 @@ LoadedCheerio {
           color: warning;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3182,7 +3182,7 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "divider ",
+              "class": "nextui-divider ",
               "role": "separator",
             },
             "children": Array [
@@ -3191,7 +3191,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3200,7 +3200,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3209,7 +3209,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3217,11 +3217,11 @@ LoadedCheerio {
           color: dark;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3284,7 +3284,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "divider ",
+          "class": "nextui-divider ",
           "role": "separator",
         },
         "children": Array [
@@ -3293,7 +3293,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3302,7 +3302,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3311,7 +3311,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3319,11 +3319,11 @@ LoadedCheerio {
           color: warning;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3349,7 +3349,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
@@ -3358,7 +3358,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3367,7 +3367,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3376,7 +3376,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3384,11 +3384,11 @@ LoadedCheerio {
           color: dark;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3428,7 +3428,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
@@ -3437,7 +3437,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3446,7 +3446,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3455,7 +3455,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3463,11 +3463,11 @@ LoadedCheerio {
           color: secondary;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3516,7 +3516,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "divider ",
+          "class": "nextui-divider ",
           "role": "separator",
         },
         "children": Array [
@@ -3525,7 +3525,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3534,7 +3534,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3543,7 +3543,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3551,11 +3551,11 @@ LoadedCheerio {
           color: dark;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3583,7 +3583,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
@@ -3592,7 +3592,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3601,7 +3601,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3610,7 +3610,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3618,11 +3618,11 @@ LoadedCheerio {
           color: warning;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3650,7 +3650,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "divider ",
+              "class": "nextui-divider ",
               "role": "separator",
             },
             "children": Array [
@@ -3659,7 +3659,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3668,7 +3668,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3677,7 +3677,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3685,11 +3685,11 @@ LoadedCheerio {
           color: secondary;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3857,7 +3857,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "divider ",
+          "class": "nextui-divider ",
           "role": "separator",
         },
         "children": Array [
@@ -3866,7 +3866,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3875,7 +3875,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) calc(22.875pt + 1px * 0.5);
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3884,7 +3884,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3892,11 +3892,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -3922,7 +3922,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
@@ -3931,7 +3931,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -3940,7 +3940,7 @@ LoadedCheerio {
           margin: calc(22.875pt + 1px * 0.5) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3949,7 +3949,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -3957,11 +3957,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -4012,7 +4012,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "divider ",
+          "class": "nextui-divider ",
           "role": "separator",
         },
         "children": Array [
@@ -4021,7 +4021,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -4030,7 +4030,7 @@ LoadedCheerio {
           margin: calc(22.875pt + 1px * 0.5) 0;
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -4039,7 +4039,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -4047,11 +4047,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;
@@ -4079,7 +4079,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "divider ",
+            "class": "nextui-divider ",
             "role": "separator",
           },
           "children": Array [
@@ -4088,7 +4088,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .divider {
+        .nextui-divider {
           width: auto;
           width: 100%;
           max-width: 100%;
@@ -4097,7 +4097,7 @@ LoadedCheerio {
           margin: calc(15.25pt + 1px * 0) calc(22.875pt + 1px * 0.5);
           position: relative;
         }
-        .text {
+        .nextui-divider-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -4106,7 +4106,7 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 20px;
+          padding: 0 1.25rem;
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
@@ -4114,11 +4114,11 @@ LoadedCheerio {
           color: #000;
           z-index: 10;
         }
-        .text.start {
+        .nextui-divider-text.start {
           transform: translateY(-50%);
           left: 7%;
         }
-        .text.end {
+        .nextui-divider-text.end {
           transform: translateY(-50%);
           left: auto;
           right: 7%;

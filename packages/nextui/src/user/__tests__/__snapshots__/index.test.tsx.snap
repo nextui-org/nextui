@@ -12,19 +12,20 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "avatar only-text-avatar",
+              "class": "nextui-avatar only-text-avatar",
+              "data-state": "loading",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "avatar-bg",
+                  "class": "nextui-avatar-bg",
                 },
                 "children": Array [],
                 "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "avatar-text",
+                    "class": "nextui-avatar-text",
                   },
                   "children": Array [
                     Node {
@@ -42,7 +43,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -60,7 +61,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -71,13 +72,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -88,13 +89,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -105,7 +106,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -115,14 +116,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -163,7 +164,7 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "avatar-text",
+                  "class": "nextui-avatar-text",
                 },
                 "children": Array [
                   Node {
@@ -181,7 +182,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -199,7 +200,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -210,13 +211,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -227,13 +228,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -244,7 +245,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -254,14 +255,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -283,7 +284,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "avatar-bg",
+                    "class": "nextui-avatar-bg",
                   },
                   "children": Array [],
                   "name": "span",
@@ -312,7 +313,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -330,7 +331,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -341,13 +342,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -358,13 +359,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -375,7 +376,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -385,14 +386,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -408,7 +409,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "avatar-text",
+                    "class": "nextui-avatar-text",
                   },
                   "children": Array [
                     Node {
@@ -425,7 +426,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
@@ -557,14 +558,14 @@ LoadedCheerio {
                     "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -620,9 +621,11 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
             },
           },
           Node {
@@ -726,14 +729,14 @@ LoadedCheerio {
                   "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -777,19 +780,20 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "avatar only-text-avatar",
+                "class": "nextui-avatar only-text-avatar",
+                "data-state": "loading",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "avatar-bg",
+                    "class": "nextui-avatar-bg",
                   },
                   "children": Array [],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "avatar-text",
+                      "class": "nextui-avatar-text",
                     },
                     "children": Array [
                       Node {
@@ -807,7 +811,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -825,7 +829,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -836,13 +840,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -853,13 +857,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -870,7 +874,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -880,14 +884,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -928,7 +932,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "avatar-text",
+                    "class": "nextui-avatar-text",
                   },
                   "children": Array [
                     Node {
@@ -946,7 +950,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -964,7 +968,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -975,13 +979,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -992,13 +996,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1009,7 +1013,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1019,14 +1023,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1048,7 +1052,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1077,7 +1081,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -1095,7 +1099,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1106,13 +1110,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1123,13 +1127,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1140,7 +1144,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1150,14 +1154,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1173,7 +1177,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-text",
+                      "class": "nextui-avatar-text",
                     },
                     "children": Array [
                       Node {
@@ -1190,7 +1194,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
@@ -1227,9 +1231,11 @@ LoadedCheerio {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
             },
             "type": "tag",
@@ -1247,14 +1253,14 @@ LoadedCheerio {
                 "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -1388,19 +1394,20 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "avatar only-text-avatar",
+                  "class": "nextui-avatar only-text-avatar",
+                  "data-state": "loading",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "avatar-text",
+                        "class": "nextui-avatar-text",
                       },
                       "children": Array [
                         Node {
@@ -1418,7 +1425,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -1436,7 +1443,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1447,13 +1454,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1464,13 +1471,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1481,7 +1488,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1491,14 +1498,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1539,7 +1546,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "avatar-text",
+                      "class": "nextui-avatar-text",
                     },
                     "children": Array [
                       Node {
@@ -1557,7 +1564,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -1575,7 +1582,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1586,13 +1593,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1603,13 +1610,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1620,7 +1627,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1630,14 +1637,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1659,7 +1666,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
@@ -1688,7 +1695,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -1706,7 +1713,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1717,13 +1724,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1734,13 +1741,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1751,7 +1758,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1761,14 +1768,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1784,7 +1791,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-text",
+                        "class": "nextui-avatar-text",
                       },
                       "children": Array [
                         Node {
@@ -1801,7 +1808,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "avatar-bg",
+                          "class": "nextui-avatar-bg",
                         },
                         "children": Array [],
                         "name": "span",
@@ -1838,9 +1845,11 @@ LoadedCheerio {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
               },
               "type": "tag",
@@ -1865,19 +1874,21 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "avatar",
+                "class": "nextui-avatar",
+                "data-state": "loading",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "avatar-bg",
+                    "class": "nextui-avatar-bg",
                   },
                   "children": Array [],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "avatar-img",
+                      "class": "nextui-avatar-img",
+                      "data-state": "loading",
                       "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                     },
                     "children": Array [],
@@ -1888,7 +1899,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -1906,7 +1917,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -1917,13 +1928,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -1934,13 +1945,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -1951,7 +1962,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -1961,14 +1972,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -1992,10 +2003,12 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                   },
@@ -2011,7 +2024,8 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "avatar-img",
+                    "class": "nextui-avatar-img",
+                    "data-state": "loading",
                     "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                   },
                   "children": Array [],
@@ -2022,7 +2036,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -2040,7 +2054,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2051,13 +2065,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2068,13 +2082,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2085,7 +2099,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2095,14 +2109,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -2124,7 +2138,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
@@ -2143,10 +2157,12 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
+                    "data-state": undefined,
                     "src": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
+                    "data-state": undefined,
                     "src": undefined,
                   },
                 },
@@ -2155,7 +2171,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -2173,7 +2189,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2184,13 +2200,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2201,13 +2217,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2218,7 +2234,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2228,14 +2244,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -2251,7 +2267,8 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-img",
+                      "class": "nextui-avatar-img",
+                      "data-state": "loading",
                       "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                     },
                     "children": Array [],
@@ -2261,7 +2278,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
@@ -2280,10 +2297,12 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                   },
@@ -2395,14 +2414,14 @@ LoadedCheerio {
                       "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -2458,9 +2477,11 @@ LoadedCheerio {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
             },
             Node {
@@ -2564,14 +2585,14 @@ LoadedCheerio {
                     "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -2615,19 +2636,21 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "avatar",
+                  "class": "nextui-avatar",
+                  "data-state": "loading",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "avatar-img",
+                        "class": "nextui-avatar-img",
+                        "data-state": "loading",
                         "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                       },
                       "children": Array [],
@@ -2638,7 +2661,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -2656,7 +2679,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2667,13 +2690,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2684,13 +2707,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2701,7 +2724,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2711,14 +2734,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -2742,10 +2765,12 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                     },
@@ -2761,7 +2786,8 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "avatar-img",
+                      "class": "nextui-avatar-img",
+                      "data-state": "loading",
                       "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                     },
                     "children": Array [],
@@ -2772,7 +2798,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -2790,7 +2816,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2801,13 +2827,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2818,13 +2844,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2835,7 +2861,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2845,14 +2871,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -2874,7 +2900,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
@@ -2893,10 +2919,12 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                   },
@@ -2905,7 +2933,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -2923,7 +2951,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -2934,13 +2962,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -2951,13 +2979,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -2968,7 +2996,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -2978,14 +3006,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -3001,7 +3029,8 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-img",
+                        "class": "nextui-avatar-img",
+                        "data-state": "loading",
                         "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                       },
                       "children": Array [],
@@ -3011,7 +3040,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "avatar-bg",
+                          "class": "nextui-avatar-bg",
                         },
                         "children": Array [],
                         "name": "span",
@@ -3030,10 +3059,12 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                     },
@@ -3050,9 +3081,11 @@ LoadedCheerio {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
               },
               "type": "tag",
@@ -3070,14 +3103,14 @@ LoadedCheerio {
                   "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -3211,19 +3244,21 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "avatar",
+                    "class": "nextui-avatar",
+                    "data-state": "loading",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Node {
                         "attribs": Object {
-                          "class": "avatar-img",
+                          "class": "nextui-avatar-img",
+                          "data-state": "loading",
                           "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                         },
                         "children": Array [],
@@ -3234,7 +3269,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -3252,7 +3287,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -3263,13 +3298,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -3280,13 +3315,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3297,7 +3332,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -3307,14 +3342,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -3338,10 +3373,12 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "data-state": undefined,
                           "src": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "data-state": undefined,
                           "src": undefined,
                         },
                       },
@@ -3357,7 +3394,8 @@ LoadedCheerio {
                     },
                     Node {
                       "attribs": Object {
-                        "class": "avatar-img",
+                        "class": "nextui-avatar-img",
+                        "data-state": "loading",
                         "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                       },
                       "children": Array [],
@@ -3368,7 +3406,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -3386,7 +3424,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -3397,13 +3435,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -3414,13 +3452,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3431,7 +3469,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -3441,14 +3479,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -3470,7 +3508,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "avatar-bg",
+                          "class": "nextui-avatar-bg",
                         },
                         "children": Array [],
                         "name": "span",
@@ -3489,10 +3527,12 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                     },
@@ -3501,7 +3541,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -3519,7 +3559,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -3530,13 +3570,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -3547,13 +3587,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3564,7 +3604,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -3574,14 +3614,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -3597,7 +3637,8 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "avatar-img",
+                          "class": "nextui-avatar-img",
+                          "data-state": "loading",
                           "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                         },
                         "children": Array [],
@@ -3607,7 +3648,7 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
-                            "class": "avatar-bg",
+                            "class": "nextui-avatar-bg",
                           },
                           "children": Array [],
                           "name": "span",
@@ -3626,10 +3667,12 @@ LoadedCheerio {
                         "type": "tag",
                         "x-attribsNamespace": Object {
                           "class": undefined,
+                          "data-state": undefined,
                           "src": undefined,
                         },
                         "x-attribsPrefix": Object {
                           "class": undefined,
+                          "data-state": undefined,
                           "src": undefined,
                         },
                       },
@@ -3646,9 +3689,11 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
+                    "data-state": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
+                    "data-state": undefined,
                   },
                 },
                 "type": "tag",
@@ -3694,19 +3739,21 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "avatar",
+              "class": "nextui-avatar",
+              "data-state": "loading",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "avatar-bg",
+                  "class": "nextui-avatar-bg",
                 },
                 "children": Array [],
                 "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "avatar-img",
+                    "class": "nextui-avatar-img",
+                    "data-state": "loading",
                     "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                   },
                   "children": Array [],
@@ -3717,7 +3764,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -3735,7 +3782,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -3746,13 +3793,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -3763,13 +3810,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3780,7 +3827,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -3790,14 +3837,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -3821,10 +3868,12 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
+                    "data-state": undefined,
                     "src": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
+                    "data-state": undefined,
                     "src": undefined,
                   },
                 },
@@ -3840,7 +3889,8 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "avatar-img",
+                  "class": "nextui-avatar-img",
+                  "data-state": "loading",
                   "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                 },
                 "children": Array [],
@@ -3851,7 +3901,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -3869,7 +3919,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -3880,13 +3930,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -3897,13 +3947,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -3914,7 +3964,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -3924,14 +3974,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -3953,7 +4003,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "avatar-bg",
+                    "class": "nextui-avatar-bg",
                   },
                   "children": Array [],
                   "name": "span",
@@ -3972,10 +4022,12 @@ LoadedCheerio {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "data-state": undefined,
                   "src": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "data-state": undefined,
                   "src": undefined,
                 },
               },
@@ -3984,7 +4036,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -4002,7 +4054,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -4013,13 +4065,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -4030,13 +4082,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -4047,7 +4099,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -4057,14 +4109,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -4080,7 +4132,8 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "avatar-img",
+                    "class": "nextui-avatar-img",
+                    "data-state": "loading",
                     "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                   },
                   "children": Array [],
@@ -4090,7 +4143,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
@@ -4109,10 +4162,12 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
+                    "data-state": undefined,
                     "src": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
+                    "data-state": undefined,
                     "src": undefined,
                   },
                 },
@@ -4224,14 +4279,14 @@ LoadedCheerio {
                     "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -4287,9 +4342,11 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
             },
           },
           Node {
@@ -4393,14 +4450,14 @@ LoadedCheerio {
                   "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -4444,19 +4501,21 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "avatar",
+                "class": "nextui-avatar",
+                "data-state": "loading",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "avatar-bg",
+                    "class": "nextui-avatar-bg",
                   },
                   "children": Array [],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "avatar-img",
+                      "class": "nextui-avatar-img",
+                      "data-state": "loading",
                       "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                     },
                     "children": Array [],
@@ -4467,7 +4526,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -4485,7 +4544,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -4496,13 +4555,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -4513,13 +4572,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -4530,7 +4589,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -4540,14 +4599,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -4571,10 +4630,12 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                   },
@@ -4590,7 +4651,8 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "avatar-img",
+                    "class": "nextui-avatar-img",
+                    "data-state": "loading",
                     "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                   },
                   "children": Array [],
@@ -4601,7 +4663,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -4619,7 +4681,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -4630,13 +4692,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -4647,13 +4709,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -4664,7 +4726,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -4674,14 +4736,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -4703,7 +4765,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
@@ -4722,10 +4784,12 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
+                    "data-state": undefined,
                     "src": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
+                    "data-state": undefined,
                     "src": undefined,
                   },
                 },
@@ -4734,7 +4798,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -4752,7 +4816,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -4763,13 +4827,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -4780,13 +4844,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -4797,7 +4861,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -4807,14 +4871,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -4830,7 +4894,8 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-img",
+                      "class": "nextui-avatar-img",
+                      "data-state": "loading",
                       "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                     },
                     "children": Array [],
@@ -4840,7 +4905,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
@@ -4859,10 +4924,12 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                   },
@@ -4879,9 +4946,11 @@ LoadedCheerio {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
             },
             "type": "tag",
@@ -4899,14 +4968,14 @@ LoadedCheerio {
                 "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -5040,19 +5109,21 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "avatar",
+                  "class": "nextui-avatar",
+                  "data-state": "loading",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "avatar-img",
+                        "class": "nextui-avatar-img",
+                        "data-state": "loading",
                         "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                       },
                       "children": Array [],
@@ -5063,7 +5134,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -5081,7 +5152,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -5092,13 +5163,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -5109,13 +5180,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -5126,7 +5197,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -5136,14 +5207,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -5167,10 +5238,12 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                     },
@@ -5186,7 +5259,8 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "avatar-img",
+                      "class": "nextui-avatar-img",
+                      "data-state": "loading",
                       "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                     },
                     "children": Array [],
@@ -5197,7 +5271,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -5215,7 +5289,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -5226,13 +5300,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -5243,13 +5317,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -5260,7 +5334,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -5270,14 +5344,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -5299,7 +5373,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
@@ -5318,10 +5392,12 @@ LoadedCheerio {
                     "type": "tag",
                     "x-attribsNamespace": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                     "x-attribsPrefix": Object {
                       "class": undefined,
+                      "data-state": undefined,
                       "src": undefined,
                     },
                   },
@@ -5330,7 +5406,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -5348,7 +5424,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -5359,13 +5435,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -5376,13 +5452,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -5393,7 +5469,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -5403,14 +5479,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -5426,7 +5502,8 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-img",
+                        "class": "nextui-avatar-img",
+                        "data-state": "loading",
                         "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
                       },
                       "children": Array [],
@@ -5436,7 +5513,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "avatar-bg",
+                          "class": "nextui-avatar-bg",
                         },
                         "children": Array [],
                         "name": "span",
@@ -5455,10 +5532,12 @@ LoadedCheerio {
                       "type": "tag",
                       "x-attribsNamespace": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                       "x-attribsPrefix": Object {
                         "class": undefined,
+                        "data-state": undefined,
                         "src": undefined,
                       },
                     },
@@ -5475,9 +5554,11 @@ LoadedCheerio {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
               },
               "type": "tag",
@@ -5504,19 +5585,20 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "avatar only-text-avatar",
+                "class": "nextui-avatar only-text-avatar",
+                "data-state": "loading",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "avatar-bg",
+                    "class": "nextui-avatar-bg",
                   },
                   "children": Array [],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "avatar-text",
+                      "class": "nextui-avatar-text",
                     },
                     "children": Array [
                       Node {
@@ -5534,7 +5616,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -5552,7 +5634,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -5563,13 +5645,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -5580,13 +5662,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -5597,7 +5679,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -5607,14 +5689,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -5655,7 +5737,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "avatar-text",
+                    "class": "nextui-avatar-text",
                   },
                   "children": Array [
                     Node {
@@ -5673,7 +5755,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -5691,7 +5773,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -5702,13 +5784,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -5719,13 +5801,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -5736,7 +5818,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -5746,14 +5828,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -5775,7 +5857,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
@@ -5804,7 +5886,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -5822,7 +5904,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -5833,13 +5915,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -5850,13 +5932,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -5867,7 +5949,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -5877,14 +5959,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -5900,7 +5982,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "avatar-text",
+                      "class": "nextui-avatar-text",
                     },
                     "children": Array [
                       Node {
@@ -5917,7 +5999,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
@@ -6049,14 +6131,14 @@ LoadedCheerio {
                       "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -6112,9 +6194,11 @@ LoadedCheerio {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "data-state": undefined,
               },
             },
             Node {
@@ -6218,14 +6302,14 @@ LoadedCheerio {
                     "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -6269,19 +6353,20 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "avatar only-text-avatar",
+                  "class": "nextui-avatar only-text-avatar",
+                  "data-state": "loading",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "avatar-bg",
+                      "class": "nextui-avatar-bg",
                     },
                     "children": Array [],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "avatar-text",
+                        "class": "nextui-avatar-text",
                       },
                       "children": Array [
                         Node {
@@ -6299,7 +6384,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -6317,7 +6402,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -6328,13 +6413,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -6345,13 +6430,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -6362,7 +6447,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -6372,14 +6457,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -6420,7 +6505,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "avatar-text",
+                      "class": "nextui-avatar-text",
                     },
                     "children": Array [
                       Node {
@@ -6438,7 +6523,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -6456,7 +6541,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -6467,13 +6552,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -6484,13 +6569,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -6501,7 +6586,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -6511,14 +6596,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -6540,7 +6625,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
@@ -6569,7 +6654,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -6587,7 +6672,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -6598,13 +6683,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -6615,13 +6700,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -6632,7 +6717,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -6642,14 +6727,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -6665,7 +6750,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "avatar-text",
+                        "class": "nextui-avatar-text",
                       },
                       "children": Array [
                         Node {
@@ -6682,7 +6767,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "avatar-bg",
+                          "class": "nextui-avatar-bg",
                         },
                         "children": Array [],
                         "name": "span",
@@ -6719,9 +6804,11 @@ LoadedCheerio {
                 "type": "tag",
                 "x-attribsNamespace": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
                 "x-attribsPrefix": Object {
                   "class": undefined,
+                  "data-state": undefined,
                 },
               },
               "type": "tag",
@@ -6739,14 +6826,14 @@ LoadedCheerio {
                   "data": "
         .user {
           display: inline-flex;
-          padding: 0 12px;
+          padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
         }
         .names {
-          margin-left: 12px;
+          margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
@@ -6880,19 +6967,20 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "avatar only-text-avatar",
+                    "class": "nextui-avatar only-text-avatar",
+                    "data-state": "loading",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "avatar-bg",
+                        "class": "nextui-avatar-bg",
                       },
                       "children": Array [],
                       "name": "span",
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Node {
                         "attribs": Object {
-                          "class": "avatar-text",
+                          "class": "nextui-avatar-text",
                         },
                         "children": Array [
                           Node {
@@ -6910,7 +6998,7 @@ LoadedCheerio {
                           "children": Array [
                             Node {
                               "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -6928,7 +7016,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -6939,13 +7027,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -6956,13 +7044,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -6973,7 +7061,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -6983,14 +7071,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -7031,7 +7119,7 @@ LoadedCheerio {
                     },
                     Node {
                       "attribs": Object {
-                        "class": "avatar-text",
+                        "class": "nextui-avatar-text",
                       },
                       "children": Array [
                         Node {
@@ -7049,7 +7137,7 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -7067,7 +7155,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -7078,13 +7166,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -7095,13 +7183,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -7112,7 +7200,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -7122,14 +7210,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -7151,7 +7239,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "avatar-bg",
+                          "class": "nextui-avatar-bg",
                         },
                         "children": Array [],
                         "name": "span",
@@ -7180,7 +7268,7 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "data": "
-        .avatar {
+        .nextui-avatar {
           position: relative;
           z-index: 1;
           min-width: 32px;
@@ -7198,7 +7286,7 @@ LoadedCheerio {
           margin: 0 0 0 0;
           transition: all 0.25s ease;
         }
-        .avatar-bg {
+        .nextui-avatar-bg {
           position: absolute;
           top: 0;
           left: 0;
@@ -7209,13 +7297,13 @@ LoadedCheerio {
           background: #eaeaea;
           transition: all 0.25s ease;
         }
-        .avatar.bordered {
+        .nextui-avatar.nextui-avatar-bordered {
           padding: 2px;
         }
-        .avatar:first-child {
+        .nextui-avatar:first-child {
           margin: 0;
         }
-        .avatar-img {
+        .nextui-avatar-img {
           z-index: 99;
           opacity: 0;
           display: flex;
@@ -7226,13 +7314,13 @@ LoadedCheerio {
           height: 100%;
           object-fit: cover;
         }
-        .avatar-ready {
+        .nextui-avatar-ready {
           opacity: 1;
         }
-        .bordered .avatar-img {
+        .nextui-avatar-bordered .nextui-avatar-img {
           border: 2px solid #fff;
         }
-        .avatar-text {
+        .nextui-avatar-text {
           position: absolute;
           left: 50%;
           top: 50%;
@@ -7243,7 +7331,7 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .icon {
+        .nextui-avatar-icon {
           display: flex;
           position: absolute;
           left: 50%;
@@ -7253,14 +7341,14 @@ LoadedCheerio {
           white-space: nowrap;
           user-select: none;
         }
-        .bordered:hover .avatar-bg {
+        .nextui-avatar-bordered:hover .nextui-avatar-bg {
           background: #eaeaea;
           filter: none;
         }
-        .avatar:hover .avatar-img {
+        .nextui-avatar:hover .nextui-avatar-img {
           transform: false;
         }
-        .avatar:hover .avatar-bg {
+        .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
       ",
@@ -7276,7 +7364,7 @@ LoadedCheerio {
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
-                          "class": "avatar-text",
+                          "class": "nextui-avatar-text",
                         },
                         "children": Array [
                           Node {
@@ -7293,7 +7381,7 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": Node {
                           "attribs": Object {
-                            "class": "avatar-bg",
+                            "class": "nextui-avatar-bg",
                           },
                           "children": Array [],
                           "name": "span",
@@ -7330,9 +7418,11 @@ LoadedCheerio {
                   "type": "tag",
                   "x-attribsNamespace": Object {
                     "class": undefined,
+                    "data-state": undefined,
                   },
                   "x-attribsPrefix": Object {
                     "class": undefined,
+                    "data-state": undefined,
                   },
                 },
                 "type": "tag",

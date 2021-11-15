@@ -14,16 +14,18 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "nextui-collapse mock",
+          "data-state": "closed",
           "tabindex": "0",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-qmol5r7h",
+              "aria-controls": "nextui-collapse-s1strkhv",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-collapse-view nextui-collapse-animated",
-              "id": "nextui-collapse-button-qmol5r7h",
+              "data-state": "closed",
+              "id": "nextui-collapse-button-s1strkhv",
               "role": "button",
               "tabindex": "-1",
             },
@@ -316,9 +318,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                        "aria-labelledby": "nextui-collapse-button-s1strkhv",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-qmol5r7h",
+                        "id": "nextui-collapse-s1strkhv",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -439,9 +441,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qmol5r7h",
+                          "id": "nextui-collapse-s1strkhv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -625,6 +627,7 @@ LoadedCheerio {
               "aria-disabled": undefined,
               "aria-expanded": undefined,
               "class": undefined,
+              "data-state": undefined,
               "id": undefined,
               "role": undefined,
               "tabindex": undefined,
@@ -634,6 +637,7 @@ LoadedCheerio {
               "aria-disabled": undefined,
               "aria-expanded": undefined,
               "class": undefined,
+              "data-state": undefined,
               "id": undefined,
               "role": undefined,
               "tabindex": undefined,
@@ -651,9 +655,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                      "aria-labelledby": "nextui-collapse-button-s1strkhv",
                       "class": "nextui-collapse-content",
-                      "id": "nextui-collapse-qmol5r7h",
+                      "id": "nextui-collapse-s1strkhv",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -774,9 +778,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                        "aria-labelledby": "nextui-collapse-button-s1strkhv",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-qmol5r7h",
+                        "id": "nextui-collapse-s1strkhv",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -945,11 +949,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-qmol5r7h",
+                "aria-controls": "nextui-collapse-s1strkhv",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-qmol5r7h",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-s1strkhv",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -1239,6 +1244,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -1248,6 +1254,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -1379,9 +1386,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                        "aria-labelledby": "nextui-collapse-button-s1strkhv",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-qmol5r7h",
+                        "id": "nextui-collapse-s1strkhv",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -1502,9 +1509,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qmol5r7h",
+                          "id": "nextui-collapse-s1strkhv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -1563,11 +1570,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-qmol5r7h",
+                  "aria-controls": "nextui-collapse-s1strkhv",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-qmol5r7h",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-s1strkhv",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -1857,6 +1865,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -1866,6 +1875,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -1889,16 +1899,18 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "nextui-collapse mock",
+            "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-ec7fr85h",
+                "aria-controls": "nextui-collapse-48crv27m",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-ec7fr85h",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-48crv27m",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -2191,9 +2203,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                          "aria-labelledby": "nextui-collapse-button-48crv27m",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-ec7fr85h",
+                          "id": "nextui-collapse-48crv27m",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -2314,9 +2326,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                            "aria-labelledby": "nextui-collapse-button-48crv27m",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-ec7fr85h",
+                            "id": "nextui-collapse-48crv27m",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -2500,6 +2512,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -2509,6 +2522,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -2526,9 +2540,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                        "aria-labelledby": "nextui-collapse-button-48crv27m",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-ec7fr85h",
+                        "id": "nextui-collapse-48crv27m",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -2649,9 +2663,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                          "aria-labelledby": "nextui-collapse-button-48crv27m",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-ec7fr85h",
+                          "id": "nextui-collapse-48crv27m",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -2820,11 +2834,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-ec7fr85h",
+                  "aria-controls": "nextui-collapse-48crv27m",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-ec7fr85h",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-48crv27m",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -3114,6 +3129,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -3123,6 +3139,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -3254,9 +3271,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                          "aria-labelledby": "nextui-collapse-button-48crv27m",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-ec7fr85h",
+                          "id": "nextui-collapse-48crv27m",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -3377,9 +3394,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                            "aria-labelledby": "nextui-collapse-button-48crv27m",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-ec7fr85h",
+                            "id": "nextui-collapse-48crv27m",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -3438,11 +3455,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-ec7fr85h",
+                    "aria-controls": "nextui-collapse-48crv27m",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
-                    "id": "nextui-collapse-button-ec7fr85h",
+                    "data-state": "closed",
+                    "id": "nextui-collapse-button-48crv27m",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -3732,6 +3750,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -3741,6 +3760,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -3820,10 +3840,12 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
         },
@@ -3832,26 +3854,30 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
           "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
           "tabindex": undefined,
         },
       },
       Node {
         "attribs": Object {
           "class": "nextui-collapse mock",
+          "data-state": "closed",
           "tabindex": "0",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-ec7fr85h",
+              "aria-controls": "nextui-collapse-48crv27m",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-collapse-view nextui-collapse-animated",
-              "id": "nextui-collapse-button-ec7fr85h",
+              "data-state": "closed",
+              "id": "nextui-collapse-button-48crv27m",
               "role": "button",
               "tabindex": "-1",
             },
@@ -4144,9 +4170,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                        "aria-labelledby": "nextui-collapse-button-48crv27m",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-ec7fr85h",
+                        "id": "nextui-collapse-48crv27m",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -4267,9 +4293,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                          "aria-labelledby": "nextui-collapse-button-48crv27m",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-ec7fr85h",
+                          "id": "nextui-collapse-48crv27m",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -4453,6 +4479,7 @@ LoadedCheerio {
               "aria-disabled": undefined,
               "aria-expanded": undefined,
               "class": undefined,
+              "data-state": undefined,
               "id": undefined,
               "role": undefined,
               "tabindex": undefined,
@@ -4462,6 +4489,7 @@ LoadedCheerio {
               "aria-disabled": undefined,
               "aria-expanded": undefined,
               "class": undefined,
+              "data-state": undefined,
               "id": undefined,
               "role": undefined,
               "tabindex": undefined,
@@ -4479,9 +4507,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                      "aria-labelledby": "nextui-collapse-button-48crv27m",
                       "class": "nextui-collapse-content",
-                      "id": "nextui-collapse-ec7fr85h",
+                      "id": "nextui-collapse-48crv27m",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -4602,9 +4630,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                        "aria-labelledby": "nextui-collapse-button-48crv27m",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-ec7fr85h",
+                        "id": "nextui-collapse-48crv27m",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -4773,11 +4801,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-ec7fr85h",
+                "aria-controls": "nextui-collapse-48crv27m",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-ec7fr85h",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-48crv27m",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -5067,6 +5096,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -5076,6 +5106,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -5207,9 +5238,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                        "aria-labelledby": "nextui-collapse-button-48crv27m",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-ec7fr85h",
+                        "id": "nextui-collapse-48crv27m",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -5330,9 +5361,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                          "aria-labelledby": "nextui-collapse-button-48crv27m",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-ec7fr85h",
+                          "id": "nextui-collapse-48crv27m",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -5391,11 +5422,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-ec7fr85h",
+                  "aria-controls": "nextui-collapse-48crv27m",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-ec7fr85h",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-48crv27m",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -5685,6 +5717,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -5694,6 +5727,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -5772,16 +5806,18 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "nextui-collapse mock",
+            "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-qmol5r7h",
+                "aria-controls": "nextui-collapse-s1strkhv",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-qmol5r7h",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-s1strkhv",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -6074,9 +6110,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qmol5r7h",
+                          "id": "nextui-collapse-s1strkhv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -6197,9 +6233,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qmol5r7h",
+                            "id": "nextui-collapse-s1strkhv",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -6383,6 +6419,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -6392,6 +6429,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -6409,9 +6447,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                        "aria-labelledby": "nextui-collapse-button-s1strkhv",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-qmol5r7h",
+                        "id": "nextui-collapse-s1strkhv",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -6532,9 +6570,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qmol5r7h",
+                          "id": "nextui-collapse-s1strkhv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -6703,11 +6741,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-qmol5r7h",
+                  "aria-controls": "nextui-collapse-s1strkhv",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-qmol5r7h",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-s1strkhv",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -6997,6 +7036,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -7006,6 +7046,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -7137,9 +7178,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qmol5r7h",
+                          "id": "nextui-collapse-s1strkhv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -7260,9 +7301,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qmol5r7h",
+                            "id": "nextui-collapse-s1strkhv",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -7321,11 +7362,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-qmol5r7h",
+                    "aria-controls": "nextui-collapse-s1strkhv",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
-                    "id": "nextui-collapse-button-qmol5r7h",
+                    "data-state": "closed",
+                    "id": "nextui-collapse-button-s1strkhv",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -7615,6 +7657,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -7624,6 +7667,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -7650,20 +7694,24 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
           "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
           "tabindex": undefined,
         },
       },
@@ -7719,16 +7767,18 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "nextui-collapse mock",
+            "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-ec7fr85h",
+                "aria-controls": "nextui-collapse-48crv27m",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-ec7fr85h",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-48crv27m",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -8021,9 +8071,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                          "aria-labelledby": "nextui-collapse-button-48crv27m",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-ec7fr85h",
+                          "id": "nextui-collapse-48crv27m",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -8144,9 +8194,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                            "aria-labelledby": "nextui-collapse-button-48crv27m",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-ec7fr85h",
+                            "id": "nextui-collapse-48crv27m",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -8330,6 +8380,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -8339,6 +8390,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -8356,9 +8408,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                        "aria-labelledby": "nextui-collapse-button-48crv27m",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-ec7fr85h",
+                        "id": "nextui-collapse-48crv27m",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -8479,9 +8531,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                          "aria-labelledby": "nextui-collapse-button-48crv27m",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-ec7fr85h",
+                          "id": "nextui-collapse-48crv27m",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -8650,11 +8702,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-ec7fr85h",
+                  "aria-controls": "nextui-collapse-48crv27m",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-ec7fr85h",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-48crv27m",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -8944,6 +8997,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -8953,6 +9007,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -9084,9 +9139,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                          "aria-labelledby": "nextui-collapse-button-48crv27m",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-ec7fr85h",
+                          "id": "nextui-collapse-48crv27m",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -9207,9 +9262,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-ec7fr85h",
+                            "aria-labelledby": "nextui-collapse-button-48crv27m",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-ec7fr85h",
+                            "id": "nextui-collapse-48crv27m",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -9268,11 +9323,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-ec7fr85h",
+                    "aria-controls": "nextui-collapse-48crv27m",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
-                    "id": "nextui-collapse-button-ec7fr85h",
+                    "data-state": "closed",
+                    "id": "nextui-collapse-button-48crv27m",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -9562,6 +9618,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -9571,6 +9628,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -9596,16 +9654,18 @@ LoadedCheerio {
           "prev": Node {
             "attribs": Object {
               "class": "nextui-collapse mock",
+              "data-state": "closed",
               "tabindex": "0",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-qmol5r7h",
+                  "aria-controls": "nextui-collapse-s1strkhv",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-qmol5r7h",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-s1strkhv",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -9898,9 +9958,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qmol5r7h",
+                            "id": "nextui-collapse-s1strkhv",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -10021,9 +10081,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                              "aria-labelledby": "nextui-collapse-button-s1strkhv",
                               "class": "nextui-collapse-content",
-                              "id": "nextui-collapse-qmol5r7h",
+                              "id": "nextui-collapse-s1strkhv",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -10207,6 +10267,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -10216,6 +10277,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -10233,9 +10295,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qmol5r7h",
+                          "id": "nextui-collapse-s1strkhv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -10356,9 +10418,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qmol5r7h",
+                            "id": "nextui-collapse-s1strkhv",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -10527,11 +10589,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-qmol5r7h",
+                    "aria-controls": "nextui-collapse-s1strkhv",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
-                    "id": "nextui-collapse-button-qmol5r7h",
+                    "data-state": "closed",
+                    "id": "nextui-collapse-button-s1strkhv",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -10821,6 +10884,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -10830,6 +10894,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -10961,9 +11026,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qmol5r7h",
+                            "id": "nextui-collapse-s1strkhv",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -11084,9 +11149,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "nextui-collapse-button-qmol5r7h",
+                              "aria-labelledby": "nextui-collapse-button-s1strkhv",
                               "class": "nextui-collapse-content",
-                              "id": "nextui-collapse-qmol5r7h",
+                              "id": "nextui-collapse-s1strkhv",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -11145,11 +11210,12 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "aria-controls": "nextui-collapse-qmol5r7h",
+                      "aria-controls": "nextui-collapse-s1strkhv",
                       "aria-disabled": "false",
                       "aria-expanded": "false",
                       "class": "nextui-collapse-view nextui-collapse-animated",
-                      "id": "nextui-collapse-button-qmol5r7h",
+                      "data-state": "closed",
+                      "id": "nextui-collapse-button-s1strkhv",
                       "role": "button",
                       "tabindex": "-1",
                     },
@@ -11439,6 +11505,7 @@ LoadedCheerio {
                       "aria-disabled": undefined,
                       "aria-expanded": undefined,
                       "class": undefined,
+                      "data-state": undefined,
                       "id": undefined,
                       "role": undefined,
                       "tabindex": undefined,
@@ -11448,6 +11515,7 @@ LoadedCheerio {
                       "aria-disabled": undefined,
                       "aria-expanded": undefined,
                       "class": undefined,
+                      "data-state": undefined,
                       "id": undefined,
                       "role": undefined,
                       "tabindex": undefined,
@@ -11474,20 +11542,24 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
               "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
               "tabindex": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
         },
@@ -11613,16 +11685,18 @@ LoadedCheerio {
       Node {
         "attribs": Object {
           "class": "nextui-collapse mock",
+          "data-state": "closed",
           "tabindex": "0",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-qkndsa19",
+              "aria-controls": "nextui-collapse-1tula819",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-collapse-view nextui-collapse-animated",
-              "id": "nextui-collapse-button-qkndsa19",
+              "data-state": "closed",
+              "id": "nextui-collapse-button-1tula819",
               "role": "button",
               "tabindex": "-1",
             },
@@ -11915,9 +11989,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                        "aria-labelledby": "nextui-collapse-button-1tula819",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-qkndsa19",
+                        "id": "nextui-collapse-1tula819",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -12038,9 +12112,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                          "aria-labelledby": "nextui-collapse-button-1tula819",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qkndsa19",
+                          "id": "nextui-collapse-1tula819",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -12224,6 +12298,7 @@ LoadedCheerio {
               "aria-disabled": undefined,
               "aria-expanded": undefined,
               "class": undefined,
+              "data-state": undefined,
               "id": undefined,
               "role": undefined,
               "tabindex": undefined,
@@ -12233,6 +12308,7 @@ LoadedCheerio {
               "aria-disabled": undefined,
               "aria-expanded": undefined,
               "class": undefined,
+              "data-state": undefined,
               "id": undefined,
               "role": undefined,
               "tabindex": undefined,
@@ -12250,9 +12326,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                      "aria-labelledby": "nextui-collapse-button-1tula819",
                       "class": "nextui-collapse-content",
-                      "id": "nextui-collapse-qkndsa19",
+                      "id": "nextui-collapse-1tula819",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -12373,9 +12449,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                        "aria-labelledby": "nextui-collapse-button-1tula819",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-qkndsa19",
+                        "id": "nextui-collapse-1tula819",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -12544,11 +12620,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-qkndsa19",
+                "aria-controls": "nextui-collapse-1tula819",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-qkndsa19",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-1tula819",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -12838,6 +12915,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -12847,6 +12925,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -12978,9 +13057,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                        "aria-labelledby": "nextui-collapse-button-1tula819",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-qkndsa19",
+                        "id": "nextui-collapse-1tula819",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -13101,9 +13180,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                          "aria-labelledby": "nextui-collapse-button-1tula819",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qkndsa19",
+                          "id": "nextui-collapse-1tula819",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -13162,11 +13241,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-qkndsa19",
+                  "aria-controls": "nextui-collapse-1tula819",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-qkndsa19",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-1tula819",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -13456,6 +13536,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -13465,6 +13546,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -13488,16 +13570,18 @@ LoadedCheerio {
         "next": Node {
           "attribs": Object {
             "class": "nextui-collapse mock",
+            "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-erjiufae",
+                "aria-controls": "nextui-collapse-0odhk36s",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-erjiufae",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-0odhk36s",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -13790,9 +13874,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-erjiufae",
+                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-erjiufae",
+                          "id": "nextui-collapse-0odhk36s",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -13913,9 +13997,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-erjiufae",
+                            "aria-labelledby": "nextui-collapse-button-0odhk36s",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-erjiufae",
+                            "id": "nextui-collapse-0odhk36s",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -14099,6 +14183,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -14108,6 +14193,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -14125,9 +14211,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-erjiufae",
+                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-erjiufae",
+                        "id": "nextui-collapse-0odhk36s",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -14248,9 +14334,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-erjiufae",
+                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-erjiufae",
+                          "id": "nextui-collapse-0odhk36s",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -14419,11 +14505,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-erjiufae",
+                  "aria-controls": "nextui-collapse-0odhk36s",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-erjiufae",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-0odhk36s",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -14713,6 +14800,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -14722,6 +14810,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -14853,9 +14942,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-erjiufae",
+                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-erjiufae",
+                          "id": "nextui-collapse-0odhk36s",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -14976,9 +15065,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-erjiufae",
+                            "aria-labelledby": "nextui-collapse-button-0odhk36s",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-erjiufae",
+                            "id": "nextui-collapse-0odhk36s",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -15037,11 +15126,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-erjiufae",
+                    "aria-controls": "nextui-collapse-0odhk36s",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
-                    "id": "nextui-collapse-button-erjiufae",
+                    "data-state": "closed",
+                    "id": "nextui-collapse-button-0odhk36s",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -15331,6 +15421,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -15340,6 +15431,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -15419,10 +15511,12 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
         },
@@ -15431,26 +15525,30 @@ LoadedCheerio {
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
           "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
           "tabindex": undefined,
         },
       },
       Node {
         "attribs": Object {
           "class": "nextui-collapse mock",
+          "data-state": "closed",
           "tabindex": "0",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-erjiufae",
+              "aria-controls": "nextui-collapse-0odhk36s",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-collapse-view nextui-collapse-animated",
-              "id": "nextui-collapse-button-erjiufae",
+              "data-state": "closed",
+              "id": "nextui-collapse-button-0odhk36s",
               "role": "button",
               "tabindex": "-1",
             },
@@ -15743,9 +15841,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-erjiufae",
+                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-erjiufae",
+                        "id": "nextui-collapse-0odhk36s",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -15866,9 +15964,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-erjiufae",
+                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-erjiufae",
+                          "id": "nextui-collapse-0odhk36s",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -16052,6 +16150,7 @@ LoadedCheerio {
               "aria-disabled": undefined,
               "aria-expanded": undefined,
               "class": undefined,
+              "data-state": undefined,
               "id": undefined,
               "role": undefined,
               "tabindex": undefined,
@@ -16061,6 +16160,7 @@ LoadedCheerio {
               "aria-disabled": undefined,
               "aria-expanded": undefined,
               "class": undefined,
+              "data-state": undefined,
               "id": undefined,
               "role": undefined,
               "tabindex": undefined,
@@ -16078,9 +16178,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-erjiufae",
+                      "aria-labelledby": "nextui-collapse-button-0odhk36s",
                       "class": "nextui-collapse-content",
-                      "id": "nextui-collapse-erjiufae",
+                      "id": "nextui-collapse-0odhk36s",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -16201,9 +16301,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-erjiufae",
+                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-erjiufae",
+                        "id": "nextui-collapse-0odhk36s",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -16372,11 +16472,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-erjiufae",
+                "aria-controls": "nextui-collapse-0odhk36s",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-erjiufae",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-0odhk36s",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -16666,6 +16767,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -16675,6 +16777,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -16806,9 +16909,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-erjiufae",
+                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-erjiufae",
+                        "id": "nextui-collapse-0odhk36s",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -16929,9 +17032,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-erjiufae",
+                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-erjiufae",
+                          "id": "nextui-collapse-0odhk36s",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -16990,11 +17093,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-erjiufae",
+                  "aria-controls": "nextui-collapse-0odhk36s",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-erjiufae",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-0odhk36s",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -17284,6 +17388,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -17293,6 +17398,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -17371,16 +17477,18 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "nextui-collapse mock",
+            "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-qkndsa19",
+                "aria-controls": "nextui-collapse-1tula819",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-qkndsa19",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-1tula819",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -17673,9 +17781,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                          "aria-labelledby": "nextui-collapse-button-1tula819",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qkndsa19",
+                          "id": "nextui-collapse-1tula819",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -17796,9 +17904,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                            "aria-labelledby": "nextui-collapse-button-1tula819",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qkndsa19",
+                            "id": "nextui-collapse-1tula819",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -17982,6 +18090,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -17991,6 +18100,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -18008,9 +18118,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                        "aria-labelledby": "nextui-collapse-button-1tula819",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-qkndsa19",
+                        "id": "nextui-collapse-1tula819",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -18131,9 +18241,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                          "aria-labelledby": "nextui-collapse-button-1tula819",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qkndsa19",
+                          "id": "nextui-collapse-1tula819",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -18302,11 +18412,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-qkndsa19",
+                  "aria-controls": "nextui-collapse-1tula819",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-qkndsa19",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-1tula819",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -18596,6 +18707,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -18605,6 +18717,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -18736,9 +18849,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                          "aria-labelledby": "nextui-collapse-button-1tula819",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qkndsa19",
+                          "id": "nextui-collapse-1tula819",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -18859,9 +18972,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                            "aria-labelledby": "nextui-collapse-button-1tula819",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qkndsa19",
+                            "id": "nextui-collapse-1tula819",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -18920,11 +19033,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-qkndsa19",
+                    "aria-controls": "nextui-collapse-1tula819",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
-                    "id": "nextui-collapse-button-qkndsa19",
+                    "data-state": "closed",
+                    "id": "nextui-collapse-button-1tula819",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -19214,6 +19328,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -19223,6 +19338,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -19249,20 +19365,24 @@ LoadedCheerio {
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
         },
         "type": "tag",
         "x-attribsNamespace": Object {
           "class": undefined,
+          "data-state": undefined,
           "tabindex": undefined,
         },
         "x-attribsPrefix": Object {
           "class": undefined,
+          "data-state": undefined,
           "tabindex": undefined,
         },
       },
@@ -19318,16 +19438,18 @@ LoadedCheerio {
         "prev": Node {
           "attribs": Object {
             "class": "nextui-collapse mock",
+            "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-erjiufae",
+                "aria-controls": "nextui-collapse-0odhk36s",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
-                "id": "nextui-collapse-button-erjiufae",
+                "data-state": "closed",
+                "id": "nextui-collapse-button-0odhk36s",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -19620,9 +19742,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-erjiufae",
+                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-erjiufae",
+                          "id": "nextui-collapse-0odhk36s",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -19743,9 +19865,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-erjiufae",
+                            "aria-labelledby": "nextui-collapse-button-0odhk36s",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-erjiufae",
+                            "id": "nextui-collapse-0odhk36s",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -19929,6 +20051,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -19938,6 +20061,7 @@ LoadedCheerio {
                 "aria-disabled": undefined,
                 "aria-expanded": undefined,
                 "class": undefined,
+                "data-state": undefined,
                 "id": undefined,
                 "role": undefined,
                 "tabindex": undefined,
@@ -19955,9 +20079,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-erjiufae",
+                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-erjiufae",
+                        "id": "nextui-collapse-0odhk36s",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -20078,9 +20202,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-erjiufae",
+                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-erjiufae",
+                          "id": "nextui-collapse-0odhk36s",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -20249,11 +20373,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-erjiufae",
+                  "aria-controls": "nextui-collapse-0odhk36s",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-erjiufae",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-0odhk36s",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -20543,6 +20668,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -20552,6 +20678,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -20683,9 +20810,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-erjiufae",
+                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-erjiufae",
+                          "id": "nextui-collapse-0odhk36s",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -20806,9 +20933,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-erjiufae",
+                            "aria-labelledby": "nextui-collapse-button-0odhk36s",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-erjiufae",
+                            "id": "nextui-collapse-0odhk36s",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -20867,11 +20994,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-erjiufae",
+                    "aria-controls": "nextui-collapse-0odhk36s",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
-                    "id": "nextui-collapse-button-erjiufae",
+                    "data-state": "closed",
+                    "id": "nextui-collapse-button-0odhk36s",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -21161,6 +21289,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -21170,6 +21299,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -21195,16 +21325,18 @@ LoadedCheerio {
           "prev": Node {
             "attribs": Object {
               "class": "nextui-collapse mock",
+              "data-state": "closed",
               "tabindex": "0",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-qkndsa19",
+                  "aria-controls": "nextui-collapse-1tula819",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
-                  "id": "nextui-collapse-button-qkndsa19",
+                  "data-state": "closed",
+                  "id": "nextui-collapse-button-1tula819",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -21497,9 +21629,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                            "aria-labelledby": "nextui-collapse-button-1tula819",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qkndsa19",
+                            "id": "nextui-collapse-1tula819",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -21620,9 +21752,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                              "aria-labelledby": "nextui-collapse-button-1tula819",
                               "class": "nextui-collapse-content",
-                              "id": "nextui-collapse-qkndsa19",
+                              "id": "nextui-collapse-1tula819",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -21806,6 +21938,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -21815,6 +21948,7 @@ LoadedCheerio {
                   "aria-disabled": undefined,
                   "aria-expanded": undefined,
                   "class": undefined,
+                  "data-state": undefined,
                   "id": undefined,
                   "role": undefined,
                   "tabindex": undefined,
@@ -21832,9 +21966,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                          "aria-labelledby": "nextui-collapse-button-1tula819",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-qkndsa19",
+                          "id": "nextui-collapse-1tula819",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -21955,9 +22089,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                            "aria-labelledby": "nextui-collapse-button-1tula819",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qkndsa19",
+                            "id": "nextui-collapse-1tula819",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -22126,11 +22260,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-qkndsa19",
+                    "aria-controls": "nextui-collapse-1tula819",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
-                    "id": "nextui-collapse-button-qkndsa19",
+                    "data-state": "closed",
+                    "id": "nextui-collapse-button-1tula819",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -22420,6 +22555,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -22429,6 +22565,7 @@ LoadedCheerio {
                     "aria-disabled": undefined,
                     "aria-expanded": undefined,
                     "class": undefined,
+                    "data-state": undefined,
                     "id": undefined,
                     "role": undefined,
                     "tabindex": undefined,
@@ -22560,9 +22697,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                            "aria-labelledby": "nextui-collapse-button-1tula819",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-qkndsa19",
+                            "id": "nextui-collapse-1tula819",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -22683,9 +22820,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "nextui-collapse-button-qkndsa19",
+                              "aria-labelledby": "nextui-collapse-button-1tula819",
                               "class": "nextui-collapse-content",
-                              "id": "nextui-collapse-qkndsa19",
+                              "id": "nextui-collapse-1tula819",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -22744,11 +22881,12 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "aria-controls": "nextui-collapse-qkndsa19",
+                      "aria-controls": "nextui-collapse-1tula819",
                       "aria-disabled": "false",
                       "aria-expanded": "false",
                       "class": "nextui-collapse-view nextui-collapse-animated",
-                      "id": "nextui-collapse-button-qkndsa19",
+                      "data-state": "closed",
+                      "id": "nextui-collapse-button-1tula819",
                       "role": "button",
                       "tabindex": "-1",
                     },
@@ -23038,6 +23176,7 @@ LoadedCheerio {
                       "aria-disabled": undefined,
                       "aria-expanded": undefined,
                       "class": undefined,
+                      "data-state": undefined,
                       "id": undefined,
                       "role": undefined,
                       "tabindex": undefined,
@@ -23047,6 +23186,7 @@ LoadedCheerio {
                       "aria-disabled": undefined,
                       "aria-expanded": undefined,
                       "class": undefined,
+                      "data-state": undefined,
                       "id": undefined,
                       "role": undefined,
                       "tabindex": undefined,
@@ -23073,20 +23213,24 @@ LoadedCheerio {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "data-state": undefined,
               "tabindex": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "data-state": undefined,
               "tabindex": undefined,
             },
           },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
           "x-attribsPrefix": Object {
             "class": undefined,
+            "data-state": undefined,
             "tabindex": undefined,
           },
         },
