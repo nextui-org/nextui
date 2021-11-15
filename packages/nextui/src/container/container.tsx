@@ -8,8 +8,10 @@ import {
   AlignItems,
   AlignContent
 } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 
-interface Props {
+interface Props extends DefaultProps {
   fluid?: boolean;
   gap?: number;
   xs?: boolean;
@@ -68,20 +70,23 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
+
+  const spacingStyles = getSpacingsStyles(theme, props);
+
   const classes = useMemo(() => {
     const aligns: { [key: string]: unknown } = {
-      fluid,
-      xs,
-      sm,
-      md,
-      lg,
-      xl,
-      wrap,
-      display,
-      justify,
-      direction,
-      alignItems,
-      alignContent
+      'nextui-container-fluid': fluid,
+      'nextui-container-xs': xs,
+      'nextui-container-sm': sm,
+      'nextui-container-md': md,
+      'nextui-container-lg': lg,
+      'nextui-container-xl': xl,
+      'nextui-container-wrap': wrap,
+      'nextui-container-display': display,
+      'nextui-container-justify': justify,
+      'nextui-container-direction': direction,
+      'nextui-container-align-items': alignItems,
+      'nextui-container-align-content': alignContent
     };
     const classString = Object.keys(aligns).reduce((pre, name) => {
       if (aligns[name] !== undefined && aligns[name] !== false)
@@ -111,80 +116,80 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
 
   return (
     <Component
-      className={`container ${classes} ${className}`}
-      style={style}
+      className={`nextui-container ${classes} ${className}`}
+      style={{ ...style, ...spacingStyles }}
       {...props}
     >
       {children}
       <style jsx>{`
-        .container {
+        .nextui-container {
           width: 100%;
           margin-right: auto;
           margin-left: auto;
           padding-right: ${gapUnit};
           padding-left: ${gapUnit};
         }
-        .fluid {
+        .nextui-container-fluid {
           max-width: 100% !important;
         }
-        .wrap {
+        .nextui-container-wrap {
           flex-wrap: ${wrap};
         }
-        .display {
+        .nextui-container-display {
           display: ${display};
         }
-        .justify {
+        .nextui-container-justify {
           justify-content: ${justify};
         }
-        .direction {
+        .nextui-container-direction {
           flex-direction: ${direction};
         }
-        .alignContent {
+        .nextui-container-align-content {
           align-content: ${alignContent};
         }
-        .alignItems {
+        .nextui-container-align-items {
           align-items: ${alignItems};
         }
         @media only screen and (min-width: ${theme.breakpoints.xs}) {
-          .container {
+          .nextui-container {
             max-width: ${theme.breakpoints.xs};
           }
-          .sm,
-          .md,
-          .lg,
-          .xl {
+          .nextui-container-sm,
+          .nextui-container-md,
+          .nextui-container-lg,
+          .nextui-container-xl {
             max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.sm}) {
-          .container {
+          .nextui-container {
             max-width: ${theme.breakpoints.sm};
           }
-          .md,
-          .lg,
-          .xl {
+          .nextui-container-md,
+          .nextui-container-lg,
+          .nextui-container-xl {
             max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md}) {
-          .container {
+          .nextui-container {
             max-width: ${theme.breakpoints.md};
           }
-          .lg,
-          .xl {
+          .nextui-container-lg,
+          .nextui-container-xl {
             max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.lg}) {
-          .container {
+          .nextui-container {
             max-width: ${theme.breakpoints.lg};
           }
-          .xl {
+          .nextui-container-xl {
             max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.xl}) {
-          .container {
+          .nextui-container {
             max-width: ${theme.breakpoints.xl};
           }
         }
