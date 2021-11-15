@@ -1,6 +1,6 @@
 import React from 'react';
-import useTheme from '../use-theme';
 import clsx from '../utils/clsx';
+import useTheme from '../use-theme';
 import { DefaultProps } from '../utils/default-props';
 import { getSpacingsStyles } from '../utils/styles';
 import withDefaults from '../utils/with-defaults';

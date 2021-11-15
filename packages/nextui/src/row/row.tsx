@@ -51,7 +51,7 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
           flex-wrap: ${wrap};
           margin-left: calc(${gap} * ${theme.spacing.lg} / 2);
           margin-right: calc(${gap} * ${theme.spacing.lg} / 2);
-          --row-gap: calc(${gap} * ${theme.spacing.lg});
+          --nextui-row-gap: calc(${gap} * ${theme.spacing.lg});
           justify-content: ${justify};
           align-items: ${align};
         }

@@ -9,7 +9,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "col ",
+          "class": "nextui-col ",
         },
         "children": Array [
           Node {
@@ -19,11 +19,11 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .col {
+        .nextui-col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 0%;
         }
@@ -52,11 +52,11 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .col {
+        .nextui-col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 0%;
         }
@@ -87,7 +87,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "col ",
+            "class": "nextui-col ",
           },
           "children": Array [
             Node {
@@ -97,11 +97,11 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .col {
+        .nextui-col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 16.666666666666668%;
         }
@@ -130,11 +130,11 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .col {
+        .nextui-col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 16.666666666666668%;
         }
@@ -186,7 +186,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "col ",
+          "class": "nextui-col ",
         },
         "children": Array [
           Node {
@@ -196,11 +196,11 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .col {
+        .nextui-col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 16.666666666666668%;
         }
@@ -229,11 +229,11 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .col {
+        .nextui-col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 16.666666666666668%;
         }
@@ -266,7 +266,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "col ",
+            "class": "nextui-col ",
           },
           "children": Array [
             Node {
@@ -276,11 +276,11 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .col {
+        .nextui-col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 0%;
         }
@@ -309,11 +309,11 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .col {
+        .nextui-col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 0%;
         }

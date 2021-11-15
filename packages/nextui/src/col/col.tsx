@@ -1,7 +1,10 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
+import useTheme from '../use-theme';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 
-interface Props {
+interface Props extends DefaultProps {
   span?: number;
   offset?: number;
   as?: keyof JSX.IntrinsicElements;
@@ -12,7 +15,7 @@ const defaultProps = {
   span: 12,
   offset: 0,
   as: 'div' as keyof JSX.IntrinsicElements,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -24,19 +27,27 @@ const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
   span,
   offset,
   className,
+  style,
   ...props
 }) => {
   const Component = as;
 
+  const theme = useTheme();
+  const spacingStyles = getSpacingsStyles(theme, props);
+
   return (
-    <Component className={`col ${className}`} {...props}>
+    <Component
+      className={`nextui-col ${className}`}
+      style={{ ...style, ...spacingStyles }}
+      {...props}
+    >
       {children}
       <style jsx>{`
-        .col {
+        .nextui-col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: ${(100 / 12) * span}%;
           margin-left: ${(100 / 12) * offset}%;
         }

@@ -15,11 +15,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-nextui-ikuamhbg",
+              "aria-controls": "collapse-nextui-nstgh6bd",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-nextui-ikuamhbg",
+              "id": "collapse-button-nextui-nstgh6bd",
               "role": "button",
               "tabindex": "-1",
             },
@@ -452,9 +452,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                        "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                         "class": "content",
-                        "id": "collapse-nextui-ikuamhbg",
+                        "id": "collapse-nextui-nstgh6bd",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -575,9 +575,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                          "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                           "class": "content",
-                          "id": "collapse-nextui-ikuamhbg",
+                          "id": "collapse-nextui-nstgh6bd",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -647,10 +647,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -661,7 +661,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -676,7 +677,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -714,7 +715,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -782,9 +783,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                      "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                       "class": "content",
-                      "id": "collapse-nextui-ikuamhbg",
+                      "id": "collapse-nextui-nstgh6bd",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -905,9 +906,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                        "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                         "class": "content",
-                        "id": "collapse-nextui-ikuamhbg",
+                        "id": "collapse-nextui-nstgh6bd",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -977,10 +978,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -991,7 +992,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -1006,7 +1008,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -1044,7 +1046,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -1071,11 +1073,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-ikuamhbg",
+                "aria-controls": "collapse-nextui-nstgh6bd",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-ikuamhbg",
+                "id": "collapse-button-nextui-nstgh6bd",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -1542,10 +1544,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -1556,7 +1558,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -1571,7 +1574,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -1609,7 +1612,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -1640,9 +1643,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                        "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                         "class": "content",
-                        "id": "collapse-nextui-ikuamhbg",
+                        "id": "collapse-nextui-nstgh6bd",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -1763,9 +1766,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                          "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                           "class": "content",
-                          "id": "collapse-nextui-ikuamhbg",
+                          "id": "collapse-nextui-nstgh6bd",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -1824,11 +1827,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-ikuamhbg",
+                  "aria-controls": "collapse-nextui-nstgh6bd",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-ikuamhbg",
+                  "id": "collapse-button-nextui-nstgh6bd",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -2295,11 +2298,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-61nu13ks",
+                "aria-controls": "collapse-nextui-d3l217jv",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-61nu13ks",
+                "id": "collapse-button-nextui-d3l217jv",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -2784,9 +2787,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                          "aria-labelledby": "collapse-button-nextui-d3l217jv",
                           "class": "content",
-                          "id": "collapse-nextui-61nu13ks",
+                          "id": "collapse-nextui-d3l217jv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -2907,9 +2910,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                            "aria-labelledby": "collapse-button-nextui-d3l217jv",
                             "class": "content",
-                            "id": "collapse-nextui-61nu13ks",
+                            "id": "collapse-nextui-d3l217jv",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -2979,10 +2982,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -2993,7 +2996,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -3008,7 +3012,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -3046,7 +3050,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -3114,9 +3118,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                        "aria-labelledby": "collapse-button-nextui-d3l217jv",
                         "class": "content",
-                        "id": "collapse-nextui-61nu13ks",
+                        "id": "collapse-nextui-d3l217jv",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -3237,9 +3241,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                          "aria-labelledby": "collapse-button-nextui-d3l217jv",
                           "class": "content",
-                          "id": "collapse-nextui-61nu13ks",
+                          "id": "collapse-nextui-d3l217jv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -3309,10 +3313,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -3323,7 +3327,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -3338,7 +3343,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -3376,7 +3381,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -3403,11 +3408,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-61nu13ks",
+                  "aria-controls": "collapse-nextui-d3l217jv",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-61nu13ks",
+                  "id": "collapse-button-nextui-d3l217jv",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -3926,10 +3931,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -3940,7 +3945,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -3955,7 +3961,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -3993,7 +3999,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -4024,9 +4030,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                          "aria-labelledby": "collapse-button-nextui-d3l217jv",
                           "class": "content",
-                          "id": "collapse-nextui-61nu13ks",
+                          "id": "collapse-nextui-d3l217jv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -4147,9 +4153,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                            "aria-labelledby": "collapse-button-nextui-d3l217jv",
                             "class": "content",
-                            "id": "collapse-nextui-61nu13ks",
+                            "id": "collapse-nextui-d3l217jv",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -4208,11 +4214,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-nextui-61nu13ks",
+                    "aria-controls": "collapse-nextui-d3l217jv",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-nextui-61nu13ks",
+                    "id": "collapse-button-nextui-d3l217jv",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -4756,11 +4762,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-nextui-61nu13ks",
+              "aria-controls": "collapse-nextui-d3l217jv",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-nextui-61nu13ks",
+              "id": "collapse-button-nextui-d3l217jv",
               "role": "button",
               "tabindex": "-1",
             },
@@ -5245,9 +5251,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                        "aria-labelledby": "collapse-button-nextui-d3l217jv",
                         "class": "content",
-                        "id": "collapse-nextui-61nu13ks",
+                        "id": "collapse-nextui-d3l217jv",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -5368,9 +5374,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                          "aria-labelledby": "collapse-button-nextui-d3l217jv",
                           "class": "content",
-                          "id": "collapse-nextui-61nu13ks",
+                          "id": "collapse-nextui-d3l217jv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -5440,10 +5446,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -5454,7 +5460,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -5469,7 +5476,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -5507,7 +5514,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -5575,9 +5582,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                      "aria-labelledby": "collapse-button-nextui-d3l217jv",
                       "class": "content",
-                      "id": "collapse-nextui-61nu13ks",
+                      "id": "collapse-nextui-d3l217jv",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -5698,9 +5705,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                        "aria-labelledby": "collapse-button-nextui-d3l217jv",
                         "class": "content",
-                        "id": "collapse-nextui-61nu13ks",
+                        "id": "collapse-nextui-d3l217jv",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -5770,10 +5777,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -5784,7 +5791,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -5799,7 +5807,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -5837,7 +5845,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -5864,11 +5872,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-61nu13ks",
+                "aria-controls": "collapse-nextui-d3l217jv",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-61nu13ks",
+                "id": "collapse-button-nextui-d3l217jv",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -6387,10 +6395,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -6401,7 +6409,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -6416,7 +6425,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -6454,7 +6463,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -6485,9 +6494,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                        "aria-labelledby": "collapse-button-nextui-d3l217jv",
                         "class": "content",
-                        "id": "collapse-nextui-61nu13ks",
+                        "id": "collapse-nextui-d3l217jv",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -6608,9 +6617,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-61nu13ks",
+                          "aria-labelledby": "collapse-button-nextui-d3l217jv",
                           "class": "content",
-                          "id": "collapse-nextui-61nu13ks",
+                          "id": "collapse-nextui-d3l217jv",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -6669,11 +6678,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-61nu13ks",
+                  "aria-controls": "collapse-nextui-d3l217jv",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-61nu13ks",
+                  "id": "collapse-button-nextui-d3l217jv",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -7194,11 +7203,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-ikuamhbg",
+                "aria-controls": "collapse-nextui-nstgh6bd",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-ikuamhbg",
+                "id": "collapse-button-nextui-nstgh6bd",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -7631,9 +7640,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                          "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                           "class": "content",
-                          "id": "collapse-nextui-ikuamhbg",
+                          "id": "collapse-nextui-nstgh6bd",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -7754,9 +7763,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                            "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                             "class": "content",
-                            "id": "collapse-nextui-ikuamhbg",
+                            "id": "collapse-nextui-nstgh6bd",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -7826,10 +7835,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -7840,7 +7849,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -7855,7 +7865,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -7893,7 +7903,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -7961,9 +7971,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                        "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                         "class": "content",
-                        "id": "collapse-nextui-ikuamhbg",
+                        "id": "collapse-nextui-nstgh6bd",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -8084,9 +8094,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                          "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                           "class": "content",
-                          "id": "collapse-nextui-ikuamhbg",
+                          "id": "collapse-nextui-nstgh6bd",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -8156,10 +8166,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -8170,7 +8180,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -8185,7 +8196,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -8223,7 +8234,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -8250,11 +8261,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-ikuamhbg",
+                  "aria-controls": "collapse-nextui-nstgh6bd",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-ikuamhbg",
+                  "id": "collapse-button-nextui-nstgh6bd",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -8721,10 +8732,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -8735,7 +8746,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -8750,7 +8762,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -8788,7 +8800,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -8819,9 +8831,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                          "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                           "class": "content",
-                          "id": "collapse-nextui-ikuamhbg",
+                          "id": "collapse-nextui-nstgh6bd",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -8942,9 +8954,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-ikuamhbg",
+                            "aria-labelledby": "collapse-button-nextui-nstgh6bd",
                             "class": "content",
-                            "id": "collapse-nextui-ikuamhbg",
+                            "id": "collapse-nextui-nstgh6bd",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -9003,11 +9015,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-nextui-ikuamhbg",
+                    "aria-controls": "collapse-nextui-nstgh6bd",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-nextui-ikuamhbg",
+                    "id": "collapse-button-nextui-nstgh6bd",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -9606,11 +9618,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-nextui-o6172hj5",
+              "aria-controls": "collapse-nextui-hcfh4aum",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-nextui-o6172hj5",
+              "id": "collapse-button-nextui-hcfh4aum",
               "role": "button",
               "tabindex": "-1",
             },
@@ -10043,9 +10055,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                        "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                         "class": "content",
-                        "id": "collapse-nextui-o6172hj5",
+                        "id": "collapse-nextui-hcfh4aum",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -10166,9 +10178,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                          "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                           "class": "content",
-                          "id": "collapse-nextui-o6172hj5",
+                          "id": "collapse-nextui-hcfh4aum",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -10238,10 +10250,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -10252,7 +10264,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -10267,7 +10280,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -10305,7 +10318,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -10373,9 +10386,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                      "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                       "class": "content",
-                      "id": "collapse-nextui-o6172hj5",
+                      "id": "collapse-nextui-hcfh4aum",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -10496,9 +10509,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                        "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                         "class": "content",
-                        "id": "collapse-nextui-o6172hj5",
+                        "id": "collapse-nextui-hcfh4aum",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -10568,10 +10581,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -10582,7 +10595,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -10597,7 +10611,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -10635,7 +10649,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -10662,11 +10676,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-o6172hj5",
+                "aria-controls": "collapse-nextui-hcfh4aum",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-o6172hj5",
+                "id": "collapse-button-nextui-hcfh4aum",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -11133,10 +11147,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -11147,7 +11161,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -11162,7 +11177,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -11200,7 +11215,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -11231,9 +11246,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                        "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                         "class": "content",
-                        "id": "collapse-nextui-o6172hj5",
+                        "id": "collapse-nextui-hcfh4aum",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -11354,9 +11369,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                          "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                           "class": "content",
-                          "id": "collapse-nextui-o6172hj5",
+                          "id": "collapse-nextui-hcfh4aum",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -11415,11 +11430,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-o6172hj5",
+                  "aria-controls": "collapse-nextui-hcfh4aum",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-o6172hj5",
+                  "id": "collapse-button-nextui-hcfh4aum",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -11886,11 +11901,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-qmcqe29e",
+                "aria-controls": "collapse-nextui-ddhmfe27",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-qmcqe29e",
+                "id": "collapse-button-nextui-ddhmfe27",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -12323,9 +12338,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                          "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                           "class": "content",
-                          "id": "collapse-nextui-qmcqe29e",
+                          "id": "collapse-nextui-ddhmfe27",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -12446,9 +12461,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                            "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                             "class": "content",
-                            "id": "collapse-nextui-qmcqe29e",
+                            "id": "collapse-nextui-ddhmfe27",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -12518,10 +12533,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -12532,7 +12547,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -12547,7 +12563,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -12585,7 +12601,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -12653,9 +12669,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                        "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                         "class": "content",
-                        "id": "collapse-nextui-qmcqe29e",
+                        "id": "collapse-nextui-ddhmfe27",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -12776,9 +12792,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                          "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                           "class": "content",
-                          "id": "collapse-nextui-qmcqe29e",
+                          "id": "collapse-nextui-ddhmfe27",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -12848,10 +12864,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -12862,7 +12878,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -12877,7 +12894,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -12915,7 +12932,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -12942,11 +12959,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-qmcqe29e",
+                  "aria-controls": "collapse-nextui-ddhmfe27",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-qmcqe29e",
+                  "id": "collapse-button-nextui-ddhmfe27",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -13413,10 +13430,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -13427,7 +13444,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -13442,7 +13460,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -13480,7 +13498,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -13511,9 +13529,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                          "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                           "class": "content",
-                          "id": "collapse-nextui-qmcqe29e",
+                          "id": "collapse-nextui-ddhmfe27",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -13634,9 +13652,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                            "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                             "class": "content",
-                            "id": "collapse-nextui-qmcqe29e",
+                            "id": "collapse-nextui-ddhmfe27",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -13695,11 +13713,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-nextui-qmcqe29e",
+                    "aria-controls": "collapse-nextui-ddhmfe27",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-nextui-qmcqe29e",
+                    "id": "collapse-button-nextui-ddhmfe27",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -14191,11 +14209,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-nextui-qmcqe29e",
+              "aria-controls": "collapse-nextui-ddhmfe27",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-nextui-qmcqe29e",
+              "id": "collapse-button-nextui-ddhmfe27",
               "role": "button",
               "tabindex": "-1",
             },
@@ -14628,9 +14646,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                        "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                         "class": "content",
-                        "id": "collapse-nextui-qmcqe29e",
+                        "id": "collapse-nextui-ddhmfe27",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -14751,9 +14769,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                          "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                           "class": "content",
-                          "id": "collapse-nextui-qmcqe29e",
+                          "id": "collapse-nextui-ddhmfe27",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -14823,10 +14841,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -14837,7 +14855,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -14852,7 +14871,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -14890,7 +14909,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -14958,9 +14977,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                      "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                       "class": "content",
-                      "id": "collapse-nextui-qmcqe29e",
+                      "id": "collapse-nextui-ddhmfe27",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -15081,9 +15100,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                        "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                         "class": "content",
-                        "id": "collapse-nextui-qmcqe29e",
+                        "id": "collapse-nextui-ddhmfe27",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -15153,10 +15172,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -15167,7 +15186,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -15182,7 +15202,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -15220,7 +15240,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -15247,11 +15267,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-qmcqe29e",
+                "aria-controls": "collapse-nextui-ddhmfe27",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-qmcqe29e",
+                "id": "collapse-button-nextui-ddhmfe27",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -15718,10 +15738,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -15732,7 +15752,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -15747,7 +15768,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -15785,7 +15806,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -15816,9 +15837,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                        "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                         "class": "content",
-                        "id": "collapse-nextui-qmcqe29e",
+                        "id": "collapse-nextui-ddhmfe27",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -15939,9 +15960,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-qmcqe29e",
+                          "aria-labelledby": "collapse-button-nextui-ddhmfe27",
                           "class": "content",
-                          "id": "collapse-nextui-qmcqe29e",
+                          "id": "collapse-nextui-ddhmfe27",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -16000,11 +16021,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-qmcqe29e",
+                  "aria-controls": "collapse-nextui-ddhmfe27",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-qmcqe29e",
+                  "id": "collapse-button-nextui-ddhmfe27",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -16473,11 +16494,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-o6172hj5",
+                "aria-controls": "collapse-nextui-hcfh4aum",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-o6172hj5",
+                "id": "collapse-button-nextui-hcfh4aum",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -16910,9 +16931,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                          "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                           "class": "content",
-                          "id": "collapse-nextui-o6172hj5",
+                          "id": "collapse-nextui-hcfh4aum",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -17033,9 +17054,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                            "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                             "class": "content",
-                            "id": "collapse-nextui-o6172hj5",
+                            "id": "collapse-nextui-hcfh4aum",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -17105,10 +17126,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -17119,7 +17140,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -17134,7 +17156,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -17172,7 +17194,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -17240,9 +17262,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                        "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                         "class": "content",
-                        "id": "collapse-nextui-o6172hj5",
+                        "id": "collapse-nextui-hcfh4aum",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -17363,9 +17385,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                          "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                           "class": "content",
-                          "id": "collapse-nextui-o6172hj5",
+                          "id": "collapse-nextui-hcfh4aum",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -17435,10 +17457,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -17449,7 +17471,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -17464,7 +17487,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -17502,7 +17525,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -17529,11 +17552,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-o6172hj5",
+                  "aria-controls": "collapse-nextui-hcfh4aum",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-o6172hj5",
+                  "id": "collapse-button-nextui-hcfh4aum",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -18000,10 +18023,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -18014,7 +18037,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -18029,7 +18053,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -18067,7 +18091,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -18098,9 +18122,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                          "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                           "class": "content",
-                          "id": "collapse-nextui-o6172hj5",
+                          "id": "collapse-nextui-hcfh4aum",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -18221,9 +18245,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-o6172hj5",
+                            "aria-labelledby": "collapse-button-nextui-hcfh4aum",
                             "class": "content",
-                            "id": "collapse-nextui-o6172hj5",
+                            "id": "collapse-nextui-hcfh4aum",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -18282,11 +18306,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-nextui-o6172hj5",
+                    "aria-controls": "collapse-nextui-hcfh4aum",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-nextui-o6172hj5",
+                    "id": "collapse-button-nextui-hcfh4aum",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -18885,11 +18909,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-nextui-660liad4",
+              "aria-controls": "collapse-nextui-2godf1u3",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-nextui-660liad4",
+              "id": "collapse-button-nextui-2godf1u3",
               "role": "button",
               "tabindex": "-1",
             },
@@ -19322,9 +19346,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-660liad4",
+                        "aria-labelledby": "collapse-button-nextui-2godf1u3",
                         "class": "content",
-                        "id": "collapse-nextui-660liad4",
+                        "id": "collapse-nextui-2godf1u3",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -19445,9 +19469,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-660liad4",
+                          "aria-labelledby": "collapse-button-nextui-2godf1u3",
                           "class": "content",
-                          "id": "collapse-nextui-660liad4",
+                          "id": "collapse-nextui-2godf1u3",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -19517,10 +19541,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -19531,7 +19555,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -19546,7 +19571,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -19584,7 +19609,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -19652,9 +19677,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-nextui-660liad4",
+                      "aria-labelledby": "collapse-button-nextui-2godf1u3",
                       "class": "content",
-                      "id": "collapse-nextui-660liad4",
+                      "id": "collapse-nextui-2godf1u3",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -19775,9 +19800,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-660liad4",
+                        "aria-labelledby": "collapse-button-nextui-2godf1u3",
                         "class": "content",
-                        "id": "collapse-nextui-660liad4",
+                        "id": "collapse-nextui-2godf1u3",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -19847,10 +19872,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -19861,7 +19886,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -19876,7 +19902,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -19914,7 +19940,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -19941,11 +19967,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-660liad4",
+                "aria-controls": "collapse-nextui-2godf1u3",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-660liad4",
+                "id": "collapse-button-nextui-2godf1u3",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -20412,10 +20438,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -20426,7 +20452,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -20441,7 +20468,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -20479,7 +20506,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -20510,9 +20537,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-660liad4",
+                        "aria-labelledby": "collapse-button-nextui-2godf1u3",
                         "class": "content",
-                        "id": "collapse-nextui-660liad4",
+                        "id": "collapse-nextui-2godf1u3",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -20633,9 +20660,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-660liad4",
+                          "aria-labelledby": "collapse-button-nextui-2godf1u3",
                           "class": "content",
-                          "id": "collapse-nextui-660liad4",
+                          "id": "collapse-nextui-2godf1u3",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -20694,11 +20721,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-660liad4",
+                  "aria-controls": "collapse-nextui-2godf1u3",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-660liad4",
+                  "id": "collapse-button-nextui-2godf1u3",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -21165,11 +21192,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-asshpbdf",
+                "aria-controls": "collapse-nextui-4pks5db6",
                 "aria-disabled": "false",
                 "aria-expanded": "true",
                 "class": "view",
-                "id": "collapse-button-nextui-asshpbdf",
+                "id": "collapse-button-nextui-4pks5db6",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -21462,9 +21489,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                          "aria-labelledby": "collapse-button-nextui-4pks5db6",
                           "class": "content",
-                          "id": "collapse-nextui-asshpbdf",
+                          "id": "collapse-nextui-4pks5db6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -21585,9 +21612,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                            "aria-labelledby": "collapse-button-nextui-4pks5db6",
                             "class": "content",
-                            "id": "collapse-nextui-asshpbdf",
+                            "id": "collapse-nextui-4pks5db6",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -21657,10 +21684,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -21671,7 +21698,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -21686,7 +21714,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -21724,7 +21752,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -21792,9 +21820,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                        "aria-labelledby": "collapse-button-nextui-4pks5db6",
                         "class": "content",
-                        "id": "collapse-nextui-asshpbdf",
+                        "id": "collapse-nextui-4pks5db6",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -21915,9 +21943,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                          "aria-labelledby": "collapse-button-nextui-4pks5db6",
                           "class": "content",
-                          "id": "collapse-nextui-asshpbdf",
+                          "id": "collapse-nextui-4pks5db6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -21987,10 +22015,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -22001,7 +22029,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -22016,7 +22045,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -22054,7 +22083,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -22081,11 +22110,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-asshpbdf",
+                  "aria-controls": "collapse-nextui-4pks5db6",
                   "aria-disabled": "false",
                   "aria-expanded": "true",
                   "class": "view",
-                  "id": "collapse-button-nextui-asshpbdf",
+                  "id": "collapse-button-nextui-4pks5db6",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -22412,10 +22441,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -22426,7 +22455,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -22441,7 +22471,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -22479,7 +22509,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -22510,9 +22540,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                          "aria-labelledby": "collapse-button-nextui-4pks5db6",
                           "class": "content",
-                          "id": "collapse-nextui-asshpbdf",
+                          "id": "collapse-nextui-4pks5db6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -22633,9 +22663,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                            "aria-labelledby": "collapse-button-nextui-4pks5db6",
                             "class": "content",
-                            "id": "collapse-nextui-asshpbdf",
+                            "id": "collapse-nextui-4pks5db6",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -22694,11 +22724,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-nextui-asshpbdf",
+                    "aria-controls": "collapse-nextui-4pks5db6",
                     "aria-disabled": "false",
                     "aria-expanded": "true",
                     "class": "view",
-                    "id": "collapse-button-nextui-asshpbdf",
+                    "id": "collapse-button-nextui-4pks5db6",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -23050,11 +23080,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-nextui-asshpbdf",
+              "aria-controls": "collapse-nextui-4pks5db6",
               "aria-disabled": "false",
               "aria-expanded": "true",
               "class": "view",
-              "id": "collapse-button-nextui-asshpbdf",
+              "id": "collapse-button-nextui-4pks5db6",
               "role": "button",
               "tabindex": "-1",
             },
@@ -23347,9 +23377,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                        "aria-labelledby": "collapse-button-nextui-4pks5db6",
                         "class": "content",
-                        "id": "collapse-nextui-asshpbdf",
+                        "id": "collapse-nextui-4pks5db6",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -23470,9 +23500,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                          "aria-labelledby": "collapse-button-nextui-4pks5db6",
                           "class": "content",
-                          "id": "collapse-nextui-asshpbdf",
+                          "id": "collapse-nextui-4pks5db6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -23542,10 +23572,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -23556,7 +23586,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -23571,7 +23602,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -23609,7 +23640,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -23677,9 +23708,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                      "aria-labelledby": "collapse-button-nextui-4pks5db6",
                       "class": "content",
-                      "id": "collapse-nextui-asshpbdf",
+                      "id": "collapse-nextui-4pks5db6",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -23800,9 +23831,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                        "aria-labelledby": "collapse-button-nextui-4pks5db6",
                         "class": "content",
-                        "id": "collapse-nextui-asshpbdf",
+                        "id": "collapse-nextui-4pks5db6",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -23872,10 +23903,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -23886,7 +23917,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -23901,7 +23933,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -23939,7 +23971,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -23966,11 +23998,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-asshpbdf",
+                "aria-controls": "collapse-nextui-4pks5db6",
                 "aria-disabled": "false",
                 "aria-expanded": "true",
                 "class": "view",
-                "id": "collapse-button-nextui-asshpbdf",
+                "id": "collapse-button-nextui-4pks5db6",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -24297,10 +24329,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -24311,7 +24343,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -24326,7 +24359,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -24364,7 +24397,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -24395,9 +24428,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                        "aria-labelledby": "collapse-button-nextui-4pks5db6",
                         "class": "content",
-                        "id": "collapse-nextui-asshpbdf",
+                        "id": "collapse-nextui-4pks5db6",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -24518,9 +24551,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-asshpbdf",
+                          "aria-labelledby": "collapse-button-nextui-4pks5db6",
                           "class": "content",
-                          "id": "collapse-nextui-asshpbdf",
+                          "id": "collapse-nextui-4pks5db6",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -24579,11 +24612,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-asshpbdf",
+                  "aria-controls": "collapse-nextui-4pks5db6",
                   "aria-disabled": "false",
                   "aria-expanded": "true",
                   "class": "view",
-                  "id": "collapse-button-nextui-asshpbdf",
+                  "id": "collapse-button-nextui-4pks5db6",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -24912,11 +24945,11 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-660liad4",
+                "aria-controls": "collapse-nextui-2godf1u3",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-660liad4",
+                "id": "collapse-button-nextui-2godf1u3",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -25349,9 +25382,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-660liad4",
+                          "aria-labelledby": "collapse-button-nextui-2godf1u3",
                           "class": "content",
-                          "id": "collapse-nextui-660liad4",
+                          "id": "collapse-nextui-2godf1u3",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -25472,9 +25505,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-660liad4",
+                            "aria-labelledby": "collapse-button-nextui-2godf1u3",
                             "class": "content",
-                            "id": "collapse-nextui-660liad4",
+                            "id": "collapse-nextui-2godf1u3",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -25544,10 +25577,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -25558,7 +25591,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -25573,7 +25607,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -25611,7 +25645,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -25679,9 +25713,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-660liad4",
+                        "aria-labelledby": "collapse-button-nextui-2godf1u3",
                         "class": "content",
-                        "id": "collapse-nextui-660liad4",
+                        "id": "collapse-nextui-2godf1u3",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -25802,9 +25836,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-660liad4",
+                          "aria-labelledby": "collapse-button-nextui-2godf1u3",
                           "class": "content",
-                          "id": "collapse-nextui-660liad4",
+                          "id": "collapse-nextui-2godf1u3",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -25874,10 +25908,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -25888,7 +25922,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -25903,7 +25938,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -25941,7 +25976,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -25968,11 +26003,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-660liad4",
+                  "aria-controls": "collapse-nextui-2godf1u3",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-660liad4",
+                  "id": "collapse-button-nextui-2godf1u3",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -26439,10 +26474,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -26453,7 +26488,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -26468,7 +26504,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -26506,7 +26542,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -26537,9 +26573,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-660liad4",
+                          "aria-labelledby": "collapse-button-nextui-2godf1u3",
                           "class": "content",
-                          "id": "collapse-nextui-660liad4",
+                          "id": "collapse-nextui-2godf1u3",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -26660,9 +26696,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "collapse-button-nextui-660liad4",
+                            "aria-labelledby": "collapse-button-nextui-2godf1u3",
                             "class": "content",
-                            "id": "collapse-nextui-660liad4",
+                            "id": "collapse-nextui-2godf1u3",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -26721,11 +26757,11 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "collapse-nextui-660liad4",
+                    "aria-controls": "collapse-nextui-2godf1u3",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "view",
-                    "id": "collapse-button-nextui-660liad4",
+                    "id": "collapse-button-nextui-2godf1u3",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -27324,11 +27360,11 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "collapse-nextui-s8eijr0d",
+              "aria-controls": "collapse-nextui-j3na5s95",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "view",
-              "id": "collapse-button-nextui-s8eijr0d",
+              "id": "collapse-button-nextui-j3na5s95",
               "role": "button",
               "tabindex": "-1",
             },
@@ -27621,9 +27657,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-s8eijr0d",
+                        "aria-labelledby": "collapse-button-nextui-j3na5s95",
                         "class": "content",
-                        "id": "collapse-nextui-s8eijr0d",
+                        "id": "collapse-nextui-j3na5s95",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -27744,9 +27780,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-s8eijr0d",
+                          "aria-labelledby": "collapse-button-nextui-j3na5s95",
                           "class": "content",
-                          "id": "collapse-nextui-s8eijr0d",
+                          "id": "collapse-nextui-j3na5s95",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -27816,10 +27852,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 0px solid #eaeaea;
         }
@@ -27830,7 +27866,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -27845,7 +27882,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -27883,7 +27920,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -27951,9 +27988,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "collapse-button-nextui-s8eijr0d",
+                      "aria-labelledby": "collapse-button-nextui-j3na5s95",
                       "class": "content",
-                      "id": "collapse-nextui-s8eijr0d",
+                      "id": "collapse-nextui-j3na5s95",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -28074,9 +28111,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-s8eijr0d",
+                        "aria-labelledby": "collapse-button-nextui-j3na5s95",
                         "class": "content",
-                        "id": "collapse-nextui-s8eijr0d",
+                        "id": "collapse-nextui-j3na5s95",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -28146,10 +28183,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 0px solid #eaeaea;
         }
@@ -28160,7 +28197,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -28175,7 +28213,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -28213,7 +28251,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -28240,11 +28278,11 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "collapse-nextui-s8eijr0d",
+                "aria-controls": "collapse-nextui-j3na5s95",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "view",
-                "id": "collapse-button-nextui-s8eijr0d",
+                "id": "collapse-button-nextui-j3na5s95",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -28571,10 +28609,10 @@ LoadedCheerio {
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 20px;
+          padding: 0 1.25rem;
         }
         .bordered {
-          padding: 0 20px;
+          padding: 0 1.25rem;
           border-radius: 14px;
           border: 0px solid #eaeaea;
         }
@@ -28585,7 +28623,8 @@ LoadedCheerio {
           background: transparent;
           border: none;
           cursor: pointer;
-          padding: 20px 0;
+          outline: none;
+          padding: 1.25rem 0;
         }
         .view.disabled {
           cursor: not-allowed;
@@ -28600,7 +28639,7 @@ LoadedCheerio {
           align-items: center;
         }
         .title-content-left {
-          margin-right: 12px;
+          margin-right: 0.75rem;
         }
         .title-content {
           width: 100%;
@@ -28638,7 +28677,7 @@ LoadedCheerio {
         .content {
           font-size: 1rem;
           line-height: 1.625rem;
-          padding-bottom: 20px;
+          padding-bottom: 1.25rem;
         }
         .content &gt; :global(*:first-child) {
           margin-top: 0;
@@ -28669,9 +28708,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "collapse-button-nextui-s8eijr0d",
+                        "aria-labelledby": "collapse-button-nextui-j3na5s95",
                         "class": "content",
-                        "id": "collapse-nextui-s8eijr0d",
+                        "id": "collapse-nextui-j3na5s95",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -28792,9 +28831,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "collapse-button-nextui-s8eijr0d",
+                          "aria-labelledby": "collapse-button-nextui-j3na5s95",
                           "class": "content",
-                          "id": "collapse-nextui-s8eijr0d",
+                          "id": "collapse-nextui-j3na5s95",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -28853,11 +28892,11 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "collapse-nextui-s8eijr0d",
+                  "aria-controls": "collapse-nextui-j3na5s95",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "view",
-                  "id": "collapse-button-nextui-s8eijr0d",
+                  "id": "collapse-button-nextui-j3na5s95",
                   "role": "button",
                   "tabindex": "-1",
                 },

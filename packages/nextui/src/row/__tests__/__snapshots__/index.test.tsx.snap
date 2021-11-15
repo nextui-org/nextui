@@ -9,7 +9,7 @@ exports[`Row should render correctly 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -28,7 +28,7 @@ exports[`Row should work with nested 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -39,8 +39,8 @@ exports[`Row should work with nested 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -52,7 +52,7 @@ exports[`Row should work with nested 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -67,7 +67,7 @@ exports[`Row should work with nested 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -82,7 +82,7 @@ exports[`Row should work with nested 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -97,8 +97,8 @@ exports[`Row the children should be aligned correctly 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -110,7 +110,7 @@ exports[`Row the children should be aligned correctly 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: flex-end;
           align-items: flex-start;
         }
@@ -121,8 +121,8 @@ exports[`Row the children should be aligned correctly 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -134,7 +134,7 @@ exports[`Row the children should be aligned correctly 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: center;
           align-items: flex-start;
         }
@@ -145,8 +145,8 @@ exports[`Row the children should be aligned correctly 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -158,7 +158,7 @@ exports[`Row the children should be aligned correctly 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: space-around;
           align-items: flex-start;
         }
@@ -169,8 +169,8 @@ exports[`Row the children should be aligned correctly 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -182,7 +182,7 @@ exports[`Row the children should be aligned correctly 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: space-between;
           align-items: flex-start;
         }
@@ -193,8 +193,8 @@ exports[`Row the children should be aligned correctly 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -206,7 +206,7 @@ exports[`Row the children should be aligned correctly 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -217,8 +217,8 @@ exports[`Row the children should be aligned correctly 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -230,7 +230,7 @@ exports[`Row the children should be aligned correctly 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: center;
         }
@@ -241,8 +241,8 @@ exports[`Row the children should be aligned correctly 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -254,7 +254,7 @@ exports[`Row the children should be aligned correctly 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(0 * 20px / 2);
           margin-right: calc(0 * 20px / 2);
-          --row-gap: calc(0 * 20px);
+          --nextui-row-gap: calc(0 * 20px);
           justify-content: flex-start;
           align-items: flex-end;
         }
@@ -269,8 +269,8 @@ exports[`Row the children should have the correct spacing 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -282,7 +282,7 @@ exports[`Row the children should have the correct spacing 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(1 * 20px / 2);
           margin-right: calc(1 * 20px / 2);
-          --row-gap: calc(1 * 20px);
+          --nextui-row-gap: calc(1 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -293,8 +293,8 @@ exports[`Row the children should have the correct spacing 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -306,7 +306,7 @@ exports[`Row the children should have the correct spacing 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(2 * 20px / 2);
           margin-right: calc(2 * 20px / 2);
-          --row-gap: calc(2 * 20px);
+          --nextui-row-gap: calc(2 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
@@ -317,8 +317,8 @@ exports[`Row the children should have the correct spacing 1`] = `
         .col {
           float: left;
           box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
+          padding-left: calc(var(--nextui-row-gap) / 2);
+          padding-right: calc(var(--nextui-row-gap) / 2);
           width: 100%;
           margin-left: 0%;
         }
@@ -330,7 +330,7 @@ exports[`Row the children should have the correct spacing 1`] = `
           flex-wrap: nowrap;
           margin-left: calc(10 * 20px / 2);
           margin-right: calc(10 * 20px / 2);
-          --row-gap: calc(10 * 20px);
+          --nextui-row-gap: calc(10 * 20px);
           justify-content: flex-start;
           align-items: flex-start;
         }
