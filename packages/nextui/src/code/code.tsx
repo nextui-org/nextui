@@ -1,7 +1,11 @@
 import React from 'react';
+import useTheme from '../use-theme';
+import clsx from '../utils/clsx';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import withDefaults from '../utils/with-defaults';
 
-interface Props {
+interface Props extends DefaultProps {
   block?: boolean;
   width?: string;
   className?: string;
@@ -9,7 +13,7 @@ interface Props {
 
 const defaultProps = {
   block: false,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -20,17 +24,30 @@ const Code: React.FC<React.PropsWithChildren<CodeProps>> = ({
   block,
   className,
   width,
+  style,
   ...props
 }) => {
-  if (!block) return <code {...props}>{children}</code>;
+  const theme = useTheme();
+  const spacingStyles = getSpacingsStyles(theme, props);
+
+  if (!block)
+    return (
+      <code style={{ ...style, ...spacingStyles }} {...props}>
+        {children}
+      </code>
+    );
 
   return (
     <React.Fragment>
-      <pre className={className} {...props}>
+      <pre
+        className={clsx('nextui-code', className)}
+        style={{ ...style, ...spacingStyles }}
+        {...props}
+      >
         <code>{children}</code>
       </pre>
       <style jsx>{`
-        pre {
+        .nextui-code {
           width: ${width ? width : 'initial'};
           max-width: 100%;
         }

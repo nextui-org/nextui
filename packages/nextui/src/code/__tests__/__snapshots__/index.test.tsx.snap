@@ -4,7 +4,7 @@ exports[`Code should repspond to changed by width 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "",
+      "class": "nextui-code",
     },
     "children": Array [
       Node {
@@ -35,7 +35,7 @@ LoadedCheerio {
       "children": Array [
         Node {
           "data": "
-        pre {
+        .nextui-code {
           width: 50%;
           max-width: 100%;
         }
@@ -80,7 +80,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "data": "
-        pre {
+        .nextui-code {
           width: 50%;
           max-width: 100%;
         }
@@ -128,7 +128,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "data": "
-        pre {
+        .nextui-code {
           width: 50%;
           max-width: 100%;
         }
@@ -153,7 +153,7 @@ LoadedCheerio {
       "children": Array [
         Node {
           "attribs": Object {
-            "class": "",
+            "class": "nextui-code",
           },
           "children": Array [
             Node {
@@ -200,7 +200,7 @@ LoadedCheerio {
     },
     "prev": Node {
       "attribs": Object {
-        "class": "",
+        "class": "nextui-code",
       },
       "children": Array [
         Node {
@@ -340,7 +340,7 @@ exports[`Code should support block mode 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "",
+      "class": "nextui-code",
     },
     "children": Array [
       Node {
@@ -371,7 +371,7 @@ LoadedCheerio {
       "children": Array [
         Node {
           "data": "
-        pre {
+        .nextui-code {
           width: initial;
           max-width: 100%;
         }
@@ -416,7 +416,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "data": "
-        pre {
+        .nextui-code {
           width: initial;
           max-width: 100%;
         }
@@ -464,7 +464,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "data": "
-        pre {
+        .nextui-code {
           width: initial;
           max-width: 100%;
         }
@@ -489,7 +489,7 @@ LoadedCheerio {
       "children": Array [
         Node {
           "attribs": Object {
-            "class": "",
+            "class": "nextui-code",
           },
           "children": Array [
             Node {
@@ -536,7 +536,7 @@ LoadedCheerio {
     },
     "prev": Node {
       "attribs": Object {
-        "class": "",
+        "class": "nextui-code",
       },
       "children": Array [
         Node {
