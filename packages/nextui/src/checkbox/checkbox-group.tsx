@@ -74,15 +74,19 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
 
   return (
     <CheckboxContext.Provider value={providerValue}>
-      <div className={`checkbox-group ${className}`} role="group" {...props}>
+      <div
+        className={`nextui-checkbox-group ${className}`}
+        role="group"
+        {...props}
+      >
         {children}
         <style jsx>{`
-          .checkbox-group :global(.checkbox) {
+          .nextui-checkbox-group :global(.nextui-checkbox) {
             margin-top: ${row ? 0 : groupGap};
             margin-right: ${row ? groupGap : 0};
-            --checkbox-size: ${fontSize};
+            --nextui-checkbox-size: ${fontSize};
           }
-          .checkbox-group {
+          .nextui-checkbox-group {
             display: flex;
             flex-direction: ${row ? 'row' : 'column'};
           }

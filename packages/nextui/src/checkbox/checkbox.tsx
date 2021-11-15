@@ -6,7 +6,8 @@ import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
 import useTheme from '../use-theme';
 import { getIconCheckStyle, getCheckboxSize } from './styles';
 import { getNormalColor } from '../utils/color';
-import { getFocusStyles } from '../utils/styles';
+import { DefaultProps } from '../utils/default-props';
+import { getFocusStyles, getSpacingsStyles } from '../utils/styles';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
@@ -22,7 +23,7 @@ export interface CheckboxEvent {
   nativeEvent: React.ChangeEvent;
 }
 
-export interface Props {
+export interface Props extends DefaultProps {
   color?: NormalColors | string;
   textColor?: SimpleColors | string;
   label?: string;
@@ -92,6 +93,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
     [color, groupColor, theme.palette]
   );
 
+  const spacingStyles = getSpacingsStyles(theme, props);
+
   const { className: focusClassName, styles: focusStyles } =
     getFocusStyles(theme);
 
@@ -158,16 +161,29 @@ const Checkbox: React.FC<CheckboxProps> = ({
     }
   );
 
+  const getState = useCallback(() => {
+    return selfChecked && indeterminate
+      ? 'mixed'
+      : selfChecked
+      ? 'checked'
+      : 'uncheked';
+  }, [selfChecked, indeterminate]);
+
   return (
-    <label className={`checkbox ${className}`} style={style}>
+    <label
+      className={`nextui-checkbox ${className}`}
+      style={{ ...style, ...spacingStyles }}
+    >
       <div
         tabIndex={disabled ? -1 : 0}
-        className={clsx('checkbox-container', focusClassName)}
+        className={clsx('nextui-checkbox-container', focusClassName)}
         {...bindings}
       >
         <input
           type="checkbox"
           tabIndex={-1}
+          className="nextui-checkbox-input"
+          data-state={getState()}
           disabled={isDisabled}
           checked={selfChecked}
           aria-checked={selfChecked && indeterminate ? 'mixed' : selfChecked}
@@ -175,21 +191,29 @@ const Checkbox: React.FC<CheckboxProps> = ({
           onChange={changeHandle}
           {...props}
         />
-        <div className="checkbox-mask">
-          <i className={`icon-check ${indeterminate ? 'indeterminate' : ''}`}>
-            <span style={iconCheckStyle}>
-              <div className="line1" />
-              <div className="line2" />
+        <div className="nextui-checkbox-mask">
+          <i
+            className={clsx('nextui-checkbox-icon-check', {
+              'nextui-checkbox-indeterminate': indeterminate
+            })}
+          >
+            <span className="nextui-checkbox-icon" style={iconCheckStyle}>
+              <div className="nextui-checkbox-line1" />
+              <div className="nextui-checkbox-line2" />
             </span>
           </i>
         </div>
       </div>
-      <span className={clsx('text', { 'line-through': line })}>
+      <span
+        className={clsx('nextui-checkbox-text', {
+          'nextui-checkbox-line-through': line
+        })}
+      >
         {children || label}
       </span>
       <style jsx>{`
         label {
-          --checkbox-size: ${fontSize};
+          --nextui-checkbox-size: ${fontSize};
           display: inline-flex;
           justify-content: flex-start;
           align-items: center;
@@ -197,19 +221,19 @@ const Checkbox: React.FC<CheckboxProps> = ({
           cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
           opacity: ${isDisabled ? 0.75 : 1};
         }
-        .checkbox-container {
-          width: var(--checkbox-size);
-          height: var(--checkbox-size);
+        .nextui-checkbox-container {
+          width: var(--nextui-checkbox-size);
+          height: var(--nextui-checkbox-size);
           border-radius: ${radius};
           position: relative;
           opacity: ${isDisabled ? '0.4' : '1'};
           transition: box-shadow 0.25s ease;
           z-index: 1;
         }
-        .checkbox-mask {
+        .nextui-checkbox-mask {
           border-radius: ${radius};
-          width: var(--checkbox-size);
-          height: var(--checkbox-size);
+          width: var(--nextui-checkbox-size);
+          height: var(--nextui-checkbox-size);
           position: absolute;
           z-index: 50;
           cursor: pointer;
@@ -222,20 +246,20 @@ const Checkbox: React.FC<CheckboxProps> = ({
           z-index: -1;
           box-sizing: border-box;
         }
-        .checkbox-mask i:not(.icon-check) {
+        .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 0;
           transition: all 0.25s ease;
           color: ${theme.palette.white};
           font-size: 1.1rem;
           transform: scale(0.5);
         }
-        .checkbox-mask:after {
+        .nextui-checkbox-mask:after {
           content: '';
           position: absolute;
           top: 0px;
           left: 0px;
-          width: var(--checkbox-size);
-          height: var(--checkbox-size);
+          width: var(--nextui-checkbox-size);
+          height: var(--nextui-checkbox-size);
           background: ${checkboxColor};
           transform: scale(0.5);
           border-radius: inherit;
@@ -243,13 +267,13 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: all 0.25s ease;
           z-index: -1;
         }
-        .checkbox-mask:before {
+        .nextui-checkbox-mask:before {
           content: '';
           position: absolute;
           top: 0px;
           left: 0px;
-          width: var(--checkbox-size);
-          height: var(--checkbox-size);
+          width: var(--nextui-checkbox-size);
+          height: var(--nextui-checkbox-size);
           border-radius: inherit;
           transition: all 0.25s ease;
           z-index: -1;
@@ -257,20 +281,20 @@ const Checkbox: React.FC<CheckboxProps> = ({
           box-sizing: border-box;
         }
 
-        .checkbox-mask .icon-check {
+        .nextui-checkbox-mask .nextui-checkbox-icon-check {
           opacity: 0;
           z-index: 200;
         }
-        .icon-check {
-          width: var(--checkbox-size);
-          height: var(--checkbox-size);
+        .nextui-checkbox-icon-check {
+          width: var(--nextui-checkbox-size);
+          height: var(--nextui-checkbox-size);
           display: flex;
           align-items: center;
           justify-content: center;
           transition: all 0.25s ease;
           border-radius: inherit;
         }
-        .icon-check span .line1 {
+        .nextui-checkbox-icon .nextui-checkbox-line1 {
           background: transparent;
           content: '';
           position: absolute;
@@ -281,7 +305,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           z-index: 100;
           bottom: 0px;
         }
-        .icon-check span .line1:after {
+        .nextui-checkbox-icon .nextui-checkbox-line1:after {
           content: '';
           position: absolute;
           left: 0px;
@@ -291,7 +315,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: all 0.25s ease;
           border-radius: 5px 0px 0px 5px;
         }
-        .icon-check span .line2 {
+        .nextui-checkbox-icon .nextui-checkbox-line2 {
           bottom: 0px;
           right: 0rem;
           z-index: 100;
@@ -304,7 +328,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: all 0.2s ease;
           width: 2px;
         }
-        .icon-check span .line2:after {
+        .nextui-checkbox-icon .nextui-checkbox-line2:after {
           content: '';
           position: absolute;
           width: 2px;
@@ -315,28 +339,27 @@ const Checkbox: React.FC<CheckboxProps> = ({
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }
-        .icon-check.active:before {
-          width: 8px;
-        }
-        .icon-check.active:after {
-          width: 4px;
-        }
-        .icon-check.indeterminate span:after {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon:after {
           position: relative;
           content: '';
-          width: 10px;
+          width: 2px;
           height: 2px;
           background: ${theme.palette.white};
+          transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .icon-check.indeterminate span .line1 {
+        .nextui-checkbox-indeterminate
+          .nextui-checkbox-icon
+          .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .icon-check.indeterminate span .line2 {
+        .nextui-checkbox-indeterminate
+          .nextui-checkbox-icon
+          .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -346,8 +369,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
         }
         input {
           position: absolute;
-          width: var(--checkbox-size);
-          height: var(--checkbox-size);
+          width: var(--nextui-checkbox-size);
+          height: var(--nextui-checkbox-size);
           top: 0px;
           left: 0px;
           margin: 0px;
@@ -360,55 +383,70 @@ const Checkbox: React.FC<CheckboxProps> = ({
           opacity: 0;
           pointer-events: none;
         }
-        input:active ~ .checkbox-mask {
+        input:active ~ .nextui-checkbox-mask {
           background: ${theme.palette.border};
         }
-        input:hover ~ .checkbox-mask {
+        input:hover ~ .nextui-checkbox-mask {
           background: ${theme.palette.border};
         }
-        input:hover ~ .checkbox-mask:before {
+        input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked ~ .checkbox-mask i:not(.icon-check) {
+        input:checked
+          ~ .nextui-checkbox-mask
+          i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
         }
-        input:checked ~ .checkbox-mask .icon-check {
+        input:checked ~ .nextui-checkbox-mask .nextui-checkbox-icon-check {
           opacity: 1;
         }
-        input:checked ~ .checkbox-mask .icon-check span .line1:after {
+        input:checked
+          ~ .nextui-checkbox-mask
+          .nextui-checkbox-icon
+          .nextui-checkbox-line1:after {
           width: 100%;
           transition: all 0.25s ease 0.1s;
         }
-        input:checked ~ .checkbox-mask .icon-check span .line2:after {
+        input:checked
+          ~ .nextui-checkbox-mask
+          .nextui-checkbox-icon-check
+          span
+          .nextui-checkbox-line2:after {
           transition: all 0.2s ease 0.3s;
           height: 100%;
         }
-        input:checked ~ .checkbox-mask:after {
+        input:checked ~ .nextui-checkbox-mask:after {
           opacity: 1;
           transform: scale(1);
         }
-        input:checked ~ .checkbox-mask:before {
+        input:checked ~ .nextui-checkbox-mask:before {
           opacity: 0;
           transform: scale(1.2);
         }
-        .text {
+        input:checked
+          ~ .nextui-checkbox-mask
+          .nextui-checkbox-indeterminate
+          .nextui-checkbox-icon:after {
+          width: 10px;
+        }
+        .nextui-checkbox-text {
           position: relative;
           display: flex;
           justify-content: center;
           align-items: center;
           color: ${labelColor};
-          font-size: var(--checkbox-size);
-          line-height: var(--checkbox-size);
-          padding-left: calc(var(--checkbox-size) * 0.57);
+          font-size: var(--nextui-checkbox-size);
+          line-height: var(--nextui-checkbox-size);
+          padding-left: calc(var(--nextui-checkbox-size) * 0.57);
           user-select: none;
           cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
         }
-        .line-through {
+        .nextui-checkbox-line-through {
           opacity: ${selfChecked ? '0.6' : '1'};
         }
-        .text:before {
+        .nextui-checkbox-text:before {
           content: '';
           position: absolute;
           width: ${selfChecked && line ? 'calc(100% - 10px)' : '0px'};

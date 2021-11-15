@@ -75,7 +75,7 @@ describe('Checkbox', () => {
     const wrapper = mount(<Wrapper />);
     const input = getCheckboxElement(wrapper);
     input.simulate('change');
-    expect(wrapper.find('.text').text()).toContain('state2');
+    expect(wrapper.find('.nextui-checkbox-text').text()).toContain('state2');
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -92,7 +92,9 @@ describe('Checkbox', () => {
     const wrapper = mount(<Wrapper />);
     const input = getCheckboxElement(wrapper);
     input.simulate('change');
-    expect(wrapper.find('.text').text()).not.toContain('state2');
+    expect(wrapper.find('.nextui-checkbox-text').text()).not.toContain(
+      'state2'
+    );
     expectCheckboxIsChecked(wrapper, false);
     expectCheckboxToHaveARIAChecked(wrapper, false);
     expectCheckboxToHaveARIADisabled(wrapper, true);
@@ -113,11 +115,11 @@ describe('Checkbox', () => {
 
   it('should work correctly with line-through value', () => {
     let wrapper = mount(<Checkbox line>Buenos Aires</Checkbox>);
-    let icon = wrapper.find('.text').getDOMNode();
+    let icon = wrapper.find('.nextui-checkbox-text').getDOMNode();
     expect((icon as HTMLInputElement).className).toContain('line-through');
 
     wrapper = mount(<Checkbox line={false}>Buenos Aires</Checkbox>);
-    icon = wrapper.find('.text').getDOMNode();
+    icon = wrapper.find('.nextui-checkbox-text').getDOMNode();
     expect((icon as HTMLInputElement).className).not.toContain('line-through');
 
     expect(() => wrapper.unmount()).not.toThrow();
