@@ -8,7 +8,7 @@ interface Props {
 }
 
 const defaultProps = {
-  opacity: 0.5,
+  opacity: 0.5
 };
 
 export type ImageSkeletonProps = Props & typeof defaultProps;
@@ -17,9 +17,9 @@ const ImageSkeleton: React.FC<ImageSkeletonProps> = React.memo(
   ({ opacity, ...props }) => {
     const theme = useTheme();
     return (
-      <div className="skeleton" {...props}>
+      <div className="nextui-image-skeleton" {...props}>
         <style jsx>{`
-          .skeleton {
+          .nextui-image-skeleton {
             position: absolute;
             top: 0;
             left: 0;

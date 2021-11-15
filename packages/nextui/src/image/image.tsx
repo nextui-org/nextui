@@ -1,14 +1,21 @@
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+  useState
+} from 'react';
 import { ObjectFit } from '../utils/prop-types';
 import useTheme from '../use-theme';
 import ImageSkeleton from './image.skeleton';
-import ImageBrowser from './image-browser';
 import useRealShape from '../use-real-shape';
 import useCurrentState from '../use-current-state';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import useResize from '../use-resize';
 import cslx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   src: string;
   autoResize?: boolean;
   showSkeleton?: boolean;
@@ -41,9 +48,11 @@ const Image: React.FC<ImageProps> = ({
   objectFit,
   ...props
 }) => {
-  const theme = useTheme();
   const [loading, setLoading] = useState<boolean>(true);
   const [showSkeleton, setShowSkeleton] = useState<boolean>(true);
+
+  const theme = useTheme();
+  const spacingStyles = getSpacingsStyles(theme, props);
 
   const { w, h } = useMemo(() => {
     return {
@@ -105,22 +114,36 @@ const Image: React.FC<ImageProps> = ({
     updateShape();
   });
 
+  const getState = useCallback(() => {
+    return loading ? 'loading' : 'ready';
+  }, [loading]);
+
   return (
-    <div className={cslx('image', { 'image-ready': !loading }, className)}>
+    <div
+      className={cslx(
+        'nextui-image-container',
+        { 'nextui-image-ready': !loading },
+        className
+      )}
+      data-state={getState()}
+      style={spacingStyles}
+    >
       {showSkeleton && showAnimation && (
         <ImageSkeleton opacity={loading ? 0.5 : 0} />
       )}
       <img
         ref={imageRef}
+        className="nextui-image"
         width={width}
         height={height}
         onLoad={imageLoaded}
         src={src}
+        data-state={getState()}
         alt={props.alt || ''}
         {...props}
       />
       <style jsx>{`
-        .image {
+        .nextui-image-container {
           width: ${w};
           opacity: 0;
           height: ${zoomHeight};
@@ -131,10 +154,10 @@ const Image: React.FC<ImageProps> = ({
           max-width: 100%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
         }
-        .image-ready {
+        .nextui-image-ready {
           opacity: 1;
         }
-        img {
+        .nextui-image {
           width: 100%;
           height: 100%;
           object-fit: ${objectFit};
@@ -145,9 +168,8 @@ const Image: React.FC<ImageProps> = ({
   );
 };
 
-type MemoImageComponent<P = {}> = React.NamedExoticComponent<P> & {
-  Browser: typeof ImageBrowser;
-};
+type MemoImageComponent<P = {}> = React.NamedExoticComponent<P>;
+
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs;
