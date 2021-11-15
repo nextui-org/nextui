@@ -2,14 +2,16 @@ import React, { useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import { NormalWeights } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
 import { CollapseContext, CollapseConfig } from './collapse-context';
 import useCurrentState from '../use-current-state';
+import { getSpacingsStyles } from '../utils/styles';
 import { setChildrenIndex } from '../utils/collections';
 import { getNormalWeight } from '../utils/dimensions';
 import clsx from '../utils/clsx';
 import Collapse from './collapse';
 
-interface Props {
+interface Props extends DefaultProps {
   accordion?: boolean;
   className?: string;
   animated?: boolean;
@@ -44,10 +46,13 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
   divider,
   borderWeight: borderWeightProp,
   onChange,
+  style,
   ...props
 }) => {
   const theme = useTheme();
   const [state, setState, stateRef] = useCurrentState<Array<number>>([]);
+
+  const spacingStyles = getSpacingsStyles(theme, props);
 
   const updateValues = (currentIndex: number, nextState: boolean) => {
     const hasChild = stateRef.current.find((val) => val === currentIndex);
@@ -97,50 +102,51 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
     <CollapseContext.Provider value={initialValue}>
       <div
         className={clsx(
-          'collapse-group',
-          { shadow, bordered, splitted },
+          'nextui-collapse-group',
+          {
+            'nextui-collapse-group-shadow': shadow,
+            'nextui-collapse-group-bordered': bordered,
+            'nextui-collapse-group-splitted': splitted
+          },
           className
         )}
+        style={{ ...style, ...spacingStyles }}
         {...props}
       >
         {hasIndexChildren}
         <style jsx>{`
-          .collapse-group {
+          .nextui-collapse-group {
             width: auto;
             padding: 0 ${theme.spacing.sm};
           }
-          .collapse-group > :global(div + div) {
+          .nextui-collapse-group > :global(div + div) {
             border-top: none;
           }
-          .shadow,
-          .bordered,
-          .collapse-group.splitted :global(.collapse) {
+          .nextui-collapse-group-shadow,
+          .nextui-collapse-group-bordered,
+          .nextui-collapse-group.splitted :global(.nextui-collapse) {
             border-radius: ${theme.radius.lg};
             padding: 0 ${theme.spacing.lg};
           }
-          .shadow {
+          .nextui-collapse-group-shadow {
             border: none;
             background: ${bgColor};
             box-shadow: ${theme.shadows.md};
           }
-          .collapse-group.splitted :global(.collapse) {
+          .nextui-collapse-group.splitted :global(.nextui-collapse) {
             border: none;
             background: ${bgColor};
             box-shadow: ${theme.shadows.md};
             margin: ${theme.spacing.sm} 0;
           }
-          .bordered {
+          .nextui-collapse-group-bordered {
             border: ${borderWeight} solid ${theme.palette.border};
           }
-          .collapse-group :global(.collapse:last-child) {
+          .nextui-collapse-group :global(.nextui-collapse:last-child) {
             border-bottom: none;
           }
-          .collapse-group :global(.collapse:first-child) {
+          .nextui-collapse-group :global(.nextui-collapse:first-child) {
             border-top: none;
-          }
-          .gradient.vertical
-            :global(.button:not(:last-child):not(:first-child)) {
-            padding-top: 0 !important;
           }
         `}</style>
       </div>

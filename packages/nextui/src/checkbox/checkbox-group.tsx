@@ -2,11 +2,14 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { CheckboxContext } from './checkbox-context';
 import useWarning from '../use-warning';
 import { NormalSizes, NormalColors } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import useTheme from '../use-theme';
+import { getSpacingsStyles } from '../utils/styles';
 import withDefaults from '../utils/with-defaults';
 import { __DEV__ } from '../utils/assertion';
 import { getCheckboxSize } from './styles';
 
-interface Props {
+interface Props extends DefaultProps {
   value: string[];
   color?: NormalColors;
   textColor?: NormalColors;
@@ -39,6 +42,7 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
   row,
   children,
   className,
+  style,
   ...props
 }) => {
   const [selfVal, setSelfVal] = useState<string[]>([]);
@@ -46,6 +50,10 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
     value = [];
     useWarning('Props "value" is required.', 'Checkbox Group');
   }
+
+  const theme = useTheme();
+
+  const spacingStyle = getSpacingsStyles(theme, props);
 
   const updateState = (val: string, checked: boolean) => {
     const removed = selfVal.filter((v) => v !== val);
@@ -77,6 +85,7 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
       <div
         className={`nextui-checkbox-group ${className}`}
         role="group"
+        style={{ ...style, ...spacingStyle }}
         {...props}
       >
         {children}

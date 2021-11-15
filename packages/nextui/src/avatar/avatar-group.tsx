@@ -1,9 +1,11 @@
 import React from 'react';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import clsx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   count?: number;
   className?: string;
   animated?: boolean;
@@ -22,10 +24,14 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
   className,
   children,
   animated,
+  style,
   ...props
 }) => {
   const theme = useTheme();
   const isDark = theme.type === 'dark';
+
+  const spacingStyles = getSpacingsStyles(theme, props);
+
   return (
     <div
       className={clsx(
@@ -33,6 +39,7 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
         { 'nextui-avatar-group-is-dark': isDark },
         className
       )}
+      style={{ ...style, ...spacingStyles }}
       {...props}
     >
       {children}

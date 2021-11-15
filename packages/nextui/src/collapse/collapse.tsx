@@ -7,13 +7,15 @@ import useCurrentState from '../use-current-state';
 import CollapseGroup from './collapse-group';
 import useWarning from '../use-warning';
 import { NormalWeights } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import { getNormalWeight } from '../utils/dimensions';
 import { getId } from '../utils/collections';
 import { getFocusStyles } from '../utils/styles';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import clsx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   title: React.ReactNode | string;
   subtitle?: React.ReactNode | string;
   divider?: boolean;
@@ -64,6 +66,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   onChange,
   bordered,
   contentLeft,
+  style,
   animated: animatedProp,
   borderWeight: borderWeightProp,
   index,
@@ -79,6 +82,8 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     animated: groupAnimated,
     updateValues
   } = useCollapseContext();
+
+  const spacingStyles = getSpacingsStyles(theme, props);
 
   if (!title) {
     useWarning('"title" is required.', 'Collapse');
@@ -118,8 +123,8 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   const { ariaLabelledById, ariaControlId } = useMemo(() => {
     const nextuiId = getId();
     return {
-      ariaLabelledById: `collapse-button-nextui-${nextuiId}`,
-      ariaControlId: `collapse-nextui-${nextuiId}`
+      ariaLabelledById: `nextui-collapse-button-${nextuiId}`,
+      ariaControlId: `nextui-collapse-${nextuiId}`
     };
   }, []);
 
@@ -147,33 +152,46 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     <div
       tabIndex={disabled ? -1 : 0}
       className={clsx(
-        'collapse',
-        { shadow, bordered },
+        'nextui-collapse',
+        {
+          'nextui-collapse-shadow': shadow,
+          'nextui-collapse-bordered': bordered
+        },
         className,
         focusClassName
       )}
+      style={{ ...style, ...spacingStyles }}
       {...props}
       {...bindings}
     >
       <div
         role="button"
         tabIndex={-1}
-        className={clsx('view', { disabled })}
+        className={clsx('nextui-collapse-view', {
+          'nextui-collapse-view-disabled': disabled,
+          'nextui-collapse-animated': animated
+        })}
         id={ariaLabelledById}
         aria-disabled={disabled}
         aria-expanded={visible}
         aria-controls={ariaControlId}
         onClick={handleChange}
       >
-        <div className={clsx('title', { animated })}>
+        <div className={clsx('nextui-collapse-title')}>
           {contentLeft && (
-            <div className="title-content-left">{contentLeft}</div>
+            <div className="nextui-collapse-title-content-left">
+              {contentLeft}
+            </div>
           )}
-          <div className="title-content">
+          <div className="nextui-collapse-title-content">
             {React.isValidElement(title) ? title : <h3>{title}</h3>}
-            {subtitle && <div className="subtitle">{subtitle}</div>}
+            {subtitle && (
+              <div className="nextui-collapse-subtitle">{subtitle}</div>
+            )}
           </div>
-          <div className="title-content-right">{arrowComponent}</div>
+          <div className="nextui-collapse-title-content-right">
+            {arrowComponent}
+          </div>
         </div>
       </div>
       <Expand isExpanded={visible} animated={animated}>
@@ -182,30 +200,30 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
           tabIndex={-1}
           id={ariaControlId}
           aria-labelledby={ariaLabelledById}
-          className="content"
+          className="nextui-collapse-content"
         >
           {children}
         </div>
       </Expand>
       <style jsx>{`
-        .collapse {
+        .nextui-collapse {
           border-top: ${borderWeight} solid ${theme.palette.border};
           border-bottom: ${borderWeight} solid ${theme.palette.border};
           transition: box-shadow 0.25s ease;
         }
-        .shadow {
+        .nextui-collapse-shadow {
           border: none;
           background: ${bgColor};
           box-shadow: ${theme.shadows.md};
           border-radius: ${theme.radius.lg};
           padding: 0 ${theme.spacing.lg};
         }
-        .bordered {
+        .nextui-collapse-bordered {
           padding: 0 ${theme.spacing.lg};
           border-radius: ${theme.radius.lg};
           border: ${borderWeight} solid ${theme.palette.border};
         }
-        .view {
+        .nextui-collapse-view {
           width: 100%;
           display: block;
           text-align: left;
@@ -215,63 +233,67 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
           outline: none;
           padding: ${theme.spacing.lg} 0;
         }
-        .view.disabled {
+        .nextui-collapse-view.nextui-collapse-view-disabled {
           cursor: not-allowed;
         }
-        .view.disabled .title,
-        .view.disabled .subtitle {
+        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-title,
+        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .title-content-left,
-        .title-content-right {
+        .nextui-collapse-title-content-left,
+        .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
-        .title-content-left {
+        .nextui-collapse-title-content-left {
           margin-right: ${theme.spacing.sm};
         }
-        .title-content {
+        .nextui-collapse-title-content {
           width: 100%;
         }
-        .title {
+        .nextui-collapse-title {
           display: flex;
           justify-content: space-between;
           align-items: center;
           color: ${theme.palette.foreground};
         }
-        .title-content-right :global(svg) {
+        .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(${visible ? '-90deg' : '0'});
         }
-        .animated .title-content-right :global(svg) {
+        .nextui-collapse-animated
+          .nextui-collapse-title-content-right
+          :global(svg) {
           transition: transform 200ms ease;
         }
-        .title-content :global(h1),
-        .title-content :global(h2),
-        .title-content :global(h3),
-        .title-content :global(h4),
-        .title-content :global(h5),
-        .title-content :global(h6),
-        .title-content :global(p),
-        .title-content :global(span),
-        .title-content :global(b) {
+        .nextui-collapse-title-content :global(h1),
+        .nextui-collapse-title-content :global(h2),
+        .nextui-collapse-title-content :global(h3),
+        .nextui-collapse-title-content :global(h4),
+        .nextui-collapse-title-content :global(h5),
+        .nextui-collapse-title-content :global(h6),
+        .nextui-collapse-title-content :global(p),
+        .nextui-collapse-title-content :global(span),
+        .nextui-collapse-title-content :global(b) {
           margin: 0 !important;
         }
-        .subtitle {
+        .nextui-collapse-subtitle {
           color: ${theme.palette.accents_5};
           margin: 0;
         }
-        .subtitle > :global(*) {
+        .nextui-collapse-subtitle > :global(*) {
           margin: 0;
         }
-        .content {
+        .nextui-collapse-content {
           font-size: 1rem;
           line-height: 1.625rem;
           padding-bottom: ${theme.spacing.lg};
         }
-        .content > :global(*:first-child) {
+        .nextui-collapse-content > :global(*:first-child) {
           margin-top: 0;
         }
-        .content > :global(*:last-child) {
+        .nextui-collapse-content > :global(*:last-child) {
           margin-bottom: 0;
         }
       `}</style>

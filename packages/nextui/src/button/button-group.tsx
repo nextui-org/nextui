@@ -1,13 +1,15 @@
 import React, { useMemo } from 'react';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
+import { DefaultProps } from '../utils/default-props';
 import { NormalSizes, NormalColors, NormalWeights } from '../utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
 import { getGroupBorder } from './styles';
+import { getSpacingsStyles } from '../utils/styles';
 import { getNormalRadius } from '../utils/dimensions';
 import clsx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   disabled?: boolean;
   vertical?: boolean;
   bordered?: boolean;
@@ -63,6 +65,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     vertical,
     children,
     className,
+    style,
     ...props
   } = groupProps;
   const initialValue = useMemo<ButtonGroupConfig>(
@@ -82,6 +85,8 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     }),
     [disabled, size, color, bordered, light, ghost, flat]
   );
+
+  const spacingStyles = getSpacingsStyles(theme, props);
 
   const { color: borderColor, width: borderWidth } = useMemo(() => {
     return getGroupBorder(theme.palette, groupProps);
@@ -104,6 +109,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
           },
           className
         )}
+        style={{ ...style, ...spacingStyles }}
         {...props}
       >
         {children}
