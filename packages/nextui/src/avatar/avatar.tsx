@@ -9,7 +9,7 @@ import { DefaultProps } from '../utils/default-props';
 import useTheme from '../use-theme';
 import AvatarGroup from './avatar-group';
 import { getNormalColor, addColorAlpha } from '../utils/color';
-import { getNormalWeight, getSpacings } from '../utils/dimensions';
+import { getNormalWeight } from '../utils/dimensions';
 import { getSpacingsStyles } from '../utils/styles';
 import clsx from '../utils/clsx';
 
@@ -96,9 +96,7 @@ const Avatar: React.FC<AvatarProps> = ({
     imgRef?.current?.complete && setReady(true);
   }, []);
 
-  const spacings = getSpacings(theme, props);
-
-  const spacingStyles = getSpacingsStyles(spacings);
+  const spacingStyles = getSpacingsStyles(theme, props);
 
   const avatarColor = useMemo(
     () => getNormalColor(color, theme.palette, theme.palette.accents_2),

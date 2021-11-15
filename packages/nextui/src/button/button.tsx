@@ -16,6 +16,7 @@ import {
   NormalSizes,
   NormalWeights
 } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
 import { filterPropsWithGroup } from './utils';
 import { useButtonGroupContext } from './button-group-context';
 import ButtonGroup from './button-group';
@@ -27,13 +28,13 @@ import {
   getButtonSize
 } from './styles';
 import { getNormalShadowColor } from '../utils/color';
-import { getFocusStyles } from '../utils/styles';
+import { getFocusStyles, getSpacingsStyles } from '../utils/styles';
 import { getNormalRadius } from '../utils/dimensions';
 import { __DEV__ } from '../utils/assertion';
 import clsx from '../utils/clsx';
 import useDrip from '../use-drip';
 
-export interface Props {
+export interface Props extends DefaultProps {
   color?: NormalColors | string;
   size?: NormalSizes;
   light?: boolean;
@@ -119,6 +120,8 @@ const Button = React.forwardRef<
   const hasIcon = icon || iconRight;
   const isRight = Boolean(iconRight);
 
+  const spacingStyles = getSpacingsStyles(theme, props);
+
   const { bg, color, loaderBg, border, style, hover } = useMemo(
     () => getButtonColors(theme.palette, filteredProps),
     [theme.palette, filteredProps]
@@ -201,7 +204,8 @@ const Button = React.forwardRef<
       onClick={clickHandler}
       style={{
         ...style,
-        ...buttonStyle
+        ...buttonStyle,
+        ...spacingStyles
       }}
       {...props}
     >
@@ -237,7 +241,8 @@ const Button = React.forwardRef<
         .nextui-button {
           background: ${bg};
           box-sizing: border-box;
-          display: inline-block;
+          display: flex;
+          align-items: center;
           padding: 0 ${padding};
           height: ${height};
           line-height: ${height};
