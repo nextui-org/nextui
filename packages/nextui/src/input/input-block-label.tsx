@@ -24,6 +24,8 @@ export interface InputBlockLabelLabel {
   hover?: boolean;
 }
 
+const preClass = 'next-input-block-label';
+
 const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
   label,
   labelId,
@@ -45,24 +47,25 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
   ...props
 }) => {
   const theme = useTheme();
+
   return (
     <label
       id={labelId}
-      className={clsx('input-label-block', {
-        'as-placeholder': asPlaceholder,
-        'with-value': selfValue,
-        'has-content-left': hasLeftContent,
-        'is-textarea': isTextarea,
-        underlined,
-        rounded,
-        hover
+      className={clsx(preClass, {
+        [`${preClass}-as-placeholder`]: asPlaceholder,
+        [`${preClass}-with-value`]: selfValue,
+        [`${preClass}-has-content-left`]: hasLeftContent,
+        [`${preClass}-is-textarea`]: isTextarea,
+        [`${preClass}-underlined`]: underlined,
+        [`${preClass}-rounded`]: rounded,
+        [`${preClass}-hover`]: hover
       })}
       htmlFor={htmlFor}
       {...props}
     >
       {label}
       <style jsx>{`
-        .input-label-block {
+        .${preClass} {
           display: block;
           font-weight: normal;
           color: ${color || theme.palette.text};
@@ -78,16 +81,16 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
           user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
         }
-        .input-label-block > :global(*:first-child) {
+        .${preClass} > :global(*:first-child) {
           margin-top: 0;
         }
-        .input-label-block > :global(*:last-child) {
+        .${preClass} > :global(*:last-child) {
           margin-bottom: 0;
         }
-        .input-label-block.rounded {
+        .${preClass}.${preClass}-rounded {
           padding: 0 0 0 calc(${theme.spacing.sm} * 0.5);
         }
-        .as-placeholder {
+        .${preClass}-as-placeholder {
           position: absolute;
           padding: 0;
           z-index: 1;
@@ -100,14 +103,14 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
             : 'none'};
           color: ${placeholderColor || theme.palette.accents_3};
         }
-        .as-placeholder.underlined {
+        .${preClass}-as-placeholder.${preClass}-underlined {
           left: 4px;
         }
-        .as-placeholder.has-content-left {
+        .${preClass}-as-placeholder.${preClass}-has-content-left {
           left: calc(12px + ${heightRatio} * ${theme.spacing.lg} * 0.64);
         }
-        .as-placeholder.hover,
-        .as-placeholder.with-value {
+        .${preClass}-as-placeholder.${preClass}-hover,
+          .${preClass}-as-placeholder.${preClass}-with-value {
           color: ${placeholderColor && status !== 'default'
             ? addColorAlpha(placeholderColor, 1)
             : color || theme.palette.text};
@@ -115,11 +118,11 @@ const InputBlockLabel: React.FC<InputBlockLabelLabel> = ({
           left: ${underlined ? '0px' : '4px'};
           cursor: inherit;
         }
-        .as-placeholder.is-textarea {
+        .${preClass}-as-placeholder.${preClass}-is-textarea {
           top: 10px;
         }
-        .as-placeholder.is-textarea.hover,
-        .as-placeholder.is-textarea.with-value {
+        .${preClass}-as-placeholder.${preClass}-is-textarea.${preClass}-hover,
+          .${preClass}-as-placeholder.${preClass}-is-textarea.${preClass}-with-value {
           top: -28px;
         }
       `}</style>

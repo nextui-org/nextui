@@ -122,7 +122,10 @@ describe('Input', () => {
     expect(callback).toHaveBeenCalled();
     expect(value).toEqual('test');
 
-    wrapper.find('.clear-icon').at(0).simulate('click', nativeEvent);
+    wrapper
+      .find('.nextui-input-clear-icon')
+      .at(0)
+      .simulate('click', nativeEvent);
     expect(clearHandler).toHaveBeenCalled();
     expect(value).toEqual('');
   });

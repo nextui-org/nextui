@@ -3,6 +3,7 @@ import withDefaults from '../utils/with-defaults';
 import { Props, defaultProps } from './input-props';
 import PasswordIcon from './password-icon';
 import Input from './input';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 interface PasswordProps extends Props {
@@ -15,7 +16,7 @@ const passwordDefaultProps = {
   ...defaultProps,
   hideToggle: false,
   visibleIcon: <PasswordIcon visible />,
-  hiddenIcon: <PasswordIcon visible={false} />,
+  hiddenIcon: <PasswordIcon visible={false} />
 };
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof PasswordProps>;
@@ -43,9 +44,10 @@ const InputPassword = React.forwardRef<
       () => ({
         ...props,
         ref: inputRef,
+        className: clsx('nextui-input-password', props.className),
         contentClickable: true,
         onContentClick: iconClickHandler,
-        type: visible ? 'text' : 'password',
+        type: visible ? 'text' : 'password'
       }),
       [props, iconClickHandler, visible, inputRef]
     );

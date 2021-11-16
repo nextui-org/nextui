@@ -16,6 +16,8 @@ export interface InputLabelProps {
   borderWeight?: string;
 }
 
+const preClass = 'nextui-input-label';
+
 const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
   children,
   isRight,
@@ -42,17 +44,17 @@ const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
   }, [isDark, status, underlined, bgColor, bordered]);
   return (
     <span
-      className={clsx('input-label', {
-        right: isRight,
-        left: !isRight,
-        underlined,
-        bordered
+      className={clsx(preClass, {
+        [`${preClass}-right`]: isRight,
+        [`${preClass}-left`]: !isRight,
+        [`${preClass}-underlined`]: underlined,
+        [`${preClass}-bordered`]: bordered
       })}
       {...props}
     >
       {children}
       <style jsx>{`
-        .input-label {
+        .${preClass} {
           position: relative;
           display: inline-flex;
           width: initial;
@@ -67,16 +69,16 @@ const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
           font-size: ${fontSize};
           line-height: 1;
         }
-        .right {
+        .${preClass}-right {
           border-top-right-radius: ${radius};
           border-bottom-right-radius: ${radius};
         }
-        .left {
+        .${preClass}-left {
           border-top-left-radius: ${radius};
           border-bottom-left-radius: ${radius};
         }
-        .underlined.left:after,
-        .underlined.right:before {
+        .${preClass}-underlined.left:after,
+          .${preClass}-underlined.right:before {
           position: absolute;
           content: '';
           height: 70%;
@@ -86,14 +88,13 @@ const InputLabel: React.FC<React.PropsWithChildren<InputLabelProps>> = ({
           box-shadow: 0 2px 4px 0px rgb(0 0 0 / 8%);
           background: ${color || theme.palette.accents_4};
         }
-        .underlined.left:after {
+        .${preClass}-underlined.${preClass}-left:after {
           right: 0;
         }
-        .underlined.right:before {
+        .${preClass}-underlined.${preClass}-right:before {
           left: 0;
         }
-        .bordered:after,
-        .bordered:before {
+        .${preClass}-bordered:after, .${preClass}-bordered:before {
           display: none;
         }
       `}</style>

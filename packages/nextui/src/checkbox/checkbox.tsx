@@ -161,7 +161,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     }
   );
 
-  const getState = useCallback(() => {
+  const getState = useMemo(() => {
     return selfChecked && indeterminate
       ? 'mixed'
       : selfChecked
@@ -183,7 +183,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           type="checkbox"
           tabIndex={-1}
           className="nextui-checkbox-input"
-          data-state={getState()}
+          data-state={getState}
           disabled={isDisabled}
           checked={selfChecked}
           aria-checked={selfChecked && indeterminate ? 'mixed' : selfChecked}

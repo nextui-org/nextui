@@ -19,6 +19,7 @@ import { getSizes, getColors } from './styles';
 import { getId } from '../utils/collections';
 import { Props, FormElement, defaultProps } from './input-props';
 import { getNormalRadius, getNormalWeight } from '../utils/dimensions';
+import { getSpacingsStyles } from '../utils/styles';
 import clsx from '../utils/clsx';
 import { isEmpty } from '../utils/assertion';
 import useWarning from '../use-warning';
@@ -30,7 +31,7 @@ export type InputProps = Props & typeof defaultProps & NativeAttrs;
 
 const simulateChangeEvent = (
   el: FormElement,
-  event: React.MouseEvent<HTMLDivElement>
+  event: React.MouseEvent<HTMLButtonElement>
 ): React.ChangeEvent<FormElement> => {
   return {
     ...event,
@@ -38,6 +39,8 @@ const simulateChangeEvent = (
     currentTarget: el
   };
 };
+
+const preClass = 'nextui-input';
 
 const Input = React.forwardRef<FormElement, InputProps>(
   (
@@ -79,6 +82,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       bordered,
       underlined,
       rounded,
+      style,
       ...props
     },
     ref: React.Ref<FormElement | null>
@@ -90,6 +94,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
 
     const [selfValue, setSelfValue] = useState<string>(initialValue);
     const [hover, setHover] = useState<boolean>(false);
+
+    const spacingStyles = getSpacingsStyles(theme, props);
 
     const { heightRatio, fontSize } = useMemo(() => getSizes(size), [size]);
 
@@ -163,7 +169,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       setSelfValue(event.target.value);
       onChange && onChange(event);
     };
-    const clearHandler = (event: React.MouseEvent<HTMLDivElement>) => {
+    const clearHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
       setSelfValue('');
       onClearClick && onClearClick(event);
       /* istanbul ignore next */
@@ -221,18 +227,35 @@ const Input = React.forwardRef<FormElement, InputProps>(
     const { inputId, labelId } = useMemo(() => {
       const nextuiId = getId();
       return {
-        inputId: inputProps.id || `nextui-${nextuiId}`,
+        inputId: inputProps.id || `${preClass}-${nextuiId}`,
         labelId: !isEmpty(inputProps.id)
-          ? `${inputProps.id}-label`
-          : `nextui-${nextuiId}-label`
+          ? `${preClass}-label-${inputProps.id}`
+          : `${preClass}-label-${nextuiId}`
       };
     }, [inputProps.id]);
 
     if (inputLabel) {
       inputProps['aria-labelledby'] = labelId;
     }
+
+    const getState = useMemo(() => {
+      return hover
+        ? 'hover'
+        : disabled
+        ? 'disabled'
+        : readOnly
+        ? 'read-only'
+        : selfValue
+        ? 'with-value'
+        : 'normal';
+    }, [hover, disabled, readOnly, selfValue]);
+
     return (
-      <div className="with-label">
+      <div
+        data-state={getState}
+        className={`${preClass}-main-container`}
+        style={{ ...style, ...spacingStyles }}
+      >
         {inputLabel && (
           <InputBlockLabel
             labelId={labelId}
@@ -256,30 +279,30 @@ const Input = React.forwardRef<FormElement, InputProps>(
         )}
         <div
           className={clsx(
-            'container',
+            `${preClass}-container`,
             {
-              'input-container': !isTextarea,
-              'textarea-container': isTextarea,
-              'read-only': readOnly,
-              hover
+              [`${preClass}-container-input`]: !isTextarea,
+              [`${preClass}-container-textarea`]: isTextarea,
+              [`${preClass}-container-read-only`]: readOnly,
+              [`${preClass}-container-hover`]: hover
             },
             className
           )}
         >
           <ComponentWrapper
-            className={clsx('wrapper', {
-              hover,
-              disabled,
-              bordered,
-              underlined,
-              shadow,
+            className={clsx(`${preClass}-wrapper`, {
+              [`${preClass}-wrapper-hover`]: hover,
+              [`${preClass}-wrapper-disabled`]: disabled,
+              [`${preClass}-wrapper-bordered`]: bordered,
+              [`${preClass}-wrapper-underlined`]: underlined,
+              [`${preClass}-wrapper-shadow`]: shadow,
               'input-wrapper': !isTextarea,
               'textarea-wrapper': isTextarea
             })}
           >
             {!inputLabel && placeholder && (
               <VisuallyHidden>
-                <span>{placeholder}</span>
+                <span className={`${preClass}-placeholder`}>{placeholder}</span>
               </VisuallyHidden>
             )}
             {labelLeft && (
@@ -310,10 +333,12 @@ const Input = React.forwardRef<FormElement, InputProps>(
               id={inputId}
               ref={inputRef}
               className={clsx({
-                disabled,
-                rounded,
-                'right-content': contentRight,
-                'left-content': contentLeft
+                [`${preClass}`]: !isTextarea,
+                [`${preClass}-textarea`]: isTextarea,
+                [`${preClass}-disabled`]: disabled,
+                [`${preClass}-rounded`]: rounded,
+                [`${preClass}-${preClass}-right-content`]: contentRight,
+                [`${preClass}-left-content`]: contentLeft
               })}
               placeholder={inputPlaceholder}
               disabled={disabled}
@@ -322,6 +347,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
               onBlur={blurHandler}
               onChange={changeHandler}
               autoComplete={autoComplete}
+              data-state={getState}
               aria-placeholder={inputPlaceholder}
               aria-readonly={readOnly}
               aria-required={required}
@@ -365,14 +391,16 @@ const Input = React.forwardRef<FormElement, InputProps>(
           </ComponentWrapper>
         </div>
         <div
-          className={clsx('helper-text-container', {
-            'with-value': !!helperText
+          className={clsx(`${preClass}-helper-text-container`, {
+            [`${preClass}-helper-text-container-with-value`]: !!helperText
           })}
         >
-          {helperText && <p className="helper-text">{helperText}</p>}
+          {helperText && (
+            <p className={`${preClass}-helper-text`}>{helperText}</p>
+          )}
         </div>
         <style jsx>{`
-          .with-label {
+          .${preClass}-main-container {
             width: ${width};
             display: inline-flex;
             flex-direction: column;
@@ -382,17 +410,17 @@ const Input = React.forwardRef<FormElement, InputProps>(
             -webkit-box-align: center;
             border-radius: ${radius};
           }
-          .container {
+          .${preClass}-container {
             width: 100%;
             transition: ${animated ? 'all 0.25s ease' : 'none'};
             border-radius: ${radius};
           }
-          .input-container {
+          .${preClass}-container-input {
             display: inline-flex;
             align-items: center;
             height: calc(${heightRatio} * ${theme.spacing[5]});
           }
-          .wrapper {
+          .${preClass}-wrapper {
             flex: 1;
             position: relative;
             display: inline-flex;
@@ -405,20 +433,20 @@ const Input = React.forwardRef<FormElement, InputProps>(
           .input-wrapper {
             height: 100%;
           }
-          .wrapper.shadow {
+          .${preClass}-wrapper.${preClass}-wrapper-shadow: {
             transition: ${animated ? 'all 0.25s ease' : 'none'};
           }
-          .wrapper.bordered {
+          .${preClass}-wrapper.${preClass}-wrapper-bordered {
             background: transparent;
             border: none;
             box-shadow: 0 0 0 ${!underlined ? borderWeight : '0px'}
               ${borderColor};
             transition: ${animated ? 'box-shadow 0.25s ease' : 'none'};
           }
-          .wrapper.underlined {
+          .${preClass}-wrapper.${preClass}-wrapper-underlined {
             background: transparent;
           }
-          .wrapper.underlined::after {
+          .${preClass}-wrapper.${preClass}-wrapper-underlined::after {
             content: '';
             position: absolute;
             z-index: 1;
@@ -427,7 +455,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
             height: ${borderWeight};
             background: ${borderColor};
           }
-          .wrapper.underlined::before {
+          .${preClass}-wrapper.${preClass}-wrapper-underlined::before {
             position: absolute;
             content: '';
             z-index: 2;
@@ -439,45 +467,45 @@ const Input = React.forwardRef<FormElement, InputProps>(
             background: ${hoverBorder};
             transition: ${animated ? 'width 0.25s ease' : 'none'};
           }
-          .wrapper.hover.underlined::before {
+          .${preClass}-wrapper.${preClass}-wrapper-hover.${preClass}-wrapper-underlined::before {
             width: 100%;
           }
-          .wrapper.disabled {
+          .${preClass}-wrapper.${preClass}-wrapper-disabled {
             cursor: not-allowed;
           }
-          .helper-text-container {
+          .${preClass}-helper-text-container {
             position: absolute;
             opacity: 0;
             bottom: calc(${heightRatio} * ${theme.spacing.sm} * -1);
             transition: ${animated ? 'opacity 0.25s ease' : 'none'};
           }
-          .helper-text-container.with-value {
+          .${preClass}-helper-text-container.${preClass}-helper-text-container-with-value {
             opacity: 1;
           }
-          .helper-text {
+          .${preClass}-helper-text {
             margin: 2px 0 0 10px;
             font-size: 0.7rem;
             color: ${helperColor};
           }
-          .container.hover:not(.read-only) {
+          .${preClass}-container.${preClass}-container-hover:not(.${preClass}-container-read-only) {
             transform: ${animated && !underlined ? 'translateY(-2px)' : 'none'};
           }
-          .wrapper.shadow.hover:not(.read-only) {
+          .${preClass}-wrapper.${preClass}-wrapper-shadow.${preClass}-wrapper-hover:not(.${preClass}-container-read-only) {
             box-shadow: ${shadow && !underlined ? shadowColor : 'none'};
           }
-          .container:hover .wrapper.bordered,
-          .container.hover:not(.read-only) .wrapper.bordered {
+          .${preClass}-container:hover
+            .${preClass}-wrapper.${preClass}-wrapper-bordered,
+            .${preClass}-container.${preClass}-container-hover:not(.${preClass}-container-read-only)
+            .${preClass}-wrapper.${preClass}-wrapper-bordered {
             border-color: ${hoverBorder};
             box-shadow: 0 0 0 ${!underlined ? borderWeight : '0px'}
               ${hoverBorder};
           }
-          input.disabled,
-          textarea.disabled {
+          input.${preClass}-disabled, textarea.${preClass}-disabled {
             color: ${theme.palette.accents_4};
             cursor: not-allowed;
           }
-          input.rounded,
-          textarea.rounded {
+          input.${preClass}-rounded, textarea.${preClass}-rounded {
             padding: 0 calc(${theme.spacing.sm} * 0.5);
           }
           input:focus::placeholder,
@@ -485,15 +513,15 @@ const Input = React.forwardRef<FormElement, InputProps>(
             opacity: 0;
             transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
           }
-          .wrapper:not(.underlined) input {
+          .${preClass}-wrapper:not(.${preClass}-wrapper-underlined) input {
             margin: 4px 10px;
           }
-          .wrapper:not(.underlined) textarea {
+          .${preClass}-wrapper:not(.${preClass}-wrapper-underlined) textarea {
             margin: 0px;
             padding: ${theme.spacing.xs} ${theme.spacing.sm};
           }
-          .wrapper.underlined input,
-          .wrapper.underlined textarea {
+          .${preClass}-wrapper.${preClass}-wrapper-underlined input,
+          .${preClass}-wrapper.${preClass}-wrapper-underlined textarea {
             margin: 4px 5px;
           }
           input,
@@ -510,12 +538,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
             min-width: 0;
             -webkit-appearance: none;
           }
-          input.left-content,
-          textarea.left-content {
+          input.${preClass}-left-content, textarea.${preClass}-left-content {
             margin-left: 0;
           }
-          input.right-content,
-          textarea.right-content {
+          input.${preClass}-right-content, textarea.${preClass}-right-content {
             margin-right: 0;
           }
           input::placeholder,

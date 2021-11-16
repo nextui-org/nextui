@@ -3,7 +3,8 @@ import { NormalWeights, NormalSizes } from './prop-types';
 import {
   NextUISpaces,
   NextUISpacingWithAuto,
-  NextUISpacesKeys
+  NextUISpacesKeys,
+  NextUISpacesStringKeys
 } from './default-props';
 
 interface GetSizeValue {
@@ -68,6 +69,7 @@ export function getSpaceValue(
 export function getSpacings(theme: NextUIThemes, defaultSpaces: NextUISpaces) {
   let spacings: NextUISpacesKeys = {};
   Object.keys(defaultSpaces)?.forEach((key: keyof NextUISpaces) => {
+    if (!NextUISpacesStringKeys.includes(key)) return;
     const value = defaultSpaces[key] as keyof NextUISpacingWithAuto;
     spacings = { ...spacings, [key]: getSpaceValue(theme, value) };
     delete defaultSpaces[key];

@@ -37,7 +37,7 @@ const InputContent: React.FC<InputContentProps> = ({
 
   return (
     <span
-      className={clsx({ 'input-content': applyStyles })}
+      className={clsx({ 'nextui-input-content': applyStyles })}
       onClick={(e: React.MouseEvent<HTMLDivElement>) =>
         onClick(isLeft ? 'left' : 'right', e)
       }
@@ -45,7 +45,7 @@ const InputContent: React.FC<InputContentProps> = ({
     >
       {content}
       <style jsx>{`
-        .input-content {
+        .nextui-input-content {
           box-sizing: content-box;
           display: flex;
           width: ${width};

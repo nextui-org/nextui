@@ -10,10 +10,11 @@ interface Props {
   hasContentRight?: boolean;
   underlined?: boolean;
   status?: SimpleColors;
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   heightRatio?: string | undefined;
   disabled?: boolean;
 }
+const preClass = 'nextui-input-clear-icon';
 
 const InputIconClear: React.FC<Props> = ({
   onClick,
@@ -41,7 +42,7 @@ const InputIconClear: React.FC<Props> = ({
     [status, isDark, theme.palette]
   );
 
-  const clickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
+  const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
     event.nativeEvent.stopImmediatePropagation();
@@ -49,24 +50,25 @@ const InputIconClear: React.FC<Props> = ({
   };
 
   return (
-    <div
+    <button
       onClick={clickHandler}
-      className={clsx('clear-icon', {
-        visible,
-        'dark-theme': isDark,
-        underlined: underlined,
-        'has-content-right': hasContentRight
+      className={clsx(preClass, {
+        [`${preClass}-visible`]: visible,
+        [`${preClass}-underlined`]: underlined,
+        [`${preClass}-content-right`]: hasContentRight
       })}
       {...props}
     >
       <ClearIcon fill="currentColor" />
       <style jsx>{`
-        .clear-icon {
+        .${preClass} {
           position: absolute;
           right: 0;
           margin: 0;
           display: inline-flex;
           align-items: center;
+          border: none;
+          background-color: transparent;
           height: auto;
           padding: 0 ${underlined ? '2px' : theme.spacing.sm};
           cursor: ${disabled ? 'not-allowed' : 'pointer'};
@@ -77,28 +79,28 @@ const InputIconClear: React.FC<Props> = ({
           transform: translateX(20%);
           opacity: 0;
         }
-        .has-content-right {
-          padding: 0;
-          position: relative;
-          transform: translateX(30%);
-        }
-        .visible {
-          visibility: visible;
-          transform: translateX(0);
-          opacity: 1;
-        }
-        .clear-icon:hover {
+        .${preClass}:hover {
           color: ${disabled
             ? theme.palette.accents_3
             : theme.palette.foreground};
         }
-        .clear-icon :global(svg) {
+        .${preClass} :global(svg) {
           color: currentColor;
           width: ${width};
           height: ${width};
         }
+        .${preClass}-content-right {
+          padding: 0;
+          position: relative;
+          transform: translateX(30%);
+        }
+        .${preClass}-visible {
+          visibility: visible;
+          transform: translateX(0);
+          opacity: 1;
+        }
       `}</style>
-    </div>
+    </button>
   );
 };
 

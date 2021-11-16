@@ -1,10 +1,4 @@
-import React, {
-  useMemo,
-  useState,
-  useCallback,
-  useRef,
-  useEffect
-} from 'react';
+import React, { useMemo, useState, useRef, useEffect } from 'react';
 import {
   NormalSizes,
   NormalColors,
@@ -124,7 +118,7 @@ const Avatar: React.FC<AvatarProps> = ({
     [src, color, avatarColor, bordered]
   );
 
-  const getState = useCallback(() => {
+  const getState = useMemo(() => {
     return !ready ? 'loading' : 'ready';
   }, [ready]);
 
@@ -136,7 +130,7 @@ const Avatar: React.FC<AvatarProps> = ({
         className
       )}
       style={{ ...style, ...spacingStyles }}
-      data-state={getState()}
+      data-state={getState}
       {...props}
     >
       <span className="nextui-avatar-bg" />
@@ -148,7 +142,7 @@ const Avatar: React.FC<AvatarProps> = ({
           })}
           src={src}
           alt={alt}
-          data-state={getState()}
+          data-state={getState}
           onLoad={() => setReady(true)}
         />
       )}

@@ -6,12 +6,14 @@ import {
   NormalWeights,
   AsProp
 } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
 
 export type FormElement = HTMLInputElement | HTMLTextAreaElement;
 
 export interface Props
   extends AsProp<'input' | 'textarea'>,
-    React.HTMLAttributes<FormElement> {
+    React.HTMLAttributes<FormElement>,
+    DefaultProps {
   value?: string;
   fullWidth?: boolean;
   initialValue?: string;
@@ -43,7 +45,7 @@ export interface Props
   className?: string;
   clearable?: boolean;
   onChange?: (e: React.ChangeEvent<FormElement>) => void;
-  onClearClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClearClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onFocus?: (e: React.FocusEvent<FormElement>) => void;
   onBlur?: (e: React.FocusEvent<FormElement>) => void;
   onContentClick?: (

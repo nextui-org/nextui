@@ -27,6 +27,23 @@ export type NextUISpaces = NextUIMargins & NextUIPaddings;
 
 export type NextUISpacesKeys = { [key in keyof NextUISpaces]?: string };
 
+export const NextUISpacesStringKeys = [
+  'm',
+  'my',
+  'mx',
+  'mt',
+  'mb',
+  'ml',
+  'mr',
+  'p',
+  'py',
+  'px',
+  'pt',
+  'pb',
+  'pl',
+  'pr'
+];
+
 export interface DefaultProps extends NextUIMargins, NextUIPaddings {
   style?: CSSProperties;
   className?: string;

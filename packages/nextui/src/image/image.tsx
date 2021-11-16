@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useRef,
-  useMemo,
-  useCallback,
-  useState
-} from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 import { ObjectFit } from '../utils/prop-types';
 import useTheme from '../use-theme';
 import ImageSkeleton from './image.skeleton';
@@ -114,7 +108,7 @@ const Image: React.FC<ImageProps> = ({
     updateShape();
   });
 
-  const getState = useCallback(() => {
+  const getState = useMemo(() => {
     return loading ? 'loading' : 'ready';
   }, [loading]);
 
@@ -125,7 +119,7 @@ const Image: React.FC<ImageProps> = ({
         { 'nextui-image-ready': !loading },
         className
       )}
-      data-state={getState()}
+      data-state={getState}
       style={spacingStyles}
     >
       {showSkeleton && showAnimation && (
@@ -138,7 +132,7 @@ const Image: React.FC<ImageProps> = ({
         height={height}
         onLoad={imageLoaded}
         src={src}
-        data-state={getState()}
+        data-state={getState}
         alt={props.alt || ''}
         {...props}
       />
