@@ -2,11 +2,13 @@ import React, { useMemo } from 'react';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import { NormalSizes, SimpleColors, NormalLoaders } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import { getNormalColor, addColorAlpha } from '../utils/color';
 import { getLoaderSize, getLoaderBorder, getLabelStyle } from './styles';
 import Spinner from './spinner';
 
-interface Props {
+interface Props extends DefaultProps {
   size?: NormalSizes | number;
   color?: SimpleColors | string;
   gradientBackground?: string | null;
@@ -23,6 +25,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type LoadingProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-loading';
+
 const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   children,
   size,
@@ -30,9 +34,12 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   gradientBackground,
   textColor,
   type,
+  style,
   ...props
 }) => {
   const theme = useTheme();
+
+  const spacingStyles = getSpacingsStyles(theme, props);
 
   const width = useMemo(
     () => (typeof size === 'number' ? `${size}px` : getLoaderSize(type)[size]),
@@ -59,7 +66,13 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   );
   if (type === 'spinner') {
     return (
-      <Spinner size={width} color={bgColor} labelStyle={labelStyle} {...props}>
+      <Spinner
+        size={width}
+        color={bgColor}
+        labelStyle={labelStyle}
+        style={{ ...style, ...spacingStyles }}
+        {...props}
+      >
         {children}
       </Spinner>
     );
@@ -68,27 +81,38 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   const ariaLabel = children ? '' : 'Loading';
 
   return (
-    <div className="loading-container" {...props}>
-      <span className={`loading ${type}`} aria-label={ariaLabel}>
+    <div
+      className={`${preClass}-container`}
+      style={{ ...style, ...spacingStyles }}
+      {...props}
+    >
+      <span
+        className={`${preClass} ${preClass}-${type}`}
+        aria-label={ariaLabel}
+      >
         <i className="_1" />
         <i className="_2" />
         <i className="_3" />
       </span>
-      {children && <label style={labelStyle}>{children}</label>}
+      {children && (
+        <label className={`${preClass}-label`} style={labelStyle}>
+          {children}
+        </label>
+      )}
       <style jsx>{`
-        .loading-container {
+        .${preClass}-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .${preClass}-label {
           margin-top: ${theme.spacing[1]};
         }
-        label :global(*) {
+        .${preClass}-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .${preClass} {
           position: absolute;
           top: 0;
           left: 0;
@@ -102,42 +126,42 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.${preClass}-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: ${width};
           height: ${width};
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.${preClass}-points-opacity,
+        .{preClass}.${preClass}-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.${preClass}-gradient {
           display: flex;
           position: relative;
           width: ${width};
           height: ${width};
         }
-        .loading.points {
+        .{preClass}.${preClass}-points {
           transform: translate(0, calc(${width} * 0.6));
         }
-        .loading.default i {
+        .{preClass}.${preClass}-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.${preClass}-default ._1 {
           border: ${border} solid ${bgColor};
           border-top: ${border} solid transparent;
           border-left: ${border} solid transparent;
           border-right: ${border} solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.${preClass}-default ._2 {
           border: ${border} dotted ${bgColor};
           border-top: ${border} solid transparent;
           border-left: ${border} solid transparent;
@@ -145,10 +169,10 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.${preClass}-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.${preClass}-points-opacity i {
           display: inline-block;
           width: ${width};
           height: ${width};
@@ -157,31 +181,31 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.${preClass}-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.${preClass}-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.${preClass}-points i {
           width: ${width};
           height: ${width};
           margin: 0 3px;
           background: ${bgColor};
         }
-        .loading.points ._1 {
+        .{preClass}.${preClass}-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.${preClass}-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.${preClass}-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.${preClass}-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -196,7 +220,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.${preClass}-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -206,7 +230,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           background: ${gradientBackground || theme.palette.background};
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.${preClass}-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {

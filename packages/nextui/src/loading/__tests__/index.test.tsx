@@ -11,17 +11,21 @@ describe('Loading', () => {
 
   it('should render with default aria-label', () => {
     const wrapper = mount(<Loading />);
-    expect(wrapper.find('.loading').prop('aria-label')).toEqual('Loading');
+    expect(wrapper.find('.nextui-loading').prop('aria-label')).toEqual(
+      'Loading'
+    );
   });
 
   it('should render with default aria-label for spinner', () => {
     const wrapper = mount(<Loading type="spinner" />);
-    expect(wrapper.find('.container').prop('aria-label')).toEqual('Loading');
+    expect(
+      wrapper.find('.nextui-spinner-container').prop('aria-label')
+    ).toEqual('Loading');
   });
 
   it('should work with children', () => {
     const wrapper = mount(<Loading>Loading</Loading>);
-    expect(wrapper.find('label').text()).toContain('Loading');
+    expect(wrapper.find('.nextui-loading-label').text()).toContain('Loading');
   });
 
   it('should work with different colors', () => {
@@ -84,6 +88,6 @@ describe('Loading', () => {
 
   it('should work with text in spinner type', () => {
     const wrapper = mount(<Loading type="spinner">Spinner</Loading>);
-    expect(wrapper.find('.spinner').text()).toContain('Spinner');
+    expect(wrapper.find('.nextui-spinner').text()).toContain('Spinner');
   });
 });

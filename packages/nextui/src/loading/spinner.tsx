@@ -2,8 +2,10 @@ import React, { CSSProperties } from 'react';
 import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import { NextUIThemes } from '../theme';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 
-interface Props {
+interface Props extends DefaultProps {
   size: string;
   color: string;
   labelStyle?: CSSProperties;
@@ -19,7 +21,7 @@ export type SpinnerProps = Props & typeof defaultProps & NativeAttrs;
 
 const getSpans = (color: string, theme: NextUIThemes) => {
   return [...new Array(12)].map((_, index) => (
-    <span key={`spinner-${index}`}>
+    <span key={`nextui-spinner-${index}`}>
       <style jsx>{`
         span {
           background-color: ${color};
@@ -100,20 +102,25 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
   color,
   className,
   labelStyle,
+  style,
   ...props
 }) => {
   const theme = useTheme();
-
+  const spacingStyles = getSpacingsStyles(theme, props);
   const ariaLabel = children ? '' : 'Loading';
 
   return (
-    <div className={`spinner ${className}`} {...props}>
-      <div className="container" aria-label={ariaLabel}>
+    <div
+      className={`nextui-spinner ${className}`}
+      style={{ ...style, ...spacingStyles }}
+      {...props}
+    >
+      <div className="nextui-spinner-container" aria-label={ariaLabel}>
         {getSpans(color, theme)}
       </div>
       {children && <label style={labelStyle}>{children}</label>}
       <style jsx>{`
-        .spinner {
+        .nextui-spinner {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -122,7 +129,7 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
           width: ${size};
           height: ${size};
         }
-        .container {
+        .nextui-spinner-container {
           width: 100%;
           height: 100%;
           position: relative;

@@ -3,10 +3,13 @@ import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import LinkIcon from './icon';
 import { addColorAlpha, getNormalColor } from '../utils/color';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import { SimpleColors } from '../utils/prop-types';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
-export interface Props {
+export interface Props extends DefaultProps {
   href?: string;
   color?: SimpleColors | boolean | string;
   icon?: boolean;
@@ -26,15 +29,29 @@ const defaultProps = {
 type NativeAttrs = Omit<React.AnchorHTMLAttributes<unknown>, keyof Props>;
 export type LinkProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-link';
+
 const Link = React.forwardRef<
   HTMLAnchorElement,
   React.PropsWithChildren<LinkProps>
 >(
   (
-    { href, color, underline, children, className, block, icon, ...props },
+    {
+      href,
+      color,
+      underline,
+      children,
+      className,
+      block,
+      icon,
+      style,
+      ...props
+    },
     ref: React.Ref<HTMLAnchorElement>
   ) => {
     const theme = useTheme();
+
+    const spacingStyles = getSpacingsStyles(theme, props);
 
     const linkColor = useMemo(
       () => getNormalColor(color || block, theme.palette, theme.palette.link),
@@ -52,11 +69,17 @@ const Link = React.forwardRef<
     const decoration = underline ? 'underline' : 'none';
 
     return (
-      <a className={`link ${className}`} href={href} {...props} ref={ref}>
+      <a
+        className={clsx(preClass, className)}
+        href={href}
+        style={{ ...style, ...spacingStyles }}
+        {...props}
+        ref={ref}
+      >
         {children}
         {icon && <LinkIcon />}
         <style jsx>{`
-          .link {
+          .${preClass} {
             display: inline-flex;
             align-items: baseline;
             line-height: inherit;
@@ -67,12 +90,10 @@ const Link = React.forwardRef<
             width: fit-content;
             transition: all 0.25s ease;
           }
-          .link:hover,
-          .link:active,
-          .link:focus {
+          .${preClass}:hover, .${preClass}:active, .${preClass}:focus {
             text-decoration: ${decoration};
           }
-          .link:hover {
+          .${preClass}:hover {
             background-color: ${block
               ? addColorAlpha(linkColor, 0.2)
               : 'inherit'};

@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading should render correctly 1`] = `
-"<div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+"<div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -28,42 +28,42 @@ exports[`Loading should render correctly 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -71,10 +71,10 @@ exports[`Loading should render correctly 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -83,31 +83,31 @@ exports[`Loading should render correctly 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -122,7 +122,7 @@ exports[`Loading should render correctly 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -132,7 +132,7 @@ exports[`Loading should render correctly 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -171,20 +171,20 @@ exports[`Loading should render correctly 1`] = `
 exports[`Loading should render correctly 2`] = `[Function]`;
 
 exports[`Loading should work with different colors 1`] = `
-"<div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+"<div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -198,42 +198,42 @@ exports[`Loading should work with different colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #f81ce5;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #f81ce5;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -241,10 +241,10 @@ exports[`Loading should work with different colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -253,31 +253,31 @@ exports[`Loading should work with different colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #f81ce5;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -292,7 +292,7 @@ exports[`Loading should work with different colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -302,7 +302,7 @@ exports[`Loading should work with different colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -335,20 +335,20 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -362,42 +362,42 @@ exports[`Loading should work with different colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -405,10 +405,10 @@ exports[`Loading should work with different colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -417,31 +417,31 @@ exports[`Loading should work with different colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -456,7 +456,7 @@ exports[`Loading should work with different colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -466,7 +466,7 @@ exports[`Loading should work with different colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -499,20 +499,20 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -526,42 +526,42 @@ exports[`Loading should work with different colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #17c964;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #17c964;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -569,10 +569,10 @@ exports[`Loading should work with different colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -581,31 +581,31 @@ exports[`Loading should work with different colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #17c964;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -620,7 +620,7 @@ exports[`Loading should work with different colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -630,7 +630,7 @@ exports[`Loading should work with different colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -663,20 +663,20 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -690,42 +690,42 @@ exports[`Loading should work with different colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #7928ca;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #7928ca;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -733,10 +733,10 @@ exports[`Loading should work with different colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -745,31 +745,31 @@ exports[`Loading should work with different colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #7928ca;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -784,7 +784,7 @@ exports[`Loading should work with different colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -794,7 +794,7 @@ exports[`Loading should work with different colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -827,20 +827,20 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -854,42 +854,42 @@ exports[`Loading should work with different colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #f5a623;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #f5a623;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -897,10 +897,10 @@ exports[`Loading should work with different colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -909,31 +909,31 @@ exports[`Loading should work with different colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #f5a623;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -948,7 +948,7 @@ exports[`Loading should work with different colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -958,7 +958,7 @@ exports[`Loading should work with different colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -991,20 +991,20 @@ exports[`Loading should work with different colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -1018,42 +1018,42 @@ exports[`Loading should work with different colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #f21361;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #f21361;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -1061,10 +1061,10 @@ exports[`Loading should work with different colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -1073,31 +1073,31 @@ exports[`Loading should work with different colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #f21361;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -1112,7 +1112,7 @@ exports[`Loading should work with different colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -1122,7 +1122,7 @@ exports[`Loading should work with different colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -1161,20 +1161,20 @@ exports[`Loading should work with different colors 1`] = `
 exports[`Loading should work with different colors 2`] = `[Function]`;
 
 exports[`Loading should work with different sizes 1`] = `
-"<div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+"<div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -1188,42 +1188,42 @@ exports[`Loading should work with different sizes 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 1rem;
           height: 1rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 1rem;
           height: 1rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(1rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 2px solid #0070f3;
           border-top: 2px solid transparent;
           border-left: 2px solid transparent;
           border-right: 2px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 2px dotted #0070f3;
           border-top: 2px solid transparent;
           border-left: 2px solid transparent;
@@ -1231,10 +1231,10 @@ exports[`Loading should work with different sizes 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 1rem;
           height: 1rem;
@@ -1243,31 +1243,31 @@ exports[`Loading should work with different sizes 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 1rem;
           height: 1rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -1282,7 +1282,7 @@ exports[`Loading should work with different sizes 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -1292,7 +1292,7 @@ exports[`Loading should work with different sizes 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -1325,20 +1325,20 @@ exports[`Loading should work with different sizes 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -1352,42 +1352,42 @@ exports[`Loading should work with different sizes 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 1.5rem;
           height: 1.5rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 1.5rem;
           height: 1.5rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(1.5rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 2px solid #0070f3;
           border-top: 2px solid transparent;
           border-left: 2px solid transparent;
           border-right: 2px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 2px dotted #0070f3;
           border-top: 2px solid transparent;
           border-left: 2px solid transparent;
@@ -1395,10 +1395,10 @@ exports[`Loading should work with different sizes 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 1.5rem;
           height: 1.5rem;
@@ -1407,31 +1407,31 @@ exports[`Loading should work with different sizes 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 1.5rem;
           height: 1.5rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -1446,7 +1446,7 @@ exports[`Loading should work with different sizes 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -1456,7 +1456,7 @@ exports[`Loading should work with different sizes 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -1489,20 +1489,20 @@ exports[`Loading should work with different sizes 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -1516,42 +1516,42 @@ exports[`Loading should work with different sizes 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -1559,10 +1559,10 @@ exports[`Loading should work with different sizes 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -1571,31 +1571,31 @@ exports[`Loading should work with different sizes 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -1610,7 +1610,7 @@ exports[`Loading should work with different sizes 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -1620,7 +1620,7 @@ exports[`Loading should work with different sizes 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -1653,20 +1653,20 @@ exports[`Loading should work with different sizes 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -1680,42 +1680,42 @@ exports[`Loading should work with different sizes 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2.8rem;
           height: 2.8rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2.8rem;
           height: 2.8rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2.8rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -1723,10 +1723,10 @@ exports[`Loading should work with different sizes 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2.8rem;
           height: 2.8rem;
@@ -1735,31 +1735,31 @@ exports[`Loading should work with different sizes 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2.8rem;
           height: 2.8rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -1774,7 +1774,7 @@ exports[`Loading should work with different sizes 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -1784,7 +1784,7 @@ exports[`Loading should work with different sizes 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -1817,20 +1817,20 @@ exports[`Loading should work with different sizes 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -1844,42 +1844,42 @@ exports[`Loading should work with different sizes 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 4rem;
           height: 4rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 4rem;
           height: 4rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(4rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -1887,10 +1887,10 @@ exports[`Loading should work with different sizes 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 4rem;
           height: 4rem;
@@ -1899,31 +1899,31 @@ exports[`Loading should work with different sizes 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 4rem;
           height: 4rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -1938,7 +1938,7 @@ exports[`Loading should work with different sizes 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -1948,7 +1948,7 @@ exports[`Loading should work with different sizes 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -1987,20 +1987,20 @@ exports[`Loading should work with different sizes 1`] = `
 exports[`Loading should work with different sizes 2`] = `[Function]`;
 
 exports[`Loading should work with different text colors 1`] = `
-"<div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+"<div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -2014,42 +2014,42 @@ exports[`Loading should work with different text colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -2057,10 +2057,10 @@ exports[`Loading should work with different text colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -2069,31 +2069,31 @@ exports[`Loading should work with different text colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -2108,7 +2108,7 @@ exports[`Loading should work with different text colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -2118,7 +2118,7 @@ exports[`Loading should work with different text colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -2151,20 +2151,20 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -2178,42 +2178,42 @@ exports[`Loading should work with different text colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -2221,10 +2221,10 @@ exports[`Loading should work with different text colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -2233,31 +2233,31 @@ exports[`Loading should work with different text colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -2272,7 +2272,7 @@ exports[`Loading should work with different text colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -2282,7 +2282,7 @@ exports[`Loading should work with different text colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -2315,20 +2315,20 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -2342,42 +2342,42 @@ exports[`Loading should work with different text colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -2385,10 +2385,10 @@ exports[`Loading should work with different text colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -2397,31 +2397,31 @@ exports[`Loading should work with different text colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -2436,7 +2436,7 @@ exports[`Loading should work with different text colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -2446,7 +2446,7 @@ exports[`Loading should work with different text colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -2479,20 +2479,20 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -2506,42 +2506,42 @@ exports[`Loading should work with different text colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -2549,10 +2549,10 @@ exports[`Loading should work with different text colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -2561,31 +2561,31 @@ exports[`Loading should work with different text colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -2600,7 +2600,7 @@ exports[`Loading should work with different text colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -2610,7 +2610,7 @@ exports[`Loading should work with different text colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -2643,20 +2643,20 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -2670,42 +2670,42 @@ exports[`Loading should work with different text colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -2713,10 +2713,10 @@ exports[`Loading should work with different text colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -2725,31 +2725,31 @@ exports[`Loading should work with different text colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -2764,7 +2764,7 @@ exports[`Loading should work with different text colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -2774,7 +2774,7 @@ exports[`Loading should work with different text colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -2807,20 +2807,20 @@ exports[`Loading should work with different text colors 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -2834,42 +2834,42 @@ exports[`Loading should work with different text colors 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -2877,10 +2877,10 @@ exports[`Loading should work with different text colors 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -2889,31 +2889,31 @@ exports[`Loading should work with different text colors 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -2928,7 +2928,7 @@ exports[`Loading should work with different text colors 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -2938,7 +2938,7 @@ exports[`Loading should work with different text colors 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -2977,20 +2977,20 @@ exports[`Loading should work with different text colors 1`] = `
 exports[`Loading should work with different text colors 2`] = `[Function]`;
 
 exports[`Loading should work with different types 1`] = `
-"<div><div class=\\"loading-container\\"><span class=\\"loading default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+"<div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-default\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -3004,42 +3004,42 @@ exports[`Loading should work with different types 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -3047,10 +3047,10 @@ exports[`Loading should work with different types 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -3059,31 +3059,31 @@ exports[`Loading should work with different types 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -3098,7 +3098,7 @@ exports[`Loading should work with different types 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -3108,7 +3108,7 @@ exports[`Loading should work with different types 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -3141,7 +3141,7 @@ exports[`Loading should work with different types 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"spinner \\"><div class=\\"container\\" aria-label=\\"Loading\\"><span><style>
+      </style></div><div class=\\"nextui-spinner \\"><div class=\\"nextui-spinner-container\\" aria-label=\\"Loading\\"><span><style>
         span {
           background-color: #0070f3;
           position: absolute;
@@ -3970,7 +3970,7 @@ exports[`Loading should work with different types 1`] = `
           }
         }
       </style></span></div><style>
-        .spinner {
+        .nextui-spinner {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -3979,27 +3979,27 @@ exports[`Loading should work with different types 1`] = `
           width: 1.25rem;
           height: 1.25rem;
         }
-        .container {
+        .nextui-spinner-container {
           width: 100%;
           height: 100%;
           position: relative;
           left: 50%;
           top: 50%;
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading points\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-points\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -4013,42 +4013,42 @@ exports[`Loading should work with different types 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 6px;
           height: 6px;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 6px;
           height: 6px;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(6px * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -4056,10 +4056,10 @@ exports[`Loading should work with different types 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 6px;
           height: 6px;
@@ -4068,31 +4068,31 @@ exports[`Loading should work with different types 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 6px;
           height: 6px;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -4107,7 +4107,7 @@ exports[`Loading should work with different types 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -4117,7 +4117,7 @@ exports[`Loading should work with different types 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -4150,20 +4150,20 @@ exports[`Loading should work with different types 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading points-opacity\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-points-opacity\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -4177,42 +4177,42 @@ exports[`Loading should work with different types 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 6px;
           height: 6px;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 6px;
           height: 6px;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(6px * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -4220,10 +4220,10 @@ exports[`Loading should work with different types 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 6px;
           height: 6px;
@@ -4232,31 +4232,31 @@ exports[`Loading should work with different types 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 6px;
           height: 6px;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -4271,7 +4271,7 @@ exports[`Loading should work with different types 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -4281,7 +4281,7 @@ exports[`Loading should work with different types 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {
@@ -4314,20 +4314,20 @@ exports[`Loading should work with different types 1`] = `
             transform: translate(0px, 0px);
           }
         }
-      </style></div><div class=\\"loading-container\\"><span class=\\"loading gradient\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
-        .loading-container {
+      </style></div><div class=\\"nextui-loading-container\\"><span class=\\"nextui-loading nextui-loading-gradient\\" aria-label=\\"Loading\\"><i class=\\"_1\\"></i><i class=\\"_2\\"></i><i class=\\"_3\\"></i></span><style>
+        .nextui-loading-container {
           display: inline-flex;
           flex-direction: column;
           align-items: center;
           position: relative;
         }
-        label {
+        .nextui-loading-label {
           margin-top: 0.25rem;
         }
-        label :global(*) {
+        .nextui-loading-label :global(*) {
           margin: 0;
         }
-        .loading {
+        .nextui-loading {
           position: absolute;
           top: 0;
           left: 0;
@@ -4341,42 +4341,42 @@ exports[`Loading should work with different types 1`] = `
           background-color: transparent;
           user-select: none;
         }
-        .loading.default {
+        .{preClass}.nextui-loading-default {
           display: flex;
           border-radius: 50%;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points-opacity,
-        .loading.points {
+        .{preClass}.nextui-loading-points-opacity,
+        .{preClass}.nextui-loading-points {
           display: flex;
           position: relative;
         }
-        .loading.gradient {
+        .{preClass}.nextui-loading-gradient {
           display: flex;
           position: relative;
           width: 2rem;
           height: 2rem;
         }
-        .loading.points {
+        .{preClass}.nextui-loading-points {
           transform: translate(0, calc(2rem * 0.6));
         }
-        .loading.default i {
+        .{preClass}.nextui-loading-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .loading.default ._1 {
+        .{preClass}.nextui-loading-default ._1 {
           border: 3px solid #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .loading.default ._2 {
+        .{preClass}.nextui-loading-default ._2 {
           border: 3px dotted #0070f3;
           border-top: 3px solid transparent;
           border-left: 3px solid transparent;
@@ -4384,10 +4384,10 @@ exports[`Loading should work with different types 1`] = `
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .loading.default ._3 {
+        .{preClass}.nextui-loading-default ._3 {
           display: none;
         }
-        .loading.points-opacity i {
+        .{preClass}.nextui-loading-points-opacity i {
           display: inline-block;
           width: 2rem;
           height: 2rem;
@@ -4396,31 +4396,31 @@ exports[`Loading should work with different types 1`] = `
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .loading.points-opacity ._2 {
+        .{preClass}.nextui-loading-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .loading.points-opacity ._3 {
+        .{preClass}.nextui-loading-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .loading.points i {
+        .{preClass}.nextui-loading-points i {
           width: 2rem;
           height: 2rem;
           margin: 0 3px;
           background: #0070f3;
         }
-        .loading.points ._1 {
+        .{preClass}.nextui-loading-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .loading.points ._2 {
+        .{preClass}.nextui-loading-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .loading.points ._3 {
+        .{preClass}.nextui-loading-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .loading.gradient ._1 {
+        .{preClass}.nextui-loading-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -4435,7 +4435,7 @@ exports[`Loading should work with different types 1`] = `
           );
           border-radius: 50%;
         }
-        .loading.gradient ._2 {
+        .{preClass}.nextui-loading-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -4445,7 +4445,7 @@ exports[`Loading should work with different types 1`] = `
           background: #fff;
           border-radius: 50%;
         }
-        .loading.gradient ._3 {
+        .{preClass}.nextui-loading-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {

@@ -71,7 +71,6 @@ export const getLabelStyle = (
       xs: {
         ...common,
         marginRight: '0px',
-        // marginTop: 'calc(100% + 1.6rem)',
         fontSize: '0.6rem'
       },
       sm: {
@@ -83,17 +82,14 @@ export const getLabelStyle = (
       md: {
         ...common,
         marginRight: '0px',
-        // marginTop: 'calc(100% + 2.4rem)',
         fontSize: '0.875rem'
       },
       lg: {
         ...common,
-        // marginTop: 'calc(100% + 3rem)',
         fontSize: '0.875rem'
       },
       xl: {
         ...common,
-        // marginTop: 'calc(100% + 3.4rem)',
         fontSize: '0.875rem'
       }
     },

@@ -12,14 +12,13 @@ export const LinkIcon: React.FC<{}> = () => {
       strokeLinejoin="round"
       fill="none"
       shapeRendering="geometricPrecision"
-      className="icon"
+      className="nextui-link-icon"
     >
       <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
       <path d="M15 3h6v6" />
       <path d="M10 14L21 3" />
-
       <style jsx>{`
-        .icon {
+        .nextui-link-icon {
           margin: 0 5px;
           display: inline-flex;
           align-self: center;
