@@ -81,7 +81,7 @@ describe('Progress', () => {
     const value = 10;
     const minValue = 20;
     const wrapper = mount(<Progress value={value} min={minValue} max={60} />);
-    const props = wrapper.find('.filler').at(0).props();
+    const props = wrapper.find('.nextui-progress-filler').at(0).props();
     expect(() => props['aria-valuenow'] === minValue).toBeTruthy();
   });
 
@@ -89,7 +89,7 @@ describe('Progress', () => {
     const value = 30;
     const maxValue = 20;
     const wrapper = mount(<Progress value={value} min={0} max={maxValue} />);
-    const props = wrapper.find('.filler').at(0).props();
+    const props = wrapper.find('.nextui-progress-filler').at(0).props();
     expect(() => props['aria-valuenow'] === maxValue).toBeTruthy();
   });
 });

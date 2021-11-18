@@ -4,12 +4,14 @@ import CSSTransition from '../utils/css-transition';
 import { NormalColors, NormalSizes } from '../utils/prop-types';
 import withDefaults from '../utils/with-defaults';
 import { addColorAlpha, getNormalColor } from '../utils/color';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import { getShadowColor, getSizes } from './styles';
 import { valueToPercent } from '../utils/numbers';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
-interface Props {
+interface Props extends DefaultProps {
   value: number;
   striped?: boolean;
   animated?: boolean;
@@ -18,9 +20,10 @@ interface Props {
   shadow?: boolean;
   max?: number;
   min?: number;
+  size?: NormalSizes;
   color?: NormalColors | string;
   status?: NormalColors | string;
-  size?: NormalSizes;
+  bgColor?: NormalColors | string;
   className?: string;
 }
 
@@ -48,6 +51,8 @@ type NativeAttrs = Omit<
 
 export type ProgressBarProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-progress';
+
 const ProgressBar: React.FC<ProgressBarProps> = ({
   color,
   value: valueProp,
@@ -59,11 +64,14 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   shadow,
   squared,
   size,
+  bgColor: bgColorProp,
   indeterminated,
   className,
   ...props
 }) => {
   const theme = useTheme();
+
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const value = useMemo(
     () => (valueProp > max ? max : valueProp < min ? min : valueProp),
@@ -91,6 +99,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   );
 
   const bgColor = useMemo(() => {
+    if (bgColorProp) {
+      return getNormalColor(bgColorProp, theme.palette, bgColorProp);
+    }
     if (status === 'default') {
       return theme.palette.accents_2;
     }
@@ -103,16 +114,19 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   }, [status, theme.palette]);
 
   return (
-    <div role="progressbar" className={clsx('progress', className)} {...props}>
+    <div role="progressbar" className={clsx(preClass, className)} {...props}>
       <CSSTransition
         visible
-        name="progress-wrapper"
+        name={`${preClass}-wrapper`}
         enterTime={10}
         leaveTime={20}
         clearTime={300}
       >
         <div
-          className={clsx('filler', { striped, indeterminated })}
+          className={clsx(`${preClass}-filler`, {
+            [`${preClass}-striped`]: striped,
+            [`${preClass}-indeterminated`]: indeterminated
+          })}
           aria-valuenow={value}
           aria-valuemin={min}
           aria-valuemax={max}
@@ -121,7 +135,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       </CSSTransition>
       <style jsx>
         {`
-          .progress {
+          .${preClass} {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -130,8 +144,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             overflow: ${!indeterminated ? 'visible' : 'hidden'};
             background: ${bgColor};
             border-radius: ${radius};
+            ${stringCss};
           }
-          .filler {
+          .${preClass}-filler {
             margin: 0;
             padding: 0;
             width: 0;
@@ -146,14 +161,14 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             box-shadow: ${shadowColor};
             transition: all 0.25s ease;
           }
-          .progress-wrapper-enter {
+          .${preClass}-wrapper-enter {
             opacity: 0;
           }
-          .progress-wrapper-enter-active {
+          .${preClass}-wrapper-enter-active {
             opacity: 1;
             width: ${percent}%;
           }
-          .filler.striped {
+          .${preClass}-filler.${preClass}-striped {
             background-image: linear-gradient(
               45deg,
               rgba(0, 0, 0, 0.1) 25%,
@@ -166,7 +181,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             );
             background-size: ${theme.spacing.lg} ${theme.spacing.lg};
           }
-          .filler.indeterminated {
+          .${preClass}-filler.${preClass}-indeterminated {
             position: absolute;
             width: 0%;
             transition-property: background-color, width, left, border-color,
