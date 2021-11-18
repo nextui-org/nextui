@@ -42,6 +42,8 @@ const getItemAriaLabel = (page?: string | number) => {
 type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
 export type PaginationItemProps = Props & NativeAttrs;
 
+const preClass = 'nextui-pagination-item';
+
 const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
   ({
     active,
@@ -79,13 +81,14 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
     return (
       <button
         className={clsx(
+          preClass,
           {
-            active,
-            animated,
-            disabled,
-            bordered,
-            'only-dots': onlyDots,
-            'preserve-content': preserveContent
+            [`${preClass}-active`]: active,
+            [`${preClass}-animated`]: animated,
+            [`${preClass}-disabled`]: disabled,
+            [`${preClass}-bordered`]: bordered,
+            [`${preClass}-only-dots`]: onlyDots,
+            [`${preClass}-preserve-content`]: preserveContent
           },
           focusClassName
         )}
@@ -94,9 +97,9 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
         tabIndex={disabled ? -1 : 0}
         {...props}
       >
-        <span className="button-content">{children}</span>
+        <span className={`${preClass}-content`}>{children}</span>
         <style jsx>{`
-          button {
+          .${preClass} {
             border: none;
             position: relative;
             display: inline-flex;
@@ -123,7 +126,14 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
               ? 'transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s'
               : 'none'};
           }
-          .button-content {
+          .${preClass}:hover {
+            background: ${hover};
+          }
+          .${preClass} :global(svg) {
+            width: var(--nextui-pagination-font-size);
+            height: var(--nextui-pagination-font-size);
+          }
+          .${preClass}-content {
             position: relative;
             display: inline-flex;
             align-items: center;
@@ -131,36 +141,30 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
             left: 0;
             z-index: 20;
           }
-          .only-dots:not(.preserve-content) .button-content {
+          .${preClass}-only-dots:not(.${preClass}-preserve-content)
+            .${preClass}-content {
             display: none;
           }
-          button:hover {
-            background: ${hover};
-          }
-          .animated:not(.disabled):not(.active):active {
+          .${preClass}-animated:not(.${preClass}-disabled):not(.${preClass}-active):active {
             transform: scale(var(--nextui-pagination-scale-transform));
             font-size: calc(var(--nextui-pagination-font-size) * 0.9);
           }
-          .active {
+          .${preClass}-active {
             font-weight: bold;
             cursor: default;
             box-shadow: ${theme.shadows.sm};
           }
-          .active .button-content {
+          .${preClass}-active .${preClass}-content {
             color: white;
           }
-          .disabled {
+          .${preClass}-disabled {
             color: ${theme.palette.accents_4};
             cursor: not-allowed;
           }
-          .bordered {
+          .${preClass}-bordered {
             background-color: transparent;
             border: var(--nextui-pagination-item-border-weight) solid
               ${theme.palette.accents_2};
-          }
-          button :global(svg) {
-            width: var(--nextui-pagination-font-size);
-            height: var(--nextui-pagination-font-size);
           }
         `}</style>
         {focusStyles}

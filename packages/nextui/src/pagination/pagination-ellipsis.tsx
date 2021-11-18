@@ -34,7 +34,6 @@ const PaginationEllipsis: React.FC<Props> = ({
         <svg
           role="presentation"
           focusable="false"
-          className="more"
           viewBox="0 0 24 24"
           stroke="currentColor"
           strokeWidth="1.5"
@@ -42,6 +41,7 @@ const PaginationEllipsis: React.FC<Props> = ({
           strokeLinejoin="round"
           fill="none"
           shapeRendering="geometricPrecision"
+          className="nextui-pagination-ellipsis"
         >
           <path d="M13 17l5-5-5-5" />
           <path d="M6 17l5-5-5-5" />
@@ -65,7 +65,7 @@ const PaginationEllipsis: React.FC<Props> = ({
           color: currentColor;
           stroke: currentColor;
         }
-        .more {
+        .nextui-pagination-ellipsis {
           transform: rotate(${isBefore ? '180deg' : '0deg'});
         }
       `}</style>

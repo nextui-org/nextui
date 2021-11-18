@@ -8,11 +8,13 @@ import PaginationIcon from './pagination-icon';
 import PaginationHighlight from './pagination-highlight';
 import useTheme from '../use-theme';
 import clsx from '../utils/clsx';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import { getNormalColor } from '../utils/color';
-import { __DEV__ } from '../utils/assertion';
 import { getNormalWeight } from '../utils/dimensions';
+import { __DEV__ } from '../utils/assertion';
 
-interface Props {
+interface Props extends DefaultProps {
   color?: NormalColors | string;
   size?: NormalSizes | number;
   page?: number;
@@ -55,6 +57,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type PaginationProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-pagination';
+
 const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
   page,
   initialPage,
@@ -89,6 +93,8 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
 
   const theme = useTheme();
 
+  const { stringCss } = getSpacingsStyles(theme, props);
+
   const bgColor = useMemo(
     () => getNormalColor(color, theme.palette, theme.palette.primary),
     [color, theme.palette]
@@ -111,7 +117,7 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
         const isBefore = index < range.indexOf(active);
         return (
           <PaginationEllipsis
-            key={`pagination-item-${value}-${index}`}
+            key={`${preClass}-item-${value}-${index}`}
             value={value}
             bordered={bordered}
             animated={animated}
@@ -129,7 +135,7 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
       }
       return (
         <PaginationItem
-          key={`pagination-item-${value}-${index}`}
+          key={`${preClass}-item-${value}-${index}`}
           value={value}
           animated={animated}
           bordered={bordered}
@@ -160,7 +166,10 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
 
   return (
     <nav
-      className={clsx('pagination', { 'no-margin': noMargin, bordered })}
+      className={clsx(preClass, {
+        [`${preClass}-no-margin`]: noMargin,
+        [`${preClass}-bordered`]: bordered
+      })}
       {...props}
     >
       {controls && (
@@ -191,7 +200,7 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
         />
       )}
       <style jsx>{`
-        .pagination {
+        .${preClass} {
           margin: 0;
           padding: 0;
           display: inline-flex;
@@ -206,19 +215,21 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
           --nextui-pagination-size: ${onlyDots ? `calc(${width} / 2)` : width};
           --nextui-pagination-font-size: ${font};
           --nextui-pagination-scale-transform: ${onlyDots ? 0.8 : 0.9};
+          ${stringCss};
         }
-        .pagination :global(button:last-of-type) {
-          margin-right: 0;
+        .${preClass} :global(.${preClass}-item:last-of-type) {
+          ${!stringCss?.includes('margin') ? 'margin-right: 0;' : ''};
         }
-        .no-margin :global(button:first-of-type) {
+        .${preClass}-no-margin :global(.${preClass}-item:first-of-type) {
           border-top-left-radius: 33%;
           border-bottom-left-radius: 33%;
         }
-        .no-margin :global(button:last-of-type) {
+        .${preClass}-no-margin :global(.${preClass}-item:last-of-type) {
           border-top-right-radius: 33%;
           border-bottom-right-radius: 33%;
         }
-        .no-margin.bordered :global(button:not(:last-child)) {
+        .${preClass}-no-margin.${preClass}-bordered
+          :global(${preClass}-item:not(:last-child)) {
           border-right: 0;
         }
       `}</style>

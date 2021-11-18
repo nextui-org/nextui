@@ -34,9 +34,14 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   );
 
   return (
-    <div aria-hidden={true} className={clsx({ shadow })}>
+    <div
+      aria-hidden={true}
+      className={clsx('nextui-pagination-highlight', {
+        'nextui-pagination-highlight-shadow': shadow
+      })}
+    >
       <style jsx>{`
-        div {
+        .nextui-pagination-highlight {
           position: absolute;
           contain: strict;
           top: 0px;
