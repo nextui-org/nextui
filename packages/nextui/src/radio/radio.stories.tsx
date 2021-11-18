@@ -9,7 +9,7 @@ export default {
 } as Meta;
 
 export const Default = () => (
-  <Radio.Group value="A">
+  <Radio.Group value="A" mt={4} m={2}>
     <Radio value="A">Option A</Radio>
     <Radio value="B">Option B</Radio>
     <Radio value="C">Option C</Radio>

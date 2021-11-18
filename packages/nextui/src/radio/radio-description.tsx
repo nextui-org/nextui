@@ -1,13 +1,14 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
+import clsx from '../utils/clsx';
 
 interface Props {
   className?: string;
 }
 
 const defaultProps = {
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -19,10 +20,10 @@ const RadioDescription: React.FC<
   const theme = useTheme();
 
   return (
-    <span className={className} {...props}>
+    <span className={clsx('nextui-radio-description', className)} {...props}>
       {children}
       <style jsx>{`
-        span {
+        .nextui-radio-description {
           color: ${theme.palette.accents_5};
           font-size: calc(var(--radio-size) * 0.85);
           padding-left: calc(var(--radio-size) + var(--radio-size) * 0.375);

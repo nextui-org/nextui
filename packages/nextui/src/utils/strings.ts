@@ -4,3 +4,7 @@ export const kebabCase = (text: string) => {
     ?.replace?.(/\s+/g, '-')
     .toLowerCase?.();
 };
+
+export const includes = (text?: string, search?: string[]) => {
+  return search?.some((item) => text?.includes(item));
+};

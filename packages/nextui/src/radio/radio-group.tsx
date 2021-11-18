@@ -1,9 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
 import { RadioContext } from './radio-context';
+import useTheme from '../use-theme';
 import { NormalSizes, SimpleColors } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
+import clsx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   value?: string | number;
   initialValue?: string | number;
   disabled?: boolean;
@@ -39,6 +43,8 @@ export const getRadioSize = (size: NormalSizes | number): string => {
   return sizes[size];
 };
 
+const preClass = 'nextui-radio-group';
+
 const RadioGroup: React.FC<React.PropsWithChildren<RadioGroupProps>> = ({
   disabled,
   onChange,
@@ -55,6 +61,11 @@ const RadioGroup: React.FC<React.PropsWithChildren<RadioGroupProps>> = ({
   const [selfVal, setSelfVal] = useState<string | number | undefined>(
     initialValue
   );
+
+  const theme = useTheme();
+
+  const { stringCss } = getSpacingsStyles(theme, props);
+
   const updateState = (nextValue: string | number) => {
     setSelfVal(nextValue);
     onChange && onChange(nextValue);
@@ -81,20 +92,19 @@ const RadioGroup: React.FC<React.PropsWithChildren<RadioGroupProps>> = ({
 
   return (
     <RadioContext.Provider value={providerValue}>
-      <div role="radiogroup" className={`radio-group ${className}`} {...props}>
+      <div role="radiogroup" className={clsx(preClass, className)} {...props}>
         {children}
       </div>
       <style jsx>{`
-        div {
+        .${preClass} {
           border: 0;
           margin: 0;
           padding: 0;
-        }
-        .radio-group {
           display: flex;
           flex-direction: ${row ? 'row' : 'column'};
+          ${stringCss};
         }
-        .radio-group :global(.radio) {
+        .${preClass} :global(.nextui-radio) {
           margin-top: ${row ? 0 : groupGap};
           margin-right: ${row ? groupGap : 0};
           --radio-size: ${fontSize};

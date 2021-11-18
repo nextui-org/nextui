@@ -8,8 +8,11 @@ import useWarning from '../use-warning';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import { getFocusStyles } from '../utils/styles';
 import { NormalSizes, SimpleColors } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import { getNormalColor } from '../utils/color';
 import VisuallyHidden from '../utils/visually-hidden';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 interface RadioEventTarget {
@@ -23,7 +26,7 @@ export interface RadioEvent {
   nativeEvent: React.ChangeEvent;
 }
 
-interface Props {
+interface Props extends DefaultProps {
   checked?: boolean;
   value?: string | number;
   squared?: boolean;
@@ -47,6 +50,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
 export type RadioProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-radio';
+
 const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   className,
   checked,
@@ -60,8 +65,11 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   children,
   ...props
 }) => {
-  const theme = useTheme();
   const [selfChecked, setSelfChecked] = useState<boolean>(!!checked);
+  const theme = useTheme();
+
+  const { stringCss } = getSpacingsStyles(theme, props);
+
   const {
     value: groupValue,
     disabledAll,
@@ -159,7 +167,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
 
   return (
     <label
-      className={`radio ${className}`}
+      className={clsx(preClass, className)}
       aria-checked={selfChecked}
       {...props}
       {...bindings}
@@ -171,21 +179,27 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           value={radioValue}
           checked={selfChecked}
           onChange={changeHandler}
+          className={`${preClass}-input`}
           {...props}
         />
       </VisuallyHidden>
-      <span className="name">
+      <span className={`${preClass}-name`}>
         <span
           tabIndex={disabled ? -1 : 0}
-          className={`point ${selfChecked ? 'active' : ''} ${
-            isDisabled ? 'disabled' : ''
-          } ${focusClassName}`}
+          className={clsx(
+            `${preClass}-point`,
+            {
+              [`${preClass}-active`]: selfChecked,
+              [`${preClass}-disabled`]: isDisabled
+            },
+            focusClassName
+          )}
         />
         {withoutDescChildren}
       </span>
       {DescChildren && DescChildren}
       <style jsx>{`
-        input {
+        .${preClass}-input {
           opacity: 0;
           overflow: hidden;
           width: 1px;
@@ -194,27 +208,25 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           right: -1000px;
           position: fixed;
         }
-        .radio {
+        .${preClass} {
           display: flex;
           width: initial;
           align-items: flex-start;
           position: relative;
-          --radio-size: ${fontSize};
-        }
-        label {
-          display: flex;
           flex-direction: column;
           justify-content: flex-start;
           color: ${labelColor};
           cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
+          --radio-size: ${fontSize};
+          ${stringCss};
         }
-        .name {
+        .${preClass}-name {
           font-size: var(--radio-size);
           user-select: none;
           display: inline-flex;
           align-items: center;
         }
-        .point {
+        .${preClass}-point {
           width: var(--radio-size);
           height: var(--radio-size);
           border-radius: ${radius};
@@ -223,7 +235,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           display: inline-block;
           margin-right: calc(var(--radio-size) * 0.375);
         }
-        .point:after {
+        .${preClass}-point:after {
           content: '';
           display: block;
           position: absolute;
@@ -234,10 +246,11 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           transition: all 0.25s ease;
           border: 2px solid ${theme.palette.border};
         }
-        .point.active:after {
+        .${preClass}-point.${preClass}-active:after {
           border: calc(var(--radio-size) * 0.34) solid ${radioColor};
         }
-        label:hover .point:not(.active):not(.disabled) {
+        .${preClass}:hover
+          .${preClass}-point:not(.${preClass}-active):not(.${preClass}-disabled) {
           background: ${theme.palette.border};
         }
       `}</style>
