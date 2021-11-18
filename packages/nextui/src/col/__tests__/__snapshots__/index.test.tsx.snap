@@ -26,6 +26,7 @@ LoadedCheerio {
           padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 0%;
+          ;
         }
       ",
                   "next": null,
@@ -59,6 +60,7 @@ LoadedCheerio {
           padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 0%;
+          ;
         }
       ",
                 "next": null,
@@ -104,6 +106,7 @@ LoadedCheerio {
           padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 16.666666666666668%;
+          ;
         }
       ",
                     "next": null,
@@ -137,6 +140,7 @@ LoadedCheerio {
           padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 16.666666666666668%;
+          ;
         }
       ",
                   "next": null,
@@ -203,6 +207,7 @@ LoadedCheerio {
           padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 16.666666666666668%;
+          ;
         }
       ",
                   "next": null,
@@ -236,6 +241,7 @@ LoadedCheerio {
           padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 16.666666666666668%;
+          ;
         }
       ",
                 "next": null,
@@ -283,6 +289,7 @@ LoadedCheerio {
           padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 0%;
+          ;
         }
       ",
                     "next": null,
@@ -316,6 +323,7 @@ LoadedCheerio {
           padding-right: calc(var(--nextui-row-gap) / 2);
           width: 16.666666666666668%;
           margin-left: 0%;
+          ;
         }
       ",
                   "next": null,

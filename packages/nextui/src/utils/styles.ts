@@ -4,6 +4,7 @@ import { NextUIThemes } from '../theme';
 import { getSpaceTransform } from './spaces';
 import { flattenArray } from './collections';
 import { getSpacings } from './dimensions';
+import { kebabCase } from './strings';
 import css from 'styled-jsx/css';
 
 export function getFocusStyles(theme: NextUIThemes) {
@@ -45,8 +46,25 @@ export function getSpacingsStyles(theme: NextUIThemes, props: NextUISpaces) {
     cssStyles = cssStylesArray.reduce((acc, curr) => {
       return { ...acc, ...curr };
     }, cssStyles);
-    return cssStyles || {};
+
+    const styleString = Object.entries(cssStyles)
+      .map(([k, v]) => `${kebabCase(k)}:${v}`)
+      .join(';');
+
+    const jsxCss = css.resolve`
+      ${styleString}
+    `;
+    return {
+      objectCss: cssStyles,
+      stringCss: styleString,
+      jsxStyles: jsxCss.styles,
+      jsxClassName: jsxCss.className
+    };
   } catch (error) {
-    return {};
+    return {
+      plainCss: {},
+      jsxStyles: '',
+      jsxClassName: ''
+    };
   }
 }

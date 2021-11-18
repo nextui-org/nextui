@@ -62,7 +62,7 @@ describe('Modal', () => {
         <Modal.Header>Modal</Modal.Header>
       </Modal>
     );
-    const html = wrapper.find('.nextui-modal-wrapper').html();
+    const html = wrapper.find('.nextui-modal').html();
     expect(html).toContain('test-class');
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -72,9 +72,9 @@ describe('Modal', () => {
         <Modal.Header>Modal</Modal.Header>
       </Modal>
     );
-    const tabStart = wrapper.find('.hide-tab').at(0).getDOMNode();
-    const tabEnd = wrapper.find('.hide-tab').at(1).getDOMNode();
-    const eventElement = wrapper.find('.nextui-modal-wrapper').at(0);
+    const tabStart = wrapper.find('.nextui-modal-hide-tab').at(0).getDOMNode();
+    const tabEnd = wrapper.find('.nextui-modal-hide-tab').at(1).getDOMNode();
+    const eventElement = wrapper.find('.nextui-modal').at(0);
     expect(document.activeElement).toBe(tabStart);
     act(() => {
       eventElement.simulate('keydown', {

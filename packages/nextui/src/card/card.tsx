@@ -77,12 +77,11 @@ const Card = React.forwardRef<
     height,
     textColor,
     onClick,
-    style,
     ...props
   } = cardProps;
   const theme = useTheme();
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const { color, bgColor, dripColor, borderColor } = useMemo(
     () => getStyles(cardColor, textColor, shadow, bordered, theme),
@@ -170,7 +169,6 @@ const Card = React.forwardRef<
           className
         )}
         onClick={clickHandler}
-        style={{ ...style, ...spacingStyles }}
         {...props}
         {...bindings}
       >
@@ -206,6 +204,7 @@ const Card = React.forwardRef<
             box-sizing: border-box;
             color: ${color};
             border: ${borderWeight} solid ${borderColor};
+            ${stringCss}
           }
           .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;

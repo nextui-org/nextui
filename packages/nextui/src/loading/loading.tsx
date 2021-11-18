@@ -34,12 +34,11 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   gradientBackground,
   textColor,
   type,
-  style,
   ...props
 }) => {
   const theme = useTheme();
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const width = useMemo(
     () => (typeof size === 'number' ? `${size}px` : getLoaderSize(type)[size]),
@@ -66,14 +65,14 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   );
   if (type === 'spinner') {
     return (
-      <Spinner
-        size={width}
-        color={bgColor}
-        labelStyle={labelStyle}
-        style={{ ...style, ...spacingStyles }}
-        {...props}
-      >
+      <Spinner size={width} color={bgColor} labelStyle={labelStyle} {...props}>
         {children}
+        <style jsx>
+          {`
+        :global(.nextui-spinner) {
+          ${stringCss};
+        `}
+        </style>
       </Spinner>
     );
   }
@@ -81,11 +80,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   const ariaLabel = children ? '' : 'Loading';
 
   return (
-    <div
-      className={`${preClass}-container`}
-      style={{ ...style, ...spacingStyles }}
-      {...props}
-    >
+    <div className={`${preClass}-container`} {...props}>
       <span
         className={`${preClass} ${preClass}-${type}`}
         aria-label={ariaLabel}
@@ -105,6 +100,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           flex-direction: column;
           align-items: center;
           position: relative;
+          ${stringCss};
         }
         .${preClass}-label {
           margin-top: ${theme.spacing[1]};

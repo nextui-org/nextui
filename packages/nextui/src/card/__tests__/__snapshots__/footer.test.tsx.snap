@@ -69,6 +69,7 @@ exports[`Card Footer should render correctly 1`] = `
             box-sizing: border-box;
             color: #333;
             border: 0px solid #eaeaea;
+            
           }
           .nextui-card.nextui-card-animated {
             transition: all 0.25s ease;

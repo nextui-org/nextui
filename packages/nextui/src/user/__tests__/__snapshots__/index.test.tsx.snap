@@ -13,7 +13,7 @@ LoadedCheerio {
           Node {
             "attribs": Object {
               "class": "nextui-avatar only-text-avatar",
-              "data-state": "loading",
+              "data-state": "ready",
             },
             "children": Array [
               Node {
@@ -60,6 +60,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -76,7 +77,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -199,6 +200,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -215,7 +217,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -330,6 +332,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -346,7 +349,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -781,7 +784,7 @@ LoadedCheerio {
             "prev": Node {
               "attribs": Object {
                 "class": "nextui-avatar only-text-avatar",
-                "data-state": "loading",
+                "data-state": "ready",
               },
               "children": Array [
                 Node {
@@ -828,6 +831,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -844,7 +848,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -967,6 +971,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -983,7 +988,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1098,6 +1103,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1114,7 +1120,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1395,7 +1401,7 @@ LoadedCheerio {
               "prev": Node {
                 "attribs": Object {
                   "class": "nextui-avatar only-text-avatar",
-                  "data-state": "loading",
+                  "data-state": "ready",
                 },
                 "children": Array [
                   Node {
@@ -1442,6 +1448,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1458,7 +1465,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1581,6 +1588,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1597,7 +1605,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1712,6 +1720,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1728,7 +1737,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1916,6 +1925,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1932,7 +1942,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2053,6 +2063,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2069,7 +2080,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2188,6 +2199,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2204,7 +2216,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2678,6 +2690,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2694,7 +2707,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2815,6 +2828,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2831,7 +2845,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2950,6 +2964,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2966,7 +2981,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -3286,6 +3301,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -3302,7 +3318,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -3423,6 +3439,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -3439,7 +3456,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -3558,6 +3575,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -3574,7 +3592,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -3781,6 +3799,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -3797,7 +3816,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -3918,6 +3937,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -3934,7 +3954,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -4053,6 +4073,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -4069,7 +4090,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -4543,6 +4564,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -4559,7 +4581,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -4680,6 +4702,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -4696,7 +4719,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -4815,6 +4838,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -4831,7 +4855,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -5151,6 +5175,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -5167,7 +5192,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -5288,6 +5313,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -5304,7 +5330,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -5423,6 +5449,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -5439,7 +5466,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -5586,7 +5613,7 @@ LoadedCheerio {
             Node {
               "attribs": Object {
                 "class": "nextui-avatar only-text-avatar",
-                "data-state": "loading",
+                "data-state": "ready",
               },
               "children": Array [
                 Node {
@@ -5633,6 +5660,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -5649,7 +5677,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -5772,6 +5800,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -5788,7 +5817,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -5903,6 +5932,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -5919,7 +5949,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -6354,7 +6384,7 @@ LoadedCheerio {
               "prev": Node {
                 "attribs": Object {
                   "class": "nextui-avatar only-text-avatar",
-                  "data-state": "loading",
+                  "data-state": "ready",
                 },
                 "children": Array [
                   Node {
@@ -6401,6 +6431,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -6417,7 +6448,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -6540,6 +6571,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -6556,7 +6588,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -6671,6 +6703,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -6687,7 +6720,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -6968,7 +7001,7 @@ LoadedCheerio {
                 "prev": Node {
                   "attribs": Object {
                     "class": "nextui-avatar only-text-avatar",
-                    "data-state": "loading",
+                    "data-state": "ready",
                   },
                   "children": Array [
                     Node {
@@ -7015,6 +7048,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -7031,7 +7065,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -7154,6 +7188,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -7170,7 +7205,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -7285,6 +7320,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -7301,7 +7337,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;

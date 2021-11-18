@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonGroup buttons should be displayed vertically 1`] = `
-"<div class=\\"nextui-button-group nextui-button-group-vertical\\"><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action1</div><style>
+"<div class=\\"nextui-button-group nextui-button-group-vertical\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action1</div><style>
         .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
@@ -29,6 +29,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
+          ;
           --nextui-button-border-radius: 12px;
           --nextui-button-padding: 1.25rem;
           --nextui-button-height: 2.5rem;
@@ -91,7 +92,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         .nextui-button-text.nextui-button-text-right {
           padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
         }
-      </style></button><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action2</div><style>
+      </style></button><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action2</div><style>
         .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
@@ -119,6 +120,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
+          ;
           --nextui-button-border-radius: 12px;
           --nextui-button-padding: 1.25rem;
           --nextui-button-height: 2.5rem;
@@ -189,6 +191,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
             border: 0px solid #fff;
             background-color: transparent;
             height: min-content;
+            
           }
           .nextui-button-group :global(.nextui-button .nextui-button-text) {
             top: 0;
@@ -199,8 +202,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           .nextui-button-group-vertical {
             flex-direction: column;
           }
-          .nextui-button-group-horizontal
-            :global(.nextui-button:not(:first-child)) {
+          .nextui-button-group-horizontal :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-left: 0px solid #fff;
@@ -209,8 +211,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
             :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .nextui-button-group-horizontal
-            :global(.nextui-button:not(:last-child)) {
+          .nextui-button-group-horizontal :global(.nextui-button:not(:last-child)) {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
           }
@@ -236,8 +237,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
             :global(.nextui-button:last-child) {
             padding-top: 0 !important;
           }
-          .nextui-button-group-vertical
-            :global(.nextui-button:not(:first-child)) {
+          .nextui-button-group-vertical :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             border-top: 0px solid #fff;
@@ -246,8 +246,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
             :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .nextui-button-group-vertical
-            :global(.nextui-button:not(:last-child)) {
+          .nextui-button-group-vertical :global(.nextui-button:not(:last-child)) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }
@@ -261,7 +260,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
 `;
 
 exports[`ButtonGroup props should be passed to each button 1`] = `
-"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action</div><style>
+"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"success\\"><div class=\\"nextui-button-text\\">action</div><style>
         .nextui-button {
           background: #17c964;
           box-sizing: border-box;
@@ -289,6 +288,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
+          ;
           --nextui-button-border-radius: 7px;
           --nextui-button-padding: 0.625rem;
           --nextui-button-height: 1.5rem;
@@ -359,6 +359,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
             border: 0px solid #fff;
             background-color: transparent;
             height: min-content;
+            
           }
           .nextui-button-group :global(.nextui-button .nextui-button-text) {
             top: 0;
@@ -369,8 +370,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           .nextui-button-group-vertical {
             flex-direction: column;
           }
-          .nextui-button-group-horizontal
-            :global(.nextui-button:not(:first-child)) {
+          .nextui-button-group-horizontal :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-left: 0px solid #fff;
@@ -379,8 +379,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
             :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .nextui-button-group-horizontal
-            :global(.nextui-button:not(:last-child)) {
+          .nextui-button-group-horizontal :global(.nextui-button:not(:last-child)) {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
           }
@@ -406,8 +405,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
             :global(.nextui-button:last-child) {
             padding-top: 0 !important;
           }
-          .nextui-button-group-vertical
-            :global(.nextui-button:not(:first-child)) {
+          .nextui-button-group-vertical :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             border-top: 0px solid #fff;
@@ -416,8 +414,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
             :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .nextui-button-group-vertical
-            :global(.nextui-button:not(:last-child)) {
+          .nextui-button-group-vertical :global(.nextui-button:not(:last-child)) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }
@@ -431,7 +428,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
 `;
 
 exports[`ButtonGroup props should be passed to each button 2`] = `
-"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action</div><style>
+"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"success\\"><div class=\\"nextui-button-text\\">action</div><style>
         .nextui-button {
           background: rgba(23, 201,100,0.15);
           box-sizing: border-box;
@@ -459,6 +456,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
+          ;
           --nextui-button-border-radius: 7px;
           --nextui-button-padding: 0.625rem;
           --nextui-button-height: 1.5rem;
@@ -529,6 +527,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
             border: 0px solid #fff;
             background-color: transparent;
             height: min-content;
+            
           }
           .nextui-button-group :global(.nextui-button .nextui-button-text) {
             top: 0;
@@ -539,8 +538,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           .nextui-button-group-vertical {
             flex-direction: column;
           }
-          .nextui-button-group-horizontal
-            :global(.nextui-button:not(:first-child)) {
+          .nextui-button-group-horizontal :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-left: 0px solid #fff;
@@ -549,8 +547,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
             :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .nextui-button-group-horizontal
-            :global(.nextui-button:not(:last-child)) {
+          .nextui-button-group-horizontal :global(.nextui-button:not(:last-child)) {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
           }
@@ -576,8 +573,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
             :global(.nextui-button:last-child) {
             padding-top: 0 !important;
           }
-          .nextui-button-group-vertical
-            :global(.nextui-button:not(:first-child)) {
+          .nextui-button-group-vertical :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             border-top: 0px solid #fff;
@@ -586,8 +582,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
             :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .nextui-button-group-vertical
-            :global(.nextui-button:not(:last-child)) {
+          .nextui-button-group-vertical :global(.nextui-button:not(:last-child)) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }
@@ -601,7 +596,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
 `;
 
 exports[`ButtonGroup should render correctly 1`] = `
-"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\"><div class=\\"nextui-button-text\\">action</div><style>
+"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action</div><style>
         .nextui-button {
           background: #0070f3;
           box-sizing: border-box;
@@ -629,6 +624,7 @@ exports[`ButtonGroup should render correctly 1`] = `
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
+          ;
           --nextui-button-border-radius: 12px;
           --nextui-button-padding: 1.25rem;
           --nextui-button-height: 2.5rem;
@@ -699,6 +695,7 @@ exports[`ButtonGroup should render correctly 1`] = `
             border: 0px solid #fff;
             background-color: transparent;
             height: min-content;
+            
           }
           .nextui-button-group :global(.nextui-button .nextui-button-text) {
             top: 0;
@@ -709,8 +706,7 @@ exports[`ButtonGroup should render correctly 1`] = `
           .nextui-button-group-vertical {
             flex-direction: column;
           }
-          .nextui-button-group-horizontal
-            :global(.nextui-button:not(:first-child)) {
+          .nextui-button-group-horizontal :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-left: 0px solid #fff;
@@ -719,8 +715,7 @@ exports[`ButtonGroup should render correctly 1`] = `
             :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .nextui-button-group-horizontal
-            :global(.nextui-button:not(:last-child)) {
+          .nextui-button-group-horizontal :global(.nextui-button:not(:last-child)) {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
           }
@@ -746,8 +741,7 @@ exports[`ButtonGroup should render correctly 1`] = `
             :global(.nextui-button:last-child) {
             padding-top: 0 !important;
           }
-          .nextui-button-group-vertical
-            :global(.nextui-button:not(:first-child)) {
+          .nextui-button-group-vertical :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             border-top: 0px solid #fff;
@@ -756,8 +750,7 @@ exports[`ButtonGroup should render correctly 1`] = `
             :global(.nextui-button:not(:first-child):before) {
             border-radius: 0;
           }
-          .nextui-button-group-vertical
-            :global(.nextui-button:not(:last-child)) {
+          .nextui-button-group-vertical :global(.nextui-button:not(:last-child)) {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }

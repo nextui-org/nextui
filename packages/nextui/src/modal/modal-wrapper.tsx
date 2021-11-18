@@ -5,9 +5,11 @@ import CSSTransition from '../utils/css-transition';
 import { isChildElement } from '../utils/collections';
 import ModalCloseButton from './modal-close-button';
 import { KeyCode } from '../use-keyboard';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import cslx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   className?: string;
   visible?: boolean;
   scroll?: boolean;
@@ -26,6 +28,8 @@ const defaultProps = {
 
 export type ModalWrapperProps = Props & typeof defaultProps;
 
+const preClass = 'nextui-modal';
+
 const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   className,
   children,
@@ -39,6 +43,9 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
+
+  const { stringCss } = getSpacingsStyles(theme, props);
+
   const modalContent = useRef<HTMLDivElement>(null);
   const tabStart = useRef<HTMLDivElement>(null);
   const tabEnd = useRef<HTMLDivElement>(null);
@@ -77,6 +84,10 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
     onCloseButtonClick && onCloseButtonClick();
   };
 
+  const getState = useMemo(() => {
+    return visible ? 'open' : 'closed';
+  }, [visible]);
+
   const renderChildren = useMemo(() => {
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
@@ -85,13 +96,14 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
         tabIndex={-1}
         aria-modal={visible}
         ref={modalContent}
+        data-state={getState}
         className={cslx(
-          'nextui-modal-wrapper',
+          preClass,
           {
-            fullscreen: fullScreen,
-            'with-close-button': closeButton,
-            'modal-rebound': rebound,
-            rendered
+            [`${preClass}-fullscreen`]: fullScreen,
+            [`${preClass}-with-close-button`]: closeButton,
+            [`${preClass}-modal-rebound`]: rebound,
+            [`${preClass}-rendered`]: rendered
           },
           className
         )}
@@ -101,7 +113,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
         <div
           role="button"
           tabIndex={0}
-          className="hide-tab"
+          className={`${preClass}-hide-tab`}
           aria-hidden="true"
           ref={tabStart}
         />
@@ -110,18 +122,19 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
         <div
           role="button"
           tabIndex={0}
-          className="hide-tab"
+          className={`${preClass}-hide-tab`}
           aria-hidden="true"
           ref={tabEnd}
         />
         <style jsx>{`
-          .modal-wrapper {
+          .${preClass} {
             max-width: 100%;
             vertical-align: middle;
             overflow: hidden;
             height: fit-content(20em);
             max-height: ${scroll ? 'calc(100vh - 200px)' : 'inherit'};
             display: flex;
+            outline: none;
             flex-direction: column;
             position: relative;
             box-sizing: border-box;
@@ -131,46 +144,46 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             color: ${theme.palette.foreground};
             border-radius: ${theme.radius.lg};
             box-shadow: ${theme.shadows.lg};
-            outline: none;
             animation-fill-mode: forwards;
+            ${stringCss};
           }
-          .hide-tab {
+          .${preClass}-hide-tab {
             outline: none;
             overflow: hidden;
             width: 0;
             height: 0;
             opacity: 0;
           }
-          .fullscreen {
+          .${preClass}-fullscreen {
             width: 100%;
             height: 100%;
             max-height: 100%;
           }
-          .modal-rebound:not(.fullscreen) {
+          .${preClass}-modal-rebound:not(.${preClass}-fullscreen) {
             animation-duration: 250ms;
             animation-name: rebound;
             animation-timing-function: ease;
             animation-fill-mode: forwards;
           }
-          .modal-wrapper-enter:not(.rendered) {
+          .${preClass}-wrapper-enter:not(.${preClass}-rendered) {
             animation-name: appearance-in;
             animation-duration: 200ms;
             animation-timing-function: ease-in;
             animation-direction: normal;
           }
-          .modal-wrapper-leave {
+          .${preClass}-wrapper-leave {
             animation-name: appearance-out;
             animation-duration: 50ms;
             animation-timing-function: ease-out;
           }
-          .with-close-button {
+          .${preClass}-with-close-button {
             padding-top: ${theme.spacing.lg};
           }
-          .fullscreen :global(.close-icon) {
+          .${preClass}-fullscreen :global(.${preClass}-close-icon) {
             top: ${theme.spacing.lg};
             right: calc(${theme.spacing.lg} * 0.5);
           }
-          .fullscreen :global(.close-icon svg) {
+          .${preClass}-fullscreen :global(.${preClass}-close-icon svg) {
             width: 24px;
             height: 24px;
           }
@@ -221,7 +234,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
     <>
       {animated ? (
         <CSSTransition
-          name="modal-wrapper"
+          name={`${preClass}-wrapper`}
           visible={visible}
           enterTime={20}
           leaveTime={20}

@@ -46,7 +46,7 @@ const Image: React.FC<ImageProps> = ({
   const [showSkeleton, setShowSkeleton] = useState<boolean>(true);
 
   const theme = useTheme();
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const { w, h } = useMemo(() => {
     return {
@@ -120,7 +120,6 @@ const Image: React.FC<ImageProps> = ({
         className
       )}
       data-state={getState}
-      style={spacingStyles}
     >
       {showSkeleton && showAnimation && (
         <ImageSkeleton opacity={loading ? 0.5 : 0} />
@@ -147,6 +146,7 @@ const Image: React.FC<ImageProps> = ({
           overflow: hidden;
           max-width: 100%;
           transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
+          ${stringCss};
         }
         .nextui-image-ready {
           opacity: 1;

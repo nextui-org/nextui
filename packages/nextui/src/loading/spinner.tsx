@@ -102,19 +102,19 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
   color,
   className,
   labelStyle,
-  style,
   ...props
 }) => {
   const theme = useTheme();
-  const spacingStyles = getSpacingsStyles(theme, props);
-  const ariaLabel = children ? '' : 'Loading';
+  const { stringCss } = getSpacingsStyles(theme, props);
+
+  const isValidChildren = Array.isArray(children)
+    ? children?.length > 1 && children[0] !== undefined
+    : children !== undefined;
+
+  const ariaLabel = children && isValidChildren ? '' : 'Loading';
 
   return (
-    <div
-      className={`nextui-spinner ${className}`}
-      style={{ ...style, ...spacingStyles }}
-      {...props}
-    >
+    <div className={`nextui-spinner ${className}`} {...props}>
       <div className="nextui-spinner-container" aria-label={ariaLabel}>
         {getSpans(color, theme)}
       </div>
@@ -128,6 +128,7 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
           position: relative;
           width: ${size};
           height: ${size};
+          ${stringCss};
         }
         .nextui-spinner-container {
           width: 100%;

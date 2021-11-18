@@ -2,9 +2,11 @@ import React, { useContext, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import { ModalContext } from './modal-context';
 import useTheme from '../use-theme';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import cslx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   className?: string;
   autoMargin?: boolean;
 }
@@ -17,6 +19,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLElement>, keyof Props>;
 export type ModalContentProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-modal-body';
+
 const ModalContent: React.FC<ModalContentProps> = ({
   className,
   children,
@@ -24,6 +28,9 @@ const ModalContent: React.FC<ModalContentProps> = ({
   ...props
 }) => {
   const theme = useTheme();
+
+  const { stringCss } = getSpacingsStyles(theme, props);
+
   const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
@@ -33,8 +40,11 @@ const ModalContent: React.FC<ModalContentProps> = ({
     <>
       <div
         className={cslx(
-          'modal-body',
-          { 'auto-margin': autoMargin, 'no-padding': noPadding },
+          preClass,
+          {
+            [`${preClass}-auto-margin`]: autoMargin,
+            [`${preClass}-no-padding`]: noPadding
+          },
           className
         )}
         {...props}
@@ -42,7 +52,7 @@ const ModalContent: React.FC<ModalContentProps> = ({
         {children}
       </div>
       <style jsx>{`
-        .modal-body {
+        .${preClass} {
           display: flex;
           flex-direction: column;
           flex: 1 1 auto;
@@ -50,19 +60,20 @@ const ModalContent: React.FC<ModalContentProps> = ({
           overflow-y: auto;
           position: relative;
           text-align: left;
+          ${stringCss};
         }
-        .no-padding {
+        .${preClass}-no-padding {
           flex: 1;
-          padding: 0;
+          ${!stringCss?.includes('padding') ? 'padding: 0;' : ''};
         }
-        .auto-margin > :global(*:first-child) {
-          margin-top: 0;
+        .${preClass}-auto-margin > :global(*:first-child) {
+          ${!stringCss?.includes('margin') ? 'margin-top: 0;' : ''};
         }
-        .auto-margin > :global(*) {
-          margin-bottom: 1rem;
+        .${preClass}-auto-margin > :global(*) {
+          ${!stringCss?.includes('margin') ? 'margin-bottom: 1rem;' : ''};
         }
-        .auto-margin > :global(*:last-child) {
-          margin-bottom: 0;
+        .${preClass}-auto-margin > :global(*:last-child) {
+          ${!stringCss?.includes('margin') ? 'margin-bottom: 0;' : ''};
         }
       `}</style>
     </>

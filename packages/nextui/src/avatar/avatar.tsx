@@ -79,7 +79,6 @@ const Avatar: React.FC<AvatarProps> = ({
   pointer,
   alt,
   className,
-  style,
   ...props
 }) => {
   const theme = useTheme();
@@ -96,7 +95,7 @@ const Avatar: React.FC<AvatarProps> = ({
     imgRef?.current?.complete && setReady(true);
   }, []);
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const avatarColor = useMemo(
     () => getNormalColor(color, theme.palette, theme.palette.accents_2),
@@ -119,8 +118,8 @@ const Avatar: React.FC<AvatarProps> = ({
   );
 
   const getState = useMemo(() => {
-    return !ready ? 'loading' : 'ready';
-  }, [ready]);
+    return !ready && src ? 'loading' : 'ready';
+  }, [src, ready]);
 
   return (
     <span
@@ -129,7 +128,6 @@ const Avatar: React.FC<AvatarProps> = ({
         { 'nextui-avatar-bordered': bordered, 'only-text-avatar': showText },
         className
       )}
-      style={{ ...style, ...spacingStyles }}
       data-state={getState}
       {...props}
     >
@@ -168,6 +166,7 @@ const Avatar: React.FC<AvatarProps> = ({
           cursor: ${pointer ? 'pointer' : 'auto'};
           margin: 0 0 0 ${marginLeft};
           transition: all 0.25s ease;
+          ${stringCss}
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -184,7 +183,7 @@ const Avatar: React.FC<AvatarProps> = ({
           padding: ${border};
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          ${!stringCss?.includes('margin') ? 'margin:0' : ''};
         }
         .nextui-avatar-img {
           z-index: 99;

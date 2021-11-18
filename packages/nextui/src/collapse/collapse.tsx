@@ -68,7 +68,6 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   onChange,
   bordered,
   contentLeft,
-  style,
   animated: animatedProp,
   borderWeight: borderWeightProp,
   index,
@@ -85,7 +84,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     updateValues
   } = useCollapseContext();
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   if (!title) {
     useWarning('"title" is required.', 'Collapse');
@@ -167,7 +166,6 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         focusClassName
       )}
       data-state={getState}
-      style={{ ...style, ...spacingStyles }}
       {...props}
       {...bindings}
     >
@@ -218,16 +216,20 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
           border-top: ${borderWeight} solid ${theme.palette.border};
           border-bottom: ${borderWeight} solid ${theme.palette.border};
           transition: box-shadow 0.25s ease;
+          ${stringCss};
+        }
+        .${preClass}-shadow, .${preClass}-bordered {
+          ${!stringCss?.includes('padding')
+            ? `padding: 0 ${theme.spacing.lg}`
+            : ''};
         }
         .${preClass}-shadow {
           border: none;
           background: ${bgColor};
           box-shadow: ${theme.shadows.md};
           border-radius: ${theme.radius.lg};
-          padding: 0 ${theme.spacing.lg};
         }
         .${preClass}-bordered {
-          padding: 0 ${theme.spacing.lg};
           border-radius: ${theme.radius.lg};
           border: ${borderWeight} solid ${theme.palette.border};
         }

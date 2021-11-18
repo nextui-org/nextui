@@ -3,9 +3,11 @@ import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import { ModalContext } from './modal-context';
 import { Justify } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import cslx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   className?: string;
   justify?: Justify;
   autoMargin?: boolean;
@@ -20,6 +22,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type ModalFooterProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-modal-footer';
+
 const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
   children,
   className,
@@ -28,6 +32,9 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
+
+  const { stringCss } = getSpacingsStyles(theme, props);
+
   const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
@@ -35,15 +42,18 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
   return (
     <div
       className={cslx(
-        'modal-footer',
-        { 'auto-margin': autoMargin, 'no-padding': noPadding },
+        preClass,
+        {
+          [`${preClass}-auto-margin`]: autoMargin,
+          [`${preClass}-no-padding`]: noPadding
+        },
         className
       )}
       {...props}
     >
       {children}
       <style jsx>{`
-        .modal-footer {
+        .${preClass} {
           display: flex;
           flex-wrap: wrap;
           flex-shrink: 0;
@@ -53,12 +63,13 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
           font-size: 0.875rem;
           padding: ${theme.spacing.sm} ${theme.spacing.lg};
           justify-content: ${justify};
+          ${stringCss};
         }
-        .no-padding {
-          padding: 0;
+        .${preClass}-no-padding {
+          ${!stringCss?.includes('padding') ? 'padding: 0;' : ''};
         }
-        .auto-margin > :global(*) {
-          margin: 0.25rem;
+        .${preClass}-auto-margin > :global(*) {
+          ${!stringCss?.includes('margin') ? 'margin: 0.25rem;' : ''};
         }
       `}</style>
     </div>

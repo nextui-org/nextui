@@ -20,12 +20,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-s1strkhv",
+              "aria-controls": "nextui-collapse-q4k1mqfm",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-collapse-view nextui-collapse-animated",
               "data-state": "closed",
-              "id": "nextui-collapse-button-s1strkhv",
+              "id": "nextui-collapse-button-q4k1mqfm",
               "role": "button",
               "tabindex": "-1",
             },
@@ -318,9 +318,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                        "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-s1strkhv",
+                        "id": "nextui-collapse-q4k1mqfm",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -441,9 +441,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                          "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-s1strkhv",
+                          "id": "nextui-collapse-q4k1mqfm",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -507,16 +507,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -535,12 +537,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -559,9 +560,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -655,9 +654,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                      "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                       "class": "nextui-collapse-content",
-                      "id": "nextui-collapse-s1strkhv",
+                      "id": "nextui-collapse-q4k1mqfm",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -778,9 +777,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                        "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-s1strkhv",
+                        "id": "nextui-collapse-q4k1mqfm",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -844,16 +843,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -872,12 +873,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -896,9 +896,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -949,12 +947,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-s1strkhv",
+                "aria-controls": "nextui-collapse-q4k1mqfm",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-s1strkhv",
+                "id": "nextui-collapse-button-q4k1mqfm",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -1277,16 +1275,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -1305,12 +1305,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -1329,9 +1328,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -1386,9 +1383,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                        "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-s1strkhv",
+                        "id": "nextui-collapse-q4k1mqfm",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -1509,9 +1506,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                          "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-s1strkhv",
+                          "id": "nextui-collapse-q4k1mqfm",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -1570,12 +1567,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-s1strkhv",
+                  "aria-controls": "nextui-collapse-q4k1mqfm",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-s1strkhv",
+                  "id": "nextui-collapse-button-q4k1mqfm",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -1905,12 +1902,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-48crv27m",
+                "aria-controls": "nextui-collapse-n7eptsor",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-48crv27m",
+                "id": "nextui-collapse-button-n7eptsor",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -2203,9 +2200,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-48crv27m",
+                          "aria-labelledby": "nextui-collapse-button-n7eptsor",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-48crv27m",
+                          "id": "nextui-collapse-n7eptsor",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -2326,9 +2323,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-48crv27m",
+                            "aria-labelledby": "nextui-collapse-button-n7eptsor",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-48crv27m",
+                            "id": "nextui-collapse-n7eptsor",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -2392,16 +2389,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -2420,12 +2419,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -2444,9 +2442,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -2540,9 +2536,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-48crv27m",
+                        "aria-labelledby": "nextui-collapse-button-n7eptsor",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-48crv27m",
+                        "id": "nextui-collapse-n7eptsor",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -2663,9 +2659,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-48crv27m",
+                          "aria-labelledby": "nextui-collapse-button-n7eptsor",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-48crv27m",
+                          "id": "nextui-collapse-n7eptsor",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -2729,16 +2725,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -2757,12 +2755,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -2781,9 +2778,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -2834,12 +2829,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-48crv27m",
+                  "aria-controls": "nextui-collapse-n7eptsor",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-48crv27m",
+                  "id": "nextui-collapse-button-n7eptsor",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -3162,16 +3157,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -3190,12 +3187,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -3214,9 +3210,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -3271,9 +3265,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-48crv27m",
+                          "aria-labelledby": "nextui-collapse-button-n7eptsor",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-48crv27m",
+                          "id": "nextui-collapse-n7eptsor",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -3394,9 +3388,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-48crv27m",
+                            "aria-labelledby": "nextui-collapse-button-n7eptsor",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-48crv27m",
+                            "id": "nextui-collapse-n7eptsor",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -3455,12 +3449,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-48crv27m",
+                    "aria-controls": "nextui-collapse-n7eptsor",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
                     "data-state": "closed",
-                    "id": "nextui-collapse-button-48crv27m",
+                    "id": "nextui-collapse-button-n7eptsor",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -3789,13 +3783,15 @@ LoadedCheerio {
           .nextui-collapse-group {
             width: auto;
             padding: 0 0.75rem;
+            ;
           }
           .nextui-collapse-group &gt; :global(div + div) {
             border-top: none;
           }
           .nextui-collapse-group-shadow,
-          .nextui-collapse-group-bordered,
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+            .nextui-collapse-group-bordered,
+            .nextui-collapse-group-splitted
+            :global(.nextui-collapse) {
             border-radius: 14px;
             padding: 0 1.25rem;
           }
@@ -3804,7 +3800,7 @@ LoadedCheerio {
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           }
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+          .nextui-collapse-group.nextui-collapse-group-splitted :global(.nextui-collapse) {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -3872,12 +3868,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-48crv27m",
+              "aria-controls": "nextui-collapse-n7eptsor",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-collapse-view nextui-collapse-animated",
               "data-state": "closed",
-              "id": "nextui-collapse-button-48crv27m",
+              "id": "nextui-collapse-button-n7eptsor",
               "role": "button",
               "tabindex": "-1",
             },
@@ -4170,9 +4166,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-48crv27m",
+                        "aria-labelledby": "nextui-collapse-button-n7eptsor",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-48crv27m",
+                        "id": "nextui-collapse-n7eptsor",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -4293,9 +4289,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-48crv27m",
+                          "aria-labelledby": "nextui-collapse-button-n7eptsor",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-48crv27m",
+                          "id": "nextui-collapse-n7eptsor",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -4359,16 +4355,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -4387,12 +4385,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -4411,9 +4408,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -4507,9 +4502,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-48crv27m",
+                      "aria-labelledby": "nextui-collapse-button-n7eptsor",
                       "class": "nextui-collapse-content",
-                      "id": "nextui-collapse-48crv27m",
+                      "id": "nextui-collapse-n7eptsor",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -4630,9 +4625,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-48crv27m",
+                        "aria-labelledby": "nextui-collapse-button-n7eptsor",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-48crv27m",
+                        "id": "nextui-collapse-n7eptsor",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -4696,16 +4691,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -4724,12 +4721,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -4748,9 +4744,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -4801,12 +4795,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-48crv27m",
+                "aria-controls": "nextui-collapse-n7eptsor",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-48crv27m",
+                "id": "nextui-collapse-button-n7eptsor",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -5129,16 +5123,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -5157,12 +5153,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -5181,9 +5176,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -5238,9 +5231,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-48crv27m",
+                        "aria-labelledby": "nextui-collapse-button-n7eptsor",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-48crv27m",
+                        "id": "nextui-collapse-n7eptsor",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -5361,9 +5354,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-48crv27m",
+                          "aria-labelledby": "nextui-collapse-button-n7eptsor",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-48crv27m",
+                          "id": "nextui-collapse-n7eptsor",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -5422,12 +5415,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-48crv27m",
+                  "aria-controls": "nextui-collapse-n7eptsor",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-48crv27m",
+                  "id": "nextui-collapse-button-n7eptsor",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -5756,13 +5749,15 @@ LoadedCheerio {
           .nextui-collapse-group {
             width: auto;
             padding: 0 0.75rem;
+            ;
           }
           .nextui-collapse-group &gt; :global(div + div) {
             border-top: none;
           }
           .nextui-collapse-group-shadow,
-          .nextui-collapse-group-bordered,
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+            .nextui-collapse-group-bordered,
+            .nextui-collapse-group-splitted
+            :global(.nextui-collapse) {
             border-radius: 14px;
             padding: 0 1.25rem;
           }
@@ -5771,7 +5766,7 @@ LoadedCheerio {
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           }
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+          .nextui-collapse-group.nextui-collapse-group-splitted :global(.nextui-collapse) {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -5812,12 +5807,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-s1strkhv",
+                "aria-controls": "nextui-collapse-q4k1mqfm",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-s1strkhv",
+                "id": "nextui-collapse-button-q4k1mqfm",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -6110,9 +6105,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                          "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-s1strkhv",
+                          "id": "nextui-collapse-q4k1mqfm",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -6233,9 +6228,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                            "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-s1strkhv",
+                            "id": "nextui-collapse-q4k1mqfm",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -6299,16 +6294,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -6327,12 +6324,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -6351,9 +6347,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -6447,9 +6441,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                        "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-s1strkhv",
+                        "id": "nextui-collapse-q4k1mqfm",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -6570,9 +6564,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                          "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-s1strkhv",
+                          "id": "nextui-collapse-q4k1mqfm",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -6636,16 +6630,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -6664,12 +6660,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -6688,9 +6683,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -6741,12 +6734,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-s1strkhv",
+                  "aria-controls": "nextui-collapse-q4k1mqfm",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-s1strkhv",
+                  "id": "nextui-collapse-button-q4k1mqfm",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -7069,16 +7062,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -7097,12 +7092,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -7121,9 +7115,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -7178,9 +7170,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                          "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-s1strkhv",
+                          "id": "nextui-collapse-q4k1mqfm",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -7301,9 +7293,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                            "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-s1strkhv",
+                            "id": "nextui-collapse-q4k1mqfm",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -7362,12 +7354,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-s1strkhv",
+                    "aria-controls": "nextui-collapse-q4k1mqfm",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
                     "data-state": "closed",
-                    "id": "nextui-collapse-button-s1strkhv",
+                    "id": "nextui-collapse-button-q4k1mqfm",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -7723,13 +7715,15 @@ LoadedCheerio {
           .nextui-collapse-group {
             width: auto;
             padding: 0 0.75rem;
+            ;
           }
           .nextui-collapse-group &gt; :global(div + div) {
             border-top: none;
           }
           .nextui-collapse-group-shadow,
-          .nextui-collapse-group-bordered,
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+            .nextui-collapse-group-bordered,
+            .nextui-collapse-group-splitted
+            :global(.nextui-collapse) {
             border-radius: 14px;
             padding: 0 1.25rem;
           }
@@ -7738,7 +7732,7 @@ LoadedCheerio {
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           }
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+          .nextui-collapse-group.nextui-collapse-group-splitted :global(.nextui-collapse) {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -7773,12 +7767,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-48crv27m",
+                "aria-controls": "nextui-collapse-n7eptsor",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-48crv27m",
+                "id": "nextui-collapse-button-n7eptsor",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -8071,9 +8065,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-48crv27m",
+                          "aria-labelledby": "nextui-collapse-button-n7eptsor",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-48crv27m",
+                          "id": "nextui-collapse-n7eptsor",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -8194,9 +8188,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-48crv27m",
+                            "aria-labelledby": "nextui-collapse-button-n7eptsor",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-48crv27m",
+                            "id": "nextui-collapse-n7eptsor",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -8260,16 +8254,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -8288,12 +8284,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -8312,9 +8307,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -8408,9 +8401,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-48crv27m",
+                        "aria-labelledby": "nextui-collapse-button-n7eptsor",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-48crv27m",
+                        "id": "nextui-collapse-n7eptsor",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -8531,9 +8524,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-48crv27m",
+                          "aria-labelledby": "nextui-collapse-button-n7eptsor",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-48crv27m",
+                          "id": "nextui-collapse-n7eptsor",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -8597,16 +8590,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -8625,12 +8620,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -8649,9 +8643,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -8702,12 +8694,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-48crv27m",
+                  "aria-controls": "nextui-collapse-n7eptsor",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-48crv27m",
+                  "id": "nextui-collapse-button-n7eptsor",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -9030,16 +9022,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -9058,12 +9052,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -9082,9 +9075,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -9139,9 +9130,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-48crv27m",
+                          "aria-labelledby": "nextui-collapse-button-n7eptsor",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-48crv27m",
+                          "id": "nextui-collapse-n7eptsor",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -9262,9 +9253,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-48crv27m",
+                            "aria-labelledby": "nextui-collapse-button-n7eptsor",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-48crv27m",
+                            "id": "nextui-collapse-n7eptsor",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -9323,12 +9314,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-48crv27m",
+                    "aria-controls": "nextui-collapse-n7eptsor",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
                     "data-state": "closed",
-                    "id": "nextui-collapse-button-48crv27m",
+                    "id": "nextui-collapse-button-n7eptsor",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -9660,12 +9651,12 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-s1strkhv",
+                  "aria-controls": "nextui-collapse-q4k1mqfm",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-s1strkhv",
+                  "id": "nextui-collapse-button-q4k1mqfm",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -9958,9 +9949,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                            "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-s1strkhv",
+                            "id": "nextui-collapse-q4k1mqfm",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -10081,9 +10072,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                              "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                               "class": "nextui-collapse-content",
-                              "id": "nextui-collapse-s1strkhv",
+                              "id": "nextui-collapse-q4k1mqfm",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -10147,16 +10138,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -10175,12 +10168,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -10199,9 +10191,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -10295,9 +10285,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                          "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-s1strkhv",
+                          "id": "nextui-collapse-q4k1mqfm",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -10418,9 +10408,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                            "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-s1strkhv",
+                            "id": "nextui-collapse-q4k1mqfm",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -10484,16 +10474,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -10512,12 +10504,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -10536,9 +10527,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -10589,12 +10578,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-s1strkhv",
+                    "aria-controls": "nextui-collapse-q4k1mqfm",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
                     "data-state": "closed",
-                    "id": "nextui-collapse-button-s1strkhv",
+                    "id": "nextui-collapse-button-q4k1mqfm",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -10917,16 +10906,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -10945,12 +10936,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -10969,9 +10959,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -11026,9 +11014,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                            "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-s1strkhv",
+                            "id": "nextui-collapse-q4k1mqfm",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -11149,9 +11137,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "nextui-collapse-button-s1strkhv",
+                              "aria-labelledby": "nextui-collapse-button-q4k1mqfm",
                               "class": "nextui-collapse-content",
-                              "id": "nextui-collapse-s1strkhv",
+                              "id": "nextui-collapse-q4k1mqfm",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -11210,12 +11198,12 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "aria-controls": "nextui-collapse-s1strkhv",
+                      "aria-controls": "nextui-collapse-q4k1mqfm",
                       "aria-disabled": "false",
                       "aria-expanded": "false",
                       "class": "nextui-collapse-view nextui-collapse-animated",
                       "data-state": "closed",
-                      "id": "nextui-collapse-button-s1strkhv",
+                      "id": "nextui-collapse-button-q4k1mqfm",
                       "role": "button",
                       "tabindex": "-1",
                     },
@@ -11691,12 +11679,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-1tula819",
+              "aria-controls": "nextui-collapse-eilgqc4l",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-collapse-view nextui-collapse-animated",
               "data-state": "closed",
-              "id": "nextui-collapse-button-1tula819",
+              "id": "nextui-collapse-button-eilgqc4l",
               "role": "button",
               "tabindex": "-1",
             },
@@ -11989,9 +11977,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-1tula819",
+                        "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-1tula819",
+                        "id": "nextui-collapse-eilgqc4l",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -12112,9 +12100,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-1tula819",
+                          "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-1tula819",
+                          "id": "nextui-collapse-eilgqc4l",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -12178,16 +12166,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -12206,12 +12196,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -12230,9 +12219,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -12326,9 +12313,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-1tula819",
+                      "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                       "class": "nextui-collapse-content",
-                      "id": "nextui-collapse-1tula819",
+                      "id": "nextui-collapse-eilgqc4l",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -12449,9 +12436,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-1tula819",
+                        "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-1tula819",
+                        "id": "nextui-collapse-eilgqc4l",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -12515,16 +12502,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -12543,12 +12532,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -12567,9 +12555,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -12620,12 +12606,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-1tula819",
+                "aria-controls": "nextui-collapse-eilgqc4l",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-1tula819",
+                "id": "nextui-collapse-button-eilgqc4l",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -12948,16 +12934,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -12976,12 +12964,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -13000,9 +12987,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -13057,9 +13042,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-1tula819",
+                        "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-1tula819",
+                        "id": "nextui-collapse-eilgqc4l",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -13180,9 +13165,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-1tula819",
+                          "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-1tula819",
+                          "id": "nextui-collapse-eilgqc4l",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -13241,12 +13226,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-1tula819",
+                  "aria-controls": "nextui-collapse-eilgqc4l",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-1tula819",
+                  "id": "nextui-collapse-button-eilgqc4l",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -13576,12 +13561,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-0odhk36s",
+                "aria-controls": "nextui-collapse-25s628ue",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-0odhk36s",
+                "id": "nextui-collapse-button-25s628ue",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -13874,9 +13859,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                          "aria-labelledby": "nextui-collapse-button-25s628ue",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-0odhk36s",
+                          "id": "nextui-collapse-25s628ue",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -13997,9 +13982,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                            "aria-labelledby": "nextui-collapse-button-25s628ue",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-0odhk36s",
+                            "id": "nextui-collapse-25s628ue",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -14063,16 +14048,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -14091,12 +14078,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -14115,9 +14101,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -14211,9 +14195,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                        "aria-labelledby": "nextui-collapse-button-25s628ue",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-0odhk36s",
+                        "id": "nextui-collapse-25s628ue",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -14334,9 +14318,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                          "aria-labelledby": "nextui-collapse-button-25s628ue",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-0odhk36s",
+                          "id": "nextui-collapse-25s628ue",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -14400,16 +14384,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -14428,12 +14414,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -14452,9 +14437,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -14505,12 +14488,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-0odhk36s",
+                  "aria-controls": "nextui-collapse-25s628ue",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-0odhk36s",
+                  "id": "nextui-collapse-button-25s628ue",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -14833,16 +14816,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -14861,12 +14846,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -14885,9 +14869,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -14942,9 +14924,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                          "aria-labelledby": "nextui-collapse-button-25s628ue",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-0odhk36s",
+                          "id": "nextui-collapse-25s628ue",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -15065,9 +15047,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                            "aria-labelledby": "nextui-collapse-button-25s628ue",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-0odhk36s",
+                            "id": "nextui-collapse-25s628ue",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -15126,12 +15108,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-0odhk36s",
+                    "aria-controls": "nextui-collapse-25s628ue",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
                     "data-state": "closed",
-                    "id": "nextui-collapse-button-0odhk36s",
+                    "id": "nextui-collapse-button-25s628ue",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -15460,13 +15442,15 @@ LoadedCheerio {
           .nextui-collapse-group {
             width: auto;
             padding: 0 0.75rem;
+            ;
           }
           .nextui-collapse-group &gt; :global(div + div) {
             border-top: none;
           }
           .nextui-collapse-group-shadow,
-          .nextui-collapse-group-bordered,
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+            .nextui-collapse-group-bordered,
+            .nextui-collapse-group-splitted
+            :global(.nextui-collapse) {
             border-radius: 14px;
             padding: 0 1.25rem;
           }
@@ -15475,7 +15459,7 @@ LoadedCheerio {
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           }
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+          .nextui-collapse-group.nextui-collapse-group-splitted :global(.nextui-collapse) {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -15543,12 +15527,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-0odhk36s",
+              "aria-controls": "nextui-collapse-25s628ue",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-collapse-view nextui-collapse-animated",
               "data-state": "closed",
-              "id": "nextui-collapse-button-0odhk36s",
+              "id": "nextui-collapse-button-25s628ue",
               "role": "button",
               "tabindex": "-1",
             },
@@ -15841,9 +15825,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                        "aria-labelledby": "nextui-collapse-button-25s628ue",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-0odhk36s",
+                        "id": "nextui-collapse-25s628ue",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -15964,9 +15948,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                          "aria-labelledby": "nextui-collapse-button-25s628ue",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-0odhk36s",
+                          "id": "nextui-collapse-25s628ue",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -16030,16 +16014,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -16058,12 +16044,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -16082,9 +16067,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -16178,9 +16161,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                      "aria-labelledby": "nextui-collapse-button-25s628ue",
                       "class": "nextui-collapse-content",
-                      "id": "nextui-collapse-0odhk36s",
+                      "id": "nextui-collapse-25s628ue",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -16301,9 +16284,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                        "aria-labelledby": "nextui-collapse-button-25s628ue",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-0odhk36s",
+                        "id": "nextui-collapse-25s628ue",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -16367,16 +16350,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -16395,12 +16380,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -16419,9 +16403,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -16472,12 +16454,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-0odhk36s",
+                "aria-controls": "nextui-collapse-25s628ue",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-0odhk36s",
+                "id": "nextui-collapse-button-25s628ue",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -16800,16 +16782,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -16828,12 +16812,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -16852,9 +16835,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -16909,9 +16890,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                        "aria-labelledby": "nextui-collapse-button-25s628ue",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-0odhk36s",
+                        "id": "nextui-collapse-25s628ue",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -17032,9 +17013,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                          "aria-labelledby": "nextui-collapse-button-25s628ue",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-0odhk36s",
+                          "id": "nextui-collapse-25s628ue",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -17093,12 +17074,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-0odhk36s",
+                  "aria-controls": "nextui-collapse-25s628ue",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-0odhk36s",
+                  "id": "nextui-collapse-button-25s628ue",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -17427,13 +17408,15 @@ LoadedCheerio {
           .nextui-collapse-group {
             width: auto;
             padding: 0 0.75rem;
+            ;
           }
           .nextui-collapse-group &gt; :global(div + div) {
             border-top: none;
           }
           .nextui-collapse-group-shadow,
-          .nextui-collapse-group-bordered,
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+            .nextui-collapse-group-bordered,
+            .nextui-collapse-group-splitted
+            :global(.nextui-collapse) {
             border-radius: 14px;
             padding: 0 1.25rem;
           }
@@ -17442,7 +17425,7 @@ LoadedCheerio {
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           }
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+          .nextui-collapse-group.nextui-collapse-group-splitted :global(.nextui-collapse) {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -17483,12 +17466,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-1tula819",
+                "aria-controls": "nextui-collapse-eilgqc4l",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-1tula819",
+                "id": "nextui-collapse-button-eilgqc4l",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -17781,9 +17764,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-1tula819",
+                          "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-1tula819",
+                          "id": "nextui-collapse-eilgqc4l",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -17904,9 +17887,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-1tula819",
+                            "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-1tula819",
+                            "id": "nextui-collapse-eilgqc4l",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -17970,16 +17953,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -17998,12 +17983,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -18022,9 +18006,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -18118,9 +18100,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-1tula819",
+                        "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-1tula819",
+                        "id": "nextui-collapse-eilgqc4l",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -18241,9 +18223,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-1tula819",
+                          "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-1tula819",
+                          "id": "nextui-collapse-eilgqc4l",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -18307,16 +18289,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -18335,12 +18319,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -18359,9 +18342,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -18412,12 +18393,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-1tula819",
+                  "aria-controls": "nextui-collapse-eilgqc4l",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-1tula819",
+                  "id": "nextui-collapse-button-eilgqc4l",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -18740,16 +18721,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -18768,12 +18751,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -18792,9 +18774,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -18849,9 +18829,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-1tula819",
+                          "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-1tula819",
+                          "id": "nextui-collapse-eilgqc4l",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -18972,9 +18952,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-1tula819",
+                            "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-1tula819",
+                            "id": "nextui-collapse-eilgqc4l",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -19033,12 +19013,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-1tula819",
+                    "aria-controls": "nextui-collapse-eilgqc4l",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
                     "data-state": "closed",
-                    "id": "nextui-collapse-button-1tula819",
+                    "id": "nextui-collapse-button-eilgqc4l",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -19394,13 +19374,15 @@ LoadedCheerio {
           .nextui-collapse-group {
             width: auto;
             padding: 0 0.75rem;
+            ;
           }
           .nextui-collapse-group &gt; :global(div + div) {
             border-top: none;
           }
           .nextui-collapse-group-shadow,
-          .nextui-collapse-group-bordered,
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+            .nextui-collapse-group-bordered,
+            .nextui-collapse-group-splitted
+            :global(.nextui-collapse) {
             border-radius: 14px;
             padding: 0 1.25rem;
           }
@@ -19409,7 +19391,7 @@ LoadedCheerio {
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           }
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+          .nextui-collapse-group.nextui-collapse-group-splitted :global(.nextui-collapse) {
             border: none;
             background: #fff;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -19444,12 +19426,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-0odhk36s",
+                "aria-controls": "nextui-collapse-25s628ue",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-collapse-view nextui-collapse-animated",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-0odhk36s",
+                "id": "nextui-collapse-button-25s628ue",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -19742,9 +19724,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                          "aria-labelledby": "nextui-collapse-button-25s628ue",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-0odhk36s",
+                          "id": "nextui-collapse-25s628ue",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -19865,9 +19847,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                            "aria-labelledby": "nextui-collapse-button-25s628ue",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-0odhk36s",
+                            "id": "nextui-collapse-25s628ue",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -19931,16 +19913,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -19959,12 +19943,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -19983,9 +19966,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -20079,9 +20060,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                        "aria-labelledby": "nextui-collapse-button-25s628ue",
                         "class": "nextui-collapse-content",
-                        "id": "nextui-collapse-0odhk36s",
+                        "id": "nextui-collapse-25s628ue",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -20202,9 +20183,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                          "aria-labelledby": "nextui-collapse-button-25s628ue",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-0odhk36s",
+                          "id": "nextui-collapse-25s628ue",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -20268,16 +20249,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -20296,12 +20279,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -20320,9 +20302,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -20373,12 +20353,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-0odhk36s",
+                  "aria-controls": "nextui-collapse-25s628ue",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-0odhk36s",
+                  "id": "nextui-collapse-button-25s628ue",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -20701,16 +20681,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -20729,12 +20711,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -20753,9 +20734,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -20810,9 +20789,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                          "aria-labelledby": "nextui-collapse-button-25s628ue",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-0odhk36s",
+                          "id": "nextui-collapse-25s628ue",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -20933,9 +20912,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-0odhk36s",
+                            "aria-labelledby": "nextui-collapse-button-25s628ue",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-0odhk36s",
+                            "id": "nextui-collapse-25s628ue",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -20994,12 +20973,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-0odhk36s",
+                    "aria-controls": "nextui-collapse-25s628ue",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
                     "data-state": "closed",
-                    "id": "nextui-collapse-button-0odhk36s",
+                    "id": "nextui-collapse-button-25s628ue",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -21331,12 +21310,12 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-1tula819",
+                  "aria-controls": "nextui-collapse-eilgqc4l",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-collapse-view nextui-collapse-animated",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-1tula819",
+                  "id": "nextui-collapse-button-eilgqc4l",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -21629,9 +21608,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-1tula819",
+                            "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-1tula819",
+                            "id": "nextui-collapse-eilgqc4l",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -21752,9 +21731,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "nextui-collapse-button-1tula819",
+                              "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                               "class": "nextui-collapse-content",
-                              "id": "nextui-collapse-1tula819",
+                              "id": "nextui-collapse-eilgqc4l",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -21818,16 +21797,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -21846,12 +21827,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -21870,9 +21850,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -21966,9 +21944,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-1tula819",
+                          "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                           "class": "nextui-collapse-content",
-                          "id": "nextui-collapse-1tula819",
+                          "id": "nextui-collapse-eilgqc4l",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -22089,9 +22067,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-1tula819",
+                            "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-1tula819",
+                            "id": "nextui-collapse-eilgqc4l",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -22155,16 +22133,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -22183,12 +22163,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -22207,9 +22186,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -22260,12 +22237,12 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "aria-controls": "nextui-collapse-1tula819",
+                    "aria-controls": "nextui-collapse-eilgqc4l",
                     "aria-disabled": "false",
                     "aria-expanded": "false",
                     "class": "nextui-collapse-view nextui-collapse-animated",
                     "data-state": "closed",
-                    "id": "nextui-collapse-button-1tula819",
+                    "id": "nextui-collapse-button-eilgqc4l",
                     "role": "button",
                     "tabindex": "-1",
                   },
@@ -22588,16 +22565,18 @@ LoadedCheerio {
           border-top: 1px solid #eaeaea;
           border-bottom: 1px solid #eaeaea;
           transition: box-shadow 0.25s ease;
+          ;
+        }
+        .nextui-collapse-shadow, .nextui-collapse-bordered {
+          padding: 0 1.25rem;
         }
         .nextui-collapse-shadow {
           border: none;
           background: #fff;
           box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
           border-radius: 14px;
-          padding: 0 1.25rem;
         }
         .nextui-collapse-bordered {
-          padding: 0 1.25rem;
           border-radius: 14px;
           border: 1px solid #eaeaea;
         }
@@ -22616,12 +22595,11 @@ LoadedCheerio {
         }
         .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-title,
-        .nextui-collapse-view.nextui-collapse-view-disabled
+          .nextui-collapse-view.nextui-collapse-view-disabled
           .nextui-collapse-subtitle {
           opacity: 0.5;
         }
-        .nextui-collapse-title-content-left,
-        .nextui-collapse-title-content-right {
+        .nextui-collapse-title-content-left, .nextui-collapse-title-content-right {
           display: flex;
           align-items: center;
         }
@@ -22640,9 +22618,7 @@ LoadedCheerio {
         .nextui-collapse-title-content-right :global(svg) {
           transform: rotateZ(0);
         }
-        .nextui-collapse-animated
-          .nextui-collapse-title-content-right
-          :global(svg) {
+        .nextui-collapse-animated .nextui-collapse-title-content-right :global(svg) {
           transition: transform 200ms ease;
         }
         .nextui-collapse-title-content :global(h1),
@@ -22697,9 +22673,9 @@ LoadedCheerio {
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-1tula819",
+                            "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                             "class": "nextui-collapse-content",
-                            "id": "nextui-collapse-1tula819",
+                            "id": "nextui-collapse-eilgqc4l",
                             "role": "region",
                             "tabindex": "-1",
                           },
@@ -22820,9 +22796,9 @@ LoadedCheerio {
                         "children": Array [
                           Node {
                             "attribs": Object {
-                              "aria-labelledby": "nextui-collapse-button-1tula819",
+                              "aria-labelledby": "nextui-collapse-button-eilgqc4l",
                               "class": "nextui-collapse-content",
-                              "id": "nextui-collapse-1tula819",
+                              "id": "nextui-collapse-eilgqc4l",
                               "role": "region",
                               "tabindex": "-1",
                             },
@@ -22881,12 +22857,12 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "aria-controls": "nextui-collapse-1tula819",
+                      "aria-controls": "nextui-collapse-eilgqc4l",
                       "aria-disabled": "false",
                       "aria-expanded": "false",
                       "class": "nextui-collapse-view nextui-collapse-animated",
                       "data-state": "closed",
-                      "id": "nextui-collapse-button-1tula819",
+                      "id": "nextui-collapse-button-eilgqc4l",
                       "role": "button",
                       "tabindex": "-1",
                     },

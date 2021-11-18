@@ -27,20 +27,15 @@ const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
   span,
   offset,
   className,
-  style,
   ...props
 }) => {
   const Component = as;
 
   const theme = useTheme();
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   return (
-    <Component
-      className={`nextui-col ${className}`}
-      style={{ ...style, ...spacingStyles }}
-      {...props}
-    >
+    <Component className={`nextui-col ${className}`} {...props}>
       {children}
       <style jsx>{`
         .nextui-col {
@@ -50,6 +45,7 @@ const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
           padding-right: calc(var(--nextui-row-gap) / 2);
           width: ${(100 / 12) * span}%;
           margin-left: ${(100 / 12) * offset}%;
+          ${stringCss};
         }
       `}</style>
     </Component>

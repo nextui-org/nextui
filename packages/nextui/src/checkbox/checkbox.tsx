@@ -55,6 +55,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
 export type CheckboxProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-checkbox';
+
 const Checkbox: React.FC<CheckboxProps> = ({
   checked,
   initialChecked,
@@ -70,7 +72,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
   color,
   textColor,
   value,
-  style,
   ...props
 }) => {
   const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
@@ -93,7 +94,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     [color, groupColor, theme.palette]
   );
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const { className: focusClassName, styles: focusStyles } =
     getFocusStyles(theme);
@@ -170,19 +171,16 @@ const Checkbox: React.FC<CheckboxProps> = ({
   }, [selfChecked, indeterminate]);
 
   return (
-    <label
-      className={`nextui-checkbox ${className}`}
-      style={{ ...style, ...spacingStyles }}
-    >
+    <label className={`${preClass} ${className}`}>
       <div
         tabIndex={disabled ? -1 : 0}
-        className={clsx('nextui-checkbox-container', focusClassName)}
+        className={clsx(`${preClass}-container`, focusClassName)}
         {...bindings}
       >
         <input
           type="checkbox"
           tabIndex={-1}
-          className="nextui-checkbox-input"
+          className={`${preClass}-input`}
           data-state={getState}
           disabled={isDisabled}
           checked={selfChecked}
@@ -191,28 +189,28 @@ const Checkbox: React.FC<CheckboxProps> = ({
           onChange={changeHandle}
           {...props}
         />
-        <div className="nextui-checkbox-mask">
+        <div className={`${preClass}-mask`}>
           <i
-            className={clsx('nextui-checkbox-icon-check', {
-              'nextui-checkbox-indeterminate': indeterminate
+            className={clsx(`${preClass}-icon-check`, {
+              [`${preClass}-indeterminate`]: indeterminate
             })}
           >
-            <span className="nextui-checkbox-icon" style={iconCheckStyle}>
-              <div className="nextui-checkbox-line1" />
-              <div className="nextui-checkbox-line2" />
+            <span className={`${preClass}-icon`} style={iconCheckStyle}>
+              <div className={`${preClass}-line1`} />
+              <div className={`${preClass}-line2`} />
             </span>
           </i>
         </div>
       </div>
       <span
-        className={clsx('nextui-checkbox-text', {
-          'nextui-checkbox-line-through': line
+        className={clsx(`${preClass}-text`, {
+          [`${preClass}-line-through`]: line
         })}
       >
         {children || label}
       </span>
       <style jsx>{`
-        label {
+        .${preClass} {
           --nextui-checkbox-size: ${fontSize};
           display: inline-flex;
           justify-content: flex-start;
@@ -220,8 +218,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
           width: auto;
           cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
           opacity: ${isDisabled ? 0.75 : 1};
+          ${stringCss}
         }
-        .nextui-checkbox-container {
+        .${preClass}-container {
           width: var(--nextui-checkbox-size);
           height: var(--nextui-checkbox-size);
           border-radius: ${radius};
@@ -230,7 +229,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: box-shadow 0.25s ease;
           z-index: 1;
         }
-        .nextui-checkbox-mask {
+        .${preClass}-mask {
           border-radius: ${radius};
           width: var(--nextui-checkbox-size);
           height: var(--nextui-checkbox-size);
@@ -246,14 +245,14 @@ const Checkbox: React.FC<CheckboxProps> = ({
           z-index: -1;
           box-sizing: border-box;
         }
-        .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
+        .${preClass}-mask i:not(.${preClass}-icon-check) {
           opacity: 0;
           transition: all 0.25s ease;
           color: ${theme.palette.white};
           font-size: 1.1rem;
           transform: scale(0.5);
         }
-        .nextui-checkbox-mask:after {
+        .${preClass}-mask:after {
           content: '';
           position: absolute;
           top: 0px;
@@ -267,7 +266,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: all 0.25s ease;
           z-index: -1;
         }
-        .nextui-checkbox-mask:before {
+        .${preClass}-mask:before {
           content: '';
           position: absolute;
           top: 0px;
@@ -281,11 +280,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
           box-sizing: border-box;
         }
 
-        .nextui-checkbox-mask .nextui-checkbox-icon-check {
+        .${preClass}-mask .${preClass}-icon-check {
           opacity: 0;
           z-index: 200;
         }
-        .nextui-checkbox-icon-check {
+        .${preClass}-icon-check {
           width: var(--nextui-checkbox-size);
           height: var(--nextui-checkbox-size);
           display: flex;
@@ -294,7 +293,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: all 0.25s ease;
           border-radius: inherit;
         }
-        .nextui-checkbox-icon .nextui-checkbox-line1 {
+        .${preClass}-icon .${preClass}-line1 {
           background: transparent;
           content: '';
           position: absolute;
@@ -305,7 +304,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           z-index: 100;
           bottom: 0px;
         }
-        .nextui-checkbox-icon .nextui-checkbox-line1:after {
+        .${preClass}-icon .${preClass}-line1:after {
           content: '';
           position: absolute;
           left: 0px;
@@ -315,7 +314,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: all 0.25s ease;
           border-radius: 5px 0px 0px 5px;
         }
-        .nextui-checkbox-icon .nextui-checkbox-line2 {
+        .${preClass}-icon .${preClass}-line2 {
           bottom: 0px;
           right: 0rem;
           z-index: 100;
@@ -328,7 +327,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: all 0.2s ease;
           width: 2px;
         }
-        .nextui-checkbox-icon .nextui-checkbox-line2:after {
+        .${preClass}-icon .${preClass}-line2:after {
           content: '';
           position: absolute;
           width: 2px;
@@ -339,7 +338,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           bottom: 0px;
           border-radius: 5px 5px 0px 0px;
         }
-        .nextui-checkbox-indeterminate .nextui-checkbox-icon:after {
+        .${preClass}-indeterminate .${preClass}-icon:after {
           position: relative;
           content: '';
           width: 2px;
@@ -348,18 +347,14 @@ const Checkbox: React.FC<CheckboxProps> = ({
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .${preClass}-indeterminate .${preClass}-icon .${preClass}-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .${preClass}-indeterminate .${preClass}-icon .${preClass}-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -383,55 +378,53 @@ const Checkbox: React.FC<CheckboxProps> = ({
           opacity: 0;
           pointer-events: none;
         }
-        input:active ~ .nextui-checkbox-mask {
+        input:active ~ .${preClass}-mask {
           background: ${theme.palette.border};
         }
-        input:hover ~ .nextui-checkbox-mask {
+        input:hover ~ .${preClass}-mask {
           background: ${theme.palette.border};
         }
-        input:hover ~ .nextui-checkbox-mask:before {
+        input:hover ~ .${preClass}-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .${preClass}-mask i:not(.${preClass}-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
         }
-        input:checked ~ .nextui-checkbox-mask .nextui-checkbox-icon-check {
+        input:checked ~ .${preClass}-mask .${preClass}-icon-check {
           opacity: 1;
         }
         input:checked
-          ~ .nextui-checkbox-mask
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1:after {
+          ~ .${preClass}-mask
+          .${preClass}-icon
+          .${preClass}-line1:after {
           width: 100%;
           transition: all 0.25s ease 0.1s;
         }
         input:checked
-          ~ .nextui-checkbox-mask
-          .nextui-checkbox-icon-check
+          ~ .${preClass}-mask
+          .${preClass}-icon-check
           span
-          .nextui-checkbox-line2:after {
+          .${preClass}-line2:after {
           transition: all 0.2s ease 0.3s;
           height: 100%;
         }
-        input:checked ~ .nextui-checkbox-mask:after {
+        input:checked ~ .${preClass}-mask:after {
           opacity: 1;
           transform: scale(1);
         }
-        input:checked ~ .nextui-checkbox-mask:before {
+        input:checked ~ .${preClass}-mask:before {
           opacity: 0;
           transform: scale(1.2);
         }
         input:checked
-          ~ .nextui-checkbox-mask
-          .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon:after {
+          ~ .${preClass}-mask
+          .${preClass}-indeterminate
+          .${preClass}-icon:after {
           width: 10px;
         }
-        .nextui-checkbox-text {
+        .${preClass}-text {
           position: relative;
           display: flex;
           justify-content: center;
@@ -443,10 +436,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
           user-select: none;
           cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
         }
-        .nextui-checkbox-line-through {
+        .${preClass}-line-through {
           opacity: ${selfChecked ? '0.6' : '1'};
         }
-        .nextui-checkbox-text:before {
+        .${preClass}-text:before {
           content: '';
           position: absolute;
           width: ${selfChecked && line ? 'calc(100% - 10px)' : '0px'};

@@ -35,6 +35,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type CollapseGroupProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-collapse-group';
+
 const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
   children,
   accordion,
@@ -46,13 +48,12 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
   divider,
   borderWeight: borderWeightProp,
   onChange,
-  style,
   ...props
 }) => {
   const theme = useTheme();
   const [state, setState, stateRef] = useCurrentState<Array<number>>([]);
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const updateValues = (currentIndex: number, nextState: boolean) => {
     const hasChild = stateRef.current.find((val) => val === currentIndex);
@@ -102,50 +103,53 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
     <CollapseContext.Provider value={initialValue}>
       <div
         className={clsx(
-          'nextui-collapse-group',
+          preClass,
           {
-            'nextui-collapse-group-shadow': shadow,
-            'nextui-collapse-group-bordered': bordered,
-            'nextui-collapse-group-splitted': splitted
+            [`${preClass}-shadow`]: shadow,
+            [`${preClass}-bordered`]: bordered,
+            [`${preClass}-splitted`]: splitted
           },
           className
         )}
-        style={{ ...style, ...spacingStyles }}
         {...props}
       >
         {hasIndexChildren}
         <style jsx>{`
-          .nextui-collapse-group {
+          .${preClass} {
             width: auto;
             padding: 0 ${theme.spacing.sm};
+            ${stringCss};
           }
-          .nextui-collapse-group > :global(div + div) {
+          .${preClass} > :global(div + div) {
             border-top: none;
           }
-          .nextui-collapse-group-shadow,
-          .nextui-collapse-group-bordered,
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+          .${preClass}-shadow,
+            .${preClass}-bordered,
+            .${preClass}-splitted
+            :global(.nextui-collapse) {
             border-radius: ${theme.radius.lg};
-            padding: 0 ${theme.spacing.lg};
+            ${!stringCss?.includes('padding')
+              ? `padding: 0 ${theme.spacing.lg}`
+              : ''};
           }
-          .nextui-collapse-group-shadow {
+          .${preClass}-shadow {
             border: none;
             background: ${bgColor};
             box-shadow: ${theme.shadows.md};
           }
-          .nextui-collapse-group.splitted :global(.nextui-collapse) {
+          .${preClass}.${preClass}-splitted :global(.nextui-collapse) {
             border: none;
             background: ${bgColor};
             box-shadow: ${theme.shadows.md};
             margin: ${theme.spacing.sm} 0;
           }
-          .nextui-collapse-group-bordered {
+          .${preClass}-bordered {
             border: ${borderWeight} solid ${theme.palette.border};
           }
-          .nextui-collapse-group :global(.nextui-collapse:last-child) {
+          .${preClass} :global(.nextui-collapse:last-child) {
             border-bottom: none;
           }
-          .nextui-collapse-group :global(.nextui-collapse:first-child) {
+          .${preClass} :global(.nextui-collapse:first-child) {
             border-top: none;
           }
         `}</style>

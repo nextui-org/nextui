@@ -82,7 +82,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
       bordered,
       underlined,
       rounded,
-      style,
       ...props
     },
     ref: React.Ref<FormElement | null>
@@ -95,7 +94,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
     const [selfValue, setSelfValue] = useState<string>(initialValue);
     const [hover, setHover] = useState<boolean>(false);
 
-    const spacingStyles = getSpacingsStyles(theme, props);
+    const { stringCss } = getSpacingsStyles(theme, props);
 
     const { heightRatio, fontSize } = useMemo(() => getSizes(size), [size]);
 
@@ -251,11 +250,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
     }, [hover, disabled, readOnly, selfValue]);
 
     return (
-      <div
-        data-state={getState}
-        className={`${preClass}-main-container`}
-        style={{ ...style, ...spacingStyles }}
-      >
+      <div data-state={getState} className={`${preClass}-main-container`}>
         {inputLabel && (
           <InputBlockLabel
             labelId={labelId}
@@ -409,6 +404,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
             box-sizing: border-box;
             -webkit-box-align: center;
             border-radius: ${radius};
+            ${stringCss};
           }
           .${preClass}-container {
             width: 100%;

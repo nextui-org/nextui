@@ -2,7 +2,7 @@
 
 exports[`Checkbox should render correctly 1`] = `
 "<div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display:block;position:relative;width:8px;height:14px;margin-top:-4px;transform:rotate(45deg) scale(0.8)\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">Buenos Aires</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -10,6 +10,7 @@ exports[`Checkbox should render correctly 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -138,18 +139,14 @@ exports[`Checkbox should render correctly 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -182,9 +179,7 @@ exports[`Checkbox should render correctly 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -250,7 +245,7 @@ exports[`Checkbox should render correctly 1`] = `
 
 exports[`Checkbox should work correctly with different sizes 1`] = `
 "<div><label class=\\"nextui-checkbox \\"><div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -2px; transform: rotate(45deg) scale(0.5);\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">mini</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 14px;
           display: inline-flex;
           justify-content: flex-start;
@@ -258,6 +253,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -386,18 +382,14 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -430,9 +422,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -494,7 +484,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           transition: all 0.25s ease;
         }
       </style></label><label class=\\"nextui-checkbox \\"><div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -2px; transform: rotate(45deg) scale(0.5);\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">small</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 16px;
           display: inline-flex;
           justify-content: flex-start;
@@ -502,6 +492,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -630,18 +621,14 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -674,9 +661,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -738,7 +723,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           transition: all 0.25s ease;
         }
       </style></label><label class=\\"nextui-checkbox \\"><div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">medium</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -746,6 +731,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -874,18 +860,14 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -918,9 +900,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -982,7 +962,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           transition: all 0.25s ease;
         }
       </style></label><label class=\\"nextui-checkbox \\"><div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg);\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">large</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 24px;
           display: inline-flex;
           justify-content: flex-start;
@@ -990,6 +970,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -1118,18 +1099,14 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -1162,9 +1139,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -1226,7 +1201,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           transition: all 0.25s ease;
         }
       </style></label><label class=\\"nextui-checkbox \\"><div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg);\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">xlarge</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 28px;
           display: inline-flex;
           justify-content: flex-start;
@@ -1234,6 +1209,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -1362,18 +1338,14 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -1406,9 +1378,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;

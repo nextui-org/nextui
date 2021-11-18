@@ -36,22 +36,12 @@ const Link = React.forwardRef<
   React.PropsWithChildren<LinkProps>
 >(
   (
-    {
-      href,
-      color,
-      underline,
-      children,
-      className,
-      block,
-      icon,
-      style,
-      ...props
-    },
+    { href, color, underline, children, className, block, icon, ...props },
     ref: React.Ref<HTMLAnchorElement>
   ) => {
     const theme = useTheme();
 
-    const spacingStyles = getSpacingsStyles(theme, props);
+    const { stringCss } = getSpacingsStyles(theme, props);
 
     const linkColor = useMemo(
       () => getNormalColor(color || block, theme.palette, theme.palette.link),
@@ -69,13 +59,7 @@ const Link = React.forwardRef<
     const decoration = underline ? 'underline' : 'none';
 
     return (
-      <a
-        className={clsx(preClass, className)}
-        href={href}
-        style={{ ...style, ...spacingStyles }}
-        {...props}
-        ref={ref}
-      >
+      <a className={clsx(preClass, className)} href={href} {...props} ref={ref}>
         {children}
         {icon && <LinkIcon />}
         <style jsx>{`
@@ -89,6 +73,7 @@ const Link = React.forwardRef<
             border-radius: ${block ? theme.radius.lg : 0};
             width: fit-content;
             transition: all 0.25s ease;
+            ${stringCss};
           }
           .${preClass}:hover, .${preClass}:active, .${preClass}:focus {
             text-decoration: ${decoration};

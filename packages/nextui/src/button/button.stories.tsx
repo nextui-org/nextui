@@ -22,7 +22,11 @@ export default {
   ]
 } as Meta;
 
-export const Default = () => <Button>Action</Button>;
+export const Default = () => (
+  <Button mt={4} p={2} mr={1}>
+    Action
+  </Button>
+);
 
 export const Colors = () => (
   <>

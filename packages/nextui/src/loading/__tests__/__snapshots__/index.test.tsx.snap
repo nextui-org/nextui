@@ -7,6 +7,7 @@ exports[`Loading should render correctly 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -177,6 +178,7 @@ exports[`Loading should work with different colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -341,6 +343,7 @@ exports[`Loading should work with different colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -505,6 +508,7 @@ exports[`Loading should work with different colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -669,6 +673,7 @@ exports[`Loading should work with different colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -833,6 +838,7 @@ exports[`Loading should work with different colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -997,6 +1003,7 @@ exports[`Loading should work with different colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -1167,6 +1174,7 @@ exports[`Loading should work with different sizes 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -1331,6 +1339,7 @@ exports[`Loading should work with different sizes 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -1495,6 +1504,7 @@ exports[`Loading should work with different sizes 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -1659,6 +1669,7 @@ exports[`Loading should work with different sizes 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -1823,6 +1834,7 @@ exports[`Loading should work with different sizes 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -1993,6 +2005,7 @@ exports[`Loading should work with different text colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -2157,6 +2170,7 @@ exports[`Loading should work with different text colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -2321,6 +2335,7 @@ exports[`Loading should work with different text colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -2485,6 +2500,7 @@ exports[`Loading should work with different text colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -2649,6 +2665,7 @@ exports[`Loading should work with different text colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -2813,6 +2830,7 @@ exports[`Loading should work with different text colors 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -2983,6 +3001,7 @@ exports[`Loading should work with different types 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -3969,7 +3988,10 @@ exports[`Loading should work with different types 1`] = `
             opacity: 0.15;
           }
         }
-      </style></span></div><style>
+      </style></span></div><label style=\\"width: 100%; position: absolute;\\"><style>
+        :global(.nextui-spinner) {
+          ;
+        </style></label><style>
         .nextui-spinner {
           display: flex;
           flex-direction: column;
@@ -3978,6 +4000,7 @@ exports[`Loading should work with different types 1`] = `
           position: relative;
           width: 1.25rem;
           height: 1.25rem;
+          ;
         }
         .nextui-spinner-container {
           width: 100%;
@@ -3992,6 +4015,7 @@ exports[`Loading should work with different types 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -4156,6 +4180,7 @@ exports[`Loading should work with different types 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;
@@ -4320,6 +4345,7 @@ exports[`Loading should work with different types 1`] = `
           flex-direction: column;
           align-items: center;
           position: relative;
+          ;
         }
         .nextui-loading-label {
           margin-top: 0.25rem;

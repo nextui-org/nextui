@@ -3,6 +3,7 @@
 exports[`Grid all breakpoint values should be supported 1`] = `
 "<div class=\\"nextui-grid-item nextui-grid-item-xs nextui-grid-item-sm nextui-grid-item-md nextui-grid-item-lg nextui-grid-item-xl nextui-grid-container mock \\"><div class=\\"nextui-grid-item nextui-grid-item-xs nextui-grid-item-sm nextui-grid-item-md nextui-grid-item-lg nextui-grid-item-xl mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -64,6 +65,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
         }
       </style></div><style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -129,6 +131,7 @@ exports[`Grid all breakpoint values should be supported 1`] = `
 exports[`Grid css value should be passed through 1`] = `
 "<div class=\\"nextui-grid-item nextui-grid-item-justify nextui-grid-item-direction nextui-grid-item-align-items nextui-grid-item-align-content nextui-grid-container mock \\"><div class=\\"nextui-grid-item nextui-grid-item-justify nextui-grid-item-direction nextui-grid-item-align-items nextui-grid-item-align-content mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: center;
@@ -190,6 +193,7 @@ exports[`Grid css value should be passed through 1`] = `
         }
       </style></div><style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: center;
@@ -255,6 +259,7 @@ exports[`Grid css value should be passed through 1`] = `
 exports[`Grid decimal spacing should be supported 1`] = `
 "<div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -316,6 +321,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
         }
       </style></div><style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -381,6 +387,7 @@ exports[`Grid decimal spacing should be supported 1`] = `
 exports[`Grid nested components should be supported 1`] = `
 "<div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -442,6 +449,7 @@ exports[`Grid nested components should be supported 1`] = `
         }
       </style></div><div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -503,6 +511,7 @@ exports[`Grid nested components should be supported 1`] = `
         }
       </style></div><div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -564,6 +573,7 @@ exports[`Grid nested components should be supported 1`] = `
         }
       </style></div><div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -625,6 +635,7 @@ exports[`Grid nested components should be supported 1`] = `
         }
       </style></div><style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -686,6 +697,7 @@ exports[`Grid nested components should be supported 1`] = `
         }
       </style></div>,<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -747,6 +759,7 @@ exports[`Grid nested components should be supported 1`] = `
         }
       </style></div>,<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -808,6 +821,7 @@ exports[`Grid nested components should be supported 1`] = `
         }
       </style></div>,<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -873,6 +887,7 @@ exports[`Grid nested components should be supported 1`] = `
 exports[`Grid should render correctly 1`] = `
 "<div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item  mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -934,6 +949,7 @@ exports[`Grid should render correctly 1`] = `
         }
       </style></div><div class=\\"nextui-grid-item  mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -995,6 +1011,7 @@ exports[`Grid should render correctly 1`] = `
         }
       </style></div><style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -1060,6 +1077,7 @@ exports[`Grid should render correctly 1`] = `
 exports[`Grid should work correctly when size exceeds 1`] = `
 "<div class=\\"nextui-grid-item  nextui-grid-container mock \\"><div class=\\"nextui-grid-item nextui-grid-item-xs mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -1121,6 +1139,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
         }
       </style></div><div class=\\"nextui-grid-item nextui-grid-item-xs mock \\">test<style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;
@@ -1182,6 +1201,7 @@ exports[`Grid should work correctly when size exceeds 1`] = `
         }
       </style></div><style>
         .nextui-grid-item {
+          ;
         }
         .nextui-grid-item-justify {
           justify-content: undefined;

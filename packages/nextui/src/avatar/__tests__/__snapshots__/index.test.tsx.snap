@@ -5,7 +5,7 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "class": "nextui-avatar only-text-avatar",
-      "data-state": "loading",
+      "data-state": "ready",
     },
     "children": Array [
       Node {
@@ -44,6 +44,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -60,7 +61,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -175,6 +176,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -191,7 +193,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -306,6 +308,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -322,7 +325,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -533,7 +536,7 @@ LoadedCheerio {
 `;
 
 exports[`Avatar should render correctly with an icon 1`] = `
-"<span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-icon\\"><svg class=\\"\\"></svg></span><style>
+"<span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-icon\\"><svg class=\\"\\"></svg></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -551,6 +554,7 @@ exports[`Avatar should render correctly with an icon 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -567,7 +571,7 @@ exports[`Avatar should render correctly with an icon 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -625,7 +629,7 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "class": "nextui-avatar only-text-avatar",
-      "data-state": "loading",
+      "data-state": "ready",
     },
     "children": Array [
       Node {
@@ -664,6 +668,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -680,7 +685,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -795,6 +800,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -811,7 +817,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -926,6 +932,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -942,7 +949,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1157,7 +1164,7 @@ LoadedCheerio {
   "0": Node {
     "attribs": Object {
       "class": "nextui-avatar only-text-avatar",
-      "data-state": "loading",
+      "data-state": "ready",
     },
     "children": Array [
       Node {
@@ -1204,6 +1211,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1220,7 +1228,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1343,6 +1351,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1359,7 +1368,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1474,6 +1483,7 @@ LoadedCheerio {
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1490,7 +1500,7 @@ LoadedCheerio {
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1709,7 +1719,7 @@ LoadedCheerio {
 `;
 
 exports[`Avatar should work correctly with different sizes 1`] = `
-"<div><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+"<div><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -1727,6 +1737,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1743,7 +1754,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1793,7 +1804,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
         .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -1811,6 +1822,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1827,7 +1839,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1877,7 +1889,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
         .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -1895,6 +1907,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1911,7 +1924,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -1961,7 +1974,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
         .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -1979,6 +1992,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -1995,7 +2009,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2045,7 +2059,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
         .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -2063,6 +2077,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2079,7 +2094,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2133,7 +2148,7 @@ exports[`Avatar should work correctly with different sizes 1`] = `
 `;
 
 exports[`Avatar should work with a gradient color 1`] = `
-"<span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+"<span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -2151,6 +2166,7 @@ exports[`Avatar should work with a gradient color 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2167,7 +2183,7 @@ exports[`Avatar should work with a gradient color 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2221,7 +2237,7 @@ exports[`Avatar should work with a gradient color 1`] = `
 `;
 
 exports[`Avatar should work with different colors 1`] = `
-"<div><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+"<div><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -2239,6 +2255,7 @@ exports[`Avatar should work with different colors 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2255,7 +2272,7 @@ exports[`Avatar should work with different colors 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2305,7 +2322,7 @@ exports[`Avatar should work with different colors 1`] = `
         .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -2323,6 +2340,7 @@ exports[`Avatar should work with different colors 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2339,7 +2357,7 @@ exports[`Avatar should work with different colors 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2389,7 +2407,7 @@ exports[`Avatar should work with different colors 1`] = `
         .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -2407,6 +2425,7 @@ exports[`Avatar should work with different colors 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2423,7 +2442,7 @@ exports[`Avatar should work with different colors 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2473,7 +2492,7 @@ exports[`Avatar should work with different colors 1`] = `
         .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -2491,6 +2510,7 @@ exports[`Avatar should work with different colors 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2507,7 +2527,7 @@ exports[`Avatar should work with different colors 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2557,7 +2577,7 @@ exports[`Avatar should work with different colors 1`] = `
         .nextui-avatar:hover .nextui-avatar-bg {
           box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
         }
-      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+      </style></span><span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -2575,6 +2595,7 @@ exports[`Avatar should work with different colors 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2591,7 +2612,7 @@ exports[`Avatar should work with different colors 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2645,7 +2666,7 @@ exports[`Avatar should work with different colors 1`] = `
 `;
 
 exports[`Avatar should work with pointer 1`] = `
-"<span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+"<span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -2663,6 +2684,7 @@ exports[`Avatar should work with pointer 1`] = `
           cursor: pointer;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2679,7 +2701,7 @@ exports[`Avatar should work with pointer 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;
@@ -2733,7 +2755,7 @@ exports[`Avatar should work with pointer 1`] = `
 `;
 
 exports[`Avatar should work with zoomed 1`] = `
-"<span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"loading\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
+"<span class=\\"nextui-avatar only-text-avatar\\" data-state=\\"ready\\"><span class=\\"nextui-avatar-bg\\"></span><span class=\\"nextui-avatar-text\\"></span><style>
         .nextui-avatar {
           position: relative;
           z-index: 1;
@@ -2751,6 +2773,7 @@ exports[`Avatar should work with zoomed 1`] = `
           cursor: auto;
           margin: 0 0 0 0;
           transition: all 0.25s ease;
+          
         }
         .nextui-avatar-bg {
           position: absolute;
@@ -2767,7 +2790,7 @@ exports[`Avatar should work with zoomed 1`] = `
           padding: 2px;
         }
         .nextui-avatar:first-child {
-          margin: 0;
+          margin:0;
         }
         .nextui-avatar-img {
           z-index: 99;

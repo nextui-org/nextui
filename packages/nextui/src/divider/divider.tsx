@@ -36,12 +36,11 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   align,
   children,
   className,
-  style,
   ...props
 }) => {
   const theme = useTheme();
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const bgColor = useMemo(
     () => getNormalColor(color, theme.palette, theme.palette.border),
@@ -60,12 +59,7 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   const left = x ? getMargin(x / 2) : 0;
 
   return (
-    <div
-      role="separator"
-      className={`nextui-divider ${className}`}
-      style={{ ...style, ...spacingStyles }}
-      {...props}
-    >
+    <div role="separator" className={`nextui-divider ${className}`} {...props}>
       {children && (
         <span className={`nextui-divider-text ${alignClassName}`}>
           {children}
@@ -80,6 +74,7 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
           background: ${bgColor};
           margin: ${top} ${left};
           position: relative;
+          ${stringCss};
         }
         .nextui-divider-text {
           position: absolute;

@@ -6,6 +6,7 @@ LoadedCheerio {
     "attribs": Object {
       "class": "nextui-checkbox-group ",
       "role": "group",
+      "style": "object-css:[object Object];string-css:;jsx-class-name:mock",
     },
     "children": Array [
       Node {
@@ -366,7 +367,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -374,6 +375,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -502,18 +504,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -546,9 +544,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -667,7 +663,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -675,6 +671,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -803,18 +800,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -847,9 +840,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -1286,7 +1277,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -1294,6 +1285,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -1422,18 +1414,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -1466,9 +1454,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -2276,7 +2262,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -2284,6 +2270,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -2412,18 +2399,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -2456,9 +2439,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -2577,7 +2558,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -2585,6 +2566,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -2713,18 +2695,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -2757,9 +2735,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -3196,7 +3172,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -3204,6 +3180,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -3332,18 +3309,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -3376,9 +3349,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -4236,7 +4207,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -4244,6 +4215,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -4372,18 +4344,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -4416,9 +4384,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -4537,7 +4503,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -4545,6 +4511,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -4673,18 +4640,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -4717,9 +4680,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -5156,7 +5117,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -5164,6 +5125,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -5292,18 +5254,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -5336,9 +5294,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -6177,7 +6133,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -6185,6 +6141,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -6313,18 +6270,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -6357,9 +6310,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -6478,7 +6429,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -6486,6 +6437,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -6614,18 +6566,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -6658,9 +6606,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -7097,7 +7043,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -7105,6 +7051,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -7233,18 +7180,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -7277,9 +7220,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -8131,7 +8072,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -8139,6 +8080,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -8267,18 +8209,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -8311,9 +8249,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -8432,7 +8368,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -8440,6 +8376,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -8568,18 +8505,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -8612,9 +8545,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -9051,7 +8982,7 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -9059,6 +8990,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -9187,18 +9119,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -9231,9 +9159,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -10043,7 +9969,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -10051,6 +9977,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -10179,18 +10106,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -10223,9 +10146,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -10344,7 +10265,7 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -10352,6 +10273,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -10480,18 +10402,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -10524,9 +10442,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -10963,7 +10879,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -10971,6 +10887,7 @@ LoadedCheerio {
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -11099,18 +11016,14 @@ LoadedCheerio {
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -11143,9 +11056,7 @@ LoadedCheerio {
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -11637,10 +11548,12 @@ LoadedCheerio {
     "x-attribsNamespace": Object {
       "class": undefined,
       "role": undefined,
+      "style": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
       "role": undefined,
+      "style": undefined,
     },
   },
   "_root": LoadedCheerio {
@@ -11730,7 +11643,7 @@ LoadedCheerio {
 
 exports[`Checkbox Group should work correctly with different sizes 1`] = `
 "<div><div class=\\"nextui-checkbox-group \\" role=\\"group\\"><label class=\\"nextui-checkbox \\"><div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">Sydney</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -11738,6 +11651,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -11866,18 +11780,14 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -11910,9 +11820,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -11984,7 +11892,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
             flex-direction: column;
           }
         </style></div><div class=\\"nextui-checkbox-group \\" role=\\"group\\"><label class=\\"nextui-checkbox \\"><div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">Sydney</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -11992,6 +11900,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -12120,18 +12029,14 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -12164,9 +12069,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -12238,7 +12141,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
             flex-direction: column;
           }
         </style></div><div class=\\"nextui-checkbox-group \\" role=\\"group\\"><label class=\\"nextui-checkbox \\"><div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">Sydney</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -12246,6 +12149,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -12374,18 +12278,14 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -12418,9 +12318,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;
@@ -12492,7 +12390,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
             flex-direction: column;
           }
         </style></div><div class=\\"nextui-checkbox-group \\" role=\\"group\\"><label class=\\"nextui-checkbox \\"><div tabindex=\\"0\\" class=\\"nextui-checkbox-container mock\\"><input type=\\"checkbox\\" tabindex=\\"-1\\" class=\\"nextui-checkbox-input\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-checkbox-mask\\"><i class=\\"nextui-checkbox-icon-check\\"><span class=\\"nextui-checkbox-icon\\" style=\\"display: block; position: relative; width: 8px; height: 14px; margin-top: -4px; transform: rotate(45deg) scale(0.8);\\"><div class=\\"nextui-checkbox-line1\\"></div><div class=\\"nextui-checkbox-line2\\"></div></span></i></div></div><span class=\\"nextui-checkbox-text\\">Sydney</span><style>
-        label {
+        .nextui-checkbox {
           --nextui-checkbox-size: 20px;
           display: inline-flex;
           justify-content: flex-start;
@@ -12500,6 +12398,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           width: auto;
           cursor: pointer;
           opacity: 1;
+          
         }
         .nextui-checkbox-container {
           width: var(--nextui-checkbox-size);
@@ -12628,18 +12527,14 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
           transition: width 0.25s ease 0.1s;
           display: block;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line1 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line1 {
           transform: rotate(-45deg);
           bottom: 0px;
           right: -1px;
           opacity: 0;
           display: none;
         }
-        .nextui-checkbox-indeterminate
-          .nextui-checkbox-icon
-          .nextui-checkbox-line2 {
+        .nextui-checkbox-indeterminate .nextui-checkbox-icon .nextui-checkbox-line2 {
           right: 0px;
           bottom: -0.14rem;
           transform: rotate(45deg);
@@ -12672,9 +12567,7 @@ exports[`Checkbox Group should work correctly with different sizes 1`] = `
         input:hover ~ .nextui-checkbox-mask:before {
           border: 2px solid transparent;
         }
-        input:checked
-          ~ .nextui-checkbox-mask
-          i:not(.nextui-checkbox-icon-check) {
+        input:checked ~ .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 1;
           transform: scale(1);
           transition: all 0.25s ease 0.15s;

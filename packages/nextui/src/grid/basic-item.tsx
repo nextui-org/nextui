@@ -61,6 +61,8 @@ const getItemLayout = (val: BreakpointsValue): ItemLayoutValue => {
   };
 };
 
+const preClass = 'nextui-grid-item';
+
 const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
   xs,
   sm,
@@ -73,24 +75,23 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
   alignContent,
   children,
   className,
-  style,
   ...props
 }) => {
   const theme = useTheme();
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const classes = useMemo(() => {
     const aligns: { [key: string]: unknown } = {
-      'nextui-grid-item-justify': justify,
-      'nextui-grid-item-direction': direction,
-      'nextui-grid-item-align-items': alignItems,
-      'nextui-grid-item-align-content': alignContent,
-      'nextui-grid-item-xs': xs,
-      'nextui-grid-item-sm': sm,
-      'nextui-grid-item-md': md,
-      'nextui-grid-item-lg': lg,
-      'nextui-grid-item-xl': xl
+      [`${preClass}-justify`]: justify,
+      [`${preClass}-direction`]: direction,
+      [`${preClass}-align-items`]: alignItems,
+      [`${preClass}-align-content`]: alignContent,
+      [`${preClass}-xs`]: xs,
+      [`${preClass}-sm`]: sm,
+      [`${preClass}-md`]: md,
+      [`${preClass}-lg`]: lg,
+      [`${preClass}-xl`]: xl
     };
     const classString = Object.keys(aligns).reduce((pre, name) => {
       if (aligns[name] !== undefined && aligns[name] !== false)
@@ -115,35 +116,32 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
     [xs, sm, md, lg, xl]
   );
   return (
-    <div
-      className={`nextui-grid-item ${classes} ${className}`}
-      style={{ ...style, ...spacingStyles }}
-      {...props}
-    >
+    <div className={`${preClass} ${classes} ${className}`} {...props}>
       {children}
       <style jsx>{`
-        .nextui-grid-item {
+        .${preClass} {
+          ${stringCss};
         }
-        .nextui-grid-item-justify {
+        .${preClass}-justify {
           justify-content: ${justify};
         }
-        .nextui-grid-item-direction {
+        .${preClass}-direction {
           flex-direction: ${direction};
         }
-        .nextui-grid-item-align-content {
+        .${preClass}-align-content {
           align-content: ${alignContent};
         }
-        .nextui-grid-item-align-items {
+        .${preClass}-align-items {
           align-items: ${alignItems};
         }
-        .nextui-grid-item-xs {
+        .${preClass}-xs {
           flex-grow: ${layout.xs.grow};
           max-width: ${layout.xs.width};
           flex-basis: ${layout.xs.basis};
           ${layout.xs.display}
         }
         @media only screen and (max-width: ${theme.breakpoints.xs}) {
-          .nextui-grid-item-xs {
+          .${preClass}-xs {
             flex-grow: ${layout.xs.grow};
             max-width: ${layout.xs.width};
             flex-basis: ${layout.xs.basis};
@@ -151,7 +149,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.sm}) {
-          .nextui-grid-item-sm {
+          .${preClass}-sm {
             flex-grow: ${layout.sm.grow};
             max-width: ${layout.sm.width};
             flex-basis: ${layout.sm.basis};
@@ -159,7 +157,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md}) {
-          .nextui-grid-item-md {
+          .${preClass}-md {
             flex-grow: ${layout.md.grow};
             max-width: ${layout.md.width};
             flex-basis: ${layout.md.basis};
@@ -167,7 +165,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.lg}) {
-          .nextui-grid-item-lg {
+          .${preClass}-lg {
             flex-grow: ${layout.lg.grow};
             max-width: ${layout.lg.width};
             flex-basis: ${layout.lg.basis};
@@ -175,7 +173,7 @@ const GridBasicItem: React.FC<React.PropsWithChildren<GridBasicItemProps>> = ({
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.xl}) {
-          .nextui-grid-item-xl {
+          .${preClass}-xl {
             flex-grow: ${layout.xl.grow};
             max-width: ${layout.xl.width};
             flex-basis: ${layout.xl.basis};

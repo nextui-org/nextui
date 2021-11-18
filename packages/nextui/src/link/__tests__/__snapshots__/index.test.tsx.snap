@@ -12,6 +12,7 @@ exports[`Link should render correctly 1`] = `
             border-radius: 0;
             width: fit-content;
             transition: all 0.25s ease;
+            ;
           }
           .nextui-link:hover, .nextui-link:active, .nextui-link:focus {
             text-decoration: none;
@@ -31,6 +32,7 @@ exports[`Link should render correctly 1`] = `
             border-radius: 0;
             width: fit-content;
             transition: all 0.25s ease;
+            ;
           }
           .nextui-link:hover, .nextui-link:active, .nextui-link:focus {
             text-decoration: none;
@@ -57,6 +59,7 @@ exports[`Link should render correctly 1`] = `
             border-radius: 0;
             width: fit-content;
             transition: all 0.25s ease;
+            ;
           }
           .nextui-link:hover, .nextui-link:active, .nextui-link:focus {
             text-decoration: none;
@@ -76,6 +79,7 @@ exports[`Link should render correctly 1`] = `
             border-radius: 0;
             width: fit-content;
             transition: all 0.25s ease;
+            ;
           }
           .nextui-link:hover, .nextui-link:active, .nextui-link:focus {
             text-decoration: underline;
@@ -95,6 +99,7 @@ exports[`Link should render correctly 1`] = `
             border-radius: 14px;
             width: fit-content;
             transition: all 0.25s ease;
+            ;
           }
           .nextui-link:hover, .nextui-link:active, .nextui-link:focus {
             text-decoration: none;

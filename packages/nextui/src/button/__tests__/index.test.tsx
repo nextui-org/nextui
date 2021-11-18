@@ -135,7 +135,7 @@ describe('Button', () => {
     await sleep(500);
     wrapper.setProps({ loading: true });
     await sleep(500);
-    expect(wrapper.find('.loading-container').length).not.toBe(0);
+    expect(wrapper.find('.nextui-loading-container').length).not.toBe(0);
   });
 
   it('ref should be forwarded', () => {

@@ -24,13 +24,12 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
   className,
   children,
   animated,
-  style,
   ...props
 }) => {
   const theme = useTheme();
   const isDark = theme.type === 'dark';
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   return (
     <div
@@ -39,7 +38,6 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
         { 'nextui-avatar-group-is-dark': isDark },
         className
       )}
-      style={{ ...style, ...spacingStyles }}
       {...props}
     >
       {children}
@@ -50,6 +48,7 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
           align-items: center;
           height: auto;
           width: max-content;
+          ${stringCss}
         }
         .nextui-avatar-group :global(.nextui-avatar) {
           margin-left: -0.625rem;

@@ -38,6 +38,7 @@ LoadedCheerio {
         .nextui-code {
           width: 50%;
           max-width: 100%;
+          ;
         }
         .dark {
           color: white;
@@ -83,6 +84,7 @@ LoadedCheerio {
         .nextui-code {
           width: 50%;
           max-width: 100%;
+          ;
         }
         .dark {
           color: white;
@@ -131,6 +133,7 @@ LoadedCheerio {
         .nextui-code {
           width: 50%;
           max-width: 100%;
+          ;
         }
         .dark {
           color: white;
@@ -374,6 +377,7 @@ LoadedCheerio {
         .nextui-code {
           width: initial;
           max-width: 100%;
+          ;
         }
         .dark {
           color: white;
@@ -419,6 +423,7 @@ LoadedCheerio {
         .nextui-code {
           width: initial;
           max-width: 100%;
+          ;
         }
         .dark {
           color: white;
@@ -467,6 +472,7 @@ LoadedCheerio {
         .nextui-code {
           width: initial;
           max-width: 100%;
+          ;
         }
         .dark {
           color: white;

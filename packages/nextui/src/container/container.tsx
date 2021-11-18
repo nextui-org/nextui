@@ -49,6 +49,8 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type ContainerProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-container';
+
 const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   fluid,
   xs,
@@ -66,27 +68,26 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   alignContent,
   children,
   className,
-  style,
   ...props
 }) => {
   const theme = useTheme();
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const classes = useMemo(() => {
     const aligns: { [key: string]: unknown } = {
-      'nextui-container-fluid': fluid,
-      'nextui-container-xs': xs,
-      'nextui-container-sm': sm,
-      'nextui-container-md': md,
-      'nextui-container-lg': lg,
-      'nextui-container-xl': xl,
-      'nextui-container-wrap': wrap,
-      'nextui-container-display': display,
-      'nextui-container-justify': justify,
-      'nextui-container-direction': direction,
-      'nextui-container-align-items': alignItems,
-      'nextui-container-align-content': alignContent
+      [`${preClass}-fluid`]: fluid,
+      [`${preClass}-xs`]: xs,
+      [`${preClass}-sm`]: sm,
+      [`${preClass}-md`]: md,
+      [`${preClass}-lg`]: lg,
+      [`${preClass}-xl`]: xl,
+      [`${preClass}-wrap`]: wrap,
+      [`${preClass}-display`]: display,
+      [`${preClass}-justify`]: justify,
+      [`${preClass}-direction`]: direction,
+      [`${preClass}-align-items`]: alignItems,
+      [`${preClass}-align-content`]: alignContent
     };
     const classString = Object.keys(aligns).reduce((pre, name) => {
       if (aligns[name] !== undefined && aligns[name] !== false)
@@ -115,81 +116,72 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   const Component = as;
 
   return (
-    <Component
-      className={`nextui-container ${classes} ${className}`}
-      style={{ ...style, ...spacingStyles }}
-      {...props}
-    >
+    <Component className={`${preClass} ${classes} ${className}`} {...props}>
       {children}
       <style jsx>{`
-        .nextui-container {
+        .${preClass} {
           width: 100%;
           margin-right: auto;
           margin-left: auto;
           padding-right: ${gapUnit};
           padding-left: ${gapUnit};
+          ${stringCss};
         }
-        .nextui-container-fluid {
+        .${preClass}-fluid {
           max-width: 100% !important;
         }
-        .nextui-container-wrap {
+        .${preClass}-wrap {
           flex-wrap: ${wrap};
         }
-        .nextui-container-display {
+        .${preClass}-display {
           display: ${display};
         }
-        .nextui-container-justify {
+        .${preClass}-justify {
           justify-content: ${justify};
         }
-        .nextui-container-direction {
+        .${preClass}-direction {
           flex-direction: ${direction};
         }
-        .nextui-container-align-content {
+        .${preClass}-align-content {
           align-content: ${alignContent};
         }
-        .nextui-container-align-items {
+        .${preClass}-align-items {
           align-items: ${alignItems};
         }
         @media only screen and (min-width: ${theme.breakpoints.xs}) {
-          .nextui-container {
+          .${preClass} {
             max-width: ${theme.breakpoints.xs};
           }
-          .nextui-container-sm,
-          .nextui-container-md,
-          .nextui-container-lg,
-          .nextui-container-xl {
+          .${preClass}-sm, .${preClass}-md, .${preClass}-lg, .${preClass}-xl {
             max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.sm}) {
-          .nextui-container {
+          .${preClass} {
             max-width: ${theme.breakpoints.sm};
           }
-          .nextui-container-md,
-          .nextui-container-lg,
-          .nextui-container-xl {
+          .${preClass}-md, .${preClass}-lg, .${preClass}-xl {
             max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md}) {
-          .nextui-container {
+          .${preClass} {
             max-width: ${theme.breakpoints.md};
           }
-          .nextui-container-lg,
-          .nextui-container-xl {
+          .${preClass}-lg, .${preClass}-xl {
             max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.lg}) {
-          .nextui-container {
+          .${preClass} {
             max-width: ${theme.breakpoints.lg};
           }
-          .nextui-container-xl {
+          .${preClass}-xl {
             max-width: 100%;
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.xl}) {
-          .nextui-container {
+          .${preClass} {
             max-width: ${theme.breakpoints.xl};
           }
         }

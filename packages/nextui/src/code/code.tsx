@@ -24,32 +24,33 @@ const Code: React.FC<React.PropsWithChildren<CodeProps>> = ({
   block,
   className,
   width,
-  style,
   ...props
 }) => {
   const theme = useTheme();
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   if (!block)
     return (
-      <code style={{ ...style, ...spacingStyles }} {...props}>
+      <code className="nextui-code" {...props}>
         {children}
+        <style jsx>{`
+          .nextui-code {
+            ${stringCss};
+          }
+        `}</style>
       </code>
     );
 
   return (
     <React.Fragment>
-      <pre
-        className={clsx('nextui-code', className)}
-        style={{ ...style, ...spacingStyles }}
-        {...props}
-      >
+      <pre className={clsx('nextui-code', className)} {...props}>
         <code>{children}</code>
       </pre>
       <style jsx>{`
         .nextui-code {
           width: ${width ? width : 'initial'};
           max-width: 100%;
+          ${stringCss};
         }
         .dark {
           color: white;

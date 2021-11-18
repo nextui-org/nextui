@@ -120,7 +120,7 @@ const Button = React.forwardRef<
   const hasIcon = icon || iconRight;
   const isRight = Boolean(iconRight);
 
-  const spacingStyles = getSpacingsStyles(theme, props);
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   const { bg, color, loaderBg, border, style, hover } = useMemo(
     () => getButtonColors(theme.palette, filteredProps),
@@ -204,8 +204,7 @@ const Button = React.forwardRef<
       onClick={clickHandler}
       style={{
         ...style,
-        ...buttonStyle,
-        ...spacingStyles
+        ...buttonStyle
       }}
       {...props}
     >
@@ -265,6 +264,7 @@ const Button = React.forwardRef<
           cursor: ${cursor};
           pointer-events: ${events};
           box-shadow: ${shadowColor};
+          ${stringCss};
           --nextui-button-border-radius: ${radius};
           --nextui-button-padding: ${padding};
           --nextui-button-height: ${height};

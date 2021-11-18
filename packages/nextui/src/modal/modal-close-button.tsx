@@ -25,13 +25,13 @@ const ModalCloseButton: React.FC<Props> = ({ onClick, disabled, ...props }) => {
     <button
       type="button"
       onClick={clickHandler}
-      className={clsx('close-icon', className)}
+      className={clsx('nextui-modal-close-icon', className)}
       aria-label="Close"
       {...props}
     >
       <ClearIcon plain size={18} fill="currentColor" aria-hidden={true} />
       <style jsx>{`
-        .close-icon {
+        .nextui-modal-close-icon {
           position: absolute;
           background: transparent;
           border: none;
@@ -49,10 +49,10 @@ const ModalCloseButton: React.FC<Props> = ({ onClick, disabled, ...props }) => {
           color: ${theme.palette.accents_4};
           border-radius: 9px;
         }
-        .close-icon:hover {
+        .nextui-modal-close-icon:hover {
           opacity: 0.8;
         }
-        .close-icon :global(svg) {
+        .nextui-modal-close-icon :global(svg) {
           color: currentColor;
         }
       `}</style>
