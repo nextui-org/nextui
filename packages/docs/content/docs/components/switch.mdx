@@ -88,6 +88,36 @@ import { Switch } from '@nextui-org/react';
 />
 
 <Playground
+  title="Shadow"
+  desc="You can add a shadow effect with the property `shadow`."
+  code={`
+ <Grid.Container gap={2}>
+    <Grid>
+        <Switch shadow color="primary" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="secondary" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="success" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="warning" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="error" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="gradient" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="#ff4ecd" checked={true}/>
+    </Grid>
+  </Grid.Container>
+`}
+/>
+
+<Playground
   title="Squared"
   desc="You can change the full style towards a squared `Switch` with the `squared` property."
   code={`
@@ -181,6 +211,7 @@ import { Switch } from '@nextui-org/react';
 | **checked**        | `boolean`                                    | `true/false`                   | Selected or not (in single)                                        | `false`   |
 | **initialChecked** | `boolean`                                    | `true/false`                   | Determine the initial value of the switch                          | `false`   |
 | **squared**        | `boolean`                                    | `true/false`                   | Squared switch                                                     | `false`   |
+| **shadow**         | `boolean`                                    | `true/false`                   | Display shadow effect                                              | `false`   |
 | **disabled**       | `boolean`                                    | `true/false`                   | Disable switch                                                     | `false`   |
 | **bordered**       | `boolean`                                    | `true/false`                   | Bordered switch                                                    | `false`   |
 | **icon**           | `ReactNode`                                  | -                              | Add an icon for both status on/off                                 | -         |

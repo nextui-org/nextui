@@ -1,6 +1,7 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
 import { getMargin } from '../utils/dimensions';
+import clsx from '../utils/clsx';
 
 interface Props {
   x?: number;
@@ -13,7 +14,7 @@ const defaultProps = {
   x: 1,
   y: 1,
   inline: false,
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -30,9 +31,9 @@ const Spacer: React.FC<SpacerProps> = ({
   const top = getMargin(y);
 
   return (
-    <span className={className} {...props}>
+    <span className={clsx('nextui-spacer', className)} {...props}>
       <style jsx>{`
-        span {
+        .nextui-spacer {
           display: ${inline ? 'inline-block' : 'block'};
           height: 1px;
           width: 1px;

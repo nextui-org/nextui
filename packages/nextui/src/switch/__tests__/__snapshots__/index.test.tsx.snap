@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Switch should render correctly 1`] = `
-"<label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+"<label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -13,17 +13,17 @@ exports[`Switch should render correctly 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -32,58 +32,57 @@ exports[`Switch should render correctly 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
       </style></label>"
 `;
 
 exports[`Switch should render correctly with an icon 1`] = `
-"<label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
-        label {
+"<label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"><svg class=\\"\\"></svg></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -94,17 +93,17 @@ exports[`Switch should render correctly with an icon 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -113,58 +112,57 @@ exports[`Switch should render correctly with an icon 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
       </style></label>"
 `;
 
 exports[`Switch should render correctly with an iconOff 1`] = `
-"<label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
-        label {
+"<label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"><svg class=\\"\\"></svg></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -175,17 +173,17 @@ exports[`Switch should render correctly with an iconOff 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -194,58 +192,57 @@ exports[`Switch should render correctly with an iconOff 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
       </style></label>"
 `;
 
 exports[`Switch should render correctly with an iconOn 1`] = `
-"<label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
-        label {
+"<label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"><svg class=\\"\\"></svg></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -256,17 +253,17 @@ exports[`Switch should render correctly with an iconOn 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -275,58 +272,57 @@ exports[`Switch should render correctly with an iconOn 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
       </style></label>"
 `;
 
 exports[`Switch should render correctly with both icons on/off 1`] = `
-"<label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"><svg class=\\"\\"></svg></span></div><style>
-        label {
+"<label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"><svg class=\\"\\"></svg></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -337,17 +333,17 @@ exports[`Switch should render correctly with both icons on/off 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -356,58 +352,57 @@ exports[`Switch should render correctly with both icons on/off 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
       </style></label>"
 `;
 
 exports[`Switch should work with different colors 1`] = `
-"<div><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+"<div><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -418,17 +413,17 @@ exports[`Switch should work with different colors 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -437,54 +432,53 @@ exports[`Switch should work with different colors 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+      </style></label><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -495,17 +489,17 @@ exports[`Switch should work with different colors 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -514,54 +508,53 @@ exports[`Switch should work with different colors 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #7928ca;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+      </style></label><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -572,17 +565,17 @@ exports[`Switch should work with different colors 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -591,54 +584,53 @@ exports[`Switch should work with different colors 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #17c964;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+      </style></label><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -649,17 +641,17 @@ exports[`Switch should work with different colors 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -668,54 +660,53 @@ exports[`Switch should work with different colors 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #f5a623;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+      </style></label><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -726,17 +717,17 @@ exports[`Switch should work with different colors 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -745,58 +736,57 @@ exports[`Switch should work with different colors 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #f21361;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
       </style></label></div>"
 `;
 
 exports[`Switch should work with different sizes 1`] = `
-"<div><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+"<div><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -807,17 +797,17 @@ exports[`Switch should work with different sizes 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 18px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 18px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 32px;
           height: 18px;
           border-radius: 18px;
@@ -826,54 +816,53 @@ exports[`Switch should work with different sizes 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(18px * 0.76);
-          height: calc(18px * 0.76);
+          width: calc(18px * 0.7);
+          height: calc(18px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 18px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(18px * 0.44);
           width: calc(18px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(32px - 18px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+      </style></label><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -884,17 +873,17 @@ exports[`Switch should work with different sizes 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 20px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 20px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 40px;
           height: 20px;
           border-radius: 20px;
@@ -903,54 +892,53 @@ exports[`Switch should work with different sizes 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(20px * 0.76);
-          height: calc(20px * 0.76);
+          width: calc(20px * 0.7);
+          height: calc(20px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 20px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(20px * 0.44);
           width: calc(20px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(40px - 20px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+      </style></label><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -961,17 +949,17 @@ exports[`Switch should work with different sizes 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 24px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 24px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 45px;
           height: 24px;
           border-radius: 24px;
@@ -980,54 +968,53 @@ exports[`Switch should work with different sizes 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(24px * 0.76);
-          height: calc(24px * 0.76);
+          width: calc(24px * 0.7);
+          height: calc(24px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 24px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(24px * 0.44);
           width: calc(24px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(45px - 24px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+      </style></label><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -1038,17 +1025,17 @@ exports[`Switch should work with different sizes 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 28px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 28px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 52px;
           height: 28px;
           border-radius: 28px;
@@ -1057,54 +1044,53 @@ exports[`Switch should work with different sizes 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(28px * 0.76);
-          height: calc(28px * 0.76);
+          width: calc(28px * 0.7);
+          height: calc(28px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 28px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(28px * 0.44);
           width: calc(28px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(52px - 28px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
-      </style></label><label class=\\"\\"><input tabindex=\\"-1\\" type=\\"checkbox\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"switch   mock\\"><span class=\\"circle\\"></span></div><style>
-        label {
+      </style></label><label class=\\"nextui-switch-container\\" data-state=\\"unchecked\\"><input tabindex=\\"-1\\" type=\\"checkbox\\" class=\\"nextui-switch-input\\" data-state=\\"unchecked\\"><div role=\\"switch\\" tabindex=\\"0\\" aria-checked=\\"false\\" aria-disabled=\\"false\\" class=\\"nextui-switch mock\\"><span class=\\"nextui-switch-circle\\"></span></div><style>
+        .nextui-switch-container {
           -webkit-tap-highlight-color: transparent;
           display: inline-block;
           vertical-align: center;
@@ -1115,17 +1101,17 @@ exports[`Switch should work with different sizes 1`] = `
           padding: 3px 0;
           position: relative;
           cursor: pointer;
+          ;
         }
-        input {
-          overflow: hidden;
-          height: 32px;
+        .nextui-switch-input {
           opacity: 0;
           width: 100%;
+          height: 32px;
           position: absolute;
           background: transparent;
           z-index: -1;
         }
-        .switch {
+        .nextui-switch {
           width: 62px;
           height: 32px;
           border-radius: 32px;
@@ -1134,50 +1120,49 @@ exports[`Switch should work with different sizes 1`] = `
           position: relative;
           border: 2px solid
             transparent;
-          background: #eaeaea;
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
+          background: rgba(153, 153,153,0.4);
+          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
           padding: 0;
         }
-        .circle {
+        .nextui-switch-circle {
           position: absolute;
           display: flex;
-          width: calc(32px * 0.76);
-          height: calc(32px * 0.76);
+          width: calc(32px * 0.7);
+          height: calc(32px * 0.7);
           justify-content: center;
           align-items: center;
-          top: 49.4%;
+          top: 50%;
           bottom: 0px;
           transform: translateY(-50%);
-          left: 0px;
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
+          left: calc(2px + 32px * 0.02);
           transition: left 0.25s ease;
           border-radius: 50%;
           background: #fff;
         }
-        .switch.checked:hover {
+        .nextui-switch.nextui-switch-checked:hover {
           opacity: 0.8;
         }
-        .switch:hover:not(.checked) {
+        .nextui-switch:hover:not(.nextui-switch-checked) {
           opacity: 0.8;
         }
-        .disabled {
+        .nextui-switch-disabled {
           border-color: #999;
           background-color: #999;
         }
-        .checked {
+        .nextui-switch-checked {
           border: 1px solid transparent;
           background: #0070f3;
         }
-        .circle :global(svg) {
+        .nextui-switch-circle :global(svg) {
           background: transparent;
           height: calc(32px * 0.44);
           width: calc(32px * 0.44);
         }
-        .checked > .circle {
+        .nextui-switch-checked > .nextui-switch-circle {
           left: calc(62px - 32px * 0.88);
           background: rgba(255, 255,255,0.6);
         }
-        .disabled > .circle {
+        .nextui-switch-disabled > .nextui-switch-circle {
           background: #eaeaea;
         }
       </style></label></div>"

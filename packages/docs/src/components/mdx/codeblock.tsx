@@ -40,19 +40,20 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
           padding: 0px !important;
           color: ${textColor?.style.color} !important;
         }
-        :global(.snippet, .copy) {
+        :global(.nextui-snippet, .nextui-snippet-copy-button) {
           background-color: ${codeTheme.plain.backgroundColor} !important;
         }
         :global(.language-jsx) {
           box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
         }
-        :global(.copy path) {
+        :global(.nextui-snippet-copy-button path) {
           fill: ${theme.type === 'light'
             ? theme.palette.accents_2
             : theme.palette.accents_5};
         }
-        :global(.snippet pre) {
+        :global(.nextui-snippet .nextui-snippet-pre) {
           border-radius: 0px !important;
+          color: ${textColor?.style.color} !important;
         }
         :global(.token.string) {
           color: ${stringColor?.style.color};

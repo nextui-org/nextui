@@ -12,11 +12,11 @@ const Icon: React.FC<IconProps> = ({ className = '' }) => (
 );
 
 const expectSwitchIsChecked = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.checked').length).not.toBe(0);
+  expect(wrapper.find('.nextui-switch-checked').length).not.toBe(0);
 };
 
 const expectSwitchIsUnChecked = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.checked').length).toBe(0);
+  expect(wrapper.find('.nextui-switch-checked').length).toBe(0);
 };
 
 const getSwitchElement = (wrapper: ReactWrapper) => {

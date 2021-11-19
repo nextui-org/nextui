@@ -41,14 +41,14 @@ const Footer: React.FC = () => {
           :global(.footer__by) {
             color: ${theme.palette.accents_6} !important;
           }
-          :global(.footer__container .row) {
+          :global(.footer__container .nextui-row) {
             justify-content: flex-end !important;
           }
           @media only screen and (max-width: ${theme.breakpoints.xs}) {
             :global(.footer__container) {
               z-index: 99;
             }
-            :global(.footer__container .row) {
+            :global(.footer__container .nextui-row) {
               justify-content: flex-start !important;
               padding-left: calc(
                 2 * calc(${theme.spacing.sm} * 0.5)
