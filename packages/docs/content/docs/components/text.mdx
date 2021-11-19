@@ -37,15 +37,15 @@ import { Text } from '@nextui-org/react';
 
 <Playground
   title="Paragraph"
-  desc="You can add `p` attribute to a `Text` to render a paragraph."
+  desc="The `Text` component renders a paragraph by default."
   code={`
   () => {
   const text = 'NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.';
   return (
     <>
-        <Text p>{text}</Text>
-        <Text p b>
-        {text}
+        <Text>{text}</Text>
+        <Text b>
+          {text}
         </Text>
     </>
    )
@@ -131,7 +131,7 @@ import { Text } from '@nextui-org/react';
   const largeText = 'NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.';
   return (
     <>
-        <Text p>{largeText}</Text>
+        <Text>{largeText}</Text>
         <Text>
          <Text small del>{smallText}</Text>
          <Text small b>{largeText}</Text>
@@ -152,7 +152,6 @@ import { Text } from '@nextui-org/react';
 
 | Attribute      | Type                    | Accepted values                    | Description         | Default   |
 | -------------- | ----------------------- | ---------------------------------- | ------------------- | --------- |
-| **p**          | `boolean`               | -                                  | Component name      | `true`    |
 | **h1 - h6**    | `boolean`               | -                                  | Component name      | `false`   |
 | **small**      | `boolean`               | -                                  | Component name      | `false`   |
 | **span**       | `boolean`               | -                                  | Component name      | `false`   |

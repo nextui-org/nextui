@@ -33,10 +33,8 @@ export const Headings = () => {
 
 export const Paragraph = () => (
   <>
-    <Text p>{largeText}</Text>
-    <Text p b>
-      {largeText}
-    </Text>
+    <Text>{largeText}</Text>
+    <Text b>{largeText}</Text>
   </>
 );
 
@@ -79,9 +77,7 @@ export const Sizes = () => (
 
 export const Composed = () => (
   <>
-    <Text p weight={100}>
-      {largeText}
-    </Text>
+    <Text weight={100}>{largeText}</Text>
     <Text>
       <Text small del>
         {shortText}

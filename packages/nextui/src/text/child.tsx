@@ -3,9 +3,11 @@ import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import { NormalColors, TextWeights, TextTransforms } from '../utils/prop-types';
 import { getNormalColor } from '../utils/color';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 import clsx from '../utils/clsx';
 
-export interface Props {
+export interface Props extends DefaultProps {
   tag: keyof JSX.IntrinsicElements;
   color?: NormalColors | string;
   size?: string | number;
@@ -23,6 +25,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.DetailsHTMLAttributes<unknown>, keyof Props>;
 export type TextChildProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-text';
+
 const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   children,
   tag,
@@ -35,6 +39,9 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
+
+  const { stringCss } = getSpacingsStyles(theme, props);
+
   const Component = tag;
   const color = useMemo(
     () => getNormalColor(userColor, theme.palette),
@@ -55,7 +62,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   return (
     <React.Fragment>
       <Component
-        className={clsx({ 'custom-size': !!size }, className)}
+        className={clsx(preClass, { 'custom-size': !!size }, className)}
         {...props}
       >
         {children}
@@ -66,6 +73,7 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
           margin: ${margin};
           font-weight: ${weight};
           text-transform: ${transform};
+          ${stringCss};
         }
         .custom-size {
           font-size: ${fontSize};

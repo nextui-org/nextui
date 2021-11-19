@@ -1,16 +1,16 @@
 import React, { ReactNode, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import { NormalColors, TextWeights, TextTransforms } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
 import TextChild from './child';
 
-interface Props {
+interface Props extends DefaultProps {
   h1?: boolean;
   h2?: boolean;
   h3?: boolean;
   h4?: boolean;
   h5?: boolean;
   h6?: boolean;
-  p?: boolean;
   b?: boolean;
   small?: boolean;
   transform?: TextTransforms;
@@ -33,7 +33,6 @@ const defaultProps = {
   h4: false,
   h5: false,
   h6: false,
-  p: false,
   b: false,
   sm: false,
   transform: 'none' as TextTransforms,
@@ -50,6 +49,7 @@ const defaultProps = {
 type ElementMap = { [key in keyof JSX.IntrinsicElements]?: boolean };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+
 export type TextProps = Props & typeof defaultProps & NativeAttrs;
 
 type TextRenderableElements = Array<keyof JSX.IntrinsicElements>;
@@ -76,7 +76,6 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   h4,
   h5,
   h6,
-  p,
   b,
   small,
   i,
@@ -92,7 +91,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   className,
   ...props
 }) => {
-  const elements: ElementMap = { h1, h2, h3, h4, h5, h6, p, blockquote };
+  const elements: ElementMap = { h1, h2, h3, h4, h5, h6, blockquote };
   const inlineElements: ElementMap = { span, small, b, em, i, del };
   const names = Object.keys(elements).filter(
     (name: keyof JSX.IntrinsicElements) => elements[name]
@@ -106,8 +105,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
    *  e.g.
    *    <Text /> => <p />
    *    <Text em /> => <em />
-   *    <Text p em /> => <p><em>children</em></p>
-   *
+   *    <Text b em /> => <b><em>children</em></b>
    */
 
   const tag = useMemo(() => {
