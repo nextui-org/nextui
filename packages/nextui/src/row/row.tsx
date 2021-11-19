@@ -2,8 +2,11 @@ import React from 'react';
 import withDefaults from '../utils/with-defaults';
 import useTheme from '../use-theme';
 import { Justify, AlignItems, Wrap } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
+import clsx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   gap?: number;
   fluid?: boolean;
   wrap?: Wrap;
@@ -25,6 +28,7 @@ const defaultProps = {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type RowProps = Props & typeof defaultProps & NativeAttrs;
+const preClass = 'nextui-row';
 
 const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
   children,
@@ -40,22 +44,28 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
   const Component = as;
   const theme = useTheme();
 
+  const { stringCss } = getSpacingsStyles(theme, props);
+
   return (
-    <Component className={`row ${className} ${fluid && 'fluid'}`} {...props}>
+    <Component
+      className={clsx(preClass, { [`${preClass}-fluid`]: fluid }, className)}
+      {...props}
+    >
       {children}
       <style jsx>{`
-        .row {
+        .${preClass} {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: ${wrap};
           margin-left: calc(${gap} * ${theme.spacing.lg} / 2);
           margin-right: calc(${gap} * ${theme.spacing.lg} / 2);
-          --nextui-row-gap: calc(${gap} * ${theme.spacing.lg});
           justify-content: ${justify};
           align-items: ${align};
+          --nextui-row-gap: calc(${gap} * ${theme.spacing.lg});
+          ${stringCss};
         }
-        .fluid {
+        .${preClass}-fluid {
           width: 100%;
         }
       `}</style>

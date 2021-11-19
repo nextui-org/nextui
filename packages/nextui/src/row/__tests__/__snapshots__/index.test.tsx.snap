@@ -1,38 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Row should render correctly 1`] = `
-"<div class=\\"row  fluid\\">row<style>
-        .row {
+"<div class=\\"nextui-row nextui-row-fluid\\">row<style>
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
       </style></div>"
 `;
 
 exports[`Row should work with nested 1`] = `
-"<div class=\\"row  fluid\\"><div class=\\"row  fluid\\"><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><div class=\\"row  fluid\\">row<style>
-        .row {
+"<div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><div class=\\"nextui-row nextui-row-fluid\\">row<style>
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
       </style></div><style>
@@ -46,55 +48,58 @@ exports[`Row should work with nested 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
       </style></div>"
 `;
 
 exports[`Row the children should be aligned correctly 1`] = `
-"<div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+"<div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -105,21 +110,22 @@ exports[`Row the children should be aligned correctly 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: flex-end;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
-      </style></div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+      </style></div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -130,21 +136,22 @@ exports[`Row the children should be aligned correctly 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: center;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
-      </style></div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+      </style></div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -155,21 +162,22 @@ exports[`Row the children should be aligned correctly 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: space-around;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
-      </style></div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+      </style></div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -180,21 +188,22 @@ exports[`Row the children should be aligned correctly 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: space-between;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
-      </style></div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+      </style></div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -205,21 +214,22 @@ exports[`Row the children should be aligned correctly 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-start;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
-      </style></div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+      </style></div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -230,21 +240,22 @@ exports[`Row the children should be aligned correctly 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: flex-start;
           align-items: center;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
-      </style></div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+      </style></div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -255,25 +266,26 @@ exports[`Row the children should be aligned correctly 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(0 * 1.25rem / 2);
           margin-right: calc(0 * 1.25rem / 2);
-          --nextui-row-gap: calc(0 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-end;
+          --nextui-row-gap: calc(0 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
       </style></div></div>"
 `;
 
 exports[`Row the children should have the correct spacing 1`] = `
-"<div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+"<div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -284,21 +296,22 @@ exports[`Row the children should have the correct spacing 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(1 * 1.25rem / 2);
           margin-right: calc(1 * 1.25rem / 2);
-          --nextui-row-gap: calc(1 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-start;
+          --nextui-row-gap: calc(1 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
-      </style></div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+      </style></div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -309,21 +322,22 @@ exports[`Row the children should have the correct spacing 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(2 * 1.25rem / 2);
           margin-right: calc(2 * 1.25rem / 2);
-          --nextui-row-gap: calc(2 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-start;
+          --nextui-row-gap: calc(2 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
-      </style></div><div class=\\"row  fluid\\"><div class=\\"nextui-col \\"><style>
+      </style></div><div class=\\"nextui-row nextui-row-fluid\\"><div class=\\"nextui-col \\"><style>
         .nextui-col {
           float: left;
           box-sizing: border-box;
@@ -334,18 +348,19 @@ exports[`Row the children should have the correct spacing 1`] = `
           ;
         }
       </style></div><style>
-        .row {
+        .nextui-row {
           display: flex;
           position: relative;
           box-sizing: border-box;
           flex-wrap: nowrap;
           margin-left: calc(10 * 1.25rem / 2);
           margin-right: calc(10 * 1.25rem / 2);
-          --nextui-row-gap: calc(10 * 1.25rem);
           justify-content: flex-start;
           align-items: flex-start;
+          --nextui-row-gap: calc(10 * 1.25rem);
+          ;
         }
-        .fluid {
+        .nextui-row-fluid {
           width: 100%;
         }
       </style></div></div>"
