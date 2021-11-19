@@ -55,28 +55,29 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
           border-radius: 0px !important;
           color: ${textColor?.style.color} !important;
         }
-        :global(.token.string) {
+        :global(.nextui-snippet-pre .token.string) {
           color: ${stringColor?.style.color};
         }
-        :global(.token.punctuation) {
+        :global(.nextui-snippet-pre .token.punctuation) {
           color: ${punctuationColor?.style.color};
         }
-        :global(.token.number) {
+        :global(.nextui-snippet-pre .token.number) {
           color: ${numberColor?.style.color};
         }
-        :global(.token.class-name) {
+        :global(.nextui-snippet-pre .token.class-name) {
           color: ${classnameColor?.style.color};
         }
-        :global(.token.maybe-class-name) {
+        :global(.nextui-snippet-pre .token.maybe-class-name) {
           color: ${selectorColor?.style.color};
         }
-        :global(.token.plain-text, .token.comment) {
+        :global(.nextui-snippet-pre .token.plain-text, .token.comment) {
           color: ${commentColor?.style.color};
         }
-        :global(.token.module, .token.keyword) {
+        :global(.nextui-snippet-pre .token.module, .nextui-snippet-pre
+            .token.keyword) {
           color: #c678dd;
         }
-        :global(.token.function) {
+        :global(.nextui-snippet-pre .token.function) {
           color: ${functionColor?.style.color};
         }
       `}</style>

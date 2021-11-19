@@ -33,7 +33,7 @@ exports[`Switch should render correctly 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -113,7 +113,7 @@ exports[`Switch should render correctly with an icon 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -193,7 +193,7 @@ exports[`Switch should render correctly with an iconOff 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -273,7 +273,7 @@ exports[`Switch should render correctly with an iconOn 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -353,7 +353,7 @@ exports[`Switch should render correctly with both icons on/off 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -433,7 +433,7 @@ exports[`Switch should work with different colors 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -509,7 +509,7 @@ exports[`Switch should work with different colors 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -585,7 +585,7 @@ exports[`Switch should work with different colors 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -661,7 +661,7 @@ exports[`Switch should work with different colors 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -737,7 +737,7 @@ exports[`Switch should work with different colors 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -817,7 +817,7 @@ exports[`Switch should work with different sizes 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -893,7 +893,7 @@ exports[`Switch should work with different sizes 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -969,7 +969,7 @@ exports[`Switch should work with different sizes 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -1045,7 +1045,7 @@ exports[`Switch should work with different sizes 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
@@ -1121,7 +1121,7 @@ exports[`Switch should work with different sizes 1`] = `
           border: 2px solid
             transparent;
           background: rgba(153, 153,153,0.4);
-          box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+          box-shadow: ;
           padding: 0;
         }
         .nextui-switch-circle {
