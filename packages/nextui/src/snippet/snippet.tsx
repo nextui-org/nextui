@@ -2,12 +2,16 @@ import React, { useMemo, useState, useRef } from 'react';
 import Tooltip from '../tooltip';
 import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles, getFocusStyles } from '../utils/styles';
 import { SnippetTypes, CopyTypes, TooltipColors } from '../utils/prop-types';
 import { getStyles } from './styles';
 import SnippetIcon from './snippet-icon';
 import useClipboard from '../use-clipboard';
+import clsx from '../utils/clsx';
+import { __DEV__ } from '../utils/assertion';
 
-interface Props {
+interface Props extends DefaultProps {
   text?: string | string[];
   symbol?: string;
   filled?: boolean;
@@ -46,6 +50,8 @@ const textArrayToString = (text: string[]): string => {
   }, '');
 };
 
+const preClass = 'nextui-snippet';
+
 const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   type,
   filled,
@@ -62,11 +68,17 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   className,
   ...props
 }) => {
-  const theme = useTheme();
   const [copied, setCopied] = useState(false);
+
+  const theme = useTheme();
   const { copy } = useClipboard();
   const ref = useRef<HTMLPreElement>(null);
   const isMultiLine = text && Array.isArray(text);
+
+  const { stringCss } = getSpacingsStyles(theme, props);
+
+  const { className: focusClassName, styles: focusStyles } =
+    getFocusStyles(theme);
 
   const style = useMemo(
     () => getStyles(type, theme.palette, filled),
@@ -102,13 +114,17 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
   };
 
   return (
-    <div className={`snippet ${className}`} {...props}>
+    <div className={clsx(preClass, className)} {...props}>
       {isMultiLine ? (
         (text as string[]).map((t, index) => (
-          <pre key={`snippet-${index}-${t}`}>{t}</pre>
+          <pre className={`${preClass}-pre`} key={`${preClass}-${index}-${t}`}>
+            {t}
+          </pre>
         ))
       ) : (
-        <pre ref={ref}>{children || text}</pre>
+        <pre className={`${preClass}-pre`} ref={ref}>
+          {children || text}
+        </pre>
       )}
       {showCopyIcon && copyType !== 'slient' ? (
         <Tooltip
@@ -118,19 +134,22 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           content={copied ? tooltipCopiedText : tooltipCopyText}
           onVisibleChange={handleTooltipVisibleChange}
         >
-          <span className="copy" onClick={clickHandler}>
+          <button
+            className={clsx(`${preClass}-copy-button`, focusClassName)}
+            onClick={clickHandler}
+          >
             <SnippetIcon fill={theme.palette.accents_6} />
-          </span>
+          </button>
         </Tooltip>
       ) : (
         copyType !== 'prevent' && (
-          <span className="copy" onClick={clickHandler}>
+          <button className={`${preClass}-copy-button`} onClick={clickHandler}>
             <SnippetIcon fill={theme.palette.accents_6} />
-          </span>
+          </button>
         )
       )}
       <style jsx>{`
-        .snippet {
+        .${preClass} {
           display: flex;
           position: relative;
           width: ${width};
@@ -140,8 +159,9 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           background: ${style.bgColor};
           border: ${bordered ? '1px' : '0px'} solid ${style.border};
           border-radius: ${theme.radius.lg};
+          ${stringCss};
         }
-        pre {
+        .${preClass}-pre {
           margin: 0;
           padding: 0;
           border: none;
@@ -151,34 +171,41 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           color: ${style.color};
           font-size: 0.8125rem;
         }
-        pre::before {
+        .${preClass}-pre::before {
           content: '${symbolBefore}';
           user-select: none;
         }
-        pre :global(*) {
+        .${preClass}-pre :global(*) {
           margin: 0;
           padding: 0;
           font-size: inherit;
           color: inherit;
         }
-        .copy {
-          background-color: ${style.bgColor};
+        .${preClass}-copy-button {
           display: inline-flex;
           justify-content: center;
+          border: none;
           align-items: flex-start;
+          background-color: transparent;
           width: calc(2 * ${theme.spacing.lg});
+          border-radius: ${theme.radius.xs};
           color: inherit;
           transition: opacity 0.2s ease 0s;
           cursor: pointer;
           user-select: none;
         }
-        .copy:hover {
+        .${preClass}-copy-button:hover {
           opacity: 0.7;
         }
       `}</style>
+      {focusStyles}
     </div>
   );
 };
+
+if (__DEV__) {
+  Snippet.displayName = 'NextUI - Snippet';
+}
 
 const MemoSnippet = React.memo(Snippet);
 
