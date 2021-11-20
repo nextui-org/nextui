@@ -3,8 +3,11 @@ import { Avatar } from '../index';
 import useTheme from '../use-theme';
 import UserLink from './user-link';
 import { NormalColors, NormalSizes } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
+import clsx from '../utils/clsx';
 
-interface Props {
+interface Props extends DefaultProps {
   name: ReactNode | string;
   color?: NormalColors;
   size?: NormalSizes | number;
@@ -28,6 +31,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type UserProps = Props & typeof defaultProps & NativeAttrs;
 
+const preClass = 'nextui-user';
+
 const User: React.FC<React.PropsWithChildren<UserProps>> = ({
   src,
   text,
@@ -42,10 +47,12 @@ const User: React.FC<React.PropsWithChildren<UserProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
+  const { stringCss } = getSpacingsStyles(theme, props);
 
   return (
-    <div className={`user ${className}`} {...props}>
+    <div className={clsx(preClass, className)} {...props}>
       <Avatar
+        className={`${preClass}-avatar`}
         src={src}
         color={color}
         squared={squared}
@@ -54,26 +61,27 @@ const User: React.FC<React.PropsWithChildren<UserProps>> = ({
         size={size}
         alt={altText}
       />
-      <div className="names">
-        <span className="name">{name}</span>
-        <span className="social">{children}</span>
+      <div className={`${preClass}-info`}>
+        <span className={`${preClass}-name`}>{name}</span>
+        <span className={`${preClass}-social`}>{children}</span>
       </div>
       <style jsx>{`
-        .user {
+        .${preClass} {
           display: inline-flex;
           padding: 0 ${theme.spacing.sm};
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ${stringCss};
         }
-        .names {
+        .${preClass}-info {
           margin-left: ${theme.spacing.sm};
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .${preClass}-name {
           font-size: 0.89rem;
           color: ${theme.palette.text};
           line-height: 1.1rem;
@@ -83,14 +91,14 @@ const User: React.FC<React.PropsWithChildren<UserProps>> = ({
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .${preClass}-social {
           font-size: 0.75rem;
           color: ${theme.palette.accents_4};
         }
-        .social :global(*:first-child) {
+        .${preClass}-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .${preClass}-social :global(*:last-child) {
           margin-bottom: 0;
         }
       `}</style>

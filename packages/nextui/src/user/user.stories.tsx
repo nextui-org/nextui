@@ -4,7 +4,7 @@ import User from './index';
 
 export default {
   title: 'Display/User',
-  component: User,
+  component: User
 } as Meta;
 
 const url = 'https://avatars.githubusercontent.com/u/30373425?v=4';
