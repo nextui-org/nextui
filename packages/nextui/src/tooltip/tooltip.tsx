@@ -2,16 +2,19 @@ import React, { useEffect, useRef, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
 import TooltipContent from './tooltip-content';
 import useClickAway from '../use-click-away';
+import useTheme from '../use-theme';
 import {
   TriggerTypes,
   Placement,
   SimpleColors,
   TooltipColors
 } from '../utils/prop-types';
+import { DefaultProps } from '../utils/default-props';
+import { getSpacingsStyles } from '../utils/styles';
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
 
-interface Props {
+interface Props extends DefaultProps {
   content: string | React.ReactNode;
   color?: TooltipColors | string;
   contentColor?: SimpleColors | string;
@@ -71,8 +74,11 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   ...props
 }) => {
   const timer = useRef<number>();
+  const theme = useTheme();
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState<boolean>(initialVisible);
+  const { stringCss } = getSpacingsStyles(theme, props);
+
   const contentProps = {
     color,
     contentColor,
@@ -83,7 +89,8 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     rounded,
     hideArrow,
     parent: ref,
-    className: portalClassName
+    className: portalClassName,
+    stringCss
   };
 
   const changeVisible = (nextState: boolean) => {
@@ -121,7 +128,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       ref={ref}
       role="button"
       tabIndex={-1}
-      className={`tooltip ${className}`}
+      className={`nextui-tooltip-button ${className}`}
       onClick={clickEventHandler}
       onKeyUp={() => mouseEventHandler(true)}
       onMouseEnter={() => mouseEventHandler(true)}
@@ -133,7 +140,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       {children}
       <TooltipContent {...contentProps}>{content}</TooltipContent>
       <style jsx>{`
-        .tooltip {
+        .nextui-tooltip-button {
           width: max-content;
           display: inherit;
         }

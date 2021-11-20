@@ -19,6 +19,7 @@ import {
   getIconPlacement
 } from './placement';
 import { Placement, SimpleColors, TooltipColors } from '../utils/prop-types';
+import clsx from '../utils/clsx';
 
 interface Props {
   parent?: MutableRefObject<HTMLElement | null> | undefined;
@@ -31,6 +32,7 @@ interface Props {
   hideArrow?: boolean;
   shadow?: boolean;
   className?: string;
+  stringCss?: string;
 }
 
 interface ReactiveDomReact {
@@ -67,6 +69,8 @@ const getRect = (
   };
 };
 
+const preClass = 'nextui-tooltip';
+
 const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   children,
   parent,
@@ -79,9 +83,11 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
   className,
   hideArrow,
   shadow,
+  stringCss,
   ...props
 }) => {
   const theme = useTheme();
+
   const el = usePortal('tooltip');
   const selfRef = useRef<HTMLDivElement>(null);
   const [rect, setRect] = useState<TooltipPlacement>(defaultTooltipPlacement);
@@ -117,25 +123,36 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
     event.nativeEvent.stopImmediatePropagation();
   };
 
+  const getState = useMemo(() => {
+    return visible ? 'open' : 'closed';
+  }, [visible]);
+
   if (!el) return null;
   return createPortal(
     <CSSTransition
-      name="wrapper"
+      name={`${preClass}-wrapper`}
       visible={visible}
       enterTime={20}
       leaveTime={20}
     >
       <div
-        className={`tooltip-content ${className}`}
+        className={clsx(preClass, `${preClass}-content`, className)}
+        data-state={getState}
         ref={selfRef}
         onClick={preventHandler}
         {...props}
       >
-        <div role="tooltip" className={`inner ${!hideArrow ? 'arrow' : ''}`}>
+        <div
+          role="tooltip"
+          data-state={getState}
+          className={clsx(`${preClass}-inner`, {
+            [`${preClass}-arrow`]: !hideArrow
+          })}
+        >
           {children}
         </div>
         <style jsx>{`
-          .tooltip-content {
+          .${preClass}-content {
             position: absolute;
             width: auto;
             top: calc(${rect.top} + 6px);
@@ -149,13 +166,14 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
             z-index: 1000;
             box-shadow: ${shadow ? theme.shadows.md : 'none'};
             transition: opacity 0.25s ease 0s, top 0.25s ease 0s;
+            ${stringCss};
           }
-          .inner {
+          .${preClass}-inner {
             position: relative;
             font-size: 0.875rem;
             padding: 0;
           }
-          .inner.arrow:after {
+          .${preClass}-inner.${preClass}-arrow:after {
             content: '';
             width: 10px;
             height: 10px;
@@ -169,7 +187,7 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
             bottom: ${bottom};
             transform: ${transform};
           }
-          .wrapper-enter-active {
+          .${preClass}-wrapper-enter-active {
             opacity: 1;
             top: ${rect.top};
           }

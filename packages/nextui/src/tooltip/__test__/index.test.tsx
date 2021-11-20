@@ -6,12 +6,12 @@ import { nativeEvent, updateWrapper } from 'tests/utils';
 import { act } from 'react-dom/test-utils';
 
 const expectTooltipIsShow = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.inner').length).not.toBe(0);
-  expect(wrapper.find('.inner').prop('role')).toEqual('tooltip');
+  expect(wrapper.find('.nextui-tooltip-inner').length).not.toBe(0);
+  expect(wrapper.find('.nextui-tooltip-inner').prop('role')).toEqual('tooltip');
 };
 
 const expectTooltipIsHidden = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.inner').length).toBe(0);
+  expect(wrapper.find('.nextui-tooltip-inner').length).toBe(0);
 };
 
 describe('Tooltip', () => {
@@ -24,13 +24,13 @@ describe('Tooltip', () => {
 
     expectTooltipIsHidden(wrapper);
 
-    wrapper.find('.tooltip').simulate('mouseEnter', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').simulate('mouseEnter', nativeEvent);
     await updateWrapper(wrapper, 150);
     wrapper.find('#test').simulate('click', nativeEvent);
     expectTooltipIsShow(wrapper);
 
     await updateWrapper(wrapper, 150);
-    wrapper.find('.tooltip').simulate('mouseLeave', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').simulate('mouseLeave', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsHidden(wrapper);
   });
@@ -41,11 +41,11 @@ describe('Tooltip', () => {
         <Tooltip content="some text">some tips</Tooltip>
       </div>
     );
-    wrapper.find('.tooltip').simulate('mouseEnter', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').simulate('mouseEnter', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsShow(wrapper);
 
-    wrapper.find('.tooltip').simulate('mouseLeave', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').simulate('mouseLeave', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsHidden(wrapper);
   });
@@ -56,11 +56,11 @@ describe('Tooltip', () => {
         <Tooltip content="some text">some tips</Tooltip>
       </div>
     );
-    wrapper.find('.tooltip').simulate('focus', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').simulate('focus', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsShow(wrapper);
 
-    wrapper.find('.tooltip').simulate('blur', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').simulate('blur', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsHidden(wrapper);
   });
@@ -71,7 +71,7 @@ describe('Tooltip', () => {
         <span>click me</span>
       </Tooltip>
     );
-    wrapper.find('.tooltip').simulate('click', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').simulate('click', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsShow(wrapper);
 
