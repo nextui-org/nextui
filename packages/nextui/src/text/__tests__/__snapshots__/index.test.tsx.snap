@@ -126,7 +126,7 @@ exports[`Text the combined style should be rendered 1`] = `
           margin: inherit;
           font-weight: noset;
           text-transform: none;
-          padding:true;
+          ;
         }
         .custom-size {
           font-size: inherit;
