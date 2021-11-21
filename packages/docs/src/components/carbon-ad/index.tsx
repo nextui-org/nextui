@@ -14,7 +14,7 @@ const CarbonAd: React.FC<unknown> = () => {
     // Once the script starts loading, it will asynchronous resolve, with no way to stop it.
     // This leads to duplication of the ad. To solve the issue, we debounce the load action.
     const load =
-      isMounted() &&
+      isMounted &&
       setTimeout(() => {
         const script = loadScript(
           'https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg',

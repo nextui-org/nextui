@@ -8,7 +8,7 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
     fontWeight: '500',
     fontStyle: 'normal',
     fontFamily: theme.fonts.mono,
-    fontSize: '.875rem',
+    fontSize: theme.fontSizes.xs,
     textRendering: 'geometricPrecision'
   },
   styles: [

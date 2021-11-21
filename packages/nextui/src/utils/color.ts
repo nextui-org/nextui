@@ -159,7 +159,9 @@ function padZero(str: string, len?: number): string {
   return (zeros + str).slice(-len);
 }
 
-export const invertHex = (hex: string, smooth = true) => {
+export const invertHex = (hexProp: string, smooth = true) => {
+  let hex = isCssVar(hexProp) ? getCssVar(hexProp) : hexProp;
+
   if (hex.indexOf('#') === 0) {
     hex = hex.slice(1);
   }
@@ -168,7 +170,7 @@ export const invertHex = (hex: string, smooth = true) => {
     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
   }
   if (hex.length !== 6) {
-    console.error('Invalid HEX color.');
+    return hexProp;
   }
   let r = parseInt(hex.slice(0, 2), 16),
     g = parseInt(hex.slice(2, 4), 16),

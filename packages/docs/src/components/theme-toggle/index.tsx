@@ -1,21 +1,37 @@
 import React from 'react';
 import cn from 'classnames';
-import useDarkMode from 'use-dark-mode';
 import { Moon, Sun } from '../icons';
 import { useTheme } from '@nextui-org/react';
+import { useTheme as useNextTheme } from 'next-themes';
+import PlaceholderBlock from '../placeholder-block';
+import useIsMounted from '@hooks/use-is-mounted';
 
 interface Props {
   className?: string;
 }
 
 export const ThemeToggle: React.FC<Props> = ({ className }) => {
-  const darkMode = useDarkMode();
+  const isMounted = useIsMounted();
+  const { setTheme } = useNextTheme();
   const theme = useTheme();
   const isDark = theme.type === 'dark';
+
+  if (!isMounted) {
+    return (
+      // to avoid layout shift on initial render
+      <PlaceholderBlock
+        alt="toggle theme placeholder"
+        width="32px"
+        height="20px"
+      />
+    );
+  }
+
   return (
-    <span
+    <button
+      aria-label="toggle a light and dark color scheme"
       className={cn('theme-selector-container', className)}
-      onClick={darkMode.toggle}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
     >
       {isDark ? (
         <Sun
@@ -30,7 +46,6 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
           size={20}
         />
       )}
-
       <style jsx>
         {`
           .theme-selector-container {
@@ -40,10 +55,13 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
             cursor: pointer;
             justify-content: center;
             align-items: center;
+            background: transparent;
+            border: none;
+            padding: 0;
           }
         `}
       </style>
-    </span>
+    </button>
   );
 };
 

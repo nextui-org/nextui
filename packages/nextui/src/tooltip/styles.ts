@@ -23,6 +23,6 @@ export const getColors = (
 
   return {
     color: labelColor,
-    bgColor,
+    bgColor
   };
 };

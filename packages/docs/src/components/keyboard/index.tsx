@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import withDefaults from '@utils/with-defaults';
 import { useTheme, NextUIThemes } from '@nextui-org/react';
 import { addColorAlpha } from '@utils/index';
-import useDarkMode from 'use-dark-mode';
 
 interface Props {
   command?: boolean;
@@ -58,7 +57,7 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
-  const isDark = useDarkMode().value;
+  const isDark = theme.type === 'dark';
 
   const { padding, fontSize, minWidth } = useMemo<CustomLayout>(
     () => getLayout(small, theme),

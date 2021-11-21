@@ -15,9 +15,13 @@ import {
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
 import { addColorAlpha } from '@utils/index';
+import PlaceholderBlock from '../placeholder-block';
+import useIsMounted from '@hooks/use-is-mounted';
 
 const Hero: React.FC = () => {
   const theme = useTheme() as NextUIThemes;
+  const isMounted = useIsMounted();
+
   const isDark = theme.type === 'dark';
 
   const router = useRouter();
@@ -128,13 +132,17 @@ const Hero: React.FC = () => {
               </Button>
             </Grid>
             <Grid xs={12} sm={9}>
-              <Snippet
-                className="hero__snippet"
-                bordered={!isDark}
-                tooltipColor="primary"
-              >
-                npm install @nextui-org/react
-              </Snippet>
+              {!isMounted ? (
+                <PlaceholderBlock height="54px" alt="package install script" />
+              ) : (
+                <Snippet
+                  className="hero__snippet"
+                  bordered={!isDark}
+                  tooltipColor="primary"
+                >
+                  npm install @nextui-org/react
+                </Snippet>
+              )}
             </Grid>
           </Grid.Container>
           {isDark && (
@@ -169,7 +177,7 @@ const Hero: React.FC = () => {
           color: ${theme.palette.text} !important;
         }
         :global(.hero__title-smooth) {
-          color: ${theme.type === 'dark'
+          color: ${isDark
             ? theme.palette.accents_6
             : theme.palette.accents_3} !important;
         }
@@ -205,7 +213,10 @@ const Hero: React.FC = () => {
           right: -50%;
         }
         :global(.hero__snippet) {
-          border-width: ${isDark ? '0px' : '2px'} !important;
+          border-width: 2px !important;
+          border-color: ${isDark
+            ? 'transparent'
+            : theme.palette.accents_2} !important;
           backdrop-filter: saturate(180%) blur(20px);
           background: ${addColorAlpha(theme.palette.accents_2, 0.5)} !important;
           box-shadow: ${isDark ? '0px 5px 20px -5px rgb(0 0 0 / 15%)' : 'none'};

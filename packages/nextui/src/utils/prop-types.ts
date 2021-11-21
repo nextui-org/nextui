@@ -233,7 +233,7 @@ export type TooltipColors = typeof extendedColors[number];
 
 export type NormalLoaders = typeof normalLoaders[number];
 
-export type ThemeTypes = typeof themeTypes[number];
+export type ThemeTypes = typeof themeTypes[number] | string;
 
 export type SnippetTypes = typeof extendedColors[number];
 

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
-import useDarkMode from 'use-dark-mode';
 import { isMacOs } from 'react-device-detect';
 import { useRouter } from 'next/router';
 import {
@@ -29,6 +28,8 @@ import { AutocompleteProvided } from 'react-instantsearch-core';
 import Keyboard from '../keyboard';
 import Suggestion from './suggestion';
 import { VisualState, useKBar } from 'kbar';
+import PlaceholderBlock from '../placeholder-block';
+import useIsMounted from '@hooks/use-is-mounted';
 
 interface Props extends AutocompleteProvided {}
 
@@ -39,14 +40,16 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const router = useRouter();
   const suggestionsPortal = usePortal('suggestions');
   const noResultsPortal = usePortal('no-results');
+
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(
     Number(theme.breakpoints.sm.replace('px', ''))
   );
 
   const { query } = useKBar();
+  const isMounted = useIsMounted();
 
-  const isDark = useDarkMode().value;
+  const isDark = theme.type === 'dark';
 
   let inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -204,6 +207,34 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
       return open ? <NoResultsContainer /> : null;
     }
   );
+
+  if (!isMounted) {
+    return (
+      <>
+        <PlaceholderBlock
+          className="search__placeholder-block"
+          alt="search placeholder"
+          height="38px"
+        />
+        <style jsx global>{`
+          .search__placeholder-block {
+            min-width: 228px;
+          }
+          @media only screen and (max-width: ${theme.breakpoints.xs}) {
+            .search__placeholder-block {
+              min-width: 64vw;
+            }
+          }
+          @media only screen and (min-width: ${theme.breakpoints
+              .xs}) and (max-width: ${theme.breakpoints.md}) {
+            .search__placeholder-block {
+              min-width: 248px;
+            }
+          }
+        `}</style>
+      </>
+    );
+  }
 
   return (
     <div
@@ -430,6 +461,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               width: 64vw;
               padding-right: 0;
             }
+
             .react-autosuggest__container {
               position: initial;
               z-index: 4;

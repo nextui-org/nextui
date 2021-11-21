@@ -52,7 +52,6 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
   const theme = useTheme() as NextUIThemes;
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
-
   const isDark = theme.type === 'dark';
 
   useEffect(() => {
@@ -212,6 +211,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
         :global(.navbar__logo) {
           cursor: pointer;
           transition: all 0.25s ease;
+        }
+        :global(.navbar__social-icons-container) {
+          wdith: initial !important;
         }
         :global(.navbar__link.active) {
           font-weight: 600;

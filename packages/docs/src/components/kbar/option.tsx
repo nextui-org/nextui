@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useTheme } from '@nextui-org/react';
 import { addColorAlpha } from '@utils/index';
 import Keyboard from '../keyboard';
-import useDarkMode from 'use-dark-mode';
 import Icon from '../icons/map-icons';
 import { isEmpty } from 'lodash';
 import { Action, ResultHandlers, ResultState } from './types';
@@ -18,8 +17,8 @@ interface Props {
 const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
   const ownRef = React.useRef<HTMLLIElement>(null);
   const active = state.index === state.activeIndex;
-  const isDark = useDarkMode().value;
   const theme = useTheme();
+  const isDark = theme.type === 'dark';
 
   React.useEffect(() => {
     if (active) {

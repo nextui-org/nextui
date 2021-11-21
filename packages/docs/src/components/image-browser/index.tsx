@@ -1,6 +1,8 @@
 import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { useTheme } from '@nextui-org/react';
+import useIsMounted from '@hooks/use-is-mounted';
+import PlaceholderBlock from '../placeholder-block';
 
 interface Props {
   width?: number;
@@ -24,6 +26,7 @@ const ImageBrowser: React.FC<Props> = ({
   className,
   ...props
 }) => {
+  const isMounted = useIsMounted();
   const theme = useTheme();
   const isDark = theme.type === 'dark';
   const { firstWindow, secondWindow } = React.useMemo(() => {
@@ -70,6 +73,10 @@ const ImageBrowser: React.FC<Props> = ({
       }
     };
   }, [isDark]);
+
+  if (!isMounted) {
+    return <PlaceholderBlock alt="browser decoration image" />;
+  }
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

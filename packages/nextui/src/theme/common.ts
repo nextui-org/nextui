@@ -107,26 +107,47 @@ export const defaultBorderWeights: NextUIBorderWeights = {
 };
 
 export const defaultPalette = {
+  background: 'var(--nextui-color-background)',
+  foreground: 'var(--nextui-color-foreground)',
   white: 'var(--nextui-color-white)',
   black: 'var(--nextui-color-black)',
-  selection: 'var(--nextui-color-selection)',
+  accents_1: 'var(--nextui-color-accents-1)',
+  accents_2: 'var(--nextui-color-accents-2)',
+  accents_3: 'var(--nextui-color-accents-3)',
+  accents_4: 'var(--nextui-color-accents-4)',
+  accents_5: 'var(--nextui-color-accents-5)',
+  accents_6: 'var(--nextui-color-accents-6)',
+  accents_7: 'var(--nextui-color-accents-7)',
+  accents_8: 'var(--nextui-color-accents-8)',
   primary: 'var(--nextui-color-primary)',
   secondary: 'var(--nextui-color-secondary)',
   success: 'var(--nextui-color-success)',
   warning: 'var(--nextui-color-warning)',
   error: 'var(--nextui-color-error)',
   gradient: 'var(--nextui-color-gradient)',
-  link: 'var(--nextui-color-link)'
+  link: 'var(--nextui-color-link)',
+  text: 'var(--nextui-color-text)',
+  code: 'var(--nextui-color-code)',
+  border: 'var(--nextui-color-border)',
+  selection: 'var(--nextui-color-selection)'
 };
 
-export const defaultTheme: Omit<NextUIThemes, 'type' | 'palette' | 'shadows'> =
-  {
-    fonts: defaultFonts,
-    breakpoints: defaultBreakpoints,
-    borderWeights: defaultBorderWeights,
-    lineHeights: defaultLineHeights,
-    fontSizes: defaultFontSizes,
-    fontWeights: defaultFontWeights,
-    radius: defaultRadius,
-    spacing: defaultSpacing
-  };
+export const defaultShadows: NextUICommonSizes = {
+  xs: 'var(--nextui-shadow-xs)',
+  sm: 'var(--nextui-shadow-sm)',
+  md: 'var(--nextui-shadow-md)',
+  lg: 'var(--nextui-shadow-lg)',
+  xl: 'var(--nextui-shadow-xl)'
+};
+export const defaultTheme: Omit<NextUIThemes, 'type'> = {
+  fonts: defaultFonts,
+  palette: defaultPalette,
+  breakpoints: defaultBreakpoints,
+  borderWeights: defaultBorderWeights,
+  lineHeights: defaultLineHeights,
+  fontSizes: defaultFontSizes,
+  fontWeights: defaultFontWeights,
+  radius: defaultRadius,
+  spacing: defaultSpacing,
+  shadows: defaultShadows
+};

@@ -53,7 +53,6 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           /* Default Colors */
           --nextui-color-white: #fff;
           --nextui-color-black: #000;
-          --nextui-color-selection: #5ac8fa;
           --nextui-color-primary: #0070f3;
           --nextui-color-secondary: #7928ca;
           --nextui-color-success: #17c964;
@@ -108,7 +107,10 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           --nextui-spacing-80: 20rem;
           --nextui-spacing-96: 24rem;
         }
-        body[data-theme='nextui-light'] {
+        body[data-theme='nextui-light'],
+        body[data-theme='light'],
+        [data-theme='nextui-light'],
+        [data-theme='light'] {
           /*  Colors */
           --nextui-color-accents-1: #f6f6f6;
           --nextui-color-accents-2: #eaeaea;
@@ -131,7 +133,10 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           --nextui-shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.15);
           --nextui-shadow-xl: 0 40px 80px rgba(0, 0, 0, 0.25);
         }
-        body[data-theme='nextui-dark'] {
+        body[data-theme='nextui-dark'],
+        body[data-theme='dark'],
+        [data-theme='nextui-dark'],
+        [data-theme='dark'] {
           /*  Colors */
           --nextui-color-accents-1: #111;
           --nextui-color-accents-2: #333;
