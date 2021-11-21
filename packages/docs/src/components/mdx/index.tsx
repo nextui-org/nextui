@@ -98,11 +98,6 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({
       {...props}
     >
       {linked ? <Anchor>{props.children}</Anchor> : <>{props.children}</>}
-      <style jsx>{`
-        :global(h1) {
-          font-size: 2.3rem;
-        }
-      `}</style>
     </Component>
   );
 };

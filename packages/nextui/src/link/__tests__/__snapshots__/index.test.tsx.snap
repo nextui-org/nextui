@@ -26,7 +26,7 @@ exports[`Link should render correctly 1`] = `
             display: inline-flex;
             align-items: baseline;
             line-height: inherit;
-            color: #0070f3;
+            color: var(--nextui-color-primary);
             text-decoration: none;
             padding: calc(0 * 0.8) calc(0 * 1.7);
             border-radius: 0;
@@ -39,7 +39,7 @@ exports[`Link should render correctly 1`] = `
           }
           .nextui-link:hover {
             background-color: inherit;
-            color: rgba(0, 112,243,0.8);
+            color: ;
           }
         </style></a><a class=\\"nextui-link\\" href=\\"https://nextui.org\\">link<svg viewBox=\\"0 0 24 24\\" width=\\"1em\\" height=\\"1em\\" stroke=\\"currentColor\\" stroke-width=\\"1.5\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\" fill=\\"none\\" shape-rendering=\\"geometricPrecision\\" class=\\"nextui-link-icon\\"><path d=\\"M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6\\"></path><path d=\\"M15 3h6v6\\"></path><path d=\\"M10 14L21 3\\"></path><style>
         .nextui-link-icon {
@@ -93,7 +93,7 @@ exports[`Link should render correctly 1`] = `
             display: inline-flex;
             align-items: baseline;
             line-height: inherit;
-            color: #0070f3;
+            color: var(--nextui-color-primary);
             text-decoration: none;
             padding: calc(0.75rem * 0.8) calc(0.75rem * 1.7);
             border-radius: 14px;
@@ -105,8 +105,8 @@ exports[`Link should render correctly 1`] = `
             text-decoration: none;
           }
           .nextui-link:hover {
-            background-color: rgba(0, 112,243,0.2);
-            color: rgba(0, 112,243,0.8);
+            background-color: ;
+            color: ;
           }
         </style></a></div>"
 `;

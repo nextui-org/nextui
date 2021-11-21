@@ -51,6 +51,17 @@ export interface NextUIFontSizes extends NextUICommonSizes {
   base: string;
 }
 
+export interface NextUIFontWeights {
+  thin: string;
+  light: string;
+  normal: string;
+  medium: string;
+  semibold: string;
+  bold: string;
+  extrabold: string;
+  black: string;
+}
+
 export interface NextUISpacing extends NextUICommonSizes {
   '0': string;
   px: string;
@@ -96,6 +107,7 @@ export interface NextUIThemes {
   borderWeights: NextUIBorderWeights;
   lineHeights: NextUICommonSizes;
   fontSizes: NextUIFontSizes;
+  fontWeights: NextUIFontWeights;
   radius: NextUICommonSizes;
   spacing: NextUISpacing;
   breakpoints: NextUICommonSizes;

@@ -159,8 +159,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
 
     const borderWeight = useMemo(
       () =>
-        bordered || underlined ? getNormalWeight(borderWeightProp) : '0px',
-      [bordered, underlined, borderWeightProp]
+        bordered || underlined
+          ? getNormalWeight(theme, borderWeightProp)
+          : '0px',
+      [theme, bordered, underlined, borderWeightProp]
     );
 
     const changeHandler = (event: React.ChangeEvent<FormElement>) => {

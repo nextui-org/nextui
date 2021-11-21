@@ -3098,7 +3098,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #7928ca;
+          background: var(--nextui-color-secondary);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -3164,7 +3164,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #f5a623;
+          background: var(--nextui-color-warning);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -3333,7 +3333,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #f5a623;
+          background: var(--nextui-color-warning);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -3479,7 +3479,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #7928ca;
+          background: var(--nextui-color-secondary);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -3636,7 +3636,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #f5a623;
+          background: var(--nextui-color-warning);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -3704,7 +3704,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #7928ca;
+          background: var(--nextui-color-secondary);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;

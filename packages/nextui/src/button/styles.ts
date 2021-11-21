@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { NextUIThemesPalette } from '../theme';
+import { NextUIThemes, NextUIThemesPalette } from '../theme';
 import { NormalSizes, NormalColors } from '../utils/prop-types';
 import { Props as ButtonProps } from './button';
 import { ButtonGroupProps } from './button-group';
@@ -37,33 +37,34 @@ export type ButtonSizeGroup = {
 };
 
 export const getGroupBorder = (
-  palette: NextUIThemesPalette,
+  theme: NextUIThemes,
   props: ButtonGroupProps
 ): ButtonBorder => {
   const { bordered, color, borderWeight } = props;
-  const border = getNormalWeight(borderWeight);
+  const border = getNormalWeight(theme, borderWeight);
   const common = {
-    color: palette.background,
+    color: theme.palette.background,
     width: bordered ? border : '0px'
   };
   const key = (color === 'default' ? 'primary' : color) || 'primary';
   if (!bordered && color !== 'primary') return common;
   const buttonColor = {
     ...common,
-    color: palette[key] || palette.primary
+    color: theme.palette[key] || theme.palette.primary
   };
 
   return buttonColor;
 };
 
 export const getButtonColors = (
-  palette: NextUIThemesPalette,
+  theme: NextUIThemes,
   props: ButtonProps
 ): ButtonColorGroup => {
   const { color, disabled, bordered, ghost, borderWeight, flat, light } = props;
-  const border = getNormalWeight(borderWeight);
+  const border = getNormalWeight(theme, borderWeight);
+  const palette = theme.palette as NextUIThemesPalette;
   const common = {
-    color: palette.white,
+    color: theme.palette.white,
     border: {
       width: border || '0px'
     }
@@ -97,6 +98,7 @@ export const getButtonColors = (
     },
     style: {
       padding: border,
+      display: 'inline-block',
       backgroundClip: 'content-box, border-box',
       backgroundImage: `linear-gradient(${palette.background},${palette.background}),
        ${palette.gradient}`

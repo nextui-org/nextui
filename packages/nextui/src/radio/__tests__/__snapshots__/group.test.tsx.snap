@@ -50,7 +50,7 @@ exports[`Radio Group should render correctly 1`] = `
           border: 2px solid #eaeaea;
         }
         .nextui-radio-point.nextui-radio-active:after {
-          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+          border: calc(var(--radio-size) * 0.34) solid var(--nextui-color-primary);
         }
         .nextui-radio:hover
           .nextui-radio-point:not(.nextui-radio-active):not(.nextui-radio-disabled) {
@@ -105,7 +105,7 @@ exports[`Radio Group should render correctly 1`] = `
           border: 2px solid #eaeaea;
         }
         .nextui-radio-point.nextui-radio-active:after {
-          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+          border: calc(var(--radio-size) * 0.34) solid var(--nextui-color-primary);
         }
         .nextui-radio:hover
           .nextui-radio-point:not(.nextui-radio-active):not(.nextui-radio-disabled) {
@@ -174,7 +174,7 @@ exports[`Radio Group should render correctly 1`] = `
           border: 2px solid #eaeaea;
         }
         .nextui-radio-point.nextui-radio-active:after {
-          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+          border: calc(var(--radio-size) * 0.34) solid var(--nextui-color-primary);
         }
         .nextui-radio:hover
           .nextui-radio-point:not(.nextui-radio-active):not(.nextui-radio-disabled) {
@@ -229,7 +229,7 @@ exports[`Radio Group should render correctly 1`] = `
           border: 2px solid #eaeaea;
         }
         .nextui-radio-point.nextui-radio-active:after {
-          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+          border: calc(var(--radio-size) * 0.34) solid var(--nextui-color-primary);
         }
         .nextui-radio:hover
           .nextui-radio-point:not(.nextui-radio-active):not(.nextui-radio-disabled) {
@@ -302,7 +302,7 @@ exports[`Radio Group should work correctly with different sizes 1`] = `
           border: 2px solid #eaeaea;
         }
         .nextui-radio-point.nextui-radio-active:after {
-          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+          border: calc(var(--radio-size) * 0.34) solid var(--nextui-color-primary);
         }
         .nextui-radio:hover
           .nextui-radio-point:not(.nextui-radio-active):not(.nextui-radio-disabled) {
@@ -371,7 +371,7 @@ exports[`Radio Group should work correctly with different sizes 1`] = `
           border: 2px solid #eaeaea;
         }
         .nextui-radio-point.nextui-radio-active:after {
-          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+          border: calc(var(--radio-size) * 0.34) solid var(--nextui-color-primary);
         }
         .nextui-radio:hover
           .nextui-radio-point:not(.nextui-radio-active):not(.nextui-radio-disabled) {
@@ -440,7 +440,7 @@ exports[`Radio Group should work correctly with different sizes 1`] = `
           border: 2px solid #eaeaea;
         }
         .nextui-radio-point.nextui-radio-active:after {
-          border: calc(var(--radio-size) * 0.34) solid #0070f3;
+          border: calc(var(--radio-size) * 0.34) solid var(--nextui-color-primary);
         }
         .nextui-radio:hover
           .nextui-radio-point:not(.nextui-radio-active):not(.nextui-radio-disabled) {

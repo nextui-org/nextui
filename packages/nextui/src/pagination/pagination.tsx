@@ -107,8 +107,8 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
   );
 
   const weight = useMemo(
-    () => (bordered ? getNormalWeight(borderWeight) : '0px'),
-    [bordered, borderWeight]
+    () => (bordered ? getNormalWeight(theme, borderWeight) : '0px'),
+    [theme, bordered, borderWeight]
   );
 
   const renderItem = useCallback(

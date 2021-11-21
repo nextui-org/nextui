@@ -29,7 +29,7 @@ exports[`ButtonIcon should render correctly 1`] = `
         }
       </style></span><div class=\\"nextui-button-text nextui-button-text-left\\">action</div></div><style>
         .nextui-button {
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           box-sizing: border-box;
           display: flex;
           align-items: center;
@@ -51,7 +51,7 @@ exports[`ButtonIcon should render correctly 1`] = `
           transition: all 250ms ease;
           position: relative;
           overflow: hidden;
-          color: #fff;
+          color: var(--nextui-color-white);
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
@@ -59,12 +59,12 @@ exports[`ButtonIcon should render correctly 1`] = `
           --nextui-button-border-radius: 12px;
           --nextui-button-padding: 1.375rem;
           --nextui-button-height: 2.5rem;
-          --nextui-button-color: #fff;
-          --nextui-button-bg: #0070f3;
+          --nextui-button-color: var(--nextui-color-white);
+          --nextui-button-bg: var(--nextui-color-primary);
         }
         .nextui-button:before {
           content: '';
-          background: rgba(0, 112,243,0.85);
+          background: ;
           position: absolute;
           top: 0;
           left: 0;
@@ -83,7 +83,7 @@ exports[`ButtonIcon should render correctly 1`] = `
         }
         .nextui-button:hover,
         .nextui-button:focus {
-          background: rgba(0, 112,243,0.85);
+          background: inherit;
           --nextui-button-color: undefined;
           filter: none;
           color: undefined;
@@ -150,7 +150,7 @@ exports[`ButtonIcon should work with right 1`] = `
         }
       </style></span><div class=\\"nextui-button-text nextui-button-text-right\\">action</div></div><style>
         .nextui-button {
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           box-sizing: border-box;
           display: flex;
           align-items: center;
@@ -172,7 +172,7 @@ exports[`ButtonIcon should work with right 1`] = `
           transition: all 250ms ease;
           position: relative;
           overflow: hidden;
-          color: #fff;
+          color: var(--nextui-color-white);
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
@@ -180,12 +180,12 @@ exports[`ButtonIcon should work with right 1`] = `
           --nextui-button-border-radius: 12px;
           --nextui-button-padding: 1.375rem;
           --nextui-button-height: 2.5rem;
-          --nextui-button-color: #fff;
-          --nextui-button-bg: #0070f3;
+          --nextui-button-color: var(--nextui-color-white);
+          --nextui-button-bg: var(--nextui-color-primary);
         }
         .nextui-button:before {
           content: '';
-          background: rgba(0, 112,243,0.85);
+          background: ;
           position: absolute;
           top: 0;
           left: 0;
@@ -204,7 +204,7 @@ exports[`ButtonIcon should work with right 1`] = `
         }
         .nextui-button:hover,
         .nextui-button:focus {
-          background: rgba(0, 112,243,0.85);
+          background: inherit;
           --nextui-button-color: undefined;
           filter: none;
           color: undefined;
@@ -271,7 +271,7 @@ exports[`ButtonIcon should work without text 1`] = `
         }
       </style></span><style>
         .nextui-button {
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           box-sizing: border-box;
           display: flex;
           align-items: center;
@@ -293,7 +293,7 @@ exports[`ButtonIcon should work without text 1`] = `
           transition: all 250ms ease;
           position: relative;
           overflow: hidden;
-          color: #fff;
+          color: var(--nextui-color-white);
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
@@ -301,12 +301,12 @@ exports[`ButtonIcon should work without text 1`] = `
           --nextui-button-border-radius: 12px;
           --nextui-button-padding: 1.375rem;
           --nextui-button-height: 2.5rem;
-          --nextui-button-color: #fff;
-          --nextui-button-bg: #0070f3;
+          --nextui-button-color: var(--nextui-color-white);
+          --nextui-button-bg: var(--nextui-color-primary);
         }
         .nextui-button:before {
           content: '';
-          background: rgba(0, 112,243,0.85);
+          background: ;
           position: absolute;
           top: 0;
           left: 0;
@@ -325,7 +325,7 @@ exports[`ButtonIcon should work without text 1`] = `
         }
         .nextui-button:hover,
         .nextui-button:focus {
-          background: rgba(0, 112,243,0.85);
+          background: inherit;
           --nextui-button-color: undefined;
           filter: none;
           color: undefined;

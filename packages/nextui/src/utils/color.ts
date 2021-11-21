@@ -1,5 +1,22 @@
 import { NormalColors, normalColors } from './prop-types';
 import { NextUIThemesPalette } from '../theme/index';
+
+export const getCssVar = (name: string) => {
+  if (typeof document !== 'undefined' || !name) {
+    const property = isCssVar(name)
+      ? name.replace('var(', '').replace(')', '')
+      : `--${name}`;
+    return getComputedStyle(document.documentElement).getPropertyValue(
+      property
+    );
+  }
+  return '';
+};
+
+export const isCssVar = (property: string) => {
+  return property && property?.indexOf('var(') === 0 ? true : false;
+};
+
 /**
  * This function allows validate if a string is a hexadecimal
  * value
@@ -108,7 +125,9 @@ export const hexFromString = (
   return defaultColor;
 };
 
-export const colorToRgbValues = (color: string) => {
+export const colorToRgbValues = (colorProp: string) => {
+  const color = isCssVar(colorProp) ? getCssVar(colorProp) : colorProp;
+
   if (color.charAt(0) === '#') return hexToRgb(color);
 
   const safeColor = color.replace(/ /g, '');
@@ -122,7 +141,8 @@ export const colorToRgbValues = (color: string) => {
   return regArray[1].split(',').map((str) => Number.parseFloat(str));
 };
 
-export const addColorAlpha = (color: string, alpha: number) => {
+export const addColorAlpha = (colorProp: string, alpha: number) => {
+  const color = isCssVar(colorProp) ? getCssVar(colorProp) : colorProp;
   if (isHex(color)) {
     return hexToRGBA(color, alpha);
   } else if (!/^#|rgb|RGB/.test(color)) {
@@ -179,7 +199,10 @@ export const getNormalShadowColor = (
       color === 'gradient'
         ? (hexFromString(palette.gradient, palette.primary, true) as string)
         : getNormalColor(color, palette, palette.primary);
-    const [r, g, b] = hexToRgb(hexColor);
+
+    const [r, g, b] = hexToRgb(
+      isCssVar(hexColor) ? getCssVar(hexColor) : hexColor
+    );
     return `0 4px 14px 0 rgb(${r} ${g} ${b}/ 60%);`;
   } catch (err) {
     return 'none';

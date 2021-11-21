@@ -40,7 +40,7 @@ exports[`Checkbox should render correctly 1`] = `
         .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 0;
           transition: all 0.25s ease;
-          color: #fff;
+          color: var(--nextui-color-white);
           font-size: 1.1rem;
           transform: scale(0.5);
         }
@@ -51,7 +51,7 @@ exports[`Checkbox should render correctly 1`] = `
           left: 0px;
           width: var(--nextui-checkbox-size);
           height: var(--nextui-checkbox-size);
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           transform: scale(0.5);
           border-radius: inherit;
           opacity: 0;
@@ -102,7 +102,7 @@ exports[`Checkbox should render correctly 1`] = `
           left: 0px;
           width: 0%;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           border-radius: 5px 0px 0px 5px;
         }
@@ -124,7 +124,7 @@ exports[`Checkbox should render correctly 1`] = `
           position: absolute;
           width: 2px;
           height: 0%;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           left: 0px;
           bottom: 0px;
@@ -135,7 +135,7 @@ exports[`Checkbox should render correctly 1`] = `
           content: &#x27;&#x27;;
           width: 2px;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: width 0.25s ease 0.1s;
           display: block;
         }
@@ -283,7 +283,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 0;
           transition: all 0.25s ease;
-          color: #fff;
+          color: var(--nextui-color-white);
           font-size: 1.1rem;
           transform: scale(0.5);
         }
@@ -294,7 +294,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: var(--nextui-checkbox-size);
           height: var(--nextui-checkbox-size);
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           transform: scale(0.5);
           border-radius: inherit;
           opacity: 0;
@@ -345,7 +345,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: 0%;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           border-radius: 5px 0px 0px 5px;
         }
@@ -367,7 +367,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           position: absolute;
           width: 2px;
           height: 0%;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           left: 0px;
           bottom: 0px;
@@ -378,7 +378,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           content: '';
           width: 2px;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: width 0.25s ease 0.1s;
           display: block;
         }
@@ -522,7 +522,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 0;
           transition: all 0.25s ease;
-          color: #fff;
+          color: var(--nextui-color-white);
           font-size: 1.1rem;
           transform: scale(0.5);
         }
@@ -533,7 +533,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: var(--nextui-checkbox-size);
           height: var(--nextui-checkbox-size);
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           transform: scale(0.5);
           border-radius: inherit;
           opacity: 0;
@@ -584,7 +584,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: 0%;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           border-radius: 5px 0px 0px 5px;
         }
@@ -606,7 +606,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           position: absolute;
           width: 2px;
           height: 0%;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           left: 0px;
           bottom: 0px;
@@ -617,7 +617,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           content: '';
           width: 2px;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: width 0.25s ease 0.1s;
           display: block;
         }
@@ -761,7 +761,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 0;
           transition: all 0.25s ease;
-          color: #fff;
+          color: var(--nextui-color-white);
           font-size: 1.1rem;
           transform: scale(0.5);
         }
@@ -772,7 +772,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: var(--nextui-checkbox-size);
           height: var(--nextui-checkbox-size);
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           transform: scale(0.5);
           border-radius: inherit;
           opacity: 0;
@@ -823,7 +823,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: 0%;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           border-radius: 5px 0px 0px 5px;
         }
@@ -845,7 +845,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           position: absolute;
           width: 2px;
           height: 0%;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           left: 0px;
           bottom: 0px;
@@ -856,7 +856,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           content: '';
           width: 2px;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: width 0.25s ease 0.1s;
           display: block;
         }
@@ -1000,7 +1000,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 0;
           transition: all 0.25s ease;
-          color: #fff;
+          color: var(--nextui-color-white);
           font-size: 1.1rem;
           transform: scale(0.5);
         }
@@ -1011,7 +1011,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: var(--nextui-checkbox-size);
           height: var(--nextui-checkbox-size);
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           transform: scale(0.5);
           border-radius: inherit;
           opacity: 0;
@@ -1062,7 +1062,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: 0%;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           border-radius: 5px 0px 0px 5px;
         }
@@ -1084,7 +1084,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           position: absolute;
           width: 2px;
           height: 0%;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           left: 0px;
           bottom: 0px;
@@ -1095,7 +1095,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           content: '';
           width: 2px;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: width 0.25s ease 0.1s;
           display: block;
         }
@@ -1239,7 +1239,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
         .nextui-checkbox-mask i:not(.nextui-checkbox-icon-check) {
           opacity: 0;
           transition: all 0.25s ease;
-          color: #fff;
+          color: var(--nextui-color-white);
           font-size: 1.1rem;
           transform: scale(0.5);
         }
@@ -1250,7 +1250,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: var(--nextui-checkbox-size);
           height: var(--nextui-checkbox-size);
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           transform: scale(0.5);
           border-radius: inherit;
           opacity: 0;
@@ -1301,7 +1301,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           left: 0px;
           width: 0%;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           border-radius: 5px 0px 0px 5px;
         }
@@ -1323,7 +1323,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           position: absolute;
           width: 2px;
           height: 0%;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: all 0.25s ease;
           left: 0px;
           bottom: 0px;
@@ -1334,7 +1334,7 @@ exports[`Checkbox should work correctly with different sizes 1`] = `
           content: '';
           width: 2px;
           height: 2px;
-          background: #fff;
+          background: var(--nextui-color-white);
           transition: width 0.25s ease 0.1s;
           display: block;
         }

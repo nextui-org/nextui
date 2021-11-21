@@ -119,8 +119,8 @@ const Card = React.forwardRef<
   const hasHeader = hasChild(children, CardHeader);
 
   const borderWeight = useMemo(
-    () => (bordered ? getNormalWeight(borderWeightProp) : '0px'),
-    [bordered, borderWeightProp]
+    () => (bordered ? getNormalWeight(theme, borderWeightProp) : '0px'),
+    [theme, bordered, borderWeightProp]
   );
 
   const cardConfig: CardConfig = useMemo(

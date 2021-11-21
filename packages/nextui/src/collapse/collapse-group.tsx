@@ -96,8 +96,8 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
   );
 
   const borderWeight = useMemo(() => {
-    return bordered ? getNormalWeight(borderWeightProp) : '0px';
-  }, [bordered, borderWeightProp]);
+    return bordered ? getNormalWeight(theme, borderWeightProp) : '0px';
+  }, [theme, bordered, borderWeightProp]);
 
   return (
     <CollapseContext.Provider value={initialValue}>

@@ -295,9 +295,9 @@ exports[`Snippet should work with different styles 1`] = `
           width: initial;
           max-width: 100%;
           padding: calc(1.25rem * 0.75) 1.25rem;
-          color: #7928ca;
+          color: var(--nextui-color-secondary);
           background: #fff;
-          border: 0px solid #7928ca;
+          border: 0px solid var(--nextui-color-secondary);
           border-radius: 14px;
           ;
         }
@@ -308,7 +308,7 @@ exports[`Snippet should work with different styles 1`] = `
           border-radius: 0;
           width: calc(100% - 2 * 1.25rem);
           background-color: transparent;
-          color: #7928ca;
+          color: var(--nextui-color-secondary);
           font-size: 0.8125rem;
         }
         .nextui-snippet-pre::before {
@@ -350,8 +350,8 @@ exports[`Snippet should work with different styles 1`] = `
           max-width: 100%;
           padding: calc(1.25rem * 0.75) 1.25rem;
           color: #fff;
-          background: #17c964;
-          border: 0px solid #17c964;
+          background: var(--nextui-color-success);
+          border: 0px solid var(--nextui-color-success);
           border-radius: 14px;
           ;
         }

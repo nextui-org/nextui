@@ -106,8 +106,8 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
 
   const borderWeight = useMemo(() => {
     const withDivider = groupDivider === undefined ? divider : groupDivider;
-    return withDivider ? getNormalWeight(borderWeightProp) : '0px';
-  }, [divider, groupDivider, borderWeightProp]);
+    return withDivider ? getNormalWeight(theme, borderWeightProp) : '0px';
+  }, [theme, divider, groupDivider, borderWeightProp]);
 
   const animated = useMemo(() => {
     return groupAnimated === undefined ? animatedProp : groupAnimated;

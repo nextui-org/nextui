@@ -64,12 +64,12 @@ const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
 
   const border = useMemo(() => {
     if (!borderProp) return 'none';
-    return `${getNormalWeight(borderWeight)} solid ${getNormalColor(
+    return `${getNormalWeight(theme, borderWeight)} solid ${getNormalColor(
       borderColor,
       theme.palette,
       theme.palette.border
     )}`;
-  }, [borderWeight, theme.palette, borderColor, borderProp]);
+  }, [theme, borderWeight, borderColor, borderProp]);
 
   return (
     <div

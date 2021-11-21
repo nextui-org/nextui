@@ -2,14 +2,15 @@ import {
   NextUICommonSizes,
   NextUIThemesFonts,
   NextUIBorderWeights,
+  NextUIFontWeights,
   NextUIFontSizes,
   NextUISpacing,
   NextUIThemes
 } from './types';
 
 export const defaultFonts: NextUIThemesFonts = {
-  sans: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-  mono: 'Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace'
+  sans: 'var(--nextui-fonts-sans)',
+  mono: 'var(--nextui-fonts-mono)'
 };
 
 export const defaultBreakpoints: NextUICommonSizes = {
@@ -21,91 +22,101 @@ export const defaultBreakpoints: NextUICommonSizes = {
 };
 
 export const defaultSpacing: NextUISpacing = {
-  xs: '0.5rem',
-  sm: '0.75rem',
-  md: '1rem',
-  lg: '1.25rem',
-  xl: '2.25rem',
-  '0': '0px',
-  px: '1px',
-  '0.5': '0.125rem',
-  '1': '0.25rem',
-  '1.5': '0.375rem',
-  '2': '0.5rem',
-  '2.5': '0.625rem',
-  '3': '0.75rem',
-  '3.5': '0.875rem',
-  '4': '1rem',
-  '5': '1.25rem',
-  '6': '1.5rem',
-  '7': '1.75rem',
-  '8': '2rem',
-  '9': '2.25rem',
-  '10': '2.5rem',
-  '11': '2.75rem',
-  '12': '3rem',
-  '14': '3.5rem',
-  '16': '4rem',
-  '20': '5rem',
-  '24': '6rem',
-  '28': '7rem',
-  '32': '8rem',
-  '36': '9rem',
-  '40': '10rem',
-  '44': '11rem',
-  '48': '12rem',
-  '52': '13rem',
-  '56': '14rem',
-  '60': '15rem',
-  '64': '16rem',
-  '72': '18rem',
-  '80': '20rem',
-  '96': '24rem'
+  xs: 'var(--nextui-spacing-xs)',
+  sm: 'var(--nextui-spacing-sm)',
+  md: 'var(--nextui-spacing-md)',
+  lg: 'var(--nextui-spacing-lg)',
+  xl: 'var(--nextui-spacing-xl)',
+  '0': 'var(--nextui-spacing-0)',
+  px: 'var(--nextui-spacing-px)',
+  '0.5': 'var(--nextui-spacing-0\\.5)',
+  '1': 'var(--nextui-spacing-1)',
+  '1.5': 'var(--nextui-spacing-1\\.5)',
+  '2': 'var(--nextui-spacing-2)',
+  '2.5': 'var(--nextui-spacing-2\\.5)',
+  '3': 'var(--nextui-spacing-3)',
+  '3.5': 'var(--nextui-spacing-3\\.5)',
+  '4': 'var(--nextui-spacing-4)',
+  '5': 'var(--nextui-spacing-5)',
+  '6': 'var(--nextui-spacing-6)',
+  '7': 'var(--nextui-spacing-7)',
+  '8': 'var(--nextui-spacing-8)',
+  '9': 'var(--nextui-spacing-9)',
+  '10': 'var(--nextui-spacing-10)',
+  '11': 'var(--nextui-spacing-11)',
+  '12': 'var(--nextui-spacing-12)',
+  '14': 'var(--nextui-spacing-14)',
+  '16': 'var(--nextui-spacing-16)',
+  '20': 'var(--nextui-spacing-20)',
+  '24': 'var(--nextui-spacing-24)',
+  '28': 'var(--nextui-spacing-28)',
+  '32': 'var(--nextui-spacing-32)',
+  '36': 'var(--nextui-spacing-36)',
+  '40': 'var(--nextui-spacing-40)',
+  '44': 'var(--nextui-spacing-44)',
+  '48': 'var(--nextui-spacing-48)',
+  '52': 'var(--nextui-spacing-52)',
+  '56': 'var(--nextui-spacing-56)',
+  '60': 'var(--nextui-spacing-60)',
+  '64': 'var(--nextui-spacing-64)',
+  '72': 'var(--nextui-spacing-72)',
+  '80': 'var(--nextui-spacing-80)',
+  '96': 'var(--nextui-spacing-96)'
 };
 
 export const defaultFontSizes: NextUIFontSizes = {
-  xs: '0.875rem',
-  base: '1rem',
-  sm: '1.25rem',
-  md: '1.5rem',
-  lg: '2.25rem',
-  xl: '3rem'
+  xs: 'var(--nextui-font-size-xs)',
+  base: 'var(--nextui-font-size-base)',
+  sm: 'var(--nextui-font-size-sm)',
+  md: 'var(--nextui-font-size-md)',
+  lg: 'var(--nextui-font-size-lg)',
+  xl: 'var(--nextui-font-size-xl)'
 };
 
 export const defaultLineHeights: NextUICommonSizes = {
-  xs: '1rem',
-  sm: '1.25rem',
-  md: '1.5rem',
-  lg: '1.75rem',
-  xl: '1.75rem'
+  xs: 'var(--nextui-line-height-xs)',
+  sm: 'var(--nextui-line-height-sm)',
+  md: 'var(--nextui-line-height-md)',
+  lg: 'var(--nextui-line-height-lg)',
+  xl: 'var(--nextui-line-height-xl)'
 };
 
 export const defaultRadius: NextUICommonSizes = {
-  xs: '2px',
-  sm: '6px',
-  md: '10px',
-  lg: '14px',
-  xl: '28px'
+  xs: 'var(--nextui-radius-xs)',
+  sm: 'var(--nextui-radius-sm)',
+  md: 'var(--nextui-radius-md)',
+  lg: 'var(--nextui-radius-lg)',
+  xl: 'var(--nextui-radius-xl)'
+};
+
+export const defaultFontWeights: NextUIFontWeights = {
+  thin: 'var(--nextui-fontWeights-thin)',
+  light: 'var(--nextui-fontWeights-light)',
+  normal: 'var(--nextui-fontWeights-normal)',
+  medium: 'var(--nextui-fontWeights-medium)',
+  semibold: 'var(--nextui-fontWeights-semibold)',
+  bold: 'var(--nextui-fontWeights-bold)',
+  extrabold: 'var(--nextui-fontWeights-extrabold)',
+  black: 'var(--nextui-fontWeights-black)'
 };
 
 export const defaultBorderWeights: NextUIBorderWeights = {
-  light: '1px',
-  normal: '2px',
-  bold: '3px'
+  light: 'var(--nextui-border-light)',
+  normal: 'var(--nextui-border-normal)',
+  bold: 'var(--nextui-border-bold)'
 };
 
 export const defaultPalette = {
-  white: '#fff',
-  black: '#000',
-  selection: '#5AC8FA',
-  primary: '#0070f3',
-  secondary: '#7928ca',
-  success: '#17c964',
-  warning: '#f5a623',
-  error: '#f21361',
-  gradient:
-    'linear-gradient(111.19deg,#aaffec -63.59%,#ff4ecd -20.3%,#0070f3 70.46%)',
-  link: '#0070f3'
+  white: 'var(--nextui-color-white)',
+  black: 'var(--nextui-color-black)',
+  selection: 'var(--nextui-color-selection)',
+  primary: 'var(--nextui-color-primary)',
+  secondary: 'var(--nextui-color-secondary)',
+  success: 'var(--nextui-color-success)',
+  warning: 'var(--nextui-color-warning)',
+  error: 'var(--nextui-color-error)',
+  gradient: 'var(--nextui-color-gradient)',
+  link: 'var(--nextui-color-link)'
 };
 
 export const defaultTheme: Omit<NextUIThemes, 'type' | 'palette' | 'shadows'> =
@@ -115,6 +126,7 @@ export const defaultTheme: Omit<NextUIThemes, 'type' | 'palette' | 'shadows'> =
     borderWeights: defaultBorderWeights,
     lineHeights: defaultLineHeights,
     fontSizes: defaultFontSizes,
+    fontWeights: defaultFontWeights,
     radius: defaultRadius,
     spacing: defaultSpacing
   };

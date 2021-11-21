@@ -7,12 +7,12 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "user ",
+          "class": "nextui-user",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-avatar only-text-avatar",
+              "class": "nextui-avatar only-text-avatar nextui-user-avatar",
               "data-state": "ready",
             },
             "children": Array [
@@ -462,12 +462,12 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "names",
+                "class": "nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "name",
+                    "class": "nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -482,7 +482,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -510,7 +510,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "social",
+                    "class": "nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -519,7 +519,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -559,21 +559,22 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -583,14 +584,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -633,12 +634,12 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "names",
+              "class": "nextui-user-info",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "name",
+                  "class": "nextui-user-name",
                 },
                 "children": Array [
                   Node {
@@ -653,7 +654,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "social",
+                    "class": "nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -681,7 +682,7 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "social",
+                  "class": "nextui-user-social",
                 },
                 "children": Array [],
                 "name": "span",
@@ -690,7 +691,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "name",
+                    "class": "nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -730,21 +731,22 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -754,14 +756,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -783,7 +785,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "nextui-avatar only-text-avatar",
+                "class": "nextui-avatar only-text-avatar nextui-user-avatar",
                 "data-state": "ready",
               },
               "children": Array [
@@ -1257,21 +1259,22 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -1281,14 +1284,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -1304,12 +1307,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "names",
+                "class": "nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "name",
+                    "class": "nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -1324,7 +1327,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1352,7 +1355,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "social",
+                    "class": "nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -1361,7 +1364,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -1400,7 +1403,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-avatar only-text-avatar",
+                  "class": "nextui-avatar only-text-avatar nextui-user-avatar",
                   "data-state": "ready",
                 },
                 "children": Array [
@@ -1878,12 +1881,12 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "user ",
+            "class": "nextui-user",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-avatar",
+                "class": "nextui-avatar nextui-user-avatar",
                 "data-state": "loading",
               },
               "children": Array [
@@ -2327,12 +2330,12 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "names",
+                  "class": "nextui-user-info",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -2347,7 +2350,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "social",
+                        "class": "nextui-user-social",
                       },
                       "children": Array [],
                       "name": "span",
@@ -2375,7 +2378,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -2384,7 +2387,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "name",
+                        "class": "nextui-user-name",
                       },
                       "children": Array [
                         Node {
@@ -2424,21 +2427,22 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -2448,14 +2452,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2498,12 +2502,12 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "names",
+                "class": "nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "name",
+                    "class": "nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -2518,7 +2522,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -2546,7 +2550,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "social",
+                    "class": "nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -2555,7 +2559,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -2595,21 +2599,22 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -2619,14 +2624,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -2648,7 +2653,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-avatar",
+                  "class": "nextui-avatar nextui-user-avatar",
                   "data-state": "loading",
                 },
                 "children": Array [
@@ -3116,21 +3121,22 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -3140,14 +3146,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -3163,12 +3169,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "names",
+                  "class": "nextui-user-info",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -3183,7 +3189,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "social",
+                        "class": "nextui-user-social",
                       },
                       "children": Array [],
                       "name": "span",
@@ -3211,7 +3217,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -3220,7 +3226,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "name",
+                        "class": "nextui-user-name",
                       },
                       "children": Array [
                         Node {
@@ -3259,7 +3265,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "nextui-avatar",
+                    "class": "nextui-avatar nextui-user-avatar",
                     "data-state": "loading",
                   },
                   "children": Array [
@@ -3752,12 +3758,12 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "user ",
+          "class": "nextui-user",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-avatar",
+              "class": "nextui-avatar nextui-user-avatar",
               "data-state": "loading",
             },
             "children": Array [
@@ -4201,12 +4207,12 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "names",
+                "class": "nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "name",
+                    "class": "nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -4221,7 +4227,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -4249,7 +4255,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "social",
+                    "class": "nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -4258,7 +4264,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -4298,21 +4304,22 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -4322,14 +4329,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4372,12 +4379,12 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "names",
+              "class": "nextui-user-info",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "name",
+                  "class": "nextui-user-name",
                 },
                 "children": Array [
                   Node {
@@ -4392,7 +4399,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "social",
+                    "class": "nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -4420,7 +4427,7 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "social",
+                  "class": "nextui-user-social",
                 },
                 "children": Array [],
                 "name": "span",
@@ -4429,7 +4436,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "name",
+                    "class": "nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -4469,21 +4476,22 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -4493,14 +4501,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -4522,7 +4530,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "nextui-avatar",
+                "class": "nextui-avatar nextui-user-avatar",
                 "data-state": "loading",
               },
               "children": Array [
@@ -4990,21 +4998,22 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -5014,14 +5023,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -5037,12 +5046,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "names",
+                "class": "nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "name",
+                    "class": "nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -5057,7 +5066,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -5085,7 +5094,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "social",
+                    "class": "nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -5094,7 +5103,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -5133,7 +5142,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-avatar",
+                  "class": "nextui-avatar nextui-user-avatar",
                   "data-state": "loading",
                 },
                 "children": Array [
@@ -5607,12 +5616,12 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "user ",
+            "class": "nextui-user",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-avatar only-text-avatar",
+                "class": "nextui-avatar only-text-avatar nextui-user-avatar",
                 "data-state": "ready",
               },
               "children": Array [
@@ -6062,12 +6071,12 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "names",
+                  "class": "nextui-user-info",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -6082,7 +6091,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "social",
+                        "class": "nextui-user-social",
                       },
                       "children": Array [],
                       "name": "span",
@@ -6110,7 +6119,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -6119,7 +6128,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "name",
+                        "class": "nextui-user-name",
                       },
                       "children": Array [
                         Node {
@@ -6159,21 +6168,22 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -6183,14 +6193,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6233,12 +6243,12 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "names",
+                "class": "nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "name",
+                    "class": "nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -6253,7 +6263,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -6281,7 +6291,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "social",
+                    "class": "nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -6290,7 +6300,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -6330,21 +6340,22 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -6354,14 +6365,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6383,7 +6394,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-avatar only-text-avatar",
+                  "class": "nextui-avatar only-text-avatar nextui-user-avatar",
                   "data-state": "ready",
                 },
                 "children": Array [
@@ -6857,21 +6868,22 @@ LoadedCheerio {
               "children": Array [
                 Node {
                   "data": "
-        .user {
+        .nextui-user {
           display: inline-flex;
           padding: 0 0.75rem;
           justify-content: center;
           align-items: center;
           width: max-content;
           max-width: 100%;
+          ;
         }
-        .names {
+        .nextui-user-info {
           margin-left: 0.75rem;
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
-        .name {
+        .nextui-user-name {
           font-size: 0.89rem;
           color: #333;
           line-height: 1.1rem;
@@ -6881,14 +6893,14 @@ LoadedCheerio {
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        .social {
+        .nextui-user-social {
           font-size: 0.75rem;
           color: #888;
         }
-        .social :global(*:first-child) {
+        .nextui-user-social :global(*:first-child) {
           margin-top: 0;
         }
-        .social :global(*:last-child) {
+        .nextui-user-social :global(*:last-child) {
           margin-bottom: 0;
         }
       ",
@@ -6904,12 +6916,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "names",
+                  "class": "nextui-user-info",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "name",
+                      "class": "nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -6924,7 +6936,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "social",
+                        "class": "nextui-user-social",
                       },
                       "children": Array [],
                       "name": "span",
@@ -6952,7 +6964,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "social",
+                      "class": "nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -6961,7 +6973,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "name",
+                        "class": "nextui-user-name",
                       },
                       "children": Array [
                         Node {
@@ -7000,7 +7012,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "nextui-avatar only-text-avatar",
+                    "class": "nextui-avatar only-text-avatar nextui-user-avatar",
                     "data-state": "ready",
                   },
                   "children": Array [

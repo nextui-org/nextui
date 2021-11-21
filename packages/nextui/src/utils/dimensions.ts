@@ -17,11 +17,14 @@ export const getMargin = (num: number): string => {
   return `calc(${num * 15.25}pt + 1px * ${num - 1})`;
 };
 
-export const getNormalWeight = (weight?: NormalWeights): string | undefined => {
+export const getNormalWeight = (
+  theme: NextUIThemes,
+  weight?: NormalWeights
+): string | undefined => {
   const weights: { [key in NormalWeights]?: string } = {
-    light: '1px',
-    normal: '2px',
-    bold: '3px'
+    light: theme.borderWeights.light,
+    normal: theme.borderWeights.normal,
+    bold: theme.borderWeights.bold
   };
   return weights[weight || 'normal'];
 };

@@ -90,7 +90,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
   const { stringCss } = getSpacingsStyles(theme, props);
 
   const { color: borderColor, width: borderWidth } = useMemo(() => {
-    return getGroupBorder(theme.palette, groupProps);
+    return getGroupBorder(theme, groupProps);
   }, [theme, disabled, bordered]);
 
   const radius = useMemo(() => getNormalRadius(size, rounded), [size, rounded]);

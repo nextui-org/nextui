@@ -63,7 +63,7 @@ exports[`Text should render default color when type missing 1`] = `
 exports[`Text should work with different styles 1`] = `
 "<div><p class=\\"nextui-text\\">test-value</p><style>
         p {
-          color: #7928ca;
+          color: var(--nextui-color-secondary);
           margin: inherit;
           font-weight: noset;
           text-transform: none;
@@ -74,7 +74,7 @@ exports[`Text should work with different styles 1`] = `
         }
       </style><p class=\\"nextui-text\\">test-value</p><style>
         p {
-          color: #17c964;
+          color: var(--nextui-color-success);
           margin: inherit;
           font-weight: noset;
           text-transform: none;
@@ -85,7 +85,7 @@ exports[`Text should work with different styles 1`] = `
         }
       </style><p class=\\"nextui-text\\">test-value</p><style>
         p {
-          color: #f5a623;
+          color: var(--nextui-color-warning);
           margin: inherit;
           font-weight: noset;
           text-transform: none;
@@ -96,7 +96,7 @@ exports[`Text should work with different styles 1`] = `
         }
       </style><p class=\\"nextui-text\\">test-value</p><style>
         p {
-          color: #f21361;
+          color: var(--nextui-color-error);
           margin: inherit;
           font-weight: noset;
           text-transform: none;

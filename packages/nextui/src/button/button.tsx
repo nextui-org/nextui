@@ -123,8 +123,8 @@ const Button = React.forwardRef<
   const { stringCss } = getSpacingsStyles(theme, props);
 
   const { bg, color, loaderBg, border, style, hover } = useMemo(
-    () => getButtonColors(theme.palette, filteredProps),
-    [theme.palette, filteredProps]
+    () => getButtonColors(theme, filteredProps),
+    [theme, filteredProps]
   );
 
   const radius = useMemo(() => getNormalRadius(size, rounded), [size, rounded]);

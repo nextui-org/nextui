@@ -155,7 +155,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               padding: 0;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.sm}) {
+          @media only screen and (min-width: ${theme.breakpoints.md}) {
             :global(.docs__left-sidebar) {
               display: block;
             }

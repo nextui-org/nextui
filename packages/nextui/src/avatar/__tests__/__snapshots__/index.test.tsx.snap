@@ -2176,7 +2176,7 @@ exports[`Avatar should work with a gradient color 1`] = `
           bottom: 0;
           width: 2.43rem;
           height: 2.43rem;
-          background: linear-gradient(111.19deg,#aaffec -63.59%,#ff4ecd -20.3%,#0070f3 70.46%);
+          background: var(--nextui-color-gradient);
           transition: all 0.25s ease;
         }
         .nextui-avatar.nextui-avatar-bordered {
@@ -2224,7 +2224,7 @@ exports[`Avatar should work with a gradient color 1`] = `
           user-select: none;
         }
         .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: linear-gradient(111.19deg,#aaffec -63.59%,#ff4ecd -20.3%,#0070f3 70.46%);
+          background: var(--nextui-color-gradient);
           filter: opacity(0.8);
         }
         .nextui-avatar:hover .nextui-avatar-img {
@@ -2265,7 +2265,7 @@ exports[`Avatar should work with different colors 1`] = `
           bottom: 0;
           width: 2.43rem;
           height: 2.43rem;
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           transition: all 0.25s ease;
         }
         .nextui-avatar.nextui-avatar-bordered {
@@ -2313,7 +2313,7 @@ exports[`Avatar should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           filter: none;
         }
         .nextui-avatar:hover .nextui-avatar-img {
@@ -2350,7 +2350,7 @@ exports[`Avatar should work with different colors 1`] = `
           bottom: 0;
           width: 2.43rem;
           height: 2.43rem;
-          background: #7928ca;
+          background: var(--nextui-color-secondary);
           transition: all 0.25s ease;
         }
         .nextui-avatar.nextui-avatar-bordered {
@@ -2398,7 +2398,7 @@ exports[`Avatar should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #7928ca;
+          background: var(--nextui-color-secondary);
           filter: none;
         }
         .nextui-avatar:hover .nextui-avatar-img {
@@ -2435,7 +2435,7 @@ exports[`Avatar should work with different colors 1`] = `
           bottom: 0;
           width: 2.43rem;
           height: 2.43rem;
-          background: #17c964;
+          background: var(--nextui-color-success);
           transition: all 0.25s ease;
         }
         .nextui-avatar.nextui-avatar-bordered {
@@ -2483,7 +2483,7 @@ exports[`Avatar should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #17c964;
+          background: var(--nextui-color-success);
           filter: none;
         }
         .nextui-avatar:hover .nextui-avatar-img {
@@ -2520,7 +2520,7 @@ exports[`Avatar should work with different colors 1`] = `
           bottom: 0;
           width: 2.43rem;
           height: 2.43rem;
-          background: #f5a623;
+          background: var(--nextui-color-warning);
           transition: all 0.25s ease;
         }
         .nextui-avatar.nextui-avatar-bordered {
@@ -2568,7 +2568,7 @@ exports[`Avatar should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #f5a623;
+          background: var(--nextui-color-warning);
           filter: none;
         }
         .nextui-avatar:hover .nextui-avatar-img {
@@ -2605,7 +2605,7 @@ exports[`Avatar should work with different colors 1`] = `
           bottom: 0;
           width: 2.43rem;
           height: 2.43rem;
-          background: #f21361;
+          background: var(--nextui-color-error);
           transition: all 0.25s ease;
         }
         .nextui-avatar.nextui-avatar-bordered {
@@ -2653,7 +2653,7 @@ exports[`Avatar should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #f21361;
+          background: var(--nextui-color-error);
           filter: none;
         }
         .nextui-avatar:hover .nextui-avatar-img {

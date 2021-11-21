@@ -102,12 +102,6 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           position: relative;
           ${stringCss};
         }
-        .${preClass}-label {
-          margin-top: ${theme.spacing[1]};
-        }
-        .${preClass}-label :global(*) {
-          margin: 0;
-        }
         .${preClass} {
           position: absolute;
           top: 0;
@@ -122,6 +116,12 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           background-color: transparent;
           user-select: none;
         }
+        .${preClass}-label {
+          margin-top: ${theme.spacing[1]};
+        }
+        .${preClass}-label :global(*) {
+          margin: 0;
+        }
         .{preClass}.${preClass}-default {
           display: flex;
           border-radius: 50%;
@@ -129,35 +129,35 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           width: ${width};
           height: ${width};
         }
-        .{preClass}.${preClass}-points-opacity,
-        .{preClass}.${preClass}-points {
+        .${preClass}-points, 
+        .${preClass}-points-opacity {
           display: flex;
           position: relative;
         }
-        .{preClass}.${preClass}-gradient {
+        .${preClass}-gradient {
           display: flex;
           position: relative;
           width: ${width};
           height: ${width};
         }
-        .{preClass}.${preClass}-points {
+        .${preClass}-points {
           transform: translate(0, calc(${width} * 0.6));
         }
-        .{preClass}.${preClass}-default i {
+        .${preClass}-default i {
           top: 0px;
           width: 100%;
           height: 100%;
           position: absolute;
           border-radius: inherit;
         }
-        .{preClass}.${preClass}-default ._1 {
+        .${preClass}-default ._1 {
           border: ${border} solid ${bgColor};
           border-top: ${border} solid transparent;
           border-left: ${border} solid transparent;
           border-right: ${border} solid transparent;
           animation: rotate 0.8s ease infinite;
         }
-        .{preClass}.${preClass}-default ._2 {
+        .${preClass}-default ._2 {
           border: ${border} dotted ${bgColor};
           border-top: ${border} solid transparent;
           border-left: ${border} solid transparent;
@@ -165,10 +165,10 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           animation: rotate 0.8s linear infinite;
           opacity: 0.5;
         }
-        .{preClass}.${preClass}-default ._3 {
+        .${preClass}-default ._3 {
           display: none;
         }
-        .{preClass}.${preClass}-points-opacity i {
+        .${preClass}-points-opacity i {
           display: inline-block;
           width: ${width};
           height: ${width};
@@ -177,31 +177,31 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           margin: 0 1px;
           animation: loading-blink 1.4s infinite both;
         }
-        .{preClass}.${preClass}-points-opacity ._2 {
+        .${preClass}-points-opacity ._2 {
           animation-delay: 0.2s;
         }
-        .{preClass}.${preClass}-points-opacity ._3 {
+        .${preClass}-points-opacity ._3 {
           animation-delay: 0.4s;
         }
-        .{preClass}.${preClass}-points i {
+        .${preClass}-points i {
           width: ${width};
           height: ${width};
           margin: 0 3px;
           background: ${bgColor};
         }
-        .{preClass}.${preClass}-points ._1 {
+        .${preClass}-points ._1 {
           border-radius: 50%;
           animation: points 0.75s ease infinite;
         }
-        .{preClass}.${preClass}-points ._2 {
+        .${preClass}-points ._2 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.25s;
         }
-        .{preClass}.${preClass}-points ._3 {
+        .${preClass}-points ._3 {
           border-radius: 50%;
           animation: points 0.75s ease infinite 0.5s;
         }
-        .{preClass}.${preClass}-gradient ._1 {
+        .${preClass}-gradient ._1 {
           position: absolute;
           width: 100%;
           height: 100%;
@@ -216,7 +216,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           );
           border-radius: 50%;
         }
-        .{preClass}.${preClass}-gradient ._2 {
+        .${preClass}-gradient ._2 {
           top: 2px;
           position: absolute;
           width: calc(100% - 4px);
@@ -226,7 +226,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
           background: ${gradientBackground || theme.palette.background};
           border-radius: 50%;
         }
-        .{preClass}.${preClass}-gradient ._3 {
+        .${preClass}-gradient ._3 {
           display: none;
         }
         @keyframes loading-blink {

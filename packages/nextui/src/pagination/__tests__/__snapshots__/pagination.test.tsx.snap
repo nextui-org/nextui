@@ -77,7 +77,7 @@ exports[`Pagination should render correctly 1`] = `
           contain: strict;
           top: 0px;
           z-index: 10;
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           border-radius: var(--nextui-pagination-item-radius);
           height: var(--nextui-pagination-size);
           min-width: var(--nextui-pagination-size);
@@ -248,7 +248,7 @@ exports[`Pagination should render correctly 1`] = `
           --nextui-pagination-item-radius: 33%;
           --nextui-pagination-item-border-weight: 0px;
           --nextui-pagination-item-margin: 2px;
-          --nextui-pagination-item-color: #0070f3;
+          --nextui-pagination-item-color: var(--nextui-color-primary);
           --nextui-pagination-size: 34px;
           --nextui-pagination-font-size: 14px;
           --nextui-pagination-scale-transform: 0.9;

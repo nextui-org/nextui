@@ -3,7 +3,7 @@
 exports[`ButtonGroup buttons should be displayed vertically 1`] = `
 "<div class=\\"nextui-button-group nextui-button-group-vertical\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action1</div><style>
         .nextui-button {
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           box-sizing: border-box;
           display: flex;
           align-items: center;
@@ -25,7 +25,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           transition: all 250ms ease;
           position: relative;
           overflow: hidden;
-          color: #fff;
+          color: var(--nextui-color-white);
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
@@ -33,12 +33,12 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           --nextui-button-border-radius: 12px;
           --nextui-button-padding: 1.25rem;
           --nextui-button-height: 2.5rem;
-          --nextui-button-color: #fff;
-          --nextui-button-bg: #0070f3;
+          --nextui-button-color: var(--nextui-color-white);
+          --nextui-button-bg: var(--nextui-color-primary);
         }
         .nextui-button:before {
           content: '';
-          background: rgba(0, 112,243,0.85);
+          background: ;
           position: absolute;
           top: 0;
           left: 0;
@@ -57,7 +57,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         }
         .nextui-button:hover,
         .nextui-button:focus {
-          background: rgba(0, 112,243,0.85);
+          background: inherit;
           --nextui-button-color: undefined;
           filter: none;
           color: undefined;
@@ -94,7 +94,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         }
       </style></button><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action2</div><style>
         .nextui-button {
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           box-sizing: border-box;
           display: flex;
           align-items: center;
@@ -116,7 +116,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           transition: all 250ms ease;
           position: relative;
           overflow: hidden;
-          color: #fff;
+          color: var(--nextui-color-white);
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
@@ -124,12 +124,12 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           --nextui-button-border-radius: 12px;
           --nextui-button-padding: 1.25rem;
           --nextui-button-height: 2.5rem;
-          --nextui-button-color: #fff;
-          --nextui-button-bg: #0070f3;
+          --nextui-button-color: var(--nextui-color-white);
+          --nextui-button-bg: var(--nextui-color-primary);
         }
         .nextui-button:before {
           content: '';
-          background: rgba(0, 112,243,0.85);
+          background: ;
           position: absolute;
           top: 0;
           left: 0;
@@ -148,7 +148,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
         }
         .nextui-button:hover,
         .nextui-button:focus {
-          background: rgba(0, 112,243,0.85);
+          background: inherit;
           --nextui-button-color: undefined;
           filter: none;
           color: undefined;
@@ -262,7 +262,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
 exports[`ButtonGroup props should be passed to each button 1`] = `
 "<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"success\\"><div class=\\"nextui-button-text\\">action</div><style>
         .nextui-button {
-          background: #17c964;
+          background: var(--nextui-color-success);
           box-sizing: border-box;
           display: flex;
           align-items: center;
@@ -284,7 +284,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           transition: all 250ms ease;
           position: relative;
           overflow: hidden;
-          color: #fff;
+          color: var(--nextui-color-white);
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
@@ -292,12 +292,12 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           --nextui-button-border-radius: 7px;
           --nextui-button-padding: 0.625rem;
           --nextui-button-height: 1.5rem;
-          --nextui-button-color: #fff;
-          --nextui-button-bg: #17c964;
+          --nextui-button-color: var(--nextui-color-white);
+          --nextui-button-bg: var(--nextui-color-success);
         }
         .nextui-button:before {
           content: '';
-          background: rgba(23, 201,100,0.85);
+          background: ;
           position: absolute;
           top: 0;
           left: 0;
@@ -316,7 +316,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
         }
         .nextui-button:hover,
         .nextui-button:focus {
-          background: rgba(23, 201,100,0.85);
+          background: inherit;
           --nextui-button-color: undefined;
           filter: none;
           color: undefined;
@@ -430,7 +430,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
 exports[`ButtonGroup props should be passed to each button 2`] = `
 "<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"success\\"><div class=\\"nextui-button-text\\">action</div><style>
         .nextui-button {
-          background: rgba(23, 201,100,0.15);
+          background: ;
           box-sizing: border-box;
           display: flex;
           align-items: center;
@@ -452,7 +452,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           transition: all 250ms ease;
           position: relative;
           overflow: hidden;
-          color: #17c964;
+          color: var(--nextui-color-success);
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
@@ -460,12 +460,12 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           --nextui-button-border-radius: 7px;
           --nextui-button-padding: 0.625rem;
           --nextui-button-height: 1.5rem;
-          --nextui-button-color: #17c964;
-          --nextui-button-bg: rgba(23, 201,100,0.15);
+          --nextui-button-color: var(--nextui-color-success);
+          --nextui-button-bg: ;
         }
         .nextui-button:before {
           content: '';
-          background: rgba(23, 201,100,0.25);
+          background: ;
           position: absolute;
           top: 0;
           left: 0;
@@ -484,7 +484,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
         }
         .nextui-button:hover,
         .nextui-button:focus {
-          background: rgba(23, 201,100,0.25);
+          background: inherit;
           --nextui-button-color: undefined;
           filter: none;
           color: undefined;
@@ -598,7 +598,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
 exports[`ButtonGroup should render correctly 1`] = `
 "<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action</div><style>
         .nextui-button {
-          background: #0070f3;
+          background: var(--nextui-color-primary);
           box-sizing: border-box;
           display: flex;
           align-items: center;
@@ -620,7 +620,7 @@ exports[`ButtonGroup should render correctly 1`] = `
           transition: all 250ms ease;
           position: relative;
           overflow: hidden;
-          color: #fff;
+          color: var(--nextui-color-white);
           cursor: pointer;
           pointer-events: auto;
           box-shadow: ;
@@ -628,12 +628,12 @@ exports[`ButtonGroup should render correctly 1`] = `
           --nextui-button-border-radius: 12px;
           --nextui-button-padding: 1.25rem;
           --nextui-button-height: 2.5rem;
-          --nextui-button-color: #fff;
-          --nextui-button-bg: #0070f3;
+          --nextui-button-color: var(--nextui-color-white);
+          --nextui-button-bg: var(--nextui-color-primary);
         }
         .nextui-button:before {
           content: '';
-          background: rgba(0, 112,243,0.85);
+          background: ;
           position: absolute;
           top: 0;
           left: 0;
@@ -652,7 +652,7 @@ exports[`ButtonGroup should render correctly 1`] = `
         }
         .nextui-button:hover,
         .nextui-button:focus {
-          background: rgba(0, 112,243,0.85);
+          background: inherit;
           --nextui-button-color: undefined;
           filter: none;
           color: undefined;

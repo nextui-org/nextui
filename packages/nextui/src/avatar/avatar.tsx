@@ -87,7 +87,10 @@ const Avatar: React.FC<AvatarProps> = ({
   const marginLeft = stacked ? '-.625rem' : 0;
   const [ready, setReady] = useState(false);
   const width = useMemo(() => getSize(size), [size]);
-  const border = useMemo(() => getNormalWeight(borderWeight), [borderWeight]);
+  const border = useMemo(
+    () => getNormalWeight(theme, borderWeight),
+    [theme, borderWeight]
+  );
 
   const imgRef = useRef<HTMLImageElement>(null);
 
