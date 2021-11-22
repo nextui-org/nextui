@@ -56,29 +56,29 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
           color: ${textColor?.style.color} !important;
         }
         :global(.nextui-snippet-pre .token.string) {
-          color: ${stringColor?.style.color};
+          color: ${stringColor?.style.color} !important;
         }
         :global(.nextui-snippet-pre .token.punctuation) {
-          color: ${punctuationColor?.style.color};
+          color: ${punctuationColor?.style.color} !important;
         }
         :global(.nextui-snippet-pre .token.number) {
-          color: ${numberColor?.style.color};
+          color: ${numberColor?.style.color} !important;
         }
         :global(.nextui-snippet-pre .token.class-name) {
-          color: ${classnameColor?.style.color};
+          color: ${classnameColor?.style.color} !important;
         }
         :global(.nextui-snippet-pre .token.maybe-class-name) {
-          color: ${selectorColor?.style.color};
+          color: ${selectorColor?.style.color} !important;
         }
         :global(.nextui-snippet-pre .token.plain-text, .token.comment) {
-          color: ${commentColor?.style.color};
+          color: ${commentColor?.style.color} !important;
         }
         :global(.nextui-snippet-pre .token.module, .nextui-snippet-pre
             .token.keyword) {
-          color: #c678dd;
+          color: #c678dd !important;
         }
         :global(.nextui-snippet-pre .token.function) {
-          color: ${functionColor?.style.color};
+          color: ${functionColor?.style.color} !important;
         }
       `}</style>
     </Snippet>

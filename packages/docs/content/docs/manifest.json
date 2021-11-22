@@ -34,15 +34,23 @@
                     "routes": [
                         {
                             "title": "Default theme",
-                            "path": "/docs/theme/palette.mdx"
+                            "path": "/docs/theme/default-theme.mdx"
                         },
                         {
                             "title": "Customize theme",
-                            "path": "/docs/theme/palette.mdx"
+                            "path": "/docs/theme/customize-theme.mdx"
                         },
                         {
                             "title": "Dark mode",
-                            "path": "/docs/theme/palette.mdx"
+                            "path": "/docs/theme/dark-mode.mdx"
+                        },
+                        {
+                            "title": "Spacing",
+                            "path": "/docs/theme/spacing.mdx"
+                        },
+                        {
+                            "title": "Override styles",
+                            "path": "/docs/theme/override-styles.mdx"
                         }
                     ]
                 },

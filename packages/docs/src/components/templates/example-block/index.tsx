@@ -4,12 +4,15 @@ import withDefaults from '@utils/with-defaults';
 
 interface Props {
   plain?: number | boolean;
+  width?: number;
   height?: number;
+  radius?: number | string;
 }
 
 const defaultProps = {
   plain: false,
-  height: 30
+  height: 30,
+  radius: '10px'
 };
 
 export type ExampleBlockProps = Props & typeof defaultProps;
@@ -30,10 +33,15 @@ const getBackground = (theme: NextUIThemes, plain: number | boolean) => {
 const ExampleBlock: React.FC<React.PropsWithChildren<ExampleBlockProps>> = ({
   children,
   plain,
+  width,
   height,
+  radius,
   ...props
 }) => {
   const theme = useTheme();
+  const blockWidth = useMemo(() => {
+    return width ? `${width}px` : '100%';
+  }, [width]);
   const bg = useMemo(() => getBackground(theme, plain), [theme, plain]);
 
   return (
@@ -41,13 +49,13 @@ const ExampleBlock: React.FC<React.PropsWithChildren<ExampleBlockProps>> = ({
       {children}
       <style jsx>{`
         .block {
-          width: 100%;
+          min-width: ${blockWidth};
           min-height: ${height}px;
           background: ${bg};
-          padding: ${theme.spacing.sm};
-          border-radius: 10px;
-          color: ${theme.palette.background};
+          border-radius: ${radius};
           font-size: 0.75rem;
+          padding: ${theme.spacing.sm};
+          color: ${theme.palette.background};
         }
       `}</style>
     </div>

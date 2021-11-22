@@ -6,6 +6,7 @@ import CarbonAd from '../carbon-ad';
 import * as Icons from '../icons';
 import { useTheme } from '@nextui-org/react';
 import { Anchor } from '@components';
+import Block from '../templates/example-block';
 import cn from 'classnames';
 
 const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
@@ -122,7 +123,8 @@ const MDXComponents = {
   td: Tcol,
   Playground,
   CarbonAd,
-  code: Codeblock
+  code: Codeblock,
+  Block
 };
 
 export default MDXComponents;

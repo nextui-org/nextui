@@ -27,11 +27,15 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
     );
   }
 
+  const handleToggleTheme = () => {
+    setTheme(isDark ? 'light' : 'dark');
+  };
+
   return (
     <button
       aria-label="toggle a light and dark color scheme"
       className={cn('theme-selector-container', className)}
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      onClick={handleToggleTheme}
     >
       {isDark ? (
         <Sun

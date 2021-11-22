@@ -19,7 +19,6 @@ export type GridProps = Props &
 const Grid: React.FC<React.PropsWithChildren<GridProps>> = ({
   children,
   className,
-  style,
   ...props
 }) => {
   const { className: resolveClassName, styles } = css.resolve`
