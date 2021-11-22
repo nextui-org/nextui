@@ -15,7 +15,7 @@ import {
 } from '@nextui-org/react';
 import { ImageBrowser } from '@components';
 import { addColorAlpha } from '@utils/index';
-import PlaceholderBlock from '../placeholder-block';
+import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
 
 const Hero: React.FC = () => {
@@ -133,7 +133,7 @@ const Hero: React.FC = () => {
             </Grid>
             <Grid xs={12} sm={9}>
               {!isMounted ? (
-                <PlaceholderBlock height="54px" alt="package install script" />
+                <Blockholder height="54px" alt="package install script" />
               ) : (
                 <Snippet
                   className="hero__snippet"

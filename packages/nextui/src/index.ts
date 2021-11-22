@@ -2,7 +2,7 @@
 
 //Theme
 export * from './theme/types';
-export { default as ThemeProvider } from './theme/theme-provider';
+export { default as NextUIProvider } from './theme/theme-provider';
 
 //Utils
 export * from './utils/prop-types';

@@ -2,10 +2,7 @@ import React from 'react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { NextRouter, Router, useRouter } from 'next/router';
-import {
-  CssBaseline,
-  ThemeProvider as NextUIThemeProvider
-} from '@nextui-org/react';
+import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { AppInitialProps } from 'next/app';
 import { NextComponent } from '@lib/types';
@@ -35,8 +32,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
 
   return (
     <NextThemesProvider disableTransitionOnChange defaultTheme="system">
-      <NextUIThemeProvider theme={sharedTheme}>
-        <CssBaseline />
+      <NextUIProvider theme={sharedTheme}>
         <KBarProvider
           actions={kbarActions}
           options={{
@@ -63,7 +59,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
             padding: 0px !important; /* remove padding to textarea to avoid wrong cursor in live editor */
           }
         `}</style>
-      </NextUIThemeProvider>
+      </NextUIProvider>
     </NextThemesProvider>
   );
 };

@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, useState, useEffect } from 'react';
 import useTheme from '../use-theme';
+import CssBaseline from '../css-baseline';
 import ThemeContext from './theme-context';
 import { NextUIThemes } from './index';
 import { ThemeParam, getThemeByType, mergeTheme, switchTheme } from './utils';
@@ -13,11 +14,13 @@ export interface Props {
   isDark?: boolean;
   storageKey?: string;
   syncStorage?: boolean;
+  disableBaseline?: boolean;
 }
 
 const defaultProps = {
   storageKey: 'theme',
-  syncStorage: true
+  syncStorage: true,
+  disableBaseline: false
 };
 
 const ThemeProvider: React.FC<PropsWithChildren<Props>> = ({
@@ -26,6 +29,7 @@ const ThemeProvider: React.FC<PropsWithChildren<Props>> = ({
   type,
   storageKey,
   syncStorage,
+  disableBaseline,
   isDark
 }) => {
   const customTheme = theme as NextUIThemes;
@@ -86,7 +90,10 @@ const ThemeProvider: React.FC<PropsWithChildren<Props>> = ({
     currentTheme.type !== merged.type ? switchTheme(merged) : merged;
 
   return (
-    <ThemeContext.Provider value={userTheme}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={userTheme}>
+      {!disableBaseline && <CssBaseline />}
+      {children}
+    </ThemeContext.Provider>
   );
 };
 

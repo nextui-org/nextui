@@ -28,7 +28,7 @@ import { AutocompleteProvided } from 'react-instantsearch-core';
 import Keyboard from '../keyboard';
 import Suggestion from './suggestion';
 import { VisualState, useKBar } from 'kbar';
-import PlaceholderBlock from '../placeholder-block';
+import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
 
 interface Props extends AutocompleteProvided {}
@@ -211,7 +211,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   if (!isMounted) {
     return (
       <>
-        <PlaceholderBlock
+        <Blockholder
           className="search__placeholder-block"
           alt="search placeholder"
           height="38px"

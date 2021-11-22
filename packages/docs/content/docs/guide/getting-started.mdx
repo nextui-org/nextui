@@ -26,23 +26,51 @@ yarn add @nextui-org/react
 npm i @nextui-org/react
 ```
 
-<Spacer y={2.5} />
+<Spacer y={2} />
 
 ### Setup
 
-For NextUI to work correctly, you need to set up the CssBaseline at the root of your application.
+For NextUI to work correctly, you need to set up the `NextUIProvider` at the root of your application.
 
 Go to the root of your application and do this:
 
 ```jsx
-import { CssBaseline } from '@nextui-org/react';
-const Application = () => (
-  <>
-    <CssBaseline /> // ---> Normalize styles
-    <AppComponent /> // ---> Your App Component
-  </>
-);
+import * as React from 'react';
+
+// 1. import `NextUIProvider` component
+import { NextUIProvider } from '@nextui-org/react';
+
+function App({ Component }) {
+  // 2. Use at the root of your app
+  return (
+    <NextUIProvider>
+      <Component />
+    </NextUIProvider>
+  );
+}
 ```
+
+#### Next.js
+
+Go to `pages/_app.js` or `pages/_app.tsx` (create if it doesn't exist) and add this:
+
+```jsx
+// 1. import `NextUIProvider` component
+import { NextUIProvider } from '@nextui-org/react';
+
+function MyApp({ Component, pageProps }) {
+  return (
+    // 2. Use at the root of your app
+    <NextUIProvider>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  );
+}
+
+export default MyApp;
+```
+
+<Spacer y={2} />
 
 ### Using NextUI components
 
@@ -56,6 +84,8 @@ import { Button } from '@nextui-org/react';
 const Component = () => <Button>Click me</Button>;
 ```
 
+<Spacer y={2} />
+
 ### Individual components import
 
 ```jsx
@@ -63,3 +93,52 @@ import Button from '@nextui-org/react/button';
 
 const Component = () => <Button>Click me</Button>;
 ```
+
+<Spacer y={2} />
+
+### NextUIProvider Props
+
+| Attribute           | Type           | Accepted values                | Description                                                                                                                                                                                                                        | Default |
+| ------------------- | -------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **theme**           | `NextUIThemes` | [NextUIThemes](#nextui-themes) | Optional custom theme, by default NextUI applies `light` theme                                                                                                                                                                     | -       |
+| **type**            | `ThemeTypes`   | [ThemeTypes](#theme-types)     | [NextUIThemes](#nextui-themes) `type` prop, useful to change between themes                                                                                                                                                        | -       |
+| **isDark**          | `boolean`      | `true/false`                   | If is true NextUI will apply the `dark` theme                                                                                                                                                                                      | `false` |
+| **storageKey**      | `string`       | -                              | Key to persist the users theme preference                                                                                                                                                                                          | `theme` |
+| **syncStorage**     | `boolean`      | `true/false`                   | NextUI will sync the local storage theme with html/body `data-theme` attribute, useful with libraries like [next-themes](https://github.com/pacocoursey/next-themes) and [use-dark-mode](https://github.com/donavon/use-dark-mode) | `true`  |
+| **disableBaseline** | `boolean`      | `true/false`                   | NextUI automatically includes `<CssBaseline/>`                                                                                                                                                                                     | `false` |
+
+<Spacer y={2} />
+
+### Typescript types
+
+<Spacer y={1} />
+
+#### Theme types
+
+```ts
+type ThemeTypes = 'light' | 'dark';
+```
+
+#### NextUI Themes
+
+```jsx
+interface NextUIThemes {
+  type: ThemeTypes;
+  fonts: NextUIThemesFonts;
+  palette: NextUIThemesPalette;
+  borderWeights: NextUIBorderWeights;
+  lineHeights: NextUICommonSizes;
+  fontSizes: NextUIFontSizes;
+  fontWeights: NextUIFontWeights;
+  radius: NextUICommonSizes;
+  spacing: NextUISpacing;
+  breakpoints: NextUICommonSizes;
+  shadows: NextUICommonSizes;
+}
+```
+
+<Spacer y={2} />
+
+### Contributing
+
+PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.MD) to learn how you can contribute to this project.

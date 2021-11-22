@@ -2,7 +2,7 @@ import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { useTheme } from '@nextui-org/react';
 import useIsMounted from '@hooks/use-is-mounted';
-import PlaceholderBlock from '../placeholder-block';
+import Blockholder from '../blockholder';
 
 interface Props {
   width?: number;
@@ -75,7 +75,7 @@ const ImageBrowser: React.FC<Props> = ({
   }, [isDark]);
 
   if (!isMounted) {
-    return <PlaceholderBlock alt="browser decoration image" />;
+    return <Blockholder alt="browser decoration image" />;
   }
   return (
     <svg

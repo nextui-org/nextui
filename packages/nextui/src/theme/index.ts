@@ -1,2 +1,2 @@
 export * from './types';
-export { default as ThemeProvider } from './theme-provider';
+export { default as NextUIProvider } from './theme-provider';

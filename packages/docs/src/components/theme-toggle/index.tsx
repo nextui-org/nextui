@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Moon, Sun } from '../icons';
 import { useTheme } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
-import PlaceholderBlock from '../placeholder-block';
+import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
 
 interface Props {
@@ -19,11 +19,7 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
   if (!isMounted) {
     return (
       // to avoid layout shift on initial render
-      <PlaceholderBlock
-        alt="toggle theme placeholder"
-        width="32px"
-        height="20px"
-      />
+      <Blockholder alt="toggle theme placeholder" width="32px" height="20px" />
     );
   }
 
