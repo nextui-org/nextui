@@ -28,6 +28,75 @@ export default {
 
 NextUI includes a default color palette out-of-the-box that is a great starting point if you don’t have your own specific branding in mind.
 
+```js
+export default {
+  // default theme object
+  type: '...',
+  palette: {
+     /* Default Colors */
+      white: '#fff',
+      black: '#000',
+      primary: '#0070f3',
+      secondary: '#7928ca',
+      success: '#17c964',
+      warning: '#f5a623',
+      error: '#f21361',
+      gradient: 'linear-gradient(111.19deg, #aaffec -63.59%, #ff4ecd -20.3%, #0070f3 70.46%)',
+      link: '#0070f3',
+      ... // other colors
+  },
+  ...
+};
+
+// light theme
+export const lightPalette = {
+  // default theme object
+  type: 'light',
+  palette: {
+      ... // default colors
+      accents_1: '#f6f6f6',
+      accents_2: '#eaeaea',
+      accents_3: '#999',
+      accents_4: '#888',
+      accents_5: '#666',
+      accents_6: '#444',
+      accents_7: '#333',
+      accents_8: '#111',
+      text: '#333',
+      background: '#fff',
+      foreground: '#000',
+      code: '#f81ce5',
+      border: '#eaeaea',
+      selection: '#0070f3',
+  },
+  ...
+};
+
+// dark theme
+export const darkPalette = {
+  // default theme object
+  type: 'dark',
+  palette: {
+      ... // default colors
+      accents_1: '#111',
+      accents_2: '#333',
+      accents_3: '#444',
+      accents_4: '#666',
+      accents_5: '#888',
+      accents_6: '#999',
+      accents_7: '#eaeaea',
+      accents_8: '#fafafa',
+      text: '#fff',
+      background: '#000',
+      foreground: '#fff',
+      code: '#77c8e6',
+      border: '#333',
+      selection: '#ff4ecd',
+  },
+  ...
+};
+```
+
 <Playground
   title="Base"
   showEditor={false}
@@ -104,7 +173,7 @@ To manage Typography options you can use the following keys:
 export default {
   // default theme object
   type: '...', // theme type
-  colors: {...}, // color palette object
+  palette: {...}, // color palette object
   fonts: {
     sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
@@ -121,7 +190,7 @@ export default {
 export default {
   // default theme object
   type: '...', // theme type
-  colors: {...}, // color palette object
+  palette: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {
         xs: "0.875rem",
@@ -141,7 +210,7 @@ export default {
 export default {
   // default theme object
   type: '...', // theme type
-  colors: {...}, // color palette object
+  palette: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {...}, // font sizes object
   fontWeights: {
@@ -164,7 +233,7 @@ export default {
 export default {
   // default theme object
   type: '...', // theme type
-  colors: {...}, // color palette object
+  palette: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {...}, // font sizes object
   fontWeights: {...}, // font weights object
@@ -189,7 +258,7 @@ NextUI provides a set of commons sizes for controlling the `border-radius` of an
 export default {
   // default theme object
   type: '...', // theme type
-  colors: {...}, // color palette object
+  palette: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {...}, // font sizes object
   fontWeights: {...}, // font weights object
