@@ -276,6 +276,30 @@ export default {
 
 <Spacer y={2} />
 
+## Border weights
+
+NextUI includes by default a set of common border weights.
+
+```js
+export default {
+  // default theme object
+  type: '...', // theme type
+  palette: {...}, // color palette object
+  fonts: {...}, // font families object
+  fontSizes: {...}, // font sizes object
+  fontWeights: {...}, // font weights object
+  lineHeights: {...}, // line heights object
+  radius: {...}, // border radius object
+  borderWeights: {
+    light: "1px",
+    normal: "2px",
+    bold: "3px",
+  }
+  ...
+```
+
+<Spacer y={2} />
+
 ## Spacing
 
 NextUI has a set of most common spaces values which allows you to customize the
@@ -430,4 +454,128 @@ export const lightTheme = {
   }
   ...
 };
+```
+
+<Spacer y={2} />
+
+## Typescript types
+
+```ts
+type ThemeType = 'light' | 'dark';
+```
+
+```ts
+interface NextUICommonSizes {
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+}
+```
+
+```ts
+interface NextUIThemesPalette {
+  text: string;
+  white: string;
+  black: string;
+  link: string;
+  code: string;
+  border: string;
+  background: string;
+  foreground: string;
+  selection: string;
+  primary: string;
+  secondary: string;
+  success: string;
+  warning: string;
+  error: string;
+  gradient: string;
+  accents_1: string;
+  accents_2: string;
+  accents_3: string;
+  accents_4: string;
+  accents_5: string;
+  accents_6: string;
+  accents_7: string;
+  accents_8: string;
+}
+```
+
+```ts
+interface NextUIThemesFonts {
+  sans: string;
+  mono: string;
+}
+```
+
+```ts
+interface NextUIBorderWeights {
+  light: string;
+  normal: string;
+  bold: string;
+}
+```
+
+```ts
+interface NextUIFontSizes {
+  base: string;
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+}
+```
+
+```ts
+interface NextUIFontWeights {
+  thin: string;
+  light: string;
+  normal: string;
+  medium: string;
+  semibold: string;
+  bold: string;
+  extrabold: string;
+  black: string;
+}
+```
+
+```ts
+interface NextUISpacing {
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+  '0': string;
+  px: string;
+  '0.5': string;
+  '1': string;
+  '1.5': string;
+  '2': string;
+  '2.5': string;
+  '3': string;
+  '3.5': string;
+  '4': string;
+  '5': string;
+  '6': string;
+  ... // see above for more spacing values (Spacing section)
+}
+```
+
+```ts
+interface NextUIThemes {
+  type: ThemeTypes;
+  fonts: NextUIThemesFonts;
+  palette: NextUIThemesPalette;
+  borderWeights: NextUIBorderWeights;
+  lineHeights: NextUICommonSizes;
+  fontSizes: NextUIFontSizes;
+  fontWeights: NextUIFontWeights;
+  radius: NextUICommonSizes;
+  spacing: NextUISpacing;
+  breakpoints: NextUICommonSizes;
+  shadows: NextUICommonSizes;
+}
 ```

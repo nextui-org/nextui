@@ -58,6 +58,9 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
         :global(.nextui-snippet-pre .token.string) {
           color: ${stringColor?.style.color} !important;
         }
+        :global(.nextui-snippet-pre .token.builtin) {
+          color: ${classnameColor?.style.color} !important;
+        }
         :global(.nextui-snippet-pre .token.punctuation) {
           color: ${punctuationColor?.style.color} !important;
         }
