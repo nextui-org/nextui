@@ -40,7 +40,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 );
 
 if (__DEV__) {
-  Link.displayName = 'Link';
+  Link.displayName = 'NextUI - Link';
 }
 const MemoLink = React.memo(Link);
 

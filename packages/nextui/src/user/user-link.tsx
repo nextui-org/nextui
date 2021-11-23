@@ -28,7 +28,7 @@ const UserLink = React.forwardRef<
         <Link
           ref={ref}
           href={href}
-          variant="primary"
+          color="primary"
           target="_blank"
           rel="noopener"
         >
