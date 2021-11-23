@@ -144,7 +144,8 @@ const Card = React.forwardRef<
     },
     [KeyCode.Enter, KeyCode.Space],
     {
-      disableGlobalEvent: true
+      disableGlobalEvent: true,
+      preventDefault: false
     }
   );
 
