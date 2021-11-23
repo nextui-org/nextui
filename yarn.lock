@@ -3452,6 +3452,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@stitches/react@^1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.2.5.tgz#2353343c220f0c59ba388a26fdd9ff7962cb6031"
+  integrity sha512-95Wwjp5cvoYQjg616OBiHZM1PnIF51pnFQIgSPxPzS/xXBrer9sNO1tfpVfLYfOifvuotse2IFNbypJ92BXzvg==
+
 "@storybook/addon-a11y@^6.3.9":
   version "6.3.9"
   resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-6.3.9.tgz#c703f7d1faeabf14f61e0cb993ae2512cd644374"

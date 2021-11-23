@@ -9,7 +9,7 @@ interface Props {
 }
 
 const defaultProps = {
-  className: '',
+  className: ''
 };
 
 type NativeAttrs = Omit<React.AnchorHTMLAttributes<unknown>, keyof Props>;
@@ -25,7 +25,13 @@ const UserLink = React.forwardRef<
   ) => {
     return (
       <div className={className} {...props}>
-        <Link ref={ref} href={href} color target="_blank" rel="noopener">
+        <Link
+          ref={ref}
+          href={href}
+          variant="primary"
+          target="_blank"
+          rel="noopener"
+        >
           {children}
         </Link>
         <style jsx>{`

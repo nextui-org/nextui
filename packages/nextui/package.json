@@ -54,6 +54,7 @@
     "coverage:codecov": "yarn test --coverage && codecov"
   },
   "dependencies": {
+    "@stitches/react": "^1.2.5",
     "styled-jsx": "^4.0.1"
   },
   "peerDependencies": {

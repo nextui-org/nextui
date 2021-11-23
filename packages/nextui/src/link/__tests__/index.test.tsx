@@ -7,10 +7,10 @@ describe('Link', () => {
     const wrapper = mount(
       <div>
         <Link href="https://nextui.org">link</Link>
-        <Link href="https://nextui.org" color>
+        <Link href="https://nextui.org" color="secondary">
           link
         </Link>
-        <Link href="https://nextui.org" icon>
+        <Link href="https://nextui.org" color="success" icon>
           link
         </Link>
         <Link href="https://nextui.org" underline>

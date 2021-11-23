@@ -15,21 +15,21 @@ export default {
           justifyContent: 'space-between',
           flexWrap: 'wrap',
           width: '100%',
-          maxWidth: '100%',
+          maxWidth: '100%'
         }}
       >
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 } as Meta;
 
 const text = `"First solve the problem. Then, write the code." - Jon Johnson.`;
 
 export const Default = () => <Link href="#">{text}</Link>;
 
-export const Highlight = () => (
-  <Link href="#" color>
+export const Underline = () => (
+  <Link color="primary" underline>
     {text}
   </Link>
 );
@@ -40,17 +40,17 @@ export const Variants = () => (
       <Link href="#">{text}</Link>
     </Text>
     <Text>
-      <Link href="#" color>
+      <Link href="#" color="secondary">
         {text}
       </Link>
     </Text>
     <Text>
-      <Link href="#" underline>
+      <Link href="#" color="success">
         {text}
       </Link>
     </Text>
     <Text>
-      <Link href="#" color underline>
+      <Link href="#" color="error">
         {text}
       </Link>
     </Text>
@@ -63,7 +63,7 @@ export const Icon = () => (
       {text}
     </Link>
     <Spacer y={0.5} />
-    <Link href="#" icon color>
+    <Link href="#" icon color="primary">
       {text}
     </Link>
   </>

@@ -52,7 +52,6 @@ export * from './spacer';
 export { default as User } from './user';
 
 export { default as Link } from './link';
-export * from './link';
 
 export { default as Loading } from './loading';
 
