@@ -33,18 +33,18 @@ describe('AvatarGroup', () => {
   it('group component should render all children', () => {
     const group = mount(
       <Avatar.Group>
-        <Avatar />
-        <Avatar />
+        <Avatar text="1" />
+        <Avatar text="2" />
       </Avatar.Group>
     );
-    expect(group.find('.nextui-avatar')).toHaveLength(2);
+    expect(group.find('Avatar')).toHaveLength(2);
   });
 
   it('should stacked when avatars are in a group', () => {
     const group = render(
       <Avatar.Group>
-        <Avatar />
-        <Avatar />
+        <Avatar text="1" />
+        <Avatar text="2" />
       </Avatar.Group>
     );
     expect(group).toMatchSnapshot();

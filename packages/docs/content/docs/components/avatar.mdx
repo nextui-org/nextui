@@ -62,7 +62,7 @@ import { Avatar } from '@nextui-org/react';
         <Avatar text="John" size="xl" />
     </Grid>
     <Grid>
-        <Avatar src="/avatars/avatar-1.png" size={90} />
+        <Avatar src="/avatars/avatar-1.png" css={{ size: "$20" }} />
     </Grid>
  </Grid.Container>
 `}
@@ -92,7 +92,7 @@ import { Avatar } from '@nextui-org/react';
         <Avatar text="Grad" color="gradient" textColor="white" />
     </Grid>
     <Grid>
-        <Avatar text="#ff4ecd" color="#ff4ecd" textColor="white" />
+        <Avatar text="#ff4ecd" css={{ '.nextui-avatar-bg': { bg: '#ff4ecd' } }}/>
     </Grid>
  </Grid.Container>
 `}
@@ -122,7 +122,7 @@ import { Avatar } from '@nextui-org/react';
         <Avatar size="lg" src="/avatars/avatar-7.png" color="gradient" bordered />
     </Grid>
     <Grid>
-        <Avatar size="lg" src="/avatars/avatar-8.png" color="#ff4ecd" bordered />
+        <Avatar size="lg" src="/avatars/avatar-8.png" css={{ '.nextui-avatar-bg': { bg: '#ff4ecd' } }} bordered />
     </Grid>
  </Grid.Container>
 `}
@@ -182,7 +182,7 @@ import { Avatar } from '@nextui-org/react';
         <Avatar size="lg" src="/avatars/avatar-7.png" color="gradient" bordered squared />
     </Grid>
     <Grid>
-        <Avatar size="lg" src="/avatars/avatar-8.png" color="#ff4ecd" bordered squared />
+        <Avatar size="lg" src="/avatars/avatar-8.png" css={{ '.nextui-avatar-bg': { bg: '#ff4ecd' } }} bordered squared />
     </Grid>
  </Grid.Container>
 `}
@@ -196,31 +196,32 @@ import { Avatar } from '@nextui-org/react';
     <Grid>
      <Avatar
         squared
-        icon={<Sun size={20} />}
+       
+        icon={<Sun size={20} fill="currentColor"/>}
       />
     </Grid>
     <Grid>
       <Avatar
         squared
-        icon={<Moon size={20} />}
+        icon={<Moon size={20} fill="currentColor"/>}
       />
     </Grid>
     <Grid>
       <Avatar
         squared
-        icon={<Video size={20} />}
+        icon={<Video size={20} fill="currentColor" />}
       />
     </Grid>
     <Grid>
       <Avatar
         squared
-        icon={<VolumeUp size={20} />}
+        icon={<VolumeUp size={20} fill="currentColor" />}
       />
     </Grid>
     <Grid>
       <Avatar
         squared
-        icon={<Microphone size={20} />}
+        icon={<Microphone size={20} fill="currentColor"/>}
       />
     </Grid>
  </Grid.Container>

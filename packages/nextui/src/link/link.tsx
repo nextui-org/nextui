@@ -1,7 +1,7 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
 import LinkIcon from './icon';
-import type * as Stitches from '@stitches/react';
+import type { VariantProps } from '../theme/stitches.config';
 import clsx from '../utils/clsx';
 import StyledLink from './link.styles';
 import { __DEV__ } from '../utils/assertion';
@@ -19,7 +19,7 @@ type NativeAttrs = Omit<
   keyof Props | 'css'
 >;
 
-type LinkProps = Props & NativeAttrs & Stitches.VariantProps<typeof StyledLink>;
+type LinkProps = Props & NativeAttrs & VariantProps<typeof StyledLink>;
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   (

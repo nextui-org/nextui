@@ -34,6 +34,8 @@ const Container = ({ children }: any) => (
   </div>
 );
 
+export const Simple = () => <Avatar text="Hello" />;
+
 export const Default = () => {
   return (
     <>
@@ -59,9 +61,14 @@ export const Colors = () => {
         <Avatar color="warning" bordered src={pictureUsers[3]} squared />
         <Avatar color="error" bordered src={pictureUsers[4]} squared />
         <Avatar color="gradient" bordered src={pictureUsers[1]} squared />
-        <Avatar color="#ff4ecd" bordered src={pictureUsers[2]} squared />
+        <Avatar
+          bordered
+          src={pictureUsers[2]}
+          css={{ '.nextui-avatar-bg': { bg: '#ff4ecd' } }}
+          squared
+        />
       </Container>
-      <Spacer />
+      <Spacer y={2} />
       <Container>
         <Avatar text={nameUsers[0]} color="primary" pointer />
         <Avatar text={nameUsers[1]} color="secondary" pointer />
@@ -90,6 +97,55 @@ export const Bordered = () => {
   );
 };
 
+export const BorderWeights = () => {
+  return (
+    <Container>
+      <Avatar
+        color="primary"
+        borderWeight="light"
+        bordered
+        pointer
+        src={pictureUsers[0]}
+      />
+      <Avatar
+        borderWeight="normal"
+        color="secondary"
+        bordered
+        pointer
+        src={pictureUsers[1]}
+      />
+      <Avatar
+        color="success"
+        borderWeight="bold"
+        bordered
+        src={pictureUsers[2]}
+        squared
+      />
+      <Avatar
+        color="warning"
+        bordered
+        borderWeight="extrabold"
+        src={pictureUsers[3]}
+        squared
+      />
+      <Avatar
+        color="error"
+        borderWeight="black"
+        bordered
+        src={pictureUsers[4]}
+        squared
+      />
+      <Avatar
+        borderWeight="black"
+        color="gradient"
+        bordered
+        src={pictureUsers[1]}
+        squared
+      />
+    </Container>
+  );
+};
+
 export const Sizes = () => {
   return (
     <div
@@ -108,11 +164,11 @@ export const Sizes = () => {
       </Container>
       <Spacer />
       <Container>
-        <Avatar squared src={pictureUsers[0]} size="xs" />
-        <Avatar squared src={pictureUsers[1]} size="sm" />
-        <Avatar squared src={pictureUsers[2]} size="md" />
-        <Avatar squared src={pictureUsers[3]} size="lg" />
-        <Avatar squared src={pictureUsers[4]} size="xl" />
+        <Avatar squared text={nameUsers[4]} size="xs" />
+        <Avatar squared text={nameUsers[1]} size="sm" />
+        <Avatar squared text={nameUsers[2]} size="md" />
+        <Avatar squared text={nameUsers[3]} size="lg" />
+        <Avatar squared text={nameUsers[0]} size="xl" />
       </Container>
     </div>
   );
@@ -134,23 +190,23 @@ export const Icons = () => {
     <Container>
       <Avatar
         squared
-        icon={<Lock size={20} theme={theme} fill={theme.palette.text} />}
+        icon={<Lock size={20} theme={theme} fill="currentColor" />}
       />
       <Avatar
         squared
-        icon={<Camera size={20} theme={theme} fill={theme.palette.text} />}
+        icon={<Camera size={20} theme={theme} fill="currentColor" />}
       />
       <Avatar
         squared
-        icon={<User size={20} theme={theme} fill={theme.palette.text} />}
+        icon={<User size={20} theme={theme} fill="currentColor" />}
       />
       <Avatar
         squared
-        icon={<VolumeUp size={20} theme={theme} fill={theme.palette.text} />}
+        icon={<VolumeUp size={20} theme={theme} fill="currentColor" />}
       />
       <Avatar
         squared
-        icon={<Activity size={20} theme={theme} fill={theme.palette.text} />}
+        icon={<Activity size={20} theme={theme} fill="currentColor" />}
       />
     </Container>
   );
@@ -164,11 +220,16 @@ export const Group = () => {
           <Avatar key={index} src={url} bordered stacked />
         ))}
       </Avatar.Group>
-      <Spacer />
+      <Spacer y={2} />
       <Avatar.Group count={12}>
         {nameUsers.map((name, index) => (
           <Avatar key={index} text={name} bordered stacked />
         ))}
+      </Avatar.Group>
+      <Spacer y={2} />
+      <Avatar.Group>
+        <Avatar text="1" />
+        <Avatar text="2" />
       </Avatar.Group>
     </Container>
   );
