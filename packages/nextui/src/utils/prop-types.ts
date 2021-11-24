@@ -58,7 +58,13 @@ export const normalLoaders = tuple(
   'spinner'
 );
 
-export const normalWeights = tuple('light', 'normal', 'bold');
+export const normalWeights = tuple(
+  'light',
+  'normal',
+  'bold',
+  'extrabold',
+  'black'
+);
 
 export const textWeights = tuple(
   /* Keyword values */
