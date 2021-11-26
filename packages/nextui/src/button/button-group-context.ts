@@ -8,6 +8,7 @@ export interface ButtonGroupConfig {
   disabled?: boolean;
   light?: boolean;
   flat?: boolean;
+  ripple?: boolean;
   ghost?: boolean;
   shadow?: boolean;
   auto?: boolean;

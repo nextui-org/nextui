@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Button from '../index';
-import { sleep } from '../../../tests/utils';
 
 describe('Button', () => {
   it('should render correctly', () => {
@@ -79,20 +78,6 @@ describe('Button', () => {
     expect(wrapper.text()).not.toContain('state2');
   });
 
-  it('should ignore events when loading', () => {
-    const WrapperButton = () => {
-      const [state, setState] = React.useState<string>('state1');
-      return (
-        <Button loading onClick={() => setState('state2')}>
-          {state}
-        </Button>
-      );
-    };
-    const wrapper = mount(<WrapperButton />);
-    wrapper.simulate('click');
-    expect(wrapper.text()).not.toContain('state2');
-  });
-
   it('should render different variants', () => {
     const wrapper = mount(
       <div>
@@ -106,12 +91,8 @@ describe('Button', () => {
         <Button flat color="warning">
           button
         </Button>
-        <Button rounded loading>
-          button
-        </Button>
-        <Button flat loading>
-          button
-        </Button>
+        <Button rounded>button</Button>
+        <Button flat>button</Button>
         <Button shadow>button</Button>
         {/* <Button ghost>button</Button>
         <Button bordered>button</Button> */}
@@ -120,22 +101,13 @@ describe('Button', () => {
       </div>
     );
     expect(wrapper).toMatchSnapshot();
-    expect(<Button loading>button</Button>).toMatchSnapshot();
+    expect(<Button>button</Button>).toMatchSnapshot();
   });
 
   it('should remove expired events', () => {
     const wrapper = mount(<Button>button</Button>);
     wrapper.simulate('click');
     expect(() => wrapper.unmount()).not.toThrow();
-  });
-
-  it('should support loading change with deply', async () => {
-    const wrapper = mount(<Button>button</Button>);
-    wrapper.simulate('click');
-    await sleep(500);
-    wrapper.setProps({ loading: true });
-    await sleep(500);
-    expect(wrapper.find('.nextui-loading-container').length).not.toBe(0);
   });
 
   it('ref should be forwarded', () => {

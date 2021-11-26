@@ -56,7 +56,7 @@ export const {
       yellow700: '#B06811',
       yellow800: '#8E4D0B',
       yellow900: '#753A06',
-      red100: '#FED1CF',
+      red100: '#fdd7e3',
       red200: '#FDA0A5',
       red300: '#FB7085',
       red400: '#F74C77',
@@ -93,14 +93,30 @@ export const {
       gray800: '#1D1013',
       gray900: '#18090E',
       // brand colors
+      primaryLight: '$blue100',
       primary: '$blue500',
+      primaryDark: '$blue700',
+
+      secondaryLight: '$purple100',
       secondary: '$purple500',
+      secondaryDark: '$purple700',
+
+      successLight: '$green100',
       success: '$green500',
+      successDark: '$green700',
+
+      warningLight: '$yellow100',
       warning: '$yellow500',
+      warningDark: '$yellow700',
+
+      errorLight: '$red100',
       error: '$red500',
+      errorDark: '$red700',
+
       gradient:
         'linear-gradient(112deg, $cyan500 -63.59%, $pink500 -20.3%, $blue500 70.46%)',
       link: '$blue500',
+
       accents1: '$gray100',
       accents2: '$gray200',
       accents3: '$gray300',
@@ -122,6 +138,7 @@ export const {
       mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;"
     },
     fontSizes: {
+      tiny: '.75rem',
       xs: '0.875rem',
       base: '1rem',
       sm: '1.25rem',
@@ -160,7 +177,7 @@ export const {
       xs: '0.5rem',
       sm: '0.75rem',
       md: '1rem',
-      lg: '1.25rem',
+      lg: '1.375rem',
       xl: '2.25rem',
       px: '1px',
       1: '0.125rem',
@@ -198,12 +215,12 @@ export const {
       96: '24rem'
     },
     radii: {
-      xs: '2px',
-      sm: '6px',
-      md: '10px',
+      xs: '7px',
+      sm: '9px',
+      md: '12px',
       base: '14px',
       lg: '14px',
-      xl: '28px',
+      xl: '18px',
       squared: '33%',
       rounded: '50%',
       pill: '9999px'
@@ -241,6 +258,7 @@ export const {
     lg: '(min-width: 1200px)',
     xl: '(min-width: 1400px)',
     motion: '(prefers-reduced-motion)',
+    safari: 'not all and (min-resolution:.001dpcm)',
     hover: '(any-hover: hover)',
     dark: '(prefers-color-scheme: dark)',
     light: '(prefers-color-scheme: light)'
@@ -326,8 +344,19 @@ export const {
     bgColor: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
       backgroundColor: value
     }),
+    backgroundClip: (value: Stitches.PropertyValue<'backgroundClip'>) => ({
+      WebkitBackgroundClip: value,
+      backgroundClip: value
+    }),
+    bgClip: (value: Stitches.PropertyValue<'backgroundClip'>) => ({
+      WebkitBackgroundClip: value,
+      backgroundClip: value
+    }),
     br: (value: Stitches.PropertyValue<'borderRadius'>) => ({
       borderRadius: value
+    }),
+    bw: (value: Stitches.PropertyValue<'borderWidth'>) => ({
+      borderWidth: value
     }),
     btrr: (value: Stitches.PropertyValue<'borderTopRightRadius'>) => ({
       borderTopRightRadius: value
@@ -342,12 +371,18 @@ export const {
       borderTopLeftRadius: value
     }),
     bs: (value: Stitches.PropertyValue<'boxShadow'>) => ({ boxShadow: value }),
+    normalShadow: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
+      boxShadow: `0 4px 14px 0 $colors${value}`
+    }),
     lh: (value: Stitches.PropertyValue<'lineHeight'>) => ({
       lineHeight: value
     }),
     ox: (value: Stitches.PropertyValue<'overflowX'>) => ({ overflowX: value }),
     oy: (value: Stitches.PropertyValue<'overflowY'>) => ({ overflowY: value }),
     pe: (value: Stitches.PropertyValue<'pointerEvents'>) => ({
+      pointerEvents: value
+    }),
+    events: (value: Stitches.PropertyValue<'pointerEvents'>) => ({
       pointerEvents: value
     }),
     us: (value: Stitches.PropertyValue<'userSelect'>) => ({
@@ -372,10 +407,7 @@ export const {
       WebkitAppearance: value,
       appearance: value
     }),
-    backgroundClip: (value: Stitches.PropertyValue<'backgroundClip'>) => ({
-      WebkitBackgroundClip: value,
-      backgroundClip: value
-    }),
+
     linearGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
       backgroundImage: `linear-gradient(${value})`
     })
@@ -426,5 +458,20 @@ export const darkTheme = createTheme('dark-theme', {
     md: '0 8px 30px rgba(20, 20, 20, 0.15)',
     lg: '0 30px 60px rgba(20, 20, 20, 0.15)',
     xl: '0 40px 80px rgba(20, 20, 20, 0.25)'
+  }
+});
+
+export const sharedFocus = css({
+  WebkitTapHighlightColor: 'transparent',
+  '&:focus:not(&:focus-visible)': {
+    boxShadow: 'none'
+  },
+  '&:focus': {
+    outline: 'none',
+    boxShadow: '0 0 0 2px $colors$background, 0 0 0 4px $colors$primary'
+  },
+  '@safari': {
+    WebkitTapHighlightColor: 'transparent',
+    outline: 'none'
   }
 });

@@ -22,10 +22,32 @@ export default {
   ]
 } as Meta;
 
-export const Default = () => (
-  <Button mt={4} p={2} mr={1}>
-    Action
-  </Button>
+export const Default = () => <Button>Action</Button>;
+
+export const Sizes = () => (
+  <div>
+    <Button size="xs">Mini</Button>
+    <Spacer y={0.5} />
+    <Button color="secondary" size="sm">
+      Small
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="success" size="md">
+      Medium
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="warning" size="lg">
+      Large
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="error" size="xl">
+      Extra Large
+    </Button>
+    <Spacer y={0.5} />
+    <Button auto color="gradient">
+      Auto width
+    </Button>
+  </div>
 );
 
 export const Colors = () => (
@@ -42,42 +64,37 @@ export const Colors = () => (
     <Spacer y={0.5} />
     <Button color="gradient">Gradient</Button>
     <Spacer y={0.5} />
-    <Button flat auto color="#f4a">
-      Custom
-    </Button>
-  </>
-);
-
-export const Loading = () => (
-  <>
-    <Button loading loaderType="default">
-      Action
-    </Button>
-    <Spacer y={0.5} />
-    <Button loading loaderType="spinner">
-      Action
-    </Button>
-    <Spacer y={0.5} />
-    <Button loading loaderType="points">
-      Action
-    </Button>
-    <Spacer y={0.5} />
-    <Button loading loaderType="points-opacity">
-      Action
-    </Button>
-    <Spacer y={0.5} />
-    <Button loading loaderType="gradient">
-      Action
-    </Button>
   </>
 );
 
 export const Disabled = () => <Button disabled>Action</Button>;
 
 export const Shadow = () => (
-  <Button shadow color="secondary">
-    Shadow
-  </Button>
+  <>
+    <Button shadow color="primary">
+      Primary
+    </Button>
+    <Spacer y={1} />
+    <Button shadow color="secondary">
+      Secondary
+    </Button>
+    <Spacer y={1} />
+    <Button shadow color="success">
+      Success
+    </Button>
+    <Spacer y={1} />
+    <Button shadow color="warning">
+      Warning
+    </Button>
+    <Spacer y={1} />
+    <Button shadow color="error">
+      Error
+    </Button>
+    <Spacer y={1} />
+    <Button shadow color="gradient">
+      Gradient
+    </Button>
+  </>
 );
 
 export const Bordered = () => (
@@ -102,13 +119,13 @@ export const Bordered = () => (
       Error
     </Button>
     <Spacer y={0.5} />
-    <Button bordered color="#f4a">
-      Custom
+    <Button color="gradient" bordered>
+      Gradient
     </Button>
   </>
 );
 
-export const flat = () => (
+export const Flat = () => (
   <>
     <Button color="primary" flat>
       Primary
@@ -128,10 +145,6 @@ export const flat = () => (
     <Spacer y={0.5} />
     <Button color="error" flat>
       Error
-    </Button>
-    <Spacer y={0.5} />
-    <Button color="#ab570a" flat>
-      Custom
     </Button>
   </>
 );
@@ -187,22 +200,6 @@ export const Light = () => (
     <Button color="error" light>
       Error
     </Button>
-  </>
-);
-
-export const Sizes = () => (
-  <>
-    <Button size="xs">mini</Button>
-    <Spacer y={0.5} />
-    <Button size="sm">small</Button>
-    <Spacer y={0.5} />
-    <Button>medium</Button>
-    <Spacer y={0.5} />
-    <Button size="lg">large</Button>
-    <Spacer y={0.5} />
-    <Button size="xl">xlarge</Button>
-    <Spacer y={0.5} />
-    <Button auto>auto width</Button>
   </>
 );
 

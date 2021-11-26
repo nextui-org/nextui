@@ -10,7 +10,7 @@ import clsx from '../utils/clsx';
 interface Props extends DefaultProps {
   name: ReactNode | string;
   color?: NormalColors;
-  size?: NormalSizes | number;
+  size?: NormalSizes;
   src?: string;
   className?: string;
   zoomed?: boolean;
@@ -23,7 +23,7 @@ interface Props extends DefaultProps {
 
 const defaultProps = {
   className: '',
-  size: 32,
+  size: 'lg',
   squared: false,
   bordered: false
 };
@@ -112,7 +112,5 @@ type MemoUserComponent<P = {}> = React.NamedExoticComponent<P> & {
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs;
-
-User.defaultProps = defaultProps;
 
 export default React.memo(User) as MemoUserComponent<ComponentProps>;

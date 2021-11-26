@@ -1,194 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonGroup buttons should be displayed vertically 1`] = `
-"<div class=\\"nextui-button-group nextui-button-group-vertical\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action1</div><style>
-        .nextui-button {
-          background: var(--nextui-color-primary);
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          padding: 0 1.25rem;
-          height: 2.5rem;
-          line-height: 2.5rem;
-          min-width: min-content;
-          width: auto;
-          border-radius: 12px;
-          border: 2px none
-            transparent;
-          font-weight: 500;
-          font-size: .875rem;
-          user-select: none;
-          text-transform: capitalize;
-          justify-content: center;
-          text-align: center;
-          white-space: nowrap;
-          transition: all 250ms ease;
-          position: relative;
-          overflow: hidden;
-          color: var(--nextui-color-white);
-          cursor: pointer;
-          pointer-events: auto;
-          box-shadow: ;
-          ;
-          --nextui-button-border-radius: 12px;
-          --nextui-button-padding: 1.25rem;
-          --nextui-button-height: 2.5rem;
-          --nextui-button-color: var(--nextui-color-white);
-          --nextui-button-bg: var(--nextui-color-primary);
-        }
-        .nextui-button:before {
-          content: '';
-          background: ;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          border-radius: 12px;
-          transition: all 0.2s ease;
-          z-index: 1;
-          opacity: 0;
-        }
-        .nextui-button:hover:before {
-          opacity: 0;
-        }
-        .nextui-button:not(.nextui-button-disabled):active {
-          transform: scale(0.97);
-        }
-        .nextui-button:hover,
-        .nextui-button:focus {
-          background: inherit;
-          --nextui-button-color: undefined;
-          filter: none;
-          color: undefined;
-          border-color: transparent;
-          border-width: undefined;
-          padding: undefined !important;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        .nextui-button-text {
-          position: relative;
-          z-index: 1;
-          transform: translateY(
-            -0
-          );
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          line-height: inherit;
-          padding: 0 0;
-          opacity: 1;
-        }
-        .nextui-button-text p,
-        .nextui-button-text pre,
-        .nextui-button-text div {
-          margin: 0;
-        }
-        .nextui-button-text.nextui-button-text-left {
-          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-        .nextui-button-text.nextui-button-text-right {
-          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-      </style></button><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action2</div><style>
-        .nextui-button {
-          background: var(--nextui-color-primary);
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          padding: 0 1.25rem;
-          height: 2.5rem;
-          line-height: 2.5rem;
-          min-width: min-content;
-          width: auto;
-          border-radius: 12px;
-          border: 2px none
-            transparent;
-          font-weight: 500;
-          font-size: .875rem;
-          user-select: none;
-          text-transform: capitalize;
-          justify-content: center;
-          text-align: center;
-          white-space: nowrap;
-          transition: all 250ms ease;
-          position: relative;
-          overflow: hidden;
-          color: var(--nextui-color-white);
-          cursor: pointer;
-          pointer-events: auto;
-          box-shadow: ;
-          ;
-          --nextui-button-border-radius: 12px;
-          --nextui-button-padding: 1.25rem;
-          --nextui-button-height: 2.5rem;
-          --nextui-button-color: var(--nextui-color-white);
-          --nextui-button-bg: var(--nextui-color-primary);
-        }
-        .nextui-button:before {
-          content: '';
-          background: ;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          border-radius: 12px;
-          transition: all 0.2s ease;
-          z-index: 1;
-          opacity: 0;
-        }
-        .nextui-button:hover:before {
-          opacity: 0;
-        }
-        .nextui-button:not(.nextui-button-disabled):active {
-          transform: scale(0.97);
-        }
-        .nextui-button:hover,
-        .nextui-button:focus {
-          background: inherit;
-          --nextui-button-color: undefined;
-          filter: none;
-          color: undefined;
-          border-color: transparent;
-          border-width: undefined;
-          padding: undefined !important;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        .nextui-button-text {
-          position: relative;
-          z-index: 1;
-          transform: translateY(
-            -0
-          );
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          line-height: inherit;
-          padding: 0 0;
-          opacity: 1;
-        }
-        .nextui-button-text p,
-        .nextui-button-text pre,
-        .nextui-button-text div {
-          margin: 0;
-        }
-        .nextui-button-text.nextui-button-text-left {
-          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-        .nextui-button-text.nextui-button-text-right {
-          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-      </style></button><style>
+"<div class=\\"nextui-button-group nextui-button-group-vertical\\"><button class=\\"nextui-c-frcIsU nextui-c-huiNHE nextui-c-frcIsU-ikltse-color-default nextui-c-frcIsU-iPNlwO-size-md nextui-c-frcIsU-bzEnZV-borderWeight-normal nextui-c-frcIsU-yxrPS-animated-true nextui-c-frcIsU-exaRme-auto-true nextui-c-frcIsU-gglxka-cv nextui-button\\" data-state=\\"ready\\"><span class=\\"nextui-button-text\\">action1</span></button><button class=\\"nextui-c-frcIsU nextui-c-huiNHE nextui-c-frcIsU-ikltse-color-default nextui-c-frcIsU-iPNlwO-size-md nextui-c-frcIsU-bzEnZV-borderWeight-normal nextui-c-frcIsU-yxrPS-animated-true nextui-c-frcIsU-exaRme-auto-true nextui-c-frcIsU-gglxka-cv nextui-button\\" data-state=\\"ready\\"><span class=\\"nextui-button-text\\">action2</span></button><style>
           .nextui-button-group {
             display: inline-flex;
             border-radius: 12px;
-            margin: calc(0.75rem * 0.5);
-            border: 0px solid #fff;
+            margin: calc(var(--nextui-spacing-sm) * 0.5);
+            border: 0px solid var(--nextui-color-background);
             background-color: transparent;
             height: min-content;
             
@@ -205,7 +23,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           .nextui-button-group-horizontal :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border-left: 0px solid #fff;
+            border-left: 0px solid var(--nextui-color-background);
           }
           .nextui-button-group-horizontal
             :global(.nextui-button:not(:first-child):before) {
@@ -240,7 +58,7 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
           .nextui-button-group-vertical :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-            border-top: 0px solid #fff;
+            border-top: 0px solid var(--nextui-color-background);
           }
           .nextui-button-group-vertical
             :global(.nextui-button:not(:first-child):before) {
@@ -260,103 +78,12 @@ exports[`ButtonGroup buttons should be displayed vertically 1`] = `
 `;
 
 exports[`ButtonGroup props should be passed to each button 1`] = `
-"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"success\\"><div class=\\"nextui-button-text\\">action</div><style>
-        .nextui-button {
-          background: var(--nextui-color-success);
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          padding: 0 0.625rem;
-          height: 1.5rem;
-          line-height: 1.5rem;
-          min-width: min-content;
-          width: auto;
-          border-radius: 7px;
-          border: 2px none
-            transparent;
-          font-weight: 500;
-          font-size: .75rem;
-          user-select: none;
-          text-transform: capitalize;
-          justify-content: center;
-          text-align: center;
-          white-space: nowrap;
-          transition: all 250ms ease;
-          position: relative;
-          overflow: hidden;
-          color: var(--nextui-color-white);
-          cursor: pointer;
-          pointer-events: auto;
-          box-shadow: ;
-          ;
-          --nextui-button-border-radius: 7px;
-          --nextui-button-padding: 0.625rem;
-          --nextui-button-height: 1.5rem;
-          --nextui-button-color: var(--nextui-color-white);
-          --nextui-button-bg: var(--nextui-color-success);
-        }
-        .nextui-button:before {
-          content: '';
-          background: ;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          border-radius: 7px;
-          transition: all 0.2s ease;
-          z-index: 1;
-          opacity: 0;
-        }
-        .nextui-button:hover:before {
-          opacity: 0;
-        }
-        .nextui-button:not(.nextui-button-disabled):active {
-          transform: scale(0.97);
-        }
-        .nextui-button:hover,
-        .nextui-button:focus {
-          background: inherit;
-          --nextui-button-color: undefined;
-          filter: none;
-          color: undefined;
-          border-color: transparent;
-          border-width: undefined;
-          padding: undefined !important;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        .nextui-button-text {
-          position: relative;
-          z-index: 1;
-          transform: translateY(
-            -0
-          );
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          line-height: inherit;
-          padding: 0 0;
-          opacity: 1;
-        }
-        .nextui-button-text p,
-        .nextui-button-text pre,
-        .nextui-button-text div {
-          margin: 0;
-        }
-        .nextui-button-text.nextui-button-text-left {
-          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-        .nextui-button-text.nextui-button-text-right {
-          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-      </style></button><style>
+"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button class=\\"nextui-c-frcIsU nextui-c-huiNHE nextui-c-frcIsU-iXIgqZ-color-success nextui-c-frcIsU-dgPKkr-size-xs nextui-c-frcIsU-bzEnZV-borderWeight-normal nextui-c-frcIsU-yxrPS-animated-true nextui-c-frcIsU-exaRme-auto-true nextui-c-frcIsU-gNZcsS-cv nextui-button\\" data-state=\\"ready\\"><span class=\\"nextui-button-text\\">action</span></button><style>
           .nextui-button-group {
             display: inline-flex;
             border-radius: 7px;
-            margin: calc(0.75rem * 0.5);
-            border: 0px solid #fff;
+            margin: calc(var(--nextui-spacing-sm) * 0.5);
+            border: 0px solid var(--nextui-color-background);
             background-color: transparent;
             height: min-content;
             
@@ -373,7 +100,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           .nextui-button-group-horizontal :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border-left: 0px solid #fff;
+            border-left: 0px solid var(--nextui-color-background);
           }
           .nextui-button-group-horizontal
             :global(.nextui-button:not(:first-child):before) {
@@ -408,7 +135,7 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
           .nextui-button-group-vertical :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-            border-top: 0px solid #fff;
+            border-top: 0px solid var(--nextui-color-background);
           }
           .nextui-button-group-vertical
             :global(.nextui-button:not(:first-child):before) {
@@ -428,103 +155,12 @@ exports[`ButtonGroup props should be passed to each button 1`] = `
 `;
 
 exports[`ButtonGroup props should be passed to each button 2`] = `
-"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"success\\"><div class=\\"nextui-button-text\\">action</div><style>
-        .nextui-button {
-          background: ;
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          padding: 0 0.625rem;
-          height: 1.5rem;
-          line-height: 1.5rem;
-          min-width: min-content;
-          width: auto;
-          border-radius: 7px;
-          border: 2px none
-            transparent;
-          font-weight: 500;
-          font-size: .75rem;
-          user-select: none;
-          text-transform: capitalize;
-          justify-content: center;
-          text-align: center;
-          white-space: nowrap;
-          transition: all 250ms ease;
-          position: relative;
-          overflow: hidden;
-          color: var(--nextui-color-success);
-          cursor: pointer;
-          pointer-events: auto;
-          box-shadow: ;
-          ;
-          --nextui-button-border-radius: 7px;
-          --nextui-button-padding: 0.625rem;
-          --nextui-button-height: 1.5rem;
-          --nextui-button-color: var(--nextui-color-success);
-          --nextui-button-bg: ;
-        }
-        .nextui-button:before {
-          content: '';
-          background: ;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          border-radius: 7px;
-          transition: all 0.2s ease;
-          z-index: 1;
-          opacity: 0;
-        }
-        .nextui-button:hover:before {
-          opacity: 0;
-        }
-        .nextui-button:not(.nextui-button-disabled):active {
-          transform: scale(0.97);
-        }
-        .nextui-button:hover,
-        .nextui-button:focus {
-          background: inherit;
-          --nextui-button-color: undefined;
-          filter: none;
-          color: undefined;
-          border-color: transparent;
-          border-width: undefined;
-          padding: undefined !important;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        .nextui-button-text {
-          position: relative;
-          z-index: 1;
-          transform: translateY(
-            -0
-          );
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          line-height: inherit;
-          padding: 0 0;
-          opacity: 1;
-        }
-        .nextui-button-text p,
-        .nextui-button-text pre,
-        .nextui-button-text div {
-          margin: 0;
-        }
-        .nextui-button-text.nextui-button-text-left {
-          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-        .nextui-button-text.nextui-button-text-right {
-          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-      </style></button><style>
+"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button class=\\"nextui-c-frcIsU nextui-c-huiNHE nextui-c-frcIsU-iXIgqZ-color-success nextui-c-frcIsU-dgPKkr-size-xs nextui-c-frcIsU-bzEnZV-borderWeight-normal nextui-c-frcIsU-cyFBRX-flat-true nextui-c-frcIsU-yxrPS-animated-true nextui-c-frcIsU-exaRme-auto-true nextui-c-frcIsU-gNZcsS-cv nextui-c-frcIsU-bXueNC-cv nextui-button\\" data-state=\\"ready\\"><span class=\\"nextui-button-text\\">action</span></button><style>
           .nextui-button-group {
             display: inline-flex;
             border-radius: 7px;
-            margin: calc(0.75rem * 0.5);
-            border: 0px solid #fff;
+            margin: calc(var(--nextui-spacing-sm) * 0.5);
+            border: 0px solid var(--nextui-color-background);
             background-color: transparent;
             height: min-content;
             
@@ -541,7 +177,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           .nextui-button-group-horizontal :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border-left: 0px solid #fff;
+            border-left: 0px solid var(--nextui-color-background);
           }
           .nextui-button-group-horizontal
             :global(.nextui-button:not(:first-child):before) {
@@ -576,7 +212,7 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
           .nextui-button-group-vertical :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-            border-top: 0px solid #fff;
+            border-top: 0px solid var(--nextui-color-background);
           }
           .nextui-button-group-vertical
             :global(.nextui-button:not(:first-child):before) {
@@ -596,103 +232,12 @@ exports[`ButtonGroup props should be passed to each button 2`] = `
 `;
 
 exports[`ButtonGroup should render correctly 1`] = `
-"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div class=\\"nextui-button-text\\">action</div><style>
-        .nextui-button {
-          background: var(--nextui-color-primary);
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          padding: 0 1.25rem;
-          height: 2.5rem;
-          line-height: 2.5rem;
-          min-width: min-content;
-          width: auto;
-          border-radius: 12px;
-          border: 2px none
-            transparent;
-          font-weight: 500;
-          font-size: .875rem;
-          user-select: none;
-          text-transform: capitalize;
-          justify-content: center;
-          text-align: center;
-          white-space: nowrap;
-          transition: all 250ms ease;
-          position: relative;
-          overflow: hidden;
-          color: var(--nextui-color-white);
-          cursor: pointer;
-          pointer-events: auto;
-          box-shadow: ;
-          ;
-          --nextui-button-border-radius: 12px;
-          --nextui-button-padding: 1.25rem;
-          --nextui-button-height: 2.5rem;
-          --nextui-button-color: var(--nextui-color-white);
-          --nextui-button-bg: var(--nextui-color-primary);
-        }
-        .nextui-button:before {
-          content: '';
-          background: ;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          border-radius: 12px;
-          transition: all 0.2s ease;
-          z-index: 1;
-          opacity: 0;
-        }
-        .nextui-button:hover:before {
-          opacity: 0;
-        }
-        .nextui-button:not(.nextui-button-disabled):active {
-          transform: scale(0.97);
-        }
-        .nextui-button:hover,
-        .nextui-button:focus {
-          background: inherit;
-          --nextui-button-color: undefined;
-          filter: none;
-          color: undefined;
-          border-color: transparent;
-          border-width: undefined;
-          padding: undefined !important;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        .nextui-button-text {
-          position: relative;
-          z-index: 1;
-          transform: translateY(
-            -0
-          );
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          line-height: inherit;
-          padding: 0 0;
-          opacity: 1;
-        }
-        .nextui-button-text p,
-        .nextui-button-text pre,
-        .nextui-button-text div {
-          margin: 0;
-        }
-        .nextui-button-text.nextui-button-text-left {
-          padding-left: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-        .nextui-button-text.nextui-button-text-right {
-          padding-right: calc(var(--nextui-button-height) / 2 + var(--nextui-button-padding) * .5);
-        }
-      </style></button><style>
+"<div class=\\"nextui-button-group nextui-button-group-horizontal\\"><button class=\\"nextui-c-frcIsU nextui-c-huiNHE nextui-c-frcIsU-ikltse-color-default nextui-c-frcIsU-iPNlwO-size-md nextui-c-frcIsU-bzEnZV-borderWeight-normal nextui-c-frcIsU-yxrPS-animated-true nextui-c-frcIsU-exaRme-auto-true nextui-c-frcIsU-gglxka-cv nextui-button\\" data-state=\\"ready\\"><span class=\\"nextui-button-text\\">action</span></button><style>
           .nextui-button-group {
             display: inline-flex;
             border-radius: 12px;
-            margin: calc(0.75rem * 0.5);
-            border: 0px solid #fff;
+            margin: calc(var(--nextui-spacing-sm) * 0.5);
+            border: 0px solid var(--nextui-color-background);
             background-color: transparent;
             height: min-content;
             
@@ -709,7 +254,7 @@ exports[`ButtonGroup should render correctly 1`] = `
           .nextui-button-group-horizontal :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            border-left: 0px solid #fff;
+            border-left: 0px solid var(--nextui-color-background);
           }
           .nextui-button-group-horizontal
             :global(.nextui-button:not(:first-child):before) {
@@ -744,7 +289,7 @@ exports[`ButtonGroup should render correctly 1`] = `
           .nextui-button-group-vertical :global(.nextui-button:not(:first-child)) {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-            border-top: 0px solid #fff;
+            border-top: 0px solid var(--nextui-color-background);
           }
           .nextui-button-group-vertical
             :global(.nextui-button:not(:first-child):before) {
@@ -768,21 +313,14 @@ exports[`ButtonGroup should render different variants 1`] = `ReactWrapper {}`;
 exports[`ButtonGroup should render different variants 2`] = `
 <NextUI - Button
   animated={true}
-  auto={false}
-  borderWeight="normal"
   bordered={false}
   className=""
-  color="default"
+  clickable={true}
   disabled={false}
   flat={false}
   ghost={false}
-  htmlType="button"
   light={false}
-  loaderType="default"
-  loading={true}
-  rounded={false}
-  shadow={false}
-  size="md"
+  ripple={true}
 >
   button
 </NextUI - Button>

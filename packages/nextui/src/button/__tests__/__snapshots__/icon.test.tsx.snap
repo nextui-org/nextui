@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonIcon should render correctly 1`] = `
-"<button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div><span class=\\"nextui-button-icon\\"><svg></svg><style>
+"<button class=\\"nextui-c-frcIsU nextui-c-huiNHE nextui-c-frcIsU-ikltse-color-default nextui-c-frcIsU-iPNlwO-size-md nextui-c-frcIsU-bzEnZV-borderWeight-normal nextui-c-frcIsU-yxrPS-animated-true nextui-button\\" data-state=\\"ready\\"><div><span class=\\"nextui-button-icon\\"><svg></svg><style>
         .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
@@ -27,102 +27,11 @@ exports[`ButtonIcon should render correctly 1`] = `
           position: static;
           transform: none;
         }
-      </style></span><div class=\\"nextui-button-text nextui-button-text-left\\">action</div></div><style>
-        .nextui-button {
-          background: var(--nextui-color-primary);
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          padding: 0 1.375rem;
-          height: 2.5rem;
-          line-height: 2.5rem;
-          min-width: 12.5rem;
-          width: auto;
-          border-radius: 12px;
-          border: 2px none
-            transparent;
-          font-weight: 500;
-          font-size: .875rem;
-          user-select: none;
-          text-transform: capitalize;
-          justify-content: center;
-          text-align: center;
-          white-space: nowrap;
-          transition: all 250ms ease;
-          position: relative;
-          overflow: hidden;
-          color: var(--nextui-color-white);
-          cursor: pointer;
-          pointer-events: auto;
-          box-shadow: ;
-          ;
-          --nextui-button-border-radius: 12px;
-          --nextui-button-padding: 1.375rem;
-          --nextui-button-height: 2.5rem;
-          --nextui-button-color: var(--nextui-color-white);
-          --nextui-button-bg: var(--nextui-color-primary);
-        }
-        .nextui-button:before {
-          content: '';
-          background: ;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          border-radius: 12px;
-          transition: all 0.2s ease;
-          z-index: 1;
-          opacity: 0;
-        }
-        .nextui-button:hover:before {
-          opacity: 0;
-        }
-        .nextui-button:not(.nextui-button-disabled):active {
-          transform: scale(0.97);
-        }
-        .nextui-button:hover,
-        .nextui-button:focus {
-          background: inherit;
-          --nextui-button-color: undefined;
-          filter: none;
-          color: undefined;
-          border-color: transparent;
-          border-width: undefined;
-          padding: undefined !important;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        .nextui-button-text {
-          position: relative;
-          z-index: 1;
-          transform: translateY(
-            -0
-          );
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          line-height: inherit;
-          padding: 0 0;
-          opacity: 1;
-        }
-        .nextui-button-text p,
-        .nextui-button-text pre,
-        .nextui-button-text div {
-          margin: 0;
-        }
-        .nextui-button-text.nextui-button-text-left {
-          padding-left: 0;
-        }
-        .nextui-button-text.nextui-button-text-right {
-          padding-right: 0;
-        }
-      </style></button>"
+      </style></span><div class=\\"nextui-button-text nextui-button-text-left\\">action</div></div></button>"
 `;
 
 exports[`ButtonIcon should work with right 1`] = `
-"<button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><div><span class=\\"nextui-button-icon nextui-button-icon-right\\"><svg></svg><style>
+"<button class=\\"nextui-c-frcIsU nextui-c-huiNHE nextui-c-frcIsU-ikltse-color-default nextui-c-frcIsU-iPNlwO-size-md nextui-c-frcIsU-bzEnZV-borderWeight-normal nextui-c-frcIsU-yxrPS-animated-true nextui-button\\" data-state=\\"ready\\"><div><span class=\\"nextui-button-icon nextui-button-icon-right\\"><svg></svg><style>
         .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
@@ -148,102 +57,11 @@ exports[`ButtonIcon should work with right 1`] = `
           position: static;
           transform: none;
         }
-      </style></span><div class=\\"nextui-button-text nextui-button-text-right\\">action</div></div><style>
-        .nextui-button {
-          background: var(--nextui-color-primary);
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          padding: 0 1.375rem;
-          height: 2.5rem;
-          line-height: 2.5rem;
-          min-width: 12.5rem;
-          width: auto;
-          border-radius: 12px;
-          border: 2px none
-            transparent;
-          font-weight: 500;
-          font-size: .875rem;
-          user-select: none;
-          text-transform: capitalize;
-          justify-content: center;
-          text-align: center;
-          white-space: nowrap;
-          transition: all 250ms ease;
-          position: relative;
-          overflow: hidden;
-          color: var(--nextui-color-white);
-          cursor: pointer;
-          pointer-events: auto;
-          box-shadow: ;
-          ;
-          --nextui-button-border-radius: 12px;
-          --nextui-button-padding: 1.375rem;
-          --nextui-button-height: 2.5rem;
-          --nextui-button-color: var(--nextui-color-white);
-          --nextui-button-bg: var(--nextui-color-primary);
-        }
-        .nextui-button:before {
-          content: '';
-          background: ;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          border-radius: 12px;
-          transition: all 0.2s ease;
-          z-index: 1;
-          opacity: 0;
-        }
-        .nextui-button:hover:before {
-          opacity: 0;
-        }
-        .nextui-button:not(.nextui-button-disabled):active {
-          transform: scale(0.97);
-        }
-        .nextui-button:hover,
-        .nextui-button:focus {
-          background: inherit;
-          --nextui-button-color: undefined;
-          filter: none;
-          color: undefined;
-          border-color: transparent;
-          border-width: undefined;
-          padding: undefined !important;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        .nextui-button-text {
-          position: relative;
-          z-index: 1;
-          transform: translateY(
-            -0
-          );
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          line-height: inherit;
-          padding: 0 0;
-          opacity: 1;
-        }
-        .nextui-button-text p,
-        .nextui-button-text pre,
-        .nextui-button-text div {
-          margin: 0;
-        }
-        .nextui-button-text.nextui-button-text-left {
-          padding-left: 0;
-        }
-        .nextui-button-text.nextui-button-text-right {
-          padding-right: 0;
-        }
-      </style></button>"
+      </style></span><div class=\\"nextui-button-text nextui-button-text-right\\">action</div></div></button>"
 `;
 
 exports[`ButtonIcon should work without text 1`] = `
-"<button type=\\"button\\" class=\\"nextui-button mock\\" color=\\"default\\"><span class=\\"nextui-button-icon nextui-button-icon-right nextui-button-icon-single\\"><svg></svg><style>
+"<button class=\\"nextui-c-frcIsU nextui-c-huiNHE nextui-c-frcIsU-ikltse-color-default nextui-c-frcIsU-iPNlwO-size-md nextui-c-frcIsU-bzEnZV-borderWeight-normal nextui-c-frcIsU-yxrPS-animated-true nextui-button\\" data-state=\\"ready\\"><span class=\\"nextui-button-icon nextui-button-icon-right nextui-button-icon-single\\"><svg></svg><style>
         .nextui-button-icon {
           position: absolute;
           left: var(--nextui-button-padding);
@@ -269,96 +87,5 @@ exports[`ButtonIcon should work without text 1`] = `
           position: static;
           transform: none;
         }
-      </style></span><style>
-        .nextui-button {
-          background: var(--nextui-color-primary);
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          padding: 0 1.375rem;
-          height: 2.5rem;
-          line-height: 2.5rem;
-          min-width: 12.5rem;
-          width: auto;
-          border-radius: 12px;
-          border: 2px none
-            transparent;
-          font-weight: 500;
-          font-size: .875rem;
-          user-select: none;
-          text-transform: capitalize;
-          justify-content: center;
-          text-align: center;
-          white-space: nowrap;
-          transition: all 250ms ease;
-          position: relative;
-          overflow: hidden;
-          color: var(--nextui-color-white);
-          cursor: pointer;
-          pointer-events: auto;
-          box-shadow: ;
-          ;
-          --nextui-button-border-radius: 12px;
-          --nextui-button-padding: 1.375rem;
-          --nextui-button-height: 2.5rem;
-          --nextui-button-color: var(--nextui-color-white);
-          --nextui-button-bg: var(--nextui-color-primary);
-        }
-        .nextui-button:before {
-          content: '';
-          background: ;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          border-radius: 12px;
-          transition: all 0.2s ease;
-          z-index: 1;
-          opacity: 0;
-        }
-        .nextui-button:hover:before {
-          opacity: 0;
-        }
-        .nextui-button:not(.nextui-button-disabled):active {
-          transform: scale(0.97);
-        }
-        .nextui-button:hover,
-        .nextui-button:focus {
-          background: inherit;
-          --nextui-button-color: undefined;
-          filter: none;
-          color: undefined;
-          border-color: transparent;
-          border-width: undefined;
-          padding: undefined !important;
-          cursor: pointer;
-          pointer-events: auto;
-        }
-        .nextui-button-text {
-          position: relative;
-          z-index: 1;
-          transform: translateY(
-            -0
-          );
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          line-height: inherit;
-          padding: 0 0;
-          opacity: 1;
-        }
-        .nextui-button-text p,
-        .nextui-button-text pre,
-        .nextui-button-text div {
-          margin: 0;
-        }
-        .nextui-button-text.nextui-button-text-left {
-          padding-left: 0;
-        }
-        .nextui-button-text.nextui-button-text-right {
-          padding-right: 0;
-        }
-      </style></button>"
+      </style></span></button>"
 `;
