@@ -72,6 +72,7 @@ const Button = React.forwardRef<
     light,
     ripple,
     bordered,
+    borderWeight,
     onClick,
     icon,
     iconRight,
@@ -109,11 +110,12 @@ const Button = React.forwardRef<
   return (
     <StyledButton
       ref={buttonRef}
+      borderWeight={borderWeight}
       className={clsx('nextui-button', className)}
       flat={flat}
       light={light}
-      bordered={bordered || ghost}
       ghost={ghost}
+      bordered={bordered || ghost}
       clickable={clickable}
       data-state={getState}
       disabled={disabled}

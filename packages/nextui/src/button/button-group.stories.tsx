@@ -25,13 +25,9 @@ export const Default = () => (
 
 export const Loading = () => (
   <Button.Group>
-    <Button loading>One</Button>
-    <Button loading loaderType="points">
-      Two
-    </Button>
-    <Button loading loaderType="points-opacity">
-      Three
-    </Button>
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
   </Button.Group>
 );
 
@@ -47,7 +43,7 @@ export const Variants = () => (
       <Button>Two</Button>
       <Button>Three</Button>
     </Button.Group>
-    <Button.Group bordered>
+    <Button.Group color="primary" animated={false} bordered>
       <Button>Action1</Button>
       <Button>Action2</Button>
     </Button.Group>

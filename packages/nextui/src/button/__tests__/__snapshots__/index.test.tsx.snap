@@ -9,9 +9,7 @@ exports[`Button should render different variants 2`] = `
   className=""
   clickable={true}
   disabled={false}
-  flat={false}
   ghost={false}
-  light={false}
   ripple={true}
 >
   button
@@ -25,9 +23,7 @@ exports[`Button should render empty button correctly 1`] = `
   className=""
   clickable={true}
   disabled={false}
-  flat={false}
   ghost={false}
-  light={false}
   ripple={true}
 />
 `;

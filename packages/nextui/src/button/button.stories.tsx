@@ -207,33 +207,32 @@ export const Icons = () => {
   const theme = useTheme();
   return (
     <>
-      <Button auto iconRight={<Activity theme={theme} fill="white" />} />
+      <Button auto iconRight={<Activity theme={theme} fill="currentColor" />} />
       <Spacer y={0.5} />
-      <Button icon={<Camera theme={theme} fill="white" />}>Action</Button>
+      <Button iconRight={<Camera theme={theme} fill="currentColor" />}>
+        Action
+      </Button>
       <Spacer y={0.5} />
-      <Button icon={<Lock theme={theme} fill="white" />} color="success">
+      <Button icon={<Lock theme={theme} fill="currentColor" />} color="success">
         Lock
       </Button>
       <Spacer y={0.5} />
       <Button
-        icon={<Notification theme={theme} fill="white" />}
+        icon={<Notification theme={theme} fill="currentColor" />}
         color="secondary"
       >
         Notifications
       </Button>
       <Spacer y={0.5} />
       <Button
-        icon={<User theme={theme} fill={theme.palette.error} />}
+        icon={<User theme={theme} fill="currentColor" />}
         color="error"
         flat
       >
         Delete User
       </Button>
       <Spacer y={0.5} />
-      <Button
-        icon={<User theme={theme} fill={theme.palette.accents_4} />}
-        disabled
-      >
+      <Button icon={<User theme={theme} fill="currentColor" />} disabled>
         Delete User
       </Button>
     </>

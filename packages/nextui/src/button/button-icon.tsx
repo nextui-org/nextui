@@ -1,6 +1,7 @@
 import React from 'react';
-import clsx from '../utils/clsx';
+import { styled, VariantProps } from '../theme/stitches.config';
 import withDefaults from '../utils/with-defaults';
+import clsx from '../utils/clsx';
 
 interface Props {
   isRight?: boolean;
@@ -9,61 +10,53 @@ interface Props {
 }
 
 const defaultProps = {
-  isRight: false,
   className: ''
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ButtonIconProps = Props & typeof defaultProps & NativeAttrs;
+export const StyledButtonIcon = styled('span', {
+  dflex: 'center',
+  position: 'absolute',
+  left: '$$buttonPadding',
+  right: 'auto',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  color: 'inherit',
+  zIndex: '$1',
+  '& svg': {
+    background: 'transparent'
+  },
+  variants: {
+    isRight: {
+      true: {
+        right: '$$buttonPadding',
+        left: 'auto'
+      }
+    },
+    isSingle: {
+      true: {
+        position: 'static',
+        transform: 'none'
+      }
+    }
+  }
+});
+
+type ButtonIconVariants = VariantProps<typeof StyledButtonIcon>;
+
+export type ButtonIconProps = Props & typeof defaultProps & ButtonIconVariants;
 
 const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
-  isRight,
-  isSingle,
   children,
   className,
   ...props
 }) => {
   return (
-    <span
-      className={clsx(
-        'nextui-button-icon',
-        {
-          'nextui-button-icon-right': isRight,
-          'nextui-button-icon-single': isSingle
-        },
-        className
-      )}
+    <StyledButtonIcon
+      className={clsx('nextui-button-icon', className)}
       {...props}
     >
       {children}
-      <style jsx>{`
-        .nextui-button-icon {
-          position: absolute;
-          left: var(--nextui-button-padding);
-          right: auto;
-          top: 50%;
-          transform: translateY(-50%);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: var(--nextui-button-color);
-          z-index: 1;
-        }
-        .nextui-button-icon :global(svg) {
-          background: transparent;
-          height: calc(var(--nextui-button-height) / 2.35);
-          width: calc(var(--nextui-button-height) / 2.35);
-        }
-        .nextui-button-icon-right {
-          right: var(--nextui-button-padding);
-          left: auto;
-        }
-        .nextui-button-icon-single {
-          position: static;
-          transform: none;
-        }
-      `}</style>
-    </span>
+    </StyledButtonIcon>
   );
 };
 

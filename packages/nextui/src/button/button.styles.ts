@@ -87,6 +87,7 @@ export default styled(
       },
       size: {
         xs: {
+          $$buttonPadding: '$space$3',
           px: '$3',
           height: '$10',
           lh: '$space$10',
@@ -96,6 +97,7 @@ export default styled(
           br: '$xs'
         },
         sm: {
+          $$buttonPadding: '$space$5',
           px: '$5',
           height: '$12',
           lh: '$space$14',
@@ -105,6 +107,7 @@ export default styled(
           br: '$sm'
         },
         md: {
+          $$buttonPadding: '$space$7',
           px: '$7',
           height: '$14',
           lh: '$space$14',
@@ -114,6 +117,7 @@ export default styled(
           br: '$md'
         },
         lg: {
+          $$buttonPadding: '$space$9',
           px: '$9',
           height: '$15',
           lh: '$space$15',
@@ -123,6 +127,7 @@ export default styled(
           br: '$base'
         },
         xl: {
+          $$buttonPadding: '$space$10',
           px: '$10',
           height: '$17',
           lh: '$space$17',
@@ -197,6 +202,9 @@ export default styled(
           '&:active': {
             transform: 'scale(0.97)'
           }
+        },
+        false: {
+          transition: 'none'
         }
       },
       auto: {
