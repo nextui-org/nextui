@@ -39,6 +39,9 @@ export * from './avatar';
 export { default as Button } from './button';
 export * from './button';
 
+export { default as Card } from './card';
+export * from './card';
+
 export { default as CssBaseline } from './css-baseline';
 
 export { default as Checkbox } from './checkbox';
@@ -61,8 +64,6 @@ export * from './link';
 export { default as Loading } from './loading';
 
 export { default as Grid } from './grid';
-
-export { default as Card } from './card';
 
 export { default as Image } from './image';
 

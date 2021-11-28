@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyledCardBody, CardBodyVariantsProps } from './card.styles';
 
-const CardBody: React.FC<React.PropsWithChildren<CardBodyVariantsProps>> = ({
+export type CardBodyProps = CardBodyVariantsProps;
+
+const CardBody: React.FC<React.PropsWithChildren<CardBodyProps>> = ({
   children,
   ...props
 }) => {

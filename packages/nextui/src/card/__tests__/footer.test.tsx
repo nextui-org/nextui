@@ -20,7 +20,7 @@ describe('Card Footer', () => {
   });
 
   it('should work with disable-auto-margin', () => {
-    const wrapper = mount(<Card.Footer autoMargin={false}>footer</Card.Footer>);
+    const wrapper = mount(<Card.Footer css={{ m: 0 }}>footer</Card.Footer>);
     expect(() => wrapper.unmount()).not.toThrow();
   });
 });

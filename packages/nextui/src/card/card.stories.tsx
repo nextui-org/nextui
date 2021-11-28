@@ -71,9 +71,16 @@ export const Colors = () => {
 };
 
 export const NoShadow = () => (
-  <Card shadow={false} css={{ w: '400px' }}>
-    <h4>The Evil Rabbit</h4>
-    <p>shadow card.</p>
+  <Card shadow={false} bordered css={{ w: '400px' }}>
+    <Card.Header>
+      <h4>Next UI</h4>
+    </Card.Header>
+    <p>
+      <span role="img" aria-label="Rocket">
+        🚀
+      </span>
+      &nbsp; Beautiful and modern React UI library..
+    </p>
   </Card>
 );
 
@@ -91,7 +98,7 @@ export const WithFooter = () => (
         <Link
           color="primary"
           target="_blank"
-          href="https://github.com/geist-org/react"
+          href="https://github.com/nextui-org/nextui"
         >
           Visit source code on GitHub.
         </Link>
@@ -107,7 +114,11 @@ export const WithFooter = () => (
         Beautiful and modern React UI library.
       </Text>
       <Card.Footer>
-        <Link target="_blank" href="https://github.com/geist-org/react">
+        <Link
+          css={{ color: 'white' }}
+          target="_blank"
+          href="https://github.com/nextui-org/nextui"
+        >
           Visit source code on GitHub.
         </Link>
       </Card.Footer>
