@@ -1,7 +1,15 @@
-import { styled } from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
 import Avatar from './avatar.styles';
 
-export default styled('div', {
+export const StyledAvatarGroupCount = styled('span', {
+  fontSize: '$xs',
+  display: 'inline-flex',
+  alignItems: 'center',
+  paddingLeft: '$1',
+  color: '$text'
+});
+
+const StyledAvatarGroup = styled('div', {
   dflex: 'center',
   height: 'auto',
   width: 'max-content',
@@ -18,13 +26,6 @@ export default styled('div', {
   '.only-text-avatar': {
     boxShadow: '$xs'
   },
-  '.nextui-avatar-group-count': {
-    fontSize: '$xs',
-    display: 'inline-flex',
-    alignItems: 'center',
-    paddingLeft: '$1',
-    color: '$text'
-  },
   variants: {
     animated: {
       true: {
@@ -38,3 +39,7 @@ export default styled('div', {
     animated: true
   }
 });
+
+export type AvatarGroupVariants = VariantProps<typeof StyledAvatarGroup>;
+
+export default StyledAvatarGroup;

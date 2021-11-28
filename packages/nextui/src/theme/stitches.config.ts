@@ -311,6 +311,7 @@ export const {
       marginBottom: value
     }),
     ta: (value: Stitches.PropertyValue<'textAlign'>) => ({ textAlign: value }),
+    d: (value: Stitches.PropertyValue<'display'>) => ({ display: value }),
     dflex: (value: Stitches.PropertyValue<'alignItems'>) => ({
       display: 'flex',
       alignItems: value,
@@ -338,8 +339,15 @@ export const {
     bc: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
       backgroundColor: value
     }),
+    bf: (value: Stitches.PropertyValue<'backdropFilter'>) => ({
+      backdropFilter: value
+    }),
     bg: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
       background: value
+    }),
+    bgBlur: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
+      bf: 'saturate(180%) blur(10px)',
+      bg: `${value}66`
     }),
     bgColor: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
       backgroundColor: value
@@ -393,6 +401,14 @@ export const {
       WebkitUserSelect: value,
       userSelect: value
     }),
+    w: (value: Stitches.PropertyValue<'width'>) => ({ width: value }),
+    h: (value: Stitches.PropertyValue<'height'>) => ({ height: value }),
+    mw: (value: Stitches.PropertyValue<'maxWidth'>) => ({ maxWidth: value }),
+    maxW: (value: Stitches.PropertyValue<'maxWidth'>) => ({ maxWidth: value }),
+    mh: (value: Stitches.PropertyValue<'maxHeight'>) => ({ maxHeight: value }),
+    maxH: (value: Stitches.PropertyValue<'maxHeight'>) => ({
+      maxHeight: value
+    }),
     size: (value: Stitches.PropertyValue<'width'>) => ({
       width: value,
       height: value
@@ -403,11 +419,17 @@ export const {
       width: value,
       height: value
     }),
+    sizeMax: (value: Stitches.PropertyValue<'width'>) => ({
+      maxWidth: value,
+      maxHeight: value
+    }),
     appearance: (value: Stitches.PropertyValue<'appearance'>) => ({
       WebkitAppearance: value,
       appearance: value
     }),
-
+    scale: (value: Stitches.PropertyValue<'scale'>) => ({
+      transform: `scale(${value})`
+    }),
     linearGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
       backgroundImage: `linear-gradient(${value})`
     })
@@ -434,6 +456,7 @@ export const {
 });
 
 export type CSS = Stitches.CSS<typeof config>;
+export type Theme = typeof theme;
 
 export const darkTheme = createTheme('dark-theme', {
   colors: {

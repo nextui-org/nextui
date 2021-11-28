@@ -1,32 +1,26 @@
 import React from 'react';
-import StyledAvatarGroup from './avatar-group.styles';
-import type { VariantProps } from '../theme/stitches.config';
-import clsx from '../utils/clsx';
+import StyledAvatarGroup, {
+  StyledAvatarGroupCount,
+  AvatarGroupVariants
+} from './avatar-group.styles';
 
 interface Props {
   count?: number;
-  className?: string;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
-
-type AvatarGroupVariants = VariantProps<typeof StyledAvatarGroup>;
 
 export type AvatarGroupProps = Props & NativeAttrs & AvatarGroupVariants;
 
 const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
   count,
-  className,
   children,
   ...props
 }) => {
   return (
-    <StyledAvatarGroup
-      className={clsx('nextui-avatar-group', className)}
-      {...props}
-    >
+    <StyledAvatarGroup {...props}>
       {children}
-      {count && <span className="nextui-avatar-group-count">+{count}</span>}
+      {count && <StyledAvatarGroupCount>+{count}</StyledAvatarGroupCount>}
     </StyledAvatarGroup>
   );
 };

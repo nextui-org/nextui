@@ -1,13 +1,12 @@
 import React, { useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
-import { DefaultProps } from '../utils/default-props';
 import { NormalSizes, NormalColors, NormalWeights } from '../utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
-import { VariantProps } from '../theme/stitches.config';
-import StyledButtonGroup from './button-group.styles';
-import clsx from '../utils/clsx';
+import StyledButtonGroup, {
+  ButtonGroupVariantsProps
+} from './button-group.styles';
 
-interface Props extends DefaultProps {
+interface Props {
   disabled?: boolean;
   bordered?: boolean;
   light?: boolean;
@@ -21,24 +20,15 @@ interface Props extends DefaultProps {
   borderWeight?: NormalWeights;
   size?: NormalSizes;
   color?: NormalColors;
-  className?: string;
 }
 
 const defaultProps = {
   borderWeight: 'normal' as NormalWeights | undefined,
   size: 'md' as NormalSizes,
-  color: 'default' as NormalColors,
-  className: ''
+  color: 'default' as NormalColors
 };
 
-type ButtonGroupVariants = Omit<
-  VariantProps<typeof StyledButtonGroup>,
-  'gradient'
->;
-
-export type ButtonGroupProps = Props & ButtonGroupVariants;
-
-const preClass = 'nextui-button-group';
+export type ButtonGroupProps = Props & ButtonGroupVariantsProps;
 
 const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
   groupProps
@@ -58,7 +48,6 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     ripple,
     borderWeight,
     children,
-    className,
     ...props
   } = groupProps;
 
@@ -99,7 +88,6 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
         size={size}
         bordered={bordered || ghost}
         gradient={groupProps.color === 'gradient'}
-        className={clsx(preClass, className)}
         {...props}
       >
         {children}

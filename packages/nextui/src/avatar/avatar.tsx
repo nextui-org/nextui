@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react';
 import AvatarGroup from './avatar-group';
-import StyledAvatar from './avatar.styles';
-import type { VariantProps } from '../theme/stitches.config';
+import StyledAvatar, { AvatarVariantsProps } from './avatar.styles';
 import clsx from '../utils/clsx';
 
 interface Props {
@@ -9,6 +8,7 @@ interface Props {
   src?: string;
   icon?: React.ReactNode;
   alt?: string;
+  className?: string;
 }
 
 type NativeAttrs = Omit<
@@ -16,9 +16,7 @@ type NativeAttrs = Omit<
   keyof Props | 'css' | 'sizes'
 >;
 
-type AvatarVariants = VariantProps<typeof StyledAvatar>;
-
-export type AvatarProps = Props & AvatarVariants & NativeAttrs;
+export type AvatarProps = Props & AvatarVariantsProps & NativeAttrs;
 
 const safeText = (text: string): string => {
   if (text?.length <= 4) return text;
@@ -49,7 +47,6 @@ const Avatar: React.FC<AvatarProps> = ({
   return (
     <StyledAvatar
       className={clsx(
-        'nextui-avatar',
         {
           'only-text-avatar': showText
         },

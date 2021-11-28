@@ -39,7 +39,7 @@ const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
     disableGlobalEvent = false,
     capture = false,
     stopPropagation = false,
-    preventDefault = true,
+    preventDefault = false,
     event = 'keydown'
   } = options;
   const activeModMap = getActiveModMap(bindings);

@@ -1,7 +1,7 @@
-import { theme, styled } from '../theme/stitches.config';
+import { theme, styled, VariantProps } from '../theme/stitches.config';
 import { addColorAlpha } from '../utils/color';
 
-export default styled('a', {
+const StyledLink = styled('a', {
   display: 'inline-flex',
   alignItems: 'baseline',
   lineHeight: 'inherit',
@@ -129,3 +129,7 @@ export default styled('a', {
     animated: true
   }
 });
+
+export type LinkVariantsProps = VariantProps<typeof StyledLink>;
+
+export default StyledLink;

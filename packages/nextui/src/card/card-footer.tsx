@@ -1,120 +1,23 @@
-import React, { useContext, useMemo } from 'react';
-import useTheme from '../use-theme';
+import React from 'react';
 import withDefaults from '../utils/with-defaults';
-import clsx from '../utils/clsx';
-import { CardContext } from './card-context';
-import { addColorAlpha, getNormalColor } from '../utils/color';
-import { NormalColors, NormalWeights, SimpleColors } from '../utils/prop-types';
-import { getNormalWeight } from '../utils/dimensions';
+import { StyledCardFooter, CardFooterVariantsProps } from './card.styles';
 
 interface Props {
   blur?: boolean;
-  autoMargin?: boolean;
-  border?: boolean;
-  className?: string;
-  width?: string;
-  height?: string;
-  color?: NormalColors | string;
-  borderColor?: SimpleColors | string;
-  borderWeight?: NormalWeights;
-  noPadding?: boolean;
 }
 
 const defaultProps = {
-  autoMargin: false,
-  blur: false,
-  border: false,
-  width: '100%',
-  height: 'auto',
-  noPadding: false,
-  borderWeight: 'light' as NormalWeights,
-  className: ''
+  blur: false
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type CardFooterProps = Props & typeof defaultProps & NativeAttrs;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+export type CardFooterProps = Props & CardFooterVariantsProps & NativeAttrs;
 
 const CardFooter: React.FC<React.PropsWithChildren<CardFooterProps>> = ({
   children,
-  blur,
-  className,
-  color,
-  width,
-  height,
-  border: borderProp,
-  borderColor,
-  borderWeight,
-  noPadding,
-  autoMargin: autoMarginProp,
   ...props
 }) => {
-  const theme = useTheme();
-  const { background, autoMargin: autoMarginContext } = useContext(CardContext);
-
-  const autoMargin = useMemo(() => {
-    return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
-  }, [autoMarginProp, autoMarginContext]);
-
-  const bgColor = useMemo(() => {
-    if (color) {
-      return getNormalColor(color, theme.palette);
-    }
-    return background || theme.palette.background;
-  }, [color, theme.palette, background]);
-
-  const border = useMemo(() => {
-    if (!borderProp) return 'none';
-    return `${getNormalWeight(theme, borderWeight)} solid ${getNormalColor(
-      borderColor,
-      theme.palette,
-      theme.palette.border
-    )}`;
-  }, [theme, borderWeight, borderColor, borderProp]);
-
-  return (
-    <div
-      className={clsx(
-        'nextui-card-footer',
-        {
-          'nextui-card-footer-auto-margin': autoMargin,
-          'nextui-card-footer-blur': blur,
-          'nextui-card-footer-no-padding': noPadding
-        },
-        className
-      )}
-      {...props}
-    >
-      {children}
-      <style jsx>{`
-        .nextui-card-footer {
-          width: ${width};
-          height: ${height};
-          padding: ${theme.spacing.sm} ${theme.spacing.lg};
-          display: flex;
-          align-items: center;
-          overflow: hidden;
-          color: inherit;
-          background-color: ${bgColor};
-          font-size: 0.875rem;
-          border-top: ${border};
-          border-bottom-left-radius: ${theme.radius.lg};
-          border-bottom-right-radius: ${theme.radius.lg};
-        }
-        .nextui-card-footer.nextui-card-footer-blur {
-          backdrop-filter: saturate(180%) blur(10px);
-          background: ${addColorAlpha(bgColor, 0.4)};
-        }
-        .nextui-card-footer.nextui-card-footer-no-padding {
-          padding: 0;
-        }
-        .nextui-card-footer-auto-margin :global(*) {
-          margin-top: 0;
-          margin-bottom: 0;
-          margin-right: calc(${theme.spacing.sm} * 0.5);
-        }
-      `}</style>
-    </div>
-  );
+  return <StyledCardFooter {...props}>{children}</StyledCardFooter>;
 };
 
 const MemoCardFooter = React.memo(CardFooter);

@@ -1,7 +1,14 @@
-import { styled, sharedFocus } from '../theme/stitches.config';
+import {
+  styled,
+  theme,
+  sharedFocus,
+  VariantProps
+} from '../theme/stitches.config';
 import { StyledDrip } from '../utils/drip';
 
-export default styled(
+import { addColorAlpha } from '../utils/color';
+
+const StyledButton = styled(
   'button',
   {
     dflex: 'center',
@@ -538,7 +545,7 @@ export default styled(
         flat: true,
         color: 'default',
         css: {
-          bg: '$primaryLight',
+          bg: addColorAlpha(theme.colors.primary.value, 0.25),
           color: '$primary',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -552,7 +559,7 @@ export default styled(
         flat: true,
         color: 'primary',
         css: {
-          bg: '$primaryLight',
+          bg: addColorAlpha(theme.colors.primary.value, 0.25),
           color: '$primary',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -566,7 +573,7 @@ export default styled(
         flat: true,
         color: 'secondary',
         css: {
-          bg: '$secondaryLight',
+          bg: addColorAlpha(theme.colors.secondary.value, 0.25),
           color: '$secondary',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -580,7 +587,7 @@ export default styled(
         flat: true,
         color: 'success',
         css: {
-          bg: '$successLight',
+          bg: addColorAlpha(theme.colors.success.value, 0.25),
           color: '$success',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -594,7 +601,7 @@ export default styled(
         flat: true,
         color: 'warning',
         css: {
-          bg: '$warningLight',
+          bg: addColorAlpha(theme.colors.warning.value, 0.25),
           color: '$warning',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -608,7 +615,7 @@ export default styled(
         flat: true,
         color: 'error',
         css: {
-          bg: '$errorLight',
+          bg: addColorAlpha(theme.colors.error.value, 0.25),
           color: '$error',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -735,3 +742,7 @@ export default styled(
   },
   sharedFocus
 );
+
+export type ButtonVariantsProps = VariantProps<typeof StyledButton>;
+
+export default StyledButton;

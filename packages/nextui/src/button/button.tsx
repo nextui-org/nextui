@@ -15,8 +15,7 @@ import ButtonGroup from './button-group';
 import ButtonIcon from './button-icon';
 import clsx from '../utils/clsx';
 import useDrip from '../use-drip';
-import StyledButton from './button.styles';
-import type { VariantProps } from '../theme/stitches.config';
+import StyledButton, { ButtonVariantsProps } from './button.styles';
 import withDefaults from '../utils/with-defaults';
 import { __DEV__ } from '../utils/assertion';
 
@@ -33,7 +32,6 @@ export interface Props {
   icon?: React.ReactNode;
   iconRight?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  className?: string;
 }
 
 const defaultProps = {
@@ -42,8 +40,7 @@ const defaultProps = {
   bordered: false,
   ripple: true,
   animated: true,
-  disabled: false,
-  className: ''
+  disabled: false
 };
 
 type NativeAttrs = Omit<
@@ -51,9 +48,7 @@ type NativeAttrs = Omit<
   keyof Props | 'css'
 >;
 
-type ButtonVariants = VariantProps<typeof StyledButton>;
-
-export type ButtonProps = Props & NativeAttrs & ButtonVariants;
+export type ButtonProps = Props & NativeAttrs & ButtonVariantsProps;
 
 const Button = React.forwardRef<
   HTMLButtonElement,
@@ -76,7 +71,6 @@ const Button = React.forwardRef<
     onClick,
     icon,
     iconRight,
-    className,
     ghost,
     clickable,
     ...props
@@ -111,7 +105,6 @@ const Button = React.forwardRef<
     <StyledButton
       ref={buttonRef}
       borderWeight={borderWeight}
-      className={clsx('nextui-button', className)}
       flat={flat}
       light={light}
       ghost={ghost}

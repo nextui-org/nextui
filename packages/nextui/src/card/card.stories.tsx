@@ -31,13 +31,13 @@ export default {
 } as Meta;
 
 export const Default = () => (
-  <Card width="400px">
+  <Card hoverable css={{ w: '400px', br: '$lg' }}>
     <p>A basic card.</p>
   </Card>
 );
 
 export const Bordered = () => (
-  <Card width="400px" bordered>
+  <Card bordered clickable css={{ w: '400px' }}>
     <p>A bordered card.</p>
   </Card>
 );
@@ -57,7 +57,7 @@ export const Colors = () => {
       {colors.map((color) => (
         <Grid.Container gap={2} key={color} style={{ marginBottom: '18px' }}>
           <Grid xs={12}>
-            <Card color={color} textColor="white">
+            <Card color={color}>
               <Text h4 transform="capitalize">
                 {color}
               </Text>
@@ -71,7 +71,7 @@ export const Colors = () => {
 };
 
 export const NoShadow = () => (
-  <Card shadow={false} width="400px">
+  <Card shadow={false} css={{ w: '400px' }}>
     <h4>The Evil Rabbit</h4>
     <p>shadow card.</p>
   </Card>
@@ -79,7 +79,7 @@ export const NoShadow = () => (
 
 export const WithFooter = () => (
   <Row wrap="wrap" justify="flex-start">
-    <Card width="330px">
+    <Card css={{ w: '330px' }}>
       <Text h4>Next UI</Text>
       <Text>
         <span role="img" aria-label="Rocket">
@@ -88,13 +88,17 @@ export const WithFooter = () => (
         Beautiful and modern React UI library.
       </Text>
       <Card.Footer>
-        <Link color target="_blank" href="https://github.com/geist-org/react">
+        <Link
+          color="primary"
+          target="_blank"
+          href="https://github.com/geist-org/react"
+        >
           Visit source code on GitHub.
         </Link>
       </Card.Footer>
     </Card>
     <Spacer x={1} />
-    <Card width="330px" color="primary">
+    <Card css={{ w: '330px' }} color="primary">
       <Text h4>Next UI</Text>
       <Text>
         <span role="img" aria-label="Rocket">
@@ -115,8 +119,8 @@ export const AbsImageWithHeader = () => {
   return (
     <Grid.Container gap={1} justify="center">
       <Grid>
-        <Card width="330px" cover>
-          <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+        <Card css={{ w: '330px' }} cover>
+          <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
             <Col>
               <Text
                 size={12}
@@ -149,8 +153,8 @@ export const AbsImgWithHeaderFooter = () => {
   return (
     <Grid.Container gap={2} justify="center">
       <Grid>
-        <Card width="330px" color="#f6f6f6" cover>
-          <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+        <Card cover css={{ w: '330px', bg: '$gray100' }}>
+          <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
             <Col>
               <Text
                 size={12}
@@ -177,7 +181,7 @@ export const AbsImgWithHeaderFooter = () => {
             alt="Apple homedpods background"
             style={{ objectFit: 'cover', paddingTop: '100px' }}
           />
-          <Card.Footer autoMargin={false}>
+          <Card.Footer css={{ m: 0 }}>
             <Row>
               <Col>
                 <Text size={12}>Available soon.</Text>
@@ -197,8 +201,8 @@ export const AbsImgWithHeaderFooter = () => {
         </Card>
       </Grid>
       <Grid>
-        <Card width="630px" color="#0f1114" cover>
-          <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+        <Card cover css={{ w: '630px', p: 0 }}>
+          <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
             <Col>
               <Text
                 size={12}
@@ -226,9 +230,13 @@ export const AbsImgWithHeaderFooter = () => {
 
           <Card.Footer
             blur
-            border
-            borderColor="rgba(255, 255, 255, 0.1)"
-            style={{ position: 'absolute', zIndex: 1, bottom: 0 }}
+            css={{
+              position: 'absolute',
+              bgBlur: '#0f1114',
+              borderTop: '$borderWeights$light solid $gray500',
+              bottom: 0,
+              zIndex: 1
+            }}
           >
             <Row>
               <Col>
@@ -255,7 +263,12 @@ export const AbsImgWithHeaderFooter = () => {
               </Col>
               <Col>
                 <Row justify="flex-end">
-                  <Button flat auto rounded color="#94f9f0">
+                  <Button
+                    flat
+                    auto
+                    rounded
+                    css={{ color: '#94f9f0', bg: '#94f9f026' }}
+                  >
                     <Text size={12} weight="bold" transform="uppercase">
                       Get App
                     </Text>
@@ -313,13 +326,13 @@ export const CenterImgWithHeader = () => {
     <Grid.Container gap={2} justify="center">
       {list.map((item, index) => (
         <Grid key={index}>
-          <Card hoverable clickable width="200px" height="220px">
-            <Card.Header noPadding justify="flex-start">
+          <Card hoverable clickable css={{ w: '200px', h: '220px' }}>
+            <Card.Header css={{ p: 0 }}>
               <Text h5 style={{ paddingLeft: '24px', paddingTop: '10px' }}>
                 {item.title}
               </Text>
             </Card.Header>
-            <Card.Body height="100%" justify="center">
+            <Card.Body css={{ h: '100%', jc: 'center' }}>
               <Card.Image
                 autoResize={false}
                 src={item.img}
@@ -335,12 +348,12 @@ export const CenterImgWithHeader = () => {
 };
 
 export const WithDivider = () => (
-  <Card width="400px">
+  <Card css={{ w: '400px' }}>
     <Card.Header>
       <Text b>Description</Text>
     </Card.Header>
     <Divider y={0} />
-    <Card.Body style={{ padding: '30px 20px' }}>
+    <Card.Body css={{ padding: '30px 20px' }}>
       <Text>
         The Object constructor creates an object wrapper for the given value.
       </Text>

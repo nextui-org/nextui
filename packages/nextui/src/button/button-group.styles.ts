@@ -1,7 +1,7 @@
-import { styled } from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
 import StyledButton from './button.styles';
 
-export default styled('div', {
+const StyledButtonGroup = styled('div', {
   display: 'inline-flex',
   margin: '$3',
   backgroundColor: 'transparent',
@@ -123,3 +123,10 @@ export default styled('div', {
     }
   ]
 });
+
+export type ButtonGroupVariantsProps = Omit<
+  VariantProps<typeof StyledButtonGroup>,
+  'gradient'
+>;
+
+export default StyledButtonGroup;

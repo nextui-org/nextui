@@ -1,6 +1,6 @@
-import { styled } from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
 
-export default styled('span', {
+const StyledAvatar = styled('span', {
   dflex: 'center',
   position: 'relative',
   zIndex: '$1',
@@ -331,3 +331,7 @@ export default styled('span', {
     borderWeight: 'normal'
   }
 });
+
+export type AvatarVariantsProps = VariantProps<typeof StyledAvatar>;
+
+export default StyledAvatar;

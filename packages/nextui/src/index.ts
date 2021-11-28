@@ -34,6 +34,10 @@ export { KeyMod, KeyCode } from './use-keyboard/codes';
 
 // Components
 export { default as Avatar } from './avatar';
+export * from './avatar';
+
+export { default as Button } from './button';
+export * from './button';
 
 export { default as CssBaseline } from './css-baseline';
 
@@ -52,10 +56,9 @@ export * from './spacer';
 export { default as User } from './user';
 
 export { default as Link } from './link';
+export * from './link';
 
 export { default as Loading } from './loading';
-
-export { default as Button } from './button';
 
 export { default as Grid } from './grid';
 

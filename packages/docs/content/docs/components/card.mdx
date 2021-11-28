@@ -18,7 +18,7 @@ import { Card } from '@nextui-org/react';
   title="Default"
   desc="NextUI will wrap your content in a `Card.Body` component."
   code={` 
-<Card width="400px">
+<Card css={{ w: "400px" }}>
   <p>A basic card.</p>
 </Card>`}
 />
@@ -27,7 +27,7 @@ import { Card } from '@nextui-org/react';
   title="Bordered"
   desc="You can change the full style towards a bodered `Card` with the `bordered` property."
   code={` 
-<Card width="400px" bordered>
+<Card bordered shadow={false} css={{ w: "400px" }}>
   <p>A bordered card.</p>
 </Card>`}
 />
@@ -36,7 +36,7 @@ import { Card } from '@nextui-org/react';
   title="Hoverable"
   desc="You can apply a fancy hover animation with the `hoverable` property."
   code={` 
-<Card width="400px" bordered hoverable>
+<Card bordered shadow={false} hoverable css={{ w: "400px" }}>
   <p>A hoverable card.</p>
 </Card>`}
 />
@@ -46,7 +46,7 @@ import { Card } from '@nextui-org/react';
   desc="You can use the `clickable` property to allow users to interact with the entirety of its surface 
   to trigger its main action, be it an expansion, a link to another screen or some other behavior."
   code={` 
-<Card width="400px" clickable>
+<Card clickable bordered css={{ w: "400px" }}>
   <p>A clickable card.</p>
 </Card>`}
 />
@@ -87,7 +87,7 @@ return (
   code={` 
 <Grid.Container gap={2}> 
   <Grid>  
-    <Card width="330px">
+    <Card css={{ w: "330px" }}>
         <Card.Header>
             <Text b>Card Title</Text>
         </Card.Header>
@@ -107,7 +107,7 @@ return (
     </Card>
   </Grid>  
   <Grid>  
-    <Card width="330px">
+    <Card css={{ w: "330px" }}>
         <Card.Header>
             <Text b>Card Title</Text>
         </Card.Header>
@@ -136,22 +136,22 @@ return (
   code={` 
 <Grid.Container gap={2}>
     <Grid>
-        <Card width="330px">
+        <Card css={{ w: "330px" }}>
             <Text h4>Next UI</Text>
             <Text>🚀  Beautiful and modern React UI library.</Text>
             <Card.Footer>
-                <Link color target="_blank" href="https://github.com/nextui-org/nextui">
+                <Link color="primary" target="_blank" href="https://github.com/nextui-org/nextui">
                     Visit source code on GitHub.
                 </Link>
             </Card.Footer>
         </Card>
     </Grid>  
     <Grid> 
-        <Card width="330px" color="primary">
+        <Card css={{ w: "330px" }} color="primary">
             <Text h4 color="white">Next UI</Text>
             <Text color="white">🚀  Beautiful and modern React UI library.</Text>
             <Card.Footer>
-                <Link target="_blank" color="white" href="https://github.com/nextui-org/nextui">
+                <Link target="_blank" css={{ color: "white" }} href="https://github.com/nextui-org/nextui">
                     Visit source code on GitHub.
                 </Link>
             </Card.Footer>
@@ -167,7 +167,7 @@ return (
   code={` 
 <Grid.Container gap={2} justify="center">
     <Grid xs={12} sm={4}>
-        <Card width="100%" cover>
+        <Card cover>
             <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
                 <Col>
                     <Text
@@ -219,7 +219,7 @@ return (
         </Card>
     </Grid>
     <Grid xs={12} sm={4}>
-        <Card width="100%" cover>
+        <Card cover css={{ bg: '$gray100', w: '100%' }}>
             <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
                 <Col>
                     <Text
@@ -245,8 +245,8 @@ return (
         </Card>
     </Grid>  
     <Grid xs={12} sm={5}>
-        <Card width="100%" color="#f6f6f6" cover>
-          <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+        <Card cover css={{ w: '100%' }}>
+          <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
             <Col>
               <Text
                 size={12}
@@ -261,18 +261,25 @@ return (
               </Text>
             </Col>
           </Card.Header>
-          <Card.Image
-            autoResize={false}
-            src='/images/card-example-6.jpeg'
-            height={400}
-            width="100%"
-            alt="Card example background"
-          />
+          <Card.Body>
+            <Card.Image
+                autoResize={false}
+                src='/images/card-example-6.jpeg'
+                height={400}
+                width="100%"
+                alt="Card example background"
+            />
+          </Card.Body>
           <Card.Footer             
             blur
-            border
-            borderColor="rgba(255, 255, 255, 0.2)"
-            style={{ position: 'absolute', zIndex: 1, bottom: 0 }}>
+            css={{
+              position: 'absolute',
+              bgBlur: '#ffffff',
+              borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
+              bottom: 0,
+              zIndex: 1
+            }}
+           >
             <Row>
               <Col>
                 <Text color="#000" size={12}>Available soon.</Text>
@@ -292,8 +299,8 @@ return (
         </Card>
     </Grid>    
     <Grid xs={12} sm={7}>
-        <Card width="100%" color="#0f1114" cover>
-          <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+        <Card cover css={{ w: '100%', p: 0 }}>
+          <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
             <Col>
               <Text
                 size={12}
@@ -319,9 +326,13 @@ return (
           </Card.Body>
           <Card.Footer
             blur
-            border
-            borderColor="rgba(255, 255, 255, 0.1)"
-            style={{ position: 'absolute', zIndex: 1, bottom: 0 }}
+            css={{
+              position: 'absolute',
+              bgBlur: '#0f1114',
+              borderTop: '$borderWeights$light solid $gray500',
+              bottom: 0,
+              zIndex: 1
+            }}
           >
             <Row>
               <Col>
@@ -348,7 +359,7 @@ return (
               </Col>
               <Col>
                 <Row justify="flex-end">
-                  <Button flat auto rounded color="#94f9f0">
+                  <Button flat auto rounded   css={{ color: '#94f9f0', bg: '#94f9f026' }}>
                     <Text size={12} weight="bold" transform="uppercase">
                       Get App
                     </Text>
@@ -414,7 +425,7 @@ return (
     {list.map((item, index) => (
         <Grid xs={6} sm={3} key={index}>
             <Card hoverable clickable width="100%">
-                <Card.Body noPadding>
+                <Card.Body css={{ p: 0 }}>
                     <Card.Image
                         objectFit="cover"
                         autoResize={false}

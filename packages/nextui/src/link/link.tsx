@@ -1,9 +1,7 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
 import LinkIcon from './icon';
-import type { VariantProps } from '../theme/stitches.config';
-import clsx from '../utils/clsx';
-import StyledLink from './link.styles';
+import StyledLink, { LinkVariantsProps } from './link.styles';
 import { __DEV__ } from '../utils/assertion';
 
 export interface Props {
@@ -19,19 +17,12 @@ type NativeAttrs = Omit<
   keyof Props | 'css'
 >;
 
-type LinkProps = Props & NativeAttrs & VariantProps<typeof StyledLink>;
+export type LinkProps = Props & NativeAttrs & LinkVariantsProps;
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (
-    { children, className, icon, ...props },
-    ref: React.Ref<HTMLAnchorElement>
-  ) => {
+  ({ children, icon, ...props }, ref: React.Ref<HTMLAnchorElement>) => {
     return (
-      <StyledLink
-        ref={ref}
-        className={clsx('nextui-link', className)}
-        {...props}
-      >
+      <StyledLink ref={ref} {...props}>
         {children}
         {icon && <LinkIcon />}
       </StyledLink>
