@@ -95,23 +95,23 @@ export const {
       // brand colors
       primaryLight: '$blue100',
       primary: '$blue500',
-      primaryDark: '$blue700',
+      primaryDark: '$blue600',
 
       secondaryLight: '$purple100',
       secondary: '$purple500',
-      secondaryDark: '$purple700',
+      secondaryDark: '$purple600',
 
       successLight: '$green100',
       success: '$green500',
-      successDark: '$green700',
+      successDark: '$green600',
 
       warningLight: '$yellow100',
       warning: '$yellow500',
-      warningDark: '$yellow700',
+      warningDark: '$yellow600',
 
       errorLight: '$red100',
       error: '$red500',
-      errorDark: '$red700',
+      errorDark: '$red600',
 
       gradient:
         'linear-gradient(112deg, $cyan500 -63.59%, $pink500 -20.3%, $blue500 70.46%)',

@@ -2,35 +2,34 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { CheckboxContext } from './checkbox-context';
 import useWarning from '../use-warning';
 import { NormalSizes, NormalColors } from '../utils/prop-types';
-import { DefaultProps } from '../utils/default-props';
-import useTheme from '../use-theme';
-import { getSpacingsStyles } from '../utils/styles';
+import {
+  StyledCheckboxGroup,
+  CheckboxGroupVariantsProps
+} from './checkbox.styles';
 import withDefaults from '../utils/with-defaults';
 import { __DEV__ } from '../utils/assertion';
-import { getCheckboxSize } from './styles';
 
-interface Props extends DefaultProps {
+interface Props {
   value: string[];
   color?: NormalColors;
   textColor?: NormalColors;
   disabled?: boolean;
   size?: NormalSizes;
   onChange?: (values: string[]) => void;
-  className?: string;
-  row?: boolean;
 }
 
 const defaultProps = {
   color: 'primary' as NormalColors,
   textColor: 'default' as NormalColors,
   disabled: false,
-  size: 'md' as NormalSizes | number,
-  className: '',
-  row: false
+  size: 'md' as NormalSizes | number
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type CheckboxGroupProps = Props & typeof defaultProps & NativeAttrs;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+export type CheckboxGroupProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  CheckboxGroupVariantsProps;
 
 const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
   color,
@@ -39,7 +38,6 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
   onChange,
   value,
   size,
-  row,
   children,
   className,
   style,
@@ -50,10 +48,6 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
     value = [];
     useWarning('Props "value" is required.', 'Checkbox Group');
   }
-
-  const theme = useTheme();
-
-  const spacingStyle = getSpacingsStyles(theme, props);
 
   const updateState = (val: string, checked: boolean) => {
     const removed = selfVal.filter((v) => v !== val);
@@ -73,34 +67,15 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
     };
   }, [disabled, selfVal]);
 
-  const fontSize = useMemo(() => getCheckboxSize(size), [size]);
-  const groupGap = `calc(${fontSize} * 1)`;
-
   useEffect(() => {
     setSelfVal(value);
   }, [value.join(',')]);
 
   return (
     <CheckboxContext.Provider value={providerValue}>
-      <div
-        className={`nextui-checkbox-group ${className}`}
-        role="group"
-        style={{ ...style, ...spacingStyle }}
-        {...props}
-      >
+      <StyledCheckboxGroup role="group" size={size} {...props}>
         {children}
-        <style jsx>{`
-          .nextui-checkbox-group :global(.nextui-checkbox) {
-            margin-top: ${row ? 0 : groupGap};
-            margin-right: ${row ? groupGap : 0};
-            --nextui-checkbox-size: ${fontSize};
-          }
-          .nextui-checkbox-group {
-            display: flex;
-            flex-direction: ${row ? 'row' : 'column'};
-          }
-        `}</style>
-      </div>
+      </StyledCheckboxGroup>
     </CheckboxContext.Provider>
   );
 };

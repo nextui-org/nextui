@@ -3,8 +3,6 @@ import { useCheckbox } from './checkbox-context';
 import CheckboxGroup from './checkbox-group';
 import useWarning from '../use-warning';
 import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
-import useTheme from '../use-theme';
-import { getNormalColor } from '../utils/color';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import {
   StyledCheckboxLabel,
@@ -17,6 +15,7 @@ import {
   StyledIconCheckSecondLine,
   StyledCheckboxText
 } from './checkbox.styles';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 interface CheckboxEventTarget {
@@ -37,10 +36,12 @@ export interface Props {
   label?: string;
   line?: boolean;
   indeterminate?: boolean;
+  animated?: boolean;
   rounded?: boolean;
   checked?: boolean;
   disabled?: boolean;
   initialChecked?: boolean;
+  preventDefault?: boolean;
   onChange?: (e: CheckboxEvent) => void;
   className?: string;
   value?: string;
@@ -52,9 +53,11 @@ const defaultProps = {
   color: 'primary' as NormalColors,
   textColor: 'default' as SimpleColors,
   disabled: false,
+  preventDefault: true,
   initialChecked: false,
   indeterminate: false,
   rounded: false,
+  animated: true,
   className: '',
   value: ''
 };
@@ -67,8 +70,6 @@ export type CheckboxProps = Props &
   typeof defaultProps &
   CheckboxVariantsProps &
   NativeAttrs;
-
-const preClass = 'nextui-checkbox';
 
 const Checkbox: React.FC<CheckboxProps> = ({
   checked,
@@ -84,7 +85,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
   label,
   color,
   textColor,
+  animated,
   value,
+  preventDefault,
   ...props
 }) => {
   const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
@@ -98,26 +101,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
   } = useCheckbox();
 
   const isDisabled = inGroup ? disabledAll || disabled : disabled;
-  const theme = useTheme();
-
-  //   const radius = rounded ? '50%' : '33%';
 
   const checkboxColor = color || groupColor;
   const labelColor = textColor || textGroupColor;
-
-  //   const labelColor = useMemo(
-  //     () =>
-  //       isDisabled
-  //         ? theme.palette.accents_4
-  //         : getNormalColor(
-  //             textColor || textGroupColor,
-  //             theme.palette,
-  //             theme.palette.text
-  //           ),
-  //     [textColor, textGroupColor, isDisabled, theme.palette]
-  //   );
-
-  //   const iconCheckStyle = getIconCheckStyle(size, indeterminate);
 
   if (__DEV__ && inGroup && checked) {
     useWarning(
@@ -132,7 +118,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
       setSelfChecked(next);
     }, [values.join(',')]);
   }
-  //   const fontSize = useMemo(() => getCheckboxSize(size), [size]);
 
   const changeHandle = useCallback(
     (ev: React.ChangeEvent) => {
@@ -166,7 +151,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     [KeyCode.Enter, KeyCode.Space],
     {
       disableGlobalEvent: true,
-      preventDefault: true
+      preventDefault
     }
   );
 
@@ -179,16 +164,24 @@ const Checkbox: React.FC<CheckboxProps> = ({
   }, [selfChecked, indeterminate]);
 
   return (
-    <StyledCheckboxLabel size={size} disabled={disabled}>
+    <StyledCheckboxLabel
+      size={size}
+      disabled={isDisabled}
+      animated={animated}
+      className="nextui-checkbox-label"
+    >
       <StyledCheckboxContainer
-        tabIndex={disabled ? -1 : 0}
+        className="nextui-checkbox-container"
+        tabIndex={isDisabled ? -1 : 0}
         color={checkboxColor}
         rounded={rounded}
-        disabled={disabled}
+        disabled={isDisabled}
+        animated={animated}
         {...bindings}
       >
         <StyledCheckboxInput
           type="checkbox"
+          className={clsx('nextui-checkbox-input', className)}
           tabIndex={-1}
           data-state={getState}
           disabled={isDisabled}
@@ -198,64 +191,43 @@ const Checkbox: React.FC<CheckboxProps> = ({
           onChange={changeHandle}
           {...props}
         />
-        <StyledCheckboxMask checked={selfChecked}>
-          <StyledIconCheck size={size} indeterminate={indeterminate}>
-            <StyledIconCheckFirstLine indeterminate={indeterminate} />
-            <StyledIconCheckSecondLine indeterminate={indeterminate} />
+        <StyledCheckboxMask
+          checked={selfChecked}
+          animated={animated}
+          className="nextui-checkbox-mask"
+        >
+          <StyledIconCheck
+            size={size}
+            indeterminate={indeterminate}
+            checked={selfChecked}
+            animated={animated}
+            className="nextui-icon-check"
+          >
+            <StyledIconCheckFirstLine
+              indeterminate={indeterminate}
+              checked={selfChecked}
+              animated={animated}
+              className="nextui-icon-check-line1"
+            />
+            <StyledIconCheckSecondLine
+              indeterminate={indeterminate}
+              checked={selfChecked}
+              animated={animated}
+              className="nextui-icon-check-line2"
+            />
           </StyledIconCheck>
         </StyledCheckboxMask>
       </StyledCheckboxContainer>
-      <StyledCheckboxText color={labelColor} line={line} checked={selfChecked}>
+      <StyledCheckboxText
+        className="nextui-checkbox-text"
+        color={labelColor}
+        line={line}
+        checked={selfChecked}
+        disabled={isDisabled}
+        animated={animated}
+      >
         {children || label}
       </StyledCheckboxText>
-      <style jsx>{`
-        .${preClass}-indeterminate .${preClass}-icon:after {
-          position: relative;
-          content: '';
-          width: 2px;
-          height: 2px;
-          background: ${theme.palette.white};
-          transition: width 0.25s ease 0.1s;
-          display: block;
-        }
-        input:checked ~ .${preClass}-mask i:not(.${preClass}-icon-check) {
-          opacity: 1;
-          transform: scale(1);
-          transition: all 0.25s ease 0.15s;
-        }
-        input:checked ~ .${preClass}-mask .${preClass}-icon-check {
-          opacity: 1;
-        }
-        input:checked
-          ~ .${preClass}-mask
-          .${preClass}-icon
-          .${preClass}-line1:after {
-          width: 100%;
-          transition: all 0.25s ease 0.1s;
-        }
-        input:checked
-          ~ .${preClass}-mask
-          .${preClass}-icon-check
-          span
-          .${preClass}-line2:after {
-          transition: all 0.2s ease 0.3s;
-          height: 100%;
-        }
-        input:checked ~ .${preClass}-mask:after {
-          opacity: 1;
-          transform: scale(1);
-        }
-        input:checked ~ .${preClass}-mask:before {
-          opacity: 0;
-          transform: scale(1.2);
-        }
-        input:checked
-          ~ .${preClass}-mask
-          .${preClass}-indeterminate
-          .${preClass}-icon:after {
-          width: 10px;
-        }
-      `}</style>
     </StyledCheckboxLabel>
   );
 };

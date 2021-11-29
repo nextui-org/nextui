@@ -10,6 +10,9 @@ export const StyledCheckboxLabel = styled('label', {
   transition: '$default',
   zIndex: '$1',
   opacity: 1,
+  '@motion': {
+    transition: 'none'
+  },
   variants: {
     size: {
       xs: {
@@ -33,6 +36,11 @@ export const StyledCheckboxLabel = styled('label', {
         opacity: 0.75,
         cursor: 'not-allowed'
       }
+    },
+    animated: {
+      false: {
+        transition: 'none'
+      }
     }
   },
   defaultVariants: {
@@ -43,8 +51,6 @@ export const StyledCheckboxLabel = styled('label', {
 export const StyledCheckboxContainer = styled(
   'div',
   {
-    // width: var(--nextui-checkbox-size); // size variant
-    // height: var(--nextui-checkbox-size); // size variant
     br: '$squared',
     position: 'relative',
     sizeMin: '$$checkboxSize',
@@ -57,25 +63,32 @@ export const StyledCheckboxContainer = styled(
     variants: {
       color: {
         default: {
-          $$checkboxColor: '$colors$primary'
+          $$checkboxColor: '$colors$primary',
+          $$checkboxColorHover: '$colors$primaryDark'
         },
         primary: {
-          $$checkboxColor: '$colors$primary'
+          $$checkboxColor: '$colors$primary',
+          $$checkboxColorHover: '$colors$primaryDark'
         },
         secondary: {
-          $$checkboxColor: '$colors$secondary'
+          $$checkboxColor: '$colors$secondary',
+          $$checkboxColorHover: '$colors$secondaryDark'
         },
         success: {
-          $$checkboxColor: '$colors$success'
+          $$checkboxColor: '$colors$success',
+          $$checkboxColorHover: '$colors$successDark'
         },
         warning: {
-          $$checkboxColor: '$colors$warning'
+          $$checkboxColor: '$colors$warning',
+          $$checkboxColorHover: '$colors$warningDark'
         },
         error: {
-          $$checkboxColor: '$colors$error'
+          $$checkboxColor: '$colors$error',
+          $$checkboxColorHover: '$colors$errorDark'
         },
         gradient: {
-          $$checkboxColor: '$colors$gradient'
+          $$checkboxColor: '$colors$gradient',
+          $$checkboxColorHover: '$colors$gradient'
         }
       },
       rounded: {
@@ -87,6 +100,11 @@ export const StyledCheckboxContainer = styled(
         true: {
           opacity: 0.4,
           cursor: 'not-allowed'
+        }
+      },
+      animated: {
+        false: {
+          transition: 'none'
         }
       }
     },
@@ -117,14 +135,32 @@ export const StyledIconCheckFirstLine = styled('div', {
     transition: '$default',
     br: '5px 0px 0px 5px'
   },
+  '@motion': {
+    transition: 'none',
+    '&:after': {
+      transition: 'none'
+    }
+  },
   variants: {
     indeterminate: {
       true: {
-        opacity: 0,
-        transform: 'rotate(-45deg)',
-        bottom: '0px',
-        right: -'1px',
         display: 'none'
+      }
+    },
+    checked: {
+      true: {
+        '&:after': {
+          width: '100%',
+          transition: 'all 0.25s ease 0.1s'
+        }
+      }
+    },
+    animated: {
+      false: {
+        transition: 'none',
+        '&:after': {
+          transition: 'none'
+        }
       }
     }
   }
@@ -141,6 +177,12 @@ export const StyledIconCheckSecondLine = styled('div', {
   background: 'transparent',
   transition: '$default',
   width: '2px',
+  '@motion': {
+    transition: 'none',
+    '&:after': {
+      transition: 'none'
+    }
+  },
   '&:after': {
     content: '',
     position: 'absolute',
@@ -155,30 +197,61 @@ export const StyledIconCheckSecondLine = styled('div', {
   variants: {
     indeterminate: {
       true: {
-        right: '0px',
-        bottom: '-0.14rem',
-        transform: 'rotate(45deg)',
-        transition: '$default',
-        height: '11px',
         display: 'none'
+      }
+    },
+    checked: {
+      true: {
+        '&:after': {
+          height: '100%',
+          transition: 'all 0.2s ease 0.3s'
+        }
+      }
+    },
+    animated: {
+      false: {
+        transition: 'none',
+        '&:after': {
+          transition: 'none'
+        }
       }
     }
   }
 });
 
 export const StyledIconCheck = styled('i', {
-  // width: var(--nextui-checkbox-size); // size variant
-  // height: var(--nextui-checkbox-size); // size variant
+  size: '$$checkboxSize',
   dflex: 'center',
-  transition: '$default',
   br: 'inherit',
+  opacity: 0,
+  zIndex: '$2',
+  transition: '$default',
+  '&:after': {
+    content: '',
+    opacity: 0,
+    position: 'relative',
+    width: '10px',
+    height: '2px',
+    br: '1px',
+    background: '$white',
+    display: 'block'
+  },
+  '@motion': {
+    transition: 'none',
+    '&:after': {
+      transition: 'none'
+    }
+  },
   variants: {
     indeterminate: {
       true: {
         transform: 'rotate(0deg)',
         width: 'auto',
         height: 'auto',
-        margin: '0px'
+        margin: '0px',
+        '&:after': {
+          opacity: 1
+        }
       },
       false: {
         width: '8px',
@@ -205,6 +278,19 @@ export const StyledIconCheck = styled('i', {
       },
       xl: {
         transform: 'rotate(45deg)'
+      }
+    },
+    checked: {
+      true: {
+        opacity: 1
+      }
+    },
+    animated: {
+      false: {
+        transition: 'none',
+        '&:after': {
+          transition: 'none'
+        }
       }
     }
   },
@@ -286,23 +372,36 @@ export const StyledCheckboxMask = styled('div', {
     transition: '$default',
     zIndex: '-$1'
   },
-  [`& ${StyledIconCheck}`]: {
-    opacity: 0,
-    zIndex: '$2'
-  },
-  [`i:not(&${StyledIconCheck})`]: {
-    opacity: 0,
-    transition: '$default',
-    color: '$white',
-    fontSize: '$sm',
-    scale: 0.5
+  '@motion': {
+    transition: 'none',
+    '&:before': {
+      transition: 'none'
+    },
+    '&:after': {
+      transition: 'none'
+    }
   },
   variants: {
     checked: {
       true: {
+        '&before': {
+          opacity: 0,
+          scale: 1.2
+        },
         '&:after': {
           opacity: 1,
           scale: 1
+        }
+      }
+    },
+    animated: {
+      false: {
+        transition: 'none',
+        '&:before': {
+          transition: 'none'
+        },
+        '&:after': {
+          transition: 'none'
         }
       }
     }
@@ -313,18 +412,15 @@ export const StyledCheckboxText = styled('span', {
   position: 'relative',
   dflex: 'center',
   color: '$text',
+  opacity: 1,
   pl: 'calc($$checkboxSize * 0.57)',
   ln: '$$checkboxSize',
   fontSize: '$$checkboxSize',
-  // color: ${labelColor}; TODO: label color
   us: 'none',
-  '&:before': {
-    content: '',
-    position: 'absolute',
-    width: '0px',
-    height: '2px',
-    background: '$text',
-    transition: '$default'
+  '@motion': {
+    '&:before': {
+      transition: 'none'
+    }
   },
   variants: {
     color: {
@@ -349,13 +445,32 @@ export const StyledCheckboxText = styled('span', {
     },
     line: {
       true: {
-        opacity: 0.6
+        '&:before': {
+          content: '',
+          position: 'absolute',
+          width: '0px',
+          height: '2px',
+          background: '$text',
+          transition: '$default'
+        }
       }
     },
     checked: {
       true: {
         '&:before': {
           opacity: 0.8
+        }
+      }
+    },
+    disabled: {
+      true: {
+        color: '$accents4'
+      }
+    },
+    animated: {
+      false: {
+        '&:before': {
+          transition: 'none'
         }
       }
     }
@@ -365,6 +480,7 @@ export const StyledCheckboxText = styled('span', {
       line: true,
       checked: true,
       css: {
+        opacity: 0.6,
         '&:before': {
           w: 'calc(100% - 10px)'
         }
@@ -383,9 +499,13 @@ export const StyledCheckboxInput = styled('input', {
   padding: '0px',
   opacity: 0,
   zIndex: '$1',
+  cursor: 'pointer',
   '&:active': {
     [`& ~${StyledCheckboxMask}`]: {
-      bg: '$border'
+      bg: '$border',
+      '&:after': {
+        bg: '$$checkboxColorHover'
+      }
     }
   },
   '&:hover': {
@@ -393,59 +513,63 @@ export const StyledCheckboxInput = styled('input', {
       bg: '$border',
       '&:before': {
         border: '2px solid transparent'
+      },
+      '&:after': {
+        bg: '$$checkboxColorHover'
       }
     }
   },
   '&:disabled': {
     cursor: 'not-allowed'
-  },
-  '&:checked': {
-    // input:checked ~ .${preClass}-mask i:not(.${preClass}-icon-check) {
-    //     opacity: 1;
-    //     transform: scale(1);
-    //     transition: all 0.25s ease 0.15s;
-    //   }
-
-    [`& ~${StyledIconCheck}`]: {
-      opacity: 1
-    }
-    //   input:checked ~ .${preClass}-mask .${preClass}-icon-check {
-    //     opacity: 1;
-    //   }
-    //   input:checked
-    //     ~ .${preClass}-mask
-    //     .${preClass}-icon
-    //     .${preClass}-line1:after {
-    //     width: 100%;
-    //     transition: all 0.25s ease 0.1s;
-    //   }
-    //   input:checked
-    //     ~ .${preClass}-mask
-    //     .${preClass}-icon-check
-    //     span
-    //     .${preClass}-line2:after {
-    //     transition: all 0.2s ease 0.3s;
-    //     height: 100%;
-    //   }
-    //   input:checked ~ .${preClass}-mask:after {
-    //     opacity: 1;
-    //     transform: scale(1);
-    //   }
-    //   input:checked ~ .${preClass}-mask:before {
-    //     opacity: 0;
-    //     transform: scale(1.2);
-    //   }
-    //   input:checked
-    //     ~ .${preClass}-mask
-    //     .${preClass}-indeterminate
-    //     .${preClass}-icon:after {
-    //     width: 10px;
-    //   }
   }
 });
 
-export const StyledCheckboxGroup = styled('div', {});
+export const StyledCheckboxGroup = styled('div', {
+  display: 'flex',
+  flexDirection: 'colunm',
+  variants: {
+    size: {
+      xs: {
+        $$checkboxSize: '$space$7'
+      },
+      sm: {
+        $$checkboxSize: '$space$8'
+      },
+      md: {
+        $$checkboxSize: '$space$9'
+      },
+      lg: {
+        $$checkboxSize: '$space$10'
+      },
+      xl: {
+        $$checkboxSize: '$space$11'
+      }
+    },
+    row: {
+      true: {
+        flexDirection: 'row',
+        mt: 0,
+        [`& ${StyledCheckboxLabel}`]: {
+          mr: '$$checkboxSize'
+        }
+      },
+      false: {
+        mr: 0,
+        flexDirection: 'column',
+        [`& ${StyledCheckboxLabel}`]: {
+          mt: '$$checkboxSize'
+        }
+      }
+    }
+  },
+  defaultVariants: {
+    row: false
+  }
+});
 
 // types
 
 export type CheckboxVariantsProps = VariantProps<typeof StyledCheckboxInput>;
+export type CheckboxGroupVariantsProps = VariantProps<
+  typeof StyledCheckboxGroup
+>;

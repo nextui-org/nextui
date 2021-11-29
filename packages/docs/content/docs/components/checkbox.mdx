@@ -151,6 +151,16 @@ import { Checkbox } from '@nextui-org/react';
 />
 
 <Playground
+  title="No Animated"
+  desc="You can disable the animation of the entire `Checkbox` with the property `animated={false}`."
+  code={`
+ <Checkbox line animated={false} checked={true}>
+    Option
+ </Checkbox>
+`}
+/>
+
+<Playground
   title="Group"
   desc="You can manage a set of `Checkbox` with `Checkbox.Group`."
   code={`
@@ -207,6 +217,7 @@ import { Checkbox } from '@nextui-org/react';
 | **size**           | `NormalSizes` `number`  | [NormalSizes](#normal-sizes)   | Checkbox size                                                          | `medium`  |
 | **checked**        | `boolean`               | `true/false`                   | Determine the value of the checkbox                                    | `false`   |
 | **initialChecked** | `boolean`               | `true/false`                   | Determine the initial value of the checkbox                            | `false`   |
+| **animated**       | `boolean`               | `true/false`                   | Display check/uncheck animation                                        | `true`    |
 | **disabled**       | `boolean`               | `true/false`                   | Disable checkbox                                                       | `false`   |
 | **indeterminate**  | `boolean`               | `true/false`                   | Indeterminate checkbox                                                 | `false`   |
 | **rounded**        | `boolean`               | `true/false`                   | Rounded checkbox                                                       | `false`   |
