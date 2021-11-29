@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { NormalSizes, NormalColors } from '../utils/prop-types';
-import Checkbox, { Props } from './index';
+import Checkbox, { CheckboxProps } from './index';
 
 const argTypes = {
   color: {
@@ -49,7 +49,7 @@ export default {
   argTypes
 } as Meta;
 
-const Template: Story<Props> = (args) => <Checkbox {...args} />;
+const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
