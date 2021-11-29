@@ -42,9 +42,10 @@ export * from './button';
 export { default as Card } from './card';
 export * from './card';
 
-export { default as CssBaseline } from './css-baseline';
-
 export { default as Checkbox } from './checkbox';
+export * from './checkbox';
+
+export { default as CssBaseline } from './css-baseline';
 
 export { default as Text } from './text';
 export * from './text';

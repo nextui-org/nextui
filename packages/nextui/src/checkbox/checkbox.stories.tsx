@@ -54,7 +54,7 @@ const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   label: 'Option',
-  color: 'primary' as NormalColors,
+  color: 'default' as NormalColors,
   textColor: 'default' as NormalColors,
   size: 'md' as NormalSizes
 };
@@ -85,23 +85,23 @@ export const Colors = () => (
 
 export const TextColors = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox color="primary" textColor="primary" checked={true}>
+    <Checkbox color="primary" labelColor="primary" checked={true}>
       Primary
     </Checkbox>
     <br />
-    <Checkbox color="secondary" textColor="secondary" checked={true}>
+    <Checkbox color="secondary" labelColor="secondary" checked={true}>
       Secondary
     </Checkbox>
     <br />
-    <Checkbox color="success" textColor="success" checked={true}>
+    <Checkbox color="success" labelColor="success" checked={true}>
       Success
     </Checkbox>
     <br />
-    <Checkbox color="warning" textColor="warning" checked={true}>
+    <Checkbox color="warning" labelColor="warning" checked={true}>
       Warning
     </Checkbox>
     <br />
-    <Checkbox color="error" textColor="error" checked={true}>
+    <Checkbox color="error" labelColor="error" checked={true}>
       Error
     </Checkbox>
   </div>
@@ -185,41 +185,37 @@ LineThrough.args = {
   size: 'large' as NormalSizes
 };
 
-export const Group: React.VFC<{}> = (args) => (
-  <Checkbox.Group
-    color="warning"
-    value={['buenos-aires']}
-    aria-label="Select cities"
-    {...args}
-  >
-    <Checkbox value="buenos-aires" {...Default.args}>
-      Buenos Aires
-    </Checkbox>
-    <Checkbox value="sydney" {...Default.args}>
-      Sydney
-    </Checkbox>
-    <Checkbox value="london" {...Default.args}>
-      London
-    </Checkbox>
-    <Checkbox value="tokyo" {...Default.args}>
-      Tokyo
-    </Checkbox>
-  </Checkbox.Group>
-);
+export const Group = () => {
+  const handleGroupChange = (value: string[]) => console.log(value);
+  return (
+    <Checkbox.Group
+      color="warning"
+      labelColor="primary"
+      value={['buenos-aires']}
+      aria-label="Select cities"
+      onChange={handleGroupChange}
+    >
+      <Checkbox value="buenos-aires" color="primary">
+        Buenos Aires
+      </Checkbox>
+      <Checkbox value="sydney" labelColor="warning">
+        Sydney
+      </Checkbox>
+      <Checkbox value="london" labelColor="error">
+        London
+      </Checkbox>
+      <Checkbox value="tokyo">Tokyo</Checkbox>
+    </Checkbox.Group>
+  );
+};
 
 export const Row = () => (
-  <Checkbox.Group value={['1']} aria-label="Select cities" row>
-    <Checkbox value="1" {...Default.args}>
+  <Checkbox.Group value={['1']} color="success" aria-label="Select cities" row>
+    <Checkbox value="1" color="primary">
       Buenos Aires
     </Checkbox>
-    <Checkbox value="2" {...Default.args}>
-      Sydney
-    </Checkbox>
-    <Checkbox value="3" {...Default.args}>
-      London
-    </Checkbox>
-    <Checkbox value="4" {...Default.args}>
-      Tokyo
-    </Checkbox>
+    <Checkbox value="2">Sydney</Checkbox>
+    <Checkbox value="3">London</Checkbox>
+    <Checkbox value="4">Tokyo</Checkbox>
   </Checkbox.Group>
 );

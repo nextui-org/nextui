@@ -3,7 +3,7 @@ import { mount, ReactWrapper, render } from 'enzyme';
 import Checkbox from '../index';
 
 const getCheckboxElement = (wrapper: ReactWrapper) => {
-  return wrapper.find('[type="checkbox"]');
+  return wrapper.find('input');
 };
 
 const expectCheckboxIsChecked = (wrapper: ReactWrapper, value: boolean) => {
@@ -75,7 +75,9 @@ describe('Checkbox', () => {
     const wrapper = mount(<Wrapper />);
     const input = getCheckboxElement(wrapper);
     input.simulate('change');
-    expect(wrapper.find('.nextui-checkbox-text').text()).toContain('state2');
+    expect(wrapper.find('.nextui-checkbox-text').at(0).text()).toContain(
+      'state2'
+    );
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -92,7 +94,7 @@ describe('Checkbox', () => {
     const wrapper = mount(<Wrapper />);
     const input = getCheckboxElement(wrapper);
     input.simulate('change');
-    expect(wrapper.find('.nextui-checkbox-text').text()).not.toContain(
+    expect(wrapper.find('.nextui-checkbox-text').at(0).text()).not.toContain(
       'state2'
     );
     expectCheckboxIsChecked(wrapper, false);
@@ -102,25 +104,28 @@ describe('Checkbox', () => {
   });
 
   it('should work correctly with indeterminate value', () => {
-    let wrapper = mount(<Checkbox indeterminate>Buenos Aires</Checkbox>);
-    let icon = wrapper.find('i').getDOMNode();
-    expect((icon as HTMLInputElement).className).toContain('indeterminate');
+    let wrapper = mount(
+      <Checkbox checked indeterminate>
+        Buenos Aires
+      </Checkbox>
+    );
+
+    expect(getCheckboxElement(wrapper).props()['aria-checked']).toBe('mixed');
 
     wrapper = mount(<Checkbox indeterminate={false}>Buenos Aires</Checkbox>);
-    icon = wrapper.find('i').getDOMNode();
-    expect((icon as HTMLInputElement).className).not.toContain('indeterminate');
+    expect(getCheckboxElement(wrapper).props()['aria-checked']).toBe(false);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('should work correctly with line-through value', () => {
     let wrapper = mount(<Checkbox line>Buenos Aires</Checkbox>);
-    let icon = wrapper.find('.nextui-checkbox-text').getDOMNode();
-    expect((icon as HTMLInputElement).className).toContain('line-through');
+    let icon = wrapper.find('.nextui-checkbox-text').at(0).getDOMNode();
+    expect((icon as HTMLInputElement).className).toContain('line-true');
 
     wrapper = mount(<Checkbox line={false}>Buenos Aires</Checkbox>);
-    icon = wrapper.find('.nextui-checkbox-text').getDOMNode();
-    expect((icon as HTMLInputElement).className).not.toContain('line-through');
+    icon = wrapper.find('.nextui-checkbox-text').at(0).getDOMNode();
+    expect((icon as HTMLInputElement).className).not.toContain('line-true');
 
     expect(() => wrapper.unmount()).not.toThrow();
   });

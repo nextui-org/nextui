@@ -91,7 +91,7 @@ describe('Avatar', () => {
   });
 
   it('should render component of a specified size', () => {
-    const avatar = render(<Avatar size={20} />);
+    const avatar = render(<Avatar css={{ size: 20 }} />);
     expect(avatar).toMatchSnapshot();
   });
 });

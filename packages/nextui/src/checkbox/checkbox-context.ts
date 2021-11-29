@@ -1,9 +1,10 @@
 import React from 'react';
-import { NormalColors } from '../utils/prop-types';
+import { NormalColors, NormalSizes, SimpleColors } from '../utils/prop-types';
 
 export interface CheckboxConfig {
   color: NormalColors;
-  textColor: NormalColors;
+  size: NormalSizes;
+  labelColor: SimpleColors;
   updateState?: (value: string, checked: boolean) => void;
   disabledAll: boolean;
   values: string[];
@@ -11,11 +12,12 @@ export interface CheckboxConfig {
 }
 
 const defaultContext = {
-  color: 'primary' as NormalColors,
-  textColor: 'default' as NormalColors,
+  color: 'default' as NormalColors,
+  labelColor: 'default' as SimpleColors,
+  size: 'md' as NormalSizes,
   disabledAll: false,
   inGroup: false,
-  values: [],
+  values: []
 };
 
 export const CheckboxContext =

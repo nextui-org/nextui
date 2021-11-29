@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { CheckboxContext } from './checkbox-context';
 import useWarning from '../use-warning';
-import { NormalSizes, NormalColors } from '../utils/prop-types';
+import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
 import {
   StyledCheckboxGroup,
   CheckboxGroupVariantsProps
@@ -12,17 +12,17 @@ import { __DEV__ } from '../utils/assertion';
 interface Props {
   value: string[];
   color?: NormalColors;
-  textColor?: NormalColors;
+  labelColor?: SimpleColors;
   disabled?: boolean;
   size?: NormalSizes;
   onChange?: (values: string[]) => void;
 }
 
 const defaultProps = {
-  color: 'primary' as NormalColors,
-  textColor: 'default' as NormalColors,
+  color: 'default' as NormalColors,
+  labelColor: 'default' as SimpleColors,
   disabled: false,
-  size: 'md' as NormalSizes | number
+  size: 'md' as NormalSizes
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
@@ -33,7 +33,7 @@ export type CheckboxGroupProps = Props &
 
 const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
   color,
-  textColor,
+  labelColor,
   disabled,
   onChange,
   value,
@@ -60,7 +60,8 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
     return {
       updateState,
       color,
-      textColor,
+      labelColor,
+      size,
       disabledAll: disabled,
       inGroup: true,
       values: selfVal

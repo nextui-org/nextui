@@ -30,10 +30,11 @@ export interface CheckboxEvent {
 }
 
 export interface Props {
+  value?: string;
   color?: NormalColors;
   size?: NormalSizes;
-  textColor?: SimpleColors;
   label?: string;
+  labelColor?: SimpleColors;
   line?: boolean;
   indeterminate?: boolean;
   animated?: boolean;
@@ -44,22 +45,21 @@ export interface Props {
   preventDefault?: boolean;
   onChange?: (e: CheckboxEvent) => void;
   className?: string;
-  value?: string;
-  style?: object;
 }
 
 const defaultProps = {
+  value: '',
   size: 'md' as NormalSizes,
-  color: 'primary' as NormalColors,
-  textColor: 'default' as SimpleColors,
+  color: 'default' as NormalColors,
+  labelColor: 'default' as SimpleColors,
   disabled: false,
   preventDefault: true,
   initialChecked: false,
   indeterminate: false,
   rounded: false,
+  line: false,
   animated: true,
-  className: '',
-  value: ''
+  className: ''
 };
 
 type NativeAttrs = Omit<
@@ -84,7 +84,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   children,
   label,
   color,
-  textColor,
+  labelColor,
   animated,
   value,
   preventDefault,
@@ -93,7 +93,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
   const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
   const {
     color: groupColor,
-    textColor: textGroupColor,
+    labelColor: labelGroupColor,
+    size: groupSize,
     updateState,
     inGroup,
     disabledAll,
@@ -102,8 +103,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
   const isDisabled = inGroup ? disabledAll || disabled : disabled;
 
-  const checkboxColor = color || groupColor;
-  const labelColor = textColor || textGroupColor;
+  const checkboxColor = color !== 'default' ? color : groupColor;
+  const checkboxSize = size !== 'md' ? size : groupSize;
+  const textColor = labelColor !== 'default' ? labelColor : labelGroupColor;
 
   if (__DEV__ && inGroup && checked) {
     useWarning(
@@ -165,7 +167,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <StyledCheckboxLabel
-      size={size}
+      size={checkboxSize}
       disabled={isDisabled}
       animated={animated}
       className="nextui-checkbox-label"
@@ -197,7 +199,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           className="nextui-checkbox-mask"
         >
           <StyledIconCheck
-            size={size}
+            size={checkboxSize}
             indeterminate={indeterminate}
             checked={selfChecked}
             animated={animated}
@@ -220,7 +222,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
       </StyledCheckboxContainer>
       <StyledCheckboxText
         className="nextui-checkbox-text"
-        color={labelColor}
+        color={textColor}
         line={line}
         checked={selfChecked}
         disabled={isDisabled}
