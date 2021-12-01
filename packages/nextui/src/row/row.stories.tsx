@@ -11,8 +11,8 @@ export default {
       <Grid.Container justify="center" direction="column">
         <Story />
       </Grid.Container>
-    ),
-  ],
+    )
+  ]
 } as Meta;
 
 const MockItem = () => {
@@ -23,7 +23,7 @@ const MockItem = () => {
 
 export const Default = () => (
   <>
-    <Row>
+    <Row as="nav">
       <MockItem />
     </Row>
     <Spacer y={1} />

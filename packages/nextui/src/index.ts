@@ -45,6 +45,15 @@ export * from './card';
 export { default as Checkbox } from './checkbox';
 export * from './checkbox';
 
+export { default as Code } from './code';
+export * from './code';
+
+export { default as Col } from './col';
+export * from './col';
+
+export { default as Collapse } from './collapse';
+export * from './collapse';
+
 export { default as CssBaseline } from './css-baseline';
 
 export { default as Text } from './text';
@@ -71,13 +80,7 @@ export { default as Image } from './image';
 export { default as Row } from './row';
 export * from './row';
 
-export { default as Col } from './col';
-export * from './col';
-
 export { default as Divider } from './divider';
-
-export { default as Code } from './code';
-export * from './code';
 
 export { default as Container } from './container';
 
@@ -94,8 +97,6 @@ export { default as Modal } from './modal';
 export { default as useModal } from './modal/use-modal';
 
 export { default as Backdrop } from './backdrop';
-
-export { default as Collapse } from './collapse';
 
 export { default as Progress } from './progress';
 

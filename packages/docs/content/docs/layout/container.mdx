@@ -177,33 +177,30 @@ const App = () => (
 | **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction"             | -       |
 | **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items"                | -       |
 | **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content"              | -       |
-| **as**           | `ElementType`    | [ElementType](#element-type)   | Root node component              | `div`   |
 | ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props             | -       |
 
 <Spacer y={1} />
 
 #### Row Props
 
-| Attribute   | Type             | Accepted values              | Description                          | Default      |
-| ----------- | ---------------- | ---------------------------- | ------------------------------------ | ------------ |
-| **fluid**   | `boolean`        | `true / false`               | `width: 100%` at all breakpoints     | `true`       |
-| **gap**     | `number`         | -                            | Children's spacing                   | 0            |
-| **wrap**    | `Wrap`           | [Wrap](#wrap)                | CSS "flex-wrap" property             | `nowrap`     |
-| **justify** | `Justify`        | [Justify](#justify)          | CSS "justify-content" property       | `flex-start` |
-| **align**   | `AlignItems`     | [AlignItems](#align-items)   | CSS "align-items" property           | `flex-start` |
-| **as**      | `ElementType`    | [ElementType](#element-type) | The component used for the root node | -            |
-| ...         | `HTMLAttributes` | `'id', 'className', ...`     | Native element props                 | -            |
+| Attribute   | Type             | Accepted values            | Description                    | Default      |
+| ----------- | ---------------- | -------------------------- | ------------------------------ | ------------ |
+| **fluid**   | `boolean`        | `true / false`             | `width: 100%`                  | `true`       |
+| **gap**     | `number`         | -                          | Children's spacing             | 0            |
+| **wrap**    | `Wrap`           | [Wrap](#wrap)              | CSS "flex-wrap" property       | `nowrap`     |
+| **justify** | `Justify`        | [Justify](#justify)        | CSS "justify-content" property | `flex-start` |
+| **align**   | `AlignItems`     | [AlignItems](#align-items) | CSS "align-items" property     | `flex-start` |
+| ...         | `HTMLAttributes` | `'id', 'className', ...`   | Native element props           | -            |
 
 <Spacer y={1} />
 
 #### Col Props
 
-| Attribute  | Type             | Accepted values              | Description                          | Default |
-| ---------- | ---------------- | ---------------------------- | ------------------------------------ | ------- |
-| **span**   | `number`         | `0 - 12`                     | Column's width                       | `12`    |
-| **offset** | `number`         | -                            | Move columns to the right            | `0`     |
-| **as**     | `ElementType`    | [ElementType](#element-type) | The component used for the root node | -       |
-| ...        | `HTMLAttributes` | `'id', 'className', ...`     | Native element props                 | -       |
+| Attribute  | Type             | Accepted values          | Description               | Default |
+| ---------- | ---------------- | ------------------------ | ------------------------- | ------- |
+| **span**   | `number`         | `0 - 12`                 | Column's width            | `12`    |
+| **offset** | `number`         | -                        | Move columns to the right | `0`     |
+| ...        | `HTMLAttributes` | `'id', 'className', ...` | Native element props      | -       |
 
 <Spacer y={2} />
 
@@ -264,10 +261,4 @@ type AlignContent =
   | 'flex-end'
   | 'space-between'
   | 'space-around';
-```
-
-#### Element Type
-
-```ts
-keyof JSX.IntrinsicElements;
 ```

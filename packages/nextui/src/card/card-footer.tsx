@@ -4,6 +4,7 @@ import { StyledCardFooter, CardFooterVariantsProps } from './card.styles';
 
 interface Props {
   blur?: boolean;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {

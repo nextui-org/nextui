@@ -1,59 +1,41 @@
 import React, { useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
-import useTheme from '../use-theme';
-import { NormalWeights } from '../utils/prop-types';
-import { DefaultProps } from '../utils/default-props';
 import { CollapseContext, CollapseConfig } from './collapse-context';
 import useCurrentState from '../use-current-state';
-import { getSpacingsStyles } from '../utils/styles';
 import { setChildrenIndex } from '../utils/collections';
-import { getNormalWeight } from '../utils/dimensions';
-import clsx from '../utils/clsx';
+import {
+  StyledCollapseGroup,
+  CollapseGroupVariantsProps
+} from './collapse.styles';
 import Collapse from './collapse';
 
-interface Props extends DefaultProps {
+interface Props {
   accordion?: boolean;
-  className?: string;
   animated?: boolean;
-  bordered?: boolean;
-  splitted?: boolean;
-  shadow?: boolean;
   divider?: boolean;
-  borderWeight?: NormalWeights;
   onChange?: (index?: number | undefined, value?: boolean) => void;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
-  accordion: true,
-  shadow: false,
-  bordered: false,
-  splitted: false,
-  borderWeight: 'light' as NormalWeights,
-  className: ''
+  accordion: true
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type CollapseGroupProps = Props & typeof defaultProps & NativeAttrs;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
 
-const preClass = 'nextui-collapse-group';
+export type CollapseGroupProps = Props &
+  NativeAttrs &
+  CollapseGroupVariantsProps;
 
 const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
   children,
   accordion,
-  shadow,
-  className,
   animated,
-  bordered,
-  splitted,
   divider,
-  borderWeight: borderWeightProp,
   onChange,
   ...props
 }) => {
-  const theme = useTheme();
   const [state, setState, stateRef] = useCurrentState<Array<number>>([]);
-
-  const { stringCss } = getSpacingsStyles(theme, props);
 
   const updateValues = (currentIndex: number, nextState: boolean) => {
     const hasChild = stateRef.current.find((val) => val === currentIndex);
@@ -72,14 +54,6 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
     setState(stateRef.current.filter((item) => item !== currentIndex));
   };
 
-  const bgColor = useMemo(
-    () =>
-      theme.type === 'dark'
-        ? theme.palette.accents_1
-        : theme.palette.background,
-    [theme.type]
-  );
-
   const initialValue = useMemo<CollapseConfig>(
     () => ({
       values: state,
@@ -95,65 +69,9 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
     [children]
   );
 
-  const borderWeight = useMemo(() => {
-    return bordered ? getNormalWeight(theme, borderWeightProp) : '0px';
-  }, [theme, bordered, borderWeightProp]);
-
   return (
     <CollapseContext.Provider value={initialValue}>
-      <div
-        className={clsx(
-          preClass,
-          {
-            [`${preClass}-shadow`]: shadow,
-            [`${preClass}-bordered`]: bordered,
-            [`${preClass}-splitted`]: splitted
-          },
-          className
-        )}
-        {...props}
-      >
-        {hasIndexChildren}
-        <style jsx>{`
-          .${preClass} {
-            width: auto;
-            padding: 0 ${theme.spacing.sm};
-            ${stringCss};
-          }
-          .${preClass} > :global(div + div) {
-            border-top: none;
-          }
-          .${preClass}-shadow,
-            .${preClass}-bordered,
-            .${preClass}-splitted
-            :global(.nextui-collapse) {
-            border-radius: ${theme.radius.lg};
-            ${!stringCss?.includes('padding')
-              ? `padding: 0 ${theme.spacing.lg}`
-              : ''};
-          }
-          .${preClass}-shadow {
-            border: none;
-            background: ${bgColor};
-            box-shadow: ${theme.shadows.md};
-          }
-          .${preClass}.${preClass}-splitted :global(.nextui-collapse) {
-            border: none;
-            background: ${bgColor};
-            box-shadow: ${theme.shadows.md};
-            margin: ${theme.spacing.sm} 0;
-          }
-          .${preClass}-bordered {
-            border: ${borderWeight} solid ${theme.palette.border};
-          }
-          .${preClass} :global(.nextui-collapse:last-child) {
-            border-bottom: none;
-          }
-          .${preClass} :global(.nextui-collapse:first-child) {
-            border-top: none;
-          }
-        `}</style>
-      </div>
+      <StyledCollapseGroup {...props}>{hasIndexChildren}</StyledCollapseGroup>
     </CollapseContext.Provider>
   );
 };

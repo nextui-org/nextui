@@ -1,13 +1,15 @@
 import React from 'react';
-import useTheme from '../use-theme';
+import {
+  StyledCollapseIcon,
+  CollapseIconVariantsProps
+} from './collapse.styles';
 
-const CollapseIcon: React.FC<unknown> = ({ ...props }) => {
-  const theme = useTheme();
+const CollapseIcon: React.FC<CollapseIconVariantsProps> = ({ ...props }) => {
   return (
-    <svg
+    <StyledCollapseIcon
       role="presentation"
       focusable="false"
-      className="collapse-icon"
+      className="nextui-collapse-icon"
       width="20"
       height="20"
       fill="none"
@@ -17,12 +19,11 @@ const CollapseIcon: React.FC<unknown> = ({ ...props }) => {
     >
       <path
         d="M15.5 19l-7-7 7-7"
-        stroke={theme.palette.accents_5}
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </svg>
+    </StyledCollapseIcon>
   );
 };
 

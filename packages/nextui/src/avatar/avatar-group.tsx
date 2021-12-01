@@ -6,6 +6,7 @@ import StyledAvatarGroup, {
 
 interface Props {
   count?: number;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;

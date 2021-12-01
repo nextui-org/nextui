@@ -130,7 +130,7 @@ const globalStyles = globalCss({
   code: {
     color: '$code',
     padding: '$1 $2',
-    borderRadius: '$sm',
+    borderRadius: '$xs',
     backgroundColor: addColorAlpha(theme.colors.code.value, 0.2),
     fontFamily: '$mono',
     fontSize: '$xs',

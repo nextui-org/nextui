@@ -15,7 +15,7 @@ describe('Code', () => {
 
   it('should repspond to changed by width', () => {
     const wrapper = render(
-      <Code block width="50%">
+      <Code block css={{ w: '50%' }}>
         code
       </Code>
     );

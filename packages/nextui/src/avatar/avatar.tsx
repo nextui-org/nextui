@@ -9,6 +9,7 @@ interface Props {
   icon?: React.ReactNode;
   alt?: string;
   className?: string;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 type NativeAttrs = Omit<

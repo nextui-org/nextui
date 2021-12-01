@@ -45,6 +45,7 @@ export interface Props {
   preventDefault?: boolean;
   onChange?: (e: CheckboxEvent) => void;
   className?: string;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {

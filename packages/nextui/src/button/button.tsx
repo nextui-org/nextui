@@ -32,6 +32,7 @@ export interface Props {
   icon?: React.ReactNode;
   iconRight?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {

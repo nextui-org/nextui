@@ -6,6 +6,7 @@ import { __DEV__ } from '../utils/assertion';
 
 export interface Props {
   icon?: boolean;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {

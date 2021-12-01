@@ -1,54 +1,45 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
-import useTheme from '../use-theme';
-import { DefaultProps } from '../utils/default-props';
-import { getSpacingsStyles } from '../utils/styles';
+import StyledCol, { ColVariantsProps } from './col.styles';
+import { CSS } from '../theme/stitches.config';
 
-interface Props extends DefaultProps {
+interface Props {
   span?: number;
   offset?: number;
+  css?: CSS;
   as?: keyof JSX.IntrinsicElements;
-  className?: string;
 }
 
 const defaultProps = {
   span: 12,
-  offset: 0,
-  as: 'div' as keyof JSX.IntrinsicElements,
-  className: ''
+  offset: 0
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ColProps = Props & typeof defaultProps & NativeAttrs;
+
+export type ColProps = Props &
+  typeof defaultProps &
+  ColVariantsProps &
+  NativeAttrs;
 
 const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
-  as,
   children,
   span,
   offset,
-  className,
+  css,
   ...props
 }) => {
-  const Component = as;
-
-  const theme = useTheme();
-  const { stringCss } = getSpacingsStyles(theme, props);
-
   return (
-    <Component className={`nextui-col ${className}`} {...props}>
+    <StyledCol
+      css={{
+        ...(css as any),
+        width: `${(100 / 12) * span}%`,
+        marginLeft: `${(100 / 12) * offset}%`
+      }}
+      {...props}
+    >
       {children}
-      <style jsx>{`
-        .nextui-col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--nextui-row-gap) / 2);
-          padding-right: calc(var(--nextui-row-gap) / 2);
-          width: ${(100 / 12) * span}%;
-          margin-left: ${(100 / 12) * offset}%;
-          ${stringCss};
-        }
-      `}</style>
-    </Component>
+    </StyledCol>
   );
 };
 

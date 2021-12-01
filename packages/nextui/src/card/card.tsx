@@ -21,6 +21,7 @@ interface Props {
   cover?: boolean;
   ripple?: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
