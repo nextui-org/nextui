@@ -81,6 +81,7 @@
     "@storybook/react": "^6.3.10",
     "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^13.2.0",
     "@types/enzyme": "^3.10.8",

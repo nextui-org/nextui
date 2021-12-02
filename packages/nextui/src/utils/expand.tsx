@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { styled, CSS } from '../theme/stitches.config';
 import withDefaults from '../utils/with-defaults';
 import useRealShape from '../use-real-shape';
-import clsx from './clsx';
 
 interface Props {
   isExpanded?: boolean;
   animated?: boolean;
   delay?: number;
+  css?: CSS;
 }
 
 const defaultProps = {
@@ -15,12 +16,28 @@ const defaultProps = {
   delay: 200
 };
 
+const StyledExpand = styled('div', {
+  p: 0,
+  m: 0,
+  h: 0,
+  opacity: 0,
+  overflow: 'hidden',
+  variants: {
+    expanded: {
+      true: {
+        opacity: 1
+      }
+    }
+  }
+});
+
 export type ExpandProps = Props & typeof defaultProps;
 
 const Expand: React.FC<React.PropsWithChildren<ExpandProps>> = ({
   isExpanded,
   delay,
   animated,
+  css,
   children
 }) => {
   const [height, setHeight] = useState<string>(isExpanded ? 'auto' : '0');
@@ -68,28 +85,21 @@ const Expand: React.FC<React.PropsWithChildren<ExpandProps>> = ({
   }, [isExpanded]);
 
   return (
-    <div className={clsx('container', { expanded: selfExpanded, animated })}>
-      <div ref={contentRef} className="content">
+    <StyledExpand
+      expanded={selfExpanded}
+      css={{
+        ...(css as any),
+        height: selfExpanded ? height : '0',
+        transition: animated
+          ? `height ${delay}ms ease 0ms,
+    opacity ${delay * 1.5}ms ease 0ms;`
+          : 'none'
+      }}
+    >
+      <div ref={contentRef} className="nextui-expand-content">
         {children}
       </div>
-      <style jsx>{`
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height ${delay}ms ease 0ms,
-            opacity ${delay * 1.5}ms ease 0ms;
-        }
-        .expanded {
-          height: ${height};
-          opacity: 1;
-        }
-      `}</style>
-    </div>
+    </StyledExpand>
   );
 };
 

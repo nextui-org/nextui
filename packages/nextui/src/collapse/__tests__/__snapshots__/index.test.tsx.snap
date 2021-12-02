@@ -16,12 +16,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-drruu3oq",
+              "aria-controls": "nextui-collapse-l1u9gcr3",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-drruu3oq",
+              "id": "nextui-collapse-button-l1u9gcr3",
               "role": "button",
               "tabindex": "-1",
             },
@@ -438,19 +438,19 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-drruu3oq",
+                        "aria-labelledby": "nextui-collapse-button-l1u9gcr3",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-drruu3oq",
+                        "id": "nextui-collapse-l1u9gcr3",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -487,42 +487,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -532,98 +497,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-drruu3oq",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-drruu3oq",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "div",
@@ -665,19 +538,19 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "container animated",
+              "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "content",
+                  "class": "nextui-expand-content",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-drruu3oq",
+                      "aria-labelledby": "nextui-collapse-button-l1u9gcr3",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-drruu3oq",
+                      "id": "nextui-collapse-l1u9gcr3",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -714,42 +587,7 @@ LoadedCheerio {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -760,98 +598,6 @@ LoadedCheerio {
                   "class": undefined,
                 },
               },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "content",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-drruu3oq",
-                        "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-drruu3oq",
-                        "role": "region",
-                        "tabindex": "-1",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "content",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
@@ -859,12 +605,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-drruu3oq",
+                "aria-controls": "nextui-collapse-l1u9gcr3",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-drruu3oq",
+                "id": "nextui-collapse-button-l1u9gcr3",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -1324,12 +1070,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-3908o4j2",
+                "aria-controls": "nextui-collapse-cgu69ct5",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-3908o4j2",
+                "id": "nextui-collapse-button-cgu69ct5",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -1798,19 +1544,19 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "container animated",
+                  "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "content",
+                      "class": "nextui-expand-content",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-3908o4j2",
+                          "aria-labelledby": "nextui-collapse-button-cgu69ct5",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-3908o4j2",
+                          "id": "nextui-collapse-cgu69ct5",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -1847,42 +1593,7 @@ LoadedCheerio {
                     ],
                     "name": "div",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": null,
                     "type": "tag",
@@ -1892,98 +1603,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "class": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "content",
-                      },
-                      "children": Array [
-                        Node {
-                          "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-3908o4j2",
-                            "class": "nextui-c-fMAxGR nextui-collapse-content",
-                            "id": "nextui-collapse-3908o4j2",
-                            "role": "region",
-                            "tabindex": "-1",
-                          },
-                          "children": Array [
-                            Node {
-                              "data": "content",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "div",
@@ -2025,19 +1644,19 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-3908o4j2",
+                        "aria-labelledby": "nextui-collapse-button-cgu69ct5",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-3908o4j2",
+                        "id": "nextui-collapse-cgu69ct5",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -2074,42 +1693,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -2120,98 +1704,6 @@ LoadedCheerio {
                     "class": undefined,
                   },
                 },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-3908o4j2",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-3908o4j2",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
@@ -2219,12 +1711,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-3908o4j2",
+                  "aria-controls": "nextui-collapse-cgu69ct5",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-3908o4j2",
+                  "id": "nextui-collapse-button-cgu69ct5",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -2765,12 +2257,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-3908o4j2",
+              "aria-controls": "nextui-collapse-cgu69ct5",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-3908o4j2",
+              "id": "nextui-collapse-button-cgu69ct5",
               "role": "button",
               "tabindex": "-1",
             },
@@ -3239,19 +2731,19 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-3908o4j2",
+                        "aria-labelledby": "nextui-collapse-button-cgu69ct5",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-3908o4j2",
+                        "id": "nextui-collapse-cgu69ct5",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -3288,42 +2780,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -3333,98 +2790,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-3908o4j2",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-3908o4j2",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "div",
@@ -3466,19 +2831,19 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "container animated",
+              "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "content",
+                  "class": "nextui-expand-content",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-3908o4j2",
+                      "aria-labelledby": "nextui-collapse-button-cgu69ct5",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-3908o4j2",
+                      "id": "nextui-collapse-cgu69ct5",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -3515,42 +2880,7 @@ LoadedCheerio {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -3561,98 +2891,6 @@ LoadedCheerio {
                   "class": undefined,
                 },
               },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "content",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-3908o4j2",
-                        "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-3908o4j2",
-                        "role": "region",
-                        "tabindex": "-1",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "content",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
@@ -3660,12 +2898,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-3908o4j2",
+                "aria-controls": "nextui-collapse-cgu69ct5",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-3908o4j2",
+                "id": "nextui-collapse-button-cgu69ct5",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -4179,12 +3417,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-drruu3oq",
+                "aria-controls": "nextui-collapse-l1u9gcr3",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-drruu3oq",
+                "id": "nextui-collapse-button-l1u9gcr3",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -4601,19 +3839,19 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "container animated",
+                  "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "content",
+                      "class": "nextui-expand-content",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-drruu3oq",
+                          "aria-labelledby": "nextui-collapse-button-l1u9gcr3",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-drruu3oq",
+                          "id": "nextui-collapse-l1u9gcr3",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -4650,42 +3888,7 @@ LoadedCheerio {
                     ],
                     "name": "div",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": null,
                     "type": "tag",
@@ -4695,98 +3898,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "class": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "content",
-                      },
-                      "children": Array [
-                        Node {
-                          "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-drruu3oq",
-                            "class": "nextui-c-fMAxGR nextui-collapse-content",
-                            "id": "nextui-collapse-drruu3oq",
-                            "role": "region",
-                            "tabindex": "-1",
-                          },
-                          "children": Array [
-                            Node {
-                              "data": "content",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "div",
@@ -4828,19 +3939,19 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-drruu3oq",
+                        "aria-labelledby": "nextui-collapse-button-l1u9gcr3",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-drruu3oq",
+                        "id": "nextui-collapse-l1u9gcr3",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -4877,42 +3988,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -4923,98 +3999,6 @@ LoadedCheerio {
                     "class": undefined,
                   },
                 },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-drruu3oq",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-drruu3oq",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
@@ -5022,12 +4006,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-drruu3oq",
+                  "aria-controls": "nextui-collapse-l1u9gcr3",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-drruu3oq",
+                  "id": "nextui-collapse-button-l1u9gcr3",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -5623,12 +4607,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-ljl8f29s",
+              "aria-controls": "nextui-collapse-4v837hn1",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-ljl8f29s",
+              "id": "nextui-collapse-button-4v837hn1",
               "role": "button",
               "tabindex": "-1",
             },
@@ -6045,19 +5029,19 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ljl8f29s",
+                        "aria-labelledby": "nextui-collapse-button-4v837hn1",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-ljl8f29s",
+                        "id": "nextui-collapse-4v837hn1",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -6094,42 +5078,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -6139,98 +5088,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ljl8f29s",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-ljl8f29s",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "div",
@@ -6272,19 +5129,19 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "container animated",
+              "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "content",
+                  "class": "nextui-expand-content",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-ljl8f29s",
+                      "aria-labelledby": "nextui-collapse-button-4v837hn1",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-ljl8f29s",
+                      "id": "nextui-collapse-4v837hn1",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -6321,42 +5178,7 @@ LoadedCheerio {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -6367,98 +5189,6 @@ LoadedCheerio {
                   "class": undefined,
                 },
               },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "content",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ljl8f29s",
-                        "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-ljl8f29s",
-                        "role": "region",
-                        "tabindex": "-1",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "content",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
@@ -6466,12 +5196,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-ljl8f29s",
+                "aria-controls": "nextui-collapse-4v837hn1",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-ljl8f29s",
+                "id": "nextui-collapse-button-4v837hn1",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -6931,12 +5661,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-ijudmf8h",
+                "aria-controls": "nextui-collapse-4hfksism",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-ijudmf8h",
+                "id": "nextui-collapse-button-4hfksism",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -7353,19 +6083,19 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "container animated",
+                  "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "content",
+                      "class": "nextui-expand-content",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ijudmf8h",
+                          "aria-labelledby": "nextui-collapse-button-4hfksism",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-ijudmf8h",
+                          "id": "nextui-collapse-4hfksism",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -7402,42 +6132,7 @@ LoadedCheerio {
                     ],
                     "name": "div",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": null,
                     "type": "tag",
@@ -7447,98 +6142,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "class": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "content",
-                      },
-                      "children": Array [
-                        Node {
-                          "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-ijudmf8h",
-                            "class": "nextui-c-fMAxGR nextui-collapse-content",
-                            "id": "nextui-collapse-ijudmf8h",
-                            "role": "region",
-                            "tabindex": "-1",
-                          },
-                          "children": Array [
-                            Node {
-                              "data": "content",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "div",
@@ -7580,19 +6183,19 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ijudmf8h",
+                        "aria-labelledby": "nextui-collapse-button-4hfksism",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-ijudmf8h",
+                        "id": "nextui-collapse-4hfksism",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -7629,42 +6232,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -7675,98 +6243,6 @@ LoadedCheerio {
                     "class": undefined,
                   },
                 },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ijudmf8h",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-ijudmf8h",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
@@ -7774,12 +6250,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-ijudmf8h",
+                  "aria-controls": "nextui-collapse-4hfksism",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-ijudmf8h",
+                  "id": "nextui-collapse-button-4hfksism",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -8268,12 +6744,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-ijudmf8h",
+              "aria-controls": "nextui-collapse-4hfksism",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-ijudmf8h",
+              "id": "nextui-collapse-button-4hfksism",
               "role": "button",
               "tabindex": "-1",
             },
@@ -8690,19 +7166,19 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ijudmf8h",
+                        "aria-labelledby": "nextui-collapse-button-4hfksism",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-ijudmf8h",
+                        "id": "nextui-collapse-4hfksism",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -8739,42 +7215,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -8784,98 +7225,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ijudmf8h",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-ijudmf8h",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "div",
@@ -8917,19 +7266,19 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "container animated",
+              "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "content",
+                  "class": "nextui-expand-content",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-ijudmf8h",
+                      "aria-labelledby": "nextui-collapse-button-4hfksism",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-ijudmf8h",
+                      "id": "nextui-collapse-4hfksism",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -8966,42 +7315,7 @@ LoadedCheerio {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -9012,98 +7326,6 @@ LoadedCheerio {
                   "class": undefined,
                 },
               },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "content",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ijudmf8h",
-                        "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-ijudmf8h",
-                        "role": "region",
-                        "tabindex": "-1",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "content",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
@@ -9111,12 +7333,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-ijudmf8h",
+                "aria-controls": "nextui-collapse-4hfksism",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-ijudmf8h",
+                "id": "nextui-collapse-button-4hfksism",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -9578,12 +7800,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-ljl8f29s",
+                "aria-controls": "nextui-collapse-4v837hn1",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-ljl8f29s",
+                "id": "nextui-collapse-button-4v837hn1",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -10000,19 +8222,19 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "container animated",
+                  "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "content",
+                      "class": "nextui-expand-content",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ljl8f29s",
+                          "aria-labelledby": "nextui-collapse-button-4v837hn1",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-ljl8f29s",
+                          "id": "nextui-collapse-4v837hn1",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -10049,42 +8271,7 @@ LoadedCheerio {
                     ],
                     "name": "div",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": null,
                     "type": "tag",
@@ -10094,98 +8281,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "class": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "content",
-                      },
-                      "children": Array [
-                        Node {
-                          "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-ljl8f29s",
-                            "class": "nextui-c-fMAxGR nextui-collapse-content",
-                            "id": "nextui-collapse-ljl8f29s",
-                            "role": "region",
-                            "tabindex": "-1",
-                          },
-                          "children": Array [
-                            Node {
-                              "data": "content",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "div",
@@ -10227,19 +8322,19 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-ljl8f29s",
+                        "aria-labelledby": "nextui-collapse-button-4v837hn1",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-ljl8f29s",
+                        "id": "nextui-collapse-4v837hn1",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -10276,42 +8371,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -10322,98 +8382,6 @@ LoadedCheerio {
                     "class": undefined,
                   },
                 },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-ljl8f29s",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-ljl8f29s",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
@@ -10421,12 +8389,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-ljl8f29s",
+                  "aria-controls": "nextui-collapse-4v837hn1",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-ljl8f29s",
+                  "id": "nextui-collapse-button-4v837hn1",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -11022,12 +8990,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-18m35v9m",
+              "aria-controls": "nextui-collapse-j1lh9a2n",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-18m35v9m",
+              "id": "nextui-collapse-button-j1lh9a2n",
               "role": "button",
               "tabindex": "-1",
             },
@@ -11444,19 +9412,19 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-18m35v9m",
+                        "aria-labelledby": "nextui-collapse-button-j1lh9a2n",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-18m35v9m",
+                        "id": "nextui-collapse-j1lh9a2n",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -11493,42 +9461,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -11538,98 +9471,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-18m35v9m",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-18m35v9m",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "div",
@@ -11671,19 +9512,19 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "container animated",
+              "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "content",
+                  "class": "nextui-expand-content",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-18m35v9m",
+                      "aria-labelledby": "nextui-collapse-button-j1lh9a2n",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-18m35v9m",
+                      "id": "nextui-collapse-j1lh9a2n",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -11720,42 +9561,7 @@ LoadedCheerio {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -11766,98 +9572,6 @@ LoadedCheerio {
                   "class": undefined,
                 },
               },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "content",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-18m35v9m",
-                        "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-18m35v9m",
-                        "role": "region",
-                        "tabindex": "-1",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "content",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
@@ -11865,12 +9579,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-18m35v9m",
+                "aria-controls": "nextui-collapse-j1lh9a2n",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-18m35v9m",
+                "id": "nextui-collapse-button-j1lh9a2n",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -12330,12 +10044,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-sr1pjrau",
+                "aria-controls": "nextui-collapse-o0vfcu6j",
                 "aria-disabled": "false",
                 "aria-expanded": "true",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "open",
-                "id": "nextui-collapse-button-sr1pjrau",
+                "id": "nextui-collapse-button-o0vfcu6j",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -12612,19 +10326,19 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "container expanded animated",
+                  "class": "nextui-c-dJMBOt nextui-c-dJMBOt-bDGmTT-expanded-true nextui-c-dJMBOt-iewBbnE-css",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "content",
+                      "class": "nextui-expand-content",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-sr1pjrau",
+                          "aria-labelledby": "nextui-collapse-button-o0vfcu6j",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-sr1pjrau",
+                          "id": "nextui-collapse-o0vfcu6j",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -12661,42 +10375,7 @@ LoadedCheerio {
                     ],
                     "name": "div",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: auto;
-          opacity: 1;
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": null,
                     "type": "tag",
@@ -12706,98 +10385,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "class": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: auto;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "content",
-                      },
-                      "children": Array [
-                        Node {
-                          "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-sr1pjrau",
-                            "class": "nextui-c-fMAxGR nextui-collapse-content",
-                            "id": "nextui-collapse-sr1pjrau",
-                            "role": "region",
-                            "tabindex": "-1",
-                          },
-                          "children": Array [
-                            Node {
-                              "data": "content",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "div",
@@ -12839,19 +10426,19 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "container expanded animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-bDGmTT-expanded-true nextui-c-dJMBOt-iewBbnE-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-sr1pjrau",
+                        "aria-labelledby": "nextui-collapse-button-o0vfcu6j",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-sr1pjrau",
+                        "id": "nextui-collapse-o0vfcu6j",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -12888,42 +10475,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: auto;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -12934,98 +10486,6 @@ LoadedCheerio {
                     "class": undefined,
                   },
                 },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: auto;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-sr1pjrau",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-sr1pjrau",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
@@ -13033,12 +10493,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-sr1pjrau",
+                  "aria-controls": "nextui-collapse-o0vfcu6j",
                   "aria-disabled": "false",
                   "aria-expanded": "true",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "open",
-                  "id": "nextui-collapse-button-sr1pjrau",
+                  "id": "nextui-collapse-button-o0vfcu6j",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -13387,12 +10847,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-sr1pjrau",
+              "aria-controls": "nextui-collapse-o0vfcu6j",
               "aria-disabled": "false",
               "aria-expanded": "true",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "open",
-              "id": "nextui-collapse-button-sr1pjrau",
+              "id": "nextui-collapse-button-o0vfcu6j",
               "role": "button",
               "tabindex": "-1",
             },
@@ -13669,19 +11129,19 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "container expanded animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-bDGmTT-expanded-true nextui-c-dJMBOt-iewBbnE-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-sr1pjrau",
+                        "aria-labelledby": "nextui-collapse-button-o0vfcu6j",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-sr1pjrau",
+                        "id": "nextui-collapse-o0vfcu6j",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -13718,42 +11178,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: auto;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -13763,98 +11188,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: auto;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-sr1pjrau",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-sr1pjrau",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "div",
@@ -13896,19 +11229,19 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "container expanded animated",
+              "class": "nextui-c-dJMBOt nextui-c-dJMBOt-bDGmTT-expanded-true nextui-c-dJMBOt-iewBbnE-css",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "content",
+                  "class": "nextui-expand-content",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-sr1pjrau",
+                      "aria-labelledby": "nextui-collapse-button-o0vfcu6j",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-sr1pjrau",
+                      "id": "nextui-collapse-o0vfcu6j",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -13945,42 +11278,7 @@ LoadedCheerio {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: auto;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -13991,98 +11289,6 @@ LoadedCheerio {
                   "class": undefined,
                 },
               },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: auto;
-          opacity: 1;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "content",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-sr1pjrau",
-                        "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-sr1pjrau",
-                        "role": "region",
-                        "tabindex": "-1",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "content",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
@@ -14090,12 +11296,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-sr1pjrau",
+                "aria-controls": "nextui-collapse-o0vfcu6j",
                 "aria-disabled": "false",
                 "aria-expanded": "true",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "open",
-                "id": "nextui-collapse-button-sr1pjrau",
+                "id": "nextui-collapse-button-o0vfcu6j",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -14417,12 +11623,12 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-18m35v9m",
+                "aria-controls": "nextui-collapse-j1lh9a2n",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-18m35v9m",
+                "id": "nextui-collapse-button-j1lh9a2n",
                 "role": "button",
                 "tabindex": "-1",
               },
@@ -14839,19 +12045,19 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "container animated",
+                  "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "content",
+                      "class": "nextui-expand-content",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-18m35v9m",
+                          "aria-labelledby": "nextui-collapse-button-j1lh9a2n",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-18m35v9m",
+                          "id": "nextui-collapse-j1lh9a2n",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -14888,42 +12094,7 @@ LoadedCheerio {
                     ],
                     "name": "div",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": null,
                     "type": "tag",
@@ -14933,98 +12104,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "class": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "content",
-                      },
-                      "children": Array [
-                        Node {
-                          "attribs": Object {
-                            "aria-labelledby": "nextui-collapse-button-18m35v9m",
-                            "class": "nextui-c-fMAxGR nextui-collapse-content",
-                            "id": "nextui-collapse-18m35v9m",
-                            "role": "region",
-                            "tabindex": "-1",
-                          },
-                          "children": Array [
-                            Node {
-                              "data": "content",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "div",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "aria-labelledby": undefined,
-                            "class": undefined,
-                            "id": undefined,
-                            "role": undefined,
-                            "tabindex": undefined,
-                          },
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "div",
@@ -15066,19 +12145,19 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-18m35v9m",
+                        "aria-labelledby": "nextui-collapse-button-j1lh9a2n",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-18m35v9m",
+                        "id": "nextui-collapse-j1lh9a2n",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -15115,42 +12194,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -15161,98 +12205,6 @@ LoadedCheerio {
                     "class": undefined,
                   },
                 },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-18m35v9m",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-18m35v9m",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
@@ -15260,12 +12212,12 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-18m35v9m",
+                  "aria-controls": "nextui-collapse-j1lh9a2n",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-18m35v9m",
+                  "id": "nextui-collapse-button-j1lh9a2n",
                   "role": "button",
                   "tabindex": "-1",
                 },
@@ -15861,12 +12813,12 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-fm31t2p0",
+              "aria-controls": "nextui-collapse-im976b1q",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-fm31t2p0",
+              "id": "nextui-collapse-button-im976b1q",
               "role": "button",
               "tabindex": "-1",
             },
@@ -16143,19 +13095,19 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "container animated",
+                "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "content",
+                    "class": "nextui-expand-content",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-fm31t2p0",
+                        "aria-labelledby": "nextui-collapse-button-im976b1q",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-fm31t2p0",
+                        "id": "nextui-collapse-im976b1q",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -16192,42 +13144,7 @@ LoadedCheerio {
                   ],
                   "name": "div",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -16237,98 +13154,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "content",
-                    },
-                    "children": Array [
-                      Node {
-                        "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-fm31t2p0",
-                          "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-fm31t2p0",
-                          "role": "region",
-                          "tabindex": "-1",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "content",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "div",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "aria-labelledby": undefined,
-                          "class": undefined,
-                          "id": undefined,
-                          "role": undefined,
-                          "tabindex": undefined,
-                        },
-                      },
-                    ],
-                    "name": "div",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "div",
@@ -16370,19 +13195,19 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "container animated",
+              "class": "nextui-c-dJMBOt nextui-c-dJMBOt-ielLSBX-css",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "content",
+                  "class": "nextui-expand-content",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-fm31t2p0",
+                      "aria-labelledby": "nextui-collapse-button-im976b1q",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-fm31t2p0",
+                      "id": "nextui-collapse-im976b1q",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -16419,42 +13244,7 @@ LoadedCheerio {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -16465,98 +13255,6 @@ LoadedCheerio {
                   "class": undefined,
                 },
               },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .container {
-          padding: 0;
-          margin: 0;
-          height: 0;
-          opacity: 0;
-          overflow: hidden;
-        }
-        .animated {
-          transition: height 200ms ease 0ms,
-            opacity 300ms ease 0ms;
-        }
-        .expanded {
-          height: 0;
-          opacity: 1;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "content",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-fm31t2p0",
-                        "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-fm31t2p0",
-                        "role": "region",
-                        "tabindex": "-1",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "content",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "div",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "aria-labelledby": undefined,
-                        "class": undefined,
-                        "id": undefined,
-                        "role": undefined,
-                        "tabindex": undefined,
-                      },
-                    },
-                  ],
-                  "name": "div",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
@@ -16564,12 +13262,12 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-fm31t2p0",
+                "aria-controls": "nextui-collapse-im976b1q",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-fm31t2p0",
+                "id": "nextui-collapse-button-im976b1q",
                 "role": "button",
                 "tabindex": "-1",
               },

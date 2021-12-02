@@ -79,7 +79,7 @@ describe('Collapse', () => {
     const wrapper = mount(<Collapse title="title">content</Collapse>);
     wrapper.find('.nextui-collapse-view').at(0).simulate('click');
     await updateWrapper(wrapper, 300);
-    expect(wrapper.find('.expanded').length).not.toBe(0);
+    expect(wrapper.find('.nextui-expand-content').length).not.toBe(0);
   });
 
   it('should work without animation', async () => {
@@ -90,7 +90,7 @@ describe('Collapse', () => {
     );
     wrapper.find('.nextui-collapse-view').at(0).simulate('click');
     await updateWrapper(wrapper, 300);
-    expect(wrapper.find('.expanded').length).not.toBe(0);
+    expect(wrapper.find('.nextui-expand-content').length).not.toBe(0);
   });
 
   it('should be work with content', () => {
