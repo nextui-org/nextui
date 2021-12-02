@@ -21,7 +21,11 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
   return (
     <StyledAvatarGroup {...props}>
       {children}
-      {count && <StyledAvatarGroupCount>+{count}</StyledAvatarGroupCount>}
+      {count && (
+        <StyledAvatarGroupCount className="nextui-avatar-group-count">
+          +{count}
+        </StyledAvatarGroupCount>
+      )}
     </StyledAvatarGroup>
   );
 };

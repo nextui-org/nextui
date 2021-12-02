@@ -40,7 +40,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -54,12 +54,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -107,7 +107,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -121,12 +121,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -213,7 +213,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -227,12 +227,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -280,7 +280,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -294,12 +294,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -386,7 +386,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -400,12 +400,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -453,7 +453,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -467,12 +467,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -559,7 +559,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(2 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -573,12 +573,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -626,7 +626,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(2 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -640,12 +640,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -781,7 +781,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -795,12 +795,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -848,7 +848,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -862,12 +862,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -954,7 +954,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -968,12 +968,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1021,7 +1021,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1035,12 +1035,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1127,7 +1127,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(2 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1141,12 +1141,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1194,7 +1194,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(2 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1208,12 +1208,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1326,7 +1326,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1340,12 +1340,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1393,7 +1393,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1407,12 +1407,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1522,7 +1522,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1536,12 +1536,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1589,7 +1589,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1603,12 +1603,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1695,7 +1695,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(2 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1709,12 +1709,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1762,7 +1762,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(2 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1776,12 +1776,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1882,7 +1882,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1896,12 +1896,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -1949,7 +1949,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -1963,12 +1963,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2057,7 +2057,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2071,12 +2071,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2124,7 +2124,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2138,12 +2138,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2263,7 +2263,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(2 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2277,12 +2277,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2330,7 +2330,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(2 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2344,12 +2344,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2438,7 +2438,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2452,12 +2452,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2505,7 +2505,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2519,12 +2519,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2613,7 +2613,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2627,12 +2627,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2680,7 +2680,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2694,12 +2694,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2788,7 +2788,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2802,12 +2802,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -2855,7 +2855,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -2869,12 +2869,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -3112,11 +3112,11 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
+          background-color: var(--nextui-color-background);
           color: secondary;
           z-index: 10;
         }
@@ -3178,11 +3178,11 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
+          background-color: var(--nextui-color-background);
           color: warning;
           z-index: 10;
         }
@@ -3230,7 +3230,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #000;
+          background: var(--nextui-color-foreground);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -3244,11 +3244,11 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
+          background-color: var(--nextui-color-background);
           color: dark;
           z-index: 10;
         }
@@ -3347,11 +3347,11 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
+          background-color: var(--nextui-color-background);
           color: warning;
           z-index: 10;
         }
@@ -3399,7 +3399,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #000;
+          background: var(--nextui-color-foreground);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -3413,11 +3413,11 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
+          background-color: var(--nextui-color-background);
           color: dark;
           z-index: 10;
         }
@@ -3493,11 +3493,11 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
+          background-color: var(--nextui-color-background);
           color: secondary;
           z-index: 10;
         }
@@ -3568,7 +3568,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #000;
+          background: var(--nextui-color-foreground);
           margin: calc(15.25pt + 1px * 0) 0;
           position: relative;
           ;
@@ -3582,11 +3582,11 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
+          background-color: var(--nextui-color-background);
           color: dark;
           z-index: 10;
         }
@@ -3650,11 +3650,11 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
+          background-color: var(--nextui-color-background);
           color: warning;
           z-index: 10;
         }
@@ -3718,11 +3718,11 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
+          background-color: var(--nextui-color-background);
           color: secondary;
           z-index: 10;
         }
@@ -3912,7 +3912,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) calc(22.875pt + 1px * 0.5);
           position: relative;
           ;
@@ -3926,12 +3926,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -3978,7 +3978,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(22.875pt + 1px * 0.5) 0;
           position: relative;
           ;
@@ -3992,12 +3992,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -4069,7 +4069,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(22.875pt + 1px * 0.5) 0;
           position: relative;
           ;
@@ -4083,12 +4083,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {
@@ -4137,7 +4137,7 @@ LoadedCheerio {
           width: 100%;
           max-width: 100%;
           height: calc(1 * 1px);
-          background: #eaeaea;
+          background: var(--nextui-color-border);
           margin: calc(15.25pt + 1px * 0) calc(22.875pt + 1px * 0.5);
           position: relative;
           ;
@@ -4151,12 +4151,12 @@ LoadedCheerio {
           justify-content: center;
           align-items: center;
           transform: translate(-50%, -50%);
-          padding: 0 1.25rem;
+          padding: 0 var(--nextui-spacing-lg);
           font-size: 1rem;
           font-weight: bold;
           text-transform: capitalize;
-          background-color: #fff;
-          color: #000;
+          background-color: var(--nextui-color-background);
+          color: var(--nextui-color-foreground);
           z-index: 10;
         }
         .nextui-divider-text.start {

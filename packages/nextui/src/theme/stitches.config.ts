@@ -249,14 +249,21 @@ export const {
     },
     transitions: {
       default: 'all 250ms ease'
+    },
+    breakpoints: {
+      xs: '650px',
+      sm: '960px',
+      md: '1280px',
+      lg: '1400px',
+      xl: '1920px'
     }
   },
   media: {
-    xs: '(min-width: 576px)',
-    sm: '(min-width: 768px)',
-    md: '(min-width: 992px)',
-    lg: '(min-width: 1200px)',
-    xl: '(min-width: 1400px)',
+    xs: '(min-width: 650px)',
+    sm: '(min-width: 960px)',
+    md: '(min-width: 1280px)',
+    lg: '(min-width: 1400px)',
+    xl: '(min-width: 1920px)',
     motion: '(prefers-reduced-motion)',
     safari: 'not all and (min-resolution:.001dpcm)',
     hover: '(any-hover: hover)',

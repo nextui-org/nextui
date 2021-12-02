@@ -54,6 +54,9 @@ export * from './col';
 export { default as Collapse } from './collapse';
 export * from './collapse';
 
+export { default as Container } from './container';
+export * from './container';
+
 export { default as CssBaseline } from './css-baseline';
 
 export { default as Text } from './text';
@@ -81,8 +84,6 @@ export { default as Row } from './row';
 export * from './row';
 
 export { default as Divider } from './divider';
-
-export { default as Container } from './container';
 
 export { default as Snippet } from './snippet';
 

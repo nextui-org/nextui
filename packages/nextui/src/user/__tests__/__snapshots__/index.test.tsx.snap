@@ -12,7 +12,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-avatar only-text-avatar nextui-user-avatar",
+              "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true only-text-avatar nextui-user-avatar",
               "data-state": "ready",
             },
             "children": Array [
@@ -38,111 +38,7 @@ LoadedCheerio {
                   ],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": [Circular],
                   "type": "tag",
@@ -178,111 +74,7 @@ LoadedCheerio {
                 ],
                 "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
@@ -309,153 +101,6 @@ LoadedCheerio {
                 "x-attribsPrefix": Object {
                   "class": undefined,
                 },
-              },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "nextui-avatar-text",
-                  },
-                  "children": Array [
-                    Node {
-                      "data": "Jun",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-bg",
-                    },
-                    "children": Array [],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
               },
             ],
             "name": "span",
@@ -561,7 +206,7 @@ LoadedCheerio {
                     "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -569,14 +214,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -586,7 +231,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -733,7 +378,7 @@ LoadedCheerio {
                   "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -741,14 +386,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -758,7 +403,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -785,7 +430,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "nextui-avatar only-text-avatar nextui-user-avatar",
+                "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true only-text-avatar nextui-user-avatar",
                 "data-state": "ready",
               },
               "children": Array [
@@ -811,111 +456,7 @@ LoadedCheerio {
                     ],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": [Circular],
                     "type": "tag",
@@ -951,111 +492,7 @@ LoadedCheerio {
                   ],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
@@ -1082,153 +519,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-text",
-                    },
-                    "children": Array [
-                      Node {
-                        "data": "Jun",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-bg",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "span",
@@ -1261,7 +551,7 @@ LoadedCheerio {
                 "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -1269,14 +559,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -1286,7 +576,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -1403,7 +693,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-avatar only-text-avatar nextui-user-avatar",
+                  "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true only-text-avatar nextui-user-avatar",
                   "data-state": "ready",
                 },
                 "children": Array [
@@ -1429,111 +719,7 @@ LoadedCheerio {
                       ],
                       "name": "span",
                       "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Node {
-                        "attribs": Object {},
-                        "children": Array [
-                          Node {
-                            "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "style",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "style",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
-                      },
+                      "next": null,
                       "parent": [Circular],
                       "prev": [Circular],
                       "type": "tag",
@@ -1569,111 +755,7 @@ LoadedCheerio {
                     ],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
@@ -1700,153 +782,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "class": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-text",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "Jun",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-bg",
-                        },
-                        "children": Array [],
-                        "name": "span",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "span",
@@ -1886,7 +821,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-avatar nextui-user-avatar",
+                "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true nextui-user-avatar",
                 "data-state": "loading",
               },
               "children": Array [
@@ -1906,111 +841,7 @@ LoadedCheerio {
                     "children": Array [],
                     "name": "img",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": [Circular],
                     "type": "tag",
@@ -2044,111 +875,7 @@ LoadedCheerio {
                   "children": Array [],
                   "name": "img",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
@@ -2179,151 +906,6 @@ LoadedCheerio {
                     "data-state": undefined,
                     "src": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-img",
-                      "data-state": "loading",
-                      "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                    },
-                    "children": Array [],
-                    "name": "img",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-bg",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "data-state": undefined,
-                      "src": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "data-state": undefined,
-                      "src": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "span",
@@ -2429,7 +1011,7 @@ LoadedCheerio {
                       "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -2437,14 +1019,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -2454,7 +1036,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -2601,7 +1183,7 @@ LoadedCheerio {
                     "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -2609,14 +1191,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -2626,7 +1208,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -2653,7 +1235,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-avatar nextui-user-avatar",
+                  "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true nextui-user-avatar",
                   "data-state": "loading",
                 },
                 "children": Array [
@@ -2673,111 +1255,7 @@ LoadedCheerio {
                       "children": Array [],
                       "name": "img",
                       "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Node {
-                        "attribs": Object {},
-                        "children": Array [
-                          Node {
-                            "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "style",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "style",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
-                      },
+                      "next": null,
                       "parent": [Circular],
                       "prev": [Circular],
                       "type": "tag",
@@ -2811,111 +1289,7 @@ LoadedCheerio {
                     "children": Array [],
                     "name": "img",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
@@ -2946,151 +1320,6 @@ LoadedCheerio {
                       "data-state": undefined,
                       "src": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-img",
-                        "data-state": "loading",
-                        "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                      },
-                      "children": Array [],
-                      "name": "img",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-bg",
-                        },
-                        "children": Array [],
-                        "name": "span",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "data-state": undefined,
-                        "src": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "data-state": undefined,
-                        "src": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "span",
@@ -3123,7 +1352,7 @@ LoadedCheerio {
                   "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -3131,14 +1360,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -3148,7 +1377,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -3265,7 +1494,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "nextui-avatar nextui-user-avatar",
+                    "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true nextui-user-avatar",
                     "data-state": "loading",
                   },
                   "children": Array [
@@ -3285,111 +1514,7 @@ LoadedCheerio {
                         "children": Array [],
                         "name": "img",
                         "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": Node {
-                          "attribs": Object {},
-                          "children": Array [
-                            Node {
-                              "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "style",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": [Circular],
-                          "type": "style",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
-                        },
+                        "next": null,
                         "parent": [Circular],
                         "prev": [Circular],
                         "type": "tag",
@@ -3423,111 +1548,7 @@ LoadedCheerio {
                       "children": Array [],
                       "name": "img",
                       "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Node {
-                        "attribs": Object {},
-                        "children": Array [
-                          Node {
-                            "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "style",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "style",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
-                      },
+                      "next": null,
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
@@ -3558,151 +1579,6 @@ LoadedCheerio {
                         "data-state": undefined,
                         "src": undefined,
                       },
-                    },
-                    Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-img",
-                          "data-state": "loading",
-                          "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                        },
-                        "children": Array [],
-                        "name": "img",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": Node {
-                          "attribs": Object {
-                            "class": "nextui-avatar-bg",
-                          },
-                          "children": Array [],
-                          "name": "span",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": [Circular],
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                          },
-                        },
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                          "data-state": undefined,
-                          "src": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                          "data-state": undefined,
-                          "src": undefined,
-                        },
-                      },
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
                     },
                   ],
                   "name": "span",
@@ -3763,7 +1639,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-avatar nextui-user-avatar",
+              "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true nextui-user-avatar",
               "data-state": "loading",
             },
             "children": Array [
@@ -3783,111 +1659,7 @@ LoadedCheerio {
                   "children": Array [],
                   "name": "img",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": [Circular],
                   "type": "tag",
@@ -3921,111 +1693,7 @@ LoadedCheerio {
                 "children": Array [],
                 "name": "img",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
@@ -4056,151 +1724,6 @@ LoadedCheerio {
                   "data-state": undefined,
                   "src": undefined,
                 },
-              },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "nextui-avatar-img",
-                    "data-state": "loading",
-                    "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                  },
-                  "children": Array [],
-                  "name": "img",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-bg",
-                    },
-                    "children": Array [],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "data-state": undefined,
-                    "src": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "data-state": undefined,
-                    "src": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
               },
             ],
             "name": "span",
@@ -4306,7 +1829,7 @@ LoadedCheerio {
                     "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -4314,14 +1837,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -4331,7 +1854,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -4478,7 +2001,7 @@ LoadedCheerio {
                   "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -4486,14 +2009,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -4503,7 +2026,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -4530,7 +2053,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "nextui-avatar nextui-user-avatar",
+                "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true nextui-user-avatar",
                 "data-state": "loading",
               },
               "children": Array [
@@ -4550,111 +2073,7 @@ LoadedCheerio {
                     "children": Array [],
                     "name": "img",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": [Circular],
                     "type": "tag",
@@ -4688,111 +2107,7 @@ LoadedCheerio {
                   "children": Array [],
                   "name": "img",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
@@ -4823,151 +2138,6 @@ LoadedCheerio {
                     "data-state": undefined,
                     "src": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-img",
-                      "data-state": "loading",
-                      "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                    },
-                    "children": Array [],
-                    "name": "img",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-bg",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "data-state": undefined,
-                      "src": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "data-state": undefined,
-                      "src": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "span",
@@ -5000,7 +2170,7 @@ LoadedCheerio {
                 "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -5008,14 +2178,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -5025,7 +2195,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -5142,7 +2312,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-avatar nextui-user-avatar",
+                  "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true nextui-user-avatar",
                   "data-state": "loading",
                 },
                 "children": Array [
@@ -5162,111 +2332,7 @@ LoadedCheerio {
                       "children": Array [],
                       "name": "img",
                       "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Node {
-                        "attribs": Object {},
-                        "children": Array [
-                          Node {
-                            "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "style",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "style",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
-                      },
+                      "next": null,
                       "parent": [Circular],
                       "prev": [Circular],
                       "type": "tag",
@@ -5300,111 +2366,7 @@ LoadedCheerio {
                     "children": Array [],
                     "name": "img",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
@@ -5435,151 +2397,6 @@ LoadedCheerio {
                       "data-state": undefined,
                       "src": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-img",
-                        "data-state": "loading",
-                        "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                      },
-                      "children": Array [],
-                      "name": "img",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-bg",
-                        },
-                        "children": Array [],
-                        "name": "span",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "data-state": undefined,
-                        "src": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "data-state": undefined,
-                        "src": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "span",
@@ -5621,7 +2438,7 @@ LoadedCheerio {
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-avatar only-text-avatar nextui-user-avatar",
+                "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true only-text-avatar nextui-user-avatar",
                 "data-state": "ready",
               },
               "children": Array [
@@ -5647,111 +2464,7 @@ LoadedCheerio {
                     ],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": [Circular],
                     "type": "tag",
@@ -5787,111 +2500,7 @@ LoadedCheerio {
                   ],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
@@ -5918,153 +2527,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-text",
-                    },
-                    "children": Array [
-                      Node {
-                        "data": "Jun",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-bg",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "span",
@@ -6170,7 +2632,7 @@ LoadedCheerio {
                       "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -6178,14 +2640,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -6195,7 +2657,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -6342,7 +2804,7 @@ LoadedCheerio {
                     "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -6350,14 +2812,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -6367,7 +2829,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -6394,7 +2856,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-avatar only-text-avatar nextui-user-avatar",
+                  "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true only-text-avatar nextui-user-avatar",
                   "data-state": "ready",
                 },
                 "children": Array [
@@ -6420,111 +2882,7 @@ LoadedCheerio {
                       ],
                       "name": "span",
                       "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Node {
-                        "attribs": Object {},
-                        "children": Array [
-                          Node {
-                            "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "style",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "style",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
-                      },
+                      "next": null,
                       "parent": [Circular],
                       "prev": [Circular],
                       "type": "tag",
@@ -6560,111 +2918,7 @@ LoadedCheerio {
                     ],
                     "name": "span",
                     "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
-                    },
+                    "next": null,
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
@@ -6691,153 +2945,6 @@ LoadedCheerio {
                     "x-attribsPrefix": Object {
                       "class": undefined,
                     },
-                  },
-                  Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-text",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "Jun",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-bg",
-                        },
-                        "children": Array [],
-                        "name": "span",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
                   },
                 ],
                 "name": "span",
@@ -6870,7 +2977,7 @@ LoadedCheerio {
                   "data": "
         .nextui-user {
           display: inline-flex;
-          padding: 0 0.75rem;
+          padding: 0 var(--nextui-spacing-sm);
           justify-content: center;
           align-items: center;
           width: max-content;
@@ -6878,14 +2985,14 @@ LoadedCheerio {
           ;
         }
         .nextui-user-info {
-          margin-left: 0.75rem;
+          margin-left: var(--nextui-spacing-sm);
           display: inline-flex;
           flex-direction: column;
           white-space: nowrap;
         }
         .nextui-user-name {
           font-size: 0.89rem;
-          color: #333;
+          color: var(--nextui-color-text);
           line-height: 1.1rem;
           text-transform: capitalize;
           font-weight: 500;
@@ -6895,7 +3002,7 @@ LoadedCheerio {
         }
         .nextui-user-social {
           font-size: 0.75rem;
-          color: #888;
+          color: var(--nextui-color-accents-4);
         }
         .nextui-user-social :global(*:first-child) {
           margin-top: 0;
@@ -7012,7 +3119,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "nextui-avatar only-text-avatar nextui-user-avatar",
+                    "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true only-text-avatar nextui-user-avatar",
                     "data-state": "ready",
                   },
                   "children": Array [
@@ -7038,111 +3145,7 @@ LoadedCheerio {
                         ],
                         "name": "span",
                         "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": Node {
-                          "attribs": Object {},
-                          "children": Array [
-                            Node {
-                              "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                              "next": null,
-                              "parent": [Circular],
-                              "prev": null,
-                              "type": "text",
-                            },
-                          ],
-                          "name": "style",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": [Circular],
-                          "type": "style",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
-                        },
+                        "next": null,
                         "parent": [Circular],
                         "prev": [Circular],
                         "type": "tag",
@@ -7178,111 +3181,7 @@ LoadedCheerio {
                       ],
                       "name": "span",
                       "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Node {
-                        "attribs": Object {},
-                        "children": Array [
-                          Node {
-                            "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "style",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "style",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
-                      },
+                      "next": null,
                       "parent": [Circular],
                       "prev": Node {
                         "attribs": Object {
@@ -7309,153 +3208,6 @@ LoadedCheerio {
                       "x-attribsPrefix": Object {
                         "class": undefined,
                       },
-                    },
-                    Node {
-                      "attribs": Object {},
-                      "children": Array [
-                        Node {
-                          "data": "
-        .nextui-avatar {
-          position: relative;
-          z-index: 1;
-          min-width: 32px;
-          min-height: 32px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-sizing: border-box;
-          overflow: hidden;
-          border-radius: 50%;
-          vertical-align: top;
-          cursor: auto;
-          margin: 0 0 0 0;
-          transition: all 0.25s ease;
-          
-        }
-        .nextui-avatar-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 32px;
-          height: 32px;
-          background: #eaeaea;
-          transition: all 0.25s ease;
-        }
-        .nextui-avatar.nextui-avatar-bordered {
-          padding: 2px;
-        }
-        .nextui-avatar:first-child {
-          margin:0;
-        }
-        .nextui-avatar-img {
-          z-index: 99;
-          opacity: 0;
-          display: flex;
-          background: #fff;
-          border-radius: 50%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .nextui-avatar-ready {
-          opacity: 1;
-        }
-        .nextui-avatar-bordered .nextui-avatar-img {
-          border: 2px solid #fff;
-        }
-        .nextui-avatar-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          font-size: calc(0.8em + 32px * 0.1);
-          text-align: center;
-          color: #333;
-          transform: translate(-50%, -50%) scale(0.65);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-icon {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          text-align: center;
-          transform: translate(-50%, -50%);
-          white-space: nowrap;
-          user-select: none;
-        }
-        .nextui-avatar-bordered:hover .nextui-avatar-bg {
-          background: #eaeaea;
-          filter: none;
-        }
-        .nextui-avatar:hover .nextui-avatar-img {
-          transform: false;
-        }
-        .nextui-avatar:hover .nextui-avatar-bg {
-          box-shadow: inset 0 0 40px 0 rgb(0 0 0 / 14%);
-        }
-      ",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "style",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-text",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "Jun",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "span",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": Node {
-                          "attribs": Object {
-                            "class": "nextui-avatar-bg",
-                          },
-                          "children": Array [],
-                          "name": "span",
-                          "namespace": "http://www.w3.org/1999/xhtml",
-                          "next": [Circular],
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "tag",
-                          "x-attribsNamespace": Object {
-                            "class": undefined,
-                          },
-                          "x-attribsPrefix": Object {
-                            "class": undefined,
-                          },
-                        },
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "type": "style",
-                      "x-attribsNamespace": Object {},
-                      "x-attribsPrefix": Object {},
                     },
                   ],
                   "name": "span",

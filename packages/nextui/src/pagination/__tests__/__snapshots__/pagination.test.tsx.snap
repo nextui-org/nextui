@@ -27,12 +27,12 @@ exports[`Pagination should render correctly 1`] = `
             font-size: inherit;
             cursor: pointer;
             border-radius: var(--nextui-pagination-item-radius);
-            color: #333;
-            background-color: #f6f6f6;
+            color: var(--nextui-color-text);
+            background-color: var(--nextui-color-accents-1);
             transition: transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s;
           }
           .nextui-pagination-item:hover {
-            background: rgba(153, 153,153,0.2);
+            background: ;
           }
           .nextui-pagination-item :global(svg) {
             width: var(--nextui-pagination-font-size);
@@ -57,19 +57,19 @@ exports[`Pagination should render correctly 1`] = `
           .nextui-pagination-item-active {
             font-weight: bold;
             cursor: default;
-            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+            box-shadow: var(--nextui-shadow-sm);
           }
           .nextui-pagination-item-active .nextui-pagination-item-content {
             color: white;
           }
           .nextui-pagination-item-disabled {
-            color: #888;
+            color: var(--nextui-color-accents-4);
             cursor: not-allowed;
           }
           .nextui-pagination-item-bordered {
             background-color: transparent;
             border: var(--nextui-pagination-item-border-weight) solid
-              #eaeaea;
+              var(--nextui-color-accents-2);
           }
         </style></button><div aria-hidden=\\"true\\" class=\\"nextui-pagination-highlight\\"><style>
         .nextui-pagination-highlight {
@@ -122,12 +122,12 @@ exports[`Pagination should render correctly 1`] = `
             font-size: inherit;
             cursor: pointer;
             border-radius: var(--nextui-pagination-item-radius);
-            color: #333;
-            background-color: #f6f6f6;
+            color: var(--nextui-color-text);
+            background-color: var(--nextui-color-accents-1);
             transition: transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s;
           }
           .nextui-pagination-item:hover {
-            background: rgba(153, 153,153,0.2);
+            background: ;
           }
           .nextui-pagination-item :global(svg) {
             width: var(--nextui-pagination-font-size);
@@ -152,19 +152,19 @@ exports[`Pagination should render correctly 1`] = `
           .nextui-pagination-item-active {
             font-weight: bold;
             cursor: default;
-            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+            box-shadow: var(--nextui-shadow-sm);
           }
           .nextui-pagination-item-active .nextui-pagination-item-content {
             color: white;
           }
           .nextui-pagination-item-disabled {
-            color: #888;
+            color: var(--nextui-color-accents-4);
             cursor: not-allowed;
           }
           .nextui-pagination-item-bordered {
             background-color: transparent;
             border: var(--nextui-pagination-item-border-weight) solid
-              #eaeaea;
+              var(--nextui-color-accents-2);
           }
         </style></button><button class=\\"nextui-pagination-item nextui-pagination-item-animated nextui-pagination-item-disabled nextui-pagination-item-preserve-content mock\\" aria-label=\\"next page button\\" tabindex=\\"-1\\"><span class=\\"nextui-pagination-item-content\\"><svg role=\\"presentation\\" focusable=\\"false\\" viewBox=\\"0 0 24 24\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\" class=\\"nextui-pagination-icon\\"><path d=\\"M15.5 19l-7-7 7-7\\" stroke=\\"currentColor\\" stroke-width=\\"1.5\\" stroke-linecap=\\"round\\" stroke-linejoin=\\"round\\"></path></svg><style>
         svg {
@@ -192,12 +192,12 @@ exports[`Pagination should render correctly 1`] = `
             font-size: inherit;
             cursor: pointer;
             border-radius: var(--nextui-pagination-item-radius);
-            color: #333;
-            background-color: #f6f6f6;
+            color: var(--nextui-color-text);
+            background-color: var(--nextui-color-accents-1);
             transition: transform 0.25s ease 0s, background 0.25s ease 0s, box-shadow 0.25s ease 0s;
           }
           .nextui-pagination-item:hover {
-            background: rgba(153, 153,153,0.2);
+            background: ;
           }
           .nextui-pagination-item :global(svg) {
             width: var(--nextui-pagination-font-size);
@@ -222,19 +222,19 @@ exports[`Pagination should render correctly 1`] = `
           .nextui-pagination-item-active {
             font-weight: bold;
             cursor: default;
-            box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .1);
+            box-shadow: var(--nextui-shadow-sm);
           }
           .nextui-pagination-item-active .nextui-pagination-item-content {
             color: white;
           }
           .nextui-pagination-item-disabled {
-            color: #888;
+            color: var(--nextui-color-accents-4);
             cursor: not-allowed;
           }
           .nextui-pagination-item-bordered {
             background-color: transparent;
             border: var(--nextui-pagination-item-border-weight) solid
-              #eaeaea;
+              var(--nextui-color-accents-2);
           }
         </style></button><style>
         .nextui-pagination {

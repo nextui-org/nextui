@@ -24,7 +24,7 @@ exports[`Loading should render correctly 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -118,7 +118,7 @@ exports[`Loading should render correctly 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -130,7 +130,7 @@ exports[`Loading should render correctly 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -195,7 +195,7 @@ exports[`Loading should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -289,7 +289,7 @@ exports[`Loading should work with different colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             #f81ce5 100%
           );
           border-radius: 50%;
@@ -301,7 +301,7 @@ exports[`Loading should work with different colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -360,7 +360,7 @@ exports[`Loading should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -454,7 +454,7 @@ exports[`Loading should work with different colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -466,7 +466,7 @@ exports[`Loading should work with different colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -525,7 +525,7 @@ exports[`Loading should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -619,7 +619,7 @@ exports[`Loading should work with different colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-success) 100%
           );
           border-radius: 50%;
@@ -631,7 +631,7 @@ exports[`Loading should work with different colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -690,7 +690,7 @@ exports[`Loading should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -784,7 +784,7 @@ exports[`Loading should work with different colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-secondary) 100%
           );
           border-radius: 50%;
@@ -796,7 +796,7 @@ exports[`Loading should work with different colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -855,7 +855,7 @@ exports[`Loading should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -949,7 +949,7 @@ exports[`Loading should work with different colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-warning) 100%
           );
           border-radius: 50%;
@@ -961,7 +961,7 @@ exports[`Loading should work with different colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -1020,7 +1020,7 @@ exports[`Loading should work with different colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -1114,7 +1114,7 @@ exports[`Loading should work with different colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-error) 100%
           );
           border-radius: 50%;
@@ -1126,7 +1126,7 @@ exports[`Loading should work with different colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -1191,7 +1191,7 @@ exports[`Loading should work with different sizes 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -1285,7 +1285,7 @@ exports[`Loading should work with different sizes 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -1297,7 +1297,7 @@ exports[`Loading should work with different sizes 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -1356,7 +1356,7 @@ exports[`Loading should work with different sizes 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -1450,7 +1450,7 @@ exports[`Loading should work with different sizes 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -1462,7 +1462,7 @@ exports[`Loading should work with different sizes 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -1521,7 +1521,7 @@ exports[`Loading should work with different sizes 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -1615,7 +1615,7 @@ exports[`Loading should work with different sizes 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -1627,7 +1627,7 @@ exports[`Loading should work with different sizes 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -1686,7 +1686,7 @@ exports[`Loading should work with different sizes 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -1780,7 +1780,7 @@ exports[`Loading should work with different sizes 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -1792,7 +1792,7 @@ exports[`Loading should work with different sizes 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -1851,7 +1851,7 @@ exports[`Loading should work with different sizes 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -1945,7 +1945,7 @@ exports[`Loading should work with different sizes 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -1957,7 +1957,7 @@ exports[`Loading should work with different sizes 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -2022,7 +2022,7 @@ exports[`Loading should work with different text colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -2116,7 +2116,7 @@ exports[`Loading should work with different text colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -2128,7 +2128,7 @@ exports[`Loading should work with different text colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -2187,7 +2187,7 @@ exports[`Loading should work with different text colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -2281,7 +2281,7 @@ exports[`Loading should work with different text colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -2293,7 +2293,7 @@ exports[`Loading should work with different text colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -2352,7 +2352,7 @@ exports[`Loading should work with different text colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -2446,7 +2446,7 @@ exports[`Loading should work with different text colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -2458,7 +2458,7 @@ exports[`Loading should work with different text colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -2517,7 +2517,7 @@ exports[`Loading should work with different text colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -2611,7 +2611,7 @@ exports[`Loading should work with different text colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -2623,7 +2623,7 @@ exports[`Loading should work with different text colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -2682,7 +2682,7 @@ exports[`Loading should work with different text colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -2776,7 +2776,7 @@ exports[`Loading should work with different text colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -2788,7 +2788,7 @@ exports[`Loading should work with different text colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -2847,7 +2847,7 @@ exports[`Loading should work with different text colors 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -2941,7 +2941,7 @@ exports[`Loading should work with different text colors 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -2953,7 +2953,7 @@ exports[`Loading should work with different text colors 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -3018,7 +3018,7 @@ exports[`Loading should work with different types 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -3112,7 +3112,7 @@ exports[`Loading should work with different types 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -3124,7 +3124,7 @@ exports[`Loading should work with different types 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -3168,7 +3168,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3237,7 +3237,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3306,7 +3306,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3375,7 +3375,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3444,7 +3444,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3513,7 +3513,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3582,7 +3582,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3651,7 +3651,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3720,7 +3720,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3789,7 +3789,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3858,7 +3858,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -3927,7 +3927,7 @@ exports[`Loading should work with different types 1`] = `
           width: 24%;
           height: 8%;
           left: -10%;
-          border-radius: 14px;
+          border-radius: var(--nextui-radius-lg);
           animation: spinner 1.2s linear 0s infinite normal none running;
         }
         span:nth-child(1) {
@@ -4032,7 +4032,7 @@ exports[`Loading should work with different types 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -4126,7 +4126,7 @@ exports[`Loading should work with different types 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -4138,7 +4138,7 @@ exports[`Loading should work with different types 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -4197,7 +4197,7 @@ exports[`Loading should work with different types 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -4291,7 +4291,7 @@ exports[`Loading should work with different types 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -4303,7 +4303,7 @@ exports[`Loading should work with different types 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
@@ -4362,7 +4362,7 @@ exports[`Loading should work with different types 1`] = `
           user-select: none;
         }
         .nextui-loading-label {
-          margin-top: 0.25rem;
+          margin-top: var(--nextui-spacing-1);
         }
         .nextui-loading-label :global(*) {
           margin: 0;
@@ -4456,7 +4456,7 @@ exports[`Loading should work with different types 1`] = `
           top: 0px;
           background: linear-gradient(
             0deg,
-            rgba(255, 255,255,0) 33%,
+             33%,
             var(--nextui-color-primary) 100%
           );
           border-radius: 50%;
@@ -4468,7 +4468,7 @@ exports[`Loading should work with different types 1`] = `
           height: calc(100% - 4px);
           border: 0px;
           border-radius: inherit;
-          background: #fff;
+          background: var(--nextui-color-background);
           border-radius: 50%;
         }
         .nextui-loading-gradient ._3 {
