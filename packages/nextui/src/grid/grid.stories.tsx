@@ -5,7 +5,7 @@ import { Card, Spacer } from '../index';
 
 export default {
   title: 'Layout/Grid',
-  component: Grid,
+  component: Grid
 } as Meta;
 
 const MockItem = () => {
@@ -16,16 +16,16 @@ const MockItem = () => {
 
 export const Default = () => (
   <Grid.Container gap={2} justify="center">
-    <Grid xs={3}>
+    <Grid xs={6} sm={3}>
       <MockItem />
     </Grid>
-    <Grid xs={3}>
+    <Grid xs={6} sm={3}>
       <MockItem />
     </Grid>
-    <Grid xs={3}>
+    <Grid xs={6} sm={3}>
       <MockItem />
     </Grid>
-    <Grid xs={3}>
+    <Grid xs={6} sm={3}>
       <MockItem />
     </Grid>
   </Grid.Container>

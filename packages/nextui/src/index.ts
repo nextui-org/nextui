@@ -57,6 +57,12 @@ export * from './collapse';
 export { default as Container } from './container';
 export * from './container';
 
+export { default as Divider } from './divider';
+export * from './divider';
+
+export { default as Grid } from './grid';
+export * from './grid';
+
 export { default as CssBaseline } from './css-baseline';
 
 export { default as Text } from './text';
@@ -76,14 +82,10 @@ export * from './link';
 
 export { default as Loading } from './loading';
 
-export { default as Grid } from './grid';
-
 export { default as Image } from './image';
 
 export { default as Row } from './row';
 export * from './row';
-
-export { default as Divider } from './divider';
 
 export { default as Snippet } from './snippet';
 

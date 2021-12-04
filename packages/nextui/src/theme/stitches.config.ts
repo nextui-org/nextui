@@ -134,8 +134,10 @@ export const {
       selection: '$blue200'
     },
     fonts: {
-      sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI','Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif;",
-      mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;"
+      sans:
+        "-apple-system, BlinkMacSystemFont, 'Segoe UI','Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif;",
+      mono:
+        "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;"
     },
     fontSizes: {
       tiny: '.75rem',
@@ -264,6 +266,11 @@ export const {
     md: '(min-width: 1280px)',
     lg: '(min-width: 1400px)',
     xl: '(min-width: 1920px)',
+    xsMax: '(max-width: 650px)',
+    smMax: '(max-width: 960px)',
+    mdMax: '(max-width: 1280px)',
+    lgMax: '(max-width: 1400px)',
+    xlMax: '(max-width: 1920px)',
     motion: '(prefers-reduced-motion)',
     safari: 'not all and (min-resolution:.001dpcm)',
     hover: '(any-hover: hover)',

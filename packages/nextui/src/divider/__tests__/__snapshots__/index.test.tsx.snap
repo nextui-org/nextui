@@ -11,13 +11,13 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-divider ",
+          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-divider-text start",
+              "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
             },
             "children": Array [
               Node {
@@ -30,63 +30,7 @@ LoadedCheerio {
             ],
             "name": "span",
             "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
+            "next": null,
             "parent": [Circular],
             "prev": null,
             "type": "tag",
@@ -97,100 +41,18 @@ LoadedCheerio {
               "class": undefined,
             },
           },
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Node {
-              "attribs": Object {
-                "class": "nextui-divider-text start",
-              },
-              "children": Array [
-                Node {
-                  "data": "start",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "span",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-divider-text start",
+                "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
               },
               "children": Array [
                 Node {
@@ -203,63 +65,7 @@ LoadedCheerio {
               ],
               "name": "span",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": null,
               "type": "tag",
@@ -270,100 +76,18 @@ LoadedCheerio {
                 "class": undefined,
               },
             },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-divider-text start",
-                },
-                "children": Array [
-                  Node {
-                    "data": "left",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
           ],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "nextui-divider ",
+              "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-divider-text end",
+                  "class": "nextui-c-jsIVaD nextui-c-jsIVaD-iknAPSa-css nextui-divider-text",
                 },
                 "children": Array [
                   Node {
@@ -376,63 +100,7 @@ LoadedCheerio {
                 ],
                 "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -443,100 +111,18 @@ LoadedCheerio {
                   "class": undefined,
                 },
               },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "nextui-divider-text end",
-                  },
-                  "children": Array [
-                    Node {
-                      "data": "end",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "nextui-divider ",
+                "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-ibOTthN-css",
                 "role": "separator",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-divider-text start",
+                    "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
                   },
                   "children": Array [
                     Node {
@@ -549,63 +135,7 @@ LoadedCheerio {
                   ],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(2 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -615,88 +145,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(2 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-divider-text start",
-                    },
-                    "children": Array [
-                      Node {
-                        "data": "start",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "div",
@@ -752,13 +200,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-divider ",
+          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-divider-text start",
+              "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
             },
             "children": Array [
               Node {
@@ -771,63 +219,7 @@ LoadedCheerio {
             ],
             "name": "span",
             "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
+            "next": null,
             "parent": [Circular],
             "prev": null,
             "type": "tag",
@@ -838,100 +230,18 @@ LoadedCheerio {
               "class": undefined,
             },
           },
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Node {
-              "attribs": Object {
-                "class": "nextui-divider-text start",
-              },
-              "children": Array [
-                Node {
-                  "data": "left",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "span",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-divider-text end",
+                "class": "nextui-c-jsIVaD nextui-c-jsIVaD-iknAPSa-css nextui-divider-text",
               },
               "children": Array [
                 Node {
@@ -944,63 +254,7 @@ LoadedCheerio {
               ],
               "name": "span",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": null,
               "type": "tag",
@@ -1011,100 +265,18 @@ LoadedCheerio {
                 "class": undefined,
               },
             },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-divider-text end",
-                },
-                "children": Array [
-                  Node {
-                    "data": "end",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
           ],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "nextui-divider ",
+              "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-ibOTthN-css",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-divider-text start",
+                  "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
                 },
                 "children": Array [
                   Node {
@@ -1117,63 +289,7 @@ LoadedCheerio {
                 ],
                 "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(2 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -1183,88 +299,6 @@ LoadedCheerio {
                 "x-attribsPrefix": Object {
                   "class": undefined,
                 },
-              },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(2 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "nextui-divider-text start",
-                  },
-                  "children": Array [
-                    Node {
-                      "data": "start",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
               },
             ],
             "name": "div",
@@ -1297,13 +331,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-divider-text start",
+                "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
               },
               "children": Array [
                 Node {
@@ -1316,63 +350,7 @@ LoadedCheerio {
               ],
               "name": "span",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": null,
               "type": "tag",
@@ -1382,88 +360,6 @@ LoadedCheerio {
               "x-attribsPrefix": Object {
                 "class": undefined,
               },
-            },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-divider-text start",
-                },
-                "children": Array [
-                  Node {
-                    "data": "start",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
             },
           ],
           "name": "div",
@@ -1493,13 +389,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-divider ",
+          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-divider-text end",
+              "class": "nextui-c-jsIVaD nextui-c-jsIVaD-iknAPSa-css nextui-divider-text",
             },
             "children": Array [
               Node {
@@ -1512,63 +408,7 @@ LoadedCheerio {
             ],
             "name": "span",
             "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
+            "next": null,
             "parent": [Circular],
             "prev": null,
             "type": "tag",
@@ -1579,100 +419,18 @@ LoadedCheerio {
               "class": undefined,
             },
           },
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Node {
-              "attribs": Object {
-                "class": "nextui-divider-text end",
-              },
-              "children": Array [
-                Node {
-                  "data": "end",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "span",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-ibOTthN-css",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-divider-text start",
+                "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
               },
               "children": Array [
                 Node {
@@ -1685,63 +443,7 @@ LoadedCheerio {
               ],
               "name": "span",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(2 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": null,
               "type": "tag",
@@ -1751,88 +453,6 @@ LoadedCheerio {
               "x-attribsPrefix": Object {
                 "class": undefined,
               },
-            },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(2 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-divider-text start",
-                },
-                "children": Array [
-                  Node {
-                    "data": "start",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
             },
           ],
           "name": "div",
@@ -1853,13 +473,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-divider-text start",
+                "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
               },
               "children": Array [
                 Node {
@@ -1872,63 +492,7 @@ LoadedCheerio {
               ],
               "name": "span",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": null,
               "type": "tag",
@@ -1939,88 +503,6 @@ LoadedCheerio {
                 "class": undefined,
               },
             },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-divider-text start",
-                },
-                "children": Array [
-                  Node {
-                    "data": "left",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
           ],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
@@ -2028,13 +510,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "nextui-divider ",
+              "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-divider-text start",
+                  "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
                 },
                 "children": Array [
                   Node {
@@ -2047,63 +529,7 @@ LoadedCheerio {
                 ],
                 "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -2113,88 +539,6 @@ LoadedCheerio {
                 "x-attribsPrefix": Object {
                   "class": undefined,
                 },
-              },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "nextui-divider-text start",
-                  },
-                  "children": Array [
-                    Node {
-                      "data": "start",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
               },
             ],
             "name": "div",
@@ -2234,13 +578,13 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-divider ",
+          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-ibOTthN-css",
           "role": "separator",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-divider-text start",
+              "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
             },
             "children": Array [
               Node {
@@ -2253,63 +597,7 @@ LoadedCheerio {
             ],
             "name": "span",
             "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(2 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
+            "next": null,
             "parent": [Circular],
             "prev": null,
             "type": "tag",
@@ -2320,88 +608,6 @@ LoadedCheerio {
               "class": undefined,
             },
           },
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(2 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Node {
-              "attribs": Object {
-                "class": "nextui-divider-text start",
-              },
-              "children": Array [
-                Node {
-                  "data": "start",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "span",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
@@ -2409,13 +615,13 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
             "role": "separator",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-divider-text end",
+                "class": "nextui-c-jsIVaD nextui-c-jsIVaD-iknAPSa-css nextui-divider-text",
               },
               "children": Array [
                 Node {
@@ -2428,63 +634,7 @@ LoadedCheerio {
               ],
               "name": "span",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": null,
               "type": "tag",
@@ -2495,88 +645,6 @@ LoadedCheerio {
                 "class": undefined,
               },
             },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-divider-text end",
-                },
-                "children": Array [
-                  Node {
-                    "data": "end",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
           ],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
@@ -2584,13 +652,13 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "nextui-divider ",
+              "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
               "role": "separator",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-divider-text start",
+                  "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
                 },
                 "children": Array [
                   Node {
@@ -2603,63 +671,7 @@ LoadedCheerio {
                 ],
                 "name": "span",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": null,
                 "type": "tag",
@@ -2670,88 +682,6 @@ LoadedCheerio {
                   "class": undefined,
                 },
               },
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "nextui-divider-text start",
-                  },
-                  "children": Array [
-                    Node {
-                      "data": "left",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
@@ -2759,13 +689,13 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "nextui-divider ",
+                "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-iiMwZzC-css",
                 "role": "separator",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-divider-text start",
+                    "class": "nextui-c-jsIVaD nextui-c-jsIVaD-icpijqj-css nextui-divider-text",
                   },
                   "children": Array [
                     Node {
@@ -2778,63 +708,7 @@ LoadedCheerio {
                   ],
                   "name": "span",
                   "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {},
-                    "children": Array [
-                      Node {
-                        "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "style",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "style",
-                    "x-attribsNamespace": Object {},
-                    "x-attribsPrefix": Object {},
-                  },
+                  "next": null,
                   "parent": [Circular],
                   "prev": null,
                   "type": "tag",
@@ -2844,88 +718,6 @@ LoadedCheerio {
                   "x-attribsPrefix": Object {
                     "class": undefined,
                   },
-                },
-                Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-divider-text start",
-                    },
-                    "children": Array [
-                      Node {
-                        "data": "start",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
                 },
               ],
               "name": "div",
@@ -3084,200 +876,26 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-divider ",
+          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-ebPlNg-color-secondary nextui-c-bZLhCa-iiMwZzC-css",
           "role": "separator",
         },
-        "children": Array [
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-secondary);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: secondary;
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
-        ],
+        "children": Array [],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-ijPvPU-color-warning nextui-c-bZLhCa-iiMwZzC-css",
             "role": "separator",
           },
-          "children": Array [
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-warning);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: warning;
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-          ],
+          "children": Array [],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "nextui-divider ",
+              "class": "nextui-c-bZLhCa nextui-c-bZLhCa-iiMwZzC-css",
               "role": "separator",
             },
-            "children": Array [
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-foreground);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: dark;
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
-            ],
+            "children": Array [],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,
@@ -3319,134 +937,18 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-divider ",
+          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-ijPvPU-color-warning nextui-c-bZLhCa-iiMwZzC-css",
           "role": "separator",
         },
-        "children": Array [
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-warning);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: warning;
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
-        ],
+        "children": Array [],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-iiMwZzC-css",
             "role": "separator",
           },
-          "children": Array [
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-foreground);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: dark;
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-          ],
+          "children": Array [],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": null,
@@ -3465,68 +967,10 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-ebPlNg-color-secondary nextui-c-bZLhCa-iiMwZzC-css",
             "role": "separator",
           },
-          "children": Array [
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-secondary);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: secondary;
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-          ],
+          "children": Array [],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": [Circular],
@@ -3554,204 +998,30 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-divider ",
+          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-iiMwZzC-css",
           "role": "separator",
         },
-        "children": Array [
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-foreground);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: dark;
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
-        ],
+        "children": Array [],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-ijPvPU-color-warning nextui-c-bZLhCa-iiMwZzC-css",
             "role": "separator",
           },
-          "children": Array [
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-warning);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: warning;
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-          ],
+          "children": Array [],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": [Circular],
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "nextui-divider ",
+              "class": "nextui-c-bZLhCa nextui-c-bZLhCa-ebPlNg-color-secondary nextui-c-bZLhCa-iiMwZzC-css",
               "role": "separator",
             },
-            "children": Array [
-              Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-secondary);
-          margin: calc(15.25pt + 1px * 0) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: secondary;
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
-            ],
+            "children": Array [],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": [Circular],
@@ -3898,134 +1168,18 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-divider ",
+          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-ieTOsbl-css",
           "role": "separator",
         },
-        "children": Array [
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) calc(22.875pt + 1px * 0.5);
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
-        ],
+        "children": Array [],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-ifmABdt-css",
             "role": "separator",
           },
-          "children": Array [
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(22.875pt + 1px * 0.5) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-          ],
+          "children": Array [],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": null,
@@ -4055,136 +1209,20 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-divider ",
+          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-ifmABdt-css",
           "role": "separator",
         },
-        "children": Array [
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(22.875pt + 1px * 0.5) 0;
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
-        ],
+        "children": Array [],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-divider ",
+            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-qCmpO-color-default nextui-c-bZLhCa-ieTOsbl-css",
             "role": "separator",
           },
-          "children": Array [
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-divider {
-          width: auto;
-          width: 100%;
-          max-width: 100%;
-          height: calc(1 * 1px);
-          background: var(--nextui-color-border);
-          margin: calc(15.25pt + 1px * 0) calc(22.875pt + 1px * 0.5);
-          position: relative;
-          ;
-        }
-        .nextui-divider-text {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          min-height: 100%;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          transform: translate(-50%, -50%);
-          padding: 0 var(--nextui-spacing-lg);
-          font-size: 1rem;
-          font-weight: bold;
-          text-transform: capitalize;
-          background-color: var(--nextui-color-background);
-          color: var(--nextui-color-foreground);
-          z-index: 10;
-        }
-        .nextui-divider-text.start {
-          transform: translateY(-50%);
-          left: 7%;
-        }
-        .nextui-divider-text.end {
-          transform: translateY(-50%);
-          left: auto;
-          right: 7%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-          ],
+          "children": Array [],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": [Circular],
