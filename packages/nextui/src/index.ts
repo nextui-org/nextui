@@ -67,6 +67,15 @@ export * from './grid';
 export { default as Image } from './image';
 export * from './image';
 
+export { default as Spacer } from './spacer';
+export * from './spacer';
+
+export { default as Snippet } from './snippet';
+export * from './snippet';
+
+export { default as Row } from './row';
+export * from './row';
+
 export { default as Text } from './text';
 export * from './text';
 
@@ -74,20 +83,12 @@ export { default as Radio } from './radio';
 
 export { default as Switch } from './switch';
 
-export { default as Spacer } from './spacer';
-export * from './spacer';
-
 export { default as User } from './user';
 
 export { default as Link } from './link';
 export * from './link';
 
 export { default as Loading } from './loading';
-
-export { default as Row } from './row';
-export * from './row';
-
-export { default as Snippet } from './snippet';
 
 export { default as Tooltip } from './tooltip';
 
