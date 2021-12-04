@@ -31,6 +31,7 @@ export type {
   UseKeyboard
 } from './use-keyboard';
 export { KeyMod, KeyCode } from './use-keyboard/codes';
+export { default as CssBaseline } from './css-baseline';
 
 // Components
 export { default as Avatar } from './avatar';
@@ -63,7 +64,8 @@ export * from './divider';
 export { default as Grid } from './grid';
 export * from './grid';
 
-export { default as CssBaseline } from './css-baseline';
+export { default as Image } from './image';
+export * from './image';
 
 export { default as Text } from './text';
 export * from './text';
@@ -81,8 +83,6 @@ export { default as Link } from './link';
 export * from './link';
 
 export { default as Loading } from './loading';
-
-export { default as Image } from './image';
 
 export { default as Row } from './row';
 export * from './row';

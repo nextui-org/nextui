@@ -29,17 +29,16 @@ describe('Image', () => {
 
   it('should work correctly with skeleton', async () => {
     let wrapper = mount(<Image src={url} width={20} height={20} />);
-    expect(wrapper.find('.nextui-image-skeleton').length).not.toBe(0);
+    expect(wrapper.find('.nextui-image-skeleton').at(0).length).not.toBe(0);
 
     wrapper = mount(<Image src={url} width={20} height={20} />);
     wrapper.find('img').at(0).simulate('load');
     await updateWrapper(wrapper);
-    expect(wrapper.find('.nextui-image-skeleton').length).not.toBe(0);
+    expect(wrapper.find('.nextui-image-skeleton').at(0).length).not.toBe(0);
 
-    wrapper = mount(<Image src={url} width={20} />);
-    expect(wrapper.find('.nextui-image-skeleton').length).toBe(0);
-
-    mount(<Image src={url} width={20} height={20} showSkeleton={false} />);
+    wrapper = mount(
+      <Image src={url} width={20} height={20} showSkeleton={false} />
+    );
     expect(wrapper.find('.nextui-image-skeleton').length).toBe(0);
   });
 

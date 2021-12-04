@@ -1,35 +1,44 @@
 import React, { useEffect, useRef, useMemo, useState } from 'react';
 import { ObjectFit } from '../utils/prop-types';
-import useTheme from '../use-theme';
 import ImageSkeleton from './image.skeleton';
 import useRealShape from '../use-real-shape';
 import useCurrentState from '../use-current-state';
-import { DefaultProps } from '../utils/default-props';
-import { getSpacingsStyles } from '../utils/styles';
 import useResize from '../use-resize';
+import { CSS } from '../theme/stitches.config';
+import {
+  StyledImage,
+  StyledImageContainer,
+  ImageContainerVariantProps
+} from './image.styles';
 import cslx from '../utils/clsx';
 
-interface Props extends DefaultProps {
+interface Props {
   src: string;
   autoResize?: boolean;
   showSkeleton?: boolean;
   width?: number | string;
   height?: number | string;
-  className?: string;
   maxDelay?: number;
   objectFit?: ObjectFit;
+  className?: string;
+  css?: CSS;
+  // TODO: put this on the docs
+  containerCss?: CSS;
 }
 
 const defaultProps = {
   showSkeleton: true,
-  autoResize: true,
+  autoResize: false,
   objectFit: 'scale-down' as ObjectFit,
-  className: '',
-  maxDelay: 3000
+  maxDelay: 3000,
+  className: ''
 };
 
 type NativeAttrs = Omit<React.ImgHTMLAttributes<unknown>, keyof Props>;
-export type ImageProps = Props & typeof defaultProps & NativeAttrs;
+export type ImageProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  ImageContainerVariantProps;
 
 const Image: React.FC<ImageProps> = ({
   src,
@@ -40,13 +49,12 @@ const Image: React.FC<ImageProps> = ({
   maxDelay,
   autoResize,
   objectFit,
+  containerCss,
+  css,
   ...props
 }) => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [showSkeleton, setShowSkeleton] = useState<boolean>(true);
-
-  const theme = useTheme();
-  const { stringCss } = getSpacingsStyles(theme, props);
+  const [showSkeleton, setShowSkeleton] = useState<boolean>(showSkeletonProp);
 
   const { w, h } = useMemo(() => {
     return {
@@ -59,9 +67,9 @@ const Image: React.FC<ImageProps> = ({
   const imageRef = useRef<HTMLImageElement>(null);
   const [shape, updateShape] = useRealShape(imageRef);
 
-  const showAnimation = showSkeletonProp && width && height;
+  const showAnimation = showSkeletonProp && !!width && !!height;
 
-  const imageLoaded = () => {
+  const onImageLoaded = () => {
     setLoading(false);
   };
 
@@ -113,52 +121,33 @@ const Image: React.FC<ImageProps> = ({
   }, [loading]);
 
   return (
-    <div
-      className={cslx(
-        'nextui-image-container',
-        { 'nextui-image-ready': !loading },
-        className
-      )}
+    <StyledImageContainer
+      className={cslx('nextui-image-container', className)}
       data-state={getState}
+      ready={!loading}
+      css={{
+        ...(containerCss as any),
+        width: w,
+        height: zoomHeight
+      }}
     >
-      {showSkeleton && showAnimation && (
-        <ImageSkeleton opacity={loading ? 0.5 : 0} />
-      )}
-      <img
+      {showSkeleton && <ImageSkeleton opacity={1} />}
+      <StyledImage
         ref={imageRef}
         className="nextui-image"
         width={width}
         height={height}
-        onLoad={imageLoaded}
+        onLoad={onImageLoaded}
         src={src}
         data-state={getState}
         alt={props.alt || ''}
+        css={{
+          ...(css as any),
+          objectFit
+        }}
         {...props}
       />
-      <style jsx>{`
-        .nextui-image-container {
-          width: ${w};
-          opacity: 0;
-          height: ${zoomHeight};
-          margin: 0 auto;
-          position: relative;
-          border-radius: ${theme.radius.lg};
-          overflow: hidden;
-          max-width: 100%;
-          transition: transform 250ms ease 0ms, opacity 200ms ease-in 0ms;
-          ${stringCss};
-        }
-        .nextui-image-ready {
-          opacity: 1;
-        }
-        .nextui-image {
-          width: 100%;
-          height: 100%;
-          object-fit: ${objectFit};
-          display: block;
-        }
-      `}</style>
-    </div>
+    </StyledImageContainer>
   );
 };
 

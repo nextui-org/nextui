@@ -369,7 +369,7 @@ export const WithDivider = () => (
         The Object constructor creates an object wrapper for the given value.
       </Text>
     </Card.Body>
-    <Divider y={0} color="#e2e2e2" />
+    <Divider y={0} css={{ bg: '#e2e2e2' }} />
     <Card.Footer>
       <Text>
         When called in a non-constructor context, Object behaves identically to{' '}
