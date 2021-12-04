@@ -1,453 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Snippet should render correctly 1`] = `
-"<div class=\\"nextui-snippet\\"><pre class=\\"nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-snippet-copy-button mock\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"var(--nextui-color-accents-6)\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
+"<div class=\\"nextui-c-ixdqL nextui-c-ixdqL-kPoUFQ-color-default nextui-c-ixdqL-csvrTU-borderWeight-normal\\"><pre class=\\"nextui-c-kKtLQL nextui-c-kKtLQL-ijvHxtl-css nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-c-iYtvzS nextui-c-huiNHE nextui-snippet-copy-button\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\" class=\\"nextui-c-PJLV\\"><path d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
         .nextui-tooltip-button {
           width: max-content;
           display: inherit;
-        }
-      </style></div><style>
-        .nextui-snippet {
-          display: flex;
-          position: relative;
-          width: initial;
-          max-width: 100%;
-          padding: calc(var(--nextui-spacing-lg) * 0.75) var(--nextui-spacing-lg);
-          color: var(--nextui-color-foreground);
-          background: var(--nextui-color-background);
-          border: 0px solid var(--nextui-color-border);
-          border-radius: var(--nextui-radius-lg);
-          ;
-        }
-        .nextui-snippet-pre {
-          margin: 0;
-          padding: 0;
-          border: none;
-          border-radius: 0;
-          width: calc(100% - 2 * var(--nextui-spacing-lg));
-          background-color: transparent;
-          color: var(--nextui-color-foreground);
-          font-size: 0.8125rem;
-        }
-        .nextui-snippet-pre::before {
-          content: '$ ';
-          user-select: none;
-        }
-        .nextui-snippet-pre :global(*) {
-          margin: 0;
-          padding: 0;
-          font-size: inherit;
-          color: inherit;
-        }
-        .nextui-snippet-copy-button {
-          display: inline-flex;
-          justify-content: center;
-          border: none;
-          align-items: flex-start;
-          background-color: transparent;
-          width: calc(2 * var(--nextui-spacing-lg));
-          border-radius: var(--nextui-radius-xs);
-          color: inherit;
-          transition: opacity 0.2s ease 0s;
-          cursor: pointer;
-          user-select: none;
-        }
-        .nextui-snippet-copy-button:hover {
-          opacity: 0.7;
-        }
-      </style></div>"
-`;
-
-exports[`Snippet should work with custom symbol 1`] = `
-"<div class=\\"nextui-snippet\\"><pre class=\\"nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-snippet-copy-button mock\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"var(--nextui-color-accents-6)\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
-        .nextui-tooltip-button {
-          width: max-content;
-          display: inherit;
-        }
-      </style></div><style>
-        .nextui-snippet {
-          display: flex;
-          position: relative;
-          width: initial;
-          max-width: 100%;
-          padding: calc(var(--nextui-spacing-lg) * 0.75) var(--nextui-spacing-lg);
-          color: var(--nextui-color-foreground);
-          background: var(--nextui-color-background);
-          border: 0px solid var(--nextui-color-border);
-          border-radius: var(--nextui-radius-lg);
-          ;
-        }
-        .nextui-snippet-pre {
-          margin: 0;
-          padding: 0;
-          border: none;
-          border-radius: 0;
-          width: calc(100% - 2 * var(--nextui-spacing-lg));
-          background-color: transparent;
-          color: var(--nextui-color-foreground);
-          font-size: 0.8125rem;
-        }
-        .nextui-snippet-pre::before {
-          content: '> ';
-          user-select: none;
-        }
-        .nextui-snippet-pre :global(*) {
-          margin: 0;
-          padding: 0;
-          font-size: inherit;
-          color: inherit;
-        }
-        .nextui-snippet-copy-button {
-          display: inline-flex;
-          justify-content: center;
-          border: none;
-          align-items: flex-start;
-          background-color: transparent;
-          width: calc(2 * var(--nextui-spacing-lg));
-          border-radius: var(--nextui-radius-xs);
-          color: inherit;
-          transition: opacity 0.2s ease 0s;
-          cursor: pointer;
-          user-select: none;
-        }
-        .nextui-snippet-copy-button:hover {
-          opacity: 0.7;
-        }
-      </style></div>"
-`;
-
-exports[`Snippet should work with custom symbol 2`] = `
-"<div class=\\"nextui-snippet\\"><pre class=\\"nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-snippet-copy-button mock\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"var(--nextui-color-accents-6)\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
-        .nextui-tooltip-button {
-          width: max-content;
-          display: inherit;
-        }
-      </style></div><style>
-        .nextui-snippet {
-          display: flex;
-          position: relative;
-          width: initial;
-          max-width: 100%;
-          padding: calc(var(--nextui-spacing-lg) * 0.75) var(--nextui-spacing-lg);
-          color: var(--nextui-color-foreground);
-          background: var(--nextui-color-background);
-          border: 0px solid var(--nextui-color-border);
-          border-radius: var(--nextui-radius-lg);
-          ;
-        }
-        .nextui-snippet-pre {
-          margin: 0;
-          padding: 0;
-          border: none;
-          border-radius: 0;
-          width: calc(100% - 2 * var(--nextui-spacing-lg));
-          background-color: transparent;
-          color: var(--nextui-color-foreground);
-          font-size: 0.8125rem;
-        }
-        .nextui-snippet-pre::before {
-          content: '';
-          user-select: none;
-        }
-        .nextui-snippet-pre :global(*) {
-          margin: 0;
-          padding: 0;
-          font-size: inherit;
-          color: inherit;
-        }
-        .nextui-snippet-copy-button {
-          display: inline-flex;
-          justify-content: center;
-          border: none;
-          align-items: flex-start;
-          background-color: transparent;
-          width: calc(2 * var(--nextui-spacing-lg));
-          border-radius: var(--nextui-radius-xs);
-          color: inherit;
-          transition: opacity 0.2s ease 0s;
-          cursor: pointer;
-          user-select: none;
-        }
-        .nextui-snippet-copy-button:hover {
-          opacity: 0.7;
-        }
-      </style></div>"
-`;
-
-exports[`Snippet should work with different styles 1`] = `
-"<div><div class=\\"nextui-snippet\\"><pre class=\\"nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-snippet-copy-button mock\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"var(--nextui-color-accents-6)\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
-        .nextui-tooltip-button {
-          width: max-content;
-          display: inherit;
-        }
-      </style></div><style>
-        .nextui-snippet {
-          display: flex;
-          position: relative;
-          width: initial;
-          max-width: 100%;
-          padding: calc(var(--nextui-spacing-lg) * 0.75) var(--nextui-spacing-lg);
-          color: var(--nextui-color-foreground);
-          background: var(--nextui-color-background);
-          border: 0px solid var(--nextui-color-border);
-          border-radius: var(--nextui-radius-lg);
-          ;
-        }
-        .nextui-snippet-pre {
-          margin: 0;
-          padding: 0;
-          border: none;
-          border-radius: 0;
-          width: calc(100% - 2 * var(--nextui-spacing-lg));
-          background-color: transparent;
-          color: var(--nextui-color-foreground);
-          font-size: 0.8125rem;
-        }
-        .nextui-snippet-pre::before {
-          content: '$ ';
-          user-select: none;
-        }
-        .nextui-snippet-pre :global(*) {
-          margin: 0;
-          padding: 0;
-          font-size: inherit;
-          color: inherit;
-        }
-        .nextui-snippet-copy-button {
-          display: inline-flex;
-          justify-content: center;
-          border: none;
-          align-items: flex-start;
-          background-color: transparent;
-          width: calc(2 * var(--nextui-spacing-lg));
-          border-radius: var(--nextui-radius-xs);
-          color: inherit;
-          transition: opacity 0.2s ease 0s;
-          cursor: pointer;
-          user-select: none;
-        }
-        .nextui-snippet-copy-button:hover {
-          opacity: 0.7;
-        }
-      </style></div><div class=\\"nextui-snippet\\"><pre class=\\"nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-snippet-copy-button mock\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"var(--nextui-color-accents-6)\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
-        .nextui-tooltip-button {
-          width: max-content;
-          display: inherit;
-        }
-      </style></div><style>
-        .nextui-snippet {
-          display: flex;
-          position: relative;
-          width: 20%;
-          max-width: 100%;
-          padding: calc(var(--nextui-spacing-lg) * 0.75) var(--nextui-spacing-lg);
-          color: var(--nextui-color-foreground);
-          background: var(--nextui-color-background);
-          border: 0px solid var(--nextui-color-border);
-          border-radius: var(--nextui-radius-lg);
-          ;
-        }
-        .nextui-snippet-pre {
-          margin: 0;
-          padding: 0;
-          border: none;
-          border-radius: 0;
-          width: calc(100% - 2 * var(--nextui-spacing-lg));
-          background-color: transparent;
-          color: var(--nextui-color-foreground);
-          font-size: 0.8125rem;
-        }
-        .nextui-snippet-pre::before {
-          content: '$ ';
-          user-select: none;
-        }
-        .nextui-snippet-pre :global(*) {
-          margin: 0;
-          padding: 0;
-          font-size: inherit;
-          color: inherit;
-        }
-        .nextui-snippet-copy-button {
-          display: inline-flex;
-          justify-content: center;
-          border: none;
-          align-items: flex-start;
-          background-color: transparent;
-          width: calc(2 * var(--nextui-spacing-lg));
-          border-radius: var(--nextui-radius-xs);
-          color: inherit;
-          transition: opacity 0.2s ease 0s;
-          cursor: pointer;
-          user-select: none;
-        }
-        .nextui-snippet-copy-button:hover {
-          opacity: 0.7;
-        }
-      </style></div><div class=\\"nextui-snippet\\"><pre class=\\"nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-snippet-copy-button mock\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"var(--nextui-color-accents-6)\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
-        .nextui-tooltip-button {
-          width: max-content;
-          display: inherit;
-        }
-      </style></div><style>
-        .nextui-snippet {
-          display: flex;
-          position: relative;
-          width: initial;
-          max-width: 100%;
-          padding: calc(var(--nextui-spacing-lg) * 0.75) var(--nextui-spacing-lg);
-          color: var(--nextui-color-secondary);
-          background: var(--nextui-color-background);
-          border: 0px solid var(--nextui-color-secondary);
-          border-radius: var(--nextui-radius-lg);
-          ;
-        }
-        .nextui-snippet-pre {
-          margin: 0;
-          padding: 0;
-          border: none;
-          border-radius: 0;
-          width: calc(100% - 2 * var(--nextui-spacing-lg));
-          background-color: transparent;
-          color: var(--nextui-color-secondary);
-          font-size: 0.8125rem;
-        }
-        .nextui-snippet-pre::before {
-          content: '$ ';
-          user-select: none;
-        }
-        .nextui-snippet-pre :global(*) {
-          margin: 0;
-          padding: 0;
-          font-size: inherit;
-          color: inherit;
-        }
-        .nextui-snippet-copy-button {
-          display: inline-flex;
-          justify-content: center;
-          border: none;
-          align-items: flex-start;
-          background-color: transparent;
-          width: calc(2 * var(--nextui-spacing-lg));
-          border-radius: var(--nextui-radius-xs);
-          color: inherit;
-          transition: opacity 0.2s ease 0s;
-          cursor: pointer;
-          user-select: none;
-        }
-        .nextui-snippet-copy-button:hover {
-          opacity: 0.7;
-        }
-      </style></div><div class=\\"nextui-snippet\\"><pre class=\\"nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-snippet-copy-button mock\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"var(--nextui-color-accents-6)\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
-        .nextui-tooltip-button {
-          width: max-content;
-          display: inherit;
-        }
-      </style></div><style>
-        .nextui-snippet {
-          display: flex;
-          position: relative;
-          width: initial;
-          max-width: 100%;
-          padding: calc(var(--nextui-spacing-lg) * 0.75) var(--nextui-spacing-lg);
-          color: var(--nextui-color-background);
-          background: var(--nextui-color-success);
-          border: 0px solid var(--nextui-color-success);
-          border-radius: var(--nextui-radius-lg);
-          ;
-        }
-        .nextui-snippet-pre {
-          margin: 0;
-          padding: 0;
-          border: none;
-          border-radius: 0;
-          width: calc(100% - 2 * var(--nextui-spacing-lg));
-          background-color: transparent;
-          color: var(--nextui-color-background);
-          font-size: 0.8125rem;
-        }
-        .nextui-snippet-pre::before {
-          content: '$ ';
-          user-select: none;
-        }
-        .nextui-snippet-pre :global(*) {
-          margin: 0;
-          padding: 0;
-          font-size: inherit;
-          color: inherit;
-        }
-        .nextui-snippet-copy-button {
-          display: inline-flex;
-          justify-content: center;
-          border: none;
-          align-items: flex-start;
-          background-color: transparent;
-          width: calc(2 * var(--nextui-spacing-lg));
-          border-radius: var(--nextui-radius-xs);
-          color: inherit;
-          transition: opacity 0.2s ease 0s;
-          cursor: pointer;
-          user-select: none;
-        }
-        .nextui-snippet-copy-button:hover {
-          opacity: 0.7;
         }
       </style></div></div>"
 `;
 
-exports[`Snippet should work with multi-line 1`] = `
-"<div class=\\"nextui-snippet\\"><pre class=\\"nextui-snippet-pre\\">cd project</pre><pre class=\\"nextui-snippet-pre\\">now</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-snippet-copy-button mock\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\"><path fill=\\"var(--nextui-color-accents-6)\\" d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
+exports[`Snippet should work with custom symbol 1`] = `
+"<div class=\\"nextui-c-ixdqL nextui-c-ixdqL-kPoUFQ-color-default nextui-c-ixdqL-csvrTU-borderWeight-normal\\"><pre class=\\"nextui-c-kKtLQL nextui-c-kKtLQL-iglrZwL-css nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-c-iYtvzS nextui-c-huiNHE nextui-snippet-copy-button\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\" class=\\"nextui-c-PJLV\\"><path d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
         .nextui-tooltip-button {
           width: max-content;
           display: inherit;
         }
-      </style></div><style>
-        .nextui-snippet {
-          display: flex;
-          position: relative;
-          width: initial;
-          max-width: 100%;
-          padding: calc(var(--nextui-spacing-lg) * 0.75) var(--nextui-spacing-lg);
-          color: var(--nextui-color-foreground);
-          background: var(--nextui-color-background);
-          border: 0px solid var(--nextui-color-border);
-          border-radius: var(--nextui-radius-lg);
-          ;
+      </style></div></div>"
+`;
+
+exports[`Snippet should work with custom symbol 2`] = `
+"<div class=\\"nextui-c-ixdqL nextui-c-ixdqL-kPoUFQ-color-default nextui-c-ixdqL-csvrTU-borderWeight-normal\\"><pre class=\\"nextui-c-kKtLQL nextui-c-kKtLQL-idPaJqJ-css nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-c-iYtvzS nextui-c-huiNHE nextui-snippet-copy-button\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\" class=\\"nextui-c-PJLV\\"><path d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
+        .nextui-tooltip-button {
+          width: max-content;
+          display: inherit;
         }
-        .nextui-snippet-pre {
-          margin: 0;
-          padding: 0;
-          border: none;
-          border-radius: 0;
-          width: calc(100% - 2 * var(--nextui-spacing-lg));
-          background-color: transparent;
-          color: var(--nextui-color-foreground);
-          font-size: 0.8125rem;
+      </style></div></div>"
+`;
+
+exports[`Snippet should work with different styles 1`] = `
+"<div><div class=\\"nextui-c-ixdqL nextui-c-ixdqL-kPoUFQ-color-default nextui-c-ixdqL-csvrTU-borderWeight-normal\\"><pre class=\\"nextui-c-kKtLQL nextui-c-kKtLQL-ijvHxtl-css nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-c-iYtvzS nextui-c-huiNHE nextui-snippet-copy-button\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\" class=\\"nextui-c-PJLV\\"><path d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
+        .nextui-tooltip-button {
+          width: max-content;
+          display: inherit;
         }
-        .nextui-snippet-pre::before {
-          content: '$ ';
-          user-select: none;
+      </style></div></div><div class=\\"nextui-c-ixdqL nextui-c-ixdqL-kPoUFQ-color-default nextui-c-ixdqL-csvrTU-borderWeight-normal nextui-c-ixdqL-kyNZHt-filled-true\\"><pre class=\\"nextui-c-kKtLQL nextui-c-kKtLQL-ijvHxtl-css nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-c-iYtvzS nextui-c-huiNHE nextui-snippet-copy-button\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\" class=\\"nextui-c-PJLV\\"><path d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
+        .nextui-tooltip-button {
+          width: max-content;
+          display: inherit;
         }
-        .nextui-snippet-pre :global(*) {
-          margin: 0;
-          padding: 0;
-          font-size: inherit;
-          color: inherit;
+      </style></div></div><div class=\\"nextui-c-ixdqL nextui-c-ixdqL-fFVmgV-color-secondary nextui-c-ixdqL-csvrTU-borderWeight-normal\\"><pre class=\\"nextui-c-kKtLQL nextui-c-kKtLQL-ijvHxtl-css nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-c-iYtvzS nextui-c-huiNHE nextui-snippet-copy-button\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\" class=\\"nextui-c-PJLV\\"><path d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
+        .nextui-tooltip-button {
+          width: max-content;
+          display: inherit;
         }
-        .nextui-snippet-copy-button {
-          display: inline-flex;
-          justify-content: center;
-          border: none;
-          align-items: flex-start;
-          background-color: transparent;
-          width: calc(2 * var(--nextui-spacing-lg));
-          border-radius: var(--nextui-radius-xs);
-          color: inherit;
-          transition: opacity 0.2s ease 0s;
-          cursor: pointer;
-          user-select: none;
+      </style></div></div><div class=\\"nextui-c-ixdqL nextui-c-ixdqL-ifKsbt-color-success nextui-c-ixdqL-csvrTU-borderWeight-normal nextui-c-ixdqL-kyNZHt-filled-true\\"><pre class=\\"nextui-c-kKtLQL nextui-c-kKtLQL-ijvHxtl-css nextui-snippet-pre\\">yarn add @nextui-org/react</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-c-iYtvzS nextui-c-huiNHE nextui-snippet-copy-button\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\" class=\\"nextui-c-PJLV\\"><path d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
+        .nextui-tooltip-button {
+          width: max-content;
+          display: inherit;
         }
-        .nextui-snippet-copy-button:hover {
-          opacity: 0.7;
+      </style></div></div></div>"
+`;
+
+exports[`Snippet should work with multi-line 1`] = `
+"<div class=\\"nextui-c-ixdqL nextui-c-ixdqL-kPoUFQ-color-default nextui-c-ixdqL-csvrTU-borderWeight-normal\\"><pre class=\\"nextui-c-kKtLQL nextui-c-kKtLQL-ijvHxtl-css nextui-snippet-pre\\">cd project</pre><pre class=\\"nextui-c-kKtLQL nextui-c-kKtLQL-ijvHxtl-css nextui-snippet-pre\\">now</pre><div role=\\"button\\" tabindex=\\"-1\\" class=\\"nextui-tooltip-button \\"><button class=\\"nextui-c-iYtvzS nextui-c-huiNHE nextui-snippet-copy-button\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"18\\" height=\\"18\\" viewBox=\\"0 0 24 24\\" class=\\"nextui-c-PJLV\\"><path d=\\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\\"></path></svg></button><style>
+        .nextui-tooltip-button {
+          width: max-content;
+          display: inherit;
         }
-      </style></div>"
+      </style></div></div>"
 `;
