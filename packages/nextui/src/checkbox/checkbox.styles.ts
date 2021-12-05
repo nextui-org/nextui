@@ -573,3 +573,20 @@ export type CheckboxVariantsProps = VariantProps<typeof StyledCheckboxInput>;
 export type CheckboxGroupVariantsProps = VariantProps<
   typeof StyledCheckboxGroup
 >;
+export type CheckboxTextVariantsProps = VariantProps<typeof StyledCheckboxText>;
+export type CheckboxMaskVariantsProps = VariantProps<typeof StyledCheckboxMask>;
+export type CheckboxIconCheckVariantsProps = VariantProps<
+  typeof StyledIconCheck
+>;
+export type CheckboxIconCheckFirstLineVariantsProps = VariantProps<
+  typeof StyledIconCheckFirstLine
+>;
+export type CheckboxIconCheckSecondLineVariantsProps = VariantProps<
+  typeof StyledIconCheckSecondLine
+>;
+export type CheckboxLabelVariantsProps = VariantProps<
+  typeof StyledCheckboxLabel
+>;
+export type CheckboxContainerVariantsProps = VariantProps<
+  typeof StyledCheckboxContainer
+>;

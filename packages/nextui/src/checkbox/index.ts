@@ -6,4 +6,7 @@ export type { CheckboxGroupProps } from './checkbox-group';
 
 Checkbox.Group = CheckboxGroup;
 
+// export styled components
+export * from './checkbox.styles';
+
 export default Checkbox;

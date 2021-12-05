@@ -58,8 +58,6 @@ export const Colors = () => (
     <Spacer y={2} />
     <Loading color="error">Error</Loading>
     <Spacer y={2} />
-    <Loading color="#f81ce5">#f81ce5</Loading>
-    <Spacer y={2} />
   </Container>
 );
 
@@ -74,8 +72,6 @@ export const TextColors = () => (
     <Loading textColor="warning">Warning</Loading>
     <Spacer y={2} />
     <Loading textColor="error">Error</Loading>
-    <Spacer y={2} />
-    <Loading textColor="#f81ce5">#f81ce5</Loading>
     <Spacer y={2} />
   </Container>
 );

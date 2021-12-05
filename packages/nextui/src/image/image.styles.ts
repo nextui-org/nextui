@@ -1,5 +1,14 @@
 import { keyframes, styled, VariantProps } from '../theme/stitches.config';
 
+const loading = keyframes({
+  '0%': {
+    backgroundPosition: '200% 0'
+  },
+  to: {
+    backgroundPosition: '-200% 0'
+  }
+});
+
 export const StyledImageContainer = styled('div', {
   opacity: 0,
   margin: '0 auto',
@@ -28,15 +37,6 @@ export const StyledImage = styled('img', {
   display: 'block'
 });
 
-const loading = keyframes({
-  '0%': {
-    backgroundPosition: '200% 0'
-  },
-  to: {
-    backgroundPosition: '-200% 0'
-  }
-});
-
 export const StyledImageSkeleton = styled('div', {
   position: 'absolute',
   top: 0,
@@ -52,7 +52,9 @@ export const StyledImageSkeleton = styled('div', {
   transition: 'opacity 300ms ease-out'
 });
 
-export type ImageContainerVariantProps = VariantProps<typeof StyledImage>;
+export type ImageContainerVariantProps = VariantProps<
+  typeof StyledImageContainer
+>;
 export type ImageVariantsProps = VariantProps<typeof StyledImage>;
 export type ImageSkeletonVariantsProps = VariantProps<
   typeof StyledImageSkeleton

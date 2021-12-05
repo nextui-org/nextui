@@ -76,6 +76,12 @@ export * from './snippet';
 export { default as Row } from './row';
 export * from './row';
 
+export { default as Link } from './link';
+export * from './link';
+
+export { default as Loading } from './loading';
+export * from './loading';
+
 export { default as Text } from './text';
 export * from './text';
 
@@ -84,11 +90,6 @@ export { default as Radio } from './radio';
 export { default as Switch } from './switch';
 
 export { default as User } from './user';
-
-export { default as Link } from './link';
-export * from './link';
-
-export { default as Loading } from './loading';
 
 export { default as Tooltip } from './tooltip';
 

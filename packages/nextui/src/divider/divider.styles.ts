@@ -71,3 +71,4 @@ export const StyledDividerText = styled('span', {
 });
 
 export type DividerVariantsProps = VariantProps<typeof StyledDivider>;
+export type DividerTextVariantsProps = VariantProps<typeof StyledDividerText>;

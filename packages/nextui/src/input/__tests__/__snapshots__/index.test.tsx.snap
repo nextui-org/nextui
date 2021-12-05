@@ -17,7 +17,7 @@ exports[`Input should be work with content 1`] = `
           cursor: default;
           pointer-events: none;
         }
-      </style></span><input type=\\"text\\" id=\\"nextui-input-rea0vi13\\" class=\\"nextui-input nextui-input-left-content\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+      </style></span><input type=\\"text\\" id=\\"nextui-input-bnb970sm\\" class=\\"nextui-input nextui-input-left-content\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -182,7 +182,7 @@ exports[`Input should be work with content 1`] = `
             -webkit-box-shadow: 0 0 0 30px var(--nextui-color-background) inset !important;
             -webkit-text-fill-color: var(--nextui-color-text) !important;
           }
-        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-4qijl4vv\\" class=\\"nextui-input nextui-input-nextui-input-right-content\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"nextui-input-content\\"><span>test-icon</span><style>
+        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-f309djlq\\" class=\\"nextui-input nextui-input-nextui-input-right-content\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"nextui-input-content\\"><span>test-icon</span><style>
         .nextui-input-content {
           box-sizing: content-box;
           display: flex;
@@ -367,7 +367,7 @@ exports[`Input should be work with content 1`] = `
 `;
 
 exports[`Input should be work with label 1`] = `
-"<div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><label id=\\"nextui-input-label-0dtbvi0v\\" class=\\"next-input-block-label\\" for=\\"nextui-input-0dtbvi0v\\">label<style>
+"<div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><label id=\\"nextui-input-label-1c4h3igj\\" class=\\"next-input-block-label\\" for=\\"nextui-input-1c4h3igj\\">label<style>
         .next-input-block-label {
           display: block;
           font-weight: normal;
@@ -424,7 +424,7 @@ exports[`Input should be work with label 1`] = `
           .next-input-block-label-as-placeholder.next-input-block-label-is-textarea.next-input-block-label-with-value {
           top: -28px;
         }
-      </style></label><div class=\\"nextui-input-container nextui-input-container-input\\"><div class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-0dtbvi0v\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" aria-labelledby=\\"nextui-input-label-0dtbvi0v\\" value=\\"\\"></div></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+      </style></label><div class=\\"nextui-input-container nextui-input-container-input\\"><div class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-1c4h3igj\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" aria-labelledby=\\"nextui-input-label-1c4h3igj\\" value=\\"\\"></div></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -589,7 +589,7 @@ exports[`Input should be work with label 1`] = `
             -webkit-box-shadow: 0 0 0 30px var(--nextui-color-background) inset !important;
             -webkit-text-fill-color: var(--nextui-color-text) !important;
           }
-        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-hd5n1tq0\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"nextui-input-label nextui-input-label-right\\">label<style>
+        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-rpbfd1pq\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"><span class=\\"nextui-input-label nextui-input-label-right\\">label<style>
         .nextui-input-label {
           position: relative;
           display: inline-flex;
@@ -842,7 +842,7 @@ exports[`Input should be work with label 1`] = `
         .nextui-input-label-bordered:after, .nextui-input-label-bordered:before {
           display: none;
         }
-      </style></span><input type=\\"text\\" id=\\"nextui-input-mj7e4ufu\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+      </style></span><input type=\\"text\\" id=\\"nextui-input-895i6bh9\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -1011,7 +1011,7 @@ exports[`Input should be work with label 1`] = `
 `;
 
 exports[`Input should work with different sizes 1`] = `
-"<div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-00073qn8\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+"<div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-d9ranth9\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -1176,7 +1176,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px var(--nextui-color-background) inset !important;
             -webkit-text-fill-color: var(--nextui-color-text) !important;
           }
-        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-abnior60\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-apmu18b8\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -1341,7 +1341,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px var(--nextui-color-background) inset !important;
             -webkit-text-fill-color: var(--nextui-color-text) !important;
           }
-        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-5ed59sna\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-di53h892\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -1506,7 +1506,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px var(--nextui-color-background) inset !important;
             -webkit-text-fill-color: var(--nextui-color-text) !important;
           }
-        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-brmi0jpg\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-ld8ke8rd\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -1671,7 +1671,7 @@ exports[`Input should work with different sizes 1`] = `
             -webkit-box-shadow: 0 0 0 30px var(--nextui-color-background) inset !important;
             -webkit-text-fill-color: var(--nextui-color-text) !important;
           }
-        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-fboak7of\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-ss44kgd6\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: 50%;
             display: inline-flex;
@@ -1840,7 +1840,7 @@ exports[`Input should work with different sizes 1`] = `
 `;
 
 exports[`Input should work with different status 1`] = `
-"<div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-jfg5qvvr\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+"<div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-gujin5vs\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -2005,7 +2005,7 @@ exports[`Input should work with different status 1`] = `
             -webkit-box-shadow: 0 0 0 30px var(--nextui-color-background) inset !important;
             -webkit-text-fill-color: var(--nextui-color-text) !important;
           }
-        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-g205tgp1\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-f310kc6q\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -2170,7 +2170,7 @@ exports[`Input should work with different status 1`] = `
             -webkit-box-shadow: 0 0 0 30px var(--nextui-color-background) inset !important;
             -webkit-text-fill-color: var(--nextui-color-text) !important;
           }
-        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-ue8ph0he\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+        </style></div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-input\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow input-wrapper\\"><input type=\\"text\\" id=\\"nextui-input-ir1cdkqf\\" class=\\"nextui-input\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"false\\" value=\\"\\"></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;

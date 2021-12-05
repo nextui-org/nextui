@@ -231,9 +231,11 @@ export const StyledCollapseGroup = styled('div', {
 });
 
 export type CollapseVariantsProps = VariantProps<typeof StyledCollapse>;
-
+export type CollapseViewVariantsProps = VariantProps<typeof StyledCollapseView>;
+export type CollapseContentVariantsProps = VariantProps<
+  typeof StyledCollapseContent
+>;
 export type CollapseIconVariantsProps = VariantProps<typeof StyledCollapseIcon>;
-
 export type CollapseGroupVariantsProps = VariantProps<
   typeof StyledCollapseGroup
 >;

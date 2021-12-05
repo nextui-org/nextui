@@ -1,29 +1,38 @@
 import React, { useMemo } from 'react';
-import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import { NormalSizes, SimpleColors, NormalLoaders } from '../utils/prop-types';
-import { DefaultProps } from '../utils/default-props';
-import { getSpacingsStyles } from '../utils/styles';
-import { getNormalColor, addColorAlpha } from '../utils/color';
-import { getLoaderSize, getLoaderBorder, getLabelStyle } from './styles';
+import { CSS } from '../theme/stitches.config';
+import {
+  StyledLoadingContainer,
+  StyledLoading,
+  StyledLoadingLabel,
+  LoadingContainerVariantsProps
+} from './loading.styles';
 import Spinner from './spinner';
 
-interface Props extends DefaultProps {
-  size?: NormalSizes | number;
-  color?: SimpleColors | string;
+interface Props {
+  size?: NormalSizes;
+  color?: SimpleColors;
   gradientBackground?: string | null;
-  textColor?: SimpleColors | string;
+  textColor?: SimpleColors;
   type?: NormalLoaders;
+  loadingCss?: CSS;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
-  size: 'md' as NormalSizes | number,
-  color: 'primary' as SimpleColors | string,
+  size: 'md' as NormalSizes,
+  color: 'primary' as SimpleColors,
+  textColor: 'default' as SimpleColors,
   type: 'default' as NormalLoaders
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type LoadingProps = Props & typeof defaultProps & NativeAttrs;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+
+export type LoadingProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  LoadingContainerVariantsProps;
 
 const preClass = 'nextui-loading';
 
@@ -33,234 +42,51 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   color,
   gradientBackground,
   textColor,
+  loadingCss,
   type,
   ...props
 }) => {
-  const theme = useTheme();
+  const ariaLabel = children ? '' : 'Loading';
 
-  const { stringCss } = getSpacingsStyles(theme, props);
+  const loadingGradientCSS = useMemo(() => {
+    return type === 'gradient' ? { '._2': { bg: gradientBackground } } : {};
+  }, [type]);
 
-  const width = useMemo(
-    () => (typeof size === 'number' ? `${size}px` : getLoaderSize(type)[size]),
-    [size, type]
-  );
-  const border = useMemo(
-    () =>
-      typeof size === 'number'
-        ? `calc(${size}px / ${size} + ${size > 10 ? '2px' : '1px'})`
-        : getLoaderBorder(size),
-    [size]
-  );
-  const labelColor = useMemo(
-    () => getNormalColor(textColor, theme.palette),
-    [color, theme.palette]
-  );
-  const labelStyle = useMemo(
-    () => getLabelStyle(type, theme, labelColor)[size],
-    [type, size, theme, labelColor]
-  );
-  const bgColor = useMemo(
-    () => getNormalColor(color, theme.palette, theme.palette.text),
-    [color, theme.palette]
-  );
   if (type === 'spinner') {
     return (
-      <Spinner size={width} color={bgColor} labelStyle={labelStyle} {...props}>
+      <Spinner size={size} color={color} {...props}>
         {children}
-        <style jsx>
-          {`
-        :global(.nextui-spinner) {
-          ${stringCss};
-        `}
-        </style>
       </Spinner>
     );
   }
 
-  const ariaLabel = children ? '' : 'Loading';
-
   return (
-    <div className={`${preClass}-container`} {...props}>
-      <span
+    <StyledLoadingContainer {...props}>
+      <StyledLoading
         className={`${preClass} ${preClass}-${type}`}
+        css={{
+          ...(loadingCss as any),
+          ...loadingGradientCSS
+        }}
+        color={color}
+        type={type}
+        size={size}
         aria-label={ariaLabel}
       >
         <i className="_1" />
         <i className="_2" />
         <i className="_3" />
-      </span>
+      </StyledLoading>
       {children && (
-        <label className={`${preClass}-label`} style={labelStyle}>
+        <StyledLoadingLabel
+          color={textColor}
+          size={size}
+          className={`${preClass}-label`}
+        >
           {children}
-        </label>
+        </StyledLoadingLabel>
       )}
-      <style jsx>{`
-        .${preClass}-container {
-          display: inline-flex;
-          flex-direction: column;
-          align-items: center;
-          position: relative;
-          ${stringCss};
-        }
-        .${preClass} {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: transparent;
-          user-select: none;
-        }
-        .${preClass}-label {
-          margin-top: ${theme.spacing[1]};
-        }
-        .${preClass}-label :global(*) {
-          margin: 0;
-        }
-        .{preClass}.${preClass}-default {
-          display: flex;
-          border-radius: 50%;
-          position: relative;
-          width: ${width};
-          height: ${width};
-        }
-        .${preClass}-points, 
-        .${preClass}-points-opacity {
-          display: flex;
-          position: relative;
-        }
-        .${preClass}-gradient {
-          display: flex;
-          position: relative;
-          width: ${width};
-          height: ${width};
-        }
-        .${preClass}-points {
-          transform: translate(0, calc(${width} * 0.6));
-        }
-        .${preClass}-default i {
-          top: 0px;
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          border-radius: inherit;
-        }
-        .${preClass}-default ._1 {
-          border: ${border} solid ${bgColor};
-          border-top: ${border} solid transparent;
-          border-left: ${border} solid transparent;
-          border-right: ${border} solid transparent;
-          animation: rotate 0.8s ease infinite;
-        }
-        .${preClass}-default ._2 {
-          border: ${border} dotted ${bgColor};
-          border-top: ${border} solid transparent;
-          border-left: ${border} solid transparent;
-          border-right: ${border} solid transparent;
-          animation: rotate 0.8s linear infinite;
-          opacity: 0.5;
-        }
-        .${preClass}-default ._3 {
-          display: none;
-        }
-        .${preClass}-points-opacity i {
-          display: inline-block;
-          width: ${width};
-          height: ${width};
-          border-radius: 50%;
-          background-color: ${bgColor};
-          margin: 0 1px;
-          animation: loading-blink 1.4s infinite both;
-        }
-        .${preClass}-points-opacity ._2 {
-          animation-delay: 0.2s;
-        }
-        .${preClass}-points-opacity ._3 {
-          animation-delay: 0.4s;
-        }
-        .${preClass}-points i {
-          width: ${width};
-          height: ${width};
-          margin: 0 3px;
-          background: ${bgColor};
-        }
-        .${preClass}-points ._1 {
-          border-radius: 50%;
-          animation: points 0.75s ease infinite;
-        }
-        .${preClass}-points ._2 {
-          border-radius: 50%;
-          animation: points 0.75s ease infinite 0.25s;
-        }
-        .${preClass}-points ._3 {
-          border-radius: 50%;
-          animation: points 0.75s ease infinite 0.5s;
-        }
-        .${preClass}-gradient ._1 {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          border: 0px;
-          border-radius: inherit;
-          animation: rotate 1s linear infinite;
-          top: 0px;
-          background: linear-gradient(
-            0deg,
-            ${addColorAlpha(theme.palette.background, 0)} 33%,
-            ${bgColor} 100%
-          );
-          border-radius: 50%;
-        }
-        .${preClass}-gradient ._2 {
-          top: 2px;
-          position: absolute;
-          width: calc(100% - 4px);
-          height: calc(100% - 4px);
-          border: 0px;
-          border-radius: inherit;
-          background: ${gradientBackground || theme.palette.background};
-          border-radius: 50%;
-        }
-        .${preClass}-gradient ._3 {
-          display: none;
-        }
-        @keyframes loading-blink {
-          0% {
-            opacity: 0.2;
-          }
-          20% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0.2;
-          }
-        }
-        @keyframes rotate {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-        @keyframes points {
-          0% {
-            transform: translate(0px, 0px);
-          }
-          50% {
-            transform: translate(0, calc(-${width} * 1.4));
-          }
-          100% {
-            transform: translate(0px, 0px);
-          }
-        }
-      `}</style>
-    </div>
+    </StyledLoadingContainer>
   );
 };
 

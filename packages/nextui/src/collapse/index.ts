@@ -6,4 +6,7 @@ export type { CollapseGroupProps } from './collapse-group';
 
 Collapse.Group = CollapseGroup;
 
+// export styled components
+export * from './collapse.styles';
+
 export default Collapse;

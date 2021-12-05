@@ -138,6 +138,10 @@ export const StyledSnippetCopyButton = styled(
 );
 
 export type SnippetVariantsProps = VariantProps<typeof StyledSnippet>;
+export type SnippetPreVariantsProps = VariantProps<typeof StyledSnippetPre>;
 export type SnippetCopyButtonIconVariantsProps = VariantProps<
   typeof StyledSnippetCopyButtonIcon
+>;
+export type SnippetCopyButtonVariantsProps = VariantProps<
+  typeof StyledSnippetCopyButton
 >;

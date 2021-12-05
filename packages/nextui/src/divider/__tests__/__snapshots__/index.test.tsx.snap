@@ -890,27 +890,7 @@ LoadedCheerio {
           "children": Array [],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
-          "next": Node {
-            "attribs": Object {
-              "class": "nextui-c-bZLhCa nextui-c-bZLhCa-iiMwZzC-css",
-              "role": "separator",
-            },
-            "children": Array [],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": [Circular],
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-              "role": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-              "role": undefined,
-            },
-          },
+          "next": null,
           "parent": [Circular],
           "prev": [Circular],
           "type": "tag",
@@ -943,27 +923,7 @@ LoadedCheerio {
         "children": Array [],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Node {
-          "attribs": Object {
-            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-iiMwZzC-css",
-            "role": "separator",
-          },
-          "children": Array [],
-          "name": "div",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "role": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "role": undefined,
-          },
-        },
+        "next": null,
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
@@ -976,67 +936,6 @@ LoadedCheerio {
           "next": [Circular],
           "parent": [Circular],
           "prev": null,
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-            "role": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-            "role": undefined,
-          },
-        },
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-          "role": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-          "role": undefined,
-        },
-      },
-      Node {
-        "attribs": Object {
-          "class": "nextui-c-bZLhCa nextui-c-bZLhCa-iiMwZzC-css",
-          "role": "separator",
-        },
-        "children": Array [],
-        "name": "div",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": Node {
-          "attribs": Object {
-            "class": "nextui-c-bZLhCa nextui-c-bZLhCa-ijPvPU-color-warning nextui-c-bZLhCa-iiMwZzC-css",
-            "role": "separator",
-          },
-          "children": Array [],
-          "name": "div",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": Node {
-            "attribs": Object {
-              "class": "nextui-c-bZLhCa nextui-c-bZLhCa-ebPlNg-color-secondary nextui-c-bZLhCa-iiMwZzC-css",
-              "role": "separator",
-            },
-            "children": Array [],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": [Circular],
-            "parent": [Circular],
-            "prev": null,
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-              "role": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-              "role": undefined,
-            },
-          },
           "type": "tag",
           "x-attribsNamespace": Object {
             "class": undefined,
