@@ -248,11 +248,5 @@ export const StyledCardFooter = styled('div', {
 });
 
 // types
-
 export type CardVariantsProps = VariantProps<typeof StyledCard>;
-
-export type CardHeaderVariantsProps = VariantProps<typeof StyledCardHeader>;
-
-export type CardBodyVariantsProps = VariantProps<typeof StyledCardBody>;
-
 export type CardFooterVariantsProps = VariantProps<typeof StyledCardFooter>;

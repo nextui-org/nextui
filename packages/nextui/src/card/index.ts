@@ -1,13 +1,13 @@
 import Card from './card';
-import CardHeader from './card-header';
-import CardFooter from './card-footer';
-import CardBody from './card-body';
+import {
+  StyledCardHeader as CardHeader,
+  StyledCardFooter as CardFooter,
+  StyledCardBody as CardBody
+} from './card.styles';
 import CardImage from '../image';
 
 export type { CardProps } from './card';
-export type { CardHeaderProps } from './card-header';
-export type { CardFooterProps } from './card-footer';
-export type { CardBodyProps } from './card-body';
+export * from './card.styles';
 
 Card.Header = CardHeader;
 Card.Body = CardBody;

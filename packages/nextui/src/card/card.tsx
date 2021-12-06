@@ -5,15 +5,18 @@ import React, {
   PropsWithoutRef,
   RefAttributes
 } from 'react';
-import CardHeader from './card-header';
-import CardFooter from './card-footer';
-import CardBody from './card-body';
 import Image from '../image';
 import Drip from '../utils/drip';
 import useDrip from '../use-drip';
 import { hasChild, pickChild } from '../utils/collections';
 import useKeyboard, { KeyCode } from '../use-keyboard';
-import { StyledCard, CardVariantsProps } from './card.styles';
+import {
+  StyledCard,
+  StyledCardHeader as CardHeader,
+  StyledCardFooter as CardFooter,
+  StyledCardBody as CardBody,
+  CardVariantsProps
+} from './card.styles';
 import withDefaults from '../utils/with-defaults';
 import { __DEV__ } from '../utils/assertion';
 
