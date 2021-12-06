@@ -247,6 +247,7 @@ type CheckboxComponent<P = {}> = React.FC<P> & {
 
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs;
+  NativeAttrs &
+  CheckboxVariantsProps;
 
 export default Checkbox as CheckboxComponent<ComponentProps>;

@@ -91,14 +91,6 @@ return(
     >
         xlarge
     </Radio>
-    <Spacer/>
-    <Radio
-        checked={selected === '40px'}
-        onChange={() => setSelected('40px')}
-        size={40}
-    >
-        40px
-    </Radio>
 </>
 )}
   `}
@@ -143,13 +135,6 @@ return(
         color="error"  
     >
         Error
-    </Radio>
-    <Spacer/>
-    <Radio 
-        value="#ff4ecd"  
-        color="#ff4ecd"  
-    >
-        #ff4ecd
     </Radio>
  </Radio.Group>
 `}
@@ -199,14 +184,6 @@ return(
         textColor="error"
     >
         Error
-    </Radio>
-    <Spacer/>
-    <Radio 
-        value="#ff4ecd"  
-        color="#ff4ecd"  
-        textColor="#ff4ecd"
-    >
-        #ff4ecd
     </Radio>
  </Radio.Group>
 `}
@@ -274,18 +251,20 @@ return(
 
 #### Radio Props
 
-| Attribute     | Type                      | Accepted values                | Description                                                         | Default   |
-| ------------- | ------------------------- | ------------------------------ | ------------------------------------------------------------------- | --------- |
-| **color**     | `SimpleColors` `string`   | [SimpleColors](#simple-colors) | Change radio color                                                  | `primary` |
-| **size**      | `NormalSizes` `number`    | [NormalSizes](#normal-sizes)   | Radio size                                                          | `medium`  |
-| **textColor** | `SimpleColors` `string`   | [SimpleColors](#simple-colors) | Change radio text color                                             | `default` |
-| **checked**   | `boolean`                 | `true/false`                   | Selected or not (in single)                                         | `false`   |
-| **squared**   | `boolean`                 | `true/false`                   | Squared radio                                                       | `false`   |
-| **disabled**  | `boolean`                 | `true/false`                   | Disable radio                                                       | `false`   |
-| **value**     | `string`                  | -                              | Unique ident value (in group)                                       | -         |
-| **id**        | `string`                  | -                              | Native id attr                                                      | -         |
-| **onChange**  | `(e: RadioEvent) => void` | -                              | The callback invoked when the checked state of the `Radio` changes. | -         |
-| ...           | `InputHTMLAttributes`     | `'id', 'className', ...`       | Native radio props                                                  | -         |
+| Attribute          | Type                      | Accepted values                | Description                                                               | Default   |
+| ------------------ | ------------------------- | ------------------------------ | ------------------------------------------------------------------------- | --------- |
+| **value**          | `string`                  | -                              | Unique ident value (in group)                                             | -         |
+| **color**          | `SimpleColors` `string`   | [SimpleColors](#simple-colors) | Change radio color                                                        | `primary` |
+| **size**           | `NormalSizes` `number`    | [NormalSizes](#normal-sizes)   | Radio size                                                                | `medium`  |
+| **textColor**      | `SimpleColors` `string`   | [SimpleColors](#simple-colors) | Change radio text color                                                   | `default` |
+| **checked**        | `boolean`                 | `true/false`                   | Selected or not (in single)                                               | `false`   |
+| **animated**       | `boolean`                 | `true/false`                   | Display radio animations                                                  | `true`    |
+| **squared**        | `boolean`                 | `true/false`                   | Squared radio                                                             | `false`   |
+| **disabled**       | `boolean`                 | `true/false`                   | Disable radio                                                             | `false`   |
+| **preventDefault** | `boolean`                 | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
+| **onChange**       | `(e: RadioEvent) => void` | -                              | The callback invoked when the checked state of the `Radio` changes.       | -         |
+| **id**             | `string`                  | -                              | Native id attr                                                            | -         |
+| ...                | `InputHTMLAttributes`     | `'id', 'className', ...`       | Native radio props                                                        | -         |
 
 <Spacer y={2} />
 

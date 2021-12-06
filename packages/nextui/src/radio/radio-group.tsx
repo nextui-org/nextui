@@ -11,9 +11,9 @@ interface Props extends DefaultProps {
   value?: string | number;
   initialValue?: string | number;
   disabled?: boolean;
-  color?: SimpleColors | string;
-  textColor?: SimpleColors | string;
-  size?: NormalSizes | number;
+  color?: SimpleColors;
+  textColor?: SimpleColors;
+  size?: NormalSizes;
   onChange?: (value: string | number) => void;
   className?: string;
   row?: boolean;
