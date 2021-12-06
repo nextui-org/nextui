@@ -1,6 +1,11 @@
-import User from './user'
-import UserLink from './user-link'
+import User from './user';
+import UserLink from './user-link';
 
-User.Link = UserLink
+User.Link = UserLink;
 
-export default User
+export type { UserProps } from './user';
+export type { UserLinkProps } from './user-link';
+
+export * from './user.styles';
+
+export default User;

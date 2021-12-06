@@ -90,6 +90,7 @@ export { default as Radio } from './radio';
 export { default as Switch } from './switch';
 
 export { default as User } from './user';
+export * from './user';
 
 export { default as Tooltip } from './tooltip';
 

@@ -7,7 +7,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-user",
+          "class": "nextui-c-bXrSEk",
         },
         "children": Array [
           Node {
@@ -107,12 +107,12 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "nextui-user-info",
+                "class": "nextui-c-kgBzGX nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-user-name",
+                    "class": "nextui-c-fHdWgw nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -127,7 +127,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-user-social",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -155,7 +155,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-user-social",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -164,7 +164,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "nextui-user-name",
+                      "class": "nextui-c-fHdWgw nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -199,62 +199,7 @@ LoadedCheerio {
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": [Circular],
               "type": "tag",
@@ -279,12 +224,12 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "nextui-user-info",
+              "class": "nextui-c-kgBzGX nextui-user-info",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-user-name",
+                  "class": "nextui-c-fHdWgw nextui-user-name",
                 },
                 "children": Array [
                   Node {
@@ -299,7 +244,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "nextui-user-social",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -327,7 +272,7 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "nextui-user-social",
+                  "class": "nextui-c-dNzlf nextui-user-social",
                 },
                 "children": Array [],
                 "name": "span",
@@ -336,7 +281,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "nextui-user-name",
+                    "class": "nextui-c-fHdWgw nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -371,62 +316,7 @@ LoadedCheerio {
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
+            "next": null,
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
@@ -544,279 +434,12 @@ LoadedCheerio {
               "class": undefined,
             },
           },
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Node {
-              "attribs": Object {
-                "class": "nextui-user-info",
-              },
-              "children": Array [
-                Node {
-                  "attribs": Object {
-                    "class": "nextui-user-name",
-                  },
-                  "children": Array [
-                    Node {
-                      "data": "Junior",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {
-                      "class": "nextui-user-social",
-                    },
-                    "children": Array [],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                Node {
-                  "attribs": Object {
-                    "class": "nextui-user-social",
-                  },
-                  "children": Array [],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-user-name",
-                    },
-                    "children": Array [
-                      Node {
-                        "data": "Junior",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true only-text-avatar nextui-user-avatar",
-                  "data-state": "ready",
-                },
-                "children": Array [
-                  Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-bg",
-                    },
-                    "children": Array [],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-text",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "Jun",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-text",
-                    },
-                    "children": Array [
-                      Node {
-                        "data": "Jun",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-bg",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                ],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                  "data-state": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                  "data-state": undefined,
-                },
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-user",
+            "class": "nextui-c-bXrSEk",
           },
           "children": Array [
             Node {
@@ -912,12 +535,12 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "nextui-user-info",
+                  "class": "nextui-c-kgBzGX nextui-user-info",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "nextui-user-name",
+                      "class": "nextui-c-fHdWgw nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -932,7 +555,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "nextui-user-social",
+                        "class": "nextui-c-dNzlf nextui-user-social",
                       },
                       "children": Array [],
                       "name": "span",
@@ -960,7 +583,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "nextui-user-social",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -969,7 +592,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "nextui-user-name",
+                        "class": "nextui-c-fHdWgw nextui-user-name",
                       },
                       "children": Array [
                         Node {
@@ -1004,62 +627,7 @@ LoadedCheerio {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": [Circular],
                 "type": "tag",
@@ -1084,12 +652,12 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "nextui-user-info",
+                "class": "nextui-c-kgBzGX nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-user-name",
+                    "class": "nextui-c-fHdWgw nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -1104,7 +672,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-user-social",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1132,7 +700,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-user-social",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -1141,7 +709,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "nextui-user-name",
+                      "class": "nextui-c-fHdWgw nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -1176,62 +744,7 @@ LoadedCheerio {
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
@@ -1345,269 +858,6 @@ LoadedCheerio {
                 "class": undefined,
               },
             },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-user-info",
-                },
-                "children": Array [
-                  Node {
-                    "attribs": Object {
-                      "class": "nextui-user-name",
-                    },
-                    "children": Array [
-                      Node {
-                        "data": "Junior Garcia",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {
-                        "class": "nextui-user-social",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  Node {
-                    "attribs": Object {
-                      "class": "nextui-user-social",
-                    },
-                    "children": Array [],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-user-name",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "Junior Garcia",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true nextui-user-avatar",
-                    "data-state": "loading",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-bg",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-img",
-                          "data-state": "loading",
-                          "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                        },
-                        "children": Array [],
-                        "name": "img",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                          "data-state": undefined,
-                          "src": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                          "data-state": undefined,
-                          "src": undefined,
-                        },
-                      },
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-img",
-                        "data-state": "loading",
-                        "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                      },
-                      "children": Array [],
-                      "name": "img",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-bg",
-                        },
-                        "children": Array [],
-                        "name": "span",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "data-state": undefined,
-                        "src": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "data-state": undefined,
-                        "src": undefined,
-                      },
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "data-state": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "data-state": undefined,
-                  },
-                },
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
           ],
           "name": "div",
           "namespace": "http://www.w3.org/1999/xhtml",
@@ -1634,7 +884,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-user",
+          "class": "nextui-c-bXrSEk",
         },
         "children": Array [
           Node {
@@ -1730,12 +980,12 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "nextui-user-info",
+                "class": "nextui-c-kgBzGX nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-user-name",
+                    "class": "nextui-c-fHdWgw nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -1750,7 +1000,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-user-social",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1778,7 +1028,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-user-social",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -1787,7 +1037,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "nextui-user-name",
+                      "class": "nextui-c-fHdWgw nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -1822,62 +1072,7 @@ LoadedCheerio {
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": [Circular],
               "type": "tag",
@@ -1902,12 +1097,12 @@ LoadedCheerio {
           },
           Node {
             "attribs": Object {
-              "class": "nextui-user-info",
+              "class": "nextui-c-kgBzGX nextui-user-info",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-user-name",
+                  "class": "nextui-c-fHdWgw nextui-user-name",
                 },
                 "children": Array [
                   Node {
@@ -1922,7 +1117,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "nextui-user-social",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -1950,7 +1145,7 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "nextui-user-social",
+                  "class": "nextui-c-dNzlf nextui-user-social",
                 },
                 "children": Array [],
                 "name": "span",
@@ -1959,7 +1154,7 @@ LoadedCheerio {
                 "parent": [Circular],
                 "prev": Node {
                   "attribs": Object {
-                    "class": "nextui-user-name",
+                    "class": "nextui-c-fHdWgw nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -1994,62 +1189,7 @@ LoadedCheerio {
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
+            "next": null,
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
@@ -2163,269 +1303,6 @@ LoadedCheerio {
               "class": undefined,
             },
           },
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Node {
-              "attribs": Object {
-                "class": "nextui-user-info",
-              },
-              "children": Array [
-                Node {
-                  "attribs": Object {
-                    "class": "nextui-user-name",
-                  },
-                  "children": Array [
-                    Node {
-                      "data": "Junior Garcia",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": Node {
-                    "attribs": Object {
-                      "class": "nextui-user-social",
-                    },
-                    "children": Array [],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": [Circular],
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-                Node {
-                  "attribs": Object {
-                    "class": "nextui-user-social",
-                  },
-                  "children": Array [],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": Node {
-                    "attribs": Object {
-                      "class": "nextui-user-name",
-                    },
-                    "children": Array [
-                      Node {
-                        "data": "Junior Garcia",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": [Circular],
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                  },
-                },
-              ],
-              "name": "div",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true nextui-user-avatar",
-                  "data-state": "loading",
-                },
-                "children": Array [
-                  Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-bg",
-                    },
-                    "children": Array [],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-img",
-                        "data-state": "loading",
-                        "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                      },
-                      "children": Array [],
-                      "name": "img",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                        "data-state": undefined,
-                        "src": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                        "data-state": undefined,
-                        "src": undefined,
-                      },
-                    },
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  Node {
-                    "attribs": Object {
-                      "class": "nextui-avatar-img",
-                      "data-state": "loading",
-                      "src": "https://avatars.githubusercontent.com/u/30373425?v=4",
-                    },
-                    "children": Array [],
-                    "name": "img",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-bg",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                      "data-state": undefined,
-                      "src": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                      "data-state": undefined,
-                      "src": undefined,
-                    },
-                  },
-                ],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                  "data-state": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                  "data-state": undefined,
-                },
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
@@ -2433,7 +1310,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-user",
+            "class": "nextui-c-bXrSEk",
           },
           "children": Array [
             Node {
@@ -2533,12 +1410,12 @@ LoadedCheerio {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Node {
                 "attribs": Object {
-                  "class": "nextui-user-info",
+                  "class": "nextui-c-kgBzGX nextui-user-info",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "nextui-user-name",
+                      "class": "nextui-c-fHdWgw nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -2553,7 +1430,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "nextui-user-social",
+                        "class": "nextui-c-dNzlf nextui-user-social",
                       },
                       "children": Array [],
                       "name": "span",
@@ -2581,7 +1458,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "nextui-user-social",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -2590,7 +1467,7 @@ LoadedCheerio {
                     "parent": [Circular],
                     "prev": Node {
                       "attribs": Object {
-                        "class": "nextui-user-name",
+                        "class": "nextui-c-fHdWgw nextui-user-name",
                       },
                       "children": Array [
                         Node {
@@ -2625,62 +1502,7 @@ LoadedCheerio {
                 ],
                 "name": "div",
                 "namespace": "http://www.w3.org/1999/xhtml",
-                "next": Node {
-                  "attribs": Object {},
-                  "children": Array [
-                    Node {
-                      "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "text",
-                    },
-                  ],
-                  "name": "style",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": [Circular],
-                  "type": "style",
-                  "x-attribsNamespace": Object {},
-                  "x-attribsPrefix": Object {},
-                },
+                "next": null,
                 "parent": [Circular],
                 "prev": [Circular],
                 "type": "tag",
@@ -2705,12 +1527,12 @@ LoadedCheerio {
             },
             Node {
               "attribs": Object {
-                "class": "nextui-user-info",
+                "class": "nextui-c-kgBzGX nextui-user-info",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-user-name",
+                    "class": "nextui-c-fHdWgw nextui-user-name",
                   },
                   "children": Array [
                     Node {
@@ -2725,7 +1547,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-user-social",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -2753,7 +1575,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-user-social",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -2762,7 +1584,7 @@ LoadedCheerio {
                   "parent": [Circular],
                   "prev": Node {
                     "attribs": Object {
-                      "class": "nextui-user-name",
+                      "class": "nextui-c-fHdWgw nextui-user-name",
                     },
                     "children": Array [
                       Node {
@@ -2797,62 +1619,7 @@ LoadedCheerio {
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
@@ -2969,273 +1736,6 @@ LoadedCheerio {
               "x-attribsPrefix": Object {
                 "class": undefined,
               },
-            },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .nextui-user {
-          display: inline-flex;
-          padding: 0 var(--nextui-spacing-sm);
-          justify-content: center;
-          align-items: center;
-          width: max-content;
-          max-width: 100%;
-          ;
-        }
-        .nextui-user-info {
-          margin-left: var(--nextui-spacing-sm);
-          display: inline-flex;
-          flex-direction: column;
-          white-space: nowrap;
-        }
-        .nextui-user-name {
-          font-size: 0.89rem;
-          color: var(--nextui-color-text);
-          line-height: 1.1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          max-width: 15rem;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
-        .nextui-user-social {
-          font-size: 0.75rem;
-          color: var(--nextui-color-accents-4);
-        }
-        .nextui-user-social :global(*:first-child) {
-          margin-top: 0;
-        }
-        .nextui-user-social :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {
-                  "class": "nextui-user-info",
-                },
-                "children": Array [
-                  Node {
-                    "attribs": Object {
-                      "class": "nextui-user-name",
-                    },
-                    "children": Array [
-                      Node {
-                        "data": "Junior",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "text",
-                      },
-                    ],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": Node {
-                      "attribs": Object {
-                        "class": "nextui-user-social",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": [Circular],
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                  Node {
-                    "attribs": Object {
-                      "class": "nextui-user-social",
-                    },
-                    "children": Array [],
-                    "name": "span",
-                    "namespace": "http://www.w3.org/1999/xhtml",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": Node {
-                      "attribs": Object {
-                        "class": "nextui-user-name",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "Junior",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": [Circular],
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    "type": "tag",
-                    "x-attribsNamespace": Object {
-                      "class": undefined,
-                    },
-                    "x-attribsPrefix": Object {
-                      "class": undefined,
-                    },
-                  },
-                ],
-                "name": "div",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": Node {
-                  "attribs": Object {
-                    "class": "nextui-c-kMgpew nextui-c-kMgpew-qXFXw-color-default nextui-c-kMgpew-duCSmO-textColor-default nextui-c-kMgpew-ikrTje-size-md nextui-c-kMgpew-krOtXB-borderWeight-normal nextui-c-kMgpew-bAEoQm-rounded-true only-text-avatar nextui-user-avatar",
-                    "data-state": "ready",
-                  },
-                  "children": Array [
-                    Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-bg",
-                      },
-                      "children": Array [],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-text",
-                        },
-                        "children": Array [
-                          Node {
-                            "data": "Jun",
-                            "next": null,
-                            "parent": [Circular],
-                            "prev": null,
-                            "type": "text",
-                          },
-                        ],
-                        "name": "span",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": null,
-                        "parent": [Circular],
-                        "prev": [Circular],
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "parent": [Circular],
-                      "prev": null,
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                    Node {
-                      "attribs": Object {
-                        "class": "nextui-avatar-text",
-                      },
-                      "children": Array [
-                        Node {
-                          "data": "Jun",
-                          "next": null,
-                          "parent": [Circular],
-                          "prev": null,
-                          "type": "text",
-                        },
-                      ],
-                      "name": "span",
-                      "namespace": "http://www.w3.org/1999/xhtml",
-                      "next": null,
-                      "parent": [Circular],
-                      "prev": Node {
-                        "attribs": Object {
-                          "class": "nextui-avatar-bg",
-                        },
-                        "children": Array [],
-                        "name": "span",
-                        "namespace": "http://www.w3.org/1999/xhtml",
-                        "next": [Circular],
-                        "parent": [Circular],
-                        "prev": null,
-                        "type": "tag",
-                        "x-attribsNamespace": Object {
-                          "class": undefined,
-                        },
-                        "x-attribsPrefix": Object {
-                          "class": undefined,
-                        },
-                      },
-                      "type": "tag",
-                      "x-attribsNamespace": Object {
-                        "class": undefined,
-                      },
-                      "x-attribsPrefix": Object {
-                        "class": undefined,
-                      },
-                    },
-                  ],
-                  "name": "span",
-                  "namespace": "http://www.w3.org/1999/xhtml",
-                  "next": [Circular],
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "tag",
-                  "x-attribsNamespace": Object {
-                    "class": undefined,
-                    "data-state": undefined,
-                  },
-                  "x-attribsPrefix": Object {
-                    "class": undefined,
-                    "data-state": undefined,
-                  },
-                },
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
             },
           ],
           "name": "div",

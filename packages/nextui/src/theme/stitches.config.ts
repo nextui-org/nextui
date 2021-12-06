@@ -134,10 +134,8 @@ export const {
       selection: '$blue200'
     },
     fonts: {
-      sans:
-        "-apple-system, BlinkMacSystemFont, 'Segoe UI','Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif;",
-      mono:
-        "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;"
+      sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI','Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans','Helvetica Neue', sans-serif;",
+      mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;"
     },
     fontSizes: {
       tiny: '.75rem',
@@ -325,6 +323,12 @@ export const {
       marginBottom: value
     }),
     ta: (value: Stitches.PropertyValue<'textAlign'>) => ({ textAlign: value }),
+    tt: (value: Stitches.PropertyValue<'textTransform'>) => ({
+      textTransform: value
+    }),
+    to: (value: Stitches.PropertyValue<'textOverflow'>) => ({
+      textOverflow: value
+    }),
     d: (value: Stitches.PropertyValue<'display'>) => ({ display: value }),
     dflex: (value: Stitches.PropertyValue<'alignItems'>) => ({
       display: 'flex',
@@ -399,6 +403,7 @@ export const {
     lh: (value: Stitches.PropertyValue<'lineHeight'>) => ({
       lineHeight: value
     }),
+    ov: (value: Stitches.PropertyValue<'overflow'>) => ({ overflow: value }),
     ox: (value: Stitches.PropertyValue<'overflowX'>) => ({ overflowX: value }),
     oy: (value: Stitches.PropertyValue<'overflowY'>) => ({ overflowY: value }),
     pe: (value: Stitches.PropertyValue<'pointerEvents'>) => ({
