@@ -25,7 +25,6 @@ describe('Radio', () => {
         <Radio size="md">medium</Radio>
         <Radio size="lg">large</Radio>
         <Radio size="xl">xlarge</Radio>
-        <Radio size={24}>custom</Radio>
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();

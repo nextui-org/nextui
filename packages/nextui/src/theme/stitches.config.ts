@@ -1,7 +1,7 @@
 import { createStitches, defaultThemeMap } from '@stitches/react';
 import type * as Stitches from '@stitches/react';
 
-export type { VariantProps } from '@stitches/react';
+export type VariantProps<T> = Stitches.VariantProps<T>;
 
 export const {
   styled,

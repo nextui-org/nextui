@@ -7,7 +7,7 @@ import {
 
 export const StyledRadioInput = styled('input', {}, sharedVisuallyHidden);
 
-export const StyledRadioDescription = styled('span', {
+export const StyledRadioLabel = styled('span', {
   fontSize: '$$radioSize',
   us: 'none',
   d: 'inline-flex',
@@ -192,10 +192,58 @@ export const StyledRadio = styled('label', {
   ]
 });
 
+export const StyledRadioGroup = styled('div', {
+  border: 0,
+  margin: 0,
+  padding: 0,
+  display: 'flex',
+  fd: 'column',
+  variants: {
+    size: {
+      xs: {
+        $$radioGroupGap: '$space$7'
+      },
+      sm: {
+        $$radioGroupGap: '$space$8'
+      },
+      md: {
+        $$radioGroupGap: '$space$9'
+      },
+      lg: {
+        $$radioGroupGap: '$space$10'
+      },
+      xl: {
+        $$radioGroupGap: '$space$11'
+      }
+    },
+    row: {
+      true: {
+        fd: 'row',
+        [`& ${StyledRadio}`]: {
+          marginTop: 0,
+          marginRight: '$$radioGroupGap'
+        }
+      },
+      false: {
+        [`& ${StyledRadio}`]: {
+          marginTop: '$$radioGroupGap',
+          marginRight: 0
+        }
+      }
+    }
+  },
+  defaultVariants: {
+    row: false
+  }
+});
+
+export const StyledRadioDescription = styled('span', {
+  color: '$accents4',
+  fontSize: 'calc($$radioSize * 0.85)',
+  paddingLeft: 'calc($$radioSize + $$radioSize * 0.375)'
+});
+
 // types
 export type RadioVariantsProps = VariantProps<typeof StyledRadio>;
-export type RadioInputVariantsProps = VariantProps<typeof StyledRadioInput>;
-export type RadioDescriptionVariantsProps = VariantProps<
-  typeof StyledRadioDescription
->;
-export type RadioPointVariantsProps = VariantProps<typeof StyledRadioPoint>;
+export type RadioLabelVariantsProps = VariantProps<typeof StyledRadioLabel>;
+export type RadioGroupVariantsProps = VariantProps<typeof StyledRadioGroup>;

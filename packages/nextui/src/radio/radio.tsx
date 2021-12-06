@@ -1,16 +1,16 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useRadioContext } from './radio-context';
 import RadioGroup from './radio-group';
-import RadioDescription from './radio-description';
 import { pickChild } from '../utils/collections';
 import useWarning from '../use-warning';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import { SimpleColors, NormalSizes } from '../utils/prop-types';
 import {
   StyledRadio,
-  StyledRadioDescription,
+  StyledRadioLabel,
   StyledRadioInput,
   StyledRadioPoint,
+  StyledRadioDescription,
   RadioVariantsProps
 } from './radio.styles';
 import withDefaults from '../utils/with-defaults';
@@ -85,7 +85,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
 
   const [withoutDescChildren, DescChildren] = pickChild(
     children,
-    RadioDescription
+    StyledRadioDescription
   );
 
   if (inGroup && __DEV__) {
@@ -166,7 +166,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
         className={`${preClass}-input`}
         {...props}
       />
-      <StyledRadioDescription
+      <StyledRadioLabel
         color={labelColor}
         disabled={isDisabled}
         className={`${preClass}-name`}
@@ -179,7 +179,7 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
           })}
         />
         {withoutDescChildren}
-      </StyledRadioDescription>
+      </StyledRadioLabel>
       {DescChildren && DescChildren}
     </StyledRadio>
   );
@@ -187,8 +187,8 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
 
 type RadioComponent<P = {}> = React.FC<P> & {
   Group: typeof RadioGroup;
-  Desc: typeof RadioDescription;
-  Description: typeof RadioDescription;
+  Desc: typeof StyledRadioDescription;
+  Description: typeof StyledRadioDescription;
 };
 
 type ComponentProps = Partial<typeof defaultProps> &

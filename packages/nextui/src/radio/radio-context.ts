@@ -2,13 +2,13 @@ import { NormalColors, NormalSizes } from '../utils/prop-types';
 import React from 'react';
 
 export interface RadioConfig {
-  updateState?: (value: string | number) => void;
   disabledAll: boolean;
   size?: NormalSizes;
   color?: NormalColors;
   textColor?: NormalColors;
   value?: string | number;
   inGroup: boolean;
+  updateState?: (value: string | number) => void;
 }
 
 const defaultContext = {

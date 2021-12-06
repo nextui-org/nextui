@@ -82,10 +82,11 @@ export * from './link';
 export { default as Loading } from './loading';
 export * from './loading';
 
+export { default as Radio } from './radio';
+export * from './radio';
+
 export { default as Text } from './text';
 export * from './text';
-
-export { default as Radio } from './radio';
 
 export { default as Switch } from './switch';
 
