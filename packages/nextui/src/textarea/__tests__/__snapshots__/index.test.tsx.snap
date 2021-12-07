@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Textarea should render correctly 1`] = `
-"<div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-textarea\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow textarea-wrapper\\"><span class=\\"nextui-input-placeholder mock\\">placeholder</span><textarea type=\\"text\\" id=\\"nextui-input-pmviq9ff\\" class=\\"nextui-input-textarea\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+"<div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-textarea\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow textarea-wrapper\\"><span class=\\"nextui-input-placeholder mock\\">placeholder</span><textarea type=\\"text\\" id=\\"nextui-input-ln9dnnbh\\" class=\\"nextui-input-textarea\\" placeholder=\\"placeholder\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"placeholder\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -189,7 +189,7 @@ exports[`Textarea should render correctly 1`] = `
 `;
 
 exports[`Textarea should work with different styles 1`] = `
-"<div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-textarea\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"nextui-input-rmba3prj\\" class=\\"nextui-input-textarea\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+"<div><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-textarea\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"nextui-input-8l9p5s5s\\" class=\\"nextui-input-textarea\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: initial;
             display: inline-flex;
@@ -373,7 +373,7 @@ exports[`Textarea should work with different styles 1`] = `
             border: none;
             outline: none;
           }
-        </style><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-textarea\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"nextui-input-e740hgu3\\" class=\\"nextui-input-textarea\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
+        </style><div data-state=\\"normal\\" class=\\"nextui-input-main-container\\"><div class=\\"nextui-input-container nextui-input-container-textarea\\"><label class=\\"nextui-input-wrapper nextui-input-wrapper-shadow textarea-wrapper\\"><textarea type=\\"text\\" id=\\"nextui-input-o8qrolb9\\" class=\\"nextui-input-textarea\\" placeholder=\\"\\" autocomplete=\\"off\\" data-state=\\"normal\\" aria-placeholder=\\"\\" aria-readonly=\\"false\\" aria-required=\\"false\\" aria-multiline=\\"true\\"></textarea></label></div><div class=\\"nextui-input-helper-text-container\\"></div><style>
           .nextui-input-main-container {
             width: 20%;
             display: inline-flex;

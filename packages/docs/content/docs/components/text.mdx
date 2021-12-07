@@ -36,6 +36,45 @@ import { Text } from '@nextui-org/react';
 />
 
 <Playground
+  title="Gradient"
+  desc="You can use `css` prop and the `textGradient` util to render a gradient `Text`."
+  code={`
+<>
+  <Text
+    h1
+    size={60}
+    css={{
+      textGradient: '45deg, $blue500 0%, $pink500 50%'
+    }}
+    weight="bold"
+  >
+    Let's
+  </Text>
+  <Text
+    h1
+    size={60}
+    css={{
+      textGradient: '45deg, $pink500 0%, $yellow800 100%'
+    }}
+    weight="bold"
+  >
+    Make the web
+  </Text>
+  <Text
+    h1
+    size={60}
+    css={{
+      textGradient: '45deg, $yellow500 0%, $red500 100%'
+    }}
+    weight="bold"
+  >
+    Prettier
+  </Text>
+</>
+`}
+/>
+
+<Playground
   title="Paragraph"
   desc="The `Text` component renders a paragraph by default."
   code={`
@@ -163,7 +202,7 @@ import { Text } from '@nextui-org/react';
 | **transform**  | `TextTransform`         | [TextTransforms](#text-transforms) | text-transform prop | `none`    |
 | **size**       | `string` `number`       | -                                  | Text size           | `inherit` |
 | **margin**     | `string` `number`       | -                                  | Text margin         | `inherit` |
-| **color**      | `NormalColors` `string` | [NormalColors](#normal-colors)     | Text color          | `default` |
+| **color**      | `SimpleColors` `string` | [SimpleColors](#normal-colors)     | Text color          | `default` |
 | **weight**     | `TextWeights`           | [TextWeights](#text-weights)       | Text weight         | `noset`   |
 | ...            | `HTMLAttributes`        | `'id', 'className', ...`           | native props        | -         |
 
@@ -191,10 +230,10 @@ type TextTransforms =
   | 'unset';
 ```
 
-#### Normal Colors
+#### Simple Colors
 
 ```ts
-type NormalColors =
+type SimpleColors =
   | 'default'
   | 'primary'
   | 'secondary'
@@ -207,25 +246,13 @@ type NormalColors =
 
 ```ts
 type TextWeights =
-  /* Keyword values */
-  | 'normal'
-  | 'bold'
-  /* Keyword values relative to the parent */
-  | 'lighter'
-  | 'bolder'
-  /* Global values */
-  | 'inherit'
-  | 'initial'
-  | 'revert'
-  | 'unset'
-  /* Numeric keyword values */
-  | 100
-  | 200
-  | 300
-  | 400 // normal
-  | 500
-  | 600
-  | 700 // bold
-  | 800
-  | 900;
+  'hairline' | // 100,
+  'thin' | // 200,
+  'light' | // 300,
+  'normal' | // 400,
+  'medium' | // 500,
+  'semibold' | // 600,
+  'bold' | // 700,
+  'extrabold' | // 800,
+  'black' | // 900
 ```

@@ -1,10 +1,10 @@
 import React, { ReactNode, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
-import { NormalColors, TextWeights, TextTransforms } from '../utils/prop-types';
-import { DefaultProps } from '../utils/default-props';
+import { SimpleColors, TextTransforms } from '../utils/prop-types';
+import { TextVariantsProps } from './text.styles';
 import TextChild from './child';
 
-interface Props extends DefaultProps {
+interface Props {
   h1?: boolean;
   h2?: boolean;
   h3?: boolean;
@@ -19,11 +19,9 @@ interface Props extends DefaultProps {
   del?: boolean;
   em?: boolean;
   blockquote?: boolean;
-  className?: string;
   size?: string | number;
   margin?: string | number;
-  weight?: TextWeights;
-  color?: NormalColors | string;
+  color?: SimpleColors | string;
 }
 
 const defaultProps = {
@@ -41,16 +39,17 @@ const defaultProps = {
   del: false,
   em: false,
   blockquote: false,
-  weight: 'noset' as TextWeights,
-  className: '',
-  color: 'default' as NormalColors | string
+  color: 'default' as SimpleColors | string
 };
 
 type ElementMap = { [key in keyof JSX.IntrinsicElements]?: boolean };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
 
-export type TextProps = Props & typeof defaultProps & NativeAttrs;
+export type TextProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  TextVariantsProps;
 
 type TextRenderableElements = Array<keyof JSX.IntrinsicElements>;
 
@@ -86,9 +85,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   transform,
   size,
   margin,
-  weight,
   children,
-  className,
   ...props
 }) => {
   const elements: ElementMap = { h1, h2, h3, h4, h5, h6, blockquote };
@@ -125,12 +122,10 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
 
   return (
     <TextChild
-      className={className}
       transform={transform}
       tag={tag}
       margin={margin}
       size={size}
-      weight={weight}
       {...props}
     >
       {modifers}

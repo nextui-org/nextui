@@ -1,31 +1,29 @@
 import React, { useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
-import useTheme from '../use-theme';
-import { NormalColors, TextWeights, TextTransforms } from '../utils/prop-types';
-import { getNormalColor } from '../utils/color';
-import { DefaultProps } from '../utils/default-props';
-import { getSpacingsStyles } from '../utils/styles';
-import clsx from '../utils/clsx';
+import { CSS } from '../theme/stitches.config';
+import { SimpleColors, TextTransforms } from '../utils/prop-types';
+import { isNormalColor } from '../utils/color';
+import { StyledText, TextVariantsProps } from './text.styles';
 
-export interface Props extends DefaultProps {
+export interface Props {
   tag: keyof JSX.IntrinsicElements;
-  color?: NormalColors | string;
+  color?: SimpleColors | string;
   size?: string | number;
   margin?: string | number;
   transform?: TextTransforms;
-  weight?: TextWeights;
-  className?: '';
+  css?: CSS;
 }
 
 const defaultProps = {
-  color: 'default' as NormalColors | string,
-  className: ''
+  color: 'default' as SimpleColors | string
 };
 
 type NativeAttrs = Omit<React.DetailsHTMLAttributes<unknown>, keyof Props>;
-export type TextChildProps = Props & typeof defaultProps & NativeAttrs;
 
-const preClass = 'nextui-text';
+export type TextChildProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  TextVariantsProps;
 
 const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   children,
@@ -34,19 +32,22 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   color: userColor,
   transform,
   margin: marginProp,
-  weight,
   size,
+  css,
   ...props
 }) => {
-  const theme = useTheme();
+  const color = useMemo(() => {
+    if (isNormalColor(userColor)) {
+      switch (userColor) {
+        case 'default':
+          return '$text';
+        default:
+          return `$${userColor}`;
+      }
+    }
+    return userColor;
+  }, [userColor]);
 
-  const { stringCss } = getSpacingsStyles(theme, props);
-
-  const Component = tag;
-  const color = useMemo(
-    () => getNormalColor(userColor, theme.palette),
-    [userColor, theme.palette]
-  );
   const fontSize = useMemo<string>(() => {
     if (!size) return 'inherit';
     if (typeof size === 'number') return `${size}px`;
@@ -61,24 +62,19 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
 
   return (
     <React.Fragment>
-      <Component
-        className={clsx(preClass, { 'custom-size': !!size }, className)}
+      <StyledText
+        as={tag}
+        css={{
+          color,
+          fontSize: size ? fontSize : '',
+          margin,
+          tt: transform,
+          ...(css as any)
+        }}
         {...props}
       >
         {children}
-      </Component>
-      <style jsx>{`
-        ${tag} {
-          color: ${color};
-          margin: ${margin};
-          font-weight: ${weight};
-          text-transform: ${transform};
-          ${stringCss};
-        }
-        .custom-size {
-          font-size: ${fontSize};
-        }
-      `}</style>
+      </StyledText>
     </React.Fragment>
   );
 };

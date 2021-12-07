@@ -451,6 +451,11 @@ export const {
     }),
     linearGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
       backgroundImage: `linear-gradient(${value})`
+    }),
+    textGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
+      backgroundImage: `linear-gradient(${value})`,
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent'
     })
   },
   themeMap: {
