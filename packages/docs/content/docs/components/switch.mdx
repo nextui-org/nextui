@@ -77,12 +77,6 @@ import { Switch } from '@nextui-org/react';
     <Grid>
         <Switch color="error" checked={true}/>
     </Grid>
-    <Grid>
-        <Switch color="gradient" checked={true}/>
-    </Grid>
-    <Grid>
-        <Switch color="#ff4ecd" checked={true}/>
-    </Grid>
   </Grid.Container>
 `}
 />
@@ -107,12 +101,6 @@ import { Switch } from '@nextui-org/react';
     <Grid>
         <Switch shadow color="error" checked={true}/>
     </Grid>
-    <Grid>
-        <Switch shadow color="gradient" checked={true}/>
-    </Grid>
-    <Grid>
-        <Switch shadow color="#ff4ecd" checked={true}/>
-    </Grid>
   </Grid.Container>
 `}
 />
@@ -134,14 +122,26 @@ import { Switch } from '@nextui-org/react';
  <>
     <Switch bordered size="xs" />
     <Spacer />
-    <Switch bordered size="sm" />
+    <Switch bordered size="sm" color="secondary"/>
     <Spacer />
-    <Switch bordered size="md" />
+    <Switch bordered size="md" color="success"/>
     <Spacer />
-    <Switch bordered size="lg" />
+    <Switch bordered size="lg" color="warning"/>
     <Spacer />
-    <Switch bordered size="xl" />
+    <Switch bordered size="xl" color="error"/>
   </>
+`}
+/>
+
+<Playground
+  title="No Animated"
+  desc="You can disable the animation of the entire `Switch` with the property `animated={false}`."
+  code={`
+<>
+  <Switch animated={false} checked={true}/>
+  <Spacer/>
+  <Switch animated={false} />
+ </>
 `}
 />
 
@@ -204,21 +204,23 @@ import { Switch } from '@nextui-org/react';
 
 #### Switch Props
 
-| Attribute          | Type                                         | Accepted values                | Description                                                        | Default   |
-| ------------------ | -------------------------------------------- | ------------------------------ | ------------------------------------------------------------------ | --------- |
-| **color**          | `NormalColors` `string`                      | [NormalColors](#normal-colors) | Change switch color                                                | `primary` |
-| **size**           | `NormalSizes`                                | [NormalSizes](#normal-sizes)   | Switch size                                                        | `medium`  |
-| **checked**        | `boolean`                                    | `true/false`                   | Selected or not (in single)                                        | `false`   |
-| **initialChecked** | `boolean`                                    | `true/false`                   | Determine the initial value of the switch                          | `false`   |
-| **squared**        | `boolean`                                    | `true/false`                   | Squared switch                                                     | `false`   |
-| **shadow**         | `boolean`                                    | `true/false`                   | Display shadow effect                                              | `false`   |
-| **disabled**       | `boolean`                                    | `true/false`                   | Disable switch                                                     | `false`   |
-| **bordered**       | `boolean`                                    | `true/false`                   | Bordered switch                                                    | `false`   |
-| **icon**           | `ReactNode`                                  | -                              | Add an icon for both status on/off                                 | -         |
-| **iconOn**         | `ReactNode`                                  | -                              | Add an icon for on status                                          | -         |
-| **iconOff**        | `ReactNode`                                  | -                              | Add an icon for off status                                         | -         |
-| **onChange**       | `(e:`[SwitchEvent](#switch-event)) `=> void` | -                              | The callback invoked when the checked state of the switch changes. | -         |
-| ...                | `LabelHTMLAttributes`                        | `'id', 'className', ...`       | Native props                                                       | -         |
+| Attribute          | Type                                         | Accepted values                | Description                                                               | Default   |
+| ------------------ | -------------------------------------------- | ------------------------------ | ------------------------------------------------------------------------- | --------- |
+| **color**          | `NormalColors`                               | [NormalColors](#normal-colors) | Change switch color                                                       | `primary` |
+| **size**           | `NormalSizes`                                | [NormalSizes](#normal-sizes)   | Switch size                                                               | `medium`  |
+| **checked**        | `boolean`                                    | `true/false`                   | Selected or not (in single)                                               | `false`   |
+| **initialChecked** | `boolean`                                    | `true/false`                   | Determine the initial value of the switch                                 | `false`   |
+| **animated**       | `boolean`                                    | `true/false`                   | Display checkbox animations                                               | `true`    |
+| **squared**        | `boolean`                                    | `true/false`                   | Squared switch                                                            | `false`   |
+| **shadow**         | `boolean`                                    | `true/false`                   | Display shadow effect                                                     | `false`   |
+| **disabled**       | `boolean`                                    | `true/false`                   | Disable switch                                                            | `false`   |
+| **bordered**       | `boolean`                                    | `true/false`                   | Bordered switch                                                           | `false`   |
+| **icon**           | `ReactNode`                                  | -                              | Add an icon for both status on/off                                        | -         |
+| **iconOn**         | `ReactNode`                                  | -                              | Add an icon for on status                                                 | -         |
+| **iconOff**        | `ReactNode`                                  | -                              | Add an icon for off status                                                | -         |
+| **preventDefault** | `boolean`                                    | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
+| **onChange**       | `(e:`[SwitchEvent](#switch-event)) `=> void` | -                              | The callback invoked when the checked state of the switch changes.        | -         |
+| ...                | `LabelHTMLAttributes`                        | `'id', 'className', ...`       | Native props                                                              | -         |
 
 <Spacer y={2} />
 

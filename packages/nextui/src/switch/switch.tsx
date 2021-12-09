@@ -1,9 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
-import useTheme from '../use-theme';
-import { NormalSizes, SimpleColors } from '../utils/prop-types';
-import { getNormalColor, getNormalShadowColor } from '../utils/color';
-import { getSizes } from './styles';
 import useWarning from '../use-warning';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import {
@@ -31,13 +27,16 @@ interface Props {
   checked?: boolean;
   squared?: boolean;
   bordered?: boolean;
+  animated?: boolean;
   shadow?: boolean;
   icon?: React.ReactNode;
   iconOn?: React.ReactNode;
   iconOff?: React.ReactNode;
   initialChecked?: boolean;
-  onChange?: (ev: SwitchEvent) => void;
+  preventDefault?: boolean;
   disabled?: boolean;
+  onChange?: (ev: SwitchEvent) => void;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
@@ -45,6 +44,8 @@ const defaultProps = {
   bordered: false,
   shadow: false,
   squared: false,
+  animated: true,
+  preventDefault: true,
   initialChecked: false
 };
 
@@ -70,10 +71,10 @@ const Switch: React.FC<SwitchProps> = ({
   icon,
   iconOn,
   iconOff,
-  className,
+  animated,
+  preventDefault,
   ...props
 }) => {
-  const theme = useTheme();
   const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
 
   if (icon && __DEV__ && (iconOn || iconOff)) {
@@ -104,11 +105,10 @@ const Switch: React.FC<SwitchProps> = ({
     },
     [KeyCode.Enter, KeyCode.Space],
     {
-      disableGlobalEvent: true
+      disableGlobalEvent: true,
+      preventDefault
     }
   );
-
-  const radius = useMemo(() => (squared ? '2px' : '50%'), [squared]);
 
   const circleIcon = useMemo(() => {
     const hasIcon = icon || iconOn || iconOff;
@@ -120,25 +120,6 @@ const Switch: React.FC<SwitchProps> = ({
     return hasIcon;
   }, [selfChecked, icon, iconOn, iconOff]);
 
-  // const switchColor = useMemo(
-  //   () =>
-  //     disabled
-  //       ? theme.palette.accents_4
-  //       : getNormalColor(color, theme.palette, theme.palette.success),
-  //   [color, disabled, theme.palette]
-  // );
-
-  // const shadowColor = useMemo(
-  //   () =>
-  //     shadow && !disabled
-  //       ? getNormalShadowColor(
-  //           selfChecked ? color : theme.palette.accents_2,
-  //           theme.palette
-  //         )
-  //       : '',
-  //   [theme.palette, color, disabled, shadow, selfChecked]
-  // );
-
   useEffect(() => {
     if (checked === undefined) return;
     setSelfChecked(checked);
@@ -149,7 +130,12 @@ const Switch: React.FC<SwitchProps> = ({
   }, [selfChecked]);
 
   return (
-    <StyledSwitchContainer data-state={getState} disabled={disabled} {...props}>
+    <StyledSwitchContainer
+      data-state={getState}
+      disabled={disabled}
+      animated={animated}
+      {...props}
+    >
       <StyledSwitchInput
         tabIndex={-1}
         type="checkbox"
@@ -165,8 +151,13 @@ const Switch: React.FC<SwitchProps> = ({
         checked={selfChecked}
         aria-checked={selfChecked}
         aria-disabled={disabled}
+        animated={animated}
+        disabled={disabled}
         squared={squared}
-        className={clsx(preClass, {
+        bordered={bordered}
+        shadow={shadow}
+        data-state={getState}
+        className={clsx(preClass, `${preClass}--${getState}`, {
           [`${preClass}-checked`]: selfChecked,
           [`${preClass}-disabled`]: disabled
         })}

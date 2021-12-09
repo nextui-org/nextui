@@ -11,94 +11,119 @@ export const StyledSwitchContainer = styled('label', {
   verticalAlign: 'center',
   whiteSpace: 'nowrap',
   us: 'none',
-  // max-width: ${width}, size variant
   transition: '$default',
   padding: '$1 0',
   position: 'relative',
   cursor: 'pointer',
+  '@motion': {
+    transition: 'none'
+  },
   variants: {
     color: {
       default: {
         $$switchColor: '$colors$primary',
+        $$switchColorShadow: '$colors$primaryLight',
         $$switchColorHover: '$colors$primaryDark'
       },
       primary: {
         $$switchColor: '$colors$primary',
+        $$switchColorShadow: '$colors$primaryLight',
         $$switchColorHover: '$colors$primaryDark'
       },
       secondary: {
         $$switchColor: '$colors$secondary',
+        $$switchColorShadow: '$colors$secondaryLight',
         $$switchColorHover: '$colors$secondaryDark'
       },
       success: {
         $$switchColor: '$colors$success',
+        $$switchColorShadow: '$colors$successLight',
         $$switchColorHover: '$colors$successDark'
       },
       warning: {
         $$switchColor: '$colors$warning',
+        $$switchColorShadow: '$colors$warningLight',
         $$switchColorHover: '$colors$warningDark'
       },
       error: {
         $$switchColor: '$colors$error',
+        $$switchColorShadow: '$colors$errorLight',
         $$switchColorHover: '$colors$errorDark'
       }
     },
     size: {
       xs: {
         $$switchWidth: '$space$12',
-        $$switchHeight: '$space$8',
-        width: '$space$12',
-        height: '$space$8'
+        $$switchHeight: '$space$9',
+        width: ' $$switchWidth',
+        maxWidth: '$$switchWidth',
+        height: '$$switchHeight'
       },
       sm: {
         $$switchWidth: '$space$14',
-        $$switchHeight: '$space$9',
-        width: '$space$14',
-        height: '$space$9'
+        $$switchHeight: '$space$10',
+        width: '$$switchWidth',
+        maxWidth: '$$switchWidth',
+        height: '$$switchHeight'
       },
       md: {
         $$switchWidth: '$space$15',
-        $$switchHeight: '$space$10',
-        width: '$space$15',
-        height: '$space$10'
+        $$switchHeight: '$space$11',
+        width: '$$switchWidth',
+        maxWidth: '$$switchWidth',
+        height: '$$switchHeight'
       },
       lg: {
         $$switchWidth: '$space$17',
         $$switchHeight: '$space$12',
-        width: '$space$17',
-        height: '$space$12'
+        width: '$$switchWidth',
+        maxWidth: '$$switchWidth',
+        height: '$$switchHeight'
       },
       xl: {
         $$switchWidth: '$space$18',
         $$switchHeight: '$space$13',
-        width: '$space$18',
-        height: '$space$13'
+        width: '$$switchWidth',
+        maxWidth: '$$switchWidth',
+        height: '$$switchHeight'
+      }
+    },
+    borderWeight: {
+      light: {
+        $$switchBorderW: '$borderWeights$light'
+      },
+      normal: {
+        $$switchBorderW: '$borderWeights$normal'
+      },
+      bold: {
+        $$switchBorderW: '$borderWeights$bold'
+      },
+      extrabold: {
+        $$switchBorderW: '$borderWeights$extrabold'
+      },
+      black: {
+        $$switchBorderW: '$borderWeights$black'
       }
     },
     disabled: {
       true: {
         cursor: 'not-allowed'
       }
+    },
+    animated: {
+      false: {
+        transition: 'none'
+      }
     }
   },
   defaultVariants: {
     color: 'default',
-    size: 'md'
+    size: 'md',
+    borderWeight: 'normal'
   }
 });
 
-export const StyledSwitchInput = styled(
-  'input',
-  {
-    // opacity: 0;
-    // width: 100%;
-    // height: ${height};
-    // position: absolute;
-    // background: transparent;
-    // z-index: -1;
-  },
-  sharedVisuallyHidden
-);
+export const StyledSwitchInput = styled('input', {}, sharedVisuallyHidden);
 
 export const StyledSwitchCircle = styled('span', {
   position: 'absolute',
@@ -108,22 +133,16 @@ export const StyledSwitchCircle = styled('span', {
   ai: 'center',
   top: '50%',
   transform: 'translateY(-50%)',
-  left: '2px',
-  // left: ${bordered
-  //   ? 'calc(1px + ' + height + '* 0.02)'
-  //   : `calc(2px + ${height} * 0.02)`}, bordered variant
-  transition: 'left 0.25s ease',
+  left: 'calc($$switchWidth / 15)',
+  transition: 'left 0.25s ease, width 0.2s ease',
   bg: '$background',
   br: '$pill',
-  // background: ${bordered
-  //   ? addColorAlpha(
-  //       theme.palette.accents_3,
-  //       theme.type === 'dark' ? 0.6 : 0.4
-  //     )
-  //   : theme.palette.background}, bordered variant
   '& svg': {
     bg: 'transparent',
     size: 'calc($$switchHeight * 0.44)'
+  },
+  '@motion': {
+    transition: 'none'
   }
 });
 
@@ -136,71 +155,137 @@ export const StyledSwitch = styled(
     transition: '$default',
     position: 'relative',
     overflow: 'hidden',
-    // border: ${theme.borderWeights.normal} solid
-    //   ${bordered ? theme.palette.border : 'transparent'}; border variant
-    // background: ${bordered
-    //   ? 'transparent'
-    //   : addColorAlpha(
-    //       theme.palette.accents_3,
-    //       theme.type === 'dark' ? 0.6 : 0.4
-    //     )};
-    // boxShadow: ${shadowColor}; shadow variant
     padding: 0,
     br: '$pill',
     bg: '$gray200',
-    '&:before': {
-      content: '',
-      position: 'absolute',
-      top: 0,
-      left: '-100%',
-      width: '100%',
-      height: '100%',
-      br: '$pill',
-      bg: '$$switchColor',
-      transition: 'left 0.25s ease 50ms, background 0.25s ease'
+    '@motion': {
+      transition: 'none'
     },
     variants: {
       checked: {
         true: {
-          // border: '1px solid transparent',
-          '&:before': {
-            left: '0%'
+          bg: '$$switchColor',
+          [`& ${StyledSwitchCircle}`]: {
+            left: 'calc(100% - ($$switchWidth / 15) - $$switchHeight * 0.7)'
           },
           '&:hover:not(&:active)': {
-            '&:before': {
-              bg: '$$switchColorHover'
-            }
+            bg: '$$switchColorHover'
+          }
+        }
+      },
+      bordered: {
+        true: {
+          bg: 'transparent',
+          border: '$$switchBorderW solid $border',
+          '&:hover': {
+            borderColor: '$$switchColor'
           },
           [`& ${StyledSwitchCircle}`]: {
-            left: 'calc(100% - 2px - $$switchHeight * 0.7)' // variable 2px
-            // left: 'calc($$switchWidth - $$switchHeight * 0.88)'
-            // background: ${isHex(theme.palette.background)
-            //   ? hexToRGBA(theme.palette.background, 0.6)
-            //   : theme.palette.background};
+            left: 'calc(($$switchWidth / 15) - ($$switchBorderW / 2))',
+            bg: '$accents2'
           }
         }
       },
       squared: {
         true: {
           br: '2px',
-          '&:before': {
-            br: '2px'
-          },
           [`& ${StyledSwitchCircle}`]: {
             br: '2px'
           }
         }
       },
+      shadow: {
+        true: {}
+      },
       disabled: {
         true: {
-          borderColor: '$accents3',
-          bg: '$accents3',
+          borderColor: '$accents2',
+          bg: '$accents2',
           [`& ${StyledSwitchCircle}`]: {
-            bg: '$accents2'
+            bg: '$accents3'
+          }
+        }
+      },
+      animated: {
+        true: {
+          '&:active': {
+            [`& ${StyledSwitchCircle}`]: {
+              width: 'calc($$switchHeight * 0.7 + ($$switchWidth / 10))'
+            }
+          }
+        },
+        false: {
+          transition: 'none',
+          [`& ${StyledSwitchCircle}`]: {
+            transition: 'none'
           }
         }
       }
-    }
+    },
+    compoundVariants: [
+      {
+        // checked && disabled
+        checked: true,
+        disabled: true,
+        css: {
+          bg: '$accents3',
+          [`& ${StyledSwitchCircle}`]: {
+            bg: '$accents2'
+          },
+          '&:hover:not(&:active)': {
+            bg: '$accents3'
+          }
+        }
+      },
+      // shadow && checked
+      {
+        shadow: true,
+        checked: true,
+        css: {
+          normalShadowVar: '$$switchColorShadow'
+        }
+      },
+      // animated && !checked
+      {
+        animated: true,
+        checked: false,
+        css: {
+          '&:active': {
+            [`& ${StyledSwitchCircle}`]: {
+              left: 'calc($$switchWidth / 7.5)'
+            }
+          }
+        }
+      },
+      // animated && checked
+      {
+        animated: true,
+        checked: true,
+        css: {
+          '&:active': {
+            [`& ${StyledSwitchCircle}`]: {
+              left: 'calc(100% - ($$switchWidth / 5) - $$switchHeight * 0.7)'
+            }
+          }
+        }
+      },
+      // checked && bordered
+      {
+        checked: true,
+        bordered: true,
+        css: {
+          bg: '$$switchColor',
+          border: '$$switchBorderW solid transparent',
+          '&:hover:not(&:active)': {
+            borderColor: 'transparent'
+          },
+          [`& ${StyledSwitchCircle}`]: {
+            left: 'calc(100% - ($$switchWidth / 15) - $$switchHeight * 0.7 + ($$switchBorderW / 2))',
+            bg: '$background'
+          }
+        }
+      }
+    ]
   },
   sharedFocus
 );
