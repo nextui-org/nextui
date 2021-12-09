@@ -36,7 +36,9 @@
   "sideEffects": false,
   "scripts": {
     "clear": "rimraf ./lib ./dist ./esm",
+    "clear-types": "rimraf ./lib/esm/**/*.d.ts && rimraf ./lib/cjs/**/*.d.ts",  
     "pre-publish": "node ./scripts/pre-publish.js",
+    "publish:dry-run": "npm publish ./lib --dry-run",
     "build": "node ./scripts/build.js",
     "build:types": "yarn tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types",
     "build:dev-types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir lib/esm",
