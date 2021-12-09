@@ -1,16 +1,17 @@
 import React, { useContext, useMemo } from 'react';
-import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import { ModalContext } from './modal-context';
 import { Justify } from '../utils/prop-types';
-import { DefaultProps } from '../utils/default-props';
-import { getSpacingsStyles } from '../utils/styles';
+import { CSS } from '../theme/stitches.config';
+import { StyledModalHeader, ModalHeaderVariantsProps } from './modal.styles';
 import cslx from '../utils/clsx';
 
-interface Props extends DefaultProps {
+interface Props {
   className?: string;
   justify?: Justify;
   autoMargin?: boolean;
+  css?: CSS;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
@@ -20,7 +21,11 @@ const defaultProps = {
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ModalHeaderProps = Props & typeof defaultProps & NativeAttrs;
+
+export type ModalHeaderProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  ModalHeaderVariantsProps;
 
 const preClass = 'nextui-modal-header';
 
@@ -29,18 +34,17 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
   className,
   justify,
   autoMargin: autoMarginProp,
+  css,
   ...props
 }) => {
-  const theme = useTheme();
-
-  const { stringCss } = getSpacingsStyles(theme, props);
-
   const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
+
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
   }, [autoMarginProp, autoMarginContext]);
+
   return (
-    <div
+    <StyledModalHeader
       className={cslx(
         preClass,
         {
@@ -49,32 +53,16 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
         },
         className
       )}
+      noPadding={noPadding}
+      autoMargin={autoMargin}
+      css={{
+        ...(css as any),
+        justifyContent: justify
+      }}
       {...props}
     >
       {children}
-      <style jsx>{`
-        .${preClass} {
-          display: flex;
-          flex-shrink: 0;
-          justify-content: ${justify};
-          align-items: center;
-          overflow: hidden;
-          color: inherit;
-          font-size: 0.875rem;
-          padding: ${theme.spacing.sm} calc(${theme.spacing.lg} + 0.25rem);
-          ${stringCss};
-        }
-        .${preClass}-no-padding {
-          ${!stringCss?.includes('padding') ? 'padding: 0;' : ''};
-        }
-        .${preClass}-auto-margin > :global(*:first-child) {
-          ${!stringCss?.includes('margin') ? 'margin-top: 0;' : ''};
-        }
-        .${preClass}-auto-margin > :global(*:last-child) {
-          ${!stringCss?.includes('margin') ? 'margin-bottom: 0;' : ''};
-        }
-      `}</style>
-    </div>
+    </StyledModalHeader>
   );
 };
 

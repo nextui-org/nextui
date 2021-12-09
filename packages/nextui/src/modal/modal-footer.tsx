@@ -1,16 +1,17 @@
 import React, { useMemo, useContext } from 'react';
-import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import { ModalContext } from './modal-context';
 import { Justify } from '../utils/prop-types';
-import { DefaultProps } from '../utils/default-props';
-import { getSpacingsStyles } from '../utils/styles';
+import { CSS } from '../theme/stitches.config';
+import { StyledModalFooter, ModalFooterVariantsProps } from './modal.styles';
 import cslx from '../utils/clsx';
 
-interface Props extends DefaultProps {
+interface Props {
   className?: string;
   justify?: Justify;
   autoMargin?: boolean;
+  css?: CSS;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
@@ -20,7 +21,10 @@ const defaultProps = {
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ModalFooterProps = Props & typeof defaultProps & NativeAttrs;
+export type ModalFooterProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  ModalFooterVariantsProps;
 
 const preClass = 'nextui-modal-footer';
 
@@ -29,18 +33,17 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
   className,
   justify,
   autoMargin: autoMarginProp,
+  css,
   ...props
 }) => {
-  const theme = useTheme();
-
-  const { stringCss } = getSpacingsStyles(theme, props);
-
   const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
+
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
   }, [autoMarginProp, autoMarginContext]);
+
   return (
-    <div
+    <StyledModalFooter
       className={cslx(
         preClass,
         {
@@ -49,30 +52,16 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
         },
         className
       )}
+      noPadding={noPadding}
+      autoMargin={autoMargin}
+      css={{
+        ...(css as any),
+        justifyContent: justify
+      }}
       {...props}
     >
       {children}
-      <style jsx>{`
-        .${preClass} {
-          display: flex;
-          flex-wrap: wrap;
-          flex-shrink: 0;
-          overflow: hidden;
-          color: inherit;
-          align-items: center;
-          font-size: 0.875rem;
-          padding: ${theme.spacing.sm} ${theme.spacing.lg};
-          justify-content: ${justify};
-          ${stringCss};
-        }
-        .${preClass}-no-padding {
-          ${!stringCss?.includes('padding') ? 'padding: 0;' : ''};
-        }
-        .${preClass}-auto-margin > :global(*) {
-          ${!stringCss?.includes('margin') ? 'margin: 0.25rem;' : ''};
-        }
-      `}</style>
-    </div>
+    </StyledModalFooter>
   );
 };
 

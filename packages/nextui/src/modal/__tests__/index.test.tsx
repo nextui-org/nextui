@@ -25,6 +25,7 @@ describe('Modal', () => {
     );
     expect(() => wrapper.unmount()).not.toThrow();
   });
+
   it('should trigger event when modal changed', async () => {
     const openHandler = jest.fn();
     const closeHandler = jest.fn();
@@ -38,7 +39,8 @@ describe('Modal', () => {
     await updateWrapper(wrapper, 350);
     expectModalIsOpened(wrapper);
     expect(openHandler).toHaveBeenCalled();
-    wrapper.find('.nextui-backdrop').simulate('click', nativeEvent);
+
+    wrapper.find('.nextui-backdrop').at(0).simulate('click', nativeEvent);
     await updateWrapper(wrapper, 500);
     expectModalIsClosed(wrapper);
     expect(closeHandler).toHaveBeenCalled();
@@ -51,7 +53,7 @@ describe('Modal', () => {
         <Modal.Footer>Submit</Modal.Footer>
       </Modal>
     );
-    wrapper.find('.nextui-backdrop').simulate('click', nativeEvent);
+    wrapper.find('.nextui-backdrop').at(0).simulate('click', nativeEvent);
     await updateWrapper(wrapper, 500);
     expectModalIsOpened(wrapper);
     expect(closeHandler).not.toHaveBeenCalled();
@@ -62,7 +64,7 @@ describe('Modal', () => {
         <Modal.Header>Modal</Modal.Header>
       </Modal>
     );
-    const html = wrapper.find('.nextui-modal').html();
+    const html = wrapper.find('.nextui-modal').at(0).html();
     expect(html).toContain('test-class');
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -72,8 +74,16 @@ describe('Modal', () => {
         <Modal.Header>Modal</Modal.Header>
       </Modal>
     );
-    const tabStart = wrapper.find('.nextui-modal-hide-tab').at(0).getDOMNode();
-    const tabEnd = wrapper.find('.nextui-modal-hide-tab').at(1).getDOMNode();
+    const tabStart = wrapper
+      .find('.nextui-modal-hide-tab')
+      .at(0)
+      .at(0)
+      .getDOMNode();
+    const tabEnd = wrapper
+      .find('.nextui-modal-hide-tab')
+      .at(2)
+      .at(0)
+      .getDOMNode();
     const eventElement = wrapper.find('.nextui-modal').at(0);
     expect(document.activeElement).toBe(tabStart);
     act(() => {

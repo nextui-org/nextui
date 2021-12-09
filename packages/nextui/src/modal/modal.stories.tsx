@@ -36,15 +36,16 @@ export const Default = () => {
     setVisible(false);
     console.log('closed');
   };
+
   return (
     <div>
       <Button auto onClick={handler}>
         Show Modal
       </Button>
       <Modal
-        aria-labelledby="modal-title"
         open={visible}
         onClose={closeHandler}
+        aria-labelledby="modal-title"
       >
         <Modal.Header>
           <Text id="modal-title" size={18}>
