@@ -136,7 +136,12 @@ const TooltipContent: React.FC<React.PropsWithChildren<Props>> = ({
       leaveTime={20}
     >
       <div
-        className={clsx(preClass, `${preClass}-content`, className)}
+        className={clsx(
+          preClass,
+          `${preClass}-content`,
+          `${preClass}--${getState}`,
+          className
+        )}
         data-state={getState}
         ref={selfRef}
         onClick={preventHandler}

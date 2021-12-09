@@ -29,11 +29,9 @@ export const Colors = () => (
     <Spacer y={0.5} />
     <Progress value={90} color="warning" />
     <Spacer y={0.5} />
-    <Progress value={10} color="error" />
+    <Progress value={30} color="error" />
     <Spacer y={0.5} />
-    <Progress value={20} color="gradient" />
-    <Spacer y={0.5} />
-    <Progress value={65} color="#f4a" />
+    <Progress value={70} color="gradient" />
   </>
 );
 
@@ -62,8 +60,6 @@ export const Status = () => (
     <Progress value={90} color="warning" status="warning" />
     <Spacer y={0.5} />
     <Progress value={10} color="error" status="error" />
-    <Spacer y={0.5} />
-    <Progress value={45} color="#f4a" status="#f4a" />
   </>
 );
 
@@ -78,8 +74,6 @@ export const Shadow = () => (
     <Progress shadow value={90} color="warning" status="warning" />
     <Spacer y={0.5} />
     <Progress shadow value={10} color="error" status="error" />
-    <Spacer y={0.5} />
-    <Progress shadow value={45} color="#f4a" status="#f4a" />
   </>
 );
 

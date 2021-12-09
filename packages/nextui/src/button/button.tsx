@@ -33,6 +33,7 @@ export interface Props {
   iconRight?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   as?: keyof JSX.IntrinsicElements;
+  className?: string;
 }
 
 const defaultProps = {
@@ -41,7 +42,8 @@ const defaultProps = {
   bordered: false,
   ripple: true,
   animated: true,
-  disabled: false
+  disabled: false,
+  className: ''
 };
 
 type NativeAttrs = Omit<
@@ -74,6 +76,7 @@ const Button = React.forwardRef<
     iconRight,
     ghost,
     clickable,
+    className,
     ...props
   } = filteredProps;
   /* eslint-enable @typescript-eslint/no-unused-vars */
@@ -115,6 +118,7 @@ const Button = React.forwardRef<
       disabled={disabled}
       animated={animated}
       onClick={clickHandler}
+      className={clsx('nextui-button', `nextui-button--${getState}`, className)}
       {...props}
     >
       {React.Children.count(children) === 0 ? (

@@ -277,6 +277,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
         <div
           className={clsx(
             `${preClass}-container`,
+            `${preClass}--${getState}`,
             {
               [`${preClass}-container-input`]: !isTextarea,
               [`${preClass}-container-textarea`]: isTextarea,

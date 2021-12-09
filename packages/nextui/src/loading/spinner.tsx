@@ -7,6 +7,7 @@ import {
   StyledLoadingLabel,
   SpinnerVariantsProps
 } from './loading.styles';
+import clsx from '../utils/clsx';
 
 interface Props {
   size?: NormalSizes;
@@ -35,7 +36,7 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
 
   return (
     <StyledSpinner
-      className={`nextui-spinner ${className}`}
+      className={clsx('nextui-spinner', className)}
       color={color}
       size={size}
       {...props}

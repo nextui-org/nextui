@@ -171,7 +171,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
       size={checkboxSize}
       disabled={isDisabled}
       animated={animated}
-      className="nextui-checkbox-label"
+      className={clsx(
+        'nextui-checkbox-label',
+        `nextui-checkbox--${getState}`,
+        className
+      )}
     >
       <StyledCheckboxContainer
         className="nextui-checkbox-container"
@@ -184,7 +188,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
       >
         <StyledCheckboxInput
           type="checkbox"
-          className={clsx('nextui-checkbox-input', className)}
+          className="nextui-checkbox-input"
           tabIndex={-1}
           data-state={getState}
           disabled={isDisabled}

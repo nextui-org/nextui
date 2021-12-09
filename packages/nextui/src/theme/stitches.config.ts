@@ -238,7 +238,7 @@ export const {
       3: '300',
       4: '400',
       5: '500',
-      max: '999'
+      max: '9999'
     },
     borderWeights: {
       light: '1px',
@@ -350,8 +350,8 @@ export const {
     }),
     as: (value: Stitches.PropertyValue<'alignSelf'>) => ({ alignSelf: value }),
     fg: (value: Stitches.PropertyValue<'flexGrow'>) => ({ flexGrow: value }),
-    fs: (value: Stitches.PropertyValue<'flexShrink'>) => ({
-      flexShrink: value
+    fs: (value: Stitches.PropertyValue<'fontSize'>) => ({
+      fontSize: value
     }),
     fb: (value: Stitches.PropertyValue<'flexBasis'>) => ({ flexBasis: value }),
     bc: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
@@ -399,6 +399,9 @@ export const {
     bs: (value: Stitches.PropertyValue<'boxShadow'>) => ({ boxShadow: value }),
     normalShadow: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
       boxShadow: `0 4px 14px 0 $colors${value}`
+    }),
+    normalShadowVar: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
+      boxShadow: `0 4px 14px 0 ${value}`
     }),
     lh: (value: Stitches.PropertyValue<'lineHeight'>) => ({
       lineHeight: value

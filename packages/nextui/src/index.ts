@@ -89,9 +89,20 @@ export { default as Text } from './text';
 export * from './text';
 
 export { default as Switch } from './switch';
+export * from './switch';
+
+export { default as Backdrop } from './backdrop';
+export * from './backdrop';
 
 export { default as User } from './user';
 export * from './user';
+
+export { default as Progress } from './progress';
+export * from './progress';
+
+export { default as Modal } from './modal';
+export * from './modal';
+export { default as useModal } from './modal/use-modal';
 
 export { default as Tooltip } from './tooltip';
 
@@ -99,12 +110,5 @@ export { default as Input } from './input';
 export * from './input';
 
 export { default as Textarea } from './textarea';
-
-export { default as Modal } from './modal';
-export { default as useModal } from './modal/use-modal';
-
-export { default as Backdrop } from './backdrop';
-
-export { default as Progress } from './progress';
 
 export { default as Pagination } from './pagination';

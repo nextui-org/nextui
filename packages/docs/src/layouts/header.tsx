@@ -15,13 +15,11 @@ export interface HeaderProps {
 
 const defaultProps = {
   description: 'Beautiful, fast, modern React UI Library',
-  image: '/twitter-cards/nextui.png',
+  image: '/twitter-cards/nextui.png'
 };
 
 if (global.document) {
-  const info = [
-    `"First solve the problem. Then, write the code." -Jon Johnson 🚀`,
-  ];
+  const info = [`Let's make the Web prettier 🚀`];
 
   for (const message of info) {
     // eslint-disable-next-line no-console

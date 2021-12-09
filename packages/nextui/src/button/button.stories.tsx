@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Button from './index';
-import { Spacer } from '../index';
+import { Spacer, Grid, Loading } from '../index';
 import { Lock, Notification, User, Camera, Activity } from '../utils/icons';
 import useTheme from '../use-theme';
 
@@ -48,6 +48,36 @@ export const Sizes = () => (
       Auto width
     </Button>
   </div>
+);
+
+export const Loadings = () => (
+  <Grid.Container gap={2}>
+    <Grid>
+      <Button auto clickable={false} color="primary" css={{ px: '$13' }}>
+        <Loading color="white" size="sm" />
+      </Button>
+    </Grid>
+    <Grid>
+      <Button auto clickable={false} color="secondary" css={{ px: '$13' }}>
+        <Loading type="spinner" color="white" size="sm" />
+      </Button>
+    </Grid>
+    <Grid>
+      <Button auto clickable={false} color="success" css={{ px: '$13' }}>
+        <Loading type="points" color="white" size="sm" />
+      </Button>
+    </Grid>
+    <Grid>
+      <Button auto clickable={false} color="warning" css={{ px: '$13' }}>
+        <Loading type="points-opacity" color="white" size="sm" />
+      </Button>
+    </Grid>
+    <Grid>
+      <Button auto clickable={false} color="error" css={{ px: '$13' }}>
+        <Loading type="spinner" color="white" size="sm" />
+      </Button>
+    </Grid>
+  </Grid.Container>
 );
 
 export const Colors = () => (

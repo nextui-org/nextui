@@ -17,7 +17,6 @@ describe('Progress', () => {
         <Progress value={45} color="warning" />
         <Progress value={45} color="error" />
         <Progress value={45} color="gradient" />
-        <Progress value={45} color="#f4d" />
       </div>
     );
     expect(() => wrapper.unmount()).not.toThrow();
@@ -31,7 +30,6 @@ describe('Progress', () => {
         <Progress value={45} color="success" status="success" />
         <Progress value={45} color="warning" status="warning" />
         <Progress value={45} color="error" status="error" />
-        <Progress value={45} color="#f4d" status="#f4d" />
       </div>
     );
     expect(() => wrapper.unmount()).not.toThrow();
@@ -81,7 +79,7 @@ describe('Progress', () => {
     const value = 10;
     const minValue = 20;
     const wrapper = mount(<Progress value={value} min={minValue} max={60} />);
-    const props = wrapper.find('.nextui-progress-filler').at(0).props();
+    const props = wrapper.find('.nextui-progress-bar').at(0).props();
     expect(() => props['aria-valuenow'] === minValue).toBeTruthy();
   });
 
@@ -89,7 +87,7 @@ describe('Progress', () => {
     const value = 30;
     const maxValue = 20;
     const wrapper = mount(<Progress value={value} min={0} max={maxValue} />);
-    const props = wrapper.find('.nextui-progress-filler').at(0).props();
+    const props = wrapper.find('.nextui-progress-bar').at(0).props();
     expect(() => props['aria-valuenow'] === maxValue).toBeTruthy();
   });
 });

@@ -60,7 +60,7 @@ const Avatar: React.FC<AvatarProps> = ({
       {!showText && (
         <img
           ref={imgRef}
-          className={clsx('nextui-avatar-img', {
+          className={clsx('nextui-avatar-img', `nextui-avatar--${getState}`, {
             'nextui-avatar-ready': ready
           })}
           src={src}

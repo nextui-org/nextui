@@ -11,6 +11,7 @@ const loadingBlink = keyframes({
     opacity: '0.2'
   }
 });
+
 const rotate = keyframes({
   '0%': {
     transform: 'rotate(0deg)'
@@ -45,7 +46,59 @@ export const StyledLoadingContainer = styled('div', {
   d: 'inline-flex',
   fd: 'column',
   ai: 'center',
-  position: 'relative'
+  position: 'relative',
+  variants: {
+    color: {
+      white: {
+        $$loadingColor: '$colors$white'
+      },
+      default: {
+        $$loadingColor: '$colors$primary'
+      },
+      primary: {
+        $$loadingColor: '$colors$primary'
+      },
+      secondary: {
+        $$loadingColor: '$colors$secondary'
+      },
+      success: {
+        $$loadingColor: '$colors$success'
+      },
+      warning: {
+        $$loadingColor: '$colors$warning'
+      },
+      error: {
+        $$loadingColor: '$colors$error'
+      }
+    },
+    textColor: {
+      white: {
+        $$loadingTextColor: '$colors$white'
+      },
+      default: {
+        $$loadingTextColor: '$colors$text'
+      },
+      primary: {
+        $$loadingTextColor: '$colors$primary'
+      },
+      secondary: {
+        $$loadingTextColor: '$colors$secondary'
+      },
+      success: {
+        $$loadingTextColor: '$colors$success'
+      },
+      warning: {
+        $$loadingTextColor: '$colors$warning'
+      },
+      error: {
+        $$loadingTextColor: '$colors$error'
+      }
+    }
+  },
+  defaultVariants: {
+    color: 'default',
+    textColor: 'default'
+  }
 });
 
 export const StyledSpinnerContainer = styled('div', {
@@ -78,32 +131,12 @@ export const StyledSpinner = styled('div', {
       xl: {
         size: '$12'
       }
-    },
-    color: {
-      default: {
-        $$spinnerColor: '$colors$primary'
-      },
-      primary: {
-        $$spinnerColor: '$colors$primary'
-      },
-      secondary: {
-        $$spinnerColor: '$colors$secondary'
-      },
-      success: {
-        $$spinnerColor: '$colors$success'
-      },
-      warning: {
-        $$spinnerColor: '$colors$warning'
-      },
-      error: {
-        $$spinnerColor: '$colors$error'
-      }
     }
   }
 });
 
 export const StyledSpinnerSpan = styled('span', {
-  bg: '$$spinnerColor',
+  bg: '$$loadingColor',
   position: 'absolute',
   top: '-3.9%',
   width: '24%',
@@ -174,26 +207,6 @@ export const StyledLoading = styled('span', {
   bgColor: 'transparent',
   us: 'none',
   variants: {
-    color: {
-      default: {
-        $$loadingBg: '$colors$primary'
-      },
-      primary: {
-        $$loadingBg: '$colors$primary'
-      },
-      secondary: {
-        $$loadingBg: '$colors$secondary'
-      },
-      success: {
-        $$loadingBg: '$colors$success'
-      },
-      warning: {
-        $$loadingBg: '$colors$warning'
-      },
-      error: {
-        $$loadingBg: '$colors$error'
-      }
-    },
     size: {
       xs: {
         $$loadingSize: '$space$8',
@@ -229,14 +242,14 @@ export const StyledLoading = styled('span', {
           br: 'inherit'
         },
         '._1': {
-          border: '$$loadingBorder solid $$loadingBg',
+          border: '$$loadingBorder solid $$loadingColor',
           borderTop: '$$loadingBorder solid transparent',
           borderLeft: '$$loadingBorder solid transparent',
           borderRight: '$$loadingBorder solid transparent',
           animation: `${rotate} 0.8s ease infinite`
         },
         '._2': {
-          border: '$$loadingBorder dotted $$loadingBg',
+          border: '$$loadingBorder dotted $$loadingColor',
           borderTop: '$$loadingBorder solid transparent',
           borderLeft: '$$loadingBorder solid transparent',
           borderRight: '$$loadingBorder solid transparent',
@@ -254,7 +267,7 @@ export const StyledLoading = styled('span', {
         i: {
           size: '$$loadingSize',
           margin: '0 3px',
-          bg: '$$loadingBg'
+          bg: '$$loadingColor'
         },
         '._1': {
           br: '$rounded',
@@ -276,7 +289,7 @@ export const StyledLoading = styled('span', {
           display: 'inline-block',
           size: '$$loadingSize',
           br: '$rounded',
-          bg: '$$loadingBg',
+          bg: '$$loadingColor',
           margin: '0 1px',
           animation: `${loadingBlink} 1.4s infinite both`
         },
@@ -299,7 +312,7 @@ export const StyledLoading = styled('span', {
           animation: `${rotate} 1s linear infinite`,
           top: '0px',
           br: '$rounded',
-          bg: 'linear-gradient(0deg, $background 33%,$$loadingBg 100%)'
+          bg: 'linear-gradient(0deg, $background 33%,$$loadingColor 100%)'
         },
         '._2': {
           top: '2px',
@@ -404,6 +417,7 @@ export const StyledLoading = styled('span', {
 
 export const StyledLoadingLabel = styled('label', {
   mt: '$1',
+  color: '$$loadingTextColor',
   fontSize: '$$loadingSize',
   '*': {
     margin: 0
@@ -429,26 +443,6 @@ export const StyledLoadingLabel = styled('label', {
       xl: {
         fontSize: '$space$11',
         marginTop: '$5'
-      }
-    },
-    color: {
-      default: {
-        color: '$text'
-      },
-      primary: {
-        color: '$primary'
-      },
-      secondary: {
-        color: '$secondary'
-      },
-      success: {
-        color: '$success'
-      },
-      warning: {
-        color: '$warning'
-      },
-      error: {
-        color: '$error'
       }
     }
   }

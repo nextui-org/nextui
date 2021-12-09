@@ -10,7 +10,7 @@ import {
   StyledImageContainer,
   ImageContainerVariantProps
 } from './image.styles';
-import cslx from '../utils/clsx';
+import clsx from '../utils/clsx';
 
 interface Props {
   src: string;
@@ -122,7 +122,11 @@ const Image: React.FC<ImageProps> = ({
 
   return (
     <StyledImageContainer
-      className={cslx('nextui-image-container', className)}
+      className={clsx(
+        'nextui-image-container',
+        `nextui-image--${getState}`,
+        className
+      )}
       data-state={getState}
       ready={!loading}
       css={{

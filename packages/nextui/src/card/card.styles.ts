@@ -206,7 +206,7 @@ export const StyledCard = styled('div', {
 export const StyledCardHeader = styled('div', {
   w: '100%',
   display: 'flex',
-  fs: 0, // flex-shrink
+  flexShrink: 0,
   zIndex: '$1',
   jc: 'flex-start',
   ai: 'center',

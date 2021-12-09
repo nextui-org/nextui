@@ -151,6 +151,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
       borderWeight={borderWeight}
       visible={visible}
       data-state={getState}
+      className={clsx(className, preClass, `${preClass}--${getState}`)}
       {...props}
       {...bindings}
     >
