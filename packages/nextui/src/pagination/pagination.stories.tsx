@@ -37,9 +37,6 @@ export const Colors = () => (
     <Grid xs={12}>
       <Pagination color="gradient" total={10} />
     </Grid>
-    <Grid xs={12}>
-      <Pagination color="#f4a" total={10} />
-    </Grid>
   </>
 );
 
@@ -113,9 +110,6 @@ export const Shadow = () => (
     </Grid>
     <Grid xs={12}>
       <Pagination rounded shadow color="gradient" total={10} />
-    </Grid>
-    <Grid xs={12}>
-      <Pagination shadow color="#f4a" total={10} />
     </Grid>
   </>
 );

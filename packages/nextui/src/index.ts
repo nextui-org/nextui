@@ -104,11 +104,12 @@ export { default as Modal } from './modal';
 export * from './modal';
 export { default as useModal } from './modal/use-modal';
 
+export { default as Pagination } from './pagination';
+export * from './pagination';
+
 export { default as Tooltip } from './tooltip';
 
 export { default as Input } from './input';
 export * from './input';
 
 export { default as Textarea } from './textarea';
-
-export { default as Pagination } from './pagination';

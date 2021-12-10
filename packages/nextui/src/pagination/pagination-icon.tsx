@@ -1,5 +1,6 @@
 import React from 'react';
 import PaginationItem from './pagination-item';
+import { StyledPaginationIcon } from './pagination.styles';
 
 export interface PaginationIconProps {
   isPrev?: boolean;
@@ -29,13 +30,14 @@ const PaginationIcon: React.FC<PaginationIconProps> = ({
       disabled={disabled}
       onClick={(e) => onClick && onClick(e)}
     >
-      <svg
+      <StyledPaginationIcon
         role="presentation"
         focusable="false"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="nextui-pagination-icon"
+        isPrev={isPrev}
         {...props}
       >
         <path
@@ -45,12 +47,7 @@ const PaginationIcon: React.FC<PaginationIconProps> = ({
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-      </svg>
-      <style jsx>{`
-        svg {
-          transform: rotate(${isPrev ? '0deg' : '180deg'});
-        }
-      `}</style>
+      </StyledPaginationIcon>
     </PaginationItem>
   );
 };

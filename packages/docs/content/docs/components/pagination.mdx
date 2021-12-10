@@ -30,25 +30,25 @@ import { Pagination } from '@nextui-org/react';
   code={`
 () => {
 const [selectedColor, setSelectedColor] = React.useState('primary');
-const colors = ['primary', 'secondary', 'success', 'warning', 'error', '#f4a']
+const colors = ['primary', 'secondary', 'success', 'warning', 'error', 'gradient']
 const capitalize = (str) => {
   const lower = str.toLowerCase();
   return str.charAt(0).toUpperCase() + lower.slice(1);
 }
 return(
 <Grid.Container gap={2}>
-    <Grid xs={12}>
-      <Pagination color={selectedColor} total={10} />
-    </Grid>
-    <Grid xs={12}>
-        <Radio.Group row size="sm" value={selectedColor} onChange={setSelectedColor}>
-            {colors.map((color) => (
-                <Radio key={color} value={color} color={color}>
-                    {capitalize(color)}
-                </Radio>
-            ))}
-        </Radio.Group>
-    </Grid>    
+  <Grid xs={12}>
+    <Pagination color={selectedColor} total={10} />
+  </Grid>
+  <Grid xs={12}>
+    <Radio.Group row size="sm" value={selectedColor} onChange={setSelectedColor}>
+      {colors.map((color) => (
+        <Radio key={color} value={color} color='primary'>
+          {capitalize(color)}
+        </Radio>
+      ))}
+    </Radio.Group>
+  </Grid>    
 </Grid.Container>
 )}  
 `}
@@ -117,25 +117,25 @@ return(
   code={`
 () => {
 const [selectedColor, setSelectedColor] = React.useState('primary');
-const colors = ['primary', 'secondary', 'success', 'warning', 'error', '#f4a']
+const colors = ['primary', 'secondary', 'success', 'warning', 'error', 'gradient']
 const capitalize = (str) => {
   const lower = str.toLowerCase();
   return str.charAt(0).toUpperCase() + lower.slice(1);
 }
 return(
 <Grid.Container gap={2}>
-    <Grid xs={12}>
-      <Pagination shadow color={selectedColor} total={10} />
-    </Grid>
-    <Grid xs={12}>
-        <Radio.Group row size="sm" value={selectedColor} onChange={setSelectedColor}>
-            {colors.map((color) => (
-                <Radio key={color} value={color} color={color}>
-                    {capitalize(color)}
-                </Radio>
-            ))}
-        </Radio.Group>
-    </Grid>    
+  <Grid xs={12}>
+    <Pagination shadow color={selectedColor} total={10} />
+  </Grid>
+  <Grid xs={12}>
+    <Radio.Group row size="sm" value={selectedColor} onChange={setSelectedColor}>
+      {colors.map((color) => (
+        <Radio key={color} value={color} color='primary'>
+          {capitalize(color)}
+        </Radio>
+      ))}
+    </Radio.Group>
+  </Grid>    
 </Grid.Container>
 )}  
 `}
@@ -277,8 +277,8 @@ return(
 
 | Attribute        | Type                     | Accepted values                  | Description                                                      | Default   |
 | ---------------- | ------------------------ | -------------------------------- | ---------------------------------------------------------------- | --------- |
-| **color**        | `NormalColors` `string`  | [NormalColors](#normal-colors)   | Change pagination color                                          | `default` |
-| **size**         | `NormalSizes` `number`   | [NormalSizes](#normal-sizes)     | Change pagination size                                           | `medium`  |
+| **color**        | `NormalColors`           | [NormalColors](#normal-colors)   | Change pagination color                                          | `default` |
+| **size**         | `NormalSizes`            | [NormalSizes](#normal-sizes)     | Change pagination size                                           | `medium`  |
 | **page**         | `number`                 | -                                | Active page number                                               | -         |
 | **initialPage**  | `number`                 | -                                | Selected page on initial render                                  | `1`       |
 | **total**        | `number`                 | -                                | Total amount of pages                                            | `1`       |

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PaginationItem from './pagination-item';
+import { StyledPaginationEllipsis } from './pagination.styles';
 
 interface Props {
   value?: string | number;
@@ -31,7 +32,7 @@ const PaginationEllipsis: React.FC<Props> = ({
       onMouseLeave={() => setShowMore(false)}
     >
       {showMore ? (
-        <svg
+        <StyledPaginationEllipsis
           role="presentation"
           focusable="false"
           viewBox="0 0 24 24"
@@ -42,33 +43,28 @@ const PaginationEllipsis: React.FC<Props> = ({
           fill="none"
           shapeRendering="geometricPrecision"
           className="nextui-pagination-ellipsis"
+          isEllipsis={true}
+          isBefore={isBefore}
         >
           <path d="M13 17l5-5-5-5" />
           <path d="M6 17l5-5-5-5" />
-        </svg>
+        </StyledPaginationEllipsis>
       ) : (
-        <svg
+        <StyledPaginationEllipsis
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
           shapeRendering="geometricPrecision"
+          isEllipsis={false}
+          isBefore={isBefore}
         >
           <circle cx="12" cy="12" r="1" fill="currentColor" />
           <circle cx="19" cy="12" r="1" fill="currentColor" />
           <circle cx="5" cy="12" r="1" fill="currentColor" />
-        </svg>
+        </StyledPaginationEllipsis>
       )}
-      <style jsx>{`
-        svg {
-          color: currentColor;
-          stroke: currentColor;
-        }
-        .nextui-pagination-ellipsis {
-          transform: rotate(${isBefore ? '180deg' : '0deg'});
-        }
-      `}</style>
     </PaginationItem>
   );
 };
