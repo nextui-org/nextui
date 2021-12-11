@@ -24,7 +24,7 @@ const DeleteUser: React.FC = () => {
       </Row>
       <Grid.Container justify="space-between" alignContent="center">
         <Grid>
-          <Button size="sm" color="foreground" light>
+          <Button size="sm" light>
             Cancel
           </Button>
         </Grid>

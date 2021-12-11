@@ -5,7 +5,7 @@ export const StyledAvatarGroupCount = styled('span', {
   fontSize: '$xs',
   display: 'inline-flex',
   alignItems: 'center',
-  paddingLeft: '$1',
+  marginLeft: '$3',
   color: '$text'
 });
 

@@ -2,27 +2,25 @@ import React, { useEffect, useRef, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
 import TooltipContent from './tooltip-content';
 import useClickAway from '../use-click-away';
-import useTheme from '../use-theme';
+import { Placement } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
+import { TriggerTypes } from '../utils/prop-types';
+import { TooltipContentProps } from './tooltip-content';
 import {
-  TriggerTypes,
-  Placement,
-  SimpleColors,
-  TooltipColors
-} from '../utils/prop-types';
-import { DefaultProps } from '../utils/default-props';
-import { getSpacingsStyles } from '../utils/styles';
+  StyledTooltipTrigger,
+  TooltipContentVariantsProps
+} from './tooltip.styles';
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
 
-interface Props extends DefaultProps {
+interface Props {
   content: string | React.ReactNode;
-  color?: TooltipColors | string;
-  contentColor?: SimpleColors | string;
   placement?: Placement;
   visible?: boolean;
   shadow?: boolean;
   rounded?: boolean;
   initialVisible?: boolean;
+  animated?: boolean;
   hideArrow?: boolean;
   trigger?: TriggerTypes;
   enterDelay?: number;
@@ -31,27 +29,31 @@ interface Props extends DefaultProps {
   className?: string;
   portalClassName?: string;
   onVisibleChange?: TooltipOnVisibleChange;
+  as?: keyof JSX.IntrinsicElements;
+  triggerCss?: CSS;
 }
 
 const defaultProps = {
   initialVisible: false,
   hideArrow: false,
+  animated: true,
   shadow: true,
   rounded: false,
-  color: 'default' as TooltipColors | string,
-  contentColor: 'default' as SimpleColors | string,
   trigger: 'hover' as TriggerTypes,
-  placement: 'top' as Placement,
   enterDelay: 0,
   leaveDelay: 0,
-  offset: 12,
   className: '',
   portalClassName: '',
   onVisibleChange: (() => {}) as TooltipOnVisibleChange
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>;
-export type TooltipProps = Props & typeof defaultProps & NativeAttrs;
+
+export type TooltipProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  Pick<TooltipContentVariantsProps, 'color' | 'contentColor'> &
+  Pick<TooltipContentProps, 'css'>;
 
 const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   children,
@@ -64,33 +66,35 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   leaveDelay,
   trigger,
   rounded,
-  color,
-  contentColor,
+  animated,
   shadow,
   className,
+  color,
+  contentColor,
   onVisibleChange,
   hideArrow,
+  css,
+  triggerCss,
   visible: customVisible,
   ...props
 }) => {
   const timer = useRef<number>();
-  const theme = useTheme();
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState<boolean>(initialVisible);
-  const { stringCss } = getSpacingsStyles(theme, props);
 
   const contentProps = {
-    color,
-    contentColor,
+    css,
+    animated,
     visible,
     shadow,
     offset,
     placement,
     rounded,
+    color,
+    contentColor,
     hideArrow,
     parent: ref,
-    className: portalClassName,
-    stringCss
+    className: portalClassName
   };
 
   const changeVisible = (nextState: boolean) => {
@@ -124,7 +128,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   }, [customVisible]);
 
   return (
-    <div
+    <StyledTooltipTrigger
       ref={ref}
       role="button"
       tabIndex={-1}
@@ -135,17 +139,14 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       onMouseLeave={() => mouseEventHandler(false)}
       onFocus={() => mouseEventHandler(true)}
       onBlur={() => mouseEventHandler(false)}
+      css={{
+        ...(triggerCss as any)
+      }}
       {...props}
     >
       {children}
       <TooltipContent {...contentProps}>{content}</TooltipContent>
-      <style jsx>{`
-        .nextui-tooltip-button {
-          width: max-content;
-          display: inherit;
-        }
-      `}</style>
-    </div>
+    </StyledTooltipTrigger>
   );
 };
 

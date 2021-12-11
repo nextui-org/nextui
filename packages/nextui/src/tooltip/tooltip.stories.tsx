@@ -87,18 +87,6 @@ export const Colors = () => {
             Error
           </Button>
         </Tooltip>
-        <Spacer inline x={1.5} />
-        <Tooltip content="Developers love Next.js" color="gradient">
-          <Button auto color="gradient">
-            Gradient
-          </Button>
-        </Tooltip>
-        <Spacer inline x={1.5} />
-        <Tooltip content="Developers love Next.js" color="#f4A">
-          <Button auto flat color="#f4A">
-            Custom
-          </Button>
-        </Tooltip>
       </div>
     </Container>
   );
@@ -141,18 +129,6 @@ export const TextColors = () => {
         <Tooltip content="Developers love Next.js" contentColor="error">
           <Button flat auto color="error">
             Error
-          </Button>
-        </Tooltip>
-        <Spacer inline x={1.5} />
-        <Tooltip content="Developers love Next.js" contentColor="gradient">
-          <Button auto color="gradient">
-            Gradient
-          </Button>
-        </Tooltip>
-        <Spacer inline x={1.5} />
-        <Tooltip content="Developers love Next.js" contentColor="#f4A">
-          <Button auto flat color="#f4A">
-            Custom
           </Button>
         </Tooltip>
       </div>

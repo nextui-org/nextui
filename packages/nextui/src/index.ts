@@ -108,6 +108,7 @@ export { default as Pagination } from './pagination';
 export * from './pagination';
 
 export { default as Tooltip } from './tooltip';
+export * from './tooltip';
 
 export { default as Input } from './input';
 export * from './input';

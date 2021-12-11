@@ -19,7 +19,7 @@ interface Props {
   tooltipCopyText?: string;
   tooltipCopiedText?: string;
   copy?: CopyTypes;
-  tooltipColor?: TooltipColors | string;
+  tooltipColor?: TooltipColors;
   as?: keyof JSX.IntrinsicElements;
 }
 

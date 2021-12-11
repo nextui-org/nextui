@@ -34,6 +34,16 @@ export const extendedColors = tuple(
   'gradient'
 );
 
+export const extendedColorsNoGradient = tuple(
+  'default',
+  'primary',
+  'secondary',
+  'success',
+  'warning',
+  'error',
+  'invert'
+);
+
 export const extraColors = tuple(
   'default',
   'primary',
@@ -235,7 +245,7 @@ export type NormalColors = typeof normalColors[number];
 
 export type SimpleColors = typeof simpleColors[number];
 
-export type TooltipColors = typeof extendedColors[number];
+export type TooltipColors = typeof extendedColorsNoGradient[number];
 
 export type NormalLoaders = typeof normalLoaders[number];
 
