@@ -340,8 +340,10 @@ export const WithHelperText = () => {
       <Input
         clearable
         color="error"
-        helperText="Required"
         label="Error"
+        status="error"
+        helperText="Required"
+        helperColor="error"
         placeholder="Enter something"
       />
       <Spacer y={1.4} />

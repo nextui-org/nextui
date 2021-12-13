@@ -8,8 +8,6 @@ import React, {
   useState
 } from 'react';
 import { ContentPosition } from '../utils/prop-types';
-import InputLabel from './input-label';
-import InputBlockLabel from './input-block-label';
 import InputContent from './input-content';
 import InputIconClear from './input-icon-clear';
 import Textarea from '../textarea';
@@ -25,7 +23,9 @@ import {
   StyledInputContainer,
   StyledHelperTextContainer,
   StyledHelperText,
-  StyledInputWrapper
+  StyledInputWrapper,
+  StyledInputBlockLabel as InputBlockLabel,
+  StyledInputLabel as InputLabel
 } from './input.styles';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
@@ -236,18 +236,20 @@ const Input = React.forwardRef<FormElement, InputProps>(
       >
         {inputLabel && (
           <InputBlockLabel
-            labelId={labelId}
+            id={labelId}
+            className={`${preClass}-block-label`}
+            htmlFor={inputId}
             isTextarea={isTextarea}
             underlined={underlined}
             animated={animated}
             rounded={rounded}
             hasContentLeft={!!contentLeft}
-            selfValue={selfValue}
+            withValue={!!selfValue}
             asPlaceholder={!!labelPlaceholder}
             focused={hover}
-            htmlFor={inputId}
-            label={inputLabel}
-          />
+          >
+            {inputLabel}
+          </InputBlockLabel>
         )}
         <StyledInputContainer
           animated={animated}
@@ -293,14 +295,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
             )}
             {labelLeft && (
               <InputLabel
-                status={status}
-                // bgColor={bgColor}
-                borderWeight={borderWeight}
+                className={`${preClass}-label--left`}
+                isDefaultStatus={status === 'default'}
                 underlined={underlined}
                 bordered={bordered}
-                // color={placeholderColor}
-                // radius={radius}
-                // fontSize={fontSize}
               >
                 {labelLeft}
               </InputLabel>
@@ -365,14 +363,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
             )}
             {labelRight && (
               <InputLabel
-                status={status}
-                // bgColor={bgColor}
-                borderWeight={borderWeight}
-                bordered={bordered}
+                className={`${preClass}-label--right`}
+                isDefaultStatus={status === 'default'}
                 underlined={underlined}
-                // color={placeholderColor}
-                // radius={radius}
-                // fontSize={fontSize}
+                bordered={bordered}
                 isRight={true}
               >
                 {labelRight}

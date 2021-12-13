@@ -4,7 +4,7 @@ const baseInputValues = {
   $$inputColor: '$colors$accents1',
   $$inputTextColor: '$colors$text',
   $$inputPlaceholderColor: '$colors$accents3',
-  $$inputPlaceholdeOpacity: 1,
+  $$inputPlaceholderOpacity: 1,
   $$inputShadow: '$shadows$sm',
   $$inputBorderColor: '$colors$accents2',
   $$inputHoverBorderColor: '$colors$foreground',
@@ -28,27 +28,22 @@ export const StyledInputMainContainer = styled('div', {
     color: {
       default: {},
       primary: {
-        $$inputColor: '$colors$primary',
         $$inputHoverBorderColor: '$colors$primary',
         $$inputLabelColor: '$$inputHoverBorderColor'
       },
       secondary: {
-        $$inputColor: '$colors$secondary',
         $$inputHoverBorderColor: '$colors$secondary',
         $$inputLabelColor: '$$inputHoverBorderColor'
       },
       success: {
-        $$inputColor: '$colors$success',
         $$inputHoverBorderColor: '$colors$success',
         $$inputLabelColor: '$$inputHoverBorderColor'
       },
       warning: {
-        $$inputColor: '$colors$warning',
         $$inputHoverBorderColor: '$colors$warning',
         $$inputLabelColor: '$$inputHoverBorderColor'
       },
       error: {
-        $$inputColor: '$colors$error',
         $$inputHoverBorderColor: '$colors$error',
         $$inputLabelColor: '$$inputHoverBorderColor'
       }
@@ -60,35 +55,35 @@ export const StyledInputMainContainer = styled('div', {
         $$inputPlaceholderColor: '$colors$primary',
         $$inputTextColor: '$colors$primary',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputPlaceholdeOpacity: 0.5
+        $$inputPlaceholderOpacity: 0.5
       },
       secondary: {
         $$inputColor: '$colors$secondaryLight',
         $$inputPlaceholderColor: '$colors$secondary',
         $$inputTextColor: '$colors$secondary',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputPlaceholdeOpacity: 0.5
+        $$inputPlaceholderOpacity: 0.5
       },
       success: {
         $$inputColor: '$colors$successLight',
         $$inputPlaceholderColor: '$colors$success',
         $$inputTextColor: '$colors$success',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputPlaceholdeOpacity: 0.5
+        $$inputPlaceholderOpacity: 0.5
       },
       warning: {
         $$inputColor: '$colors$warningLight',
         $$inputPlaceholderColor: '$colors$warning',
         $$inputTextColor: '$colors$warning',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputPlaceholdeOpacity: 0.5
+        $$inputPlaceholderOpacity: 0.5
       },
       error: {
         $$inputColor: '$colors$errorLight',
         $$inputPlaceholderColor: '$colors$error',
         $$inputTextColor: '$colors$error',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputPlaceholdeOpacity: 0.5
+        $$inputPlaceholderOpacity: 0.5
       }
     },
     helperColor: {
@@ -447,7 +442,7 @@ export const StyledInputWrapper = styled('div', {
 export const StyledHelperTextContainer = styled('div', {
   position: 'absolute',
   opacity: 0,
-  bottom: 'calc($$inputHeightRatio * -$sm)',
+  bottom: 'calc($$inputHeightRatio * -$space$5)',
   '@motion': {
     transition: 'none'
   },
@@ -636,8 +631,123 @@ export const StyledInputBlockLabel = styled('label', {
   }
 });
 
+export const StyledInputLabel = styled('span', {
+  position: 'relative',
+  display: 'inline-flex',
+  width: 'initial',
+  height: '100%',
+  fontWeight: '$medium',
+  ai: 'center',
+  pe: 'none',
+  margin: 0,
+  padding: '0 $sm',
+  color: '$$inputPlaceholderColor',
+  fontSize: '$$inputFontSize',
+  lineHeight: '$xs',
+  variants: {
+    isRight: {
+      true: {
+        btrr: '$$inputBorderRadius',
+        bbrr: '$$inputBorderRadius'
+      },
+      false: {
+        btlr: '$$inputBorderRadius',
+        bblr: '$$inputBorderRadius'
+      }
+    },
+    isDefaultStatus: {
+      true: {}
+    },
+    underlined: {
+      true: {
+        bg: 'transparent'
+      }
+    },
+    bordered: {
+      true: {
+        '&:after': {
+          display: 'none'
+        },
+        '&:before': {
+          display: 'none'
+        }
+      }
+    }
+  },
+  compoundVariants: [
+    // isRight && underlined
+    {
+      isRight: true,
+      underlined: true,
+      css: {
+        borderLeftColor: '$$inputPlaceholderColor',
+        borderLeftStyle: 'solid',
+        marginLeft: '$2',
+        borderLeftWidth: 'calc($$inputBorderWeight / 2)',
+        height: '40%'
+      }
+    },
+    // !isRight && underlined
+    {
+      isRight: false,
+      underlined: true,
+      css: {
+        borderRightColor: '$$inputPlaceholderColor',
+        borderRightStyle: 'solid',
+        marginRight: '$2',
+        borderRightWidth: 'calc($$inputBorderWeight / 1)',
+        height: '40%'
+      }
+    },
+    // isDefaultStatus && !bordered && !underlined
+    {
+      isDefaultStatus: true,
+      bordered: false,
+      underlined: false,
+      css: {
+        bg: '$accents2'
+        // TODO: Dark mode test
+        // '@dark': {
+        //   bg: '$accents3'
+        // }
+      }
+    },
+    // !isDefaultStatus && !bordered && !underlined
+    {
+      isDefaultStatus: false,
+      bordered: true,
+      underlined: false,
+      css: {
+        bg: '$$inputColor'
+      }
+    },
+    // bordered && isRight
+    {
+      bordered: true,
+      isRight: true,
+      css: {
+        peddingRight: '$sm',
+        paddingLeft: 0
+      }
+    },
+    // bordered && !isRight
+    {
+      bordered: true,
+      isRight: false,
+      css: {
+        peddingLeft: '$sm',
+        paddingRight: 0
+      }
+    }
+  ],
+  defaultVariants: {
+    isRight: false
+  }
+});
+
 // types
 export type InputVariantsProps = VariantProps<typeof StyledInput>;
 export type InputBlockLabelVariantsProps = VariantProps<
   typeof StyledInputBlockLabel
 >;
+export type InputLabelVariantsProps = VariantProps<typeof StyledInputLabel>;
