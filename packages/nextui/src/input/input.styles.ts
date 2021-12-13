@@ -265,6 +265,11 @@ export const StyledInput = styled('input', {
         }
       }
     },
+    bordered: {
+      true: {
+        padding: '0 $3'
+      }
+    },
     rounded: {
       true: {
         padding: '0 $3'

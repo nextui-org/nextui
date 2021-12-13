@@ -326,6 +326,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
                 [`${preClass}-left-content`]: contentLeft
               })}
               focused={hover}
+              bordered={bordered}
               placeholder={inputPlaceholder}
               disabled={disabled}
               readOnly={readOnly}
