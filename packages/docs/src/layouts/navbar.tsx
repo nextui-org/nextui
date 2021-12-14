@@ -17,8 +17,7 @@ import {
   Spacer,
   Link,
   useTheme,
-  useBodyScroll,
-  NextUIThemes
+  useBodyScroll
 } from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
 import { useRouter } from 'next/router';
@@ -49,10 +48,9 @@ const SearchInput = dynamic(
 const Navbar: React.FC<Props> = ({ detached, routes }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
-  const theme = useTheme() as NextUIThemes;
+  const { theme, isDark } = useTheme();
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
-  const isDark = theme.type === 'dark';
 
   useEffect(() => {
     if (!isMobile) {
@@ -139,7 +137,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 <Twitter
                   size={20}
                   fill={
-                    isDark ? theme.palette.accents_4 : theme.palette.accents_5
+                    isDark
+                      ? theme.colors.accents4.value
+                      : theme.colors.accents5.value
                   }
                 />
               </Link>
@@ -152,7 +152,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 <Discord
                   size={20}
                   fill={
-                    isDark ? theme.palette.accents_4 : theme.palette.accents_5
+                    isDark
+                      ? theme.colors.accents4.value
+                      : theme.colors.accents5.value
                   }
                 />
               </Link>
@@ -165,7 +167,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 <Github
                   size={20}
                   fill={
-                    isDark ? theme.palette.accents_4 : theme.palette.accents_5
+                    isDark
+                      ? theme.colors.accents4.value
+                      : theme.colors.accents5.value
                   }
                 />
               </Link>
@@ -217,7 +221,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
         }
         :global(.navbar__link.active) {
           font-weight: 600;
-          color: ${theme.palette.primary};
+          color: ${theme.colors.primary.value};
         }
         :global(.navbar__menu-arrow) {
           height: 100%;
@@ -253,7 +257,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             top: 0;
             position: fixed;
             background: ${showBlur
-              ? addColorAlpha(theme.palette.background, 0.6)
+              ? addColorAlpha(theme.colors.background.value, 0.6)
               : 'transparent'};
             box-shadow: ${detached
               ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
@@ -279,7 +283,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
               (backdrop-filter: blur(10px))
           ) {
             :global(.navbar__container) {
-              background: ${theme.palette.background};
+              background: ${theme.colors.background.value};
             }
           }
           :global(.navbar__logo-container a:active) {

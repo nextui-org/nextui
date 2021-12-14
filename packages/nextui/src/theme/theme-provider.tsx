@@ -1,98 +1,61 @@
-import React, { PropsWithChildren, useState, useEffect } from 'react';
-import useTheme from '../use-theme';
+import React, { PropsWithChildren, useCallback, useMemo } from 'react';
 import CssBaseline from '../css-baseline';
-import ThemeContext from './theme-context';
-import { NextUIThemes } from './index';
-import { ThemeParam, getThemeByType, mergeTheme, switchTheme } from './utils';
+import ThemeContext, { ThemeContextType } from './theme-context';
+import { NextUITheme, theme as lightTheme, darkTheme } from './stitches.config';
 import { ThemeTypes } from '../utils/prop-types';
 import withDefaults from '../utils/with-defaults';
-import useSSR from '../use-ssr';
 
 export interface Props {
-  theme?: ThemeParam;
   type?: ThemeTypes;
+  defaultTheme?: ThemeTypes;
+  customTheme?: NextUITheme;
   isDark?: boolean;
-  storageKey?: string;
-  syncStorage?: boolean;
   disableBaseline?: boolean;
 }
 
 const defaultProps = {
-  storageKey: 'theme',
-  syncStorage: true,
   disableBaseline: false
 };
 
 const ThemeProvider: React.FC<PropsWithChildren<Props>> = ({
   children,
-  theme,
   type,
-  storageKey,
-  syncStorage,
+  customTheme,
+  defaultTheme,
   disableBaseline,
   isDark
 }) => {
-  const customTheme = theme as NextUIThemes;
-  const [currentThemeType, setCurrentThemeType] = useState<
-    ThemeTypes | undefined
-  >(customTheme?.type || type || isDark ? 'dark' : undefined);
-
-  const currentTheme = useTheme();
-  const { isBrowser } = useSSR();
-
-  const changeTypeBaseEl = (el: HTMLElement) => {
-    const documentTheme = el?.getAttribute('data-theme');
-    documentTheme && setCurrentThemeType(documentTheme);
-  };
-
-  useEffect(() => {
-    if (!isBrowser || !storageKey || !syncStorage) return;
-    const storageTheme = localStorage.getItem(storageKey);
-    if (storageTheme && currentThemeType && currentThemeType !== storageTheme) {
-      localStorage.setItem(storageKey, currentThemeType);
+  const getDefaultTheme = useCallback(() => {
+    if (defaultTheme === 'dark') {
+      return darkTheme;
     }
-  }, [syncStorage, storageKey, currentThemeType]);
+    return lightTheme;
+  }, [defaultTheme]);
 
-  useEffect(() => {
-    if (!isBrowser) return;
-    const observer = new MutationObserver((mutation) => {
-      if (
-        mutation &&
-        mutation.length > 0 &&
-        mutation[0]?.target.nodeName === 'BODY'
-      ) {
-        const documentTheme = document?.body?.dataset?.theme;
-        documentTheme && setCurrentThemeType(documentTheme);
-      } else {
-        changeTypeBaseEl(document?.documentElement);
-      }
-    });
+  const theme = useMemo(
+    () =>
+      customTheme
+        ? customTheme
+        : isDark || type === 'dark'
+        ? darkTheme
+        : getDefaultTheme(),
+    [isDark, customTheme, getDefaultTheme, type]
+  ) as NextUITheme;
 
-    if (!currentThemeType) {
-      changeTypeBaseEl(document?.documentElement);
-      observer.observe(document?.documentElement, {
-        attributes: true,
-        attributeFilter: ['data-theme']
-      });
-      observer.observe(document?.body, {
-        attributes: true,
-        attributeFilter: ['data-theme']
-      });
-    }
-    return () => observer.disconnect();
-  }, [isBrowser]);
-
-  const baseTheme = currentThemeType
-    ? getThemeByType(currentThemeType)
-    : currentTheme;
-  const merged = mergeTheme(baseTheme, customTheme);
-  const userTheme =
-    currentTheme.type !== merged.type ? switchTheme(merged) : merged;
+  const providerValue = useMemo<ThemeContextType>(() => {
+    return {
+      theme,
+      type: type || isDark ? 'dark' : 'light',
+      isDark: isDark || type === 'dark'
+    };
+  }, []);
 
   return (
-    <ThemeContext.Provider value={userTheme}>
-      {!disableBaseline && <CssBaseline />}
-      {children}
+    <ThemeContext.Provider value={providerValue}>
+      <div id="__nextui" className={theme}>
+        {!disableBaseline && <CssBaseline />}
+        {children}
+      </div>
     </ThemeContext.Provider>
   );
 };

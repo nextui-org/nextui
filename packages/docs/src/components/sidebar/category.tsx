@@ -3,7 +3,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import ArrowRight from '../icons/arrow-right';
 import withDefaults from '@utils/with-defaults';
-import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
 
 export interface Props {
@@ -38,8 +38,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   children
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const theme = useTheme() as NextUIThemes;
-  const isDark = theme.type === 'dark';
+  const { theme, isDark } = useTheme();
   const [toggle, setToggle] = useState<boolean>(selected || opened);
   const [shouldScroll, setShouldScroll] = useState<boolean>(false);
 
@@ -99,7 +98,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           className="arrow-right"
           width={14}
           height={14}
-          fill={theme.palette.accents_7}
+          fill={theme.colors.accents7.value}
         />
       </div>
       <div className="posts">{children}</div>
@@ -125,7 +124,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           font-weight: 400;
           margin-left: 10px;
           cursor: pointer;
-          color: ${theme.palette.accents_7};
+          color: ${theme.colors.accents7.value};
           transition: all 200ms ease 0ms;
         }
         .label-container :global(svg) {
@@ -135,10 +134,10 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
         }
         .selected .label {
           font-weight: 600;
-          color: ${theme.palette.accents_8};
+          color: ${theme.colors.accents8.value};
         }
         .open .label {
-          color: ${theme.palette.accents_8};
+          color: ${theme.colors.accents8.value};
         }
         .open .label-container :global(svg) {
           margin-right: 1px;

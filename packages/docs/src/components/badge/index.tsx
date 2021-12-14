@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import withDefaults from '@utils/with-defaults';
-import { NextUIThemes, NextUIThemesPalette, useTheme } from '@nextui-org/react';
+import { NextUITheme, useTheme } from '@nextui-org/react';
 
 export type BadgeType = 'default' | 'primary' | 'warning' | 'success' | 'error';
 
@@ -13,7 +13,7 @@ interface BadgeProps {
 const defaultProps = {
   type: 'default' as BadgeType,
   label: 'Badge',
-  className: '',
+  className: ''
 };
 
 export interface BadgeStyles {
@@ -22,23 +22,23 @@ export interface BadgeStyles {
 }
 
 const getBadgeStyles = (
-  palette: NextUIThemesPalette,
+  colors: NextUITheme['colors'],
   type: BadgeType
 ): BadgeStyles => {
   const key = (type === 'default' ? 'primary' : type) || 'primary';
   const badgeStyles = {
-    background: palette[key] || palette.primary,
-    color: palette.white,
+    background: colors[key].value || colors.primary.value,
+    color: colors.white.value
   };
 
   return badgeStyles;
 };
 
 const Badge: React.FC<BadgeProps> = ({ type, label, className, ...props }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
 
   const { background, color } = useMemo(
-    () => getBadgeStyles(theme.palette, type),
+    () => getBadgeStyles(theme.colors, type),
     [theme, type]
   );
 

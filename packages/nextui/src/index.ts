@@ -31,6 +31,27 @@ export type {
 export { KeyMod, KeyCode } from './use-keyboard/codes';
 export { default as CssBaseline } from './css-baseline';
 
+// Stitches
+export type { NextUITheme, VariantProps, CSS } from './theme/stitches.config';
+export {
+  styled,
+  css,
+  theme,
+  createTheme,
+  getCssText,
+  globalCss,
+  keyframes,
+  config,
+  config as stitchesConfig,
+  theme as defaultTheme,
+  theme as lightTheme,
+  darkThemeClassName,
+  darkTheme,
+  lightThemeClassName,
+  sharedFocus,
+  sharedVisuallyHidden
+} from './theme/stitches.config';
+
 // Components
 export { default as Avatar } from './avatar';
 export * from './avatar';

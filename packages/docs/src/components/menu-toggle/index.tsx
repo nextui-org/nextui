@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { NextUIThemes, useTheme } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 
 export interface MenuToggleProps {
   expanded: boolean;
 }
 
 const MenuToggle: React.FC<MenuToggleProps> = ({ expanded }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   return (
     <div
       className={`wrap ${expanded ? 'expanded' : ''}`}
@@ -26,7 +26,7 @@ const MenuToggle: React.FC<MenuToggleProps> = ({ expanded }) => {
           .line {
             height: 1px;
             width: 22px;
-            background-color: ${theme.palette.foreground};
+            background-color: ${theme.colors.foreground.value};
             transition: transform 0.15s ease;
           }
           .line:last-child {

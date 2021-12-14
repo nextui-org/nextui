@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import withDefaults from '@utils/with-defaults';
-import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { NextUITheme, useTheme } from '@nextui-org/react';
 import { addColorAlpha } from '@utils/index';
 
 interface Props {
@@ -31,17 +31,17 @@ type CustomLayout = {
   minWidth: string;
 };
 
-const getLayout = (small: boolean, theme: NextUIThemes): CustomLayout => {
+const getLayout = (small: boolean, theme: NextUITheme): CustomLayout => {
   if (small)
     return {
       padding: 0,
       fontSize: '.75rem',
-      minWidth: theme.spacing.lg
+      minWidth: theme.space.lg.value
     };
   return {
-    padding: theme.spacing[1.5],
+    padding: theme.space[2].value,
     fontSize: '0.875rem',
-    minWidth: `calc(1.5 * ${theme.spacing.lg})`
+    minWidth: `calc(1.5 * ${theme.space.lg})`
   };
 };
 
@@ -56,8 +56,7 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
   onClick,
   ...props
 }) => {
-  const theme = useTheme();
-  const isDark = theme.type === 'dark';
+  const { theme, isDark } = useTheme();
 
   const { padding, fontSize, minWidth } = useMemo<CustomLayout>(
     () => getLayout(small, theme),
@@ -84,10 +83,13 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
           text-align: center;
           display: inline-block;
           cursor: ${onClick ? 'pointer' : 'default'};
-          color: ${addColorAlpha(theme.palette.text, 0.6)};
-          background-color: ${addColorAlpha(theme.palette.background, 0.8)};
+          color: ${addColorAlpha(theme.colors.text.value, 0.6)};
+          background-color: ${addColorAlpha(
+            theme.colors.background.value,
+            0.8
+          )};
           border: ${isDark
-            ? `1px solid ${addColorAlpha(theme.palette.foreground, 0.2)}`
+            ? `1px solid ${addColorAlpha(theme.colors.foreground.value, 0.2)}`
             : 'none'};
           box-shadow: ${isDark ? 'none' : '0 0 2px 0 rgb(0 0 0 / 14%)'};
           font-family: ${theme.fonts.sans};
@@ -97,7 +99,7 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
           font-size: ${fontSize};
         }
         kbd + kbd {
-          margin-left: calc(${theme.spacing.sm} * 0.5);
+          margin-left: calc(${theme.space.sm} * 0.5);
         }
         span {
           line-height: 2em;
@@ -105,7 +107,7 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
           text-align: center;
         }
         span + span {
-          margin-left: calc(${theme.spacing.sm} * 0.5);
+          margin-left: calc(${theme.space.sm} * 0.5);
         }
       `}</style>
     </kbd>

@@ -2,9 +2,9 @@ import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { Route, addTagToSlug } from '@lib/docs/page';
 import { removeFromLast } from '@utils/index';
-import { useMediaQuery } from '@hooks/use-media-query';
+import { useIsMobile } from '@hooks/use-media-query';
 import { Heading } from '@components';
-import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 import Category from './category';
 import Post from './post';
 import { NavLinkProps } from '../nav-link';
@@ -39,10 +39,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   slug,
   onPostClick
 }) => {
-  const theme = useTheme() as NextUIThemes;
-  const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.replace('px', ''))
-  );
+  const isMobile = useIsMobile();
   return (
     <>
       {routes?.map(({ path, title, icon, routes, newPost, heading, open }) => {

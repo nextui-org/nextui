@@ -484,7 +484,7 @@ export const {
 });
 
 export type CSS = Stitches.CSS<typeof config>;
-export type Theme = typeof theme;
+export type NextUITheme = typeof theme;
 
 export const darkTheme = createTheme('dark-theme', {
   colors: {
@@ -511,6 +511,9 @@ export const darkTheme = createTheme('dark-theme', {
     xl: '0 40px 80px rgba(20, 20, 20, 0.25)'
   }
 });
+
+export const darkThemeClassName = darkTheme.className;
+export const lightThemeClassName = theme.className;
 
 export const sharedFocus = css({
   WebkitTapHighlightColor: 'transparent',

@@ -15,7 +15,7 @@ export interface Props {
 
 const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
   children,
-  routes,
+  routes
 }) => {
   return (
     <DotsContainer>

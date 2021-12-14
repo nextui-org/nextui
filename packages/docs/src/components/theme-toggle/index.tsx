@@ -13,8 +13,7 @@ interface Props {
 export const ThemeToggle: React.FC<Props> = ({ className }) => {
   const isMounted = useIsMounted();
   const { setTheme } = useNextTheme();
-  const theme = useTheme();
-  const isDark = theme.type === 'dark';
+  const { theme, isDark } = useTheme();
 
   if (!isMounted) {
     return (
@@ -36,13 +35,17 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
       {isDark ? (
         <Sun
           filled
-          fill={isDark ? theme.palette.accents_4 : theme.palette.accents_5}
+          fill={
+            isDark ? theme.colors.accents4.value : theme.colors.accents5.value
+          }
           size={20}
         />
       ) : (
         <Moon
           filled
-          fill={isDark ? theme.palette.accents_4 : theme.palette.accents_5}
+          fill={
+            isDark ? theme.colors.accents4.value : theme.colors.accents5.value
+          }
           size={20}
         />
       )}

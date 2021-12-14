@@ -28,7 +28,7 @@ if (global.document) {
 }
 
 const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
 
   let pageTitle = title ? `${toCapitalize(title)} | ` : '';
   pageTitle += 'NextUI - Beautiful, fast,modern React UI Library';
@@ -50,8 +50,11 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
       {url && <meta property="og:url" content={url} />}
       <meta property="og:description" content={description} />
       <meta name="description" content={description} />
-      <meta name="msapplication-TileColor" content={theme.palette.background} />
-      <meta name="theme-color" content={theme.palette.background} />
+      <meta
+        name="msapplication-TileColor"
+        content={theme.colors.background.value}
+      />
+      <meta name="theme-color" content={theme.colors.background.value} />
       <meta
         name="viewport"
         key="viewport"
@@ -79,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
       <link
         rel="mask-icon"
         href="/safari-pinned-tab.svg"
-        color={theme.palette.background}
+        color={theme.colors.background.value}
       />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link

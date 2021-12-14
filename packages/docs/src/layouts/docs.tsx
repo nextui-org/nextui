@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './navbar';
 import Footer from './footer';
-import { Container, Row, Col, useTheme, NextUIThemes } from '@nextui-org/react';
+import { Container, Row, Col, useTheme } from '@nextui-org/react';
 import NextLink from 'next/link';
 import { Route } from '@lib/docs/page';
 import { Sidebar, TableOfContent } from '@components';
@@ -37,8 +37,8 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   const [scrollPosition, setScrollPosition] = useState(
     (typeof window !== 'undefined' && window.pageYOffset) || 0
   );
-  const theme = useTheme() as NextUIThemes;
-  const isDark = theme.type === 'dark';
+  const { theme, type } = useTheme();
+  const isDark = type === 'dark';
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll.bind(this));

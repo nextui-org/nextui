@@ -3,7 +3,7 @@ import cn from 'classnames';
 import NavLink, { NavLinkProps } from '../nav-link';
 import withDefaults from '@utils/with-defaults';
 import { Badge } from '@components';
-import { useTheme, NextUIThemes, Spacer } from '@nextui-org/react';
+import { useTheme, Spacer } from '@nextui-org/react';
 
 export interface Props {
   level: number;
@@ -14,7 +14,7 @@ export interface Props {
 
 const defaultProps = {
   level: 1,
-  isMobile: false,
+  isMobile: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
@@ -25,11 +25,11 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
   isMobile,
   route,
   level = 1,
-  onClick,
+  onClick
 }) => {
   const selectedRef = useRef<HTMLDivElement>(null);
   const ref = route.selected ? selectedRef : null;
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (ref && ref.current && !isMobile) {
@@ -49,7 +49,7 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
     <div ref={ref} className={cn('link', `level-${level}`)}>
       <NavLink
         {...route}
-        color={!route.selected && theme.palette.accents_5}
+        color={!route.selected && theme.colors.accents5.value}
         onClick={onClick}
       />
       <Spacer inline x={0.2} />
@@ -71,7 +71,7 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
           width: 4px;
           height: 4px;
           border-radius: 50%;
-          background: ${theme.palette.accents_6};
+          background: ${theme.colors.accents6.value};
           margin-right: 16px;
         }
         .link:first-child {

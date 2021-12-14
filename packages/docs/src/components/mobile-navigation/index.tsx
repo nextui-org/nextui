@@ -1,5 +1,5 @@
 import React from 'react';
-import { NextUIThemes, useTheme, usePortal } from '@nextui-org/react';
+import { useTheme, usePortal } from '@nextui-org/react';
 import cn from 'classnames';
 import { addColorAlpha } from '@utils/index';
 import withDefaults from '@utils/with-defaults';
@@ -14,11 +14,11 @@ interface Props {
 }
 
 const defaultProps = {
-  opened: false,
+  opened: false
 };
 
 const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   const portal = usePortal('mobile-navigation');
 
   const handlePostClick = () => {
@@ -63,7 +63,7 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
               width: 100%;
               min-height: 100%;
               transition: all 0.2s ease 50ms;
-              background: ${addColorAlpha(theme.palette.background, 0.8)};
+              background: ${addColorAlpha(theme.colors.background.value, 0.8)};
             }
             .mobile-navigation__list {
               margin: 0;

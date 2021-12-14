@@ -5,17 +5,15 @@ import {
   Row,
   Text,
   Spacer,
-  Link,
-  NextUIThemes
+  Link
 } from '@nextui-org/react';
-import { useMediaQuery } from '@hooks/use-media-query';
+import { useIsMobile } from '@hooks/use-media-query';
 
 const Footer: React.FC = () => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   const year = new Date().getFullYear();
-  const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.replace('px', ''))
-  );
+  const isMobile = useIsMobile();
+
   const fontSize = isMobile ? 12 : 14;
   return (
     <Container fluid className="footer__container" gap={0}>
@@ -34,12 +32,12 @@ const Footer: React.FC = () => {
           :global(.footer__container) {
             z-index: 99;
             padding: 1rem 0;
-            padding-left: ${theme.spacing.sm} !important;
-            padding-right: ${theme.spacing.sm} !important;
+            padding-left: ${theme.space.sm} !important;
+            padding-right: ${theme.space.sm} !important;
           }
           :global(.footer__copy),
           :global(.footer__by) {
-            color: ${theme.palette.accents_6} !important;
+            color: ${theme.colors.accents6.value} !important;
           }
           :global(.footer__container .nextui-row) {
             justify-content: flex-end !important;
@@ -50,12 +48,8 @@ const Footer: React.FC = () => {
             }
             :global(.footer__container .nextui-row) {
               justify-content: flex-start !important;
-              padding-left: calc(
-                2 * calc(${theme.spacing.sm} * 0.5)
-              ) !important;
-              padding-right: calc(
-                2 * calc(${theme.spacing.sm} * 0.5)
-              ) !important;
+              padding-left: calc(2 * calc(${theme.space.sm} * 0.5)) !important;
+              padding-right: calc(2 * calc(${theme.space.sm} * 0.5)) !important;
             }
           }
           @media only screen and (max-width: ${theme.breakpoints.md}) {

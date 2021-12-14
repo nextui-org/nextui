@@ -7,7 +7,6 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { AppInitialProps } from 'next/app';
 import { NextComponent } from '@lib/types';
 import generateKbarActions from '@lib/kbar-actions';
-import sharedTheme from '@theme/shared';
 import { KBarProvider } from 'kbar';
 
 type AppPropsType<
@@ -22,9 +21,9 @@ type AppPropsType<
 
 type AppProps<P = {}> = AppPropsType<Router, P>;
 
-const KbarComponent = dynamic(() => import('../components/kbar'), {
-  ssr: false
-});
+// const KbarComponent = dynamic(() => import('../components/kbar'), {
+//   ssr: false
+// });
 
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -32,7 +31,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
 
   return (
     <NextThemesProvider disableTransitionOnChange defaultTheme="system">
-      <NextUIProvider theme={sharedTheme}>
+      <NextUIProvider>
         <KBarProvider
           actions={kbarActions}
           options={{
@@ -42,7 +41,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
             }
           }}
         >
-          <KbarComponent />
+          {/* <KbarComponent /> */}
           <Component {...pageProps} />
         </KBarProvider>
         <style global jsx>{`

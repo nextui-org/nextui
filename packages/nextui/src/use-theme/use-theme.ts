@@ -1,8 +1,7 @@
 import React from 'react';
-import ThemeContext from '../theme/theme-context';
-import { NextUIThemes } from '../theme';
+import ThemeContext, { ThemeContextType } from '../theme/theme-context';
 
-const useTheme = (): NextUIThemes =>
-  React.useContext<NextUIThemes>(ThemeContext);
+const useTheme = (): ThemeContextType =>
+  React.useContext<ThemeContextType>(ThemeContext);
 
 export default useTheme;
