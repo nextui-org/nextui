@@ -1,5 +1,3 @@
-/// <reference types="styled-jsx" />
-
 //Theme
 export * from './theme/types';
 export { default as NextUIProvider } from './theme/theme-provider';

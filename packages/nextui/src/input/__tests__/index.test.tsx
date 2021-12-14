@@ -123,7 +123,7 @@ describe('Input', () => {
     expect(value).toEqual('test');
 
     wrapper
-      .find('.nextui-input-clear-icon')
+      .find('.nextui-input-clear-button')
       .at(0)
       .simulate('click', nativeEvent);
     expect(clearHandler).toHaveBeenCalled();

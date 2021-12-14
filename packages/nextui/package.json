@@ -56,8 +56,7 @@
     "coverage:codecov": "yarn test --coverage && codecov"
   },
   "dependencies": {
-    "@stitches/react": "^1.2.6",
-    "styled-jsx": "^4.0.1"
+    "@stitches/react": "^1.2.6"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -91,7 +90,6 @@
     "@types/node": "^15.12.4",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
-    "@types/styled-jsx": "^3.4.4",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",

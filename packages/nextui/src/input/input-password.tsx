@@ -6,7 +6,7 @@ import Input from './input';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
-interface PasswordProps extends Props {
+interface PasswordProps extends Omit<Props, 'css'> {
   hideToggle?: boolean;
   visibleIcon?: React.ReactNode;
   hiddenIcon?: React.ReactNode;
@@ -19,7 +19,10 @@ const passwordDefaultProps = {
   hiddenIcon: <PasswordIcon visible={false} />
 };
 
-type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof PasswordProps>;
+type NativeAttrs = Omit<
+  React.InputHTMLAttributes<any>,
+  keyof PasswordProps | 'css'
+>;
 export type InputPasswordProps = PasswordProps &
   typeof passwordDefaultProps &
   NativeAttrs;
@@ -66,6 +69,5 @@ const InputPassword = React.forwardRef<
 if (__DEV__) {
   InputPassword.displayName = 'NextUI - Input Password';
 }
-InputPassword.defaultProps = defaultProps;
 
 export default withDefaults(InputPassword, passwordDefaultProps);

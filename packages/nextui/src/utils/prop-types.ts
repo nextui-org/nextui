@@ -208,7 +208,8 @@ export const excludedInputPropsForTextarea = tuple(
   'contentLeftStyling',
   'contentRightStyling',
   'onContentClick',
-  'onClearClick'
+  'onClearClick',
+  'css'
 );
 
 export type Display = typeof display[number];

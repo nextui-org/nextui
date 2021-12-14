@@ -8,15 +8,12 @@ import React, {
   useState
 } from 'react';
 import { ContentPosition } from '../utils/prop-types';
-import InputContent from './input-content';
-import InputIconClear from './input-icon-clear';
 import Textarea from '../textarea';
 import InputPassword from './input-password';
 import { getId } from '../utils/collections';
 import { Props, FormElement, defaultProps } from './input-props';
 import { isEmpty } from '../utils/assertion';
 import useWarning from '../use-warning';
-import VisuallyHidden from '../utils/visually-hidden';
 import {
   StyledInput,
   StyledInputMainContainer,
@@ -24,13 +21,17 @@ import {
   StyledHelperTextContainer,
   StyledHelperText,
   StyledInputWrapper,
+  StyledInputPlaceholder,
+  StyledInputClearButton as InputClearButton,
   StyledInputBlockLabel as InputBlockLabel,
-  StyledInputLabel as InputLabel
+  StyledInputLabel as InputLabel,
+  StyledInputContent as InputContent
 } from './input.styles';
+import ClearIcon from '../utils/clear-icon';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
-type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
+type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props | 'css'>;
 export type InputProps = Props & typeof defaultProps & NativeAttrs;
 
 const simulateChangeEvent = (
@@ -98,8 +99,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
     const [selfValue, setSelfValue] = useState<string>(initialValue);
     const [hover, setHover] = useState<boolean>(false);
 
-    // const { heightRatio, fontSize } = useMemo(() => getSizes(size), [size]);
-
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
 
     const inputLabel = useMemo(
@@ -136,6 +135,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
     };
 
     const clearHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      event.stopPropagation();
+      event.nativeEvent.stopImmediatePropagation();
+
       setSelfValue('');
       onClearClick && onClearClick(event);
       /* istanbul ignore next */
@@ -163,14 +166,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
       if (disabled) return;
       onContentClick && onContentClick(key, e);
     };
-
-    const contentProps = useMemo(
-      () => ({
-        clickable: contentClickable,
-        onClick: contentClickHandler
-      }),
-      [contentClickable, contentClickHandler]
-    );
 
     useEffect(() => {
       if (isControlledComponent) {
@@ -242,6 +237,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
             isTextarea={isTextarea}
             underlined={underlined}
             animated={animated}
+            bordered={bordered}
             rounded={rounded}
             hasContentLeft={!!contentLeft}
             withValue={!!selfValue}
@@ -289,9 +285,9 @@ const Input = React.forwardRef<FormElement, InputProps>(
             )}
           >
             {!inputLabel && placeholder && (
-              <VisuallyHidden>
-                <span className={`${preClass}-placeholder`}>{placeholder}</span>
-              </VisuallyHidden>
+              <StyledInputPlaceholder className={`${preClass}-placeholder`}>
+                {placeholder}
+              </StyledInputPlaceholder>
             )}
             {labelLeft && (
               <InputLabel
@@ -305,12 +301,18 @@ const Input = React.forwardRef<FormElement, InputProps>(
             )}
             {contentLeft && (
               <InputContent
-                isLeft
+                className={clsx(
+                  `${preClass}-content`,
+                  `${preClass}-content--left`
+                )}
                 applyStyles={contentLeftStyling}
-                status={status}
-                content={contentLeft}
-                {...contentProps}
-              />
+                clickable={contentClickable}
+                onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+                  contentClickHandler('left', e)
+                }
+              >
+                {contentLeft}
+              </InputContent>
             )}
             <StyledInput
               type="text"
@@ -325,6 +327,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
                 [`${preClass}-${preClass}-right-content`]: contentRight,
                 [`${preClass}-left-content`]: contentLeft
               })}
+              isTextarea={isTextarea}
               focused={hover}
               bordered={bordered}
               placeholder={inputPlaceholder}
@@ -344,23 +347,32 @@ const Input = React.forwardRef<FormElement, InputProps>(
               {...inputProps}
             />
             {clearable && (
-              <InputIconClear
-                status={status}
+              <InputClearButton
+                className={`${preClass}-clear-button`}
+                animated={animated}
                 underlined={underlined}
                 visible={Boolean(selfValue)}
                 hasContentRight={!!contentRight}
-                // heightRatio={heightRatio}
                 disabled={disabled || readOnly}
                 onClick={clearHandler}
-              />
+              >
+                <ClearIcon fill="currentColor" />
+              </InputClearButton>
             )}
             {contentRight && (
               <InputContent
-                status={status}
-                content={contentRight}
+                className={clsx(
+                  `${preClass}-content`,
+                  `${preClass}-content--right`
+                )}
                 applyStyles={contentRightStyling}
-                {...contentProps}
-              />
+                clickable={contentClickable}
+                onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+                  contentClickHandler('right', e)
+                }
+              >
+                {contentRight}
+              </InputContent>
             )}
             {labelRight && (
               <InputLabel

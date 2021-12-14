@@ -36,10 +36,7 @@ module.exports = (api) => {
         ]
       : ['@babel/preset-env', '@babel/react', '@babel/preset-typescript'];
 
-  const plugins =
-    env !== 'test'
-      ? ['styled-jsx/babel', '@babel/plugin-transform-runtime']
-      : ['styled-jsx/babel-test'];
+  const plugins = env !== 'test' ? ['@babel/plugin-transform-runtime'] : [];
 
   return {
     presets,

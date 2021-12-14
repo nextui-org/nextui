@@ -1,4 +1,8 @@
-import { styled, VariantProps } from '../theme/stitches.config';
+import {
+  styled,
+  sharedVisuallyHidden,
+  VariantProps
+} from '../theme/stitches.config';
 
 const baseInputValues = {
   $$inputColor: '$colors$accents1',
@@ -257,6 +261,16 @@ export const StyledInput = styled('input', {
     cursor: 'not-allowed'
   },
   variants: {
+    isTextarea: {
+      true: {
+        boxShadow: 'none',
+        display: 'block',
+        size: '100%',
+        resize: 'none',
+        border: 'none',
+        outline: 'none'
+      }
+    },
     focused: {
       true: {
         '&::placeholder': {
@@ -370,7 +384,6 @@ export const StyledInputWrapper = styled('div', {
       false: {
         [`& ${StyledInput}`]: {
           margin: '$2 $5'
-          // margin: '$xs $sm' // TODO: put this in the textarea styles
         }
       }
     },
@@ -386,6 +399,12 @@ export const StyledInputWrapper = styled('div', {
       }
     },
     isTextarea: {
+      true: {
+        boxSizing: 'border-box',
+        width: '100%',
+        maxWidth: '100%',
+        height: 'auto'
+      },
       false: {
         height: '100%'
       }
@@ -440,6 +459,16 @@ export const StyledInputWrapper = styled('div', {
           boxShadow: '0 0 0 $$inputBorderWeight $$inputHoverBorderColor'
         }
       }
+    },
+    // isTextarea  && !underlined
+    {
+      isTextarea: true,
+      underlined: false,
+      css: {
+        [`& ${StyledInput}`]: {
+          margin: '$xs $sm'
+        }
+      }
     }
   ]
 });
@@ -473,6 +502,8 @@ export const StyledHelperText = styled('p', {
   fontSize: '$space$5',
   color: '$$inputHelperColor'
 });
+
+export const StyledInputPlaceholder = styled('span', {}, sharedVisuallyHidden);
 
 /// Input accessories
 export const StyledInputBlockLabel = styled('label', {
@@ -532,6 +563,9 @@ export const StyledInputBlockLabel = styled('label', {
       true: {}
     },
     isTextarea: {
+      true: {}
+    },
+    bordered: {
       true: {}
     },
     hasContentLeft: {
@@ -595,7 +629,6 @@ export const StyledInputBlockLabel = styled('label', {
         cursor: 'inherit'
       }
     },
-
     // asPlaceholder && isTextarea
     {
       asPlaceholder: true,
@@ -618,7 +651,7 @@ export const StyledInputBlockLabel = styled('label', {
       isTextarea: true,
       focused: true,
       css: {
-        top: '-$11'
+        top: '-$10'
       }
     },
     // asPlaceholder && isTextarea && withValue
@@ -628,6 +661,16 @@ export const StyledInputBlockLabel = styled('label', {
       withValue: true,
       css: {
         top: '-$11'
+      }
+    },
+    // focused && asPlaceholder && isTextarea && bordered
+    {
+      asPlaceholder: true,
+      focused: true,
+      isTextarea: true,
+      bordered: true,
+      css: {
+        top: '-$12'
       }
     }
   ],
@@ -750,9 +793,102 @@ export const StyledInputLabel = styled('span', {
   }
 });
 
+export const StyledInputContent = styled('span', {
+  variants: {
+    applyStyles: {
+      true: {
+        display: 'flex',
+        boxSizing: 'content-box',
+        width: 'calc($$inputHeightRatio * $space$4)',
+        height: '100%',
+        alignItems: 'center',
+        verticalAlign: 'center',
+        margin: 0,
+        padding: '0 calc($$inputHeightRatio * $3)',
+        color: '$$inputTextColor',
+        lineHeight: '$xs',
+        position: 'relative',
+        cursor: 'default',
+        pe: 'none'
+      }
+    },
+    clickable: {
+      true: {
+        cursor: 'pointer',
+        pe: 'auto'
+      }
+    }
+  }
+});
+
+export const StyledInputClearButton = styled('button', {
+  position: 'absolute',
+  right: 0,
+  margin: 0,
+  d: 'inline-flex',
+  ai: 'center',
+  border: 'none',
+  bg: 'transparent',
+  width: 'auto',
+  height: 'auto',
+  cursor: 'pointer',
+  boxSizing: 'border-box',
+  transition:
+    'color 250ms ease 0s, transform 250ms ease 0s, opacity 250ms ease 0s',
+  color: '$$inputPlaceholderColor',
+  visibility: 'hidden',
+  transform: 'translateX(20%)',
+  opacity: 0,
+  '&:hover': {
+    opacity: 0.85
+  },
+  svg: {
+    color: 'currentColor',
+    size: 'calc($space$5 * $$inputHeightRatio)'
+  },
+  '@motion': {
+    transition: 'none'
+  },
+  variants: {
+    visible: {
+      true: {
+        visibility: 'visible',
+        transform: 'translateX(0)',
+        opacity: 1
+      }
+    },
+    underlined: {
+      true: {
+        padding: '0 $1'
+      }
+    },
+    animated: {
+      false: {
+        transition: 'none'
+      }
+    },
+    hasContentRight: {
+      true: {
+        padding: 0,
+        position: 'relative',
+        transform: 'translateX(30%)'
+      }
+    },
+    disabled: {
+      true: {
+        cursor: 'not-allowed',
+        '&:hover': {
+          color: '$accents3'
+        }
+      }
+    }
+  }
+});
+
 // types
 export type InputVariantsProps = VariantProps<typeof StyledInput>;
 export type InputBlockLabelVariantsProps = VariantProps<
   typeof StyledInputBlockLabel
 >;
 export type InputLabelVariantsProps = VariantProps<typeof StyledInputLabel>;
+export type InputContentVariantsProps = VariantProps<typeof StyledInputContent>;
