@@ -545,7 +545,7 @@ const StyledButton = styled(
         flat: true,
         color: 'default',
         css: {
-          bg: addColorAlpha(theme.colors.primary.value, 0.25),
+          bg: addColorAlpha(theme.colors?.primary?.value, 0.25),
           color: '$primary',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -559,7 +559,7 @@ const StyledButton = styled(
         flat: true,
         color: 'primary',
         css: {
-          bg: addColorAlpha(theme.colors.primary.value, 0.25),
+          bg: addColorAlpha(theme.colors?.primary?.value, 0.25),
           color: '$primary',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -573,7 +573,7 @@ const StyledButton = styled(
         flat: true,
         color: 'secondary',
         css: {
-          bg: addColorAlpha(theme.colors.secondary.value, 0.25),
+          bg: addColorAlpha(theme.colors?.secondary?.value, 0.25),
           color: '$secondary',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -587,7 +587,7 @@ const StyledButton = styled(
         flat: true,
         color: 'success',
         css: {
-          bg: addColorAlpha(theme.colors.success.value, 0.25),
+          bg: addColorAlpha(theme.colors?.success?.value, 0.25),
           color: '$success',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -601,7 +601,7 @@ const StyledButton = styled(
         flat: true,
         color: 'warning',
         css: {
-          bg: addColorAlpha(theme.colors.warning.value, 0.25),
+          bg: addColorAlpha(theme.colors?.warning?.value, 0.25),
           color: '$warning',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -615,7 +615,7 @@ const StyledButton = styled(
         flat: true,
         color: 'error',
         css: {
-          bg: addColorAlpha(theme.colors.error.value, 0.25),
+          bg: addColorAlpha(theme.colors?.error?.value, 0.25),
           color: '$error',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {

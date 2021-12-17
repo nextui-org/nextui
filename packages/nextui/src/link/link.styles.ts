@@ -65,7 +65,7 @@ const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors.link.value, 0.2)
+          backgroundColor: addColorAlpha(theme.colors?.link?.value, 0.2)
         }
       }
     },
@@ -74,7 +74,7 @@ const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors.primary.value, 0.2)
+          backgroundColor: addColorAlpha(theme.colors?.primary?.value, 0.2)
         }
       }
     },
@@ -83,7 +83,7 @@ const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors.secondary.value, 0.2)
+          backgroundColor: addColorAlpha(theme.colors?.secondary?.value, 0.2)
         }
       }
     },
@@ -92,7 +92,7 @@ const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors.secondary.value, 0.2)
+          backgroundColor: addColorAlpha(theme.colors?.secondary?.value, 0.2)
         }
       }
     },
@@ -101,7 +101,7 @@ const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors.success.value, 0.2)
+          backgroundColor: addColorAlpha(theme.colors?.success?.value, 0.2)
         }
       }
     },
@@ -110,7 +110,7 @@ const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors.warning.value, 0.2)
+          backgroundColor: addColorAlpha(theme.colors?.warning?.value, 0.2)
         }
       }
     },
@@ -119,7 +119,7 @@ const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors.error.value, 0.2)
+          backgroundColor: addColorAlpha(theme.colors?.error?.value, 0.2)
         }
       }
     }

@@ -8,7 +8,7 @@ import {
   AlignItems,
   AlignContent
 } from '../utils/prop-types';
-import StyledContainer, { ContainerVariantsProps } from './container.styles';
+import StyledContainer from './container.styles';
 
 interface Props {
   gap?: number;
@@ -17,6 +17,8 @@ interface Props {
   md?: boolean;
   lg?: boolean;
   xl?: boolean;
+  responsive?: boolean;
+  fluid?: boolean;
   wrap?: Wrap;
   display?: Display;
   justify?: Justify;
@@ -24,7 +26,6 @@ interface Props {
   alignItems?: AlignItems;
   alignContent?: AlignContent;
   as?: keyof JSX.IntrinsicElements;
-  children?: React.ReactNode;
   css?: CSS;
 }
 
@@ -35,6 +36,8 @@ const defaultProps = {
   md: false,
   lg: false,
   xl: false,
+  responsive: true,
+  fluid: false,
   wrap: 'wrap' as Wrap,
   as: 'div' as keyof JSX.IntrinsicElements,
   display: 'block' as Display
@@ -42,10 +45,7 @@ const defaultProps = {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type ContainerProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  ContainerVariantsProps;
+export type ContainerProps = Props & typeof defaultProps & NativeAttrs;
 
 const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   xs,
@@ -62,6 +62,8 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   alignItems,
   alignContent,
   children,
+  responsive,
+  fluid,
   className,
   css,
   ...props
@@ -92,6 +94,8 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
         justifyContent: justify,
         flexDirection: direction
       }}
+      responsive={responsive}
+      fluid={fluid}
       {...props}
     >
       {children}
@@ -99,8 +103,12 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   );
 };
 
+type ComponentProps = Omit<Props, keyof typeof defaultProps> &
+  Partial<typeof defaultProps> &
+  NativeAttrs;
+
 type MemoContainerComponent<P = {}> = React.NamedExoticComponent<P>;
 
 Container.defaultProps = defaultProps;
 
-export default React.memo(Container) as MemoContainerComponent<ContainerProps>;
+export default React.memo(Container) as MemoContainerComponent<ComponentProps>;

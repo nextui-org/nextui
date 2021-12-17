@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import {
   useTheme,
   Container,
-  NextUIThemes,
   Row,
   Col,
   Text,
@@ -19,10 +18,8 @@ import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
 
 const Hero: React.FC = () => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme, isDark } = useTheme();
   const isMounted = useIsMounted();
-
-  const isDark = theme.type === 'dark';
 
   const router = useRouter();
 
@@ -170,16 +167,16 @@ const Hero: React.FC = () => {
         }
         :global(.hero__title) {
           margin-bottom: 0rem;
-          color: ${theme.palette.foreground} !important;
+          color: ${theme.colors.foreground.value} !important;
           line-height: 1.2;
         }
         :global(.hero__github-link) {
-          color: ${theme.palette.text} !important;
+          color: ${theme.colors.text.value} !important;
         }
         :global(.hero__title-smooth) {
           color: ${isDark
-            ? theme.palette.accents_6
-            : theme.palette.accents_3} !important;
+            ? theme.colors.accents6.value
+            : theme.colors.accents3.value} !important;
         }
         :global(.hero__left-container, .hero__right-container) {
           position: relative;
@@ -216,9 +213,12 @@ const Hero: React.FC = () => {
           border-width: 2px !important;
           border-color: ${isDark
             ? 'transparent'
-            : theme.palette.accents_2} !important;
+            : theme.colors.accents2.value} !important;
           backdrop-filter: saturate(180%) blur(20px);
-          background: ${addColorAlpha(theme.palette.accents_2, 0.5)} !important;
+          background: ${addColorAlpha(
+            theme.colors.accents2.value,
+            0.5
+          )} !important;
           box-shadow: ${isDark ? '0px 5px 20px -5px rgb(0 0 0 / 15%)' : 'none'};
         }
         :global(.hero__snippet .copy) {
@@ -230,7 +230,7 @@ const Hero: React.FC = () => {
             overflow: hidden;
           }
           :global(.hero__get-started-button) {
-            margin-bottom: ${theme.spacing.lg};
+            margin-bottom: ${theme.space.lg};
           }
           :global(.hero__get-started-button, .hero__snippet) {
             width: 100% !important;

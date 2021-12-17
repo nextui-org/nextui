@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Avatar from './index';
-import useTheme from '../use-theme';
 import Spacer from '../spacer';
 import { Lock, User, VolumeUp, Camera, Activity } from '../utils/icons';
 
@@ -39,14 +38,12 @@ export const Simple = () => <Avatar text="Hello" />;
 export const Default = () => {
   return (
     <>
-      <Container>
-        <Avatar text={nameUsers[0]} />
-        <Avatar pointer src={pictureUsers[1]} />
-        <Avatar text={nameUsers[1]} />
-        <Avatar src={pictureUsers[3]} squared />
-        <Avatar text={nameUsers[3]} squared />
-        <Avatar src={pictureUsers[4]} squared />
-      </Container>
+      <Avatar text={nameUsers[0]} />
+      <Avatar pointer src={pictureUsers[1]} />
+      <Avatar text={nameUsers[1]} />
+      <Avatar src={pictureUsers[3]} squared />
+      <Avatar text={nameUsers[3]} squared />
+      <Avatar src={pictureUsers[4]} squared />
     </>
   );
 };
@@ -185,29 +182,13 @@ export const Zoomed = () => {
 };
 
 export const Icons = () => {
-  const theme = useTheme();
   return (
     <Container>
-      <Avatar
-        squared
-        icon={<Lock size={20} theme={theme} fill="currentColor" />}
-      />
-      <Avatar
-        squared
-        icon={<Camera size={20} theme={theme} fill="currentColor" />}
-      />
-      <Avatar
-        squared
-        icon={<User size={20} theme={theme} fill="currentColor" />}
-      />
-      <Avatar
-        squared
-        icon={<VolumeUp size={20} theme={theme} fill="currentColor" />}
-      />
-      <Avatar
-        squared
-        icon={<Activity size={20} theme={theme} fill="currentColor" />}
-      />
+      <Avatar squared icon={<Lock size={20} fill="currentColor" />} />
+      <Avatar squared icon={<Camera size={20} fill="currentColor" />} />
+      <Avatar squared icon={<User size={20} fill="currentColor" />} />
+      <Avatar squared icon={<VolumeUp size={20} fill="currentColor" />} />
+      <Avatar squared icon={<Activity size={20} fill="currentColor" />} />
     </Container>
   );
 };

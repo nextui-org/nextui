@@ -38,7 +38,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       tag={tag}
       slug={slug}
     >
-      {/* <Hero /> */}
+      <Hero />
     </DefaultLayout>
   );
 };

@@ -1,5 +1,4 @@
-import { NormalColors, normalColors } from './prop-types';
-import { NextUIThemesPalette } from '../theme/index';
+import { normalColors } from './prop-types';
 
 export const getCssVar = (name: string) => {
   if (typeof document !== 'undefined' || !name) {
@@ -50,33 +49,6 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
     b = '0x' + hex[5] + hex[6];
   }
   return `rgba(${+r}, ${+g},${+b},${alpha})`;
-};
-
-export const getNormalColor = (
-  color: NormalColors | string | boolean | undefined,
-  palette: NextUIThemesPalette,
-  defaultColor: string = 'inherit'
-) => {
-  const colors: { [key in string]: string } = {
-    default: defaultColor,
-    background: palette.background,
-    foreground: palette.foreground,
-    primary: palette.primary,
-    secondary: palette.secondary,
-    success: palette.success,
-    warning: palette.warning,
-    error: palette.error,
-    gradient: palette.gradient,
-    dark: palette.foreground,
-    invert: palette.foreground
-  };
-  if (typeof color == 'boolean') {
-    return color ? palette.primary : 'inherit';
-  }
-  if (color && colors[color]) {
-    return colors[color];
-  }
-  return color || defaultColor;
 };
 
 export const isNormalColor = (color: string): boolean => {
@@ -141,7 +113,8 @@ export const colorToRgbValues = (colorProp: string) => {
   return regArray[1].split(',').map((str) => Number.parseFloat(str));
 };
 
-export const addColorAlpha = (colorProp: string, alpha: number) => {
+export const addColorAlpha = (colorProp?: string, alpha: number = 1) => {
+  if (!colorProp) return '';
   const color = isCssVar(colorProp) ? getCssVar(colorProp) : colorProp;
   if (isHex(color)) {
     return hexToRGBA(color, alpha);
@@ -190,23 +163,4 @@ export const invertHex = (hexProp: string, smooth = true) => {
     padZero(g.toString(16)) +
     padZero(b.toString(16))
   );
-};
-
-export const getNormalShadowColor = (
-  color: NormalColors | string,
-  palette: NextUIThemesPalette
-) => {
-  try {
-    const hexColor =
-      color === 'gradient'
-        ? (hexFromString(palette.gradient, palette.primary, true) as string)
-        : getNormalColor(color, palette, palette.primary);
-
-    const [r, g, b] = hexToRgb(
-      isCssVar(hexColor) ? getCssVar(hexColor) : hexColor
-    );
-    return `0 4px 14px 0 rgb(${r} ${g} ${b}/ 60%);`;
-  } catch (err) {
-    return 'none';
-  }
 };

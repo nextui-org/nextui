@@ -31,8 +31,9 @@ export type {
 export { KeyMod, KeyCode } from './use-keyboard/codes';
 export { default as CssBaseline } from './css-baseline';
 
-// Stitches
-export type { NextUITheme, VariantProps, CSS } from './theme/stitches.config';
+// Theme
+export type { VariantProps, CSS } from './theme/stitches.config';
+export type { NextUITheme } from './theme/types';
 export {
   styled,
   css,
@@ -44,10 +45,6 @@ export {
   config,
   config as stitchesConfig,
   theme as defaultTheme,
-  theme as lightTheme,
-  darkThemeClassName,
-  darkTheme,
-  lightThemeClassName,
   sharedFocus,
   sharedVisuallyHidden
 } from './theme/stitches.config';

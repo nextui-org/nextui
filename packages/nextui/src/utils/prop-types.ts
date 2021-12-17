@@ -105,8 +105,6 @@ export const textTransforms = tuple(
   'unset'
 );
 
-const themeTypes = tuple('dark', 'light');
-
 const copyTypes = tuple('default', 'slient', 'prevent');
 
 const triggerTypes = tuple('hover', 'click');
@@ -249,8 +247,6 @@ export type SimpleColors = typeof simpleColors[number];
 export type TooltipColors = typeof extendedColorsNoGradient[number];
 
 export type NormalLoaders = typeof normalLoaders[number];
-
-export type ThemeTypes = typeof themeTypes[number] | string;
 
 export type SnippetTypes = typeof extendedColors[number];
 

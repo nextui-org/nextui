@@ -138,8 +138,8 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                   size={20}
                   fill={
                     isDark
-                      ? theme.colors.accents4.value
-                      : theme.colors.accents5.value
+                      ? theme.colors?.accents4?.value
+                      : theme.colors?.accents5?.value
                   }
                 />
               </Link>
@@ -153,8 +153,8 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                   size={20}
                   fill={
                     isDark
-                      ? theme.colors.accents4.value
-                      : theme.colors.accents5.value
+                      ? theme.colors?.accents4?.value
+                      : theme.colors?.accents5?.value
                   }
                 />
               </Link>
@@ -168,8 +168,8 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                   size={20}
                   fill={
                     isDark
-                      ? theme.colors.accents4.value
-                      : theme.colors.accents5.value
+                      ? theme.colors?.accents4?.value
+                      : theme.colors?.accents5?.value
                   }
                 />
               </Link>
@@ -221,7 +221,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
         }
         :global(.navbar__link.active) {
           font-weight: 600;
-          color: ${theme.colors.primary.value};
+          color: ${theme.colors?.primary?.value};
         }
         :global(.navbar__menu-arrow) {
           height: 100%;

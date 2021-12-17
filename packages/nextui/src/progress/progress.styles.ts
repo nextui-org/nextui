@@ -57,19 +57,19 @@ export const StyledProgress = styled('div', {
         bg: '$accents2'
       },
       primary: {
-        bg: addColorAlpha(theme.colors.primary.value, 0.2)
+        bg: addColorAlpha(theme.colors?.primary?.value, 0.2)
       },
       secondary: {
-        bg: addColorAlpha(theme.colors.secondary.value, 0.2)
+        bg: addColorAlpha(theme.colors?.secondary?.value, 0.2)
       },
       success: {
-        bg: addColorAlpha(theme.colors.success.value, 0.2)
+        bg: addColorAlpha(theme.colors?.success?.value, 0.2)
       },
       warning: {
-        bg: addColorAlpha(theme.colors.warning.value, 0.2)
+        bg: addColorAlpha(theme.colors?.warning?.value, 0.2)
       },
       error: {
-        bg: addColorAlpha(theme.colors.error.value, 0.2)
+        bg: addColorAlpha(theme.colors?.error?.value, 0.2)
       }
     },
     size: {

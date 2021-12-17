@@ -1,16 +1,16 @@
 import React from 'react';
-import { NextUITheme, theme as defaultTheme } from './stitches.config';
-import { ThemeTypes } from '../utils/prop-types';
+import { theme as defaultTheme, StitchesTheme } from './stitches.config';
+import { ThemeType } from './types';
 
 export type ThemeContextType = {
-  theme: NextUITheme;
   isDark: boolean;
-  type: ThemeTypes;
+  theme: StitchesTheme;
+  type: ThemeType;
 };
 
 const defaultContext: ThemeContextType = {
-  theme: defaultTheme,
   isDark: false,
+  theme: defaultTheme,
   type: 'light'
 };
 

@@ -93,7 +93,7 @@ export const StyledPaginationItem = styled(
       transition: 'none'
     },
     '&:hover': {
-      bg: addColorAlpha(theme.colors.accents3.value, 0.3)
+      bg: addColorAlpha(theme.colors?.accents3?.value, 0.3)
     },
     [`& ${StyledPaginationIcon}`]: {
       size: '$$paginationFontSize'

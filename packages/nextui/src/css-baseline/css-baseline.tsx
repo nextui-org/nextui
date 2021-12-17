@@ -131,14 +131,14 @@ const globalStyles = globalCss({
     color: '$code',
     padding: '$1 $2',
     borderRadius: '$xs',
-    backgroundColor: addColorAlpha(theme.colors.code.value, 0.2),
+    backgroundColor: addColorAlpha(theme.colors?.code?.value, 0.2),
     fontFamily: '$mono',
     fontSize: '$xs',
     whiteSpace: 'pre-wrap',
     transition: '$default'
   },
   'code:hover': {
-    backgroundColor: addColorAlpha(theme.colors.code.value, 0.3)
+    backgroundColor: addColorAlpha(theme.colors?.code?.value, 0.3)
   },
   pre: {
     overflow: 'auto',

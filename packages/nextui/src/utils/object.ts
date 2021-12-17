@@ -5,31 +5,6 @@ export interface MergeObject {
   [key: string]: any;
 }
 
-export const deepMergeObject = <T extends MergeObject>(
-  source: T,
-  target: T
-): T => {
-  if (!isObject(target) || !isObject(source)) return source;
-
-  const sourceKeys = Object.keys(source) as Array<keyof T>;
-  let result = {} as T;
-  for (const key of sourceKeys) {
-    const sourceValue = source[key];
-    const targetValue = target[key];
-
-    if (Array.isArray(sourceValue) && Array.isArray(targetValue)) {
-      result[key] = targetValue.concat(sourceValue);
-    } else if (isObject(sourceValue) && isObject(targetValue)) {
-      result[key] = deepMergeObject(sourceValue, { ...targetValue });
-    } else if (targetValue) {
-      result[key] = targetValue;
-    } else {
-      result[key] = sourceValue;
-    }
-  }
-  return result;
-};
-
 export const renameProp = (
   oldProp: string,
   newProp: string,
@@ -38,3 +13,19 @@ export const renameProp = (
   [newProp]: old,
   ...others
 });
+
+// copy an object without reference
+export const copyObject = (obj: any) => {
+  if (!isObject(obj)) return obj;
+  if (obj instanceof Array) return [...obj];
+  return { ...obj };
+};
+
+// copy an object omit some keys
+export const omitObject = (obj: any, omitKeys: string[]) => {
+  if (!isObject(obj)) return obj;
+  if (obj instanceof Array) return [...obj];
+  const newObj = { ...obj };
+  omitKeys.forEach((key) => newObj[key] && delete newObj[key]);
+  return newObj;
+};
