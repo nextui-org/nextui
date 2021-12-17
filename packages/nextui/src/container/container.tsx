@@ -64,7 +64,6 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   children,
   responsive,
   fluid,
-  className,
   css,
   ...props
 }) => {

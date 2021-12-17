@@ -26,18 +26,16 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
         as="main"
         alignContent="space-between"
         className="main-container"
+        css={{
+          margin: '0 auto',
+          position: 'relative',
+          minHeight: '100vh'
+        }}
         gap={0}
       >
         <Navbar isHome routes={routes} />
         {children}
         <Footer />
-        <style jsx>{`
-          :global(.main-container) {
-            margin: 0 auto;
-            position: relative;
-            min-height: 100vh;
-          }
-        `}</style>
       </Container>
     </DotsContainer>
   );

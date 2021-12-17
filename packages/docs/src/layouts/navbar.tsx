@@ -92,6 +92,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                   active: isActive(router.pathname, '/docs/[[...slug]]')
                 })}
                 href="#"
+                css={{
+                  color: '$text'
+                }}
               >
                 Docs
               </Link>
@@ -103,6 +106,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 className="navbar__disabled-link"
                 href="#"
                 title="Coming soon.."
+                css={{
+                  color: '$text'
+                }}
               >
                 Contributors
               </Link>
@@ -114,6 +120,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 className="navbar__disabled-link"
                 href="#"
                 title="Coming soon.."
+                css={{
+                  color: '$text'
+                }}
               >
                 Feedback
               </Link>
@@ -252,7 +261,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           cursor: not-allowed;
           events: none;
         }
-        @media only screen and (max-width: ${theme.breakpoints.xs}) {
+        @media only screen and (max-width: ${theme.breakpoints.xs.value}) {
           :global(.navbar__container) {
             top: 0;
             position: fixed;
@@ -290,7 +299,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             opacity: 0.7;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.md}) {
+        @media only screen and (max-width: ${theme.breakpoints.md.value}) {
           :global(.navbar__logo-container) {
             display: flex;
             width: 24px;
@@ -307,7 +316,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             display: none !important;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.lg}) {
+        @media only screen and (max-width: ${theme.breakpoints.lg.value}) {
           .navbar__wrapper {
             padding: 0 16px;
           }

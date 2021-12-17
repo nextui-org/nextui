@@ -2,8 +2,6 @@ import { styled, VariantProps } from '@nextui-org/react';
 
 export const StyledBadge = styled('span', {
   display: 'inline-block',
-  // color: ${color}, // color variant
-  // background: ${background}, // background variant
   textTransform: 'uppercase',
   padding: '5px 5px',
   margin: '0 2px',
