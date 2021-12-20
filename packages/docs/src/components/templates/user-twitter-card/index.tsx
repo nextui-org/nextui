@@ -6,12 +6,11 @@ import {
   Text,
   Button,
   Spacer,
-  Grid,
-  NextUIThemes
+  Grid
 } from '@nextui-org/react';
 
 const UserTwitterCard: React.FC = () => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   const [following, setFollowing] = useState(false);
 
   return (
@@ -26,9 +25,13 @@ const UserTwitterCard: React.FC = () => {
         />
         <Button
           auto
-          onClick={() => setFollowing(!following)}
-          color={following ? 'foreground' : 'primary'}
           rounded
+          onClick={() => setFollowing(!following)}
+          css={{
+            borderColor: following ? '$foreground' : '$primary',
+            color: following ? '$foreground' : '$white'
+          }}
+          color={'primary'}
           bordered={following}
         >
           {following ? 'Unfollow' : 'Follow'}
@@ -44,7 +47,7 @@ const UserTwitterCard: React.FC = () => {
           <Text
             className="user-twitter-card__text"
             size={14}
-            color={theme.palette.accents_5}
+            color={theme?.colors?.accents5?.value}
           >
             @zoeylang
           </Text>
@@ -53,7 +56,7 @@ const UserTwitterCard: React.FC = () => {
           <Text
             className="user-twitter-card__text"
             size={14}
-            color={theme.palette.accents_5}
+            color={theme?.colors?.accents5?.value}
           >
             @getnextui Lover
           </Text>
@@ -68,7 +71,7 @@ const UserTwitterCard: React.FC = () => {
         <Text
           className="user-twitter-card__text"
           size={14}
-          color={theme.palette.accents_5}
+          color={theme?.colors?.accents5?.value}
         >
           <Text
             b
@@ -84,7 +87,7 @@ const UserTwitterCard: React.FC = () => {
         <Text
           className="user-twitter-card__text"
           size={14}
-          color={theme.palette.accents_5}
+          color={theme?.colors?.accents5?.value}
         >
           <Text
             b
@@ -101,8 +104,8 @@ const UserTwitterCard: React.FC = () => {
         {`
           :global(.user-twitter-card__container) {
             max-width: 250px;
-            border-radius: ${theme.radius.lg};
-            padding: ${theme.spacing.sm};
+            border-radius: ${theme?.radii?.lg?.value};
+            padding: ${theme?.space?.sm?.value};
           }
           :global(.user-twitter-card__username-container) {
             padding: 4px 0;

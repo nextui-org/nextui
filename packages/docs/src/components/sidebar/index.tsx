@@ -4,7 +4,6 @@ import { Route, addTagToSlug } from '@lib/docs/page';
 import { removeFromLast } from '@utils/index';
 import { useIsMobile } from '@hooks/use-media-query';
 import { Heading } from '@components';
-import { useTheme } from '@nextui-org/react';
 import Category from './category';
 import Post from './post';
 import { NavLinkProps } from '../nav-link';

@@ -27,8 +27,7 @@ const ImageBrowser: React.FC<Props> = ({
   ...props
 }) => {
   const isMounted = useIsMounted();
-  const theme = useTheme();
-  const isDark = theme.type === 'dark';
+  const { isDark } = useTheme();
   const { firstWindow, secondWindow } = React.useMemo(() => {
     if (isDark) {
       return {
@@ -733,6 +732,8 @@ const ImageBrowser: React.FC<Props> = ({
       <style jsx>
         {`
           .image-browser-svg {
+            position: relative;
+            z-index: 20;
             filter: drop-shadow(
               10px 0px 60px rgb(${isDark ? '121 40 202' : '0 0 0'} / 20%)
             );

@@ -13,9 +13,9 @@ export const virtualAnchorEncode = (text?: string) => {
 
 const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({
   children,
-  pure,
+  pure
 }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const ref = useRef<HTMLAnchorElement>(null);
   const [id, setId] = useState<string | undefined>();
 
@@ -63,7 +63,7 @@ const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({
           font-size: inherit;
           width: 1em;
           height: 1em;
-          color: ${theme.palette.accents_5};
+          color: ${theme?.colors?.accents5?.value};
           transition: all 0.25s ease;
         }
         .parent:hover > .icon {

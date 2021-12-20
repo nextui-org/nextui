@@ -36,13 +36,13 @@ const GridContainer: React.FC<React.PropsWithChildren<GridContainerProps>> = ({
     <GridBasicItem
       className={clsx('nextui-grid-container', className)}
       css={{
-        ...(css as any),
         $$gridGapUnit: gapUnit,
         display: 'flex',
         flexWrap: wrap,
         boxZizing: 'border-box',
         margin: 'calc(-1 * $$gridGapUnit)',
-        width: 'calc(100% + $$gridGapUnit * 2)'
+        width: 'calc(100% + $$gridGapUnit * 2)',
+        ...(css as any)
       }}
       {...props}
     >

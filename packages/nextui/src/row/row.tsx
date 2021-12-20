@@ -36,13 +36,13 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
   return (
     <StyledRow
       css={{
-        ...(css as any),
         flexWrap: wrap,
         $$rowGap: `calc(${gap} * $space$lg)`,
         marginLeft: `calc(${gap} * $space$lg / 2)`,
         marginRight: `calc(${gap} * $space$lg / 2)`,
         justifyContent: justify,
-        alignItems: align
+        alignItems: align,
+        ...(css as any)
       }}
       {...props}
     >

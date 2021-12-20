@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import cn from 'classnames';
 import NavLink, { NavLinkProps } from '../nav-link';
 import withDefaults from '@utils/with-defaults';
@@ -29,7 +29,7 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
 }) => {
   const selectedRef = useRef<HTMLDivElement>(null);
   const ref = route.selected ? selectedRef : null;
-  const { theme } = useTheme();
+  const { theme, isDark } = useTheme();
 
   useEffect(() => {
     if (ref && ref.current && !isMobile) {
@@ -45,16 +45,20 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
     }
   }, [ref, isMobile]);
 
+  const linkColor = useMemo(() => {
+    if (route.selected) return;
+    if (isDark) return theme?.colors?.accents6?.value;
+    return theme?.colors?.accents4?.value;
+  }, [isDark, route.selected]);
+
   return (
     <div ref={ref} className={cn('link', `level-${level}`)}>
-      <NavLink
-        {...route}
-        color={!route.selected && theme.colors.accents5.value}
-        onClick={onClick}
-      />
+      <NavLink {...route} color={linkColor} onClick={onClick} />
       <Spacer inline x={0.2} />
       {route?.newPost && (
-        <Badge className="post__new-badge" label="New" type="primary" />
+        <Badge className="post__new-badge" type="primary">
+          New
+        </Badge>
       )}
       <style jsx>{`
         .link {
@@ -71,7 +75,9 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
           width: 4px;
           height: 4px;
           border-radius: 50%;
-          background: ${theme.colors.accents6.value};
+          background: ${route.selected
+            ? theme?.colors?.accents6?.value
+            : theme?.colors?.accents4?.value};
           margin-right: 16px;
         }
         .link:first-child {

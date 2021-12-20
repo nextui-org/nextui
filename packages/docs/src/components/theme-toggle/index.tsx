@@ -36,7 +36,9 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
         <Sun
           filled
           fill={
-            isDark ? theme.colors.accents4.value : theme.colors.accents5.value
+            isDark
+              ? theme?.colors?.accents6?.value
+              : theme?.colors?.accents4?.value
           }
           size={20}
         />
@@ -44,7 +46,9 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
         <Moon
           filled
           fill={
-            isDark ? theme.colors.accents4.value : theme.colors.accents5.value
+            isDark
+              ? theme?.colors?.accents6?.value
+              : theme?.colors?.accents4?.value
           }
           size={20}
         />

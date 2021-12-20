@@ -17,8 +17,7 @@ interface Props {
 const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
   const ownRef = React.useRef<HTMLLIElement>(null);
   const active = state.index === state.activeIndex;
-  const theme = useTheme();
-  const isDark = theme.type === 'dark';
+  const { theme, isDark } = useTheme();
 
   React.useEffect(() => {
     if (active) {
@@ -46,7 +45,11 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
       return (
         <div className="option-icon">
           <Icon
-            fill={active ? theme.palette.accents_5 : theme.palette.accents_3}
+            fill={
+              active
+                ? theme?.colors?.accents5?.value
+                : theme?.colors?.accents3?.value
+            }
             name="arrow-right"
           />
         </div>
@@ -74,7 +77,11 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
       return (
         <div className="option-icon">
           <Icon
-            fill={active ? theme.palette.accents_5 : theme.palette.accents_3}
+            fill={
+              active
+                ? theme?.colors?.accents5?.value
+                : theme?.colors?.accents3?.value
+            }
             name={action.icon}
           />
         </div>
@@ -124,7 +131,7 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
             transition: all 0.2s ease;
           }
           .active {
-            background: ${addColorAlpha(theme.palette.text, 0.1)};
+            background: ${addColorAlpha(theme?.colors?.text?.value, 0.1)};
           }
           .option-left-container {
             display: flex;
@@ -146,11 +153,11 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
             align-items: center;
           }
           .option-text-title {
-            color: ${theme.palette.text};
+            color: ${theme?.colors?.text?.value};
           }
           .option-text-subtitle {
             font-size: 12px;
-            color: ${theme.palette.accents_4};
+            color: ${theme?.colors?.accents4?.value};
           }
           .kbd-container {
             display: grid;

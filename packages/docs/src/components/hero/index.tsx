@@ -12,9 +12,8 @@ import {
   Grid,
   Snippet
 } from '@nextui-org/react';
-import { ImageBrowser } from '@components';
+import { ImageBrowser, Blockholder } from '@components';
 import { addColorAlpha } from '@utils/index';
-import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
 
 const Hero: React.FC = () => {
@@ -36,19 +35,50 @@ const Hero: React.FC = () => {
       justify="space-between"
       wrap="nowrap"
       as="section"
+      css={{
+        position: 'relative',
+        '@xsMax': {
+          height: 'calc(100vh - 64px)',
+          overflow: 'hidden'
+        },
+        '@lgMax': {
+          padding: '0 20px'
+        }
+      }}
     >
-      <Row className="hero__content" align="center">
-        <Col className="hero__left-container">
+      <Row
+        className="hero__content"
+        align="center"
+        css={{
+          '@mdMax': {
+            mt: '80px',
+            p: '0 8px'
+          }
+        }}
+      >
+        <Col
+          className="hero__left-container"
+          css={{
+            position: 'relative',
+            zIndex: '$2',
+            '@md': {
+              width: '50%'
+            },
+            '@mdMax': {
+              width: '100%'
+            }
+          }}
+        >
           <Text
             h1
             className="hero__title"
             css={{
               fontWeight: '$semibold',
+              mb: 0,
+              color: '$foreground',
+              lh: '1.2',
               '@lg': {
-                fontSize: '3.6rem'
-              },
-              '@xl': {
-                fontSize: '4rem'
+                fs: '3.7rem'
               }
             }}
           >
@@ -58,17 +88,10 @@ const Hero: React.FC = () => {
             h1
             css={{
               fontWeight: '$semibold',
-              color: '$accents3',
-              '@dark': {
-                color: '$accents6'
-              },
-              // '@light': {
-              // },
+              color: '$text',
+              opacity: 0.6,
               '@lg': {
-                fontSize: '3.6rem'
-              },
-              '@xl': {
-                fontSize: '4rem'
+                fontSize: '3.7rem'
               }
             }}
             className="hero__title hero__title-smooth"
@@ -85,6 +108,7 @@ const Hero: React.FC = () => {
                   quality={100}
                   width={32}
                   height={32}
+                  alt="themeable"
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">
@@ -101,6 +125,7 @@ const Hero: React.FC = () => {
                       ? '/light-and-dark_dark.svg'
                       : '/light-and-dark_light.svg'
                   }
+                  alt="light and dark theme"
                   quality={100}
                   width={32}
                   height={32}
@@ -118,6 +143,7 @@ const Hero: React.FC = () => {
                   src={
                     isDark ? '/open-source-dark.svg' : '/open-source-light.svg'
                   }
+                  alt="open source"
                   quality={100}
                   width={32}
                   height={32}
@@ -137,6 +163,7 @@ const Hero: React.FC = () => {
                   }
                   width={32}
                   height={32}
+                  alt="fully responsive components"
                 />
                 <Spacer x={0.6} />
                 <Text b size="1.1rem">
@@ -152,8 +179,13 @@ const Hero: React.FC = () => {
                 auto
                 className="hero__get-started-button"
                 size="lg"
-                shadow={!isDark}
                 onClick={handleGetStartedClick}
+                css={{
+                  '@xsMax': {
+                    width: '100%',
+                    mb: '$lg'
+                  }
+                }}
               >
                 Get Started
               </Button>
@@ -164,8 +196,17 @@ const Hero: React.FC = () => {
               ) : (
                 <Snippet
                   className="hero__snippet"
-                  bordered={!isDark}
                   tooltipColor="primary"
+                  css={{
+                    boxShadow: isDark
+                      ? '0px 5px 20px -5px rgb(0 0 0 / 15%)'
+                      : 'none',
+                    bf: 'saturate(180%) blur(10px)',
+                    bg: addColorAlpha(theme?.colors.accents2.value, 0.4),
+                    '@xsMax': {
+                      width: '100%'
+                    }
+                  }}
                 >
                   npm install @nextui-org/react
                 </Snippet>
@@ -180,8 +221,18 @@ const Hero: React.FC = () => {
             />
           )}
         </Col>
-        <Col span={6} className="hero__right-container">
-          <ImageBrowser className="hero__browser-image" />
+        <Col
+          span={6}
+          className="hero__right-container"
+          css={{
+            position: 'relative',
+            height: '100%',
+            '@mdMax': {
+              display: 'none'
+            }
+          }}
+        >
+          <ImageBrowser />
         </Col>
         {isDark && (
           <img
@@ -192,36 +243,6 @@ const Hero: React.FC = () => {
         )}
       </Row>
       <style jsx>{`
-        :global(.hero__container) {
-          position: relative;
-        }
-        :global(.hero__title) {
-          margin-bottom: 0rem;
-          color: ${theme.colors.foreground.value} !important;
-          line-height: 1.2;
-        }
-        :global(.hero__github-link) {
-          color: ${theme.colors.text.value} !important;
-        }
-        :global(.hero__title-smooth) {
-          color: ${isDark
-            ? theme.colors.accents6.value
-            : theme.colors.accents3.value} !important;
-        }
-        :global(.hero__left-container, .hero__right-container) {
-          position: relative;
-        }
-        :global(.hero__right-container) {
-          display: none;
-          height: 100%;
-        }
-        :global(.hero__left-container) {
-          z-index: 20;
-        }
-        :global(.hero__browser-image) {
-          position: relative;
-          z-index: 20;
-        }
         :global(.hero__gradient-blue, .hero__gradient-violet) {
           top: 0;
           position: absolute;
@@ -239,60 +260,15 @@ const Hero: React.FC = () => {
           top: -100%;
           right: -50%;
         }
-        :global(.hero__snippet) {
-          border-width: 2px !important;
-          border-color: ${isDark
-            ? 'transparent'
-            : theme.colors.accents2.value} !important;
-          backdrop-filter: saturate(180%) blur(20px);
-          background: ${addColorAlpha(
-            theme.colors.accents2.value,
-            0.5
-          )} !important;
-          box-shadow: ${isDark ? '0px 5px 20px -5px rgb(0 0 0 / 15%)' : 'none'};
-        }
-        :global(.hero__snippet .copy) {
-          background: transparent !important;
-        }
-        @media only screen and (max-width: ${theme.breakpoints.xs.value}) {
-          :global(.hero__container) {
-            height: calc(100vh - 64px);
-            overflow: hidden;
-          }
-          :global(.hero__get-started-button) {
-            margin-bottom: ${theme.space.lg};
-          }
-          :global(.hero__get-started-button, .hero__snippet) {
-            width: 100% !important;
-          }
-        }
-        @media only screen and (max-width: ${theme.breakpoints.md.value}) {
+        @media only screen and (max-width: ${theme?.breakpoints?.md?.value}) {
           :global(.hero__gradient-violet) {
             top: -65%;
             right: -52%;
           }
-          :global(.hero__content) {
-            margin-top: 80px;
-            padding: 0 8px;
-          }
-          :global(.hero__left-container) {
-            width: 100% !important;
-          }
         }
-        @media only screen and (min-width: ${theme.breakpoints.md.value}) {
-          :global(.hero__right-container, .hero__gradient-violet) {
+        @media only screen and (min-width: ${theme?.breakpoints?.md?.value}) {
+          :global(.hero__gradient-violet) {
             display: block;
-          }
-          :global(.hero__left-container) {
-            width: 50% !important;
-          }
-        }
-        @media only screen and (max-width: ${theme.breakpoints.lg.value}) {
-          :global(.hero__title, .hero__title-smooth) {
-            font-size: calc(2rem + 2.5vw) !important;
-          }
-          :global(.hero__container) {
-            padding: 0 20px !important;
           }
         }
         @keyframes appear {

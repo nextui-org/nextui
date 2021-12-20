@@ -221,8 +221,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
         rounded={rounded}
         disabled={disabled}
         css={{
-          ...(css as any),
-          width
+          width,
+          ...(css as any)
         }}
         className={clsx(
           `${preClass}-main-container`,

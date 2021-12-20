@@ -1,15 +1,15 @@
-import { NextUIThemes } from '@nextui-org/react';
+import { NextUITheme } from '@nextui-org/react';
 
-export default function generateStyles(theme: NextUIThemes) {
+export default function generateStyles(theme?: NextUITheme) {
   return {
     container: {
       maxWidth: '500px',
       width: '100%',
-      background: theme.palette.accents_1,
-      color: theme.palette.text,
+      background: theme?.colors?.accents1?.value,
+      color: theme?.colors?.text?.value,
       borderRadius: '8px',
       overflow: 'hidden',
-      boxShadow: theme.shadows.md
+      boxShadow: theme?.shadows?.md?.value
     },
     result: {
       maxHeight: 400,

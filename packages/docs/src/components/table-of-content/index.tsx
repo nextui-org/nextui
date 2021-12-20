@@ -2,7 +2,7 @@ import * as React from 'react';
 import cn from 'classnames';
 import { useScrollSpy } from '@hooks/use-scroll-spy';
 import { Heading } from '@utils/get-headings';
-import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 import { useIsMobile } from '@hooks/use-media-query';
 
 interface TableOfContentProps {
@@ -17,10 +17,10 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
   const activeId = useScrollSpy(
     headings.map(({ id }) => `[id="${id}"]`),
     {
-      rootMargin: '0% 0% -80% 0%',
+      rootMargin: '0% 0% -80% 0%'
     }
   );
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
 
   if (headings.length <= 0 || isMobile) return null;
 
@@ -32,7 +32,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
           <li
             key={i}
             className={cn('list-item', {
-              active: activeId == heading.id,
+              active: activeId == heading.id
             })}
           >
             <a href={`#${heading.id}`}>{heading.text}</a>
@@ -74,7 +74,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
         }
         .list-item a {
           font-size: 0.8rem;
-          color: ${theme.palette.accents_6};
+          color: ${theme?.colors?.accents6?.value};
         }
         .list-item.active a {
           color: inherit;
@@ -89,7 +89,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
           height: 5px;
           opacity: 0;
           border-radius: 10px;
-          background: ${theme.palette.foreground};
+          background: ${theme?.colors?.foreground?.value};
           transform: translateY(-50%);
           transition: all 0.25s ease;
         }

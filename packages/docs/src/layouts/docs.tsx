@@ -145,7 +145,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             top: -50%;
             right: -50%;
           }
-          @media only screen and (max-width: ${theme.breakpoints.xs}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.xs.value}) {
             :global(.docs__content) {
               margin-top: 64px;
               padding-left: 0 !important;
@@ -155,12 +155,12 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               padding: 0;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.md}) {
+          @media only screen and (min-width: ${theme?.breakpoints?.md.value}) {
             :global(.docs__left-sidebar) {
               display: block;
             }
           }
-          @media only screen and (max-width: ${theme.breakpoints.md}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.md.value}) {
             :global(.docs__center) {
               padding: 0 1rem !important;
             }
@@ -169,12 +169,12 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               right: -45%;
             }
           }
-          @media only screen and (max-width: ${theme.breakpoints.lg}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.lg.value}) {
             :global(.docs__content) {
               padding: 0 20px;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.lg}) {
+          @media only screen and (min-width: ${theme?.breakpoints?.lg.value}) {
             :global(.docs__right-sidebar) {
               display: block;
             }

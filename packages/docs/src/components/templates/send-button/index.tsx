@@ -7,7 +7,7 @@ interface Props {
 }
 
 const SendButton: React.FC<Props> = ({ onClick }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
 
   const handleClick = () => {
     onClick && onClick();
@@ -28,7 +28,7 @@ const SendButton: React.FC<Props> = ({ onClick }) => {
           display: flex;
           justify-content: center;
           align-items: center;
-          background-color: ${theme.palette.primary};
+          background-color: ${theme?.colors?.primary?.value};
           border-radius: 50%;
           cursor: pointer;
           transition: all 0.25s ease;
@@ -38,7 +38,7 @@ const SendButton: React.FC<Props> = ({ onClick }) => {
           height: 100%;
           padding: 4px;
           transition: transform 0.25s ease 0s, opacity 200ms ease-in-out 50ms;
-          box-shadow: ${theme.shadows.sm};
+          box-shadow: ${theme?.shadows?.sm?.value};
         }
         .send-button-container:hover {
           opacity: 0.8;

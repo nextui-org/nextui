@@ -24,7 +24,7 @@ export default function KBarResults(props: KBarResultsProps) {
     actions: state.actions
   }));
 
-  const theme = useTheme();
+  const { theme } = useTheme();
 
   // Store reference to a list of all actions
   const actionsList = React.useMemo(
@@ -191,7 +191,7 @@ export default function KBarResults(props: KBarResultsProps) {
           }
           .kbar-section-list__title {
             padding: 4px 16px;
-            color: ${theme.palette.accents_7};
+            color: ${theme?.colors?.accents7?.value};
             opacity: 0.4;
             font-size: 12px;
             font-weight: 500;

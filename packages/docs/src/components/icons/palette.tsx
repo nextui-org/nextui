@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IconProps } from './index';
-import { NextUIThemes, useTheme } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 
 const Palette: React.FC<IconProps> = ({
   fill,
@@ -10,7 +10,7 @@ const Palette: React.FC<IconProps> = ({
   label,
   ...props
 }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ const Palette: React.FC<IconProps> = ({
     >
       <g
         fill="none"
-        stroke={fill || theme.palette.text}
+        stroke={fill || theme?.colors?.text?.value}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}

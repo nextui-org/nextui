@@ -1,7 +1,3 @@
-//Theme
-export * from './theme/types';
-export { default as NextUIProvider } from './theme/theme-provider';
-
 //Utils
 export * from './utils/prop-types';
 
@@ -32,8 +28,15 @@ export { KeyMod, KeyCode } from './use-keyboard/codes';
 export { default as CssBaseline } from './css-baseline';
 
 // Theme
+//Theme
+export { default as NextUIProvider } from './theme/theme-provider';
 export type { VariantProps, CSS } from './theme/stitches.config';
-export type { NextUITheme } from './theme/types';
+export type {
+  Theme,
+  NextUITheme,
+  ThemeType,
+  NextUIThemeContext
+} from './theme/types';
 export {
   styled,
   css,

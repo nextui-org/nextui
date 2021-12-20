@@ -3,7 +3,7 @@ import Header from './header';
 import Footer from './footer';
 import Navbar from './navbar';
 import { Container } from '@nextui-org/react';
-import { DotsContainer } from '@components';
+// import { DotsContainer } from '@components';
 import { Route } from '@lib/docs/page';
 
 export interface Props {
@@ -18,7 +18,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
   routes
 }) => {
   return (
-    <DotsContainer>
+    <>
       <Header />
       <Container
         lg
@@ -37,7 +37,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
         {children}
         <Footer />
       </Container>
-    </DotsContainer>
+    </>
   );
 };
 

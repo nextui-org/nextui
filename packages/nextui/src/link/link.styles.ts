@@ -1,7 +1,14 @@
 import { theme, styled, VariantProps } from '../theme/stitches.config';
 import { addColorAlpha } from '../utils/color';
 
-const StyledLink = styled('a', {
+export const StyledLinkIcon = styled('svg', {
+  ml: '$1',
+  as: 'center',
+  display: 'inline-flex',
+  color: 'currentColor'
+});
+
+export const StyledLink = styled('a', {
   display: 'inline-flex',
   alignItems: 'baseline',
   lineHeight: 'inherit',
@@ -12,12 +19,6 @@ const StyledLink = styled('a', {
   },
   '@motion': {
     transition: 'none'
-  },
-  '& svg': {
-    ml: '$1',
-    as: 'center',
-    display: 'inline-flex',
-    color: 'currentColor'
   },
   variants: {
     color: {

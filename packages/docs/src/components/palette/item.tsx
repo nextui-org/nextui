@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { Grid, Text, useTheme, NextUIThemes, Tooltip } from '@nextui-org/react';
+import { Grid, Text, useTheme, Tooltip } from '@nextui-org/react';
 import { get, replace, capitalize } from 'lodash';
 import {
   invertHex,
@@ -16,13 +16,15 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   const isGradient = color.includes('gradient');
-  let hexColor = get(theme.palette, color || 'primary');
+  let hexColor = get(theme?.colors, `${color}.value` || 'primary.value');
   hexColor = isCssVar(hexColor) ? getCssVar(hexColor) : hexColor;
-  const textColor = inverted ? invertHex(hexColor) : theme.palette.white;
+  const textColor = inverted
+    ? invertHex(hexColor)
+    : theme?.colors?.white?.value;
   const shadowColor = isGradient
-    ? hexFromString(hexColor, theme.palette.primary, true)
+    ? hexFromString(hexColor, theme?.colors?.primary?.value, true)
     : hexColor;
 
   const renderItem = () => {
@@ -38,15 +40,19 @@ const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
         {...props}
       >
         {isGradient ? (
-          <Text m={0} className="text" style={{ color: textColor }}>
+          <Text css={{ m: 0 }} className="text" style={{ color: textColor }}>
             {capitalize(replace(color, '_', ' '))}
           </Text>
         ) : (
           <>
-            <Text m={0} className="text" style={{ color: textColor }}>
+            <Text css={{ m: 0 }} className="text" style={{ color: textColor }}>
               {capitalize(replace(color, '_', ' '))}
             </Text>
-            <Text m={0} className="hex-text" style={{ color: textColor }}>
+            <Text
+              css={{ m: 0 }}
+              className="hex-text"
+              style={{ color: textColor }}
+            >
               {hexColor?.toUpperCase()}
             </Text>
           </>
@@ -60,7 +66,7 @@ const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-radius: ${theme.radius.lg};
+            border-radius: ${theme?.radii?.lg?.value};
             transition: all 0.25s ease;
           }
           :global(.color.is-gradient) {
@@ -68,14 +74,14 @@ const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
           }
           :global(.color:hover) {
             transform: translateY(5px);
-            box-shadow: 0 0 0 0 ${theme.palette.background} !important;
+            box-shadow: 0 0 0 0 ${theme?.colors?.background?.value} !important;
           }
           :global(.text) {
             font-weight: bold;
             text-transform: capitalize;
             font-size: 13px !important;
           }
-          @media only screen and (max-width: ${theme.breakpoints.sm}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.sm.value}) {
             :global(.color) {
               width: 80px;
               height: 80px;

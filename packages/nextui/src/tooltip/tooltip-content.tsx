@@ -117,14 +117,14 @@ const TooltipContent: React.FC<React.PropsWithChildren<TooltipContentProps>> =
           onClick={preventHandler}
           animated={animated}
           css={{
-            ...(css as any),
             left: rect.left,
             top: `calc(${rect.top} + 6px)`,
             transform: rect.transform,
             [`&.${preClass}-wrapper-enter-active`]: {
               opacity: 1,
               top: rect.top
-            }
+            },
+            ...(css as any)
           }}
           {...props}
         >

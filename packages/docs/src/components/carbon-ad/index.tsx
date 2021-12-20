@@ -6,7 +6,7 @@ import useIsMounted from '@hooks/use-is-mounted';
 
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
-  const theme = useTheme();
+  const { theme, isDark } = useTheme();
   const isMounted = useIsMounted();
 
   useEffect(() => {
@@ -44,14 +44,14 @@ const CarbonAd: React.FC<unknown> = () => {
             #carbonads {
               font-family: inherit;
               max-width: 100%;
-              padding: ${theme.spacing.md};
+              padding: ${theme?.space?.md?.value};
             }
             #carbonads {
               display: flex;
               width: 100%;
               z-index: 100;
-              border-radius: ${theme.radius.lg};
-              background-color: ${theme.type === 'light' ? '#363449' : '#111'};
+              border-radius: ${theme?.radii?.lg?.value};
+              background-color: ${!isDark ? '#363449' : '#111'};
               box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
             }
             #carbonads a {
@@ -60,9 +60,9 @@ const CarbonAd: React.FC<unknown> = () => {
               transition: all 0.25s ease;
             }
             #carbonads a:hover {
-              color: ${theme.type === 'light'
-                ? theme.palette.accents_3
-                : theme.palette.accents_7};
+              color: ${!isDark
+                ? theme?.colors?.accents3?.value
+                : theme?.colors?.accents7?.value};
             }
             #carbonads span {
               width: 100%;
@@ -84,7 +84,7 @@ const CarbonAd: React.FC<unknown> = () => {
               display: block;
               max-width: 100% !important;
               width: 100%;
-              border-radius: ${theme.radius.md};
+              border-radius: ${theme?.radii?.md?.value};
               border: 0px;
               margin: 0px;
             }
@@ -92,11 +92,11 @@ const CarbonAd: React.FC<unknown> = () => {
               display: block;
               font-size: 1rem;
               width: 100%;
-              color: ${theme.type === 'light'
-                ? theme.palette.accents_2
-                : theme.palette.accents_6};
-              padding-left: ${theme.spacing.md};
-              padding-right: ${theme.spacing.md};
+              color: ${!isDark
+                ? theme?.colors?.accents2?.value
+                : theme?.colors?.accents6?.value};
+              padding-left: ${theme?.space?.md?.value};
+              padding-right: ${theme?.space?.md?.value};
             }
             #carbonads .carbon-poweredby {
               display: flex;
@@ -106,17 +106,18 @@ const CarbonAd: React.FC<unknown> = () => {
               bottom: 0;
               right: 0;
               padding: 10px 0;
-              color: ${theme.type === 'light'
-                ? theme.palette.accents_1
-                : theme.palette.accents_4};
+              color: ${!isDark
+                ? theme?.colors?.accents1?.value
+                : theme?.colors?.accents4?.value};
               text-transform: uppercase;
-              letter-spacing: 0.5px;
+              letter-space: .value 0.5px;
               font-weight: 600;
               font-size: 9px;
               line-height: 0;
               transition: all 0.25 ease;
             }
-            @media only screen and (max-width: ${theme.breakpoints.xs}) {
+            @media only screen and (max-width: ${theme?.breakpoints?.xs
+                .value}) {
               #carbonads .carbon-text {
                 font-size: 0.9rem;
               }

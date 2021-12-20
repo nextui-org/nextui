@@ -73,14 +73,14 @@ const Progress: React.FC<ProgressProps> = ({
       role="progressbar"
       indeterminated={indeterminated}
       css={{
-        ...(css as any),
         'nextui-progress-wrapper-enter': {
           opacity: 0
         },
         '.nextui-progress-wrapper-enter-active': {
           opacity: 1,
           width: `${percent}%`
-        }
+        },
+        ...(css as any)
       }}
       {...props}
     >

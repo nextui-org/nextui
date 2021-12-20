@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import useWarning from '../use-warning';
 import ButtonDrip from '../utils/drip';
+import { CSS } from '../theme/stitches.config';
 import { NormalColors } from '../utils/prop-types';
 import { filterPropsWithGroup } from './utils';
 import { useButtonGroupContext } from './button-group-context';
@@ -46,12 +47,11 @@ const defaultProps = {
   className: ''
 };
 
-type NativeAttrs = Omit<
-  React.ButtonHTMLAttributes<unknown>,
-  keyof Props | 'css'
->;
+type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
 
-export type ButtonProps = Props & NativeAttrs & ButtonVariantsProps;
+export type ButtonProps = Props &
+  NativeAttrs &
+  ButtonVariantsProps & { css?: CSS };
 
 const Button = React.forwardRef<
   HTMLButtonElement,

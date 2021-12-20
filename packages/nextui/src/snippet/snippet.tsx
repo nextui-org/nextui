@@ -2,6 +2,7 @@ import React, { useMemo, useState, useRef } from 'react';
 import Tooltip from '../tooltip';
 import withDefaults from '../utils/with-defaults';
 import { CopyTypes, TooltipColors } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
 import SnippetIcon from './snippet-icon';
 import useClipboard from '../use-clipboard';
 import {
@@ -32,12 +33,12 @@ const defaultProps = {
   tooltipCopiedText: 'Copied'
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type SnippetProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  SnippetVariantsProps;
+  SnippetVariantsProps & { css?: CSS };
 
 const textArrayToString = (text: string[]): string => {
   return text.reduce((pre, current) => {

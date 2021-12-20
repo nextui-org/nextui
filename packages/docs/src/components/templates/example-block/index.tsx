@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { NextUITheme, useTheme } from '@nextui-org/react';
 import withDefaults from '@utils/with-defaults';
 
 interface Props {
@@ -17,17 +17,17 @@ const defaultProps = {
 
 export type ExampleBlockProps = Props & typeof defaultProps;
 
-const getBackground = (theme: NextUIThemes, plain: number | boolean) => {
-  if (typeof plain !== 'number') return theme.palette.primary;
+const getBackground = (plain: number | boolean, theme?: NextUITheme) => {
+  if (typeof plain !== 'number') return theme?.colors?.primary?.value;
   const colors = [
-    theme.palette.accents_1,
-    theme.palette.accents_2,
-    theme.palette.accents_3,
-    theme.palette.accents_4,
-    theme.palette.accents_5,
-    theme.palette.accents_6
+    theme?.colors?.accents1?.value,
+    theme?.colors?.accents2?.value,
+    theme?.colors?.accents3?.value,
+    theme?.colors?.accents4?.value,
+    theme?.colors?.accents5?.value,
+    theme?.colors?.accents6?.value
   ];
-  return colors[plain - 1] || theme.palette.primary;
+  return colors[plain - 1] || theme?.colors?.primary?.value;
 };
 
 const ExampleBlock: React.FC<React.PropsWithChildren<ExampleBlockProps>> = ({
@@ -38,11 +38,11 @@ const ExampleBlock: React.FC<React.PropsWithChildren<ExampleBlockProps>> = ({
   radius,
   ...props
 }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const blockWidth = useMemo(() => {
     return width ? `${width}px` : '100%';
   }, [width]);
-  const bg = useMemo(() => getBackground(theme, plain), [theme, plain]);
+  const bg = useMemo(() => getBackground(plain, theme), [theme, plain]);
 
   return (
     <div className="block" {...props}>
@@ -54,8 +54,8 @@ const ExampleBlock: React.FC<React.PropsWithChildren<ExampleBlockProps>> = ({
           background: ${bg};
           border-radius: ${radius};
           font-size: 0.75rem;
-          padding: ${theme.spacing.sm};
-          color: ${theme.palette.background};
+          padding: ${theme?.space?.sm?.value};
+          color: ${theme?.colors?.background?.value};
         }
       `}</style>
     </div>

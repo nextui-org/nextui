@@ -1,8 +1,7 @@
 import React, { ReactNode, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import { SimpleColors, TextTransforms } from '../utils/prop-types';
-import { TextVariantsProps } from './text.styles';
-import TextChild from './child';
+import TextChild, { TextChildProps } from './child';
 
 interface Props {
   h1?: boolean;
@@ -44,12 +43,12 @@ const defaultProps = {
 
 type ElementMap = { [key in keyof JSX.IntrinsicElements]?: boolean };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type TextProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  TextVariantsProps;
+  Omit<TextChildProps, keyof Props | 'tag'>;
 
 type TextRenderableElements = Array<keyof JSX.IntrinsicElements>;
 

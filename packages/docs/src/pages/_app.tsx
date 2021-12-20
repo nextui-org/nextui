@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextPage } from 'next';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import { NextRouter, Router, useRouter } from 'next/router';
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
@@ -8,7 +8,7 @@ import { AppInitialProps } from 'next/app';
 import { NextComponent } from '@lib/types';
 import generateKbarActions from '@lib/kbar-actions';
 import { KBarProvider } from 'kbar';
-import { sharedTheme } from '../theme/shared';
+import { lightTheme, darkTheme } from '../theme/shared';
 
 type AppPropsType<
   R extends NextRouter = NextRouter,
@@ -22,17 +22,24 @@ type AppPropsType<
 
 type AppProps<P = {}> = AppPropsType<Router, P>;
 
-// const KbarComponent = dynamic(() => import('../components/kbar'), {
-//   ssr: false
-// });
+const KbarComponent = dynamic(() => import('../components/kbar'), {
+  ssr: false
+});
 
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const router = useRouter();
   const kbarActions = generateKbarActions(router);
 
   return (
-    <NextThemesProvider defaultTheme="system">
-      <NextUIProvider theme={sharedTheme}>
+    <NextThemesProvider
+      defaultTheme="system"
+      attribute="class"
+      value={{
+        light: lightTheme.className,
+        dark: darkTheme.className
+      }}
+    >
+      <NextUIProvider>
         <KBarProvider
           actions={kbarActions}
           options={{
@@ -42,7 +49,7 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
             }
           }}
         >
-          {/* <KbarComponent /> */}
+          <KbarComponent />
           <Component {...pageProps} />
         </KBarProvider>
         <style global jsx>{`

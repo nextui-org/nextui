@@ -17,16 +17,16 @@ const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({
           overflow: hidden;
           background: linear-gradient(
                 90deg,
-                ${theme.colors.background.value} 21px,
+                ${theme?.colors?.background?.value} 21px,
                 transparent 1%
               )
               50%,
             linear-gradient(
-                ${theme.colors.background.value} 21px,
+                ${theme?.colors?.background?.value} 21px,
                 transparent 1%
               )
               50%,
-            ${theme.colors.accents2.value};
+            ${theme?.colors?.accents2?.value};
           background-size: var(--dot-space) var(--dot-space);
         }
       `}</style>

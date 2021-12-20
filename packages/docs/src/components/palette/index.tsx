@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme, NextUIThemes, Grid } from '@nextui-org/react';
+import { useTheme, Grid } from '@nextui-org/react';
 import Item from './item';
 
 export interface Props {
@@ -8,7 +8,7 @@ export interface Props {
 }
 
 const Palette: React.FC<Props> = ({ colors, inverted }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
 
   return (
     <Grid.Container className="palette">
@@ -17,7 +17,7 @@ const Palette: React.FC<Props> = ({ colors, inverted }) => {
       ))}
       <style jsx>{`
         :global(.palette) {
-          padding-bottom: ${theme.spacing.sm};
+          padding-bottom: ${theme?.space?.sm?.value};
         }
       `}</style>
     </Grid.Container>

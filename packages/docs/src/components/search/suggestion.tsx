@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Highlight } from 'react-instantsearch-dom';
 import NextLink from 'next/link';
 import { Hit } from 'react-instantsearch-core';
-import { NextUIThemes, useTheme } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 import { CodeDocument, Hash, ArrowRight } from '../icons';
 import { addColorAlpha } from '@utils/index';
 import { includes } from 'lodash';
@@ -14,15 +14,15 @@ interface Props {
 }
 
 const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   return (
     <NextLink href={hit.url}>
       <span className={cn('suggestion__container', { highlighted })}>
         <div className="suggestion__icon-container">
           {hit.type !== 'lvl1' || includes(hit.url, '#') ? (
-            <Hash fill={theme.palette.accents_6} />
+            <Hash fill={theme?.colors?.accents6?.value} />
           ) : (
-            <CodeDocument fill={theme.palette.accents_6} />
+            <CodeDocument fill={theme?.colors?.accents6?.value} />
           )}
         </div>
         <div className="suggestion__data-container">
@@ -36,7 +36,7 @@ const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
           </span>
         </div>
         <div>
-          <ArrowRight fill={theme.palette.accents_6} size={16} />
+          <ArrowRight fill={theme?.colors?.accents6?.value} size={16} />
         </div>
 
         <style jsx>
@@ -48,7 +48,7 @@ const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
               padding: 16px 8px;
               justify-content: space-between;
               border-bottom: 1px solid
-                ${addColorAlpha(theme.palette.border, 0.6)};
+                ${addColorAlpha(theme?.colors?.border?.value, 0.6)};
               min-height: 68px;
               transition: all 0.2s ease;
             }
@@ -58,7 +58,7 @@ const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
               align-items: center;
             }
             .suggestion__icon-container {
-              margin-right: calc(${theme.spacing.sm} * 0.5);
+              margin-right: calc(${theme?.space?.sm?.value} * 0.5);
             }
             .suggestion__data-container {
               width: 100%;
@@ -69,30 +69,30 @@ const Suggestion: React.FC<Props> = ({ hit, highlighted }) => {
               font-weight: 500;
               margin-bottom: 8px;
               display: flex;
-              color: ${theme.palette.accents_6};
+              color: ${theme?.colors?.accents6?.value};
             }
             .suggestion__container:hover,
             .suggestion__container.highlighted {
               border-radius: 4px;
-              background: ${addColorAlpha(theme.palette.text, 0.1)};
+              background: ${addColorAlpha(theme?.colors?.text?.value, 0.1)};
             }
             .suggestion__container:active {
               transform: scale(0.97);
             }
             :global(.suggestion__title mark) {
               background-color: transparent;
-              color: ${theme.palette.accents_6};
+              color: ${theme?.colors?.accents6?.value};
             }
             .suggestion__content {
               font-size: 1rem;
               line-height: 2px;
               display: block;
               line-height: 1.6;
-              color: ${theme.palette.accents_6};
+              color: ${theme?.colors?.accents6?.value};
             }
             :global(.suggestion__content mark) {
               background-color: transparent;
-              color: ${theme.palette.text};
+              color: ${theme?.colors?.text?.value};
             }
           `}
         </style>

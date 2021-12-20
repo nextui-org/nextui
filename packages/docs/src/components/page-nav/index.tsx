@@ -2,7 +2,7 @@ import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { Route, addTagToSlug } from '@lib/docs/page';
 import NextLink from 'next/link';
-import { useTheme, NextUIThemes, Container, Link } from '@nextui-org/react';
+import { useTheme, Container, Link } from '@nextui-org/react';
 import { ArrowRight, ArrowLeft } from '../icons';
 import { removeFromLast } from '@utils/index';
 
@@ -15,20 +15,25 @@ export interface PageNavProps {
 const defaultProps = {};
 
 const PageNav: React.FC<PageNavProps> = ({ tag, prevRoute, nextRoute }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   return (
     <Container
       display="flex"
       justify="space-between"
       className="page-nav"
+      css={{ py: '12%' }}
       gap={0}
     >
       {prevRoute ? (
         <NextLink
           href={addTagToSlug(removeFromLast(prevRoute.path || '', '.'), tag)}
         >
-          <Link color={theme.palette.foreground} className="nav__link" block>
-            <ArrowLeft fill={theme.palette.primary} size={20} />
+          <Link
+            css={{ color: '$foreground', d: 'flex', ai: 'center' }}
+            className="nav__link"
+            block
+          >
+            <ArrowLeft fill={theme?.colors?.primary?.value} size={20} />
             {prevRoute.title}
           </Link>
         </NextLink>
@@ -39,21 +44,16 @@ const PageNav: React.FC<PageNavProps> = ({ tag, prevRoute, nextRoute }) => {
         <NextLink
           href={addTagToSlug(removeFromLast(nextRoute.path || '', '.'), tag)}
         >
-          <Link color={theme.palette.foreground} className="nav__link" block>
+          <Link
+            css={{ color: '$foreground', d: 'flex', ai: 'center' }}
+            className="nav__link"
+            block
+          >
             {nextRoute.title}
-            <ArrowRight fill={theme.palette.primary} size={20} />
+            <ArrowRight fill={theme?.colors?.primary?.value} size={20} />
           </Link>
         </NextLink>
       )}
-      <style jsx>{`
-        :global(.page-nav) {
-          padding: 12% 0;
-        }
-        :global(.nav__link) {
-          display: flex !important;
-          align-items: center !important;
-        }
-      `}</style>
     </Container>
   );
 };

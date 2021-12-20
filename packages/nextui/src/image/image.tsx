@@ -146,8 +146,8 @@ const Image: React.FC<ImageProps> = ({
         data-state={getState}
         alt={props.alt || ''}
         css={{
-          ...(css as any),
-          objectFit
+          objectFit,
+          ...(css as any)
         }}
         {...props}
       />

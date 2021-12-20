@@ -23,8 +23,9 @@ const defaultProps = {
 };
 
 const DynamicLive: React.FC<Props> = ({ code, showEditor, overflow }) => {
-  const theme = useTheme();
-  const codeTheme = makeCodeTheme(theme);
+  const themeObject = useTheme();
+  const { theme } = themeObject;
+  const codeTheme = makeCodeTheme(themeObject);
   const scope = {
     ...Components,
     ...Icons,
@@ -44,8 +45,8 @@ const DynamicLive: React.FC<Props> = ({ code, showEditor, overflow }) => {
       <style jsx>{`
         .wrapper {
           width: 100%;
-          padding: ${theme.spacing.lg} ${theme.spacing.sm};
-          margin-left: -${theme.spacing.sm};
+          padding: ${theme?.space?.lg?.value} ${theme?.space?.sm?.value};
+          margin-left: -${theme?.space?.sm?.value};
           display: flex;
           flex-wrap: wrap;
           overflow-x: ${overflow};

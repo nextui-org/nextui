@@ -7,13 +7,21 @@ import Document, {
   DocumentContext
 } from 'next/document';
 import { CssBaseline } from '@nextui-org/react';
+import flush from 'styled-jsx/server';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
+    const styledJSXStyles = flush();
+
     return {
       ...initialProps,
-      styles: <>{initialProps.styles}</>
+      styles: (
+        <>
+          {initialProps.styles}
+          {styledJSXStyles}
+        </>
+      )
     };
   }
   render() {

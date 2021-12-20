@@ -58,9 +58,9 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
     <StyledDivider
       role="separator"
       css={{
-        ...(css as any),
         margin: `${top} ${left}`,
-        height: `calc(${height} * 1px)`
+        height: `calc(${height} * 1px)`,
+        ...(css as any)
       }}
       {...props}
     >

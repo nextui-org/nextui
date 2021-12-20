@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 import withDefaults from '@utils/with-defaults';
-import { NextUIThemes, useTheme } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 
 export interface StickyProps {
   offset?: number;
@@ -21,7 +21,7 @@ const Sticky: React.FC<React.PropsWithChildren<StickyProps>> = ({
   shadow,
   className
 }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   return (
     <div style={{ top: offset || 0 }} className={cn(className, { shadow })}>
       {children}
@@ -32,7 +32,7 @@ const Sticky: React.FC<React.PropsWithChildren<StickyProps>> = ({
           z-index: 1000;
         }
         div.shadow {
-          box-shadow: ${theme.shadows.sm};
+          box-shadow: ${theme?.shadows?.sm?.value};
         }
       `}</style>
     </div>

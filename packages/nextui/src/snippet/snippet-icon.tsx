@@ -1,9 +1,6 @@
 import * as React from 'react';
 import withDefaults from '../utils/with-defaults';
-import {
-  StyledSnippetCopyButtonIcon,
-  SnippetCopyButtonIconVariantsProps
-} from './snippet.styles';
+import { StyledSnippetCopyButtonIcon } from './snippet.styles';
 
 interface Props {
   width?: number;
@@ -19,10 +16,7 @@ const defaultProps = {
 
 type NativeAttrs = Omit<React.SVGProps<SVGSVGElement>, keyof Props>;
 
-export type CategoryProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  SnippetCopyButtonIconVariantsProps;
+export type CategoryProps = Props & typeof defaultProps & NativeAttrs;
 
 const Copy: React.FC<Props> = ({ size, fill, width, height, ...props }) => {
   return (

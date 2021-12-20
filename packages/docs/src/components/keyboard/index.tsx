@@ -31,17 +31,17 @@ type CustomLayout = {
   minWidth: string;
 };
 
-const getLayout = (small: boolean, theme: NextUITheme): CustomLayout => {
+const getLayout = (small: boolean, theme?: NextUITheme): CustomLayout => {
   if (small)
     return {
       padding: 0,
       fontSize: '.75rem',
-      minWidth: theme.space.lg.value
+      minWidth: theme ? theme?.space?.lg?.value : 'initial'
     };
   return {
-    padding: theme.space[2].value,
+    padding: theme ? theme?.space[2]?.value : '0.25rem',
     fontSize: '0.875rem',
-    minWidth: `calc(1.5 * ${theme.space.lg})`
+    minWidth: `calc(1.5 * ${theme?.space?.lg})`
   };
 };
 
@@ -83,23 +83,26 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
           text-align: center;
           display: inline-block;
           cursor: ${onClick ? 'pointer' : 'default'};
-          color: ${addColorAlpha(theme.colors.text.value, 0.6)};
+          color: ${addColorAlpha(theme?.colors?.text?.value, 0.6)};
           background-color: ${addColorAlpha(
-            theme.colors.background.value,
+            theme?.colors?.background?.value,
             0.8
           )};
           border: ${isDark
-            ? `1px solid ${addColorAlpha(theme.colors.foreground.value, 0.2)}`
+            ? `1px solid ${addColorAlpha(
+                theme?.colors?.foreground?.value,
+                0.2
+              )}`
             : 'none'};
           box-shadow: ${isDark ? 'none' : '0 0 2px 0 rgb(0 0 0 / 14%)'};
-          font-family: ${theme.fonts.sans};
+          font-family: ${theme?.fonts?.sans?.value};
           border-radius: 6px;
           padding: 0 ${padding};
           min-width: ${minWidth};
           font-size: ${fontSize};
         }
         kbd + kbd {
-          margin-left: calc(${theme.space.sm} * 0.5);
+          margin-left: calc(${theme?.space?.sm?.value} * 0.5);
         }
         span {
           line-height: 2em;
@@ -107,7 +110,7 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
           text-align: center;
         }
         span + span {
-          margin-left: calc(${theme.space.sm} * 0.5);
+          margin-left: calc(${theme?.space?.sm?.value} * 0.5);
         }
       `}</style>
     </kbd>

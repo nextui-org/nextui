@@ -68,7 +68,14 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
   return (
     <nav className="navbar__container">
       <div className="navbar__wrapper">
-        <Col className="navbar__logo-container">
+        <Col
+          className="navbar__logo-container"
+          css={{
+            '@mdMax': {
+              width: '100%'
+            }
+          }}
+        >
           <Row justify="flex-start" align="center">
             <NextLink href="/">
               <Link>
@@ -77,10 +84,15 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             </NextLink>
             <Spacer x={0.4} />
             <Badge
-              className="navbar__version-badge"
-              label="Alpha"
+              css={{
+                '@mdMax': {
+                  display: 'none'
+                }
+              }}
               type="warning"
-            />
+            >
+              Alpha
+            </Badge>
           </Row>
         </Col>
         <Col className="navbar__resources-container">
@@ -147,8 +159,8 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                   size={20}
                   fill={
                     isDark
-                      ? theme.colors?.accents4?.value
-                      : theme.colors?.accents5?.value
+                      ? theme?.colors?.accents6?.value
+                      : theme?.colors?.accents4?.value
                   }
                 />
               </Link>
@@ -162,8 +174,8 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                   size={20}
                   fill={
                     isDark
-                      ? theme.colors?.accents4?.value
-                      : theme.colors?.accents5?.value
+                      ? theme?.colors?.accents6?.value
+                      : theme?.colors?.accents4?.value
                   }
                 />
               </Link>
@@ -177,8 +189,8 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                   size={20}
                   fill={
                     isDark
-                      ? theme.colors?.accents4?.value
-                      : theme.colors?.accents5?.value
+                      ? theme?.colors?.accents6?.value
+                      : theme?.colors?.accents4?.value
                   }
                 />
               </Link>
@@ -226,11 +238,11 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           transition: all 0.25s ease;
         }
         :global(.navbar__social-icons-container) {
-          wdith: initial !important;
+          width: initial !important;
         }
         :global(.navbar__link.active) {
           font-weight: 600;
-          color: ${theme.colors?.primary?.value};
+          color: ${theme?.colors?.primary?.value};
         }
         :global(.navbar__menu-arrow) {
           height: 100%;
@@ -261,12 +273,12 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           cursor: not-allowed;
           events: none;
         }
-        @media only screen and (max-width: ${theme.breakpoints.xs.value}) {
+        @media only screen and (max-width: ${theme?.breakpoints.xs.value}) {
           :global(.navbar__container) {
             top: 0;
             position: fixed;
             background: ${showBlur
-              ? addColorAlpha(theme.colors.background.value, 0.6)
+              ? addColorAlpha(theme?.colors.background.value, 0.6)
               : 'transparent'};
             box-shadow: ${detached
               ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
@@ -292,19 +304,14 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
               (backdrop-filter: blur(10px))
           ) {
             :global(.navbar__container) {
-              background: ${theme.colors.background.value};
+              background: ${theme?.colors.background.value};
             }
           }
           :global(.navbar__logo-container a:active) {
             opacity: 0.7;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.md.value}) {
-          :global(.navbar__logo-container) {
-            display: flex;
-            width: 24px;
-            align-items: center;
-          }
+        @media only screen and (max-width: ${theme?.breakpoints.md.value}) {
           :global(.navbar__menu-container) {
             display: flex;
             justify-content: flex-end;
@@ -316,7 +323,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             display: none !important;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.lg.value}) {
+        @media only screen and (max-width: ${theme?.breakpoints.lg.value}) {
           .navbar__wrapper {
             padding: 0 16px;
           }

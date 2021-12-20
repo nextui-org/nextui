@@ -1,3 +1,5 @@
+import { StitchesTheme } from './stitches.config';
+
 /** Configuration Interface */
 declare namespace ConfigType {
   /** Theme interface. */
@@ -28,10 +30,24 @@ declare namespace ConfigType {
   };
 }
 
-export type Theme = ConfigType.Theme;
+export type BaseTheme = ConfigType.Theme;
+export type NextUITheme = StitchesTheme;
 export type ThemeType = 'dark' | 'light';
 
-export type NextUITheme = {
-  type?: ThemeType;
-  theme?: Theme;
+export interface TokenValue {
+  token: number | string;
+  value: number | string;
+  scale: string;
+  prefix: string;
+}
+
+export type Theme = {
+  type?: ThemeType | string;
+  theme?: BaseTheme;
+};
+
+export type NextUIThemeContext = {
+  type: ThemeType | string;
+  theme?: NextUITheme;
+  isDark?: boolean;
 };

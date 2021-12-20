@@ -11,7 +11,7 @@ const Lock: React.FC<IconProps> = ({
   label,
   ...props
 }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   return (
     <svg
       data-name="Iconly/Curved/Lock"
@@ -23,7 +23,7 @@ const Lock: React.FC<IconProps> = ({
     >
       <g
         fill="none"
-        stroke={fill || theme.palette.accents_3}
+        stroke={fill || theme?.colors?.accents3?.value}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit={10}

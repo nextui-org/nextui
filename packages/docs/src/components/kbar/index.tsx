@@ -14,7 +14,7 @@ import generateStyles from './styles';
 import { Action, ResultHandlers, ResultState } from './types';
 
 const KBar: React.FC<unknown> = () => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const styles = generateStyles(theme);
   const { visible } = useKBar((state) => ({
     visible: state.visualState !== VisualState.hidden
@@ -26,7 +26,7 @@ const KBar: React.FC<unknown> = () => {
         blur
         className="backdrop"
         visible={visible}
-        width={styles.container.maxWidth}
+        maxWidth={styles.container.maxWidth}
       >
         <KBarPositioner>
           <KBarAnimator style={styles.container}>

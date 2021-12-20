@@ -1,9 +1,9 @@
 import React from 'react';
 import { IconProps } from './index';
-import { NextUIThemes, useTheme } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 
 const Mail: React.FC<IconProps> = ({ fill, size, height, width, ...props }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   return (
     <svg
       width={size || width || 24}
@@ -13,7 +13,7 @@ const Mail: React.FC<IconProps> = ({ fill, size, height, width, ...props }) => {
     >
       <g
         fill="none"
-        stroke={fill || theme.palette.text}
+        stroke={fill || theme?.colors?.text?.value}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}

@@ -63,7 +63,10 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
               width: 100%;
               min-height: 100%;
               transition: all 0.2s ease 50ms;
-              background: ${addColorAlpha(theme.colors.background.value, 0.8)};
+              background: ${addColorAlpha(
+                theme?.colors?.background?.value,
+                0.8
+              )};
             }
             .mobile-navigation__list {
               margin: 0;
@@ -89,7 +92,7 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
                 (backdrop-filter: blur(10px))
             ) {
               .mobile-navigation__wrapper {
-                background: theme.palette.background;
+                background: ${theme?.colors?.background?.value};
               }
             }
           `}</style>

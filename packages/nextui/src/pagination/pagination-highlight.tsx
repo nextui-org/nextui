@@ -46,8 +46,8 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
       })}
       noMargin={noMargin}
       css={{
-        ...(css as any),
-        left: `calc(${leftValue})`
+        left: `calc(${leftValue})`,
+        ...(css as any)
       }}
       {...props}
     />

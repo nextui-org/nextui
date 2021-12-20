@@ -26,7 +26,7 @@ const MenuToggle: React.FC<MenuToggleProps> = ({ expanded }) => {
           .line {
             height: 1px;
             width: 22px;
-            background-color: ${theme.colors.foreground.value};
+            background-color: ${theme?.colors?.foreground?.value};
             transition: transform 0.15s ease;
           }
           .line:last-child {

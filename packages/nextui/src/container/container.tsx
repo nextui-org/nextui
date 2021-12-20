@@ -83,7 +83,6 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   return (
     <StyledContainer
       css={{
-        ...(css as any),
         px: gapUnit,
         maxWidth: getMaxWidth(),
         alignItems,
@@ -91,7 +90,8 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
         flexWrap: wrap,
         display: display,
         justifyContent: justify,
-        flexDirection: direction
+        flexDirection: direction,
+        ...(css as any)
       }}
       responsive={responsive}
       fluid={fluid}

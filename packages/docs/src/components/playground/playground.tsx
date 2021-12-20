@@ -39,7 +39,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   overflow,
   desc
 }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const code = inputCode.trim();
   const title = inputTitle || 'Default';
 
@@ -51,7 +51,7 @@ const Playground: React.FC<PlaygroundProps> = ({
         <style jsx>{`
           .playground {
             width: 100%;
-            border-radius: ${theme.radius.lg};
+            border-radius: ${theme?.radii?.lg?.value};
           }
         `}</style>
       </div>

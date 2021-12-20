@@ -1,6 +1,7 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
 import LinkIcon from './icon';
+import { CSS } from '../theme/stitches.config';
 import StyledLink, { LinkVariantsProps } from './link.styles';
 import { __DEV__ } from '../utils/assertion';
 
@@ -13,22 +14,20 @@ const defaultProps = {
   icon: false
 };
 
-type NativeAttrs = Omit<
-  React.AnchorHTMLAttributes<unknown>,
-  keyof Props | 'css'
->;
+type NativeAttrs = Omit<React.AnchorHTMLAttributes<unknown>, keyof Props>;
 
-export type LinkProps = Props & NativeAttrs & LinkVariantsProps;
+export type LinkProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  LinkVariantsProps & { css?: CSS };
 
-const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ children, icon, ...props }, ref: React.Ref<HTMLAnchorElement>) => {
-    return (
-      <StyledLink ref={ref} {...props}>
-        {children}
-        {icon && <LinkIcon />}
-      </StyledLink>
-    );
-  }
+const Link = React.forwardRef<React.ElementRef<typeof StyledLink>, LinkProps>(
+  ({ children, icon, ...props }, forwardedRef) => (
+    <StyledLink {...props} ref={forwardedRef}>
+      {children}
+      {icon && <LinkIcon />}
+    </StyledLink>
+  )
 );
 
 if (__DEV__) {

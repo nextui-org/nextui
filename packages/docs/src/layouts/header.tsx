@@ -28,7 +28,7 @@ if (global.document) {
 }
 
 const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
-  const { theme } = useTheme();
+  const { theme, isDark } = useTheme();
 
   let pageTitle = title ? `${toCapitalize(title)} | ` : '';
   pageTitle += 'NextUI - Beautiful, fast,modern React UI Library';
@@ -52,9 +52,16 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
       <meta name="description" content={description} />
       <meta
         name="msapplication-TileColor"
-        content={theme.colors.background.value}
+        content={
+          isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value
+        }
       />
-      <meta name="theme-color" content={theme.colors.background.value} />
+      <meta
+        name="theme-color"
+        content={
+          isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value
+        }
+      />
       <meta
         name="viewport"
         key="viewport"
@@ -82,7 +89,9 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
       <link
         rel="mask-icon"
         href="/safari-pinned-tab.svg"
-        color={theme.colors.background.value}
+        color={
+          isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value
+        }
       />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link

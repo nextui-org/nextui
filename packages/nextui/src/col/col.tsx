@@ -32,9 +32,9 @@ const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
   return (
     <StyledCol
       css={{
-        ...(css as any),
         width: `${(100 / 12) * span}%`,
-        marginLeft: `${(100 / 12) * offset}%`
+        marginLeft: `${(100 / 12) * offset}%`,
+        ...(css as any)
       }}
       {...props}
     >

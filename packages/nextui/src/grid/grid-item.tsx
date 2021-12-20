@@ -97,7 +97,6 @@ const GridItem: React.FC<React.PropsWithChildren<GridItemProps>> = ({
     <StyledGridItem
       className={clsx('nextui-grid-item', classes, className)}
       css={{
-        ...(css as any),
         alignItems,
         alignContent,
         justifyContent: justify,
@@ -129,7 +128,8 @@ const GridItem: React.FC<React.PropsWithChildren<GridItemProps>> = ({
           '&.xl': {
             ...getItemLayout(xl)
           }
-        }
+        },
+        ...(css as any)
       }}
       {...props}
     >

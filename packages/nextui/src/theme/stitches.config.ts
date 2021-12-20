@@ -1,32 +1,33 @@
 import { createStitches } from '@stitches/react';
 import type * as Stitches from '@stitches/react';
-import defaultTheme from './common';
+import commonTheme from './common';
 import lightTheme from './light-theme';
+import darkTheme from './dark-theme';
 import deepMerge from '../utils/deep-merge';
-import { Theme } from './types';
+import { Theme, BaseTheme } from './types';
 
-export const getStitchesTheme = (targetTheme: Theme): Theme => {
-  return deepMerge(targetTheme, defaultTheme.theme);
+export const getStitchesTheme = (targetTheme: BaseTheme): BaseTheme => {
+  return deepMerge(targetTheme, commonTheme.theme);
 };
 
 export const {
   styled,
   css,
   theme,
-  createTheme,
+  createTheme: createThemeBase,
   getCssText,
   globalCss,
   keyframes,
   config
 } = createStitches({
-  ...defaultTheme,
+  ...commonTheme,
   theme: {
-    ...defaultTheme.theme,
+    ...commonTheme.theme,
     shadows: {
       ...lightTheme.shadows
     },
     colors: {
-      ...defaultTheme.theme.colors,
+      ...commonTheme.theme.colors,
       ...lightTheme.colors
     }
   }
@@ -58,6 +59,16 @@ export const sharedVisuallyHidden = css({
   whiteSpace: 'nowrap',
   position: 'absolute'
 });
+
+export const createTheme = ({ type, theme }: Theme) => {
+  if (!type) {
+    throw new Error('Theme type is required');
+  }
+  return createThemeBase(
+    `${type}-theme`,
+    deepMerge(type === 'dark' ? darkTheme : lightTheme, theme)
+  );
+};
 
 export type VariantProps<T> = Stitches.VariantProps<T>;
 export type CSS = Stitches.CSS<typeof config>;

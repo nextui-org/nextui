@@ -30,7 +30,7 @@ export function SsrProvider({ children }: SsrProviderProps) {
 
   const generateId = () => {
     id += 1;
-    return `mantine-${id}`;
+    return `nextui-${id}`;
   };
 
   return (

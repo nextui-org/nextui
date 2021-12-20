@@ -159,7 +159,8 @@ export const colorToRgbValues = (color: string) => {
   return regArray[1].split(',').map((str) => Number.parseFloat(str));
 };
 
-export const addColorAlpha = (colorProp: string, alpha: number) => {
+export const addColorAlpha = (colorProp?: string, alpha?: number) => {
+  if (!colorProp) return colorProp;
   const color = isCssVar(colorProp) ? getCssVar(colorProp) : colorProp;
   if (isHex(color)) {
     return hexToRGBA(color, alpha);
@@ -167,8 +168,11 @@ export const addColorAlpha = (colorProp: string, alpha: number) => {
     return color;
   }
   const [r, g, b] = colorToRgbValues(color);
-  const safeAlpha = alpha > 1 ? 1 : alpha < 0 ? 0 : alpha;
-  return `rgba(${r}, ${g}, ${b}, ${safeAlpha})`;
+  if (alpha) {
+    const safeAlpha = alpha > 1 ? 1 : alpha < 0 ? 0 : alpha;
+    return `rgba(${r}, ${g}, ${b}, ${safeAlpha})`;
+  }
+  return `rgb(${r}, ${g}, ${b})`;
 };
 
 export const isProd = process.env.NODE_ENV === 'production';

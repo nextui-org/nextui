@@ -1,15 +1,8 @@
 import React from 'react';
-import {
-  useTheme,
-  Text,
-  Button,
-  Grid,
-  Row,
-  NextUIThemes
-} from '@nextui-org/react';
+import { useTheme, Text, Button, Grid, Row } from '@nextui-org/react';
 
 const DeleteUser: React.FC = () => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
 
   return (
     <Grid.Container className="delete-user__container">
@@ -38,8 +31,8 @@ const DeleteUser: React.FC = () => {
         {`
           :global(.delete-user__container) {
             max-width: 330px;
-            border-radius: ${theme.radius.lg};
-            padding: ${theme.spacing.sm};
+            border-radius: ${theme?.radii?.lg?.value};
+            padding: ${theme?.space?.sm?.value};
           }
         `}
       </style>

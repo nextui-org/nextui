@@ -88,12 +88,12 @@ const Expand: React.FC<React.PropsWithChildren<ExpandProps>> = ({
     <StyledExpand
       expanded={selfExpanded}
       css={{
-        ...(css as any),
         height: selfExpanded ? height : '0',
         transition: animated
           ? `height ${delay}ms ease 0ms,
     opacity ${delay * 1.5}ms ease 0ms;`
-          : 'none'
+          : 'none',
+        ...(css as any)
       }}
     >
       <div ref={contentRef} className="nextui-expand-content">
