@@ -1,6 +1,5 @@
 import React from 'react';
-import { addColorAlpha } from '../utils/color';
-import { theme, globalCss, getCssText } from '../theme/stitches.config';
+import { globalCss, getCssText } from '../theme/stitches.config';
 
 const globalStyles = globalCss({
   '*, *:before, *:after': {
@@ -131,14 +130,14 @@ const globalStyles = globalCss({
     color: '$code',
     padding: '$1 $2',
     borderRadius: '$xs',
-    backgroundColor: addColorAlpha(theme.colors?.code?.value, 0.2),
+    bg: '$codeLight',
     fontFamily: '$mono',
     fontSize: '$xs',
     whiteSpace: 'pre-wrap',
     transition: '$default'
   },
   'code:hover': {
-    backgroundColor: addColorAlpha(theme.colors?.code?.value, 0.3)
+    opacity: 0.8
   },
   pre: {
     overflow: 'auto',

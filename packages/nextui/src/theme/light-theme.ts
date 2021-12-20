@@ -9,9 +9,10 @@ export default {
     accents7: '$gray700',
     accents8: '$gray800',
     accents9: '$gray900',
-    text: '$gray500',
+    text: '$gray800',
     background: '$white',
     foreground: '$black',
+    codeLight: '$pink100',
     code: '$pink500',
     border: '$gray200',
     selection: '$blue200'

@@ -12,7 +12,8 @@ export default {
     text: '$white',
     background: '$black',
     foreground: '$white',
-    code: '#77c8e6',
+    codeLight: '#16272e',
+    code: '#6cc0e1',
     border: '$gray500',
     selection: '#ff4ecd'
   },
