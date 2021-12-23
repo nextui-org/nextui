@@ -4,6 +4,7 @@ import CheckboxGroup from './checkbox-group';
 import useWarning from '../use-warning';
 import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
 import useKeyboard, { KeyCode } from '../use-keyboard';
+import { CSS } from '../theme/stitches.config';
 import {
   StyledCheckboxLabel,
   StyledCheckboxContainer,
@@ -63,14 +64,11 @@ const defaultProps = {
   className: ''
 };
 
-type NativeAttrs = Omit<
-  React.InputHTMLAttributes<unknown>,
-  keyof Props | 'css'
->;
+type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
 export type CheckboxProps = Props &
   typeof defaultProps &
   CheckboxVariantsProps &
-  NativeAttrs;
+  NativeAttrs & { css?: CSS };
 
 const Checkbox: React.FC<CheckboxProps> = ({
   checked,
@@ -176,6 +174,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         `nextui-checkbox--${getState}`,
         className
       )}
+      css={props.css}
     >
       <StyledCheckboxContainer
         className="nextui-checkbox-container"
@@ -241,6 +240,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
 Checkbox.defaultProps = defaultProps;
 
+Checkbox.toString = () => '.nextui-checkbox';
+
 if (__DEV__) {
   Checkbox.displayName = 'NextUI - Checkbox';
 }
@@ -252,6 +253,6 @@ type CheckboxComponent<P = {}> = React.FC<P> & {
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs &
-  CheckboxVariantsProps;
+  CheckboxVariantsProps & { css?: CSS };
 
 export default Checkbox as CheckboxComponent<ComponentProps>;

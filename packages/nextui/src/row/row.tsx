@@ -51,6 +51,8 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
   );
 };
 
+Row.toString = () => '.nextui-row';
+
 const MemoRow = React.memo(Row);
 
 export default withDefaults(MemoRow, defaultProps);

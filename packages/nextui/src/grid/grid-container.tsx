@@ -51,4 +51,6 @@ const GridContainer: React.FC<React.PropsWithChildren<GridContainerProps>> = ({
   );
 };
 
+GridContainer.toString = () => '.nextui-grid-container';
+
 export default withDefaults(GridContainer, defaultProps);

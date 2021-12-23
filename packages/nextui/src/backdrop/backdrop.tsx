@@ -38,7 +38,7 @@ const defaultProps = {
   className: ''
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type BackdropProps = Props &
   typeof defaultProps &
@@ -159,5 +159,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
 if (__DEV__) {
   Backdrop.displayName = 'NextUI - Backdrop';
 }
+
+Backdrop.toString = () => '.nextui-backdrop';
 
 export default withDefaults(Backdrop, defaultProps);

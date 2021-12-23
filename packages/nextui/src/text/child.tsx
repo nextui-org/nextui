@@ -79,6 +79,8 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   );
 };
 
+TextChild.toString = () => '.nextui-text-child';
+
 const MemoTextChild = React.memo(TextChild);
 
 export default withDefaults(MemoTextChild, defaultProps);

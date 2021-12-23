@@ -2,7 +2,6 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import Switch from './index';
 import { Moon, Sun, Lock, Notification } from '../utils/icons';
-import useTheme from '../use-theme';
 
 export default {
   title: 'Inputs/Switch',
@@ -89,22 +88,11 @@ export const Disabled = () => (
 );
 
 export const Icons = () => {
-  const theme = useTheme();
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <Switch
-        size="xl"
-        icon={<Lock theme={theme} fill={theme.palette.secondary} />}
-      />
-      <Switch
-        size="xl"
-        icon={<Notification theme={theme} fill={theme.palette.primary} />}
-      />
-      <Switch
-        size="xl"
-        iconOn={<Sun theme={theme} fill={theme.palette.primary} />}
-        iconOff={<Moon theme={theme} />}
-      />
+      <Switch size="xl" icon={<Lock />} />
+      <Switch size="xl" icon={<Notification />} />
+      <Switch size="xl" iconOn={<Sun />} iconOff={<Moon />} />
     </div>
   );
 };

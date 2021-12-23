@@ -12,6 +12,20 @@ export type { ModalHeaderProps } from './modal-header';
 export type { ModalBodyProps } from './modal-body';
 export type { ModalFooterProps } from './modal-footer';
 
-export * from './modal.styles';
+export {
+  StyledModalHideTab,
+  StyledModalCloseButton,
+  StyledModalHeader,
+  StyledModalBody,
+  StyledModalFooter,
+  StyledModal
+} from './modal.styles';
+export type {
+  ModalVariantsProps,
+  ModalCloseButtonVariantsProps,
+  ModalBodyVariantsProps,
+  ModalHeaderVariantsProps,
+  ModalFooterVariantsProps
+} from './modal.styles';
 
 export default Modal;

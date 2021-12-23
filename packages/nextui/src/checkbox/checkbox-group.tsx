@@ -6,6 +6,7 @@ import {
   StyledCheckboxGroup,
   CheckboxGroupVariantsProps
 } from './checkbox.styles';
+import { CSS } from '../theme/stitches.config';
 import withDefaults from '../utils/with-defaults';
 import { __DEV__ } from '../utils/assertion';
 
@@ -25,11 +26,12 @@ const defaultProps = {
   size: 'md' as NormalSizes
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+
 export type CheckboxGroupProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  CheckboxGroupVariantsProps;
+  CheckboxGroupVariantsProps & { css?: CSS };
 
 const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
   color,
@@ -80,5 +82,7 @@ const CheckboxGroup: React.FC<React.PropsWithChildren<CheckboxGroupProps>> = ({
     </CheckboxContext.Provider>
   );
 };
+
+CheckboxGroup.toString = () => '.nextui-checkbox-group';
 
 export default withDefaults(CheckboxGroup, defaultProps);

@@ -155,6 +155,8 @@ if (__DEV__) {
   Snippet.displayName = 'NextUI - Snippet';
 }
 
+Snippet.toString = () => '.nextui-snippet';
+
 const MemoSnippet = React.memo(Snippet);
 
 export default withDefaults(MemoSnippet, defaultProps);

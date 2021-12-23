@@ -1,6 +1,6 @@
 import { styled, VariantProps } from '../theme/stitches.config';
 
-const StyledAvatar = styled('span', {
+export const StyledAvatar = styled('span', {
   dflex: 'center',
   position: 'relative',
   zIndex: '$1',

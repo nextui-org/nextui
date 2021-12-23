@@ -1,7 +1,7 @@
 import { styled, VariantProps } from '../theme/stitches.config';
 import StyledButton from './button.styles';
 
-const StyledButtonGroup = styled('div', {
+export const StyledButtonGroup = styled('div', {
   display: 'inline-flex',
   margin: '$3',
   backgroundColor: 'transparent',
@@ -19,7 +19,6 @@ const StyledButtonGroup = styled('div', {
           '&:not(:first-child)': {
             btlr: 0, // top-left
             btrr: 0 // top-right
-            // border-top: ${borderWidth} solid ${borderColor}; bordered variant
           },
           '&:not(:last-child)': {
             bblr: 0,
@@ -33,7 +32,6 @@ const StyledButtonGroup = styled('div', {
           '&:not(:first-child)': {
             btlr: 0, // top-left
             bblr: 0 // bottom-left
-            //borderLeft: ${borderWidth} solid ${borderColor}, bordered variant
           },
           '&:not(:last-child)': {
             btrr: 0, // top-right

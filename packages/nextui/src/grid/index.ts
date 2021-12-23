@@ -5,7 +5,11 @@ export type { GridItemProps } from './grid-item';
 export type { GridProps } from './grid';
 export type { GridContainerProps } from './grid-container';
 
-export * from './grid.styles';
+export { StyledGridContainer, StyledGridItem } from './grid.styles';
+export type {
+  GridContainerVariantProps,
+  GridItemVariantProps
+} from './grid.styles';
 
 Grid.Container = GridContainer;
 

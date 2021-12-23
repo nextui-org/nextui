@@ -3,6 +3,8 @@ import withDefaults from '../utils/with-defaults';
 import { CollapseContext, CollapseConfig } from './collapse-context';
 import useCurrentState from '../use-current-state';
 import { setChildrenIndex } from '../utils/collections';
+import { CSS } from '../theme/stitches.config';
+
 import {
   StyledCollapseGroup,
   CollapseGroupVariantsProps
@@ -21,11 +23,11 @@ const defaultProps = {
   accordion: true
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type CollapseGroupProps = Props &
   NativeAttrs &
-  CollapseGroupVariantsProps;
+  CollapseGroupVariantsProps & { css?: CSS };
 
 const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
   children,
@@ -75,5 +77,7 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
     </CollapseContext.Provider>
   );
 };
+
+CollapseGroup.toString = () => '.nextui-collapse-group';
 
 export default withDefaults(CollapseGroup, defaultProps);

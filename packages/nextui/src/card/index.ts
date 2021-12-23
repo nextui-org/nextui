@@ -7,7 +7,14 @@ import {
 import CardImage from '../image';
 
 export type { CardProps } from './card';
-export * from './card.styles';
+
+export {
+  StyledCard,
+  StyledCardHeader,
+  StyledCardFooter,
+  StyledCardBody
+} from './card.styles';
+export type { CardFooterVariantsProps, CardVariantsProps } from './card.styles';
 
 Card.Header = CardHeader;
 Card.Body = CardBody;

@@ -6,6 +6,7 @@ import useCurrentState from '../use-current-state';
 import CollapseGroup from './collapse-group';
 import useWarning from '../use-warning';
 import { getId } from '../utils/collections';
+import { CSS } from '../theme/stitches.config';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import {
   StyledCollapse,
@@ -49,11 +50,12 @@ const defaultProps = {
   initialExpanded: false
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+
 export type CollapseProps = Props &
   typeof defaultProps &
   CollapseVariantsProps &
-  NativeAttrs;
+  NativeAttrs & { css?: CSS };
 
 const preClass = 'nextui-collapse';
 
@@ -198,6 +200,8 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     </StyledCollapse>
   );
 };
+
+Collapse.toString = () => '.nextui-collapse';
 
 type CollapseComponent<P = {}> = React.FC<P> & {
   Group: typeof CollapseGroup;

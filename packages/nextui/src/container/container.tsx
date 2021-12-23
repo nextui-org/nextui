@@ -102,6 +102,8 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   );
 };
 
+Container.toString = () => '.nextui-container';
+
 type ComponentProps = Omit<Props, keyof typeof defaultProps> &
   Partial<typeof defaultProps> &
   NativeAttrs;

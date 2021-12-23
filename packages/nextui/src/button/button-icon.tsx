@@ -60,6 +60,8 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
   );
 };
 
+ButtonIcon.toString = () => '.nextui-button-icon';
+
 const MemoButtonIcon = React.memo(ButtonIcon);
 
 export default withDefaults(MemoButtonIcon, defaultProps);

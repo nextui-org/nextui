@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import usePagination, { DOTS, PaginationItemParam } from '../use-pagination';
+import { CSS } from '../theme/stitches.config';
 import PaginationItem from './pagination-item';
 import PaginationEllipsis from './pagination-ellipsis';
 import PaginationIcon from './pagination-icon';
@@ -43,11 +44,12 @@ const defaultProps = {
   rounded: false
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+
 export type PaginationProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  PaginationVariantsProps;
+  PaginationVariantsProps & { css?: CSS };
 
 const preClass = 'nextui-pagination';
 
@@ -183,13 +185,15 @@ type MemoPaginationComponent<P = {}> = React.NamedExoticComponent<P>;
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs &
-  PaginationVariantsProps;
+  PaginationVariantsProps & { css?: CSS };
 
 Pagination.defaultProps = defaultProps;
 
 if (__DEV__) {
   Pagination.displayName = 'NextUI - Pagination';
 }
+
+Pagination.toString = () => '.nextui-pagination';
 
 export default React.memo(
   Pagination

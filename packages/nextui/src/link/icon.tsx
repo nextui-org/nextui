@@ -22,4 +22,6 @@ export const LinkIcon: React.FC<{}> = () => {
   );
 };
 
+LinkIcon.toString = () => '.nextui-link-icon';
+
 export default React.memo(LinkIcon);

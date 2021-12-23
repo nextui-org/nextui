@@ -2,7 +2,7 @@ import React, { PropsWithChildren, useState, useMemo, useEffect } from 'react';
 import CssBaseline from '../css-baseline';
 import ThemeContext, { defaultContext } from './theme-context';
 import withDefaults from '../utils/with-defaults';
-import { NextUIThemeContext, ThemeType } from './types';
+import { CreateTheme, NextUIThemeContext, ThemeType } from './types';
 import deepMerge from '../utils/deep-merge';
 import { copyObject } from '../utils/object';
 import { SsrProvider } from './ssr-provider';
@@ -10,6 +10,7 @@ import useSSR from '../use-ssr';
 import { getDocumentCSSTokens } from './utils';
 
 export interface Props {
+  theme?: CreateTheme;
   disableBaseline?: boolean;
 }
 
@@ -20,6 +21,7 @@ const defaultProps = {
 export type ThemeProviderProps = Props & typeof defaultProps;
 
 const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
+  theme: userTheme,
   disableBaseline,
   children
 }) => {
@@ -84,7 +86,13 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
     <SsrProvider>
       <ThemeContext.Provider value={providerValue}>
         {!disableBaseline && <CssBaseline />}
-        {children}
+        {userTheme ? (
+          <div id="__nextui" className={userTheme}>
+            {children}
+          </div>
+        ) : (
+          children
+        )}
       </ThemeContext.Provider>
     </SsrProvider>
   );

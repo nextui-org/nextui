@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useMemo, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
 import CSSTransition from '../utils/css-transition';
 import { isChildElement } from '../utils/collections';
+import { CSS } from '../theme/stitches.config';
 import ModalCloseButton from './modal-close-button';
 import { KeyCode } from '../use-keyboard';
 import {
@@ -29,7 +30,11 @@ const defaultProps = {
   rebound: false
 };
 
-export type ModalWrapperProps = Props & ModalVariantsProps;
+type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
+
+export type ModalWrapperProps = Props &
+  NativeAttrs &
+  ModalVariantsProps & { css?: CSS };
 
 const preClass = 'nextui-modal';
 
@@ -153,5 +158,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
     </>
   );
 };
+
+ModalWrapper.toString = () => '.nextui-modal-wrapper';
 
 export default withDefaults(ModalWrapper, defaultProps);

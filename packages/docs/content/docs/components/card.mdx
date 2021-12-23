@@ -18,7 +18,7 @@ import { Card } from '@nextui-org/react';
   title="Default"
   desc="NextUI will wrap your content in a `Card.Body` component."
   code={` 
-<Card css={{ w: "400px" }}>
+<Card css={{ mw: "400px" }}>
   <p>A basic card.</p>
 </Card>`}
 />
@@ -27,7 +27,7 @@ import { Card } from '@nextui-org/react';
   title="Bordered"
   desc="You can change the full style towards a bodered `Card` with the `bordered` property."
   code={` 
-<Card bordered shadow={false} css={{ w: "400px" }}>
+<Card bordered shadow={false} css={{ mw: "400px" }}>
   <p>A bordered card.</p>
 </Card>`}
 />
@@ -36,7 +36,7 @@ import { Card } from '@nextui-org/react';
   title="Hoverable"
   desc="You can apply a fancy hover animation with the `hoverable` property."
   code={` 
-<Card bordered shadow={false} hoverable css={{ w: "400px" }}>
+<Card bordered shadow={false} hoverable css={{ mw: "400px" }}>
   <p>A hoverable card.</p>
 </Card>`}
 />
@@ -46,7 +46,7 @@ import { Card } from '@nextui-org/react';
   desc="You can use the `clickable` property to allow users to interact with the entirety of its surface 
   to trigger its main action, be it an expansion, a link to another screen or some other behavior."
   code={` 
-<Card clickable bordered css={{ w: "400px" }}>
+<Card clickable bordered css={{ mw: "400px" }}>
   <p>A clickable card.</p>
 </Card>`}
 />
@@ -69,10 +69,10 @@ return (
     {colors.map((color) => (
       <Grid xs={12} md={4} key={color}>
         <Card color={color}>
-          <Text h5 transform="capitalize">
+          <Text css={{ fontWeight: '$bold', color: '$white' }} transform="capitalize">
             {color}
           </Text>
-          <Text span>{color}</Text>
+          <Text css={{ fontWeight: '$bold', color: '$white' }} span>{color}</Text>
         </Card>
       </Grid>
     ))}
@@ -284,7 +284,7 @@ return (
             <Col>
               <Row justify="flex-end">
                 <Button flat auto rounded color="secondary">
-                  <Text size={12} weight="bold" transform="uppercase">
+                  <Text css={{ color: 'inherit' }} size={12} weight="bold" transform="uppercase">
                     Notify Me
                   </Text>
                 </Button>
@@ -324,7 +324,7 @@ return (
           css={{
             position: 'absolute',
             bgBlur: '#0f1114',
-            borderTop: '$borderWeights$light solid $gray500',
+            borderTop: '$borderWeights$light solid $gray700',
             bottom: 0,
             zIndex: 1
           }}
@@ -353,8 +353,8 @@ return (
             </Col>
             <Col>
               <Row justify="flex-end">
-                <Button flat auto rounded   css={{ color: '#94f9f0', bg: '#94f9f026' }}>
-                  <Text size={12} weight="bold" transform="uppercase">
+                <Button flat auto rounded css={{ color: '#94f9f0', bg: '#94f9f026' }}>
+                  <Text css={{ color: 'inherit' }} size={12} weight="bold" transform="uppercase">
                     Get App
                   </Text>
                 </Button>

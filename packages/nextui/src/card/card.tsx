@@ -8,6 +8,8 @@ import React, {
 import Image from '../image';
 import Drip from '../utils/drip';
 import useDrip from '../use-drip';
+import useTheme from '../use-theme';
+import { CSS } from '../theme/stitches.config';
 import { hasChild, pickChild } from '../utils/collections';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import {
@@ -25,27 +27,39 @@ interface Props {
   ripple?: boolean;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   as?: keyof JSX.IntrinsicElements;
+  preventDefault?: boolean;
 }
 
 const defaultProps = {
   animated: true,
   ripple: true,
-  cover: false
+  cover: false,
+  preventDefault: false
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type CardProps = Props & NativeAttrs & CardVariantsProps;
+export type CardProps = Props & NativeAttrs & CardVariantsProps & { css?: CSS };
 
 const Card = React.forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<CardProps>
 >(({ ...cardProps }, ref: React.Ref<HTMLDivElement | null>) => {
-  const { children, cover, animated, ripple, clickable, onClick, ...props } =
-    cardProps;
+  const {
+    children,
+    cover,
+    animated,
+    ripple,
+    clickable,
+    onClick,
+    preventDefault,
+    ...props
+  } = cardProps;
 
   const cardRef = useRef<HTMLDivElement>(null);
   useImperativeHandle(ref, () => cardRef.current);
+
+  const { isDark } = useTheme();
 
   const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
     false,
@@ -88,7 +102,7 @@ const Card = React.forwardRef<
     [KeyCode.Enter, KeyCode.Space],
     {
       disableGlobalEvent: true,
-      preventDefault: false
+      preventDefault
     }
   );
 
@@ -101,6 +115,7 @@ const Card = React.forwardRef<
       clickable={clickable}
       tabIndex={clickable ? 0 : -1}
       onClick={clickHandler}
+      isDark={isDark}
       {...props}
       {...bindings}
     >
@@ -135,6 +150,8 @@ type CardComponent<T, P = {}> = React.ForwardRefExoticComponent<
 if (__DEV__) {
   Card.displayName = 'NextUI - Card';
 }
+
+Card.toString = () => '.nextui-card';
 
 export default withDefaults(Card, defaultProps) as CardComponent<
   HTMLDivElement,

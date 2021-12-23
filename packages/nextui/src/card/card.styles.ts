@@ -51,10 +51,6 @@ export const StyledCard = styled('div', {
       default: {
         $$cardColor: '$colors$background',
         bg: '$$cardColor'
-        //   '@dark': { // TODO: do this when dark theme is ready
-        //     $$cardColor: '$colors$accents1',
-        //     bg: '$$cardColor'
-        //   }
       },
       primary: {
         $$cardColor: '$colors$primary',
@@ -167,20 +163,39 @@ export const StyledCard = styled('div', {
           bbrr: '0 !important'
         }
       }
+    },
+    isDark: {
+      true: {}
     }
   },
   compoundVariants: [
-    // color default && shadow
+    // isDark && color === 'default'
+    {
+      color: 'default',
+      isDark: true,
+      css: {
+        $$cardColor: '$colors$accents1'
+      }
+    },
+
+    // color default && shadow && !isDark
     {
       color: 'default',
       shadow: true,
+      isDark: false,
       css: {
         $$cardColor: '$colors$background',
         bg: '$$cardColor'
-        //   '@dark': { // TODO: do this when dark theme is ready
-        //     $$cardColor: '$colors$accents1',
-        //     bg: '$$cardColor'
-        //   }
+      }
+    },
+    // color default && shadow && isDark
+    {
+      color: 'default',
+      shadow: true,
+      isDark: true,
+      css: {
+        $$cardColor: '$colors$accents1',
+        bg: '$$cardColor'
       }
     },
     // clickable && animated

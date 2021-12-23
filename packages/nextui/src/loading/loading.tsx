@@ -23,12 +23,12 @@ const defaultProps = {
   type: 'default' as NormalLoaders
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type LoadingProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  LoadingContainerVariantsProps;
+  LoadingContainerVariantsProps & { css?: CSS };
 
 const preClass = 'nextui-loading';
 
@@ -76,6 +76,8 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
     </StyledLoadingContainer>
   );
 };
+
+Loading.toString = () => '.nextui-loading';
 
 const MemoLoading = React.memo(Loading);
 

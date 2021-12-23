@@ -33,6 +33,9 @@ const Link = React.forwardRef<React.ElementRef<typeof StyledLink>, LinkProps>(
 if (__DEV__) {
   Link.displayName = 'NextUI - Link';
 }
+
+Link.toString = () => '.nextui-link';
+
 const MemoLink = React.memo(Link);
 
 export default withDefaults(MemoLink, defaultProps);

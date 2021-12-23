@@ -1,6 +1,7 @@
 import * as React from 'react';
 import withDefaults from '../utils/with-defaults';
 import { StyledSnippetCopyButtonIcon } from './snippet.styles';
+import { CSS } from '../theme/stitches.config';
 
 interface Props {
   width?: number;
@@ -16,7 +17,9 @@ const defaultProps = {
 
 type NativeAttrs = Omit<React.SVGProps<SVGSVGElement>, keyof Props>;
 
-export type CategoryProps = Props & typeof defaultProps & NativeAttrs;
+export type CategoryProps = Props &
+  typeof defaultProps &
+  NativeAttrs & { css?: CSS };
 
 const Copy: React.FC<Props> = ({ size, fill, width, height, ...props }) => {
   return (
@@ -34,6 +37,8 @@ const Copy: React.FC<Props> = ({ size, fill, width, height, ...props }) => {
     </StyledSnippetCopyButtonIcon>
   );
 };
+
+Copy.toString = () => '.nextui-snippet-copy-icon';
 
 const MemoCopy = React.memo(Copy);
 

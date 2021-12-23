@@ -154,4 +154,6 @@ const TooltipContent: React.FC<React.PropsWithChildren<TooltipContentProps>> =
     );
   };
 
+TooltipContent.toString = () => '.nextui-tooltip-content';
+
 export default withDefaults(TooltipContent, defaultProps);

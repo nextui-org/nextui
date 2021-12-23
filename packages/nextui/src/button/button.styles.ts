@@ -8,7 +8,7 @@ import { StyledDrip } from '../utils/drip';
 
 import { addColorAlpha } from '../utils/color';
 
-const StyledButton = styled(
+export const StyledButton = styled(
   'button',
   {
     dflex: 'center',

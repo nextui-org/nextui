@@ -6,13 +6,12 @@ import {
   NormalWeights,
   AsProp
 } from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
 
 export type FormElement = HTMLInputElement | HTMLTextAreaElement;
 
 export interface Props
   extends AsProp<'input' | 'textarea'>,
-    Omit<React.HTMLAttributes<FormElement>, 'css'> {
+    React.HTMLAttributes<FormElement> {
   value?: string;
   fullWidth?: boolean;
   initialValue?: string;
@@ -43,7 +42,6 @@ export interface Props
   width?: string;
   className?: string;
   clearable?: boolean;
-  css?: CSS;
   onChange?: (e: React.ChangeEvent<FormElement>) => void;
   onClearClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onFocus?: (e: React.FocusEvent<FormElement>) => void;

@@ -66,6 +66,8 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
   );
 };
 
+ModalHeader.toString = () => '.nextui-modal-header';
+
 const MemoModalHeader = React.memo(ModalHeader);
 
 export default withDefaults(MemoModalHeader, defaultProps);

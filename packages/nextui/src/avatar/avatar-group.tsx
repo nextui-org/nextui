@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSS } from '../theme/stitches.config';
 import StyledAvatarGroup, {
   StyledAvatarGroupCount,
   AvatarGroupVariants
@@ -9,9 +10,11 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
 }
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type AvatarGroupProps = Props & NativeAttrs & AvatarGroupVariants;
+export type AvatarGroupProps = Props &
+  NativeAttrs &
+  AvatarGroupVariants & { css?: CSS };
 
 const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
   count,
@@ -29,5 +32,7 @@ const AvatarGroup: React.FC<React.PropsWithChildren<AvatarGroupProps>> = ({
     </StyledAvatarGroup>
   );
 };
+
+AvatarGroup.toString = () => '.nextui-avatar-group';
 
 export default AvatarGroup;

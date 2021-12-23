@@ -1,8 +1,9 @@
 import React from 'react';
 import PaginationItem from './pagination-item';
 import { StyledPaginationIcon } from './pagination.styles';
+import { CSS } from '../theme/stitches.config';
 
-export interface PaginationIconProps {
+interface Props {
   isPrev?: boolean;
   disabled?: boolean;
   onlyDots?: boolean;
@@ -10,6 +11,10 @@ export interface PaginationIconProps {
   bordered?: boolean;
   onClick?: (e: React.MouseEvent) => void;
 }
+
+type NativeAttrs = Omit<React.SVGAttributes<unknown>, keyof Props>;
+
+export type PaginationIconProps = Props & NativeAttrs & { css?: CSS };
 
 const PaginationIcon: React.FC<PaginationIconProps> = ({
   isPrev,
@@ -51,6 +56,8 @@ const PaginationIcon: React.FC<PaginationIconProps> = ({
     </PaginationItem>
   );
 };
+
+PaginationIcon.toString = () => '.nextui-pagination-icon';
 
 const MemoPaginationIcon = React.memo(PaginationIcon);
 

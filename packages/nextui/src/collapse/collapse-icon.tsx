@@ -27,6 +27,8 @@ const CollapseIcon: React.FC<CollapseIconVariantsProps> = ({ ...props }) => {
   );
 };
 
+CollapseIcon.toString = () => '.nextui-collapse-icon';
+
 const MemoCollapseIcon = React.memo(CollapseIcon);
 
 export default MemoCollapseIcon;

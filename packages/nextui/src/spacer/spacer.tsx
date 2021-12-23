@@ -34,6 +34,8 @@ const Spacer: React.FC<SpacerProps> = ({ x, y, inline, css, ...props }) => {
   );
 };
 
+Spacer.toString = () => '.nextui-spacer';
+
 const MemoSpacer = React.memo(Spacer);
 
 export default withDefaults(MemoSpacer, defaultProps);

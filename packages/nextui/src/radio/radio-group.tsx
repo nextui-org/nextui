@@ -3,6 +3,7 @@ import withDefaults from '../utils/with-defaults';
 import { RadioContext } from './radio-context';
 import { NormalSizes, SimpleColors } from '../utils/prop-types';
 import { StyledRadioGroup, RadioGroupVariantsProps } from './radio.styles';
+import { CSS } from '../theme/stitches.config';
 
 interface Props {
   value?: string | number;
@@ -21,11 +22,11 @@ const defaultProps = {
   textColor: 'default' as SimpleColors
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type RadioGroupProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  RadioGroupVariantsProps;
+  RadioGroupVariantsProps & { css?: CSS };
 
 const RadioGroup: React.FC<React.PropsWithChildren<RadioGroupProps>> = ({
   disabled,
@@ -72,5 +73,7 @@ const RadioGroup: React.FC<React.PropsWithChildren<RadioGroupProps>> = ({
     </RadioContext.Provider>
   );
 };
+
+RadioGroup.toString = () => '.nextui-radio-group';
 
 export default withDefaults(RadioGroup, defaultProps);

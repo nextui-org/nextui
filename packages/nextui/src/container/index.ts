@@ -2,6 +2,7 @@ import Container from './container';
 
 export type { ContainerProps } from './container';
 
-export * from './container.styles';
+export { StyledContainer } from './container.styles';
+export type { ContainerVariantsProps } from './container.styles';
 
 export default Container;

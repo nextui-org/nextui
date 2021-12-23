@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
 import useWarning from '../use-warning';
 import useKeyboard, { KeyCode } from '../use-keyboard';
+import { CSS } from '../theme/stitches.config';
 import {
   StyledSwitch,
   StyledSwitchContainer,
@@ -49,14 +50,11 @@ const defaultProps = {
   initialChecked: false
 };
 
-type NativeAttrs = Omit<
-  React.LabelHTMLAttributes<unknown>,
-  keyof Props | 'css'
->;
+type NativeAttrs = Omit<React.LabelHTMLAttributes<unknown>, keyof Props>;
 export type SwitchProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  SwitchContainerVariantsProps;
+  SwitchContainerVariantsProps & { css?: CSS };
 
 const preClass = 'nextui-switch';
 
@@ -170,6 +168,8 @@ const Switch: React.FC<SwitchProps> = ({
     </StyledSwitchContainer>
   );
 };
+
+Switch.toString = () => '.nextui-switch';
 
 const MemoSwitch = React.memo(Switch);
 

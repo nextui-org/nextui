@@ -1,12 +1,13 @@
 import React, { useImperativeHandle, useMemo, useRef, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
 import { Props, defaultProps } from './input-props';
+import { CSS } from '../theme/stitches.config';
 import PasswordIcon from './password-icon';
 import Input from './input';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
-interface PasswordProps extends Omit<Props, 'css'> {
+interface PasswordProps extends Props {
   hideToggle?: boolean;
   visibleIcon?: React.ReactNode;
   hiddenIcon?: React.ReactNode;
@@ -19,13 +20,10 @@ const passwordDefaultProps = {
   hiddenIcon: <PasswordIcon visible={false} />
 };
 
-type NativeAttrs = Omit<
-  React.InputHTMLAttributes<any>,
-  keyof PasswordProps | 'css'
->;
+type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof PasswordProps>;
 export type InputPasswordProps = PasswordProps &
   typeof passwordDefaultProps &
-  NativeAttrs;
+  NativeAttrs & { css?: CSS };
 
 const InputPassword = React.forwardRef<
   HTMLInputElement,
@@ -69,5 +67,7 @@ const InputPassword = React.forwardRef<
 if (__DEV__) {
   InputPassword.displayName = 'NextUI - Input Password';
 }
+
+InputPassword.toString = () => '.nextui-input-password';
 
 export default withDefaults(InputPassword, passwordDefaultProps);

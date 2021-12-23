@@ -25,7 +25,6 @@ interface Props {
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLTextAreaElement>) => void;
-  css?: CSS;
 }
 
 const defaultProps = {
@@ -37,7 +36,7 @@ const defaultProps = {
 
 type NativeAttrs = Omit<
   React.TextareaHTMLAttributes<any>,
-  keyof Props | keyof InputProps | 'css'
+  keyof Props | keyof InputProps
 >;
 
 type BaseAttrs = Omit<InputProps, ExcludedInputProps>;
@@ -45,7 +44,7 @@ type BaseAttrs = Omit<InputProps, ExcludedInputProps>;
 export type TextareaProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  BaseAttrs;
+  BaseAttrs & { css?: CSS };
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (textareaProps, ref: React.Ref<HTMLTextAreaElement | null>) => {
@@ -142,5 +141,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 if (__DEV__) {
   Textarea.displayName = 'NextUI - Textarea';
 }
+
+Textarea.toString = () => '.nextui-textarea';
 
 export default withDefaults(Textarea, defaultProps);

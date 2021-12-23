@@ -114,6 +114,8 @@ if (__DEV__) {
   Progress.displayName = 'NextUI - Progress';
 }
 
+Progress.toString = () => '.nextui-progress';
+
 const MemoProgress = React.memo(Progress);
 
 export default withDefaults(MemoProgress, defaultProps);

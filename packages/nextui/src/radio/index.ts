@@ -6,6 +6,18 @@ Radio.Group = RadioGroup;
 Radio.Description = RadioDescription;
 Radio.Desc = RadioDescription;
 
-export * from './radio.styles';
+export {
+  StyledRadioInput,
+  StyledRadioLabel,
+  StyledRadioPoint,
+  StyledRadio,
+  StyledRadioGroup,
+  StyledRadioDescription
+} from './radio.styles';
+export type {
+  RadioVariantsProps,
+  RadioLabelVariantsProps,
+  RadioGroupVariantsProps
+} from './radio.styles';
 
 export default Radio;

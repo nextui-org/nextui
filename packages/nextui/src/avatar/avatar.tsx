@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react';
 import AvatarGroup from './avatar-group';
+import { CSS } from '../theme/stitches.config';
 import StyledAvatar, { AvatarVariantsProps } from './avatar.styles';
 import clsx from '../utils/clsx';
 
@@ -14,10 +15,12 @@ interface Props {
 
 type NativeAttrs = Omit<
   Partial<React.ImgHTMLAttributes<unknown> & React.HTMLAttributes<unknown>>,
-  keyof Props | 'css' | 'sizes'
+  keyof Props | 'sizes'
 >;
 
-export type AvatarProps = Props & AvatarVariantsProps & NativeAttrs;
+export type AvatarProps = Props &
+  AvatarVariantsProps &
+  NativeAttrs & { css?: CSS };
 
 const safeText = (text: string): string => {
   if (text?.length <= 4) return text;
@@ -80,5 +83,7 @@ const Avatar: React.FC<AvatarProps> = ({
 type AvatarComponent<P = {}> = React.NamedExoticComponent<P> & {
   Group: typeof AvatarGroup;
 };
+
+Avatar.toString = () => '.nextui-avatar';
 
 export default Avatar as AvatarComponent<AvatarProps>;

@@ -77,6 +77,8 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   );
 };
 
+Divider.toString = () => '.nextui-divider';
+
 const MemoDivider = React.memo(Divider);
 
 export default withDefaults(MemoDivider, defaultProps);

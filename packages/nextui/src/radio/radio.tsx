@@ -5,6 +5,7 @@ import { pickChild } from '../utils/collections';
 import useWarning from '../use-warning';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import { SimpleColors, NormalSizes } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
 import {
   StyledRadio,
   StyledRadioLabel,
@@ -47,15 +48,12 @@ const defaultProps = {
   preventDefault: true
 };
 
-type NativeAttrs = Omit<
-  React.InputHTMLAttributes<unknown>,
-  keyof Props | 'css'
->;
+type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
 
 export type RadioProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  RadioVariantsProps;
+  RadioVariantsProps & { css?: CSS };
 
 const preClass = 'nextui-radio';
 
@@ -194,13 +192,15 @@ type RadioComponent<P = {}> = React.FC<P> & {
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs &
-  RadioVariantsProps;
+  RadioVariantsProps & { css?: CSS };
 
 Radio.defaultProps = defaultProps;
 
 if (__DEV__) {
   Radio.displayName = 'NextUI - Radio';
 }
+
+Radio.toString = () => '.nextui-radio';
 
 export default withDefaults(
   Radio,

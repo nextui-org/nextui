@@ -1,5 +1,6 @@
 import React from 'react';
 import { NormalSizes, SimpleColors } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
 import {
   StyledSpinner,
   StyledSpinnerContainer,
@@ -17,8 +18,10 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
 }
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
-export type SpinnerProps = Props & NativeAttrs & SpinnerVariantsProps;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+export type SpinnerProps = Props &
+  NativeAttrs &
+  SpinnerVariantsProps & { css?: CSS };
 
 const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
   children,
@@ -57,5 +60,7 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
     </StyledSpinner>
   );
 };
+
+Spinner.toString = () => '.nextui-spinner';
 
 export default Spinner;

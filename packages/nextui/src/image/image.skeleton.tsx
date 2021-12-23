@@ -5,16 +5,19 @@ import {
   StyledImageSkeleton,
   ImageSkeletonVariantsProps
 } from './image.styles';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 interface Props {
   opacity: number;
   as?: keyof JSX.IntrinsicElements;
   css?: CSS;
+  className?: string;
 }
 
 const defaultProps = {
-  opacity: 0.5
+  opacity: 0.5,
+  className: ''
 };
 
 export type ImageSkeletonProps = Props &
@@ -22,11 +25,11 @@ export type ImageSkeletonProps = Props &
   ImageSkeletonVariantsProps;
 
 const ImageSkeleton: React.FC<ImageSkeletonProps> = React.memo(
-  ({ opacity, css, ...props }) => {
+  ({ opacity, css, className, ...props }) => {
     return (
       <StyledImageSkeleton
         css={{ opacity, ...(css as any) }}
-        className="nextui-image-skeleton"
+        className={clsx('nextui-image-skeleton', className)}
         {...props}
       />
     );
@@ -36,5 +39,7 @@ const ImageSkeleton: React.FC<ImageSkeletonProps> = React.memo(
 if (__DEV__) {
   ImageSkeleton.displayName = 'NextUI - ImageSkeleton';
 }
+
+ImageSkeleton.toString = () => '.nextui-image-skeleton';
 
 export default withDefaults(ImageSkeleton, defaultProps);

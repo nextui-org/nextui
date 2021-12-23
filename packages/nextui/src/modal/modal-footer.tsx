@@ -65,6 +65,8 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
   );
 };
 
+ModalFooter.toString = () => '.nextui-modal-footer';
+
 const MemoModalFooter = React.memo(ModalFooter);
 
 export default withDefaults(MemoModalFooter, defaultProps);

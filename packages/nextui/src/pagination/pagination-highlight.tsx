@@ -54,4 +54,6 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   );
 };
 
+PaginationHighlight.toString = () => '.nextui-pagination-highlight';
+
 export default PaginationHighlight;

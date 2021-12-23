@@ -8,6 +8,7 @@ import React, {
   useState
 } from 'react';
 import { ContentPosition } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
 import Textarea from '../textarea';
 import InputPassword from './input-password';
 import { getId } from '../utils/collections';
@@ -31,8 +32,10 @@ import ClearIcon from '../utils/clear-icon';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
-type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props | 'css'>;
-export type InputProps = Props & typeof defaultProps & NativeAttrs;
+type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
+export type InputProps = Props &
+  typeof defaultProps &
+  NativeAttrs & { css?: CSS };
 
 const simulateChangeEvent = (
   el: FormElement,
@@ -411,8 +414,10 @@ type InputComponent<T, P = {}> = React.ForwardRefExoticComponent<
 
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs;
+  NativeAttrs & { css?: CSS };
 
 Input.defaultProps = defaultProps;
+
+Input.toString = () => '.nextui-input';
 
 export default Input as InputComponent<FormElement, ComponentProps>;

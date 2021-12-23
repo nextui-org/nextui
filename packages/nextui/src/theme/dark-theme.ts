@@ -10,11 +10,16 @@ export default {
     accents8: '$gray200',
     accents9: '$gray100',
     text: '$white',
+    primaryLight: '$blue600',
+    secondaryLight: '$purple600',
+    successLight: '$green600',
+    warningLight: '$yellow600',
+    errorLight: '$red600',
     background: '$black',
     foreground: '$white',
     codeLight: '#16272e',
     code: '#6cc0e1',
-    border: '$gray500',
+    border: '$gray700',
     selection: '#ff4ecd'
   },
   shadows: {

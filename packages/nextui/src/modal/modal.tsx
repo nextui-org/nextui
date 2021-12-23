@@ -170,6 +170,8 @@ if (__DEV__) {
   Backdrop.displayName = 'NextUI - Modal';
 }
 
+Modal.toString = () => '.nextui-modal';
+
 Modal.defaultProps = defaultProps;
 
 export default Modal as ModalComponent<ComponentProps>;

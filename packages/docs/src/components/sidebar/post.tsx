@@ -47,8 +47,7 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
 
   const linkColor = useMemo(() => {
     if (route.selected) return;
-    if (isDark) return theme?.colors?.accents6?.value;
-    return theme?.colors?.accents4?.value;
+    return theme?.colors?.accents6?.value;
   }, [isDark, route.selected]);
 
   return (

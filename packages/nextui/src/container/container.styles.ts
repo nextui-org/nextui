@@ -1,6 +1,6 @@
 import { styled, VariantProps } from '../theme/stitches.config';
 
-const StyledContainer = styled('div', {
+export const StyledContainer = styled('div', {
   w: '100%',
   mr: 'auto',
   ml: 'auto',

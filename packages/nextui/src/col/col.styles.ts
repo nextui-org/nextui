@@ -1,6 +1,6 @@
 import { styled, VariantProps } from '../theme/stitches.config';
 
-const StyledCol = styled('div', {
+export const StyledCol = styled('div', {
   float: 'left',
   boxSizing: 'border-box',
   pl: 'calc($$rowGap / 2)',

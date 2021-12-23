@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { Avatar } from '../index';
 import UserLink from './user-link';
 import { NormalColors, NormalSizes } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
 import {
   StyledUser,
   StyledUserInfo,
@@ -30,11 +31,11 @@ const defaultProps = {
   bordered: false
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type UserProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  UserVariantsProps;
+  UserVariantsProps & { css?: CSS };
 
 const preClass = 'nextui-user';
 
@@ -72,11 +73,13 @@ const User: React.FC<React.PropsWithChildren<UserProps>> = ({
   );
 };
 
+User.toString = () => '.nextui-user';
+
 type MemoUserComponent<P = {}> = React.NamedExoticComponent<P> & {
   Link: typeof UserLink;
 };
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs;
+  NativeAttrs & { css?: CSS };
 
 export default React.memo(User) as MemoUserComponent<ComponentProps>;

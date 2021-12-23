@@ -132,6 +132,8 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   );
 };
 
+Text.toString = () => '.nextui-text';
+
 const MemoText = React.memo(Text);
 
 export default withDefaults(MemoText, defaultProps);

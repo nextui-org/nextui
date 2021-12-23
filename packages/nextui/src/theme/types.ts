@@ -1,4 +1,4 @@
-import { StitchesTheme } from './stitches.config';
+import { StitchesTheme, createThemeBase } from './stitches.config';
 
 /** Configuration Interface */
 declare namespace ConfigType {
@@ -33,6 +33,7 @@ declare namespace ConfigType {
 export type BaseTheme = ConfigType.Theme;
 export type NextUITheme = StitchesTheme;
 export type ThemeType = 'dark' | 'light';
+export type CreateTheme = ReturnType<typeof createThemeBase>;
 
 export interface TokenValue {
   token: number | string;

@@ -155,6 +155,8 @@ const Image: React.FC<ImageProps> = ({
   );
 };
 
+Image.toString = () => '.nextui-image';
+
 type MemoImageComponent<P = {}> = React.NamedExoticComponent<P>;
 
 type ComponentProps = Partial<typeof defaultProps> &

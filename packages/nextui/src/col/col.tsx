@@ -43,6 +43,8 @@ const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
   );
 };
 
+Col.toString = () => '.nextui-column';
+
 const MemoCol = React.memo(Col);
 
 export default withDefaults(MemoCol, defaultProps);

@@ -155,6 +155,8 @@ if (__DEV__) {
   Button.displayName = 'NextUI - Button';
 }
 
+Button.toString = () => '.nextui-button';
+
 export default withDefaults(Button, defaultProps) as ButtonComponent<
   HTMLButtonElement,
   ButtonProps

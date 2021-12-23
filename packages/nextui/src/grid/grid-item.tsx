@@ -138,4 +138,6 @@ const GridItem: React.FC<React.PropsWithChildren<GridItemProps>> = ({
   );
 };
 
+GridItem.toString = () => '.nextui-grid-item';
+
 export default withDefaults(GridItem, defaultProps);

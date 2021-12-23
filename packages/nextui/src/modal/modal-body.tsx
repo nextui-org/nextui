@@ -1,6 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import { ModalContext } from './modal-context';
+import { CSS } from '../theme/stitches.config';
 import { StyledModalBody, ModalBodyVariantsProps } from './modal.styles';
 import cslx from '../utils/clsx';
 
@@ -15,12 +16,12 @@ const defaultProps = {
   autoMargin: true
 };
 
-type NativeAttrs = Omit<React.HTMLAttributes<HTMLElement>, keyof Props | 'css'>;
+type NativeAttrs = Omit<React.HTMLAttributes<HTMLElement>, keyof Props>;
 
 export type ModalBodyProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  ModalBodyVariantsProps;
+  ModalBodyVariantsProps & { css?: CSS };
 
 const preClass = 'nextui-modal-body';
 
@@ -54,6 +55,8 @@ const ModalBody: React.FC<ModalBodyProps> = ({
     </StyledModalBody>
   );
 };
+
+ModalBody.toString = () => '.nextui-modal-body';
 
 const MemoModalBody = React.memo(ModalBody);
 

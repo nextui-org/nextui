@@ -50,7 +50,7 @@ export const StyledLink = styled('a', {
     },
     block: {
       true: {
-        padding: '$1 $2',
+        padding: '$2 $4',
         borderRadius: '$base'
       }
     },

@@ -31,9 +31,6 @@ export const StyledText = styled('p', {
         fontWeight: '$black'
       }
     }
-  },
-  defaultVariants: {
-    weight: 'normal'
   }
 });
 

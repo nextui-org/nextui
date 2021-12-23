@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { DOTS } from '../use-pagination';
 import clsx from '../utils/clsx';
 import withDefaults from '../utils/with-defaults';
+import { CSS } from '../theme/stitches.config';
 import {
   StyledPaginationItem,
   StyledPaginationItemContent,
@@ -42,14 +43,11 @@ const getItemAriaLabel = (page?: string | number) => {
   }
 };
 
-type NativeAttrs = Omit<
-  React.ButtonHTMLAttributes<unknown>,
-  keyof Props | 'css'
->;
+type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
 
 export type PaginationItemProps = Props &
   NativeAttrs &
-  PaginationItemVariantsProps;
+  PaginationItemVariantsProps & { css?: CSS };
 
 const preClass = 'nextui-pagination-item';
 
@@ -104,5 +102,7 @@ const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
       </StyledPaginationItem>
     );
   };
+
+PaginationItem.toString = () => '.nextui-pagination-item';
 
 export default withDefaults(PaginationItem, defaultProps);

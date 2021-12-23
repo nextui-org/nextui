@@ -35,6 +35,7 @@ export type {
   Theme,
   NextUITheme,
   ThemeType,
+  CreateTheme,
   NextUIThemeContext
 } from './theme/types';
 export {

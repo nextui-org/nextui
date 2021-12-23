@@ -1,5 +1,6 @@
 import React from 'react';
 import ClearIcon from '../utils/clear-icon';
+import { CSS } from '../theme/stitches.config';
 import {
   StyledModalCloseButton,
   ModalCloseButtonVariantsProps
@@ -10,7 +11,11 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
 }
 
-export type ModalCloseButtonProps = Props & ModalCloseButtonVariantsProps;
+type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
+
+export type ModalCloseButtonProps = Props &
+  NativeAttrs &
+  ModalCloseButtonVariantsProps & { css?: CSS };
 
 const ModalCloseButton: React.FC<ModalCloseButtonProps> = ({
   onClick,
@@ -41,6 +46,8 @@ const ModalCloseButton: React.FC<ModalCloseButtonProps> = ({
     </StyledModalCloseButton>
   );
 };
+
+ModalCloseButton.toString = () => '.nextui-modal-close-icon';
 
 const MemoModalCloseButton = React.memo(ModalCloseButton);
 

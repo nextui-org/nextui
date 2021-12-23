@@ -9,7 +9,7 @@ export const StyledAvatarGroupCount = styled('span', {
   color: '$text'
 });
 
-const StyledAvatarGroup = styled('div', {
+export const StyledAvatarGroup = styled('div', {
   dflex: 'center',
   height: 'auto',
   width: 'max-content',
