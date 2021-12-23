@@ -157,7 +157,7 @@ export const StyledSwitch = styled(
     overflow: 'hidden',
     padding: 0,
     br: '$pill',
-    bg: '$gray200',
+    bg: '$accents2',
     '@motion': {
       transition: 'none'
     },

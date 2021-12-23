@@ -5,6 +5,7 @@ import { useCollapseContext } from './collapse-context';
 import useCurrentState from '../use-current-state';
 import CollapseGroup from './collapse-group';
 import useWarning from '../use-warning';
+import useTheme from '../use-theme';
 import { getId } from '../utils/collections';
 import { CSS } from '../theme/stitches.config';
 import useKeyboard, { KeyCode } from '../use-keyboard';
@@ -82,6 +83,8 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   const [visible, setVisible, visibleRef] =
     useCurrentState<boolean>(initialExpanded);
 
+  const { isDark } = useTheme();
+
   const {
     values,
     divider: groupDivider,
@@ -154,6 +157,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
       visible={visible}
       data-state={getState}
       className={clsx(className, preClass, `${preClass}--${getState}`)}
+      isDark={isDark}
       {...props}
       {...bindings}
     >

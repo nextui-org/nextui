@@ -1,8 +1,10 @@
 import {
   styled,
+  theme,
   sharedVisuallyHidden,
   VariantProps
 } from '../theme/stitches.config';
+import { addColorAlpha } from '../utils/color';
 
 const baseInputValues = {
   $$inputColor: '$colors$accents1',
@@ -10,14 +12,9 @@ const baseInputValues = {
   $$inputPlaceholderColor: '$colors$accents3',
   $$inputPlaceholderOpacity: 1,
   $$inputShadow: '$shadows$sm',
-  $$inputBorderColor: '$colors$accents2',
+  $$inputBorderColor: '$colors$border',
   $$inputHoverBorderColor: '$colors$foreground',
   $$inputLabelColor: '$$inputHoverBorderColor'
-  // TODO: test on dark mode
-  // '@dark': {
-  //   $$inputColor: '$colors$accents1',
-  //   $$inputPlaceholderColor: '$colors$accents6'
-  // }
 };
 
 export const StyledInputMainContainer = styled('div', {
@@ -33,60 +30,65 @@ export const StyledInputMainContainer = styled('div', {
       default: {},
       primary: {
         $$inputHoverBorderColor: '$colors$primary',
-        $$inputLabelColor: '$$inputHoverBorderColor'
+        $$inputLabelColor: '$colors$primary'
       },
       secondary: {
         $$inputHoverBorderColor: '$colors$secondary',
-        $$inputLabelColor: '$$inputHoverBorderColor'
+        $$inputLabelColor: '$colors$secondary'
       },
       success: {
         $$inputHoverBorderColor: '$colors$success',
-        $$inputLabelColor: '$$inputHoverBorderColor'
+        $$inputLabelColor: '$colors$success'
       },
       warning: {
         $$inputHoverBorderColor: '$colors$warning',
-        $$inputLabelColor: '$$inputHoverBorderColor'
+        $$inputLabelColor: '$colors$warning'
       },
       error: {
         $$inputHoverBorderColor: '$colors$error',
-        $$inputLabelColor: '$$inputHoverBorderColor'
+        $$inputLabelColor: '$colors$error'
       }
     },
     status: {
       default: {},
       primary: {
-        $$inputColor: '$colors$primaryLight',
+        $$inputColor: addColorAlpha(theme?.colors.primary.value, 0.2),
         $$inputPlaceholderColor: '$colors$primary',
         $$inputTextColor: '$colors$primary',
         $$inputLabelColor: '$$inputTextColor',
+        $$inputHoverBorderColor: '$colors$primary',
         $$inputPlaceholderOpacity: 0.5
       },
       secondary: {
-        $$inputColor: '$colors$secondaryLight',
+        $$inputColor: addColorAlpha(theme?.colors.secondary.value, 0.2),
         $$inputPlaceholderColor: '$colors$secondary',
         $$inputTextColor: '$colors$secondary',
         $$inputLabelColor: '$$inputTextColor',
+        $$inputHoverBorderColor: '$colors$secondary',
         $$inputPlaceholderOpacity: 0.5
       },
       success: {
-        $$inputColor: '$colors$successLight',
+        $$inputColor: addColorAlpha(theme?.colors.success.value, 0.2),
         $$inputPlaceholderColor: '$colors$success',
         $$inputTextColor: '$colors$success',
         $$inputLabelColor: '$$inputTextColor',
+        $$inputHoverBorderColor: '$colors$success',
         $$inputPlaceholderOpacity: 0.5
       },
       warning: {
-        $$inputColor: '$colors$warningLight',
+        $$inputColor: addColorAlpha(theme?.colors.warning.value, 0.2),
         $$inputPlaceholderColor: '$colors$warning',
         $$inputTextColor: '$colors$warning',
         $$inputLabelColor: '$$inputTextColor',
+        $$inputHoverBorderColor: '$colors$warning',
         $$inputPlaceholderOpacity: 0.5
       },
       error: {
-        $$inputColor: '$colors$errorLight',
+        $$inputColor: addColorAlpha(theme?.colors.error.value, 0.2),
         $$inputPlaceholderColor: '$colors$error',
         $$inputTextColor: '$colors$error',
         $$inputLabelColor: '$$inputTextColor',
+        $$inputHoverBorderColor: '$colors$error',
         $$inputPlaceholderOpacity: 0.5
       }
     },
@@ -170,10 +172,6 @@ export const StyledInputMainContainer = styled('div', {
         $$inputTextColor: '$colors$accents3',
         $$inputPlaceholderColor: '$colors$accents3',
         $$inputShadow: '$shadows$sm'
-        // '@dark': {
-        //   $$inputColor: '$colors$accents7',
-        //   $$inputPlaceholderColor: '$colors$accents4'
-        // }
       }
     }
   }
@@ -554,7 +552,9 @@ export const StyledInputBlockLabel = styled('label', {
       }
     },
     focused: {
-      true: {}
+      true: {
+        color: '$$inputHoverBorderColor'
+      }
     },
     underlined: {
       true: {}
@@ -587,7 +587,6 @@ export const StyledInputBlockLabel = styled('label', {
       focused: true,
       underlined: false,
       css: {
-        color: '$$inputTextColor',
         top: '-72%',
         left: '$2',
         cursor: 'inherit'
@@ -599,7 +598,6 @@ export const StyledInputBlockLabel = styled('label', {
       focused: true,
       underlined: true,
       css: {
-        color: '$$inputTextColor',
         top: '-72%',
         left: '0px',
         cursor: 'inherit'
@@ -703,6 +701,9 @@ export const StyledInputLabel = styled('span', {
         bblr: '$$inputBorderRadius'
       }
     },
+    isDark: {
+      true: {}
+    },
     isDefaultStatus: {
       true: {}
     },
@@ -754,10 +755,16 @@ export const StyledInputLabel = styled('span', {
       underlined: false,
       css: {
         bg: '$accents2'
-        // TODO: Dark mode test
-        // '@dark': {
-        //   bg: '$accents3'
-        // }
+      }
+    },
+    // isDefaultStatus && !bordered && !underlined && isDark
+    {
+      isDefaultStatus: true,
+      bordered: false,
+      underlined: false,
+      isDark: true,
+      css: {
+        color: '$accents6'
       }
     },
     // !isDefaultStatus && !bordered && !underlined

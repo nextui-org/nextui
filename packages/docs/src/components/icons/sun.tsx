@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IconProps } from './index';
 
 const Sun: React.FC<IconProps> = ({
-  fill,
+  fill = 'currentColor',
   filled,
   size,
   height,

@@ -5,6 +5,7 @@ import { isChildElement } from '../utils/collections';
 import { CSS } from '../theme/stitches.config';
 import ModalCloseButton from './modal-close-button';
 import { KeyCode } from '../use-keyboard';
+import useTheme from '../use-theme';
 import {
   StyledModal,
   StyledModalHideTab,
@@ -54,6 +55,8 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   const tabStart = useRef<HTMLDivElement>(null);
   const tabEnd = useRef<HTMLDivElement>(null);
   const [rendered, setRendered] = useState(false);
+
+  const { isDark } = useTheme();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -106,6 +109,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
         fullScreen={fullScreen}
         scroll={scroll}
         closeButton={closeButton}
+        isDark={isDark}
         className={cslx(
           preClass,
           `${preClass}--${getState}`,

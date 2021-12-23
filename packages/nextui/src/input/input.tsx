@@ -14,6 +14,7 @@ import InputPassword from './input-password';
 import { getId } from '../utils/collections';
 import { Props, FormElement, defaultProps } from './input-props';
 import { isEmpty } from '../utils/assertion';
+import useTheme from '../use-theme';
 import useWarning from '../use-warning';
 import {
   StyledInput,
@@ -101,6 +102,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
 
     const [selfValue, setSelfValue] = useState<string>(initialValue);
     const [hover, setHover] = useState<boolean>(false);
+
+    const { isDark } = useTheme();
 
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
 
@@ -298,6 +301,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
                 isDefaultStatus={status === 'default'}
                 underlined={underlined}
                 bordered={bordered}
+                isDark={isDark}
               >
                 {labelLeft}
               </InputLabel>
@@ -384,6 +388,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
                 underlined={underlined}
                 bordered={bordered}
                 isRight={true}
+                isDark={isDark}
               >
                 {labelRight}
               </InputLabel>
@@ -415,6 +420,8 @@ type InputComponent<T, P = {}> = React.ForwardRefExoticComponent<
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs & { css?: CSS };
+
+Input.displayName = 'NextUI - Input';
 
 Input.defaultProps = defaultProps;
 

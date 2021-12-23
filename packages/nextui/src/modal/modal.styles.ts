@@ -188,9 +188,6 @@ export const StyledModal = styled('section', {
   br: '$lg',
   boxShadow: '$lg',
   bg: '$background',
-  // '@dark': {
-  //   bg: '$accents1'
-  // },
   animationFillMode: 'forwards',
   '&.nextui-modal-wrapper-enter:not(.nextui-modal-rendered)': {
     animationName: appearanceIn,
@@ -231,6 +228,11 @@ export const StyledModal = styled('section', {
             size: '$10'
           }
         }
+      }
+    },
+    isDark: {
+      true: {
+        bg: '$accents1'
       }
     }
   },
