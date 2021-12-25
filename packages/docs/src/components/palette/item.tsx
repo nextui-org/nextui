@@ -1,6 +1,13 @@
 import React from 'react';
 import cn from 'classnames';
-import { Grid, Text, useTheme, Tooltip } from '@nextui-org/react';
+import {
+  Grid,
+  Text,
+  useTheme,
+  Tooltip,
+  GridProps,
+  useClipboard
+} from '@nextui-org/react';
 import { get, replace, capitalize } from 'lodash';
 import {
   invertHex,
@@ -10,19 +17,42 @@ import {
   getCssVar
 } from '@utils/index';
 
-interface ItemProps {
+interface Props {
   color: string;
   inverted?: boolean;
+  linear?: boolean;
+  textColor?: string;
 }
 
-const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
-  const { theme } = useTheme();
+export type ItemProps = Props & GridProps;
+
+const Item: React.FC<ItemProps> = ({
+  color,
+  inverted,
+  linear,
+  textColor: textColorProp,
+  ...props
+}) => {
+  const { theme, isDark } = useTheme();
   const isGradient = color.includes('gradient');
+
+  const { copy } = useClipboard();
+
   let hexColor = get(theme?.colors, `${color}.value` || 'primary.value');
   hexColor = isCssVar(hexColor) ? getCssVar(hexColor) : hexColor;
-  const textColor = inverted
+
+  const hexTextColor = get(theme?.colors, `${textColorProp}.value`);
+
+  const itemTextColor = inverted
     ? invertHex(hexColor)
     : theme?.colors?.white?.value;
+
+  const userTextColor = isCssVar(hexTextColor)
+    ? getCssVar(hexTextColor)
+    : hexTextColor;
+
+  const textColor = userTextColor || itemTextColor;
+
   const shadowColor = isGradient
     ? hexFromString(hexColor, theme?.colors?.primary?.value, true)
     : hexColor;
@@ -30,28 +60,59 @@ const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
   const renderItem = () => {
     return (
       <Grid
-        className={cn('color', { 'is-gradient': isGradient })}
-        style={{
+        className={cn('color', {
+          'is-gradient': isGradient,
+          'is-linear': linear
+        })}
+        css={{
           background: hexColor,
           marginRight: '10px',
           marginBottom: '10px',
-          boxShadow: `0 20px 35px -10px ${hexToRGBA(shadowColor, 0.4)}`
+          boxShadow: `0 20px 35px -10px ${hexToRGBA(
+            shadowColor,
+            isDark ? 0.2 : 0.4
+          )}`
         }}
         {...props}
       >
         {isGradient ? (
-          <Text css={{ m: 0 }} className="text" style={{ color: textColor }}>
+          <Text
+            className="text"
+            css={{
+              m: 0,
+              fontWeight: '$semibold',
+              color: textColor,
+              '@smMax': {
+                fontSize: '$xs'
+              }
+            }}
+          >
             {capitalize(replace(color, '_', ' '))}
           </Text>
         ) : (
           <>
-            <Text css={{ m: 0 }} className="text" style={{ color: textColor }}>
+            <Text
+              className="text"
+              css={{
+                m: 0,
+                fontWeight: '$semibold',
+                color: textColor,
+                '@smMax': {
+                  fontSize: '$xs'
+                }
+              }}
+            >
               {capitalize(replace(color, '_', ' '))}
             </Text>
             <Text
-              css={{ m: 0 }}
               className="hex-text"
-              style={{ color: textColor }}
+              css={{
+                m: 0,
+                fontSize: '$tiny',
+                color: textColor,
+                opacity: 0.8,
+                fontWeight: '$bold'
+              }}
             >
               {hexColor?.toUpperCase()}
             </Text>
@@ -68,26 +129,18 @@ const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
             align-items: center;
             border-radius: ${theme?.radii?.lg?.value};
             transition: all 0.25s ease;
-          }
-          :global(.color.is-gradient) {
             cursor: pointer;
           }
           :global(.color:hover) {
             transform: translateY(5px);
-            box-shadow: 0 0 0 0 ${theme?.colors?.background?.value} !important;
           }
-          :global(.text) {
-            font-weight: bold;
-            text-transform: capitalize;
-            font-size: 13px !important;
+          :global(.color.is-linear:hover) {
+            transform: translateX(-5px);
           }
           @media only screen and (max-width: ${theme?.breakpoints?.sm.value}) {
             :global(.color) {
               width: 80px;
               height: 80px;
-            }
-            :global(.text) {
-              font-size: 10px !important;
             }
           }
         `}</style>
@@ -102,7 +155,13 @@ const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
           <>{renderItem()}</>
         </Tooltip>
       ) : (
-        renderItem()
+        <Tooltip
+          trigger="click"
+          content="Copied!"
+          onClick={() => copy(hexColor)}
+        >
+          <>{renderItem()}</>
+        </Tooltip>
       )}
     </>
   );

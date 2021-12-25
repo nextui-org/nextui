@@ -1,104 +1,43 @@
 ---
 title: Default Theme
 description: The NextUI theme object is where you define your application's color palette, fonts, font sizes, breakpoints, border radius, and more.
-url: https://nextui.com/docs/theme/palette
+url: https://nextui.com/docs/theme/default-theme
 ---
 
 # Default Theme
 
-The NextUI theme object is where you define your application's color palette, fonts, font sizes, breakpoints, border radius values, and more.
+The NextUI `theme` object is where you define your application's [color palette](/docs/theme/default-theme#colors),
+[fonts](/docs/theme/default-theme#fonts), [font sizes](/docs/theme/default-theme#font-sizes),
+[breakpoints](/docs/theme/default-theme#breakpoints), [border radius values](/docs/theme/default-theme#border-radius), and more.
 
 <CarbonAd />
 
-### Theme type
-
-NextUI comes with two types of themes:
-
-```ts
-export default {
-  // default theme object
-  type: 'light' | 'dark', // light is set by default
-  ...
-};
-```
-
-<Spacer y={2} />
-
-### Palette
+### Colors
 
 NextUI includes a default color palette out-of-the-box that is a great starting point if you don’t have your own specific branding in mind.
 
-```js
-export default {
-  // default theme object
-  type: '...',
-  palette: {
-     /* Default Colors */
-      white: '#fff',
-      black: '#000',
-      primary: '#0070f3',
-      secondary: '#7928ca',
-      success: '#17c964',
-      warning: '#f5a623',
-      error: '#f21361',
-      gradient: 'linear-gradient(111.19deg, #aaffec -63.59%, #ff4ecd -20.3%, #0070f3 70.46%)',
-      link: '#0070f3',
-      ... // other colors
-  },
-  ...
-};
+You can access the colors through the `theme` object or usign `tokens` whitin the `css` prop or `styled` components,
+see the [theme object](/docs/guide/getting-started) for more information.
 
-// light theme
-export const lightPalette = {
-  // default theme object
-  type: 'light',
-  palette: {
-      ... // default colors
-      accents_1: '#f6f6f6',
-      accents_2: '#eaeaea',
-      accents_3: '#999',
-      accents_4: '#888',
-      accents_5: '#666',
-      accents_6: '#444',
-      accents_7: '#333',
-      accents_8: '#111',
-      text: '#333',
-      background: '#fff',
-      foreground: '#000',
-      code: '#f81ce5',
-      border: '#eaeaea',
-      selection: '#0070f3',
-  },
-  ...
-};
+```jsx
+import { useTheme, Text } from '@nextui-org/react';
 
-// dark theme
-export const darkPalette = {
-  // default theme object
-  type: 'dark',
-  palette: {
-      ... // default colors
-      accents_1: '#111',
-      accents_2: '#333',
-      accents_3: '#444',
-      accents_4: '#666',
-      accents_5: '#888',
-      accents_6: '#999',
-      accents_7: '#eaeaea',
-      accents_8: '#fafafa',
-      text: '#fff',
-      background: '#000',
-      foreground: '#fff',
-      code: '#77c8e6',
-      border: '#333',
-      selection: '#ff4ecd',
-  },
-  ...
+const MyComponent = () => {
+  const { theme } = useTheme();
+
+  return (
+    <div>
+      <p style={{ color: theme.colors.primary.value }}>
+        Using color theme value
+      </p>
+      <Text css={{ color: '$primary' }}>Using tokens</Text>
+    </div>
+  );
 };
 ```
 
 <Playground
-  title="Base"
+  title="Brand"
   showEditor={false}
   code={`
     <Palette colors={[
@@ -113,18 +52,119 @@ export const darkPalette = {
 />
 
 <Playground
+  title="Base"
+  desc="We recommend adding a palette that ranges from 100 to 900. You can use tools like [Eva Design System](https://colors.eva.design/) or [RadixUI Colors](https://www.radix-ui.com/colors) to generate a palette."
+  showEditor={false}
+  code={`
+    <Palette 
+      colors={[
+        [
+          "blue100",
+          "blue200",
+          "blue300",
+          "blue400",
+          "blue500",
+          "blue600",
+          "blue700",
+          "blue800",
+          "blue900",
+        ],
+        [
+          "purple100",
+          "purple200",
+          "purple300",
+          "purple400",
+          "purple500",
+          "purple600",
+          "purple700",
+          "purple800",
+          "purple900",
+        ],
+        [
+          "green100",
+          "green200",
+          "green300",
+          "green400",
+          "green500",
+          "green600",
+          "green700",
+          "green800",
+          "green900",
+        ],
+        [
+          "yellow100",
+          "yellow200",
+          "yellow300",
+          "yellow400",
+          "yellow500",
+          "yellow600",
+          "yellow700",
+          "yellow800",
+          "yellow900",
+        ],
+        [
+          "red100",
+          "red200",
+          "red300",
+          "red400",
+          "red500",
+          "red600",
+          "red700",
+          "red800",
+          "red900",
+        ],
+        [
+          "cyan100",
+          "cyan200",
+          "cyan300",
+          "cyan400",
+          "cyan500",
+          "cyan600",
+          "cyan700",
+          "cyan800",
+          "cyan900",
+        ],
+        [
+          "pink100",
+          "pink200",
+          "pink300",
+          "pink400",
+          "pink500",
+          "pink600",
+          "pink700",
+          "pink800",
+          "pink900",
+        ],
+        [
+          "gray100",
+          "gray200",
+          "gray300",
+          "gray400",
+          "gray500",
+          "gray600",
+          "gray700",
+          "gray800",
+          "gray900",
+        ]
+      ]}
+    />
+ `}
+/>
+
+<Playground
   title="Accents"
   showEditor={false}
   code={`
     <Palette inverted colors={[
-        "accents_1", 
-        "accents_2", 
-        "accents_3",
-        "accents_4",
-        "accents_5",
-        "accents_6",
-        "accents_7",
-        "accents_8"
+        "accents1", 
+        "accents2", 
+        "accents3",
+        "accents4",
+        "accents5",
+        "accents6",
+        "accents7",
+        "accents8",
+        "accents9",
     ]}/>
  `}
 />
@@ -145,7 +185,7 @@ export const darkPalette = {
 />
 
 <Playground
-  title="Highlight"
+  title="Highlights"
   showEditor={false}
   code={`
     <Palette inverted colors={[

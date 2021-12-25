@@ -28,6 +28,7 @@ interface Props {
   offset?: number;
   className?: string;
   portalClassName?: string;
+  onClick?: () => void;
   onVisibleChange?: TooltipOnVisibleChange;
   as?: keyof JSX.IntrinsicElements;
   triggerCss?: CSS;
@@ -75,6 +76,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   hideArrow,
   css,
   triggerCss,
+  onClick,
   visible: customVisible,
   ...props
 }) => {
@@ -115,10 +117,14 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     timer.current = window.setTimeout(() => handler(false), leaveDelay);
   };
 
-  const mouseEventHandler = (next: boolean) =>
+  const mouseEventHandler = (next: boolean) => {
     trigger === 'hover' && changeVisible(next);
-  const clickEventHandler = () =>
+  };
+
+  const clickEventHandler = () => {
     trigger === 'click' && changeVisible(!visible);
+    onClick?.();
+  };
 
   useClickAway(ref, () => trigger === 'click' && changeVisible(false));
 

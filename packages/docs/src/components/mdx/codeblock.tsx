@@ -42,9 +42,13 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
   const classnameColor = codeTheme.styles.find((style) =>
     style.types.includes('tag')
   );
+  const attrColor = codeTheme.styles.find((style) =>
+    style.types.includes('attr-name')
+  );
   const functionColor = codeTheme.styles.find((style) =>
     style.types.includes('function')
   );
+
   globalStyles();
   return (
     <Snippet
@@ -72,9 +76,6 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
           '.token.class-name': {
             color: classnameColor?.style.color
           },
-          '.token.maybe-class-name': {
-            color: selectorColor?.style.color
-          },
           '.token.plain-text, .token.comment': {
             color: commentColor?.style.color
           },
@@ -83,6 +84,15 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
           },
           '.token.function': {
             color: functionColor?.style.color
+          },
+          '.token.tag': {
+            color: selectorColor?.style.color
+          },
+          '.token.attr-name': {
+            color: attrColor?.style.color
+          },
+          '.token.language-javascript': {
+            color: numberColor?.style.color
           }
         },
         [`& ${StyledSnippetCopyButton}`]: {

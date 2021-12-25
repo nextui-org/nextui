@@ -1,11 +1,12 @@
 import Router from 'next/router';
 export const isBrowser = typeof window !== `undefined`;
 
-export const getCssVar = (name: string) => {
+export const getCssVar = (name?: string) => {
   if (typeof document !== 'undefined' || !name) {
     const property = isCssVar(name)
-      ? name.replace('var(', '').replace(')', '')
+      ? name?.replace('var(', '').replace(')', '')
       : `--${name}`;
+    if (!property) return '';
     return getComputedStyle(document.documentElement).getPropertyValue(
       property
     );
@@ -13,7 +14,7 @@ export const getCssVar = (name: string) => {
   return '';
 };
 
-export const isCssVar = (property: string) => {
+export const isCssVar = (property?: string) => {
   return property && property?.indexOf('var(') === 0 ? true : false;
 };
 

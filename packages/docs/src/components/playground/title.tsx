@@ -10,7 +10,7 @@ interface Props {
 }
 
 const defaultProps = {
-  desc: '',
+  desc: ''
 };
 
 export type TitleProps = Props & typeof defaultProps;
@@ -28,10 +28,9 @@ const Title: React.FC<TitleProps> = ({ title, desc }) => {
       {desc && <ReactMarkdown>{desc}</ReactMarkdown>}
       <style jsx>{`
         h3 {
-          margin-bottom: ${desc ? 0 : '30px'};
+          margin-bottom: 0;
           line-height: 1;
           font-size: 1.25rem;
-          margin-top: 30px;
           text-transform: capitalize;
           position: relative;
         }

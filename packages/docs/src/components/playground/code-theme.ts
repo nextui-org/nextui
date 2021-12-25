@@ -60,7 +60,7 @@ const makeCodeTheme = ({ theme, isDark }: NextUIThemeContext): PrismTheme => ({
     {
       types: ['attr-name'],
       style: {
-        color: theme?.colors?.warning?.value
+        color: theme?.colors?.yellow500?.value
       }
     },
     {
