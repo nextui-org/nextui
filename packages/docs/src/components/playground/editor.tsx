@@ -155,11 +155,9 @@ const Editor: React.FC = () => {
           justify-content: space-between;
           align-items: center;
           padding: 0 ${theme?.space?.lg?.value};
-          color: ${
-            !isDark
-              ? theme?.colors?.accents2?.value
-              : theme?.colors?.accents5?.value
-          };
+          color: ${!isDark
+            ? theme?.colors?.accents2?.value
+            : theme?.colors?.accents5?.value};
           height: 2.875rem;
           list-style: none;
           user-select: none;
@@ -178,11 +176,9 @@ const Editor: React.FC = () => {
           position: relative;
           box-sizing: border-box;
           white-space: pre;
-          font-family: ${theme?.fonts?.mono};
-          color: #fff,
-          background-color: #111,
           font-size: 1em;
           overflow: hidden;
+          font-family: ${theme?.fonts?.mono};
           padding: ${theme?.space?.sm?.value};
         }
         .arrow {
