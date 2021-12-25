@@ -6,6 +6,7 @@ exports[`Button should render different variants 2`] = `
 <NextUI - Button
   animated={true}
   bordered={false}
+  className=""
   clickable={true}
   disabled={false}
   ghost={false}
@@ -19,6 +20,7 @@ exports[`Button should render empty button correctly 1`] = `
 <NextUI - Button
   animated={true}
   bordered={false}
+  className=""
   clickable={true}
   disabled={false}
   ghost={false}

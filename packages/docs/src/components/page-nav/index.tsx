@@ -2,7 +2,7 @@ import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { Route, addTagToSlug } from '@lib/docs/page';
 import NextLink from 'next/link';
-import { useTheme, Container, Link } from '@nextui-org/react';
+import { useTheme, styled, Container, Link } from '@nextui-org/react';
 import { ArrowRight, ArrowLeft } from '../icons';
 import { removeFromLast } from '@utils/index';
 
@@ -13,6 +13,17 @@ export interface PageNavProps {
 }
 
 const defaultProps = {};
+
+const StyledLink = styled(Link, {
+  '&.page-nav__link': {
+    d: 'flex',
+    ai: 'center',
+    color: '$text',
+    '&:hover': {
+      bg: '$accents2'
+    }
+  }
+});
 
 const PageNav: React.FC<PageNavProps> = ({ tag, prevRoute, nextRoute }) => {
   const { theme } = useTheme();
@@ -28,14 +39,10 @@ const PageNav: React.FC<PageNavProps> = ({ tag, prevRoute, nextRoute }) => {
         <NextLink
           href={addTagToSlug(removeFromLast(prevRoute.path || '', '.'), tag)}
         >
-          <Link
-            css={{ color: '$foreground', d: 'flex', ai: 'center' }}
-            className="nav__link"
-            block
-          >
+          <StyledLink block className="page-nav__link">
             <ArrowLeft fill={theme?.colors?.primary?.value} size={20} />
             {prevRoute.title}
-          </Link>
+          </StyledLink>
         </NextLink>
       ) : (
         <span />
@@ -44,20 +51,14 @@ const PageNav: React.FC<PageNavProps> = ({ tag, prevRoute, nextRoute }) => {
         <NextLink
           href={addTagToSlug(removeFromLast(nextRoute.path || '', '.'), tag)}
         >
-          <Link
-            css={{ color: '$foreground', d: 'flex', ai: 'center' }}
-            className="nav__link"
-            block
-          >
+          <StyledLink block className="page-nav__link">
             {nextRoute.title}
             <ArrowRight fill={theme?.colors?.primary?.value} size={20} />
-          </Link>
+          </StyledLink>
         </NextLink>
       )}
     </Container>
   );
 };
 
-const PageNavMemo = React.memo(PageNav);
-
-export default withDefaults(PageNavMemo, defaultProps);
+export default withDefaults(PageNav, defaultProps);

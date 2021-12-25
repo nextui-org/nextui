@@ -27,9 +27,9 @@ export type {
 export { KeyMod, KeyCode } from './use-keyboard/codes';
 export { default as CssBaseline } from './css-baseline';
 
-// Theme
 //Theme
 export { default as NextUIProvider } from './theme/theme-provider';
+export { changeTheme, getDocumentTheme } from './theme/utils';
 export type { VariantProps, CSS } from './theme/stitches.config';
 export type {
   Theme,

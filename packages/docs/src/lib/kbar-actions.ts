@@ -3,7 +3,7 @@ import { NextRouter } from 'next/router';
 import { Route } from '@lib/docs/page';
 import { getId } from '../utils/collections';
 import { removeFromLast } from '@utils/index';
-import { ThemeType } from '@nextui-org/react';
+import { ThemeType, changeTheme } from '@nextui-org/react';
 // data imported from manifest
 import docsManifest from '../../content/docs/manifest.json';
 
@@ -58,8 +58,7 @@ const handleExternalLink = (href: string) => {
 };
 
 const handleChangeTheme = (theme: ThemeType) => {
-  if (!document) return;
-  document?.documentElement?.setAttribute('data-theme', theme);
+  changeTheme(theme);
 };
 
 const getActions = (router: NextRouter): Action[] => {

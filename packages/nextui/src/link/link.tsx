@@ -36,6 +36,4 @@ if (__DEV__) {
 
 Link.toString = () => '.nextui-link';
 
-const MemoLink = React.memo(Link);
-
-export default withDefaults(MemoLink, defaultProps);
+export default withDefaults(Link, defaultProps);

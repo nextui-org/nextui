@@ -6,8 +6,8 @@ import { CreateTheme, NextUIThemeContext, ThemeType } from './types';
 import deepMerge from '../utils/deep-merge';
 import { copyObject } from '../utils/object';
 import { SsrProvider } from './ssr-provider';
+import { getDocumentCSSTokens, getDocumentTheme } from './utils';
 import useSSR from '../use-ssr';
-import { getDocumentCSSTokens } from './utils';
 
 export interface Props {
   theme?: CreateTheme;
@@ -36,10 +36,8 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
   };
 
   const changeTypeBaseEl = (el: HTMLElement) => {
-    const documentTheme =
-      el?.getAttribute('data-theme') ||
-      el?.getAttribute('style')?.replace('color-scheme: ', '').replace(';', '');
-    documentTheme && changeCurrentTheme(documentTheme);
+    const themeValue = getDocumentTheme(el);
+    themeValue && changeCurrentTheme(themeValue);
   };
 
   const providerValue = useMemo<NextUIThemeContext>(() => {

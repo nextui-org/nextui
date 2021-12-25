@@ -91,9 +91,6 @@ import { Avatar } from '@nextui-org/react';
     <Grid>
         <Avatar text="Grad" color="gradient" textColor="white" />
     </Grid>
-    <Grid>
-        <Avatar text="#ff4ecd" css={{ '.nextui-avatar-bg': { bg: '#ff4ecd' } }}/>
-    </Grid>
  </Grid.Container>
 `}
 />
@@ -120,9 +117,6 @@ import { Avatar } from '@nextui-org/react';
     </Grid>
     <Grid>
         <Avatar size="lg" src="/avatars/avatar-7.png" color="gradient" bordered />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-8.png" css={{ '.nextui-avatar-bg': { bg: '#ff4ecd' } }} bordered />
     </Grid>
  </Grid.Container>
 `}
@@ -180,9 +174,6 @@ import { Avatar } from '@nextui-org/react';
     </Grid>
     <Grid>
         <Avatar size="lg" src="/avatars/avatar-7.png" color="gradient" bordered squared />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-8.png" css={{ '.nextui-avatar-bg': { bg: '#ff4ecd' } }} bordered squared />
     </Grid>
  </Grid.Container>
 `}
@@ -242,23 +233,22 @@ import { Avatar } from '@nextui-org/react';
         '/avatars/avatar-5.png',
     ];
     return (
-    <>
-     <Row style={{ marginLeft: '0.5rem'}}>
+    <Grid.Container gap={1}>
+     <Grid xs={12}>
         <Avatar.Group count={12}>
             {nameUsers.map((name, index) => (
             <Avatar key={index} size="lg" pointer text={name} stacked />
             ))}
         </Avatar.Group>
-      </Row>
-      <Spacer />
-      <Row>
+      </Grid>
+      <Grid xs={12}>
         <Avatar.Group count={12}>
             {pictureUsers.map((url, index) => (
             <Avatar key={index} size="lg" pointer src={url} bordered color="gradient" stacked />
             ))}
         </Avatar.Group>
-      </Row>  
-    </>
+      </Grid>  
+    </Grid.Container>
     );
  }
 `}

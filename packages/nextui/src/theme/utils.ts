@@ -1,6 +1,7 @@
 import commonTheme from './common';
 import defaultTheme from './light-theme';
-import { TokenValue } from './types';
+import { ThemeType, TokenValue } from './types';
+import clsx from '../utils/clsx';
 
 export const getDocumentCSSTokens = () => {
   const colorKeys = [
@@ -57,4 +58,50 @@ export const getDocumentCSSTokens = () => {
     colors: colorTokens,
     shadows: shadowTokens
   };
+};
+
+/**
+ * Returns active theme according to the given document
+ */
+export const getDocumentTheme = (el: HTMLElement) => {
+  const styleAttrValues =
+    el
+      ?.getAttribute('style')
+      ?.split(';')
+      .map((el) => el.trim())
+      .filter((el) => el.includes('color-scheme')) || [];
+
+  const colorScheme =
+    styleAttrValues.length > 0
+      ? styleAttrValues[0].replace('color-scheme: ', '').replace(';', '')
+      : '';
+
+  const documentTheme = el?.getAttribute('data-theme');
+
+  return documentTheme || colorScheme;
+};
+
+export const changeTheme = (theme: ThemeType | string) => {
+  if (!document) return;
+  const el = document.documentElement;
+
+  const prevClasses =
+    el
+      ?.getAttribute('class')
+      ?.split(' ')
+      .filter(
+        (cls) =>
+          !cls.includes('theme') &&
+          !cls.includes('light') &&
+          !cls.includes('dark')
+      ) || [];
+  const prevStyles =
+    el
+      ?.getAttribute('style')
+      ?.split(';')
+      .filter((stl) => !stl.includes('color-scheme'))
+      .map((el) => `${el};`) || [];
+
+  el?.setAttribute('class', clsx(prevClasses, `${theme}-theme`));
+  el?.setAttribute('style', clsx(prevStyles, `color-scheme: ${theme};`));
 };
