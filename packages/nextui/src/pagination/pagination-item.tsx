@@ -51,57 +51,58 @@ export type PaginationItemProps = Props &
 
 const preClass = 'nextui-pagination-item';
 
-const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> =
-  ({
-    active,
-    value,
-    children,
-    disabled,
-    animated,
-    bordered,
-    onClick,
-    onlyDots,
-    preserveContent,
-    ...props
-  }) => {
-    const ariaLabel = useMemo(
-      () =>
-        active ? `${getItemAriaLabel(value)} active` : getItemAriaLabel(value),
-      [value, active]
-    );
+const PaginationItem: React.FC<
+  React.PropsWithChildren<PaginationItemProps>
+> = ({
+  active,
+  value,
+  children,
+  disabled,
+  animated,
+  bordered,
+  onClick,
+  onlyDots,
+  preserveContent,
+  ...props
+}) => {
+  const ariaLabel = useMemo(
+    () =>
+      active ? `${getItemAriaLabel(value)} active` : getItemAriaLabel(value),
+    [value, active]
+  );
 
-    const clickHandler = (event: React.MouseEvent) => {
-      if (disabled) return;
-      onClick && onClick(event);
-    };
-
-    return (
-      <StyledPaginationItem
-        className={clsx(preClass, {
-          [`${preClass}-active`]: active,
-          [`${preClass}-animated`]: animated,
-          [`${preClass}-disabled`]: disabled,
-          [`${preClass}-bordered`]: bordered,
-          [`${preClass}-only-dots`]: onlyDots,
-          [`${preClass}-preserve-content`]: preserveContent
-        })}
-        animated={animated}
-        active={active}
-        disabled={disabled}
-        bordered={bordered}
-        onlyDots={onlyDots}
-        preserveContent={preserveContent}
-        onClick={clickHandler}
-        aria-label={ariaLabel}
-        tabIndex={disabled ? -1 : 0}
-        {...props}
-      >
-        <StyledPaginationItemContent className={`${preClass}-content`}>
-          {children}
-        </StyledPaginationItemContent>
-      </StyledPaginationItem>
-    );
+  const clickHandler = (event: React.MouseEvent) => {
+    if (disabled) return;
+    onClick && onClick(event);
   };
+
+  return (
+    <StyledPaginationItem
+      className={clsx(preClass, {
+        [`${preClass}-active`]: active,
+        [`${preClass}-animated`]: animated,
+        [`${preClass}-disabled`]: disabled,
+        [`${preClass}-bordered`]: bordered,
+        [`${preClass}-only-dots`]: onlyDots,
+        [`${preClass}-preserve-content`]: preserveContent
+      })}
+      animated={animated}
+      active={active}
+      disabled={disabled}
+      bordered={bordered}
+      onlyDots={onlyDots}
+      preserveContent={preserveContent}
+      onClick={clickHandler}
+      aria-label={ariaLabel}
+      tabIndex={disabled ? -1 : 0}
+      {...props}
+    >
+      <StyledPaginationItemContent className={`${preClass}-content`}>
+        {children}
+      </StyledPaginationItemContent>
+    </StyledPaginationItem>
+  );
+};
 
 PaginationItem.toString = () => '.nextui-pagination-item';
 

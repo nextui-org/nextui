@@ -52,107 +52,108 @@ export type TooltipContentProps = Props &
 
 const preClass = 'nextui-tooltip';
 
-const TooltipContent: React.FC<React.PropsWithChildren<TooltipContentProps>> =
-  ({
-    children,
-    parent,
-    visible,
-    offset,
-    placement,
-    rounded,
-    animated,
-    className,
-    hideArrow,
-    css,
-    ...props
-  }) => {
-    const el = usePortal('tooltip');
-    const selfRef = useRef<HTMLDivElement>(null);
-    const [rect, setRect] = useState<TooltipPlacement>(defaultTooltipPlacement);
+const TooltipContent: React.FC<
+  React.PropsWithChildren<TooltipContentProps>
+> = ({
+  children,
+  parent,
+  visible,
+  offset,
+  placement,
+  rounded,
+  animated,
+  className,
+  hideArrow,
+  css,
+  ...props
+}) => {
+  const el = usePortal('tooltip');
+  const selfRef = useRef<HTMLDivElement>(null);
+  const [rect, setRect] = useState<TooltipPlacement>(defaultTooltipPlacement);
 
-    if (!parent) return null;
+  if (!parent) return null;
 
-    const updateRect = () => {
-      const pos = getPlacement(placement, getRect(parent), offset);
-      setRect(pos);
-    };
-
-    const { transform, top, left, right, bottom } = useMemo(
-      () => getIconPlacement(placement, 5),
-      [placement]
-    );
-
-    useResize(updateRect);
-    useClickAnyWhere(() => updateRect());
-
-    useEffect(() => {
-      updateRect();
-    }, [visible]);
-
-    const preventHandler = (event: React.MouseEvent<HTMLDivElement>) => {
-      event.stopPropagation();
-      event.nativeEvent.stopImmediatePropagation();
-    };
-
-    const getState = useMemo(() => {
-      return visible ? 'open' : 'closed';
-    }, [visible]);
-
-    if (!el) return null;
-    return createPortal(
-      <CSSTransition
-        name={`${preClass}-wrapper`}
-        visible={visible}
-        enterTime={20}
-        leaveTime={20}
-      >
-        <StyledTooltipContent
-          className={clsx(
-            `${preClass}-content`,
-            `${preClass}--${getState}`,
-            className
-          )}
-          data-state={getState}
-          ref={selfRef}
-          onClick={preventHandler}
-          animated={animated}
-          css={{
-            left: rect.left,
-            top: `calc(${rect.top} + 6px)`,
-            transform: rect.transform,
-            [`&.${preClass}-wrapper-enter-active`]: {
-              opacity: 1,
-              top: rect.top
-            },
-            ...(css as any)
-          }}
-          {...props}
-        >
-          <StyledTooltip
-            role="tooltip"
-            data-state={getState}
-            hideArrow={hideArrow}
-            className={clsx(preClass, {
-              [`${preClass}--with-arrow`]: !hideArrow
-            })}
-          >
-            <StyledTooltipArrow
-              className={`${preClass}-arrow`}
-              css={{
-                left,
-                top,
-                right,
-                bottom,
-                transform
-              }}
-            />
-            {children}
-          </StyledTooltip>
-        </StyledTooltipContent>
-      </CSSTransition>,
-      el
-    );
+  const updateRect = () => {
+    const pos = getPlacement(placement, getRect(parent), offset);
+    setRect(pos);
   };
+
+  const { transform, top, left, right, bottom } = useMemo(
+    () => getIconPlacement(placement, 5),
+    [placement]
+  );
+
+  useResize(updateRect);
+  useClickAnyWhere(() => updateRect());
+
+  useEffect(() => {
+    updateRect();
+  }, [visible]);
+
+  const preventHandler = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    event.nativeEvent.stopImmediatePropagation();
+  };
+
+  const getState = useMemo(() => {
+    return visible ? 'open' : 'closed';
+  }, [visible]);
+
+  if (!el) return null;
+  return createPortal(
+    <CSSTransition
+      name={`${preClass}-wrapper`}
+      visible={visible}
+      enterTime={20}
+      leaveTime={20}
+    >
+      <StyledTooltipContent
+        className={clsx(
+          `${preClass}-content`,
+          `${preClass}--${getState}`,
+          className
+        )}
+        data-state={getState}
+        ref={selfRef}
+        onClick={preventHandler}
+        animated={animated}
+        css={{
+          left: rect.left,
+          top: `calc(${rect.top} + 6px)`,
+          transform: rect.transform,
+          [`&.${preClass}-wrapper-enter-active`]: {
+            opacity: 1,
+            top: rect.top
+          },
+          ...(css as any)
+        }}
+        {...props}
+      >
+        <StyledTooltip
+          role="tooltip"
+          data-state={getState}
+          hideArrow={hideArrow}
+          className={clsx(preClass, {
+            [`${preClass}--with-arrow`]: !hideArrow
+          })}
+        >
+          <StyledTooltipArrow
+            className={`${preClass}-arrow`}
+            css={{
+              left,
+              top,
+              right,
+              bottom,
+              transform
+            }}
+          />
+          {children}
+        </StyledTooltip>
+      </StyledTooltipContent>
+    </CSSTransition>,
+    el
+  );
+};
 
 TooltipContent.toString = () => '.nextui-tooltip-content';
 

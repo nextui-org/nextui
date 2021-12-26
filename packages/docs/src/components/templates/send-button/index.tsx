@@ -14,12 +14,7 @@ const SendButton: React.FC<Props> = ({ onClick }) => {
   };
 
   return (
-    <span
-      role="button"
-      tabIndex={0}
-      className="send-button-container"
-      onClick={handleClick}
-    >
+    <div className="send-button-container" onClick={handleClick}>
       <Send fill="white" className="send-button__arrow-icon" />
       <style jsx>{`
         .send-button-container {
@@ -51,7 +46,7 @@ const SendButton: React.FC<Props> = ({ onClick }) => {
           opacity: 0;
         }
       `}</style>
-    </span>
+    </div>
   );
 };
 

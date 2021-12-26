@@ -64,13 +64,7 @@ const Keyboard: React.FC<React.PropsWithChildren<KeyboardProps>> = ({
   );
 
   return (
-    <kbd
-      role="button"
-      tabIndex={0}
-      className={className}
-      onClick={onClick}
-      {...props}
-    >
+    <kbd className={className} onClick={onClick} {...props}>
       {command && <span>⌘</span>}
       {shift && <span>⇧</span>}
       {option && <span>⌥</span>}
