@@ -5,3 +5,232 @@ url: https://nextui.com/docs/theme/palette
 ---
 
 # Dark mode
+
+NextUI comes with two palette modes: light (the default) and dark, as we mentioned [before](/docs/theme/customize-theme#theme-type).
+you can make the theme dark by setting type: `dark`.
+
+```jsx
+import { createTheme } from "@nextui-org/react"
+
+const darkTheme = createTheme({
+  type: 'dark',
+  colors: {...}, // override dark theme colors
+});
+```
+
+> NextUI has a dark theme out-of-the-box.
+
+### Usign next-themes
+
+If you are usign NextUI in conjuction with [Next.js](https://nextjs.org) the best way to apply the dark mode
+is using the [next-themes](https://github.com/pacocoursey/next-themes) package.
+
+NextUI automatically changes the theme when detects that `next-themes` changes the current theme.
+
+Here is an example of how to use `next-themes`:
+
+```jsx
+// 1. Import `createTheme`
+import { createTheme, NextUIProvider } from "@nextui-org/react"
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+
+// 2. Call `createTheme` and pass your custom values
+const lightTheme = createTheme({
+  type: 'light',
+  colors: {...},
+})
+
+const darkTheme = createTheme({
+  type: 'dark',
+  colors: {...},
+})
+
+
+// 3. Wrap NextUIProvider with NextThemesProvider
+// _app.jsx // _app.tsx
+<NextThemesProvider
+    defaultTheme="system"
+    attribute="class"
+    value={{
+      light: lightTheme.className,
+      dark: darkTheme.className
+    }}
+  >
+  <NextUIProvider>
+    <App />
+  </NextUIProvider>
+</NextThemesProvider>
+
+
+// 4. Use `next-themes` to change the theme
+import { useTheme as useNextTheme } from 'next-themes'
+import { Switch, useTheme } from '@nextui-org/react'
+
+const App = () => {
+  const { setTheme } = useNextTheme();
+  const { isDark, type } = useTheme();
+
+  return (
+    <div>
+      The current theme is: {type}
+      <Switch
+        initialChecked={isDark}
+        onChange={(e) => setTheme(target.target ? 'dark' : 'light')}
+      />
+    </div>
+  )
+}
+
+```
+
+And that's it! 🎉
+
+You have a `no-flashing` dark theme implementation for your Next.js app.
+
+> For more information about `next-themes` check out the [docs](https://github.com/pacocoursey/next-themes)
+
+### Usign use-dark-mode
+
+If you are usign NextUI in conjuction with plain [React.js](https://reactjs.org) a good way to apply the dark mode
+is using the [use-dark-mode](https://github.com/donavon/use-dark-mode) hook.
+
+Here is an example of how to use `use-dark-mode`:
+
+```jsx
+// 1. Import `createTheme`
+import { createTheme, NextUIProvider } from "@nextui-org/react"
+import useDarkMode from 'use-dark-mode';
+
+// 2. Call `createTheme` and pass your custom values
+const lightTheme = createTheme({
+  type: 'light',
+  colors: {...},
+})
+
+const darkTheme = createTheme({
+  type: 'dark',
+  colors: {...},
+})
+
+
+// 3. Apply light or dark theme depending on useDarkMode value
+// App.jsx entry point of your app
+
+
+const darkMode = useDarkMode(false);
+
+return (
+  <NextUIProvider theme={darkMode.value ? darkTheme : lightTheme}>
+    <App />
+  </NextUIProvider>
+)
+
+
+// 4. Use `useDarkMode` to change the theme
+import { Switch, useTheme } from '@nextui-org/react'
+import useDarkMode from 'use-dark-mode';
+
+const App = () => {
+  const darkMode = useDarkMode(false);
+  const { type, isDark } = useTheme();
+
+  return (
+    <div>
+      The current theme is: {type}
+      <Switch
+        initialChecked={darkMode.value}
+        onChange={() => darkMode.toggle()}
+      />
+    </div>
+  )
+}
+
+```
+
+> For more information about `use-dark-mode` check out the [docs](https://github.com/donavon/use-dark-mode)
+
+### Custom implementation
+
+NextUI exposes a `changeTheme` method that you can use to change the theme but you have to be sure
+that you have created the passed theme before.
+
+> This method is aslo useful when you want to change the theme outside a React Component.
+
+Here is an example of how to implement a custom dark mode:
+
+```jsx
+// 1. Import `createTheme`
+import { createTheme } from "@nextui-org/react"
+
+// 2. Call `createTheme` and pass your custom values
+const lightTheme = createTheme({
+  type: 'light',
+  colors: {...},
+})
+
+const darkTheme = createTheme({
+  type: 'dark',
+  colors: {...},
+})
+
+
+// 3. Apply light or dark theme depending on localStorage and `getDocumentTheme` value
+// App.jsx entry point of your app
+import React, { useEffect, useState } from 'react';
+import { getDocumentTheme } from '@nextui-org/react'
+
+const Main = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // you can use any storage
+    let theme = window.localStorage.getItem('data-theme');
+    setIsDark(theme === 'dark');
+
+    const observer = new MutationObserver((mutation) => {
+      let newTheme = getDocumentTheme(document?.documentElement);
+      setIsDark(newTheme === 'dark');
+    });
+
+    // Observe the document theme changes
+    observer.observe(document?.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme', 'style']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <NextUIProvider theme={isDark ? darkTheme : lightTheme}>
+      <App />
+    </NextUIProvider>
+  )
+}
+
+// 4. Use `changeTheme` method to control theme changing
+import { Switch, changeTheme, useTheme } from '@nextui-org/react'
+
+const App = () => {
+  const { type, isDark } = useTheme();
+
+  const handleChange = () => {
+    const nextTheme = isDark ? 'light' : 'dark';
+    window.localStorage.setItem('data-theme', nextTheme); // you can use any storage
+    changeTheme(nextTheme);
+  }
+
+  return (
+    <div>
+      The current theme is: {type}
+      <Switch
+        initialChecked={isDark}
+        onChange={handleChange}
+      />
+    </div>
+  )
+}
+
+```
+
+> Note: This dark mode implementation is less recommend since takes place only on the client side, which means that the theme can flashing when the page is loaded.

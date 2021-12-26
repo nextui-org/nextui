@@ -63,6 +63,7 @@ const Item: React.FC<ItemProps> = ({
             css={{
               m: 0,
               fontWeight: '$semibold',
+              tt: 'capitalize',
               color: textColor,
               '@smMax': {
                 fontSize: '$xs'
