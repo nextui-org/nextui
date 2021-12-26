@@ -1,5 +1,5 @@
 // Tag to use if FORCE_TAG is enabled (only for production build)
-export const TAG = 'test/stitches-as-css-in-js'; // Github branch
+export const TAG = 'main'; // Github branch
 
 export const CONTENT_PATH = '/packages/docs/content';
 
