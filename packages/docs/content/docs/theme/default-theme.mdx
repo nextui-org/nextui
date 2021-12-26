@@ -6,9 +6,7 @@ url: https://nextui.com/docs/theme/default-theme
 
 # Default Theme
 
-The NextUI `theme` object is where you define your application's [color palette](/docs/theme/default-theme#colors),
-[fonts](/docs/theme/default-theme#fonts), [font sizes](/docs/theme/default-theme#font-sizes),
-[breakpoints](/docs/theme/default-theme#breakpoints), [border radius values](/docs/theme/default-theme#border-radius), and more.
+**NextUI** default theme is base on [Stitches Theme Tokens](https://stitches.dev/docs/tokens)
 
 <CarbonAd />
 
@@ -173,7 +171,7 @@ const MyComponent = () => {
   title="Layout"
   showEditor={false}
   code={`
-    <Palette inverted colors={[
+    <Palette colors={[
         "background", 
         "foreground",
         "text",
@@ -188,7 +186,7 @@ const MyComponent = () => {
   title="Highlights"
   showEditor={false}
   code={`
-    <Palette inverted colors={[
+    <Palette colors={[
         "link",
         "selection",
         "code"
@@ -202,18 +200,20 @@ const MyComponent = () => {
 
 To manage Typography options you can use the following keys:
 
-1. fonts (font families)
-2. fontSizes
-3. fontWeights
-4. lineHeights
+- **fonts (font families)**
+- **fontSizes**
+- **fontWeights**
+- **lineHeights**
+- **letterSpacings**
+
+<Spacer y={1} />
 
 #### 1. Fonts
 
 ```js
 export default {
   // default theme object
-  type: '...', // theme type
-  palette: {...}, // color palette object
+  colors: {...}, // color palette object
   fonts: {
     sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
@@ -229,17 +229,17 @@ export default {
 ```js
 export default {
   // default theme object
-  type: '...', // theme type
-  palette: {...}, // color palette object
+  colors: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {
-        xs: "0.875rem",
-        base:"1rem",
-        sm: "1.25rem",
-        md: "1.5rem",
-        lg: "2.25rem",
-        xl: "3rem",
-    }
+    tiny: '.75rem',
+    xs: '0.875rem',
+    base: '1rem',
+    sm: '1.25rem',
+    md: '1.5rem',
+    lg: '2.25rem',
+    xl: '3rem'
+  }
   ...
 };
 ```
@@ -249,11 +249,11 @@ export default {
 ```js
 export default {
   // default theme object
-  type: '...', // theme type
-  palette: {...}, // color palette object
+  colors: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {...}, // font sizes object
   fontWeights: {
+    hairline: 100,
     thin: 200,
     light: 300,
     normal: 400,
@@ -272,8 +272,7 @@ export default {
 ```js
 export default {
   // default theme object
-  type: '...', // theme type
-  palette: {...}, // color palette object
+  colors: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {...}, // font sizes object
   fontWeights: {...}, // font weights object
@@ -288,6 +287,28 @@ export default {
 };
 ```
 
+#### 4. Letter Spacings
+
+```js
+export default {
+  // default theme object
+  colors: {...}, // color palette object
+  fonts: {...}, // font families object
+  fontSizes: {...}, // font sizes object
+  fontWeights: {...}, // font weights object
+  lineHeights: {...}, // line heights object
+  letterSpacings: {
+    tighter: '-0.05em',
+    tight: '-0.025em',
+    normal: '0',
+    wide: '0.025em',
+    wider: '0.05em',
+    widest: '0.1em'
+  }
+  ...
+};
+```
+
 <Spacer y={2} />
 
 ### Radius
@@ -297,18 +318,21 @@ NextUI provides a set of commons sizes for controlling the `border-radius` of an
 ```js
 export default {
   // default theme object
-  type: '...', // theme type
-  palette: {...}, // color palette object
+  colors: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {...}, // font sizes object
   fontWeights: {...}, // font weights object
   lineHeights: {...}, // line heights object
-  radius: {
-    xs: "2px",
-    sm: "6px",
-    md: "10px",
-    lg: "14px", // default for almost every NextUI component
-    xl: "28px"
+  radii: {
+    xs: '7px',
+    sm: '9px',
+    md: '12px',
+    base: '14px',
+    lg: '14px', // preferred value by NextUI components
+    xl: '18px',
+    squared: '33%',
+    rounded: '50%',
+    pill: '9999px'
   }
   ...
 };
@@ -324,16 +348,18 @@ NextUI includes by default a set of common border weights.
 export default {
   // default theme object
   type: '...', // theme type
-  palette: {...}, // color palette object
+  colors: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {...}, // font sizes object
   fontWeights: {...}, // font weights object
   lineHeights: {...}, // line heights object
-  radius: {...}, // border radius object
+  radii: {...}, // border radius object
   borderWeights: {
-    light: "1px",
-    normal: "2px",
-    bold: "3px",
+    light: '1px',
+    normal: '2px',
+    bold: '3px',
+    extrabold: '4px',
+    black: '5px'
   }
   ...
 ```
@@ -344,100 +370,99 @@ export default {
 
 NextUI has a set of most common spaces values which allows you to customize the
 global spacing and sizing scale for your project. By default these spacing value
-can be referenced by the `padding`, `margin`, and `top`, `left`, `right`, `bottom` styles.
+can be referenced by the `padding`, `margin`, and `top`, `left`, `right`, `bottom`, `width`, `height` and more styles.
+
+You can see the complete `space` list on [Stitches Property Mapping](https://stitches.dev/docs/tokens#property-mapping)
 
 ```js
 export default {
   // default theme object
   // ... previous theme properties
   spacing: {
-    0: "0rem",
-    xs: "0.5rem",
-    sm: "0.75rem",
-    md: "1rem",
-    lg: "1.25rem",
-    xl: "2.25rem",
-    px: "1px",
-    0.5: "0.125rem",
-    1: "0.25rem",
-    1.5: "0.375rem",
-    2: "0.5rem",
-    2.5: "0.625rem",
-    3: "0.75rem",
-    3.5: "0.875rem",
-    4: "1rem",
-    5: "1.25rem",
-    6: "1.5rem",
-    7: "1.75rem",
-    8: "2rem",
-    9: "2.25rem",
-    10: "2.5rem",
-    11: "2.75rem",
-    12: "3rem",
-    14: "3.5rem",
-    16: "4rem",
-    20: "5rem",
-    24: "6rem",
-    28: "7rem",
-    32: "8rem",
-    36: "9rem",
-    40: "10rem",
-    44: "11rem",
-    48: "12rem",
-    52: "13rem",
-    56: "14rem",
-    60: "15rem",
-    64: "16rem",
-    72: "18rem",
-    80: "20rem",
-    96: "24rem"
+    0: '0rem',
+    xs: '0.5rem',
+    sm: '0.75rem',
+    md: '1rem',
+    lg: '1.375rem',
+    xl: '2.25rem',
+    px: '1px',
+    1: '0.125rem',
+    2: '0.25rem',
+    3: '0.375rem',
+    4: '0.5rem',
+    5: '0.625rem',
+    6: '0.75rem',
+    7: '0.875rem',
+    8: '1rem',
+    9: '1.25rem',
+    10: '1.5rem',
+    11: '1.75rem',
+    12: '2rem',
+    13: '2.25rem',
+    14: '2.5rem',
+    15: '2.75rem',
+    16: '3rem',
+    17: '3.5rem',
+    18: '4rem',
+    20: '5rem',
+    24: '6rem',
+    28: '7rem',
+    32: '8rem',
+    36: '9rem',
+    40: '10rem',
+    44: '11rem',
+    48: '12rem',
+    52: '13rem',
+    56: '14rem',
+    60: '15rem',
+    64: '16rem',
+    72: '18rem',
+    80: '20rem',
+    96: '24rem'
   }
   ...
 };
 ```
 
-NetxUI's spacing scale has been inspired by [Tailwind CSS](https://tailwindcss.com/).
-The values are proportional, so 1 spacing unit is equal to 0.25rem, which translates to 4px by default in common browsers.
-
-> **TIP**: If you need a spacing of 40px, divide it by 4. That'll give you 10. Then use it in your component.
-
 <Spacer y={2} />
 
-| Name | Space    | Pixels | <Spacer x={10} />                          |
-| ---- | -------- | ------ | ------------------------------------------ |
-| 0    | 0px      | 0px    | <Progress squared value={0} max={100} />   |
-| px   | 1px      | 1px    | <Progress squared value={1} max={384} />   |
-| 0.5  | 0.125rem | 2px    | <Progress squared value={2} max={384} />   |
-| 1    | 0.25rem  | 4px    | <Progress squared value={4} max={384} />   |
-| 1.5  | 0.375rem | 6px    | <Progress squared value={6} max={384} />   |
-| 2    | 0.5rem   | 8px    | <Progress squared value={8} max={384} />   |
-| 2.5  | 0.625rem | 10px   | <Progress squared value={10} max={384} />  |
-| 3    | 0.75rem  | 12px   | <Progress squared value={12} max={384} />  |
-| 3.5  | 0.875rem | 14px   | <Progress squared value={14} max={384} />  |
-| 4    | 1rem     | 16px   | <Progress squared value={16} max={384} />  |
-| 5    | 1.25rem  | 20px   | <Progress squared value={20} max={384} />  |
-| 6    | 1.5rem   | 24px   | <Progress squared value={24} max={384} />  |
-| 7    | 1.75rem  | 28px   | <Progress squared value={28} max={384} />  |
-| 8    | 2rem     | 32px   | <Progress squared value={32} max={384} />  |
-| 9    | 2.25rem  | 36px   | <Progress squared value={36} max={384} />  |
-| 10   | 2.5rem   | 40px   | <Progress squared value={40} max={384} />  |
-| 12   | 3rem     | 48px   | <Progress squared value={48} max={384} />  |
-| 14   | 3.5rem   | 56px   | <Progress squared value={56} max={384} />  |
-| 16   | 4rem     | 64px   | <Progress squared value={64} max={384} />  |
-| 20   | 5rem     | 80px   | <Progress squared value={80} max={384} />  |
-| 24   | 6rem     | 96px   | <Progress squared value={96} max={384} />  |
-| 28   | 7rem     | 112px  | <Progress squared value={112} max={384} /> |
-| 32   | 8rem     | 128px  | <Progress squared value={128} max={384} /> |
-| 36   | 9rem     | 144px  | <Progress squared value={144} max={384} /> |
-| 40   | 10rem    | 160px  | <Progress squared value={160} max={384} /> |
-| 44   | 11rem    | 176px  | <Progress squared value={176} max={384} /> |
-| 48   | 12rem    | 192px  | <Progress squared value={192} max={384} /> |
-| 56   | 14rem    | 224px  | <Progress squared value={224} max={384} /> |
-| 60   | 15rem    | 240px  | <Progress squared value={240} max={384} /> |
-| 64   | 16rem    | 256px  | <Progress squared value={256} max={384} /> |
-| 72   | 18rem    | 288px  | <Progress squared value={288} max={384} /> |
-| 80   | 20rem    | 320px  | <Progress squared value={320} max={384} /> |
-| 96   | 24rem    | 384px  | <Progress squared value={384} max={384} /> |
+| Name    | Space    | Pixels | <Spacer x={10} />                          |
+| ------- | -------- | ------ | ------------------------------------------ |
+| 0       | 0rem     | 0px    | <Progress squared value={0} max={384} />   |
+| px      | 1px      | 1px    | <Progress squared value={1} max={384} />   |
+| 1       | 0.125rem | 2px    | <Progress squared value={2} max={384} />   |
+| 2       | 0.25rem  | 4px    | <Progress squared value={4} max={384} />   |
+| 3       | 0.375rem | 6px    | <Progress squared value={6} max={384} />   |
+| 4 (xs)  | 0.5rem   | 8px    | <Progress squared value={8} max={384} />   |
+| 5       | 0.625rem | 10px   | <Progress squared value={10} max={384} />  |
+| 6 (sm)  | 0.75rem  | 12px   | <Progress squared value={12} max={384} />  |
+| 7       | 0.875rem | 14px   | <Progress squared value={14} max={384} />  |
+| 8 (md)  | 1rem     | 16px   | <Progress squared value={16} max={384} />  |
+| 9 (lg)  | 1.25rem  | 20px   | <Progress squared value={20} max={384} />  |
+| 10      | 1.5rem   | 24px   | <Progress squared value={24} max={384} />  |
+| 11      | 1.75rem  | 28px   | <Progress squared value={28} max={384} />  |
+| 12      | 2rem     | 32px   | <Progress squared value={32} max={384} />  |
+| 13 (xl) | 2.25rem  | 36px   | <Progress squared value={36} max={384} />  |
+| 14      | 2.5rem   | 40px   | <Progress squared value={40} max={384} />  |
+| 15      | 2.75rem  | 44px   | <Progress squared value={44} max={384} />  |
+| 16      | 3rem     | 48px   | <Progress squared value={48} max={384} />  |
+| 17      | 3.75rem  | 60px   | <Progress squared value={60} max={384} />  |
+| 18      | 4rem     | 64px   | <Progress squared value={64} max={384} />  |
+| 20      | 5rem     | 80px   | <Progress squared value={80} max={384} />  |
+| 24      | 6rem     | 96px   | <Progress squared value={96} max={384} />  |
+| 28      | 7rem     | 112px  | <Progress squared value={112} max={384} /> |
+| 32      | 8rem     | 128px  | <Progress squared value={128} max={384} /> |
+| 36      | 9rem     | 144px  | <Progress squared value={144} max={384} /> |
+| 40      | 10rem    | 160px  | <Progress squared value={160} max={384} /> |
+| 44      | 11rem    | 176px  | <Progress squared value={176} max={384} /> |
+| 48      | 12rem    | 192px  | <Progress squared value={192} max={384} /> |
+| 52      | 13rem    | 208px  | <Progress squared value={208} max={384} /> |
+| 56      | 14rem    | 224px  | <Progress squared value={224} max={384} /> |
+| 60      | 15rem    | 240px  | <Progress squared value={240} max={384} /> |
+| 64      | 16rem    | 256px  | <Progress squared value={256} max={384} /> |
+| 72      | 18rem    | 288px  | <Progress squared value={288} max={384} /> |
+| 80      | 20rem    | 320px  | <Progress squared value={320} max={384} /> |
+| 96      | 24rem    | 384px  | <Progress squared value={384} max={384} /> |
 
 <Spacer y={2} />
 
@@ -451,11 +476,32 @@ export default {
   // default theme object
   // ... previous theme properties
   breakpoints: {
-    xs: '576px',
-    sm: '768px',
-    md: '992px',
-    lg: '1200px',
-    xl: '1400px'
+    xs: '650px',
+    sm: '960px',
+    md: '1280px',
+    lg: '1400px',
+    xl: '1920px'
+  }
+  ...
+};
+```
+
+### z-index values
+
+NextUI provides a minimal set of z-Indices out of the box to help control the stacking order of components.
+
+```js
+export default {
+  // default theme object
+  // ... previous theme properties
+  zIndices: {
+    1: '100',
+    2: '200',
+    3: '300',
+    4: '400',
+    5: '500',
+    10: '1000',
+    max: '9999'
   }
   ...
 };
@@ -473,11 +519,11 @@ export const lightTheme = {
   // default theme object
   // ... previous theme properties
   shadows: {
-      xs: '0 2px 10px -3px rgba(0, 0, 0, 0.1)',
-      sm: '0 5px 20px -5px rgba(0, 0, 0, 0.1)',
-      md: '0 8px 30px rgba(0, 0, 0, 0.15)',
-      lg: '0 30px 60px rgba(0, 0, 0, 0.15)',
-      xl: '0 40px 80px rgba(0, 0, 0, 0.25)'
+    xs: '-4px 0 4px rgb(0 0 0 / 5%);',
+    sm: '0 5px 20px -5px rgba(0, 0, 0, 0.1)',
+    md: '0 8px 30px rgba(0, 0, 0, 0.15)',
+    lg: '0 30px 60px rgba(0, 0, 0, 0.15)',
+    xl: '0 40px 80px rgba(0, 0, 0, 0.25)'
   }
   ...
 };
@@ -486,7 +532,7 @@ export const lightTheme = {
   // default theme object
   // ... previous theme properties
   shadows: {
-    xs: '0 2px 10px -3px rgba(20, 20, 20, 0.1)',
+    xs: '-4px 0 15px rgb(0 0 0 / 50%)',
     sm: '0 5px 20px -5px rgba(20, 20, 20, 0.1)',
     md: '0 8px 30px rgba(20, 20, 20, 0.15)',
     lg: '0 30px 60px rgba(20, 20, 20, 0.15)',

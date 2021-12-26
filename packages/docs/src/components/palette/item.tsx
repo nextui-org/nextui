@@ -3,24 +3,16 @@ import cn from 'classnames';
 import {
   Grid,
   Text,
-  useTheme,
   Tooltip,
   GridProps,
   useClipboard
 } from '@nextui-org/react';
-import { get, replace, capitalize } from 'lodash';
-import {
-  invertHex,
-  hexToRGBA,
-  hexFromString,
-  isCssVar,
-  getCssVar
-} from '@utils/index';
 
 interface Props {
   color: string;
+  title: string;
+  hexColor: string;
   inverted?: boolean;
-  linear?: boolean;
   textColor?: string;
 }
 
@@ -28,50 +20,40 @@ export type ItemProps = Props & GridProps;
 
 const Item: React.FC<ItemProps> = ({
   color,
+  title,
   inverted,
-  linear,
-  textColor: textColorProp,
+  textColor,
+  hexColor,
   ...props
 }) => {
-  const { theme, isDark } = useTheme();
   const isGradient = color.includes('gradient');
 
   const { copy } = useClipboard();
-
-  let hexColor = get(theme?.colors, `${color}.value` || 'primary.value');
-  hexColor = isCssVar(hexColor) ? getCssVar(hexColor) : hexColor;
-
-  const hexTextColor = get(theme?.colors, `${textColorProp}.value`);
-
-  const itemTextColor = inverted
-    ? invertHex(hexColor)
-    : theme?.colors?.white?.value;
-
-  const userTextColor = isCssVar(hexTextColor)
-    ? getCssVar(hexTextColor)
-    : hexTextColor;
-
-  const textColor = userTextColor || itemTextColor;
-
-  const shadowColor = isGradient
-    ? hexFromString(hexColor, theme?.colors?.primary?.value, true)
-    : hexColor;
 
   const renderItem = () => {
     return (
       <Grid
         className={cn('color', {
-          'is-gradient': isGradient,
-          'is-linear': linear
+          'is-gradient': isGradient
         })}
         css={{
-          background: hexColor,
+          size: '100px',
+          display: 'flex',
+          marginBottom: '20px',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          transition: '$default',
+          cursor: 'pointer',
+          background: color,
           marginRight: '10px',
-          marginBottom: '10px',
-          boxShadow: `0 20px 35px -10px ${hexToRGBA(
-            shadowColor,
-            isDark ? 0.2 : 0.4
-          )}`
+          br: '$lg',
+          '&:hover': {
+            transform: 'translateY(5px)'
+          },
+          '@smMax': {
+            size: '80px'
+          }
         }}
         {...props}
       >
@@ -87,7 +69,7 @@ const Item: React.FC<ItemProps> = ({
               }
             }}
           >
-            {capitalize(replace(color, '_', ' '))}
+            {title}
           </Text>
         ) : (
           <>
@@ -95,6 +77,7 @@ const Item: React.FC<ItemProps> = ({
               className="text"
               css={{
                 m: 0,
+                tt: 'capitalize',
                 fontWeight: '$semibold',
                 color: textColor,
                 '@smMax': {
@@ -102,7 +85,7 @@ const Item: React.FC<ItemProps> = ({
                 }
               }}
             >
-              {capitalize(replace(color, '_', ' '))}
+              {title}
             </Text>
             <Text
               className="hex-text"
@@ -111,39 +94,14 @@ const Item: React.FC<ItemProps> = ({
                 fontSize: '$tiny',
                 color: textColor,
                 opacity: 0.8,
+                tt: 'uppercase',
                 fontWeight: '$bold'
               }}
             >
-              {hexColor?.toUpperCase()}
+              {hexColor}
             </Text>
           </>
         )}
-        <style jsx>{`
-          :global(.color) {
-            margin-bottom: 20px;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: ${theme?.radii?.lg?.value};
-            transition: all 0.25s ease;
-            cursor: pointer;
-          }
-          :global(.color:hover) {
-            transform: translateY(5px);
-          }
-          :global(.color.is-linear:hover) {
-            transform: translateX(-5px);
-          }
-          @media only screen and (max-width: ${theme?.breakpoints?.sm.value}) {
-            :global(.color) {
-              width: 80px;
-              height: 80px;
-            }
-          }
-        `}</style>
       </Grid>
     );
   };

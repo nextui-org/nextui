@@ -1,16 +1,17 @@
 import React from 'react';
-import { Grid, Text } from '@nextui-org/react';
-import { capitalize, toNumber } from 'lodash';
+import { Grid, Text, getTokenValue } from '@nextui-org/react';
+import { toNumber } from 'lodash';
 import Item from './item';
 
 export interface Props {
   colors: string[] | string[][];
-  inverted?: boolean;
 }
 
 type Color = {
   name: string;
   value: string;
+  hexColor: string;
+  number?: number;
   textColor?: string;
 };
 
@@ -19,36 +20,61 @@ type MappedColor = {
   colors: Color[];
 };
 
+const reverseColors: { [key in string]: string } = {
+  background: '$foreground',
+  foreground: '$background',
+  text: '$background',
+  border: '$text',
+  white: '$black',
+  black: '$white'
+};
+
 const getColorTitle = (color: string) => {
-  return capitalize(color.replace(/[0-9]/g, ''));
+  return color.replace(/[0-9]/g, '');
 };
 
 const getColorNumber = (color: string) => {
   return toNumber(color.replace(/[^0-9]/g, ''));
 };
 
-const mapColors = (colors: string[][]): MappedColor[] => {
-  return colors.map((row, i) => {
+const mapColors = (colors: string[]): Color[] => {
+  return colors.map((color) => {
+    const num = getColorNumber(color);
+    const isBrand = num === 0;
+    const isAccent = num >= 1 && num < 10;
+    const isBase = num >= 100 && num < 1000;
+    const reverseColor = reverseColors[color];
+
+    const textColor = isBrand
+      ? '$white'
+      : (isAccent && num <= 5) || (isBase && num <= 500)
+      ? `$${colors[colors.length - 1]}`
+      : `$${colors[1]}`;
+
     return {
-      title: getColorTitle(row[i]),
-      colors: row.map((color) => {
-        const num = getColorNumber(color);
-        return {
-          name: capitalize(color),
-          value: color,
-          number: num,
-          textColor: num <= 500 ? row[row.length - 1] : row[1]
-        };
-      })
+      name: color,
+      value: `$${color}`,
+      hexColor: getTokenValue('colors', color),
+      number: num,
+      textColor: reverseColor || textColor
     };
   });
 };
 
-const Palette: React.FC<Props> = ({ colors, inverted }) => {
+const mapMatrixColors = (colors: string[][]): MappedColor[] => {
+  return colors.map((row, i) => {
+    return {
+      title: getColorTitle(row[i]),
+      colors: mapColors(row)
+    };
+  });
+};
+
+const Palette: React.FC<Props> = ({ colors }) => {
   const isMatrix = Array.isArray(colors[0]);
 
   if (isMatrix) {
-    const colorsMatrix = mapColors(colors as string[][]);
+    const colorsMatrix = mapMatrixColors(colors as string[][]);
     return (
       <>
         {colorsMatrix.map((row: MappedColor, i: number) => (
@@ -63,7 +89,12 @@ const Palette: React.FC<Props> = ({ colors, inverted }) => {
             </Grid>
             {row.colors.map((color: Color, j: number) => (
               <Grid className="palette-colors-col" key={i * j}>
-                <Item color={color.value} textColor={color.textColor} />
+                <Item
+                  title={color.name}
+                  color={color.value}
+                  textColor={color.textColor}
+                  hexColor={color.hexColor}
+                />
               </Grid>
             ))}
           </Grid.Container>
@@ -72,6 +103,8 @@ const Palette: React.FC<Props> = ({ colors, inverted }) => {
     );
   }
 
+  const mappedColors = mapColors(colors as string[]);
+
   return (
     <Grid.Container
       className="palette"
@@ -79,11 +112,16 @@ const Palette: React.FC<Props> = ({ colors, inverted }) => {
         marginBottom: '$sm'
       }}
     >
-      {colors?.map((color, i) => {
-        if (typeof color !== 'string') {
-          return null;
-        }
-        return <Item key={i} color={color} inverted={inverted} />;
+      {mappedColors?.map((color: Color, i) => {
+        return (
+          <Item
+            key={i}
+            title={color.name}
+            color={color.value}
+            textColor={color.textColor}
+            hexColor={color.hexColor}
+          />
+        );
       })}
     </Grid.Container>
   );

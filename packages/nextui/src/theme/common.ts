@@ -46,7 +46,7 @@ export const defaultTokens = {
     xs: '0.5rem',
     sm: '0.75rem',
     md: '1rem',
-    lg: '1.375rem',
+    lg: '1.25rem',
     xl: '2.25rem',
     px: '1px',
     1: '0.125rem',
@@ -470,7 +470,8 @@ export default {
   prefix: 'nextui',
   theme: {
     ...defaultTokens,
-    colors: defaultColors
+    colors: defaultColors,
+    shadows: {}
   },
   media: defaultMedia,
   utils: defaultUtils,

@@ -76,8 +76,11 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
           '.token.class-name': {
             color: classnameColor?.style.color
           },
-          '.token.plain-text, .token.comment': {
+          '.token.comment': {
             color: commentColor?.style.color
+          },
+          '.token.plain-text': {
+            color: textColor?.style.color
           },
           '.token.module, .token.keyword': {
             color: '#c678dd'

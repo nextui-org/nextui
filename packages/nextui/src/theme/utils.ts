@@ -1,7 +1,18 @@
 import commonTheme from './common';
 import defaultTheme from './light-theme';
-import { ThemeType, TokenValue } from './types';
+import { ThemeType, TokenValue, TokenKeyName } from './types';
 import clsx from '../utils/clsx';
+
+export const getTokenValue = (token: TokenKeyName, tokenName: string) => {
+  if (!document || !token) return '';
+  let docStyle = getComputedStyle(document.documentElement);
+  const tokenKey = `--${commonTheme.prefix}-${token}-${tokenName}`;
+  const tokenValue = docStyle.getPropertyValue(tokenKey);
+  if (tokenValue && tokenValue.includes('var')) {
+    getTokenValue(token, tokenValue);
+  }
+  return tokenValue;
+};
 
 export const getDocumentCSSTokens = () => {
   const colorKeys = [
@@ -11,7 +22,6 @@ export const getDocumentCSSTokens = () => {
 
   const shadowKeys = Object.keys(defaultTheme.shadows);
 
-  let docStyle = getComputedStyle(document.documentElement);
   /**
    * accents1: {
    *    prefix: "nextui"
@@ -22,14 +32,13 @@ export const getDocumentCSSTokens = () => {
    */
   const colorTokens = colorKeys.reduce(
     (acc: { [key in string]?: TokenValue }, crr: string) => {
-      const colorKey = `--${commonTheme.prefix}-colors-${crr}`;
-      const color = docStyle.getPropertyValue(colorKey);
+      const color = getTokenValue('colors', crr);
       if (color) {
         acc[crr] = {
           prefix: commonTheme.prefix,
           scale: 'colors',
           token: crr,
-          value: `var(${colorKey})`
+          value: color
         };
       }
       return acc;
@@ -39,14 +48,13 @@ export const getDocumentCSSTokens = () => {
 
   const shadowTokens = shadowKeys.reduce(
     (acc: { [key in string]?: TokenValue }, crr: string) => {
-      const shadowKey = `--${commonTheme.prefix}-shadows-${crr}`;
-      const shadow = docStyle.getPropertyValue(shadowKey);
+      const shadow = getTokenValue('shadows', crr);
       if (shadow) {
         acc[crr] = {
           prefix: commonTheme.prefix,
           scale: 'shadows',
           token: crr,
-          value: `var(${shadowKey})`
+          value: shadow
         };
       }
       return acc;

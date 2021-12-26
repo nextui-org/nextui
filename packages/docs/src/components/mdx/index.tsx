@@ -105,6 +105,25 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({
   );
 };
 
+const List: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
+  const { theme } = useTheme();
+  return (
+    <ul className="mdx-ul">
+      {children}
+      <style jsx>
+        {`
+          ul {
+            list-style-type: disc;
+          }
+          :global(.mdx-ul strong) {
+            color: ${theme?.colors.code.value};
+          }
+        `}
+      </style>
+    </ul>
+  );
+};
+
 const MDXComponents = {
   ...Icons,
   h1: (props: React.DetailsHTMLAttributes<unknown>) => (
@@ -126,6 +145,7 @@ const MDXComponents = {
   Playground,
   CarbonAd,
   code: Codeblock,
+  ul: List,
   Block
 };
 

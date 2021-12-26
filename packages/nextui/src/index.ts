@@ -29,7 +29,7 @@ export { default as CssBaseline } from './css-baseline';
 
 //Theme
 export { default as NextUIProvider } from './theme/theme-provider';
-export { changeTheme, getDocumentTheme } from './theme/utils';
+export { changeTheme, getDocumentTheme, getTokenValue } from './theme/utils';
 export type { VariantProps, CSS } from './theme/stitches.config';
 export type {
   Theme,
