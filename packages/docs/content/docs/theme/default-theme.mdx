@@ -25,10 +25,24 @@ const MyComponent = () => {
 
   return (
     <div>
-      <p style={{ color: theme.colors.primary.value }}>
+      <p
+        style={{
+          color: theme.colors.primary.value,
+          fontSize: theme.fontSizes.tiny.value,
+          padding: `${theme.space[2].value} ${theme.space[4].value}`
+        }}
+      >
         Using color theme value
       </p>
-      <Text css={{ color: '$primary' }}>Using tokens</Text>
+      <Text
+        css={{
+          color: '$blue800',
+          fontSize: '$tiny',
+          padding: '$2 $4'
+        }}
+      >
+        Using tokens
+      </Text>
     </div>
   );
 };

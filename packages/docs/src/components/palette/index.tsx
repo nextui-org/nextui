@@ -85,7 +85,9 @@ const Palette: React.FC<Props> = ({ colors }) => {
             css={{ mb: '$8', position: 'relative' }}
           >
             <Grid xs={12} className="palette-colors-title" css={{ my: '$2' }}>
-              <Text css={{ fontWeight: '$semibold' }}>{row.title}</Text>
+              <Text css={{ fontWeight: '$semibold', tt: 'capitalize' }}>
+                {row.title}
+              </Text>
             </Grid>
             {row.colors.map((color: Color, j: number) => (
               <Grid className="palette-colors-col" key={i * j}>

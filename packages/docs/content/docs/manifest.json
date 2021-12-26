@@ -45,10 +45,6 @@
                             "path": "/docs/theme/dark-mode.mdx"
                         },
                         {
-                            "title": "Spacing",
-                            "path": "/docs/theme/spacing.mdx"
-                        },
-                        {
                             "title": "Override styles",
                             "path": "/docs/theme/override-styles.mdx"
                         },
