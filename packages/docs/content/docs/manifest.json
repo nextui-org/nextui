@@ -31,6 +31,7 @@
                     "keywords": "themeable, theme, customize, palette",
                     "icon": "/category.svg",
                     "open": true,
+                    "updated": true,
                     "routes": [
                         {
                             "title": "Default theme",
@@ -51,7 +52,11 @@
                         {
                             "title": "Typescript",
                             "path": "/docs/theme/typescript.mdx"
-                        }
+                        },
+                        {
+                          "title": "Utilities",
+                          "path": "/docs/theme/utilities.mdx"
+                      }
                     ]
                 },
                 {

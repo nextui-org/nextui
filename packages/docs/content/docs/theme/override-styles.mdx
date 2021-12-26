@@ -6,4 +6,151 @@ url: https://nextui.org/docs/theme/override-styles
 
 # Override styles
 
-NextUI allows you to override the default styles of the components in several ways.
+NextUI allows you to override the default styles of the components in several ways. Before you start overriding
+the NextUI components styles we recommend you to read the [Stitches Styling docs](https://stitches.dev/docs/styling) and
+[Stitches variants docs](https://stitches.dev/docs/variants).
+
+Remember that all [Stitches](https://stitches.dev) features are available in NextUI since NextUI uses Stitches as a styled engine.
+
+<CarbonAd />
+
+Here are some options depending on your goals:
+
+- **Using the css prop**
+- **Using the styled function**
+- **Using a custom classname**
+
+> Note: The tokens used here like `$space$1`, `$pink800`, etc.. are defined in the [default theme](/docs/theme/default-theme) section.
+
+<Spacer y={2} />
+
+### Using the css prop
+
+NextUI provides the Stitches `css` prop for overriding styles easily.
+It's like the style attribute, but it supports tokens, media queries, nesting and token-aware values.
+
+<Playground
+  initialEditorOpen
+  code={`
+<Button 
+  auto 
+  animated={false}
+  css={{ 
+    borderRadius: '$xs', // radii.xs
+    border: '$space$1 solid transparent',
+    background: '$pink800', // colors.pink800
+    color: '$pink100',
+    height: '$12', // space[12]
+    boxShadow: '$md', // shadows.md
+    '&:hover': {
+      background: '$pink100',
+      color: '$pink800',
+    },
+    '&:active': {
+      background: '$pink200',
+    },
+    '&:focus': {
+      borderColor: '$pink400',
+    },
+  }}
+  >
+    Custom button
+</Button>
+`}
+/>
+
+> For more information about the Stitches css prop, check out the [Stitches documentation](https://stitches.dev/docs/overriding-styles#the-css-prop).
+
+### Usign the styled function
+
+NextUI provides the Stitches `styled` function for creating your own components easily.
+The `styled` function allows you to create a component including its styles and variants. It receives:
+
+- `element` or `component`: a HTML element (`div`) or a React Component (`Component`)
+- `styles`: as many styleObject as you need
+
+<Playground
+  initialEditorOpen
+  code={`() => {
+const MyStyledButton = styled(Button, {
+  boxShadow: '$md', // shadows.md
+  variants: {
+    size: {
+      mysize: {
+        height: '$12', // space[12]
+        borderRadius: '$xs' // radii.xs
+      }
+    },
+    color: {
+      mycolor: {
+        background: '$green800', // colors.green800
+        color: '$green100', 
+        border: '$space$1 solid transparent',
+        '&:hover': {
+          background: '$green100',
+          color: '$green800',
+        },
+        '&:active': {
+          background: '$green200',
+        },
+        '&:focus': {
+          borderColor: '$green400',
+        },
+      }
+    }
+  }
+});
+return (
+    <MyStyledButton 
+      auto 
+      animated={false} 
+      size="mysize"
+      color="mycolor">
+        Custom button
+    </MyStyledButton>
+  ) 
+}`}
+/>
+
+> Notes that in this way you have to override and create your own variants like `size` and `color`.
+
+> For more information about the Stitches css prop, check out the [Stitches documentation](https://stitches.dev/docs/api#styled).
+
+### Overriding the HTML tag
+
+NextUI provides an `as` prop for changing which tag a component outputs.
+
+<Playground
+  initialEditorOpen
+  code={`
+<Button 
+  auto 
+  as="a"
+  rel="noopener noreferrer"
+  target="_blank"
+  href="https://github.com/nextui-org/nextui"
+  animated={false}
+  css={{ 
+    maxWidth: '$12', // space[12]
+    borderRadius: '$xs', // radii.xs
+    border: '$space$1 solid transparent',
+    background: '$gray800', // colors.gray800
+    color: '$gray100',
+    height: '$12', // space[12]
+    boxShadow: '$md', // shadows.md
+    '&:hover': {
+      background: '$gray100',
+      color: '$gray800',
+    },
+    '&:active': {
+      background: '$gray200',
+    },
+    '&:focus': {
+      borderColor: '$gray400',
+    },
+  }}
+  >
+    NextUI GitHub
+</Button>
+`}
+/>

@@ -15,6 +15,7 @@ import * as Icons from '../icons';
 export interface Props {
   code: string;
   showEditor?: boolean;
+  initialEditorOpen?: boolean;
   overflow?: 'auto' | 'visible' | 'hidden';
 }
 
@@ -22,7 +23,12 @@ const defaultProps = {
   showEditor: true
 };
 
-const DynamicLive: React.FC<Props> = ({ code, showEditor, overflow }) => {
+const DynamicLive: React.FC<Props> = ({
+  code,
+  showEditor,
+  initialEditorOpen,
+  overflow
+}) => {
   const themeObject = useTheme();
   const { theme } = themeObject;
   const codeTheme = makeCodeTheme(themeObject);
@@ -41,7 +47,7 @@ const DynamicLive: React.FC<Props> = ({ code, showEditor, overflow }) => {
         <LivePreview />
         <LiveError />
       </div>
-      {showEditor && <Editor />}
+      {showEditor && <Editor initialOpen={initialEditorOpen} />}
       <style jsx>{`
         .wrapper {
           width: 100%;

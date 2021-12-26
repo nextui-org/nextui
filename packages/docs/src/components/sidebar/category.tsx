@@ -5,6 +5,7 @@ import ArrowRight from '../icons/arrow-right';
 import withDefaults from '@utils/with-defaults';
 import { useTheme } from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
+import { Badge } from '@components';
 
 export interface Props {
   level: number;
@@ -14,6 +15,7 @@ export interface Props {
   isMobile: boolean;
   selected: boolean;
   opened: boolean;
+  updated?: boolean;
 }
 
 const defaultProps = {
@@ -34,6 +36,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   selected,
   routes,
   iconUrl,
+  updated,
   opened,
   children
 }) => {
@@ -78,6 +81,8 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
     }
   }, [toggle, shouldScroll, isMobile]);
 
+  console.log({ updated });
+
   return (
     <div
       ref={ref}
@@ -100,6 +105,15 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           height={14}
           fill={theme?.colors?.accents7?.value}
         />
+        {updated && (
+          <Badge
+            className="category__update-badge"
+            type="secondary"
+            css={{ ml: '$6' }}
+          >
+            Updated
+          </Badge>
+        )}
       </div>
       <div className="posts">{children}</div>
       <style jsx>{`
@@ -165,6 +179,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
         .open .posts {
           height: ${postsHeight}px;
         }
+
         @keyframes appear {
           from {
             opacity: 0;

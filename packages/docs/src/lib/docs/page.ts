@@ -14,6 +14,7 @@ export interface Route {
   open?: boolean;
   path?: string;
   routes?: Route[];
+  updated?: boolean;
   newPost?: boolean;
 }
 

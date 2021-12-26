@@ -9,6 +9,8 @@ url: https://nextui.org/docs/theme/palette
 NextUI provides a simple way to customize the default themes, you can change the colors, fonts, breakpoints and everything metioned
 in the [Default Theme](/docs/theme/default-theme) documentation.
 
+<CarbonAd />
+
 ### Customizing theme tokens
 
 To extend or override a token in the default theme, import the `createTheme` function and add the keys you'd like to override.
@@ -157,4 +159,41 @@ function MyComponent() {
   )
 };
 
+```
+
+### Global styles
+
+If you need to implement styles globally or handling things like global resets, you can use the
+`globalCss` function.
+
+```jsx
+import { globalCss } from '@nextui-org/react';
+
+const globalStyles = globalCss({
+  body: { margin: 0 }
+});
+
+const MyApp = () => {
+  globalStyles();
+  return <div />;
+};
+```
+
+### Keyframes
+
+A function to create a global CSS `@keyframe` rule.
+
+```jsx
+import { keyframes, Text } from '@nextui-org/react';
+
+const scaleUp = keyframes({
+  '0%': { transform: 'scale(1)' },
+  '100%': { transform: 'scale(1.5)' }
+});
+
+const StyledText = styled(Text, {
+  '&:hover': {
+    animation: `${scaleUp} 200ms`
+  }
+});
 ```

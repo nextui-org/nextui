@@ -8,9 +8,13 @@ import BugIcon from '../icons/bug';
 import RightIcon from '../icons/arrow-right';
 import { ISSUE_REPORT_URL } from '../../lib/github/constants';
 
-const Editor: React.FC = () => {
+export interface Props {
+  initialOpen?: boolean;
+}
+
+const Editor: React.FC<Props> = ({ initialOpen }) => {
   const { theme, isDark } = useTheme();
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(initialOpen);
   const [copied, setCopied] = useState(false);
 
   const router = useRouter();

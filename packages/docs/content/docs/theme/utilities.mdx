@@ -1,0 +1,271 @@
+---
+title: Utilities
+description: NextUI provides out of the box [Stitches](https://stitches.dev/docs/utils) utilities.
+url: https://nextui.org/docs/theme/utilities
+---
+
+# Utilities
+
+NextUI provides a set of amazing out of the box [Stitches](https://stitches.dev/docs/utils) utilities. Once
+you get used to them, you can save a lot of time writing css-in-js code.
+
+<CarbonAd />
+
+[Stitches](https://stitches.dev/docs/utils) allows you to create a set of utilities that can be used for styling components so
+we create a custom set that can be used for styling the NextUI components.
+
+> Unfortuantely, NextUI doesn't support custom utilities yet, we hope to add this feature in the future.
+
+### Usage
+
+You can use any of the utilities through the `css` prop or usign the `styled` function, these properties are detailed [here](/docs/theme/override-styles)
+
+<Playground
+  initialEditorOpen
+  code={`
+<Card css={{ px: '$4' }}>
+  <Text
+    h1
+    size={60}
+    css={{
+      textGradient: '45deg, $blue500 -20%, $pink500 50%'
+    }}
+    weight="bold"
+  >
+    Let's
+  </Text>
+  <Text
+    h1
+    size={60}
+    css={{
+      textGradient: '45deg, $purple500 -20%, $pink500 100%'
+    }}
+    weight="bold"
+  >
+    Make the Web
+  </Text>
+  <Text
+    h1
+    size={60}
+    css={{
+      textGradient: '45deg, $yellow500 -20%, $red500 100%'
+    }}
+    weight="bold"
+  >
+    Prettier
+  </Text>
+</Card>
+`}
+/>
+
+### Utilities
+
+```ts
+export const utils = {
+  // Abbreviated padding properties
+  p: (value) => ({
+    padding: value
+  }),
+  pt: (value) => ({
+    paddingTop: value
+  }),
+  pr: (value) => ({
+    paddingRight: value
+  }),
+  pb: (value) => ({
+    paddingBottom: value
+  }),
+  pl: (value) => ({
+    paddingLeft: value
+  }),
+  px: (value) => ({
+    paddingLeft: value,
+    paddingRight: value
+  }),
+  py: (value) => ({
+    paddingTop: value,
+    paddingBottom: value
+  }),
+  // Abbreviated padding properties
+  m: (value) => ({
+    margin: value
+  }),
+  mt: (value) => ({
+    marginTop: value
+  }),
+  mr: (value) => ({
+    marginRight: value
+  }),
+  mb: (value) => ({
+    marginBottom: value
+  }),
+  ml: (value) => ({
+    marginLeft: value
+  }),
+  mx: (value) => ({
+    marginLeft: value,
+    marginRight: value
+  }),
+  my: (value) => ({
+    marginTop: value,
+    marginBottom: value
+  }),
+  ta: (value) => ({
+    textAlign: value
+  }),
+  tt: (value) => ({
+    textTransform: value
+  }),
+  to: (value) => ({
+    textOverflow: value
+  }),
+  d: (value) => ({ display: value }),
+  dflex: (value) => ({
+    display: 'flex',
+    alignItems: value,
+    justifyContent: value
+  }),
+  fd: (value) => ({
+    flexDirection: value
+  }),
+  fw: (value) => ({ flexWrap: value }),
+  ai: (value) => ({
+    alignItems: value
+  }),
+  ac: (value) => ({
+    alignContent: value
+  }),
+  jc: (value) => ({
+    justifyContent: value
+  }),
+  as: (value) => ({
+    alignSelf: value
+  }),
+  fg: (value) => ({ flexGrow: value }),
+  fs: (value) => ({
+    fontSize: value
+  }),
+  fb: (value) => ({
+    flexBasis: value
+  }),
+  bc: (value) => ({
+    backgroundColor: value
+  }),
+  bf: (value) => ({
+    backdropFilter: value
+  }),
+  bg: (value) => ({
+    background: value
+  }),
+  bgBlur: (value) => ({
+    bf: 'saturate(180%) blur(10px)',
+    bg: `${value}66`
+  }),
+  bgColor: (value) => ({
+    backgroundColor: value
+  }),
+  backgroundClip: (value) => ({
+    WebkitBackgroundClip: value,
+    backgroundClip: value
+  }),
+  bgClip: (value) => ({
+    WebkitBackgroundClip: value,
+    backgroundClip: value
+  }),
+  br: (value) => ({
+    borderRadius: value
+  }),
+  bw: (value) => ({
+    borderWidth: value
+  }),
+  btrr: (value) => ({
+    borderTopRightRadius: value
+  }),
+  bbrr: (value) => ({
+    borderBottomRightRadius: value
+  }),
+  bblr: (value) => ({
+    borderBottomLeftRadius: value
+  }),
+  btlr: (value) => ({
+    borderTopLeftRadius: value
+  }),
+  bs: (value) => ({
+    boxShadow: value
+  }),
+  normalShadow: (value) => ({
+    boxShadow: `0 4px 14px 0 $colors${value}`
+  }),
+  normalShadowVar: (value) => ({
+    boxShadow: `0 4px 14px 0 ${value}`
+  }),
+  lh: (value) => ({
+    lineHeight: value
+  }),
+  ov: (value) => ({ overflow: value }),
+  ox: (value) => ({
+    overflowX: value
+  }),
+  oy: (value) => ({
+    overflowY: value
+  }),
+  pe: (value) => ({
+    pointerEvents: value
+  }),
+  events: (value) => ({
+    pointerEvents: value
+  }),
+  us: (value) => ({
+    WebkitUserSelect: value,
+    userSelect: value
+  }),
+  userSelect: (value) => ({
+    WebkitUserSelect: value,
+    userSelect: value
+  }),
+  w: (value) => ({ width: value }),
+  h: (value) => ({ height: value }),
+  mw: (value) => ({ maxWidth: value }),
+  maxW: (value) => ({
+    maxWidth: value
+  }),
+  mh: (value) => ({
+    maxHeight: value
+  }),
+  maxH: (value) => ({
+    maxHeight: value
+  }),
+  size: (value) => ({
+    width: value,
+    height: value
+  }),
+  sizeMin: (value) => ({
+    minWidth: value,
+    minHeight: value,
+    width: value,
+    height: value
+  }),
+  sizeMax: (value) => ({
+    maxWidth: value,
+    maxHeight: value
+  }),
+  appearance: (value) => ({
+    WebkitAppearance: value,
+    appearance: value
+  }),
+  scale: (value) => ({
+    transform: `scale(${value})`
+  }),
+  linearGradient: (value) => ({
+    backgroundImage: `linear-gradient(${value})`
+  }),
+  // Text gradient effect
+  textGradient: (value) => ({
+    backgroundImage: `linear-gradient(${value})`,
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent'
+  })
+};
+```
+
+> Note: If you would like we to add more utilities, please let us know on [NextUI Discussions](https://github.com/nextui-org/nextui/discussions), or on [Discord](https://discord.gg/9b6yyZKmH4).
