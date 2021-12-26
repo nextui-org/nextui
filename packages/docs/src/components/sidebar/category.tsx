@@ -81,8 +81,6 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
     }
   }, [toggle, shouldScroll, isMobile]);
 
-  console.log({ updated });
-
   return (
     <div
       ref={ref}
