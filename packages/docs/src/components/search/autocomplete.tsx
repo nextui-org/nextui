@@ -214,17 +214,17 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
         />
         <style jsx global>{`
           .search__placeholder-block {
-            min-width: 228px;
+            max-width: 228px;
           }
-          @media only screen and (max-width: ${theme?.breakpoints?.xs}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.xs.value}) {
             .search__placeholder-block {
-              min-width: 64vw;
+              max-width: 64vw;
             }
           }
           @media only screen and (min-width: ${theme?.breakpoints?.xs
-              ?.value}) and (max-width: ${theme?.breakpoints?.md}) {
+              ?.value}) and (max-width: ${theme?.breakpoints?.md.value}) {
             .search__placeholder-block {
-              min-width: 248px;
+              max-width: 248px;
             }
           }
         `}</style>

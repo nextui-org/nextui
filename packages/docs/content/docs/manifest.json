@@ -56,7 +56,11 @@
                         {
                           "title": "Utilities",
                           "path": "/docs/theme/utilities.mdx"
-                      }
+                        },
+                        {
+                          "title": "Media",
+                          "path": "/docs/theme/media.mdx"
+                        }
                     ]
                 },
                 {

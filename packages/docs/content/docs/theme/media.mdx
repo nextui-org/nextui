@@ -1,0 +1,76 @@
+---
+title: Media
+description: NextUI provides out of the box [Stitches](https://stitches.dev/docs/utils) utilities.
+url: https://nextui.org/docs/theme/utilities
+---
+
+# Utilities
+
+NextUI provides a set of reusable set of media queries.
+
+<CarbonAd />
+
+### Media Queries
+
+You can apply different variants at different breakpoints, reduced animations with `@motion` or even apply Safari specific styles with `@safari` media.
+
+```js
+export const media = {
+  xs: `(min-width: ${defaultTokens.breakpoints.xs})`,
+  sm: `(min-width: ${defaultTokens.breakpoints.sm})`,
+  md: `(min-width: ${defaultTokens.breakpoints.md})`,
+  lg: `(min-width: ${defaultTokens.breakpoints.lg})`,
+  xl: `(min-width: ${defaultTokens.breakpoints.xl})`,
+  xsMax: `(max-width: ${defaultTokens.breakpoints.xs})`,
+  smMax: `(max-width: ${defaultTokens.breakpoints.sm})`,
+  mdMax: `(max-width: ${defaultTokens.breakpoints.md})`,
+  lgMax: `(max-width: ${defaultTokens.breakpoints.lg})`,
+  xlMax: `(max-width: ${defaultTokens.breakpoints.xl})`,
+  motion: '(prefers-reduced-motion)',
+  safari: 'not all and (min-resolution:.001dpcm)',
+  hover: '(any-hover: hover)',
+  dark: '(prefers-color-scheme: dark)',
+  light: '(prefers-color-scheme: light)'
+};
+```
+
+### Usage
+
+Here is an example of how to use the NextUI media queries:
+
+<Playground
+  initialEditorOpen
+  code={`
+<Card 
+  auto 
+  animated={false}
+  css={{ 
+    borderRadius: '$xs', 
+    border: '$space$1 solid transparent',
+    color: '$green100', // default color
+    bg: '$green800', // default background
+    fontSize: '$space$9', 
+    boxShadow: '$md',
+    '@xs': {
+      bg: '$blue800',
+      color: '$blue100',
+    },
+    '@sm': {
+      bg: '$yellow800',
+      color: '$yellow100',
+    },
+    '@md': {
+      bg: '$purple800',
+      color: '$purple100',
+    },
+    '@lg': {
+      bg: '$pink800'
+    },
+  }}
+  >
+    Resize the window
+</Card>
+`}
+/>
+
+> Note: If you want to see the changes in the preview, you need to resize the browser window.

@@ -269,3 +269,33 @@ export const utils = {
 ```
 
 > Note: If you would like we to add more utilities, please let us know on [NextUI Discussions](https://github.com/nextui-org/nextui/discussions), or on [Discord](https://discord.gg/9b6yyZKmH4).
+
+### Theme Map
+
+NextUI tokens types are automatically mapped to CSS Properties for an improved developer experience.
+
+Here the detailed list of all the mapped tokens:
+
+```js
+export const themeMap = {
+  ...defaultStitchesThemeMap,
+  width: 'space',
+  height: 'space',
+  minWidth: 'space',
+  maxWidth: 'space',
+  minHeight: 'space',
+  maxHeight: 'space',
+  flexBasis: 'space',
+  gridTemplateColumns: 'space',
+  gridTemplateRows: 'space',
+  blockSize: 'space',
+  minBlockSize: 'space',
+  maxBlockSize: 'space',
+  inlineSize: 'space',
+  minInlineSize: 'space',
+  maxInlineSize: 'space',
+  borderWidth: 'borderWeights'
+};
+```
+
+> You can read [this](https://stitches.dev/docs/tokens#property-mapping) for more information about `defaultStitchesThemeMap`.
