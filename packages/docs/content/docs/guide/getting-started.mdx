@@ -98,14 +98,10 @@ const Component = () => <Button>Click me</Button>;
 
 ### NextUIProvider Props
 
-| Attribute           | Type           | Accepted values                | Description                                                                                                                                                                                                                        | Default |
-| ------------------- | -------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| **theme**           | `NextUIThemes` | [NextUIThemes](#nextui-themes) | Optional custom theme, by default NextUI applies `light` theme                                                                                                                                                                     | -       |
-| **type**            | `ThemeTypes`   | [ThemeTypes](#theme-types)     | [NextUIThemes](#nextui-themes) `type` prop, useful to change between themes                                                                                                                                                        | -       |
-| **isDark**          | `boolean`      | `true/false`                   | If is true NextUI will apply the `dark` theme                                                                                                                                                                                      | `false` |
-| **storageKey**      | `string`       | -                              | Key to persist the users theme preference                                                                                                                                                                                          | `theme` |
-| **syncStorage**     | `boolean`      | `true/false`                   | NextUI will sync the local storage theme with html/body `data-theme` attribute, useful with libraries like [next-themes](https://github.com/pacocoursey/next-themes) and [use-dark-mode](https://github.com/donavon/use-dark-mode) | `true`  |
-| **disableBaseline** | `boolean`      | `true/false`                   | NextUI automatically includes `<CssBaseline/>`                                                                                                                                                                                     | `false` |
+| Attribute           | Type           | Accepted values              | Description                                                    | Default |
+| ------------------- | -------------- | ---------------------------- | -------------------------------------------------------------- | ------- |
+| **theme**           | `NextUIThemes` | [CreateTheme](#create-theme) | Optional custom theme, by default NextUI applies `light` theme | -       |
+| **disableBaseline** | `boolean`      | `true/false`                 | NextUI automatically includes `<CssBaseline/>`                 | `false` |
 
 <Spacer y={2} />
 
@@ -113,27 +109,26 @@ const Component = () => <Button>Click me</Button>;
 
 <Spacer y={1} />
 
-#### Theme types
+#### Create Theme
 
-```ts
-type ThemeTypes = 'light' | 'dark';
-```
+> For more information you can see the [Stitches theme documention](https://stitches.dev/docs/api#theme)
 
-#### NextUI Themes
-
-```jsx
-interface NextUIThemes {
-  type: ThemeTypes;
-  fonts: NextUIThemesFonts;
-  palette: NextUIThemesPalette;
-  borderWeights: NextUIBorderWeights;
-  lineHeights: NextUICommonSizes;
-  fontSizes: NextUIFontSizes;
-  fontWeights: NextUIFontWeights;
-  radius: NextUICommonSizes;
-  spacing: NextUISpacing;
-  breakpoints: NextUICommonSizes;
-  shadows: NextUICommonSizes;
+```json
+{
+  "colors": {},
+  "space": {},
+  "fontSizes": {},
+  "fonts": {},
+  "fontWeights": {},
+  "lineHeights": {},
+  "letterSpacings": {},
+  "sizes": {},
+  "borderWidths": {},
+  "borderStyles": {},
+  "radii": {},
+  "shadows": {},
+  "zIndices": {},
+  "transitions": {}
 }
 ```
 
