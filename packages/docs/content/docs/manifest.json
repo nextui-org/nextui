@@ -51,6 +51,10 @@
                         {
                             "title": "Override styles",
                             "path": "/docs/theme/override-styles.mdx"
+                        },
+                        {
+                            "title": "Typescript",
+                            "path": "/docs/theme/typescript.mdx"
                         }
                     ]
                 },

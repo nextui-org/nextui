@@ -1,0 +1,127 @@
+---
+title: Typescript
+description: NextUI provides typing out of the box, but this page contains some further utilities.
+url: https://nextui.com/docs/theme/typescript
+---
+
+# Typescript
+
+NextUI provides typing out of the box, but this page contains some further utilities.
+
+### Theme Type
+
+Default theme types are defined in the `ThemeTypes` type.
+
+```ts
+type ThemeType = 'light' | 'dark';
+```
+
+### CSS type
+
+The `CSS` utility is useful for when you're creating custom components that accept a css prop:
+
+> See [Stitches type a CSS object](https://stitches.dev/docs/typescript#type-a-css-object) for more information.
+
+```tsx
+import { CSS, Button } from '@nextui-org/react';
+
+const MyCustomButton = styled(Button, {
+  padding: '$2 $4',
+  background: '$purple400'
+});
+
+// Use `CSS` or the configured type as shown above
+type MyButtonProps = { css?: CSS };
+
+const MyButton = function (props: MyButtonProps) {
+  return <MyCustomButton {...props} />;
+};
+```
+
+### VariantProps
+
+You can use the `VariantProps` utility to extract variants from a component. This ensures your variants support responsive syntax.
+
+> See [Stitches VariantProps](https://stitches.dev/docs/typescript#extract-variants-from-a-component) for more information.
+
+```tsx
+import { styled, VariantProps, Button } from '@nextui-org/react';
+
+const StyledButton = styled(Button, {
+  variants: {
+    size: {
+      1: {},
+      2: {}
+    }
+  }
+});
+
+type StyledButtonVariants = VariantProps<typeof StyledButton>;
+```
+
+### NextUITheme
+
+The `NextUITheme` is the type of the current `theme` object.
+
+```tsx
+import { useTheme } from '@nextui-org/react';
+
+const MyComponent = function (props: MyButtonProps) {
+  const { theme } = useTheme(); // theme type is NextUITheme
+
+  return <button {...props} />;
+};
+```
+
+### NextUIThemeContext
+
+The `NextUIThemeContext` type is returned by the `useTheme` hook.
+
+```ts
+type NextUIThemeContext = {
+  type: ThemeType | string;
+  theme?: NextUITheme;
+  isDark?: boolean;
+};
+```
+
+```tsx
+import { useTheme } from '@nextui-org/react';
+
+const MyComponent = function (props: MyButtonProps) {
+  const themeObject = useTheme(); // returned type is NextUIThemeContext
+
+  return <button {...props} />;
+};
+```
+
+### Theme type
+
+This type is useful for when you're creating custom themes.
+
+> This is the object theme used by this website.
+
+```ts
+import { createTheme, Theme } from '@nextui-org/react';
+
+const fonts = {
+  sans: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+  'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
+};
+
+const sharedTheme: Theme = {
+  theme: {
+    fonts
+  }
+};
+
+export const lightTheme = createTheme({
+  ...sharedTheme,
+  type: 'light'
+});
+
+export const darkTheme = createTheme({
+  ...sharedTheme,
+  type: 'dark'
+});
+```
