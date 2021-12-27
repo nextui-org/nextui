@@ -1,0 +1,13 @@
+.nextui-tablist-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.nextui-tablist-button, .nextui-tablist-button-active {
+  margin: 5px;
+}
+
+.nextui-tablist-button-active {
+  /* darken the button using css transform */
+  transform: scale(1.1);
+}
