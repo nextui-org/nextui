@@ -43,13 +43,13 @@ npm i @nextui-org/react
 Go to the root of your application and do this:
 
 ```jsx
-import { CssBaseline } from '@nextui-org/react';
+import { CssBaseline, NextUIProvider } from '@nextui-org/react';
 
 const Application = () => (
-  <>
+  <NextUIProvider>
     <CssBaseline /> // ---> Normalize styles
     <AppComponent /> // ---> Your App Component
-  </>
+  </NextUIProvider>
 );
 ```
 
