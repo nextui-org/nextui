@@ -29,18 +29,17 @@ describe('Image', () => {
 
   it('should work correctly with skeleton', async () => {
     let wrapper = mount(<Image src={url} width={20} height={20} />);
-    expect(wrapper.find('.skeleton').length).not.toBe(0);
+    expect(wrapper.find('.nextui-image-skeleton').at(0).length).not.toBe(0);
 
     wrapper = mount(<Image src={url} width={20} height={20} />);
     wrapper.find('img').at(0).simulate('load');
     await updateWrapper(wrapper);
-    expect(wrapper.find('.skeleton').length).not.toBe(0);
+    expect(wrapper.find('.nextui-image-skeleton').at(0).length).not.toBe(0);
 
-    wrapper = mount(<Image src={url} width={20} />);
-    expect(wrapper.find('.skeleton').length).toBe(0);
-
-    mount(<Image src={url} width={20} height={20} showSkeleton={false} />);
-    expect(wrapper.find('.skeleton').length).toBe(0);
+    wrapper = mount(
+      <Image src={url} width={20} height={20} showSkeleton={false} />
+    );
+    expect(wrapper.find('.nextui-image-skeleton').length).toBe(0);
   });
 
   it('should remove skeleton when timeout', async () => {
@@ -56,11 +55,11 @@ describe('Image', () => {
         showSkeleton={false}
       />
     );
-    expect(animation.find('.skeleton').length).not.toBe(0);
+    expect(animation.find('.nextui-image-skeleton').length).not.toBe(0);
     await updateWrapper(animation, 300);
     await updateWrapper(NoAnimation, 300);
-    expect(animation.find('.skeleton').length).toBe(0);
-    expect(NoAnimation.find('.skeleton').length).toBe(0);
+    expect(animation.find('.nextui-image-skeleton').length).toBe(0);
+    expect(NoAnimation.find('.nextui-image-skeleton').length).toBe(0);
   });
 
   it('should remove skeleton when image completed', async () => {
@@ -75,6 +74,6 @@ describe('Image', () => {
     img.simulate('load');
     await updateWrapper(wrapper);
     expect((img.getDOMNode() as HTMLImageElement).complete).toEqual(true);
-    expect(wrapper.find('.skeleton').length).toBe(0);
+    expect(wrapper.find('.nextui-image-skeleton').length).toBe(0);
   });
 });

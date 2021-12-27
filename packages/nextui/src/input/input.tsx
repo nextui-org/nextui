@@ -7,30 +7,40 @@ import React, {
   useRef,
   useState
 } from 'react';
-import useTheme from '../use-theme';
 import { ContentPosition } from '../utils/prop-types';
-import InputLabel from './input-label';
-import InputBlockLabel from './input-block-label';
-import InputContent from './input-content';
-import InputIconClear from './input-icon-clear';
+import { CSS } from '../theme/stitches.config';
 import Textarea from '../textarea';
 import InputPassword from './input-password';
-import { getSizes, getColors } from './styles';
 import { getId } from '../utils/collections';
 import { Props, FormElement, defaultProps } from './input-props';
-import { getNormalRadius, getNormalWeight } from '../utils/dimensions';
-import clsx from '../utils/clsx';
 import { isEmpty } from '../utils/assertion';
+import useTheme from '../use-theme';
 import useWarning from '../use-warning';
-import VisuallyHidden from '../utils/visually-hidden';
+import {
+  StyledInput,
+  StyledInputMainContainer,
+  StyledInputContainer,
+  StyledHelperTextContainer,
+  StyledHelperText,
+  StyledInputWrapper,
+  StyledInputPlaceholder,
+  StyledInputClearButton as InputClearButton,
+  StyledInputBlockLabel as InputBlockLabel,
+  StyledInputLabel as InputLabel,
+  StyledInputContent as InputContent
+} from './input.styles';
+import ClearIcon from '../utils/clear-icon';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>;
-export type InputProps = Props & typeof defaultProps & NativeAttrs;
+export type InputProps = Props &
+  typeof defaultProps &
+  NativeAttrs & { css?: CSS };
 
 const simulateChangeEvent = (
   el: FormElement,
-  event: React.MouseEvent<HTMLDivElement>
+  event: React.MouseEvent<HTMLButtonElement>
 ): React.ChangeEvent<FormElement> => {
   return {
     ...event,
@@ -38,6 +48,8 @@ const simulateChangeEvent = (
     currentTarget: el
   };
 };
+
+const preClass = 'nextui-input';
 
 const Input = React.forwardRef<FormElement, InputProps>(
   (
@@ -49,8 +61,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
       labelRight,
       size,
       helperText,
-      color: colorProp,
-      helperColor: helperColorProp,
+      color,
+      helperColor,
       status,
       contentLeft,
       contentRight,
@@ -74,16 +86,16 @@ const Input = React.forwardRef<FormElement, InputProps>(
       autoComplete,
       placeholder,
       fullWidth,
-      borderWeight: borderWeightProp,
+      borderWeight,
       disabled,
       bordered,
       underlined,
       rounded,
+      css,
       ...props
     },
     ref: React.Ref<FormElement | null>
   ) => {
-    const theme = useTheme();
     const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
 
     useImperativeHandle(ref, () => inputRef.current);
@@ -91,18 +103,13 @@ const Input = React.forwardRef<FormElement, InputProps>(
     const [selfValue, setSelfValue] = useState<string>(initialValue);
     const [hover, setHover] = useState<boolean>(false);
 
-    const { heightRatio, fontSize } = useMemo(() => getSizes(size), [size]);
+    const { isDark } = useTheme();
 
     const isControlledComponent = useMemo(() => value !== undefined, [value]);
 
     const inputLabel = useMemo(
       () => label || labelPlaceholder,
       [label, labelPlaceholder]
-    );
-
-    const ComponentWrapper = useMemo(
-      () => (inputLabel ? 'div' : 'label'),
-      [inputLabel]
     );
 
     const inputPlaceholder = useMemo(
@@ -127,43 +134,17 @@ const Input = React.forwardRef<FormElement, InputProps>(
         );
     }
 
-    const {
-      bgColor,
-      color,
-      helperColor,
-      placeholderColor,
-      borderColor,
-      hoverBorder,
-      shadowColor
-    } = useMemo(
-      () => getColors(theme, disabled, colorProp, status, helperColorProp),
-      [
-        theme.palette,
-        theme.expressiveness,
-        colorProp,
-        helperColorProp,
-        status,
-        disabled
-      ]
-    );
-
-    const radius = useMemo(
-      () => getNormalRadius(size, rounded),
-      [size, rounded]
-    );
-
-    const borderWeight = useMemo(
-      () =>
-        bordered || underlined ? getNormalWeight(borderWeightProp) : '0px',
-      [bordered, underlined, borderWeightProp]
-    );
-
     const changeHandler = (event: React.ChangeEvent<FormElement>) => {
       if (disabled || readOnly) return;
       setSelfValue(event.target.value);
       onChange && onChange(event);
     };
-    const clearHandler = (event: React.MouseEvent<HTMLDivElement>) => {
+
+    const clearHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      event.stopPropagation();
+      event.nativeEvent.stopImmediatePropagation();
+
       setSelfValue('');
       onClearClick && onClearClick(event);
       /* istanbul ignore next */
@@ -192,15 +173,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
       onContentClick && onContentClick(key, e);
     };
 
-    const contentProps = useMemo(
-      () => ({
-        ratio: heightRatio,
-        clickable: contentClickable,
-        onClick: contentClickHandler
-      }),
-      [heightRatio, contentClickable, contentClickHandler]
-    );
-
     useEffect(() => {
       if (isControlledComponent) {
         setSelfValue(value as string);
@@ -221,100 +193,150 @@ const Input = React.forwardRef<FormElement, InputProps>(
     const { inputId, labelId } = useMemo(() => {
       const nextuiId = getId();
       return {
-        inputId: inputProps.id || `next-ui-${nextuiId}`,
+        inputId: inputProps.id || `${preClass}-${nextuiId}`,
         labelId: !isEmpty(inputProps.id)
-          ? `${inputProps.id}-label`
-          : `next-ui-${nextuiId}-label`
+          ? `${preClass}-label-${inputProps.id}`
+          : `${preClass}-label-${nextuiId}`
       };
     }, [inputProps.id]);
 
     if (inputLabel) {
       inputProps['aria-labelledby'] = labelId;
     }
+
+    const getState = useMemo(() => {
+      return hover
+        ? 'hover'
+        : disabled
+        ? 'disabled'
+        : readOnly
+        ? 'read-only'
+        : selfValue
+        ? 'with-value'
+        : 'normal';
+    }, [hover, disabled, readOnly, selfValue]);
+
     return (
-      <div className="with-label">
+      <StyledInputMainContainer
+        color={color}
+        data-state={getState}
+        helperColor={helperColor}
+        borderWeight={borderWeight}
+        status={status}
+        size={size}
+        rounded={rounded}
+        disabled={disabled}
+        css={{
+          width,
+          ...(css as any)
+        }}
+        className={clsx(
+          `${preClass}-main-container`,
+          `${preClass}-main-container--${getState}`
+        )}
+      >
         {inputLabel && (
           <InputBlockLabel
-            labelId={labelId}
-            fontSize={fontSize}
+            id={labelId}
+            className={`${preClass}-block-label`}
+            htmlFor={inputId}
             isTextarea={isTextarea}
-            bordered={bordered}
             underlined={underlined}
             animated={animated}
+            bordered={bordered}
             rounded={rounded}
-            color={hoverBorder}
-            status={status}
-            hasLeftContent={!!contentLeft}
-            selfValue={selfValue}
-            heightRatio={heightRatio}
+            hasContentLeft={!!contentLeft}
+            withValue={!!selfValue}
             asPlaceholder={!!labelPlaceholder}
-            placeholderColor={placeholderColor}
-            hover={hover}
-            htmlFor={inputId}
-            label={inputLabel}
-          />
+            focused={hover}
+          >
+            {inputLabel}
+          </InputBlockLabel>
         )}
-        <div
+        <StyledInputContainer
+          animated={animated}
+          isTextarea={isTextarea}
+          underlined={underlined}
+          isReadOnly={readOnly}
+          focused={hover}
           className={clsx(
-            'container',
+            `${preClass}-container`,
+            `${preClass}-container--${getState}`,
             {
-              'input-container': !isTextarea,
-              'textarea-container': isTextarea,
-              'read-only': readOnly,
-              hover
+              [`${preClass}-container--input`]: !isTextarea,
+              [`${preClass}-container--textarea`]: isTextarea,
+              [`${preClass}-container--read-only`]: readOnly
             },
             className
           )}
         >
-          <ComponentWrapper
-            className={clsx('wrapper', {
-              hover,
-              disabled,
-              bordered,
-              underlined,
-              shadow,
-              'input-wrapper': !isTextarea,
-              'textarea-wrapper': isTextarea
-            })}
+          <StyledInputWrapper
+            as={inputLabel ? 'div' : 'label'}
+            animated={animated}
+            bordered={bordered}
+            shadow={shadow}
+            disabled={disabled}
+            focused={hover}
+            isReadOnly={readOnly}
+            underlined={underlined}
+            isTextarea={isTextarea}
+            className={clsx(
+              `${preClass}-wrapper`,
+              `${preClass}-wrapper--${getState}`,
+              {
+                [`${preClass}-wrapper--bordered`]: bordered,
+                [`${preClass}-wrapper--underlined`]: underlined,
+                [`${preClass}-wrapper--shadow`]: shadow
+              }
+            )}
           >
             {!inputLabel && placeholder && (
-              <VisuallyHidden>
-                <span>{placeholder}</span>
-              </VisuallyHidden>
+              <StyledInputPlaceholder className={`${preClass}-placeholder`}>
+                {placeholder}
+              </StyledInputPlaceholder>
             )}
             {labelLeft && (
               <InputLabel
-                status={status}
-                bgColor={bgColor}
-                borderWeight={borderWeight}
+                className={`${preClass}-label--left`}
+                isDefaultStatus={status === 'default'}
                 underlined={underlined}
                 bordered={bordered}
-                color={placeholderColor}
-                radius={radius}
-                fontSize={fontSize}
+                isDark={isDark}
               >
                 {labelLeft}
               </InputLabel>
             )}
             {contentLeft && (
               <InputContent
-                isLeft
+                className={clsx(
+                  `${preClass}-content`,
+                  `${preClass}-content--left`
+                )}
                 applyStyles={contentLeftStyling}
-                status={status}
-                content={contentLeft}
-                {...contentProps}
-              />
+                clickable={contentClickable}
+                onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+                  contentClickHandler('left', e)
+                }
+              >
+                {contentLeft}
+              </InputContent>
             )}
-            <Component
+            <StyledInput
               type="text"
+              as={Component}
               id={inputId}
               ref={inputRef}
               className={clsx({
-                disabled,
-                rounded,
-                'right-content': contentRight,
-                'left-content': contentLeft
+                [`${preClass}`]: !isTextarea,
+                [`${preClass}-textarea`]: isTextarea,
+                [`${preClass}-disabled`]: disabled,
+                [`${preClass}-rounded`]: rounded,
+                [`${preClass}-${preClass}-right-content`]: contentRight,
+                [`${preClass}-left-content`]: contentLeft
               })}
+              isTextarea={isTextarea}
+              focused={hover}
+              bordered={bordered}
               placeholder={inputPlaceholder}
               disabled={disabled}
               readOnly={readOnly}
@@ -322,6 +344,9 @@ const Input = React.forwardRef<FormElement, InputProps>(
               onBlur={blurHandler}
               onChange={changeHandler}
               autoComplete={autoComplete}
+              hasLeftContent={!!contentLeft}
+              hasRightContent={!!contentRight}
+              data-state={getState}
               aria-placeholder={inputPlaceholder}
               aria-readonly={readOnly}
               aria-required={required}
@@ -329,216 +354,58 @@ const Input = React.forwardRef<FormElement, InputProps>(
               {...inputProps}
             />
             {clearable && (
-              <InputIconClear
-                status={status}
+              <InputClearButton
+                className={`${preClass}-clear-button`}
+                animated={animated}
                 underlined={underlined}
                 visible={Boolean(selfValue)}
                 hasContentRight={!!contentRight}
-                heightRatio={heightRatio}
                 disabled={disabled || readOnly}
                 onClick={clearHandler}
-              />
+              >
+                <ClearIcon fill="currentColor" />
+              </InputClearButton>
             )}
             {contentRight && (
               <InputContent
-                status={status}
-                content={contentRight}
+                className={clsx(
+                  `${preClass}-content`,
+                  `${preClass}-content--right`
+                )}
                 applyStyles={contentRightStyling}
-                {...contentProps}
-              />
+                clickable={contentClickable}
+                onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+                  contentClickHandler('right', e)
+                }
+              >
+                {contentRight}
+              </InputContent>
             )}
             {labelRight && (
               <InputLabel
-                status={status}
-                bgColor={bgColor}
-                borderWeight={borderWeight}
-                bordered={bordered}
+                className={`${preClass}-label--right`}
+                isDefaultStatus={status === 'default'}
                 underlined={underlined}
-                color={placeholderColor}
-                radius={radius}
-                fontSize={fontSize}
+                bordered={bordered}
                 isRight={true}
+                isDark={isDark}
               >
                 {labelRight}
               </InputLabel>
             )}
-          </ComponentWrapper>
-        </div>
-        <div
-          className={clsx('helper-text-container', {
-            'with-value': !!helperText
-          })}
+          </StyledInputWrapper>
+        </StyledInputContainer>
+        <StyledHelperTextContainer
+          className={`${preClass}-helper-text-container`}
+          withValue={!!helperText}
         >
-          {helperText && <p className="helper-text">{helperText}</p>}
-        </div>
-        <style jsx>{`
-          .with-label {
-            width: ${width};
-            display: inline-flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            box-sizing: border-box;
-            -webkit-box-align: center;
-            border-radius: ${radius};
-          }
-          .container {
-            width: 100%;
-            transition: ${animated ? 'all 0.25s ease' : 'none'};
-            border-radius: ${radius};
-          }
-          .input-container {
-            display: inline-flex;
-            align-items: center;
-            height: calc(${heightRatio} * ${theme.layout.gap});
-          }
-          .wrapper {
-            flex: 1;
-            position: relative;
-            display: inline-flex;
-            vertical-align: middle;
-            align-items: center;
-            user-select: none;
-            border-radius: ${radius};
-            background: ${bgColor};
-          }
-          .input-wrapper {
-            height: 100%;
-          }
-          .wrapper.shadow {
-            transition: ${animated ? 'all 0.25s ease' : 'none'};
-          }
-          .wrapper.bordered {
-            background: transparent;
-            border: none;
-            box-shadow: 0 0 0 ${!underlined ? borderWeight : '0px'}
-              ${borderColor};
-            transition: ${animated ? 'box-shadow 0.25s ease' : 'none'};
-          }
-          .wrapper.underlined {
-            background: transparent;
-          }
-          .wrapper.underlined::after {
-            content: '';
-            position: absolute;
-            z-index: 1;
-            bottom: 0;
-            width: 100%;
-            height: ${borderWeight};
-            background: ${borderColor};
-          }
-          .wrapper.underlined::before {
-            position: absolute;
-            content: '';
-            z-index: 2;
-            width: 0;
-            bottom: 0;
-            height: 2px;
-            left: 50%;
-            transform: translate(-50%);
-            background: ${hoverBorder};
-            transition: ${animated ? 'width 0.25s ease' : 'none'};
-          }
-          .wrapper.hover.underlined::before {
-            width: 100%;
-          }
-          .wrapper.disabled {
-            cursor: not-allowed;
-          }
-          .helper-text-container {
-            position: absolute;
-            opacity: 0;
-            bottom: calc(${heightRatio} * ${theme.layout.gapHalf} * -1);
-            transition: ${animated ? 'opacity 0.25s ease' : 'none'};
-          }
-          .helper-text-container.with-value {
-            opacity: 1;
-          }
-          .helper-text {
-            margin: 2px 0 0 10px;
-            font-size: 0.7rem;
-            color: ${helperColor};
-          }
-          .container.hover:not(.read-only) {
-            transform: ${animated && !underlined ? 'translateY(-2px)' : 'none'};
-          }
-          .wrapper.shadow.hover:not(.read-only) {
-            box-shadow: ${shadow && !underlined ? shadowColor : 'none'};
-          }
-          .container:hover .wrapper.bordered,
-          .container.hover:not(.read-only) .wrapper.bordered {
-            border-color: ${hoverBorder};
-            box-shadow: 0 0 0 ${!underlined ? borderWeight : '0px'}
-              ${hoverBorder};
-          }
-          input.disabled,
-          textarea.disabled {
-            color: ${theme.palette.accents_4};
-            cursor: not-allowed;
-          }
-          input.rounded,
-          textarea.rounded {
-            padding: 0 ${theme.layout.gapQuarter};
-          }
-          input:focus::placeholder,
-          textarea:focus::placeholder {
-            opacity: 0;
-            transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
-          }
-          .wrapper:not(.underlined) input,
-          .wrapper:not(.underlined) textarea {
-            margin: 4px 10px;
-          }
-          .wrapper.underlined input,
-          .wrapper.underlined textarea {
-            margin: 4px 5px;
-          }
-          input,
-          textarea {
-            padding: 0;
-            font-size: ${fontSize};
-            background-color: transparent;
-            border: none;
-            color: ${color};
-            border-radius: 0;
-            outline: none;
-            width: 100%;
-            height: 100%;
-            min-width: 0;
-            -webkit-appearance: none;
-          }
-          textarea:not(.underlined) {
-            padding: ${theme.layout.gapQuarter};
-          }
-          input.left-content,
-          textarea.left-content {
-            margin-left: 0;
-          }
-          input.right-content,
-          textarea.right-content {
-            margin-right: 0;
-          }
-          input::placeholder,
-          textarea::placeholder {
-            color: ${placeholderColor};
-            transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
-            -moz-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
-            -ms-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
-            -webkit-transition: ${animated ? 'opacity 0.25s ease 0s' : 'none'};
-          }
-          input:-webkit-autofill,
-          input:-webkit-autofill:hover,
-          input:-webkit-autofill:active,
-          input:-webkit-autofill:focus,
-          textarea:-webkit-autofill,
-          textarea:-webkit-autofill:hover,
-          textarea:-webkit-autofill:active,
-          textarea:-webkit-autofill:focus {
-            -webkit-box-shadow: 0 0 0 30px ${theme.palette.background} inset !important;
-            -webkit-text-fill-color: ${color} !important;
-          }
-        `}</style>
-      </div>
+          {helperText && (
+            <StyledHelperText className={`${preClass}-helper-text`}>
+              {helperText}
+            </StyledHelperText>
+          )}
+        </StyledHelperTextContainer>
+      </StyledInputMainContainer>
     );
   }
 );
@@ -552,8 +419,12 @@ type InputComponent<T, P = {}> = React.ForwardRefExoticComponent<
 
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs;
+  NativeAttrs & { css?: CSS };
+
+Input.displayName = 'NextUI - Input';
 
 Input.defaultProps = defaultProps;
+
+Input.toString = () => '.nextui-input';
 
 export default Input as InputComponent<FormElement, ComponentProps>;

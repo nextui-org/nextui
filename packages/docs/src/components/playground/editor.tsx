@@ -8,9 +8,13 @@ import BugIcon from '../icons/bug';
 import RightIcon from '../icons/arrow-right';
 import { ISSUE_REPORT_URL } from '../../lib/github/constants';
 
-const Editor: React.FC = () => {
-  const theme = useTheme();
-  const [visible, setVisible] = useState(false);
+export interface Props {
+  initialOpen?: boolean;
+}
+
+const Editor: React.FC<Props> = ({ initialOpen }) => {
+  const { theme, isDark } = useTheme();
+  const [visible, setVisible] = useState(initialOpen);
   const [copied, setCopied] = useState(false);
 
   const router = useRouter();
@@ -67,9 +71,9 @@ const Editor: React.FC = () => {
                 <RightIcon
                   size={16}
                   fill={
-                    theme.type === 'light'
-                      ? theme.palette.accents_2
-                      : theme.palette.accents_6
+                    !isDark
+                      ? theme?.colors?.accents2?.value
+                      : theme?.colors?.accents6?.value
                   }
                 />
               </span>
@@ -90,9 +94,9 @@ const Editor: React.FC = () => {
                   >
                     <CopyIcon
                       fill={
-                        theme.type === 'light'
-                          ? theme.palette.accents_2
-                          : theme.palette.accents_5
+                        !isDark
+                          ? theme?.colors?.accents2?.value
+                          : theme?.colors?.accents5?.value
                       }
                       size={18}
                     />
@@ -113,9 +117,9 @@ const Editor: React.FC = () => {
                   >
                     <BugIcon
                       fill={
-                        theme.type === 'light'
-                          ? theme.palette.accents_2
-                          : theme.palette.accents_5
+                        !isDark
+                          ? theme?.colors?.accents2?.value
+                          : theme?.colors?.accents5?.value
                       }
                       size={18}
                     />
@@ -140,8 +144,8 @@ const Editor: React.FC = () => {
         details {
           transition: all 0.2s ease;
           overflow: hidden;
-          border-radius: ${theme.layout.radius};
-          background-color: ${theme.type === 'light' ? '#363449' : '#111'};
+          border-radius: ${theme?.radii?.lg?.value};
+          background-color: ${!isDark ? '#363449' : '#111'};
           box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
         }
         details[open] :global(.right-side) {
@@ -154,12 +158,10 @@ const Editor: React.FC = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 0 ${theme.layout.gap};
-          color: ${
-            theme.type === 'light'
-              ? theme.palette.accents_2
-              : theme.palette.accents_5
-          };
+          padding: 0 ${theme?.space?.lg?.value};
+          color: ${!isDark
+            ? theme?.colors?.accents2?.value
+            : theme?.colors?.accents5?.value};
           height: 2.875rem;
           list-style: none;
           user-select: none;
@@ -178,12 +180,10 @@ const Editor: React.FC = () => {
           position: relative;
           box-sizing: border-box;
           white-space: pre;
-          font-family: ${theme.font.mono};
-          color: #fff,
-          background-color: #111,
           font-size: 1em;
           overflow: hidden;
-          padding: ${theme.layout.gapHalf};
+          font-family: ${theme?.fonts?.mono};
+          padding: ${theme?.space?.sm?.value};
         }
         .arrow {
           transition: all 0.2s ease;
@@ -202,11 +202,11 @@ const Editor: React.FC = () => {
           z-index: 100;
           align-items: center;
           margin-left: 0.5rem;
-          color: ${theme.palette.accents_4};
+          color: ${theme?.colors?.accents4?.value};
           transition: color 0.2s ease;
         }
         .icon:hover {
-          color: ${theme.palette.accents_6};
+          color: ${theme?.colors?.accents6?.value};
         }
       `}</style>
     </div>

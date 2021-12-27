@@ -2,12 +2,11 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import Switch from './index';
 import { Moon, Sun, Lock, Notification } from '../utils/icons';
-import useTheme from '../use-theme';
 
 export default {
   title: 'Inputs/Switch',
   component: Switch,
-  onChange: { action: 'changed' },
+  onChange: { action: 'changed' }
 } as Meta;
 
 export const Default = () => (
@@ -44,15 +43,15 @@ export const Colors = () => (
 
 export const Sizes = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Switch initialChecked size="mini" />
+    <Switch initialChecked size="xs" />
     <br />
-    <Switch size="small" />
+    <Switch size="sm" />
     <br />
-    <Switch initialChecked size="medium" />
+    <Switch initialChecked size="md" />
     <br />
-    <Switch size="large" />
+    <Switch size="lg" />
     <br />
-    <Switch initialChecked size="xlarge" />
+    <Switch initialChecked size="xl" />
   </div>
 );
 
@@ -89,22 +88,11 @@ export const Disabled = () => (
 );
 
 export const Icons = () => {
-  const theme = useTheme();
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <Switch
-        size="xlarge"
-        icon={<Lock theme={theme} fill={theme.palette.secondary} />}
-      />
-      <Switch
-        size="xlarge"
-        icon={<Notification theme={theme} fill={theme.palette.primary} />}
-      />
-      <Switch
-        size="xlarge"
-        iconOn={<Sun theme={theme} fill={theme.palette.primary} />}
-        iconOff={<Moon theme={theme} />}
-      />
+      <Switch size="xl" icon={<Lock />} />
+      <Switch size="xl" icon={<Notification />} />
+      <Switch size="xl" iconOn={<Sun />} iconOff={<Moon />} />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { ElementType } from 'react';
 
 export const tuple = <T extends string[]>(...args: T) => args;
 
-const normalSizes = tuple('mini', 'small', 'medium', 'large', 'xlarge');
+const normalSizes = tuple('xs', 'sm', 'md', 'lg', 'xl');
 
 export const normalColors = tuple(
   'default',
@@ -34,6 +34,16 @@ export const extendedColors = tuple(
   'gradient'
 );
 
+export const extendedColorsNoGradient = tuple(
+  'default',
+  'primary',
+  'secondary',
+  'success',
+  'warning',
+  'error',
+  'invert'
+);
+
 export const extraColors = tuple(
   'default',
   'primary',
@@ -58,7 +68,13 @@ export const normalLoaders = tuple(
   'spinner'
 );
 
-export const normalWeights = tuple('light', 'normal', 'bold');
+export const normalWeights = tuple(
+  'light',
+  'normal',
+  'bold',
+  'extrabold',
+  'black'
+);
 
 export const textWeights = tuple(
   /* Keyword values */
@@ -88,8 +104,6 @@ export const textTransforms = tuple(
   'revert',
   'unset'
 );
-
-const themeTypes = tuple('dark', 'light');
 
 const copyTypes = tuple('default', 'slient', 'prevent');
 
@@ -192,7 +206,8 @@ export const excludedInputPropsForTextarea = tuple(
   'contentLeftStyling',
   'contentRightStyling',
   'onContentClick',
-  'onClearClick'
+  'onClearClick',
+  'css'
 );
 
 export type Display = typeof display[number];
@@ -229,11 +244,9 @@ export type NormalColors = typeof normalColors[number];
 
 export type SimpleColors = typeof simpleColors[number];
 
-export type TooltipColors = typeof extendedColors[number];
+export type TooltipColors = typeof extendedColorsNoGradient[number];
 
 export type NormalLoaders = typeof normalLoaders[number];
-
-export type ThemeTypes = typeof themeTypes[number];
 
 export type SnippetTypes = typeof extendedColors[number];
 

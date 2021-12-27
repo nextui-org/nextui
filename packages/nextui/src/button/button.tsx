@@ -1,113 +1,82 @@
 import React, {
   useRef,
-  MouseEvent,
   useMemo,
+  MouseEvent,
   useImperativeHandle,
   PropsWithoutRef,
   RefAttributes
 } from 'react';
 import useWarning from '../use-warning';
-import useTheme from '../use-theme';
 import ButtonDrip from '../utils/drip';
-import ButtonLoading from './button-loading';
-import {
-  NormalColors,
-  NormalLoaders,
-  NormalSizes,
-  NormalWeights
-} from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
+import { NormalColors } from '../utils/prop-types';
 import { filterPropsWithGroup } from './utils';
 import { useButtonGroupContext } from './button-group-context';
 import ButtonGroup from './button-group';
 import ButtonIcon from './button-icon';
-import {
-  getButtonColors,
-  getButtonCursor,
-  getButtonDripColor,
-  getButtonSize
-} from './styles';
-import { getNormalShadowColor } from '../utils/color';
-import { getFocusStyles } from '../utils/styles';
-import { getNormalRadius } from '../utils/dimensions';
-import { __DEV__ } from '../utils/assertion';
 import clsx from '../utils/clsx';
 import useDrip from '../use-drip';
+import StyledButton, { ButtonVariantsProps } from './button.styles';
+import withDefaults from '../utils/with-defaults';
+import { __DEV__ } from '../utils/assertion';
 
 export interface Props {
-  color?: NormalColors | string;
-  size?: NormalSizes;
   light?: boolean;
+  color?: NormalColors;
   flat?: boolean;
-  loading?: boolean;
-  shadow?: boolean;
-  auto?: boolean;
   animated?: boolean;
-  rounded?: boolean;
+  clickable?: boolean;
   disabled?: boolean;
-  bordered?: boolean;
   ghost?: boolean;
-  borderWeight?: NormalWeights;
-  loaderType?: NormalLoaders;
-  htmlType?: React.ButtonHTMLAttributes<unknown>['type'];
+  bordered?: boolean;
+  ripple?: boolean;
   icon?: React.ReactNode;
   iconRight?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  as?: keyof JSX.IntrinsicElements;
   className?: string;
-  style?: React.CSSProperties;
 }
 
 const defaultProps = {
-  color: 'default' as NormalColors | string,
-  size: 'medium' as NormalSizes,
-  htmlType: 'button' as React.ButtonHTMLAttributes<unknown>['type'],
-  loaderType: 'default' as NormalLoaders,
-  borderWeight: 'normal' as NormalWeights | undefined,
-  flat: false,
-  light: false,
-  loading: false,
-  rounded: false,
-  shadow: false,
-  auto: false,
-  bordered: false,
+  clickable: true,
   ghost: false,
+  bordered: false,
+  ripple: true,
   animated: true,
   disabled: false,
   className: ''
 };
 
 type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
-export type ButtonProps = Props & typeof defaultProps & NativeAttrs;
+
+export type ButtonProps = Props &
+  NativeAttrs &
+  ButtonVariantsProps & { css?: CSS };
 
 const Button = React.forwardRef<
   HTMLButtonElement,
   React.PropsWithChildren<ButtonProps>
 >(({ ...btnProps }, ref: React.Ref<HTMLButtonElement | null>) => {
-  const theme = useTheme();
   const buttonRef = useRef<HTMLButtonElement>(null);
   useImperativeHandle(ref, () => buttonRef.current);
   const groupConfig = useButtonGroupContext();
   const filteredProps = filterPropsWithGroup(btnProps, groupConfig);
   /* eslint-disable @typescript-eslint/no-unused-vars */
   const {
+    flat,
     children,
     disabled,
-    loading,
-    shadow,
     animated,
     light,
-    flat,
-    rounded,
-    onClick,
-    auto,
-    size,
-    icon,
-    htmlType,
-    iconRight,
-    className,
-    loaderType,
+    ripple,
     bordered,
+    borderWeight,
+    onClick,
+    icon,
+    iconRight,
     ghost,
-    style: buttonStyle,
+    clickable,
+    className,
     ...props
   } = filteredProps;
   /* eslint-enable @typescript-eslint/no-unused-vars */
@@ -119,95 +88,39 @@ const Button = React.forwardRef<
   const hasIcon = icon || iconRight;
   const isRight = Boolean(iconRight);
 
-  const { bg, color, loaderBg, border, style, hover } = useMemo(
-    () => getButtonColors(theme.palette, filteredProps),
-    [theme.palette, filteredProps]
-  );
-
-  const radius = useMemo(() => getNormalRadius(size, rounded), [size, rounded]);
-
-  const shadowColor = useMemo(
-    () =>
-      shadow ? getNormalShadowColor(filteredProps.color, theme.palette) : '',
-    [theme.palette, filteredProps, shadow]
-  );
-
-  const { cursor, events } = useMemo(
-    () => getButtonCursor(disabled, loading),
-    [disabled, loading]
-  );
-
-  const { className: focusClassName, styles: focusStyles } =
-    getFocusStyles(theme);
-
-  const { height, minWidth, padding, width, fontSize, loaderSize } = useMemo(
-    () => getButtonSize(size, auto),
-    [size, auto]
-  );
-
-  const dripColor = useMemo(
-    () => getButtonDripColor(theme.palette, filteredProps),
-    [theme.palette, filteredProps]
-  );
-
   const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
     false,
     buttonRef
   );
 
-  const paddingForAutoMode = useMemo(
-    () =>
-      auto || size === 'mini'
-        ? `calc(var(--next-ui-button-height) / 2 + var(--next-ui-button-padding) * .5)`
-        : 0,
-    [auto, size]
-  );
-
-  const hoverBeforeOpacity = useMemo(
-    () => (filteredProps.color === 'gradient' && ghost ? 1 : 0),
-    [ghost, filteredProps]
-  );
-
-  const paddingForBorderedGradient = useMemo(
-    () =>
-      filteredProps.color === 'gradient' && (bordered || ghost)
-        ? `var(--next-ui-button-padding)`
-        : 0,
-    [filteredProps.color, bordered]
-  );
-
   const clickHandler = (event: MouseEvent<HTMLButtonElement>) => {
-    if (disabled || loading) return;
-    if (animated && buttonRef.current) {
+    if (disabled || !clickable) return;
+    if (animated && ripple && buttonRef.current) {
       onDripClickHandler(event);
     }
     onClick && onClick(event);
   };
 
-  // to avoid passing borderweight prop to the html button element
-  delete props.borderWeight;
+  const getState = useMemo(() => {
+    return disabled ? 'disabled' : 'ready';
+  }, [disabled]);
 
   return (
-    <button
+    <StyledButton
       ref={buttonRef}
-      type={htmlType}
-      className={clsx('button', { disabled }, focusClassName, className)}
+      borderWeight={borderWeight}
+      flat={flat}
+      light={light}
+      ghost={ghost}
+      bordered={bordered || ghost}
+      clickable={clickable}
+      data-state={getState}
       disabled={disabled}
+      animated={animated}
       onClick={clickHandler}
-      style={{
-        ...style,
-        ...buttonStyle
-      }}
+      className={clsx('nextui-button', `nextui-button--${getState}`, className)}
       {...props}
     >
-      {loading && (
-        <ButtonLoading
-          size={loaderSize}
-          type={loaderType}
-          color={color}
-          background={loaderBg}
-        />
-      )}
       {React.Children.count(children) === 0 ? (
         <ButtonIcon isRight={isRight} isSingle>
           {hasIcon}
@@ -215,104 +128,20 @@ const Button = React.forwardRef<
       ) : hasIcon ? (
         <div>
           <ButtonIcon isRight={isRight}>{hasIcon}</ButtonIcon>
-          <div className={`text ${isRight ? 'right' : 'left'}`}>{children}</div>
+          <div
+            className={clsx('nextui-button-text', {
+              'nextui-button-text-right': isRight,
+              'nextui-button-text-left': !isRight
+            })}
+          >
+            {children}
+          </div>
         </div>
       ) : (
-        <div className="text">{children}</div>
+        <span className="nextui-button-text">{children}</span>
       )}
-      <ButtonDrip color={dripColor} {...dripBindings} />
-      <style jsx>{`
-        .button {
-          background: ${bg};
-          box-sizing: border-box;
-          display: inline-block;
-          padding: 0 ${padding};
-          height: ${height};
-          line-height: ${height};
-          min-width: ${minWidth};
-          width: ${width};
-          border-radius: ${radius};
-          border: ${border?.width || '2px'} ${border?.display || 'none'}
-            ${border?.color || 'transparent'};
-          font-weight: 500;
-          font-size: ${fontSize};
-          user-select: none;
-          text-transform: capitalize;
-          justify-content: center;
-          text-align: center;
-          white-space: nowrap;
-          transition: all 250ms ease;
-          position: relative;
-          overflow: hidden;
-          color: ${color};
-          cursor: ${cursor};
-          pointer-events: ${events};
-          box-shadow: ${shadowColor};
-          --next-ui-button-border-radius: ${radius};
-          --next-ui-button-padding: ${padding};
-          --next-ui-button-height: ${height};
-          --next-ui-button-color: ${color};
-          --next-ui-button-bg: ${bg};
-        }
-        .button:before {
-          content: '';
-          background: ${hover?.bg};
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          border-radius: ${radius};
-          transition: all 0.2s ease;
-          z-index: 1;
-          opacity: 0;
-        }
-        .button:hover:before {
-          opacity: ${hoverBeforeOpacity};
-        }
-        .button:not(.disabled):active {
-          transform: ${animated ? 'scale(0.97)' : 'none'};
-        }
-        .button:hover,
-        .button:focus {
-          background: ${hover?.bg || 'inherit'};
-          --next-ui-button-color: ${hover?.color};
-          filter: ${hover?.style?.filter || 'none'};
-          color: ${hover?.color};
-          border-color: ${hover?.border?.color || 'transparent'};
-          border-width: ${hover?.border?.width};
-          padding: ${hover?.padding} !important;
-          cursor: ${cursor};
-          pointer-events: ${events};
-        }
-        .text {
-          position: relative;
-          z-index: 1;
-          transform: translateY(
-            -${bordered || ghost ? border?.width || '2px' : '0'}
-          );
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          line-height: inherit;
-          padding: 0 ${paddingForBorderedGradient};
-          opacity: ${loading ? 0 : 1};
-        }
-        .text p,
-        .text pre,
-        .text div {
-          margin: 0;
-        }
-        .text.left {
-          padding-left: ${paddingForAutoMode};
-        }
-        .text.right {
-          padding-right: ${paddingForAutoMode};
-        }
-      `}</style>
-      {focusStyles}
-    </button>
+      <ButtonDrip color="white" {...dripBindings} />
+    </StyledButton>
   );
 });
 
@@ -322,14 +151,13 @@ type ButtonComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Group: typeof ButtonGroup;
 };
 
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs;
-
 if (__DEV__) {
   Button.displayName = 'NextUI - Button';
 }
 
-Button.defaultProps = defaultProps;
+Button.toString = () => '.nextui-button';
 
-export default Button as ButtonComponent<HTMLButtonElement, ComponentProps>;
+export default withDefaults(Button, defaultProps) as ButtonComponent<
+  HTMLButtonElement,
+  ButtonProps
+>;

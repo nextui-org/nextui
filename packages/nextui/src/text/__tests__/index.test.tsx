@@ -37,7 +37,7 @@ describe('Text', () => {
       'del',
       'i',
       'em',
-      'b',
+      'b'
     ];
     const wrapper = mount(
       <div>
@@ -57,7 +57,7 @@ describe('Text', () => {
 
   it('the combined style should be rendered', () => {
     const wrapper = mount(
-      <Text p b del>
+      <Text b del>
         test-value
       </Text>
     );

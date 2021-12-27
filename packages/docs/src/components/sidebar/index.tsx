@@ -2,9 +2,8 @@ import * as React from 'react';
 import withDefaults from '@utils/with-defaults';
 import { Route, addTagToSlug } from '@lib/docs/page';
 import { removeFromLast } from '@utils/index';
-import { useMediaQuery } from '@hooks/use-media-query';
+import { useIsMobile } from '@hooks/use-media-query';
 import { Heading } from '@components';
-import { useTheme, NextUIThemes } from '@nextui-org/react';
 import Category from './category';
 import Post from './post';
 import { NavLinkProps } from '../nav-link';
@@ -39,21 +38,42 @@ const Sidebar: React.FC<SidebarProps> = ({
   slug,
   onPostClick
 }) => {
-  const theme = useTheme() as NextUIThemes;
-  const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.max.replace('px', ''))
-  );
+  const isMobile = useIsMobile();
   return (
     <>
-      {routes?.map(({ path, title, icon, routes, newPost, heading, open }) => {
-        if (routes) {
-          const pathname = getCategoryPath(routes);
-          const categorySelected = slug.startsWith(pathname);
-          const opened = categorySelected || isMobile ? false : open;
+      {routes?.map(
+        ({ path, title, icon, routes, newPost, updated, heading, open }) => {
+          if (routes) {
+            const pathname = getCategoryPath(routes);
+            const categorySelected = slug.startsWith(pathname);
+            const opened = categorySelected || isMobile ? false : open;
 
-          if (heading) {
+            if (heading) {
+              return (
+                <Heading key={pathname} title={title}>
+                  <Sidebar
+                    routes={routes}
+                    level={level + 1}
+                    tag={tag}
+                    slug={slug}
+                    onPostClick={onPostClick}
+                  />
+                </Heading>
+              );
+            }
+
             return (
-              <Heading key={pathname} title={title}>
+              <Category
+                key={pathname}
+                routes={routes}
+                isMobile={isMobile}
+                iconUrl={icon}
+                level={level}
+                title={title}
+                selected={categorySelected}
+                opened={opened}
+                updated={updated}
+              >
                 <Sidebar
                   routes={routes}
                   level={level + 1}
@@ -61,55 +81,35 @@ const Sidebar: React.FC<SidebarProps> = ({
                   slug={slug}
                   onPostClick={onPostClick}
                 />
-              </Heading>
+              </Category>
             );
           }
+          const href = '/docs/[[...slug]]';
+          const pagePath: string | undefined =
+            path && removeFromLast(path, '.');
+          const pathname = pagePath && addTagToSlug(pagePath, tag);
+          const selected = pagePath && pagePath === slug;
+
+          const route = {
+            href,
+            path,
+            title,
+            pathname,
+            selected,
+            newPost
+          } as NavLinkProps;
 
           return (
-            <Category
-              key={pathname}
-              routes={routes}
+            <Post
+              key={title}
               isMobile={isMobile}
-              iconUrl={icon}
               level={level}
-              title={title}
-              selected={categorySelected}
-              opened={opened}
-            >
-              <Sidebar
-                routes={routes}
-                level={level + 1}
-                tag={tag}
-                slug={slug}
-                onPostClick={onPostClick}
-              />
-            </Category>
+              route={route}
+              onClick={() => onPostClick && onPostClick(route)}
+            />
           );
         }
-        const href = '/docs/[[...slug]]';
-        const pagePath: string | undefined = path && removeFromLast(path, '.');
-        const pathname = pagePath && addTagToSlug(pagePath, tag);
-        const selected = pagePath && pagePath === slug;
-
-        const route = {
-          href,
-          path,
-          title,
-          pathname,
-          selected,
-          newPost
-        } as NavLinkProps;
-
-        return (
-          <Post
-            key={title}
-            isMobile={isMobile}
-            level={level}
-            route={route}
-            onClick={() => onPostClick && onPostClick(route)}
-          />
-        );
-      })}
+      )}
     </>
   );
 };

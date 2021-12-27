@@ -31,10 +31,10 @@ describe('Snippet', () => {
   it('should work with different styles', () => {
     const wrapper = mount(
       <div>
+        <Snippet text={command} />
         <Snippet text={command} filled />
-        <Snippet text={command} width="20%" />
-        <Snippet text={command} type="secondary" />
-        <Snippet text={command} type="success" filled />
+        <Snippet text={command} color="secondary" />
+        <Snippet text={command} color="success" filled />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('Snippet', () => {
   it('text should be copied', () => {
     document.execCommand = jest.fn();
     const wrapper = mount(<Snippet text={command} />);
-    wrapper.find('.copy').simulate('click');
+    wrapper.find('.nextui-snippet-copy-button').at(0).simulate('click');
     expect(document.execCommand).toHaveBeenCalled();
     (document.execCommand as jest.Mock).mockRestore();
   });
@@ -52,7 +52,7 @@ describe('Snippet', () => {
   it('multi-line commands should be copied', () => {
     document.execCommand = jest.fn();
     const wrapper = mount(<Snippet text={multiLine} />);
-    wrapper.find('.copy').simulate('click');
+    wrapper.find('.nextui-snippet-copy-button').at(0).simulate('click');
     expect(document.execCommand).toHaveBeenCalled();
     (document.execCommand as jest.Mock).mockRestore();
   });
@@ -60,14 +60,14 @@ describe('Snippet', () => {
   it('child commands should be copied', () => {
     document.execCommand = jest.fn();
     const wrapper = mount(<Snippet>{command}</Snippet>);
-    wrapper.find('.copy').simulate('click');
+    wrapper.find('.nextui-snippet-copy-button').at(0).simulate('click');
     expect(document.execCommand).toHaveBeenCalled();
     (document.execCommand as jest.Mock).mockRestore();
   });
 
   it('should disable copy function', () => {
     const wrapper = mount(<Snippet text={command} copy="prevent" />);
-    expect(wrapper.find('.copy').length).toBe(0);
+    expect(wrapper.find('.nextui-snippet-copy-button').length).toBe(0);
   });
 
   it('should work with custom symbol', () => {
@@ -90,7 +90,7 @@ describe('Snippet', () => {
     const wrapper = mount(
       <Snippet text={command} tooltipCopiedText="Code copied!" />
     );
-    wrapper.find('.copy').simulate('click');
+    wrapper.find('.nextui-snippet-copy-button').at(0).simulate('click');
     expect(document.execCommand).toHaveBeenCalled();
     (document.execCommand as jest.Mock).mockRestore();
   });

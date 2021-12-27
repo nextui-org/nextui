@@ -1,79 +1,74 @@
-import React, { useMemo, useCallback } from 'react';
-import { NormalColors, NormalSizes, NormalWeights } from '../utils/prop-types';
-import { getPaginationSizes } from './styles';
+import React, { useCallback } from 'react';
 import usePagination, { DOTS, PaginationItemParam } from '../use-pagination';
+import { CSS } from '../theme/stitches.config';
 import PaginationItem from './pagination-item';
 import PaginationEllipsis from './pagination-ellipsis';
 import PaginationIcon from './pagination-icon';
 import PaginationHighlight from './pagination-highlight';
-import useTheme from '../use-theme';
-import clsx from '../utils/clsx';
-import { getNormalColor } from '../utils/color';
+import { StyledPagination, PaginationVariantsProps } from './pagination.styles';
 import { __DEV__ } from '../utils/assertion';
-import { getNormalWeight } from '../utils/dimensions';
+import clsx from '../utils/clsx';
 
 interface Props {
-  color?: NormalColors | string;
-  size?: NormalSizes | number;
   page?: number;
   shadow?: boolean;
-  rounded?: boolean;
-  onlyDots?: boolean;
   initialPage?: number;
   loop?: boolean;
   animated?: boolean;
   controls?: boolean;
-  noMargin?: boolean;
+  rounded?: boolean;
   dotsJump?: number;
   total?: number;
   bordered?: boolean;
-  borderWeight?: NormalWeights;
+  noMargin?: boolean;
+  onlyDots?: boolean;
   siblings?: number;
   boundaries?: number;
   onChange?: (page: number) => void;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
-  color: 'primary' as NormalColors | string,
-  size: 'medium' as NormalSizes | number,
-  borderWeight: 'normal' as NormalWeights,
   shadow: false,
-  rounded: false,
   controls: true,
   bordered: false,
-  onlyDots: false,
-  noMargin: false,
   initialPage: 1,
   siblings: 1,
   boundaries: 1,
   dotsJump: 5,
   total: 1,
   loop: false,
-  animated: true
+  animated: true,
+  onlyDots: false,
+  noMargin: false,
+  rounded: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type PaginationProps = Props & typeof defaultProps & NativeAttrs;
+
+export type PaginationProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  PaginationVariantsProps & { css?: CSS };
+
+const preClass = 'nextui-pagination';
 
 const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
   page,
   initialPage,
+  onlyDots,
   total,
-  size,
-  color,
   loop,
   siblings,
   boundaries,
   shadow,
-  rounded,
   animated,
   bordered,
-  borderWeight,
-  onlyDots,
   dotsJump,
   controls,
   noMargin,
   onChange,
+  rounded,
   ...props
 }) => {
   const { range, active, setPage, previous, next, first, last } = usePagination(
@@ -87,31 +82,13 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
     }
   );
 
-  const theme = useTheme();
-
-  const bgColor = useMemo(
-    () => getNormalColor(color, theme.palette, theme.palette.primary),
-    [color, theme.palette]
-  );
-  const { font, width } = useMemo(() => getPaginationSizes(size), [size]);
-
-  const radius = useMemo(
-    () => (noMargin ? '0px' : rounded || onlyDots ? '100%' : '33%'),
-    [rounded, onlyDots, noMargin]
-  );
-
-  const weight = useMemo(
-    () => (bordered ? getNormalWeight(borderWeight) : '0px'),
-    [bordered, borderWeight]
-  );
-
   const renderItem = useCallback(
     (value: PaginationItemParam, index: number) => {
       if (value === DOTS) {
         const isBefore = index < range.indexOf(active);
         return (
           <PaginationEllipsis
-            key={`pagination-item-${value}-${index}`}
+            key={`${preClass}-item-${value}-${index}`}
             value={value}
             bordered={bordered}
             animated={animated}
@@ -129,7 +106,7 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
       }
       return (
         <PaginationItem
-          key={`pagination-item-${value}-${index}`}
+          key={`${preClass}-item-${value}-${index}`}
           value={value}
           animated={animated}
           bordered={bordered}
@@ -159,8 +136,17 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
   };
 
   return (
-    <nav
-      className={clsx('pagination', { 'no-margin': noMargin, bordered })}
+    <StyledPagination
+      noMargin={noMargin}
+      bordered={bordered}
+      rounded={rounded}
+      onlyDots={onlyDots}
+      className={clsx(preClass, {
+        [`${preClass}--no-margin`]: noMargin,
+        [`${preClass}--bordered`]: bordered,
+        [`${preClass}--shadow`]: shadow,
+        [`${preClass}--rounded`]: rounded
+      })}
       {...props}
     >
       {controls && (
@@ -176,8 +162,8 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
       <PaginationHighlight
         noMargin={noMargin}
         animated={animated}
-        color={bgColor}
         shadow={shadow}
+        rounded={rounded}
         active={controls ? range.indexOf(active) + 1 : range.indexOf(active)}
       />
       {range.map(renderItem)}
@@ -190,39 +176,7 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
           disabled={!loop && active === total}
         />
       )}
-      <style jsx>{`
-        .pagination {
-          margin: 0;
-          padding: 0;
-          display: inline-flex;
-          position: relative;
-          font-variant: tabular-nums;
-          font-feature-settings: 'tnum';
-          font-size: ${font};
-          --next-ui-pagination-item-radius: ${radius};
-          --next-ui-pagination-item-border-weight: ${weight};
-          --next-ui-pagination-item-margin: ${noMargin ? '0' : '2px'};
-          --next-ui-pagination-item-color: ${bgColor};
-          --next-ui-pagination-size: ${onlyDots ? `calc(${width} / 2)` : width};
-          --next-ui-pagination-font-size: ${font};
-          --next-ui-pagination-scale-transform: ${onlyDots ? 0.8 : 0.9};
-        }
-        .pagination :global(button:last-of-type) {
-          margin-right: 0;
-        }
-        .no-margin :global(button:first-of-type) {
-          border-top-left-radius: 33%;
-          border-bottom-left-radius: 33%;
-        }
-        .no-margin :global(button:last-of-type) {
-          border-top-right-radius: 33%;
-          border-bottom-right-radius: 33%;
-        }
-        .no-margin.bordered :global(button:not(:last-child)) {
-          border-right: 0;
-        }
-      `}</style>
-    </nav>
+    </StyledPagination>
   );
 };
 
@@ -230,13 +184,16 @@ type MemoPaginationComponent<P = {}> = React.NamedExoticComponent<P>;
 
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs;
+  NativeAttrs &
+  PaginationVariantsProps & { css?: CSS };
 
 Pagination.defaultProps = defaultProps;
 
 if (__DEV__) {
   Pagination.displayName = 'NextUI - Pagination';
 }
+
+Pagination.toString = () => '.nextui-pagination';
 
 export default React.memo(
   Pagination

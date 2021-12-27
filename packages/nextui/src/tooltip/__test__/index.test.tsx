@@ -1,36 +1,44 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { Button, Tooltip } from '../../index';
-import { ThemeProvider } from '../../theme';
 import { nativeEvent, updateWrapper } from 'tests/utils';
 import { act } from 'react-dom/test-utils';
 
 const expectTooltipIsShow = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.inner').length).not.toBe(0);
-  expect(wrapper.find('.inner').prop('role')).toEqual('tooltip');
+  expect(wrapper.find('.nextui-tooltip').length).not.toBe(0);
+  expect(wrapper.find('.nextui-tooltip').at(0).prop('role')).toEqual('tooltip');
 };
 
 const expectTooltipIsHidden = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.inner').length).toBe(0);
+  expect(wrapper.find('.nextui-tooltip').at(0).length).toBe(0);
 };
 
 describe('Tooltip', () => {
   it('should render correctly', async () => {
     const wrapper = mount(
-      <ThemeProvider theme={{ type: 'dark' }}>
-        <Tooltip content={<p id="test">custom-content</p>}>some tips</Tooltip>
-      </ThemeProvider>
+      <Tooltip content={<p className="test-content">custom-content</p>}>
+        some tips
+      </Tooltip>
     );
 
     expectTooltipIsHidden(wrapper);
 
-    wrapper.find('.tooltip').simulate('mouseEnter', nativeEvent);
+    wrapper
+      .find('.nextui-tooltip-button')
+      .at(0)
+      .simulate('mouseEnter', nativeEvent);
+
     await updateWrapper(wrapper, 150);
-    wrapper.find('#test').simulate('click', nativeEvent);
+
+    wrapper.find('.test-content').at(0).simulate('click', nativeEvent);
     expectTooltipIsShow(wrapper);
 
     await updateWrapper(wrapper, 150);
-    wrapper.find('.tooltip').simulate('mouseLeave', nativeEvent);
+    wrapper
+      .find('.nextui-tooltip-button')
+      .at(0)
+      .simulate('mouseLeave', nativeEvent);
+
     await updateWrapper(wrapper, 150);
     expectTooltipIsHidden(wrapper);
   });
@@ -41,11 +49,17 @@ describe('Tooltip', () => {
         <Tooltip content="some text">some tips</Tooltip>
       </div>
     );
-    wrapper.find('.tooltip').simulate('mouseEnter', nativeEvent);
+    wrapper
+      .find('.nextui-tooltip-button')
+      .at(0)
+      .simulate('mouseEnter', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsShow(wrapper);
 
-    wrapper.find('.tooltip').simulate('mouseLeave', nativeEvent);
+    wrapper
+      .find('.nextui-tooltip-button')
+      .at(0)
+      .simulate('mouseLeave', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsHidden(wrapper);
   });
@@ -56,11 +70,11 @@ describe('Tooltip', () => {
         <Tooltip content="some text">some tips</Tooltip>
       </div>
     );
-    wrapper.find('.tooltip').simulate('focus', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').at(0).simulate('focus', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsShow(wrapper);
 
-    wrapper.find('.tooltip').simulate('blur', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').at(0).simulate('blur', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsHidden(wrapper);
   });
@@ -71,11 +85,12 @@ describe('Tooltip', () => {
         <span>click me</span>
       </Tooltip>
     );
-    wrapper.find('.tooltip').simulate('click', nativeEvent);
+    wrapper.find('.nextui-tooltip-button').at(0).simulate('click', nativeEvent);
     await updateWrapper(wrapper, 150);
     expectTooltipIsShow(wrapper);
 
-    const testNode = wrapper.find('#test');
+    const testNode = wrapper.find('#test').at(0);
+
     expect(testNode.length).not.toBe(0);
     expect(testNode.text()).toContain('custom-content');
     act(() => {
@@ -95,7 +110,7 @@ describe('Tooltip', () => {
   it('should render inner components', async () => {
     const wrapper = mount(
       <Tooltip content="some text">
-        <Button auto size="small" id="test">
+        <Button auto size="sm" id="test">
           button
         </Button>
       </Tooltip>

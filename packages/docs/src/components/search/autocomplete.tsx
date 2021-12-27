@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
-import useDarkMode from 'use-dark-mode';
 import { isMacOs } from 'react-device-detect';
 import { useRouter } from 'next/router';
 import {
-  NextUIThemes,
   useTheme,
   useBodyScroll,
   useClickAway,
@@ -17,7 +15,7 @@ import AutoSuggest, {
   RenderSuggestionsContainerParams,
   RenderInputComponentProps
 } from 'react-autosuggest';
-import { useMediaQuery } from '@hooks/use-media-query';
+import { useIsMobile } from '@hooks/use-media-query';
 import { SearchByAlgolia, Close } from '../icons';
 import { addColorAlpha } from '@utils/index';
 import {
@@ -29,6 +27,8 @@ import { AutocompleteProvided } from 'react-instantsearch-core';
 import Keyboard from '../keyboard';
 import Suggestion from './suggestion';
 import { VisualState, useKBar } from 'kbar';
+import Blockholder from '../blockholder';
+import useIsMounted from '@hooks/use-is-mounted';
 
 interface Props extends AutocompleteProvided {}
 
@@ -39,14 +39,12 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
   const router = useRouter();
   const suggestionsPortal = usePortal('suggestions');
   const noResultsPortal = usePortal('no-results');
-  const theme = useTheme() as NextUIThemes;
-  const isMobile = useMediaQuery(
-    Number(theme.breakpoints.sm.max.replace('px', ''))
-  );
+
+  const { theme, isDark, type: themeType } = useTheme();
+  const isMobile = useIsMobile();
 
   const { query } = useKBar();
-
-  const isDark = useDarkMode().value;
+  const isMounted = useIsMounted();
 
   let inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -139,14 +137,15 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             </span>
           ) : (
             <span className="search__reset-container" onClick={onClear}>
-              <Close size={16} fill={theme.palette.accents_6} />
+              <Close size={16} fill={theme?.colors?.accents6?.value} />
             </span>
           )}
         </label>
       );
     },
-    [value, theme.type]
+    [value, themeType]
   );
+
   const renderSuggestionsContainer = ({
     containerProps,
     children
@@ -160,7 +159,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             rel="noreferrer"
             className="react-autosuggest__suggestions-header"
           >
-            <SearchByAlgolia fill={theme.palette.accents_6} />
+            <SearchByAlgolia fill={theme?.colors?.accents6?.value} />
           </a>
           {children}
         </div>,
@@ -174,7 +173,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           rel="noreferrer"
           className="react-autosuggest__suggestions-header"
         >
-          <SearchByAlgolia fill={theme.palette.accents_6} />
+          <SearchByAlgolia fill={theme?.colors?.accents6?.value} />
         </a>
         {children}
       </div>
@@ -204,6 +203,34 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
       return open ? <NoResultsContainer /> : null;
     }
   );
+
+  if (!isMounted) {
+    return (
+      <>
+        <Blockholder
+          className="search__placeholder-block"
+          alt="search placeholder"
+          height="38px"
+        />
+        <style jsx global>{`
+          .search__placeholder-block {
+            max-width: 228px;
+          }
+          @media only screen and (max-width: ${theme?.breakpoints?.xs.value}) {
+            .search__placeholder-block {
+              max-width: 64vw;
+            }
+          }
+          @media only screen and (min-width: ${theme?.breakpoints?.xs
+              ?.value}) and (max-width: ${theme?.breakpoints?.md.value}) {
+            .search__placeholder-block {
+              max-width: 248px;
+            }
+          }
+        `}</style>
+      </>
+    );
+  }
 
   return (
     <div
@@ -257,7 +284,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             right: 4px;
           }
           :global(.search__reset-container:hover path) {
-            fill: ${addColorAlpha(theme.palette.accents_6, 0.8)};
+            fill: ${addColorAlpha(theme?.colors?.accents6?.value, 0.8)};
           }
           .search__placeholder-icon {
             position: absolute;
@@ -280,7 +307,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            background: ${addColorAlpha(theme.palette.background, 0.7)};
+            background: ${addColorAlpha(theme?.colors?.background?.value, 0.7)};
             box-shadow: ${isDark
               ? '0px 5px 20px -5px rgba(0, 0, 0, 0.1)'
               : 'none'};
@@ -289,7 +316,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           .react-autosuggest__input {
             text-align: left;
             background: none;
-            color: ${theme.palette.text};
+            color: ${theme?.colors?.text?.value};
             width: 228px;
             height: 28px;
             padding: 16px;
@@ -316,7 +343,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             min-height: 168px;
             transition: all 0.25s ease;
             backdrop-filter: saturate(180%) blur(20px);
-            background: ${addColorAlpha(theme.palette.accents_1, 0.7)};
+            background: ${addColorAlpha(theme?.colors?.accents1?.value, 0.7)};
             box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
           }
@@ -328,14 +355,14 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             .react-autosuggest__suggestions-container,
             .no-results {
               backdrop-filter: saturate(180%) blur(10px);
-              background: ${addColorAlpha(theme.palette.accents_2, 0.7)};
+              background: ${addColorAlpha(theme?.colors?.accents2?.value, 0.7)};
             }
             .search__input-container {
-              background: ${addColorAlpha(theme.palette.accents_2, 0.7)};
+              background: ${addColorAlpha(theme?.colors?.accents2?.value, 0.7)};
             }
             .react-autosuggest__suggestions-container,
             .no-results {
-              background: ${addColorAlpha(theme.palette.accents_1, 0.7)};
+              background: ${addColorAlpha(theme?.colors?.accents1?.value, 0.7)};
             }
           }
           @supports (
@@ -343,11 +370,11 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               (backdrop-filter: blur(10px))
           ) {
             .search__input-container {
-              background: ${theme.palette.accents_2};
+              background: ${theme?.colors?.accents2?.value};
             }
             .react-autosuggest__suggestions-container,
             .no-results {
-              background: ${theme.palette.accents_1};
+              background: ${theme?.colors?.accents1?.value};
             }
           }
           .react-autosuggest__suggestions-container::-webkit-scrollbar {
@@ -378,7 +405,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           .react-autosuggest__section-title {
             padding: 10px 0 0 10px;
             font-size: 12px;
-            color: ${theme.palette.accents_6};
+            color: ${theme?.colors?.accents6?.value};
           }
           .no-results {
             z-index: 1001;
@@ -388,7 +415,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: ${theme.palette.accents_6};
+            color: ${theme?.colors?.accents6?.value};
           }
           .no-results span {
             word-break: break-all;
@@ -401,13 +428,13 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             transition: opacity 0.25s ease 0s;
           }
           .search__input-container input::placeholder {
-            color: ${theme.palette.accents_4};
+            color: ${theme?.colors?.accents4?.value};
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
             -ms-transition: opacity 0.25s ease 0s;
             -webkit-transition: opacity 0.25s ease 0s;
           }
-          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.xs}) {
             .react-autosuggest__suggestions-container,
             .no-results {
               z-index: 1004;
@@ -430,6 +457,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               width: 64vw;
               padding-right: 0;
             }
+
             .react-autosuggest__container {
               position: initial;
               z-index: 4;
@@ -441,8 +469,8 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               right: 0;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.xs
-              .max}) and (max-width: ${theme.breakpoints.md.min}) {
+          @media only screen and (min-width: ${theme?.breakpoints?.xs
+              ?.value}) and (max-width: ${theme?.breakpoints?.md}) {
             .react-autosuggest__suggestions-container,
             .no-results {
               top: 60px;

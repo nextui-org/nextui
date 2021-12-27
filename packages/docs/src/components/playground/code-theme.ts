@@ -1,24 +1,23 @@
 import { PrismTheme } from 'prism-react-renderer';
-import { NextUIThemes } from '@nextui-org/react';
+import { NextUIThemeContext } from '@nextui-org/react';
 
-const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
+const makeCodeTheme = ({ theme, isDark }: NextUIThemeContext): PrismTheme => ({
   plain: {
-    backgroundColor: theme.type === 'light' ? '#363449' : '#111',
+    backgroundColor: isDark ? '#111' : '#363449',
     color: '#fff',
     fontWeight: '500',
     fontStyle: 'normal',
-    fontFamily: theme.font.mono,
-    fontSize: '.875rem',
+    fontFamily: theme?.fonts?.mono?.value,
+    fontSize: theme?.fontSizes?.xs?.value,
     textRendering: 'geometricPrecision'
   },
   styles: [
     {
       types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
       style: {
-        color:
-          theme.type === 'light'
-            ? theme.palette.accents_3
-            : theme.palette.accents_6,
+        color: isDark
+          ? theme?.colors?.accents6?.value
+          : theme?.colors?.accents3?.value,
         opacity: 0.5
       }
     },
@@ -49,7 +48,7 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
     {
       types: ['property', 'function'],
       style: {
-        color: theme.palette.success
+        color: theme?.colors?.success?.value
       }
     },
     {
@@ -61,7 +60,7 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
     {
       types: ['attr-name'],
       style: {
-        color: theme.palette.warning
+        color: theme?.colors?.yellow500?.value
       }
     },
     {
@@ -94,7 +93,7 @@ const makeCodeTheme = (theme: NextUIThemes): PrismTheme => ({
     {
       types: ['language-javascript', 'script'],
       style: {
-        color: theme.palette.success
+        color: theme?.colors?.success?.value
       }
     },
     {

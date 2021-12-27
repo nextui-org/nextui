@@ -1,13 +1,15 @@
 import React, { useMemo } from 'react';
-import useTheme from '../use-theme';
-import GridBasicItem, { GridBasicItemComponentProps } from './basic-item';
+import { CSS } from '../theme/stitches.config';
+import GridBasicItem, { GridItemProps } from './grid-item';
 import { Wrap } from '../utils/prop-types';
-import css from 'styled-jsx/css';
+import clsx from '../utils/clsx';
+import withDefaults from '../utils/with-defaults';
 
 interface Props {
   gap: number;
   wrap: Wrap;
   className: string;
+  css?: CSS;
 }
 
 const defaultProps = {
@@ -16,46 +18,39 @@ const defaultProps = {
   className: ''
 };
 
-export type GridContainerProps = Props &
-  typeof defaultProps &
-  GridBasicItemComponentProps;
+export type GridContainerProps = Props & typeof defaultProps & GridItemProps;
 
 const GridContainer: React.FC<React.PropsWithChildren<GridContainerProps>> = ({
   gap,
   wrap,
+  css,
   children,
   className,
   ...props
 }) => {
-  const theme = useTheme();
   const gapUnit = useMemo(() => {
-    return `calc(${gap} * ${theme.layout.gapQuarter})`;
-  }, [gap, theme.layout.gapQuarter]);
-
-  const { className: resolveClassName, styles } = css.resolve`
-    --grid-gap-unit: ${gapUnit};
-    display: flex;
-    flex-wrap: ${wrap};
-    box-sizing: border-box;
-    margin: calc(-1 * var(--grid-gap-unit));
-    width: calc(100% + var(--grid-gap-unit) * 2);
-  `;
+    return `calc(${gap} * $space$3)`;
+  }, [gap]);
 
   return (
-    <GridBasicItem className={`${resolveClassName} ${className}`} {...props}>
+    <GridBasicItem
+      className={clsx('nextui-grid-container', className)}
+      css={{
+        $$gridGapUnit: gapUnit,
+        display: 'flex',
+        flexWrap: wrap,
+        boxZizing: 'border-box',
+        margin: 'calc(-1 * $$gridGapUnit)',
+        width: 'calc(100% + $$gridGapUnit * 2)',
+        ...(css as any)
+      }}
+      {...props}
+    >
       {children}
-      {styles}
     </GridBasicItem>
   );
 };
 
-type MemoGridContainerComponent<P = {}> = React.NamedExoticComponent<P>;
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  GridBasicItemComponentProps;
+GridContainer.toString = () => '.nextui-grid-container';
 
-GridContainer.defaultProps = defaultProps;
-
-export default React.memo(
-  GridContainer
-) as MemoGridContainerComponent<ComponentProps>;
+export default withDefaults(GridContainer, defaultProps);

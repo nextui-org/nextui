@@ -11,7 +11,7 @@ export default function KBarSearch(
     actions: state.actions
   }));
 
-  const theme = useTheme();
+  const { theme } = useTheme();
   const ownRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
@@ -45,14 +45,14 @@ export default function KBarSearch(
           outline: none;
           border: none;
           background: transparent;
-          color: ${theme.palette.foreground};
+          color: ${theme?.colors?.foreground?.value};
         }
         input:focus::placeholder {
           opacity: 1;
           transition: opacity 0.25s ease 0s;
         }
         input::placeholder {
-          color: ${theme.palette.accents_4};
+          color: ${theme?.colors?.accents4?.value};
           transition: opacity 0.25s ease 0s;
           -moz-transition: opacity 0.25s ease 0s;
           -ms-transition: opacity 0.25s ease 0s;

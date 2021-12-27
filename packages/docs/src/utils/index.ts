@@ -1,6 +1,23 @@
 import Router from 'next/router';
 export const isBrowser = typeof window !== `undefined`;
 
+export const getCssVar = (name?: string) => {
+  if (typeof document !== 'undefined' || !name) {
+    const property = isCssVar(name)
+      ? name?.replace('var(', '').replace(')', '')
+      : `--${name}`;
+    if (!property) return '';
+    return getComputedStyle(document.documentElement).getPropertyValue(
+      property
+    );
+  }
+  return '';
+};
+
+export const isCssVar = (property?: string) => {
+  return property && property?.indexOf('var(') === 0 ? true : false;
+};
+
 export const toCapitalize = (name: string) => {
   const [first, ...rest] = name;
   return `${first.toUpperCase()}${rest.join('')}`;
@@ -55,7 +72,9 @@ function padZero(str: string, len?: number): string {
   return (zeros + str).slice(-len);
 }
 
-export const invertHex = (hex: string, smooth = true) => {
+export const invertHex = (hexProp: string, smooth = true) => {
+  let hex = isCssVar(hexProp) ? getCssVar(hexProp) : hexProp;
+
   if (hex.indexOf('#') === 0) {
     hex = hex.slice(1);
   }
@@ -64,7 +83,7 @@ export const invertHex = (hex: string, smooth = true) => {
     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
   }
   if (hex.length !== 6) {
-    console.error('Invalid HEX color.');
+    return hexProp;
   }
   let r = parseInt(hex.slice(0, 2), 16),
     g = parseInt(hex.slice(2, 4), 16),
@@ -123,7 +142,7 @@ export const hexToRgb = (color: string): [number, number, number] => {
   return [
     Number.parseInt(values[1], 16),
     Number.parseInt(values[2], 16),
-    Number.parseInt(values[3], 16),
+    Number.parseInt(values[3], 16)
   ];
 };
 
@@ -141,15 +160,20 @@ export const colorToRgbValues = (color: string) => {
   return regArray[1].split(',').map((str) => Number.parseFloat(str));
 };
 
-export const addColorAlpha = (color: string, alpha: number) => {
+export const addColorAlpha = (colorProp?: string, alpha?: number) => {
+  if (!colorProp) return colorProp;
+  const color = isCssVar(colorProp) ? getCssVar(colorProp) : colorProp;
   if (isHex(color)) {
     return hexToRGBA(color, alpha);
   } else if (!/^#|rgb|RGB/.test(color)) {
     return color;
   }
   const [r, g, b] = colorToRgbValues(color);
-  const safeAlpha = alpha > 1 ? 1 : alpha < 0 ? 0 : alpha;
-  return `rgba(${r}, ${g}, ${b}, ${safeAlpha})`;
+  if (alpha) {
+    const safeAlpha = alpha > 1 ? 1 : alpha < 0 ? 0 : alpha;
+    return `rgba(${r}, ${g}, ${b}, ${safeAlpha})`;
+  }
+  return `rgb(${r}, ${g}, ${b})`;
 };
 
 export const isProd = process.env.NODE_ENV === 'production';

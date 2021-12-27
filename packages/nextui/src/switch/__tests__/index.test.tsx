@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow, ReactWrapper } from 'enzyme';
 import Switch from '../index';
-import { nativeEvent, updateWrapper } from '../../../../tests/utils';
+import { nativeEvent, updateWrapper } from '../../../tests/utils';
 
 interface IconProps {
   className?: string;
@@ -12,15 +12,15 @@ const Icon: React.FC<IconProps> = ({ className = '' }) => (
 );
 
 const expectSwitchIsChecked = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.checked').length).not.toBe(0);
+  expect(wrapper.find('.nextui-switch-checked').at(0).length).not.toBe(0);
 };
 
 const expectSwitchIsUnChecked = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.checked').length).toBe(0);
+  expect(wrapper.find('.nextui-switch-checked').at(0).length).toBe(0);
 };
 
 const getSwitchElement = (wrapper: ReactWrapper) => {
-  return wrapper.find('[role="switch"]');
+  return wrapper.find('[role="switch"]').at(0);
 };
 
 const expectSwitchToHaveARIAChecked = (
@@ -89,7 +89,7 @@ describe('Switch', () => {
 
     wrapper.find('input').simulate('change', {
       ...nativeEvent,
-      target: { checked: true },
+      target: { checked: true }
     });
     await updateWrapper(wrapper);
     expectSwitchIsChecked(wrapper);
@@ -125,11 +125,11 @@ describe('Switch', () => {
   it('should work with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Switch size="mini" />
-        <Switch size="small" />
-        <Switch size="medium" />
-        <Switch size="large" />
-        <Switch size="xlarge" />
+        <Switch size="xs" />
+        <Switch size="sm" />
+        <Switch size="md" />
+        <Switch size="lg" />
+        <Switch size="xl" />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();
@@ -161,7 +161,7 @@ describe('Switch', () => {
 
     wrapper.find('input').simulate('change', {
       ...nativeEvent,
-      target: { checked: true },
+      target: { checked: true }
     });
     await updateWrapper(wrapper);
     expectSwitchIsChecked(wrapper);
@@ -179,7 +179,7 @@ describe('Switch', () => {
 
     wrapper.find('input').simulate('change', {
       ...nativeEvent,
-      target: { checked: true },
+      target: { checked: true }
     });
     await updateWrapper(wrapper);
     expectSwitchIsUnChecked(wrapper);

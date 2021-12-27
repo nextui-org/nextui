@@ -1,52 +1,44 @@
 import React, { useMemo } from 'react';
-import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
+import { CSS } from '../theme/stitches.config';
 import { NormalSizes, NormalColors, NormalWeights } from '../utils/prop-types';
 import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
-import { getGroupBorder } from './styles';
-import { getNormalRadius } from '../utils/dimensions';
+import StyledButtonGroup, {
+  ButtonGroupVariantsProps
+} from './button-group.styles';
 
 interface Props {
   disabled?: boolean;
-  vertical?: boolean;
   bordered?: boolean;
   light?: boolean;
   flat?: boolean;
   shadow?: boolean;
   auto?: boolean;
   animated?: boolean;
+  ripple?: boolean;
   rounded?: boolean;
   ghost?: boolean;
   borderWeight?: NormalWeights;
   size?: NormalSizes;
   color?: NormalColors;
-  className?: string;
 }
 
 const defaultProps = {
-  disabled: false,
-  vertical: false,
-  bordered: false,
-  light: false,
-  flat: false,
-  shadow: false,
-  auto: false,
-  animated: false,
-  rounded: false,
-  ghost: false,
   borderWeight: 'normal' as NormalWeights | undefined,
-  size: 'medium' as NormalSizes,
-  color: 'default' as NormalColors,
-  className: ''
+  size: 'md' as NormalSizes,
+  color: 'default' as NormalColors
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ButtonGroupProps = Props & typeof defaultProps & NativeAttrs;
+
+export type ButtonGroupProps = Props &
+  ButtonGroupVariantsProps &
+  NativeAttrs &
+  typeof defaultProps & { css?: CSS };
 
 const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
   groupProps
 ) => {
-  const theme = useTheme();
   const {
     disabled,
     size,
@@ -59,11 +51,12 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
     auto,
     animated,
     rounded,
-    vertical,
+    ripple,
+    borderWeight,
     children,
-    className,
     ...props
   } = groupProps;
+
   const initialValue = useMemo<ButtonGroupConfig>(
     () => ({
       disabled,
@@ -75,102 +68,41 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       flat,
       shadow,
       auto,
+      borderWeight,
       animated,
       rounded,
+      ripple,
       isButtonGroup: true
     }),
-    [disabled, size, color, bordered, light, ghost, flat]
+    [
+      disabled,
+      animated,
+      size,
+      ripple,
+      color,
+      bordered,
+      light,
+      ghost,
+      flat,
+      borderWeight
+    ]
   );
-
-  const { color: borderColor, width: borderWidth } = useMemo(() => {
-    return getGroupBorder(theme.palette, groupProps);
-  }, [theme, disabled, bordered]);
-
-  const radius = useMemo(() => getNormalRadius(size, rounded), [size, rounded]);
-
-  // to avoid passing borderweight prop to the html button element
-  delete props.borderWeight;
 
   return (
     <ButtonGroupContext.Provider value={initialValue}>
-      <div
-        className={`button-group ${vertical ? 'vertical' : 'horizontal'} ${
-          groupProps.color === 'gradient' ? 'gradient' : ''
-        } ${className}`}
+      <StyledButtonGroup
+        size={size}
+        bordered={bordered || ghost}
+        gradient={groupProps.color === 'gradient'}
         {...props}
       >
         {children}
-        <style jsx>{`
-          .button-group {
-            display: inline-flex;
-            border-radius: ${radius};
-            margin: ${theme.layout.gapQuarter};
-            border: ${borderWidth} solid ${borderColor};
-            background-color: transparent;
-            height: min-content;
-          }
-          .vertical {
-            flex-direction: column;
-          }
-          .button-group :global(.button .text) {
-            top: 0;
-          }
-          .button-group :global(.button) {
-            border: none;
-          }
-          .horizontal :global(.button:not(:first-child)) {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            border-left: ${borderWidth} solid ${borderColor};
-          }
-          .horizontal :global(.button:not(:first-child):before) {
-            border-radius: 0;
-          }
-          .horizontal :global(.button:not(:last-child)) {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-          }
-          .horizontal :global(.button:not(:last-child):before) {
-            border-radius: 0;
-          }
-          .gradient.horizontal
-            :global(.button:not(:last-child):not(:first-child)) {
-            padding-left: 0 !important;
-            filter: hue-rotate(310deg);
-          }
-          .gradient.horizontal :global(.button:last-child) {
-            filter: hue-rotate(250deg);
-            padding-left: 0 !important;
-          }
-          .gradient.vertical
-            :global(.button:not(:last-child):not(:first-child)) {
-            padding-top: 0 !important;
-          }
-          .gradient.vertical :global(.button:last-child) {
-            padding-top: 0 !important;
-          }
-          .vertical :global(.button:not(:first-child)) {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-top: ${borderWidth} solid ${borderColor};
-          }
-          .vertical :global(.button:not(:first-child):before) {
-            border-radius: 0;
-          }
-          .vertical :global(.button:not(:last-child)) {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-          }
-
-          .vertical :global(.button:not(:last-child):before) {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-          }
-        `}</style>
-      </div>
+      </StyledButtonGroup>
     </ButtonGroupContext.Provider>
   );
 };
+
+ButtonGroup.toString = () => '.nextui-button-group';
 
 const MemoButtonGroup = React.memo(ButtonGroup);
 

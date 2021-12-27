@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useTheme } from '@nextui-org/react';
 import { addColorAlpha } from '@utils/index';
 import Keyboard from '../keyboard';
-import useDarkMode from 'use-dark-mode';
 import Icon from '../icons/map-icons';
 import { isEmpty } from 'lodash';
 import { Action, ResultHandlers, ResultState } from './types';
@@ -18,8 +17,7 @@ interface Props {
 const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
   const ownRef = React.useRef<HTMLLIElement>(null);
   const active = state.index === state.activeIndex;
-  const isDark = useDarkMode().value;
-  const theme = useTheme();
+  const { theme, isDark } = useTheme();
 
   React.useEffect(() => {
     if (active) {
@@ -47,7 +45,11 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
       return (
         <div className="option-icon">
           <Icon
-            fill={active ? theme.palette.accents_5 : theme.palette.accents_3}
+            fill={
+              active
+                ? theme?.colors?.accents5?.value
+                : theme?.colors?.accents3?.value
+            }
             name="arrow-right"
           />
         </div>
@@ -75,7 +77,11 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
       return (
         <div className="option-icon">
           <Icon
-            fill={active ? theme.palette.accents_5 : theme.palette.accents_3}
+            fill={
+              active
+                ? theme?.colors?.accents5?.value
+                : theme?.colors?.accents3?.value
+            }
             name={action.icon}
           />
         </div>
@@ -125,7 +131,7 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
             transition: all 0.2s ease;
           }
           .active {
-            background: ${addColorAlpha(theme.palette.text, 0.1)};
+            background: ${addColorAlpha(theme?.colors?.text?.value, 0.1)};
           }
           .option-left-container {
             display: flex;
@@ -147,11 +153,11 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
             align-items: center;
           }
           .option-text-title {
-            color: ${theme.palette.text};
+            color: ${theme?.colors?.text?.value};
           }
           .option-text-subtitle {
             font-size: 12px;
-            color: ${theme.palette.accents_4};
+            color: ${theme?.colors?.accents4?.value};
           }
           .kbd-container {
             display: grid;

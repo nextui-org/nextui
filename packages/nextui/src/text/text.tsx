@@ -1,7 +1,7 @@
 import React, { ReactNode, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
-import { NormalColors, TextWeights, TextTransforms } from '../utils/prop-types';
-import TextChild from './child';
+import { SimpleColors, TextTransforms } from '../utils/prop-types';
+import TextChild, { TextChildProps } from './child';
 
 interface Props {
   h1?: boolean;
@@ -10,7 +10,6 @@ interface Props {
   h4?: boolean;
   h5?: boolean;
   h6?: boolean;
-  p?: boolean;
   b?: boolean;
   small?: boolean;
   transform?: TextTransforms;
@@ -19,11 +18,9 @@ interface Props {
   del?: boolean;
   em?: boolean;
   blockquote?: boolean;
-  className?: string;
   size?: string | number;
   margin?: string | number;
-  weight?: TextWeights;
-  color?: NormalColors | string;
+  color?: SimpleColors | string;
 }
 
 const defaultProps = {
@@ -33,24 +30,25 @@ const defaultProps = {
   h4: false,
   h5: false,
   h6: false,
-  p: false,
   b: false,
-  small: false,
+  sm: false,
   transform: 'none' as TextTransforms,
   i: false,
   span: false,
   del: false,
   em: false,
   blockquote: false,
-  weight: 'noset' as TextWeights,
-  className: '',
-  color: 'default' as NormalColors | string
+  color: 'default' as SimpleColors | string
 };
 
 type ElementMap = { [key in keyof JSX.IntrinsicElements]?: boolean };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type TextProps = Props & typeof defaultProps & NativeAttrs;
+
+export type TextProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  Omit<TextChildProps, keyof Props | 'tag'>;
 
 type TextRenderableElements = Array<keyof JSX.IntrinsicElements>;
 
@@ -76,7 +74,6 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   h4,
   h5,
   h6,
-  p,
   b,
   small,
   i,
@@ -87,12 +84,10 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
   transform,
   size,
   margin,
-  weight,
   children,
-  className,
   ...props
 }) => {
-  const elements: ElementMap = { h1, h2, h3, h4, h5, h6, p, blockquote };
+  const elements: ElementMap = { h1, h2, h3, h4, h5, h6, blockquote };
   const inlineElements: ElementMap = { span, small, b, em, i, del };
   const names = Object.keys(elements).filter(
     (name: keyof JSX.IntrinsicElements) => elements[name]
@@ -106,8 +101,7 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
    *  e.g.
    *    <Text /> => <p />
    *    <Text em /> => <em />
-   *    <Text p em /> => <p><em>children</em></p>
-   *
+   *    <Text b em /> => <b><em>children</em></b>
    */
 
   const tag = useMemo(() => {
@@ -127,18 +121,18 @@ const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
 
   return (
     <TextChild
-      className={className}
       transform={transform}
       tag={tag}
       margin={margin}
       size={size}
-      weight={weight}
       {...props}
     >
       {modifers}
     </TextChild>
   );
 };
+
+Text.toString = () => '.nextui-text';
 
 const MemoText = React.memo(Text);
 

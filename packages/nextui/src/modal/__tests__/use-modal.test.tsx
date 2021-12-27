@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import Modal from '../index';
 import useModal from '../use-modal';
-import { updateWrapper } from 'tests/utils';
+import { updateWrapper } from '../../../tests/utils';
 
 export const expectModalIsOpened = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.content').length).not.toBe(0);
+  expect(wrapper.find('.nextui-backdrop-content').at(0).length).not.toBe(0);
 };
 
 export const expectModalIsClosed = (wrapper: ReactWrapper) => {
-  expect(wrapper.find('.content').length).toBe(0);
+  expect(wrapper.find('.nextui-backdrop-content').at(0).length).toBe(0);
 };
 
 describe('UseModal', () => {

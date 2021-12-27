@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
+import clsx from '../utils/clsx';
 
 interface Props {
   visible?: boolean;
@@ -70,7 +71,7 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
 
   return React.cloneElement(children, {
     ...props,
-    className: `${children.props.className} ${className} ${classes}`
+    className: clsx(children.props.className, className, classes)
   });
 };
 

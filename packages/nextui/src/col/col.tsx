@@ -1,49 +1,49 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
+import StyledCol, { ColVariantsProps } from './col.styles';
+import { CSS } from '../theme/stitches.config';
 
 interface Props {
   span?: number;
   offset?: number;
+  css?: CSS;
   as?: keyof JSX.IntrinsicElements;
-  className?: string;
 }
 
 const defaultProps = {
   span: 12,
-  offset: 0,
-  as: 'div' as keyof JSX.IntrinsicElements,
-  className: '',
+  offset: 0
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ColProps = Props & typeof defaultProps & NativeAttrs;
+
+export type ColProps = Props &
+  typeof defaultProps &
+  ColVariantsProps &
+  NativeAttrs;
 
 const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
-  as,
   children,
   span,
   offset,
-  className,
+  css,
   ...props
 }) => {
-  const Component = as;
-
   return (
-    <Component className={`col ${className}`} {...props}>
+    <StyledCol
+      css={{
+        width: `${(100 / 12) * span}%`,
+        marginLeft: `${(100 / 12) * offset}%`,
+        ...(css as any)
+      }}
+      {...props}
+    >
       {children}
-      <style jsx>{`
-        .col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
-          width: ${(100 / 12) * span}%;
-          margin-left: ${(100 / 12) * offset}%;
-        }
-      `}</style>
-    </Component>
+    </StyledCol>
   );
 };
+
+Col.toString = () => '.nextui-column';
 
 const MemoCol = React.memo(Col);
 

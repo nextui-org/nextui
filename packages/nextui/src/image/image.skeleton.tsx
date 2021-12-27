@@ -1,61 +1,45 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
-import useTheme from '../use-theme';
+import { CSS } from '../theme/stitches.config';
+import {
+  StyledImageSkeleton,
+  ImageSkeletonVariantsProps
+} from './image.styles';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 interface Props {
   opacity: number;
+  as?: keyof JSX.IntrinsicElements;
+  css?: CSS;
+  className?: string;
 }
 
 const defaultProps = {
   opacity: 0.5,
+  className: ''
 };
 
-export type ImageSkeletonProps = Props & typeof defaultProps;
+export type ImageSkeletonProps = Props &
+  typeof defaultProps &
+  ImageSkeletonVariantsProps;
 
 const ImageSkeleton: React.FC<ImageSkeletonProps> = React.memo(
-  ({ opacity, ...props }) => {
-    const theme = useTheme();
+  ({ opacity, css, className, ...props }) => {
     return (
-      <div className="skeleton" {...props}>
-        <style jsx>{`
-          .skeleton {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(
-              270deg,
-              ${theme.palette.accents_1},
-              ${theme.palette.accents_2},
-              ${theme.palette.accents_2},
-              ${theme.palette.accents_1}
-            );
-            background-size: 400% 100%;
-            animation: loading 3s ease-in-out infinite;
-            opacity: ${opacity};
-            transition: opacity 300ms ease-out;
-          }
-
-          @keyframes loading {
-            0% {
-              background-position: 200% 0;
-            }
-            to {
-              background-position: -200% 0;
-            }
-          }
-        `}</style>
-      </div>
+      <StyledImageSkeleton
+        css={{ opacity, ...(css as any) }}
+        className={clsx('nextui-image-skeleton', className)}
+        {...props}
+      />
     );
   }
 );
 
 if (__DEV__) {
-  ImageSkeleton.displayName = 'ImageSkeleton';
+  ImageSkeleton.displayName = 'NextUI - ImageSkeleton';
 }
+
+ImageSkeleton.toString = () => '.nextui-image-skeleton';
 
 export default withDefaults(ImageSkeleton, defaultProps);

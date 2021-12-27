@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import cn from 'classnames';
 import NavLink, { NavLinkProps } from '../nav-link';
 import withDefaults from '@utils/with-defaults';
 import { Badge } from '@components';
-import { useTheme, NextUIThemes, Spacer } from '@nextui-org/react';
+import { useTheme, Spacer } from '@nextui-org/react';
 
 export interface Props {
   level: number;
@@ -14,7 +14,7 @@ export interface Props {
 
 const defaultProps = {
   level: 1,
-  isMobile: false,
+  isMobile: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
@@ -25,11 +25,11 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
   isMobile,
   route,
   level = 1,
-  onClick,
+  onClick
 }) => {
   const selectedRef = useRef<HTMLDivElement>(null);
   const ref = route.selected ? selectedRef : null;
-  const theme = useTheme() as NextUIThemes;
+  const { theme, isDark } = useTheme();
 
   useEffect(() => {
     if (ref && ref.current && !isMobile) {
@@ -45,16 +45,19 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
     }
   }, [ref, isMobile]);
 
+  const linkColor = useMemo(() => {
+    if (route.selected) return;
+    return theme?.colors?.accents6?.value;
+  }, [isDark, route.selected]);
+
   return (
     <div ref={ref} className={cn('link', `level-${level}`)}>
-      <NavLink
-        {...route}
-        color={!route.selected && theme.palette.accents_5}
-        onClick={onClick}
-      />
+      <NavLink {...route} color={linkColor} onClick={onClick} />
       <Spacer inline x={0.2} />
       {route?.newPost && (
-        <Badge className="post__new-badge" label="New" type="primary" />
+        <Badge className="post__new-badge" type="primary">
+          New
+        </Badge>
       )}
       <style jsx>{`
         .link {
@@ -71,7 +74,9 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
           width: 4px;
           height: 4px;
           border-radius: 50%;
-          background: ${theme.palette.accents_6};
+          background: ${route.selected
+            ? theme?.colors?.accents6?.value
+            : theme?.colors?.accents4?.value};
           margin-right: 16px;
         }
         .link:first-child {

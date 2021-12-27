@@ -15,13 +15,11 @@ export interface HeaderProps {
 
 const defaultProps = {
   description: 'Beautiful, fast, modern React UI Library',
-  image: '/twitter-cards/nextui.png',
+  image: '/twitter-cards/nextui.png'
 };
 
 if (global.document) {
-  const info = [
-    `"First solve the problem. Then, write the code." -Jon Johnson 🚀`,
-  ];
+  const info = [`Let's make the Web prettier 🚀`];
 
   for (const message of info) {
     // eslint-disable-next-line no-console
@@ -30,7 +28,7 @@ if (global.document) {
 }
 
 const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
-  const theme = useTheme();
+  const { theme, isDark } = useTheme();
 
   let pageTitle = title ? `${toCapitalize(title)} | ` : '';
   pageTitle += 'NextUI - Beautiful, fast,modern React UI Library';
@@ -52,8 +50,18 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
       {url && <meta property="og:url" content={url} />}
       <meta property="og:description" content={description} />
       <meta name="description" content={description} />
-      <meta name="msapplication-TileColor" content={theme.palette.background} />
-      <meta name="theme-color" content={theme.palette.background} />
+      <meta
+        name="msapplication-TileColor"
+        content={
+          isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value
+        }
+      />
+      <meta
+        name="theme-color"
+        content={
+          isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value
+        }
+      />
       <meta
         name="viewport"
         key="viewport"
@@ -81,7 +89,9 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
       <link
         rel="mask-icon"
         href="/safari-pinned-tab.svg"
-        color={theme.palette.background}
+        color={
+          isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value
+        }
       />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link

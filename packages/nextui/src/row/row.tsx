@@ -1,67 +1,57 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
-import useTheme from '../use-theme';
+import { CSS } from '../theme/stitches.config';
 import { Justify, AlignItems, Wrap } from '../utils/prop-types';
+import StyledRow, { RowVariantsProps } from './row.styles';
 
 interface Props {
   gap?: number;
-  fluid?: boolean;
   wrap?: Wrap;
   justify?: Justify;
   align?: AlignItems;
+  css?: CSS;
   as?: keyof JSX.IntrinsicElements;
-  className?: string;
 }
 
 const defaultProps = {
   gap: 0,
-  fluid: true,
   wrap: 'nowrap' as Wrap,
   justify: 'flex-start' as Justify,
-  align: 'flex-start' as AlignItems,
-  as: 'div' as keyof JSX.IntrinsicElements,
-  className: '',
+  align: 'flex-start' as AlignItems
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type RowProps = Props & typeof defaultProps & NativeAttrs;
+
+export type RowProps = Props & NativeAttrs & RowVariantsProps;
 
 const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
   children,
-  as,
   gap,
-  fluid,
   justify,
   align,
   wrap,
-  className,
+  css,
   ...props
 }) => {
-  const Component = as;
-  const theme = useTheme();
-
   return (
-    <Component className={`row ${className} ${fluid && 'fluid'}`} {...props}>
+    <StyledRow
+      css={{
+        flexWrap: wrap,
+        $$rowGap: `calc(${gap} * $space$lg)`,
+        marginLeft: `calc(${gap} * $space$lg / 2)`,
+        marginRight: `calc(${gap} * $space$lg / 2)`,
+        justifyContent: justify,
+        alignItems: align,
+        ...(css as any)
+      }}
+      {...props}
+    >
       {children}
-      <style jsx>{`
-        .row {
-          display: flex;
-          position: relative;
-          box-sizing: border-box;
-          flex-wrap: ${wrap};
-          margin-left: calc(${gap} * ${theme.layout.gap} / 2);
-          margin-right: calc(${gap} * ${theme.layout.gap} / 2);
-          --row-gap: calc(${gap} * ${theme.layout.gap});
-          justify-content: ${justify};
-          align-items: ${align};
-        }
-        .fluid {
-          width: 100%;
-        }
-      `}</style>
-    </Component>
+    </StyledRow>
   );
 };
+
+Row.toString = () => '.nextui-row';
 
 const MemoRow = React.memo(Row);
 

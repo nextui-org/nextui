@@ -3,8 +3,9 @@ import cn from 'classnames';
 import Image from 'next/image';
 import ArrowRight from '../icons/arrow-right';
 import withDefaults from '@utils/with-defaults';
-import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
+import { Badge } from '@components';
 
 export interface Props {
   level: number;
@@ -14,13 +15,14 @@ export interface Props {
   isMobile: boolean;
   selected: boolean;
   opened: boolean;
+  updated?: boolean;
 }
 
 const defaultProps = {
   level: 1,
   isMobile: false,
   selected: false,
-  opened: false,
+  opened: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
@@ -34,12 +36,12 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   selected,
   routes,
   iconUrl,
+  updated,
   opened,
-  children,
+  children
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const theme = useTheme() as NextUIThemes;
-  const isDark = theme.type === 'dark';
+  const { theme, isDark } = useTheme();
   const [toggle, setToggle] = useState<boolean>(selected || opened);
   const [shouldScroll, setShouldScroll] = useState<boolean>(false);
 
@@ -95,12 +97,27 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           />
         )}
         <span className="label noselect">{title}</span>
-        <ArrowRight width={14} height={14} fill={theme.palette.accents_7} />
+        <ArrowRight
+          className="arrow-right"
+          width={14}
+          height={14}
+          fill={theme?.colors?.accents7?.value}
+        />
+        {updated && (
+          <Badge
+            className="category__update-badge"
+            type="secondary"
+            css={{ ml: '$6' }}
+          >
+            Updated
+          </Badge>
+        )}
       </div>
       <div className="posts">{children}</div>
       <style jsx>{`
         .category {
           margin: ${margin}px 0;
+          cursor: pointer;
         }
         .category:last-child {
           margin-bottom: 0;
@@ -119,7 +136,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           font-weight: 400;
           margin-left: 10px;
           cursor: pointer;
-          color: ${theme.palette.accents_7};
+          color: ${theme?.colors?.accents7?.value};
           transition: all 200ms ease 0ms;
         }
         .label-container :global(svg) {
@@ -129,10 +146,10 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
         }
         .selected .label {
           font-weight: 600;
-          color: ${theme.palette.accents_8};
+          color: ${theme?.colors?.accents8?.value};
         }
         .open .label {
-          color: ${theme.palette.accents_8};
+          color: ${theme?.colors?.accents8?.value};
         }
         .open .label-container :global(svg) {
           margin-right: 1px;
@@ -160,6 +177,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
         .open .posts {
           height: ${postsHeight}px;
         }
+
         @keyframes appear {
           from {
             opacity: 0;
@@ -168,7 +186,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
             opacity: 1;
           }
         }
-        @media screen and (max-width: ${theme.breakpoints.md.min}) {
+        @media screen and (max-width: ${theme?.breakpoints?.md}) {
           .category {
             margin: 24px 0;
           }

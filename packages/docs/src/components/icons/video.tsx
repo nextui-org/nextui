@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IconProps } from './index';
-import { NextUIThemes, useTheme } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 
 const Video: React.FC<IconProps> = ({
   fill,
@@ -11,7 +11,7 @@ const Video: React.FC<IconProps> = ({
   label,
   ...props
 }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   if (filled) {
     return (
       <svg
@@ -22,7 +22,7 @@ const Video: React.FC<IconProps> = ({
         {...props}
       >
         <path
-          fill={fill || theme.palette.foreground}
+          fill={fill || theme?.colors?.foreground?.value}
           d="M18,7c0-1.103-0.897-2-2-2H4C2.897,5,2,5.897,2,7v10c0,1.103,0.897,2,2,2h12c1.103,0,2-0.897,2-2v-3.333L22,17V7l-4,3.333 V7z"
         ></path>
       </svg>
@@ -37,7 +37,7 @@ const Video: React.FC<IconProps> = ({
       {...props}
     >
       <path
-        fill={fill || theme.palette.foreground}
+        fill={fill || theme?.colors?.foreground?.value}
         d="M18,7c0-1.103-0.897-2-2-2H4C2.897,5,2,5.897,2,7v10c0,1.103,0.897,2,2,2h12c1.103,0,2-0.897,2-2v-3.333L22,17V7l-4,3.333 V7z M16.002,17H4V7h12l0.001,4.999L16,12l0.001,0.001L16.002,17z"
       ></path>
     </svg>

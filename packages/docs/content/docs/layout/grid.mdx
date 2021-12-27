@@ -1,7 +1,7 @@
 ---
 title: Grid
 description: The layout grid adapts to screen size and orientation, ensuring consistency across layouts.
-url: https://nextui.com/docs/layout/grid
+url: https://nextui.org/docs/layout/grid
 ---
 
 # Grid
@@ -127,7 +127,6 @@ return (
         <Grid xs><MockItem text="2 of 3" /></Grid>
         <Grid xs><MockItem text="3 of 3" /></Grid>
       </Grid.Container>
-      <Spacer/>
       <Grid.Container gap={2} justify="center">
         <Grid xs><MockItem text="1 of 3" /></Grid>
         <Grid xs={6}><MockItem text="2 of 3" /></Grid>
@@ -156,7 +155,6 @@ return (
     );
 }
 return (<Grid.Container gap={2} justify="center">
-
   <Grid xs={6} sm={0}>
     <MockItem text={isMd ? "1 of 2" : "1 of 1"} />
   </Grid>
@@ -170,35 +168,8 @@ return (<Grid.Container gap={2} justify="center">
     <MockItem text="1 of 1" />
   </Grid>
 </Grid.Container>) 
-}`} />
-
-<Spacer y={2} />
-
-### Custom breakpoints
-
-Override the default `@nextui-org/react` breakpoints.
-
-```tsx
-const breakpoints: NextUIThemesBreakpoints = {
-  // Extra small devices (phones)
-  xs: { min: '0', max: '650px' },
-  // Small devices (tablets)
-  sm: { min: '650px', max: '960px' },
-  // Medium devices (landscape tablets)
-  md: { min: '960px', max: '1280px' },
-  // Large devices (desktops)
-  lg: { min: '1280px', max: '1400px' },
-  // Extra large devices (larger desktops)
-  xl: { min: '1400px', max: '1920px' },
-};
-
-const App = () => (
-  <ThemeProvider theme={{ breakpoints: breakpoints }}>
-    <CssBaseline />
-    <AppComponent />
-  </ThemeProvider>
-);
-```
+}`}
+/>
 
 <Spacer y={2} />
 
@@ -213,8 +184,6 @@ const App = () => (
 | **lg**      | `100%` | `100%` | `100%` | 1280px  | 1400px  |
 | **xl**      | `100%` | `100%` | `100%` | `100%`  | 1400px  |
 | **fluid**   | `100%` | `100%` | `100%` | `100%`  | `100%`  |
-
----
 
 <Spacer y={3} />
 

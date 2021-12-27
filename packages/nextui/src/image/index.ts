@@ -1,6 +1,17 @@
 import Image from './image';
-import ImageBrowser from './image-browser';
 
-Image.Browser = ImageBrowser;
+export type { ImageProps } from './image';
+
+export {
+  StyledImageContainer,
+  StyledImage,
+  StyledImageSkeleton
+} from './image.styles';
+
+export type {
+  ImageContainerVariantProps,
+  ImageVariantsProps,
+  ImageSkeletonVariantsProps
+} from './image.styles';
 
 export default Image;

@@ -1,7 +1,7 @@
 ---
 title: 'Textarea'
 description: 'Textarea component is a multi-line Input which allows you to write large texts.'
-url: https://nextui.com/docs/components/textarea
+url: https://nextui.org/docs/components/textarea
 ---
 
 # Textarea
@@ -110,9 +110,6 @@ import { Textarea } from '@nextui-org/react';
   <Grid>
     <Textarea labelPlaceholder="Error" status="error" />
   </Grid>
-  <Grid>
-    <Textarea labelPlaceholder="#ff4ecd" status="#ff4ecd" />
-  </Grid>  
 </Grid.Container>
 `}
 />
@@ -132,23 +129,23 @@ import { Textarea } from '@nextui-org/react';
       </Grid>  
       <Grid>
         <Textarea
-            status="success"
-            helperColor="success"
-            initialValue="NextUI is a Beautiful, fast and modern React UI library 🚀."
-            helperText="Excellent description"
-            placeholder="Description"
-            label="Success"
+          status="success"
+          helperColor="success"
+          initialValue="NextUI is a Beautiful, fast and modern React UI library 🚀."
+          helperText="Excellent description"
+          placeholder="Description"
+          label="Success"
         />
       </Grid>       
       <Grid>
         <Textarea
-            bordered
-            color="error"
-            status="error"
-            helperColor="error"
-            helperText="Enter a larger description"
-            label="Description"
-            placeholder="Description"
+          bordered
+          color="error"
+          status="error"
+          helperColor="error"
+          helperText="Enter a larger description"
+          label="Description"
+          placeholder="Description"
         />
       </Grid>
     </Grid.Container>
@@ -182,14 +179,14 @@ import { Textarea } from '@nextui-org/react';
                 <Button
                     auto
                     color="primary"
-                    size="small"
+                    size="sm"
                     onClick={() => setControlledValue(Math.random().toString(32))}
                 >
                     Set value
                 </Button>
             </Grid>
             <Grid>
-                <Button auto flat size="small" onClick={() => reset()}>
+                <Button auto flat size="sm" onClick={() => reset()}>
                     Reset value
                 </Button>
             </Grid>
@@ -208,7 +205,7 @@ import { Textarea } from '@nextui-org/react';
                 <Button
                     auto
                     color="secondary"
-                    size="small"
+                    size="sm"
                     onClick={onClick}
                 >
                     Set value
@@ -285,7 +282,7 @@ type NormalColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Normal Weights

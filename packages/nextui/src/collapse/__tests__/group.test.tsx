@@ -1,7 +1,21 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount, render, ReactWrapper } from 'enzyme';
 import Collapse from '../index';
 import { updateWrapper } from 'tests/utils';
+
+const getCollapseElement = (wrapper: ReactWrapper, className: string) => {
+  return wrapper.find(className).at(0).find('.nextui-collapse-view').at(0);
+};
+
+const expectCollapseToHaveARIAExpanded = (
+  wrapper: ReactWrapper,
+  className: string,
+  value: boolean
+) => {
+  expect(getCollapseElement(wrapper, className).props()['aria-expanded']).toBe(
+    value
+  );
+};
 
 describe('Collapse Group', () => {
   it('should render correctly', () => {
@@ -46,40 +60,54 @@ describe('Collapse Group', () => {
   it('should be display all when without accordion', async () => {
     const wrapper = mount(
       <Collapse.Group accordion={false}>
-        <Collapse title="title1">content1</Collapse>
-        <Collapse title="title2">content2</Collapse>
+        <Collapse className="test-collapse-1" title="title1">
+          content1
+        </Collapse>
+        <Collapse className="test-collapse-2" title="title2">
+          content2
+        </Collapse>
       </Collapse.Group>
     );
 
-    const views = wrapper.find('.view');
-    views.at(0).simulate('click');
-    views.at(1).simulate('click');
-    await updateWrapper(wrapper, 300);
-    expect(wrapper.find('.expanded').length).toBe(2);
+    const view1 = getCollapseElement(wrapper, '.test-collapse-1');
+    const view2 = getCollapseElement(wrapper, '.test-collapse-2');
 
-    views.at(0).simulate('click');
-    views.at(1).simulate('click');
+    view1.at(0).simulate('click');
+    view2.at(0).simulate('click');
+
     await updateWrapper(wrapper, 300);
-    expect(wrapper.find('.expanded').length).toBe(0);
+
+    expectCollapseToHaveARIAExpanded(wrapper, '.test-collapse-1', true);
+    expectCollapseToHaveARIAExpanded(wrapper, '.test-collapse-2', true);
+
+    view1.at(0).simulate('click');
+    view2.at(0).simulate('click');
+
+    await updateWrapper(wrapper, 300);
+
+    expectCollapseToHaveARIAExpanded(wrapper, '.test-collapse-1', false);
+    expectCollapseToHaveARIAExpanded(wrapper, '.test-collapse-2', false);
   });
 
-  it('should be display one when in accordion mode', async () => {
+  it('should be display one when is in accordion mode', async () => {
     const wrapper = mount(
       <Collapse.Group>
-        <Collapse title="title1">content1</Collapse>
-        <Collapse title="title2">content2</Collapse>
+        <Collapse className="test-collapse-1" title="title1">
+          content1
+        </Collapse>
+        <Collapse className="test-collapse-2" title="title2">
+          content2
+        </Collapse>
       </Collapse.Group>
     );
 
-    const views = wrapper.find('.view');
-    views.at(0).simulate('click');
-    views.at(1).simulate('click');
-    await updateWrapper(wrapper, 300);
-    expect(wrapper.find('.expanded').length).toBe(1);
+    const view2 = getCollapseElement(wrapper, '.test-collapse-2');
 
-    views.at(1).simulate('click');
+    view2.at(0).simulate('click');
     await updateWrapper(wrapper, 300);
-    expect(wrapper.find('.expanded').length).toBe(0);
+
+    expectCollapseToHaveARIAExpanded(wrapper, '.test-collapse-1', false);
+    expectCollapseToHaveARIAExpanded(wrapper, '.test-collapse-2', true);
   });
 
   it('should trigger event when collapse changed', () => {
@@ -97,11 +125,13 @@ describe('Collapse Group', () => {
       <Collapse.Group onChange={callback}>
         <Collapse title="title1">content1</Collapse>
         <Collapse title="title2">content2</Collapse>
-        <Collapse title="title2">content3</Collapse>
+        <Collapse className="test-collapse" title="title2">
+          content3
+        </Collapse>
       </Collapse.Group>
     );
-    const views = wrapper.find('.view');
-    views.at(2).simulate('click');
+    const view = getCollapseElement(wrapper, '.test-collapse');
+    view.at(0).simulate('click');
 
     expect(callback).toHaveBeenCalled();
     expect(index).toBe(3);

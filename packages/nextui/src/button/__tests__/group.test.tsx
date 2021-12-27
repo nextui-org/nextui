@@ -16,7 +16,7 @@ describe('ButtonGroup', () => {
 
   it('props should be passed to each button', () => {
     const wrapper = mount(
-      <Button.Group size="mini" color="success">
+      <Button.Group size="xs" color="success">
         <Button>action</Button>
       </Button.Group>
     );
@@ -64,18 +64,14 @@ describe('ButtonGroup', () => {
         <Button flat color="warning">
           button
         </Button>
-        <Button rounded loading>
-          button
-        </Button>
-        <Button flat loading>
-          button
-        </Button>
+        <Button rounded>button</Button>
+        <Button flat>button</Button>
         <Button shadow>button</Button>
         <Button auto>button</Button>
         <Button animated={false}>button</Button>
       </Button.Group>
     );
     expect(wrapper).toMatchSnapshot();
-    expect(<Button loading>button</Button>).toMatchSnapshot();
+    expect(<Button>button</Button>).toMatchSnapshot();
   });
 });

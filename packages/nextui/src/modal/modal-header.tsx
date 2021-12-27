@@ -1,14 +1,17 @@
 import React, { useContext, useMemo } from 'react';
-import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import { ModalContext } from './modal-context';
 import { Justify } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
+import { StyledModalHeader, ModalHeaderVariantsProps } from './modal.styles';
 import cslx from '../utils/clsx';
 
 interface Props {
   className?: string;
   justify?: Justify;
   autoMargin?: boolean;
+  css?: CSS;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
@@ -18,54 +21,52 @@ const defaultProps = {
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ModalHeaderProps = Props & typeof defaultProps & NativeAttrs;
+
+export type ModalHeaderProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  ModalHeaderVariantsProps;
+
+const preClass = 'nextui-modal-header';
 
 const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
   children,
   className,
   justify,
   autoMargin: autoMarginProp,
+  css,
   ...props
 }) => {
-  const theme = useTheme();
   const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
+
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
   }, [autoMarginProp, autoMarginContext]);
+
   return (
-    <div
+    <StyledModalHeader
       className={cslx(
-        'modal-header',
-        { 'auto-margin': autoMargin, 'no-padding': noPadding },
+        preClass,
+        {
+          [`${preClass}-auto-margin`]: autoMargin,
+          [`${preClass}-no-padding`]: noPadding
+        },
         className
       )}
+      noPadding={noPadding}
+      autoMargin={autoMargin}
+      css={{
+        justifyContent: justify,
+        ...(css as any)
+      }}
       {...props}
     >
       {children}
-      <style jsx>{`
-        .modal-header {
-          display: flex;
-          flex-shrink: 0;
-          justify-content: ${justify};
-          align-items: center;
-          overflow: hidden;
-          color: inherit;
-          font-size: 0.875rem;
-          padding: ${theme.layout.gapHalf} calc(${theme.layout.gap} + 0.25rem);
-        }
-        .no-padding {
-          padding: 0;
-        }
-        .auto-margin > :global(*:first-child) {
-          margin-top: 0;
-        }
-        .auto-margin > :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      `}</style>
-    </div>
+    </StyledModalHeader>
   );
 };
+
+ModalHeader.toString = () => '.nextui-modal-header';
 
 const MemoModalHeader = React.memo(ModalHeader);
 

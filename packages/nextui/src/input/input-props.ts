@@ -43,7 +43,7 @@ export interface Props
   className?: string;
   clearable?: boolean;
   onChange?: (e: React.ChangeEvent<FormElement>) => void;
-  onClearClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClearClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onFocus?: (e: React.FocusEvent<FormElement>) => void;
   onBlur?: (e: React.FocusEvent<FormElement>) => void;
   onContentClick?: (
@@ -68,7 +68,7 @@ export const defaultProps = {
   contentLeftStyling: true,
   required: false,
   width: 'initial',
-  size: 'medium' as NormalSizes,
+  size: 'md' as NormalSizes,
   color: 'default' as SimpleColors,
   helperColor: 'default' as SimpleColors,
   status: 'default' as SimpleColors,

@@ -36,15 +36,16 @@ export const Default = () => {
     setVisible(false);
     console.log('closed');
   };
+
   return (
     <div>
       <Button auto onClick={handler}>
         Show Modal
       </Button>
       <Modal
-        aria-labelledby="modal-title"
         open={visible}
         onClose={closeHandler}
+        aria-labelledby="modal-title"
       >
         <Modal.Header>
           <Text id="modal-title" size={18}>
@@ -61,7 +62,7 @@ export const Default = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Email"
             contentLeft={<Mail theme={theme} />}
           />
@@ -70,7 +71,7 @@ export const Default = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Password"
             contentLeft={<Password theme={theme} />}
           />
@@ -134,7 +135,7 @@ export const WithCloseButton = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Email"
             contentLeft={<Mail theme={theme} />}
           />
@@ -143,7 +144,7 @@ export const WithCloseButton = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Password"
             contentLeft={<Password theme={theme} />}
           />
@@ -197,7 +198,7 @@ export const WithUseModal = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Email"
             contentLeft={<Mail theme={theme} />}
           />
@@ -206,7 +207,7 @@ export const WithUseModal = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Password"
             contentLeft={<Password theme={theme} />}
           />
@@ -260,7 +261,7 @@ export const NoAnimated = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Email"
             contentLeft={<Mail theme={theme} />}
           />
@@ -269,7 +270,7 @@ export const NoAnimated = () => {
             bordered
             fullWidth
             color="primary"
-            size="large"
+            size="lg"
             placeholder="Password"
             contentLeft={<Password theme={theme} />}
           />

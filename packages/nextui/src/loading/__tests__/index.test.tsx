@@ -11,23 +11,28 @@ describe('Loading', () => {
 
   it('should render with default aria-label', () => {
     const wrapper = mount(<Loading />);
-    expect(wrapper.find('.loading').prop('aria-label')).toEqual('Loading');
+    expect(wrapper.find('.nextui-loading').at(0).prop('aria-label')).toEqual(
+      'Loading'
+    );
   });
 
   it('should render with default aria-label for spinner', () => {
-    const wrapper = mount(<Loading type="spinner"/>);
-    expect(wrapper.find('.container').prop('aria-label')).toEqual('Loading');
+    const wrapper = mount(<Loading type="spinner" />);
+    expect(
+      wrapper.find('.nextui-spinner-container').at(0).prop('aria-label')
+    ).toEqual('Loading');
   });
 
   it('should work with children', () => {
     const wrapper = mount(<Loading>Loading</Loading>);
-    expect(wrapper.find('label').text()).toContain('Loading');
+    expect(wrapper.find('.nextui-loading-label').at(0).text()).toContain(
+      'Loading'
+    );
   });
 
   it('should work with different colors', () => {
     const wrapper = mount(
       <div>
-        <Loading color="#f81ce5" />
         <Loading color="primary" />
         <Loading color="success" />
         <Loading color="secondary" />
@@ -42,7 +47,6 @@ describe('Loading', () => {
   it('should work with different text colors', () => {
     const wrapper = mount(
       <div>
-        <Loading textColor="#f81ce5" />
         <Loading textColor="primary" />
         <Loading textColor="success" />
         <Loading textColor="secondary" />
@@ -57,11 +61,11 @@ describe('Loading', () => {
   it('should work with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Loading size="mini" />
-        <Loading size="small" />
-        <Loading size="medium" />
-        <Loading size="large" />
-        <Loading size="xlarge" />
+        <Loading size="xs" />
+        <Loading size="sm" />
+        <Loading size="md" />
+        <Loading size="lg" />
+        <Loading size="xl" />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();
@@ -84,6 +88,6 @@ describe('Loading', () => {
 
   it('should work with text in spinner type', () => {
     const wrapper = mount(<Loading type="spinner">Spinner</Loading>);
-    expect(wrapper.find('.spinner').text()).toContain('Spinner');
+    expect(wrapper.find('.nextui-spinner').at(0).text()).toContain('Spinner');
   });
 });

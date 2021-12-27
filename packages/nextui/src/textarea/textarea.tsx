@@ -1,5 +1,4 @@
 import React, { useRef, useImperativeHandle, useLayoutEffect } from 'react';
-import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import Input from '../input';
 import useResize from '../use-resize';
@@ -7,8 +6,9 @@ import useWarning from '../use-warning';
 import { Props as InputProps } from '../input/input-props';
 import {
   excludedInputPropsForTextarea,
-  ExcludedInputProps,
+  ExcludedInputProps
 } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
 import { __DEV__ } from '../utils/assertion';
 import { calculateNodeHeight, SizingData, getSizingData } from './utils';
 
@@ -31,8 +31,7 @@ const defaultProps = {
   minRows: 3,
   maxRows: 6,
   cacheMeasurements: true,
-  initialValue: '',
-  width: 'initial',
+  initialValue: ''
 };
 
 type NativeAttrs = Omit<
@@ -45,23 +44,22 @@ type BaseAttrs = Omit<InputProps, ExcludedInputProps>;
 export type TextareaProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  BaseAttrs;
+  BaseAttrs & { css?: CSS };
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (textareaProps, ref: React.Ref<HTMLTextAreaElement | null>) => {
-    const theme = useTheme();
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
     const heightRef = React.useRef<number>(0);
     const measurementsCacheRef = React.useRef<SizingData>();
 
     const {
-      width,
       cacheMeasurements,
       rows,
       maxRows,
       minRows,
       onChange,
       onHeightChange,
+      css,
       ...props
     } = textareaProps;
 
@@ -129,36 +127,13 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     }
 
     return (
-      <>
-        <Input
-          as="textarea"
-          ref={textareaRef}
-          width={width}
-          onChange={handleChange}
-          {...props}
-        />
-        <style jsx>{`
-          :global(.textarea-wrapper) {
-            box-sizing: border-box;
-            width: ${width};
-            min-width: 12.5rem;
-            max-width: 100%;
-            height: auto;
-          }
-          :global(textarea) {
-            background-color: transparent;
-            box-shadow: none;
-            display: block;
-            font-family: ${theme.font.sans};
-            padding: ${theme.layout.gapHalf};
-            width: 100%;
-            height: 100%;
-            resize: none;
-            border: none;
-            outline: none;
-          }
-        `}</style>
-      </>
+      <Input
+        as="textarea"
+        ref={textareaRef}
+        onChange={handleChange}
+        css={{ ...(css as any) }}
+        {...props}
+      />
     );
   }
 );
@@ -166,5 +141,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 if (__DEV__) {
   Textarea.displayName = 'NextUI - Textarea';
 }
+
+Textarea.toString = () => '.nextui-textarea';
 
 export default withDefaults(Textarea, defaultProps);

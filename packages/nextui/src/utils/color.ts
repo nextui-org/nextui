@@ -1,5 +1,21 @@
-import { NormalColors, normalColors } from './prop-types';
-import { NextUIThemesPalette } from '../theme/index';
+import { normalColors } from './prop-types';
+
+export const getCssVar = (name: string) => {
+  if (typeof document !== 'undefined' || !name) {
+    const property = isCssVar(name)
+      ? name.replace('var(', '').replace(')', '')
+      : `--${name}`;
+    return getComputedStyle(document.documentElement).getPropertyValue(
+      property
+    );
+  }
+  return '';
+};
+
+export const isCssVar = (property: string) => {
+  return property && property?.indexOf('var(') === 0 ? true : false;
+};
+
 /**
  * This function allows validate if a string is a hexadecimal
  * value
@@ -33,33 +49,6 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
     b = '0x' + hex[5] + hex[6];
   }
   return `rgba(${+r}, ${+g},${+b},${alpha})`;
-};
-
-export const getNormalColor = (
-  color: NormalColors | string | boolean | undefined,
-  palette: NextUIThemesPalette,
-  defaultColor: string = 'inherit'
-) => {
-  const colors: { [key in string]: string } = {
-    default: defaultColor,
-    background: palette.background,
-    foreground: palette.foreground,
-    primary: palette.primary,
-    secondary: palette.secondary,
-    success: palette.success,
-    warning: palette.warning,
-    error: palette.error,
-    gradient: palette.gradient,
-    dark: palette.foreground,
-    invert: palette.foreground
-  };
-  if (typeof color == 'boolean') {
-    return color ? palette.primary : 'inherit';
-  }
-  if (color && colors[color]) {
-    return colors[color];
-  }
-  return color || defaultColor;
 };
 
 export const isNormalColor = (color: string): boolean => {
@@ -108,7 +97,9 @@ export const hexFromString = (
   return defaultColor;
 };
 
-export const colorToRgbValues = (color: string) => {
+export const colorToRgbValues = (colorProp: string) => {
+  const color = isCssVar(colorProp) ? getCssVar(colorProp) : colorProp;
+
   if (color.charAt(0) === '#') return hexToRgb(color);
 
   const safeColor = color.replace(/ /g, '');
@@ -122,7 +113,9 @@ export const colorToRgbValues = (color: string) => {
   return regArray[1].split(',').map((str) => Number.parseFloat(str));
 };
 
-export const addColorAlpha = (color: string, alpha: number) => {
+export const addColorAlpha = (colorProp?: string, alpha: number = 1) => {
+  if (!colorProp) return '';
+  const color = isCssVar(colorProp) ? getCssVar(colorProp) : colorProp;
   if (isHex(color)) {
     return hexToRGBA(color, alpha);
   } else if (!/^#|rgb|RGB/.test(color)) {
@@ -139,7 +132,9 @@ function padZero(str: string, len?: number): string {
   return (zeros + str).slice(-len);
 }
 
-export const invertHex = (hex: string, smooth = true) => {
+export const invertHex = (hexProp: string, smooth = true) => {
+  let hex = isCssVar(hexProp) ? getCssVar(hexProp) : hexProp;
+
   if (hex.indexOf('#') === 0) {
     hex = hex.slice(1);
   }
@@ -148,7 +143,7 @@ export const invertHex = (hex: string, smooth = true) => {
     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
   }
   if (hex.length !== 6) {
-    console.error('Invalid HEX color.');
+    return hexProp;
   }
   let r = parseInt(hex.slice(0, 2), 16),
     g = parseInt(hex.slice(2, 4), 16),
@@ -168,20 +163,4 @@ export const invertHex = (hex: string, smooth = true) => {
     padZero(g.toString(16)) +
     padZero(b.toString(16))
   );
-};
-
-export const getNormalShadowColor = (
-  color: NormalColors | string,
-  palette: NextUIThemesPalette
-) => {
-  try {
-    const hexColor =
-      color === 'gradient'
-        ? (hexFromString(palette.gradient, palette.primary, true) as string)
-        : getNormalColor(color, palette, palette.primary);
-    const [r, g, b] = hexToRgb(hexColor);
-    return `0 4px 14px 0 rgb(${r} ${g} ${b}/ 60%);`;
-  } catch (err) {
-    return 'none';
-  }
 };

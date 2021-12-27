@@ -15,13 +15,13 @@ export default {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'column'
         }}
       >
         <Story />
       </div>
-    ),
-  ],
+    )
+  ]
 } as Meta;
 
 export const Default = () => (
@@ -150,14 +150,14 @@ export const WithUseInput = () => {
           <Button
             auto
             color="primary"
-            size="small"
+            size="sm"
             onClick={() => setValue(Math.random().toString(32))}
           >
             Set value
           </Button>
         </Grid>
         <Grid>
-          <Button auto flat size="small" onClick={() => reset()}>
+          <Button auto flat size="sm" onClick={() => reset()}>
             Reset value
           </Button>
         </Grid>
@@ -183,7 +183,7 @@ export const Uncontrolled = () => {
         />
         <Spacer y={0.5} />
         <Grid>
-          <Button auto color="secondary" size="small" onClick={onClick}>
+          <Button auto color="secondary" size="sm" onClick={onClick}>
             Set value
           </Button>
         </Grid>

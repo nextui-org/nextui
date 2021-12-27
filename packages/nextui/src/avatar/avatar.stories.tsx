@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Avatar from './index';
-import useTheme from '../use-theme';
 import Spacer from '../spacer';
 import { Lock, User, VolumeUp, Camera, Activity } from '../utils/icons';
 
@@ -34,17 +33,17 @@ const Container = ({ children }: any) => (
   </div>
 );
 
+export const Simple = () => <Avatar text="Hello" />;
+
 export const Default = () => {
   return (
     <>
-      <Container>
-        <Avatar text={nameUsers[0]} />
-        <Avatar pointer src={pictureUsers[1]} />
-        <Avatar text={nameUsers[1]} />
-        <Avatar src={pictureUsers[3]} squared />
-        <Avatar text={nameUsers[3]} squared />
-        <Avatar src={pictureUsers[4]} squared />
-      </Container>
+      <Avatar text={nameUsers[0]} />
+      <Avatar pointer src={pictureUsers[1]} />
+      <Avatar text={nameUsers[1]} />
+      <Avatar src={pictureUsers[3]} squared />
+      <Avatar text={nameUsers[3]} squared />
+      <Avatar src={pictureUsers[4]} squared />
     </>
   );
 };
@@ -59,9 +58,14 @@ export const Colors = () => {
         <Avatar color="warning" bordered src={pictureUsers[3]} squared />
         <Avatar color="error" bordered src={pictureUsers[4]} squared />
         <Avatar color="gradient" bordered src={pictureUsers[1]} squared />
-        <Avatar color="#ff4ecd" bordered src={pictureUsers[2]} squared />
+        <Avatar
+          bordered
+          src={pictureUsers[2]}
+          css={{ '.nextui-avatar-bg': { bg: '#ff4ecd' } }}
+          squared
+        />
       </Container>
-      <Spacer />
+      <Spacer y={2} />
       <Container>
         <Avatar text={nameUsers[0]} color="primary" pointer />
         <Avatar text={nameUsers[1]} color="secondary" pointer />
@@ -90,6 +94,55 @@ export const Bordered = () => {
   );
 };
 
+export const BorderWeights = () => {
+  return (
+    <Container>
+      <Avatar
+        color="primary"
+        borderWeight="light"
+        bordered
+        pointer
+        src={pictureUsers[0]}
+      />
+      <Avatar
+        borderWeight="normal"
+        color="secondary"
+        bordered
+        pointer
+        src={pictureUsers[1]}
+      />
+      <Avatar
+        color="success"
+        borderWeight="bold"
+        bordered
+        src={pictureUsers[2]}
+        squared
+      />
+      <Avatar
+        color="warning"
+        bordered
+        borderWeight="extrabold"
+        src={pictureUsers[3]}
+        squared
+      />
+      <Avatar
+        color="error"
+        borderWeight="black"
+        bordered
+        src={pictureUsers[4]}
+        squared
+      />
+      <Avatar
+        borderWeight="black"
+        color="gradient"
+        bordered
+        src={pictureUsers[1]}
+        squared
+      />
+    </Container>
+  );
+};
+
 export const Sizes = () => {
   return (
     <div
@@ -100,19 +153,19 @@ export const Sizes = () => {
       }}
     >
       <Container>
-        <Avatar src={pictureUsers[0]} size="mini" />
-        <Avatar src={pictureUsers[1]} size="small" />
-        <Avatar src={pictureUsers[2]} size="medium" />
-        <Avatar src={pictureUsers[3]} size="large" />
-        <Avatar src={pictureUsers[4]} size="xlarge" />
+        <Avatar src={pictureUsers[0]} size="xs" />
+        <Avatar src={pictureUsers[1]} size="sm" />
+        <Avatar src={pictureUsers[2]} size="md" />
+        <Avatar src={pictureUsers[3]} size="lg" />
+        <Avatar src={pictureUsers[4]} size="xl" />
       </Container>
       <Spacer />
       <Container>
-        <Avatar squared src={pictureUsers[0]} size="mini" />
-        <Avatar squared src={pictureUsers[1]} size="small" />
-        <Avatar squared src={pictureUsers[2]} size="medium" />
-        <Avatar squared src={pictureUsers[3]} size="large" />
-        <Avatar squared src={pictureUsers[4]} size="xlarge" />
+        <Avatar squared text={nameUsers[4]} size="xs" />
+        <Avatar squared text={nameUsers[1]} size="sm" />
+        <Avatar squared text={nameUsers[2]} size="md" />
+        <Avatar squared text={nameUsers[3]} size="lg" />
+        <Avatar squared text={nameUsers[0]} size="xl" />
       </Container>
     </div>
   );
@@ -122,36 +175,20 @@ export const Zoomed = () => {
   return (
     <Container>
       {pictureUsers.map((url, index) => (
-        <Avatar key={index} size="medium" zoomed bordered pointer src={url} />
+        <Avatar key={index} size="md" zoomed bordered pointer src={url} />
       ))}
     </Container>
   );
 };
 
 export const Icons = () => {
-  const theme = useTheme();
   return (
     <Container>
-      <Avatar
-        squared
-        icon={<Lock size={20} theme={theme} fill={theme.palette.text} />}
-      />
-      <Avatar
-        squared
-        icon={<Camera size={20} theme={theme} fill={theme.palette.text} />}
-      />
-      <Avatar
-        squared
-        icon={<User size={20} theme={theme} fill={theme.palette.text} />}
-      />
-      <Avatar
-        squared
-        icon={<VolumeUp size={20} theme={theme} fill={theme.palette.text} />}
-      />
-      <Avatar
-        squared
-        icon={<Activity size={20} theme={theme} fill={theme.palette.text} />}
-      />
+      <Avatar squared icon={<Lock size={20} fill="currentColor" />} />
+      <Avatar squared icon={<Camera size={20} fill="currentColor" />} />
+      <Avatar squared icon={<User size={20} fill="currentColor" />} />
+      <Avatar squared icon={<VolumeUp size={20} fill="currentColor" />} />
+      <Avatar squared icon={<Activity size={20} fill="currentColor" />} />
     </Container>
   );
 };
@@ -164,11 +201,16 @@ export const Group = () => {
           <Avatar key={index} src={url} bordered stacked />
         ))}
       </Avatar.Group>
-      <Spacer />
+      <Spacer y={2} />
       <Avatar.Group count={12}>
         {nameUsers.map((name, index) => (
           <Avatar key={index} text={name} bordered stacked />
         ))}
+      </Avatar.Group>
+      <Spacer y={2} />
+      <Avatar.Group>
+        <Avatar text="1" />
+        <Avatar text="2" />
       </Avatar.Group>
     </Container>
   );

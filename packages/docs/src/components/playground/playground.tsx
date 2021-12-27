@@ -18,14 +18,17 @@ interface Props {
   title?: React.ReactNode | string;
   desc?: React.ReactNode | string;
   showEditor?: boolean;
+  initialEditorOpen?: boolean;
   overflow?: 'auto' | 'visible' | 'hidden';
   code: string;
 }
 
 const defaultProps = {
   desc: '',
+  title: '',
   code: '',
   showEditor: true,
+  initialEditorOpen: false,
   overflow: 'visible',
   bindings: {}
 };
@@ -35,23 +38,30 @@ export type PlaygroundProps = Props & typeof defaultProps;
 const Playground: React.FC<PlaygroundProps> = ({
   title: inputTitle,
   code: inputCode,
+  initialEditorOpen,
   showEditor,
   overflow,
   desc
 }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const code = inputCode.trim();
-  const title = inputTitle || 'Default';
+  const title = inputTitle;
 
   return (
     <>
-      <Title title={title} desc={desc} />
+      {(title || desc) && <Title title={title} desc={desc} />}
       <div className="playground">
-        <DynamicLive showEditor={showEditor} code={code} overflow={overflow} />
+        <DynamicLive
+          showEditor={showEditor}
+          initialEditorOpen={initialEditorOpen}
+          code={code}
+          overflow={overflow}
+        />
         <style jsx>{`
           .playground {
             width: 100%;
-            border-radius: ${theme.layout.radius};
+            border-radius: ${theme?.radii?.lg?.value};
+            margin-bottom: ${theme?.space?.xl};
           }
         `}</style>
       </div>

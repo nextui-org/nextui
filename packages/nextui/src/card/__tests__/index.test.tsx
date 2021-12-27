@@ -17,6 +17,24 @@ describe('Card', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should support clikable', () => {
+    const wrapper = render(
+      <div>
+        <Card clickable>card</Card>
+      </div>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support custom css', () => {
+    const wrapper = render(
+      <div>
+        <Card css={{ bg: '$red400' }}>card</Card>
+      </div>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should support card types', () => {
     const wrapper = mount(
       <div>

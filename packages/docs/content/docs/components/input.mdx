@@ -1,7 +1,7 @@
 ---
 title: 'Input'
 description: 'Inputs fields are used to get the user input in a text field.'
-url: https://nextui.com/docs/components/input
+url: https://nextui.org/docs/components/input
 ---
 
 # Input
@@ -86,15 +86,15 @@ import { Input } from '@nextui-org/react';
   desc="Change the size of the entire `Input` including `padding`, `font-size` and `border` with the `size` property."
   code={`
  <>
-    <Input size="mini" placeholder="Mini" />
+    <Input size="xs" placeholder="Mini" />
     <Spacer y={0.5} />
-    <Input size="small" placeholder="Small" />
+    <Input size="sm" placeholder="Small" />
     <Spacer y={0.5} />
-    <Input size="medium" placeholder="Medium" />
+    <Input size="md" placeholder="Medium" />
     <Spacer y={0.5} />
-    <Input size="large" placeholder="Large" />
+    <Input size="lg" placeholder="Large" />
     <Spacer y={0.5} />
-    <Input size="xlarge" placeholder="xLarge" />
+    <Input size="xl" placeholder="xLarge" />
     <Spacer y={0.5} />
     <Input width="120px" placeholder="120px" />
   </>
@@ -104,9 +104,9 @@ import { Input } from '@nextui-org/react';
 <Playground
   title="Bordered"
   desc="You can change the full style towards a bodered `Input` with the `bordered` property and 
-  you can customze the color with the `color` prop."
+  you can customize the color with the `color` prop."
   code={`
-<Grid.Container gap={2.5}>
+<Grid.Container gap={4}>
   <Grid>
     <Input bordered labelPlaceholder="Default" color="default" />
   </Grid>    
@@ -125,9 +125,6 @@ import { Input } from '@nextui-org/react';
   <Grid>
     <Input bordered labelPlaceholder="Error" color="error" />
   </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="#ff4ecd" color="#ff4ecd" />
-  </Grid>  
 </Grid.Container>   
 `}
 />
@@ -137,7 +134,7 @@ import { Input } from '@nextui-org/react';
   desc="You can change the full style towards an undelined `Input` like the material effect just adding 
  the `underlined` prop."
   code={`
-<Grid.Container gap={2.5}>
+<Grid.Container gap={4}>
   <Grid>
     <Input underlined labelPlaceholder="Default" color="default" />
   </Grid>    
@@ -164,7 +161,7 @@ import { Input } from '@nextui-org/react';
   title="Rounded"
   desc="You can completely round the corners of any type of `Input` with the `rounded` prop."
   code={`
-<Grid.Container gap={2.5}>
+<Grid.Container gap={4}>
   <Grid>
     <Input rounded bordered label="Default" placeholder="Default" color="default" />
   </Grid>    
@@ -191,7 +188,7 @@ import { Input } from '@nextui-org/react';
   title="Status"
   desc="You can change the color of the entire `Input` with the property `status`."
   code={`
-<Grid.Container gap={2.5}>
+<Grid.Container gap={4}>
   <Grid>
     <Input labelPlaceholder="Default" status="default" />
   </Grid>    
@@ -210,9 +207,6 @@ import { Input } from '@nextui-org/react';
   <Grid>
     <Input labelPlaceholder="Error" status="error" />
   </Grid>
-  <Grid>
-    <Input labelPlaceholder="#ff4ecd" status="#ff4ecd" />
-  </Grid>  
 </Grid.Container>
 `}
 />
@@ -221,7 +215,7 @@ import { Input } from '@nextui-org/react';
   title="No Shadow"
   desc="You can disable the shadow of the entire `Input` with the property `shadow={false}`."
   code={`
-<Grid.Container gap={2.5}>
+<Grid.Container gap={4}>
   <Grid>
     <Input shadow={false} labelPlaceholder="Default" status="default" />
   </Grid>
@@ -248,7 +242,7 @@ import { Input } from '@nextui-org/react';
   title="No Animated"
   desc="You can disable the animation of the entire `Input` with the property `animated={false}`."
   code={`
-<Grid.Container gap={2.5}>
+<Grid.Container gap={4}>
   <Grid>
     <Input animated={false} labelPlaceholder="Default" status="default" />
   </Grid>
@@ -281,7 +275,7 @@ import { Input } from '@nextui-org/react';
         };    
     }, [value]);
     return (
-<Grid.Container gap={2.5}>
+<Grid.Container gap={4}>
      <Grid>
         <Input
             {...bindings}
@@ -356,7 +350,7 @@ import { Input } from '@nextui-org/react';
   title="Left/right labels"
   desc="You can put any content at the begining or at the end of the `Input`"
   code={`
-<Grid.Container gap={2.5}>
+<Grid.Container gap={4}>
     <Grid>    
      <Input
         bordered
@@ -405,7 +399,7 @@ import { Input } from '@nextui-org/react';
   Impotant: If you want the `Input` component change the icon colors according to the current `status` color 
   you should use `currentColor` as the icon/svg color to allows ."
   code={`
-  <Grid.Container gap={2.5}>
+  <Grid.Container gap={4}>
        <Grid>
         <Input
             clearable
@@ -429,7 +423,7 @@ import { Input } from '@nextui-org/react';
             bordered
             color="primary"
             labelPlaceholder="Loading..."
-            contentRight={<Loading size="mini" style={{transform:'translateY(-2px)'}} />}
+            contentRight={<Loading size="xs" />}
         /> 
         </Grid>
     </Grid.Container>
@@ -440,7 +434,7 @@ import { Input } from '@nextui-org/react';
   title="Input Types"
   desc="Change the type of `Input` with the `type` property as a native html input, the default value is `text`"
   code={`
-  <Grid.Container gap={2.5}>
+  <Grid.Container gap={4}>
     <Grid>
       <Input label="Text" type="text" />
     </Grid>
@@ -546,7 +540,7 @@ type NormalColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Normal Weights

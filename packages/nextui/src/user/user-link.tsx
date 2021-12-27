@@ -1,19 +1,16 @@
 import React from 'react';
 import Link from '../link';
-import withDefaults from '../utils/with-defaults';
+import { StyledUserLink, UserLinkVariantsProps } from './user.styles';
+import { CSS } from '../theme/stitches.config';
 import { __DEV__ } from '../utils/assertion';
 
 interface Props {
   href?: string;
-  className?: string;
 }
-
-const defaultProps = {
-  className: '',
-};
-
 type NativeAttrs = Omit<React.AnchorHTMLAttributes<unknown>, keyof Props>;
-export type UserLinkProps = Props & typeof defaultProps & NativeAttrs;
+export type UserLinkProps = Props &
+  NativeAttrs &
+  UserLinkVariantsProps & { css?: CSS };
 
 const UserLink = React.forwardRef<
   HTMLAnchorElement,
@@ -24,23 +21,27 @@ const UserLink = React.forwardRef<
     ref: React.Ref<HTMLAnchorElement>
   ) => {
     return (
-      <div className={className} {...props}>
-        <Link ref={ref} href={href} color target="_blank" rel="noopener">
+      <StyledUserLink {...props}>
+        <Link
+          ref={ref}
+          href={href}
+          color="primary"
+          target="_blank"
+          rel="noopener"
+        >
           {children}
         </Link>
-        <style jsx>{`
-          div :global(a:hover) {
-            opacity: 0.7;
-          }
-        `}</style>
-      </div>
+      </StyledUserLink>
     );
   }
 );
 
 if (__DEV__) {
-  UserLink.displayName = 'UserLink';
+  UserLink.displayName = 'NextUI - UserLink';
 }
+
+UserLink.toString = () => '.nextui-user-link';
+
 const MemoUserLink = React.memo(UserLink);
 
-export default withDefaults(MemoUserLink, defaultProps);
+export default MemoUserLink;

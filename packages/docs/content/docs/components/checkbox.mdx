@@ -1,7 +1,7 @@
 ---
 title: 'Checkbox'
 description: 'Checkboxes allow the user to select one or more items from a set of options.'
-url: https://nextui.com/docs/components/checkbox
+url: https://nextui.org/docs/components/checkbox
 ---
 
 # Checkbox
@@ -37,28 +37,24 @@ import { Checkbox } from '@nextui-org/react';
   desc="Change the size of the entire `Checkbox` including `padding`, `font-size` and `border` with the `size` property."
   code={`
  <>
- <Checkbox checked={true} size="mini">
+ <Checkbox checked={true} size="xs">
     mini
  </Checkbox>
  <Spacer/>
- <Checkbox checked={true} size="small">
+ <Checkbox checked={true} size="sm">
     small
  </Checkbox>
   <Spacer/>
- <Checkbox checked={true} size="medium">
+ <Checkbox checked={true} size="md">
     medium
  </Checkbox>
   <Spacer/>
- <Checkbox checked={true} size="large">
+ <Checkbox checked={true} size="lg">
     large
  </Checkbox>
   <Spacer/>
- <Checkbox checked={true} size="xlarge">
+ <Checkbox checked={true} size="xl">
     xlarge
- </Checkbox>
-  <Spacer/>
- <Checkbox checked={true} size={40}>
-    40px
  </Checkbox>
  </>
 `}
@@ -92,45 +88,33 @@ import { Checkbox } from '@nextui-org/react';
  <Checkbox color="gradient" checked={true}>
     Gradient
  </Checkbox>
-  <Spacer/>
- <Checkbox color="#ff4ecd" checked={true}>
-    #ff4ecd
- </Checkbox>
  </>
 `}
 />
 
 <Playground
-  title="Text Colors"
-  desc="You can change the `Checkbox` text color with `textColor` prop"
+  title="Label Colors"
+  desc="You can change the `Checkbox` text color with `labelColor` prop"
   code={`
   <>
- <Checkbox color="primary" textColor="primary"  checked={true}>
+ <Checkbox color="primary" labelColor="primary"  checked={true}>
     Primary
  </Checkbox>
  <Spacer/>
- <Checkbox color="secondary" textColor="secondary"  checked={true}>
+ <Checkbox color="secondary" labelColor="secondary"  checked={true}>
     Secondary
  </Checkbox>
   <Spacer/>
- <Checkbox color="success" textColor="success" checked={true}>
+ <Checkbox color="success" labelColor="success" checked={true}>
     Success
  </Checkbox>
   <Spacer/>
- <Checkbox color="warning" textColor="warning" checked={true}>
+ <Checkbox color="warning" labelColor="warning" checked={true}>
     Warning
  </Checkbox>
   <Spacer/>
- <Checkbox color="error" textColor="error" checked={true}>
+ <Checkbox color="error" labelColor="error" checked={true}>
     Error
- </Checkbox>
-  <Spacer/>
- <Checkbox color="gradient" textColor="primary" checked={true}>
-    Gradient
- </Checkbox>
-  <Spacer/>
- <Checkbox color="#ff4ecd" textColor="#ff4ecd" checked={true}>
-    #ff4ecd
  </Checkbox>
  </>
 `}
@@ -167,10 +151,20 @@ import { Checkbox } from '@nextui-org/react';
 />
 
 <Playground
+  title="No Animated"
+  desc="You can disable the animation of the entire `Checkbox` with the property `animated={false}`."
+  code={`
+ <Checkbox line animated={false} checked={true}>
+    Option
+ </Checkbox>
+`}
+/>
+
+<Playground
   title="Group"
   desc="You can manage a set of `Checkbox` with `Checkbox.Group`."
   code={`
-  <Checkbox.Group color="warning" value={['buenos-aires']}>
+  <Checkbox.Group color="secondary" value={['buenos-aires']}>
     <Checkbox value="buenos-aires">
       Buenos Aires
     </Checkbox>
@@ -191,7 +185,7 @@ import { Checkbox } from '@nextui-org/react';
   title="Row Group"
   desc="You can change the `Checkbox.Group` direction with `row` prop."
   code={`
-  <Checkbox.Group value={['1']} row>
+  <Checkbox.Group color="success" value={['1']} row>
     <Checkbox value="1">
       Buenos Aires
     </Checkbox>
@@ -216,36 +210,38 @@ import { Checkbox } from '@nextui-org/react';
 
 #### Checkbox Props
 
-| Attribute          | Type                    | Accepted values                | Description                                                            | Default   |
-| ------------------ | ----------------------- | ------------------------------ | ---------------------------------------------------------------------- | --------- |
-| **color**          | `NormalColors` `string` | [NormalColors](#normal-colors) | Change checkbox color                                                  | `primary` |
-| **textColor**      | `SimpleColors` `string` | [SimpleColors](#simple-colors) | Change checkbox text color                                             | `default` |
-| **size**           | `NormalSizes` `number`  | [NormalSizes](#normal-sizes)   | Checkbox size                                                          | `medium`  |
-| **checked**        | `boolean`               | `true/false`                   | Determine the value of the checkbox                                    | `false`   |
-| **initialChecked** | `boolean`               | `true/false`                   | Determine the initial value of the checkbox                            | `false`   |
-| **disabled**       | `boolean`               | `true/false`                   | Disable checkbox                                                       | `false`   |
-| **indeterminate**  | `boolean`               | `true/false`                   | Indeterminate checkbox                                                 | `false`   |
-| **rounded**        | `boolean`               | `true/false`                   | Rounded checkbox                                                       | `false`   |
-| **line**           | `boolean`               | `true/false`                   | Line in the middle of the label when the `Checkbox` is checked         | -         |
-| **value**          | `string`                | -                              | Unique identification value (only in group)                            | -         |
-| **label**          | `string`                | -                              | Checkbox label                                                         | -         |
-| **onChange**       | `CheckboxEvent`         | -                              | The callback invoked when the checked state of the `Checkbox` changes. | -         |
-| ...                | `LabelHTMLAttributes`   | `'form', 'className', ...`     | Native checkbox props                                                  | -         |
+| Attribute          | Type                  | Accepted values                | Description                                                               | Default   |
+| ------------------ | --------------------- | ------------------------------ | ------------------------------------------------------------------------- | --------- |
+| **value**          | `string`              | -                              | Unique identification value (only in group)                               | -         |
+| **label**          | `string`              | -                              | Checkbox label                                                            | -         |
+| **color**          | `NormalColors`        | [NormalColors](#normal-colors) | Change checkbox color                                                     | `default` |
+| **labelColor**     | `SimpleColors`        | [SimpleColors](#simple-colors) | Change checkbox label color                                               | `default` |
+| **size**           | `NormalSizes`         | [NormalSizes](#normal-sizes)   | Checkbox size                                                             | `md`      |
+| **checked**        | `boolean`             | `true/false`                   | Determine the value of the checkbox                                       | `false`   |
+| **initialChecked** | `boolean`             | `true/false`                   | Determine the initial value of the checkbox                               | `false`   |
+| **animated**       | `boolean`             | `true/false`                   | Display checkbox animations                                               | `true`    |
+| **disabled**       | `boolean`             | `true/false`                   | Disable checkbox                                                          | `false`   |
+| **indeterminate**  | `boolean`             | `true/false`                   | Indeterminate checkbox                                                    | `false`   |
+| **preventDefault** | `boolean`             | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
+| **rounded**        | `boolean`             | `true/false`                   | Rounded checkbox                                                          | `false`   |
+| **line**           | `boolean`             | `true/false`                   | Line in the middle of the label when the `Checkbox` is checked            | -         |
+| **onChange**       | `CheckboxEvent`       | -                              | The callback invoked when the checked state of the `Checkbox` changes.    | -         |
+| ...                | `LabelHTMLAttributes` | `'form', 'className', ...`     | Native checkbox props                                                     | -         |
 
 <Spacer y={2} />
 
 #### Checkbox Group Props
 
-| Attribute     | Type                         | Accepted values                | Description                         | Default   |
-| ------------- | ---------------------------- | ------------------------------ | ----------------------------------- | --------- |
-| **value**     | `string[]`                   | -                              | List of checked checkbox            | `[]`      |
-| **color**     | `NormalColors`               | [NormalColors](#normal-colors) | Change checkbox group color         | `primary` |
-| **textColor** | `SimpleColors`               | [SimpleColors](#simple-colors) | Change checkbox group text color    | `default` |
-| **disabled**  | `boolean`                    | `true/false`                   | Disable checkbox group              | `false`   |
-| **row**       | `boolean`                    | `true/false`                   | Change the checkbox group direction | `false`   |
-| **size**      | `NormalSizes`                | [NormalSizes](#normal-sizes)   | Size of all checkboxes in the group | `medium`  |
-| **onChange**  | `(values: string[]) => void` | -                              | Checkbox group event handler        | -         |
-| ...           | `HTMLAttributes`             | `'id', 'className', ...`       | Native props                        | -         |
+| Attribute      | Type                         | Accepted values                | Description                         | Default   |
+| -------------- | ---------------------------- | ------------------------------ | ----------------------------------- | --------- |
+| **value**      | `string[]`                   | -                              | List of checked checkbox            | `[]`      |
+| **row**        | `boolean`                    | `true/false`                   | Change the checkbox group direction | `false`   |
+| **size**       | `NormalSizes`                | [NormalSizes](#normal-sizes)   | Size of all checkboxes in the group | `medium`  |
+| **color**      | `NormalColors`               | [NormalColors](#normal-colors) | Change checkbox group color         | `default` |
+| **labelColor** | `SimpleColors`               | [SimpleColors](#simple-colors) | Change checkbox group label color   | `default` |
+| **disabled**   | `boolean`                    | `true/false`                   | Disable checkbox group              | `false`   |
+| **onChange**   | `(values: string[]) => void` | -                              | Checkbox group event handler        | -         |
+| ...            | `HTMLAttributes`             | `'id', 'className', ...`       | Native props                        | -         |
 
 <Spacer y={2} />
 
@@ -281,5 +277,5 @@ type SimpleColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```

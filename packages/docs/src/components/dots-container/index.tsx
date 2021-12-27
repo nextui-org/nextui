@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { useTheme, NextUIThemes } from '@nextui-org/react';
+import { useTheme } from '@nextui-org/react';
 
 const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({
-  children,
+  children
 }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   return (
     <div className="wrapper">
       {children}
@@ -17,13 +17,16 @@ const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({
           overflow: hidden;
           background: linear-gradient(
                 90deg,
-                ${theme.palette.background} 21px,
+                ${theme?.colors?.background?.value} 21px,
                 transparent 1%
               )
               50%,
-            linear-gradient(${theme.palette.background} 21px, transparent 1%)
+            linear-gradient(
+                ${theme?.colors?.background?.value} 21px,
+                transparent 1%
+              )
               50%,
-            ${theme.palette.accents_2};
+            ${theme?.colors?.accents2?.value};
           background-size: var(--dot-space) var(--dot-space);
         }
       `}</style>

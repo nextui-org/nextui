@@ -1,17 +1,22 @@
 import React, { useEffect, useMemo } from 'react';
 import CollapseIcon from './collapse-icon';
-import useTheme from '../use-theme';
 import Expand from '../utils/expand';
 import { useCollapseContext } from './collapse-context';
 import useCurrentState from '../use-current-state';
 import CollapseGroup from './collapse-group';
 import useWarning from '../use-warning';
-import { NormalWeights } from '../utils/prop-types';
-import { getNormalWeight } from '../utils/dimensions';
+import useTheme from '../use-theme';
 import { getId } from '../utils/collections';
-import { getFocusStyles } from '../utils/styles';
+import { CSS } from '../theme/stitches.config';
 import useKeyboard, { KeyCode } from '../use-keyboard';
+import {
+  StyledCollapse,
+  StyledCollapseView,
+  CollapseVariantsProps,
+  StyledCollapseContent
+} from './collapse.styles';
 import clsx from '../utils/clsx';
+import withDefaults from '../utils/with-defaults';
 
 interface Props {
   title: React.ReactNode | string;
@@ -19,36 +24,41 @@ interface Props {
   divider?: boolean;
   animated?: boolean;
   bordered?: boolean;
-  borderWeight?: NormalWeights;
   arrowIcon?: React.ReactNode;
   contentLeft?: React.ReactNode;
   initialExpanded?: boolean;
   showArrow?: boolean;
   shadow?: boolean;
-  className?: string;
   index?: number;
   disabled?: boolean;
+  preventDefault?: boolean;
   onChange?: (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     index?: number | undefined,
     value?: boolean
   ) => void;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
-  className: '',
   shadow: false,
   divider: true,
   bordered: false,
   showArrow: true,
   animated: true,
   disabled: false,
-  borderWeight: 'light' as NormalWeights,
+  preventDefault: true,
   initialExpanded: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type CollapseProps = Props & typeof defaultProps & NativeAttrs;
+
+export type CollapseProps = Props &
+  typeof defaultProps &
+  CollapseVariantsProps &
+  NativeAttrs & { css?: CSS };
+
+const preClass = 'nextui-collapse';
 
 const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   children,
@@ -64,14 +74,16 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   onChange,
   bordered,
   contentLeft,
+  preventDefault,
   animated: animatedProp,
-  borderWeight: borderWeightProp,
+  borderWeight,
   index,
   ...props
 }) => {
-  const theme = useTheme();
   const [visible, setVisible, visibleRef] =
     useCurrentState<boolean>(initialExpanded);
+
+  const { isDark } = useTheme();
 
   const {
     values,
@@ -90,36 +102,22 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     setVisible(isActive);
   }, [values.join(',')]);
 
-  const { className: focusClassName, styles: focusStyles } =
-    getFocusStyles(theme);
-
   const arrowComponent = useMemo(() => {
     if (!showArrow) return null;
     return arrowIcon ? arrowIcon : <CollapseIcon />;
   }, [arrowIcon, showArrow]);
 
-  const borderWeight = useMemo(() => {
-    const withDivider = groupDivider === undefined ? divider : groupDivider;
-    return withDivider ? getNormalWeight(borderWeightProp) : '0px';
-  }, [divider, groupDivider, borderWeightProp]);
+  const withDivider = groupDivider === undefined ? divider : groupDivider;
 
   const animated = useMemo(() => {
     return groupAnimated === undefined ? animatedProp : groupAnimated;
   }, [groupAnimated, animatedProp]);
 
-  const bgColor = useMemo(
-    () =>
-      theme.type === 'dark'
-        ? theme.palette.accents_1
-        : theme.palette.background,
-    [theme.type]
-  );
-
   const { ariaLabelledById, ariaControlId } = useMemo(() => {
     const nextuiId = getId();
     return {
-      ariaLabelledById: `collapse-button-next-ui-${nextuiId}`,
-      ariaControlId: `collapse-next-ui-${nextuiId}`
+      ariaLabelledById: `${preClass}-button-${nextuiId}`,
+      ariaControlId: `${preClass}-${nextuiId}`
     };
   }, []);
 
@@ -139,147 +137,75 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     },
     [KeyCode.Enter, KeyCode.Space],
     {
-      disableGlobalEvent: true
+      disableGlobalEvent: true,
+      preventDefault
     }
   );
 
+  const getState = useMemo(() => {
+    return visible ? 'open' : 'closed';
+  }, [visible]);
+
   return (
-    <div
+    <StyledCollapse
       tabIndex={disabled ? -1 : 0}
-      className={clsx(
-        'collapse',
-        { shadow, bordered },
-        className,
-        focusClassName
-      )}
+      shadow={shadow}
+      bordered={bordered}
+      animated={animated}
+      divider={withDivider}
+      borderWeight={borderWeight}
+      visible={visible}
+      data-state={getState}
+      className={clsx(className, preClass, `${preClass}--${getState}`)}
+      isDark={isDark}
       {...props}
       {...bindings}
     >
-      <div
+      <StyledCollapseView
         role="button"
         tabIndex={-1}
-        className={clsx('view', { disabled })}
         id={ariaLabelledById}
+        className={`${preClass}-view`}
+        data-state={getState}
+        disabled={disabled}
         aria-disabled={disabled}
         aria-expanded={visible}
         aria-controls={ariaControlId}
         onClick={handleChange}
       >
-        <div className={clsx('title', { animated })}>
+        <div className={clsx(`${preClass}-title`)}>
           {contentLeft && (
-            <div className="title-content-left">{contentLeft}</div>
+            <div className={`${preClass}-title-content-left`}>
+              {contentLeft}
+            </div>
           )}
-          <div className="title-content">
+          <div className={`${preClass}-title-content`}>
             {React.isValidElement(title) ? title : <h3>{title}</h3>}
-            {subtitle && <div className="subtitle">{subtitle}</div>}
+            {subtitle && (
+              <div className={`${preClass}-subtitle`}>{subtitle}</div>
+            )}
           </div>
-          <div className="title-content-right">{arrowComponent}</div>
+          <div className={`${preClass}-title-content-right`}>
+            {arrowComponent}
+          </div>
         </div>
-      </div>
+      </StyledCollapseView>
       <Expand isExpanded={visible} animated={animated}>
-        <div
+        <StyledCollapseContent
           role="region"
           tabIndex={-1}
           id={ariaControlId}
           aria-labelledby={ariaLabelledById}
-          className="content"
+          className={`${preClass}-content`}
         >
           {children}
-        </div>
+        </StyledCollapseContent>
       </Expand>
-      <style jsx>{`
-        .collapse {
-          border-top: ${borderWeight} solid ${theme.palette.border};
-          border-bottom: ${borderWeight} solid ${theme.palette.border};
-          transition: box-shadow 0.25s ease;
-        }
-        .shadow {
-          border: none;
-          background: ${bgColor};
-          box-shadow: ${theme.expressiveness.shadowMedium};
-          border-radius: ${theme.layout.radius};
-          padding: 0 ${theme.layout.gap};
-        }
-        .bordered {
-          padding: 0 ${theme.layout.gap};
-          border-radius: ${theme.layout.radius};
-          border: ${borderWeight} solid ${theme.palette.border};
-        }
-        .view {
-          width: 100%;
-          display: block;
-          text-align: left;
-          background: transparent;
-          border: none;
-          cursor: pointer;
-          padding: ${theme.layout.gap} 0;
-        }
-        .view.disabled {
-          cursor: not-allowed;
-        }
-        .view.disabled .title,
-        .view.disabled .subtitle {
-          opacity: 0.5;
-        }
-        .title-content-left,
-        .title-content-right {
-          display: flex;
-          align-items: center;
-        }
-        .title-content-left {
-          margin-right: ${theme.layout.gapHalf};
-        }
-        .title-content {
-          width: 100%;
-        }
-        .title {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          color: ${theme.palette.foreground};
-        }
-        .title-content-right :global(svg) {
-          transform: rotateZ(${visible ? '-90deg' : '0'});
-        }
-        .animated .title-content-right :global(svg) {
-          transition: transform 200ms ease;
-        }
-        .title-content :global(h1),
-        .title-content :global(h2),
-        .title-content :global(h3),
-        .title-content :global(h4),
-        .title-content :global(h5),
-        .title-content :global(h6),
-        .title-content :global(p),
-        .title-content :global(span),
-        .title-content :global(b) {
-          margin: 0 !important;
-        }
-        .subtitle {
-          color: ${theme.palette.accents_5};
-          margin: 0;
-        }
-        .subtitle > :global(*) {
-          margin: 0;
-        }
-        .content {
-          font-size: 1rem;
-          line-height: 1.625rem;
-          padding-bottom: ${theme.layout.gap};
-        }
-        .content > :global(*:first-child) {
-          margin-top: 0;
-        }
-        .content > :global(*:last-child) {
-          margin-bottom: 0;
-        }
-      `}</style>
-      {focusStyles}
-    </div>
+    </StyledCollapse>
   );
 };
 
-Collapse.defaultProps = defaultProps;
+Collapse.toString = () => '.nextui-collapse';
 
 type CollapseComponent<P = {}> = React.FC<P> & {
   Group: typeof CollapseGroup;
@@ -287,6 +213,10 @@ type CollapseComponent<P = {}> = React.FC<P> & {
 
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
+  CollapseVariantsProps &
   NativeAttrs;
 
-export default Collapse as CollapseComponent<ComponentProps>;
+export default withDefaults(
+  Collapse,
+  defaultProps
+) as CollapseComponent<ComponentProps>;

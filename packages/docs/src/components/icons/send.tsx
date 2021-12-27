@@ -12,8 +12,8 @@ const Send: React.FC<IconProps> = ({
   className,
   ...props
 }) => {
-  const theme = useTheme();
-  const color = fill || theme.palette.accents_3;
+  const { theme } = useTheme();
+  const color = fill || theme?.colors?.accents3?.value;
   return (
     <svg
       data-name="Iconly/Curved/Lock"

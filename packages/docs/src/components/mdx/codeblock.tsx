@@ -1,12 +1,26 @@
 import * as React from 'react';
-import { Snippet, useTheme } from '@nextui-org/react';
+import {
+  Snippet,
+  StyledSnippetPre,
+  globalCss,
+  StyledSnippetCopyButton,
+  useTheme
+} from '@nextui-org/react';
 import makeCodeTheme from '../playground/code-theme';
+
+const globalStyles = globalCss({
+  pre: {
+    border: 0,
+    padding: 0
+  }
+});
 
 const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
   children
 }) => {
-  const theme = useTheme();
-  const codeTheme = makeCodeTheme(theme);
+  const themeObj = useTheme();
+  const { theme, isDark } = themeObj;
+  const codeTheme = makeCodeTheme(themeObj);
   const stringColor = codeTheme.styles.find((style) =>
     style.types.includes('string')
   );
@@ -28,57 +42,74 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
   const classnameColor = codeTheme.styles.find((style) =>
     style.types.includes('tag')
   );
+  const attrColor = codeTheme.styles.find((style) =>
+    style.types.includes('attr-name')
+  );
   const functionColor = codeTheme.styles.find((style) =>
     style.types.includes('function')
   );
+
+  globalStyles();
   return (
-    <Snippet symbol="">
+    <Snippet
+      css={{
+        bg: codeTheme.plain.backgroundColor,
+        boxShadow: '0px 5px 20px -5px rgb(0 0 0 / 20%)',
+        [`& ${StyledSnippetPre}`]: {
+          border: '0px',
+          padding: '0px',
+          width: '100%',
+          color: textColor?.style.color,
+          borderRadius: '0px',
+          '.token.string': {
+            color: stringColor?.style.color
+          },
+          '.token.builtin': {
+            color: classnameColor?.style.color
+          },
+          '.token.punctuation': {
+            color: punctuationColor?.style.color
+          },
+          '.token.number': {
+            color: numberColor?.style.color
+          },
+          '.token.class-name': {
+            color: classnameColor?.style.color
+          },
+          '.token.comment': {
+            color: commentColor?.style.color
+          },
+          '.token.plain-text': {
+            color: textColor?.style.color
+          },
+          '.token.module, .token.keyword': {
+            color: '#c678dd'
+          },
+          '.token.function': {
+            color: functionColor?.style.color
+          },
+          '.token.tag': {
+            color: selectorColor?.style.color
+          },
+          '.token.attr-name': {
+            color: attrColor?.style.color
+          },
+          '.token.language-javascript': {
+            color: numberColor?.style.color
+          }
+        },
+        [`& ${StyledSnippetCopyButton}`]: {
+          bg: codeTheme.plain.backgroundColor,
+          path: {
+            fill: !isDark
+              ? theme?.colors?.accents2?.value
+              : theme?.colors?.accents5?.value
+          }
+        }
+      }}
+      symbol=""
+    >
       {children}
-      <style jsx>{`
-        :global(pre) {
-          border: 0px;
-          padding: 0px !important;
-          color: ${textColor?.style.color} !important;
-        }
-        :global(.snippet, .copy) {
-          background-color: ${codeTheme.plain.backgroundColor} !important;
-        }
-        :global(.language-jsx) {
-          box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
-        }
-        :global(.copy path) {
-          fill: ${theme.type === 'light'
-            ? theme.palette.accents_2
-            : theme.palette.accents_5};
-        }
-        :global(.snippet pre) {
-          border-radius: 0px !important;
-        }
-        :global(.token.string) {
-          color: ${stringColor?.style.color};
-        }
-        :global(.token.punctuation) {
-          color: ${punctuationColor?.style.color};
-        }
-        :global(.token.number) {
-          color: ${numberColor?.style.color};
-        }
-        :global(.token.class-name) {
-          color: ${classnameColor?.style.color};
-        }
-        :global(.token.maybe-class-name) {
-          color: ${selectorColor?.style.color};
-        }
-        :global(.token.plain-text, .token.comment) {
-          color: ${commentColor?.style.color};
-        }
-        :global(.token.module, .token.keyword) {
-          color: #c678dd;
-        }
-        :global(.token.function) {
-          color: ${functionColor?.style.color};
-        }
-      `}</style>
     </Snippet>
   );
 };

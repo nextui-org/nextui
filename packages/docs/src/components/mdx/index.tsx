@@ -6,6 +6,7 @@ import CarbonAd from '../carbon-ad';
 import * as Icons from '../icons';
 import { useTheme } from '@nextui-org/react';
 import { Anchor } from '@components';
+import Block from '../templates/example-block';
 import cn from 'classnames';
 
 const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
@@ -27,7 +28,7 @@ const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   );
 };
 const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   return (
     <thead>
       {children}
@@ -36,33 +37,35 @@ const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
           height: 2.875rem;
         }
         :global(th) {
-          background: ${theme.palette.accents_1};
-          color: ${theme.palette.accents_5};
+          background: ${theme?.colors?.accents1?.value};
+          color: ${theme?.colors?.accents5?.value};
           font-size: 0.8rem;
           font-weight: 600;
           text-align: left;
-          padding: 0 ${theme.layout.gap} 0 0;
+          padding: 0 ${theme?.space?.lg?.value} 0 0;
         }
         :global(th:nth-child(1)) {
           padding-left: 1rem;
-          border-radius: ${theme.layout.radius} 0 0 ${theme.layout.radius};
+          border-radius: ${theme?.radii?.lg?.value} 0 0
+            ${theme?.radii?.lg?.value};
         }
         :global(th:last-child) {
-          border-radius: 0 ${theme.layout.radius} ${theme.layout.radius} 0;
+          border-radius: 0 ${theme?.radii?.lg?.value} ${theme?.radii?.lg?.value}
+            0;
         }
       `}</style>
     </thead>
   );
 };
 const Trow: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   return (
     <tr>
       {children}
       <style jsx>{`
         :global(tr td) {
           font-size: 0.9rem;
-          padding: 0 ${theme.layout.gapHalf};
+          padding: 0 ${theme?.space?.sm?.value};
         }
       `}</style>
     </tr>
@@ -98,12 +101,26 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({
       {...props}
     >
       {linked ? <Anchor>{props.children}</Anchor> : <>{props.children}</>}
-      <style jsx>{`
-        :global(h1) {
-          font-size: 2.3rem;
-        }
-      `}</style>
     </Component>
+  );
+};
+
+const List: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
+  const { theme } = useTheme();
+  return (
+    <ul className="mdx-ul">
+      {children}
+      <style jsx>
+        {`
+          ul {
+            list-style-type: disc;
+          }
+          :global(.mdx-ul strong) {
+            color: ${theme?.colors.code.value};
+          }
+        `}
+      </style>
+    </ul>
   );
 };
 
@@ -128,6 +145,8 @@ const MDXComponents = {
   Playground,
   CarbonAd,
   code: Codeblock,
+  ul: List,
+  Block
 };
 
 export default MDXComponents;

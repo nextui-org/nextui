@@ -9,156 +9,30 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "col ",
+          "class": "nextui-c-cMTZRp nextui-c-cMTZRp-ikSMVmn-css",
         },
         "children": Array [
           Node {
             "data": "col",
-            "next": Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
-          width: 16.666666666666668%;
-          margin-left: 0%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
+            "next": null,
             "parent": [Circular],
             "prev": null,
             "type": "text",
-          },
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
-          width: 16.666666666666668%;
-          margin-left: 0%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Node {
-              "data": "col",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
           },
         ],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "col ",
+            "class": "nextui-c-cMTZRp nextui-c-cMTZRp-icjwvEK-css",
           },
           "children": Array [
             Node {
               "data": "col",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
-          width: 16.666666666666668%;
-          margin-left: 16.666666666666668%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": null,
               "type": "text",
-            },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
-          width: 16.666666666666668%;
-          margin-left: 16.666666666666668%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "data": "col",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
             },
           ],
           "name": "div",
@@ -186,78 +60,15 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "col ",
+          "class": "nextui-c-cMTZRp nextui-c-cMTZRp-icjwvEK-css",
         },
         "children": Array [
           Node {
             "data": "col",
-            "next": Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
-          width: 16.666666666666668%;
-          margin-left: 16.666666666666668%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
+            "next": null,
             "parent": [Circular],
             "prev": null,
             "type": "text",
-          },
-          Node {
-            "attribs": Object {},
-            "children": Array [
-              Node {
-                "data": "
-        .col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
-          width: 16.666666666666668%;
-          margin-left: 16.666666666666668%;
-        }
-      ",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "style",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Node {
-              "data": "col",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-            "type": "style",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
           },
         ],
         "name": "div",
@@ -266,78 +77,15 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "col ",
+            "class": "nextui-c-cMTZRp nextui-c-cMTZRp-ikSMVmn-css",
           },
           "children": Array [
             Node {
               "data": "col",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [
-                  Node {
-                    "data": "
-        .col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
-          width: 16.666666666666668%;
-          margin-left: 0%;
-        }
-      ",
-                    "next": null,
-                    "parent": [Circular],
-                    "prev": null,
-                    "type": "text",
-                  },
-                ],
-                "name": "style",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "style",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
+              "next": null,
               "parent": [Circular],
               "prev": null,
               "type": "text",
-            },
-            Node {
-              "attribs": Object {},
-              "children": Array [
-                Node {
-                  "data": "
-        .col {
-          float: left;
-          box-sizing: border-box;
-          padding-left: calc(var(--row-gap) / 2);
-          padding-right: calc(var(--row-gap) / 2);
-          width: 16.666666666666668%;
-          margin-left: 0%;
-        }
-      ",
-                  "next": null,
-                  "parent": [Circular],
-                  "prev": null,
-                  "type": "text",
-                },
-              ],
-              "name": "style",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "data": "col",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-              "type": "style",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
             },
           ],
           "name": "div",

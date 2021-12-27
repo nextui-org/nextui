@@ -11,7 +11,7 @@ const Heart: React.FC<IconProps> = ({
   label,
   ...props
 }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   return (
     <svg
       data-name="Iconly/Curved/Heart"
@@ -22,8 +22,8 @@ const Heart: React.FC<IconProps> = ({
       {...props}
     >
       <g
-        fill={filled ? fill || theme.palette.accents_3 : 'none'}
-        stroke={fill || theme.palette.accents_3}
+        fill={filled ? fill || theme?.colors?.accents3?.value : 'none'}
+        stroke={fill || theme?.colors?.accents3?.value}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit={10}

@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { NextRouter, Router, useRouter } from 'next/router';
-import { CssBaseline, NextUIThemes, ThemeProvider } from '@nextui-org/react';
-import useDarkMode from 'use-dark-mode';
+import { NextUIProvider } from '@nextui-org/react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { AppInitialProps } from 'next/app';
-import { DeepPartial } from '@utils/types';
 import { NextComponent } from '@lib/types';
 import generateKbarActions from '@lib/kbar-actions';
-import sharedTheme from '@theme/shared';
 import { KBarProvider } from 'kbar';
+import { lightTheme, darkTheme } from '../theme/shared';
 
 type AppPropsType<
   R extends NextRouter = NextRouter,
@@ -28,46 +27,19 @@ const KbarComponent = dynamic(() => import('../components/kbar'), {
 });
 
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
-  const [customTheme, setCustomTheme] = useState<DeepPartial<NextUIThemes>>({
-    ...sharedTheme
-  });
-
   const router = useRouter();
-
-  const themeChangeHandle = (isDark: boolean) => {
-    if (customTheme.type === 'dark' && !isDark) {
-      setCustomTheme({
-        ...customTheme,
-        type: 'light'
-      });
-    } else if (customTheme.type === 'light' && isDark) {
-      setCustomTheme({
-        ...customTheme,
-        type: 'dark'
-      });
-    }
-  };
-
-  const darkMode = useDarkMode(true, {
-    onChange: themeChangeHandle
-  });
-
-  const kbarActions = generateKbarActions(router, darkMode);
-
-  useEffect(() => {
-    const savedTheme = window.localStorage.getItem('darkMode')
-      ? 'dark'
-      : 'light';
-    setCustomTheme((prevTheme) => ({
-      ...prevTheme,
-      type: savedTheme || 'dark'
-    }));
-  }, []);
+  const kbarActions = generateKbarActions(router);
 
   return (
-    <>
-      <ThemeProvider theme={customTheme}>
-        <CssBaseline />
+    <NextThemesProvider
+      defaultTheme="system"
+      attribute="class"
+      value={{
+        light: lightTheme.className,
+        dark: darkTheme.className
+      }}
+    >
+      <NextUIProvider>
         <KBarProvider
           actions={kbarActions}
           options={{
@@ -90,12 +62,9 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
           }
-          .npm__react-simple-code-editor__textarea {
-            padding: 0px !important; /* remove padding to textarea to avoid wrong cursor in live editor */
-          }
         `}</style>
-      </ThemeProvider>
-    </>
+      </NextUIProvider>
+    </NextThemesProvider>
   );
 };
 

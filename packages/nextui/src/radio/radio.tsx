@@ -1,15 +1,21 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import useTheme from '../use-theme';
 import { useRadioContext } from './radio-context';
-import RadioGroup, { getRadioSize } from './radio-group';
-import RadioDescription from './radio-description';
+import RadioGroup from './radio-group';
 import { pickChild } from '../utils/collections';
 import useWarning from '../use-warning';
 import useKeyboard, { KeyCode } from '../use-keyboard';
-import { getFocusStyles } from '../utils/styles';
-import { NormalSizes, SimpleColors } from '../utils/prop-types';
-import { getNormalColor } from '../utils/color';
-import VisuallyHidden from '../utils/visually-hidden';
+import { SimpleColors, NormalSizes } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
+import {
+  StyledRadio,
+  StyledRadioLabel,
+  StyledRadioInput,
+  StyledRadioPoint,
+  StyledRadioDescription,
+  RadioVariantsProps
+} from './radio.styles';
+import withDefaults from '../utils/with-defaults';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 interface RadioEventTarget {
@@ -26,54 +32,58 @@ export interface RadioEvent {
 interface Props {
   checked?: boolean;
   value?: string | number;
-  squared?: boolean;
-  size?: NormalSizes | number;
-  color?: SimpleColors | string;
-  textColor?: SimpleColors | string;
-  className?: string;
+  size?: NormalSizes;
+  color?: SimpleColors;
+  textColor?: SimpleColors;
   disabled?: boolean;
+  preventDefault?: boolean;
   onChange?: (e: RadioEvent) => void;
 }
 
 const defaultProps = {
-  size: 'medium' as NormalSizes | number,
-  color: 'primary' as SimpleColors,
+  size: 'md' as NormalSizes,
+  color: 'default' as SimpleColors,
   textColor: 'default' as SimpleColors,
   disabled: false,
-  squared: false,
-  className: ''
+  preventDefault: true
 };
 
 type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
-export type RadioProps = Props & typeof defaultProps & NativeAttrs;
+
+export type RadioProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  RadioVariantsProps & { css?: CSS };
+
+const preClass = 'nextui-radio';
 
 const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
-  className,
   checked,
   onChange,
-  squared,
   disabled,
-  size,
   color,
+  size,
   textColor,
   value: radioValue,
+  preventDefault,
   children,
   ...props
 }) => {
-  const theme = useTheme();
   const [selfChecked, setSelfChecked] = useState<boolean>(!!checked);
+
   const {
     value: groupValue,
     disabledAll,
     inGroup,
     color: groupColor,
+    size: groupSize,
     textColor: textGroupColor,
     updateState
   } = useRadioContext();
 
   const [withoutDescChildren, DescChildren] = pickChild(
     children,
-    RadioDescription
+    StyledRadioDescription
   );
 
   if (inGroup && __DEV__) {
@@ -92,39 +102,16 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     setSelfChecked(groupValue === radioValue);
   }, [groupValue, radioValue]);
 
-  const fontSize = useMemo(() => getRadioSize(size), [size]);
   const isDisabled = useMemo(
     () => disabled || disabledAll,
     [disabled, disabledAll]
   );
-  const radius = squared ? '2px' : '50%';
 
-  const radioColor = useMemo(
-    () =>
-      isDisabled
-        ? theme.palette.accents_4
-        : getNormalColor(
-            color || groupColor,
-            theme.palette,
-            theme.palette.foreground
-          ),
-    [color, groupColor, isDisabled, theme.palette]
-  );
-
-  const labelColor = useMemo(
-    () =>
-      isDisabled
-        ? theme.palette.accents_4
-        : getNormalColor(
-            textColor || textGroupColor,
-            theme.palette,
-            theme.palette.text
-          ),
-    [textColor, textGroupColor, isDisabled, theme.palette]
-  );
-
-  const { className: focusClassName, styles: focusStyles } =
-    getFocusStyles(theme);
+  const radioColor = (color !== 'default' ? color : groupColor) as SimpleColors;
+  const radioSize = (size !== 'md' ? size : groupSize) as NormalSizes;
+  const labelColor = (
+    textColor !== 'default' ? textColor : textGroupColor
+  ) as SimpleColors;
 
   const changeHandler = (event: React.ChangeEvent) => {
     if (isDisabled || (inGroup && selfChecked)) return;
@@ -149,7 +136,8 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
     },
     [KeyCode.Enter, KeyCode.Space],
     {
-      disableGlobalEvent: true
+      disableGlobalEvent: true,
+      preventDefault
     }
   );
   useEffect(() => {
@@ -158,102 +146,53 @@ const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
   }, [checked]);
 
   return (
-    <label
-      className={`radio ${className}`}
+    <StyledRadio
       aria-checked={selfChecked}
+      disabled={isDisabled}
+      active={selfChecked}
+      size={radioSize}
+      color={radioColor}
       {...props}
       {...bindings}
     >
-      <VisuallyHidden>
-        <input
-          type="radio"
-          tabIndex={-1}
-          value={radioValue}
-          checked={selfChecked}
-          onChange={changeHandler}
-          {...props}
-        />
-      </VisuallyHidden>
-      <span className="name">
-        <span
-          tabIndex={disabled ? -1 : 0}
-          className={`point ${selfChecked ? 'active' : ''} ${
-            isDisabled ? 'disabled' : ''
-          } ${focusClassName}`}
+      <StyledRadioInput
+        type="radio"
+        tabIndex={-1}
+        value={radioValue}
+        checked={selfChecked}
+        onChange={changeHandler}
+        className={`${preClass}-input`}
+        {...props}
+      />
+      <StyledRadioLabel
+        color={labelColor}
+        disabled={isDisabled}
+        className={`${preClass}-name`}
+      >
+        <StyledRadioPoint
+          tabIndex={isDisabled ? -1 : 0}
+          className={clsx(`${preClass}-point`, {
+            [`${preClass}-active`]: selfChecked,
+            [`${preClass}-disabled`]: isDisabled
+          })}
         />
         {withoutDescChildren}
-      </span>
+      </StyledRadioLabel>
       {DescChildren && DescChildren}
-      <style jsx>{`
-        input {
-          opacity: 0;
-          overflow: hidden;
-          width: 1px;
-          height: 1px;
-          top: -1000px;
-          right: -1000px;
-          position: fixed;
-        }
-        .radio {
-          display: flex;
-          width: initial;
-          align-items: flex-start;
-          position: relative;
-          --radio-size: ${fontSize};
-        }
-        label {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          color: ${labelColor};
-          cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
-        }
-        .name {
-          font-size: var(--radio-size);
-          user-select: none;
-          display: inline-flex;
-          align-items: center;
-        }
-        .point {
-          width: var(--radio-size);
-          height: var(--radio-size);
-          border-radius: ${radius};
-          transition: all 0.25s ease;
-          position: relative;
-          display: inline-block;
-          margin-right: calc(var(--radio-size) * 0.375);
-        }
-        .point:after {
-          content: '';
-          display: block;
-          position: absolute;
-          width: var(--radio-size);
-          height: var(--radio-size);
-          border-radius: ${radius};
-          box-sizing: border-box;
-          transition: all 0.25s ease;
-          border: 2px solid ${theme.palette.border};
-        }
-        .point.active:after {
-          border: calc(var(--radio-size) * 0.34) solid ${radioColor};
-        }
-        label:hover .point:not(.active):not(.disabled) {
-          background: ${theme.palette.border};
-        }
-      `}</style>
-      {focusStyles}
-    </label>
+    </StyledRadio>
   );
 };
 
 type RadioComponent<P = {}> = React.FC<P> & {
   Group: typeof RadioGroup;
-  Desc: typeof RadioDescription;
-  Description: typeof RadioDescription;
+  Desc: typeof StyledRadioDescription;
+  Description: typeof StyledRadioDescription;
 };
+
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs;
+  NativeAttrs &
+  RadioVariantsProps & { css?: CSS };
 
 Radio.defaultProps = defaultProps;
 
@@ -261,4 +200,9 @@ if (__DEV__) {
   Radio.displayName = 'NextUI - Radio';
 }
 
-export default Radio as RadioComponent<ComponentProps>;
+Radio.toString = () => '.nextui-radio';
+
+export default withDefaults(
+  Radio,
+  defaultProps
+) as RadioComponent<ComponentProps>;

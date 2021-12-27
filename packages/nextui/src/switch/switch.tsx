@@ -1,12 +1,16 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import withDefaults from '../utils/with-defaults';
-import useTheme from '../use-theme';
-import { NormalSizes, NormalColors } from '../utils/prop-types';
-import { getNormalColor, hexToRGBA, isHex } from '../utils/color';
-import { getSizes } from './styles';
 import useWarning from '../use-warning';
 import useKeyboard, { KeyCode } from '../use-keyboard';
-import { getFocusStyles } from '../utils/styles';
+import { CSS } from '../theme/stitches.config';
+import {
+  StyledSwitch,
+  StyledSwitchContainer,
+  StyledSwitchInput,
+  StyledSwitchCircle,
+  SwitchContainerVariantsProps
+} from './switch.styles';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 interface SwitchEventTarget {
@@ -21,51 +25,55 @@ export interface SwitchEvent {
 }
 
 interface Props {
-  color?: NormalColors | string;
   checked?: boolean;
   squared?: boolean;
   bordered?: boolean;
+  animated?: boolean;
+  shadow?: boolean;
   icon?: React.ReactNode;
   iconOn?: React.ReactNode;
   iconOff?: React.ReactNode;
   initialChecked?: boolean;
-  onChange?: (ev: SwitchEvent) => void;
+  preventDefault?: boolean;
   disabled?: boolean;
-  size?: NormalSizes;
-  className?: string;
+  onChange?: (ev: SwitchEvent) => void;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
-  color: 'primary' as NormalColors,
-  size: 'medium' as NormalSizes,
   disabled: false,
   bordered: false,
+  shadow: false,
   squared: false,
-  initialChecked: false,
-  className: ''
+  animated: true,
+  preventDefault: true,
+  initialChecked: false
 };
 
 type NativeAttrs = Omit<React.LabelHTMLAttributes<unknown>, keyof Props>;
-export type SwitchProps = Props & typeof defaultProps & NativeAttrs;
+export type SwitchProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  SwitchContainerVariantsProps & { css?: CSS };
+
+const preClass = 'nextui-switch';
 
 const Switch: React.FC<SwitchProps> = ({
   initialChecked,
   checked,
   disabled,
   onChange,
-  size,
   squared,
   bordered,
-  color,
+  shadow,
   icon,
   iconOn,
   iconOff,
-  className,
+  animated,
+  preventDefault,
   ...props
 }) => {
-  const theme = useTheme();
   const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
-  const { width, height } = useMemo(() => getSizes(size), [size]);
 
   if (icon && __DEV__ && (iconOn || iconOff)) {
     useWarning('Remove props "icon" if iconOn or iconOff exists.', 'Switch');
@@ -95,14 +103,10 @@ const Switch: React.FC<SwitchProps> = ({
     },
     [KeyCode.Enter, KeyCode.Space],
     {
-      disableGlobalEvent: true
+      disableGlobalEvent: true,
+      preventDefault
     }
   );
-
-  const { className: focusClassName, styles: focusStyles } =
-    getFocusStyles(theme);
-
-  const radius = useMemo(() => (squared ? '2px' : '50%'), [squared]);
 
   const circleIcon = useMemo(() => {
     const hasIcon = icon || iconOn || iconOff;
@@ -114,126 +118,58 @@ const Switch: React.FC<SwitchProps> = ({
     return hasIcon;
   }, [selfChecked, icon, iconOn, iconOff]);
 
-  const switchColor = useMemo(
-    () =>
-      disabled
-        ? theme.palette.accents_4
-        : getNormalColor(color, theme.palette, theme.palette.success),
-    [color, disabled, theme.palette]
-  );
-
   useEffect(() => {
     if (checked === undefined) return;
     setSelfChecked(checked);
   }, [checked]);
 
+  const getState = useMemo(() => {
+    return selfChecked ? 'checked' : 'unchecked';
+  }, [selfChecked]);
+
   return (
-    <label className={`${className}`} {...props}>
-      <input
+    <StyledSwitchContainer
+      data-state={getState}
+      disabled={disabled}
+      animated={animated}
+      {...props}
+    >
+      <StyledSwitchInput
         tabIndex={-1}
         type="checkbox"
+        className={clsx(`${preClass}-input`)}
+        data-state={getState}
         disabled={disabled}
         checked={selfChecked}
         onChange={changeHandle}
       />
-      <div
+      <StyledSwitch
         role="switch"
         tabIndex={disabled ? -1 : 0}
+        checked={selfChecked}
         aria-checked={selfChecked}
         aria-disabled={disabled}
-        className={`switch ${selfChecked ? 'checked' : ''} ${
-          disabled ? 'disabled' : ''
-        } ${focusClassName}`}
+        animated={animated}
+        disabled={disabled}
+        squared={squared}
+        bordered={bordered}
+        shadow={shadow}
+        data-state={getState}
+        className={clsx(preClass, `${preClass}--${getState}`, {
+          [`${preClass}-checked`]: selfChecked,
+          [`${preClass}-disabled`]: disabled
+        })}
         {...bindings}
       >
-        <span className="circle">{circleIcon}</span>
-      </div>
-      <style jsx>{`
-        label {
-          -webkit-tap-highlight-color: transparent;
-          display: inline-block;
-          vertical-align: center;
-          white-space: nowrap;
-          user-select: none;
-          max-width: ${width};
-          transition: all 0.25s ease;
-          padding: 3px 0;
-          position: relative;
-          cursor: ${disabled ? 'not-allowed' : 'pointer'};
-        }
-        input {
-          overflow: hidden;
-          height: ${height};
-          opacity: 0;
-          width: 100%;
-          position: absolute;
-          background: transparent;
-          z-index: -1;
-        }
-        .switch {
-          width: ${width};
-          height: ${height};
-          border-radius: ${squared ? '2px' : height};
-          opacity: 1;
-          transition: all 0.25s ease;
-          position: relative;
-          border: ${theme.layout.stroke} solid
-            ${bordered ? theme.palette.border : 'transparent'};
-          background: ${bordered ? 'transparent' : theme.palette.accents_2};
-          box-shadow: inset 0 0 4px 0 rgb(0 0 0 / 5%);
-          padding: 0;
-        }
-        .circle {
-          position: absolute;
-          display: flex;
-          width: calc(${height} * 0.76);
-          height: calc(${height} * 0.76);
-          justify-content: center;
-          align-items: center;
-          top: 49.4%;
-          bottom: 0px;
-          transform: translateY(-50%);
-          left: ${bordered ? 'calc(1px + ' + height + '* 0.02)' : '0px'};
-          box-shadow: 0px 4px 4px 0 rgb(0 0 0 / 25%);
-          transition: left 0.25s ease;
-          border-radius: ${radius};
-          background: ${bordered
-            ? theme.palette.accents_2
-            : theme.palette.background};
-        }
-        .switch.checked:hover {
-          opacity: 0.8;
-        }
-        .switch:hover:not(.checked) {
-          opacity: 0.8;
-        }
-        .disabled {
-          border-color: ${theme.palette.accents_3};
-          background-color: ${theme.palette.accents_3};
-        }
-        .checked {
-          border: 1px solid transparent;
-          background: ${switchColor};
-        }
-        .circle :global(svg) {
-          background: transparent;
-          height: calc(${height} * 0.44);
-          width: calc(${height} * 0.44);
-        }
-        .checked > .circle {
-          left: calc(${width} - ${height} * 0.88);
-          background: ${isHex(theme.palette.background)
-            ? hexToRGBA(theme.palette.background, 0.6)
-            : theme.palette.background};
-        }
-        .disabled > .circle {
-          background: ${theme.palette.accents_2};
-        }
-      `}</style>
-      {focusStyles}
-    </label>
+        <StyledSwitchCircle className={`${preClass}-circle`}>
+          {circleIcon}
+        </StyledSwitchCircle>
+      </StyledSwitch>
+    </StyledSwitchContainer>
   );
 };
+
+Switch.toString = () => '.nextui-switch';
 
 const MemoSwitch = React.memo(Switch);
 

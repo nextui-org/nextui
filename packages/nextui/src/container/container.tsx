@@ -1,22 +1,24 @@
 import React, { useMemo } from 'react';
-import useTheme from '../use-theme';
+import { CSS } from '../theme/stitches.config';
 import {
   Wrap,
   Display,
   Justify,
   Direction,
   AlignItems,
-  AlignContent,
+  AlignContent
 } from '../utils/prop-types';
+import StyledContainer from './container.styles';
 
 interface Props {
-  fluid?: boolean;
   gap?: number;
   xs?: boolean;
   sm?: boolean;
   md?: boolean;
   lg?: boolean;
   xl?: boolean;
+  responsive?: boolean;
+  fluid?: boolean;
   wrap?: Wrap;
   display?: Display;
   justify?: Justify;
@@ -24,23 +26,21 @@ interface Props {
   alignItems?: AlignItems;
   alignContent?: AlignContent;
   as?: keyof JSX.IntrinsicElements;
-  className?: string;
-  style?: object;
-  children?: React.ReactNode;
+  css?: CSS;
 }
 
 const defaultProps = {
   gap: 2,
-  fluid: false,
   xs: false,
   sm: false,
   md: false,
   lg: false,
   xl: false,
+  responsive: true,
+  fluid: false,
   wrap: 'wrap' as Wrap,
   as: 'div' as keyof JSX.IntrinsicElements,
-  display: 'block' as Display,
-  className: '',
+  display: 'block' as Display
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -48,7 +48,6 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type ContainerProps = Props & typeof defaultProps & NativeAttrs;
 
 const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
-  fluid,
   xs,
   sm,
   md,
@@ -63,140 +62,53 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   alignItems,
   alignContent,
   children,
-  className,
-  style,
+  responsive,
+  fluid,
+  css,
   ...props
 }) => {
-  const theme = useTheme();
-  const classes = useMemo(() => {
-    const aligns: { [key: string]: unknown } = {
-      fluid,
-      xs,
-      sm,
-      md,
-      lg,
-      xl,
-      wrap,
-      display,
-      justify,
-      direction,
-      alignItems,
-      alignContent,
-    };
-    const classString = Object.keys(aligns).reduce((pre, name) => {
-      if (aligns[name] !== undefined && aligns[name] !== false)
-        return `${pre} ${name}`;
-      return pre;
-    }, '');
-    return classString.trim();
-  }, [
-    xs,
-    sm,
-    md,
-    lg,
-    xl,
-    fluid,
-    wrap,
-    display,
-    justify,
-    direction,
-    alignItems,
-    alignContent,
-  ]);
   const gapUnit = useMemo(() => {
-    return `calc(${gap} * ${theme.layout.gapQuarter})`;
-  }, [gap, theme.layout.gapQuarter]);
+    return `calc(${gap} * $space$sm)`;
+  }, [gap]);
 
-  const Component = as;
+  const getMaxWidth = () => {
+    if (xs) return '$breakpoints$xs';
+    if (sm) return '$breakpoints$sm';
+    if (md) return '$breakpoints$md';
+    if (lg) return '$breakpoints$lg';
+    if (xl) return '$breakpoints$xl';
+    return '';
+  };
 
   return (
-    <Component
-      className={`container ${classes} ${className}`}
-      style={style}
+    <StyledContainer
+      css={{
+        px: gapUnit,
+        maxWidth: getMaxWidth(),
+        alignItems,
+        alignContent,
+        flexWrap: wrap,
+        display: display,
+        justifyContent: justify,
+        flexDirection: direction,
+        ...(css as any)
+      }}
+      responsive={responsive}
+      fluid={fluid}
       {...props}
     >
       {children}
-      <style jsx>{`
-        .container {
-          width: 100%;
-          margin-right: auto;
-          margin-left: auto;
-          padding-right: ${gapUnit};
-          padding-left: ${gapUnit};
-        }
-        .fluid {
-          max-width: 100% !important;
-        }
-        .wrap {
-          flex-wrap: ${wrap};
-        }
-        .display {
-          display: ${display};
-        }
-        .justify {
-          justify-content: ${justify};
-        }
-        .direction {
-          flex-direction: ${direction};
-        }
-        .alignContent {
-          align-content: ${alignContent};
-        }
-        .alignItems {
-          align-items: ${alignItems};
-        }
-        @media only screen and (min-width: ${theme.breakpoints.xs.max}) {
-          .container {
-            max-width: ${theme.breakpoints.xs.max};
-          }
-          .sm,
-          .md,
-          .lg,
-          .xl {
-            max-width: 100%;
-          }
-        }
-        @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
-          .container {
-            max-width: ${theme.breakpoints.sm.min};
-          }
-          .md,
-          .lg,
-          .xl {
-            max-width: 100%;
-          }
-        }
-        @media only screen and (min-width: ${theme.breakpoints.md.min}) {
-          .container {
-            max-width: ${theme.breakpoints.md.min};
-          }
-          .lg,
-          .xl {
-            max-width: 100%;
-          }
-        }
-        @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
-          .container {
-            max-width: ${theme.breakpoints.lg.min};
-          }
-          .xl {
-            max-width: 100%;
-          }
-        }
-        @media only screen and (min-width: ${theme.breakpoints.xl.min}) {
-          .container {
-            max-width: ${theme.breakpoints.xl.min};
-          }
-        }
-      `}</style>
-    </Component>
+    </StyledContainer>
   );
 };
 
-type MemoContainerComponent<P = {}> = React.NamedExoticComponent<P>;
+Container.toString = () => '.nextui-container';
 
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps>;
+type ComponentProps = Omit<Props, keyof typeof defaultProps> &
+  Partial<typeof defaultProps> &
+  NativeAttrs;
+
+type MemoContainerComponent<P = {}> = React.NamedExoticComponent<P>;
 
 Container.defaultProps = defaultProps;
 

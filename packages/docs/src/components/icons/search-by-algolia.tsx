@@ -10,7 +10,7 @@ interface Props {
 
 const defaultProps = {
   width: 84.14,
-  height: 11.404,
+  height: 11.404
 };
 
 const SearchByAlgolia: React.FC<Props> = ({
@@ -19,7 +19,7 @@ const SearchByAlgolia: React.FC<Props> = ({
   height,
   ...props
 }) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   return (
     <svg width={width} height={height} viewBox="0 0 84.14 11.404" {...props}>
       <path
@@ -35,7 +35,7 @@ const SearchByAlgolia: React.FC<Props> = ({
       <path
         data-name="Path 55"
         d="M44.907 2.542v-.387a.5.5 0 00-.5-.495h-1.149a.5.5 0 00-.5.495v.4a.069.069 0 00.087.066 3.608 3.608 0 011-.142 3.662 3.662 0 01.97.131.067.067 0 00.092-.068m-3.163.511l-.2-.2a.5.5 0 00-.7 0l-.235.235a.493.493 0 000 .7l.194.194a.07.07 0 00.1-.007 3.809 3.809 0 01.378-.442 3.553 3.553 0 01.447-.38.067.067 0 00.01-.1m2.106 1.242V5.99a.067.067 0 00.1.059l1.5-.778a.068.068 0 00.028-.093 1.871 1.871 0 00-1.559-.945.068.068 0 00-.069.066m0 4.074a2.269 2.269 0 112.273-2.268 2.273 2.273 0 01-2.273 2.268m0-5.493a3.22 3.22 0 102.281.941 3.222 3.222 0 00-2.281-.941"
-        fill={theme.palette.white}
+        fill={theme?.colors?.white?.value}
       />
     </svg>
   );

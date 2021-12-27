@@ -1,7 +1,7 @@
 ---
 title: 'Button Group'
 description: 'If you need to make a group of buttons you can use the compound component `Button.Group` and inside the buttons you want to group.'
-url: 'https://nextui.com/docs/components/button-group'
+url: 'https://nextui.org/docs/components/button-group'
 ---
 
 # Button Group
@@ -32,7 +32,7 @@ import { Button } from '@nextui-org/react';
   desc="You can disabled all buttons with the property `disabled`."
   code={`
 <>
-     <Button.Group size="small" disabled>
+    <Button.Group size="sm" disabled>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
@@ -46,12 +46,14 @@ import { Button } from '@nextui-org/react';
   desc="You can use the loading status in any button you want"
   code={`
 <Button.Group>
-  <Button loading>One</Button>
-  <Button loading loaderType="points">
-    Two
+  <Button clickable={false}>
+    <Loading color="white" size="sm" />
   </Button>
-  <Button loading loaderType="points-opacity">
-    Three
+  <Button clickable={false}>
+    <Loading type="spinner" color="white" size="sm" />
+  </Button>
+  <Button clickable={false}>
+    <Loading type="points" color="white" size="sm" />
   </Button>
 </Button.Group>
 `}
@@ -61,32 +63,43 @@ import { Button } from '@nextui-org/react';
   title="Sizes"
   desc="Change the size of the entire group button including `padding`, `font-size` and `border` with the size property."
   code={`
-<Container display="flex" direction="column">
-    <Button.Group size="mini">
-      <Button>One</Button>
-      <Button>Two</Button>
-    </Button.Group>
-    <Button.Group size="small">
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </Button.Group>
-    <Button.Group size="medium">
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </Button.Group>
-    <Button.Group size="large">
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </Button.Group>
-    <Button.Group size="xlarge">
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </Button.Group>
-  </Container>
+<Grid.Container direction="vertical">
+    <Grid xs={12}>
+        <Button.Group size="xs">
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+        </Button.Group>
+    </Grid>
+    <Grid>
+        <Button.Group size="sm">
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+        </Button.Group>
+    </Grid>
+    <Grid xs={12}>
+        <Button.Group size="md">
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+        </Button.Group>
+    </Grid>
+    <Grid xs={12}>
+        <Button.Group size="lg">
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+        </Button.Group>
+    </Grid>
+    <Grid xs={12}>
+        <Button.Group size="xl">
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+        </Button.Group>
+    </Grid>
+  </Grid.Container>
 `}
 />
 
@@ -95,31 +108,31 @@ import { Button } from '@nextui-org/react';
   desc="You can use the `vertical` property to sort the buttons vertically."
   code={`
 <>
-    <Button.Group size="mini" vertical>
+    <Button.Group size="xs" vertical>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
       <Button>Four</Button>
     </Button.Group>
-     <Button.Group size="small" vertical flat>
+     <Button.Group size="sm" vertical flat>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
       <Button>Four</Button>
     </Button.Group>
-    <Button.Group size="medium" vertical bordered>
+    <Button.Group size="md" vertical bordered>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
       <Button>Four</Button>
     </Button.Group>
-    <Button.Group size="large" vertical flat>
+    <Button.Group size="lg" vertical flat>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
       <Button>Four</Button>
     </Button.Group>
-    <Button.Group size="xlarge" vertical color="gradient" bordered>
+    <Button.Group size="xl" vertical color="gradient" bordered>
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
@@ -159,7 +172,7 @@ import { Button } from '@nextui-org/react';
       <Button>Action2</Button>
       <Button>Action2</Button>
     </Button.Group>
-    <Button.Group color="secondary" size="small">
+    <Button.Group color="secondary" size="sm">
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
@@ -181,19 +194,20 @@ import { Button } from '@nextui-org/react';
 
 #### Button Group Props
 
-| Attribute    | Type                    | Accepted values                  | Description                         | Default   |
-| ------------ | ----------------------- | -------------------------------- | ----------------------------------- | --------- |
-| **color**    | `NormalColors` `string` | [NormalColors](#normal-colors)   | Change buttons color                | `default` |
-| **size**     | `NormalSizes`           | [NormalSizes](#normal-sizes)     | Change buttons size                 | `medium`  |
-| **disabled** | `boolean`               | `true/false`                     | Disable all buttons                 | `false`   |
-| **bordered** | `boolean`               | `true/false`                     | Bodered buttons                     | `false`   |
-| **flat**     | `boolean`               | `true/false`                     | Flat buttons                        | `false`   |
-| **rounded**  | `boolean`               | `true/false`                     | Rounded buttons                     | `false`   |
-| **ghost**    | `boolean`               | `true/false`                     | The opposite color                  | `false`   |
-| **auto**     | `boolean`               | `true/false`                     | Autoscale buttons width             | `false`   |
-| **animated** | `boolean`               | `true/false`                     | Display drip and scale animation    | `true`    |
-| **weight**   | `NormalWeights`         | [NormalWeights](#normal-weights) | Border weight for `bordered` button | `normal`  |
-| ...          | `ButtonHTMLAttributes`  | `'id', 'className', ...`         | Native button props                 | -         |
+| Attribute        | Type                   | Accepted values                  | Description                            | Default   |
+| ---------------- | ---------------------- | -------------------------------- | -------------------------------------- | --------- |
+| **color**        | `NormalColors`         | [NormalColors](#normal-colors)   | Change buttons color                   | `default` |
+| **size**         | `NormalSizes`          | [NormalSizes](#normal-sizes)     | Change buttons size                    | `medium`  |
+| **disabled**     | `boolean`              | `true/false`                     | Disable all buttons                    | `false`   |
+| **bordered**     | `boolean`              | `true/false`                     | Bodered buttons                        | `false`   |
+| **flat**         | `boolean`              | `true/false`                     | Flat buttons                           | `false`   |
+| **rounded**      | `boolean`              | `true/false`                     | Rounded buttons                        | `false`   |
+| **ghost**        | `boolean`              | `true/false`                     | The opposite color                     | `false`   |
+| **auto**         | `boolean`              | `true/false`                     | Autoscale buttons width                | `false`   |
+| **ripple**       | `boolean`              | `true/false`                     | Display drip animation for all buttons | `true`    |
+| **animated**     | `boolean`              | `true/false`                     | Display drip and scale animation       | `true`    |
+| **borderWeight** | `NormalWeights`        | [NormalWeights](#normal-weights) | Border weight for `bordered` buttons   | `normal`  |
+| ...              | `ButtonHTMLAttributes` | `'id', 'className', ...`         | Native button props                    | -         |
 
 <Spacer y={2} />
 
@@ -217,11 +231,11 @@ type NormalColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Normal Weights
 
 ```ts
-type NormalWeights = 'light' | 'normal' | 'bold';
+type NormalWeights = 'light' | 'normal' | 'bold' | 'extrabold' | 'black';
 ```

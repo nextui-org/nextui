@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './navbar';
 import Footer from './footer';
-import { Container, Row, Col, useTheme, NextUIThemes } from '@nextui-org/react';
+import { Container, Row, Col, useTheme } from '@nextui-org/react';
 import NextLink from 'next/link';
 import { Route } from '@lib/docs/page';
 import { Sidebar, TableOfContent } from '@components';
@@ -31,14 +31,14 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   currentRoute,
   tag,
   slug,
-  meta,
+  meta
 }) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [scrollPosition, setScrollPosition] = useState(
     (typeof window !== 'undefined' && window.pageYOffset) || 0
   );
-  const theme = useTheme() as NextUIThemes;
-  const isDark = theme.type === 'dark';
+  const { theme, type } = useTheme();
+  const isDark = type === 'dark';
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll.bind(this));
@@ -145,7 +145,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             top: -50%;
             right: -50%;
           }
-          @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.xs.value}) {
             :global(.docs__content) {
               margin-top: 64px;
               padding-left: 0 !important;
@@ -155,12 +155,12 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               padding: 0;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.sm.max}) {
+          @media only screen and (min-width: ${theme?.breakpoints?.md.value}) {
             :global(.docs__left-sidebar) {
               display: block;
             }
           }
-          @media only screen and (max-width: ${theme.breakpoints.md.min}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.md.value}) {
             :global(.docs__center) {
               padding: 0 1rem !important;
             }
@@ -169,12 +169,12 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               right: -45%;
             }
           }
-          @media only screen and (max-width: ${theme.breakpoints.lg.min}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.lg.value}) {
             :global(.docs__content) {
               padding: 0 20px;
             }
           }
-          @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
+          @media only screen and (min-width: ${theme?.breakpoints?.lg.value}) {
             :global(.docs__right-sidebar) {
               display: block;
             }

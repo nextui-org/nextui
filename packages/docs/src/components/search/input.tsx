@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connectStateResults } from 'react-instantsearch-dom';
-import { NextUIThemes, useTheme, Loading } from '@nextui-org/react';
+import { useTheme, Loading } from '@nextui-org/react';
 import { Search, Close } from '../icons';
 
 export interface InputProps {
@@ -15,7 +15,7 @@ const Input: React.FC<InputProps> = ({
   searching,
   ...inputProps
 }) => {
-  const theme = useTheme() as NextUIThemes;
+  const { theme } = useTheme();
   return (
     <div className="search__input-container">
       <input {...inputProps} value={value} />
@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({
         <span className="search__placeholder-container">
           <Search
             size={16}
-            fill={theme.palette.accents_8}
+            fill={theme?.colors?.accents8?.value}
             className="search__placeholder-icon"
           />
           <p className="search__placeholder-text">Search...</p>
@@ -31,9 +31,9 @@ const Input: React.FC<InputProps> = ({
       ) : (
         <span className="search__reset-container" onClick={() => onClear()}>
           {searching ? (
-            <Loading size="mini" />
+            <Loading size="xs" />
           ) : (
-            <Close size={16} fill={theme.palette.accents_6} />
+            <Close size={16} fill={theme?.colors?.accents6?.value} />
           )}
         </span>
       )}

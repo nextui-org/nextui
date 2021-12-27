@@ -1,74 +1,59 @@
 import React, { useMemo } from 'react';
-import useTheme from '../use-theme';
 import clsx from '../utils/clsx';
-import { getNormalShadowColor } from '../utils/color';
+import { CSS } from '../theme/stitches.config';
+import {
+  StyledPaginationHighlight,
+  PaginationHighlightVariantsProps
+} from './pagination.styles';
 
-export interface PaginationHighlightProps {
+interface Props {
   active: number;
-  color: string;
+  rounded?: boolean;
   noMargin?: boolean;
-  animated?: boolean;
   shadow?: boolean;
+  css?: CSS;
+  as?: keyof JSX.IntrinsicElements;
 }
+
+export type PaginationHighlightProps = Props & PaginationHighlightVariantsProps;
 
 const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   active,
-  color,
   shadow,
-  animated,
-  noMargin
+  noMargin,
+  rounded,
+  css,
+  ...props
 }) => {
-  const theme = useTheme();
-
-  const shadowColor = useMemo(
-    () => (shadow ? getNormalShadowColor(color, theme.palette) : 'none'),
-    [color, shadow, theme.palette]
-  );
-
   const leftValue = useMemo(
     () =>
       noMargin
-        ? `var(--next-ui-pagination-size) * ${active}`
-        : `var(--next-ui-pagination-size) * ${active} + ${active * 4 + 2}px`,
+        ? `$$paginationSize * ${active}`
+        : `$$paginationSize * ${active} + ${active * 4 + 2}px`,
     [active, noMargin]
   );
 
   return (
-    <div aria-hidden={true} className={clsx({ shadow })}>
-      <style jsx>{`
-        div {
-          position: absolute;
-          contain: strict;
-          top: 0px;
-          z-index: 10;
-          background: ${color};
-          border-radius: ${noMargin
-            ? '33%'
-            : 'var(--next-ui-pagination-item-radius)'};
-          height: var(--next-ui-pagination-size);
-          min-width: var(--next-ui-pagination-size);
-          animation-name: move-pagination;
-          animation-duration: ${animated ? '350ms' : 'none'};
-          animation-direction: normal;
-          animation-timing-function: ${animated ? 'ease' : 'none'};
-          transition: ${animated ? 'left 350ms ease' : 'none'};
-          box-shadow: ${shadowColor};
-          left: calc(${leftValue});
-        }
-        @keyframes move-pagination {
-          0% {
-            transform: scale(1);
-          }
-          60% {
-            transform: scale(var(--next-ui-pagination-scale-transform));
-          }
-          100% {
-            transform: scale(1);
-          }
-        }
-      `}</style>
-    </div>
+    <StyledPaginationHighlight
+      aria-hidden={true}
+      shadow={shadow}
+      rounded={rounded}
+      className={clsx('nextui-pagination-highlight', {
+        'nextui-pagination-highlight--rounded': rounded,
+        'nextui-pagination-highlight--active': active,
+        'nextui-pagination-highlight--no-margin': noMargin,
+        'nextui-pagination-highlight--shadow': shadow
+      })}
+      noMargin={noMargin}
+      css={{
+        left: `calc(${leftValue})`,
+        ...(css as any)
+      }}
+      {...props}
+    />
   );
 };
+
+PaginationHighlight.toString = () => '.nextui-pagination-highlight';
 
 export default PaginationHighlight;

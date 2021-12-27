@@ -1,2 +1,3 @@
 export * from './types';
-export { default as ThemeProvider } from './theme-provider';
+export * from './stitches.config';
+export { default as NextUIProvider } from './theme-provider';

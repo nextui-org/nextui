@@ -1,9 +1,9 @@
 import { Action } from 'kbar';
 import { NextRouter } from 'next/router';
-import { DarkMode } from 'use-dark-mode';
 import { Route } from '@lib/docs/page';
 import { getId } from '../utils/collections';
 import { removeFromLast } from '@utils/index';
+import { ThemeType, changeTheme } from '@nextui-org/react';
 // data imported from manifest
 import docsManifest from '../../content/docs/manifest.json';
 
@@ -57,7 +57,11 @@ const handleExternalLink = (href: string) => {
   }).click();
 };
 
-const getActions = (router: NextRouter, darkMode: DarkMode): Action[] => {
+const handleChangeTheme = (theme: ThemeType) => {
+  changeTheme(theme);
+};
+
+const getActions = (router: NextRouter): Action[] => {
   const routes = docsManifest.routes;
   buildDocsActions(router, routes);
 
@@ -109,7 +113,7 @@ const getActions = (router: NextRouter, darkMode: DarkMode): Action[] => {
       keywords: 'dark',
       icon: 'moon',
       shortcut: [],
-      perform: () => darkMode.enable()
+      perform: () => handleChangeTheme('dark')
     },
     {
       id: 'lightTheme',
@@ -118,7 +122,7 @@ const getActions = (router: NextRouter, darkMode: DarkMode): Action[] => {
       keywords: 'light',
       shortcut: [],
       icon: 'sun',
-      perform: () => darkMode.disable()
+      perform: () => handleChangeTheme('light')
     }
   ];
 

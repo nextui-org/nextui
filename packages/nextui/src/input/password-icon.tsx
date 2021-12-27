@@ -15,6 +15,7 @@ const PasswordIcon: React.FC<Props> = ({ visible }) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       fill="none"
+      className="nextui-input-password-icon"
       shapeRendering="geometricPrecision"
       style={{ color: 'currentColor' }}
     >

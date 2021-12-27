@@ -4,28 +4,30 @@ import Document, {
   Head,
   Main,
   NextScript,
-  DocumentContext,
+  DocumentContext
 } from 'next/document';
 import { CssBaseline } from '@nextui-org/react';
+import flush from 'styled-jsx/server';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
-    const styles = CssBaseline.flush();
+    const styledJSXStyles = flush();
+
     return {
       ...initialProps,
       styles: (
         <>
           {initialProps.styles}
-          {styles}
+          {styledJSXStyles}
         </>
-      ),
+      )
     };
   }
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>{CssBaseline.flush()}</Head>
         <body>
           <Main />
           <NextScript />

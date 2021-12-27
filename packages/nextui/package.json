@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "1.0.1-alpha.57",
+  "version": "1.0.2-alpha.1",
   "license": "MIT",
   "description": "🚀 Beautiful and modern React UI library.",
   "homepage": "https://nextui.org",
@@ -36,7 +36,9 @@
   "sideEffects": false,
   "scripts": {
     "clear": "rimraf ./lib ./dist ./esm",
+    "clear-types": "rimraf ./lib/esm/**/*.d.ts && rimraf ./lib/cjs/**/*.d.ts",  
     "pre-publish": "node ./scripts/pre-publish.js",
+    "publish:dry-run": "npm publish ./lib --dry-run",
     "build": "node ./scripts/build.js",
     "build:types": "yarn tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types",
     "build:dev-types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir lib/esm",
@@ -54,7 +56,7 @@
     "coverage:codecov": "yarn test --coverage && codecov"
   },
   "dependencies": {
-    "styled-jsx": "^4.0.1"
+    "@stitches/react": "^1.2.6"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -80,6 +82,7 @@
     "@storybook/react": "^6.3.10",
     "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^13.2.0",
     "@types/enzyme": "^3.10.8",
@@ -87,7 +90,6 @@
     "@types/node": "^15.12.4",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
-    "@types/styled-jsx": "^3.4.4",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",

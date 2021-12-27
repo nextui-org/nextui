@@ -1,7 +1,7 @@
 ---
 title: Container
 description: A component for fixing an elements width to the current breakpoint.
-url: https://nextui.com/docs/layout/container
+url: https://nextui.org/docs/layout/container
 ---
 
 # Container
@@ -17,14 +17,15 @@ import { Container, Row, Col } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="Container which sets a `max-width` and a default `gap` at each responsive breakpoint"
-  code={`<Container>
+  code={`
+<Container>
 <ExampleBlock>
-<Row justify="center" align="center">
-  <Text h6 size={15} color="white" style={{ margin: 0 }}>
-    NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.
-  </Text>
-</Row>
-  </ExampleBlock>
+  <Row justify="center" align="center">
+    <Text h6 size={15} color="white" style={{ margin: 0 }}>
+      NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.
+    </Text>
+  </Row>
+</ExampleBlock>
 </Container>
 `}
 />
@@ -32,14 +33,15 @@ import { Container, Row, Col } from '@nextui-org/react';
 <Playground
   title="Fluid"
   desc="Container which its `width: 100%` at all breakpoints"
-  code={`<Container fluid>
+  code={`
+<Container fluid>
 <ExampleBlock>
-<Row justify="center" align="center">
-  <Text h6 size={15} color="white" style={{ margin: 0 }}>
-    NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.
-  </Text>
-</Row>
-  </ExampleBlock>
+  <Row justify="center" align="center">
+    <Text h6 size={15} color="white" style={{ margin: 0 }}>
+      NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.
+    </Text>
+  </Row>
+</ExampleBlock>
 </Container>
 `}
 />
@@ -63,34 +65,6 @@ import { Container, Row, Col } from '@nextui-org/react';
 
 <Spacer y={2} />
 
-### Custom breakpoints
-
-Override the default `@nextui-org/react` breakpoints.
-
-```tsx
-const breakpoints: NextUIThemesBreakpoints = {
-  // Extra small devices (phones)
-  xs: { min: '0', max: '650px' },
-  // Small devices (tablets)
-  sm: { min: '650px', max: '960px' },
-  // Medium devices (landscape tablets)
-  md: { min: '960px', max: '1280px' },
-  // Large devices (desktops)
-  lg: { min: '1280px', max: '1400px' },
-  // Extra large devices (larger desktops)
-  xl: { min: '1400px', max: '1920px' },
-};
-
-const App = () => (
-  <ThemeProvider theme={{ breakpoints: breakpoints }}>
-    <CssBaseline />
-    <AppComponent />
-  </ThemeProvider>
-);
-```
-
-<Spacer y={2} />
-
 #### Default breakpoints
 
 | Breakpoint  | <650px | ≥650px | ≥960px | ≥1280px | ≥1400px |
@@ -102,8 +76,6 @@ const App = () => (
 | **lg**      | `100%` | `100%` | `100%` | 1280px  | 1400px  |
 | **xl**      | `100%` | `100%` | `100%` | `100%`  | 1400px  |
 | **fluid**   | `100%` | `100%` | `100%` | `100%`  | `100%`  |
-
----
 
 <Playground
   title="Auto-layout columns"
@@ -162,48 +134,46 @@ const App = () => (
 
 #### Container Props
 
-| Attribute        | Type             | Accepted values                | Description                      | Default |
-| ---------------- | ---------------- | ------------------------------ | -------------------------------- | ------- |
-| **fluid**        | `boolean`        | `true / false`                 | `width: 100%` at all breakpoints | `false` |
-| **xs**           | `boolean`        | `true / false`                 | Extra small devices (<650px)     | `false` |
-| **sm**           | `boolean`        | `true / false`                 | Small devices (≥650px)           | `false` |
-| **md**           | `boolean`        | `true / false`                 | Medium devices (≥960px)          | `false` |
-| **lg**           | `boolean`        | `true / false`                 | Large devices (≥1280px)          | `false` |
-| **xl**           | `boolean`        | `true / false`                 | Extra large devices (≥1400px)    | `false` |
-| **gap**          | `number`         | -                              | Children's spacing               | 2       |
-| **wrap**         | `Wrap`           | [Wrap](#wrap)                  | CSS "flex-wrap"                  | `wrap`  |
-| **display**      | `Display`        | [Display](#display)            | CSS "display"                    | `block` |
-| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content"            | -       |
-| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction"             | -       |
-| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items"                | -       |
-| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content"              | -       |
-| **as**           | `ElementType`    | [ElementType](#element-type)   | Root node component              | `div`   |
-| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props             | -       |
+| Attribute        | Type             | Accepted values                | Description                                      | Default |
+| ---------------- | ---------------- | ------------------------------ | ------------------------------------------------ | ------- |
+| **fluid**        | `boolean`        | `true / false`                 | `width: 100%` at all breakpoints                 | `false` |
+| **responsive**   | `boolean`        | `true / false`                 | Sets a `max-width` at each responsive breakpoint | `true`  |
+| **xs**           | `boolean`        | `true / false`                 | Extra small devices (<650px)                     | `false` |
+| **sm**           | `boolean`        | `true / false`                 | Small devices (≥650px)                           | `false` |
+| **md**           | `boolean`        | `true / false`                 | Medium devices (≥960px)                          | `false` |
+| **lg**           | `boolean`        | `true / false`                 | Large devices (≥1280px)                          | `false` |
+| **xl**           | `boolean`        | `true / false`                 | Extra large devices (≥1400px)                    | `false` |
+| **gap**          | `number`         | -                              | Children's spacing                               | 2       |
+| **wrap**         | `Wrap`           | [Wrap](#wrap)                  | CSS "flex-wrap"                                  | `wrap`  |
+| **display**      | `Display`        | [Display](#display)            | CSS "display"                                    | `block` |
+| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content"                            | -       |
+| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction"                             | -       |
+| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items"                                | -       |
+| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content"                              | -       |
+| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props                             | -       |
 
 <Spacer y={1} />
 
 #### Row Props
 
-| Attribute   | Type             | Accepted values              | Description                          | Default      |
-| ----------- | ---------------- | ---------------------------- | ------------------------------------ | ------------ |
-| **fluid**   | `boolean`        | `true / false`               | `width: 100%` at all breakpoints     | `true`       |
-| **gap**     | `number`         | -                            | Children's spacing                   | 0            |
-| **wrap**    | `Wrap`           | [Wrap](#wrap)                | CSS "flex-wrap" property             | `nowrap`     |
-| **justify** | `Justify`        | [Justify](#justify)          | CSS "justify-content" property       | `flex-start` |
-| **align**   | `AlignItems`     | [AlignItems](#align-items)   | CSS "align-items" property           | `flex-start` |
-| **as**      | `ElementType`    | [ElementType](#element-type) | The component used for the root node | -            |
-| ...         | `HTMLAttributes` | `'id', 'className', ...`     | Native element props                 | -            |
+| Attribute   | Type             | Accepted values            | Description                    | Default      |
+| ----------- | ---------------- | -------------------------- | ------------------------------ | ------------ |
+| **fluid**   | `boolean`        | `true / false`             | `width: 100%`                  | `true`       |
+| **gap**     | `number`         | -                          | Children's spacing             | 0            |
+| **wrap**    | `Wrap`           | [Wrap](#wrap)              | CSS "flex-wrap" property       | `nowrap`     |
+| **justify** | `Justify`        | [Justify](#justify)        | CSS "justify-content" property | `flex-start` |
+| **align**   | `AlignItems`     | [AlignItems](#align-items) | CSS "align-items" property     | `flex-start` |
+| ...         | `HTMLAttributes` | `'id', 'className', ...`   | Native element props           | -            |
 
 <Spacer y={1} />
 
 #### Col Props
 
-| Attribute  | Type             | Accepted values              | Description                          | Default |
-| ---------- | ---------------- | ---------------------------- | ------------------------------------ | ------- |
-| **span**   | `number`         | `0 - 12`                     | Column's width                       | `12`    |
-| **offset** | `number`         | -                            | Move columns to the right            | `0`     |
-| **as**     | `ElementType`    | [ElementType](#element-type) | The component used for the root node | -       |
-| ...        | `HTMLAttributes` | `'id', 'className', ...`     | Native element props                 | -       |
+| Attribute  | Type             | Accepted values          | Description               | Default |
+| ---------- | ---------------- | ------------------------ | ------------------------- | ------- |
+| **span**   | `number`         | `0 - 12`                 | Column's width            | `12`    |
+| **offset** | `number`         | -                        | Move columns to the right | `0`     |
+| ...        | `HTMLAttributes` | `'id', 'className', ...` | Native element props      | -       |
 
 <Spacer y={2} />
 
@@ -264,10 +234,4 @@ type AlignContent =
   | 'flex-end'
   | 'space-between'
   | 'space-around';
-```
-
-#### Element Type
-
-```ts
-keyof JSX.IntrinsicElements;
 ```

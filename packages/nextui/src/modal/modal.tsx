@@ -10,6 +10,7 @@ import { ModalConfig, ModalContext } from './modal-context';
 import useBodyScroll from '../use-body-scroll';
 import useCurrentState from '../use-current-state';
 import useKeyboard, { KeyCode } from '../use-keyboard';
+import { ModalWrapperProps } from './modal-wrapper';
 import { __DEV__ } from '../utils/assertion';
 
 interface Props {
@@ -26,6 +27,7 @@ interface Props {
   onOpen?: () => void;
   onClose?: () => void;
   className?: string;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
@@ -41,7 +43,11 @@ const defaultProps = {
 };
 
 type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
-export type ModalProps = Props & typeof defaultProps & NativeAttrs;
+
+export type ModalProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  ModalWrapperProps;
 
 const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   children,
@@ -99,7 +105,8 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
     },
     KeyCode.Escape,
     {
-      disableGlobalEvent: true
+      disableGlobalEvent: true,
+      preventDefault: true
     }
   );
 
@@ -126,8 +133,8 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
       <Backdrop
         onClick={closeFromBackdrop}
         visible={visible}
-        width={wrapperWidth}
-        fullScreenContent={fullScreen}
+        maxWidth={wrapperWidth}
+        fullScreen={fullScreen}
         blur={blur}
         animated={animated}
         {...bindings}
@@ -162,6 +169,8 @@ type ComponentProps = Partial<typeof defaultProps> &
 if (__DEV__) {
   Backdrop.displayName = 'NextUI - Modal';
 }
+
+Modal.toString = () => '.nextui-modal';
 
 Modal.defaultProps = defaultProps;
 

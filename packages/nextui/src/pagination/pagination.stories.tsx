@@ -37,28 +37,25 @@ export const Colors = () => (
     <Grid xs={12}>
       <Pagination color="gradient" total={10} />
     </Grid>
-    <Grid xs={12}>
-      <Pagination color="#f4a" total={10} />
-    </Grid>
   </>
 );
 
 export const Sizes = () => (
   <>
     <Grid xs={12}>
-      <Pagination size="mini" total={10} />
+      <Pagination size="xs" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination size="small" total={5} />
+      <Pagination size="sm" total={5} />
     </Grid>
     <Grid xs={12}>
-      <Pagination size="medium" total={10} initialPage={6} />
+      <Pagination size="md" total={10} initialPage={6} />
     </Grid>
     <Grid xs={12}>
-      <Pagination size="large" total={10} initialPage={6} />
+      <Pagination size="lg" total={10} initialPage={6} />
     </Grid>
     <Grid xs={12}>
-      <Pagination size="xlarge" total={30} initialPage={6} />
+      <Pagination size="xl" total={30} initialPage={6} />
     </Grid>
   </>
 );
@@ -66,19 +63,19 @@ export const Sizes = () => (
 export const Rounded = () => (
   <>
     <Grid xs={12}>
-      <Pagination rounded size="mini" total={10} />
+      <Pagination rounded size="xs" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination rounded size="small" total={5} />
+      <Pagination rounded size="sm" total={5} />
     </Grid>
     <Grid xs={12}>
-      <Pagination rounded size="medium" total={10} initialPage={6} />
+      <Pagination rounded size="md" total={10} initialPage={6} />
     </Grid>
     <Grid xs={12}>
-      <Pagination rounded size="large" total={10} initialPage={6} />
+      <Pagination rounded size="lg" total={10} initialPage={6} />
     </Grid>
     <Grid xs={12}>
-      <Pagination rounded size="xlarge" total={30} initialPage={6} />
+      <Pagination rounded size="xl" total={30} initialPage={6} />
     </Grid>
   </>
 );
@@ -114,28 +111,25 @@ export const Shadow = () => (
     <Grid xs={12}>
       <Pagination rounded shadow color="gradient" total={10} />
     </Grid>
-    <Grid xs={12}>
-      <Pagination shadow color="#f4a" total={10} />
-    </Grid>
   </>
 );
 
 export const OnlyDots = () => (
   <>
     <Grid xs={12}>
-      <Pagination color="primary" onlyDots size="mini" total={10} />
+      <Pagination color="primary" onlyDots size="xs" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination shadow color="secondary" onlyDots size="small" total={10} />
+      <Pagination shadow color="secondary" onlyDots size="sm" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination color="success" onlyDots size="medium" total={10} />
+      <Pagination color="success" onlyDots size="md" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination shadow color="warning" onlyDots size="large" total={10} />
+      <Pagination shadow color="warning" onlyDots size="lg" total={10} />
     </Grid>
     <Grid xs={12}>
-      <Pagination color="error" onlyDots size="xlarge" total={10} />
+      <Pagination color="error" onlyDots size="xl" total={10} />
     </Grid>
   </>
 );

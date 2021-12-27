@@ -1,68 +1,128 @@
 import React from 'react';
-import { Grid, useTheme, NextUIThemes } from '@nextui-org/react';
-import { get, replace } from 'lodash';
-import { invertHex, hexToRGBA, hexFromString } from '@utils/index';
+import cn from 'classnames';
+import {
+  Grid,
+  Text,
+  Tooltip,
+  GridProps,
+  useClipboard
+} from '@nextui-org/react';
 
-interface ItemProps {
+interface Props {
   color: string;
+  title: string;
+  hexColor: string;
   inverted?: boolean;
+  textColor?: string;
 }
 
-const Item: React.FC<ItemProps> = ({ color, inverted, ...props }) => {
-  const theme = useTheme() as NextUIThemes;
+export type ItemProps = Props & GridProps;
 
-  const hexColor = get(theme.palette, color || 'primary');
-  const textColor = inverted ? invertHex(hexColor) : theme.palette.white;
-  const shadowColor =
-    color === 'gradient'
-      ? hexFromString(color, theme.palette.primary, true)
-      : get(theme.palette, color || 'primary');
+const Item: React.FC<ItemProps> = ({
+  color,
+  title,
+  inverted,
+  textColor,
+  hexColor,
+  ...props
+}) => {
+  const isGradient = color.includes('gradient');
+
+  const { copy } = useClipboard();
+
+  const renderItem = () => {
+    return (
+      <Grid
+        className={cn('color', {
+          'is-gradient': isGradient
+        })}
+        css={{
+          size: '100px',
+          display: 'flex',
+          marginBottom: '20px',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          transition: '$default',
+          cursor: 'pointer',
+          background: color,
+          marginRight: '10px',
+          br: '$lg',
+          '&:hover': {
+            transform: 'translateY(5px)'
+          },
+          '@smMax': {
+            size: '80px'
+          }
+        }}
+        {...props}
+      >
+        {isGradient ? (
+          <Text
+            className="text"
+            css={{
+              m: 0,
+              fontWeight: '$semibold',
+              tt: 'capitalize',
+              color: textColor,
+              '@smMax': {
+                fontSize: '$xs'
+              }
+            }}
+          >
+            {title}
+          </Text>
+        ) : (
+          <>
+            <Text
+              className="text"
+              css={{
+                m: 0,
+                tt: 'capitalize',
+                fontWeight: '$semibold',
+                color: textColor,
+                '@smMax': {
+                  fontSize: '$xs'
+                }
+              }}
+            >
+              {title}
+            </Text>
+            <Text
+              className="hex-text"
+              css={{
+                m: 0,
+                fontSize: '$tiny',
+                color: textColor,
+                opacity: 0.8,
+                tt: 'uppercase',
+                fontWeight: '$bold'
+              }}
+            >
+              {hexColor}
+            </Text>
+          </>
+        )}
+      </Grid>
+    );
+  };
 
   return (
-    <Grid
-      className="color"
-      style={{
-        background: hexColor,
-        marginRight: '10px',
-        marginBottom: '10px',
-        boxShadow: `0 20px 35px -10px ${hexToRGBA(shadowColor, 0.4)}`
-      }}
-      {...props}
-    >
-      <p className="text" style={{ color: textColor }}>
-        {replace(color, '_', ' ')}
-      </p>
-      <style jsx>{`
-        :global(.color) {
-          margin-bottom: 20px;
-          width: 100px;
-          height: 100px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: ${theme.layout.radius};
-          transition: all 0.25s ease;
-        }
-        :global(.color:hover) {
-          transform: translateY(5px);
-          box-shadow: 0 0 0 0 ${theme.palette.background} !important;
-        }
-        :global(.text) {
-          font-weight: bold;
-          text-transform: capitalize;
-          font-size: 13px;
-        }
-        @media only screen and (max-width: ${theme.breakpoints.sm.min}) {
-          :global(.color) {
-            width: 80px;
-            height: 80px;
-          }
-          :global(.text) {
-            font-size: 10px;
-          }
-        }
-      `}</style>
-    </Grid>
+    <>
+      {isGradient ? (
+        <Tooltip trigger="click" title="Gradient" content={hexColor}>
+          <>{renderItem()}</>
+        </Tooltip>
+      ) : (
+        <Tooltip
+          trigger="click"
+          content="Copied!"
+          onClick={() => copy(hexColor)}
+        >
+          <>{renderItem()}</>
+        </Tooltip>
+      )}
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 ---
 title: 'Avatar'
 description: 'The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.'
-url: https://nextui.com/docs/components/avatar
+url: https://nextui.org/docs/components/avatar
 ---
 
 # Avatar
@@ -47,22 +47,22 @@ import { Avatar } from '@nextui-org/react';
   code={`
   <Grid.Container gap={2}>
     <Grid>
-        <Avatar text="JR" size="mini" />
+        <Avatar text="JR" size="xs" />
     </Grid>
     <Grid>
-        <Avatar src="/avatars/avatar-2.png" size="small" />
+        <Avatar src="/avatars/avatar-2.png" size="sm" />
     </Grid>
     <Grid>
-        <Avatar text="Joe" size="medium" />
+        <Avatar text="Joe" size="md" />
     </Grid>
     <Grid>
-        <Avatar src="/avatars/avatar-4.png" size="large" />
+        <Avatar src="/avatars/avatar-4.png" size="lg" />
     </Grid>
     <Grid>
-        <Avatar text="John" size="xlarge" />
+        <Avatar text="John" size="xl" />
     </Grid>
     <Grid>
-        <Avatar src="/avatars/avatar-1.png" size={90} />
+        <Avatar src="/avatars/avatar-1.png" css={{ size: "$20" }} />
     </Grid>
  </Grid.Container>
 `}
@@ -91,9 +91,6 @@ import { Avatar } from '@nextui-org/react';
     <Grid>
         <Avatar text="Grad" color="gradient" textColor="white" />
     </Grid>
-    <Grid>
-        <Avatar text="#ff4ecd" color="#ff4ecd" textColor="white" />
-    </Grid>
  </Grid.Container>
 `}
 />
@@ -104,25 +101,22 @@ import { Avatar } from '@nextui-org/react';
   code={`
   <Grid.Container gap={2}>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-6.png" color="primary" bordered />
+        <Avatar size="lg" src="/avatars/avatar-6.png" color="primary" bordered />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-2.png" color="secondary" bordered/>
+        <Avatar size="lg" src="/avatars/avatar-2.png" color="secondary" bordered/>
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-1.png" color="success" bordered />
+        <Avatar size="lg" src="/avatars/avatar-1.png" color="success" bordered />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-4.png" color="warning" bordered />
+        <Avatar size="lg" src="/avatars/avatar-4.png" color="warning" bordered />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-5.png" color="error" bordered />
+        <Avatar size="lg" src="/avatars/avatar-5.png" color="error" bordered />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-7.png" color="gradient" bordered />
-    </Grid>
-    <Grid>
-        <Avatar size="large" src="/avatars/avatar-8.png" color="#ff4ecd" bordered />
+        <Avatar size="lg" src="/avatars/avatar-7.png" color="gradient" bordered />
     </Grid>
  </Grid.Container>
 `}
@@ -134,25 +128,25 @@ import { Avatar } from '@nextui-org/react';
   code={`
   <Grid.Container gap={2}>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-6.png" zoomed />
+        <Avatar size="lg" src="/avatars/avatar-6.png" zoomed />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-2.png" zoomed/>
+        <Avatar size="lg" src="/avatars/avatar-2.png" zoomed/>
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-1.png" zoomed />
+        <Avatar size="lg" src="/avatars/avatar-1.png" zoomed />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-4.png" zoomed />
+        <Avatar size="lg" src="/avatars/avatar-4.png" zoomed />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-5.png" zoomed />
+        <Avatar size="lg" src="/avatars/avatar-5.png" zoomed />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-7.png" zoomed />
+        <Avatar size="lg" src="/avatars/avatar-7.png" zoomed />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-8.png" zoomed />
+        <Avatar size="lg" src="/avatars/avatar-8.png" zoomed />
     </Grid>
  </Grid.Container>
 `}
@@ -164,25 +158,22 @@ import { Avatar } from '@nextui-org/react';
   code={`
   <Grid.Container gap={2}>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-6.png" color="primary" bordered squared />
+        <Avatar size="lg" src="/avatars/avatar-6.png" color="primary" bordered squared />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-2.png" color="secondary" bordered squared/>
+        <Avatar size="lg" src="/avatars/avatar-2.png" color="secondary" bordered squared/>
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-1.png" color="success" bordered squared />
+        <Avatar size="lg" src="/avatars/avatar-1.png" color="success" bordered squared />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-4.png" color="warning" bordered squared />
+        <Avatar size="lg" src="/avatars/avatar-4.png" color="warning" bordered squared />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-5.png" color="error" bordered squared />
+        <Avatar size="lg" src="/avatars/avatar-5.png" color="error" bordered squared />
     </Grid>
     <Grid>
-        <Avatar size="large" src="/avatars/avatar-7.png" color="gradient" bordered squared />
-    </Grid>
-    <Grid>
-        <Avatar size="large" src="/avatars/avatar-8.png" color="#ff4ecd" bordered squared />
+        <Avatar size="lg" src="/avatars/avatar-7.png" color="gradient" bordered squared />
     </Grid>
  </Grid.Container>
 `}
@@ -196,31 +187,32 @@ import { Avatar } from '@nextui-org/react';
     <Grid>
      <Avatar
         squared
-        icon={<Sun size={20} />}
+       
+        icon={<Sun size={20} fill="currentColor"/>}
       />
     </Grid>
     <Grid>
       <Avatar
         squared
-        icon={<Moon size={20} />}
+        icon={<Moon size={20} fill="currentColor"/>}
       />
     </Grid>
     <Grid>
       <Avatar
         squared
-        icon={<Video size={20} />}
+        icon={<Video size={20} fill="currentColor" />}
       />
     </Grid>
     <Grid>
       <Avatar
         squared
-        icon={<VolumeUp size={20} />}
+        icon={<VolumeUp size={20} fill="currentColor" />}
       />
     </Grid>
     <Grid>
       <Avatar
         squared
-        icon={<Microphone size={20} />}
+        icon={<Microphone size={20} fill="currentColor"/>}
       />
     </Grid>
  </Grid.Container>
@@ -241,23 +233,22 @@ import { Avatar } from '@nextui-org/react';
         '/avatars/avatar-5.png',
     ];
     return (
-    <>
-     <Row style={{ marginLeft: '0.5rem'}}>
+    <Grid.Container gap={1}>
+     <Grid xs={12}>
         <Avatar.Group count={12}>
             {nameUsers.map((name, index) => (
-            <Avatar key={index} size="large" pointer text={name} stacked />
+            <Avatar key={index} size="lg" pointer text={name} stacked />
             ))}
         </Avatar.Group>
-      </Row>
-      <Spacer />
-      <Row>
+      </Grid>
+      <Grid xs={12}>
         <Avatar.Group count={12}>
             {pictureUsers.map((url, index) => (
-            <Avatar key={index} size="large" pointer src={url} bordered color="gradient" stacked />
+            <Avatar key={index} size="lg" pointer src={url} bordered color="gradient" stacked />
             ))}
         </Avatar.Group>
-      </Row>  
-    </>
+      </Grid>  
+    </Grid.Container>
     );
  }
 `}
@@ -329,14 +320,12 @@ type SimpleColors =
   | 'error';
 ```
 
-#### Normal Sizes
-
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Normal Weights
 
 ```ts
-type NormalWeights = 'light' | 'normal' | 'bold';
+type NormalWeights = 'light' | 'normal' | 'bold' | 'extrabold' | 'black';
 ```

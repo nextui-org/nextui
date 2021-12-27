@@ -65,7 +65,7 @@ describe('Avatar', () => {
 
   it('should omit long chars automatically', () => {
     const avatar = mount(<Avatar text="loremipsumtextlarge" />);
-    const text = avatar.find('.avatar-text').text();
+    const text = avatar.find('.nextui-avatar-text').text();
     expect(text.length).toBeLessThan(4);
   });
 
@@ -79,11 +79,11 @@ describe('Avatar', () => {
   it('should work correctly with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Avatar size="mini" />
-        <Avatar size="small" />
-        <Avatar size="medium" />
-        <Avatar size="large" />
-        <Avatar size="xlarge" />
+        <Avatar size="xs" />
+        <Avatar size="sm" />
+        <Avatar size="md" />
+        <Avatar size="lg" />
+        <Avatar size="xl" />
       </div>
     );
     expect(wrapper.html()).toMatchSnapshot();
@@ -91,7 +91,7 @@ describe('Avatar', () => {
   });
 
   it('should render component of a specified size', () => {
-    const avatar = render(<Avatar size={20} />);
+    const avatar = render(<Avatar css={{ size: 20 }} />);
     expect(avatar).toMatchSnapshot();
   });
 });

@@ -31,12 +31,42 @@ export const Headings = () => {
   );
 };
 
+export const Gradient = () => (
+  <>
+    <Text
+      h1
+      css={{
+        textGradient: '45deg, $blue500 0%, $cyan500 100%'
+      }}
+      weight="bold"
+    >
+      Let's
+    </Text>
+    <Text
+      h1
+      css={{
+        textGradient: '45deg, $pink500 0%, $red500 100%'
+      }}
+      weight="bold"
+    >
+      Make the web
+    </Text>
+    <Text
+      h1
+      css={{
+        textGradient: '45deg, $yellow500 0%, $red500 100%'
+      }}
+      weight="bold"
+    >
+      Prettier
+    </Text>
+  </>
+);
+
 export const Paragraph = () => (
   <>
-    <Text p>{largeText}</Text>
-    <Text p b>
-      {largeText}
-    </Text>
+    <Text>{largeText}</Text>
+    <Text b>{largeText}</Text>
   </>
 );
 
@@ -48,7 +78,7 @@ export const Colors = () => (
     <Text color="success">{shortText}</Text>
     <Text color="warning">{shortText}</Text>
     <Text color="error">{shortText}</Text>
-    <Text style={{ color: '#ccc' }}>{shortText}</Text>
+    <Text color="#ccc">{shortText}</Text>
   </>
 );
 
@@ -79,9 +109,7 @@ export const Sizes = () => (
 
 export const Composed = () => (
   <>
-    <Text p weight={100}>
-      {largeText}
-    </Text>
+    <Text weight="hairline">{largeText}</Text>
     <Text>
       <Text small del>
         {shortText}

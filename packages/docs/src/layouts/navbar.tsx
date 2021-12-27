@@ -6,7 +6,7 @@ import {
   Twitter,
   Discord,
   Github,
-  ThemeToggle,
+  ThemeToggle
 } from '@components';
 import cn from 'classnames';
 import NextLink from 'next/link';
@@ -17,8 +17,7 @@ import {
   Spacer,
   Link,
   useTheme,
-  useBodyScroll,
-  NextUIThemes,
+  useBodyScroll
 } from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
 import { useRouter } from 'next/router';
@@ -35,25 +34,23 @@ export interface Props {
 const MobileNavigation = dynamic(
   () => import('../components/mobile-navigation'),
   {
-    ssr: false,
+    ssr: false
   }
 );
 
 const SearchInput = dynamic(
   () => import('../components/search/instant-search'),
   {
-    ssr: true,
+    ssr: true
   }
 );
 
 const Navbar: React.FC<Props> = ({ detached, routes }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
-  const theme = useTheme() as NextUIThemes;
+  const { theme, isDark } = useTheme();
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
-
-  const isDark = theme.type === 'dark';
 
   useEffect(() => {
     if (!isMobile) {
@@ -71,7 +68,14 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
   return (
     <nav className="navbar__container">
       <div className="navbar__wrapper">
-        <Col className="navbar__logo-container">
+        <Col
+          className="navbar__logo-container"
+          css={{
+            '@mdMax': {
+              width: '100%'
+            }
+          }}
+        >
           <Row justify="flex-start" align="center">
             <NextLink href="/">
               <Link>
@@ -80,10 +84,15 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             </NextLink>
             <Spacer x={0.4} />
             <Badge
-              className="navbar__version-badge"
-              label="Alpha"
+              css={{
+                '@mdMax': {
+                  display: 'none'
+                }
+              }}
               type="warning"
-            />
+            >
+              Alpha
+            </Badge>
           </Row>
         </Col>
         <Col className="navbar__resources-container">
@@ -92,9 +101,12 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             <NextLink href="/docs/guide/getting-started">
               <Link
                 className={cn('navbar__link', {
-                  active: isActive(router.pathname, '/docs/[[...slug]]'),
+                  active: isActive(router.pathname, '/docs/[[...slug]]')
                 })}
                 href="#"
+                css={{
+                  color: '$text'
+                }}
               >
                 Docs
               </Link>
@@ -106,6 +118,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 className="navbar__disabled-link"
                 href="#"
                 title="Coming soon.."
+                css={{
+                  color: '$text'
+                }}
               >
                 Contributors
               </Link>
@@ -117,6 +132,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 className="navbar__disabled-link"
                 href="#"
                 title="Coming soon.."
+                css={{
+                  color: '$text'
+                }}
               >
                 Feedback
               </Link>
@@ -140,7 +158,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 <Twitter
                   size={20}
                   fill={
-                    isDark ? theme.palette.accents_4 : theme.palette.accents_5
+                    isDark
+                      ? theme?.colors?.accents6?.value
+                      : theme?.colors?.accents4?.value
                   }
                 />
               </Link>
@@ -153,7 +173,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 <Discord
                   size={20}
                   fill={
-                    isDark ? theme.palette.accents_4 : theme.palette.accents_5
+                    isDark
+                      ? theme?.colors?.accents6?.value
+                      : theme?.colors?.accents4?.value
                   }
                 />
               </Link>
@@ -166,7 +188,9 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 <Github
                   size={20}
                   fill={
-                    isDark ? theme.palette.accents_4 : theme.palette.accents_5
+                    isDark
+                      ? theme?.colors?.accents6?.value
+                      : theme?.colors?.accents4?.value
                   }
                 />
               </Link>
@@ -213,9 +237,12 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           cursor: pointer;
           transition: all 0.25s ease;
         }
+        :global(.navbar__social-icons-container) {
+          width: initial !important;
+        }
         :global(.navbar__link.active) {
           font-weight: 600;
-          color: ${theme.palette.primary};
+          color: ${theme?.colors?.primary?.value};
         }
         :global(.navbar__menu-arrow) {
           height: 100%;
@@ -246,12 +273,12 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           cursor: not-allowed;
           events: none;
         }
-        @media only screen and (max-width: ${theme.breakpoints.xs.max}) {
+        @media only screen and (max-width: ${theme?.breakpoints.xs.value}) {
           :global(.navbar__container) {
             top: 0;
             position: fixed;
             background: ${showBlur
-              ? addColorAlpha(theme.palette.background, 0.6)
+              ? addColorAlpha(theme?.colors.background.value, 0.6)
               : 'transparent'};
             box-shadow: ${detached
               ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
@@ -277,19 +304,14 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
               (backdrop-filter: blur(10px))
           ) {
             :global(.navbar__container) {
-              background: ${theme.palette.background};
+              background: ${theme?.colors.background.value};
             }
           }
           :global(.navbar__logo-container a:active) {
             opacity: 0.7;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.md.min}) {
-          :global(.navbar__logo-container) {
-            display: flex;
-            width: 24px;
-            align-items: center;
-          }
+        @media only screen and (max-width: ${theme?.breakpoints.md.value}) {
           :global(.navbar__menu-container) {
             display: flex;
             justify-content: flex-end;
@@ -301,7 +323,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             display: none !important;
           }
         }
-        @media only screen and (max-width: ${theme.breakpoints.lg.min}) {
+        @media only screen and (max-width: ${theme?.breakpoints.lg.value}) {
           .navbar__wrapper {
             padding: 0 16px;
           }

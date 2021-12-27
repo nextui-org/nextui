@@ -1,7 +1,7 @@
 ---
 title: 'Card'
 description: 'Card is a container for text, photos, and actions in the context of a single subject.'
-url: https://nextui.com/docs/components/card
+url: https://nextui.org/docs/components/card
 ---
 
 # Card
@@ -18,7 +18,7 @@ import { Card } from '@nextui-org/react';
   title="Default"
   desc="NextUI will wrap your content in a `Card.Body` component."
   code={` 
-<Card width="400px">
+<Card css={{ mw: "400px" }}>
   <p>A basic card.</p>
 </Card>`}
 />
@@ -27,7 +27,7 @@ import { Card } from '@nextui-org/react';
   title="Bordered"
   desc="You can change the full style towards a bodered `Card` with the `bordered` property."
   code={` 
-<Card width="400px" bordered>
+<Card bordered shadow={false} css={{ mw: "400px" }}>
   <p>A bordered card.</p>
 </Card>`}
 />
@@ -36,7 +36,7 @@ import { Card } from '@nextui-org/react';
   title="Hoverable"
   desc="You can apply a fancy hover animation with the `hoverable` property."
   code={` 
-<Card width="400px" bordered hoverable>
+<Card bordered shadow={false} hoverable css={{ mw: "400px" }}>
   <p>A hoverable card.</p>
 </Card>`}
 />
@@ -46,7 +46,7 @@ import { Card } from '@nextui-org/react';
   desc="You can use the `clickable` property to allow users to interact with the entirety of its surface 
   to trigger its main action, be it an expansion, a link to another screen or some other behavior."
   code={` 
-<Card width="400px" clickable>
+<Card clickable bordered css={{ mw: "400px" }}>
   <p>A clickable card.</p>
 </Card>`}
 />
@@ -65,18 +65,18 @@ const colors = [
   'gradient'
 ];
 return (
-<Grid.Container gap={2}>
+  <Grid.Container gap={2}>
     {colors.map((color) => (
-        <Grid xs={12} md={4} key={color}>
-            <Card color={color} textColor="white">
-                <Text h5 transform="capitalize">
-                {color}
-                </Text>
-                <Text span>{color}</Text>
-            </Card>
-        </Grid>
+      <Grid xs={12} md={4} key={color}>
+        <Card color={color}>
+          <Text css={{ fontWeight: '$bold', color: '$white' }} transform="capitalize">
+            {color}
+          </Text>
+          <Text css={{ fontWeight: '$bold', color: '$white' }} span>{color}</Text>
+        </Card>
+      </Grid>
     ))}
-</Grid.Container>
+  </Grid.Container>
 );    
 }`}
 />
@@ -87,42 +87,42 @@ return (
   code={` 
 <Grid.Container gap={2}> 
   <Grid>  
-    <Card width="330px">
+    <Card css={{ w: "330px" }}>
         <Card.Header>
-            <Text b>Card Title</Text>
+          <Text b>Card Title</Text>
         </Card.Header>
-        <Divider y={0} />
-        <Card.Body style={{ padding: '30px 20px' }}>
-            <Text>
-                Some quick example text to build on the card title and make up the bulk of the card's content.
-            </Text>
+        <Divider/>
+        <Card.Body css={{ py: '$10' }}>
+          <Text>
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+          </Text>
         </Card.Body>
-        <Divider y={0}/>
-        <Card.Footer justify="flex-end">
-        <Row justify="flex-end">
-            <Button size="small" light>Cancel</Button>
-            <Button size="small">Agree</Button>
-        </Row>
+        <Divider/>
+        <Card.Footer>
+          <Row justify="flex-end">
+            <Button size="sm" light>Cancel</Button>
+            <Button size="sm">Agree</Button>
+          </Row>
         </Card.Footer>
     </Card>
   </Grid>  
   <Grid>  
-    <Card width="330px">
+    <Card css={{ w: "330px" }}>
         <Card.Header>
-            <Text b>Card Title</Text>
+          <Text b>Card Title</Text>
         </Card.Header>
-        <Divider y={0} />
-        <Card.Body style={{ padding: '30px 20px' }}>
-            <Text>
-                Some quick example text to build on the card title and make up the bulk of the card's content.
-            </Text>
+        <Divider/>
+        <Card.Body css={{ py: '$10' }}>
+          <Text>
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+          </Text>
         </Card.Body>
-        <Divider y={0}/>
-        <Card.Footer justify="flex-end">
-            <Row justify="flex-end">
-                <Button size="small" light>Share</Button>
-                <Button size="small" color="secondary">Learn more</Button>
-            </Row>
+        <Divider/>
+        <Card.Footer>
+          <Row justify="flex-end">
+            <Button size="sm" light>Share</Button>
+            <Button size="sm" color="secondary">Learn more</Button>
+          </Row>
         </Card.Footer>
     </Card>
   </Grid> 
@@ -136,25 +136,25 @@ return (
   code={` 
 <Grid.Container gap={2}>
     <Grid>
-        <Card width="330px">
-            <Text h4>Next UI</Text>
-            <Text>🚀  Beautiful and modern React UI library.</Text>
-            <Card.Footer>
-                <Link color target="_blank" href="https://github.com/nextui-org/nextui">
-                    Visit source code on GitHub.
-                </Link>
-            </Card.Footer>
-        </Card>
+      <Card css={{ w: "330px" }}>
+        <Text h4>Next UI</Text>
+        <Text>🚀  Beautiful and modern React UI library.</Text>
+        <Card.Footer>
+          <Link color="primary" target="_blank" href="https://github.com/nextui-org/nextui">
+            Visit source code on GitHub.
+          </Link>
+        </Card.Footer>
+      </Card>
     </Grid>  
     <Grid> 
-        <Card width="330px" color="primary">
-            <Text h4 color="white">Next UI</Text>
-            <Text color="white">🚀  Beautiful and modern React UI library.</Text>
-            <Card.Footer>
-                <Link target="_blank" color="white" href="https://github.com/nextui-org/nextui">
-                    Visit source code on GitHub.
-                </Link>
-            </Card.Footer>
+        <Card css={{ w: "330px" }} color="primary">
+          <Text h4 color="white">Next UI</Text>
+          <Text color="white">🚀  Beautiful and modern React UI library.</Text>
+          <Card.Footer>
+            <Link target="_blank" css={{ color: "white" }} href="https://github.com/nextui-org/nextui">
+              Visit source code on GitHub.
+            </Link>
+          </Card.Footer>
         </Card>
     </Grid>  
 </Grid.Container>`}
@@ -167,197 +167,202 @@ return (
   code={` 
 <Grid.Container gap={2} justify="center">
     <Grid xs={12} sm={4}>
-        <Card width="100%" cover>
-            <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
-                <Col>
-                    <Text
-                        size={12}
-                        weight="bold"
-                        transform="uppercase"
-                        color="#ffffffAA"
-                    >
-                        What to watch
-                    </Text>
-                    <Text h4 color="white">
-                        Stream the Acme event
-                    </Text>
-                </Col>
-            </Card.Header>
-            <Card.Image
-                autoResize={false}
-                src='/images/card-example-4.jpeg'
-                height={340}
-                width="100%"
-                alt="Card image background"
-            />
-        </Card>
+      <Card cover>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text
+              size={12}
+              weight="bold"
+              transform="uppercase"
+              color="#ffffffAA"
+            >
+              What to watch
+            </Text>
+            <Text h4 color="white">
+              Stream the Acme event
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Image
+          src='/images/card-example-4.jpeg'
+          height={340}
+          width="100%"
+          alt="Card image background"
+        />
+      </Card>
     </Grid>
     <Grid xs={12} sm={4}>
-        <Card width="100%" cover>
-            <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
-                <Col>
-                    <Text
-                        size={12}
-                        weight="bold"
-                        transform="uppercase"
-                         color="#ffffffAA"
-                    >
-                        Plant a tree
-                    </Text>
-                    <Text h4 color="white">
-                       Contribute to the planet
-                    </Text>
-                </Col>
-            </Card.Header>
-            <Card.Image
-                autoResize={false}
-                src='/images/card-example-3.jpeg'
-                height={340}
-                width="100%"
-                alt="Card image background"
-            />
-        </Card>
+      <Card width="100%" cover>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text
+              size={12}
+              weight="bold"
+              transform="uppercase"
+              color="#ffffffAA"
+            >
+              Plant a tree
+            </Text>
+            <Text h4 color="white">
+              Contribute to the planet
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Image
+          src='/images/card-example-3.jpeg'
+          height={340}
+          width="100%"
+          alt="Card image background"
+        />
+      </Card>
     </Grid>
     <Grid xs={12} sm={4}>
-        <Card width="100%" cover>
-            <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
-                <Col>
-                    <Text
-                        size={12}
-                        weight="bold"
-                        transform="uppercase"
-                        color="#ffffffAA"
-                    >
-                        Supercharged
-                    </Text>
-                    <Text h4 color="white">
-                       Creates beauty like a beast
-                    </Text>
-                </Col>
-            </Card.Header>
-            <Card.Image
-                autoResize={false}
-                src='/images/card-example-2.jpeg'
-                height={340}
-                width="100%"
-                alt="Card image background"
-            />
-        </Card>
+      <Card cover css={{ bg: '$gray100', w: '100%' }}>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text
+              size={12}
+              weight="bold"
+              transform="uppercase"
+              color="#ffffffAA"
+            >
+                Supercharged
+            </Text>
+            <Text h4 color="white">
+              Creates beauty like a beast
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Image
+          src='/images/card-example-2.jpeg'
+          height={340}
+          width="100%"
+          alt="Card image background"
+        />
+      </Card>
     </Grid>  
     <Grid xs={12} sm={5}>
-        <Card width="100%" color="#f6f6f6" cover>
-          <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
-            <Col>
-              <Text
-                size={12}
-                weight="bold"
-                transform="uppercase"
-                color="#ffffffAA"
-              >
-                New
-              </Text>
-              <Text h3 color="black">
-                Acme camera
-              </Text>
-            </Col>
-          </Card.Header>
+      <Card cover css={{ w: '100%' }}>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text
+              size={12}
+              weight="bold"
+              transform="uppercase"
+              color="#ffffffAA"
+            >
+              New
+            </Text>
+            <Text h3 color="black">
+              Acme camera
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Body>
           <Card.Image
-            autoResize={false}
             src='/images/card-example-6.jpeg'
             height={400}
             width="100%"
             alt="Card example background"
           />
-          <Card.Footer             
-            blur
-            border
-            borderColor="rgba(255, 255, 255, 0.2)"
-            style={{ position: 'absolute', zIndex: 1, bottom: 0 }}>
-            <Row>
-              <Col>
-                <Text color="#000" size={12}>Available soon.</Text>
-                <Text color="#000" size={12}>Get notified.</Text>
-              </Col>
-              <Col>
-                <Row justify="flex-end">
-                  <Button flat auto rounded color="secondary">
-                    <Text size={12} weight="bold" transform="uppercase">
-                      Notify Me
-                    </Text>
-                  </Button>
-                </Row>
-              </Col>
-            </Row>
-          </Card.Footer>
-        </Card>
+        </Card.Body>
+        <Card.Footer             
+          blur
+          css={{
+            position: 'absolute',
+            bgBlur: '#ffffff',
+            borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
+            bottom: 0,
+            zIndex: 1
+          }}
+          >
+          <Row>
+            <Col>
+              <Text color="#000" size={12}>Available soon.</Text>
+              <Text color="#000" size={12}>Get notified.</Text>
+            </Col>
+            <Col>
+              <Row justify="flex-end">
+                <Button flat auto rounded color="secondary">
+                  <Text css={{ color: 'inherit' }} size={12} weight="bold" transform="uppercase">
+                    Notify Me
+                  </Text>
+                </Button>
+              </Row>
+            </Col>
+          </Row>
+        </Card.Footer>
+      </Card>
     </Grid>    
     <Grid xs={12} sm={7}>
-        <Card width="100%" color="#0f1114" cover>
-          <Card.Header style={{ position: 'absolute', zIndex: 1, top: 5 }}>
+      <Card cover css={{ w: '100%', p: 0 }}>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text
+              size={12}
+              weight="bold"
+              transform="uppercase"
+              color="#9E9E9E"
+            >
+              Your day your way
+            </Text>
+            <Text h3 color="white">
+              Your checklist for better sleep
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Body>
+          <Card.Image
+            src='/images/card-example-5.jpeg'
+            height={400}
+            width="100%"
+            alt="Relaxing app background"
+          />
+        </Card.Body>
+        <Card.Footer
+          blur
+          css={{
+            position: 'absolute',
+            bgBlur: '#0f1114',
+            borderTop: '$borderWeights$light solid $gray700',
+            bottom: 0,
+            zIndex: 1
+          }}
+        >
+          <Row>
             <Col>
-              <Text
-                size={12}
-                weight="bold"
-                transform="uppercase"
-                color="#9E9E9E"
-              >
-                Your day your way
-              </Text>
-              <Text h3 color="white">
-                Your checklist for better sleep
-              </Text>
+              <Row>
+                <Col span={3}>
+                  <Card.Image
+                    src='/images/breathing-app-icon.jpeg'
+                    style={{ background: 'black' }}
+                    height={40}
+                    width={40}
+                    alt="Breathing app icon"
+                  />
+                </Col>
+                <Col>
+                  <Text color="#d1d1d1" size={12}>
+                    Breathing App
+                  </Text>
+                  <Text color="#d1d1d1" size={12}>
+                    Get a good night's sleep.
+                  </Text>
+                </Col>
+              </Row>
             </Col>
-          </Card.Header>
-          <Card.Body>
-            <Card.Image
-              autoResize={false}
-              src='/images/card-example-5.jpeg'
-              height={400}
-              width="100%"
-              alt="Relaxing app background"
-            />
-          </Card.Body>
-          <Card.Footer
-            blur
-            border
-            borderColor="rgba(255, 255, 255, 0.1)"
-            style={{ position: 'absolute', zIndex: 1, bottom: 0 }}
-          >
-            <Row>
-              <Col>
-                <Row>
-                  <Col span={3}>
-                    <Card.Image
-                      autoResize={false}
-                      src='/images/breathing-app-icon.jpeg'
-                      style={{ background: 'black' }}
-                      height={40}
-                      width={40}
-                      alt="Breathing app icon"
-                    />
-                  </Col>
-                  <Col>
-                    <Text color="#d1d1d1" size={12}>
-                      Breathing App
-                    </Text>
-                    <Text color="#d1d1d1" size={12}>
-                      Get a good night's sleep.
-                    </Text>
-                  </Col>
-                </Row>
-              </Col>
-              <Col>
-                <Row justify="flex-end">
-                  <Button flat auto rounded color="#94f9f0">
-                    <Text size={12} weight="bold" transform="uppercase">
-                      Get App
-                    </Text>
-                  </Button>
-                </Row>
-              </Col>
-            </Row>
-          </Card.Footer>
-        </Card>
+            <Col>
+              <Row justify="flex-end">
+                <Button flat auto rounded css={{ color: '#94f9f0', bg: '#94f9f026' }}>
+                  <Text css={{ color: 'inherit' }} size={12} weight="bold" transform="uppercase">
+                    Get App
+                  </Text>
+                </Button>
+              </Row>
+            </Col>
+          </Row>
+        </Card.Footer>
+      </Card>
     </Grid>
 </Grid.Container>`}
 />
@@ -411,32 +416,31 @@ const list = [
 ];
 return (
 <Grid.Container gap={2} justify="flex-start">
-    {list.map((item, index) => (
-        <Grid xs={6} sm={3} key={index}>
-            <Card hoverable clickable width="100%">
-                <Card.Body noPadding>
-                    <Card.Image
-                        objectFit="cover"
-                        autoResize={false}
-                        src={item.img}
-                        width='100%'
-                        height={140}
-                        alt={item.title}
-                    />
-                </Card.Body>
-                <Card.Footer justify="flex-start">
-                    <Row justify="space-between">
-                        <Text b>
-                            {item.title}
-                        </Text>
-                        <Text weight={500} style={{ opacity: 0.6 }}>
-                            {item.price}
-                        </Text>
-                    </Row>        
-                </Card.Footer>
-            </Card>
-        </Grid>
-    ))}
+  {list.map((item, index) => (
+    <Grid xs={6} sm={3} key={index}>
+      <Card hoverable clickable width="100%">
+        <Card.Body css={{ p: 0 }}>
+          <Card.Image
+            objectFit="cover"
+            src={item.img}
+            width='100%'
+            height={140}
+            alt={item.title}
+          />
+        </Card.Body>
+        <Card.Footer justify="flex-start">
+          <Row justify="space-between">
+            <Text b>
+              {item.title}
+            </Text>
+            <Text weight={500} style={{ opacity: 0.6 }}>
+              {item.price}
+            </Text>
+          </Row>        
+        </Card.Footer>
+      </Card>
+    </Grid>
+  ))}
 </Grid.Container>
 ); }`}
 />
@@ -451,10 +455,7 @@ return (
 
 | Attribute        | Type                                         | Accepted values                  | Description                                                                                                | Default   |
 | ---------------- | -------------------------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------- | --------- |
-| **color**        | `NormalColors` `string`                      | [NormalColors](#normal-colors)   | Change card color                                                                                          | `default` |
-| **textColor**    | `SimpleColors`                               | [SimpleColors](#simple-colors)   | Change card text color                                                                                     | `default` |
-| **width**        | `string`                                     | `%` `px` `rem` `em`              | Determine the width of the card                                                                            | `100%`    |
-| **height**       | `string`                                     | `%` `px` `rem` `em`              | Determine the height of the card                                                                           | `auto`    |
+| **color**        | `NormalColors`                               | [NormalColors](#normal-colors)   | Change card color                                                                                          | `default` |
 | **shadow**       | `boolean`                                    | `true/false`                     | Display shadow effect                                                                                      | `true`    |
 | **bordered**     | `boolean`                                    | `true/false`                     | Bordered card                                                                                              | `false`   |
 | **animated**     | `boolean`                                    | `true/false`                     | Display drip, shadow, hover and scale animation                                                            | `true`    |
@@ -470,46 +471,26 @@ return (
 
 #### Card.Header Props
 
-| Attribute      | Type             | Accepted values          | Description                                                    | Default      |
-| -------------- | ---------------- | ------------------------ | -------------------------------------------------------------- | ------------ |
-| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the card header  | `false`      |
-| **justify**    | `Justify`        | [Justify](#justify)      | CSS "justify-content" property                                 | `flex-start` |
-| **noPadding**  | `boolean`        | `true/false`             | Eliminates the padding of the base elements of the card header | `false`      |
-| ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                                   | -            |
+| Attribute | Type             | Accepted values          | Description  | Default |
+| --------- | ---------------- | ------------------------ | ------------ | ------- |
+| ...       | `HTMLAttributes` | `'id', 'className', ...` | Native props | -       |
 
 <Spacer y={2} />
 
 #### Card.Body Props
 
-| Attribute        | Type             | Accepted values                | Description                                                  | Default   |
-| ---------------- | ---------------- | ------------------------------ | ------------------------------------------------------------ | --------- |
-| **width**        | `string`         | `%` `px` `rem` `em`            | Determine the width of the card body                         | `100%`    |
-| **height**       | `string`         | `%` `px` `rem` `em`            | Determine the height of the card body                        | `auto`    |
-| **autoMargin**   | `boolean`        | `true/false`                   | Apply or not a margin to the base elements of the modal      | true      |
-| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content" property                               | `inherit` |
-| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction" property                                | `column`  |
-| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items" property                                   | `inherit` |
-| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content" property                                 | `inherit` |
-| **noPadding**    | `boolean`        | `true/false`                   | Eliminates the padding of the base elements of the card body | `false`   |
-| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native props                                                 | -         |
+| Attribute | Type             | Accepted values          | Description  | Default |
+| --------- | ---------------- | ------------------------ | ------------ | ------- |
+| ...       | `HTMLAttributes` | `'id', 'className', ...` | Native props | -       |
 
 <Spacer y={2} />
 
 #### Card.Footer Props
 
-| Attribute        | Type                    | Accepted values                  | Description                                                    | Default    |
-| ---------------- | ----------------------- | -------------------------------- | -------------------------------------------------------------- | ---------- |
-| **color**        | `NormalColors` `string` | [NormalColors](#normal-colors)   | Change card footer color                                       | -          |
-| **width**        | `string`                | `%` `px` `rem` `em`              | Determine the width of the card footer                         | `100%`     |
-| **height**       | `string`                | `%` `px` `rem` `em`              | Determine the height of the card footer                        | `auto`     |
-| **blur**         | `boolean`               | `true/false`                     | Makes the card footer container blur                           | `false`    |
-| **border**       | `boolean`               | `true/false`                     | Set a border on the top of the card footer container           | `false`    |
-| **borderColor**  | `NormalColors` `string` | [NormalColors](#normal-colors)   | Change card footer border top color                            | -          |
-| **borderWeight** | `NormalWeights`         | [NormalWeights](#normal-weights) | Border weight for `border` card footer                         | `normal`   |
-| **autoMargin**   | `boolean`               | `true/false`                     | Apply or not a margin to the base elements of the modal        | `true`     |
-| **justify**      | `Justify`               | [Justify](#justify)              | CSS "justify-content" property                                 | `flex-end` |
-| **noPadding**    | `boolean`               | `true/false`                     | Eliminates the padding of the base elements of the card fppter | `false`    |
-| ...              | `HTMLAttributes`        | `'id', 'className', ...`         | Native props                                                   | -          |
+| Attribute | Type             | Accepted values          | Description                          | Default |
+| --------- | ---------------- | ------------------------ | ------------------------------------ | ------- |
+| **blur**  | `boolean`        | `true/false`             | Makes the card footer container blur | `false` |
+| ...       | `HTMLAttributes` | `'id', 'className', ...` | Native props                         | -       |
 
 <Spacer y={2} />
 
@@ -545,58 +526,10 @@ type NormalColors =
   | 'gradient';
 ```
 
-#### Simple Colors
-
-```ts
-type SimpleColors =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error';
-```
-
 #### Normal Weights
 
 ```ts
-type NormalWeights = 'light' | 'normal' | 'bold';
-```
-
-#### Justify
-
-```ts
-type Justify =
-  | 'flex-start'
-  | 'center'
-  | 'flex-end'
-  | 'space-between'
-  | 'space-around'
-  | 'space-evenly';
-```
-
-#### Direction
-
-```ts
-type Direction = 'row' | 'row-reverse' | 'column' | 'column-reverse';
-```
-
-#### Align Items
-
-```ts
-type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-```
-
-#### Align Content
-
-```ts
-type AlignContent =
-  | 'stretch'
-  | 'center'
-  | 'flex-start'
-  | 'flex-end'
-  | 'space-between'
-  | 'space-around';
+type NormalWeights = 'light' | 'normal' | 'bold' | 'extrabold' | 'black';
 ```
 
 ### Object Fit

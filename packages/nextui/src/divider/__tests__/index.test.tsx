@@ -24,7 +24,6 @@ describe('Divider', () => {
       <div>
         <Divider color="secondary" />
         <Divider color="warning" />
-        <Divider color="dark" />
       </div>
     );
     expect(wrapper).toMatchSnapshot();

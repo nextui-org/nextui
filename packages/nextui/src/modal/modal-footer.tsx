@@ -1,14 +1,17 @@
 import React, { useMemo, useContext } from 'react';
-import useTheme from '../use-theme';
 import withDefaults from '../utils/with-defaults';
 import { ModalContext } from './modal-context';
 import { Justify } from '../utils/prop-types';
+import { CSS } from '../theme/stitches.config';
+import { StyledModalFooter, ModalFooterVariantsProps } from './modal.styles';
 import cslx from '../utils/clsx';
 
 interface Props {
   className?: string;
   justify?: Justify;
   autoMargin?: boolean;
+  css?: CSS;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
@@ -18,52 +21,51 @@ const defaultProps = {
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ModalFooterProps = Props & typeof defaultProps & NativeAttrs;
+export type ModalFooterProps = Props &
+  typeof defaultProps &
+  NativeAttrs &
+  ModalFooterVariantsProps;
+
+const preClass = 'nextui-modal-footer';
 
 const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
   children,
   className,
   justify,
   autoMargin: autoMarginProp,
+  css,
   ...props
 }) => {
-  const theme = useTheme();
   const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
+
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
   }, [autoMarginProp, autoMarginContext]);
+
   return (
-    <div
+    <StyledModalFooter
       className={cslx(
-        'modal-footer',
-        { 'auto-margin': autoMargin, 'no-padding': noPadding },
+        preClass,
+        {
+          [`${preClass}-auto-margin`]: autoMargin,
+          [`${preClass}-no-padding`]: noPadding
+        },
         className
       )}
+      noPadding={noPadding}
+      autoMargin={autoMargin}
+      css={{
+        justifyContent: justify,
+        ...(css as any)
+      }}
       {...props}
     >
       {children}
-      <style jsx>{`
-        .modal-footer {
-          display: flex;
-          flex-wrap: wrap;
-          flex-shrink: 0;
-          overflow: hidden;
-          color: inherit;
-          align-items: center;
-          font-size: 0.875rem;
-          padding: ${theme.layout.gapHalf} ${theme.layout.gap};
-          justify-content: ${justify};
-        }
-        .no-padding {
-          padding: 0;
-        }
-        .auto-margin > :global(*) {
-          margin: 0.25rem;
-        }
-      `}</style>
-    </div>
+    </StyledModalFooter>
   );
 };
+
+ModalFooter.toString = () => '.nextui-modal-footer';
 
 const MemoModalFooter = React.memo(ModalFooter);
 

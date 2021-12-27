@@ -1,50 +1,34 @@
 import React from 'react';
 import withDefaults from '../utils/with-defaults';
+import { CSS } from '../theme/stitches.config';
+import { StyledCode, StyledPre, CodeVariantsProps } from './code.styles';
 
 interface Props {
   block?: boolean;
-  width?: string;
-  className?: string;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
-  block: false,
-  className: '',
+  block: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type CodeProps = Props & typeof defaultProps & NativeAttrs;
+export type CodeProps = Props & NativeAttrs & CodeVariantsProps & { css?: CSS };
 
 const Code: React.FC<React.PropsWithChildren<CodeProps>> = ({
-  children,
   block,
-  className,
-  width,
+  children,
   ...props
 }) => {
-  if (!block) return <code {...props}>{children}</code>;
-
+  if (!block) return <StyledCode {...props}>{children}</StyledCode>;
   return (
-    <React.Fragment>
-      <pre className={className} {...props}>
-        <code>{children}</code>
-      </pre>
-      <style jsx>{`
-        pre {
-          width: ${width ? width : 'initial'};
-          max-width: 100%;
-        }
-        .dark {
-          color: white;
-          background: black;
-        }
-        .dark code {
-          color: white;
-        }
-      `}</style>
-    </React.Fragment>
+    <StyledPre {...props}>
+      <StyledCode>{children}</StyledCode>
+    </StyledPre>
   );
 };
+
+Code.toString = () => '.nextui-code';
 
 const MemoCode = React.memo(Code);
 

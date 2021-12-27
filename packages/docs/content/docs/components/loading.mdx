@@ -1,7 +1,7 @@
 ---
 title: 'Loading'
 description: 'Loaders express an unspecified wait time or display the length of a process.'
-url: https://nextui.com/docs/components/loading
+url: https://nextui.org/docs/components/loading
 ---
 
 # Loading
@@ -34,19 +34,17 @@ import { Loading } from '@nextui-org/react';
   title="Sizes"
   desc="Change the size of the entire `Loading` with the `size` property, you can also set a custom size in px."
   code={`
-  <>
-    <Loading size="mini"/>
-    <Spacer />
-    <Loading size="small"/>
-    <Spacer />
-    <Loading size="medium"/>
-    <Spacer />
-    <Loading size="large"/>
-    <Spacer />
-    <Loading size="xlarge"/>
-    <Spacer />
-    <Loading size={80}/>
-  </>
+<>
+  <Loading size="xs"/>
+  <Spacer />
+  <Loading size="sm"/>
+  <Spacer />
+  <Loading size="md"/>
+  <Spacer />
+  <Loading size="lg"/>
+  <Spacer />
+  <Loading size="xl"/>
+</>
 `}
 />
 
@@ -56,19 +54,19 @@ import { Loading } from '@nextui-org/react';
   code={`
   <Grid.Container gap={2}>
     <Grid>
-        <Loading type="default"/>
+      <Loading type="default"/>
     </Grid>
     <Grid>
-        <Loading type="spinner" size="large"/>
+      <Loading type="spinner" size="lg"/>
     </Grid>
     <Grid>
-        <Loading type="points" />
+      <Loading type="points" />
     </Grid>
     <Grid>
-        <Loading type="points-opacity"/>
+      <Loading type="points-opacity"/>
     </Grid>
     <Grid>
-        <Loading type="gradient"/>
+      <Loading type="gradient"/>
     </Grid>
   </Grid.Container>
 `}
@@ -78,26 +76,23 @@ import { Loading } from '@nextui-org/react';
   title="Colors"
   desc="You can change the color of the `loading` with the property color."
   code={`
- <Grid.Container gap={2}>
-    <Grid>
-        <Loading color="primary">Primary</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="secondary">Secondary</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="success">Success</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="warning">Warning</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="error">Error</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="#f81ce5">#f81ce5</Loading>
-    </Grid>
-  </Grid.Container>
+<Grid.Container gap={2}>
+  <Grid>
+    <Loading color="primary">Primary</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="secondary">Secondary</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="success">Success</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="warning">Warning</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="error">Error</Loading>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -105,26 +100,23 @@ import { Loading } from '@nextui-org/react';
   title="Text Colors"
   desc="You can change the `Loading` text color with `textColor` prop"
   code={`
-  <Grid.Container gap={2}>
-    <Grid>
-        <Loading color="primary" textColor="primary">Primary</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="secondary" textColor="secondary">Secondary</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="success" textColor="success">Success</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="warning" textColor="warning">Warning</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="error" textColor="error">Error</Loading>
-    </Grid>
-    <Grid>
-        <Loading color="#f81ce5" textColor="#f81ce5">#f81ce5</Loading>
-    </Grid>
-  </Grid.Container>
+<Grid.Container gap={2}>
+  <Grid>
+    <Loading color="primary" textColor="primary">Primary</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="secondary" textColor="secondary">Secondary</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="success" textColor="success">Success</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="warning" textColor="warning">Warning</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="error" textColor="error">Error</Loading>
+  </Grid>
+</Grid.Container>
 `}
 />
 
@@ -166,7 +158,7 @@ type SimpleColors =
 #### Normal Sizes
 
 ```ts
-type NormalSizes = 'mini' | 'small' | 'medium' | 'large' | 'xlarge';
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 ```
 
 #### Normal Loaders

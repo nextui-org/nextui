@@ -1,36 +1,58 @@
 import React from 'react';
 import cn from 'classnames';
-import useDarkMode from 'use-dark-mode';
 import { Moon, Sun } from '../icons';
 import { useTheme } from '@nextui-org/react';
+import { useTheme as useNextTheme } from 'next-themes';
+import Blockholder from '../blockholder';
+import useIsMounted from '@hooks/use-is-mounted';
 
 interface Props {
   className?: string;
 }
 
 export const ThemeToggle: React.FC<Props> = ({ className }) => {
-  const darkMode = useDarkMode();
-  const theme = useTheme();
-  const isDark = theme.type === 'dark';
+  const isMounted = useIsMounted();
+  const { setTheme } = useNextTheme();
+  const { theme, isDark } = useTheme();
+
+  if (!isMounted) {
+    return (
+      // to avoid layout shift on initial render
+      <Blockholder alt="toggle theme placeholder" width="32px" height="20px" />
+    );
+  }
+
+  const handleToggleTheme = () => {
+    setTheme(isDark ? 'light' : 'dark');
+  };
+
   return (
-    <span
+    <button
+      aria-label="toggle a light and dark color scheme"
       className={cn('theme-selector-container', className)}
-      onClick={darkMode.toggle}
+      onClick={handleToggleTheme}
     >
       {isDark ? (
         <Sun
           filled
-          fill={isDark ? theme.palette.accents_4 : theme.palette.accents_5}
+          fill={
+            isDark
+              ? theme?.colors?.accents6?.value
+              : theme?.colors?.accents4?.value
+          }
           size={20}
         />
       ) : (
         <Moon
           filled
-          fill={isDark ? theme.palette.accents_4 : theme.palette.accents_5}
+          fill={
+            isDark
+              ? theme?.colors?.accents6?.value
+              : theme?.colors?.accents4?.value
+          }
           size={20}
         />
       )}
-
       <style jsx>
         {`
           .theme-selector-container {
@@ -40,10 +62,13 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
             cursor: pointer;
             justify-content: center;
             align-items: center;
+            background: transparent;
+            border: none;
+            padding: 0;
           }
         `}
       </style>
-    </span>
+    </button>
   );
 };
 
