@@ -10,7 +10,7 @@ NextUI allows you to override the default styles of the components in several wa
 the NextUI components styles we recommend you to read the [Stitches Styling docs](https://stitches.dev/docs/styling) and
 [Stitches variants docs](https://stitches.dev/docs/variants).
 
-Remember that all [Stitches](https://stitches.dev) features are available in NextUI since NextUI uses Stitches as a styled engine.
+Remember that all [Stitches](https://stitches.dev) features are available in NextUI since NextUI uses Stitches as a style engine.
 
 <CarbonAd />
 
@@ -35,7 +35,6 @@ It's like the style attribute, but it supports tokens, media queries, nesting an
   code={`
 <Button 
   auto 
-  animated={false}
   css={{ 
     borderRadius: '$xs', // radii.xs
     border: '$space$1 solid transparent',
@@ -104,7 +103,6 @@ const MyStyledButton = styled(Button, {
 return (
     <MyStyledButton 
       auto 
-      animated={false} 
       size="mysize"
       color="mycolor">
         Custom button
@@ -130,7 +128,6 @@ NextUI provides an `as` prop for changing which tag a component outputs.
   rel="noopener noreferrer"
   target="_blank"
   href="https://github.com/nextui-org/nextui"
-  animated={false}
   css={{ 
     maxWidth: '$12', // space[12]
     borderRadius: '$xs', // radii.xs
