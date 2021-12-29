@@ -434,7 +434,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             -ms-transition: opacity 0.25s ease 0s;
             -webkit-transition: opacity 0.25s ease 0s;
           }
-          @media only screen and (max-width: ${theme?.breakpoints?.xs}) {
+          @media only screen and (max-width: ${theme?.breakpoints?.xs.value}) {
             .react-autosuggest__suggestions-container,
             .no-results {
               z-index: 1004;
@@ -454,10 +454,9 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
               padding: 64px 0;
             }
             .react-autosuggest__input {
-              width: 64vw;
+              width: 56vw;
               padding-right: 0;
             }
-
             .react-autosuggest__container {
               position: initial;
               z-index: 4;
@@ -470,7 +469,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             }
           }
           @media only screen and (min-width: ${theme?.breakpoints?.xs
-              ?.value}) and (max-width: ${theme?.breakpoints?.md}) {
+              ?.value}) and (max-width: ${theme?.breakpoints?.md.value}) {
             .react-autosuggest__suggestions-container,
             .no-results {
               top: 60px;

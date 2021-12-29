@@ -10,7 +10,10 @@ const Footer: React.FC = () => {
       gap={2}
       css={{
         zIndex: '$1',
-        padding: '$md $sm'
+        padding: '$md $sm',
+        '@xsMax': {
+          padding: '$sm $xs'
+        }
       }}
     >
       <Row
@@ -20,9 +23,8 @@ const Footer: React.FC = () => {
             justifyContent: 'space-between'
           },
           '@xsMax': {
-            justifyContent: 'flex-start',
-            paddingLeft: '$sm',
-            paddingRight: '$sm'
+            justifyContent: 'space-between',
+            px: '$sm'
           }
         }}
       >
@@ -31,7 +33,10 @@ const Footer: React.FC = () => {
           className="footer__copy"
           css={{
             fontSize: '$xs',
-            color: '$accents6'
+            color: '$accents6',
+            '@mdMax': {
+              fontSize: '$tiny'
+            }
           }}
         >
           &copy;&nbsp;Copyright&nbsp;{year}&nbsp;NextUI
@@ -42,7 +47,10 @@ const Footer: React.FC = () => {
           className="footer__by"
           css={{
             fontSize: '$xs',
-            color: '$accents6'
+            color: '$accents6',
+            '@mdMax': {
+              fontSize: '$tiny'
+            }
           }}
         >
           Created&nbsp;by&nbsp;

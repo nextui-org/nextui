@@ -5,12 +5,14 @@ import {
   useTheme,
   Container,
   Row,
+  StyledGridItem,
   Col,
   Text,
   Spacer,
   Button,
   Grid,
-  Snippet
+  Snippet,
+  keyframes
 } from '@nextui-org/react';
 import { ImageBrowser, Blockholder } from '@components';
 import { addColorAlpha } from '@utils/index';
@@ -26,6 +28,15 @@ const Hero: React.FC = () => {
     router.push('docs/guide/getting-started');
   };
 
+  const appearAnimation = keyframes({
+    from: {
+      opacity: 0
+    },
+    to: {
+      opacity: 1
+    }
+  });
+
   return (
     <Container
       lg
@@ -37,6 +48,26 @@ const Hero: React.FC = () => {
       as="section"
       css={{
         position: 'relative',
+        '.hero__gradient-blue, .hero__gradient-violet': {
+          position: 'absolute',
+          top: 0,
+          opacity: 0,
+          animation: `${appearAnimation} 200ms 100ms ease forwards`
+        },
+        '.hero__gradient-blue': {
+          top: 30,
+          left: -40,
+          zIndex: -1
+        },
+        '.hero__gradient-violet': {
+          zIndex: 1,
+          top: '-100%',
+          right: '-50%',
+          '@mdMax': {
+            top: '-65%',
+            right: '-52%'
+          }
+        },
         '@xsMax': {
           height: 'calc(100vh - 64px)',
           overflow: 'hidden'
@@ -79,6 +110,9 @@ const Hero: React.FC = () => {
               lh: '1.2',
               '@lg': {
                 fs: '3.7rem'
+              },
+              '@xsMax': {
+                fontSize: '2.2rem'
               }
             }}
           >
@@ -92,6 +126,9 @@ const Hero: React.FC = () => {
               opacity: 0.6,
               '@lg': {
                 fontSize: '3.7rem'
+              },
+              '@xsMax': {
+                fontSize: '2.2rem'
               }
             }}
             className="hero__title hero__title-smooth"
@@ -99,7 +136,18 @@ const Hero: React.FC = () => {
             modern React UI library.
           </Text>
           <Spacer y={1.5} />
-          <Grid.Container gap={2} justify="center">
+          <Grid.Container
+            gap={2}
+            justify="center"
+            css={{
+              '@mdMax': {
+                padding: 0,
+                [`& ${StyledGridItem}`]: {
+                  padding: '0 0 $$gridGapUnit $$gridGapUnit'
+                }
+              }
+            }}
+          >
             <Grid xs={6}>
               <Row align="center">
                 <Image
@@ -110,8 +158,16 @@ const Hero: React.FC = () => {
                   height={32}
                   alt="themeable"
                 />
-                <Spacer x={0.6} />
-                <Text b size="1.1rem">
+                <Text
+                  b
+                  size="1.1rem"
+                  css={{
+                    '@xsMax': {
+                      ml: '$4',
+                      fontSize: '$base'
+                    }
+                  }}
+                >
                   Themeable
                 </Text>
               </Row>
@@ -130,8 +186,16 @@ const Hero: React.FC = () => {
                   width={32}
                   height={32}
                 />
-                <Spacer x={0.6} />
-                <Text b size="1.1rem">
+                <Text
+                  b
+                  size="1.1rem"
+                  css={{
+                    '@xsMax': {
+                      ml: '$4',
+                      fontSize: '$base'
+                    }
+                  }}
+                >
                   Light and dark UI
                 </Text>
               </Row>
@@ -148,8 +212,16 @@ const Hero: React.FC = () => {
                   width={32}
                   height={32}
                 />
-                <Spacer x={0.6} />
-                <Text b size="1.1rem">
+                <Text
+                  b
+                  size="1.1rem"
+                  css={{
+                    '@xsMax': {
+                      ml: '$4',
+                      fontSize: '$base'
+                    }
+                  }}
+                >
                   Open source
                 </Text>
               </Row>
@@ -165,15 +237,30 @@ const Hero: React.FC = () => {
                   height={32}
                   alt="fully responsive components"
                 />
-                <Spacer x={0.6} />
-                <Text b size="1.1rem">
+                <Text
+                  b
+                  size="1.1rem"
+                  css={{
+                    '@xsMax': {
+                      ml: '$4',
+                      fontSize: '$base'
+                    }
+                  }}
+                >
                   Responsive Design
                 </Text>
               </Row>
             </Grid>
           </Grid.Container>
-          <Spacer y={2} />
-          <Grid.Container gap={1} alignItems="center">
+          <Grid.Container
+            gap={1}
+            alignItems="center"
+            css={{
+              '@md': {
+                mt: '$lg'
+              }
+            }}
+          >
             <Grid xs={12} sm={3}>
               <Button
                 auto
@@ -183,7 +270,7 @@ const Hero: React.FC = () => {
                 css={{
                   '@xsMax': {
                     width: '100%',
-                    mb: '$lg'
+                    marginBottom: 0
                   }
                 }}
               >
@@ -242,44 +329,6 @@ const Hero: React.FC = () => {
           />
         )}
       </Row>
-      <style jsx>{`
-        :global(.hero__gradient-blue, .hero__gradient-violet) {
-          top: 0;
-          position: absolute;
-          opacity: 0;
-          animation: appear 200ms 100ms ease forwards;
-        }
-        :global(.hero__gradient-blue) {
-          top: 30%;
-          left: -40%;
-          z-index: -1;
-        }
-        :global(.hero__gradient-violet) {
-          display: block;
-          z-index: 1;
-          top: -100%;
-          right: -50%;
-        }
-        @media only screen and (max-width: ${theme?.breakpoints?.md?.value}) {
-          :global(.hero__gradient-violet) {
-            top: -65%;
-            right: -52%;
-          }
-        }
-        @media only screen and (min-width: ${theme?.breakpoints?.md?.value}) {
-          :global(.hero__gradient-violet) {
-            display: block;
-          }
-        }
-        @keyframes appear {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-      `}</style>
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { Moon, Sun } from '../icons';
-import { useTheme } from '@nextui-org/react';
+import { useTheme, styled } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
 import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
@@ -9,6 +9,18 @@ import useIsMounted from '@hooks/use-is-mounted';
 interface Props {
   className?: string;
 }
+
+const StyledButton = styled('button', {
+  dflex: 'center',
+  size: 'auto',
+  cursor: 'pointer',
+  background: 'transparent',
+  border: 'none',
+  padding: 0,
+  '@xsMax': {
+    px: '$2'
+  }
+});
 
 export const ThemeToggle: React.FC<Props> = ({ className }) => {
   const isMounted = useIsMounted();
@@ -27,7 +39,7 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
   };
 
   return (
-    <button
+    <StyledButton
       aria-label="toggle a light and dark color scheme"
       className={cn('theme-selector-container', className)}
       onClick={handleToggleTheme}
@@ -53,22 +65,7 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
           size={20}
         />
       )}
-      <style jsx>
-        {`
-          .theme-selector-container {
-            display: flex;
-            width: auto;
-            height: auto;
-            cursor: pointer;
-            justify-content: center;
-            align-items: center;
-            background: transparent;
-            border: none;
-            padding: 0;
-          }
-        `}
-      </style>
-    </button>
+    </StyledButton>
   );
 };
 
