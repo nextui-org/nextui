@@ -68,6 +68,7 @@ export const StyledTooltipContent = styled('div', {
       },
       invert: {
         $$tooltipColor: '$colors$foreground',
+        $$tooltipTextColor: '$colors$background',
         bg: '$$tooltipColor'
       }
     },
@@ -117,14 +118,6 @@ export const StyledTooltipContent = styled('div', {
     }
   },
   compoundVariants: [
-    // color='invert' && contentColor='default'
-    {
-      color: 'invert',
-      contentColor: 'default',
-      css: {
-        $$tooltipTextColor: '$colors$white'
-      }
-    },
     // color='primary' && contentColor='default'
     {
       color: 'primary',
