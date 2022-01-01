@@ -1,1 +1,1 @@
-packages/nextui/README.md
+packages/react/README.md

@@ -112,7 +112,7 @@ const Hero: React.FC = () => {
                 fs: '3.7rem'
               },
               '@xsMax': {
-                fontSize: '2.2rem'
+                fontSize: '2.5rem'
               }
             }}
           >
@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
                 fontSize: '3.7rem'
               },
               '@xsMax': {
-                fontSize: '2.2rem'
+                fontSize: '2.5rem'
               }
             }}
             className="hero__title hero__title-smooth"
@@ -162,8 +162,8 @@ const Hero: React.FC = () => {
                   b
                   size="1.1rem"
                   css={{
+                    ml: '$4',
                     '@xsMax': {
-                      ml: '$4',
                       fontSize: '$base'
                     }
                   }}
@@ -190,8 +190,8 @@ const Hero: React.FC = () => {
                   b
                   size="1.1rem"
                   css={{
+                    ml: '$4',
                     '@xsMax': {
-                      ml: '$4',
                       fontSize: '$base'
                     }
                   }}
@@ -216,8 +216,8 @@ const Hero: React.FC = () => {
                   b
                   size="1.1rem"
                   css={{
+                    ml: '$4',
                     '@xsMax': {
-                      ml: '$4',
                       fontSize: '$base'
                     }
                   }}
@@ -241,8 +241,8 @@ const Hero: React.FC = () => {
                   b
                   size="1.1rem"
                   css={{
+                    ml: '$4',
                     '@xsMax': {
-                      ml: '$4',
                       fontSize: '$base'
                     }
                   }}
