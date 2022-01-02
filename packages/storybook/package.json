@@ -20,7 +20,6 @@
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook",
     "sb": "yarn storybook",
-    "start": "yarn build-storybook && http-server ./storybook-static",
-    "build": "yarn build-storybook"
+    "start": "yarn build-storybook && http-server ./storybook-static"
   }
 }
