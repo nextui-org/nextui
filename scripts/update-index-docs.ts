@@ -26,7 +26,7 @@ interface TOCResultItem {
   seen: number;
 }
 
-const docsRootFolder = 'packages/docs';
+const docsRootFolder = 'apps/docs';
 
 async function getMDXMeta(file: string) {
   const { content, frontMatter } = await parseMarkdownFile(file);
@@ -47,8 +47,8 @@ async function getMDXMeta(file: string) {
     type: 'lvl1',
     url: removePrefix(slug, '/'),
     hierarchy: {
-      lvl1: title,
-    },
+      lvl1: title
+    }
   });
 
   json.forEach((item, index) => {
@@ -60,8 +60,8 @@ async function getMDXMeta(file: string) {
       hierarchy: {
         lvl1: title,
         lvl2: item.lvl === 2 ? item.content : json[index - 1]?.content ?? null,
-        lvl3: item.lvl === 3 ? item.content : null,
-      },
+        lvl3: item.lvl === 3 ? item.content : null
+      }
     });
   });
 
@@ -114,7 +114,7 @@ async function getSearchMeta() {
 
     await mainIndex.replaceAllObjects(json, {
       autoGenerateObjectIDIfNotExist: true,
-      safe: true,
+      safe: true
     });
 
     console.log('[NextUI] Search meta is ready ✅');
