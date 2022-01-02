@@ -41,7 +41,8 @@
     "coverage:codecov": "yarn workspace @nextui-org/react coverage:codecov",
     "cov:co": "yarn coverage:codecov",
     "cov:up": "yarn workspace @nextui-org/react coverage-update",
-    "build:docs-meta": "ts-node scripts/update-index-docs.ts"
+    "build:docs-meta": "ts-node scripts/update-index-docs.ts",
+    "clean": "yarn turbo:clean"
   },
   "devDependencies": {
     "@docusaurus/utils": "2.0.0-beta.3",
