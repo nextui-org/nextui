@@ -1,87 +1,133 @@
 {
-    "name": "root",
-    "private": true,
-    "workspaces": [
-        "packages/**"
-    ],
-    "engines": {
-        "node": ">=12.13.0",
-        "npm": ">=7.9.0",
-        "yarn": ">=1.12.x"
-    },
-    "scripts": {
-        "dev": "run-p dev:docs sb",
-        "dev:docs": "yarn workspace @nextui-org/docs dev",
-        "start:docs": "yarn workspace @nextui-org/docs start",
-        "pre-publish:nextui": "yarn workspace @nextui-org/react pre-publish",
-        "build": "run-s build:nextui build:docs",
-        "build:docs": "yarn workspace @nextui-org/docs build",
-        "deploy:docs": "yarn workspace @nextui-org/docs deploy",
-        "deploy:stage-docs": "yarn workspace @nextui-org/docs deploy:stage",
-        "build:nextui": "SKIP_PREFLIGHT_CHECK=true yarn workspace @nextui-org/react build",
-        "watch:nextui": "yarn workspace @nextui-org/react watch",
-        "lint:nextui": "yarn workspace @nextui-org/react lint",
-        "lint:docs": "yarn workspace @nextui-org/docs lint",
-        "lint": "run-s lint:nextui lint:docs",
-        "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
-        "prettier": "prettier --write .",
-        "nextui:test": "yarn workspace @nextui-org/react test",
-        "nextui:test-update": "yarn workspace @nextui-org/react test-update",
-        "test": "yarn nextui:test",
-        "test:update": "yarn nextui:test-update",
-        "test:up": "yarn nextui:test-update",
-        "test:cov": "yarn workspace @nextui-org/react coverage-update",
-        "coverage": "yarn workspace @nextui-org/react coverage",
-        "coverage:update": "yarn workspace @nextui-org/react coverage-update",
-        "coverage:codecov": "yarn workspace @nextui-org/react coverage:codecov",
-        "cov:co": "yarn coverage:codecov",
-        "cov:up": "yarn workspace @nextui-org/react coverage-update",
-        "sb": "yarn workspace @nextui-org/react storybook",
-        "build:sb": "yarn workspace @nextui-org/react build-storybook",
-        "start:sb": "yarn workspace @nextui-org/react start-storybook",
-        "build:docs-meta": "ts-node scripts/update-index-docs.ts"
-    },
-    "devDependencies": {
-        "@docusaurus/utils": "2.0.0-beta.3",
-        "@types/node": "^14.14.41",
-        "@types/react": "^17.0.2",
-        "@types/react-dom": "^17.0.2",
-        "@types/shelljs": "^0.8.9",
-        "@types/styled-jsx": "^2.2.8",
-        "@types/uuid": "^8.3.1",
-        "@typescript-eslint/eslint-plugin": "^4.22.0",
-        "@typescript-eslint/parser": "^4.22.0",
-        "algoliasearch": "^4.10.3",
-        "dotenv": "^10.0.0",
-        "eslint": "^7.29.0",
-        "eslint-config-airbnb": "^18.2.1",
-        "eslint-config-airbnb-typescript": "^12.3.1",
-        "eslint-config-prettier": "^8.2.0",
-        "eslint-config-react-app": "^6.0.0",
-        "eslint-config-ts-lambdas": "^1.2.3",
-        "eslint-import-resolver-typescript": "^2.4.0",
-        "eslint-loader": "^4.0.2",
-        "eslint-plugin-flowtype": "^5.7.1",
-        "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-jest": "^24.3.6",
-        "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-react": "^7.23.2",
-        "eslint-plugin-react-hooks": "^4.2.0",
-        "graceful-fs": "^4.2.6",
-        "http-server": "^0.12.3",
-        "lerna": "^4.0.0",
-        "markdown-toc": "^1.2.0",
-        "npm-run-all": "^4.1.5",
-        "prettier": "^2.2.1",
-        "prettier-eslint": "^12.0.0",
-        "prettier-eslint-cli": "^5.0.1",
-        "shelljs": "^0.8.4",
-        "ts-node": "^10.1.0",
-        "typescript": "^4.3.4",
-        "uuid": "^8.3.2"
-    },
-    "dependencies": {
-        "gray-matter": "^4.0.3"
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=12.13.0",
+    "npm": ">=7.9.0",
+    "yarn": ">=1.12.x"
+  },
+  "scripts": {
+    "dev:docs": "turbo run dev --scope=@nextui-org/docs --no-deps",
+    "dev:nextui": "turbo run dev --scope=@nextui-org/react --no-deps",
+    "sb": "turbo run sb --scope=@nextui-org/react-storybook --no-deps",
+    "start:docs": "turbo run start --scope=@nextui-org/docs --no-deps",
+    "start:sb": "turbo run start --scope=@nextui-org/react-storybook --no-deps",
+    "build:docs": "turbo run build --scope=@nextui-org/docs",
+    "build": "turbo run build",
+    "build:nextui": "turbo run build --scope=@nextui-org/react",
+    "build:sb": "turbo run build --scope=@nextui-org/react-storybook --no-deps",
+    "turbo:graph": "yarn build --graph=dependency-graph.png",
+    "turbo:clean": "rm -rf ./node_modules/.cache/turbo",
+    "deploy:docs": "yarn workspace @nextui-org/docs deploy",
+    "deploy:stage-docs": "yarn workspace @nextui-org/docs deploy:stage",
+    "pre-publish:nextui": "yarn workspace @nextui-org/react pre-publish",
+    "lint:nextui": "turbo run lint --scope=@nextui-org/react",
+    "lint:docs": "turbo run lint --scope=@nextui-org/docs",
+    "lint": "turbo run lint",
+    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
+    "prettier": "prettier --write .",
+    "test:nextui": "turbo run test --scope=@nextui-org/react",
+    "test-update:nextui": "turbo run test-update --scope=@nextui-org/react",
+    "test": "yarn nextui:test",
+    "test:update": "yarn nextui:test-update",
+    "test:up": "yarn nextui:test-update",
+    "test:cov": "yarn workspace @nextui-org/react coverage-update",
+    "coverage": "yarn workspace @nextui-org/react coverage",
+    "coverage:update": "yarn workspace @nextui-org/react coverage-update",
+    "coverage:codecov": "yarn workspace @nextui-org/react coverage:codecov",
+    "cov:co": "yarn coverage:codecov",
+    "cov:up": "yarn workspace @nextui-org/react coverage-update",
+    "build:docs-meta": "ts-node scripts/update-index-docs.ts",
+    "clean": "yarn turbo:clean"
+  },
+  "devDependencies": {
+    "@docusaurus/utils": "2.0.0-beta.3",
+    "@types/node": "^14.14.41",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "@types/shelljs": "^0.8.9",
+    "@types/styled-jsx": "^2.2.8",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "algoliasearch": "^4.10.3",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-config-ts-lambdas": "^1.2.3",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-flowtype": "^5.7.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "graceful-fs": "^4.2.6",
+    "http-server": "^0.12.3",
+    "lerna": "^4.0.0",
+    "markdown-toc": "^1.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "prettier-eslint-cli": "^5.0.1",
+    "shelljs": "^0.8.4",
+    "ts-node": "^10.1.0",
+    "turbo": "^1.0.24",
+    "typescript": "^4.3.4",
+    "uuid": "^8.3.2"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  },
+  "turbo": {
+    "baseBranch": "origin/main",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          ".next/**",
+          "dist/**",
+          "lib/**"
+        ]
+      },
+      "start": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      },
+      "test": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      },
+      "test-update": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": []
+      },
+      "lint": {
+        "outputs": []
+      },
+      "dev": {
+        "cache": false
+      },
+      "sb": {
+        "cache": false
+      }
     }
+  }
 }

@@ -2,19 +2,23 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
 # testing
 /coverage
+coverage
+types
 
 # next.js
 /.next/
+.next/
 /out/
 
 # production
 /build
+dist/
 
 # misc
 .DS_Store
@@ -41,3 +45,6 @@ examples/**/.next
 
 # ignore sitemap
 packages/**/sitemap.xml
+
+# turbo
+.turbo
