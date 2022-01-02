@@ -74,7 +74,7 @@ jobs:
         run: yarn coverage:update
       - uses: codecov/codecov-action@v2
         with:
-          directory: './packages/nextui'
+          directory: './packages/react'
         
   publish:
     needs: [build, tests]
@@ -93,7 +93,7 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: './packages/nextui/lib/package.json'
+          package: './packages/react/lib/package.json'
       - name: Show published version
         if: steps.publish.outputs.type != 'none'
         run: |
@@ -104,7 +104,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ github.token }}
           tag_prefix: "v"
-          package_root: "./packages/nextui"
+          package_root: "./packages/react"
 
   deploy:
     needs: [publish]
@@ -123,7 +123,7 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
           vercel-project-name: ${{ secrets.VERCEL_PROJECT_NAME}}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} 
-          working-directory: './packages/docs'
+          working-directory: './apps/docs'
 
   update_algolia_index:
     needs: [publish]

@@ -44,7 +44,7 @@ examples/**/.next
 .vercel
 
 # ignore sitemap
-packages/**/sitemap.xml
+apps/**/sitemap.xml
 
 # turbo
 .turbo

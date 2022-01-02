@@ -99,7 +99,7 @@ Until NextUI has a stable release new components will be created only for the co
 
 Please update the docs with any API changes, the code and docs should always be in sync.
 
-The main documentation lives in the `packages/docs/content` folder, the project uses MDX and all `NextUI` are already imported.
+The main documentation lives in the `apps/docs/content` folder, the project uses MDX and all `NextUI` are already imported.
 
 ## Breaking changes
 

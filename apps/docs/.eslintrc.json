@@ -5,7 +5,7 @@
       {
         "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
         "parserOptions": {
-            "project": ["packages/docs/tsconfig(.*)?.json"],
+            "project": ["apps/docs/tsconfig(.*)?.json"],
             "ecmaFeatures": {
               "jsx": true
             }
