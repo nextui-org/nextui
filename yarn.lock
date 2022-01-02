@@ -175,7 +175,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.1.0", "@babel/core@^7.1.6", "@babel/core@^7.12.10", "@babel/core@^7.12.3", "@babel/core@^7.13.8", "@babel/core@^7.7.5":
+"@babel/core@^7.1.0", "@babel/core@^7.1.6", "@babel/core@^7.12.10", "@babel/core@^7.12.3", "@babel/core@^7.13.8", "@babel/core@^7.16.7", "@babel/core@^7.7.5":
   version "7.16.7"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.16.7.tgz#db990f931f6d40cb9b87a0dc7d2adc749f1dcbcf"
   integrity sha512-aeLaqcqThRNZYmbMqtulsetOQZ/5gbR/dWruUCJcpas4Qoyy+QeagfDsPdMrqwsPRDNxJvBlRiZxxX7THO7qtA==
@@ -2848,7 +2848,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-actions@6.4.9", "@storybook/addon-actions@^6.3.9":
+"@storybook/addon-actions@6.4.9", "@storybook/addon-actions@^6.3.9", "@storybook/addon-actions@^6.4.9":
   version "6.4.9"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-6.4.9.tgz#1d4e8c00ad304efe6722043dac759f4716b515ee"
   integrity sha512-L1N66p/vr+wPUBfrH3qffjNAcWSS/wvuL370T7cWxALA9LLA8yY9U2EpITc5btuCC5QOxApCeyHkFnrBhNa94g==
@@ -2961,7 +2961,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-essentials@^6.3.9":
+"@storybook/addon-essentials@^6.3.9", "@storybook/addon-essentials@^6.4.9":
   version "6.4.9"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.4.9.tgz#e761a61a9ac9809b8a5d8b6f7c5a1b50f0e2cd91"
   integrity sha512-3YOtGJsmS7A4aIaclnEqTgO+fUEX63pHq2CvqIKPGLVPgLmn6MnEhkkV2j30MfAkoe3oynLqFBvkCdYwzwJxNQ==
@@ -2981,7 +2981,7 @@
     regenerator-runtime "^0.13.7"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-links@^6.3.9":
+"@storybook/addon-links@^6.3.9", "@storybook/addon-links@^6.4.9":
   version "6.4.9"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.4.9.tgz#2d0a7f813dcef160feb357f6548bb1a7ba425d7d"
   integrity sha512-xXFz/bmw67u4+zPVqJdiJkCtGrO2wAhcsLc4QSTc2+Xgkvkk7ulcRguiujAy5bfinhPa6U1vpJrrg5GFGV+trA==
@@ -3613,7 +3613,7 @@
     react-docgen-typescript "^2.0.0"
     tslib "^2.0.0"
 
-"@storybook/react@^6.3.10":
+"@storybook/react@^6.3.10", "@storybook/react@^6.4.9":
   version "6.4.9"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.4.9.tgz#0b5effb07cf98bc73302b5486b9355ed545ee9fa"
   integrity sha512-GVbCeii2dIKSD66pAdn9bY7mRoOzBE6ll+vRDW1n00FIvGfckmoIZtQHpurca7iNTAoufv8+t0L9i7IItdrUuw==
@@ -5391,7 +5391,7 @@ babel-jest@^26.6.3:
     graceful-fs "^4.2.4"
     slash "^3.0.0"
 
-babel-loader@^8.0.0, babel-loader@^8.2.2:
+babel-loader@^8.0.0, babel-loader@^8.2.2, babel-loader@^8.2.3:
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.3.tgz#8986b40f1a64cacfcb4b8429320085ef68b1342d"
   integrity sha512-n4Zeta8NC3QAsuyiizu0GkmRcQ6clkV9WFUnUf1iXP//IeSKbWjofW3UHyZVwlOB4y039YQKefawyTn64Zwbuw==

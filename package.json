@@ -13,10 +13,13 @@
   "scripts": {
     "dev:docs": "turbo run dev --scope=@nextui-org/docs --no-deps",
     "dev:nextui": "turbo run dev --scope=@nextui-org/react --no-deps",
+    "sb": "turbo run sb --scope=@nextui-org/react-storybook --no-deps",
     "start:docs": "turbo run start --scope=@nextui-org/docs --no-deps",
+    "start:sb": "turbo run start --scope=@nextui-org/react-storybook --no-deps",
     "build:docs": "turbo run build --scope=@nextui-org/docs",
     "build": "turbo run build",
     "build:nextui": "turbo run build --scope=@nextui-org/react",
+    "build:sb": "turbo run build --scope=@nextui-org/react-storybook --no-deps",
     "turbo:graph": "yarn build --graph=dependency-graph.png",
     "turbo:clean": "rm -rf ./node_modules/.cache/turbo",
     "deploy:docs": "yarn workspace @nextui-org/docs deploy",
@@ -38,9 +41,6 @@
     "coverage:codecov": "yarn workspace @nextui-org/react coverage:codecov",
     "cov:co": "yarn coverage:codecov",
     "cov:up": "yarn workspace @nextui-org/react coverage-update",
-    "sb": "yarn workspace @nextui-org/react storybook",
-    "build:sb": "yarn workspace @nextui-org/react build-storybook",
-    "start:sb": "yarn workspace @nextui-org/react start-storybook",
     "build:docs-meta": "ts-node scripts/update-index-docs.ts"
   },
   "devDependencies": {
@@ -122,6 +122,9 @@
         "outputs": []
       },
       "dev": {
+        "cache": false
+      },
+      "sb": {
         "cache": false
       }
     }

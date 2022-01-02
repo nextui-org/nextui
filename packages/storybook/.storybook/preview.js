@@ -1,5 +1,5 @@
 import React from 'react';
-import CssBaseline from '../src/css-baseline';
+const { CssBaseline } = require('@nextui-org/react');
 
 export const decorators = [
   (Story) => (
@@ -11,13 +11,13 @@ export const decorators = [
         alignItems: 'center',
         flexWrap: 'wrap',
         width: '100%',
-        height: '100%',
+        height: '100%'
       }}
     >
       <CssBaseline />
       <Story />
     </div>
-  ),
+  )
 ];
 
 export const parameters = {
@@ -27,18 +27,18 @@ export const parameters = {
     values: [
       {
         name: 'light',
-        value: '#FFFFFF',
+        value: '#FFFFFF'
       },
       {
         name: 'dark',
-        value: '#000000',
-      },
-    ],
+        value: '#000000'
+      }
+    ]
   },
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
+      date: /Date$/
+    }
+  }
 };
