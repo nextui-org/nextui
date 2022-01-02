@@ -1,71 +1,71 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@components": [
-                "./src/components/index.ts"
-            ],
-            "@components/": [
-                "./src/components/*"
-            ],
-            "@content/*": [
-                "./content/*"
-            ],
-            "@layouts/*": [
-                "./src/layouts/*"
-            ],
-            "@hooks/*": [
-                "./src/hooks/*"
-            ],
-            "@utils/*": [
-                "./src/utils/*"
-            ],
-            "@theme/*": [
-                "./src/theme/*"
-            ],
-            "@lib/*": [
-                "./src/lib/*"
-            ]
-        },
-        "lib": [
-            "dom",
-            "es2015",
-            "ESNext.String"
+      "baseUrl": ".",
+      "paths": {
+        "@components": [
+          "./src/components/index.ts"
         ],
-        "target": "esnext",
-        "jsx": "preserve",
-        "allowJs": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "types": [
-            "node"
+        "@components/": [
+          "./src/components/*"
         ],
-        "strict": false,
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "strictNullChecks": true,
-        "moduleResolution": "node",
-        "experimentalDecorators": true,
-        "noUnusedParameters": true,
-        "noUnusedLocals": true,
-        "noImplicitAny": true,
-        "skipLibCheck": true,
-        "module": "esnext",
-        "typeRoots": [
-            "../../node_modules/@types",
-            "./typings"
+        "@content/*": [
+          "./content/*"
+        ],
+        "@layouts/*": [
+          "./src/layouts/*"
+        ],
+        "@hooks/*": [
+          "./src/hooks/*"
+        ],
+        "@utils/*": [
+          "./src/utils/*"
+        ],
+        "@theme/*": [
+          "./src/theme/*"
+        ],
+        "@lib/*": [
+          "./src/lib/*"
         ]
+      },
+      "lib": [
+        "dom",
+        "es2015",
+        "ESNext.String"
+      ],
+      "target": "esnext",
+      "jsx": "preserve",
+      "allowJs": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "types": [
+          "node"
+      ],
+      "strict": false,
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "strictNullChecks": true,
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "noUnusedParameters": true,
+      "noUnusedLocals": true,
+      "noImplicitAny": true,
+      "skipLibCheck": true,
+      "module": "esnext",
+      "typeRoots": [
+          "../../node_modules/@types",
+          "./typings"
+      ]
     },
     "include": [
-        "**/*.ts",
-        "**/*.tsx",
-        "**/*.js",
-        "**/*.jsx",
-        "next-env.d.ts"
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "next-env.d.ts"
     ],
     "exclude": [
-        "node_modules"
+      "node_modules"
     ]
 }

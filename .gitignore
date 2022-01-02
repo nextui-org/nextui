@@ -18,7 +18,6 @@ types
 
 # production
 /build
-lib/
 dist/
 
 # misc
