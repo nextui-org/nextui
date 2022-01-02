@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "dependencies": {
-    "@nextui-org/react": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "babel-loader": "^8.2.3",
