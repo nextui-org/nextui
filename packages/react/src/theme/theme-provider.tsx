@@ -6,7 +6,12 @@ import { CreateTheme, NextUIThemeContext, ThemeType } from './types';
 import deepMerge from '../utils/deep-merge';
 import { copyObject } from '../utils/object';
 import { SsrProvider } from './ssr-provider';
-import { getDocumentCSSTokens, getDocumentTheme } from './utils';
+import {
+  changeTheme,
+  getThemeName,
+  getDocumentCSSTokens,
+  getDocumentTheme
+} from './utils';
 import useSSR from '../use-ssr';
 
 export interface Props {
@@ -43,10 +48,11 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
   const providerValue = useMemo<NextUIThemeContext>(() => {
     const themeTokens = isBrowser ? getDocumentCSSTokens() : {};
     const theme = deepMerge(copyObject(defaultContext.theme), themeTokens);
+    const themeName = getThemeName(currentTheme);
     return {
       theme,
-      type: currentTheme,
-      isDark: currentTheme === 'dark'
+      type: themeName,
+      isDark: themeName === 'dark'
     };
   }, [currentTheme, isBrowser]);
 
@@ -80,17 +86,21 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!isBrowser || !userTheme) {
+      return;
+    }
+    if (userTheme?.className) {
+      changeTheme(userTheme.className);
+      changeCurrentTheme(getThemeName(userTheme.className));
+    }
+  }, [isBrowser, userTheme]);
+
   return (
     <SsrProvider>
       <ThemeContext.Provider value={providerValue}>
         {!disableBaseline && <CssBaseline />}
-        {userTheme ? (
-          <div id="__nextui" className={userTheme}>
-            {children}
-          </div>
-        ) : (
-          children
-        )}
+        {children}
       </ThemeContext.Provider>
     </SsrProvider>
   );

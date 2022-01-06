@@ -89,6 +89,13 @@ export const getDocumentTheme = (el: HTMLElement) => {
   return documentTheme || colorScheme;
 };
 
+export const getThemeName = (theme: ThemeType | string) => {
+  if (typeof theme === 'string') {
+    return theme?.includes('-theme') ? theme?.replace('-theme', '') : theme;
+  }
+  return theme;
+};
+
 export const changeTheme = (theme: ThemeType | string) => {
   if (!document) return;
   const el = document.documentElement;
@@ -110,6 +117,6 @@ export const changeTheme = (theme: ThemeType | string) => {
       .filter((stl) => !stl.includes('color-scheme'))
       .map((el) => `${el};`) || [];
 
-  el?.setAttribute('class', clsx(prevClasses, `${theme}-theme`));
+  el?.setAttribute('class', clsx(prevClasses, `${getThemeName(theme)}-theme`));
   el?.setAttribute('style', clsx(prevStyles, `color-scheme: ${theme};`));
 };
