@@ -121,11 +121,15 @@ const sharedTheme: Theme = {
 
 export const lightTheme = createTheme({
   ...sharedTheme,
-  type: 'light'
+  theme: {
+    type: 'light'
+  }
 });
 
 export const darkTheme = createTheme({
   ...sharedTheme,
-  type: 'dark'
+  theme: {
+    type: 'dark'
+  }
 });
 ```

@@ -26,22 +26,24 @@ import { createTheme, NextUIProvider, Text } from "@nextui-org/react"
 
 // 2. Call `createTheme` and pass your custom values
 const theme = createTheme({
-  colors: {
-    // brand colors
-    primaryLight: '$green200',
-    primary: '#4ADE7B',
-    primaryDark: '$green600',
+  theme: {
+    colors: {
+      // brand colors
+      primaryLight: '$green200',
+      primary: '#4ADE7B',
+      primaryDark: '$green600',
 
-    gradient: 'linear-gradient(112deg, $blue100 -25%, $pink500 -10%, $purple500 80%)',
-    link: '#5E1DAD'
+      gradient: 'linear-gradient(112deg, $blue100 -25%, $pink500 -10%, $purple500 80%)',
+      link: '#5E1DAD'
 
-    // you can also create your own color
-    myColor: '#ff4ecd'
+      // you can also create your own color
+      myColor: '#ff4ecd'
 
-    // ...  more colors
-  },
-  space: {},
-  fonts: {}
+      // ...  more colors
+    },
+    space: {},
+    fonts: {}
+  }
 })
 
 
@@ -67,16 +69,18 @@ import { createTheme, NextUIProvider, Text } from "@nextui-org/react"
 // 2. Call `createTheme` and pass your custom values
 const myDarkTheme = createTheme({
   type: 'dark'
-  colors: {
-    // brand colors
-    background: '#1d1d1d',
-    text: '#fff',
-    // you can also create your own color
-    myDarkColor: '#ff4ecd'
-    // ...  more colors
-  },
-  space: {},
-  fonts: {}
+  theme: {
+    colors: {
+      // brand colors
+      background: '#1d1d1d',
+      text: '#fff',
+      // you can also create your own color
+      myDarkColor: '#ff4ecd'
+      // ...  more colors
+    },
+    space: {},
+    fonts: {}
+  }
 })
 
 
@@ -137,10 +141,12 @@ You can add styles based on themes by retrieving the generated theme class.
 import { Button, createTheme } from '@nextui-org/react';
 
 const myTheme = createTheme({
-  colors: {...},
-  fonts: {...},
-  space: {...},
-  // ...
+  theme: {
+    colors: {...},
+    fonts: {...},
+    space: {...},
+    // ...
+  }
 });
 
 const MyButton = styled(Button, {

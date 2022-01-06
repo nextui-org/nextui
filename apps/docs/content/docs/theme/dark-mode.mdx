@@ -14,7 +14,9 @@ import { createTheme } from "@nextui-org/react"
 
 const darkTheme = createTheme({
   type: 'dark',
-  colors: {...}, // override dark theme colors
+  theme: {
+    colors: {...}, // override dark theme colors
+  }
 });
 ```
 
@@ -39,12 +41,16 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 // 2. Call `createTheme` and pass your custom values
 const lightTheme = createTheme({
   type: 'light',
-  colors: {...},
+  theme: {
+    colors: {...},
+  }
 })
 
 const darkTheme = createTheme({
   type: 'dark',
-  colors: {...},
+  theme: {
+    colors: {...},
+  }
 })
 
 
@@ -106,12 +112,16 @@ import useDarkMode from 'use-dark-mode';
 // 2. Call `createTheme` and pass your custom values
 const lightTheme = createTheme({
   type: 'light',
-  colors: {...},
+  theme: {
+    colors: {...},
+  }
 })
 
 const darkTheme = createTheme({
   type: 'dark',
-  colors: {...},
+  theme: {
+    colors: {...},
+  }
 })
 
 
@@ -167,12 +177,16 @@ import { createTheme } from "@nextui-org/react"
 // 2. Call `createTheme` and pass your custom values
 const lightTheme = createTheme({
   type: 'light',
-  colors: {...},
+  theme: {
+    colors: {...},
+  }
 })
 
 const darkTheme = createTheme({
   type: 'dark',
-  colors: {...},
+  theme: {
+    colors: {...},
+  }
 })
 
 
