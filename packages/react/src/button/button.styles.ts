@@ -161,11 +161,6 @@ export const StyledButton = styled(
           bw: '$black'
         }
       },
-      rounded: {
-        true: {
-          br: '$pill'
-        }
-      },
       flat: {
         true: {
           color: '$text'
@@ -218,6 +213,11 @@ export const StyledButton = styled(
         true: {
           width: 'auto',
           minWidth: 'min-content'
+        }
+      },
+      rounded: {
+        true: {
+          br: '$pill'
         }
       }
     },
@@ -730,6 +730,42 @@ export const StyledButton = styled(
           '.nextui-button-text': {
             px: '$12'
           }
+        }
+      },
+      // rounded && size
+      {
+        rounded: true,
+        size: 'xs',
+        css: {
+          br: '$pill'
+        }
+      },
+      {
+        rounded: true,
+        size: 'sm',
+        css: {
+          br: '$pill'
+        }
+      },
+      {
+        rounded: true,
+        size: 'md',
+        css: {
+          br: '$pill'
+        }
+      },
+      {
+        rounded: true,
+        size: 'lg',
+        css: {
+          br: '$pill'
+        }
+      },
+      {
+        rounded: true,
+        size: 'xl',
+        css: {
+          br: '$pill'
         }
       }
     ],

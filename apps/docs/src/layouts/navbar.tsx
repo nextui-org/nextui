@@ -85,13 +85,14 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             <Spacer x={0.4} />
             <Badge
               css={{
+                px: '$4',
                 '@mdMax': {
                   display: 'none'
                 }
               }}
-              type="warning"
+              type="secondary"
             >
-              Alpha
+              Beta
             </Badge>
           </Row>
         </Col>
@@ -156,7 +157,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 rel="noreferrer"
               >
                 <Twitter
-                  size={20}
+                  size={24}
                   fill={
                     isDark
                       ? theme?.colors?.accents6?.value
@@ -171,7 +172,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 rel="noreferrer"
               >
                 <Discord
-                  size={20}
+                  size={24}
                   fill={
                     isDark
                       ? theme?.colors?.accents6?.value
@@ -186,7 +187,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 rel="noreferrer"
               >
                 <Github
-                  size={20}
+                  size={24}
                   fill={
                     isDark
                       ? theme?.colors?.accents6?.value
@@ -226,8 +227,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           align-items: center;
         }
         .navbar__container {
-          min-height: 64px;
-          max-height: 64px;
+          height: 76px;
           z-index: 9999;
         }
         :global(.navbar__search-row) {

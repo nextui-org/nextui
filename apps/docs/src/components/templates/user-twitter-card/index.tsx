@@ -2,63 +2,105 @@ import React, { useState } from 'react';
 import {
   useTheme,
   Avatar,
+  AvatarProps,
   Row,
+  Col,
   Text,
   Button,
   Spacer,
-  Grid
+  Grid,
+  CSS
 } from '@nextui-org/react';
+import withDefaults from '@utils/with-defaults';
 
-const UserTwitterCard: React.FC = () => {
+interface Props {
+  avatarUrl?: string;
+  avatarProps?: AvatarProps;
+  onClick?: () => void;
+}
+
+const defaultProps = {
+  avatarUrl: '/avatars/avatar-2.png'
+};
+
+export type UserTwitterCardProps = Props & { css?: CSS };
+
+const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
+  avatarUrl,
+  avatarProps,
+  css,
+  onClick,
+  ...props
+}) => {
   const { theme } = useTheme();
   const [following, setFollowing] = useState(false);
 
   return (
-    <Grid.Container className="user-twitter-card__container">
-      <Row justify="space-between">
-        <Avatar
-          size="lg"
-          src="/avatars/avatar-2.png"
-          color="gradient"
-          bordered
-          squared
-        />
-        <Button
-          auto
-          rounded
-          onClick={() => setFollowing(!following)}
-          css={{
-            borderColor: following ? '$foreground' : '$primary',
-            color: following ? '$foreground' : '$white'
-          }}
-          color={'primary'}
-          bordered={following}
-        >
-          {following ? 'Unfollow' : 'Follow'}
-        </Button>
+    <Grid.Container
+      className="user-twitter-card__container"
+      css={{
+        mw: '250px',
+        borderRadius: '$lg',
+        padding: '$sm',
+        ...(css as any)
+      }}
+      onClick={onClick}
+      {...props}
+    >
+      <Row justify="space-between" align="center">
+        <Col span={3}>
+          <Avatar
+            size="lg"
+            src={avatarUrl}
+            color="gradient"
+            bordered
+            squared
+            {...avatarProps}
+          />
+        </Col>
+        <Col span={9}>
+          <Row>
+            <Grid xs={12} direction="column">
+              <Text className="user-twitter-card__text" b size={15}>
+                Zoey Lang
+              </Text>
+              <Text
+                className="user-twitter-card__text"
+                size={14}
+                css={{ mt: '-$3' }}
+                color={theme?.colors?.accents5?.value}
+              >
+                @zoeylang
+              </Text>
+            </Grid>
+            <Button
+              auto
+              rounded
+              onClick={() => setFollowing(!following)}
+              css={{
+                maxHeight: '$space$12',
+                fs: '$tiny',
+                fontWeight: '$semibold',
+                borderColor: following ? '$foreground' : '$primary',
+                color: following ? '$foreground' : '$white'
+              }}
+              color="primary"
+              bordered={following}
+            >
+              {following ? 'Unfollow' : 'Follow'}
+            </Button>
+          </Row>
+        </Col>
       </Row>
       <Grid.Container className="user-twitter-card__username-container">
         <Grid xs={12}>
-          <Text className="user-twitter-card__text" b size={15}>
-            Zoey Lang
-          </Text>
-        </Grid>
-        <Grid xs={12}>
           <Text
             className="user-twitter-card__text"
             size={14}
+            css={{ mt: '$1' }}
             color={theme?.colors?.accents5?.value}
           >
-            @zoeylang
-          </Text>
-        </Grid>
-        <Grid xs={12}>
-          <Text
-            className="user-twitter-card__text"
-            size={14}
-            color={theme?.colors?.accents5?.value}
-          >
-            @getnextui Lover
+            Full-stack developer, @getnextui lover she/her 🎉
           </Text>
         </Grid>
       </Grid.Container>
@@ -100,28 +142,8 @@ const UserTwitterCard: React.FC = () => {
           &nbsp;Followers
         </Text>
       </Grid.Container>
-      <style jsx>
-        {`
-          :global(.user-twitter-card__container) {
-            max-width: 250px;
-            border-radius: ${theme?.radii?.lg?.value};
-            padding: ${theme?.space?.sm?.value};
-          }
-          :global(.user-twitter-card__username-container) {
-            padding: 4px 0;
-          }
-          :global(.user-twitter-card__text) {
-            margin: 0;
-          }
-          :global(.user-twitter-card__metrics-container) {
-            padding: 6px 0;
-          }
-        `}
-      </style>
     </Grid.Container>
   );
 };
 
-const MemoUserTwitterCard: React.FC = React.memo(UserTwitterCard);
-
-export default MemoUserTwitterCard;
+export default withDefaults(UserTwitterCard, defaultProps);

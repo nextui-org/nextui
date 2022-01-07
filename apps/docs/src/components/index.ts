@@ -21,6 +21,7 @@ export { default as ExampleBlock } from './templates/example-block';
 export { default as ThemeToggle } from './theme-toggle';
 export { default as KBar } from './kbar';
 export { default as Blockholder } from './blockholder';
+export { default as LooperBG } from './looper-bg';
 export * from './search';
 export * from './icons';
 export * from './templates';
