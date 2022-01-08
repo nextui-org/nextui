@@ -37,6 +37,7 @@ const Hero: React.FC = () => {
       as="section"
       css={{
         position: 'relative',
+        height: '60vh',
         '@xsMax': {
           height: 'calc(100vh - 64px)',
           overflow: 'hidden'
@@ -123,7 +124,12 @@ const Hero: React.FC = () => {
                     ? '0px 5px 20px -5px rgb(0 0 0 / 15%)'
                     : 'none',
                   bf: 'saturate(180%) blur(10px)',
-                  bg: addColorAlpha(theme?.colors.accents4.value, 0.4),
+                  bg: addColorAlpha(
+                    isDark
+                      ? theme?.colors.accents4.value
+                      : theme?.colors.accents2.value,
+                    0.4
+                  ),
                   '@xsMax': {
                     width: '100%'
                   }

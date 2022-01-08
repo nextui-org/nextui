@@ -22,6 +22,8 @@ export { default as ThemeToggle } from './theme-toggle';
 export { default as KBar } from './kbar';
 export { default as Blockholder } from './blockholder';
 export { default as LooperBG } from './looper-bg';
+export { default as FeaturesGrid } from './features-grid';
+export type { Feature as FeatureType } from './features-grid';
 export * from './search';
 export * from './icons';
 export * from './templates';

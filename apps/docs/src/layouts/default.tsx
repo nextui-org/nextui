@@ -27,7 +27,6 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
         alignContent="space-between"
         className="main-container"
         css={{
-          margin: '0 auto',
           position: 'relative',
           minHeight: '100vh'
         }}

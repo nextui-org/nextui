@@ -45,3 +45,6 @@ export { default as Palette } from './palette';
 export { default as Note } from './note';
 export { default as Plus } from './plus';
 export { default as Minus } from './minus';
+export { default as Magic } from './magic';
+export { default as Flash } from './flash';
+export { default as Devices } from './devices';

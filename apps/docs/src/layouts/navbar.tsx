@@ -127,19 +127,18 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
               </Link>
             </NextLink>
             <Spacer x={1} y={0} />
-            <NextLink href="#">
-              <Link
-                aria-disabled
-                className="navbar__disabled-link"
-                href="#"
-                title="Coming soon.."
-                css={{
-                  color: '$text'
-                }}
-              >
-                Feedback
-              </Link>
-            </NextLink>
+            <Link
+              className="navbar__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/nextui-org/nextui/discussions/new?category=feedback"
+              title="Leave your feedback"
+              css={{
+                color: '$text'
+              }}
+            >
+              Feedback
+            </Link>
           </Row>
         </Col>
         <Col className="navbar__search-container">

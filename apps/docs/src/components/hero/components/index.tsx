@@ -12,7 +12,8 @@ import {
   useTheme,
   Pagination,
   Tooltip,
-  Button
+  Button,
+  StyledButton
 } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { levitating } from '@utils/animations';
@@ -41,7 +42,7 @@ const HeroComponents = () => {
         clearable
         labelPlaceholder="Input"
         color="secondary"
-        initialValue="NetxUI"
+        initialValue="NextUI"
         css={{
           position: 'absolute',
           top: '-200px',
@@ -107,7 +108,7 @@ const HeroComponents = () => {
             transform: 'translate(0, 0)'
           }}
         >
-          <Button auto bordered color="primary" size="sm">
+          <Button auto bordered borderWeight="bold" color="primary" size="sm">
             Tooltip
           </Button>
         </Tooltip>
@@ -152,7 +153,7 @@ const HeroComponents = () => {
           blur
           css={{
             position: 'absolute',
-            bgBlur: '#666666',
+            bgBlur: `${isDark ? '#8d8d8d' : '#ffffff'}`,
             maxHeight: '$space$12',
             px: '$6',
             borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
@@ -185,14 +186,22 @@ const HeroComponents = () => {
         </Card.Footer>
       </Card>
       <Button.Group
+        bordered
         size="sm"
         color="gradient"
-        bordered
+        borderWeight="bold"
         css={{
           position: 'absolute',
           top: '-160px',
           left: '180%',
-          animation: `${levitating} 16s ease infinite`
+          animation: `${levitating} 16s ease infinite`,
+          [`& ${StyledButton}`]: {
+            '&:not(:last-child)&:not(:first-child)': {
+              pl: 0,
+              py: 'calc($space$1 + 1px)',
+              filter: 'hue-rotate(-45deg)'
+            }
+          }
         }}
       >
         <Button>Fast</Button>
@@ -208,7 +217,7 @@ const HeroComponents = () => {
           right: '-220px',
           dflex: 'center',
           animation: `${levitating} 18s ease infinite`,
-          background: '$accents1',
+          backgroundColor: isDark ? '$accents1' : '$background',
           boxShadow: '$sm',
           borderRadius: '$lg'
         }}
@@ -243,7 +252,7 @@ const HeroComponents = () => {
           animation: `${levitating} 23s ease infinite`,
           justifyContent: 'center',
           alignItems: 'center',
-          background: '$accents1',
+          backgroundColor: isDark ? '$accents1' : '$background',
           boxShadow: '$sm',
           borderRadius: '$lg'
         }}
@@ -275,10 +284,9 @@ const HeroComponents = () => {
           blur
           css={{
             position: 'absolute',
-            bgBlur: '#808080',
-            height: '$space$14',
+            bgBlur: `${isDark ? '#8d8d8d' : '#ffffff'}`,
             px: '$6',
-            py: '$1',
+            py: '$4',
             borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
             bottom: 0,
             zIndex: 1
@@ -300,16 +308,14 @@ const HeroComponents = () => {
                   auto
                   rounded
                   color="secondary"
-                  css={{ px: '$4', height: '$space$10' }}
+                  css={{
+                    px: '$4',
+                    height: '$space$10',
+                    fontSize: '$tiny',
+                    color: '$white'
+                  }}
                 >
-                  <Text
-                    css={{ color: 'inherit' }}
-                    size={10}
-                    weight="bold"
-                    transform="uppercase"
-                  >
-                    Notify Me
-                  </Text>
+                  Notify Me
                 </Button>
               </Row>
             </Col>
