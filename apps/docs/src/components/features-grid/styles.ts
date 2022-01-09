@@ -6,7 +6,7 @@ export const FeatureItem = styled(Grid, {
   borderRadius: '$lg',
   display: 'flex',
   flexDirection: 'column',
-  px: '$8',
+  p: '$8',
   bf: 'saturate(180%) blur(14px)',
   bg: 'rgba(255, 255, 255, 0.05)',
   '& .icon-wrapper': {

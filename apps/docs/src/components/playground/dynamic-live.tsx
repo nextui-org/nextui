@@ -1,6 +1,5 @@
 import React from 'react';
 import { LivePreview, LiveProvider, LiveError } from 'react-live';
-import { useTheme } from '@nextui-org/react';
 import makeCodeTheme from './code-theme';
 import Editor from './editor';
 import NextLink from 'next/link';
@@ -9,6 +8,7 @@ import * as TemplateComponents from '../templates';
 import { useMediaQuery } from '@hooks/use-media-query';
 import { validateEmail } from '@utils/index';
 import withDefaults from '@utils/with-defaults';
+import { Box } from '@components';
 import * as Components from '@nextui-org/react';
 import * as Icons from '../icons';
 
@@ -23,15 +23,41 @@ const defaultProps = {
   showEditor: true
 };
 
+const StyledWrapper = Components.styled(Box, {
+  width: '100%',
+  padding: '$lg $sm',
+  marginLeft: '-$sm',
+  display: 'flex',
+  flexWrap: 'wrap',
+  flexDirection: 'column',
+  '& > div': {
+    width: '100%'
+  },
+  variants: {
+    overflow: {
+      visible: {
+        overflowX: 'visible'
+      },
+      hidden: {
+        overflowX: 'hidden'
+      },
+      auto: {
+        overflowX: 'auto'
+      }
+    }
+  },
+  defaultVariants: {
+    overflow: 'hidden'
+  }
+});
+
 const DynamicLive: React.FC<Props> = ({
   code,
   showEditor,
   initialEditorOpen,
   overflow
 }) => {
-  const themeObject = useTheme();
-  const { theme } = themeObject;
-  const codeTheme = makeCodeTheme(themeObject);
+  const codeTheme = makeCodeTheme();
   const scope = {
     ...Components,
     ...Icons,
@@ -43,26 +69,11 @@ const DynamicLive: React.FC<Props> = ({
   };
   return (
     <LiveProvider code={code} scope={scope} theme={codeTheme}>
-      <div className="wrapper">
+      <StyledWrapper className="wrapper" overflow={overflow}>
         <LivePreview />
         <LiveError />
-      </div>
+      </StyledWrapper>
       {showEditor && <Editor initialOpen={initialEditorOpen} />}
-      <style jsx>{`
-        .wrapper {
-          width: 100%;
-          padding: ${theme?.space?.lg?.value} ${theme?.space?.sm?.value};
-          margin-left: -${theme?.space?.sm?.value};
-          display: flex;
-          flex-wrap: wrap;
-          overflow-x: ${overflow};
-          flex-direction: column;
-          box-sizing: border-box;
-        }
-        .wrapper > :global(div) {
-          width: 100%;
-        }
-      `}</style>
     </LiveProvider>
   );
 };

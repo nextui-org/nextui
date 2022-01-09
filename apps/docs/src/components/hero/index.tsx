@@ -34,16 +34,14 @@ const Hero: React.FC = () => {
       alignItems="center"
       justify="space-between"
       wrap="nowrap"
+      gap={0}
       as="section"
       css={{
         position: 'relative',
-        height: '60vh',
+        height: 'calc(84vh - 76px)',
         '@xsMax': {
           height: 'calc(100vh - 64px)',
           overflow: 'hidden'
-        },
-        '@lgMax': {
-          padding: '0 20px'
         }
       }}
     >
@@ -83,7 +81,7 @@ const Hero: React.FC = () => {
           </StyledSubtitle>
           <Spacer y={1.5} />
           <Grid.Container
-            gap={1}
+            gap={0}
             alignItems="center"
             css={{
               '@md': {

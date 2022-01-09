@@ -3,7 +3,6 @@ import Header from './header';
 import Footer from './footer';
 import Navbar from './navbar';
 import { Container } from '@nextui-org/react';
-// import { DotsContainer } from '@components';
 import { Route } from '@lib/docs/page';
 
 export interface Props {
@@ -20,6 +19,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <>
       <Header />
+      <Navbar isHome routes={routes} />
       <Container
         lg
         display="flex"
@@ -30,9 +30,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
           position: 'relative',
           minHeight: '100vh'
         }}
-        gap={0}
       >
-        <Navbar isHome routes={routes} />
         {children}
         <Footer />
       </Container>

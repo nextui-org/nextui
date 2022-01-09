@@ -1,3 +1,8 @@
+export * from './search';
+export * from './icons';
+export * from './templates';
+export * from './primitives';
+
 export { default as Logo } from './logo';
 export { default as Hero } from './hero';
 export { default as ImageBrowser } from './image-browser';
@@ -24,6 +29,5 @@ export { default as Blockholder } from './blockholder';
 export { default as LooperBG } from './looper-bg';
 export { default as FeaturesGrid } from './features-grid';
 export type { Feature as FeatureType } from './features-grid';
-export * from './search';
-export * from './icons';
-export * from './templates';
+export { default as Codeblock } from './codeblock';
+export { default as CodeDemo } from './code-demo';

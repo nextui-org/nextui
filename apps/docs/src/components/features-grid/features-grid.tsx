@@ -16,7 +16,7 @@ export type FeaturesGridProps = Props & GridProps;
 
 const FeaturesGrid: React.FC<FeaturesGridProps> = ({ features, ...props }) => {
   return (
-    <Grid.Container gap={2} {...props}>
+    <Grid.Container gap={2} css={{ px: 0 }} {...props}>
       {features.map((feat, index) => (
         <Grid key={`${feat.title}_${index}`} xs={12} sm={4} lg={3}>
           <FeatureItem>

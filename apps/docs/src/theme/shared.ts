@@ -13,10 +13,28 @@ const sharedTheme: Theme = {
 
 export const lightTheme = createTheme({
   ...sharedTheme,
-  type: 'light'
+  type: 'light',
+  theme: {
+    colors: {
+      headerBackground: 'hsla(0,0%,100%,0.8)',
+      headerIconColor: '$accents4',
+      codeBackground: '#363449',
+      codeComment: '$accents3',
+      codeCopyIconColor: '$accents2'
+    }
+  }
 });
 
 export const darkTheme = createTheme({
   ...sharedTheme,
-  type: 'dark'
+  type: 'dark',
+  theme: {
+    colors: {
+      headerBackground: 'rgba(0,0,0,0.5)',
+      headerIconColor: '$accents6',
+      codeBackground: '#111111',
+      codeComment: '$accents6',
+      codeCopyIconColor: '$accents5'
+    }
+  }
 });

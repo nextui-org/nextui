@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { Moon, Sun } from '../icons';
-import { useTheme, styled } from '@nextui-org/react';
+import { styled } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
 import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
@@ -17,6 +17,9 @@ const StyledButton = styled('button', {
   background: 'transparent',
   border: 'none',
   padding: 0,
+  '& .theme-selector-icon': {
+    color: '$colors$headerIconColor'
+  },
   '@xsMax': {
     px: '$2'
   }
@@ -24,8 +27,8 @@ const StyledButton = styled('button', {
 
 export const ThemeToggle: React.FC<Props> = ({ className }) => {
   const isMounted = useIsMounted();
-  const { setTheme } = useNextTheme();
-  const { theme, isDark } = useTheme();
+  const { setTheme, theme } = useNextTheme();
+  const isDark = theme === 'dark';
 
   if (!isMounted) {
     return (
@@ -45,25 +48,9 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
       onClick={handleToggleTheme}
     >
       {isDark ? (
-        <Sun
-          filled
-          fill={
-            isDark
-              ? theme?.colors?.accents6?.value
-              : theme?.colors?.accents4?.value
-          }
-          size={20}
-        />
+        <Sun filled className="theme-selector-icon" size={20} />
       ) : (
-        <Moon
-          filled
-          fill={
-            isDark
-              ? theme?.colors?.accents6?.value
-              : theme?.colors?.accents4?.value
-          }
-          size={20}
-        />
+        <Moon filled className="theme-selector-icon" size={20} />
       )}
     </StyledButton>
   );

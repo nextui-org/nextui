@@ -23,7 +23,10 @@ import { useTheme as useNextTheme } from 'next-themes';
 const StyledContainer = styled('div', {
   dflex: 'center',
   position: 'absolute',
-  zIndex: '$2'
+  zIndex: '$2',
+  '@xsMax': {
+    display: 'none'
+  }
 });
 
 const HeroComponents = () => {

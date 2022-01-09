@@ -3,8 +3,7 @@ import {
   Snippet,
   StyledSnippetPre,
   globalCss,
-  StyledSnippetCopyButton,
-  useTheme
+  StyledSnippetCopyButton
 } from '@nextui-org/react';
 import makeCodeTheme from '../playground/code-theme';
 
@@ -18,9 +17,7 @@ const globalStyles = globalCss({
 const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
   children
 }) => {
-  const themeObj = useTheme();
-  const { theme, isDark } = themeObj;
-  const codeTheme = makeCodeTheme(themeObj);
+  const codeTheme = makeCodeTheme();
   const stringColor = codeTheme.styles.find((style) =>
     style.types.includes('string')
   );
@@ -101,9 +98,7 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
         [`& ${StyledSnippetCopyButton}`]: {
           bg: codeTheme.plain.backgroundColor,
           path: {
-            fill: !isDark
-              ? theme?.colors?.accents2?.value
-              : theme?.colors?.accents5?.value
+            fill: '$colors$codeCopyIconColor'
           }
         }
       }}

@@ -20,15 +20,16 @@ import {
   useBodyScroll
 } from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
+import { Container } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@hooks/use-media-query';
 import { addColorAlpha } from '@utils/index';
 import { isActive } from '@utils/links';
+import { StyledNavContainer } from './styles';
 
 export interface Props {
-  isHome?: boolean;
-  detached?: boolean;
   routes?: Route[];
+  isHome?: boolean;
 }
 
 const MobileNavigation = dynamic(
@@ -45,12 +46,30 @@ const SearchInput = dynamic(
   }
 );
 
-const Navbar: React.FC<Props> = ({ detached, routes }) => {
+const Navbar: React.FC<Props> = ({ isHome, routes }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
   const { theme, isDark } = useTheme();
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
+  const [scrollPosition, setScrollPosition] = useState(
+    (typeof window !== 'undefined' && window.pageYOffset) || 0
+  );
+
+  const detached = scrollPosition > 0;
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll.bind(this));
+    return () => {
+      window.removeEventListener('scroll', onScroll.bind(this));
+    };
+  }, []);
+
+  const onScroll = () => {
+    requestAnimationFrame(() => {
+      setScrollPosition(window.pageYOffset);
+    });
+  };
 
   useEffect(() => {
     if (!isMobile) {
@@ -64,12 +83,13 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
     isMobile && setBodyHidden(!expanded);
   };
 
-  const showBlur = !!expanded || !!detached;
+  const showBlur = !!expanded || !!detached || isHome;
+
   return (
-    <nav className="navbar__container">
-      <div className="navbar__wrapper">
+    <StyledNavContainer detached={detached} showBlur={showBlur}>
+      <Container lg as="nav" display="flex" wrap="nowrap" alignItems="center">
         <Col
-          className="navbar__logo-container"
+          className="navbar__logo-conta8iner"
           css={{
             '@mdMax': {
               width: '100%'
@@ -155,14 +175,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Twitter
-                  size={24}
-                  fill={
-                    isDark
-                      ? theme?.colors?.accents6?.value
-                      : theme?.colors?.accents4?.value
-                  }
-                />
+                <Twitter size={24} />
               </Link>
               <Link
                 className="navbar__social-icon"
@@ -170,14 +183,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Discord
-                  size={24}
-                  fill={
-                    isDark
-                      ? theme?.colors?.accents6?.value
-                      : theme?.colors?.accents4?.value
-                  }
-                />
+                <Discord size={24} />
               </Link>
               <Link
                 className="navbar__social-icon"
@@ -185,14 +191,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Github
-                  size={24}
-                  fill={
-                    isDark
-                      ? theme?.colors?.accents6?.value
-                      : theme?.colors?.accents4?.value
-                  }
-                />
+                <Github size={24} />
               </Link>
               <ThemeToggle className="navbar__social-icon" />
             </Row>
@@ -216,19 +215,8 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
             setBodyHidden(false);
           }}
         />
-      </div>
+      </Container>
       <style jsx>{`
-        .navbar__container,
-        .navbar__wrapper {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-        }
-        .navbar__container {
-          height: 76px;
-          z-index: 9999;
-        }
         :global(.navbar__search-row) {
           position: initial !important;
         }
@@ -274,37 +262,11 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
         }
         @media only screen and (max-width: ${theme?.breakpoints.xs.value}) {
           :global(.navbar__container) {
-            top: 0;
-            position: fixed;
-            background: ${showBlur
-              ? addColorAlpha(theme?.colors.background.value, 0.6)
-              : 'transparent'};
-            box-shadow: ${detached
-              ? '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
-              : 'none'};
             min-height: 64px;
             max-height: 64px;
           }
           :global(.navbar__search-row) {
             justify-content: center;
-          }
-          @supports (
-            (-webkit-backdrop-filter: blur(10px)) or
-              (backdrop-filter: blur(10px))
-          ) {
-            :global(.navbar__container) {
-              backdrop-filter: ${showBlur
-                ? 'saturate(180%) blur(10px)'
-                : 'none'};
-            }
-          }
-          @supports (
-            not (-webkit-backdrop-filter: blur(10px)) and not
-              (backdrop-filter: blur(10px))
-          ) {
-            :global(.navbar__container) {
-              background: ${theme?.colors.background.value};
-            }
           }
           :global(.navbar__logo-container a:active) {
             opacity: 0.7;
@@ -328,7 +290,7 @@ const Navbar: React.FC<Props> = ({ detached, routes }) => {
           }
         }
       `}</style>
-    </nav>
+    </StyledNavContainer>
   );
 };
 
