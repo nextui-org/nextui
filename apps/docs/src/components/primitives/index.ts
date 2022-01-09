@@ -1,4 +1,4 @@
-import { styled } from '@nextui-org/react';
+import { styled, Link } from '@nextui-org/react';
 
 export const Title = styled('h1', {
   display: 'inline',
@@ -20,6 +20,9 @@ export const Title = styled('h1', {
       },
       warning: {
         textGradient: '180deg, #f36534 25%, #F69F27 100%'
+      },
+      cyan: {
+        textGradient: '180deg, #00b7fa 25%, #01cfea 100%'
       }
     },
     fullWidth: {
@@ -52,4 +55,27 @@ export const Section = styled('section', {
 export const Box = styled('div', {
   // Reset
   boxSizing: 'border-box'
+});
+
+export const BlockLink = styled(Link, {
+  mt: '$12',
+  py: '$2',
+  px: '$6',
+  br: '$pill',
+  bg: '$blockLinkBackground',
+  fontSize: '$xs',
+  color: '$blockLinkColor',
+  '&:hover': {
+    bg: '$blockLinkHoverBackground'
+  },
+  variants: {
+    color: {
+      defualt: {
+        color: '$blockLinkColor'
+      }
+    }
+  },
+  defaultVariants: {
+    color: 'defualt'
+  }
 });

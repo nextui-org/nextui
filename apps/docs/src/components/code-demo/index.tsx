@@ -10,7 +10,9 @@ import hastToHtml from 'hast-util-to-html';
 import rangeParser from 'parse-numeric-range';
 import highlightLine from '@lib/rehype-highlight-line';
 import highlightWord from '@lib/rehype-highlight-word';
+import { Box } from '../primitives';
 import { Pre } from './pre';
+import { styled } from '@nextui-org/react';
 
 refractor.register(js);
 refractor.register(jsx);
@@ -20,6 +22,25 @@ refractor.register(diff);
 
 type PreProps = Omit<React.ComponentProps<typeof Pre>, 'css'>;
 
+const WindowIcon = styled(Box, {
+  size: '$6',
+  br: '$pill',
+  mr: '$4',
+  variants: {
+    color: {
+      red: {
+        bg: '$red500'
+      },
+      green: {
+        bg: '$green500'
+      },
+      yellow: {
+        bg: '$yellow500'
+      }
+    }
+  }
+});
+
 type CodeBlockProps = PreProps & {
   language: 'js' | 'jsx' | 'bash' | 'css' | 'diff';
   value: string;
@@ -27,6 +48,7 @@ type CodeBlockProps = PreProps & {
   css?: any;
   mode?: 'static' | 'typewriter';
   showLineNumbers?: boolean;
+  showWindowIcons?: boolean;
 };
 
 /**
@@ -119,6 +141,7 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
       mode,
       css,
       showLineNumbers,
+      showWindowIcons,
       ...props
     } = _props;
     let result: any = refractor.highlight(value, language);
@@ -149,10 +172,28 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
       <Pre
         ref={forwardedRef}
         className={classes}
-        css={css}
+        css={{ ...css, pt: showWindowIcons ? 0 : '$8' }}
         data-line-numbers={showLineNumbers}
         {...props}
       >
+        {showWindowIcons && (
+          <Box
+            css={{
+              dflex: 'flex-start',
+              alignItems: 'center',
+              px: '$2',
+              pt: '$5',
+              pb: '$4',
+              position: 'sticky',
+              background: '$codeBackground',
+              top: 0
+            }}
+          >
+            <WindowIcon color="red" />
+            <WindowIcon color="yellow" />
+            <WindowIcon color="green" />
+          </Box>
+        )}
         <code
           className={classes}
           dangerouslySetInnerHTML={{ __html: result }}

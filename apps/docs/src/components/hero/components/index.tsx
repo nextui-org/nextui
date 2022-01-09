@@ -6,10 +6,8 @@ import {
   Col,
   Loading,
   Text,
-  Switch,
   styled,
   Grid,
-  useTheme,
   Pagination,
   Tooltip,
   Button,
@@ -17,8 +15,7 @@ import {
 } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { levitating } from '@utils/animations';
-import { Logo, Moon, Sun, UserTwitterCard } from '@components';
-import { useTheme as useNextTheme } from 'next-themes';
+import { Logo, UserTwitterCard, ThemeSwitch } from '@components';
 
 const StyledContainer = styled('div', {
   dflex: 'center',
@@ -30,13 +27,7 @@ const StyledContainer = styled('div', {
 });
 
 const HeroComponents = () => {
-  const { setTheme } = useNextTheme();
-  const { isDark } = useTheme();
   const router = useRouter();
-
-  const handleToggleTheme = () => {
-    setTheme(isDark ? 'light' : 'dark');
-  };
 
   return (
     <StyledContainer>
@@ -54,12 +45,7 @@ const HeroComponents = () => {
           animation: `${levitating} 10s ease infinite`
         }}
       />
-      <Switch
-        initialChecked
-        size="xl"
-        iconOn={<Moon filled />}
-        iconOff={<Sun filled />}
-        onChange={handleToggleTheme}
+      <ThemeSwitch
         css={{
           position: 'absolute',
           top: '-170%',
@@ -86,7 +72,7 @@ const HeroComponents = () => {
           px: '$8',
           mw: '280px',
           animation: `${levitating} 12s ease infinite`,
-          backgroundColor: isDark ? '$accents1' : '$background',
+          backgroundColor: '$cardBackground',
           boxShadow: '$sm'
         }}
       />
@@ -156,10 +142,11 @@ const HeroComponents = () => {
           blur
           css={{
             position: 'absolute',
-            bgBlur: `${isDark ? '#8d8d8d' : '#ffffff'}`,
+            bf: 'saturate(180%) blur(10px)',
+            bg: '$backgroundBlur',
             maxHeight: '$space$12',
-            px: '$6',
             borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
+            px: '$6',
             bottom: 0,
             zIndex: 1
           }}
@@ -220,7 +207,7 @@ const HeroComponents = () => {
           right: '-220px',
           dflex: 'center',
           animation: `${levitating} 18s ease infinite`,
-          backgroundColor: isDark ? '$accents1' : '$background',
+          backgroundColor: '$cardBackground',
           boxShadow: '$sm',
           borderRadius: '$lg'
         }}
@@ -255,7 +242,7 @@ const HeroComponents = () => {
           animation: `${levitating} 23s ease infinite`,
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: isDark ? '$accents1' : '$background',
+          backgroundColor: '$cardBackground',
           boxShadow: '$sm',
           borderRadius: '$lg'
         }}
@@ -287,7 +274,8 @@ const HeroComponents = () => {
           blur
           css={{
             position: 'absolute',
-            bgBlur: `${isDark ? '#8d8d8d' : '#ffffff'}`,
+            bf: 'saturate(180%) blur(10px)',
+            bg: '$backgroundBlur',
             px: '$6',
             py: '$4',
             borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',

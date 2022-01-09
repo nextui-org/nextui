@@ -97,5 +97,28 @@ const MyComponent = () => {
 };
 
 export default MyComponent;`
+  },
+  darkModeCode: `// 1. Import createTheme
+import { createTheme, NextUIProvider } from "@nextui-org/react"
+
+// 2. Call createTheme and pass your custom values
+const darkTheme = createTheme({
+  type: 'dark',
+  theme: {
+    colors: {...},
   }
+})
+
+// 3. Apply dark theme 
+// Entry point of your app
+const App = () => {
+  return (
+    <NextUIProvider theme={darkTheme}>
+      <App />
+    </NextUIProvider>
+  )
+}
+
+export default App;
+`
 };

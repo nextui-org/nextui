@@ -24,6 +24,7 @@ export { default as Heading } from './heading';
 export { default as Keyboard } from './keyboard';
 export { default as ExampleBlock } from './templates/example-block';
 export { default as ThemeToggle } from './theme-toggle';
+export { default as ThemeSwitch } from './theme-switch';
 export { default as KBar } from './kbar';
 export { default as Blockholder } from './blockholder';
 export { default as LooperBG } from './looper-bg';
