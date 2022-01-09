@@ -23,7 +23,6 @@ import { Route } from '@lib/docs/page';
 import { Container } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@hooks/use-media-query';
-import { addColorAlpha } from '@utils/index';
 import { isActive } from '@utils/links';
 import { StyledNavContainer } from './styles';
 
@@ -49,7 +48,7 @@ const SearchInput = dynamic(
 const Navbar: React.FC<Props> = ({ isHome, routes }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
-  const { theme, isDark } = useTheme();
+  const { theme } = useTheme();
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
   const [scrollPosition, setScrollPosition] = useState(

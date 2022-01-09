@@ -7,8 +7,7 @@ import {
   Section,
   Title,
   Subtitle,
-  CodeDemo,
-  Logo
+  CodeDemo
 } from '@components';
 import landingContent from '@content/landing';
 import DefaultLayout from '@layouts/default';
