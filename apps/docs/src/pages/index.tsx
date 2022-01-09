@@ -65,9 +65,10 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
           <Title color="warning">less code.</Title>
         </Row>
         <Subtitle>
-          NextUI Components has been built taking into account Developer’s
-          Experience in mind avoding having to import multiples components for
-          showing only one.
+          NextUI components have been created with the Developer's experience
+          <br />
+          in mind, avoiding having to import multiple components to display just
+          one.
         </Subtitle>
         <Grid.Container gap={1.5}>
           <Grid xs={12} sm={6} css={{ pl: 0 }}>
