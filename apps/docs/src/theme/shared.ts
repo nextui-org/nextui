@@ -23,7 +23,7 @@ export const lightTheme = createTheme({
       codeCopyIconColor: '$accents2',
       cardBackground: '$background',
       backgroundBlur: 'rgba(255, 255, 255, 0.4)',
-      link: '#9F0EB7',
+      link: '#FF1CF7',
       blockLinkColor: '#FF1CF7',
       blockLinkBackground: '$accents1',
       blockLinkHoverBackground: '#FFD1ED'
@@ -46,7 +46,8 @@ export const darkTheme = createTheme({
       link: '#00F0FF',
       blockLinkColor: '#FFA4E3',
       blockLinkBackground: '$accents1',
-      blockLinkHoverBackground: '#55057A'
+      blockLinkHoverBackground: '#55057A',
+      selection: '$purple700'
     }
   }
 });

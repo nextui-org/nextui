@@ -23,6 +23,9 @@ export const Title = styled('h1', {
       },
       cyan: {
         textGradient: '180deg, #00b7fa 25%, #01cfea 100%'
+      },
+      green: {
+        textGradient: '180deg, #6FEE8D 25%, #17c964 100%'
       }
     },
     fullWidth: {

@@ -23,7 +23,7 @@ const Player: React.FC<unknown> = () => {
 
   return (
     <Card css={{ p: '$6', mt: '$8' }}>
-      <Card.Header css={{ d: 'flex', ai: 'center' }}>
+      <Card.Header css={{ d: 'flex', ai: 'center', py: '$8' }}>
         <Grid.Container>
           <Grid css={{ mr: '$8' }}>
             <Avatar
@@ -63,7 +63,7 @@ const Player: React.FC<unknown> = () => {
           </Grid>
         </Grid.Container>
       </Card.Header>
-      <Card.Body css={{ mt: '$5', pb: 0 }}>
+      <Card.Body css={{ mt: '$5', py: '$8' }}>
         <Row>
           <Progress
             value={30}
@@ -85,7 +85,7 @@ const Player: React.FC<unknown> = () => {
           </Text>
         </Row>
       </Card.Body>
-      <Card.Footer css={{ pt: '$2', color: '$text' }}>
+      <Card.Footer css={{ pt: '$2', color: '$text', pb: '$8' }}>
         <Row justify="space-between" align="center" css={{ mx: '$14' }}>
           <Rewind5s
             css={{

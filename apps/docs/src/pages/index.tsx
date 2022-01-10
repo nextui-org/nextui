@@ -10,7 +10,8 @@ import {
   CodeDemo,
   Player,
   BlockLink,
-  ThemeSwitch
+  ThemeSwitch,
+  CustomPagination
 } from '@components';
 import NextLink from 'next/link';
 import landingContent from '@content/landing';
@@ -18,8 +19,8 @@ import DefaultLayout from '@layouts/default';
 import { getSlug } from '@lib/docs/utils';
 import { Route, getCurrentTag, fetchDocsManifest } from '@lib/docs/page';
 import { Action, useRegisterActions } from 'kbar';
-import { getId } from '@utils/collections';
 import { Spacer, Row, Grid, Text, Col, Link } from '@nextui-org/react';
+import { getId } from '@utils/collections';
 
 interface Props {
   routes: Route[];
@@ -51,12 +52,15 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       tag={tag}
       slug={slug}
     >
+      {/* Hero */}
       <Hero />
 
+      {/* Main features */}
       <Section>
         <FeaturesGrid features={landingContent.topFeatures} />
       </Section>
 
+      {/*  Comparation  */}
       <Spacer y={4} />
       <Section>
         <Row justify="flex-start">
@@ -92,7 +96,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
                 language="jsx"
                 value={landingContent.comparativeCode.nextui}
                 css={{
-                  minHeight: 290
+                  minHeight: 340
                 }}
               />
               <Text css={{ color: '$text', fontSize: '$md' }}>NextUI</Text>
@@ -113,7 +117,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
                 showWindowIcons
                 language="jsx"
                 css={{
-                  height: 290
+                  height: 340
                 }}
                 value={landingContent.comparativeCode.others}
               />
@@ -123,6 +127,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
         </Grid.Container>
       </Section>
 
+      {/* Dark mode */}
       <Spacer y={4} />
       <Section>
         <Row justify="flex-start">
@@ -140,7 +145,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
         <Grid.Container gap={2}>
           <Grid
             xs={12}
-            sm={5}
+            sm={6}
             css={{
               pl: 0,
               '@xsMax': {
@@ -172,7 +177,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
           </Grid>
           <Grid
             xs={12}
-            sm={7}
+            sm={6}
             css={{
               pr: 0,
               '@xsMax': {
@@ -189,6 +194,84 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
                   minHeight: 300
                 }}
               />
+            </Col>
+          </Grid>
+        </Grid.Container>
+      </Section>
+
+      {/* Customization */}
+      <Spacer y={4} />
+      <Section>
+        <Row justify="flex-start">
+          <Title>Customization made</Title>
+        </Row>
+        <Row justify="flex-start">
+          <Title color="green">easy.</Title>
+        </Row>
+        <Subtitle>
+          Thanks to NextUI is based on the amazing CSS-in-JS library&nbsp;
+          <Link
+            href="https://stitches.dev/"
+            rel="noreferer noopener"
+            target="_blank"
+            css={{ color: '$green300' }}
+          >
+            Stitches
+          </Link>
+          , you can customize any components in several ways eather using
+          the&nbsp;
+          <NextLink href="/docs/theme/override-styles#using-the-css-prop">
+            <Link css={{ color: '$green300' }}>css&nbsp;</Link>
+          </NextLink>
+          prop,&nbsp;
+          <NextLink href="/docs/theme/override-styles#usign-the-styled-function">
+            <Link css={{ color: '$green300' }}>styled&nbsp;</Link>
+          </NextLink>
+          function or native css class names.
+        </Subtitle>
+        <Grid.Container gap={2}>
+          <Grid
+            xs={12}
+            sm={6}
+            css={{
+              pl: 0,
+              '@xsMax': {
+                pr: '0'
+              }
+            }}
+          >
+            <Col css={{ dflex: 'center', fd: 'column', ai: 'flex-start' }}>
+              <CodeDemo
+                showWindowIcons
+                language="jsx"
+                value={landingContent.darkModeCode}
+                css={{
+                  minHeight: 300
+                }}
+              />
+              <NextLink href="/docs/theme/override-styles">
+                <BlockLink>Learn more</BlockLink>
+              </NextLink>
+            </Col>
+          </Grid>
+          <Grid
+            xs={12}
+            sm={6}
+            css={{
+              pr: 0,
+              '@xsMax': {
+                pl: '0'
+              }
+            }}
+          >
+            <Col
+              css={{
+                dflex: 'center',
+                fd: 'column',
+                justifyContent: 'center'
+              }}
+            >
+              <CustomPagination />
             </Col>
           </Grid>
         </Grid.Container>
