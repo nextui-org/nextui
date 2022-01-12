@@ -132,17 +132,16 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
               </Link>
             </NextLink>
             <Spacer x={1} y={0} />
-            <NextLink href="#">
+            <NextLink href="/docs/components/button">
               <Link
                 aria-disabled
-                className="navbar__disabled-link"
-                href="#"
-                title="Coming soon.."
+                className="navbar__link"
+                title="Components"
                 css={{
                   color: '$text'
                 }}
               >
-                Contributors
+                Components
               </Link>
             </NextLink>
             <Spacer x={1} y={0} />

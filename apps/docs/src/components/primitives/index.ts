@@ -1,4 +1,5 @@
 import { styled, Link } from '@nextui-org/react';
+import { lightTheme } from '@theme/shared';
 
 export const Title = styled('h1', {
   display: 'inline',
@@ -73,12 +74,25 @@ export const BlockLink = styled(Link, {
   },
   variants: {
     color: {
-      defualt: {
+      default: {
         color: '$blockLinkColor'
+      },
+      green: {
+        color: '$green300',
+        bg: '$accents1',
+        '&:hover': {
+          bg: '$green800'
+        },
+        [`.${lightTheme} &`]: {
+          color: '$green500',
+          '&:hover': {
+            bg: '$green100'
+          }
+        }
       }
     }
   },
   defaultVariants: {
-    color: 'defualt'
+    color: 'default'
   }
 });

@@ -65,12 +65,12 @@ async function redirect() {
     },
     {
       source: '/docs/components',
-      destination: '/docs/components/text',
+      destination: '/docs/components/button',
       permanent: true
     },
     {
       source: '/components',
-      destination: '/docs/components/text',
+      destination: '/docs/components/button',
       permanent: true
     }
   ];

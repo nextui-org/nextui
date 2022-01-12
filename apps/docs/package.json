@@ -17,6 +17,7 @@
     "@nextui-org/react": "^1.0.2-alpha.2",
     "@types/lodash": "^4.14.170",
     "algoliasearch": "^4.10.3",
+    "canvas-confetti": "^1.4.0",
     "classnames": "^2.3.1",
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "7.1.2",
@@ -49,6 +50,7 @@
     "util.promisify": "^1.1.1"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.4.2",
     "@types/parse-numeric-range": "^0.0.1",
     "@types/react": "^17.0.11",
     "@types/react-autosuggest": "^10.1.5",

@@ -11,7 +11,7 @@ import {
   Player,
   BlockLink,
   ThemeSwitch,
-  CustomPagination
+  CustomButton
 } from '@components';
 import NextLink from 'next/link';
 import landingContent from '@content/landing';
@@ -61,7 +61,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       </Section>
 
       {/*  Comparation  */}
-      <Spacer y={4} />
+      <Spacer y={8} />
       <Section>
         <Row justify="flex-start">
           <Title>Do</Title>
@@ -128,7 +128,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       </Section>
 
       {/* Dark mode */}
-      <Spacer y={4} />
+      <Spacer y={8} />
       <Section>
         <Row justify="flex-start">
           <Title>Dark mode</Title>
@@ -200,7 +200,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       </Section>
 
       {/* Customization */}
-      <Spacer y={4} />
+      <Spacer y={8} />
       <Section>
         <Row justify="flex-start">
           <Title>Customization made</Title>
@@ -244,14 +244,11 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
               <CodeDemo
                 showWindowIcons
                 language="jsx"
-                value={landingContent.darkModeCode}
+                value={landingContent.customizationCode}
                 css={{
-                  minHeight: 300
+                  maxHeight: 320
                 }}
               />
-              <NextLink href="/docs/theme/override-styles">
-                <BlockLink>Learn more</BlockLink>
-              </NextLink>
             </Col>
           </Grid>
           <Grid
@@ -267,11 +264,13 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
             <Col
               css={{
                 dflex: 'center',
-                fd: 'column',
-                justifyContent: 'center'
+                fd: 'column'
               }}
             >
-              <CustomPagination />
+              <CustomButton />
+              <NextLink href="/docs/theme/override-styles">
+                <BlockLink color="green">Learn more</BlockLink>
+              </NextLink>
             </Col>
           </Grid>
         </Grid.Container>
