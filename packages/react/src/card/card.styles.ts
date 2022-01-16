@@ -36,7 +36,7 @@ export const StyledCard = styled('div', {
   '@motion': {
     transition: 'none'
   },
-  'img, .nextui-image': {
+  '.nextui-image': {
     width: '100%'
   },
   [`& ${StyledDrip}`]: {
@@ -150,7 +150,7 @@ export const StyledCard = styled('div', {
     },
     cover: {
       true: {
-        'img, .nextui-image': {
+        '.nextui-image': {
           objectFit: 'cover !important' // TODO: remove important when image be styled
         },
         [`& ${StyledCardBody}`]: {
@@ -158,7 +158,7 @@ export const StyledCard = styled('div', {
         }
       },
       false: {
-        'img, .nextui-image, .nextui-image-container': {
+        '.nextui-image, .nextui-image-container': {
           bblr: '0 !important', // TODO: remove important when image be styled
           bbrr: '0 !important'
         }

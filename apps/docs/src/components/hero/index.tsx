@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import {
-  useTheme,
   Container,
   Row,
   Col,
@@ -11,15 +10,10 @@ import {
   Snippet
 } from '@nextui-org/react';
 import { LooperBG } from '@components';
-import { addColorAlpha } from '@utils/index';
-import useIsMounted from '@hooks/use-is-mounted';
 import HeroComponents from './components';
 import { StyledTitle, StyledGradientTitle, StyledSubtitle } from './styles';
 
 const Hero: React.FC = () => {
-  const { theme, isDark } = useTheme();
-  const isMounted = useIsMounted();
-
   const router = useRouter();
 
   const handleGetStartedClick = () => {
@@ -115,19 +109,11 @@ const Hero: React.FC = () => {
                   borderRadius: '$pill',
                   height: '$space$14',
                   py: 0,
-                  opacity: isMounted ? 1 : 0,
                   transition: 'opacity 0.3s ease-in-out',
                   dflex: 'center',
-                  boxShadow: isDark
-                    ? '0px 5px 20px -5px rgb(0 0 0 / 15%)'
-                    : 'none',
+                  boxShadow: '$sm',
                   bf: 'saturate(180%) blur(10px)',
-                  bg: addColorAlpha(
-                    isDark
-                      ? theme?.colors.accents4.value
-                      : theme?.colors.accents2.value,
-                    0.4
-                  ),
+                  bg: '$backgroundBlur',
                   '@xsMax': {
                     width: '100%'
                   }

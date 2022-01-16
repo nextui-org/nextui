@@ -22,6 +22,9 @@ export const Title = styled('h1', {
       warning: {
         textGradient: '180deg, #f36534 25%, #F69F27 100%'
       },
+      blue: {
+        textGradient: '180deg, $blue300 25%, $blue500 100%'
+      },
       cyan: {
         textGradient: '180deg, #00b7fa 25%, #01cfea 100%'
       },
@@ -86,7 +89,20 @@ export const BlockLink = styled(Link, {
         [`.${lightTheme} &`]: {
           color: '$green500',
           '&:hover': {
-            bg: '$green100'
+            bg: '$cyan400'
+          }
+        }
+      },
+      blue: {
+        color: '$blue300',
+        bg: '$accents1',
+        '&:hover': {
+          bg: '$blue800'
+        },
+        [`.${lightTheme} &`]: {
+          color: '$blue500',
+          '&:hover': {
+            bg: '$blue100'
           }
         }
       }

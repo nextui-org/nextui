@@ -11,7 +11,9 @@ import {
   Player,
   BlockLink,
   ThemeSwitch,
-  CustomButton
+  CustomButton,
+  Box,
+  ShopCard
 } from '@components';
 import NextLink from 'next/link';
 import landingContent from '@content/landing';
@@ -60,8 +62,64 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
         <FeaturesGrid features={landingContent.topFeatures} />
       </Section>
 
+      {/* Custom themes */}
+      <Spacer y={10} />
+      <Section>
+        <Row justify="flex-start">
+          <Title>Apply your own</Title>
+        </Row>
+        <Row justify="flex-start">
+          <Title color="blue">theming&nbsp;</Title>
+          <Title>decisions.</Title>
+        </Row>
+        <Subtitle>
+          NextUI provides a simple way to customize the default themes, you can
+          change the colors, fonts, breakpoints and everything you need.
+        </Subtitle>
+        <Grid.Container gap={2}>
+          <Grid
+            xs={12}
+            sm={6}
+            css={{
+              pl: 0,
+              '@xsMax': {
+                pr: '0'
+              }
+            }}
+          >
+            <Col>
+              <ShopCard />
+              <NextLink href="/docs/theme/override-styles">
+                <BlockLink color="blue">Learn more</BlockLink>
+              </NextLink>
+            </Col>
+          </Grid>
+          <Grid
+            xs={12}
+            sm={6}
+            css={{
+              pr: 0,
+              '@mdMax': {
+                pl: '0'
+              }
+            }}
+          >
+            <Col css={{ dflex: 'center', fd: 'column', ai: 'flex-start' }}>
+              <CodeDemo
+                showWindowIcons
+                language="jsx"
+                value={landingContent.customizationCode}
+                css={{
+                  maxHeight: 320
+                }}
+              />
+            </Col>
+          </Grid>
+        </Grid.Container>
+      </Section>
+
       {/*  Comparation  */}
-      <Spacer y={8} />
+      <Spacer y={10} />
       <Section>
         <Row justify="flex-start">
           <Title>Do</Title>
@@ -117,7 +175,8 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
                 showWindowIcons
                 language="jsx"
                 css={{
-                  height: 340
+                  height: 340,
+                  boxShadow: 'none'
                 }}
                 value={landingContent.comparativeCode.others}
               />
@@ -128,7 +187,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       </Section>
 
       {/* Dark mode */}
-      <Spacer y={8} />
+      <Spacer y={10} />
       <Section>
         <Row justify="flex-start">
           <Title>Dark mode</Title>
@@ -191,7 +250,8 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
                 language="jsx"
                 value={landingContent.darkModeCode}
                 css={{
-                  minHeight: 300
+                  minHeight: 300,
+                  boxShadow: 'none'
                 }}
               />
             </Col>
@@ -200,7 +260,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       </Section>
 
       {/* Customization */}
-      <Spacer y={8} />
+      <Spacer y={10} />
       <Section>
         <Row justify="flex-start">
           <Title>Customization made</Title>
@@ -246,9 +306,13 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
                 language="jsx"
                 value={landingContent.customizationCode}
                 css={{
-                  maxHeight: 320
+                  maxHeight: 320,
+                  bs: '$lg'
                 }}
               />
+              <NextLink href="/docs/theme/override-styles">
+                <BlockLink color="green">Learn more</BlockLink>
+              </NextLink>
             </Col>
           </Grid>
           <Grid
@@ -256,22 +320,25 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
             sm={6}
             css={{
               pr: 0,
-              '@xsMax': {
+              mt: '$9',
+              '@mdMax': {
                 pl: '0'
               }
             }}
           >
-            <Col
-              css={{
-                dflex: 'center',
-                fd: 'column'
-              }}
-            >
-              <CustomButton />
-              <NextLink href="/docs/theme/override-styles">
-                <BlockLink color="green">Learn more</BlockLink>
-              </NextLink>
-            </Col>
+            <Box css={{ size: '100%', height: 320 }}>
+              <Col
+                css={{
+                  dflex: 'center',
+                  fd: 'column',
+                  height: '100%',
+                  br: '$lg',
+                  bg: 'linear-gradient(to right, #4ade80, #06b6d4)'
+                }}
+              >
+                <CustomButton />
+              </Col>
+            </Box>
           </Grid>
         </Grid.Container>
       </Section>

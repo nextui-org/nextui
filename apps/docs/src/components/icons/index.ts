@@ -59,3 +59,5 @@ export { default as Rewind5s } from './rewind5s';
 export { default as Forward5s } from './forward5s';
 export { default as NextTrack } from './next-track';
 export { default as PreviousTrack } from './previous-track';
+export { default as GamingConsole } from './gaming-console';
+export { default as Star } from './star';
