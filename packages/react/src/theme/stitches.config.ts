@@ -60,12 +60,12 @@ export const sharedVisuallyHidden = css({
   position: 'absolute'
 });
 
-export const createTheme = ({ type, theme }: Theme) => {
+export const createTheme = ({ type, theme, className }: Theme) => {
   if (!type) {
     throw new Error('Theme type is required');
   }
   return createThemeBase(
-    `${type}-theme`,
+    className || `${type}-theme`,
     deepMerge(type === 'dark' ? darkTheme : lightTheme, theme)
   );
 };

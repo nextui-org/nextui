@@ -41,6 +41,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 // 2. Call `createTheme` and pass your custom values
 const lightTheme = createTheme({
   type: 'light',
+  className: 'light', // customize the class that enables this theme, `light-theme` by default
   theme: {
     colors: {...},
   }
@@ -48,6 +49,7 @@ const lightTheme = createTheme({
 
 const darkTheme = createTheme({
   type: 'dark',
+  className: 'dark', // customize the class that enables this theme, `dark-theme` by default
   theme: {
     colors: {...},
   }
