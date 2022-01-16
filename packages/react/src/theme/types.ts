@@ -47,6 +47,7 @@ export interface TokenValue {
 
 export type Theme = {
   type?: ThemeType | string;
+  className?: string;
   theme?: BaseTheme;
 };
 
