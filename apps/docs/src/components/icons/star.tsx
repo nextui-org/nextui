@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Icon, IconProps } from './index';
+import { IconProps } from './index';
 
 const Star: React.FC<IconProps> = ({
   fill,
@@ -9,7 +9,7 @@ const Star: React.FC<IconProps> = ({
   ...props
 }) => {
   return (
-    <Icon
+    <svg
       width={size || width}
       height={size || height}
       viewBox="0 0 24 24"
@@ -24,7 +24,7 @@ const Star: React.FC<IconProps> = ({
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </Icon>
+    </svg>
   );
 };
 

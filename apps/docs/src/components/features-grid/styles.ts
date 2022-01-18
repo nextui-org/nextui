@@ -1,18 +1,17 @@
 import { Grid, styled } from '@nextui-org/react';
+import { lightTheme } from '@theme/shared';
+import { StyledCardBlur } from '@primitives';
 
-export const FeatureItem = styled(Grid, {
-  background: '$accents1',
-  boxShadow: '$sm',
-  borderRadius: '$lg',
-  display: 'flex',
-  flexDirection: 'column',
-  p: '$8',
-  bf: 'saturate(180%) blur(14px)',
-  bg: 'rgba(255, 255, 255, 0.05)',
+export const FeatureItem = styled(Grid, StyledCardBlur, {
   '& .icon-wrapper': {
     dflex: 'center',
     background: 'rgb(42,22,60)',
     br: '$pill',
     p: '$4'
+  },
+  [`.${lightTheme} &`]: {
+    '& .icon-wrapper': {
+      background: '$pink100'
+    }
   }
 });

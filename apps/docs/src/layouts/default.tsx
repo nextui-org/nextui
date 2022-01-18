@@ -21,7 +21,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
       <Header />
       <Navbar isHome routes={routes} />
       <Container
-        lg
+        lg={true}
         display="flex"
         as="main"
         alignContent="space-between"

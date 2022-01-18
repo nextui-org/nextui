@@ -1,5 +1,34 @@
-import { styled, Grid } from '@nextui-org/react';
+import { styled, Grid, Button, Card } from '@nextui-org/react';
 import { darkTheme, lightTheme } from '@theme/shared';
+import {
+  lightModernTheme,
+  lightElegantTheme,
+  lightRetroTheme,
+  darkModernTheme,
+  darkElegantTheme,
+  darkRetroTheme
+} from './themes';
+import { Star } from '../../icons';
+
+export const StyledCard = styled(Card, {
+  py: '$2',
+  mt: '$8',
+  boxShadow: '$lg',
+  br: '35px',
+  ov: 'visible',
+  [`.${darkElegantTheme} &, .${lightElegantTheme} &`]: {
+    br: '4px'
+  },
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    br: '0px'
+  },
+  [`.${lightRetroTheme} &`]: {
+    bg: '#F4E8D1'
+  },
+  [`.${darkRetroTheme} &`]: {
+    bg: '#E1CA9E'
+  }
+});
 
 export const GridItem = styled(Grid, {
   d: 'flex',
@@ -44,14 +73,51 @@ export const ProductImageContainer = styled('div', {
   minSize: '200px',
   br: '32px',
   position: 'relative',
-  background: 'linear-gradient(135deg, #010187 0%,#18000E 100%)'
+  background: 'linear-gradient(135deg, #010187 0%,#18000E 100%)',
+  [`.${darkModernTheme} &, .${lightModernTheme} &, .${darkElegantTheme} &, .${lightElegantTheme} &`]:
+    {
+      ml: '-$4',
+      transform: 'scale(1.2)',
+      background: 'linear-gradient(135deg, #870172 0%,#18000E 100%)',
+      boxShadow: '20px 30px 60px rgba(0, 0, 0, 0.15)'
+    },
+  [`.${darkElegantTheme} &, .${lightElegantTheme} &`]: {
+    background: 'linear-gradient(135deg, #323232 0%,#000000 100%)'
+  },
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    background: ' #FFD34E',
+    top: '5%',
+    left: '5%',
+    '&:after': {
+      content: '',
+      position: 'absolute',
+      top: '-5%',
+      left: '-5%',
+      size: '100%',
+      background: 'linear-gradient(135deg, #FFD34E 0%,#EE457E 100%)'
+    }
+  }
 });
 
 export const ProductImage = styled('img', {
   minWidth: '200%',
   position: 'absolute',
+  zIndex: '$10',
   top: 0,
-  left: '-45%'
+  left: '-45%',
+  [`.${darkModernTheme} &, .${lightModernTheme} &, .${darkElegantTheme} &, .${lightElegantTheme} &`]:
+    {
+      top: '12%',
+      left: '-20%',
+      minWidth: '140%'
+    },
+  [`.${darkElegantTheme} &, .${lightElegantTheme} &`]: {
+    filter: 'saturate(0)'
+  },
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    top: '-10%',
+    left: '-50%'
+  }
 });
 
 export const ProductSize = styled('div', {
@@ -65,13 +131,150 @@ export const ProductSize = styled('div', {
   zIndex: 10,
   borderRadius: '$sm',
   cursor: 'pointer',
-  transition: 'background 0.3s ease',
+  transition: 'background 0.3s ease 0s, border-radius 0.3s ease 0s',
+  [`.${darkModernTheme} &, .${lightModernTheme} &`]: {
+    color: '#A258DF'
+  },
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    color: '#333333'
+  },
   variants: {
     selected: {
       true: {
         background: '$primary',
-        color: '$white'
+        color: '$white',
+        [`.${darkModernTheme} &, .${lightModernTheme} &`]: {
+          color: '$white'
+        },
+        [`.${darkElegantTheme} &`]: {
+          color: '$black'
+        },
+        [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+          color: '$white',
+          bg: '$error'
+        }
       }
     }
+  }
+});
+
+export const StyledStar = styled(Star, {
+  position: 'absolute',
+  top: '$6',
+  right: '$8',
+  zIndex: 10,
+  cursor: 'pointer',
+  '& path': {
+    stroke: '$accents4',
+    fill: 'transparent'
+  },
+  '&:hover': {
+    '& path': {
+      stroke: '$yellow500'
+    }
+  },
+  [`.${darkModernTheme} &, .${lightModernTheme} &`]: {
+    top: '$4',
+    left: '$4'
+  },
+  [`.${darkElegantTheme} &, .${lightElegantTheme} &`]: {
+    top: '$4',
+    left: '28%'
+  },
+  variants: {
+    liked: {
+      true: {
+        '& path': {
+          fill: '$yellow400',
+          stroke: '$yellow400'
+        },
+        '&:hover': {
+          '& path': {
+            fill: '$yellow500'
+          }
+        }
+      },
+      false: {
+        [`.${darkModernTheme} &, .${lightModernTheme} &`]: {
+          '& path': {
+            stroke: '$gray300'
+          }
+        }
+      }
+    }
+  }
+});
+
+const BaseText = styled('p', {
+  p: 0,
+  m: 0,
+  transformOrigin: 'left',
+  [`.${darkElegantTheme} &, .${lightElegantTheme} &`]: {
+    fontFamily: '$mono',
+    fontWeight: '$normal'
+  },
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    textTransform: 'uppercase'
+  }
+});
+
+export const StyledTitle = styled(BaseText, {
+  transformOrigin: 'left',
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    color: '$black'
+  }
+});
+
+export const StyledSubtitle = styled(BaseText, {
+  color: '$accents6',
+  fontWeight: '$semibold',
+  fontSize: '$base',
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    fontSize: '$xs'
+  }
+});
+
+export const StyledPrice = styled(BaseText, {
+  fontSize: '18px',
+  fontWeight: '$bold',
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    color: '$black'
+  }
+});
+
+export const StyledOldPrice = styled(BaseText, {
+  ml: '$8',
+  textDecorationLine: 'line-through',
+  fontWeight: '$semibold',
+  fontSize: '18px',
+  color: '$accents6'
+});
+
+export const StyledDiscount = styled(BaseText, {
+  ml: '$4',
+  color: '$success',
+  fontSize: '18px',
+  fontWeight: '$semibold'
+});
+
+export const BuyButton = styled(Button, {
+  ov: 'hidden',
+  tt: 'none',
+  transition: '$default',
+  [`.${darkModernTheme} &, .${lightModernTheme} &`]: {
+    borderRadius: '$pill'
+  },
+  [`.${darkElegantTheme} &, .${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    color: '$black'
+  },
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    textTransform: 'uppercase',
+    fontWeight: '$bold'
+  }
+});
+
+export const AddToBagButton = styled(BuyButton, {
+  [`.${darkElegantTheme} &`]: {
+    color: '$white'
   }
 });

@@ -13,7 +13,8 @@ import {
   ThemeSwitch,
   CustomButton,
   Box,
-  ShopCard
+  ShopCard,
+  Community
 } from '@components';
 import NextLink from 'next/link';
 import landingContent from '@content/landing';
@@ -89,7 +90,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
           >
             <Col>
               <ShopCard />
-              <NextLink href="/docs/theme/override-styles">
+              <NextLink href="/docs/theme/customize-theme">
                 <BlockLink color="blue">Learn more</BlockLink>
               </NextLink>
             </Col>
@@ -261,7 +262,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
 
       {/* Customization */}
       <Spacer y={10} />
-      <Section>
+      <Section css={{ position: 'relative', zIndex: '$5' }}>
         <Row justify="flex-start">
           <Title>Customization made</Title>
         </Row>
@@ -342,6 +343,18 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
           </Grid>
         </Grid.Container>
       </Section>
+
+      {/* Communnity */}
+      <Spacer y={10} />
+      <Section>
+        <Community
+          twitter="https://twitter.com/getnextui"
+          discord="https://discord.gg/9b6yyZKmH4"
+          github="https://github.com/nextui-org/nextui"
+        />
+      </Section>
+
+      <Spacer y={4} />
     </DefaultLayout>
   );
 };

@@ -86,7 +86,13 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
 
   return (
     <StyledNavContainer detached={detached} showBlur={showBlur}>
-      <Container lg as="nav" display="flex" wrap="nowrap" alignItems="center">
+      <Container
+        lg={true}
+        as="nav"
+        display="flex"
+        wrap="nowrap"
+        alignItems="center"
+      >
         <Col
           className="navbar__logo-conta8iner"
           css={{

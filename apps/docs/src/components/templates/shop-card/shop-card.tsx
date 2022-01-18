@@ -1,142 +1,120 @@
-import React from 'react';
-import { Card, Col, Grid, Row, Text, Button, Spacer } from '@nextui-org/react';
-import { Box, Logo } from '@components';
-import { Palette, Magic, GamingConsole, Star } from '../../icons';
+import React, { useMemo } from 'react';
+import {
+  Card,
+  Col,
+  Grid,
+  Row,
+  Text,
+  Spacer,
+  useTheme
+} from '@nextui-org/react';
+import { Box } from '@components';
 import {
   GridItem,
   TabText,
   ProductSize,
   ProductImage,
-  ProductImageContainer
+  ProductImageContainer,
+  StyledStar,
+  BuyButton,
+  AddToBagButton,
+  StyledTitle,
+  StyledSubtitle,
+  StyledPrice,
+  StyledOldPrice,
+  StyledDiscount,
+  StyledCard
 } from './styles';
+import { get } from 'lodash';
+import { themes, sizes } from './content';
+import { motion } from 'framer-motion';
+import framerAnimations from './animations';
+import {
+  lightModernTheme,
+  darkModernTheme,
+  lightElegantTheme,
+  darkElegantTheme,
+  lightRetroTheme,
+  darkRetroTheme
+} from './themes';
 
-const tabs = [
-  {
-    id: 'nextui',
-    title: 'NextUI',
-    icon: () => (
-      <Logo
-        small
-        size={44}
-        css={{
-          '& path': {
-            fill: 'currentColor'
-          }
-        }}
-      />
-    )
-  },
-  {
-    id: 'modern',
-    title: 'Modern',
-    icon: () => <Palette size={44} fill="currentColor" />
-  },
-  {
-    id: 'elegant',
-    title: 'Elegant',
-    icon: () => <Magic size={44} fill="currentColor" />
-  },
-  {
-    id: 'retro',
-    title: 'Retro',
-    icon: () => <GamingConsole size={44} fill="currentColor" />
+const getActiveTheme = (id: string, isDark?: boolean) => {
+  switch (id) {
+    case 'nextui':
+      return;
+    case 'modern':
+      return isDark ? darkModernTheme : lightModernTheme;
+    case 'elegant':
+      return isDark ? darkElegantTheme : lightElegantTheme;
+    case 'retro':
+      return isDark ? darkRetroTheme : lightRetroTheme;
+    default:
+      return;
   }
-];
-
-const sizes = [
-  {
-    id: 'extra-small',
-    title: 'XS'
-  },
-  {
-    id: 'small',
-    title: 'S'
-  },
-  {
-    id: 'medium',
-    title: 'M'
-  },
-  {
-    id: 'large',
-    title: 'L'
-  },
-  {
-    id: 'extra-large',
-    title: 'XL'
-  }
-];
+};
 
 const ShopCard: React.FC<unknown> = () => {
-  const [activeTab, setActiveTab] = React.useState(tabs[0].id);
+  const [activeTheme, setActiveTheme] = React.useState(themes[0].id);
   const [activeSize, setActiveSize] = React.useState(sizes[0].id);
   const [liked, setLiked] = React.useState(false);
+  const { isDark } = useTheme();
+
+  const animations = get(framerAnimations, activeTheme);
+
+  const theme = useMemo(
+    () => getActiveTheme(activeTheme, isDark),
+    [activeTheme, isDark]
+  );
 
   return (
-    <Box>
+    <Box className={theme} css={{ ov: 'visible' }}>
       <Grid.Container gap={10} css={{ py: 0 }}>
-        {tabs.map(({ id, title, icon }, index) => (
+        {themes.map(({ id, title, icon }, index) => (
           <GridItem
             key={`${id}-${index}`}
             css={{ pl: 0 }}
-            onClick={() => setActiveTab(id)}
-            selected={activeTab === id}
+            onClick={() => setActiveTheme(id)}
+            selected={activeTheme === id}
           >
             {icon()}
             <TabText>{title}</TabText>
           </GridItem>
         ))}
       </Grid.Container>
-      <Card css={{ py: '$2', mt: '$8', boxShadow: '$lg', br: '35px' }}>
-        <Card.Body css={{ px: '$8', position: 'relative', ov: 'hidden' }}>
-          <Star
+      <StyledCard>
+        <Card.Body css={{ px: '$8', position: 'relative', ov: 'visible' }}>
+          <StyledStar
             size={30}
-            css={{
-              position: 'absolute',
-              top: '$6',
-              right: '$8',
-              cursor: 'pointer',
-              '& path': {
-                stroke: liked ? '$yellow500' : '$accents4',
-                fill: liked ? '$yellow500' : 'transparent'
-              },
-              '&:hover': {
-                '& path': {
-                  stroke: liked ? '$yellow600' : 'currentcolor'
-                }
-              }
-            }}
+            liked={liked}
             onClick={() => setLiked(!liked)}
           />
           <Grid.Container>
             <Grid xs={4}>
-              <ProductImageContainer>
+              <ProductImageContainer
+                as={motion.div}
+                animate={animations.productContainer}
+              >
                 <ProductImage src="/images/shoes-1.png" />
               </ProductImageContainer>
             </Grid>
             <Grid xs={8} css={{ px: '$10' }}>
-              <Col>
-                <Text h4>Nike Adapt BB 2.0</Text>
-                <Text b size={14} css={{ color: '$accents6' }}>
+              <Col as="nav">
+                <StyledTitle as={motion.h4} animate={animations.title}>
+                  Nike Adapt BB 2.0
+                </StyledTitle>
+                <StyledSubtitle as={motion.p} animate={animations.subtitle}>
                   Consistent, customized fit, game-changing.
-                </Text>
+                </StyledSubtitle>
                 <Row css={{ py: '$4' }}>
-                  <Text size={18} b>
+                  <StyledPrice as={motion.p} animate={animations.price}>
                     $279.97
-                  </Text>
-                  <Text
-                    b
-                    size={18}
-                    css={{
-                      textDecorationLine: 'line-through',
-                      ml: '$8',
-                      color: '$accents6'
-                    }}
-                  >
+                  </StyledPrice>
+                  <StyledOldPrice as={motion.p} animate={animations.oldPrice}>
                     $350
-                  </Text>
-                  <Text b size={18} css={{ ml: '$4', color: '$success' }}>
+                  </StyledOldPrice>
+                  <StyledDiscount as={motion.p} animate={animations.discount}>
                     20% off
-                  </Text>
+                  </StyledDiscount>
                 </Row>
                 <Grid.Container gap={2} css={{ py: '$4' }}>
                   {sizes.map(({ id, title }, index) => (
@@ -145,7 +123,12 @@ const ShopCard: React.FC<unknown> = () => {
                       css={{ pl: 0 }}
                       onClick={() => setActiveSize(id)}
                     >
-                      <ProductSize selected={activeSize === id}>
+                      <ProductSize
+                        as={motion.div}
+                        selected={activeSize === id}
+                        animate={animations.productSizeButton}
+                        transition={{ duration: 0.1 }}
+                      >
                         <Text
                           b
                           size={14}
@@ -158,28 +141,19 @@ const ShopCard: React.FC<unknown> = () => {
                   ))}
                 </Grid.Container>
                 <Row css={{ pt: '$4' }}>
-                  <Button auto shadow css={{ ov: 'hidden', tt: 'none' }}>
+                  <BuyButton auto shadow>
                     Buy now
-                  </Button>
+                  </BuyButton>
                   <Spacer x={0.5} />
-                  <Button
-                    auto
-                    bordered
-                    css={{
-                      ov: 'hidden',
-                      color: '$accents6',
-                      borderColor: '$accents6',
-                      tt: 'none'
-                    }}
-                  >
+                  <AddToBagButton auto bordered>
                     Add to bag
-                  </Button>
+                  </AddToBagButton>
                 </Row>
               </Col>
             </Grid>
           </Grid.Container>
         </Card.Body>
-      </Card>
+      </StyledCard>
     </Box>
   );
 };

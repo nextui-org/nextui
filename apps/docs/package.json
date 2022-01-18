@@ -19,6 +19,7 @@
     "algoliasearch": "^4.10.3",
     "canvas-confetti": "^1.4.0",
     "classnames": "^2.3.1",
+    "framer-motion": "^5.6.0",
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "7.1.2",
     "kbar": "0.1.0-beta.6",

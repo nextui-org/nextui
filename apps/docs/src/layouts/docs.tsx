@@ -46,7 +46,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <>
       <Navbar routes={routes} />
-      <Container lg as="main" className="docs__container" display="flex">
+      <Container lg={true} as="main" className="docs__container" display="flex">
         <Header {...meta} />
         <Row className="docs__content" gap={0}>
           <Sticky offset={84} className="docs__left-sidebar">

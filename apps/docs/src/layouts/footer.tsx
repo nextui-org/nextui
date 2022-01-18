@@ -16,18 +16,7 @@ const Footer: React.FC = () => {
         }
       }}
     >
-      <Row
-        justify="flex-end"
-        css={{
-          '@mdMax': {
-            justifyContent: 'space-between'
-          },
-          '@xsMax': {
-            justifyContent: 'space-between',
-            px: '$sm'
-          }
-        }}
-      >
+      <Row justify="center">
         <Text
           span
           className="footer__copy"

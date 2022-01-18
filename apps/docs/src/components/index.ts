@@ -32,3 +32,4 @@ export { default as FeaturesGrid } from './features-grid';
 export type { Feature as FeatureType } from './features-grid';
 export { default as Codeblock } from './codeblock';
 export { default as CodeDemo } from './code-demo';
+export { default as Community } from './community';

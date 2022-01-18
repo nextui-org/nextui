@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
 
   return (
     <Container
-      lg
+      lg={true}
       className="hero__container"
       display="flex"
       alignItems="center"

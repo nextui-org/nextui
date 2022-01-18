@@ -8,6 +8,7 @@
         "alias": {
           "@content": "./content",
           "@components": "./src/components",
+          "@primitives": "./src/components/primitives",
           "@layouts": "./src/layouts",
           "@hooks": "./src/hooks",
           "@utils": "./src/utils",
