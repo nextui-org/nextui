@@ -14,7 +14,8 @@ import {
   CustomButton,
   Box,
   ShopCard,
-  Community
+  Community,
+  InstallBanner
 } from '@components';
 import NextLink from 'next/link';
 import landingContent from '@content/landing';
@@ -263,6 +264,17 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       {/* Customization */}
       <Spacer y={10} />
       <Section css={{ position: 'relative', zIndex: '$5' }}>
+        <Row
+          css={{
+            position: 'absolute',
+            top: '-25%',
+            right: '-30%',
+            transform: 'rotate(-50deg)',
+            zIndex: '-$1'
+          }}
+        >
+          <img src="/gradient-left-dark.svg" alt="gradient right background" />
+        </Row>
         <Row justify="flex-start">
           <Title>Customization made</Title>
         </Row>
@@ -345,7 +357,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       </Section>
 
       {/* Last but not least */}
-      <Spacer y={10} />
+      <Spacer y={6} />
       <Section css={{ zIndex: '$10' }}>
         <Row justify="center">
           <Title>Last&nbsp;</Title>
@@ -363,8 +375,14 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
         <FeaturesGrid features={landingContent.fullFeatures} />
       </Section>
 
+      {/* Installation banner */}
+      <Spacer y={6} />
+      <Section css={{ zIndex: '$10' }}>
+        <InstallBanner />
+      </Section>
+
       {/* Communnity */}
-      <Spacer y={10} />
+      <Spacer y={6} />
       <Section>
         <Community />
       </Section>

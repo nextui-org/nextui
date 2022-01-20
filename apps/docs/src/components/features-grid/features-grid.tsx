@@ -1,25 +1,46 @@
 import React from 'react';
-import { Grid, GridProps, Text, Row } from '@nextui-org/react';
+import { Grid, GridProps, Text, Row, CSS } from '@nextui-org/react';
 import { FeatureItem } from './styles';
+import withDefaults from '@utils/with-defaults';
 
 export interface Feature {
   title: string;
   description: string;
   icon: React.ReactNode;
+  href?: string;
 }
 
 interface Props {
   features: Feature[];
+  xs?: GridProps['xs'];
+  sm?: GridProps['sm'];
+  lg?: GridProps['lg'];
+  css?: CSS;
+  itemCss?: CSS;
 }
 
 export type FeaturesGridProps = Props & GridProps;
 
-const FeaturesGrid: React.FC<FeaturesGridProps> = ({ features, ...props }) => {
+const defaultProps = {
+  xs: 12,
+  sm: 4,
+  lg: 3
+};
+
+const FeaturesGrid: React.FC<FeaturesGridProps> = ({
+  features,
+  xs,
+  sm,
+  lg,
+  css,
+  itemCss,
+  ...props
+}) => {
   return (
-    <Grid.Container gap={2} css={{ px: 0 }} {...props}>
+    <Grid.Container gap={2} css={{ px: 0, ...(css as any) }} {...props}>
       {features.map((feat, index) => (
-        <Grid key={`${feat.title}_${index}`} xs={12} sm={4} lg={3}>
-          <FeatureItem>
+        <Grid key={`${feat.title}_${index}`} xs={xs} sm={sm} lg={lg}>
+          <FeatureItem clickable={!!feat.href} css={itemCss}>
             <Row align="center">
               <div className="icon-wrapper">{feat.icon}</div>
               <Text
@@ -49,4 +70,4 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({ features, ...props }) => {
   );
 };
 
-export default FeaturesGrid;
+export default withDefaults(FeaturesGrid, defaultProps);

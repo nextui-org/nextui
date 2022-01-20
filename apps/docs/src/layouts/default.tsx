@@ -28,7 +28,10 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
         className="main-container"
         css={{
           position: 'relative',
-          minHeight: '100vh'
+          minHeight: '100vh',
+          '@mdMax': {
+            overflowX: 'hidden'
+          }
         }}
       >
         {children}

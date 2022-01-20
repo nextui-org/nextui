@@ -68,11 +68,11 @@ const ShopCard: React.FC<unknown> = () => {
 
   return (
     <Box className={theme} css={{ ov: 'visible' }}>
-      <Grid.Container gap={10} css={{ py: 0 }}>
+      <Grid.Container gap={5} css={{ py: 0 }}>
         {themes.map(({ id, title, icon }, index) => (
           <GridItem
             key={`${id}-${index}`}
-            css={{ pl: 0 }}
+            css={{ pl: 0, '@xs': { mr: '$10' } }}
             onClick={() => setActiveTheme(id)}
             selected={activeTheme === id}
           >
@@ -81,6 +81,7 @@ const ShopCard: React.FC<unknown> = () => {
           </GridItem>
         ))}
       </Grid.Container>
+      <Spacer y={0.1} />
       <StyledCard>
         <Card.Body css={{ px: '$8', position: 'relative', ov: 'visible' }}>
           <StyledStar

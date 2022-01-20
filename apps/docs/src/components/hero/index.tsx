@@ -34,8 +34,7 @@ const Hero: React.FC = () => {
         position: 'relative',
         height: 'calc(84vh - 76px)',
         '@xsMax': {
-          height: 'calc(100vh - 64px)',
-          overflow: 'hidden'
+          height: 'calc(100vh - 64px)'
         }
       }}
     >
@@ -94,7 +93,7 @@ const Hero: React.FC = () => {
                   maxHeight: '$space$14',
                   '@xsMax': {
                     width: '100%',
-                    marginBottom: 0
+                    marginBottom: '$8'
                   }
                 }}
               >
