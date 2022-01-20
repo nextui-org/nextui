@@ -61,3 +61,8 @@ export { default as NextTrack } from './next-track';
 export { default as PreviousTrack } from './previous-track';
 export { default as GamingConsole } from './gaming-console';
 export { default as Star } from './star';
+export { default as Server } from './server';
+export { default as TagUser } from './tag-user';
+export { default as RoundPointer } from './round-pointer';
+export { default as Maximize } from './maximize';
+export { default as HtmlLogo } from './html-logo';

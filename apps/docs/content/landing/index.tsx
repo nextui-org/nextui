@@ -1,5 +1,16 @@
 import React from 'react';
-import { Moon, Magic, Flash, Devices } from '@components';
+import {
+  Moon,
+  Magic,
+  Flash,
+  Devices,
+  Server,
+  TagUser,
+  RoundPointer,
+  Maximize,
+  CodeDocument,
+  HtmlLogo
+} from '@components';
 
 export default {
   topFeatures: [
@@ -26,6 +37,56 @@ export default {
       description:
         'NextUI is fully-typed to minimize the learning curve, and provide the best possible developer experience.',
       icon: <Devices fill="#FF4ECD" />
+    }
+  ],
+  fullFeatures: [
+    {
+      title: 'Server side render (SSR)',
+      description:
+        'All NextUI components support cross-browser server-side rendering and provides a simple way to implement it in your project.',
+      icon: <Server fill="#FF4ECD" />
+    },
+    {
+      title: 'Accesible components',
+      description:
+        'NextUI components follow the WAI-ARIA guidelines, provide keyboard support and sensible focus management.',
+      icon: <TagUser fill="#FF4ECD" />
+    },
+    {
+      title: 'No annoying focus ring',
+      description:
+        'Focus ring will appear only when user navigates with keyboard.',
+      icon: <RoundPointer fill="#FF4ECD" />
+    },
+    {
+      title: 'Built-in media queries',
+      description:
+        'NextUI provides a set of common media queries that, along with Stitches breakpoints allow you create responsive layouts faster.',
+      icon: <Maximize fill="#FF4ECD" />
+    },
+    {
+      title: 'TypeScript based',
+      description:
+        'Build type safe applications, NextUI has a fully-typed API to minimize the learning curve, and help you build applications.',
+      icon: <CodeDocument filled={false} fill="#FF4ECD" />
+    },
+    {
+      title: 'Override components tags',
+      description:
+        'A polymorphic `as` prop is included in all NextUI components.',
+      icon: <HtmlLogo fill="#FF4ECD" />
+    },
+    {
+      title: 'Critical Path CSS',
+      description:
+        "Since NextUI is based on Stitches, it only injects the styles which are actually used, so your users don't download unnecessary CSS.",
+      icon: <Flash fill="#FF4ECD" />
+    },
+    {
+      title: 'Beatifully designed',
+      description:
+        'NextUI components are unique and are not tied to any visual trend or design rule, which makes us unique and of course your projects as well.',
+      icon: <Magic fill="#FF4ECD" />
     }
   ],
   comparativeCode: {

@@ -231,6 +231,9 @@ export const StyledSubtitle = styled(BaseText, {
   fontSize: '$base',
   [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
     fontSize: '$xs'
+  },
+  [`.${darkRetroTheme} &`]: {
+    color: '$accents4'
   }
 });
 
@@ -247,14 +250,20 @@ export const StyledOldPrice = styled(BaseText, {
   textDecorationLine: 'line-through',
   fontWeight: '$semibold',
   fontSize: '18px',
-  color: '$accents6'
+  color: '$accents6',
+  [`.${darkRetroTheme} &`]: {
+    color: '$accents5'
+  }
 });
 
 export const StyledDiscount = styled(BaseText, {
   ml: '$4',
   color: '$success',
   fontSize: '18px',
-  fontWeight: '$semibold'
+  fontWeight: '$semibold',
+  [`.${darkRetroTheme} &`]: {
+    color: '$accents5'
+  }
 });
 
 export const BuyButton = styled(Button, {

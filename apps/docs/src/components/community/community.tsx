@@ -3,12 +3,19 @@ import { Grid, Text, Row, Spacer } from '@nextui-org/react';
 import { StyledCommunityCard } from './styles';
 import { Twitter, Discord, Github, LooperBG } from '@components';
 import { Title, Subtitle } from '@primitives';
+import withDefaults from '@utils/with-defaults';
 
 export interface CommunityProps {
-  twitter: string;
-  github: string;
-  discord: string;
+  twitter?: string;
+  github?: string;
+  discord?: string;
 }
+
+const defaultProps = {
+  twitter: 'https://twitter.com/getnextui',
+  github: 'https://discord.gg/9b6yyZKmH4',
+  discord: 'https://github.com/nextui-org/nextui'
+};
 
 const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
   return (
@@ -19,7 +26,7 @@ const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
         </Row>
         <Row justify="center">
           <Subtitle css={{ textAlign: 'center' }}>
-            Get involved in out comunnity. Everyone is welcome!
+            Get involved in our comunnity. Everyone is welcome!
           </Subtitle>
         </Row>
       </Grid>
@@ -91,4 +98,4 @@ const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
   );
 };
 
-export default Community;
+export default withDefaults(Community, defaultProps);

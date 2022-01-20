@@ -344,14 +344,29 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
         </Grid.Container>
       </Section>
 
+      {/* Last but not least */}
+      <Spacer y={10} />
+      <Section css={{ zIndex: '$10' }}>
+        <Row justify="center">
+          <Title>Last&nbsp;</Title>
+          <Title color="warning">but&nbsp;</Title>
+        </Row>
+        <Row justify="center">
+          <Title>not&nbsp;</Title>
+          <Title color="pink">least.</Title>
+        </Row>
+        <Row justify="center">
+          <Subtitle css={{ textAlign: 'center' }}>
+            A fully-featured React UI library.
+          </Subtitle>
+        </Row>
+        <FeaturesGrid features={landingContent.fullFeatures} />
+      </Section>
+
       {/* Communnity */}
       <Spacer y={10} />
       <Section>
-        <Community
-          twitter="https://twitter.com/getnextui"
-          discord="https://discord.gg/9b6yyZKmH4"
-          github="https://github.com/nextui-org/nextui"
-        />
+        <Community />
       </Section>
 
       <Spacer y={4} />
