@@ -17,6 +17,7 @@ import {
   Community,
   InstallBanner
 } from '@components';
+import { darkTheme } from '@theme/shared';
 import NextLink from 'next/link';
 import landingContent from '@content/landing';
 import DefaultLayout from '@layouts/default';
@@ -66,7 +67,21 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
 
       {/* Custom themes */}
       <Spacer y={10} />
-      <Section>
+      <Section css={{ position: 'relative' }}>
+        <Box
+          css={{
+            position: 'absolute',
+            top: '-25%',
+            right: '-30%',
+            zIndex: '-$1',
+            [`.${darkTheme} &`]: {
+              right: 0,
+              left: '-30%'
+            }
+          }}
+        >
+          <img src="/theming-gradient.svg" alt="theming background" />
+        </Box>
         <Row justify="flex-start">
           <Title>Apply your own</Title>
         </Row>
@@ -190,7 +205,21 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
 
       {/* Dark mode */}
       <Spacer y={10} />
-      <Section>
+      <Section css={{ position: 'relative' }}>
+        <Box
+          css={{
+            position: 'absolute',
+            top: '-25%',
+            left: '-20%',
+            zIndex: '-$1',
+            [`.${darkTheme} &`]: {
+              left: '30%',
+              right: '-30%'
+            }
+          }}
+        >
+          <img src="/dark-mode-gradient.svg" alt="dark mode background" />
+        </Box>
         <Row justify="flex-start">
           <Title>Dark mode</Title>
         </Row>
@@ -263,18 +292,24 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
 
       {/* Customization */}
       <Spacer y={10} />
-      <Section css={{ position: 'relative', zIndex: '$5' }}>
-        <Row
+      <Section css={{ position: 'relative' }}>
+        <Box
           css={{
             position: 'absolute',
-            top: '-25%',
-            right: '-30%',
-            transform: 'rotate(-50deg)',
-            zIndex: '-$1'
+            top: '-30%',
+            right: '-35%',
+            zIndex: '-$1',
+            [`.${darkTheme} &`]: {
+              top: '-30%',
+              left: '-35%'
+            }
           }}
         >
-          <img src="/gradient-left-dark.svg" alt="gradient right background" />
-        </Row>
+          <img
+            src="/customization-gradient.svg"
+            alt="customization background"
+          />
+        </Box>
         <Row justify="flex-start">
           <Title>Customization made</Title>
         </Row>
@@ -352,6 +387,72 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
                 <CustomButton />
               </Col>
             </Box>
+          </Grid>
+        </Grid.Container>
+      </Section>
+
+      {/* Customization */}
+      <Spacer y={10} />
+      <Section css={{ position: 'relative' }}>
+        <Row justify="flex-start">
+          <Title>Built-in Stitches</Title>
+        </Row>
+        <Row justify="flex-start">
+          <Title color="violet">utilities.</Title>
+        </Row>
+        <Subtitle>
+          NextUI provides a set of out of the box&nbsp;
+          <Link
+            href="https://stitches.dev/"
+            rel="noreferer noopener"
+            target="_blank"
+            css={{ color: '#FF1CF7' }}
+          >
+            Stitches
+          </Link>
+          &nbsp; utilities for speeding up your workflow by abbreviating CSS
+          properties, grouping multiple CSS properties together, or simplifying
+          a tricky syntax.
+        </Subtitle>
+        <Grid.Container gap={2}>
+          <Grid
+            xs={12}
+            sm={6}
+            css={{
+              pl: 0,
+              '@xsMax': {
+                pr: '0'
+              }
+            }}
+          >
+            <Col>
+              <ShopCard />
+              <NextLink href="/docs/theme/customize-theme">
+                <BlockLink color="blue">Learn more</BlockLink>
+              </NextLink>
+            </Col>
+          </Grid>
+          <Grid
+            xs={12}
+            sm={6}
+            css={{
+              pr: 0,
+              mt: '$9',
+              '@mdMax': {
+                pl: '0'
+              }
+            }}
+          >
+            <Col css={{ dflex: 'center', fd: 'column', ai: 'flex-start' }}>
+              <CodeDemo
+                showWindowIcons
+                language="jsx"
+                value={landingContent.customizationCode}
+                css={{
+                  maxHeight: 320
+                }}
+              />
+            </Col>
           </Grid>
         </Grid.Container>
       </Section>

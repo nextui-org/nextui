@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, GridProps, Text, Row, CSS } from '@nextui-org/react';
 import { FeatureItem } from './styles';
 import withDefaults from '@utils/with-defaults';
+import { useRouter } from 'next/router';
 
 export interface Feature {
   title: string;
@@ -36,11 +37,20 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
   itemCss,
   ...props
 }) => {
+  const router = useRouter();
+  const handleClick = (href: string) => {
+    router.push(href);
+  };
+
   return (
     <Grid.Container gap={2} css={{ px: 0, ...(css as any) }} {...props}>
       {features.map((feat, index) => (
         <Grid key={`${feat.title}_${index}`} xs={xs} sm={sm} lg={lg}>
-          <FeatureItem clickable={!!feat.href} css={itemCss}>
+          <FeatureItem
+            clickable={!!feat.href}
+            css={itemCss}
+            onClick={() => (feat.href ? handleClick(feat.href) : undefined)}
+          >
             <Row align="center">
               <div className="icon-wrapper">{feat.icon}</div>
               <Text

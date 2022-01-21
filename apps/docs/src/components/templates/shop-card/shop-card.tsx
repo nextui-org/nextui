@@ -98,7 +98,10 @@ const ShopCard: React.FC<unknown> = () => {
                 <ProductImage src="/images/shoes-1.png" />
               </ProductImageContainer>
             </Grid>
-            <Grid xs={8} css={{ px: '$10' }}>
+            <Grid
+              xs={8}
+              css={{ px: '$10', position: 'relative', zIndex: '$10' }}
+            >
               <Col as="nav">
                 <StyledTitle as={motion.h4} animate={animations.title}>
                   Nike Adapt BB 2.0
