@@ -3,7 +3,7 @@ import { PrismTheme } from 'prism-react-renderer';
 const makeCodeTheme = (): PrismTheme => ({
   plain: {
     backgroundColor: '$colors$codeBackground',
-    color: '$colors$white',
+    color: '#F4F4F4',
     fontWeight: '500',
     fontStyle: 'normal',
     fontFamily: '$mono',
