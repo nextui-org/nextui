@@ -92,6 +92,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       underlined,
       rounded,
       css,
+      disableElevationAnimation,
       ...props
     },
     ref: React.Ref<FormElement | null>
@@ -259,6 +260,13 @@ const Input = React.forwardRef<FormElement, InputProps>(
           underlined={underlined}
           isReadOnly={readOnly}
           focused={hover}
+          css={
+            disableElevationAnimation
+              ? {
+                  transform: 'none',
+                }
+              : {}
+          }
           className={clsx(
             `${preClass}-container`,
             `${preClass}-container--${getState}`,

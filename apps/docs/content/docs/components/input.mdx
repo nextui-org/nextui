@@ -462,6 +462,18 @@ import { Input } from '@nextui-org/react';
 `}
 />
 
+<Playground
+  title="Disable input elevation animation"
+  desc="You can disable the translateY animation of the `Input` with the `disableElevationAnimation` prop"
+  code={`
+    <>
+      <Input disableElevationAnimation placeholder="Without elevation" />
+      <Spacer y={0.5} />
+      <Input bordered disableElevationAnimation placeholder="Bordered without elevation" />
+    </>
+`}
+/>
+
 <Spacer y={3} />
 
 ### APIs

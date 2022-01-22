@@ -436,3 +436,14 @@ export const Uncontrolled = () => {
     </>
   );
 };
+
+export const WithoutElevationAnimation = () => (
+  <>
+    <Spacer y={1.5} />
+    <Input placeholder="Next UI" disableElevationAnimation />
+    <Spacer y={1.5} />
+    <Input bordered labelPlaceholder="Next UI" disableElevationAnimation />
+    <Spacer y={1.5} />
+    <Input rounded placeholder="Next UI" disableElevationAnimation />
+  </>
+);

@@ -51,6 +51,7 @@ export interface Props
     e: React.MouseEvent<HTMLDivElement>
   ) => void;
   autoComplete?: string;
+  disableElevationAnimation?: boolean;
 }
 
 export const defaultProps = {
