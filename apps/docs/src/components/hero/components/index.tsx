@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Input,
   Card,
@@ -16,6 +16,7 @@ import {
 import { useRouter } from 'next/router';
 import { levitating } from '@utils/animations';
 import { Logo, UserTwitterCard, ThemeSwitch } from '@components';
+import { useIsMobile } from '@hooks/use-media-query';
 
 const StyledContainer = styled('div', {
   dflex: 'center',
@@ -28,6 +29,16 @@ const StyledContainer = styled('div', {
 
 const HeroComponents = () => {
   const router = useRouter();
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (isMobile) {
+      const element = document.getElementById('nextui-tooltip');
+      if (element) {
+        element.remove();
+      }
+    }
+  }, [isMobile]);
 
   return (
     <StyledContainer>

@@ -39,7 +39,15 @@ const CustomThemesSection = () => {
           zIndex: '-$1',
           [`.${darkTheme} &`]: {
             right: 0,
-            left: '-30%'
+            left: '-30%',
+            '@xsMax': {
+              top: '15%',
+              left: '10% !important'
+            }
+          },
+          '@xsMax': {
+            top: '5%',
+            right: '-40% !important'
           }
         }}
       >

@@ -46,6 +46,9 @@ const Hero: React.FC = () => {
           '@mdMax': {
             mt: '80px',
             p: '0 8px'
+          },
+          '@xsMax': {
+            mt: '0px'
           }
         }}
       >
@@ -62,7 +65,7 @@ const Hero: React.FC = () => {
             }
           }}
         >
-          <StyledTitle>
+          <StyledTitle css={{ wordWrap: 'break-word' }}>
             Make&nbsp;
             <StyledGradientTitle>beautiful&nbsp;</StyledGradientTitle>
             <StyledTitle>

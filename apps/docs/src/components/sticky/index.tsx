@@ -1,12 +1,13 @@
 import * as React from 'react';
 import cn from 'classnames';
 import withDefaults from '@utils/with-defaults';
-import { useTheme } from '@nextui-org/react';
+import { styled, CSS } from '@nextui-org/react';
 
 export interface StickyProps {
   offset?: number;
   shadow?: boolean;
   className?: string;
+  css?: CSS;
 }
 
 const defaultProps = {
@@ -15,27 +16,34 @@ const defaultProps = {
   className: ''
 };
 
+const StyledSticky = styled('div', {
+  background: 'transparent',
+  position: 'sticky',
+  zIndex: '$max',
+  variants: {
+    shadow: {
+      true: {
+        bs: '$sm'
+      }
+    }
+  }
+});
+
 const Sticky: React.FC<React.PropsWithChildren<StickyProps>> = ({
   offset,
   children,
   shadow,
-  className
+  className,
+  css
 }) => {
-  const { theme } = useTheme();
   return (
-    <div style={{ top: offset || 0 }} className={cn(className, { shadow })}>
+    <StyledSticky
+      css={{ ...(css as any), top: offset || 0 }}
+      className={cn(className, { shadow })}
+      shadow={shadow}
+    >
       {children}
-      <style jsx>{`
-        div {
-          background: 'transparent';
-          position: sticky;
-          z-index: 1000;
-        }
-        div.shadow {
-          box-shadow: ${theme?.shadows?.sm?.value};
-        }
-      `}</style>
-    </div>
+    </StyledSticky>
   );
 };
 

@@ -39,14 +39,6 @@ const CodeDemo: React.FC<CodeDemoProps> = ({ css, line, ...props }) => {
     const firstLine = lines[firstLineNumber];
     const lastLine = lines[lastLineNumber];
 
-    console.log({
-      linesToHighlight,
-      firstLineNumber,
-      lastLineNumber,
-      firstLine,
-      lastLine
-    });
-
     // Prevent errors in case the right line doesnt exist
     if (!firstLine || !lastLine) {
       console.warn(`CodeDemo: Error finding the right line`);

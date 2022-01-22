@@ -108,7 +108,7 @@ const InstallBanner: React.FC = () => {
           </Grid>
           <Grid xs={12} md={6} css={{ py: '$10' }}>
             <FeaturesGrid
-              xs={6}
+              xs={12}
               sm={6}
               lg={6}
               features={bannerSuggestions}

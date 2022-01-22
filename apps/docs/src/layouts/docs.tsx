@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './navbar';
 import Footer from './footer';
-import { Container, Row, Col, useTheme } from '@nextui-org/react';
+import { Container, Row, Col } from '@nextui-org/react';
 import NextLink from 'next/link';
 import { Route } from '@lib/docs/page';
 import { Sidebar, TableOfContent } from '@components';
@@ -12,6 +12,9 @@ import Header from '@layouts/header';
 import { Sticky, PageNav } from '@components';
 import { REPO_NAME, GITHUB_URL } from '@lib/github/constants';
 import { TAG, CONTENT_PATH } from '@lib/docs/config';
+import { StyledImg } from '@primitives';
+import { darkTheme } from '@theme/shared';
+import { appears } from '@utils/animations';
 
 export interface Props {
   routes: Route[];
@@ -34,8 +37,6 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   meta
 }) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
-  const { theme, type } = useTheme();
-  const isDark = type === 'dark';
 
   useEffect(() => {
     setHeadings(getHeadings());
@@ -46,13 +47,50 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <>
       <Navbar routes={routes} />
-      <Container lg={true} as="main" className="docs__container" display="flex">
+      <Container
+        lg={true}
+        as="main"
+        className="docs__container"
+        display="flex"
+        css={{ position: 'relative' }}
+      >
         <Header {...meta} />
-        <Row className="docs__content" gap={0}>
-          <Sticky offset={84} className="docs__left-sidebar">
+        <Row
+          className="docs__content"
+          gap={0}
+          css={{
+            '@lg': {
+              pt: '1rem'
+            }
+          }}
+        >
+          <Sticky
+            offset={84}
+            className="docs__left-sidebar"
+            css={{
+              width: '28%',
+              maxHeight: 'calc(100vh - 4rem)',
+              overflow: 'auto',
+              display: 'none',
+              '::-webkit-scrollbar': {
+                width: '0px'
+              },
+              '@md': {
+                display: 'block'
+              }
+            }}
+          >
             <Sidebar routes={routes} tag={tag} slug={slug} />
           </Sticky>
-          <Col className="docs__center">
+          <Col
+            className="docs__center"
+            css={{
+              zIndex: '$10',
+              '@xsMax': {
+                p: 0
+              }
+            }}
+          >
             {children}
             <PageNav tag={tag} prevRoute={prevRoute} nextRoute={nextRoute} />
             <footer>
@@ -69,120 +107,62 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               )}
             </footer>
           </Col>
-          <Sticky offset={84} className="docs__right-sidebar">
+          <Sticky
+            offset={84}
+            className="docs__right-sidebar"
+            css={{
+              width: '28%',
+              display: 'none',
+              '@lg': {
+                display: 'block'
+              }
+            }}
+          >
             <TableOfContent headings={headings} />
           </Sticky>
-          {isDark && (
-            <img
-              className="docs__gradient-blue"
-              src="/gradient-left-dark.svg"
-              alt="gradient blue background"
-            />
-          )}
-          {isDark && (
-            <img
-              className="docs__gradient-violet"
-              src="/gradient-right-dark.svg"
-              alt="gradient violet background"
-            />
-          )}
+          <StyledImg
+            className="docs__gradient-blue"
+            src="/gradient-left-dark.svg"
+            alt="gradient blue background"
+            css={{
+              display: 'none',
+              opacity: 0,
+              position: 'fixed',
+              zIndex: '$1',
+              bottom: '-50%',
+              left: '-10%',
+              right: '-50%',
+              animation: `${appears} 200ms 100ms ease forwards`,
+              [`.${darkTheme} &`]: {
+                display: 'block'
+              }
+            }}
+          />
+          <StyledImg
+            className="docs__gradient-violet"
+            src="/gradient-right-dark.svg"
+            alt="gradient violet background"
+            css={{
+              display: 'none',
+              top: 0,
+              opacity: 0,
+              position: 'fixed',
+              animation: `${appears} 200ms 100ms ease forwards`,
+              '@lg': {
+                top: '-50%',
+                right: '-50%'
+              },
+              '@mdMax': {
+                top: '-35%',
+                right: '-45%'
+              },
+              [`.${darkTheme} &`]: {
+                display: 'block'
+              }
+            }}
+          />
         </Row>
         <Footer />
-        <style jsx>
-          {`
-            :global(.docs__container) {
-              position: relative;
-            }
-            :global(.docs__left-sidebar) {
-              width: 20%;
-              max-height: calc(100vh - 4rem);
-              overflow: auto;
-              display: none;
-            }
-            :global(.docs__center) {
-              z-index: 99;
-              padding: 0 1.4rem !important;
-            }
-            :global(.docs__left-sidebar::-webkit-scrollbar) {
-              width: 0px;
-            }
-            :global(.docs__content) {
-              padding-top: 1rem;
-            }
-            :global(.docs__right-sidebar, .docs__left-sidebar) {
-              display: none;
-              width: 28%;
-            }
-            :global(.docs__gradient-blue, .docs__gradient-violet) {
-              top: 0;
-              opacity: 0;
-              position: fixed;
-              animation: appear 200ms 100ms ease forwards;
-            }
-            :global(.docs__gradient-blue) {
-              top: 10%;
-              left: -10%;
-              z-index: 1;
-            }
-            :global(.docs__gradient-violet) {
-              display: block;
-              z-index: 1;
-              top: -50%;
-              right: -50%;
-            }
-            @media only screen and (max-width: ${theme?.breakpoints?.xs
-                .value}) {
-              :global(.docs__content) {
-                margin-top: 64px;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-                padding: 0;
-              }
-            }
-            @media only screen and (min-width: ${theme?.breakpoints?.md
-                .value}) {
-              :global(.docs__left-sidebar) {
-                display: block;
-              }
-            }
-            @media only screen and (max-width: ${theme?.breakpoints?.md
-                .value}) {
-              :global(.docs__center) {
-                padding: 0 1rem !important;
-              }
-              :global(.docs__gradient-violet) {
-                top: -35%;
-                right: -45%;
-              }
-            }
-            @media only screen and (max-width: ${theme?.breakpoints?.lg
-                .value}) {
-              :global(.docs__content) {
-                padding: 0 20px;
-              }
-            }
-            @media only screen and (min-width: ${theme?.breakpoints?.lg
-                .value}) {
-              :global(.docs__right-sidebar) {
-                display: block;
-              }
-              :global(.docs__right-sidebar, .docs__gradient-violet) {
-                top: -50%;
-                right: -50%;
-              }
-            }
-            @keyframes appear {
-              from {
-                opacity: 0;
-              }
-              to {
-                opacity: 1;
-              }
-            }
-          `}
-        </style>
       </Container>
     </>
   );

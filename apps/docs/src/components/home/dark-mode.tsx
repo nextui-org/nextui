@@ -8,7 +8,7 @@ import { CodeDemoBlock, ThemeSwitch, Player } from '@components';
 
 const DarkModeSection = () => {
   return (
-    <Section css={{ position: 'relative' }}>
+    <Section css={{ position: 'relative', zIndex: '$10' }}>
       <Box
         css={{
           position: 'absolute',
@@ -17,7 +17,15 @@ const DarkModeSection = () => {
           zIndex: '-$1',
           [`.${darkTheme} &`]: {
             left: '30%',
-            right: '-30%'
+            right: '-30%',
+            '@xsMax': {
+              right: '-50%'
+            }
+          },
+          '@xsMax': {
+            top: '10%',
+            right: '-50%',
+            left: '0'
           }
         }}
       >

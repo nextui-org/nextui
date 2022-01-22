@@ -44,7 +44,11 @@ const BuiltInStitchesSection = () => {
           position: 'absolute',
           top: 0,
           left: '-10%',
-          zIndex: '-$1'
+          zIndex: '-$1',
+          '@xsMax': {
+            top: '20%',
+            left: '-90%'
+          }
         }}
       >
         <img src="/stitches-gradient.svg" alt="theming background" />
@@ -117,7 +121,15 @@ const BuiltInStitchesSection = () => {
                     }
                   }}
                 >
-                  <Text css={{ fs: '1.4rem', color: '$accents6' }}>
+                  <Text
+                    css={{
+                      fs: '1.4rem',
+                      color: '$accents6',
+                      '@xsMax': {
+                        fs: '1rem'
+                      }
+                    }}
+                  >
                     {description}
                   </Text>
                 </Collapse>

@@ -17,3 +17,12 @@ export const levitating = keyframes({
     transform: 'translateY(0)'
   }
 });
+
+export const appears = keyframes({
+  from: {
+    opacity: 0
+  },
+  to: {
+    opacity: 1
+  }
+});

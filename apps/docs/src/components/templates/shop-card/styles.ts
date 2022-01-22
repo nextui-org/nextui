@@ -128,7 +128,7 @@ export const ProductImage = styled('img', {
       left: '-20%',
       minWidth: '140%',
       '@xsMax': {
-        top: 0,
+        top: '15%',
         left: 0,
         minWidth: '100%'
       }
@@ -140,6 +140,7 @@ export const ProductImage = styled('img', {
     top: '-10%',
     left: '-50%',
     '@xsMax': {
+      top: '5%',
       left: '-5%'
     }
   }

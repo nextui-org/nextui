@@ -6,7 +6,7 @@ import { CodeDemoBlock } from '@components';
 
 const ComparationSection = () => {
   return (
-    <Section>
+    <Section css={{ zIndex: '$10' }}>
       <Row justify="flex-start">
         <Title>Do</Title>
         <Spacer x={0.5} />

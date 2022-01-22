@@ -139,3 +139,5 @@ export const StyledCardBlur = styled('div', {
   bf: 'saturate(180%) blur(14px)',
   bg: 'rgba(255, 255, 255, 0.05)'
 });
+
+export const StyledImg = styled('img', {});

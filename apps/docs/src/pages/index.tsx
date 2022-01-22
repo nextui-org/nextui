@@ -61,31 +61,31 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       </Section>
 
       {/* Custom themes */}
-      <Spacer y={10} />
+      <Spacer y={10} css={{ '@xsMax': { mt: '$32' } }} />
       <CustomThemesSection />
 
       {/*  Comparation  */}
-      <Spacer y={10} />
+      <Spacer y={10} css={{ '@xsMax': { mt: '$14' } }} />
       <ComparationSection />
 
       {/* Dark mode */}
-      <Spacer y={10} />
+      <Spacer y={10} css={{ '@xsMax': { mt: '$14' } }} />
       <DarkModeSection />
 
       {/* Customization */}
-      <Spacer y={10} />
+      <Spacer y={10} css={{ '@xsMax': { mt: '$14' } }} />
       <CustomizationSection />
 
       {/* Built-in Stitches */}
-      <Spacer y={10} />
+      <Spacer y={10} css={{ '@xsMax': { mt: '$16' } }} />
       <BuiltInStitchesSection />
 
       {/* Last but not least */}
-      <Spacer y={6} />
+      <Spacer y={6} css={{ '@xsMax': { mt: '$14' } }} />
       <LastButNotLeastSection />
 
       {/* Installation banner */}
-      <Spacer y={6} />
+      <Spacer y={6} css={{ '@xsMax': { mt: '$16' } }} />
       <Section css={{ zIndex: '$10' }}>
         <InstallBanner />
       </Section>
