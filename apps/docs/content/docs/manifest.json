@@ -119,6 +119,12 @@
                             "newPost": true
                         },
                         {
+                          "title": "Table",
+                          "keywords": "table, data table, data, table data",
+                          "path": "/docs/components/table.mdx",
+                          "comingSoon": true
+                        },
+                        {
                             "title": "Collapse",
                             "keywords": "collapse, accordion, expand, reveal",
                             "path": "/docs/components/collapse.mdx"
@@ -127,6 +133,12 @@
                             "title": "Input",
                             "keywords": "text input, input, textarea",
                             "path": "/docs/components/input.mdx"
+                        },
+                        {
+                          "title": "Autocomplete",
+                          "keywords": "autocomplete, autocomplete input",
+                          "path": "/docs/components/autocomplete.mdx",
+                          "comingSoon": true
                         },
                         {
                             "title": "Textarea",
@@ -142,6 +154,12 @@
                             "title": "Radio",
                             "keywords": "check, radio, select",
                             "path": "/docs/components/radio.mdx"
+                        },
+                        {
+                          "title": "Dropdown",
+                          "keywords": "dropdown, select, selectable",
+                          "path": "/docs/components/dropdown.mdx",
+                          "comingSoon": true
                         },
                         {
                             "title": "Progress",
@@ -162,6 +180,12 @@
                             "title": "Loading",
                             "keywords": "loading, spinner, loadable, progress",
                             "path": "/docs/components/loading.mdx"
+                        },
+                        {
+                          "title": "Navbar",
+                          "keywords": "navbar, nav, navigation, menu",
+                          "path": "/docs/components/navbar.mdx",
+                          "comingSoon": true
                         },
                         {
                             "title": "Switch",

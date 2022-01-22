@@ -2,6 +2,8 @@ export * from './search';
 export * from './icons';
 export * from './templates';
 export * from './primitives';
+export * from './home';
+export * from './code-demo';
 
 export { default as Logo } from './logo';
 export { default as Hero } from './hero';
@@ -31,6 +33,5 @@ export { default as LooperBG } from './looper-bg';
 export { default as FeaturesGrid } from './features-grid';
 export type { Feature as FeatureType } from './features-grid';
 export { default as Codeblock } from './codeblock';
-export { default as CodeDemo } from './code-demo';
 export { default as Community } from './community';
 export { default as InstallBanner } from './install-banner';

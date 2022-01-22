@@ -10,6 +10,7 @@ export interface Props {
   title: string;
   selected: boolean;
   newPost?: boolean;
+  comingSoon?: boolean;
   color?: string | boolean;
 }
 

@@ -23,8 +23,8 @@ export const Pre = styled('pre', {
   $$comment: punctuationColor?.style.color,
   $$removed: '$colors$red300',
   $$added: '$colors$green300',
-  $$lineNumbers: punctuationColor?.style.color,
-  $$fadedLines: punctuationColor?.style.color,
+  $$lineNumbers: '$colors$gray700',
+  $$fadedLines: '$colors$gray600',
   $$highlightedWord1Bg: '$colors$purple500',
   $$highlightedWord1BgActive: '$colors$purple600',
   $$highlightedWord1Text: '$colors$purple800',
@@ -188,7 +188,7 @@ export const Pre = styled('pre', {
     },
     '&[data-highlighted=false]': {
       '&, *': {
-        color: '$$fadedLines'
+        color: '$$fadedLines !important'
       }
     }
   },

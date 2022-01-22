@@ -111,7 +111,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             }
             :global(.docs__right-sidebar, .docs__left-sidebar) {
               display: none;
-              width: 24%;
+              width: 28%;
             }
             :global(.docs__gradient-blue, .docs__gradient-violet) {
               top: 0;

@@ -10,10 +10,12 @@ export const StyledCollapse = styled(
         margin: 0
       }
     },
-    '.nextui-collapse-title': {
+    '.nextui-collapse-title-container': {
       d: 'flex',
       jc: 'space-between',
-      ai: 'center',
+      ai: 'center'
+    },
+    '.nextui-collapse-title': {
       color: '$foreground'
     },
     '.nextui-collapse-subtitle': {

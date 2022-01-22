@@ -96,6 +96,19 @@ export const BlockLink = styled(Link, {
           }
         }
       },
+      violet: {
+        color: '$pink300',
+        bg: '$accents1',
+        '&:hover': {
+          bg: '$pink800'
+        },
+        [`.${lightTheme} &`]: {
+          color: '$pink500',
+          '&:hover': {
+            bg: '$pink400'
+          }
+        }
+      },
       blue: {
         color: '$blue300',
         bg: '$accents1',

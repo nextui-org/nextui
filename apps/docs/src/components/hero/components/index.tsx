@@ -297,6 +297,7 @@ const HeroComponents = () => {
               <Row justify="flex-end" align="center">
                 <Button
                   auto
+                  flat
                   rounded
                   color="secondary"
                   css={{

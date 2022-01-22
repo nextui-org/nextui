@@ -42,7 +42,17 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       {routes?.map(
-        ({ path, title, icon, routes, newPost, updated, heading, open }) => {
+        ({
+          path,
+          title,
+          icon,
+          routes,
+          newPost,
+          comingSoon,
+          updated,
+          heading,
+          open
+        }) => {
           if (routes) {
             const pathname = getCategoryPath(routes);
             const categorySelected = slug.startsWith(pathname);
@@ -96,6 +106,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             title,
             pathname,
             selected,
+            comingSoon,
             newPost
           } as NavLinkProps;
 

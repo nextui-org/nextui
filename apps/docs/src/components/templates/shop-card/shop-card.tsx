@@ -38,6 +38,10 @@ import {
   darkRetroTheme
 } from './themes';
 
+interface Props {
+  onChangeTheme?: (theme: string) => void;
+}
+
 const getActiveTheme = (id: string, isDark?: boolean) => {
   switch (id) {
     case 'nextui':
@@ -53,7 +57,7 @@ const getActiveTheme = (id: string, isDark?: boolean) => {
   }
 };
 
-const ShopCard: React.FC<unknown> = () => {
+const ShopCard: React.FC<Props> = ({ onChangeTheme }) => {
   const [activeTheme, setActiveTheme] = React.useState(themes[0].id);
   const [activeSize, setActiveSize] = React.useState(sizes[0].id);
   const [liked, setLiked] = React.useState(false);
@@ -66,6 +70,11 @@ const ShopCard: React.FC<unknown> = () => {
     [activeTheme, isDark]
   );
 
+  const handleChangeTheme = (id: string) => {
+    setActiveTheme(id);
+    onChangeTheme?.(id);
+  };
+
   return (
     <Box className={theme} css={{ ov: 'visible' }}>
       <Grid.Container gap={5} css={{ py: 0 }}>
@@ -73,7 +82,7 @@ const ShopCard: React.FC<unknown> = () => {
           <GridItem
             key={`${id}-${index}`}
             css={{ pl: 0, '@xs': { mr: '$10' } }}
-            onClick={() => setActiveTheme(id)}
+            onClick={() => handleChangeTheme(id)}
             selected={activeTheme === id}
           >
             {icon()}
@@ -90,7 +99,18 @@ const ShopCard: React.FC<unknown> = () => {
             onClick={() => setLiked(!liked)}
           />
           <Grid.Container>
-            <Grid xs={4}>
+            <Grid
+              sm={4}
+              css={{
+                '@smMax': {
+                  mr: '$10'
+                },
+                '@xsMax': {
+                  width: '100%',
+                  mr: '0 !important'
+                }
+              }}
+            >
               <ProductImageContainer
                 as={motion.div}
                 animate={animations.productContainer}
@@ -99,8 +119,15 @@ const ShopCard: React.FC<unknown> = () => {
               </ProductImageContainer>
             </Grid>
             <Grid
-              xs={8}
-              css={{ px: '$10', position: 'relative', zIndex: '$10' }}
+              sm={8}
+              css={{
+                px: '$10',
+                position: 'relative',
+                zIndex: '$10',
+                '@xsMax': {
+                  py: '$8'
+                }
+              }}
             >
               <Col as="nav">
                 <StyledTitle as={motion.h4} animate={animations.title}>

@@ -184,6 +184,7 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
               px: '$2',
               pt: '$5',
               pb: '$4',
+              zIndex: '$2',
               position: 'sticky',
               background: '$codeBackground',
               top: 0

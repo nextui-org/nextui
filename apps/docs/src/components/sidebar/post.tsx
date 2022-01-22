@@ -47,6 +47,7 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
 
   const linkColor = useMemo(() => {
     if (route.selected) return;
+    if (route.comingSoon) return theme?.colors?.accents3?.value;
     return theme?.colors?.accents6?.value;
   }, [isDark, route.selected]);
 
@@ -57,6 +58,11 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
       {route?.newPost && (
         <Badge className="post__new-badge" type="primary">
           New
+        </Badge>
+      )}
+      {route?.comingSoon && (
+        <Badge className="post__coming-soon-badge" type="disabled">
+          Coming soon
         </Badge>
       )}
       <style jsx>{`

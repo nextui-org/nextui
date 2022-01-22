@@ -89,6 +89,132 @@ export default {
       icon: <Magic fill="#FF4ECD" />
     }
   ],
+  themingCode: `import { createTheme } from '@nextui-org/react';
+
+const lightTheme = createTheme({
+  type: 'light',
+});
+
+return (
+  <ShopCard className={lightTheme} />
+);
+
+
+const darkTheme = createTheme({
+  type: 'dark',
+});
+
+return (
+  <ShopCard className={darkTheme} />
+);
+
+
+
+const lightModernTheme = createTheme({
+  type: 'light',
+  className: 'light-modern',
+  theme: {
+    colors: {
+      primary: '#7928CA',
+      primaryLight: '#d9c2f0',
+      success: '#FF1CF7'
+    }
+  }
+});
+
+return (
+  <ShopCard className={lightModernTheme}/>
+)
+
+const darkModernTheme = createTheme({
+  type: 'dark',
+  className: 'dark-modern',
+  theme: {
+    colors: {
+      primary: '#7928CA',
+      primaryLight: '#582A87',
+      success: '#FF1CF7'
+    }
+  }
+});
+
+return (
+  <ShopCard className={darkModernTheme} />
+);
+
+const lightElegantTheme = createTheme({
+  type: 'light',
+  className: 'light-elegant',
+  theme: {
+    colors: {
+      primary: '#000000',
+      primaryLight: '#AAAAAA',
+      success: '#a2a2a2'
+    },
+    radii: {
+      md: '4px'
+    }
+  }
+});
+
+return (
+  <ShopCard className={lightElegantTheme}/>
+);
+
+const darkElegantTheme = createTheme({
+  type: 'dark',
+  className: 'dark-elegant',
+  theme: {
+    colors: {
+      primary: '#ffffff',
+      primaryLight: '#222222',
+      success: '#a2a2a2'
+    },
+    radii: {
+      md: '4px'
+    }
+  }
+});
+
+return (
+  <ShopCard className={darkElegantTheme}/>
+);
+
+
+const lightRetroTheme = createTheme({
+  type: 'light',
+  className: 'light-retro',
+  theme: {
+    colors: {
+      primary: '#FFD34E',
+      primaryLight: 'transparent',
+      error: '#EE457E'
+    }
+  }
+});
+
+return (
+  <ShopCard className={lightRetroTheme}/>
+);
+
+const darkRetroTheme = createTheme({
+  type: 'dark',
+  className: 'dark-retro',
+  theme: {
+    colors: {
+      primary: '#FFD34E',
+      primaryLight: 'transparent',
+      error: '#EE457E'
+    }
+  }
+});
+
+return (
+  <ShopCard className={darkRetroTheme}/>
+);
+
+
+`,
   comparativeCode: {
     nextui: `import * as React from 'react';
 import { Input } from '@nextui-org/react';
@@ -238,5 +364,53 @@ const CustomButton = () => {
 };
 
 export default CustomButton;
-`
+`,
+  stitchesUtilitiesCode: `export const utils = {
+  p: (value) => ({
+    padding: value
+  }),
+  m: (value) => ({
+    margin: value
+  }),
+  w: (value) => ({ width: value }),
+  h: (value) => ({ height: value }),
+
+  dflex: (value) => ({
+    display: 'flex',
+    alignItems: value,
+    justifyContent: value
+  }),
+  sizeMin: (value) => ({
+    minWidth: value,
+    minHeight: value,
+    width: value,
+    height: value
+  }),
+  textGradient: (value) => ({
+    backgroundImage: 'linear-gradient(value)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent'
+  }),
+
+
+  bg: (value) => ({
+    background: value
+  }),
+  bgBlur: (value) => ({
+    bf: 'saturate(180%) blur(10px)',
+    bg: \`$\{value}66\`,
+  }),
+  bgColor: (value) => ({
+    backgroundColor: value
+  }),
+  backgroundClip: (value) => ({
+    WebkitBackgroundClip: value,
+    backgroundClip: value
+  }),
+  bgClip: (value) => ({
+    WebkitBackgroundClip: value,
+    backgroundClip: value
+  }),
+  
+}`
 };

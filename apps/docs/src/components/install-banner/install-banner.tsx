@@ -86,7 +86,7 @@ const InstallBanner: React.FC = () => {
               <Grid xs={12} sm={9.5}>
                 <Snippet
                   className="hero__snippet"
-                  tooltipColor="primary"
+                  tooltipColor="secondary"
                   css={{
                     borderRadius: '$pill',
                     height: '$space$14',

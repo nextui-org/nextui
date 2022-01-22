@@ -74,12 +74,21 @@ export const ProductImageContainer = styled('div', {
   br: '32px',
   position: 'relative',
   background: 'linear-gradient(135deg, #010187 0%,#18000E 100%)',
+  '@xsMax': {
+    width: '100%'
+  },
   [`.${darkModernTheme} &, .${lightModernTheme} &, .${darkElegantTheme} &, .${lightElegantTheme} &`]:
     {
       ml: '-$4',
       transform: 'scale(1.2)',
       background: 'linear-gradient(135deg, #870172 0%,#18000E 100%)',
-      boxShadow: '20px 30px 60px rgba(0, 0, 0, 0.15)'
+      boxShadow: '20px 30px 60px rgba(0, 0, 0, 0.15)',
+      '@xsMax': {
+        ml: '10%',
+        my: '$12',
+        width: '80%',
+        bs: '$md'
+      }
     },
   [`.${darkElegantTheme} &, .${lightElegantTheme} &`]: {
     background: 'linear-gradient(135deg, #323232 0%,#000000 100%)'
@@ -88,6 +97,10 @@ export const ProductImageContainer = styled('div', {
     background: ' #FFD34E',
     top: '5%',
     left: '5%',
+    '@xsMax': {
+      width: '94%',
+      mb: '$8'
+    },
     '&:after': {
       content: '',
       position: 'absolute',
@@ -105,18 +118,30 @@ export const ProductImage = styled('img', {
   zIndex: '$10',
   top: 0,
   left: '-45%',
+  '@xsMax': {
+    left: '0',
+    minWidth: '100%'
+  },
   [`.${darkModernTheme} &, .${lightModernTheme} &, .${darkElegantTheme} &, .${lightElegantTheme} &`]:
     {
       top: '12%',
       left: '-20%',
-      minWidth: '140%'
+      minWidth: '140%',
+      '@xsMax': {
+        top: 0,
+        left: 0,
+        minWidth: '100%'
+      }
     },
   [`.${darkElegantTheme} &, .${lightElegantTheme} &`]: {
     filter: 'saturate(0)'
   },
   [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
     top: '-10%',
-    left: '-50%'
+    left: '-50%',
+    '@xsMax': {
+      left: '-5%'
+    }
   }
 });
 
@@ -162,8 +187,12 @@ export const StyledStar = styled(Star, {
   position: 'absolute',
   top: '$6',
   right: '$8',
-  zIndex: 10,
+  zIndex: '$max',
   cursor: 'pointer',
+  '@xsMax': {
+    top: '$11',
+    right: '$11'
+  },
   '& path': {
     stroke: '$accents4',
     fill: 'transparent'
@@ -175,11 +204,28 @@ export const StyledStar = styled(Star, {
   },
   [`.${darkModernTheme} &, .${lightModernTheme} &`]: {
     top: '$4',
-    left: '$4'
+    left: '$4',
+    '@xsMax': {
+      top: '$14',
+      left: '$14'
+    }
   },
   [`.${darkElegantTheme} &, .${lightElegantTheme} &`]: {
     top: '$4',
-    left: '28%'
+    left: '28%',
+    '@xsMax': {
+      top: '$14',
+      left: '$14'
+    }
+  },
+  [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {
+    '@xsMax': {
+      top: '$10',
+      right: '$16',
+      '& path': {
+        stroke: 'rgba(255,255,255,0.5)'
+      }
+    }
   },
   variants: {
     liked: {
