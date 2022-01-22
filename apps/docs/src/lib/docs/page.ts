@@ -76,6 +76,9 @@ export function getPaths(
   carry: Carry[] = [{ params: { slug: [] } }]
 ) {
   nextRoutes.forEach((route: Route) => {
+    if (route.comingSoon) {
+      return;
+    }
     if (route.path) {
       carry.push(removeFromLast(route.path, '.') as Carry);
     } else if (route.routes) {

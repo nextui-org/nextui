@@ -52,7 +52,10 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
   }, [isDark, route.selected]);
 
   return (
-    <div ref={ref} className={cn('link', `level-${level}`)}>
+    <div
+      ref={ref}
+      className={cn('link', `level-${level}`, { disabled: route?.comingSoon })}
+    >
       <NavLink {...route} color={linkColor} onClick={onClick} />
       <Spacer inline x={0.2} />
       {route?.newPost && (
@@ -71,6 +74,9 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
           display: flex;
           align-items: center;
           min-height: 24px;
+        }
+        .link.disabled {
+          cursor: not-allowed;
         }
         .link::before {
           content: '';

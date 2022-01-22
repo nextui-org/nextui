@@ -31,13 +31,14 @@ const NavLink: React.FC<NavLinkProps> = ({
   title,
   color,
   selected,
+  comingSoon,
   onClick
 }) => {
   const router = useRouter();
   const onlyHashChange = pathname === router.pathname;
 
   return (
-    <div className={cn('nav-link', { selected })}>
+    <div className={cn('nav-link', { selected, disabled: comingSoon })}>
       {
         // NOTE: use just anchor element for triggering `hashchange` event
         onlyHashChange ? (
@@ -46,13 +47,17 @@ const NavLink: React.FC<NavLinkProps> = ({
           </Link>
         ) : (
           <NextLink href={pathname || href}>
-            <Link onClick={onClick}>{title}</Link>
+            <Link onClick={() => !comingSoon && onClick}>{title}</Link>
           </NextLink>
         )
       }
       <style jsx>{`
         div.selected {
           box-sizing: border-box;
+        }
+        div.disabled {
+          cursor: not-allowed;
+          pointer-events: none;
         }
         .nav-link {
           display: flex;

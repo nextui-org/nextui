@@ -54,12 +54,12 @@
                             "path": "/docs/theme/typescript.mdx"
                         },
                         {
-                          "title": "Utilities",
-                          "path": "/docs/theme/utilities.mdx"
+                            "title": "Utilities",
+                            "path": "/docs/theme/utilities.mdx"
                         },
                         {
-                          "title": "Media",
-                          "path": "/docs/theme/media.mdx"
+                            "title": "Media",
+                            "path": "/docs/theme/media.mdx"
                         }
                     ]
                 },
@@ -119,10 +119,8 @@
                             "newPost": true
                         },
                         {
-                          "title": "Table",
-                          "keywords": "table, data table, data, table data",
-                          "path": "/docs/components/table.mdx",
-                          "comingSoon": true
+                            "title": "Table",
+                            "comingSoon": true
                         },
                         {
                             "title": "Collapse",
@@ -135,10 +133,8 @@
                             "path": "/docs/components/input.mdx"
                         },
                         {
-                          "title": "Autocomplete",
-                          "keywords": "autocomplete, autocomplete input",
-                          "path": "/docs/components/autocomplete.mdx",
-                          "comingSoon": true
+                            "title": "Autocomplete",
+                            "comingSoon": true
                         },
                         {
                             "title": "Textarea",
@@ -156,10 +152,8 @@
                             "path": "/docs/components/radio.mdx"
                         },
                         {
-                          "title": "Dropdown",
-                          "keywords": "dropdown, select, selectable",
-                          "path": "/docs/components/dropdown.mdx",
-                          "comingSoon": true
+                            "title": "Dropdown",
+                            "comingSoon": true
                         },
                         {
                             "title": "Progress",
@@ -182,10 +176,8 @@
                             "path": "/docs/components/loading.mdx"
                         },
                         {
-                          "title": "Navbar",
-                          "keywords": "navbar, nav, navigation, menu",
-                          "path": "/docs/components/navbar.mdx",
-                          "comingSoon": true
+                            "title": "Navbar",
+                            "comingSoon": true
                         },
                         {
                             "title": "Switch",
