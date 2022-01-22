@@ -5,6 +5,8 @@ import { SimpleColors, TextTransforms } from '../utils/prop-types';
 import { isNormalColor } from '../utils/color';
 import { StyledText, TextVariantsProps } from './text.styles';
 
+type As = keyof JSX.IntrinsicElements | React.ComponentType<any>;
+
 export interface Props {
   tag: keyof JSX.IntrinsicElements;
   color?: SimpleColors | string;
@@ -12,6 +14,7 @@ export interface Props {
   margin?: string | number;
   transform?: TextTransforms;
   css?: CSS;
+  as?: As;
 }
 
 const defaultProps = {

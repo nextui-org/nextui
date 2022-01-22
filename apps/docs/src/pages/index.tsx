@@ -1,11 +1,25 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
 import router, { useRouter } from 'next/router';
-import { Hero } from '@components';
+import {
+  FeaturesGrid,
+  Hero,
+  Section,
+  Community,
+  InstallBanner,
+  CustomThemesSection,
+  ComparationSection,
+  DarkModeSection,
+  CustomizationSection,
+  BuiltInStitchesSection,
+  LastButNotLeastSection
+} from '@components';
+import landingContent from '@content/landing';
 import DefaultLayout from '@layouts/default';
 import { getSlug } from '@lib/docs/utils';
 import { Route, getCurrentTag, fetchDocsManifest } from '@lib/docs/page';
 import { Action, useRegisterActions } from 'kbar';
+import { Spacer } from '@nextui-org/react';
 import { getId } from '@utils/collections';
 
 interface Props {
@@ -38,7 +52,51 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       tag={tag}
       slug={slug}
     >
+      {/* Hero */}
       <Hero />
+
+      {/* Main features */}
+      <Section>
+        <FeaturesGrid features={landingContent.topFeatures} />
+      </Section>
+
+      {/* Custom themes */}
+      <Spacer y={10} />
+      <CustomThemesSection />
+
+      {/*  Comparation  */}
+      <Spacer y={10} />
+      <ComparationSection />
+
+      {/* Dark mode */}
+      <Spacer y={10} />
+      <DarkModeSection />
+
+      {/* Customization */}
+      <Spacer y={10} />
+      <CustomizationSection />
+
+      {/* Built-in Stitches */}
+      <Spacer y={10} />
+      <BuiltInStitchesSection />
+
+      {/* Last but not least */}
+      <Spacer y={6} />
+      <LastButNotLeastSection />
+
+      {/* Installation banner */}
+      <Spacer y={6} />
+      <Section css={{ zIndex: '$10' }}>
+        <InstallBanner />
+      </Section>
+
+      {/* Communnity */}
+      <Spacer y={6} />
+      <Section>
+        <Community />
+      </Section>
+
+      <Spacer y={4} />
     </DefaultLayout>
   );
 };

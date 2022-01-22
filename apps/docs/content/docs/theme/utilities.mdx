@@ -241,11 +241,21 @@ export const utils = {
     width: value,
     height: value
   }),
+  minSize: (value) => ({
+    minWidth: value,
+    minHeight: value,
+    width: value,
+    height: value
+  }),
   sizeMin: (value) => ({
     minWidth: value,
     minHeight: value,
     width: value,
     height: value
+  }),
+  maxSize: (value) => ({
+    maxWidth: value,
+    maxHeight: value
   }),
   sizeMax: (value) => ({
     maxWidth: value,
@@ -260,6 +270,9 @@ export const utils = {
   }),
   linearGradient: (value) => ({
     backgroundImage: `linear-gradient(${value})`
+  }),
+  tdl: (value) => ({
+    textDecorationLine: value
   }),
   // Text gradient effect
   textGradient: (value) => ({

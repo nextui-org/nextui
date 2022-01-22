@@ -20,6 +20,33 @@ Default theme types are defined in the `ThemeTypes` type.
 type ThemeType = 'light' | 'dark';
 ```
 
+#### Create Theme
+
+> For more information you can see the [Stitches theme documention](https://stitches.dev/docs/api#theme)
+
+```json
+{
+  "type": "light", // light / dark
+  "className": "", // optional
+  "theme": {
+    "colors": {},
+    "space": {},
+    "fontSizes": {},
+    "fonts": {},
+    "fontWeights": {},
+    "lineHeights": {},
+    "letterSpacings": {},
+    "sizes": {},
+    "borderWidths": {},
+    "borderStyles": {},
+    "radii": {},
+    "shadows": {},
+    "zIndices": {},
+    "transitions": {}
+  }
+}
+```
+
 ### CSS type
 
 The `CSS` utility is useful for when you're creating custom components that accept a css prop:

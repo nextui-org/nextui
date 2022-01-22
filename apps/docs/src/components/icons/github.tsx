@@ -6,19 +6,29 @@ interface Props {
   height?: number;
   size?: number;
   fill?: string;
+  className?: string;
 }
 
 const defaultProps = {
   width: 24,
   height: 24,
+  className: ''
 };
 
-const Github: React.FC<Props> = ({ size, fill, width, height, ...props }) => {
+const Github: React.FC<Props> = ({
+  size,
+  fill,
+  width,
+  height,
+  className,
+  ...props
+}) => {
   return (
     <svg
       width={size || width}
       height={size || height}
       viewBox="0 0 24 24"
+      className={className}
       {...props}
     >
       <path

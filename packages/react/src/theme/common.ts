@@ -419,11 +419,21 @@ export const defaultUtils = {
     width: value,
     height: value
   }),
+  minSize: (value: Stitches.PropertyValue<'width'>) => ({
+    minWidth: value,
+    minHeight: value,
+    width: value,
+    height: value
+  }),
   sizeMin: (value: Stitches.PropertyValue<'width'>) => ({
     minWidth: value,
     minHeight: value,
     width: value,
     height: value
+  }),
+  maxSize: (value: Stitches.PropertyValue<'width'>) => ({
+    maxWidth: value,
+    maxHeight: value
   }),
   sizeMax: (value: Stitches.PropertyValue<'width'>) => ({
     maxWidth: value,
@@ -438,6 +448,9 @@ export const defaultUtils = {
   }),
   linearGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
     backgroundImage: `linear-gradient(${value})`
+  }),
+  tdl: (value: Stitches.PropertyValue<'textDecorationLine'>) => ({
+    textDecorationLine: value
   }),
   textGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
     backgroundImage: `linear-gradient(${value})`,

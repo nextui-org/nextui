@@ -16,6 +16,7 @@ export interface Route {
   routes?: Route[];
   updated?: boolean;
   newPost?: boolean;
+  comingSoon?: boolean;
 }
 
 export interface RouteContext {

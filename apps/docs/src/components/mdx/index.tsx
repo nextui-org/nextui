@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import * as React from 'react';
 import Playground from '../playground';
-import Codeblock from './codeblock';
+import Codeblock from '../codeblock';
 import CarbonAd from '../carbon-ad';
 import * as Icons from '../icons';
 import { useTheme } from '@nextui-org/react';

@@ -173,14 +173,18 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         aria-controls={ariaControlId}
         onClick={handleChange}
       >
-        <div className={clsx(`${preClass}-title`)}>
+        <div className={clsx(`${preClass}-title-container`)}>
           {contentLeft && (
             <div className={`${preClass}-title-content-left`}>
               {contentLeft}
             </div>
           )}
           <div className={`${preClass}-title-content`}>
-            {React.isValidElement(title) ? title : <h3>{title}</h3>}
+            {React.isValidElement(title) ? (
+              title
+            ) : (
+              <h3 className={`${preClass}-title`}>{title}</h3>
+            )}
             {subtitle && (
               <div className={`${preClass}-subtitle`}>{subtitle}</div>
             )}
@@ -214,7 +218,7 @@ type CollapseComponent<P = {}> = React.FC<P> & {
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   CollapseVariantsProps &
-  NativeAttrs;
+  NativeAttrs & { css?: CSS };
 
 export default withDefaults(
   Collapse,

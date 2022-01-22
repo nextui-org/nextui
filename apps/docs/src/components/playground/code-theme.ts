@@ -1,23 +1,20 @@
 import { PrismTheme } from 'prism-react-renderer';
-import { NextUIThemeContext } from '@nextui-org/react';
 
-const makeCodeTheme = ({ theme, isDark }: NextUIThemeContext): PrismTheme => ({
+const makeCodeTheme = (): PrismTheme => ({
   plain: {
-    backgroundColor: isDark ? '#111' : '#363449',
-    color: '#fff',
+    backgroundColor: '$colors$codeBackground',
+    color: '$colors$white',
     fontWeight: '500',
     fontStyle: 'normal',
-    fontFamily: theme?.fonts?.mono?.value,
-    fontSize: theme?.fontSizes?.xs?.value,
+    fontFamily: '$mono',
+    fontSize: '$xs',
     textRendering: 'geometricPrecision'
   },
   styles: [
     {
       types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
       style: {
-        color: isDark
-          ? theme?.colors?.accents6?.value
-          : theme?.colors?.accents3?.value,
+        color: '$colors$codeComment',
         opacity: 0.5
       }
     },
@@ -48,7 +45,7 @@ const makeCodeTheme = ({ theme, isDark }: NextUIThemeContext): PrismTheme => ({
     {
       types: ['property', 'function'],
       style: {
-        color: theme?.colors?.success?.value
+        color: '$success'
       }
     },
     {
@@ -60,7 +57,7 @@ const makeCodeTheme = ({ theme, isDark }: NextUIThemeContext): PrismTheme => ({
     {
       types: ['attr-name'],
       style: {
-        color: theme?.colors?.yellow500?.value
+        color: '$yellow500'
       }
     },
     {
@@ -93,7 +90,7 @@ const makeCodeTheme = ({ theme, isDark }: NextUIThemeContext): PrismTheme => ({
     {
       types: ['language-javascript', 'script'],
       style: {
-        color: theme?.colors?.success?.value
+        color: '$success'
       }
     },
     {
@@ -115,12 +112,60 @@ const makeCodeTheme = ({ theme, isDark }: NextUIThemeContext): PrismTheme => ({
       }
     },
     {
-      types: ['important'],
+      types: ['important', 'primitive'],
       style: {
         color: '#c678dd'
       }
     }
   ]
 });
+
+export const getCodeThemeColors = () => {
+  const codeTheme = makeCodeTheme();
+  const stringColor = codeTheme.styles.find((style) =>
+    style.types.includes('string')
+  );
+  const punctuationColor = codeTheme.styles.find((style) =>
+    style.types.includes('punctuation')
+  );
+  const numberColor = codeTheme.styles.find((style) =>
+    style.types.includes('number')
+  );
+  const textColor = codeTheme.styles.find((style) =>
+    style.types.includes('text')
+  );
+  const selectorColor = codeTheme.styles.find((style) =>
+    style.types.includes('selector')
+  );
+  const commentColor = codeTheme.styles.find((style) =>
+    style.types.includes('comment')
+  );
+  const classnameColor = codeTheme.styles.find((style) =>
+    style.types.includes('tag')
+  );
+  const attrColor = codeTheme.styles.find((style) =>
+    style.types.includes('attr-name')
+  );
+  const functionColor = codeTheme.styles.find((style) =>
+    style.types.includes('function')
+  );
+
+  const primitiveColor = codeTheme.styles.find((style) =>
+    style.types.includes('primitive')
+  );
+
+  return {
+    stringColor,
+    punctuationColor,
+    numberColor,
+    textColor,
+    selectorColor,
+    commentColor,
+    classnameColor,
+    attrColor,
+    functionColor,
+    primitiveColor
+  };
+};
 
 export default makeCodeTheme;

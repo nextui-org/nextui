@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { IconProps } from './index';
-import { useTheme } from '@nextui-org/react';
+import { IconProps, Icon } from './index';
 
 const Heart: React.FC<IconProps> = ({
   fill,
@@ -11,34 +10,23 @@ const Heart: React.FC<IconProps> = ({
   label,
   ...props
 }) => {
-  const { theme } = useTheme();
   return (
-    <svg
-      data-name="Iconly/Curved/Heart"
-      xmlns="http://www.w3.org/2000/svg"
+    <Icon
       width={size || width || 24}
       height={size || height || 24}
       viewBox="0 0 24 24"
+      fill={filled ? fill : 'none'}
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g
-        fill={filled ? fill || theme?.colors?.accents3?.value : 'none'}
-        stroke={fill || theme?.colors?.accents3?.value}
+      <path
+        d="M12.62 20.81c-.34.12-.9.12-1.24 0C8.48 19.82 2 15.69 2 8.69 2 5.6 4.49 3.1 7.56 3.1c1.82 0 3.43.88 4.44 2.24a5.53 5.53 0 0 1 4.44-2.24C19.51 3.1 22 5.6 22 8.69c0 7-6.48 11.13-9.38 12.12Z"
+        stroke={fill}
+        strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeMiterlimit={10}
-        strokeWidth={1.5}
-      >
-        <path
-          data-name="Stroke 1"
-          d="M2.922 12.45c-1.072-3.354.182-7.519 3.699-8.651a4.869 4.869 0 015.429 1.69 4.73 4.73 0 015.42-1.69c3.516 1.132 4.778 5.3 3.706 8.647-1.67 5.31-7.5 8.076-9.126 8.076s-7.4-2.704-9.128-8.072z"
-        />
-        <path
-          data-name="Stroke 3"
-          d="M15.788 7.564a2.154 2.154 0 011.917 2.422"
-        />
-      </g>
-    </svg>
+      />
+    </Icon>
   );
 };
 

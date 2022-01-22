@@ -27,6 +27,7 @@ interface Props {
   leaveDelay?: number;
   offset?: number;
   className?: string;
+  keepMounted?: boolean;
   portalClassName?: string;
   onClick?: () => void;
   onVisibleChange?: TooltipOnVisibleChange;
@@ -40,6 +41,7 @@ const defaultProps = {
   animated: true,
   shadow: true,
   rounded: false,
+  keepMounted: false,
   trigger: 'hover' as TriggerTypes,
   enterDelay: 0,
   leaveDelay: 0,
@@ -77,6 +79,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   css,
   triggerCss,
   onClick,
+  keepMounted,
   visible: customVisible,
   ...props
 }) => {
@@ -85,9 +88,9 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   const [visible, setVisible] = useState<boolean>(initialVisible);
 
   const contentProps = {
-    css,
     animated,
     visible,
+    css,
     shadow,
     offset,
     placement,
@@ -126,7 +129,10 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     onClick?.();
   };
 
-  useClickAway(ref, () => trigger === 'click' && changeVisible(false));
+  useClickAway(
+    ref,
+    () => trigger === 'click' && !keepMounted && changeVisible(false)
+  );
 
   useEffect(() => {
     if (customVisible === undefined) return;

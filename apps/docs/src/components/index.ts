@@ -1,3 +1,10 @@
+export * from './search';
+export * from './icons';
+export * from './templates';
+export * from './primitives';
+export * from './home';
+export * from './code-demo';
+
 export { default as Logo } from './logo';
 export { default as Hero } from './hero';
 export { default as ImageBrowser } from './image-browser';
@@ -19,8 +26,12 @@ export { default as Heading } from './heading';
 export { default as Keyboard } from './keyboard';
 export { default as ExampleBlock } from './templates/example-block';
 export { default as ThemeToggle } from './theme-toggle';
+export { default as ThemeSwitch } from './theme-switch';
 export { default as KBar } from './kbar';
 export { default as Blockholder } from './blockholder';
-export * from './search';
-export * from './icons';
-export * from './templates';
+export { default as LooperBG } from './looper-bg';
+export { default as FeaturesGrid } from './features-grid';
+export type { Feature as FeatureType } from './features-grid';
+export { default as Codeblock } from './codeblock';
+export { default as Community } from './community';
+export { default as InstallBanner } from './install-banner';

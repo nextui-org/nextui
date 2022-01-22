@@ -58,7 +58,6 @@ const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
   }, [routes]);
 
   useRegisterActions([homeAction].filter(Boolean));
-
   return (
     <DocsLayout
       routes={routes}

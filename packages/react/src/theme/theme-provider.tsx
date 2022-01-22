@@ -5,7 +5,6 @@ import withDefaults from '../utils/with-defaults';
 import { CreateTheme, NextUIThemeContext, ThemeType } from './types';
 import deepMerge from '../utils/deep-merge';
 import { copyObject } from '../utils/object';
-import { SsrProvider } from './ssr-provider';
 import {
   changeTheme,
   getThemeName,
@@ -97,12 +96,10 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
   }, [isBrowser, userTheme]);
 
   return (
-    <SsrProvider>
-      <ThemeContext.Provider value={providerValue}>
-        {!disableBaseline && <CssBaseline />}
-        {children}
-      </ThemeContext.Provider>
-    </SsrProvider>
+    <ThemeContext.Provider value={providerValue}>
+      {!disableBaseline && <CssBaseline />}
+      {children}
+    </ThemeContext.Provider>
   );
 };
 

@@ -1,3 +1,5 @@
+import { styled, CSS } from '@nextui-org/react';
+
 export interface IconProps {
   fill?: string;
   filled?: boolean;
@@ -5,8 +7,12 @@ export interface IconProps {
   height?: string | number;
   width?: string | number;
   label?: string;
+  onClick?: () => void;
   className?: string;
+  css?: CSS;
 }
+
+export const Icon = styled('svg', {});
 
 export { default as Home } from './home';
 export { default as Anchor } from './anchor';
@@ -45,3 +51,19 @@ export { default as Palette } from './palette';
 export { default as Note } from './note';
 export { default as Plus } from './plus';
 export { default as Minus } from './minus';
+export { default as Magic } from './magic';
+export { default as Flash } from './flash';
+export { default as Devices } from './devices';
+export { default as Play } from './play';
+export { default as Rewind5s } from './rewind5s';
+export { default as Forward5s } from './forward5s';
+export { default as NextTrack } from './next-track';
+export { default as PreviousTrack } from './previous-track';
+export { default as GamingConsole } from './gaming-console';
+export { default as Star } from './star';
+export { default as Server } from './server';
+export { default as TagUser } from './tag-user';
+export { default as RoundPointer } from './round-pointer';
+export { default as Maximize } from './maximize';
+export { default as HtmlLogo } from './html-logo';
+export { default as NextJsLogo } from './nextjs-logo';
