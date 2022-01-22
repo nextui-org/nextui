@@ -53,6 +53,7 @@
     "coverage:codecov": "yarn test --coverage && codecov"
   },
   "dependencies": {
+    "@babel/runtime": "^7.9.6",
     "@stitches/react": "^1.2.6"
   },
   "peerDependencies": {
@@ -69,7 +70,6 @@
     "@babel/preset-env": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.14.5",
-    "@babel/runtime": "^7.9.6",
     "@react-bootstrap/babel-preset": "^2.1.0",
     "@storybook/react": "^6.3.10",
     "@testing-library/dom": "^8.1.0",
