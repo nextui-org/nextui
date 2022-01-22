@@ -77,6 +77,12 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
     }
   }, [isMobile]);
 
+  useEffect(() => {
+    if (expanded) {
+      onToggleNavigation();
+    }
+  }, [router.asPath]);
+
   const onToggleNavigation = () => {
     setExpanded(!expanded);
     isMobile && setBodyHidden(!expanded);
