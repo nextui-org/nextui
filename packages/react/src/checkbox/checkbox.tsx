@@ -224,16 +224,18 @@ const Checkbox: React.FC<CheckboxProps> = ({
           </StyledIconCheck>
         </StyledCheckboxMask>
       </StyledCheckboxContainer>
-      <StyledCheckboxText
-        className="nextui-checkbox-text"
-        color={textColor}
-        line={line}
-        checked={selfChecked}
-        disabled={isDisabled}
-        animated={animated}
-      >
-        {children || label}
-      </StyledCheckboxText>
+      {(children || label) && (
+          <StyledCheckboxText
+            className="nextui-checkbox-text"
+            color={textColor}
+            line={line}
+            checked={selfChecked}
+            disabled={isDisabled}
+            animated={animated}
+          >
+            {children || label}
+          </StyledCheckboxText>
+        )}
     </StyledCheckboxLabel>
   );
 };
