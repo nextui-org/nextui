@@ -355,6 +355,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
             />
             {clearable && (
               <InputClearButton
+                type="button"
                 className={`${preClass}-clear-button`}
                 animated={animated}
                 underlined={underlined}
