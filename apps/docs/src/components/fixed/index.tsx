@@ -3,7 +3,7 @@ import cn from 'classnames';
 import withDefaults from '@utils/with-defaults';
 import { styled, CSS } from '@nextui-org/react';
 
-export interface StickyProps {
+export interface FixedProps {
   offset?: number;
   shadow?: boolean;
   className?: string;
@@ -16,9 +16,9 @@ const defaultProps = {
   className: ''
 };
 
-const StyledSticky = styled('div', {
+const StyledFixed = styled('div', {
   background: 'transparent',
-  position: 'sticky',
+  position: 'fixed',
   zIndex: '$max',
   variants: {
     shadow: {
@@ -29,7 +29,7 @@ const StyledSticky = styled('div', {
   }
 });
 
-const Sticky: React.FC<React.PropsWithChildren<StickyProps>> = ({
+const Fixed: React.FC<React.PropsWithChildren<FixedProps>> = ({
   offset,
   children,
   shadow,
@@ -37,16 +37,16 @@ const Sticky: React.FC<React.PropsWithChildren<StickyProps>> = ({
   css
 }) => {
   return (
-    <StyledSticky
+    <StyledFixed
       css={{ ...(css as any), top: offset || 0 }}
       className={cn(className, { shadow })}
       shadow={shadow}
     >
       {children}
-    </StyledSticky>
+    </StyledFixed>
   );
 };
 
-const MemoSticky = React.memo(Sticky);
+const MemoFixed = React.memo(Fixed);
 
-export default withDefaults(MemoSticky, defaultProps);
+export default withDefaults(MemoFixed, defaultProps);
