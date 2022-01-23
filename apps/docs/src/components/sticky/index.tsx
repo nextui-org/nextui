@@ -18,7 +18,7 @@ const defaultProps = {
 
 const StyledSticky = styled('div', {
   background: 'transparent',
-  position: 'sticky',
+  position: 'fixed',
   zIndex: '$max',
   variants: {
     shadow: {

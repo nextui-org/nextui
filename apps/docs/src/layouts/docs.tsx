@@ -64,24 +64,25 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             }
           }}
         >
-          <Sticky
-            offset={84}
-            className="docs__left-sidebar"
-            css={{
-              width: '28%',
-              maxHeight: 'calc(100vh - 4rem)',
-              overflow: 'auto',
-              display: 'none',
-              '::-webkit-scrollbar': {
-                width: '0px'
-              },
-              '@md': {
-                display: 'block'
-              }
-            }}
-          >
-            <Sidebar routes={routes} tag={tag} slug={slug} />
-          </Sticky>
+          <Col css={{ width: '28%' }}>
+            <Sticky
+              offset={84}
+              className="docs__left-sidebar"
+              css={{
+                maxHeight: 'calc(100vh - 4rem)',
+                overflow: 'auto',
+                display: 'none',
+                '::-webkit-scrollbar': {
+                  width: '0px'
+                },
+                '@md': {
+                  display: 'block'
+                }
+              }}
+            >
+              <Sidebar routes={routes} tag={tag} slug={slug} />
+            </Sticky>
+          </Col>
           <Col
             className="docs__center"
             css={{
@@ -107,19 +108,21 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               )}
             </footer>
           </Col>
-          <Sticky
-            offset={84}
-            className="docs__right-sidebar"
-            css={{
-              width: '28%',
-              display: 'none',
-              '@lg': {
-                display: 'block'
-              }
-            }}
-          >
-            <TableOfContent headings={headings} />
-          </Sticky>
+          <Col css={{ width: '28%' }}>
+            <Sticky
+              offset={84}
+              className="docs__right-sidebar"
+              css={{
+                width: '28%',
+                display: 'none',
+                '@lg': {
+                  display: 'block'
+                }
+              }}
+            >
+              <TableOfContent headings={headings} />
+            </Sticky>
+          </Col>
           <StyledImg
             className="docs__gradient-blue"
             src="/gradient-left-dark.svg"
