@@ -47,7 +47,9 @@ const NavLink: React.FC<NavLinkProps> = ({
           </Link>
         ) : (
           <NextLink href={pathname || href}>
-            <Link onClick={() => !comingSoon && onClick}>{title}</Link>
+            <Link onClick={(e) => !comingSoon && onClick && onClick(e)}>
+              {title}
+            </Link>
           </NextLink>
         )
       }
