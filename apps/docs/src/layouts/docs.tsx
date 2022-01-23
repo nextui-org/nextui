@@ -9,7 +9,7 @@ import { Link } from '@nextui-org/react';
 import { Heading, getHeadings } from '@utils/get-headings';
 import { MetaProps } from '@lib/docs/meta';
 import Header from '@layouts/header';
-import { Sticky, PageNav } from '@components';
+import { Fixed, PageNav } from '@components';
 import { REPO_NAME, GITHUB_URL } from '@lib/github/constants';
 import { TAG, CONTENT_PATH } from '@lib/docs/config';
 import { StyledImg } from '@primitives';
@@ -65,7 +65,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           }}
         >
           <Col css={{ width: '28%' }}>
-            <Sticky
+            <Fixed
               offset={92}
               className="docs__left-sidebar"
               css={{
@@ -81,7 +81,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               }}
             >
               <Sidebar routes={routes} tag={tag} slug={slug} />
-            </Sticky>
+            </Fixed>
           </Col>
           <Col
             className="docs__center"
@@ -109,7 +109,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             </footer>
           </Col>
           <Col css={{ width: '28%' }}>
-            <Sticky
+            <Fixed
               offset={92}
               className="docs__right-sidebar"
               css={{
@@ -121,7 +121,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               }}
             >
               <TableOfContent headings={headings} />
-            </Sticky>
+            </Fixed>
           </Col>
           <StyledImg
             className="docs__gradient-blue"

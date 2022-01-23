@@ -14,7 +14,7 @@ export { default as Playground } from './playground';
 export { default as Anchor } from './anchor';
 export { default as MDXComponents } from './mdx';
 export { default as TableOfContent } from './table-of-content';
-export { default as Sticky } from './fixed';
+export { default as Fixed } from './fixed';
 export { default as PageNav } from './page-nav';
 export { default as DotsContainer } from './dots-container';
 export { default as Palette } from './palette';
