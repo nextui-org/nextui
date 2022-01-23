@@ -66,7 +66,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         >
           <Col css={{ width: '28%' }}>
             <Sticky
-              offset={84}
+              offset={92}
               className="docs__left-sidebar"
               css={{
                 maxHeight: 'calc(100vh - 4rem)',
@@ -110,7 +110,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           </Col>
           <Col css={{ width: '28%' }}>
             <Sticky
-              offset={84}
+              offset={92}
               className="docs__right-sidebar"
               css={{
                 width: '28%',
