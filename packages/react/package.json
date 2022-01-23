@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "1.0.2-beta.1",
+  "version": "1.0.2-beta.2",
   "license": "MIT",
   "description": "🚀 Beautiful and modern React UI library.",
   "homepage": "https://nextui.org",
@@ -53,8 +53,8 @@
     "coverage:codecov": "yarn test --coverage && codecov"
   },
   "dependencies": {
-    "@babel/runtime": "^7.9.6",
-    "@stitches/react": "^1.2.6"
+    "@babel/runtime": "7.9.6",
+    "@stitches/react": "1.2.6"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

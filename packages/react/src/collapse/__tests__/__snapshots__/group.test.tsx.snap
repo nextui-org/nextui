@@ -8,31 +8,31 @@ exports[`Collapse Group should work with bordered 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "nextui-c-gYmZRz nextui-c-gYmZRz-eaqZHc-borderWeight-light nextui-c-gYmZRz-jXueSE-bordered-true",
+      "class": "nextui-c-PVqGf nextui-c-PVqGf-eaqZHc-borderWeight-light nextui-c-PVqGf-jXueSE-bordered-true",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-iLvyFz nextui-c-huiNHE nextui-c-iLvyFz-eLdNZT-borderWeight-light nextui-c-iLvyFz-jBQhgJ-divider-true nextui-c-iLvyFz-kMkCGX-animated-true nextui-c-iLvyFz-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
+          "class": "nextui-c-SSKDj nextui-c-huiNHE nextui-c-SSKDj-eLdNZT-borderWeight-light nextui-c-SSKDj-jBQhgJ-divider-true nextui-c-SSKDj-kMkCGX-animated-true nextui-c-SSKDj-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
           "data-state": "closed",
           "tabindex": "0",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-c8lv6tav",
+              "aria-controls": "nextui-collapse-tobfeehc",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-c8lv6tav",
+              "id": "nextui-collapse-button-tobfeehc",
               "role": "button",
               "tabindex": "-1",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-collapse-title",
+                  "class": "nextui-collapse-title-container",
                 },
                 "children": Array [
                   Node {
@@ -41,7 +41,9 @@ LoadedCheerio {
                     },
                     "children": Array [
                       Node {
-                        "attribs": Object {},
+                        "attribs": Object {
+                          "class": "nextui-collapse-title",
+                        },
                         "children": Array [
                           Node {
                             "data": "title1",
@@ -57,8 +59,12 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
                       },
                     ],
                     "name": "div",
@@ -242,7 +248,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title1",
@@ -258,8 +266,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -312,9 +324,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-c8lv6tav",
+                        "aria-labelledby": "nextui-collapse-button-tobfeehc",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-c8lv6tav",
+                        "id": "nextui-collapse-tobfeehc",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -412,9 +424,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-c8lv6tav",
+                      "aria-labelledby": "nextui-collapse-button-tobfeehc",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-c8lv6tav",
+                      "id": "nextui-collapse-tobfeehc",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -469,19 +481,19 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-c8lv6tav",
+                "aria-controls": "nextui-collapse-tobfeehc",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-c8lv6tav",
+                "id": "nextui-collapse-button-tobfeehc",
                 "role": "button",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-collapse-title",
+                    "class": "nextui-collapse-title-container",
                   },
                   "children": Array [
                     Node {
@@ -490,7 +502,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title1",
@@ -506,8 +520,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -691,7 +709,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title1",
@@ -707,8 +727,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -787,26 +811,26 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-c-iLvyFz nextui-c-huiNHE nextui-c-iLvyFz-eLdNZT-borderWeight-light nextui-c-iLvyFz-jBQhgJ-divider-true nextui-c-iLvyFz-kMkCGX-animated-true nextui-c-iLvyFz-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
+            "class": "nextui-c-SSKDj nextui-c-huiNHE nextui-c-SSKDj-eLdNZT-borderWeight-light nextui-c-SSKDj-jBQhgJ-divider-true nextui-c-SSKDj-kMkCGX-animated-true nextui-c-SSKDj-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
             "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-jqt9mr8j",
+                "aria-controls": "nextui-collapse-27gk930l",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-jqt9mr8j",
+                "id": "nextui-collapse-button-27gk930l",
                 "role": "button",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-collapse-title",
+                    "class": "nextui-collapse-title-container",
                   },
                   "children": Array [
                     Node {
@@ -815,7 +839,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title2",
@@ -831,8 +857,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -1016,7 +1046,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title2",
@@ -1032,8 +1064,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -1086,9 +1122,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-jqt9mr8j",
+                          "aria-labelledby": "nextui-collapse-button-27gk930l",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-jqt9mr8j",
+                          "id": "nextui-collapse-27gk930l",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -1186,9 +1222,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-jqt9mr8j",
+                        "aria-labelledby": "nextui-collapse-button-27gk930l",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-jqt9mr8j",
+                        "id": "nextui-collapse-27gk930l",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -1243,19 +1279,19 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-jqt9mr8j",
+                  "aria-controls": "nextui-collapse-27gk930l",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-jqt9mr8j",
+                  "id": "nextui-collapse-button-27gk930l",
                   "role": "button",
                   "tabindex": "-1",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "nextui-collapse-title",
+                      "class": "nextui-collapse-title-container",
                     },
                     "children": Array [
                       Node {
@@ -1264,7 +1300,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title2",
@@ -1280,8 +1318,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -1465,7 +1507,9 @@ LoadedCheerio {
                           },
                           "children": Array [
                             Node {
-                              "attribs": Object {},
+                              "attribs": Object {
+                                "class": "nextui-collapse-title",
+                              },
                               "children": Array [
                                 Node {
                                   "data": "title2",
@@ -1481,8 +1525,12 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": null,
                               "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
                             },
                           ],
                           "name": "div",
@@ -1590,26 +1638,26 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-c-iLvyFz nextui-c-huiNHE nextui-c-iLvyFz-eLdNZT-borderWeight-light nextui-c-iLvyFz-jBQhgJ-divider-true nextui-c-iLvyFz-kMkCGX-animated-true nextui-c-iLvyFz-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
+          "class": "nextui-c-SSKDj nextui-c-huiNHE nextui-c-SSKDj-eLdNZT-borderWeight-light nextui-c-SSKDj-jBQhgJ-divider-true nextui-c-SSKDj-kMkCGX-animated-true nextui-c-SSKDj-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
           "data-state": "closed",
           "tabindex": "0",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-jqt9mr8j",
+              "aria-controls": "nextui-collapse-27gk930l",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-jqt9mr8j",
+              "id": "nextui-collapse-button-27gk930l",
               "role": "button",
               "tabindex": "-1",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-collapse-title",
+                  "class": "nextui-collapse-title-container",
                 },
                 "children": Array [
                   Node {
@@ -1618,7 +1666,9 @@ LoadedCheerio {
                     },
                     "children": Array [
                       Node {
-                        "attribs": Object {},
+                        "attribs": Object {
+                          "class": "nextui-collapse-title",
+                        },
                         "children": Array [
                           Node {
                             "data": "title2",
@@ -1634,8 +1684,12 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
                       },
                     ],
                     "name": "div",
@@ -1819,7 +1873,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title2",
@@ -1835,8 +1891,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -1889,9 +1949,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-jqt9mr8j",
+                        "aria-labelledby": "nextui-collapse-button-27gk930l",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-jqt9mr8j",
+                        "id": "nextui-collapse-27gk930l",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -1989,9 +2049,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-jqt9mr8j",
+                      "aria-labelledby": "nextui-collapse-button-27gk930l",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-jqt9mr8j",
+                      "id": "nextui-collapse-27gk930l",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -2046,19 +2106,19 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-jqt9mr8j",
+                "aria-controls": "nextui-collapse-27gk930l",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-jqt9mr8j",
+                "id": "nextui-collapse-button-27gk930l",
                 "role": "button",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-collapse-title",
+                    "class": "nextui-collapse-title-container",
                   },
                   "children": Array [
                     Node {
@@ -2067,7 +2127,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title2",
@@ -2083,8 +2145,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -2268,7 +2334,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title2",
@@ -2284,8 +2352,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -2366,26 +2438,26 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-c-iLvyFz nextui-c-huiNHE nextui-c-iLvyFz-eLdNZT-borderWeight-light nextui-c-iLvyFz-jBQhgJ-divider-true nextui-c-iLvyFz-kMkCGX-animated-true nextui-c-iLvyFz-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
+            "class": "nextui-c-SSKDj nextui-c-huiNHE nextui-c-SSKDj-eLdNZT-borderWeight-light nextui-c-SSKDj-jBQhgJ-divider-true nextui-c-SSKDj-kMkCGX-animated-true nextui-c-SSKDj-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
             "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-c8lv6tav",
+                "aria-controls": "nextui-collapse-tobfeehc",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-c8lv6tav",
+                "id": "nextui-collapse-button-tobfeehc",
                 "role": "button",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-collapse-title",
+                    "class": "nextui-collapse-title-container",
                   },
                   "children": Array [
                     Node {
@@ -2394,7 +2466,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title1",
@@ -2410,8 +2484,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -2595,7 +2673,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title1",
@@ -2611,8 +2691,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -2665,9 +2749,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-c8lv6tav",
+                          "aria-labelledby": "nextui-collapse-button-tobfeehc",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-c8lv6tav",
+                          "id": "nextui-collapse-tobfeehc",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -2765,9 +2849,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-c8lv6tav",
+                        "aria-labelledby": "nextui-collapse-button-tobfeehc",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-c8lv6tav",
+                        "id": "nextui-collapse-tobfeehc",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -2822,19 +2906,19 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-c8lv6tav",
+                  "aria-controls": "nextui-collapse-tobfeehc",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-c8lv6tav",
+                  "id": "nextui-collapse-button-tobfeehc",
                   "role": "button",
                   "tabindex": "-1",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "nextui-collapse-title",
+                      "class": "nextui-collapse-title-container",
                     },
                     "children": Array [
                       Node {
@@ -2843,7 +2927,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title1",
@@ -2859,8 +2945,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -3044,7 +3134,9 @@ LoadedCheerio {
                           },
                           "children": Array [
                             Node {
-                              "attribs": Object {},
+                              "attribs": Object {
+                                "class": "nextui-collapse-title",
+                              },
                               "children": Array [
                                 Node {
                                   "data": "title1",
@@ -3060,8 +3152,12 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": null,
                               "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
                             },
                           ],
                           "name": "div",
@@ -3277,31 +3373,31 @@ exports[`Collapse Group should work without accordion 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "nextui-c-gYmZRz nextui-c-gYmZRz-eaqZHc-borderWeight-light",
+      "class": "nextui-c-PVqGf nextui-c-PVqGf-eaqZHc-borderWeight-light",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-iLvyFz nextui-c-huiNHE nextui-c-iLvyFz-eLdNZT-borderWeight-light nextui-c-iLvyFz-jBQhgJ-divider-true nextui-c-iLvyFz-kMkCGX-animated-true nextui-c-iLvyFz-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
+          "class": "nextui-c-SSKDj nextui-c-huiNHE nextui-c-SSKDj-eLdNZT-borderWeight-light nextui-c-SSKDj-jBQhgJ-divider-true nextui-c-SSKDj-kMkCGX-animated-true nextui-c-SSKDj-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
           "data-state": "closed",
           "tabindex": "0",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-0vjtvlt8",
+              "aria-controls": "nextui-collapse-pbutri8c",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-0vjtvlt8",
+              "id": "nextui-collapse-button-pbutri8c",
               "role": "button",
               "tabindex": "-1",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-collapse-title",
+                  "class": "nextui-collapse-title-container",
                 },
                 "children": Array [
                   Node {
@@ -3310,7 +3406,9 @@ LoadedCheerio {
                     },
                     "children": Array [
                       Node {
-                        "attribs": Object {},
+                        "attribs": Object {
+                          "class": "nextui-collapse-title",
+                        },
                         "children": Array [
                           Node {
                             "data": "title1",
@@ -3326,8 +3424,12 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
                       },
                     ],
                     "name": "div",
@@ -3511,7 +3613,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title1",
@@ -3527,8 +3631,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -3581,9 +3689,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-0vjtvlt8",
+                        "aria-labelledby": "nextui-collapse-button-pbutri8c",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-0vjtvlt8",
+                        "id": "nextui-collapse-pbutri8c",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -3681,9 +3789,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-0vjtvlt8",
+                      "aria-labelledby": "nextui-collapse-button-pbutri8c",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-0vjtvlt8",
+                      "id": "nextui-collapse-pbutri8c",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -3738,19 +3846,19 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-0vjtvlt8",
+                "aria-controls": "nextui-collapse-pbutri8c",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-0vjtvlt8",
+                "id": "nextui-collapse-button-pbutri8c",
                 "role": "button",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-collapse-title",
+                    "class": "nextui-collapse-title-container",
                   },
                   "children": Array [
                     Node {
@@ -3759,7 +3867,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title1",
@@ -3775,8 +3885,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -3960,7 +4074,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title1",
@@ -3976,8 +4092,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -4056,26 +4176,26 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-c-iLvyFz nextui-c-huiNHE nextui-c-iLvyFz-eLdNZT-borderWeight-light nextui-c-iLvyFz-jBQhgJ-divider-true nextui-c-iLvyFz-kMkCGX-animated-true nextui-c-iLvyFz-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
+            "class": "nextui-c-SSKDj nextui-c-huiNHE nextui-c-SSKDj-eLdNZT-borderWeight-light nextui-c-SSKDj-jBQhgJ-divider-true nextui-c-SSKDj-kMkCGX-animated-true nextui-c-SSKDj-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
             "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-o5n2f10f",
+                "aria-controls": "nextui-collapse-n7uj5gpm",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-o5n2f10f",
+                "id": "nextui-collapse-button-n7uj5gpm",
                 "role": "button",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-collapse-title",
+                    "class": "nextui-collapse-title-container",
                   },
                   "children": Array [
                     Node {
@@ -4084,7 +4204,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title2",
@@ -4100,8 +4222,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -4285,7 +4411,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title2",
@@ -4301,8 +4429,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -4355,9 +4487,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-o5n2f10f",
+                          "aria-labelledby": "nextui-collapse-button-n7uj5gpm",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-o5n2f10f",
+                          "id": "nextui-collapse-n7uj5gpm",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -4455,9 +4587,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-o5n2f10f",
+                        "aria-labelledby": "nextui-collapse-button-n7uj5gpm",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-o5n2f10f",
+                        "id": "nextui-collapse-n7uj5gpm",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -4512,19 +4644,19 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-o5n2f10f",
+                  "aria-controls": "nextui-collapse-n7uj5gpm",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-o5n2f10f",
+                  "id": "nextui-collapse-button-n7uj5gpm",
                   "role": "button",
                   "tabindex": "-1",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "nextui-collapse-title",
+                      "class": "nextui-collapse-title-container",
                     },
                     "children": Array [
                       Node {
@@ -4533,7 +4665,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title2",
@@ -4549,8 +4683,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -4734,7 +4872,9 @@ LoadedCheerio {
                           },
                           "children": Array [
                             Node {
-                              "attribs": Object {},
+                              "attribs": Object {
+                                "class": "nextui-collapse-title",
+                              },
                               "children": Array [
                                 Node {
                                   "data": "title2",
@@ -4750,8 +4890,12 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": null,
                               "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
                             },
                           ],
                           "name": "div",
@@ -4859,26 +5003,26 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-c-iLvyFz nextui-c-huiNHE nextui-c-iLvyFz-eLdNZT-borderWeight-light nextui-c-iLvyFz-jBQhgJ-divider-true nextui-c-iLvyFz-kMkCGX-animated-true nextui-c-iLvyFz-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
+          "class": "nextui-c-SSKDj nextui-c-huiNHE nextui-c-SSKDj-eLdNZT-borderWeight-light nextui-c-SSKDj-jBQhgJ-divider-true nextui-c-SSKDj-kMkCGX-animated-true nextui-c-SSKDj-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
           "data-state": "closed",
           "tabindex": "0",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "aria-controls": "nextui-collapse-o5n2f10f",
+              "aria-controls": "nextui-collapse-n7uj5gpm",
               "aria-disabled": "false",
               "aria-expanded": "false",
               "class": "nextui-c-lfcDHB nextui-collapse-view",
               "data-state": "closed",
-              "id": "nextui-collapse-button-o5n2f10f",
+              "id": "nextui-collapse-button-n7uj5gpm",
               "role": "button",
               "tabindex": "-1",
             },
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-collapse-title",
+                  "class": "nextui-collapse-title-container",
                 },
                 "children": Array [
                   Node {
@@ -4887,7 +5031,9 @@ LoadedCheerio {
                     },
                     "children": Array [
                       Node {
-                        "attribs": Object {},
+                        "attribs": Object {
+                          "class": "nextui-collapse-title",
+                        },
                         "children": Array [
                           Node {
                             "data": "title2",
@@ -4903,8 +5049,12 @@ LoadedCheerio {
                         "parent": [Circular],
                         "prev": null,
                         "type": "tag",
-                        "x-attribsNamespace": Object {},
-                        "x-attribsPrefix": Object {},
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
                       },
                     ],
                     "name": "div",
@@ -5088,7 +5238,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title2",
@@ -5104,8 +5256,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -5158,9 +5314,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-o5n2f10f",
+                        "aria-labelledby": "nextui-collapse-button-n7uj5gpm",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-o5n2f10f",
+                        "id": "nextui-collapse-n7uj5gpm",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -5258,9 +5414,9 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "aria-labelledby": "nextui-collapse-button-o5n2f10f",
+                      "aria-labelledby": "nextui-collapse-button-n7uj5gpm",
                       "class": "nextui-c-fMAxGR nextui-collapse-content",
-                      "id": "nextui-collapse-o5n2f10f",
+                      "id": "nextui-collapse-n7uj5gpm",
                       "role": "region",
                       "tabindex": "-1",
                     },
@@ -5315,19 +5471,19 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-o5n2f10f",
+                "aria-controls": "nextui-collapse-n7uj5gpm",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-o5n2f10f",
+                "id": "nextui-collapse-button-n7uj5gpm",
                 "role": "button",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-collapse-title",
+                    "class": "nextui-collapse-title-container",
                   },
                   "children": Array [
                     Node {
@@ -5336,7 +5492,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title2",
@@ -5352,8 +5510,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -5537,7 +5699,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title2",
@@ -5553,8 +5717,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -5635,26 +5803,26 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-c-iLvyFz nextui-c-huiNHE nextui-c-iLvyFz-eLdNZT-borderWeight-light nextui-c-iLvyFz-jBQhgJ-divider-true nextui-c-iLvyFz-kMkCGX-animated-true nextui-c-iLvyFz-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
+            "class": "nextui-c-SSKDj nextui-c-huiNHE nextui-c-SSKDj-eLdNZT-borderWeight-light nextui-c-SSKDj-jBQhgJ-divider-true nextui-c-SSKDj-kMkCGX-animated-true nextui-c-SSKDj-TDdeu-visible-false nextui-collapse nextui-collapse--closed",
             "data-state": "closed",
             "tabindex": "0",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "aria-controls": "nextui-collapse-0vjtvlt8",
+                "aria-controls": "nextui-collapse-pbutri8c",
                 "aria-disabled": "false",
                 "aria-expanded": "false",
                 "class": "nextui-c-lfcDHB nextui-collapse-view",
                 "data-state": "closed",
-                "id": "nextui-collapse-button-0vjtvlt8",
+                "id": "nextui-collapse-button-pbutri8c",
                 "role": "button",
                 "tabindex": "-1",
               },
               "children": Array [
                 Node {
                   "attribs": Object {
-                    "class": "nextui-collapse-title",
+                    "class": "nextui-collapse-title-container",
                   },
                   "children": Array [
                     Node {
@@ -5663,7 +5831,9 @@ LoadedCheerio {
                       },
                       "children": Array [
                         Node {
-                          "attribs": Object {},
+                          "attribs": Object {
+                            "class": "nextui-collapse-title",
+                          },
                           "children": Array [
                             Node {
                               "data": "title1",
@@ -5679,8 +5849,12 @@ LoadedCheerio {
                           "parent": [Circular],
                           "prev": null,
                           "type": "tag",
-                          "x-attribsNamespace": Object {},
-                          "x-attribsPrefix": Object {},
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
                         },
                       ],
                       "name": "div",
@@ -5864,7 +6038,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title1",
@@ -5880,8 +6056,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -5934,9 +6114,9 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "aria-labelledby": "nextui-collapse-button-0vjtvlt8",
+                          "aria-labelledby": "nextui-collapse-button-pbutri8c",
                           "class": "nextui-c-fMAxGR nextui-collapse-content",
-                          "id": "nextui-collapse-0vjtvlt8",
+                          "id": "nextui-collapse-pbutri8c",
                           "role": "region",
                           "tabindex": "-1",
                         },
@@ -6034,9 +6214,9 @@ LoadedCheerio {
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "aria-labelledby": "nextui-collapse-button-0vjtvlt8",
+                        "aria-labelledby": "nextui-collapse-button-pbutri8c",
                         "class": "nextui-c-fMAxGR nextui-collapse-content",
-                        "id": "nextui-collapse-0vjtvlt8",
+                        "id": "nextui-collapse-pbutri8c",
                         "role": "region",
                         "tabindex": "-1",
                       },
@@ -6091,19 +6271,19 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "aria-controls": "nextui-collapse-0vjtvlt8",
+                  "aria-controls": "nextui-collapse-pbutri8c",
                   "aria-disabled": "false",
                   "aria-expanded": "false",
                   "class": "nextui-c-lfcDHB nextui-collapse-view",
                   "data-state": "closed",
-                  "id": "nextui-collapse-button-0vjtvlt8",
+                  "id": "nextui-collapse-button-pbutri8c",
                   "role": "button",
                   "tabindex": "-1",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "nextui-collapse-title",
+                      "class": "nextui-collapse-title-container",
                     },
                     "children": Array [
                       Node {
@@ -6112,7 +6292,9 @@ LoadedCheerio {
                         },
                         "children": Array [
                           Node {
-                            "attribs": Object {},
+                            "attribs": Object {
+                              "class": "nextui-collapse-title",
+                            },
                             "children": Array [
                               Node {
                                 "data": "title1",
@@ -6128,8 +6310,12 @@ LoadedCheerio {
                             "parent": [Circular],
                             "prev": null,
                             "type": "tag",
-                            "x-attribsNamespace": Object {},
-                            "x-attribsPrefix": Object {},
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                            },
                           },
                         ],
                         "name": "div",
@@ -6313,7 +6499,9 @@ LoadedCheerio {
                           },
                           "children": Array [
                             Node {
-                              "attribs": Object {},
+                              "attribs": Object {
+                                "class": "nextui-collapse-title",
+                              },
                               "children": Array [
                                 Node {
                                   "data": "title1",
@@ -6329,8 +6517,12 @@ LoadedCheerio {
                               "parent": [Circular],
                               "prev": null,
                               "type": "tag",
-                              "x-attribsNamespace": Object {},
-                              "x-attribsPrefix": Object {},
+                              "x-attribsNamespace": Object {
+                                "class": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "class": undefined,
+                              },
                             },
                           ],
                           "name": "div",

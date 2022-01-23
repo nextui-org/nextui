@@ -41,6 +41,7 @@ const Hero: React.FC = () => {
       <Row
         className="hero__content"
         align="center"
+        wrap="wrap"
         css={{
           zIndex: '$2',
           '@mdMax': {
@@ -65,13 +66,16 @@ const Hero: React.FC = () => {
             }
           }}
         >
-          <StyledTitle css={{ wordWrap: 'break-word' }}>
-            Make&nbsp;
-            <StyledGradientTitle>beautiful&nbsp;</StyledGradientTitle>
-            <StyledTitle>
+          <Row justify="flex-start" wrap="wrap">
+            <StyledTitle css={{ '@xsMax': { d: 'contents' } }}>
+              Make&nbsp;
+              <StyledGradientTitle css={{ mb: 0 }}>
+                beautiful&nbsp;
+              </StyledGradientTitle>
               websites regardless of your design experience.
             </StyledTitle>
-          </StyledTitle>
+          </Row>
+
           <StyledSubtitle className="hero__text-subtitle">
             Beautiful, fast and modern React UI library.
           </StyledSubtitle>

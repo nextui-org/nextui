@@ -1,7 +1,12 @@
 import React from 'react';
-import { Container, Row, Text, Spacer, Link } from '@nextui-org/react';
+import { Container, Row, Text, Spacer, Link, CSS } from '@nextui-org/react';
 
-const Footer: React.FC = () => {
+export interface Props {
+  css?: CSS;
+  containerCss?: CSS;
+}
+
+const Footer: React.FC<Props> = ({ css, containerCss }) => {
   const year = new Date().getFullYear();
   return (
     <Container
@@ -13,10 +18,11 @@ const Footer: React.FC = () => {
         padding: '$md $sm',
         '@xsMax': {
           padding: '$sm $xs'
-        }
+        },
+        ...containerCss
       }}
     >
-      <Row justify="center">
+      <Row justify="center" css={css}>
         <Text
           span
           className="footer__copy"

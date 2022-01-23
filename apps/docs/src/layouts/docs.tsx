@@ -64,7 +64,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             }
           }}
         >
-          <Col css={{ width: '28%' }}>
+          <Col css={{ width: '32%' }}>
             <Fixed
               offset={92}
               className="docs__left-sidebar"
@@ -72,7 +72,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
                 maxHeight: 'calc(100vh - 4rem)',
                 overflow: 'auto',
                 display: 'none',
-                '::-webkit-scrollbar': {
+                '&::-webkit-scrollbar': {
                   width: '0px'
                 },
                 '@md': {
@@ -113,7 +113,6 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               offset={92}
               className="docs__right-sidebar"
               css={{
-                width: '28%',
                 display: 'none',
                 '@lg': {
                   display: 'block'
@@ -165,7 +164,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             }}
           />
         </Row>
-        <Footer />
+        <Footer css={{ jc: 'flex-end' }} />
       </Container>
     </>
   );

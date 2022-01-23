@@ -10,16 +10,7 @@ export const getStitchesTheme = (targetTheme: BaseTheme): BaseTheme => {
   return deepMerge(targetTheme, commonTheme.theme);
 };
 
-export const {
-  styled,
-  css,
-  theme,
-  createTheme: createThemeBase,
-  getCssText,
-  globalCss,
-  keyframes,
-  config
-} = createStitches({
+const stitches = createStitches({
   ...commonTheme,
   theme: {
     ...commonTheme.theme,
@@ -32,6 +23,15 @@ export const {
     }
   }
 });
+
+export const createThemeBase = stitches.createTheme;
+export const styled = stitches.styled;
+export const css = stitches.css;
+export const globalCss = stitches.globalCss;
+export const keyframes = stitches.keyframes;
+export const getCssText = stitches.getCssText;
+export const theme = stitches.theme;
+export const config = stitches.config;
 
 export const sharedFocus = css({
   WebkitTapHighlightColor: 'transparent',

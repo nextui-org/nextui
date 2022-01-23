@@ -4,7 +4,7 @@ exports[`Card should render correctly when nested 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "nextui-c-nVPDe nextui-c-nVPDe-kQghEc-color-default nextui-c-nVPDe-iVCgFB-shadow-true nextui-c-nVPDe-bVtBym-bordered-false nextui-c-nVPDe-bzEnZV-borderWeight-normal nextui-c-nVPDe-iNKybL-animated-true nextui-c-nVPDe-bxaxLq-cover-false nextui-c-nVPDe-kQghEc-cv",
+      "class": "nextui-c-kltynt nextui-c-kltynt-kQghEc-color-default nextui-c-kltynt-iVCgFB-shadow-true nextui-c-kltynt-bVtBym-bordered-false nextui-c-kltynt-bzEnZV-borderWeight-normal nextui-c-kltynt-iNKybL-animated-true nextui-c-kltynt-ifTMkJ-cover-false nextui-c-kltynt-kQghEc-cv",
       "role": "section",
       "tabindex": "-1",
     },
@@ -16,7 +16,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-c-nVPDe nextui-c-nVPDe-kQghEc-color-default nextui-c-nVPDe-iVCgFB-shadow-true nextui-c-nVPDe-bVtBym-bordered-false nextui-c-nVPDe-bzEnZV-borderWeight-normal nextui-c-nVPDe-iNKybL-animated-true nextui-c-nVPDe-bxaxLq-cover-false nextui-c-nVPDe-kQghEc-cv",
+              "class": "nextui-c-kltynt nextui-c-kltynt-kQghEc-color-default nextui-c-kltynt-iVCgFB-shadow-true nextui-c-kltynt-bVtBym-bordered-false nextui-c-kltynt-bzEnZV-borderWeight-normal nextui-c-kltynt-iNKybL-animated-true nextui-c-kltynt-ifTMkJ-cover-false nextui-c-kltynt-kQghEc-cv",
               "role": "section",
               "tabindex": "-1",
             },
@@ -28,7 +28,7 @@ LoadedCheerio {
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "nextui-c-nVPDe nextui-c-nVPDe-kQghEc-color-default nextui-c-nVPDe-iVCgFB-shadow-true nextui-c-nVPDe-bVtBym-bordered-false nextui-c-nVPDe-bzEnZV-borderWeight-normal nextui-c-nVPDe-iNKybL-animated-true nextui-c-nVPDe-bxaxLq-cover-false nextui-c-nVPDe-kQghEc-cv",
+                      "class": "nextui-c-kltynt nextui-c-kltynt-kQghEc-color-default nextui-c-kltynt-iVCgFB-shadow-true nextui-c-kltynt-bVtBym-bordered-false nextui-c-kltynt-bzEnZV-borderWeight-normal nextui-c-kltynt-iNKybL-animated-true nextui-c-kltynt-ifTMkJ-cover-false nextui-c-kltynt-kQghEc-cv",
                       "role": "section",
                       "tabindex": "-1",
                     },
@@ -242,7 +242,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-nVPDe nextui-c-nVPDe-kQghEc-color-default nextui-c-nVPDe-iVCgFB-shadow-true nextui-c-nVPDe-bVtBym-bordered-false nextui-c-nVPDe-bzEnZV-borderWeight-normal nextui-c-nVPDe-iNKybL-animated-true nextui-c-nVPDe-lkBgbl-clickable-true nextui-c-nVPDe-bxaxLq-cover-false nextui-c-nVPDe-kQghEc-cv nextui-c-nVPDe-expcIv-cv",
+          "class": "nextui-c-kltynt nextui-c-kltynt-kQghEc-color-default nextui-c-kltynt-iVCgFB-shadow-true nextui-c-kltynt-bVtBym-bordered-false nextui-c-kltynt-bzEnZV-borderWeight-normal nextui-c-kltynt-iNKybL-animated-true nextui-c-kltynt-lkBgbl-clickable-true nextui-c-kltynt-ifTMkJ-cover-false nextui-c-kltynt-kQghEc-cv nextui-c-kltynt-expcIv-cv",
           "role": "button",
           "tabindex": "0",
         },
@@ -402,7 +402,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-nVPDe nextui-c-nVPDe-kQghEc-color-default nextui-c-nVPDe-iVCgFB-shadow-true nextui-c-nVPDe-bVtBym-bordered-false nextui-c-nVPDe-bzEnZV-borderWeight-normal nextui-c-nVPDe-iNKybL-animated-true nextui-c-nVPDe-bxaxLq-cover-false nextui-c-nVPDe-kQghEc-cv nextui-c-nVPDe-ikCXDdt-css",
+          "class": "nextui-c-kltynt nextui-c-kltynt-kQghEc-color-default nextui-c-kltynt-iVCgFB-shadow-true nextui-c-kltynt-bVtBym-bordered-false nextui-c-kltynt-bzEnZV-borderWeight-normal nextui-c-kltynt-iNKybL-animated-true nextui-c-kltynt-ifTMkJ-cover-false nextui-c-kltynt-kQghEc-cv nextui-c-kltynt-ikCXDdt-css",
           "role": "section",
           "tabindex": "-1",
         },
@@ -562,7 +562,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-nVPDe nextui-c-nVPDe-kQghEc-color-default nextui-c-nVPDe-iVCgFB-shadow-true nextui-c-nVPDe-bVtBym-bordered-false nextui-c-nVPDe-bzEnZV-borderWeight-normal nextui-c-nVPDe-iNKybL-animated-true nextui-c-nVPDe-jQJOMy-hoverable-true nextui-c-nVPDe-bxaxLq-cover-false nextui-c-nVPDe-kQghEc-cv",
+          "class": "nextui-c-kltynt nextui-c-kltynt-kQghEc-color-default nextui-c-kltynt-iVCgFB-shadow-true nextui-c-kltynt-bVtBym-bordered-false nextui-c-kltynt-bzEnZV-borderWeight-normal nextui-c-kltynt-iNKybL-animated-true nextui-c-kltynt-jQJOMy-hoverable-true nextui-c-kltynt-ifTMkJ-cover-false nextui-c-kltynt-kQghEc-cv",
           "role": "section",
           "tabindex": "-1",
         },
