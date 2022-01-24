@@ -1,7 +1,8 @@
+import React from 'react';
+import { useRouter } from 'next/router';
 import { FeaturesGrid, Note, NextJsLogo } from '@components';
 import { Button, Container, Grid, Snippet } from '@nextui-org/react';
 import { StyledCardBlur, Title, Subtitle } from '@primitives';
-import React from 'react';
 
 const bannerSuggestions = [
   {
@@ -21,6 +22,12 @@ const bannerSuggestions = [
 ];
 
 const InstallBanner: React.FC = () => {
+  const router = useRouter();
+
+  const handleGetStartedClick = () => {
+    router.push('docs/guide/getting-started');
+  };
+
   return (
     <StyledCardBlur
       css={{
@@ -79,6 +86,7 @@ const InstallBanner: React.FC = () => {
                       mb: '$6'
                     }
                   }}
+                  onClick={handleGetStartedClick}
                 >
                   Get started
                 </Button>

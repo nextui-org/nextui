@@ -13,8 +13,8 @@ export interface CommunityProps {
 
 const defaultProps = {
   twitter: 'https://twitter.com/getnextui',
-  github: 'https://discord.gg/9b6yyZKmH4',
-  discord: 'https://github.com/nextui-org/nextui'
+  github: 'https://github.com/nextui-org/nextui',
+  discord: 'https://discord.gg/9b6yyZKmH4'
 };
 
 const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
