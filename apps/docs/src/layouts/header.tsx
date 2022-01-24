@@ -14,7 +14,7 @@ export interface HeaderProps {
 }
 
 const defaultProps = {
-  description: 'Beautiful, fast, modern React UI Library',
+  description: 'Make beautiful websites regardless of your design experience.',
   image: '/twitter-cards/nextui.png'
 };
 
@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
   const { theme, isDark } = useTheme();
 
   let pageTitle = title ? `${toCapitalize(title)} | ` : '';
-  pageTitle += 'NextUI - Beautiful, fast,modern React UI Library';
+  pageTitle += 'NextUI - Beautiful, fast and modern React UI Library';
   return (
     <Head>
       <title>{pageTitle}</title>

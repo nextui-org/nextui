@@ -66,15 +66,13 @@ const Hero: React.FC = () => {
             }
           }}
         >
-          <Row justify="flex-start" wrap="wrap">
-            <StyledTitle css={{ '@xsMax': { d: 'contents' } }}>
-              Make&nbsp;
-              <StyledGradientTitle css={{ mb: 0 }}>
-                beautiful&nbsp;
-              </StyledGradientTitle>
-              websites regardless of your design experience.
-            </StyledTitle>
-          </Row>
+          <StyledTitle css={{ mb: 0 }}>Make&nbsp;</StyledTitle>
+          <StyledGradientTitle css={{ mb: 0 }}>
+            beautiful&nbsp;
+          </StyledGradientTitle>
+          <StyledTitle css={{ mb: 0, '@xsMax': { d: 'inline-block' } }}>
+            websites regardless of your design experience.
+          </StyledTitle>
 
           <StyledSubtitle className="hero__text-subtitle">
             Beautiful, fast and modern React UI library.
