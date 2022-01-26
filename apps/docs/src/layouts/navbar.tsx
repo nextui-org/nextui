@@ -8,22 +8,17 @@ import {
   Github,
   ThemeToggle
 } from '@components';
+import { Box } from '@primitives';
 import cn from 'classnames';
 import NextLink from 'next/link';
 import dynamic from 'next/dynamic';
-import {
-  Row,
-  Col,
-  Spacer,
-  Link,
-  useTheme,
-  useBodyScroll
-} from '@nextui-org/react';
+import { Row, Col, Spacer, Link, useBodyScroll } from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
 import { Container } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@hooks/use-media-query';
 import { isActive } from '@utils/links';
+import { includes } from 'lodash';
 import { StyledNavContainer } from './styles';
 
 export interface Props {
@@ -48,7 +43,6 @@ const SearchInput = dynamic(
 const Navbar: React.FC<Props> = ({ isHome, routes }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
-  const { theme } = useTheme();
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
   const [scrollPosition, setScrollPosition] = useState(
@@ -104,7 +98,14 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
           <Row justify="flex-start" align="center">
             <NextLink href="/">
               <Link>
-                <Logo auto className="navbar__logo" />
+                <Logo
+                  auto
+                  className="navbar__logo"
+                  css={{
+                    cursor: 'pointer',
+                    transition: '$default'
+                  }}
+                />
               </Link>
             </NextLink>
             <Spacer x={0.4} />
@@ -121,30 +122,45 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
             </Badge>
           </Row>
         </Col>
-        <Col className="navbar__resources-container">
+        <Col
+          className="navbar__resources-container"
+          css={{ '@mdMax': { d: 'none' } }}
+        >
           <Row justify="center" align="center">
             <Spacer x={1} y={0} />
             <NextLink href="/docs/guide/getting-started">
               <Link
                 className={cn('navbar__link', {
-                  active: isActive(router.pathname, '/docs/[[...slug]]')
+                  active:
+                    isActive(router.pathname, '/docs/[[...slug]]') &&
+                    !includes(router.asPath, 'components')
                 })}
                 href="#"
                 css={{
-                  color: '$text'
+                  color: '$text',
+                  '&.active': {
+                    fontWeight: '600',
+                    color: '$primary'
+                  }
                 }}
               >
                 Docs
               </Link>
             </NextLink>
             <Spacer x={1} y={0} />
-            <NextLink href="/docs/components/button">
+            <NextLink href="/docs/components/avatar">
               <Link
                 aria-disabled
-                className="navbar__link"
+                className={cn('navbar__link', {
+                  active: includes(router.asPath, 'components')
+                })}
                 title="Components"
                 css={{
-                  color: '$text'
+                  color: '$text',
+                  '&.active': {
+                    fontWeight: '600',
+                    color: '$primary'
+                  }
                 }}
               >
                 Components
@@ -166,18 +182,45 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
           </Row>
         </Col>
         <Col className="navbar__search-container">
-          <Row className="navbar__search-row" justify="flex-end" align="center">
+          <Row
+            className="navbar__search-row"
+            justify="flex-end"
+            align="center"
+            css={{
+              position: 'initial',
+              '@mdMax': {
+                jc: 'center'
+              }
+            }}
+          >
             <Row
               className="navbar__social-icons-container"
               justify="flex-end"
               align="center"
               gap={1}
+              css={{
+                width: 'initial',
+                '@mdMax': {
+                  d: 'none'
+                }
+              }}
             >
               <Link
                 className="navbar__social-icon"
                 href="https://twitter.com/getnextui"
                 target="_blank"
                 rel="noreferrer"
+                css={{
+                  m: '0 6px',
+                  '& svg': {
+                    transition: '$default'
+                  },
+                  '&:hover': {
+                    '& svg': {
+                      opacity: 0.7
+                    }
+                  }
+                }}
               >
                 <Twitter size={24} />
               </Link>
@@ -186,6 +229,17 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
                 href="https://discord.gg/9b6yyZKmH4"
                 target="_blank"
                 rel="noreferrer"
+                css={{
+                  m: '0 6px',
+                  '& svg': {
+                    transition: '$default'
+                  },
+                  '&:hover': {
+                    '& svg': {
+                      opacity: 0.7
+                    }
+                  }
+                }}
               >
                 <Discord size={24} />
               </Link>
@@ -194,22 +248,67 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
                 href="https://github.com/nextui-org/nextui"
                 target="_blank"
                 rel="noreferrer"
+                css={{
+                  m: '0 6px',
+                  '& svg': {
+                    transition: '$default'
+                  },
+                  '&:hover': {
+                    '& svg': {
+                      opacity: 0.7
+                    }
+                  }
+                }}
               >
                 <Github size={24} />
               </Link>
-              <ThemeToggle className="navbar__social-icon" />
+              <ThemeToggle
+                className="navbar__social-icon"
+                css={{
+                  m: '0 6px',
+                  '& svg': {
+                    transition: '$default'
+                  },
+                  '&:hover': {
+                    '& svg': {
+                      opacity: 0.7
+                    }
+                  }
+                }}
+              />
             </Row>
             <SearchInput />
           </Row>
         </Col>
-        <Col className="navbar__menu-container">
-          <ThemeToggle className="navbar__social-icon-mobile" />
-          <div
+        <Col
+          className="navbar__menu-container"
+          css={{
+            size: '100%',
+            display: 'none',
+            '@mdMax': {
+              display: 'flex',
+              justifyContent: 'flex-end'
+            }
+          }}
+        >
+          <ThemeToggle
+            className="navbar__social-icon-mobile"
+            css={{ m: '0' }}
+          />
+          <Box
             className="navbar__menu-arrow noselect"
             onClick={onToggleNavigation}
+            css={{
+              height: '100%',
+              minHeight: '40px',
+              minWidth: '30px',
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: 'center'
+            }}
           >
             <MenuToggle expanded={expanded} />
-          </div>
+          </Box>
         </Col>
         <MobileNavigation
           routes={routes}
@@ -220,80 +319,6 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
           }}
         />
       </Container>
-      <style jsx>{`
-        :global(.navbar__search-row) {
-          position: initial !important;
-        }
-        :global(.navbar__logo) {
-          cursor: pointer;
-          transition: all 0.25s ease;
-        }
-        :global(.navbar__social-icons-container) {
-          width: initial !important;
-        }
-        :global(.navbar__link.active) {
-          font-weight: 600;
-          color: ${theme?.colors?.primary?.value};
-        }
-        :global(.navbar__menu-arrow) {
-          height: 100%;
-          min-height: 40px;
-          min-width: 30px;
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
-        }
-        :global(.navbar__menu-container) {
-          width: 100%;
-          height: 100%;
-          display: none;
-        }
-        :global(.navbar__social-icon) {
-          margin: 0 6px;
-        }
-        :global(.navbar__social-icon-mobile) {
-          margin: 0;
-        }
-        :global(.navbar__social-icon svg) {
-          transition: all 0.25s ease;
-        }
-        :global(.navbar__social-icon:hover svg) {
-          opacity: 0.7;
-        }
-        :global(.navbar__disabled-link) {
-          cursor: not-allowed;
-          events: none;
-        }
-        @media only screen and (max-width: ${theme?.breakpoints.xs.value}) {
-          :global(.navbar__container) {
-            min-height: 64px;
-            max-height: 64px;
-          }
-          :global(.navbar__search-row) {
-            justify-content: center;
-          }
-          :global(.navbar__logo-container a:active) {
-            opacity: 0.7;
-          }
-        }
-        @media only screen and (max-width: ${theme?.breakpoints.md.value}) {
-          :global(.navbar__menu-container) {
-            display: flex;
-            justify-content: flex-end;
-          }
-          :global(.navbar__resources-container) {
-            display: none;
-          }
-          :global(.navbar__version-badge, .navbar__social-icons-container) {
-            display: none !important;
-          }
-        }
-        @media only screen and (max-width: ${theme?.breakpoints.lg.value}) {
-          .navbar__wrapper {
-            padding: 0 16px;
-          }
-        }
-      `}</style>
     </StyledNavContainer>
   );
 };

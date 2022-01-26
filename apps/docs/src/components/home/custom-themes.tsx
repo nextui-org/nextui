@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import NextLink from 'next/link';
+import dynamic from 'next/dynamic';
 import { Box, Section, Title, Subtitle, BlockLink } from '@primitives';
 import { Grid, Row, Col } from '@nextui-org/react';
 import { darkTheme } from '@theme/shared';
@@ -22,6 +23,14 @@ const darkCodeHighlights = {
   elegant: '73-91',
   retro: '109-124'
 };
+
+const DynamicShopCard = dynamic(() => import('../templates/shop-card'), {
+  ssr: false
+});
+
+const DynamicCodeDemo = dynamic(() => import('../code-demo/code-demo'), {
+  ssr: false
+});
 
 const CustomThemesSection = () => {
   const [activeHighlight, setActiveHighlight] = useState('nextui');
@@ -76,7 +85,7 @@ const CustomThemesSection = () => {
           }}
         >
           <Col>
-            <ShopCard onChangeTheme={setActiveHighlight} />
+            <DynamicShopCard onChangeTheme={setActiveHighlight} />
             <NextLink href="/docs/theme/customize-theme">
               <BlockLink color="blue">Learn more</BlockLink>
             </NextLink>
@@ -93,7 +102,7 @@ const CustomThemesSection = () => {
           }}
         >
           <Col css={{ dflex: 'center', fd: 'column', ai: 'flex-start' }}>
-            <CodeDemo
+            <DynamicCodeDemo
               showWindowIcons
               line={get(
                 isDark ? darkCodeHighlights : codeHighlights,

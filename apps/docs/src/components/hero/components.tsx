@@ -114,6 +114,7 @@ const HeroComponents = () => {
         </Tooltip>
       </Grid>
       <Card
+        cover
         css={{
           p: 0,
           w: '120px',
@@ -150,7 +151,6 @@ const HeroComponents = () => {
           />
         </Card.Body>
         <Card.Footer
-          blur
           css={{
             position: 'absolute',
             bf: 'saturate(180%) blur(10px)',
@@ -158,8 +158,8 @@ const HeroComponents = () => {
             maxHeight: '$space$12',
             borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
             px: '$6',
-            bottom: 0,
-            zIndex: 1
+            bottom: '0px',
+            zIndex: '$max'
           }}
         >
           <Row justify="space-between">

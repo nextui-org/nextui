@@ -1,7 +1,8 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { Grid, Text, Row, Spacer } from '@nextui-org/react';
 import { StyledCommunityCard } from './styles';
-import { Twitter, Discord, Github, LooperBG } from '@components';
+import { Twitter, Discord, Github } from '@components';
 import { Title, Subtitle } from '@primitives';
 import withDefaults from '@utils/with-defaults';
 
@@ -16,6 +17,10 @@ const defaultProps = {
   github: 'https://github.com/nextui-org/nextui',
   discord: 'https://discord.gg/9b6yyZKmH4'
 };
+
+const DynamicLopperBG = dynamic(() => import('../looper-bg'), {
+  ssr: false
+});
 
 const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
   return (
@@ -87,7 +92,7 @@ const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
           </Row>
         </StyledCommunityCard>
       </Grid>
-      <LooperBG
+      <DynamicLopperBG
         css={{
           zIndex: '-$1',
           position: 'absolute',

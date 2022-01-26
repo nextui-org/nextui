@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 import {
   Container,
   Row,
@@ -9,9 +10,15 @@ import {
   Grid,
   Snippet
 } from '@nextui-org/react';
-import { LooperBG } from '@components';
-import HeroComponents from './components';
 import { StyledTitle, StyledGradientTitle, StyledSubtitle } from './styles';
+
+const DynamicLopperBG = dynamic(() => import('../looper-bg'), {
+  ssr: false
+});
+
+const DynamicHeroComponents = dynamic(() => import('./components'), {
+  ssr: false
+});
 
 const Hero: React.FC = () => {
   const router = useRouter();
@@ -139,10 +146,10 @@ const Hero: React.FC = () => {
             }
           }}
         >
-          <HeroComponents />
+          <DynamicHeroComponents />
         </Col>
       </Row>
-      <LooperBG
+      <DynamicLopperBG
         css={{
           zIndex: '$1',
           position: 'absolute',

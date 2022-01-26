@@ -343,7 +343,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             min-height: 168px;
             transition: all 0.25s ease;
             backdrop-filter: saturate(180%) blur(20px);
-            background: ${addColorAlpha(theme?.colors?.accents1?.value, 0.7)};
+            background: ${theme?.colors?.accents1?.value};
             box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
           }
@@ -362,7 +362,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             }
             .react-autosuggest__suggestions-container,
             .no-results {
-              background: ${addColorAlpha(theme?.colors?.accents1?.value, 0.7)};
+              background: ${theme?.colors?.accents1?.value};
             }
           }
           @supports (

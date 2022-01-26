@@ -72,6 +72,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
                 maxHeight: 'calc(100vh - 4rem)',
                 overflow: 'auto',
                 display: 'none',
+                zIndex: '$2',
                 '&::-webkit-scrollbar': {
                   width: '0px'
                 },
@@ -114,6 +115,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               className="docs__right-sidebar"
               css={{
                 display: 'none',
+                zIndex: '$2',
                 '@lg': {
                   display: 'block'
                 }

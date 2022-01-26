@@ -67,7 +67,6 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       {/*  Comparation  */}
       <Spacer y={10} css={{ '@xsMax': { mt: '$14' } }} />
       <ComparationSection />
-
       {/* Dark mode */}
       <Spacer y={10} css={{ '@xsMax': { mt: '$14' } }} />
       <DarkModeSection />

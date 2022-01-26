@@ -1,13 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
 import { Moon, Sun } from '../icons';
-import { styled } from '@nextui-org/react';
+import { CSS, styled } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
 import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
 
 interface Props {
   className?: string;
+  css?: CSS;
 }
 
 const StyledButton = styled('button', {
@@ -25,7 +26,7 @@ const StyledButton = styled('button', {
   }
 });
 
-export const ThemeToggle: React.FC<Props> = ({ className }) => {
+export const ThemeToggle: React.FC<Props> = ({ className, css }) => {
   const isMounted = useIsMounted();
   const { setTheme, theme } = useNextTheme();
   const isDark = theme === 'dark';
@@ -46,6 +47,7 @@ export const ThemeToggle: React.FC<Props> = ({ className }) => {
       aria-label="toggle a light and dark color scheme"
       className={cn('theme-selector-container', className)}
       onClick={handleToggleTheme}
+      css={css}
     >
       {isDark ? (
         <Sun filled className="theme-selector-icon" size={20} />
