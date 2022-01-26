@@ -7,7 +7,6 @@ import { Grid, Row, Col } from '@nextui-org/react';
 import { darkTheme } from '@theme/shared';
 import landingContent from '@content/landing';
 import { useTheme } from 'next-themes';
-import { ShopCard, CodeDemo } from '@components';
 import { get } from 'lodash';
 
 const codeHighlights = {
