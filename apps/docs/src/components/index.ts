@@ -35,3 +35,4 @@ export type { Feature as FeatureType } from './features-grid';
 export { default as Codeblock } from './codeblock';
 export { default as Community } from './community';
 export { default as InstallBanner } from './install-banner';
+export { default as VercelCallout } from './vercel-callout';

@@ -1,13 +1,13 @@
 <p align="center">
   <a href="https://nextui.org">
-      <img width="20%" src="https://raw.githubusercontent.com/jrgarciadev/nextui/main/apps/docs/public/isotipo.png" alt="nextui" />
+      <img width="20%" src="https://raw.githubusercontent.com/nextui-org/nextui/main/apps/docs/public/isotipo.png" alt="nextui" />
       <h1 align="center">NextUI</h1>
   </a>
 </p>
 </br>
 <p align="center">
   <a href="https://github.com/jrgarciadev/nextui/blob/main/LICENSE">
-    <img src="https://img.shields.io/apm/l/atomic-design-ui.svg?" alt="License">
+    <img src="https://img.shields.io/apm/l/atomic-design-ui.svg?style=flat" alt="License">
   </a>
   <a href="https://codecov.io/gh/jrgarciadev/nextui">
     <img src="https://codecov.io/gh/jrgarciadev/nextui/branch/main/graph/badge.svg?token=QJF2QKR5N4" alt="codecov badge">
@@ -17,6 +17,12 @@
   </a>
   <a href="https://www.npmjs.com/package/@nextui-org/react">
     <img src="https://img.shields.io/npm/dm/@nextui-org/react.svg?style=flat-round" alt="npm downloads">
+  </a>
+</p>
+
+<p align="center">
+  <a rel="noopener noreferrer" target="_blank" href="https://www.vercel.com?utm_source=nextui&utm_marketing=oss">
+    <img height="34px" src="https://raw.githubusercontent.com/nextui-org/nextui/main/apps/docs/public/powered-by-vercel.svg" alt="Powered by vercel">
   </a>
 </p>
 
