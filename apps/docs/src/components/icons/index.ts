@@ -67,3 +67,4 @@ export { default as RoundPointer } from './round-pointer';
 export { default as Maximize } from './maximize';
 export { default as HtmlLogo } from './html-logo';
 export { default as NextJsLogo } from './nextjs-logo';
+export { default as VercelLogo } from './vercel';
