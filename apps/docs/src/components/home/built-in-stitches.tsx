@@ -92,7 +92,7 @@ const BuiltInStitchesSection = () => {
                   title={title}
                   showArrow={false}
                   className={cn({ active: activeItem.id === id })}
-                  initialExpanded={id === items[0].id}
+                  expanded={id === items[0].id}
                   css={{
                     br: '$lg',
                     border: 'none',

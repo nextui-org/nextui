@@ -95,7 +95,7 @@ export const NoAccordion = () => (
 
 export const Expanded = () => (
   <Collapse.Group>
-    <Collapse title="Option A" initialExpanded>
+    <Collapse title="Option A" expanded>
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

@@ -26,7 +26,7 @@ interface Props {
   bordered?: boolean;
   arrowIcon?: React.ReactNode;
   contentLeft?: React.ReactNode;
-  initialExpanded?: boolean;
+  expanded?: boolean;
   showArrow?: boolean;
   shadow?: boolean;
   index?: number;
@@ -48,7 +48,7 @@ const defaultProps = {
   animated: true,
   disabled: false,
   preventDefault: true,
-  initialExpanded: false
+  expanded: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -64,7 +64,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   children,
   title,
   subtitle,
-  initialExpanded,
+  expanded,
   shadow,
   className,
   divider,
@@ -81,7 +81,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   ...props
 }) => {
   const [visible, setVisible, visibleRef] =
-    useCurrentState<boolean>(initialExpanded);
+    useCurrentState<boolean>(expanded);
 
   const { isDark } = useTheme();
 
@@ -95,6 +95,12 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   if (!title) {
     useWarning('"title" is required.', 'Collapse');
   }
+
+  useEffect(() => {
+    if(visible !== expanded) {
+      setVisible(expanded);
+    }
+  }, [expanded])
 
   useEffect(() => {
     if (!values.length) return;
