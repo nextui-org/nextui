@@ -31,7 +31,7 @@ const defaultProps = {
   h5: false,
   h6: false,
   b: false,
-  sm: false,
+  small: false,
   transform: 'none' as TextTransforms,
   i: false,
   span: false,
