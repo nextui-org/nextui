@@ -73,6 +73,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
                 overflow: 'auto',
                 display: 'none',
                 zIndex: '$2',
+                pb: '$28',
                 '&::-webkit-scrollbar': {
                   width: '0px'
                 },
@@ -116,6 +117,10 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               css={{
                 display: 'none',
                 zIndex: '$2',
+                pb: '$20',
+                '&::-webkit-scrollbar': {
+                  width: '0px'
+                },
                 '@lg': {
                   display: 'block'
                 }
