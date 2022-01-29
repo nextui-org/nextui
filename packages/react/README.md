@@ -34,6 +34,9 @@ Visit <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextu
 
 Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full documentation.
 
+## IMPORTANT NOTE 
+Heads up Devs ! We Recently found an [issue](https://github.com/nextui-org/nextui/issues/154) with create-react-app causing page to go complete white when NextUI components are added to app.js file as a temporal workaround we suggest downgrading react-scripts to version "4.0.0" from package.json file to avoid such issue . A permanent Fix will be made soon after we found the root cause 
+
 ## Quick Start
 
 1. Installation: Inside your React project directory, install NextUI by running either of the following:
