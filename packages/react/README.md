@@ -76,7 +76,7 @@ import Button from '@nextui-org/react/button';
 const Component = () => <Button>Click me</Button>;
 ```
 
-### Communnity
+### Community
 
 We're excited to see the community adopt NextUI, raise issues, and provide feedback.
 Whether it's a feature request, bug report, or a project to showcase, please get involved!
