@@ -24,11 +24,11 @@ const darkCodeHighlights = {
 };
 
 const DynamicShopCard = dynamic(() => import('../templates/shop-card'), {
-  ssr: false
+  ssr: true
 });
 
 const DynamicCodeDemo = dynamic(() => import('../code-demo/code-demo'), {
-  ssr: false
+  ssr: true
 });
 
 const CustomThemesSection = () => {

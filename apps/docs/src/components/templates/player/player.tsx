@@ -6,7 +6,8 @@ import {
   Text,
   Row,
   Progress,
-  StyledProgressBar
+  StyledProgressBar,
+  CSS
 } from '@nextui-org/react';
 import {
   Box,
@@ -18,11 +19,16 @@ import {
   PreviousTrack
 } from '@components';
 
-const Player: React.FC<unknown> = () => {
+export interface Props {
+  className?: string;
+  css?: CSS;
+}
+
+const Player: React.FC<Props> = ({ css, ...props }) => {
   const [liked, setLiked] = React.useState(false);
 
   return (
-    <Card css={{ p: '$6', mt: '$8', boxShadow: '$lg' }}>
+    <Card css={{ p: '$6', mt: '$8', boxShadow: '$lg', ...css }} {...props}>
       <Card.Header css={{ d: 'flex', ai: 'center', py: '$8' }}>
         <Grid.Container>
           <Grid css={{ mr: '$8' }}>

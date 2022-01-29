@@ -31,6 +31,8 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
   const { query } = useRouter();
   const { tag, slug } = getSlug(query);
 
+  console.log('render');
+
   // kbar home action
   const homeAction: Action = React.useMemo(() => {
     return {
