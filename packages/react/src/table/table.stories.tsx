@@ -17,11 +17,111 @@ export default {
 type User = {
   name: string;
   role: string;
-  records: Array<{ date: string }>;
+  status: string;
 };
 
-const data: User[] = [
-  { name: 'Zoey Lang', role: 'developer', records: [{ date: '2022-29-01' }] }
+const rows: User[] = [
+  {
+    name: 'Zoey Lang',
+    role: 'developer',
+    status: 'active'
+  },
+  {
+    name: 'Zoey Lang',
+    role: 'developer',
+    status: 'active'
+  },
+  {
+    name: 'Zoey Lang',
+    role: 'developer',
+    status: 'active'
+  },
+  {
+    name: 'Zoey Lang',
+    role: 'developer',
+    status: 'active'
+  },
+  {
+    name: 'Zoey Lang',
+    role: 'developer',
+    status: 'active'
+  },
+  {
+    name: 'Zoey Lang',
+    role: 'developer',
+    status: 'active'
+  }
 ];
 
-export const Default = () => <Table data={data} />;
+const columns = [
+  {
+    field: 'name',
+    label: 'Name',
+    width: 240,
+    sortable: false,
+    renderCell: (rowData: any) => {
+      return (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={rowData.formattedValue as string}
+        >
+          {rowData.formattedValue}
+        </a>
+      );
+    }
+  },
+  {
+    field: 'role',
+    label: 'Role',
+    width: 140,
+    sortable: false,
+    renderCell: (rowData: any) => {
+      return (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={rowData.formattedValue as string}
+        >
+          {rowData.formattedValue}
+        </a>
+      );
+    }
+  },
+  {
+    field: 'status',
+    label: 'Status',
+    width: 140,
+    sortable: false,
+    renderCell: (rowData: any) => {
+      return (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={rowData.formattedValue as string}
+        >
+          {rowData.formattedValue}
+        </a>
+      );
+    }
+  },
+  {
+    field: 'action',
+    label: 'Action',
+    width: 140,
+    sortable: false,
+    renderCell: (rowData: any) => {
+      return (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href={rowData.formattedValue as string}
+        >
+          {rowData.formattedValue}
+        </a>
+      );
+    }
+  }
+];
+
+export const Default = () => <Table columns={columns} rows={rows} />;
