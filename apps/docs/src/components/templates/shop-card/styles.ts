@@ -70,7 +70,8 @@ export const TabText = styled('p', {
 
 export const ProductImageContainer = styled('div', {
   d: 'flex',
-  minSize: '200px',
+  minHeight: '200px',
+  width: '200px',
   br: '32px',
   position: 'relative',
   background: 'linear-gradient(135deg, #010187 0%,#18000E 100%)',
