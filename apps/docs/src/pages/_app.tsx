@@ -29,7 +29,10 @@ const KbarComponent = dynamic(() => import('../components/kbar'), {
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const router = useRouter();
   const kbarActions = generateKbarActions(router);
-
+  
+  if(localStorage.getItem("theme") == undefined){
+    localStorage.setItem("theme","dark")
+  }
   return (
     <NextThemesProvider
       defaultTheme="system"
