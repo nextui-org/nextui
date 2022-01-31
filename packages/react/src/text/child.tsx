@@ -31,7 +31,6 @@ export type TextChildProps = Props &
 const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   children,
   tag,
-  className,
   color: userColor,
   transform,
   margin: marginProp,
