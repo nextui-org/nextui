@@ -1,17 +1,18 @@
 import React from 'react';
-import { TableDataItemBase } from './table-types';
+import { TableRowData } from './table-types';
 import { CSS } from '../theme/stitches.config';
 import { hasChild, pickChild } from '../utils/collections';
 import {
   StyledTable,
   StyledTableHead,
   StyledTableRow,
-  StyledTableBody
+  StyledTableBody,
+  TableVariantsProps
 } from './table.styles';
 import TableColumn, { TableColumnProps } from './table-column';
 import TableCell from './table-cell';
 
-interface Props<TableDataItem extends TableDataItemBase> {
+interface Props<TableDataItem extends TableRowData> {
   rows?: Array<TableDataItem>;
   columns?: Array<TableColumnProps<TableDataItem>>;
   as?: keyof JSX.IntrinsicElements;
@@ -19,12 +20,12 @@ interface Props<TableDataItem extends TableDataItemBase> {
 
 type NativeAttrs = Omit<React.TableHTMLAttributes<unknown>, keyof Props<any>>;
 
-export type TableProps<TableDataItem extends TableDataItemBase> =
-  Props<TableDataItem> & NativeAttrs & { css?: CSS };
+export type TableProps<TableDataItem extends TableRowData> =
+  Props<TableDataItem> & NativeAttrs & TableVariantsProps & { css?: CSS };
 
 const Table = React.forwardRef<
   HTMLTableElement,
-  React.PropsWithChildren<TableProps<TableDataItemBase>>
+  React.PropsWithChildren<TableProps<TableRowData>>
 >(({ columns, rows, children, ...props }, ref) => {
   const [withoutTableHeadChildren, tableHeadChildren] = pickChild(
     children,
@@ -58,7 +59,7 @@ const Table = React.forwardRef<
       {hasTableBody ? (
         tableBodyChildren
       ) : (
-        <StyledTableBody>
+        <StyledTableBody role="rowgroup">
           {rows?.map((row, index) => (
             <StyledTableRow role="row" key={`tbody-row-${index}`}>
               <TableCell columns={columns} row={row} rowIndex={index} />
