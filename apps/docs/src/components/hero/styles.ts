@@ -15,6 +15,9 @@ export const StyledTitle = styled('h1', {
 });
 
 export const StyledGradientTitle = styled(StyledTitle, {
+  '&::selection': {
+    WebkitTextFillColor: '$colors$text',
+  },
   textGradient: '180deg, #FF1CF7 25%, #b249f8 100%'
 });
 
