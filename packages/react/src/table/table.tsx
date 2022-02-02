@@ -11,6 +11,7 @@ import {
 } from './table.styles';
 import TableColumn, { TableColumnProps } from './table-column';
 import TableCell from './table-cell';
+import { Spacer } from '../index';
 
 interface Props<TableDataItem extends TableRowData> {
   rows?: Array<TableDataItem>;
@@ -60,6 +61,7 @@ const Table = React.forwardRef<
         tableBodyChildren
       ) : (
         <StyledTableBody role="rowgroup">
+          <Spacer y={0.5} />
           {rows?.map((row, index) => (
             <StyledTableRow role="row" key={`tbody-row-${index}`}>
               <TableCell columns={columns} row={row} rowIndex={index} />

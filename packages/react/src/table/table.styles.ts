@@ -8,7 +8,6 @@ export const StyledTableRow = styled('tr', {});
 
 export const StyledTableColumn = styled('th', {
   textAlign: 'left',
-  tt: 'uppercase',
   bg: '$accents1',
   color: '$accents6',
   fontSize: '$tiny',
@@ -29,6 +28,19 @@ export const StyledTableCell = styled('td', {
   },
   '&:last-child': {
     pr: '$8'
+  },
+  variants: {
+    align: {
+      left: {
+        textAlign: 'left'
+      },
+      center: {
+        textAlign: 'center'
+      },
+      right: {
+        textAlign: 'right'
+      }
+    }
   }
 });
 
@@ -46,6 +58,14 @@ export const StyledTable = styled('table', {
   borderCollapse: 'separate',
   borderSpacing: 0,
   width: '100%',
+  [`& ${StyledTableCell}`]: {
+    transition: 'background 0.25s ease'
+  },
+  '@motion': {
+    [`& ${StyledTableCell}`]: {
+      transition: 'none'
+    }
+  },
   variants: {
     striped: {
       true: {
@@ -62,6 +82,39 @@ export const StyledTable = styled('table', {
         }
       }
     },
+    lineWeight: {
+      light: {
+        $$tableLineWeight: '$borderWeights$light'
+      },
+      normal: {
+        $$tableLineWeight: '$borderWeights$normal'
+      },
+      bold: {
+        $$tableLineWeight: '$borderWeights$bold'
+      },
+      extrabold: {
+        $$tableLineWeight: '$borderWeights$extrabold'
+      },
+      black: {
+        $$tableLineWeight: '$borderWeights$black'
+      }
+    },
+    lined: {
+      true: {
+        [`& ${StyledTableRow}:not(:last-child)`]: {
+          position: 'relative',
+          [`& ${StyledTableCell}:after`]: {
+            content: '',
+            position: 'absolute',
+            bottom: 0,
+            left: '$space$md',
+            right: '$space$md',
+            height: '$$tableLineWeight',
+            bg: '$border'
+          }
+        }
+      }
+    },
     fixed: {
       true: {
         tableLayout: 'fixed'
@@ -73,10 +126,28 @@ export const StyledTable = styled('table', {
         p: '$lg $md',
         br: '$lg'
       }
+    },
+    hoverable: {
+      true: {
+        [`& ${StyledTableCell}:first-child`]: {
+          br: '$md 0 0 $md'
+        },
+        [`& ${StyledTableCell}:last-child`]: {
+          br: '0 $md $md 0'
+        },
+        [`& ${StyledTableRow}`]: {
+          '&:hover': {
+            [`& ${StyledTableCell}`]: {
+              bg: '$accents1'
+            }
+          }
+        }
+      }
     }
   },
   defaultVariants: {
-    shadow: true
+    shadow: true,
+    lineWeight: 'light'
   }
 });
 

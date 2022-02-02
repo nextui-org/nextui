@@ -29,3 +29,16 @@ export const omitObject = (obj: any, omitKeys: string[]) => {
   omitKeys.forEach((key) => newObj[key] && delete newObj[key]);
   return newObj;
 };
+
+// clean undefined and null values
+export const cleanObject = (obj: any) => {
+  if (!isObject(obj)) return obj;
+  if (obj instanceof Array) return [...obj];
+  const newObj = { ...obj };
+  Object.keys(newObj).forEach((key) => {
+    if (newObj[key] === undefined || newObj[key] === null) {
+      delete newObj[key];
+    }
+  });
+  return newObj;
+};

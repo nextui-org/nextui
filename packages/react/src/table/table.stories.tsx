@@ -1,6 +1,10 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import Table, { TableCellData, TableColumnItem } from './index';
+import Table, {
+  TableCellData,
+  TableColumnHeaderData,
+  TableColumnItem
+} from './index';
 import { User, Text, Col, Row, Tooltip, styled } from '../index';
 import { Eye, Edit, Delete } from '../utils/icons';
 
@@ -68,7 +72,17 @@ export default {
   ]
 } as Meta;
 
-const rows = [
+type UserType = {
+  id: string | number;
+  name?: string;
+  email?: string;
+  role?: string;
+  team?: string;
+  status: 'active' | 'paused' | 'vacation';
+  meta?: { [key: string]: any };
+};
+
+const rows: UserType[] = [
   {
     id: 1,
     name: 'Tony Reichert',
@@ -132,28 +146,21 @@ const rows = [
 ];
 
 //** target column fields  */
-// field: 'name',
-// label: 'Name',
-// width: 260,
-// renderCell
 // filterable: false,
 // sortable: false,
-// hide: false,
-// description: 'column description',
 // minWidth
-// cellAlign ( right | left | center )
-// cellClassName
-// headerAlign ( right | left | center )
-// headerClassName
-// renderHeader
 // hideSortIcons
 
-const columns: Array<TableColumnItem> = [
+const columns: TableColumnItem[] = [
   {
     field: 'name',
     label: 'Name',
     width: 260,
-    renderCell: (data: TableCellData) => {
+    renderHeader: (data?: TableColumnHeaderData) => {
+      console.log('renderHeader', data);
+      return <b>Name</b>;
+    },
+    renderCell: (data: TableCellData<UserType>) => {
       return (
         <User
           squared
@@ -170,7 +177,7 @@ const columns: Array<TableColumnItem> = [
     field: 'role',
     label: 'Role',
     width: 180,
-    renderCell: (data: TableCellData) => {
+    renderCell: (data: TableCellData<UserType>) => {
       return (
         <Col>
           <Row>
@@ -191,15 +198,17 @@ const columns: Array<TableColumnItem> = [
     field: 'status',
     label: 'Status',
     width: 140,
-    renderCell: (data: TableCellData) => {
-      return <StyledBadge type={data.value}>{data.value}</StyledBadge>;
+    renderCell: (data: TableCellData<UserType>) => {
+      return (
+        <StyledBadge type={data.rowData?.status}>{data.value}</StyledBadge>
+      );
     }
   },
   {
     field: 'action',
     label: 'Actions',
     width: 140,
-    renderCell: (data: TableCellData) => {
+    renderCell: (data: TableCellData<UserType>) => {
       return (
         <Row justify="center" align="center">
           <Col css={{ d: 'flex' }}>
@@ -240,6 +249,12 @@ const columns: Array<TableColumnItem> = [
 export const Default = () => <Table columns={columns} rows={rows} />;
 
 export const Striped = () => <Table striped columns={columns} rows={rows} />;
+
+export const Lined = () => <Table lined columns={columns} rows={rows} />;
+
+export const Hoverable = () => (
+  <Table hoverable lined columns={columns} rows={rows} />
+);
 
 export const NoShadow = () => (
   <Table shadow={false} columns={columns} rows={rows} />

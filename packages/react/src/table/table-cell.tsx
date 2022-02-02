@@ -23,19 +23,18 @@ const TableCell = React.forwardRef<
   React.PropsWithChildren<TableCellProps<TableRowData>>
 >(
   (
-    { columns, row, rowIndex, emptyText, onCellClick, children, ...props },
+    { columns, row, rowIndex, emptyText, onCellClick, css, children, ...props },
     ref
   ) => {
     return (
       <React.Fragment>
         {columns?.map((column, columnIndex) => {
+          if (column.hide) return null;
+
           const rowData = row && column?.field && row[column?.field];
           const cellValue = (rowData || emptyText) as React.ReactNode;
-          const shouldBeRenderElement = column.renderCell?.({
-            value: cellValue,
-            rowData: row,
-            rowIndex
-          });
+
+          const shouldBeRenderElement = typeof column.renderCell === 'function';
 
           return (
             <StyledTableCell
@@ -45,11 +44,20 @@ const TableCell = React.forwardRef<
               onClick={() =>
                 onCellClick && onCellClick(rowData, rowIndex, columnIndex)
               }
-              className={column.className}
+              align={column.cellAlign}
+              className={column.cellClassName}
+              css={{
+                ...(css as any),
+                ...(column?.cellCss as any)
+              }}
               {...props}
             >
               {shouldBeRenderElement
-                ? shouldBeRenderElement
+                ? column.renderCell?.({
+                    value: cellValue,
+                    rowData: row,
+                    rowIndex
+                  })
                 : children || cellValue}
             </StyledTableCell>
           );

@@ -4,11 +4,12 @@ export type {
   TableOnCellClick,
   TableRowData,
   TableRowData as TableRowItem,
-  TableColumnRender,
+  TableCellRender,
   TableColumnData,
   TableCellData,
   TableColumnProps,
-  TableColumnItem
+  TableColumnItem,
+  TableColumnHeaderData
 } from './table-types';
 
 export default Table;
