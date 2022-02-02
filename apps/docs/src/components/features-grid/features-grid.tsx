@@ -39,9 +39,9 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
   ...props
 }) => {
   const router = useRouter();
-  const handleClick = (href: string) => {
+  /*const handleClick = (href: string) => {
     router.push(href);
-  };
+  };*/
 
   return (
     <Grid.Container gap={2} css={{ px: 0, ...(css as any) }} {...props}>
