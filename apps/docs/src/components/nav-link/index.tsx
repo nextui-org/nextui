@@ -1,8 +1,7 @@
 import React from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import cn from 'classnames';
-import { Link } from '@nextui-org/react';
+import { Link, styled } from '@nextui-org/react';
 
 export interface Props {
   href: string;
@@ -11,7 +10,7 @@ export interface Props {
   selected: boolean;
   newPost?: boolean;
   comingSoon?: boolean;
-  color?: string | boolean;
+  color?: string;
 }
 
 const defaultProps = {
@@ -25,6 +24,39 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type NavLinkProps = Props & typeof defaultProps & NativeAttrs;
 
+const BaseLink = styled(Link, {
+  d: 'flex',
+  textDecoration: 'none',
+  '@smMax': {
+    pt: 0,
+    pl: 0,
+    pb: 0,
+    d: 'flex',
+    ai: 'center'
+  },
+  '&:active': {
+    opacity: 0.7
+  },
+  variants: {
+    selected: {
+      true: {
+        boxSizing: 'border-box',
+        fontWeight: '$semibold',
+        '@smMax': {
+          borderLeft: 'none',
+          paddingLeft: 0
+        }
+      }
+    },
+    disabled: {
+      true: {
+        cursor: 'not-allowed',
+        pe: 'none'
+      }
+    }
+  }
+});
+
 const NavLink: React.FC<NavLinkProps> = ({
   href,
   pathname,
@@ -37,64 +69,35 @@ const NavLink: React.FC<NavLinkProps> = ({
   const router = useRouter();
   const onlyHashChange = pathname === router.pathname;
 
+  if (onlyHashChange) {
+    return (
+      <BaseLink
+        href={pathname}
+        selected={selected}
+        disabled={comingSoon}
+        css={{
+          color: color ? color : 'inherit'
+        }}
+      >
+        {title}
+      </BaseLink>
+    );
+  }
+
   return (
-    <div className={cn('nav-link', { selected, disabled: comingSoon })}>
-      {
-        // NOTE: use just anchor element for triggering `hashchange` event
-        onlyHashChange ? (
-          <Link className={selected ? 'selected' : ''} href={pathname}>
-            {title}
-          </Link>
-        ) : (
-          <NextLink href={pathname || href}>
-            <Link onClick={(e) => !comingSoon && onClick && onClick(e)}>
-              {title}
-            </Link>
-          </NextLink>
-        )
-      }
-      <style jsx>{`
-        div.selected {
-          box-sizing: border-box;
-        }
-        div.disabled {
-          cursor: not-allowed;
-          pointer-events: none;
-        }
-        .nav-link {
-          display: flex;
-        }
-        .nav-link :global(a) {
-          color: ${color ? color : 'inherit'} !important;
-          text-decoration: none;
-          font-size: 1rem;
-          line-height: 1.5rem;
-          box-sizing: border-box;
-          transitions: all 0.25s ease;
-        }
-        .nav-link :global(a):active {
-          opacity: 0.7;
-        }
-        .selected :global(a) {
-          font-weight: 600;
-        }
-        @media screen and (max-width: 950px) {
-          div {
-            padding-top: 0;
-            padding-left: 0;
-            padding-bottom: 0;
-          }
-          div.selected {
-            border-left: none;
-            padding-left: 0;
-          }
-          .nav-link :global(a) {
-            display: flex;
-            align-items: center;
-          }
-        }
-      `}</style>
-    </div>
+    <NextLink href={!comingSoon ? pathname || href : ''}>
+      <BaseLink
+        href={pathname}
+        selected={selected}
+        disabled={comingSoon}
+        onClick={(e) => !comingSoon && onClick && onClick(e)}
+        css={{
+          color: color ? color : 'inherit'
+        }}
+      >
+        {title}
+      </BaseLink>
+    </NextLink>
   );
 };
 
