@@ -26,15 +26,15 @@ const StyledBadge = styled('span', {
     type: {
       active: {
         bg: '$green100',
-        color: '$green500'
+        color: '$green600'
       },
       paused: {
         bg: '$red100',
-        color: '$red500'
+        color: '$red600'
       },
       vacation: {
         bg: '$yellow100',
-        color: '$yellow500'
+        color: '$yellow600'
       }
     }
   },
@@ -253,9 +253,15 @@ export const Striped = () => <Table striped columns={columns} rows={rows} />;
 export const Lined = () => <Table lined columns={columns} rows={rows} />;
 
 export const Hoverable = () => (
-  <Table hoverable lined columns={columns} rows={rows} />
+  <Table hoverable columns={columns} rows={rows} />
 );
+
+export const Compact = () => <Table compact columns={columns} rows={rows} />;
 
 export const NoShadow = () => (
   <Table shadow={false} columns={columns} rows={rows} />
+);
+
+export const WithCaption = () => (
+  <Table caption="List of Users" columns={columns} rows={rows} />
 );

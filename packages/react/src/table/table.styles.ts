@@ -54,6 +54,12 @@ export const StyledTableBody = styled('tbody', {
 
 export const StyledTableFoot = styled('tfoot', {});
 
+export const StyledTableCaption = styled('caption', {
+  captionSide: 'bottom',
+  textAlign: 'left',
+  color: '$accents4'
+});
+
 export const StyledTable = styled('table', {
   borderCollapse: 'separate',
   borderSpacing: 0,
@@ -141,6 +147,13 @@ export const StyledTable = styled('table', {
               bg: '$accents1'
             }
           }
+        }
+      }
+    },
+    compact: {
+      true: {
+        [`& ${StyledTableCell}`]: {
+          py: '$1'
         }
       }
     }

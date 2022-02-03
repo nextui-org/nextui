@@ -7,7 +7,8 @@ import {
   StyledTableHead,
   StyledTableRow,
   StyledTableBody,
-  TableVariantsProps
+  TableVariantsProps,
+  StyledTableCaption
 } from './table.styles';
 import TableColumn, { TableColumnProps } from './table-column';
 import TableCell from './table-cell';
@@ -16,6 +17,7 @@ import { Spacer } from '../index';
 interface Props<TableDataItem extends TableRowData> {
   rows?: Array<TableDataItem>;
   columns?: Array<TableColumnProps<TableDataItem>>;
+  caption?: string;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -27,7 +29,7 @@ export type TableProps<TableDataItem extends TableRowData> =
 const Table = React.forwardRef<
   HTMLTableElement,
   React.PropsWithChildren<TableProps<TableRowData>>
->(({ columns, rows, children, ...props }, ref) => {
+>(({ columns, rows, caption, children, ...props }, ref) => {
   const [withoutTableHeadChildren, tableHeadChildren] = pickChild(
     children,
     StyledTableHead
@@ -69,6 +71,7 @@ const Table = React.forwardRef<
           ))}
         </StyledTableBody>
       )}
+      {caption && <StyledTableCaption>{caption}</StyledTableCaption>}
     </StyledTable>
   );
 });
