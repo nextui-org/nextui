@@ -44,6 +44,10 @@ export const Sizes = () => (
       Extra Large
     </Button>
     <Spacer y={0.5} />
+    <Button fullWidth color="gradient">
+      Full width
+    </Button>
+    <Spacer y={0.5} />
     <Button auto color="gradient">
       Auto width
     </Button>
