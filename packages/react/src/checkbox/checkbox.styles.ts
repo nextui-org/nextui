@@ -501,22 +501,14 @@ export const StyledCheckboxInput = styled('input', {
   zIndex: '$1',
   cursor: 'pointer',
   '&:active': {
-    [`& ~${StyledCheckboxMask}`]: {
-      bg: '$border',
-      '&:after': {
-        bg: '$$checkboxColorHover'
-      }
+    [`& ~${StyledCheckboxMask}:before`]: {
+      bg: '$border'
     }
   },
   '&:hover': {
-    [`& ~${StyledCheckboxMask}`]: {
+    [`& ~${StyledCheckboxMask}:before`]: {
       bg: '$border',
-      '&:before': {
-        border: '2px solid transparent'
-      },
-      '&:after': {
-        bg: '$$checkboxColorHover'
-      }
+      border: '2px solid transparent'
     }
   },
   '&:disabled': {
