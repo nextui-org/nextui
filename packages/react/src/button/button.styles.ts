@@ -219,7 +219,15 @@ export const StyledButton = styled(
         true: {
           br: '$pill'
         }
-      }
+      },
+      fullWidth: {
+        true: {
+          width: '100%'
+        },
+        false: {
+          width: 'auto'
+        }
+      },
     },
     compoundVariants: [
       // size / auto
@@ -773,7 +781,8 @@ export const StyledButton = styled(
       color: 'default',
       borderWeight: 'normal',
       animated: true,
-      size: 'md'
+      size: 'md',
+      fullWidth: false,
     }
   },
   sharedFocus
