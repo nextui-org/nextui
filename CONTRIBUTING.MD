@@ -38,15 +38,13 @@ yarn
 yarn install
 ```
 
-We use [Yarn](https://yarnpkg.com/) for dependency management and for the project workspaces.
-
-2.
+We use [Turbo Repo](https://turborepo.org/) for the project management.
 
 - If you will be working on the components source code, you can use the following command to start the webpack dev server:
 
 ```bash
-## Start the webpack dev server
-yarn build:watch
+## Start the dev babel server of NextUI core components
+yarn dev:nextui
 
 ## optional
 yarn dev:docs ## this will start the documentation next.js server and it will automatically detect the changes in the components.
