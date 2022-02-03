@@ -1,11 +1,11 @@
 import React from 'react';
 import { Moon, Sun } from '../icons';
-import { Switch, SwitchProps } from '@nextui-org/react';
+import { Switch, SwitchProps, useTheme } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
 
 export const ThemeToggle: React.FC<Partial<SwitchProps>> = ({ ...props }) => {
-  const { setTheme, theme } = useNextTheme();
-  const isDark = theme === 'dark';
+  const { setTheme } = useNextTheme();
+  const { isDark } = useTheme();
 
   const handleToggleTheme = () => {
     setTheme(isDark ? 'light' : 'dark');
