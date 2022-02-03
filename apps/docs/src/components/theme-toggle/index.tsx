@@ -28,7 +28,7 @@ const StyledButton = styled('button', {
 
 export const ThemeToggle: React.FC<Props> = ({ className, css }) => {
   const isMounted = useIsMounted();
-  const { setTheme, theme } = useNextTheme();
+  const { setTheme } = useNextTheme();
   const { isDark } = useTheme();
 
   if (!isMounted) {
