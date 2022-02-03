@@ -2,9 +2,6 @@ import { styled, Link } from '@nextui-org/react';
 import { lightTheme } from '@theme/shared';
 
 export const Title = styled('h1', {
-  '&::selection': {
-    WebkitTextFillColor: '$colors$text',
-  },
   display: 'inline',
   fontWeight: '$bold',
   color: '$text',
@@ -16,6 +13,9 @@ export const Title = styled('h1', {
   },
   '@lg': {
     fs: '3.5rem'
+  },
+  '&::selection': {
+    WebkitTextFillColor: '$colors$text'
   },
   variants: {
     color: {

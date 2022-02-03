@@ -455,7 +455,10 @@ export const defaultUtils = {
   textGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
     backgroundImage: `linear-gradient(${value})`,
     WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent'
+    WebkitTextFillColor: 'transparent',
+    '&::selection': {
+      WebkitTextFillColor: '$colors$text'
+    }
   })
 };
 
