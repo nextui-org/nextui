@@ -14,6 +14,9 @@ export const Title = styled('h1', {
   '@lg': {
     fs: '3.5rem'
   },
+  '&::selection': {
+    WebkitTextFillColor: '$colors$text'
+  },
   variants: {
     color: {
       violet: {

@@ -15,7 +15,10 @@ export const StyledTitle = styled('h1', {
 });
 
 export const StyledGradientTitle = styled(StyledTitle, {
-  textGradient: '180deg, #FF1CF7 25%, #b249f8 100%'
+  textGradient: '180deg, #FF1CF7 25%, #b249f8 100%',
+  '&::selection': {
+    WebkitTextFillColor: '$colors$text'
+  }
 });
 
 export const StyledSubtitle = styled('p', {
