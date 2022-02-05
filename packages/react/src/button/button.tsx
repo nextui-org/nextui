@@ -6,6 +6,7 @@ import React, {
   PropsWithoutRef,
   RefAttributes
 } from 'react';
+import { useFocusRing } from '@react-aria/focus';
 import useWarning from '../use-warning';
 import ButtonDrip from '../utils/drip';
 import { CSS } from '../theme/stitches.config';
@@ -91,6 +92,17 @@ const Button = React.forwardRef<
   const hasIcon = icon || iconRight;
   const isRight = Boolean(iconRight);
 
+  const {
+    isFocusVisible,
+    focusProps
+  }: {
+    isFocusVisible: boolean;
+    focusProps: Omit<
+      React.HTMLAttributes<HTMLButtonElement>,
+      keyof ButtonProps
+    >;
+  } = useFocusRing();
+
   const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
     false,
     buttonRef
@@ -122,7 +134,9 @@ const Button = React.forwardRef<
       disabled={disabled}
       animated={animated}
       onClick={clickHandler}
+      isFocusVisible={isFocusVisible}
       className={clsx('nextui-button', `nextui-button--${getState}`, className)}
+      {...focusProps}
       {...props}
     >
       {React.Children.count(children) === 0 ? (
