@@ -1,11 +1,9 @@
 import {
   styled,
-  theme,
   VariantProps,
   sharedFocus,
   keyframes
 } from '../theme/stitches.config';
-import { addColorAlpha } from './../utils/color';
 
 const paginationAnimation = keyframes({
   '0%': {
@@ -93,7 +91,7 @@ export const StyledPaginationItem = styled(
       transition: 'none'
     },
     '&:hover': {
-      bg: addColorAlpha(theme.colors?.accents3?.value, 0.3)
+      bg: '$accents2'
     },
     [`& ${StyledPaginationIcon}`]: {
       size: '$$paginationFontSize'
@@ -232,31 +230,31 @@ export const StyledPagination = styled('nav', {
     color: {
       default: {
         $$paginationColor: '$colors$primary',
-        $$paginationShadowColor: '$colors$primaryLight'
+        $$paginationShadowColor: '$colors$primaryShadow'
       },
       primary: {
         $$paginationColor: '$colors$primary',
-        $$paginationShadowColor: '$colors$primaryLight'
+        $$paginationShadowColor: '$colors$primaryShadow'
       },
       secondary: {
         $$paginationColor: '$colors$secondary',
-        $$paginationShadowColor: '$colors$secondaryLight'
+        $$paginationShadowColor: '$colors$secondaryShadow'
       },
       success: {
         $$paginationColor: '$colors$success',
-        $$paginationShadowColor: '$colors$successLight'
+        $$paginationShadowColor: '$colors$successShadow'
       },
       warning: {
         $$paginationColor: '$colors$warning',
-        $$paginationShadowColor: '$colors$warningLight'
+        $$paginationShadowColor: '$colors$warningShadow'
       },
       error: {
         $$paginationColor: '$colors$error',
-        $$paginationShadowColor: '$colors$errorLight'
+        $$paginationShadowColor: '$colors$errorShadow'
       },
       gradient: {
         $$paginationColor: '$colors$gradient',
-        $$paginationShadowColor: '$colors$gradientLight'
+        $$paginationShadowColor: '$colors$primaryShadow'
       }
     },
     size: {
