@@ -1,0 +1,99 @@
+name: CI/CD [Staging]
+
+on:
+  push:
+    branches: [staging]
+    paths-ignore: ['**/README.md']
+  pull_request:
+    branches: [staging]
+    types: [opened, synchronize]
+    paths-ignore: ['**/README.md']
+
+jobs:
+  avoid_reduncy:
+    runs-on: ubuntu-18.04
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - name: Cancel Previous Redundant Builds
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+  lint:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'yarn'
+          node-version: '12'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint
+        run: yarn lint
+
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'yarn'
+          node-version: '12'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+      - name: Build
+        run: yarn build
+
+  tests:
+    needs: [lint, build]
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'yarn'
+          node-version: '12'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn coverage:update
+      - uses: codecov/codecov-action@v2
+        with:
+          directory: './packages/react'
+
+  deploy_preview:
+      needs: [tests]
+      runs-on: ubuntu-18.04
+      if: ${{ github.event_name == 'push' }}
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
+        - name: Deploy Preview to Vercel
+          uses: amondnet/vercel-action@v20
+          with:
+            vercel-token: ${{ secrets.VERCEL_TOKEN }} 
+            github-token: ${{ github.token }}
+            github-comment: true
+            vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+            vercel-project-name: ${{ secrets.VERCEL_PROJECT_NAME}}
+            vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} 
+            working-directory: './apps/docs'
+            alias-domains: | 
+              staging.nextui.org
+              pr-{{PR_NUMBER}}.staging.nextui.org

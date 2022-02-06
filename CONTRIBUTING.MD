@@ -110,6 +110,12 @@ yarn build # or npm run build
 
 > Note: ensure your version of Node is 14 or higher to run scripts
 
+6. Send your pull request:
+
+- You must send your pull request to the `staging` branch
+- Your pull request will be reviewed by the maintainers and the maintainers will decide if it is accepted or not
+- Once the pull request is accepted, the maintainers will merge it to the `main` branch
+
 ## Visual Changes
 
 When making a visual change, please provide screenshots
