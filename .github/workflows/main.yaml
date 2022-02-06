@@ -127,7 +127,7 @@ jobs:
           working-directory: './apps/docs'
 
   deploy_preview:
-      needs: [publish]
+      needs: [tests]
       runs-on: ubuntu-18.04
       if: ${{ github.event_name == 'pull_request' }}
       steps:
