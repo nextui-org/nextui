@@ -36,7 +36,7 @@
   "sideEffects": false,
   "scripts": {
     "clear": "rimraf ./lib ./dist ./esm",
-    "clear-types": "rimraf ./lib/esm/**/*.d.ts && rimraf ./lib/cjs/**/*.d.ts",  
+    "clear-types": "rimraf ./lib/esm/**/*.d.ts && rimraf ./lib/cjs/**/*.d.ts",
     "pre-publish": "node ./scripts/pre-publish.js",
     "publish:dry-run": "npm publish ./lib --dry-run",
     "build": "node ./scripts/build.js",
@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.9.6",
+    "@react-aria/focus": "3.5.0",
     "@stitches/react": "1.2.6"
   },
   "peerDependencies": {
