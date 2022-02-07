@@ -8,6 +8,7 @@ const error = require('./utils').error;
 
 const libRoot = path.join(__dirname, '../lib');
 const esRoot = path.join(libRoot, 'esm');
+const cjsRoot = path.join(libRoot, 'cjs');
 
 function getAllFiles(dirPath, arrayOfFiles) {
   let files = fs.readdirSync(dirPath);
@@ -46,5 +47,5 @@ const minifyLib = (dir) => {
 };
 
 Promise.resolve(true)
-  .then(() => Promise.all([minifyLib(esRoot)]))
+  .then(() => Promise.all[(minifyLib(esRoot), minifyLib(cjsRoot))])
   .catch(error);

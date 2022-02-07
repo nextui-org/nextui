@@ -87,5 +87,6 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3"
-  }
+  },
+  "packageManager": "yarn@1.22.17"
 }

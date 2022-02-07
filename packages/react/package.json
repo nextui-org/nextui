@@ -32,11 +32,11 @@
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "unpkg": "lib/umd/nextui.min.js",
-  "types": "lib/esm/index.d.ts",
+  "types": "lib/types/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "clear": "rimraf ./lib ./dist ./esm",
-    "clear-types": "rimraf ./lib/esm/**/*.d.ts && rimraf ./lib/cjs/**/*.d.ts",
+    "clear-types": "rimraf ./lib/types",
     "pre-publish": "node ./scripts/pre-publish.js",
     "publish:dry-run": "npm publish ./lib --dry-run",
     "build": "node ./scripts/build.js",
