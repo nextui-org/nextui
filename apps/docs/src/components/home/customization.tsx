@@ -45,7 +45,7 @@ const CustomizationSection = () => {
           <Link css={{ color: '$green300' }}>css&nbsp;</Link>
         </NextLink>
         prop,&nbsp;
-        <NextLink href="/docs/theme/override-styles#usign-the-styled-function">
+        <NextLink href="/docs/theme/override-styles#using-the-styled-function">
           <Link css={{ color: '$green300' }}>styled&nbsp;</Link>
         </NextLink>
         function or native css class names.

@@ -15,7 +15,7 @@ export interface HeaderProps {
 
 const defaultProps = {
   description: 'Make beautiful websites regardless of your design experience.',
-  image: '/twitter-cards/nextui.png'
+  image: '/twitter-cards/nextui.jpeg'
 };
 
 if (global.document) {

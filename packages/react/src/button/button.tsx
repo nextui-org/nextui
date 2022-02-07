@@ -29,6 +29,7 @@ export interface Props {
   disabled?: boolean;
   ghost?: boolean;
   bordered?: boolean;
+  auto?: boolean;
   ripple?: boolean;
   icon?: React.ReactNode;
   iconRight?: React.ReactNode;
@@ -45,8 +46,9 @@ const defaultProps = {
   ripple: true,
   animated: true,
   disabled: false,
-  className: '',
-  fullWidth: false
+  auto: false,
+  fullWidth: false,
+  className: ''
 };
 
 type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
@@ -72,6 +74,7 @@ const Button = React.forwardRef<
     light,
     ripple,
     bordered,
+    auto,
     borderWeight,
     onClick,
     icon,
@@ -112,6 +115,7 @@ const Button = React.forwardRef<
     <StyledButton
       ref={buttonRef}
       borderWeight={borderWeight}
+      auto={auto}
       flat={flat}
       light={light}
       ghost={ghost}
@@ -126,12 +130,14 @@ const Button = React.forwardRef<
       {...props}
     >
       {React.Children.count(children) === 0 ? (
-        <ButtonIcon isRight={isRight} isSingle>
+        <ButtonIcon isAuto={auto} isRight={isRight} isSingle>
           {hasIcon}
         </ButtonIcon>
       ) : hasIcon ? (
-        <div>
-          <ButtonIcon isRight={isRight}>{hasIcon}</ButtonIcon>
+        <>
+          <ButtonIcon isAuto={auto} isRight={isRight}>
+            {hasIcon}
+          </ButtonIcon>
           <div
             className={clsx('nextui-button-text', {
               'nextui-button-text-right': isRight,
@@ -140,7 +146,7 @@ const Button = React.forwardRef<
           >
             {children}
           </div>
-        </div>
+        </>
       ) : (
         <span className="nextui-button-text">{children}</span>
       )}
