@@ -80,13 +80,15 @@ const buildDirectories = step('Linking directories', () =>
     inputDir: '../src/**',
     cjsDir: 'cjs',
     esmDir: 'esm',
-    cwd: libRoot,
+    cwd: libRoot
   })
 );
 
 console.log(
   green(`Building targets: ${targets.length ? targets.join(', ') : 'all'}\n`)
 );
+
+const minifyFiles = step('minify pkg...', () => shell(`yarn build:minify`));
 
 clean();
 
@@ -97,6 +99,7 @@ Promise.resolve(true)
       has('lib') && buildLib(),
       has('es') && buildEsm(),
       has('umd') && buildUmd(),
+      minifyFiles()
     ])
   )
   .then(buildDirectories)
