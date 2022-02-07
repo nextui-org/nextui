@@ -64,6 +64,9 @@ It's like the style attribute, but it supports tokens, media queries, nesting an
 ### Using the styled function
 
 NextUI provides the Stitches `styled` function for creating your own components easily.
+```jsx
+import { styled } from '@nextui-org/react';
+```
 The `styled` function allows you to create a component including its styles and variants. It receives:
 
 - `element` or `component`: a HTML element (`div`) or a React Component (`Component`)
@@ -71,7 +74,9 @@ The `styled` function allows you to create a component including its styles and 
 
 <Playground
   initialEditorOpen
-  code={`() => {
+  code={`
+  import { Button, styled } from '@nextui-org/react';
+  () => {
 const MyStyledButton = styled(Button, {
   boxShadow: '$md', // shadows.md
   variants: {
