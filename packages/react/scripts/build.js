@@ -31,7 +31,7 @@ const copyTypes = (dest) => fse.copySync(typesRoot, dest, { overwrite: true });
 
 const babel = (outDir, envName) => {
   shell(
-    `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName} --no-comments"`
+    `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`
   );
 };
 
@@ -80,7 +80,7 @@ const buildDirectories = step('Linking directories', () =>
     inputDir: '../src/**',
     cjsDir: 'cjs',
     esmDir: 'esm',
-    cwd: libRoot
+    cwd: libRoot,
   })
 );
 
@@ -96,7 +96,7 @@ Promise.resolve(true)
     Promise.all([
       has('lib') && buildLib(),
       has('es') && buildEsm(),
-      has('umd') && buildUmd()
+      has('umd') && buildUmd(),
     ])
   )
   .then(buildDirectories)
