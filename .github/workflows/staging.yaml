@@ -79,6 +79,7 @@ jobs:
   deploy_preview:
       needs: [tests]
       runs-on: ubuntu-18.04
+      continue-on-error: true
       if: ${{ github.event_name == 'push' }}
       steps:
         - uses: actions/checkout@v2
