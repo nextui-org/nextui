@@ -55,9 +55,12 @@ export const StyledTableBody = styled('tbody', {
 export const StyledTableFoot = styled('tfoot', {});
 
 export const StyledTableCaption = styled('caption', {
-  captionSide: 'bottom',
+  captionSide: 'top',
   textAlign: 'left',
-  color: '$accents4'
+  color: '$accents6',
+  fontWeight: '$semibold',
+  fontSize: '$sm',
+  margin: '$4'
 });
 
 export const StyledTable = styled('table', {
