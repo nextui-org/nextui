@@ -27,7 +27,7 @@ import { Card } from '@nextui-org/react';
 
 <Playground
   title="Bordered"
-  desc="You can change the full style towards a bodered `Card` with the `bordered` property."
+  desc="You can change the full style to a bordered `Card` with the `bordered` property."
   code={`
 <Card bordered shadow={false} css={{ mw: "400px" }}>
   <p>A bordered card.</p>
@@ -168,6 +168,7 @@ return (
   applies `object-fit: cover` to the inner image."
   code={`
 <Grid.Container gap={2} justify="center">
+   {/* Card 1 */}
     <Grid xs={12} sm={4}>
       <Card cover>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -193,6 +194,7 @@ return (
         />
       </Card>
     </Grid>
+    {/* Card 2 */}
     <Grid xs={12} sm={4}>
       <Card width="100%" cover>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -218,8 +220,9 @@ return (
         />
       </Card>
     </Grid>
+    {/* Card 3 */}
     <Grid xs={12} sm={4}>
-      <Card cover css={{ bg: '$gray100', w: '100%' }}>
+      <Card cover css={{ bg: '$black', w: '100%' }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
           <Col>
             <Text
@@ -243,6 +246,7 @@ return (
         />
       </Card>
     </Grid>
+    {/* Card 4 */}
     <Grid xs={12} sm={5}>
       <Card cover css={{ w: '100%' }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -296,6 +300,7 @@ return (
         </Card.Footer>
       </Card>
     </Grid>
+    {/* Card 5 */}
     <Grid xs={12} sm={7}>
       <Card cover css={{ w: '100%', p: 0 }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -337,7 +342,7 @@ return (
                 <Col span={3}>
                   <Card.Image
                     src='/images/breathing-app-icon.jpeg'
-                    style={{ background: 'black' }}
+                    css={{ background: 'black' }}
                     height={40}
                     width={40}
                     alt="Breathing app icon"
@@ -366,6 +371,7 @@ return (
         </Card.Footer>
       </Card>
     </Grid>
+
 </Grid.Container>`}
 />
 
@@ -420,7 +426,7 @@ return (
 <Grid.Container gap={2} justify="flex-start">
   {list.map((item, index) => (
     <Grid xs={6} sm={3} key={index}>
-      <Card hoverable clickable width="100%">
+      <Card hoverable clickable>
         <Card.Body css={{ p: 0 }}>
           <Card.Image
             objectFit="cover"
