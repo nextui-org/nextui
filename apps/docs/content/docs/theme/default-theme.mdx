@@ -17,7 +17,7 @@ url: https://nextui.org/docs/theme/default-theme
 NextUI includes a default color palette out-of-the-box that is a great starting point if you don't have your own specific branding in mind.
 
 You can access the colors through the `theme` object or using `tokens` whitin the `css` prop or `styled` components,
-see the [theme object](/docs/guide/getting-started) for more information.
+see the [theme object](/docs/guide/getting-started#theme-object) for more information.
 
 ```jsx
 import { useTheme, Text } from '@nextui-org/react';
@@ -27,15 +27,6 @@ const MyComponent = () => {
 
   return (
     <div>
-      <p
-        style={{
-          color: theme.colors.primary.value,
-          fontSize: theme.fontSizes.tiny.value,
-          padding: `${theme.space[2].value} ${theme.space[4].value}`
-        }}
-      >
-        Using color theme value
-      </p>
       <Text
         css={{
           color: '$blue800',
@@ -45,10 +36,61 @@ const MyComponent = () => {
       >
         Using tokens
       </Text>
+      <p
+        style={{
+          color: theme.colors.primary.value,
+          fontSize: theme.fontSizes.tiny.value,
+          padding: `${theme.space[2].value} ${theme.space[4].value}`
+        }}
+      >
+        Using color theme value
+      </p>
     </div>
   );
 };
 ```
+
+By default these colors can be used by the `color`, `borderColor`, `backgroundColor`, `fill`, and so on, here the complete list of preperties where you can use the color tokens [Stitches Property Mapping](https://stitches.dev/docs/tokens#property-mapping).
+
+```jsx
+export default {
+  colors: {
+    // generic colors
+    white: '#ffffff',
+    black: '#000000',
+    //semantic colors
+    blue100: '#CBECFE',
+    // ...
+    blue900: '#002074',
+    // ...
+
+    // brand colors
+    primaryLight: '$blue200', //  $blue600 on dark mode
+    primary: '$blue500',
+    primaryDark: '$blue600',
+
+    secondaryLight: '$purple200', // $purple600 on dark mode
+    secondary: '$purple500',
+    secondaryDark: '$purple600',
+
+    successLight: '$green200', // $green600 on dark mode
+    success: '$green500',
+    successDark: '$green600',
+
+    warningLight: '$yellow200', // $yellow600 on dark mode
+    warning: '$yellow500',
+    warningDark: '$yellow600',
+
+    errorLight: '$red200', // $red600 on dark mode
+    error: '$red500',
+    errorDark: '$red600'
+
+    // ... rest of colors
+  }
+};
+```
+
+<Spacer y={2} />
 
 <Playground
   title="Brand"
@@ -364,7 +406,6 @@ NextUI includes by default a set of common border weights.
 ```js
 export default {
   // default theme object
-  type: '...', // theme type
   colors: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {...}, // font sizes object
