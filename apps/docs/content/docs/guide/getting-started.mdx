@@ -32,6 +32,8 @@ npm i @nextui-org/react
 
 For NextUI to work correctly, you need to set up the `NextUIProvider` at the root of your application.
 
+#### React
+
 Go to the root of your application and do this:
 
 ```jsx
@@ -52,7 +54,7 @@ function App({ Component }) {
 
 #### Next.js
 
-Go to `pages/_app.js` or `pages/_app.tsx` (create if it doesn't exist) and add this:
+1. Go to `pages/_app.js` or `pages/_app.tsx` (create if it doesn't exist) and add this:
 
 ```jsx
 // 1. import `NextUIProvider` component
@@ -69,6 +71,39 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp;
 ```
+
+2. Go to `pages/_document.js` or `pages/_document.tsx` (create if it doesn't exist) and add this:
+
+```jsx
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { CssBaseline } from '@nextui-org/react';
+
+class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx);
+    return {
+      ...initialProps,
+      styles: <>{initialProps.styles}</>
+    };
+  }
+
+  render() {
+    return (
+      <Html lang="en">
+        <Head>{CssBaseline.flush()}</Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+
+export default MyDocument;
+```
+
+> For more information about Next.js + NextUI SSR check out the [documentation](/docs/guide/nextui-plus-nextjs).
 
 <Spacer y={2} />
 
@@ -100,7 +135,7 @@ const Component = () => <Button>Click me</Button>;
 
 | Attribute           | Type           | Accepted values              | Description                                                    | Default |
 | ------------------- | -------------- | ---------------------------- | -------------------------------------------------------------- | ------- |
-| **theme**           | `NextUIThemes` | [CreateTheme](#create-theme) | Optional custom theme, by default NextUI applies `light` theme | -       |
+| **theme**           | `NextUIThemes` | [ThemeObject](#theme-object) | Optional custom theme, by default NextUI applies `light` theme | -       |
 | **disableBaseline** | `boolean`      | `true/false`                 | NextUI automatically includes `<CssBaseline/>`                 | `false` |
 
 <Spacer y={2} />
@@ -109,7 +144,7 @@ const Component = () => <Button>Click me</Button>;
 
 <Spacer y={1} />
 
-#### Create Theme
+#### Theme object
 
 > For more information you can see the [Stitches theme documention](https://stitches.dev/docs/api#theme)
 
