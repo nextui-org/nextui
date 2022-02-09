@@ -31,7 +31,7 @@ export default {
   ]
 } as Meta;
 
-export const Default = () => <Input placeholder="Next UI" />;
+export const Default = () => <Input label="Name" placeholder="Next UI" />;
 
 export const FullWidth = () => <Input placeholder="Next UI" width="100%" />;
 
