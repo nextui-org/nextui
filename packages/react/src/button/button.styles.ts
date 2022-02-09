@@ -17,7 +17,6 @@ export const StyledButton = styled(
     fontWeight: '$medium',
     us: 'none',
     lineHeight: '$sm',
-    textTransform: 'capitalize',
     ta: 'center',
     whiteSpace: 'nowrap',
     transition: '$default',
