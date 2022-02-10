@@ -29,7 +29,6 @@ export default {
 
 export const Default = () => {
   const [visible, setVisible] = useState(false);
-  const theme = useTheme();
   const handler = () => setVisible(true);
 
   const closeHandler = () => {
@@ -64,7 +63,7 @@ export const Default = () => {
             color="primary"
             size="lg"
             placeholder="Email"
-            contentLeft={<Mail theme={theme} />}
+            contentLeft={<Mail />}
           />
           <Input
             clearable
@@ -73,15 +72,15 @@ export const Default = () => {
             color="primary"
             size="lg"
             placeholder="Password"
-            contentLeft={<Password theme={theme} />}
+            contentLeft={<Password />}
           />
           <Row justify="space-between">
             <Checkbox>
-              <Text size={14} color={theme.palette.text}>
+              <Text size={14} css={{ color: '$text' }}>
                 Remember me
               </Text>
             </Checkbox>
-            <Text size={14} color={theme.palette.accents_4}>
+            <Text size={14} css={{ color: '$accents4' }}>
               Forgot password?
             </Text>
           </Row>
@@ -150,11 +149,11 @@ export const WithCloseButton = () => {
           />
           <Row justify="space-between">
             <Checkbox>
-              <Text size={14} color={theme.palette.text}>
+              <Text size={14} css={{ color: '$text' }}>
                 Remember me
               </Text>
             </Checkbox>
-            <Text size={14} color={theme.palette.accents_4}>
+            <Text size={14} css={{ color: '$accents4' }}>
               Forgot password?
             </Text>
           </Row>
@@ -213,11 +212,11 @@ export const WithUseModal = () => {
           />
           <Row justify="space-between">
             <Checkbox>
-              <Text size={14} color={theme.palette.text}>
+              <Text size={14} css={{ color: '$text' }}>
                 Remember me
               </Text>
             </Checkbox>
-            <Text size={14} color={theme.palette.accents_4}>
+            <Text size={14} css={{ color: '$accents4' }}>
               Forgot password?
             </Text>
           </Row>
@@ -276,11 +275,11 @@ export const NoAnimated = () => {
           />
           <Row justify="space-between">
             <Checkbox>
-              <Text size={14} color={theme.palette.text}>
+              <Text size={14} css={{ color: '$text' }}>
                 Remember me
               </Text>
             </Checkbox>
-            <Text size={14} color={theme.palette.accents_4}>
+            <Text size={14} css={{ color: '$accents4' }}>
               Forgot password?
             </Text>
           </Row>

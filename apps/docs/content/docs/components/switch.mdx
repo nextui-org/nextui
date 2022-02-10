@@ -24,8 +24,16 @@ import { Switch } from '@nextui-org/react';
  <>
     <Switch />
     <Spacer />
-    <Switch initialChecked />
+    <Switch checked={true} />
  </>
+`}
+/>
+
+<Playground
+  title="Initial cheked"
+  desc="You can set the `Switch` to be checked by default using `initialChecked` prop"
+  code={`
+    <Switch initialChecked />
 `}
 />
 
@@ -36,7 +44,7 @@ import { Switch } from '@nextui-org/react';
  <>
     <Switch disabled/>
     <Spacer />
-    <Switch initialChecked disabled/>
+    <Switch checked={true} disabled/>
  </>
 `}
 />
@@ -46,15 +54,15 @@ import { Switch } from '@nextui-org/react';
   desc="Change the size of the entire `Switch` including `padding` and `border` with the `size` property."
   code={`
  <>
-    <Switch initialChecked size="xs" />
+    <Switch checked={true} size="xs" />
     <Spacer />
     <Switch size="sm" />
     <Spacer />
-    <Switch initialChecked size="md" />
+    <Switch checked={true} size="md" />
     <Spacer />
     <Switch size="lg" />
     <Spacer />
-    <Switch initialChecked size="xl" />
+    <Switch checked={true} size="xl" />
   </>
 `}
 />
@@ -109,7 +117,7 @@ import { Switch } from '@nextui-org/react';
 
 <Playground
   title="Squared"
-  desc="You can change the full style towards a squared `Switch` with the `squared` property."
+  desc="You can change the full style to a squared `Switch` with the `squared` property."
   code={`
  <Switch squared color="primary" checked={true}>
     Squared option
@@ -119,7 +127,7 @@ import { Switch } from '@nextui-org/react';
 
 <Playground
   title="Bordered"
-  desc="You can change the full style towards a bodered `Switch` with the `bordered` property."
+  desc="You can change the full style to a bordered `Switch` with the `bordered` property."
   code={`
  <>
     <Switch bordered size="xs" />
@@ -197,6 +205,8 @@ import { Switch } from '@nextui-org/react';
     </Grid.Container>
 `}
 />
+
+> Note: If you want to use the same icons you can see the following [Codesanbox](https://codesandbox.io/s/nextui-switch-icons-glgfs)
 
 <Spacer y={3} />
 

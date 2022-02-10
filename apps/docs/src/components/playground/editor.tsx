@@ -184,6 +184,8 @@ const Editor: React.FC<Props> = ({ initialOpen }) => {
           overflow: hidden;
           font-family: ${theme?.fonts?.mono};
           padding: ${theme?.space?.sm?.value};
+          max-height: min(60vh, 1000px);
+          overflow-y: auto;
         }
         .arrow {
           transition: all 0.2s ease;

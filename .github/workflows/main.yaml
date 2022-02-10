@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: 'yarn'
-          node-version: '12'
+          node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Lint
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: 'yarn'
-          node-version: '12'
+          node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - uses: actions/cache@v2
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: 'yarn'
-          node-version: '12'
+          node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Test
@@ -85,7 +85,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: 'yarn'
-          node-version: '12'
+          node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile     
       - name: Pre puiblish NextUI package
@@ -118,6 +118,7 @@ jobs:
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} 
+          github-comment: true
           github-token: ${{ github.token }}
           vercel-args: '--prod'
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
@@ -136,7 +137,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: 'yarn'
-          node-version: '12'
+          node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Upload docs on Algolia

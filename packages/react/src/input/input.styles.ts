@@ -584,6 +584,7 @@ export const StyledInputBlockLabel = styled('label', {
       asPlaceholder: true,
       focused: true,
       underlined: false,
+      isTextarea: false,
       css: {
         top: '-72%',
         left: '$2',
@@ -595,6 +596,7 @@ export const StyledInputBlockLabel = styled('label', {
       asPlaceholder: true,
       focused: true,
       underlined: true,
+      isTextarea: false,
       css: {
         top: '-72%',
         left: '0px',
@@ -606,6 +608,7 @@ export const StyledInputBlockLabel = styled('label', {
       asPlaceholder: true,
       withValue: true,
       underlined: false,
+      isTextarea: false,
       css: {
         color: '$$inputTextColor',
         top: '-72%',
@@ -618,6 +621,7 @@ export const StyledInputBlockLabel = styled('label', {
       asPlaceholder: true,
       withValue: true,
       underlined: true,
+      isTextarea: false,
       css: {
         color: '$$inputTextColor',
         top: '-72%',
@@ -647,7 +651,8 @@ export const StyledInputBlockLabel = styled('label', {
       isTextarea: true,
       focused: true,
       css: {
-        top: '-$10'
+        top: 'calc(-$space$10 - $space$3)',
+        left: '$2'
       }
     },
     // asPlaceholder && isTextarea && withValue

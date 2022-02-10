@@ -40,7 +40,7 @@ yarn install
 
 We use [Turbo Repo](https://turborepo.org/) for the project management.
 
-- If you will be working on the components source code, you can use the following command to start the webpack dev server:
+2. If you will be working on the components source code, you can use the following command to start the webpack dev server:
 
 ```bash
 ## Start the dev babel server of NextUI core components
@@ -75,15 +75,46 @@ yarn start:sb
 
 Remember that these commands must be executed in the root folder of the project.
 
-## Tests
+3. Create a branch for your feature or fix:
+
+```bash
+# Move into a new branch for your feature
+git checkout -b feat/thing
+```
+
+```bash
+# Move into a new branch for your fix
+git checkout -b fix/something
+```
+
+4. If your code passes all the tests, then push your feature/fix branch:
 
 All commits that fix bugs or add features need a test.
 You can run the nest command for component specific tests.
 
 ```
-yarn test src/button
+# Test current code
+yarn test:update # or npm run test:update
+
+# Test isolated component code
+yarn test src/button  # or npm run test src/button
 
 ```
+
+5. Be sure the package builds.
+
+```
+# Build current code
+yarn build # or npm run build
+```
+
+> Note: ensure your version of Node is 14 or higher to run scripts
+
+6. Send your pull request:
+
+- You must send your pull request to the `staging` branch
+- Your pull request will be reviewed by the maintainers and the maintainers will decide if it is accepted or not
+- Once the pull request is accepted, the maintainers will merge it to the `main` branch
 
 ## Visual Changes
 

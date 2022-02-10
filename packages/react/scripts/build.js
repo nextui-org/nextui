@@ -10,12 +10,13 @@ const getConfig = require('../buildconfig/webpack.config');
 const targets = process.argv.slice(2);
 
 const srcRoot = path.join(__dirname, '../src');
-const typesRoot = path.join(__dirname, '../types');
+const typesRootInit = path.join(__dirname, '../types');
 
 const libRoot = path.join(__dirname, '../lib');
 const umdRoot = path.join(libRoot, 'umd');
 const cjsRoot = path.join(libRoot, 'cjs');
 const esRoot = path.join(libRoot, 'esm');
+const typesRoot = path.join(libRoot, 'types');
 
 const step = require('./utils').step;
 const shell = require('./utils').shell;
@@ -27,11 +28,12 @@ const has = (t) => !targets.length || targets.includes(t);
 
 const buildTypes = step('generating .d.ts', () => shell(`yarn build:types`));
 
-const copyTypes = (dest) => fse.copySync(typesRoot, dest, { overwrite: true });
+const copyTypes = (dest) =>
+  fse.copySync(typesRootInit, dest, { overwrite: true });
 
 const babel = (outDir, envName) => {
   shell(
-    `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName} --no-comments"`
+    `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`
   );
 };
 
@@ -41,7 +43,6 @@ const babel = (outDir, envName) => {
  */
 const buildLib = step('commonjs modules', async () => {
   await babel(cjsRoot, 'cjs');
-  await copyTypes(cjsRoot);
 });
 
 /**
@@ -50,7 +51,6 @@ const buildLib = step('commonjs modules', async () => {
  */
 const buildEsm = step('es modules', async () => {
   await babel(esRoot, 'esm');
-  await copyTypes(esRoot);
 });
 
 /**
@@ -96,7 +96,8 @@ Promise.resolve(true)
     Promise.all([
       has('lib') && buildLib(),
       has('es') && buildEsm(),
-      has('umd') && buildUmd()
+      has('umd') && buildUmd(),
+      copyTypes(typesRoot)
     ])
   )
   .then(buildDirectories)
