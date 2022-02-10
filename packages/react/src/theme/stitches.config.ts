@@ -48,6 +48,18 @@ export const sharedFocus = css({
   }
 });
 
+export const cssFocusVisible = css({
+  variants: {
+    isFocusVisible: {
+      true: {
+        outline: 'none',
+        boxShadow:
+          '0 0 0 2px $colors$background, 0 0 0 4px $colors$primary !important'
+      }
+    }
+  }
+});
+
 export const sharedVisuallyHidden = css({
   border: '0px',
   clip: 'rect(0px, 0px, 0px, 0px)',

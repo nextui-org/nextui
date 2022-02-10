@@ -55,10 +55,11 @@
   },
   "dependencies": {
     "@babel/runtime": "7.9.6",
+    "@stitches/react": "1.2.6",
+    "@react-aria/focus": "3.5.0",
     "@react-aria/label": "3.2.1",
     "@react-aria/ssr": "3.1.0",
-    "@react-aria/utils": "3.11.0",
-    "@stitches/react": "1.2.6"
+    "@react-aria/utils": "3.11.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

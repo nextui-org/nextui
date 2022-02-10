@@ -22,32 +22,32 @@ export const StyledSwitchContainer = styled('label', {
     color: {
       default: {
         $$switchColor: '$colors$primary',
-        $$switchColorShadow: '$colors$primaryLight',
+        $$switchColorShadow: '$colors$primaryShadow',
         $$switchColorHover: '$colors$primaryDark'
       },
       primary: {
         $$switchColor: '$colors$primary',
-        $$switchColorShadow: '$colors$primaryLight',
+        $$switchColorShadow: '$colors$primaryShadow',
         $$switchColorHover: '$colors$primaryDark'
       },
       secondary: {
         $$switchColor: '$colors$secondary',
-        $$switchColorShadow: '$colors$secondaryLight',
+        $$switchColorShadow: '$colors$secondaryShadow',
         $$switchColorHover: '$colors$secondaryDark'
       },
       success: {
         $$switchColor: '$colors$success',
-        $$switchColorShadow: '$colors$successLight',
+        $$switchColorShadow: '$colors$successShadow',
         $$switchColorHover: '$colors$successDark'
       },
       warning: {
         $$switchColor: '$colors$warning',
-        $$switchColorShadow: '$colors$warningLight',
+        $$switchColorShadow: '$colors$warningShadow',
         $$switchColorHover: '$colors$warningDark'
       },
       error: {
         $$switchColor: '$colors$error',
-        $$switchColorShadow: '$colors$errorLight',
+        $$switchColorShadow: '$colors$errorShadow',
         $$switchColorHover: '$colors$errorDark'
       }
     },

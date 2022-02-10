@@ -53,20 +53,23 @@ const text = "First solve the problem. Then, write the code. - Jon Johnson.";
 return (
 <>
   <Text>
-    <Link href="#">{text}</Link>
+    <Link href="#" color="text">{text}</Link>
   </Text>
+  <Spacer/>
   <Text>
-    <Link href="#" color>
+    <Link href="#" color="success">
       {text}
     </Link>
   </Text>
+  <Spacer/>
   <Text>
     <Link href="#" underline>
       {text}
     </Link>
   </Text>
+  <Spacer/>
   <Text>
-    <Link href="#" color underline>
+    <Link href="#" color="error" underline>
       {text}
     </Link>
   </Text>
@@ -126,15 +129,15 @@ return (
 
 #### Link Props
 
-| Attribute     | Type                                            | Accepted values                | Description                 | Default |
-| ------------- | ----------------------------------------------- | ------------------------------ | --------------------------- | ------- |
-| **color**     | `SimpleColor` `boolean` `string`                | [SimpleColors](#simple-colors) | Change link color           | `false` |
-| **href**      | `string`                                        | -                              | Link url                    | -       |
-| **icon**      | `boolean`                                       | `true/false`                   | Show link icon              | `false` |
-| **underline** | `boolean`                                       | `true/false`                   | Display underline           | `false` |
-| **block**     | `boolean`                                       | `true/false`                   | Display as a separate block | `false` |
-| **ref**       | <Code>Ref<HTMLAnchorElement &#124; null></Code> | -                              | forwardRef                  | -       |
-| ...           | `AnchorHTMLAttributes`                          | `'rel', 'target', ...`         | Native props                | -       |
+| Attribute     | Type                                            | Accepted values            | Description                 | Default |
+| ------------- | ----------------------------------------------- | -------------------------- | --------------------------- | ------- |
+| **color**     | `LinkColors` `boolean` `string`                 | [LinkColors](#link-colors) | Change link color           | `false` |
+| **href**      | `string`                                        | -                          | Link url                    | -       |
+| **icon**      | `boolean`                                       | `true/false`               | Show link icon              | `false` |
+| **underline** | `boolean`                                       | `true/false`               | Display underline           | `false` |
+| **block**     | `boolean`                                       | `true/false`               | Display as a separate block | `false` |
+| **ref**       | <Code>Ref<HTMLAnchorElement &#124; null></Code> | -                          | forwardRef                  | -       |
+| ...           | `AnchorHTMLAttributes`                          | `'rel', 'target', ...`     | Native props                | -       |
 
 <Spacer y={2} />
 
@@ -145,7 +148,8 @@ return (
 #### Simple Colors
 
 ```ts
-type SimpleColors =
+type LinkColors =
+  | 'text'
   | 'default'
   | 'primary'
   | 'secondary'
