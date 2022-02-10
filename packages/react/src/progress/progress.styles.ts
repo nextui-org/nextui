@@ -23,7 +23,7 @@ export const StyledProgress = styled('div', {
   overflow: 'visible',
   variants: {
     color: {
-      defuault: {
+      default: {
         $$progressColor: '$colors$primary',
         $$progressShadowColor: '$colors$primaryLight'
       },
