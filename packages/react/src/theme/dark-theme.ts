@@ -10,11 +10,28 @@ export default {
     accents8: '$gray200',
     accents9: '$gray100',
     text: '$white',
-    primaryLight: '$blue600',
-    secondaryLight: '$purple600',
-    successLight: '$green600',
-    warningLight: '$yellow600',
-    errorLight: '$red600',
+
+    blue900: '#001835',
+    purple900: '#1c0631',
+    green900: '#033116',
+    yellow900: '#3d2705',
+    red900: '#3c0216',
+
+    primaryLight: '$blue900',
+    primaryShadow: '$blue600',
+
+    secondaryLight: '$purple900',
+    secondaryShadow: '$purple600',
+
+    successLight: '$green900',
+    successShadow: '$green600',
+
+    warningLight: '$yellow900',
+    warningShadow: '$yellow600',
+
+    errorLight: '$red900',
+    errorShadow: '$red600',
+
     background: '$black',
     foreground: '$white',
     codeLight: '#16272e',
