@@ -112,7 +112,7 @@ yarn build # or npm run build
 
 6. Send your pull request:
 
-- You must send your pull request to the `staging` branch
+- Send your pull request to the `main` branch
 - Your pull request will be reviewed by the maintainers and the maintainers will decide if it is accepted or not
 - Once the pull request is accepted, the maintainers will merge it to the `main` branch
 
