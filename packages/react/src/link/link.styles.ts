@@ -25,6 +25,9 @@ export const StyledLink = styled('a', {
       default: {
         color: '$link'
       },
+      text: {
+        color: '$text'
+      },
       primary: {
         color: '$primary'
       },
@@ -75,7 +78,7 @@ export const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors?.primary?.value, 0.2)
+          backgroundColor: '$primaryLight'
         }
       }
     },
@@ -84,16 +87,7 @@ export const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors?.secondary?.value, 0.2)
-        }
-      }
-    },
-    {
-      color: 'secondary',
-      block: true,
-      css: {
-        '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors?.secondary?.value, 0.2)
+          backgroundColor: '$secondaryLight'
         }
       }
     },
@@ -102,7 +96,7 @@ export const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors?.success?.value, 0.2)
+          backgroundColor: '$successLight'
         }
       }
     },
@@ -111,7 +105,7 @@ export const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors?.warning?.value, 0.2)
+          backgroundColor: '$warningLight'
         }
       }
     },
@@ -120,7 +114,7 @@ export const StyledLink = styled('a', {
       block: true,
       css: {
         '&:hover': {
-          backgroundColor: addColorAlpha(theme.colors?.error?.value, 0.2)
+          backgroundColor: '$errorLight'
         }
       }
     }

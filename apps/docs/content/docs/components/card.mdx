@@ -19,7 +19,7 @@ import { Card } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="NextUI will wrap your content in a `Card.Body` component."
-  code={` 
+  code={`
 <Card css={{ mw: "400px" }}>
   <p>A basic card.</p>
 </Card>`}
@@ -27,8 +27,8 @@ import { Card } from '@nextui-org/react';
 
 <Playground
   title="Bordered"
-  desc="You can change the full style towards a bodered `Card` with the `bordered` property."
-  code={` 
+  desc="You can change the full style to a bordered `Card` with the `bordered` property."
+  code={`
 <Card bordered shadow={false} css={{ mw: "400px" }}>
   <p>A bordered card.</p>
 </Card>`}
@@ -37,7 +37,7 @@ import { Card } from '@nextui-org/react';
 <Playground
   title="Hoverable"
   desc="You can apply a fancy hover animation with the `hoverable` property."
-  code={` 
+  code={`
 <Card bordered shadow={false} hoverable css={{ mw: "400px" }}>
   <p>A hoverable card.</p>
 </Card>`}
@@ -45,9 +45,9 @@ import { Card } from '@nextui-org/react';
 
 <Playground
   title="Clickable"
-  desc="You can use the `clickable` property to allow users to interact with the entirety of its surface 
+  desc="You can use the `clickable` property to allow users to interact with the entirety of its surface
   to trigger its main action, be it an expansion, a link to another screen or some other behavior."
-  code={` 
+  code={`
 <Card clickable bordered css={{ mw: "400px" }}>
   <p>A clickable card.</p>
 </Card>`}
@@ -79,17 +79,17 @@ return (
       </Grid>
     ))}
   </Grid.Container>
-);    
+);
 }`}
 />
 
 <Playground
   title="With divider"
   desc="You can use the `Divider` component to split the `Card` sections."
-  code={` 
-<Grid.Container gap={2}> 
-  <Grid>  
-    <Card css={{ w: "330px" }}>
+  code={`
+<Grid.Container gap={2}>
+  <Grid sm={12} md={5}>
+    <Card css={{ mw: "330px" }}>
         <Card.Header>
           <Text b>Card Title</Text>
         </Card.Header>
@@ -107,9 +107,9 @@ return (
           </Row>
         </Card.Footer>
     </Card>
-  </Grid>  
-  <Grid>  
-    <Card css={{ w: "330px" }}>
+  </Grid>
+  <Grid sm={12} md={5}>
+    <Card css={{ mw: "330px" }}>
         <Card.Header>
           <Text b>Card Title</Text>
         </Card.Header>
@@ -127,7 +127,7 @@ return (
           </Row>
         </Card.Footer>
     </Card>
-  </Grid> 
+  </Grid>
 </Grid.Container>
 `}
 />
@@ -135,10 +135,10 @@ return (
 <Playground
   title="With Footer"
   desc="You can use the `Card.Footer` component to add actions, details or another information to the `Card`."
-  code={` 
+  code={`
 <Grid.Container gap={2}>
-    <Grid>
-      <Card css={{ w: "330px" }}>
+    <Grid sm={12} md={5}>
+      <Card css={{ mw: "330px" }}>
         <Text h4>Next UI</Text>
         <Text>🚀  Beautiful and modern React UI library.</Text>
         <Card.Footer>
@@ -147,9 +147,9 @@ return (
           </Link>
         </Card.Footer>
       </Card>
-    </Grid>  
-    <Grid> 
-        <Card css={{ w: "330px" }} color="primary">
+    </Grid>
+    <Grid sm={12} md={5}>
+        <Card css={{ mw: "330px" }} color="primary">
           <Text h4 color="white">Next UI</Text>
           <Text color="white">🚀  Beautiful and modern React UI library.</Text>
           <Card.Footer>
@@ -158,7 +158,7 @@ return (
             </Link>
           </Card.Footer>
         </Card>
-    </Grid>  
+    </Grid>
 </Grid.Container>`}
 />
 
@@ -166,8 +166,9 @@ return (
   title="Cover Image"
   desc="You can use the `cover` prop and `Card.Image` component to add a coverred image to the `Card.Body`. NextUI automatically
   applies `object-fit: cover` to the inner image."
-  code={` 
+  code={`
 <Grid.Container gap={2} justify="center">
+   {/* Card 1 */}
     <Grid xs={12} sm={4}>
       <Card cover>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -193,6 +194,7 @@ return (
         />
       </Card>
     </Grid>
+    {/* Card 2 */}
     <Grid xs={12} sm={4}>
       <Card width="100%" cover>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -218,8 +220,9 @@ return (
         />
       </Card>
     </Grid>
+    {/* Card 3 */}
     <Grid xs={12} sm={4}>
-      <Card cover css={{ bg: '$gray100', w: '100%' }}>
+      <Card cover css={{ bg: '$black', w: '100%' }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
           <Col>
             <Text
@@ -242,7 +245,8 @@ return (
           alt="Card image background"
         />
       </Card>
-    </Grid>  
+    </Grid>
+    {/* Card 4 */}
     <Grid xs={12} sm={5}>
       <Card cover css={{ w: '100%' }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -268,7 +272,7 @@ return (
             alt="Card example background"
           />
         </Card.Body>
-        <Card.Footer             
+        <Card.Footer
           blur
           css={{
             position: 'absolute',
@@ -295,7 +299,8 @@ return (
           </Row>
         </Card.Footer>
       </Card>
-    </Grid>    
+    </Grid>
+    {/* Card 5 */}
     <Grid xs={12} sm={7}>
       <Card cover css={{ w: '100%', p: 0 }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -337,7 +342,7 @@ return (
                 <Col span={3}>
                   <Card.Image
                     src='/images/breathing-app-icon.jpeg'
-                    style={{ background: 'black' }}
+                    css={{ background: 'black' }}
                     height={40}
                     width={40}
                     alt="Breathing app icon"
@@ -366,6 +371,7 @@ return (
         </Card.Footer>
       </Card>
     </Grid>
+
 </Grid.Container>`}
 />
 
@@ -420,7 +426,7 @@ return (
 <Grid.Container gap={2} justify="flex-start">
   {list.map((item, index) => (
     <Grid xs={6} sm={3} key={index}>
-      <Card hoverable clickable width="100%">
+      <Card hoverable clickable>
         <Card.Body css={{ p: 0 }}>
           <Card.Image
             objectFit="cover"
@@ -431,14 +437,14 @@ return (
           />
         </Card.Body>
         <Card.Footer justify="flex-start">
-          <Row justify="space-between">
+          <Row wrap='wrap' justify="space-between">
             <Text b>
               {item.title}
             </Text>
             <Text css={{ color: "$accents4", fontWeight: "$semibold" }}>
               {item.price}
             </Text>
-          </Row>        
+          </Row>
         </Card.Footer>
       </Card>
     </Grid>

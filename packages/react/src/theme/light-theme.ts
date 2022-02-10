@@ -13,7 +13,7 @@ export default {
     background: '$white',
     foreground: '$black',
     codeLight: '$pink100',
-    code: '$pink500',
+    code: '$pink600',
     border: '$gray200',
     selection: '$blue200'
   },

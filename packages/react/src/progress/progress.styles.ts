@@ -1,10 +1,4 @@
-import {
-  styled,
-  theme,
-  keyframes,
-  VariantProps
-} from '../theme/stitches.config';
-import { addColorAlpha } from '../utils/color';
+import { styled, keyframes, VariantProps } from '../theme/stitches.config';
 
 const indeterminateAnimation = keyframes({
   '0%': {
@@ -23,33 +17,33 @@ export const StyledProgress = styled('div', {
   overflow: 'visible',
   variants: {
     color: {
-      defuault: {
+      default: {
         $$progressColor: '$colors$primary',
-        $$progressShadowColor: '$colors$primaryLight'
+        $$progressShadowColor: '$colors$primaryShadow'
       },
       primary: {
         $$progressColor: '$colors$primary',
-        $$progressShadowColor: '$colors$primaryLight'
+        $$progressShadowColor: '$colors$primaryShadow'
       },
       secondary: {
         $$progressColor: '$colors$secondary',
-        $$progressShadowColor: '$colors$secondaryLight'
+        $$progressShadowColor: '$colors$secondaryShadow'
       },
       success: {
         $$progressColor: '$colors$success',
-        $$progressShadowColor: '$colors$successLight'
+        $$progressShadowColor: '$colors$successShadow'
       },
       warning: {
         $$progressColor: '$colors$warning',
-        $$progressShadowColor: '$colors$warningLight'
+        $$progressShadowColor: '$colors$warningShadow'
       },
       error: {
         $$progressColor: '$colors$error',
-        $$progressShadowColor: '$colors$errorLight'
+        $$progressShadowColor: '$colors$errorShadow'
       },
       gradient: {
         $$progressColor: '$colors$gradient',
-        $$progressShadowColor: '$colors$primaryLight'
+        $$progressShadowColor: '$colors$primaryShadow'
       }
     },
     status: {
@@ -57,19 +51,19 @@ export const StyledProgress = styled('div', {
         bg: '$accents2'
       },
       primary: {
-        bg: addColorAlpha(theme.colors?.primary?.value, 0.2)
+        bg: '$primaryLight'
       },
       secondary: {
-        bg: addColorAlpha(theme.colors?.secondary?.value, 0.2)
+        bg: '$secondaryLight'
       },
       success: {
-        bg: addColorAlpha(theme.colors?.success?.value, 0.2)
+        bg: '$successLight'
       },
       warning: {
-        bg: addColorAlpha(theme.colors?.warning?.value, 0.2)
+        bg: '$warningLight'
       },
       error: {
-        bg: addColorAlpha(theme.colors?.error?.value, 0.2)
+        bg: '$errorLight'
       }
     },
     size: {

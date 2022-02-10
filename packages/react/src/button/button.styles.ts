@@ -1,12 +1,9 @@
 import {
   styled,
-  theme,
-  sharedFocus,
-  VariantProps
+  VariantProps,
+  cssFocusVisible
 } from '../theme/stitches.config';
 import { StyledDrip } from '../utils/drip';
-
-import { addColorAlpha } from '../utils/color';
 
 export const StyledButton = styled(
   'button',
@@ -17,7 +14,6 @@ export const StyledButton = styled(
     fontWeight: '$medium',
     us: 'none',
     lineHeight: '$sm',
-    textTransform: 'capitalize',
     ta: 'center',
     whiteSpace: 'nowrap',
     transition: '$default',
@@ -278,49 +274,49 @@ export const StyledButton = styled(
         shadow: true,
         color: 'default',
         css: {
-          normalShadow: '$primaryLight'
+          normalShadow: '$primaryShadow'
         }
       },
       {
         shadow: true,
         color: 'primary',
         css: {
-          normalShadow: '$primaryLight'
+          normalShadow: '$primaryShadow'
         }
       },
       {
         shadow: true,
         color: 'secondary',
         css: {
-          normalShadow: '$secondaryLight'
+          normalShadow: '$secondaryShadow'
         }
       },
       {
         shadow: true,
         color: 'warning',
         css: {
-          normalShadow: '$warningLight'
+          normalShadow: '$warningShadow'
         }
       },
       {
         shadow: true,
         color: 'success',
         css: {
-          normalShadow: '$successLight'
+          normalShadow: '$successShadow'
         }
       },
       {
         shadow: true,
         color: 'error',
         css: {
-          normalShadow: '$errorLight'
+          normalShadow: '$errorShadow'
         }
       },
       {
         shadow: true,
         color: 'gradient',
         css: {
-          normalShadow: '$primaryLight'
+          normalShadow: '$primaryShadow'
         }
       },
       // light / color
@@ -545,7 +541,7 @@ export const StyledButton = styled(
         flat: true,
         color: 'default',
         css: {
-          bg: addColorAlpha(theme.colors?.primary?.value, 0.25),
+          bg: '$primaryLight',
           color: '$primary',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -559,7 +555,7 @@ export const StyledButton = styled(
         flat: true,
         color: 'primary',
         css: {
-          bg: addColorAlpha(theme.colors?.primary?.value, 0.25),
+          bg: '$primaryLight',
           color: '$primary',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -573,7 +569,7 @@ export const StyledButton = styled(
         flat: true,
         color: 'secondary',
         css: {
-          bg: addColorAlpha(theme.colors?.secondary?.value, 0.25),
+          bg: '$secondaryLight',
           color: '$secondary',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -587,7 +583,7 @@ export const StyledButton = styled(
         flat: true,
         color: 'success',
         css: {
-          bg: addColorAlpha(theme.colors?.success?.value, 0.25),
+          bg: '$successLight',
           color: '$success',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -601,7 +597,7 @@ export const StyledButton = styled(
         flat: true,
         color: 'warning',
         css: {
-          bg: addColorAlpha(theme.colors?.warning?.value, 0.25),
+          bg: '$warningLight',
           color: '$warning',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -615,7 +611,7 @@ export const StyledButton = styled(
         flat: true,
         color: 'error',
         css: {
-          bg: addColorAlpha(theme.colors?.error?.value, 0.25),
+          bg: '$errorLight',
           color: '$error',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
@@ -776,7 +772,7 @@ export const StyledButton = styled(
       size: 'md'
     }
   },
-  sharedFocus
+  cssFocusVisible
 );
 
 export type ButtonVariantsProps = VariantProps<typeof StyledButton>;

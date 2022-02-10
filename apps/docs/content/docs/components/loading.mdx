@@ -34,7 +34,7 @@ import { Loading } from '@nextui-org/react';
 
 <Playground
   title="Sizes"
-  desc="Change the size of the entire `Loading` with the `size` property, you can also set a custom size in px."
+  desc="Change the size of the entire `Loading` with the `size` property."
   code={`
 <>
   <Loading size="xs"/>
@@ -49,6 +49,8 @@ import { Loading } from '@nextui-org/react';
 </>
 `}
 />
+
+> Note: If you want to use a custom size please see this [Codesanbox](https://codesandbox.io/s/great-montalcini-cyj39?file=/src/App.js)
 
 <Playground
   title="Types"
@@ -130,14 +132,14 @@ import { Loading } from '@nextui-org/react';
 
 #### Loading Props
 
-| Attribute              | Type                    | Accepted values                  | Description                                | Default   |
-| ---------------------- | ----------------------- | -------------------------------- | ------------------------------------------ | --------- |
-| **size**               | `NormalSizes` `number`  | [NormalSizes](#normal-sizes)     | Loading size                               | `medium`  |
-| **color**              | `SimpleColors` `string` | [SimpleColors](#simple-colors)   | Change loading color                       | `primary` |
-| **textColor**          | `SimpleColors`          | [SimpleColors](#simple-colors)   | Change loading text color                  | `default` |
-| **type**               | `NormalLoaders`         | [NormalLoaders](#normal-loaders) | Selected or not (in single)                | `default` |
-| **gradientBackground** | `string/null`           | -                                | Set a background for gradient loading type | -         |
-| ...                    | `HTMLAttributes`        | `'id', 'className', ...`         | Native props                               | -         |
+| Attribute              | Type             | Accepted values                  | Description                                | Default   |
+| ---------------------- | ---------------- | -------------------------------- | ------------------------------------------ | --------- |
+| **size**               | `NormalSizes`    | [NormalSizes](#normal-sizes)     | Loading size                               | `medium`  |
+| **color**              | `SimpleColors`   | [SimpleColors](#simple-colors)   | Change loading color                       | `primary` |
+| **textColor**          | `SimpleColors`   | [SimpleColors](#simple-colors)   | Change loading text color                  | `default` |
+| **type**               | `NormalLoaders`  | [NormalLoaders](#normal-loaders) | Selected or not (in single)                | `default` |
+| **gradientBackground** | `string/null`    | -                                | Set a background for gradient loading type | -         |
+| ...                    | `HTMLAttributes` | `'id', 'className', ...`         | Native props                               | -         |
 
 <Spacer y={2} />
 

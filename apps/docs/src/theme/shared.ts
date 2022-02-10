@@ -45,7 +45,8 @@ export const darkTheme = createTheme({
       blockLinkColor: '#FFA4E3',
       blockLinkBackground: '$accents1',
       blockLinkHoverBackground: '#55057A',
-      selection: '$purple700'
+      selection: '$purple700',
+      link: '$blue400'
     }
   }
 });

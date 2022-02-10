@@ -1,10 +1,8 @@
 import {
   styled,
-  theme,
   sharedVisuallyHidden,
   VariantProps
 } from '../theme/stitches.config';
-import { addColorAlpha } from '../utils/color';
 
 const baseInputValues = {
   $$inputColor: '$colors$accents1',
@@ -52,7 +50,7 @@ export const StyledInputMainContainer = styled('div', {
     status: {
       default: {},
       primary: {
-        $$inputColor: addColorAlpha(theme?.colors.primary.value, 0.2),
+        $$inputColor: '$colors$primaryLight',
         $$inputPlaceholderColor: '$colors$primary',
         $$inputTextColor: '$colors$primary',
         $$inputLabelColor: '$$inputTextColor',
@@ -60,7 +58,7 @@ export const StyledInputMainContainer = styled('div', {
         $$inputPlaceholderOpacity: 0.5
       },
       secondary: {
-        $$inputColor: addColorAlpha(theme?.colors.secondary.value, 0.2),
+        $$inputColor: '$colors$secondaryLight',
         $$inputPlaceholderColor: '$colors$secondary',
         $$inputTextColor: '$colors$secondary',
         $$inputLabelColor: '$$inputTextColor',
@@ -68,7 +66,7 @@ export const StyledInputMainContainer = styled('div', {
         $$inputPlaceholderOpacity: 0.5
       },
       success: {
-        $$inputColor: addColorAlpha(theme?.colors.success.value, 0.2),
+        $$inputColor: '$colors$successLight',
         $$inputPlaceholderColor: '$colors$success',
         $$inputTextColor: '$colors$success',
         $$inputLabelColor: '$$inputTextColor',
@@ -76,7 +74,7 @@ export const StyledInputMainContainer = styled('div', {
         $$inputPlaceholderOpacity: 0.5
       },
       warning: {
-        $$inputColor: addColorAlpha(theme?.colors.warning.value, 0.2),
+        $$inputColor: '$colors$warningLight',
         $$inputPlaceholderColor: '$colors$warning',
         $$inputTextColor: '$colors$warning',
         $$inputLabelColor: '$$inputTextColor',
@@ -84,7 +82,7 @@ export const StyledInputMainContainer = styled('div', {
         $$inputPlaceholderOpacity: 0.5
       },
       error: {
-        $$inputColor: addColorAlpha(theme?.colors.error.value, 0.2),
+        $$inputColor: '$colors$errorLight',
         $$inputPlaceholderColor: '$colors$error',
         $$inputTextColor: '$colors$error',
         $$inputLabelColor: '$$inputTextColor',

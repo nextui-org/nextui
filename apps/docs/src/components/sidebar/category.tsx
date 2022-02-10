@@ -54,7 +54,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   const margin = 18;
 
   const postsHeight = useMemo(
-    () => routes.length * (isMobile ? 32 : 24) + margin * (routes.length - 1),
+    () => routes.length * (isMobile ? 32 : 26) + margin * (routes.length - 1),
     [routes, isMobile]
   );
 
