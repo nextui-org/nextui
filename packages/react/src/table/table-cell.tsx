@@ -1,73 +1,56 @@
-import React from 'react';
-import { TableRowData, TableOnCellClick } from './table-types';
-import { TableColumnProps } from './table-column';
+import React, { useRef, useImperativeHandle } from 'react';
 import { CSS } from '../theme/stitches.config';
+import { useTableCell } from '@react-aria/table';
 import { StyledTableCell } from './table.styles';
+import { GridNode } from '@react-types/grid';
+import { TableState } from '@react-stately/table';
+import { useFocusRing } from '@react-aria/focus';
+import { mergeProps } from '@react-aria/utils';
 
-interface Props<TableDataItem extends TableRowData> {
-  row?: TableDataItem;
-  rowIndex?: number;
-  columns?: Array<TableColumnProps<TableDataItem>>;
-  emptyText?: string;
-  onCellClick?: TableOnCellClick<TableDataItem>;
+type CellProps<T> = GridNode<T> & { rendered: React.ReactNode };
+
+interface Props<T> {
+  cell: CellProps<T>;
+  state: TableState<T>;
   as?: keyof JSX.IntrinsicElements;
 }
 
-type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props<any>>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<any>>;
 
-export type TableCellProps<TableDataItem extends TableRowData> =
-  Props<TableDataItem> & NativeAttrs & { css?: CSS };
+export type TableCellProps<T = unknown> = Props<T> &
+  NativeAttrs & { css?: CSS };
 
-const TableCell = React.forwardRef<
-  HTMLTableCellElement,
-  React.PropsWithChildren<TableCellProps<TableRowData>>
->(
-  (
-    { columns, row, rowIndex, emptyText, onCellClick, css, children, ...props },
-    ref
-  ) => {
+const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
+  ({ cell, state, ...props }, ref: React.Ref<HTMLTableCellElement | null>) => {
+    const tableCellRef = useRef<HTMLTableCellElement | null>(null);
+
+    useImperativeHandle(ref, () => tableCellRef?.current);
+
+    const {
+      gridCellProps
+    }: {
+      gridCellProps: Omit<
+        React.HTMLAttributes<unknown>,
+        keyof TableCellProps<unknown>
+      >;
+    } = useTableCell({ node: cell }, state, tableCellRef);
+
+    const { isFocusVisible, focusProps } = useFocusRing();
+
     return (
-      <React.Fragment>
-        {columns?.map((column, columnIndex) => {
-          if (column.hide) return null;
-
-          const rowData = row && column?.field && row[column?.field];
-          const cellValue = (rowData || emptyText) as React.ReactNode;
-
-          const shouldBeRenderElement = typeof column.renderCell === 'function';
-
-          return (
-            <StyledTableCell
-              ref={ref}
-              role="cell"
-              key={`tbody-cell-${column.field}-${columnIndex}`}
-              onClick={() =>
-                onCellClick && onCellClick(rowData, rowIndex, columnIndex)
-              }
-              align={column.cellAlign}
-              className={column.cellClassName}
-              css={{
-                ...(css as any),
-                ...(column?.cellCss as any)
-              }}
-              {...props}
-            >
-              {shouldBeRenderElement
-                ? column.renderCell?.({
-                    value: cellValue,
-                    rowData: row,
-                    rowIndex
-                  })
-                : children || cellValue}
-            </StyledTableCell>
-          );
-        })}
-      </React.Fragment>
+      <StyledTableCell
+        {...mergeProps(gridCellProps, focusProps, props)}
+        isFocusVisible={isFocusVisible}
+        ref={tableCellRef}
+      >
+        {cell.rendered}
+      </StyledTableCell>
     );
   }
 );
 
 TableCell.displayName = 'NextUI - TableCell';
+
 TableCell.toString = () => '.nextui-table-cell';
 
 export default TableCell;

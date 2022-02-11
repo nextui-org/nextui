@@ -1,4 +1,4 @@
-import Table from './table';
+import Table from './table-old';
 
 export type {
   TableOnCellClick,

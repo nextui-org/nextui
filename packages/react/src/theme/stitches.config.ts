@@ -55,6 +55,9 @@ export const cssFocusVisible = css({
         outline: 'none',
         boxShadow:
           '0 0 0 2px $colors$background, 0 0 0 4px $colors$primary !important'
+      },
+      false: {
+        boxShadow: 'none'
       }
     }
   }

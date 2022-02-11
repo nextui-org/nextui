@@ -210,6 +210,10 @@ export const excludedInputPropsForTextarea = tuple(
   'css'
 );
 
+const selectionBehavior = tuple('toggle', 'replace');
+
+const selectionMode = tuple('none', 'single', 'multiple');
+
 export type Display = typeof display[number];
 
 export type Justify = typeof justify[number];
@@ -271,3 +275,6 @@ export type ExcludedInputProps = typeof excludedInputPropsForTextarea[number];
 export interface AsProp<As extends ElementType = ElementType> {
   as?: As;
 }
+
+export type SelectionMode = typeof selectionMode[number];
+export type SelectionBehavior = typeof selectionBehavior[number];

@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.9.6",
+    "@stitches/react": "1.2.6",
     "@react-aria/checkbox": "3.2.3",
     "@react-aria/focus": "3.5.0",
     "@react-aria/interactions": "3.7.0",
@@ -65,7 +66,7 @@
     "@react-aria/visually-hidden": "3.2.3",
     "@react-stately/table": "3.1.0",
     "@react-stately/toggle": "3.2.3",
-    "@stitches/react": "1.2.6"
+    "@react-types/grid": "3.0.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

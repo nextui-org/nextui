@@ -1,10 +1,59 @@
-import { styled, VariantProps } from '../theme/stitches.config';
+import {
+  styled,
+  VariantProps,
+  cssFocusVisible
+} from '../theme/stitches.config';
+
+export const StyledTableRowGroup = styled('thead', {});
+
+export const StyledTableHeaderRow = styled('tr', {});
+
+export const StyledTableColumnHeader = styled(
+  'th',
+  {
+    cursor: 'default',
+    bg: '$accents1',
+    color: '$accents6',
+    fontSize: '$tiny',
+    variants: {
+      align: {
+        left: {
+          textAlign: 'left'
+        },
+        center: {
+          textAlign: 'center'
+        },
+        right: {
+          textAlign: 'right'
+        }
+      }
+    },
+    defaultVariants: {
+      align: 'left'
+    }
+  },
+  cssFocusVisible
+);
 
 export const StyledTableHead = styled('thead', {
   height: '$14'
 });
 
-export const StyledTableRow = styled('tr', {});
+export const StyledTableRow = styled(
+  'tr',
+  {
+    $$tableRowTextColor: '$colors$white',
+    variants: {
+      isSelected: {
+        true: {
+          bg: '$$tableRowSelectedColor',
+          color: '$$tableRowTextColor'
+        }
+      }
+    }
+  },
+  cssFocusVisible
+);
 
 export const StyledTableColumn = styled('th', {
   textAlign: 'left',
@@ -21,28 +70,32 @@ export const StyledTableColumn = styled('th', {
   }
 });
 
-export const StyledTableCell = styled('td', {
-  py: '$5',
-  '&:first-child': {
-    pl: '$8'
-  },
-  '&:last-child': {
-    pr: '$8'
-  },
-  variants: {
-    align: {
-      left: {
-        textAlign: 'left'
-      },
-      center: {
-        textAlign: 'center'
-      },
-      right: {
-        textAlign: 'right'
+export const StyledTableCell = styled(
+  'td',
+  {
+    py: '$5',
+    '&:first-child': {
+      pl: '$8'
+    },
+    '&:last-child': {
+      pr: '$8'
+    },
+    variants: {
+      align: {
+        left: {
+          textAlign: 'left'
+        },
+        center: {
+          textAlign: 'center'
+        },
+        right: {
+          textAlign: 'right'
+        }
       }
     }
-  }
-});
+  },
+  cssFocusVisible
+);
 
 export const StyledTableBody = styled('tbody', {
   [`& ${StyledTableRow}:first-child`]: {
@@ -76,6 +129,23 @@ export const StyledTable = styled('table', {
     }
   },
   variants: {
+    selectedColor: {
+      primary: {
+        $$tableRowSelectedColor: '$colors$primaryLight'
+      },
+      secondary: {
+        $$tableRowSelectedColor: '$colors$secondaryLight'
+      },
+      success: {
+        $$tableRowSelectedColor: '$colors$successLight'
+      },
+      warning: {
+        $$tableRowSelectedColor: '$colors$warningLight'
+      },
+      error: {
+        $$tableRowSelectedColor: '$colors$errorLight'
+      }
+    },
     striped: {
       true: {
         [`& ${StyledTableRow}:nth-child(even)`]: {
@@ -163,8 +233,12 @@ export const StyledTable = styled('table', {
   },
   defaultVariants: {
     shadow: true,
+    selectedColor: 'primary',
     lineWeight: 'light'
   }
 });
 
 export type TableVariantsProps = VariantProps<typeof StyledTable>;
+export type TableColumnHeaderVariants = VariantProps<
+  typeof StyledTableColumnHeader
+>;
