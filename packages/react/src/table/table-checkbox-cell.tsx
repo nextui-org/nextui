@@ -10,7 +10,7 @@ import { mergeProps } from '@react-aria/utils';
 import { useCheckbox } from '@react-aria/checkbox';
 import Checkbox, { CheckboxProps } from '../checkbox';
 
-type CellProps<T> = GridNode<T> & { parentKey: React.Key };
+type CellProps<T> = GridNode<T> & { parentKey?: React.Key };
 
 interface Props<T> {
   cell: CellProps<T>;
@@ -41,7 +41,7 @@ const TableCheckboxCell = React.forwardRef<
   } = useTableCell({ node: cell }, state, tableCellRef);
 
   const { checkboxProps } = useTableSelectionCheckbox(
-    { key: cell.parentKey },
+    { key: cell?.parentKey || cell.key },
     state
   );
 
@@ -64,7 +64,7 @@ const TableCheckboxCell = React.forwardRef<
       isFocusVisible={isFocusVisible}
       ref={tableCellRef}
     >
-      <Checkbox {...inputProps} />
+      <input {...inputProps} ref={inputRef} />
     </StyledTableCell>
   );
 });

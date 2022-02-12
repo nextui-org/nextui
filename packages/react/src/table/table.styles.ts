@@ -35,6 +35,8 @@ export const StyledTableColumnHeader = styled(
   cssFocusVisible
 );
 
+export const StyledTableHeaderCell = styled('th', {}, cssFocusVisible);
+
 export const StyledTableHead = styled('thead', {
   height: '$14'
 });

@@ -1,10 +1,20 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Table, {
+  ReactAriaTable,
   TableCellData,
   TableColumnHeaderData,
   TableColumnItem
 } from './index';
+
+import {
+  Cell as TableCell,
+  Column as TableColumn,
+  Row as TableRow,
+  TableBody,
+  TableHeader
+} from '@react-stately/table';
+
 import { User, Text, Col, Row, Tooltip, styled } from '../index';
 import { Eye, Edit, Delete } from '../utils/icons';
 
@@ -245,6 +255,43 @@ const columns: TableColumnItem[] = [
     }
   }
 ];
+
+export const ReactAriaTableExample = () => {
+  return (
+    <ReactAriaTable
+      aria-label="Example static collection table"
+      css={{ height: '210px', minWidth: '440px' }}
+    >
+      <TableHeader>
+        <TableColumn>Name</TableColumn>
+        <TableColumn>Type</TableColumn>
+        <TableColumn>Date Modified</TableColumn>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>Games</TableCell>
+          <TableCell>File folder</TableCell>
+          <TableCell>6/7/2020</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Program Files</TableCell>
+          <TableCell>File folder</TableCell>
+          <TableCell>4/7/2021</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>bootmgr</TableCell>
+          <TableCell>System file</TableCell>
+          <TableCell>11/20/2010</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>log.txt</TableCell>
+          <TableCell>Text Document</TableCell>
+          <TableCell>1/18/2016</TableCell>
+        </TableRow>
+      </TableBody>
+    </ReactAriaTable>
+  );
+};
 
 export const Default = () => <Table columns={columns} rows={rows} />;
 
