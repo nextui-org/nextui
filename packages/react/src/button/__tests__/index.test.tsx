@@ -45,6 +45,10 @@ describe('Button', () => {
     expect(wrapper.text()).toContain('Hello');
   });
 
+  it('should render loading button correctly', () => {
+    expect(<Button isLoading={true}/>).toMatchSnapshot();
+  });
+
   it('should render empty button correctly', () => {
     expect(<Button />).toMatchSnapshot();
   });

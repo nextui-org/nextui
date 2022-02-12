@@ -20,6 +20,7 @@ import useDrip from '../use-drip';
 import StyledButton, { ButtonVariantsProps } from './button.styles';
 import withDefaults from '../utils/with-defaults';
 import { __DEV__ } from '../utils/assertion';
+import Loading from '../loading';
 
 export interface Props {
   light?: boolean;
@@ -37,6 +38,7 @@ export interface Props {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   as?: keyof JSX.IntrinsicElements;
   className?: string;
+  isLoading?: boolean;
 }
 
 const defaultProps = {
@@ -47,7 +49,8 @@ const defaultProps = {
   animated: true,
   disabled: false,
   auto: false,
-  className: ''
+  className: '',
+  isLoading: false
 };
 
 type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
@@ -81,6 +84,7 @@ const Button = React.forwardRef<
     ghost,
     clickable,
     className,
+    isLoading,
     ...props
   } = filteredProps;
   /* eslint-enable @typescript-eslint/no-unused-vars */
@@ -117,33 +121,27 @@ const Button = React.forwardRef<
   };
 
   const getState = useMemo(() => {
-    return disabled ? 'disabled' : 'ready';
+    return disabled || isLoading ? 'disabled' : 'ready';
   }, [disabled]);
 
-  return (
-    <StyledButton
-      ref={buttonRef}
-      borderWeight={borderWeight}
-      auto={auto}
-      flat={flat}
-      light={light}
-      ghost={ghost}
-      bordered={bordered || ghost}
-      clickable={clickable}
-      data-state={getState}
-      disabled={disabled}
-      animated={animated}
-      onClick={clickHandler}
-      isFocusVisible={isFocusVisible}
-      className={clsx('nextui-button', `nextui-button--${getState}`, className)}
-      {...focusProps}
-      {...props}
-    >
-      {React.Children.count(children) === 0 ? (
+  const content = useMemo(() => {
+    const hasChildren = React.Children.count(children) !== 0;
+
+    
+    if(isLoading) {
+      return <Loading size="sm" color="white" className="nextui-button-text"/>
+    }
+
+    if(!hasChildren) {
+      return (
         <ButtonIcon isAuto={auto} isRight={isRight} isSingle>
           {hasIcon}
         </ButtonIcon>
-      ) : hasIcon ? (
+      );
+    }
+
+    if(hasIcon) {
+      return (
         <>
           <ButtonIcon isAuto={auto} isRight={isRight}>
             {hasIcon}
@@ -157,9 +155,32 @@ const Button = React.forwardRef<
             {children}
           </div>
         </>
-      ) : (
-        <span className="nextui-button-text">{children}</span>
-      )}
+      )
+    }
+
+    return <span className="nextui-button-text">{children}</span>
+  }, [isLoading, children, hasIcon]);
+
+  return (
+    <StyledButton
+      ref={buttonRef}
+      borderWeight={borderWeight}
+      auto={auto}
+      flat={flat}
+      light={light}
+      ghost={ghost}
+      bordered={bordered || ghost}
+      clickable={clickable}
+      data-state={getState}
+      disabled={disabled || isLoading}
+      animated={animated}
+      onClick={clickHandler}
+      isFocusVisible={isFocusVisible}
+      className={clsx('nextui-button', `nextui-button--${getState}`, className)}
+      {...focusProps}
+      {...props}
+    >
+      {content}
       <ButtonDrip color="white" {...dripBindings} />
     </StyledButton>
   );

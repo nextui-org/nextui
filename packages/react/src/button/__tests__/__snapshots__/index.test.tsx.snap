@@ -11,6 +11,7 @@ exports[`Button should render different variants 2`] = `
   clickable={true}
   disabled={false}
   ghost={false}
+  isLoading={false}
   ripple={true}
 >
   button
@@ -26,6 +27,21 @@ exports[`Button should render empty button correctly 1`] = `
   clickable={true}
   disabled={false}
   ghost={false}
+  isLoading={false}
+  ripple={true}
+/>
+`;
+
+exports[`Button should render loading button correctly 1`] = `
+<NextUI - Button
+  animated={true}
+  auto={false}
+  bordered={false}
+  className=""
+  clickable={true}
+  disabled={false}
+  ghost={false}
+  isLoading={true}
   ripple={true}
 />
 `;

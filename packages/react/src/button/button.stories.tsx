@@ -48,6 +48,11 @@ export const Sizes = () => (
 export const Loadings = () => (
   <Grid.Container gap={2}>
     <Grid>
+      <Button auto clickable={false} color="primary" css={{ px: '$13' }} isLoading>
+        Content
+      </Button>
+    </Grid>
+    <Grid>
       <Button auto clickable={false} color="primary" css={{ px: '$13' }}>
         <Loading color="white" size="sm" />
       </Button>
