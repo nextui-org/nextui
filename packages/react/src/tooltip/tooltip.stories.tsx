@@ -282,7 +282,7 @@ export const CustomContent = () => {
 export const WithoutContent = () => {
   return (
     <Container>
-      <Tooltip content={''} color="primary">
+      <Tooltip content="" color="primary">
         <Button auto flat>
           Do hover here
         </Button>

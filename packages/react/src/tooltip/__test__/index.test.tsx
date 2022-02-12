@@ -149,4 +149,13 @@ describe('Tooltip', () => {
     );
     expect(wrapper.find('#initial-visible').length).toBe(1);
   });
+
+  it('should not render when no content present', async () => {
+    const wrapper = mount(
+      <div>
+        <Tooltip content="">some tips</Tooltip>
+      </div>
+    );
+    expect(wrapper.find('#visible').length).toBe(0);
+  });
 });
