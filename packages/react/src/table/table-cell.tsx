@@ -39,9 +39,9 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
 
     return (
       <StyledTableCell
-        {...mergeProps(gridCellProps, focusProps, props)}
-        isFocusVisible={isFocusVisible}
         ref={tableCellRef}
+        isFocusVisible={isFocusVisible}
+        {...mergeProps(gridCellProps, focusProps, props)}
       >
         {cell.rendered}
       </StyledTableCell>

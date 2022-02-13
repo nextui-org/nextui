@@ -49,6 +49,7 @@ export const sharedFocus = css({
 });
 
 export const cssFocusVisible = css({
+  transition: '$default',
   variants: {
     isFocusVisible: {
       true: {
@@ -57,6 +58,7 @@ export const cssFocusVisible = css({
           '0 0 0 2px $colors$background, 0 0 0 4px $colors$primary !important'
       },
       false: {
+        outline: 'none',
         boxShadow: 'none'
       }
     }

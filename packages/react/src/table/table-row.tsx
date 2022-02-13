@@ -29,22 +29,16 @@ const TableRow = React.forwardRef<
 
     useImperativeHandle(ref, () => tableRowRef?.current);
 
-    const {
-      rowProps
-    }: {
-      rowProps: Omit<
-        React.HTMLAttributes<unknown>,
-        keyof TableRowProps<unknown>
-      >;
-    } = useTableRow({ node: item }, state, tableRowRef);
+    const { rowProps } = useTableRow({ node: item }, state, tableRowRef);
 
     const { isFocusVisible, focusProps } = useFocusRing();
 
     return (
       <StyledTableRow
-        {...mergeProps(rowProps, focusProps, props)}
-        isFocusVisible={isFocusVisible}
         ref={tableRowRef}
+        isFocusVisible={isFocusVisible}
+        isSelected={!!rowProps['aria-selected']}
+        {...mergeProps(rowProps, focusProps, props)}
       >
         {children}
       </StyledTableRow>

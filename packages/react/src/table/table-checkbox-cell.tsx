@@ -2,19 +2,20 @@ import React, { useRef, useImperativeHandle } from 'react';
 import { CSS } from '../theme/stitches.config';
 import { useTableCell, useTableSelectionCheckbox } from '@react-aria/table';
 import { useToggleState } from '@react-stately/toggle';
-import { StyledTableCell } from './table.styles';
 import { GridNode } from '@react-types/grid';
 import { TableState } from '@react-stately/table';
 import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
 import { useCheckbox } from '@react-aria/checkbox';
 import Checkbox, { CheckboxProps } from '../checkbox';
+import { StyledTableCell, TableVariantsProps } from './table.styles';
 
 type CellProps<T> = GridNode<T> & { parentKey?: React.Key };
 
 interface Props<T> {
   cell: CellProps<T>;
   state: TableState<T>;
+  color?: TableVariantsProps['selectedColor'];
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -26,48 +27,58 @@ export type TableCheckboxCellProps<T = unknown> = Props<T> &
 const TableCheckboxCell = React.forwardRef<
   HTMLTableCellElement,
   TableCheckboxCellProps
->(({ cell, state, ...props }, ref: React.Ref<HTMLTableCellElement | null>) => {
-  const tableCellRef = useRef<HTMLTableCellElement | null>(null);
+>(
+  (
+    { cell, state, color, ...props },
+    ref: React.Ref<HTMLTableCellElement | null>
+  ) => {
+    const tableCellRef = useRef<HTMLTableCellElement | null>(null);
 
-  useImperativeHandle(ref, () => tableCellRef?.current);
+    useImperativeHandle(ref, () => tableCellRef?.current);
 
-  const {
-    gridCellProps
-  }: {
-    gridCellProps: Omit<
-      React.HTMLAttributes<unknown>,
-      keyof TableCheckboxCellProps<unknown>
-    >;
-  } = useTableCell({ node: cell }, state, tableCellRef);
+    const {
+      gridCellProps
+    }: {
+      gridCellProps: Omit<
+        React.HTMLAttributes<unknown>,
+        keyof TableCheckboxCellProps<unknown>
+      >;
+    } = useTableCell({ node: cell }, state, tableCellRef);
 
-  const { checkboxProps } = useTableSelectionCheckbox(
-    { key: cell?.parentKey || cell.key },
-    state
-  );
+    const { checkboxProps } = useTableSelectionCheckbox(
+      { key: cell?.parentKey || cell.key },
+      state
+    );
 
-  const { isFocusVisible, focusProps } = useFocusRing();
+    const { isFocusVisible, focusProps } = useFocusRing();
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
+    const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const {
-    inputProps
-  }: {
-    inputProps: Omit<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      keyof CheckboxProps
-    >;
-  } = useCheckbox(checkboxProps, useToggleState(checkboxProps), inputRef);
+    const {
+      inputProps
+    }: {
+      inputProps: Omit<
+        React.InputHTMLAttributes<HTMLInputElement>,
+        keyof CheckboxProps
+      >;
+    } = useCheckbox(checkboxProps, useToggleState(checkboxProps), inputRef);
 
-  return (
-    <StyledTableCell
-      {...mergeProps(gridCellProps, focusProps, props)}
-      isFocusVisible={isFocusVisible}
-      ref={tableCellRef}
-    >
-      <input {...inputProps} ref={inputRef} />
-    </StyledTableCell>
-  );
-});
+    return (
+      <StyledTableCell
+        {...mergeProps(gridCellProps, focusProps, props)}
+        isFocusVisible={isFocusVisible}
+        ref={tableCellRef}
+      >
+        <Checkbox
+          {...inputProps}
+          ref={inputRef}
+          color={color as CheckboxProps['color']}
+          css={{ display: 'inherit' }}
+        />
+      </StyledTableCell>
+    );
+  }
+);
 
 TableCheckboxCell.displayName = 'NextUI - TableCheckboxCell';
 

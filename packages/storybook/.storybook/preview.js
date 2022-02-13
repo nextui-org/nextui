@@ -7,11 +7,11 @@ export const decorators = [
       style={{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
         flexWrap: 'wrap',
         width: '100%',
-        height: '100%'
+        height: 'calc(100vh - 60px)'
       }}
     >
       <CssBaseline />

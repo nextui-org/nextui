@@ -1,11 +1,12 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Table, {
-  ReactAriaTable,
   TableCellData,
   TableColumnHeaderData,
   TableColumnItem
 } from './index';
+
+import ReactAriaTable from './table';
 
 import {
   Cell as TableCell,

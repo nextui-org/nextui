@@ -44,10 +44,10 @@ const TableColumnHeader = React.forwardRef<
 
   return (
     <StyledTableColumnHeader
-      {...mergeProps(props, columnHeaderProps, focusProps)}
+      ref={tableColumnHeaderRef}
       isFocusVisible={isFocusVisible}
       colSpan={column.colspan}
-      ref={tableColumnHeaderRef}
+      {...mergeProps(props, columnHeaderProps, focusProps)}
     >
       {column.rendered}
       {column.props.allowsSorting && (

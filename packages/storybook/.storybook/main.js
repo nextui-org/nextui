@@ -12,6 +12,7 @@ module.exports = {
     ]
   }),
   typescript: {
-    reactDocgen: 'none'
+    check: false,
+    reactDocgen: false
   }
 };

@@ -1,4 +1,8 @@
-import { styled, sharedFocus, VariantProps } from '../theme/stitches.config';
+import {
+  styled,
+  cssFocusVisible,
+  VariantProps
+} from '../theme/stitches.config';
 
 export const StyledCheckboxLabel = styled('label', {
   d: 'inline-flex',
@@ -10,6 +14,7 @@ export const StyledCheckboxLabel = styled('label', {
   transition: '$default',
   zIndex: '$1',
   opacity: 1,
+  $$checkboxBorderColor: '$colors$border',
   '@motion': {
     transition: 'none'
   },
@@ -112,7 +117,7 @@ export const StyledCheckboxContainer = styled(
       color: 'default'
     }
   },
-  sharedFocus
+  cssFocusVisible
 );
 
 export const StyledIconCheckFirstLine = styled('div', {
@@ -225,7 +230,7 @@ export const StyledIconCheck = styled('i', {
   br: 'inherit',
   opacity: 0,
   zIndex: '$2',
-  transition: '$default',
+  transition: 'transform 0.35s ease',
   '&:after': {
     content: '',
     opacity: 0,
@@ -347,6 +352,7 @@ export const StyledCheckboxMask = styled('div', {
   zIndex: '-$1',
   br: 'inherit',
   transition: '$default',
+  color: '$$checkboxBorderColor',
   '&:before': {
     content: '',
     position: 'absolute',
@@ -354,9 +360,9 @@ export const StyledCheckboxMask = styled('div', {
     left: '0px',
     size: '100%',
     br: 'inherit',
-    transition: '$default',
+    transition: '$transitions$default',
     zIndex: '-$1',
-    border: '$borderWeights$normal solid $border',
+    border: '$borderWeights$normal solid currentColor',
     boxSizing: 'border-box'
   },
   '&:after': {
@@ -507,7 +513,7 @@ export const StyledCheckboxInput = styled('input', {
   },
   '&:hover': {
     [`& ~${StyledCheckboxMask}:before`]: {
-      bg: '$border',
+      bg: '$$checkboxBorderColor',
       border: '2px solid transparent'
     }
   },
@@ -518,7 +524,7 @@ export const StyledCheckboxInput = styled('input', {
 
 export const StyledCheckboxGroup = styled('div', {
   display: 'flex',
-  flexDirection: 'colunm',
+  flexDirection: 'column',
   variants: {
     size: {
       xs: {

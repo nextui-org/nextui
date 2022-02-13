@@ -5,18 +5,19 @@ import {
   useTableSelectAllCheckbox
 } from '@react-aria/table';
 import { useToggleState } from '@react-stately/toggle';
-import { StyledTableHeaderCell } from './table.styles';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { GridNode } from '@react-types/grid';
 import { TableState } from '@react-stately/table';
 import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
 import { useCheckbox } from '@react-aria/checkbox';
 import Checkbox, { CheckboxProps } from '../checkbox';
-import { VisuallyHidden } from '@react-aria/visually-hidden';
+import { StyledTableHeaderCell, TableVariantsProps } from './table.styles';
 
 interface Props<T> {
   column: GridNode<T>;
   state: TableState<T>;
+  color?: TableVariantsProps['selectedColor'];
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -30,7 +31,7 @@ const TableSelectAllCheckbox = React.forwardRef<
   TableSelectAllCheckboxProps
 >(
   (
-    { column, state, ...props },
+    { column, state, color, ...props },
     ref: React.Ref<HTMLTableCellElement | null>
   ) => {
     const tableCellRef = useRef<HTMLTableCellElement | null>(null);
@@ -64,18 +65,35 @@ const TableSelectAllCheckbox = React.forwardRef<
       > & {
         'aria-label'?: CheckboxProps['aria-label'];
       };
-    } = useCheckbox(checkboxProps, useToggleState(checkboxProps), inputRef);
+    } = useCheckbox(
+      checkboxProps,
+      useToggleState({
+        ...checkboxProps,
+        isSelected: checkboxProps.isSelected || checkboxProps.isIndeterminate
+      }),
+      inputRef
+    );
 
+    console.log({ checkboxProps });
     return (
       <StyledTableHeaderCell
-        {...mergeProps(columnHeaderProps, focusProps, props)}
-        isFocusVisible={isFocusVisible}
         ref={tableCellRef}
+        isFocusVisible={isFocusVisible}
+        {...mergeProps(columnHeaderProps, focusProps, props)}
       >
         {isSingleSelectionMode ? (
           <VisuallyHidden>{inputProps['aria-label']}</VisuallyHidden>
         ) : (
-          <input {...inputProps} ref={inputRef} />
+          <Checkbox
+            ref={inputRef}
+            {...inputProps}
+            indeterminate={checkboxProps.isIndeterminate}
+            color={color as CheckboxProps['color']}
+            css={{
+              display: 'inherit',
+              $$checkboxBorderColor: '$colors$accents3'
+            }}
+          />
         )}
       </StyledTableHeaderCell>
     );

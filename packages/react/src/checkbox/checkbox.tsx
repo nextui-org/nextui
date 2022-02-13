@@ -8,6 +8,7 @@ import React, {
   PropsWithoutRef,
   RefAttributes
 } from 'react';
+import { useFocusRing } from '@react-aria/focus';
 import { useCheckbox } from './checkbox-context';
 import CheckboxGroup from './checkbox-group';
 import useWarning from '../use-warning';
@@ -23,6 +24,7 @@ import {
   CheckboxVariantsProps,
   StyledIconCheckFirstLine,
   StyledIconCheckSecondLine,
+  CheckboxContainerVariantsProps,
   StyledCheckboxText
 } from './checkbox.styles';
 import clsx from '../utils/clsx';
@@ -103,6 +105,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     ref: React.Ref<HTMLInputElement | null>
   ) => {
     const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
+    const [selfIndeterminate, setSelfIndeterminate] =
+      useState<boolean>(indeterminate);
 
     const checkboxRef = useRef<HTMLInputElement | null>(null);
 
@@ -117,6 +121,17 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       disabledAll,
       values
     } = useCheckbox();
+
+    const {
+      isFocusVisible,
+      focusProps
+    }: {
+      isFocusVisible: boolean;
+      focusProps: Omit<
+        React.HTMLAttributes<HTMLElement>,
+        keyof CheckboxContainerVariantsProps | keyof CheckboxProps
+      >;
+    } = useFocusRing();
 
     const isDisabled = inGroup ? disabledAll || disabled : disabled;
 
@@ -138,6 +153,10 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       }, [values.join(',')]);
     }
 
+    useEffect(() => {
+      setSelfIndeterminate(indeterminate);
+    }, [indeterminate]);
+
     const changeHandle = useCallback(
       (ev: React.ChangeEvent) => {
         if (isDisabled) return;
@@ -153,10 +172,16 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           updateState && updateState(value, !selfChecked);
         }
 
-        setSelfChecked(!selfChecked);
+        if (selfIndeterminate) {
+          setSelfIndeterminate(false);
+          setSelfChecked(true);
+        } else {
+          setSelfChecked(!selfChecked);
+        }
+
         onChange && onChange(selfEvent);
       },
-      [updateState, onChange, isDisabled, selfChecked]
+      [updateState, onChange, isDisabled, selfChecked, selfIndeterminate]
     );
     useEffect(() => {
       if (checked === undefined) return;
@@ -175,12 +200,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     );
 
     const getState = useMemo(() => {
-      return selfChecked && indeterminate
+      return selfChecked && selfIndeterminate
         ? 'mixed'
         : selfChecked
         ? 'checked'
         : 'uncheked';
-    }, [selfChecked, indeterminate]);
+    }, [selfChecked, selfIndeterminate]);
 
     return (
       <StyledCheckboxLabel
@@ -201,6 +226,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           rounded={rounded}
           disabled={isDisabled}
           animated={animated}
+          isFocusVisible={isFocusVisible}
+          {...focusProps}
           {...bindings}
         >
           <StyledCheckboxInput
@@ -211,7 +238,9 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             data-state={getState}
             disabled={isDisabled}
             checked={selfChecked}
-            aria-checked={selfChecked && indeterminate ? 'mixed' : selfChecked}
+            aria-checked={
+              selfChecked && selfIndeterminate ? 'mixed' : selfChecked
+            }
             aria-disabled={isDisabled}
             onChange={changeHandle}
             {...props}
@@ -223,19 +252,19 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           >
             <StyledIconCheck
               size={checkboxSize}
-              indeterminate={indeterminate}
+              indeterminate={selfIndeterminate}
               checked={selfChecked}
               animated={animated}
               className="nextui-icon-check"
             >
               <StyledIconCheckFirstLine
-                indeterminate={indeterminate}
+                indeterminate={selfIndeterminate}
                 checked={selfChecked}
                 animated={animated}
                 className="nextui-icon-check-line1"
               />
               <StyledIconCheckSecondLine
-                indeterminate={indeterminate}
+                indeterminate={selfIndeterminate}
                 checked={selfChecked}
                 animated={animated}
                 className="nextui-icon-check-line2"

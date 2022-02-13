@@ -11,10 +11,20 @@ export const StyledTableHeaderRow = styled('tr', {});
 export const StyledTableColumnHeader = styled(
   'th',
   {
+    height: '$14',
     cursor: 'default',
     bg: '$accents1',
     color: '$accents6',
     fontSize: '$tiny',
+    textAlign: 'left',
+    '&:first-child': {
+      pl: '$8',
+      br: '$md 0 0 $md'
+    },
+    '&:last-child': {
+      pr: '$8',
+      br: '0 $md $md 0'
+    },
     variants: {
       align: {
         left: {
@@ -35,7 +45,10 @@ export const StyledTableColumnHeader = styled(
   cssFocusVisible
 );
 
-export const StyledTableHeaderCell = styled('th', {}, cssFocusVisible);
+export const StyledTableHeaderCell = styled(
+  StyledTableColumnHeader,
+  cssFocusVisible
+);
 
 export const StyledTableHead = styled('thead', {
   height: '$14'
@@ -44,7 +57,6 @@ export const StyledTableHead = styled('thead', {
 export const StyledTableRow = styled(
   'tr',
   {
-    $$tableRowTextColor: '$colors$white',
     variants: {
       isSelected: {
         true: {
@@ -75,7 +87,10 @@ export const StyledTableColumn = styled('th', {
 export const StyledTableCell = styled(
   'td',
   {
+    userSelect: 'none',
     py: '$5',
+    transition:
+      'background 0.25s ease 0s, box-shadow 0.25s ease 0s, opacity 0.25s ease 0s',
     '&:first-child': {
       pl: '$8'
     },
@@ -122,9 +137,6 @@ export const StyledTable = styled('table', {
   borderCollapse: 'separate',
   borderSpacing: 0,
   width: '100%',
-  [`& ${StyledTableCell}`]: {
-    transition: 'background 0.25s ease'
-  },
   '@motion': {
     [`& ${StyledTableCell}`]: {
       transition: 'none'
@@ -133,19 +145,24 @@ export const StyledTable = styled('table', {
   variants: {
     selectedColor: {
       primary: {
-        $$tableRowSelectedColor: '$colors$primaryLight'
+        $$tableRowSelectedColor: '$colors$primaryLight',
+        $$tableRowTextColor: '$colors$primary'
       },
       secondary: {
-        $$tableRowSelectedColor: '$colors$secondaryLight'
+        $$tableRowSelectedColor: '$colors$secondaryLight',
+        $$tableRowTextColor: '$colors$secondary'
       },
       success: {
-        $$tableRowSelectedColor: '$colors$successLight'
+        $$tableRowSelectedColor: '$colors$successLight',
+        $$tableRowTextColor: '$colors$success'
       },
       warning: {
-        $$tableRowSelectedColor: '$colors$warningLight'
+        $$tableRowSelectedColor: '$colors$warningLight',
+        $$tableRowTextColor: '$colors$warning'
       },
       error: {
-        $$tableRowSelectedColor: '$colors$errorLight'
+        $$tableRowSelectedColor: '$colors$errorLight',
+        $$tableRowTextColor: '$colors$error'
       }
     },
     striped: {
@@ -217,13 +234,23 @@ export const StyledTable = styled('table', {
           br: '0 $md $md 0'
         },
         [`& ${StyledTableRow}`]: {
+          cursor: 'pointer',
           '&:hover': {
             [`& ${StyledTableCell}`]: {
-              bg: '$accents1'
+              bg: '$accents1',
+              opacity: 0.8
             }
           }
         }
+      },
+      false: {
+        [`& ${StyledTableCell}`]: {
+          userSelect: 'all'
+        }
       }
+    },
+    isMultiple: {
+      true: {}
     },
     compact: {
       true: {
@@ -233,6 +260,39 @@ export const StyledTable = styled('table', {
       }
     }
   },
+  compoundVariants: [
+    // isMultiple & hoverable
+    {
+      isMultiple: true,
+      hoverable: true,
+      css: {
+        [`& ${StyledTableRow}:not(:first-child):not(:last-child)`]: {
+          [`& ${StyledTableCell}:first-child`]: {
+            br: 0
+          },
+          [`& ${StyledTableCell}:last-child`]: {
+            br: 0
+          }
+        },
+        [`& ${StyledTableRow}:first-child`]: {
+          [`& ${StyledTableCell}:first-child`]: {
+            br: '$md 0 0 0'
+          },
+          [`& ${StyledTableCell}:last-child`]: {
+            br: '0 $md 0 0'
+          }
+        },
+        [`& ${StyledTableRow}:last-child`]: {
+          [`& ${StyledTableCell}:first-child`]: {
+            br: '0 0 0 $md'
+          },
+          [`& ${StyledTableCell}:last-child`]: {
+            br: '0 0 $md 0'
+          }
+        }
+      }
+    }
+  ],
   defaultVariants: {
     shadow: true,
     selectedColor: 'primary',

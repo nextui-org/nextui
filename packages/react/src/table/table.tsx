@@ -1,12 +1,9 @@
 import React, { useImperativeHandle, useRef } from 'react';
-import { CSS } from '../theme/stitches.config';
-import { StyledTable, TableVariantsProps } from './table.styles';
-
 import { useTableState, TableStateProps } from '@react-stately/table';
 import { useTable } from '@react-aria/table';
 import { SelectionMode, SelectionBehavior } from '@react-types/shared';
-import { mergeProps } from '@react-aria/utils';
-
+import { Spacer } from '../index';
+import { CSS } from '../theme/stitches.config';
 import TableRowGroup from './table-row-group';
 import TableColumnHeader from './table-column-header';
 import TableHeaderRow from './table-header-row';
@@ -14,6 +11,9 @@ import TableRow from './table-row';
 import TableCheckboxCell from './table-checkbox-cell';
 import TableSelectAllCheckbox from './table-select-all-checkbox';
 import TableCell from './table-cell';
+import { StyledTable, TableVariantsProps } from './table.styles';
+import { FocusScope } from '@react-aria/focus';
+import withDefaults from '../utils/with-defaults';
 
 interface Props<T> extends TableStateProps<T> {
   selectionMode?: SelectionMode;
@@ -23,16 +23,21 @@ interface Props<T> extends TableStateProps<T> {
 
 type NativeAttrs = Omit<
   React.TableHTMLAttributes<unknown>,
-  keyof Props<object> | 'children'
+  keyof Props<object>
 >;
 
 export type TableProps<T = object> = Props<T> &
   NativeAttrs &
   TableVariantsProps & { css?: CSS };
 
+const defaultProps = {
+  selectionMode: 'none',
+  selectionBehavior: 'toggle'
+};
+
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
   (tableProps, ref: React.Ref<HTMLTableElement | null>) => {
-    const { selectionMode, selectionBehavior } = tableProps;
+    const { selectionMode, selectionBehavior, ...props } = tableProps;
 
     const state = useTableState({
       ...tableProps,
@@ -45,56 +50,72 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
     useImperativeHandle(ref, () => tableRef?.current);
 
     const { collection } = state;
-    const { gridProps } = useTable(tableProps, state, tableRef);
-
-    console.log({ ...gridProps });
-    console.log({ bodyChildNodes: [...collection.body.childNodes] });
+    const {
+      gridProps
+    }: {
+      gridProps: Omit<React.HTMLAttributes<unknown>, keyof TableProps<unknown>>;
+    } = useTable(tableProps, state, tableRef);
 
     return (
-      <StyledTable ref={tableRef} {...mergeProps(gridProps, tableProps)}>
-        <TableRowGroup as="thead">
-          {collection.headerRows.map((headerRow) => (
-            <TableHeaderRow key={headerRow?.key} item={headerRow} state={state}>
-              {[...headerRow.childNodes].map((column) =>
-                column?.props?.isSelectionCell ? (
-                  <TableSelectAllCheckbox
-                    key={column?.key}
-                    column={column}
-                    state={state}
-                  />
-                ) : (
-                  <TableColumnHeader
-                    key={column?.key}
-                    column={column}
-                    state={state}
-                  />
-                )
-              )}
-            </TableHeaderRow>
-          ))}
-        </TableRowGroup>
-        <TableRowGroup as="tbody">
-          {[...collection.body.childNodes].map((row) => {
-            if (!row.hasChildNodes) {
-              return null;
-            }
-            return (
-              <TableRow key={row?.key} item={row} state={state}>
-                {[...row.childNodes].map((cell) =>
-                  cell?.props?.isSelectionCell ? (
-                    <TableCheckboxCell
-                      key={cell?.key}
-                      cell={cell}
+      <StyledTable
+        ref={tableRef}
+        hoverable={selectionMode !== 'none'}
+        isMultiple={selectionMode === 'multiple'}
+        {...gridProps}
+        {...props}
+      >
+        <FocusScope>
+          <TableRowGroup as="thead">
+            {collection.headerRows.map((headerRow) => (
+              <TableHeaderRow
+                key={headerRow?.key}
+                item={headerRow}
+                state={state}
+              >
+                {[...headerRow.childNodes].map((column) =>
+                  column?.props?.isSelectionCell ? (
+                    <TableSelectAllCheckbox
+                      key={column?.key}
+                      column={column}
                       state={state}
+                      color={props.selectedColor}
                     />
                   ) : (
-                    <TableCell key={cell?.key} cell={cell} state={state} />
+                    <TableColumnHeader
+                      key={column?.key}
+                      column={column}
+                      state={state}
+                    />
                   )
                 )}
-              </TableRow>
-            );
-          })}
-        </TableRowGroup>
+              </TableHeaderRow>
+            ))}
+          </TableRowGroup>
+          <Spacer y={0.2} />
+          <TableRowGroup as="tbody">
+            {[...collection.body.childNodes].map((row) => {
+              if (!row.hasChildNodes) {
+                return null;
+              }
+              return (
+                <TableRow key={row?.key} item={row} state={state}>
+                  {[...row.childNodes].map((cell) =>
+                    cell?.props?.isSelectionCell ? (
+                      <TableCheckboxCell
+                        key={cell?.key}
+                        cell={cell}
+                        state={state}
+                        color={props.selectedColor}
+                      />
+                    ) : (
+                      <TableCell key={cell?.key} cell={cell} state={state} />
+                    )
+                  )}
+                </TableRow>
+              );
+            })}
+          </TableRowGroup>
+        </FocusScope>
       </StyledTable>
     );
   }
@@ -103,4 +124,4 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 Table.displayName = 'NextUI - Table';
 Table.toString = () => '.nextui-table';
 
-export default Table;
+export default withDefaults(Table, defaultProps);
