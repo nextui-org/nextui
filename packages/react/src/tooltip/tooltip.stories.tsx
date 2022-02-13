@@ -278,3 +278,15 @@ export const CustomContent = () => {
     </Container>
   );
 };
+
+export const WithoutContent = () => {
+  return (
+    <Container>
+      <Tooltip content="" color="primary">
+        <Button auto flat>
+          Do hover here
+        </Button>
+      </Tooltip>
+    </Container>
+  );
+};
