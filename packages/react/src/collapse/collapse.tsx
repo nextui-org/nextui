@@ -32,7 +32,7 @@ interface Props {
   index?: number;
   disabled?: boolean;
   preventDefault?: boolean;
-  keyCodes?: KeyCode[]
+  eventKeyCodes?: KeyCode[]
   onChange?: (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     index?: number | undefined,
@@ -49,7 +49,7 @@ const defaultProps = {
   animated: true,
   disabled: false,
   preventDefault: true,
-  keyCodes: [KeyCode.Enter, KeyCode.Space],
+  eventKeyCodes: [KeyCode.Enter, KeyCode.Space],
   expanded: false
 };
 
@@ -77,7 +77,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   bordered,
   contentLeft,
   preventDefault,
-  keyCodes,
+  eventKeyCodes,
   animated: animatedProp,
   borderWeight,
   index,
@@ -138,7 +138,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     (event: any) => {
       handleChange(event);
     },
-    keyCodes,
+    eventKeyCodes,
     {
       disableGlobalEvent: true,
       preventDefault
