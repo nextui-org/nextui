@@ -77,7 +77,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   bordered,
   contentLeft,
   preventDefault,
-  keycodes: keyCodes,
+  keyCodes,
   animated: animatedProp,
   borderWeight,
   index,
