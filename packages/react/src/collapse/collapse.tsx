@@ -11,9 +11,9 @@ import { CSS } from '../theme/stitches.config';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import {
   StyledCollapse,
+  StyledCollapseContent,
   StyledCollapseView,
-  CollapseVariantsProps,
-  StyledCollapseContent
+  CollapseVariantsProps
 } from './collapse.styles';
 import clsx from '../utils/clsx';
 import withDefaults from '../utils/with-defaults';
@@ -32,6 +32,7 @@ interface Props {
   index?: number;
   disabled?: boolean;
   preventDefault?: boolean;
+  keyCodes?: KeyCode[]
   onChange?: (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     index?: number | undefined,
@@ -48,6 +49,7 @@ const defaultProps = {
   animated: true,
   disabled: false,
   preventDefault: true,
+  keyCodes: [KeyCode.Enter, KeyCode.Space],
   expanded: false
 };
 
@@ -75,6 +77,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   bordered,
   contentLeft,
   preventDefault,
+  keycodes: keyCodes,
   animated: animatedProp,
   borderWeight,
   index,
@@ -135,7 +138,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     (event: any) => {
       handleChange(event);
     },
-    [KeyCode.Enter, KeyCode.Space],
+    keyCodes,
     {
       disableGlobalEvent: true,
       preventDefault
