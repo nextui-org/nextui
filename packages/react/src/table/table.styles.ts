@@ -114,13 +114,7 @@ export const StyledTableCell = styled(
   cssFocusVisible
 );
 
-export const StyledTableBody = styled('tbody', {
-  [`& ${StyledTableRow}:first-child`]: {
-    [`& ${StyledTableCell}`]: {
-      pt: '$10'
-    }
-  }
-});
+export const StyledTableBody = styled('tbody', {});
 
 export const StyledTableFoot = styled('tfoot', {});
 
@@ -197,6 +191,36 @@ export const StyledTable = styled('table', {
         $$tableLineWeight: '$borderWeights$black'
       }
     },
+    headerLined: {
+      true: {
+        [`& ${StyledTableColumnHeader}`]: {
+          position: 'relative',
+          bg: 'transparent',
+          '&:after': {
+            content: '',
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: 'calc($$tableLineWeight * 1.5)',
+            bg: '$accents2'
+          },
+          '&:first-child': {
+            ml: '$12',
+            br: '0',
+            '&:after': {
+              left: '$space$md'
+            }
+          },
+          '&:last-child': {
+            br: '0',
+            '&:after': {
+              right: '$space$md'
+            }
+          }
+        }
+      }
+    },
     lined: {
       true: {
         [`& ${StyledTableRow}:not(:last-child)`]: {
@@ -222,7 +246,7 @@ export const StyledTable = styled('table', {
       true: {
         bs: '$md',
         p: '$lg $md',
-        br: '$lg'
+        br: '$xl'
       }
     },
     hoverable: {
@@ -256,12 +280,21 @@ export const StyledTable = styled('table', {
       true: {
         [`& ${StyledTableCell}`]: {
           py: '$1'
+        },
+        [`& ${StyledTableColumnHeader}`]: {
+          height: '$12',
+          '&:first-child': {
+            br: '$sm 0 0 $sm'
+          },
+          '&:last-child': {
+            br: '0 $sm $sm 0'
+          }
         }
       }
     }
   },
   compoundVariants: [
-    // isMultiple & hoverable
+    // isMultiple && hoverable
     {
       isMultiple: true,
       hoverable: true,
@@ -290,6 +323,14 @@ export const StyledTable = styled('table', {
             br: '0 0 $md 0'
           }
         }
+      }
+    },
+    // compact && shadow
+    {
+      compact: true,
+      shadow: true,
+      css: {
+        p: '$md $sm'
       }
     }
   ],

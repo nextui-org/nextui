@@ -70,16 +70,42 @@ const TestPage = () => {
       <Text h3>Single</Text>
       <Spacer y={0.4} />
       <BaseTable selectionMode="single" />
+
       <Spacer y={1} />
 
       <Text h3>Multiple</Text>
       <Spacer y={0.4} />
       <BaseTable selectionMode="multiple" selectedColor="secondary" />
+
       <Spacer y={1} />
 
       <Text h3>Striped</Text>
       <Spacer y={0.4} />
-      <BaseTable striped selectionMode="multiple" compact />
+      <BaseTable selectionMode="multiple" compact />
+
+      <Spacer y={1} />
+
+      <Text h3>No shadow</Text>
+      <Spacer y={0.4} />
+      <BaseTable
+        shadow={false}
+        selectionMode="multiple"
+        selectedColor="secondary"
+      />
+
+      <Spacer y={1} />
+
+      <Text h3>Lined</Text>
+      <Spacer y={0.4} />
+      <BaseTable
+        lined
+        headerLined
+        shadow={false}
+        selectionMode="multiple"
+        selectedColor="secondary"
+      />
+
+      <Spacer y={1} />
     </Box>
   );
 };

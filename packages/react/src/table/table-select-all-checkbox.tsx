@@ -74,7 +74,6 @@ const TableSelectAllCheckbox = React.forwardRef<
       inputRef
     );
 
-    console.log({ checkboxProps });
     return (
       <StyledTableHeaderCell
         ref={tableCellRef}

@@ -28,7 +28,7 @@ type NativeAttrs = Omit<
 
 export type TableProps<T = object> = Props<T> &
   NativeAttrs &
-  TableVariantsProps & { css?: CSS };
+  Omit<TableVariantsProps, 'isMultiple'> & { css?: CSS };
 
 const defaultProps = {
   selectionMode: 'none',
@@ -59,7 +59,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
     return (
       <StyledTable
         ref={tableRef}
-        hoverable={selectionMode !== 'none'}
+        hoverable={selectionMode !== 'none' || props.hoverable}
         isMultiple={selectionMode === 'multiple'}
         {...gridProps}
         {...props}
@@ -91,7 +91,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
               </TableHeaderRow>
             ))}
           </TableRowGroup>
-          <Spacer y={0.2} />
+          <Spacer y={0.4} />
           <TableRowGroup as="tbody">
             {[...collection.body.childNodes].map((row) => {
               if (!row.hasChildNodes) {
