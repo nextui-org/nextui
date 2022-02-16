@@ -1,12 +1,12 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import Table, {
+import OldTable, {
   TableCellData,
   TableColumnHeaderData,
   TableColumnItem
 } from './index';
 
-import ReactAriaTable from './table';
+import Table from './table';
 
 import {
   Cell as TableCell,
@@ -76,7 +76,7 @@ export default {
   component: Table,
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: '90%' }}>
+      <div style={{ maxWidth: '100%' }}>
         <Story />
       </div>
     )
@@ -257,16 +257,17 @@ const columns: TableColumnItem[] = [
   }
 ];
 
-export const ReactAriaTableExample = () => {
+const BaseTable = (props: any) => {
   return (
-    <ReactAriaTable
+    <Table
       aria-label="Example static collection table"
-      css={{ height: '210px', minWidth: '440px' }}
+      css={{ height: 'auto', minWidth: '620px' }}
+      {...props}
     >
       <TableHeader>
-        <TableColumn>Name</TableColumn>
-        <TableColumn>Type</TableColumn>
-        <TableColumn>Date Modified</TableColumn>
+        <TableColumn>NAME</TableColumn>
+        <TableColumn>TYPE</TableColumn>
+        <TableColumn>DATE MODIFIED</TableColumn>
       </TableHeader>
       <TableBody>
         <TableRow>
@@ -290,26 +291,60 @@ export const ReactAriaTableExample = () => {
           <TableCell>1/18/2016</TableCell>
         </TableRow>
       </TableBody>
-    </ReactAriaTable>
+    </Table>
   );
 };
 
-export const Default = () => <Table columns={columns} rows={rows} />;
+export const Basic = () => {
+  return <BaseTable />;
+};
 
-export const Striped = () => <Table striped columns={columns} rows={rows} />;
+export const SingleSelection = () => {
+  return <BaseTable selectionMode="single" />;
+};
 
-export const Lined = () => <Table lined columns={columns} rows={rows} />;
+export const MultipleSelection = () => {
+  return <BaseTable selectionMode="multiple" selectedColor="secondary" />;
+};
 
-export const Hoverable = () => (
-  <Table hoverable columns={columns} rows={rows} />
-);
+export const Striped = () => {
+  return <BaseTable selectionMode="multiple" striped />;
+};
 
-export const Compact = () => <Table compact columns={columns} rows={rows} />;
+export const Compact = () => {
+  return <BaseTable selectionMode="multiple" compact />;
+};
 
-export const NoShadow = () => (
-  <Table shadow={false} columns={columns} rows={rows} />
-);
+export const NoShadow = () => {
+  return (
+    <BaseTable
+      shadow={false}
+      selectionMode="multiple"
+      selectedColor="secondary"
+    />
+  );
+};
 
-export const WithCaption = () => (
-  <Table caption="List of Users" columns={columns} rows={rows} />
-);
+export const Lined = () => {
+  return (
+    <BaseTable
+      lined
+      headerLined
+      shadow={false}
+      selectionMode="multiple"
+      selectedColor="secondary"
+    />
+  );
+};
+
+export const NoAnimated = () => {
+  return (
+    <BaseTable
+      animated={false}
+      selectionMode="multiple"
+      selectedColor="secondary"
+    />
+  );
+};
+
+export const OldDefault = () => <OldTable columns={columns} rows={rows} />;

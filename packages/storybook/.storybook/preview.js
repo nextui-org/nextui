@@ -10,7 +10,7 @@ export const decorators = [
         justifyContent: 'center',
         alignItems: 'center',
         flexWrap: 'wrap',
-        width: '100%',
+        width: '100vw',
         height: 'calc(100vh - 60px)'
       }}
     >

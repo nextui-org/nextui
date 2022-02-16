@@ -168,10 +168,12 @@ export const StyledTable = styled('table', {
     },
     striped: {
       true: {
-        [`& ${StyledTableRow}:nth-child(even)`]: {
+        [`& ${StyledTableRow}[aria-selected=false]:nth-child(even)`]: {
           [`& ${StyledTableCell}`]: {
             bg: '$accents1'
-          },
+          }
+        },
+        [`& ${StyledTableRow}:nth-child(even)`]: {
           [`& ${StyledTableCell}:first-child`]: {
             br: '$lg 0 0 $lg'
           },
