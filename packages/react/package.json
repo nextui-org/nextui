@@ -55,7 +55,6 @@
   },
   "dependencies": {
     "@babel/runtime": "7.9.6",
-    "@stitches/react": "1.2.6",
     "@react-aria/checkbox": "3.3.0",
     "@react-aria/focus": "3.5.1",
     "@react-aria/interactions": "3.8.0",
@@ -67,7 +66,8 @@
     "@react-stately/table": "3.1.1",
     "@react-stately/toggle": "3.2.4",
     "@react-types/grid": "3.0.1",
-    "@react-types/shared": "3.11.0"
+    "@react-types/shared": "3.11.0",
+    "@stitches/react": "1.2.6"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -113,6 +113,7 @@
     "fs-extra": "^10.0.0",
     "jest": "^26.6.3",
     "p-iteration": "^1.1.8",
+    "parcel": "^2.3.1",
     "prettier": "^2.3.1",
     "rimraf": "^3.0.2",
     "terser": "5.10.0",
