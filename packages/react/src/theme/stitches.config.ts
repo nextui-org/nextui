@@ -50,7 +50,15 @@ export const sharedFocus = css({
 
 export const cssFocusVisible = css({
   transition: '$default',
+  '@motion': {
+    transition: 'none'
+  },
   variants: {
+    animated: {
+      false: {
+        transition: 'none'
+      }
+    },
     isFocusVisible: {
       true: {
         outline: 'none',

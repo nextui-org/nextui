@@ -168,7 +168,19 @@ export const StyledIconCheckFirstLine = styled('div', {
         }
       }
     }
-  }
+  },
+  compoundVariants: [
+    // checked && !animated
+    {
+      checked: true,
+      animated: false,
+      css: {
+        '&:after': {
+          transition: 'none'
+        }
+      }
+    }
+  ]
 });
 
 export const StyledIconCheckSecondLine = styled('div', {
@@ -182,12 +194,6 @@ export const StyledIconCheckSecondLine = styled('div', {
   background: 'transparent',
   transition: '$default',
   width: '2px',
-  '@motion': {
-    transition: 'none',
-    '&:after': {
-      transition: 'none'
-    }
-  },
   '&:after': {
     content: '',
     position: 'absolute',
@@ -198,6 +204,12 @@ export const StyledIconCheckSecondLine = styled('div', {
     left: '0px',
     bottom: '0px',
     br: '5px 5px 0px 0px'
+  },
+  '@motion': {
+    transition: 'none',
+    '&:after': {
+      transition: 'none'
+    }
   },
   variants: {
     indeterminate: {
@@ -221,7 +233,19 @@ export const StyledIconCheckSecondLine = styled('div', {
         }
       }
     }
-  }
+  },
+  compoundVariants: [
+    // checked && !animated
+    {
+      checked: true,
+      animated: false,
+      css: {
+        '&:after': {
+          transition: 'none'
+        }
+      }
+    }
+  ]
 });
 
 export const StyledIconCheck = styled('i', {
@@ -390,7 +414,7 @@ export const StyledCheckboxMask = styled('div', {
   variants: {
     checked: {
       true: {
-        '&before': {
+        '&:before': {
           opacity: 0,
           scale: 1.2
         },
@@ -515,6 +539,9 @@ export const StyledCheckboxInput = styled('input', {
     [`& ~${StyledCheckboxMask}:before`]: {
       bg: '$$checkboxBorderColor',
       border: '2px solid transparent'
+    },
+    [`& ~${StyledCheckboxMask}:after`]: {
+      bg: '$$checkboxColorHover'
     }
   },
   '&:disabled': {
