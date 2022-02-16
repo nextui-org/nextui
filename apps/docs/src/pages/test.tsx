@@ -11,12 +11,11 @@ import {
   Spacer
 } from '@nextui-org/react';
 
-import { useIsSSR } from '@react-aria/ssr';
-
 const Box = styled('div', {
   dflex: 'center',
   flexDirection: 'column',
   minHeight: '100vh',
+  pb: '100px',
   overflowY: 'auto'
 });
 
@@ -59,31 +58,25 @@ const BaseTable = (props: any) => {
 };
 
 const TestPage = () => {
-  let isSSR = useIsSSR();
-
-  if (isSSR) {
-    return null;
-  }
-
   return (
     <Box>
       <Text h3>Single</Text>
       <Spacer y={0.4} />
       <BaseTable selectionMode="single" />
 
-      <Spacer y={1} />
+      <Spacer y={2} />
 
       <Text h3>Multiple</Text>
       <Spacer y={0.4} />
       <BaseTable selectionMode="multiple" selectedColor="secondary" />
 
-      <Spacer y={1} />
+      <Spacer y={2} />
 
       <Text h3>Striped</Text>
       <Spacer y={0.4} />
       <BaseTable selectionMode="multiple" compact />
 
-      <Spacer y={1} />
+      <Spacer y={2} />
 
       <Text h3>No shadow</Text>
       <Spacer y={0.4} />
@@ -93,7 +86,7 @@ const TestPage = () => {
         selectedColor="secondary"
       />
 
-      <Spacer y={1} />
+      <Spacer y={2} />
 
       <Text h3>Lined</Text>
       <Spacer y={0.4} />
@@ -105,7 +98,15 @@ const TestPage = () => {
         selectedColor="secondary"
       />
 
-      <Spacer y={1} />
+      <Spacer y={2} />
+
+      <Text h3>No animated</Text>
+      <Spacer y={0.4} />
+      <BaseTable
+        animated={false}
+        selectionMode="multiple"
+        selectedColor="secondary"
+      />
     </Box>
   );
 };

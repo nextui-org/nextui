@@ -18,6 +18,7 @@ interface Props<T> {
   column: GridNode<T>;
   state: TableState<T>;
   color?: TableVariantsProps['selectedColor'];
+  animated?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -31,7 +32,7 @@ const TableSelectAllCheckbox = React.forwardRef<
   TableSelectAllCheckboxProps
 >(
   (
-    { column, state, color, ...props },
+    { column, state, color, animated, ...props },
     ref: React.Ref<HTMLTableCellElement | null>
   ) => {
     const tableCellRef = useRef<HTMLTableCellElement | null>(null);
@@ -88,6 +89,7 @@ const TableSelectAllCheckbox = React.forwardRef<
             {...inputProps}
             indeterminate={checkboxProps.isIndeterminate}
             color={color as CheckboxProps['color']}
+            animated={animated}
             css={{
               display: 'inherit',
               $$checkboxBorderColor: '$colors$accents3'

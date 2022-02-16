@@ -18,6 +18,7 @@ import withDefaults from '../utils/with-defaults';
 interface Props<T> extends TableStateProps<T> {
   selectionMode?: SelectionMode;
   selectionBehavior?: SelectionBehavior;
+  animated?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -31,6 +32,7 @@ export type TableProps<T = object> = Props<T> &
   Omit<TableVariantsProps, 'isMultiple'> & { css?: CSS };
 
 const defaultProps = {
+  animated: true,
   selectionMode: 'none',
   selectionBehavior: 'toggle'
 };
@@ -79,6 +81,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
                       column={column}
                       state={state}
                       color={props.selectedColor}
+                      animated={props.animated}
                     />
                   ) : (
                     <TableColumnHeader
@@ -98,7 +101,12 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
                 return null;
               }
               return (
-                <TableRow key={row?.key} item={row} state={state}>
+                <TableRow
+                  key={row?.key}
+                  item={row}
+                  state={state}
+                  animated={props.animated}
+                >
                   {[...row.childNodes].map((cell) =>
                     cell?.props?.isSelectionCell ? (
                       <TableCheckboxCell
@@ -106,6 +114,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
                         cell={cell}
                         state={state}
                         color={props.selectedColor}
+                        animated={props.animated}
                       />
                     ) : (
                       <TableCell key={cell?.key} cell={cell} state={state} />

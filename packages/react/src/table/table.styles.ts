@@ -137,6 +137,13 @@ export const StyledTable = styled('table', {
     }
   },
   variants: {
+    animated: {
+      false: {
+        [`& ${StyledTableCell}`]: {
+          transition: 'none'
+        }
+      }
+    },
     selectedColor: {
       primary: {
         $$tableRowSelectedColor: '$colors$primaryLight',

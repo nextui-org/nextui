@@ -10,6 +10,7 @@ import { mergeProps } from '@react-aria/utils';
 interface Props<T> {
   item: GridNode<T>;
   state: TableState<T>;
+  animated?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }
 

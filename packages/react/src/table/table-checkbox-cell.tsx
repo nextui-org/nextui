@@ -16,6 +16,7 @@ interface Props<T> {
   cell: CellProps<T>;
   state: TableState<T>;
   color?: TableVariantsProps['selectedColor'];
+  animated?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -29,7 +30,7 @@ const TableCheckboxCell = React.forwardRef<
   TableCheckboxCellProps
 >(
   (
-    { cell, state, color, ...props },
+    { cell, state, color, animated, ...props },
     ref: React.Ref<HTMLTableCellElement | null>
   ) => {
     const tableCellRef = useRef<HTMLTableCellElement | null>(null);
@@ -73,6 +74,7 @@ const TableCheckboxCell = React.forwardRef<
           {...inputProps}
           ref={inputRef}
           color={color as CheckboxProps['color']}
+          animated={animated}
           css={{ display: 'inherit' }}
         />
       </StyledTableCell>
