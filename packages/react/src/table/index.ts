@@ -1,25 +1,27 @@
-import Table from './table';
+import Table, { TableColumn } from './table';
 
-import {
-  Cell as TableCell,
-  Column as TableColumn,
-  Row as TableRow,
-  TableBody,
-  TableHeader
-} from '@react-stately/table';
+import { Cell, Row, TableBody, TableHeader } from '@react-stately/table';
 
+export {
+  StyledTable,
+  StyledTableRow,
+  StyledTableCell,
+  StyledTableHeaderCell
+} from './table.styles';
+
+export type { TableProps } from './table';
 export type {
-  TableOnCellClick,
-  TableRowData,
-  TableRowData as TableRowItem,
-  TableCellRender,
-  TableColumnData,
-  TableCellData,
-  TableColumnProps,
-  TableColumnItem,
-  TableColumnHeaderData
-} from './table-types';
+  TableVariantsProps,
+  TableColumnHeaderVariantsProps,
+  TableCellVariantsProps,
+  StyledTableRowGroup,
+  StyledTableHeaderRow
+} from './table.styles';
 
-export { TableCell, TableColumn, TableRow, TableBody, TableHeader };
+Table.Cell = Cell;
+Table.Column = TableColumn;
+Table.Header = TableHeader;
+Table.Row = Row;
+Table.Body = TableBody;
 
 export default Table;

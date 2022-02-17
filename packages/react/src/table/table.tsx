@@ -1,6 +1,20 @@
-import React, { useImperativeHandle, useRef } from 'react';
-import { useTableState, TableStateProps } from '@react-stately/table';
+import React, {
+  useImperativeHandle,
+  useRef,
+  RefAttributes,
+  PropsWithoutRef
+} from 'react';
 import { useTable } from '@react-aria/table';
+import {
+  Cell,
+  Column,
+  Row,
+  TableBody,
+  TableHeader,
+  useTableState,
+  TableStateProps
+} from '@react-stately/table';
+import { SpectrumColumnProps } from '@react-types/table';
 import { SelectionMode, SelectionBehavior } from '@react-types/shared';
 import { Spacer } from '../index';
 import { CSS } from '../theme/stitches.config';
@@ -12,7 +26,6 @@ import TableCheckboxCell from './table-checkbox-cell';
 import TableSelectAllCheckbox from './table-select-all-checkbox';
 import TableCell from './table-cell';
 import { StyledTable, TableVariantsProps } from './table.styles';
-import { FocusScope } from '@react-aria/focus';
 import withDefaults from '../utils/with-defaults';
 
 interface Props<T> extends TableStateProps<T> {
@@ -66,65 +79,59 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
         {...gridProps}
         {...props}
       >
-        <FocusScope>
-          <TableRowGroup as="thead">
-            {collection.headerRows.map((headerRow) => (
-              <TableHeaderRow
-                key={headerRow?.key}
-                item={headerRow}
+        <TableRowGroup as="thead">
+          {collection.headerRows.map((headerRow) => (
+            <TableHeaderRow key={headerRow?.key} item={headerRow} state={state}>
+              {[...headerRow.childNodes].map((column) =>
+                column?.props?.isSelectionCell ? (
+                  <TableSelectAllCheckbox
+                    key={column?.key}
+                    column={column}
+                    state={state}
+                    color={props.selectedColor}
+                    animated={props.animated}
+                  />
+                ) : (
+                  <TableColumnHeader
+                    key={column?.key}
+                    column={column}
+                    state={state}
+                  />
+                )
+              )}
+            </TableHeaderRow>
+          ))}
+        </TableRowGroup>
+        {!props.sticked && <Spacer y={0.4} />}
+        <TableRowGroup as="tbody">
+          {[...collection.body.childNodes].map((row) => {
+            if (!row.hasChildNodes) {
+              return null;
+            }
+            return (
+              <TableRow
+                key={row?.key}
+                item={row}
                 state={state}
+                animated={props.animated}
               >
-                {[...headerRow.childNodes].map((column) =>
-                  column?.props?.isSelectionCell ? (
-                    <TableSelectAllCheckbox
-                      key={column?.key}
-                      column={column}
+                {[...row.childNodes].map((cell) =>
+                  cell?.props?.isSelectionCell ? (
+                    <TableCheckboxCell
+                      key={cell?.key}
+                      cell={cell}
                       state={state}
                       color={props.selectedColor}
                       animated={props.animated}
                     />
                   ) : (
-                    <TableColumnHeader
-                      key={column?.key}
-                      column={column}
-                      state={state}
-                    />
+                    <TableCell key={cell?.key} cell={cell} state={state} />
                   )
                 )}
-              </TableHeaderRow>
-            ))}
-          </TableRowGroup>
-          <Spacer y={0.4} />
-          <TableRowGroup as="tbody">
-            {[...collection.body.childNodes].map((row) => {
-              if (!row.hasChildNodes) {
-                return null;
-              }
-              return (
-                <TableRow
-                  key={row?.key}
-                  item={row}
-                  state={state}
-                  animated={props.animated}
-                >
-                  {[...row.childNodes].map((cell) =>
-                    cell?.props?.isSelectionCell ? (
-                      <TableCheckboxCell
-                        key={cell?.key}
-                        cell={cell}
-                        state={state}
-                        color={props.selectedColor}
-                        animated={props.animated}
-                      />
-                    ) : (
-                      <TableCell key={cell?.key} cell={cell} state={state} />
-                    )
-                  )}
-                </TableRow>
-              );
-            })}
-          </TableRowGroup>
-        </FocusScope>
+              </TableRow>
+            );
+          })}
+        </TableRowGroup>
       </StyledTable>
     );
   }
@@ -133,4 +140,22 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 Table.displayName = 'NextUI - Table';
 Table.toString = () => '.nextui-table';
 
-export default withDefaults(Table, defaultProps);
+// Override TS for Column to support spectrum specific props.
+export const TableColumn = Column as <T>(
+  props: SpectrumColumnProps<T>
+) => JSX.Element;
+
+type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
+  PropsWithoutRef<P> & RefAttributes<T>
+> & {
+  Cell: typeof Cell;
+  Column: typeof TableColumn;
+  Row: typeof Row;
+  Header: typeof TableHeader;
+  Body: typeof TableBody;
+};
+
+export default withDefaults(Table, defaultProps) as TableComponent<
+  HTMLTableElement,
+  TableProps
+>;

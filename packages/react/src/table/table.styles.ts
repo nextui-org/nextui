@@ -50,25 +50,6 @@ export const StyledTableHeaderCell = styled(
   cssFocusVisible
 );
 
-export const StyledTableHead = styled('thead', {
-  height: '$14'
-});
-
-export const StyledTableColumn = styled('th', {
-  textAlign: 'left',
-  bg: '$accents1',
-  color: '$accents6',
-  fontSize: '$tiny',
-  '&:first-child': {
-    pl: '$8',
-    br: '$md 0 0 $md'
-  },
-  '&:last-child': {
-    pr: '$8',
-    br: '0 $md $md 0'
-  }
-});
-
 export const StyledTableCell = styled(
   'td',
   {
@@ -130,23 +111,12 @@ export const StyledTableRow = styled(
   cssFocusVisible
 );
 
-export const StyledTableBody = styled('tbody', {});
-
-export const StyledTableFoot = styled('tfoot', {});
-
-export const StyledTableCaption = styled('caption', {
-  captionSide: 'top',
-  textAlign: 'left',
-  color: '$accents6',
-  fontWeight: '$semibold',
-  fontSize: '$sm',
-  margin: '$4'
-});
-
 export const StyledTable = styled('table', {
   borderCollapse: 'separate',
   borderSpacing: 0,
   width: '100%',
+  br: '$xl',
+  p: '$lg $md',
   '@motion': {
     [`& ${StyledTableCell}`]: {
       transition: 'none'
@@ -203,6 +173,44 @@ export const StyledTable = styled('table', {
             br: '0 $lg $lg 0'
           }
         }
+      }
+    },
+    sticked: {
+      true: {
+        p: 0,
+        [`& ${StyledTableColumnHeader}:first-child`]: {
+          br: '$lg 0 0 0'
+        },
+        [`& ${StyledTableColumnHeader}:last-child`]: {
+          br: '0 $lg 0 0'
+        }
+      }
+    },
+    bordered: {
+      true: {
+        ov: 'hidden',
+        borderStyle: 'solid',
+        borderColor: '$border'
+      },
+      false: {
+        bw: 0
+      }
+    },
+    borderWeight: {
+      light: {
+        bw: '$light'
+      },
+      normal: {
+        bw: '$normal'
+      },
+      bold: {
+        bw: '$bold'
+      },
+      extrabold: {
+        bw: '$extrabold'
+      },
+      black: {
+        bw: '$black'
       }
     },
     lineWeight: {
@@ -291,9 +299,7 @@ export const StyledTable = styled('table', {
     },
     shadow: {
       true: {
-        bs: '$md',
-        p: '$lg $md',
-        br: '$xl'
+        bs: '$md'
       }
     },
     hoverable: {
@@ -381,12 +387,36 @@ export const StyledTable = styled('table', {
         }
       }
     },
+    // isMultiple && hoverable && sticked
+    {
+      isMultiple: true,
+      hoverable: true,
+      sticked: true,
+      css: {
+        [`& ${StyledTableRow}:first-child`]: {
+          [`& ${StyledTableCell}:first-child`]: {
+            br: '0'
+          },
+          [`& ${StyledTableCell}:last-child`]: {
+            br: '0'
+          }
+        }
+      }
+    },
     // compact && shadow
     {
       compact: true,
       shadow: true,
       css: {
         p: '$md $sm'
+      }
+    },
+    // compact && sticked
+    {
+      compact: true,
+      sticked: true,
+      css: {
+        p: 0
       }
     }
   ],
@@ -398,6 +428,7 @@ export const StyledTable = styled('table', {
 });
 
 export type TableVariantsProps = VariantProps<typeof StyledTable>;
-export type TableColumnHeaderVariants = VariantProps<
+export type TableCellVariantsProps = VariantProps<typeof StyledTableCell>;
+export type TableColumnHeaderVariantsProps = VariantProps<
   typeof StyledTableColumnHeader
 >;
