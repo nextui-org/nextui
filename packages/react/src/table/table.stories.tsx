@@ -1,12 +1,12 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import OldTable, {
+import Table, {
   TableCellData,
   TableColumnHeaderData,
   TableColumnItem
 } from './index';
 
-import Table from './table';
+import OldTable from './table-old';
 
 import {
   Cell as TableCell,
@@ -331,6 +331,18 @@ export const Lined = () => {
       lined
       headerLined
       shadow={false}
+      borderWeight=""
+      selectionMode="multiple"
+      selectedColor="secondary"
+    />
+  );
+};
+
+export const DisabledKeys = () => {
+  return (
+    <BaseTable
+      shadow={false}
+      disabledKeys={[3]}
       selectionMode="multiple"
       selectedColor="secondary"
     />

@@ -54,21 +54,6 @@ export const StyledTableHead = styled('thead', {
   height: '$14'
 });
 
-export const StyledTableRow = styled(
-  'tr',
-  {
-    variants: {
-      isSelected: {
-        true: {
-          bg: '$$tableRowSelectedColor',
-          color: '$$tableRowTextColor'
-        }
-      }
-    }
-  },
-  cssFocusVisible
-);
-
 export const StyledTableColumn = styled('th', {
   textAlign: 'left',
   bg: '$accents1',
@@ -87,15 +72,28 @@ export const StyledTableColumn = styled('th', {
 export const StyledTableCell = styled(
   'td',
   {
+    position: 'relative',
     userSelect: 'none',
     py: '$5',
+    zIndex: '$2',
     transition:
       'background 0.25s ease 0s, box-shadow 0.25s ease 0s, opacity 0.25s ease 0s',
+    ov: 'hidden',
     '&:first-child': {
       pl: '$8'
     },
     '&:last-child': {
       pr: '$8'
+    },
+    '&:before': {
+      zIndex: '-$1',
+      transition: '$default',
+      content: '""',
+      position: 'absolute',
+      size: '100%',
+      top: 0,
+      left: 0,
+      opacity: 0
     },
     variants: {
       align: {
@@ -107,6 +105,24 @@ export const StyledTableCell = styled(
         },
         right: {
           textAlign: 'right'
+        }
+      }
+    }
+  },
+  cssFocusVisible
+);
+
+export const StyledTableRow = styled(
+  'tr',
+  {
+    variants: {
+      isSelected: {
+        true: {
+          color: '$$tableRowTextColor',
+          [`& ${StyledTableCell}:before`]: {
+            opacity: 1,
+            bg: '$$tableRowSelectedColor'
+          }
         }
       }
     }
@@ -134,12 +150,18 @@ export const StyledTable = styled('table', {
   '@motion': {
     [`& ${StyledTableCell}`]: {
       transition: 'none'
+    },
+    [`& ${StyledTableCell}:before`]: {
+      transition: 'none'
     }
   },
   variants: {
     animated: {
       false: {
         [`& ${StyledTableCell}`]: {
+          transition: 'none'
+        },
+        [`& ${StyledTableCell}:before`]: {
           transition: 'none'
         }
       }
@@ -238,10 +260,26 @@ export const StyledTable = styled('table', {
             content: '',
             position: 'absolute',
             bottom: 0,
-            left: '$space$md',
-            right: '$space$md',
+            left: 0,
+            right: 0,
             height: '$$tableLineWeight',
             bg: '$border'
+          },
+          [`& ${StyledTableCell}:first-child`]: {
+            '&:after': {
+              left: '$space$md'
+            }
+          },
+          [`& ${StyledTableCell}:last-child`]: {
+            '&:after': {
+              right: '$space$md'
+            }
+          }
+        },
+        [`& ${StyledTableRow}[aria-selected=true]:not(last-child)`]: {
+          [`& ${StyledTableCell}:after`]: {
+            bg: '$$tableRowTextColor',
+            opacity: 0.3
           }
         }
       }
@@ -267,10 +305,19 @@ export const StyledTable = styled('table', {
           br: '0 $md $md 0'
         },
         [`& ${StyledTableRow}`]: {
-          cursor: 'pointer',
+          cursor: 'pointer'
+        },
+        [`& ${StyledTableRow}[aria-selected=false]`]: {
           '&:hover': {
-            [`& ${StyledTableCell}`]: {
-              bg: '$accents1',
+            [`& ${StyledTableCell}:before`]: {
+              opacity: 1,
+              bg: '$accents1'
+            }
+          }
+        },
+        [`& ${StyledTableRow}[aria-selected=true]`]: {
+          '&:hover': {
+            [`& ${StyledTableCell}:before`]: {
               opacity: 0.8
             }
           }

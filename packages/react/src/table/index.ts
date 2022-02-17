@@ -1,5 +1,4 @@
-import Table from './table-old';
-import ReactAriaTable from './table';
+import Table from './table';
 
 import {
   Cell as TableCell,
@@ -21,13 +20,6 @@ export type {
   TableColumnHeaderData
 } from './table-types';
 
-export {
-  ReactAriaTable,
-  TableCell,
-  TableColumn,
-  TableRow,
-  TableBody,
-  TableHeader
-};
+export { TableCell, TableColumn, TableRow, TableBody, TableHeader };
 
 export default Table;
