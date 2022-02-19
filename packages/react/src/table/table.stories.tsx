@@ -389,7 +389,7 @@ export const DisabledKeys = () => {
   );
 };
 
-export const WithFooter = () => {
+export const Pagination = () => {
   return (
     <Table
       aria-label="Example table with dynamic content"
@@ -415,12 +415,7 @@ export const WithFooter = () => {
           </Table.Row>
         )}
       </Table.Body>
-      <Table.Footer align="right">
-        <tr>
-          <th scope="row">Totals</th>
-          <td>21,000</td>
-        </tr>
-      </Table.Footer>
+      <Table.Pagination />
     </Table>
   );
 };

@@ -53,6 +53,7 @@ export const StyledTableHeaderCell = styled(
 );
 
 export const StyledTableFooter = styled('tfoot', {
+  height: '$14',
   variants: {
     align: {
       left: {
@@ -65,6 +66,9 @@ export const StyledTableFooter = styled('tfoot', {
         textAlign: 'right'
       }
     }
+  },
+  defaultVariants: {
+    align: 'right'
   }
 });
 

@@ -30,6 +30,7 @@ import TableCheckboxCell from './table-checkbox-cell';
 import TableSelectAllCheckbox from './table-select-all-checkbox';
 import TableCell from './table-cell';
 import TableColumn from './table-column';
+import TablePagination from './table-pagination';
 import TableFooter from './table-footer';
 import { hasChild, pickSingleChild } from '../utils/collections';
 import { StyledTable, TableVariantsProps } from './table.styles';
@@ -61,15 +62,15 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
   (tableProps, ref: React.Ref<HTMLTableElement | null>) => {
     const { selectionMode, selectionBehavior, children, ...props } = tableProps;
 
-    const [withoutFooterChildren, footerChildren] = pickSingleChild<
+    const [withoutPaginationChildren, paginationChildren] = pickSingleChild<
       CollectionChildren<any>
-    >(children, TableFooter);
+    >(children, TablePagination);
 
-    const hasFooter = hasChild(children, TableFooter);
+    const hasPagination = hasChild(children, TablePagination);
 
     const state = useTableState({
       ...tableProps,
-      children: withoutFooterChildren,
+      children: withoutPaginationChildren,
       showSelectionCheckboxes:
         selectionMode === 'multiple' && selectionBehavior !== 'replace'
     });
@@ -147,7 +148,20 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             );
           })}
         </TableRowGroup>
-        {hasFooter && footerChildren}
+        {hasPagination && (
+          <TableFooter align="right">
+            <Spacer as="tr" y={0.6} />
+            <tr role="row">
+              <th
+                tabIndex={-1}
+                role="columnheader"
+                colSpan={collection.columnCount}
+              >
+                {paginationChildren}
+              </th>
+            </tr>
+          </TableFooter>
+        )}
       </StyledTable>
     );
   }
@@ -161,7 +175,7 @@ type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Row: typeof Row;
   Header: typeof TableHeader;
   Body: typeof TableBody;
-  Footer: typeof TableFooter;
+  Pagination: typeof TablePagination;
 };
 
 Table.displayName = 'NextUI - Table';
