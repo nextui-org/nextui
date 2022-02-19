@@ -49,7 +49,7 @@ export const sharedFocus = css({
 });
 
 export const cssFocusVisible = css({
-  transition: '$default',
+  transition: 'box-shadow 0.25s ease 0s',
   '@motion': {
     transition: 'none'
   },
@@ -61,13 +61,12 @@ export const cssFocusVisible = css({
     },
     isFocusVisible: {
       true: {
-        outline: 'none',
-        boxShadow:
-          '0 0 0 2px $colors$background, 0 0 0 4px $colors$primary !important'
+        outline: 'transparent  solid 2px',
+        outlineOffset: '2px',
+        boxShadow: '0 0 0 2px $colors$background, 0 0 0 4px $colors$primary'
       },
       false: {
-        outline: 'none',
-        boxShadow: 'none'
+        outline: 'none'
       }
     }
   }

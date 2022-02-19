@@ -14,7 +14,12 @@ import {
   TableStateProps
 } from '@react-stately/table';
 
-import { SelectionMode, SelectionBehavior } from '@react-types/shared';
+import {
+  SelectionMode,
+  SelectionBehavior,
+  CollectionChildren
+} from '@react-types/shared';
+
 import { Spacer } from '../index';
 import { CSS } from '../theme/stitches.config';
 import TableRowGroup from './table-row-group';
@@ -25,6 +30,8 @@ import TableCheckboxCell from './table-checkbox-cell';
 import TableSelectAllCheckbox from './table-select-all-checkbox';
 import TableCell from './table-cell';
 import TableColumn from './table-column';
+import TableFooter from './table-footer';
+import { hasChild, pickSingleChild } from '../utils/collections';
 import { StyledTable, TableVariantsProps } from './table.styles';
 import withDefaults from '../utils/with-defaults';
 
@@ -52,10 +59,17 @@ const defaultProps = {
 
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
   (tableProps, ref: React.Ref<HTMLTableElement | null>) => {
-    const { selectionMode, selectionBehavior, ...props } = tableProps;
+    const { selectionMode, selectionBehavior, children, ...props } = tableProps;
+
+    const [withoutFooterChildren, footerChildren] = pickSingleChild<
+      CollectionChildren<any>
+    >(children, TableFooter);
+
+    const hasFooter = hasChild(children, TableFooter);
 
     const state = useTableState({
       ...tableProps,
+      children: withoutFooterChildren,
       showSelectionCheckboxes:
         selectionMode === 'multiple' && selectionBehavior !== 'replace'
     });
@@ -96,13 +110,14 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
                     key={column?.key}
                     column={column}
                     state={state}
+                    animated={props.animated}
                   />
                 )
               )}
             </TableHeaderRow>
           ))}
         </TableRowGroup>
-        {!props.sticked && <Spacer y={0.4} />}
+        {!props.sticked && <Spacer as="tr" y={0.4} />}
         <TableRowGroup as="tbody">
           {[...collection.body.childNodes].map((row) => {
             if (!row.hasChildNodes) {
@@ -132,6 +147,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             );
           })}
         </TableRowGroup>
+        {hasFooter && footerChildren}
       </StyledTable>
     );
   }
@@ -145,6 +161,7 @@ type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Row: typeof Row;
   Header: typeof TableHeader;
   Body: typeof TableBody;
+  Footer: typeof TableFooter;
 };
 
 Table.displayName = 'NextUI - Table';

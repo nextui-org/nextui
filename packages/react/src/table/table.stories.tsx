@@ -289,8 +289,38 @@ const BaseTable = (props: Omit<TableProps, 'children'>) => {
   );
 };
 
-export const Basic = () => {
+export const Static = () => {
   return <BaseTable />;
+};
+
+export const Dynamic = () => {
+  return (
+    <Table
+      aria-label="Example table with dynamic content"
+      css={{ height: 'auto', minWidth: '620px' }}
+      selectionMode="multiple"
+    >
+      <Table.Header columns={columns}>
+        {(column) => (
+          <Table.Column
+            key={column.uid}
+            align={column.uid === 'date' ? 'end' : 'start'}
+          >
+            {column.name}
+          </Table.Column>
+        )}
+      </Table.Header>
+      <Table.Body items={rows}>
+        {(item) => (
+          <Table.Row>
+            {(columnKey) => (
+              <Table.Cell>{getKeyValue(item, columnKey)}</Table.Cell>
+            )}
+          </Table.Row>
+        )}
+      </Table.Body>
+    </Table>
+  );
 };
 
 export const Sticked = () => {
@@ -359,17 +389,7 @@ export const DisabledKeys = () => {
   );
 };
 
-export const NoAnimated = () => {
-  return (
-    <BaseTable
-      animated={false}
-      selectionMode="multiple"
-      selectedColor="secondary"
-    />
-  );
-};
-
-export const CustomTable = () => {
+export const WithFooter = () => {
   return (
     <Table
       aria-label="Example table with dynamic content"
@@ -395,6 +415,22 @@ export const CustomTable = () => {
           </Table.Row>
         )}
       </Table.Body>
+      <Table.Footer align="right">
+        <tr>
+          <th scope="row">Totals</th>
+          <td>21,000</td>
+        </tr>
+      </Table.Footer>
     </Table>
+  );
+};
+
+export const NoAnimated = () => {
+  return (
+    <BaseTable
+      animated={false}
+      selectionMode="multiple"
+      selectedColor="secondary"
+    />
   );
 };

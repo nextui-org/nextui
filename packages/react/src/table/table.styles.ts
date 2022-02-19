@@ -6,7 +6,9 @@ import {
 
 export const StyledTableRowGroup = styled('thead', {});
 
-export const StyledTableHeaderRow = styled('tr', {});
+export const StyledTableHeaderRow = styled('tr', {
+  ov: 'visible'
+});
 
 export const StyledTableColumnHeader = styled(
   'th',
@@ -49,6 +51,22 @@ export const StyledTableHeaderCell = styled(
   StyledTableColumnHeader,
   cssFocusVisible
 );
+
+export const StyledTableFooter = styled('tfoot', {
+  variants: {
+    align: {
+      left: {
+        textAlign: 'left'
+      },
+      center: {
+        textAlign: 'center'
+      },
+      right: {
+        textAlign: 'right'
+      }
+    }
+  }
+});
 
 export const StyledTableCell = styled(
   'td',
@@ -96,6 +114,7 @@ export const StyledTableCell = styled(
 export const StyledTableRow = styled(
   'tr',
   {
+    ov: 'visible',
     variants: {
       isSelected: {
         true: {
@@ -116,7 +135,7 @@ export const StyledTable = styled('table', {
   borderSpacing: 0,
   width: '100%',
   br: '$xl',
-  p: '$lg $md',
+  p: '$md $sm',
   '@motion': {
     [`& ${StyledTableCell}`]: {
       transition: 'none'
@@ -423,6 +442,7 @@ export const StyledTable = styled('table', {
   defaultVariants: {
     shadow: true,
     selectedColor: 'primary',
+    borderWeight: 'normal',
     lineWeight: 'light'
   }
 });
@@ -432,3 +452,4 @@ export type TableCellVariantsProps = VariantProps<typeof StyledTableCell>;
 export type TableColumnHeaderVariantsProps = VariantProps<
   typeof StyledTableColumnHeader
 >;
+export type TableFooterVatiantsProps = VariantProps<typeof StyledTableFooter>;
