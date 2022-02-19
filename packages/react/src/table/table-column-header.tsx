@@ -3,7 +3,7 @@ import { CSS } from '../theme/stitches.config';
 import { useTableColumnHeader } from '@react-aria/table';
 import {
   StyledTableColumnHeader,
-  TableColumnHeaderVariants
+  TableColumnHeaderVariantsProps
 } from './table.styles';
 import { GridNode } from '@react-types/grid';
 import { TableState } from '@react-stately/table';
@@ -19,7 +19,7 @@ interface Props<T> {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<any>>;
 
 export type TableColumnHeaderProps<T = unknown> = Props<T> &
-  TableColumnHeaderVariants &
+  TableColumnHeaderVariantsProps &
   NativeAttrs & { css?: CSS };
 
 const TableColumnHeader = React.forwardRef<

@@ -1,3 +1,5 @@
+import { Key } from 'react';
+
 export const isObject = (target: unknown) =>
   target && typeof target === 'object';
 
@@ -41,4 +43,10 @@ export const cleanObject = (obj: any) => {
     }
   });
   return newObj;
+};
+
+export const getKeyValue = (obj: any, key: Key) => {
+  if (!isObject(obj)) return obj;
+  if (obj instanceof Array) return [...obj];
+  return obj[key];
 };

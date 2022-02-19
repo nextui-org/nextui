@@ -1,4 +1,6 @@
-import Table, { TableColumn } from './table';
+import Table from './table';
+import TableColumn from './table-column';
+export type { TableProps } from './table';
 
 import { Cell, Row, TableBody, TableHeader } from '@react-stately/table';
 
@@ -9,7 +11,6 @@ export {
   StyledTableHeaderCell
 } from './table.styles';
 
-export type { TableProps } from './table';
 export type {
   TableVariantsProps,
   TableColumnHeaderVariantsProps,

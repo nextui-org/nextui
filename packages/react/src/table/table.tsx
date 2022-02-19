@@ -7,14 +7,13 @@ import React, {
 import { useTable } from '@react-aria/table';
 import {
   Cell,
-  Column,
   Row,
   TableBody,
   TableHeader,
   useTableState,
   TableStateProps
 } from '@react-stately/table';
-import { SpectrumColumnProps } from '@react-types/table';
+
 import { SelectionMode, SelectionBehavior } from '@react-types/shared';
 import { Spacer } from '../index';
 import { CSS } from '../theme/stitches.config';
@@ -25,6 +24,7 @@ import TableRow from './table-row';
 import TableCheckboxCell from './table-checkbox-cell';
 import TableSelectAllCheckbox from './table-select-all-checkbox';
 import TableCell from './table-cell';
+import TableColumn from './table-column';
 import { StyledTable, TableVariantsProps } from './table.styles';
 import withDefaults from '../utils/with-defaults';
 
@@ -137,14 +137,6 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
   }
 );
 
-Table.displayName = 'NextUI - Table';
-Table.toString = () => '.nextui-table';
-
-// Override TS for Column to support spectrum specific props.
-export const TableColumn = Column as <T>(
-  props: SpectrumColumnProps<T>
-) => JSX.Element;
-
 type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 > & {
@@ -154,6 +146,9 @@ type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Header: typeof TableHeader;
   Body: typeof TableBody;
 };
+
+Table.displayName = 'NextUI - Table';
+Table.toString = () => '.nextui-table';
 
 export default withDefaults(Table, defaultProps) as TableComponent<
   HTMLTableElement,

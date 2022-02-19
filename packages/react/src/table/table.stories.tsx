@@ -1,9 +1,22 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Table, { TableProps } from './index';
+import { getKeyValue } from '../utils/object';
 
 // import { User, Text, Col, Row, Tooltip, styled } from '../index';
 // import { Eye, Edit, Delete } from '../utils/icons';
+
+export default {
+  title: 'Display/Table',
+  component: Table,
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: '100%' }}>
+        <Story />
+      </div>
+    )
+  ]
+} as Meta;
 
 // const StyledBadge = styled('span', {
 //   display: 'inline-block',
@@ -56,18 +69,6 @@ import Table, { TableProps } from './index';
 //     opacity: '0.6'
 //   }
 // });
-
-export default {
-  title: 'Display/Table',
-  component: Table,
-  decorators: [
-    (Story) => (
-      <div style={{ maxWidth: '100%' }}>
-        <Story />
-      </div>
-    )
-  ]
-} as Meta;
 
 // type UserType = {
 //   id: string | number;
@@ -143,23 +144,16 @@ export default {
 // ];
 
 const rows = [
-  { id: '1', firstName: 'John', lastName: 'Doe', age: '45' },
-  { id: '2', firstName: 'Jane', lastName: 'Doe', age: '37' },
-  { id: '3', firstName: 'Joe', lastName: 'Schmoe', age: '67' },
-  { id: '4', firstName: 'Joe', lastName: 'Bloggs', age: '12' },
-  {
-    id: '5',
-    firstName: 'Taylor',
-    lastName: 'Rodriguez Lloyd-Atkinson',
-    age: '83'
-  }
+  { id: 1, name: 'Games', date: '6/7/2020', type: 'File folder' },
+  { id: 2, name: 'Program Files', date: '4/7/2021', type: 'File folder' },
+  { id: 3, name: 'bootmgr', date: '11/20/2010', type: 'System file' },
+  { id: 4, name: 'log.txt', date: '1/18/2016', type: 'Text Document' }
 ];
 
 const columns = [
-  { name: 'First Name', key: 'firstName' },
-  { name: 'Last Name', key: 'lastName' },
-  { name: 'Add Info', key: 'addInfo' },
-  { name: 'Age', key: 'age' }
+  { name: 'Name', uid: 'name' },
+  { name: 'Type', uid: 'type' },
+  { name: 'Date Modified', uid: 'date' }
 ];
 
 // const columns2: TableColumnItem[] = [
@@ -375,34 +369,32 @@ export const NoAnimated = () => {
   );
 };
 
-// export const CustomTable = () => {
-//   <Table
-//     aria-label="Example custom collection table"
-//     css={{ height: 'auto', minWidth: '620px' }}
-//   >
-//     <Table.Header columns={columns}>
-//       {(column) => (
-//         <Table.Column
-//           align={column.key === 'age' ? 'end' : 'start'}
-//           hideHeader={column.key === 'addInfo'}
-//           showDivider={column.key === 'addInfo'}
-//         >
-//           {column.name}
-//         </Table.Column>
-//       )}
-//     </Table.Header>
-//     {/* <TableBody items={rows}>
-//       {(item) => (
-//         <TableRow key={item.id}>
-//           {(key) =>
-//             key === 'addInfo' ? (
-//               <TableCell>+</TableCell>
-//             ) : (
-//               <TableCell>{item[key]}</TableCell>
-//             )
-//           }
-//         </TableRow>
-//       )}
-//     </TableBody> */}
-//   </Table>;
-// };
+export const CustomTable = () => {
+  return (
+    <Table
+      aria-label="Example table with dynamic content"
+      css={{ height: 'auto', minWidth: '620px' }}
+      selectionMode="multiple"
+    >
+      <Table.Header columns={columns}>
+        {(column) => (
+          <Table.Column
+            key={column.uid}
+            align={column.uid === 'date' ? 'end' : 'start'}
+          >
+            {column.name}
+          </Table.Column>
+        )}
+      </Table.Header>
+      <Table.Body items={rows}>
+        {(item) => (
+          <Table.Row>
+            {(columnKey) => (
+              <Table.Cell>{getKeyValue(item, columnKey)}</Table.Cell>
+            )}
+          </Table.Row>
+        )}
+      </Table.Body>
+    </Table>
+  );
+};

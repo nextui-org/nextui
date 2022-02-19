@@ -1,5 +1,5 @@
 import React from 'react';
-const { CssBaseline } = require('@nextui-org/react');
+import { CssBaseline } from '@nextui-org/react';
 
 export const decorators = [
   (Story) => (
