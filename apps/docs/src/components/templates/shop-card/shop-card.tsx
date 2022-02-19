@@ -172,7 +172,7 @@ const ShopCard: React.FC<Props> = ({ onChangeTheme }) => {
                   ))}
                 </Grid.Container>
                 <Row css={{ pt: '$4' }}>
-                  <BuyButton auto shadow>
+                  <BuyButton auto shadow={activeTheme === 'nextui'}>
                     Buy now
                   </BuyButton>
                   <Spacer x={0.5} />
