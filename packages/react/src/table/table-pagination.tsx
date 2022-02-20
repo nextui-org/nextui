@@ -19,12 +19,11 @@ export type TablePaginationProps = Props &
   Omit<Partial<PaginationProps>, 'onChage'> & { css?: CSS };
 
 const TablePagination: React.FC<TablePaginationProps> = ({
-  animated,
   align,
   onPageChange,
   ...props
 }) => {
-  const { footerAlign, setFooterAlign } = useTableContext();
+  const { animated, footerAlign, setFooterAlign } = useTableContext();
 
   React.useEffect(() => {
     if (align && align !== footerAlign) {
@@ -35,6 +34,8 @@ const TablePagination: React.FC<TablePaginationProps> = ({
   const handlePageChanged = (page: number) => {
     onPageChange?.(page);
   };
+
+  console.log({ animated });
 
   return (
     <Pagination

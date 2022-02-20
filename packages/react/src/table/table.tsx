@@ -34,7 +34,7 @@ import TablePagination from './table-pagination';
 import TableFooter from './table-footer';
 import { hasChild, pickSingleChild } from '../utils/collections';
 import { StyledTable, TableVariantsProps } from './table.styles';
-import TableContext from './table-context';
+import TableContext, { TableConfig } from './table-context';
 import withDefaults from '../utils/with-defaults';
 import clsx from '../utils/clsx';
 
@@ -88,8 +88,14 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       gridProps: Omit<React.HTMLAttributes<unknown>, keyof TableProps<unknown>>;
     } = useTable(tableProps, state, tableRef);
 
+    const initialValues = React.useMemo<Partial<TableConfig>>(() => {
+      return {
+        animated: props.animated
+      };
+    }, [props.animated]);
+
     return (
-      <TableContext.Provider>
+      <TableContext.Provider defaultValues={initialValues}>
         <StyledTable
           ref={tableRef}
           hoverable={selectionMode !== 'none' || props.hoverable}
