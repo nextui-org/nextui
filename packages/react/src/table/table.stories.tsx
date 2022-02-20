@@ -444,7 +444,10 @@ export const Pagination = () => {
           </Table.Row>
         )}
       </Table.Body>
-      <Table.Pagination align="center" />
+      <Table.Pagination
+        align="center"
+        onPageChange={(page) => console.log({ page })}
+      />
     </Table>
   );
 };

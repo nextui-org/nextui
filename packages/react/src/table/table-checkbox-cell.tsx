@@ -9,6 +9,7 @@ import { mergeProps } from '@react-aria/utils';
 import { useCheckbox } from '@react-aria/checkbox';
 import Checkbox, { CheckboxProps } from '../checkbox';
 import { StyledTableCell, TableVariantsProps } from './table.styles';
+import clsx from '../utils/clsx';
 
 type CellProps<T> = GridNode<T> & { parentKey?: React.Key };
 
@@ -66,9 +67,10 @@ const TableCheckboxCell = React.forwardRef<
 
     return (
       <StyledTableCell
-        {...mergeProps(gridCellProps, focusProps, props)}
-        isFocusVisible={isFocusVisible}
         ref={tableCellRef}
+        isFocusVisible={isFocusVisible}
+        className={clsx('nextui-table-checkbox-cell', props.className)}
+        {...mergeProps(gridCellProps, focusProps, props)}
       >
         <Checkbox
           {...inputProps}

@@ -36,6 +36,7 @@ import { hasChild, pickSingleChild } from '../utils/collections';
 import { StyledTable, TableVariantsProps } from './table.styles';
 import TableContext from './table-context';
 import withDefaults from '../utils/with-defaults';
+import clsx from '../utils/clsx';
 
 interface Props<T> extends TableStateProps<T> {
   selectionMode?: SelectionMode;
@@ -93,6 +94,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           ref={tableRef}
           hoverable={selectionMode !== 'none' || props.hoverable}
           isMultiple={selectionMode === 'multiple'}
+          className={clsx('nextui-table', props.className)}
           {...gridProps}
           {...props}
         >

@@ -13,6 +13,7 @@ import { mergeProps } from '@react-aria/utils';
 import { useCheckbox } from '@react-aria/checkbox';
 import Checkbox, { CheckboxProps } from '../checkbox';
 import { StyledTableHeaderCell, TableVariantsProps } from './table.styles';
+import clsx from '../utils/clsx';
 
 interface Props<T> {
   column: GridNode<T>;
@@ -79,6 +80,7 @@ const TableSelectAllCheckbox = React.forwardRef<
       <StyledTableHeaderCell
         ref={tableCellRef}
         isFocusVisible={isFocusVisible}
+        className={clsx('nextui-table-select-all-checkbox', props.className)}
         {...mergeProps(columnHeaderProps, focusProps, props)}
       >
         {isSingleSelectionMode ? (

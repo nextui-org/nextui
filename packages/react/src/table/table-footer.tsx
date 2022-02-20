@@ -2,6 +2,7 @@ import React, { useRef, useImperativeHandle } from 'react';
 import { CSS } from '../theme/stitches.config';
 import { useTableContext } from './table-context';
 import { StyledTableFooter, TableFooterVatiantsProps } from './table.styles';
+import clsx from '../utils/clsx';
 
 type NativeAttrs = React.HTMLAttributes<unknown>;
 
@@ -23,6 +24,7 @@ const TableFooter = React.forwardRef<
       ref={tableFooterRef}
       role="rowgroup"
       align={props.align || footerAlign}
+      className={clsx('nextui-table-footer', props.className)}
       {...props}
     >
       {children}

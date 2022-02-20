@@ -6,6 +6,7 @@ import { GridNode } from '@react-types/grid';
 import { TableState } from '@react-stately/table';
 import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
+import clsx from '../utils/clsx';
 
 type CellProps<T> = GridNode<T> & { rendered: React.ReactNode };
 
@@ -41,6 +42,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
       <StyledTableCell
         ref={tableCellRef}
         isFocusVisible={isFocusVisible}
+        className={clsx('nextui-table-cell', props.className)}
         {...mergeProps(gridCellProps, focusProps, props)}
       >
         {cell.rendered}

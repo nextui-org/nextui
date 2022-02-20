@@ -4,6 +4,7 @@ import { useTableHeaderRow } from '@react-aria/table';
 import { StyledTableHeaderRow } from './table.styles';
 import { GridNode } from '@react-types/grid';
 import { TableState } from '@react-stately/table';
+import clsx from '../utils/clsx';
 
 interface Props<T> {
   item: GridNode<T>;
@@ -38,7 +39,12 @@ const TableHeaderRow = React.forwardRef<
     } = useTableHeaderRow({ node: item }, state, tableHeaderRowRef);
 
     return (
-      <StyledTableHeaderRow {...props} {...rowProps} ref={tableHeaderRowRef}>
+      <StyledTableHeaderRow
+        ref={tableHeaderRowRef}
+        className={clsx('nextui-table-header-row', props.className)}
+        {...props}
+        {...rowProps}
+      >
         {children}
       </StyledTableHeaderRow>
     );

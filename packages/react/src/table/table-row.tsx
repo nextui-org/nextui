@@ -6,6 +6,7 @@ import { GridNode } from '@react-types/grid';
 import { TableState } from '@react-stately/table';
 import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
+import clsx from '../utils/clsx';
 
 interface Props<T> {
   item: GridNode<T>;
@@ -39,6 +40,7 @@ const TableRow = React.forwardRef<
         ref={tableRowRef}
         isFocusVisible={isFocusVisible}
         isSelected={!!rowProps['aria-selected']}
+        className={clsx('nextui-table-row', props.className)}
         {...mergeProps(rowProps, focusProps, props)}
       >
         {children}

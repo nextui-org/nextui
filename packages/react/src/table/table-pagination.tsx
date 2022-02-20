@@ -3,22 +3,26 @@ import { CSS } from '../theme/stitches.config';
 import { Pagination, PaginationProps } from '../index';
 import { NormalAlignment } from '../utils/prop-types';
 import { useTableContext } from './table-context';
+import clsx from '../utils/clsx';
 
 interface Props {
   animated?: boolean;
   rowsPerPage?: number;
   align?: NormalAlignment;
+  onPageChange?: PaginationProps['onChange'];
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type TablePaginationProps = Props &
   NativeAttrs &
-  Partial<PaginationProps> & { css?: CSS };
+  Omit<Partial<PaginationProps>, 'onChage'> & { css?: CSS };
 
 const TablePagination: React.FC<TablePaginationProps> = ({
   animated,
-  align
+  align,
+  onPageChange,
+  ...props
 }) => {
   const { footerAlign, setFooterAlign } = useTableContext();
 
@@ -28,12 +32,17 @@ const TablePagination: React.FC<TablePaginationProps> = ({
     }
   }, [align, footerAlign]);
 
+  const handlePageChanged = (page: number) => {
+    onPageChange?.(page);
+  };
+
   return (
     <Pagination
       total={5}
       siblings={1}
       animated={animated}
-      onChange={(page: number) => console.log({ page })}
+      onChange={handlePageChanged}
+      className={clsx('nextui-table-pagination', props.className)}
     />
   );
 };

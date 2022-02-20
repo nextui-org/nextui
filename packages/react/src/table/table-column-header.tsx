@@ -9,6 +9,7 @@ import { GridNode } from '@react-types/grid';
 import { TableState } from '@react-stately/table';
 import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
+import clsx from '../utils/clsx';
 
 interface Props<T> {
   column: GridNode<T>;
@@ -47,6 +48,7 @@ const TableColumnHeader = React.forwardRef<
       ref={tableColumnHeaderRef}
       isFocusVisible={isFocusVisible}
       colSpan={column.colspan}
+      className={clsx('nextui-table-column-header', props.className)}
       {...mergeProps(props, columnHeaderProps, focusProps)}
     >
       {column.rendered}
