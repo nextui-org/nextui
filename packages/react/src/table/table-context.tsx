@@ -1,15 +1,24 @@
 import React from 'react';
+import { TableCollection } from '@react-types/table';
 import { NormalAlignment } from '../utils/prop-types';
 
 export interface TableConfig {
-  footerAlign?: NormalAlignment;
   animated?: boolean;
+  footerAlign?: NormalAlignment;
+  collection?: TableCollection<any>;
+  rowsPerPage: number;
+  currentPage: number;
   setFooterAlign?: (value: NormalAlignment) => void;
   setAnimated?: (value: boolean) => void;
+  setCollection?: (value: TableCollection<any>) => void;
+  setRowsPerPage?: (value: number) => void;
+  setCurrentPage?: (value: number) => void;
 }
 
 const defaultContext = {
   footerAlign: 'end' as NormalAlignment,
+  rowsPerPage: 0,
+  currentPage: 1,
   animated: true
 };
 
@@ -36,14 +45,29 @@ const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({
       : defaultValues?.animated
   );
 
+  const [collection, setCollection] = React.useState(defaultValues?.collection);
+
+  const [rowsPerPage, setRowsPerPage] = React.useState(
+    defaultContext.rowsPerPage
+  );
+  const [currentPage, setCurrentPage] = React.useState(
+    defaultContext.currentPage
+  );
+
   const providerValue = React.useMemo<TableConfig>(
     () => ({
       animated,
       footerAlign,
+      collection,
+      rowsPerPage,
+      currentPage,
       setFooterAlign,
-      setAnimated
+      setCollection,
+      setAnimated,
+      setRowsPerPage,
+      setCurrentPage
     }),
-    [animated, footerAlign]
+    [animated, collection, footerAlign, rowsPerPage, currentPage]
   );
 
   return (

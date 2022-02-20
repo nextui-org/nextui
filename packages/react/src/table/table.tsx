@@ -8,7 +8,7 @@ import { useTable } from '@react-aria/table';
 import {
   Cell,
   Row,
-  TableBody,
+  TableBody as TableBodyBase,
   TableHeader,
   useTableState,
   TableStateProps
@@ -25,13 +25,11 @@ import { CSS } from '../theme/stitches.config';
 import TableRowGroup from './table-row-group';
 import TableColumnHeader from './table-column-header';
 import TableHeaderRow from './table-header-row';
-import TableRow from './table-row';
-import TableCheckboxCell from './table-checkbox-cell';
 import TableSelectAllCheckbox from './table-select-all-checkbox';
-import TableCell from './table-cell';
 import TableColumn from './table-column';
 import TablePagination from './table-pagination';
 import TableFooter from './table-footer';
+import TableBody from './table-body';
 import { hasChild, pickSingleChild } from '../utils/collections';
 import { StyledTable, TableVariantsProps } from './table.styles';
 import TableContext, { TableConfig } from './table-context';
@@ -90,9 +88,10 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 
     const initialValues = React.useMemo<Partial<TableConfig>>(() => {
       return {
+        collection,
         animated: props.animated
       };
-    }, [props.animated]);
+    }, [collection, props.animated]);
 
     return (
       <TableContext.Provider defaultValues={initialValues}>
@@ -100,6 +99,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           ref={tableRef}
           hoverable={selectionMode !== 'none' || props.hoverable}
           isMultiple={selectionMode === 'multiple'}
+          hasPagination={hasPagination}
           className={clsx('nextui-table', props.className)}
           {...gridProps}
           {...props}
@@ -132,39 +132,19 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
               </TableHeaderRow>
             ))}
           </TableRowGroup>
-          {!props.sticked && <Spacer as="tr" y={0.4} />}
-          <TableRowGroup as="tbody">
-            {[...collection.body.childNodes].map((row) => {
-              if (!row.hasChildNodes) {
-                return null;
-              }
-              return (
-                <TableRow
-                  key={row?.key}
-                  item={row}
-                  state={state}
-                  animated={props.animated}
-                >
-                  {[...row.childNodes].map((cell) =>
-                    cell?.props?.isSelectionCell ? (
-                      <TableCheckboxCell
-                        key={cell?.key}
-                        cell={cell}
-                        state={state}
-                        color={props.selectedColor}
-                        animated={props.animated}
-                      />
-                    ) : (
-                      <TableCell key={cell?.key} cell={cell} state={state} />
-                    )
-                  )}
-                </TableRow>
-              );
-            })}
-          </TableRowGroup>
+          {!props.sticked && (
+            <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />
+          )}
+          <TableBody
+            state={state}
+            collection={collection}
+            animated={props.animated}
+            hasPagination={hasPagination}
+            selectedColor={props.selectedColor}
+          />
           {hasPagination && (
             <TableFooter>
-              <Spacer as="tr" y={0.6} />
+              <Spacer as="tr" className="nextui-table-hidden-row" y={0.6} />
               <tr role="row">
                 <th
                   tabIndex={-1}
@@ -189,7 +169,7 @@ type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Column: typeof TableColumn;
   Row: typeof Row;
   Header: typeof TableHeader;
-  Body: typeof TableBody;
+  Body: typeof TableBodyBase;
   Pagination: typeof TablePagination;
 };
 

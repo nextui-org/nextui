@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { CSS } from '../theme/stitches.config';
 import { Pagination, PaginationProps } from '../index';
 import { NormalAlignment } from '../utils/prop-types';
@@ -23,7 +23,15 @@ const TablePagination: React.FC<TablePaginationProps> = ({
   onPageChange,
   ...props
 }) => {
-  const { animated, footerAlign, setFooterAlign } = useTableContext();
+  const {
+    animated,
+    collection,
+    footerAlign,
+    rowsPerPage,
+    setFooterAlign,
+    setRowsPerPage,
+    setCurrentPage
+  } = useTableContext();
 
   React.useEffect(() => {
     if (align && align !== footerAlign) {
@@ -31,16 +39,27 @@ const TablePagination: React.FC<TablePaginationProps> = ({
     }
   }, [align, footerAlign]);
 
+  React.useEffect(() => {
+    if (props.rowsPerPage && props.rowsPerPage !== rowsPerPage) {
+      setRowsPerPage?.(props.rowsPerPage);
+    }
+  }, [rowsPerPage, props.rowsPerPage]);
+
   const handlePageChanged = (page: number) => {
+    setCurrentPage?.(page);
     onPageChange?.(page);
   };
 
-  console.log({ animated });
+  const totalPagination = useMemo(() => {
+    const rowsCount = collection?.body
+      ? [...collection?.body?.childNodes].length
+      : 0;
+    return rowsPerPage > 0 ? Math.ceil(rowsCount / rowsPerPage) : 1;
+  }, [collection, rowsPerPage]);
 
   return (
     <Pagination
-      total={5}
-      siblings={1}
+      total={totalPagination}
       animated={animated}
       onChange={handlePageChanged}
       className={clsx('nextui-table-pagination', props.className)}

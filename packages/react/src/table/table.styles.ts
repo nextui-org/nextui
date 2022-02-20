@@ -72,8 +72,10 @@ export const StyledTableFooter = styled('tfoot', {
   }
 });
 
+export const StyledBaseTableCell = styled('td', {});
+
 export const StyledTableCell = styled(
-  'td',
+  StyledBaseTableCell,
   {
     position: 'relative',
     userSelect: 'none',
@@ -361,6 +363,9 @@ export const StyledTable = styled('table', {
     isMultiple: {
       true: {}
     },
+    hasPagination: {
+      true: {}
+    },
     compact: {
       true: {
         [`& ${StyledTableCell}`]: {
@@ -440,6 +445,67 @@ export const StyledTable = styled('table', {
       sticked: true,
       css: {
         p: 0
+      }
+    },
+    // sticked && !isMultiple && hoverable && !hasPagination
+    {
+      sticked: true,
+      isMultiple: false,
+      hoverable: true,
+      hasPagination: false,
+      css: {
+        [`& ${StyledTableRow}:not(:last-child)`]: {
+          [`& ${StyledTableCell}`]: {
+            br: '0'
+          }
+        },
+        [`& ${StyledTableRow}:last-child`]: {
+          [`& ${StyledTableCell}:first-child`]: {
+            br: '0 0 0 $md'
+          },
+          [`& ${StyledTableCell}:last-child`]: {
+            br: '0 0 $md 0'
+          }
+        }
+      }
+    },
+    // sticked && !isMultiple && hoverable && hasPagination
+    {
+      sticked: true,
+      isMultiple: false,
+      hoverable: true,
+      hasPagination: true,
+      css: {
+        [`& ${StyledTableRow}`]: {
+          [`& ${StyledTableCell}`]: {
+            br: '0'
+          }
+        }
+      }
+    },
+    // sticked && hasPagination
+    {
+      sticked: true,
+      hasPagination: true,
+      css: {
+        pb: '$5'
+      }
+    },
+    // sticked && hasPagination && isMultiple && hoverable
+    {
+      sticked: true,
+      hasPagination: true,
+      isMultiple: true,
+      hoverable: true,
+      css: {
+        [`& ${StyledTableRow}:last-child`]: {
+          [`& ${StyledTableCell}:first-child`]: {
+            br: '0'
+          },
+          [`& ${StyledTableCell}:last-child`]: {
+            br: '0'
+          }
+        }
       }
     }
   ],

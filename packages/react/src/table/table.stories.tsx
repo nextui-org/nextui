@@ -173,9 +173,33 @@ const paginatedRows = [
   },
   {
     id: 8,
-    name: 'log.txt',
-    date: '1/18/2016',
-    type: 'Text Document'
+    name: 'Games',
+    date: '6/7/2020',
+    type: 'File folder'
+  },
+  {
+    id: 9,
+    name: 'Program Files',
+    date: '4/7/2021',
+    type: 'File folder'
+  },
+  {
+    id: 10,
+    name: 'bootmgr',
+    date: '11/20/2010',
+    type: 'System file'
+  },
+  {
+    id: 11,
+    name: 'bootmgr',
+    date: '11/20/2010',
+    type: 'System file'
+  },
+  {
+    id: 12,
+    name: 'Games',
+    date: '6/7/2020',
+    type: 'File folder'
   }
 ];
 
@@ -422,7 +446,7 @@ export const Pagination = () => {
   return (
     <Table
       aria-label="Example table with dynamic content"
-      css={{ height: 'auto', minWidth: '620px' }}
+      css={{ minWidth: '620px', height: 'auto' }}
       selectionMode="multiple"
     >
       <Table.Header columns={columns}>
@@ -446,6 +470,7 @@ export const Pagination = () => {
       </Table.Body>
       <Table.Pagination
         align="center"
+        rowsPerPage={3}
         onPageChange={(page) => console.log({ page })}
       />
     </Table>
