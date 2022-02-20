@@ -29,13 +29,13 @@ export const StyledTableColumnHeader = styled(
     },
     variants: {
       align: {
-        left: {
+        start: {
           textAlign: 'left'
         },
         center: {
           textAlign: 'center'
         },
-        right: {
+        end: {
           textAlign: 'right'
         }
       }
@@ -56,13 +56,13 @@ export const StyledTableFooter = styled('tfoot', {
   height: '$14',
   variants: {
     align: {
-      left: {
+      start: {
         textAlign: 'left'
       },
       center: {
         textAlign: 'center'
       },
-      right: {
+      end: {
         textAlign: 'right'
       }
     }
@@ -100,13 +100,13 @@ export const StyledTableCell = styled(
     },
     variants: {
       align: {
-        left: {
+        start: {
           textAlign: 'left'
         },
         center: {
           textAlign: 'center'
         },
-        right: {
+        end: {
           textAlign: 'right'
         }
       }

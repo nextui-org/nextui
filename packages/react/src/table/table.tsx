@@ -34,6 +34,7 @@ import TablePagination from './table-pagination';
 import TableFooter from './table-footer';
 import { hasChild, pickSingleChild } from '../utils/collections';
 import { StyledTable, TableVariantsProps } from './table.styles';
+import TableContext from './table-context';
 import withDefaults from '../utils/with-defaults';
 
 interface Props<T> extends TableStateProps<T> {
@@ -87,82 +88,88 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
     } = useTable(tableProps, state, tableRef);
 
     return (
-      <StyledTable
-        ref={tableRef}
-        hoverable={selectionMode !== 'none' || props.hoverable}
-        isMultiple={selectionMode === 'multiple'}
-        {...gridProps}
-        {...props}
-      >
-        <TableRowGroup as="thead">
-          {collection.headerRows.map((headerRow) => (
-            <TableHeaderRow key={headerRow?.key} item={headerRow} state={state}>
-              {[...headerRow.childNodes].map((column) =>
-                column?.props?.isSelectionCell ? (
-                  <TableSelectAllCheckbox
-                    key={column?.key}
-                    column={column}
-                    state={state}
-                    color={props.selectedColor}
-                    animated={props.animated}
-                  />
-                ) : (
-                  <TableColumnHeader
-                    key={column?.key}
-                    column={column}
-                    state={state}
-                    animated={props.animated}
-                  />
-                )
-              )}
-            </TableHeaderRow>
-          ))}
-        </TableRowGroup>
-        {!props.sticked && <Spacer as="tr" y={0.4} />}
-        <TableRowGroup as="tbody">
-          {[...collection.body.childNodes].map((row) => {
-            if (!row.hasChildNodes) {
-              return null;
-            }
-            return (
-              <TableRow
-                key={row?.key}
-                item={row}
+      <TableContext.Provider>
+        <StyledTable
+          ref={tableRef}
+          hoverable={selectionMode !== 'none' || props.hoverable}
+          isMultiple={selectionMode === 'multiple'}
+          {...gridProps}
+          {...props}
+        >
+          <TableRowGroup as="thead">
+            {collection.headerRows.map((headerRow) => (
+              <TableHeaderRow
+                key={headerRow?.key}
+                item={headerRow}
                 state={state}
-                animated={props.animated}
               >
-                {[...row.childNodes].map((cell) =>
-                  cell?.props?.isSelectionCell ? (
-                    <TableCheckboxCell
-                      key={cell?.key}
-                      cell={cell}
+                {[...headerRow.childNodes].map((column) =>
+                  column?.props?.isSelectionCell ? (
+                    <TableSelectAllCheckbox
+                      key={column?.key}
+                      column={column}
                       state={state}
                       color={props.selectedColor}
                       animated={props.animated}
                     />
                   ) : (
-                    <TableCell key={cell?.key} cell={cell} state={state} />
+                    <TableColumnHeader
+                      key={column?.key}
+                      column={column}
+                      state={state}
+                      animated={props.animated}
+                    />
                   )
                 )}
-              </TableRow>
-            );
-          })}
-        </TableRowGroup>
-        {hasPagination && (
-          <TableFooter align="right">
-            <Spacer as="tr" y={0.6} />
-            <tr role="row">
-              <th
-                tabIndex={-1}
-                role="columnheader"
-                colSpan={collection.columnCount}
-              >
-                {paginationChildren}
-              </th>
-            </tr>
-          </TableFooter>
-        )}
-      </StyledTable>
+              </TableHeaderRow>
+            ))}
+          </TableRowGroup>
+          {!props.sticked && <Spacer as="tr" y={0.4} />}
+          <TableRowGroup as="tbody">
+            {[...collection.body.childNodes].map((row) => {
+              if (!row.hasChildNodes) {
+                return null;
+              }
+              return (
+                <TableRow
+                  key={row?.key}
+                  item={row}
+                  state={state}
+                  animated={props.animated}
+                >
+                  {[...row.childNodes].map((cell) =>
+                    cell?.props?.isSelectionCell ? (
+                      <TableCheckboxCell
+                        key={cell?.key}
+                        cell={cell}
+                        state={state}
+                        color={props.selectedColor}
+                        animated={props.animated}
+                      />
+                    ) : (
+                      <TableCell key={cell?.key} cell={cell} state={state} />
+                    )
+                  )}
+                </TableRow>
+              );
+            })}
+          </TableRowGroup>
+          {hasPagination && (
+            <TableFooter>
+              <Spacer as="tr" y={0.6} />
+              <tr role="row">
+                <th
+                  tabIndex={-1}
+                  role="columnheader"
+                  colSpan={collection.columnCount}
+                >
+                  {paginationChildren}
+                </th>
+              </tr>
+            </TableFooter>
+          )}
+        </StyledTable>
+      </TableContext.Provider>
     );
   }
 );

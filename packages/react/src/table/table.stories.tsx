@@ -150,6 +150,35 @@ const rows = [
   { id: 4, name: 'log.txt', date: '1/18/2016', type: 'Text Document' }
 ];
 
+// duplicate rows
+const paginatedRows = [
+  ...rows,
+  {
+    id: 5,
+    name: 'Games',
+    date: '6/7/2020',
+    type: 'File folder'
+  },
+  {
+    id: 6,
+    name: 'Program Files',
+    date: '4/7/2021',
+    type: 'File folder'
+  },
+  {
+    id: 7,
+    name: 'bootmgr',
+    date: '11/20/2010',
+    type: 'System file'
+  },
+  {
+    id: 8,
+    name: 'log.txt',
+    date: '1/18/2016',
+    type: 'Text Document'
+  }
+];
+
 const columns = [
   { name: 'Name', uid: 'name' },
   { name: 'Type', uid: 'type' },
@@ -406,7 +435,7 @@ export const Pagination = () => {
           </Table.Column>
         )}
       </Table.Header>
-      <Table.Body items={rows}>
+      <Table.Body items={paginatedRows}>
         {(item) => (
           <Table.Row>
             {(columnKey) => (
@@ -415,7 +444,7 @@ export const Pagination = () => {
           </Table.Row>
         )}
       </Table.Body>
-      <Table.Pagination />
+      <Table.Pagination align="center" />
     </Table>
   );
 };

@@ -194,6 +194,8 @@ const display = tuple(
 
 const contentPosition = tuple('left', 'right');
 
+const normalAlignments = tuple('start', 'center', 'end');
+
 export const excludedInputPropsForTextarea = tuple(
   'clearable',
   'as',
@@ -251,6 +253,8 @@ export type SimpleColors = typeof simpleColors[number];
 export type TooltipColors = typeof extendedColorsNoGradient[number];
 
 export type NormalLoaders = typeof normalLoaders[number];
+
+export type NormalAlignment = typeof normalAlignments[number];
 
 export type SnippetTypes = typeof extendedColors[number];
 

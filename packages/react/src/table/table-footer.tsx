@@ -1,13 +1,11 @@
 import React, { useRef, useImperativeHandle } from 'react';
 import { CSS } from '../theme/stitches.config';
+import { useTableContext } from './table-context';
 import { StyledTableFooter, TableFooterVatiantsProps } from './table.styles';
 
-interface Props {}
+type NativeAttrs = React.HTMLAttributes<unknown>;
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-
-export type TableFooterProps = Props &
-  NativeAttrs &
+export type TableFooterProps = NativeAttrs &
   TableFooterVatiantsProps & { css?: CSS };
 
 const TableFooter = React.forwardRef<
@@ -18,8 +16,15 @@ const TableFooter = React.forwardRef<
 
   useImperativeHandle(ref, () => tableFooterRef?.current);
 
+  const { footerAlign } = useTableContext();
+
   return (
-    <StyledTableFooter ref={tableFooterRef} role="rowgroup" {...props}>
+    <StyledTableFooter
+      ref={tableFooterRef}
+      role="rowgroup"
+      align={props.align || footerAlign}
+      {...props}
+    >
       {children}
     </StyledTableFooter>
   );

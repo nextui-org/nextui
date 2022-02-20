@@ -1,16 +1,33 @@
 import React from 'react';
 import { CSS } from '../theme/stitches.config';
-import { Pagination } from '../index';
+import { Pagination, PaginationProps } from '../index';
+import { NormalAlignment } from '../utils/prop-types';
+import { useTableContext } from './table-context';
 
 interface Props {
   animated?: boolean;
+  rowsPerPage?: number;
+  align?: NormalAlignment;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type TableFooterProps = Props & NativeAttrs & { css?: CSS };
+export type TablePaginationProps = Props &
+  NativeAttrs &
+  Partial<PaginationProps> & { css?: CSS };
 
-const TablePagination: React.FC<TableFooterProps> = ({ animated }) => {
+const TablePagination: React.FC<TablePaginationProps> = ({
+  animated,
+  align
+}) => {
+  const { footerAlign, setFooterAlign } = useTableContext();
+
+  React.useEffect(() => {
+    if (align && align !== footerAlign) {
+      setFooterAlign?.(align);
+    }
+  }, [align, footerAlign]);
+
   return (
     <Pagination
       total={5}
