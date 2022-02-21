@@ -56,8 +56,6 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
     [selfActive, noMargin]
   );
 
-  console.log({ selfActive });
-
   return (
     <StyledPaginationHighlight
       aria-hidden={true}
