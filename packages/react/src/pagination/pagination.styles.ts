@@ -268,17 +268,17 @@ export const StyledPagination = styled('nav', {
     },
     size: {
       xs: {
-        $$paginationWidth: '$space$9',
+        $$paginationWidth: '$space$10',
         $$paginationFontSize: '$space$5',
-        fs: ' $$paginationFontSize'
+        fs: '$$paginationFontSize'
       },
       sm: {
-        $$paginationWidth: '$space$11',
+        $$paginationWidth: '$space$12',
         $$paginationFontSize: '$space$6',
         fs: '$$paginationFontSize'
       },
       md: {
-        $$paginationWidth: '$space$12',
+        $$paginationWidth: '$space$13',
         $$paginationFontSize: '$space$7',
         fs: '$$paginationFontSize'
       },
