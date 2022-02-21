@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import clsx from '../utils/clsx';
 import { CSS } from '../theme/stitches.config';
 import {
@@ -22,6 +22,8 @@ export type PaginationHighlightProps = Props &
   NativeAttrs &
   PaginationHighlightVariantsProps;
 
+const preClass = 'nextui-pagination-highlight';
+
 const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   active,
   shadow,
@@ -30,13 +32,31 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   css,
   ...props
 }) => {
+  const [selfActive, setSelfActive] = useState(active);
+  const [moveClassName, setMoveClassName] = useState('');
+
+  useEffect(() => {
+    if (active !== selfActive) {
+      setSelfActive(active);
+      setMoveClassName(`${preClass}--moving`);
+      const timer = setTimeout(() => {
+        setMoveClassName('');
+        clearTimeout(timer);
+      }, 350);
+    }
+  }, [active]);
+
   const leftValue = useMemo(
     () =>
       noMargin
-        ? `var(--nextui--paginationSize) * ${active}`
-        : `var(--nextui--paginationSize) * ${active} + ${active * 4 + 2}px`,
-    [active, noMargin]
+        ? `var(--nextui--paginationSize) * ${selfActive}`
+        : `var(--nextui--paginationSize) * ${selfActive} + ${
+            selfActive * 4 + 2
+          }px`,
+    [selfActive, noMargin]
   );
+
+  console.log({ selfActive });
 
   return (
     <StyledPaginationHighlight
@@ -44,12 +64,13 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
       shadow={shadow}
       rounded={rounded}
       className={clsx(
-        'nextui-pagination-highlight',
+        preClass,
+        moveClassName,
         {
-          'nextui-pagination-highlight--rounded': rounded,
-          'nextui-pagination-highlight--active': active,
-          'nextui-pagination-highlight--no-margin': noMargin,
-          'nextui-pagination-highlight--shadow': shadow
+          [`${preClass}--rounded`]: rounded,
+          [`${preClass}--active`]: active,
+          [`${preClass}--no-margin`]: noMargin,
+          [`${preClass}--shadow`]: shadow
         },
         props.className
       )}

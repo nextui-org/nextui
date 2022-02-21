@@ -177,20 +177,29 @@ export const StyledPaginationHighlight = styled('div', {
   minWidth: '$$paginationSize',
   animationName: `${paginationAnimation}`,
   animationDirection: 'normal',
+  '&.nextui-pagination-highlight--moving': {
+    transform: 'scale($$paginationScaleTransform)'
+  },
   '@motion': {
-    transition: 'none'
+    transition: 'none',
+    '&.nextui-pagination-highlight--moving': {
+      transform: 'scale(1)'
+    }
   },
   variants: {
     animated: {
       true: {
         animationDuration: '350ms',
         animationTimingFunction: 'ease',
-        transition: 'left 350ms ease'
+        transition: 'left 350ms ease 0s, transform 300ms ease 0s'
       },
       false: {
         animationDuration: 'none',
         animationTimingFunction: 'none',
-        transition: 'none'
+        transition: 'none',
+        '&.nextui-pagination-highlight--moving': {
+          transform: 'scale(1)'
+        }
       }
     },
     noMargin: {
