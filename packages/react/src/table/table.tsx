@@ -89,9 +89,10 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
     const initialValues = React.useMemo<Partial<TableConfig>>(() => {
       return {
         collection,
+        selectedColor: props.selectedColor,
         animated: props.animated
       };
-    }, [collection, props.animated]);
+    }, [collection, props.animated, props.selectedColor]);
 
     return (
       <TableContext.Provider defaultValues={initialValues}>

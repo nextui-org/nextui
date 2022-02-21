@@ -448,6 +448,7 @@ export const Pagination = () => {
       aria-label="Example table with dynamic content"
       css={{ minWidth: '620px', height: 'auto' }}
       selectionMode="multiple"
+      selectedColor="secondary"
     >
       <Table.Header columns={columns}>
         {(column) => (
@@ -469,6 +470,8 @@ export const Pagination = () => {
         )}
       </Table.Body>
       <Table.Pagination
+        shadow
+        noMargin
         align="center"
         rowsPerPage={3}
         onPageChange={(page) => console.log({ page })}
