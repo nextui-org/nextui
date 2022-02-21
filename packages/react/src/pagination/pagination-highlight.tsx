@@ -5,6 +5,7 @@ import {
   StyledPaginationHighlight,
   PaginationHighlightVariantsProps
 } from './pagination.styles';
+import { mergeProps } from '@react-aria/utils';
 
 interface Props {
   active: number;
@@ -15,7 +16,11 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
 }
 
-export type PaginationHighlightProps = Props & PaginationHighlightVariantsProps;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+
+export type PaginationHighlightProps = Props &
+  NativeAttrs &
+  PaginationHighlightVariantsProps;
 
 const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   active,
@@ -28,8 +33,8 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   const leftValue = useMemo(
     () =>
       noMargin
-        ? `$$paginationSize * ${active}`
-        : `$$paginationSize * ${active} + ${active * 4 + 2}px`,
+        ? `var(--nextui--paginationSize) * ${active}`
+        : `var(--nextui--paginationSize) * ${active} + ${active * 4 + 2}px`,
     [active, noMargin]
   );
 
@@ -45,8 +50,12 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
         'nextui-pagination-highlight--shadow': shadow
       })}
       noMargin={noMargin}
+      style={mergeProps(
+        { '--nextui--paginationLeft': `calc(${leftValue})` },
+        props?.style || {}
+      )}
       css={{
-        left: `calc(${leftValue})`,
+        left: `var(--nextui--paginationLeft)`,
         ...(css as any)
       }}
       {...props}
