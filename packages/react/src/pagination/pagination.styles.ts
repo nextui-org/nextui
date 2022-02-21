@@ -317,11 +317,11 @@ export const StyledPagination = styled('nav', {
       true: {
         $$paginationSize: 'calc($$paginationWidth / 2)',
         $$paginationItemRadius: '$radii$pill',
-        $$paginationScaleTransform: 0.8
+        $$paginationScaleTransform: 1.05
       },
       false: {
         $$paginationSize: '$$paginationWidth',
-        $$paginationScaleTransform: 0.9
+        $$paginationScaleTransform: 1.1
       }
     },
     rounded: {
