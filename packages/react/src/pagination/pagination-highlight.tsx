@@ -43,12 +43,16 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
       aria-hidden={true}
       shadow={shadow}
       rounded={rounded}
-      className={clsx('nextui-pagination-highlight', {
-        'nextui-pagination-highlight--rounded': rounded,
-        'nextui-pagination-highlight--active': active,
-        'nextui-pagination-highlight--no-margin': noMargin,
-        'nextui-pagination-highlight--shadow': shadow
-      })}
+      className={clsx(
+        'nextui-pagination-highlight',
+        {
+          'nextui-pagination-highlight--rounded': rounded,
+          'nextui-pagination-highlight--active': active,
+          'nextui-pagination-highlight--no-margin': noMargin,
+          'nextui-pagination-highlight--shadow': shadow
+        },
+        props.className
+      )}
       noMargin={noMargin}
       style={mergeProps(
         { '--nextui--paginationLeft': `calc(${leftValue})` },
