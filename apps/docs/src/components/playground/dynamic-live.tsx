@@ -73,7 +73,7 @@ const DynamicLive: React.FC<Props> = ({
         <LivePreview />
         <LiveError />
       </StyledWrapper>
-      {showEditor && <Editor initialOpen={initialEditorOpen} />}
+      {showEditor && <Editor initialOpen={initialEditorOpen} code={code} />}
     </LiveProvider>
   );
 };
