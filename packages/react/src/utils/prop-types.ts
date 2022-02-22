@@ -216,6 +216,8 @@ export const excludedTableProps = tuple(
   'items',
   'disabledKeys',
   'allowDuplicateSelectionEvents',
+  'disallowEmptySelection',
+  'defaultSelectedKeys',
   'sortDescriptor',
   'onSortChange'
 );

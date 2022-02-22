@@ -4,8 +4,6 @@ import {
   cssFocusVisible
 } from '../theme/stitches.config';
 
-export const StyledTableRowGroup = styled('thead', {});
-
 export const StyledTableHeaderRow = styled('tr', {
   ov: 'visible'
 });
@@ -142,6 +140,33 @@ export const StyledTableRow = styled(
   },
   cssFocusVisible
 );
+
+export const StyledTableRowGroup = styled('thead', {
+  variants: {
+    isFixed: {
+      true: {
+        display: 'table',
+        width: '100%',
+        tableLayout: 'fixed'
+      }
+    },
+    isInfinityScroll: {
+      true: {
+        display: 'block',
+        height: '200px',
+        overflow: 'auto',
+        [`& ${StyledTableRow}`]: {
+          display: 'table',
+          width: '100%',
+          tableLayout: 'fixed'
+        }
+      }
+    }
+  },
+  defaultVariants: {
+    isInfinityScroll: false
+  }
+});
 
 export const StyledTable = styled('table', {
   borderCollapse: 'separate',
@@ -530,3 +555,4 @@ export type TableColumnHeaderVariantsProps = VariantProps<
   typeof StyledTableColumnHeader
 >;
 export type TableFooterVatiantsProps = VariantProps<typeof StyledTableFooter>;
+export type TableRowGroupVariants = VariantProps<typeof StyledTableRowGroup>;

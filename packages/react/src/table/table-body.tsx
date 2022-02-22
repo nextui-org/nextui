@@ -8,6 +8,7 @@ import TableRow from './table-row';
 import TableCell from './table-cell';
 import TableCheckboxCell from './table-checkbox-cell';
 import { useTableContext } from './table-context';
+import { isInfinityScroll } from './utils';
 import clsx from '../utils/clsx';
 
 interface Props<T> {
@@ -24,7 +25,11 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<any>>;
 export type TableBodyProps<T = unknown> = Props<T> &
   NativeAttrs & { css?: CSS };
 
-const TableBody: React.FC<TableBodyProps> = ({
+// TODO: Remove this once we have a better way to pass it from the parent
+const SCROLL_OFFSET = 40;
+
+const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
+  children,
   collection,
   state,
   animated,
@@ -33,6 +38,11 @@ const TableBody: React.FC<TableBodyProps> = ({
   ...props
 }) => {
   const { currentPage, rowsPerPage } = useTableContext();
+
+  const infinityScroll = useMemo(
+    () => isInfinityScroll(collection),
+    [collection.body.props]
+  );
 
   const rows = useMemo(() => {
     const data = [...collection.body.childNodes];
@@ -63,12 +73,34 @@ const TableBody: React.FC<TableBodyProps> = ({
     );
   }, [collection.columnCount, rows, rowsPerPage]);
 
+  // handle scroll and call next page on infinity scroll
+  const handleScroll = (e: React.BaseSyntheticEvent) => {
+    if (!infinityScroll) {
+      return;
+    }
+    const element = e.target;
+    const isAtBottom =
+      element.scrollHeight - (element.scrollTop + SCROLL_OFFSET) <=
+      element.clientHeight;
+
+    const isLoading =
+      collection.body?.props?.loadingState === 'loading' ||
+      collection.body?.props?.loadingState === 'loadingMore';
+
+    if (isAtBottom && !isLoading) {
+      collection.body?.props?.onLoadMore?.();
+    }
+  };
+
   return (
     <TableRowGroup
       as="tbody"
       className={clsx('nextui-table-body', props.className)}
+      isInfinityScroll={infinityScroll}
+      onScroll={handleScroll}
       {...props}
     >
+      {children}
       {rows?.map((row) => {
         if (!row.hasChildNodes) {
           return null;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import Table, { TableProps } from './index';
+import Table, { TableProps, useAsyncList } from './index';
 import { getKeyValue } from '../utils/object';
 
 // import { User, Text, Col, Row, Tooltip, styled } from '../index';
@@ -442,6 +442,18 @@ export const DisabledKeys = () => {
   );
 };
 
+export const DisallowEmptySelection = () => {
+  return (
+    <BaseTable
+      shadow={false}
+      defaultSelectedKeys={[2]}
+      disallowEmptySelection
+      selectionMode="multiple"
+      selectedColor="secondary"
+    />
+  );
+};
+
 export const Pagination = () => {
   return (
     <Table
@@ -478,6 +490,75 @@ export const Pagination = () => {
         rowsPerPage={3}
         onPageChange={(page) => console.log({ page })}
       />
+    </Table>
+  );
+};
+
+export const InfinityPagination = () => {
+  let scopedColumns = [
+    { name: 'Name', uid: 'name' },
+    { name: 'Height', uid: 'height' },
+    { name: 'Mass', uid: 'mass' },
+    { name: 'Birth Year', uid: 'birth_year' }
+  ];
+
+  // fetch people from swapi
+  const [people, setPeople] = React.useState([]);
+  const [page, setPage] = React.useState(1);
+  const [loading, setLoading] = React.useState(false);
+  const [hasMore, setHasMore] = React.useState(true);
+
+  React.useEffect(() => {
+    setLoading(true);
+    fetch(`https://swapi.dev/api/people/?page=${page}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setPeople([...people, ...res.results]);
+        setLoading(false);
+        setHasMore(res.next !== null);
+      });
+  }, [page]);
+
+  const nextPage = () => {
+    hasMore && setPage(page + 1);
+  };
+
+  return (
+    <Table
+      bordered
+      shadow={false}
+      aria-label="Example table with dynamic content & infinity pagination"
+      css={{ minWidth: '620px', height: 'auto' }}
+      selectionMode="multiple"
+      selectedColor="secondary"
+    >
+      <Table.Header columns={scopedColumns}>
+        {(column) => (
+          <Table.Column
+            key={column.uid}
+            align={column.uid === 'name' ? 'end' : 'start'}
+          >
+            {column.name}
+          </Table.Column>
+        )}
+      </Table.Header>
+      <Table.Body
+        items={people}
+        loadingState={
+          loading && page == 1
+            ? 'loading'
+            : loading && page > 1
+            ? 'loadingMore'
+            : 'idle'
+        }
+        onLoadMore={nextPage}
+      >
+        {(item: any) => (
+          <Table.Row key={item.name}>
+            {(key) => <Table.Cell>{item[key]}</Table.Cell>}
+          </Table.Row>
+        )}
+      </Table.Body>
     </Table>
   );
 };

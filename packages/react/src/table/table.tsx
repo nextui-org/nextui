@@ -34,6 +34,7 @@ import { hasChild, pickSingleChild } from '../utils/collections';
 import { StyledTable, TableVariantsProps } from './table.styles';
 import TableContext, { TableConfig } from './table-context';
 import { excludedTableProps } from '../utils/prop-types';
+import { isInfinityScroll } from './utils';
 import withDefaults from '../utils/with-defaults';
 import clsx from '../utils/clsx';
 
@@ -116,7 +117,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           {...gridProps}
           {...props}
         >
-          <TableRowGroup as="thead">
+          <TableRowGroup as="thead" isFixed={isInfinityScroll(collection)}>
             {collection.headerRows.map((headerRow) => (
               <TableHeaderRow
                 key={headerRow?.key}
@@ -144,16 +145,17 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
               </TableHeaderRow>
             ))}
           </TableRowGroup>
-          {!props.sticked && (
-            <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />
-          )}
           <TableBody
             state={state}
             collection={collection}
             animated={props.animated}
             hasPagination={hasPagination}
             selectedColor={props.selectedColor}
-          />
+          >
+            {!props.sticked && (
+              <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />
+            )}
+          </TableBody>
           {hasPagination && (
             <TableFooter>
               <Spacer as="tr" className="nextui-table-hidden-row" y={0.6} />

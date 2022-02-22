@@ -20,6 +20,7 @@ export type TablePaginationProps = Props &
 
 const TablePagination: React.FC<TablePaginationProps> = ({
   align,
+  rowsPerPage: rowsPerPageProp,
   onPageChange,
   ...props
 }) => {
@@ -41,10 +42,10 @@ const TablePagination: React.FC<TablePaginationProps> = ({
   }, [align, footerAlign]);
 
   React.useEffect(() => {
-    if (props.rowsPerPage && props.rowsPerPage !== rowsPerPage) {
-      setRowsPerPage?.(props.rowsPerPage);
+    if (rowsPerPageProp && rowsPerPageProp !== rowsPerPage) {
+      setRowsPerPage?.(rowsPerPageProp);
     }
-  }, [rowsPerPage, props.rowsPerPage]);
+  }, [rowsPerPage, rowsPerPageProp]);
 
   const handlePageChanged = (page: number) => {
     setCurrentPage?.(page);

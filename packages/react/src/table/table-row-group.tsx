@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSS } from '../theme/stitches.config';
 import { useTableRowGroup } from '@react-aria/table';
-import { StyledTableRowGroup } from './table.styles';
+import { StyledTableRowGroup, TableRowGroupVariants } from './table.styles';
 import withDefaults from '../utils/with-defaults';
 import clsx from '../utils/clsx';
 
@@ -15,7 +15,9 @@ const defaultProps = {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type TableRowGroupProps = Props & NativeAttrs & { css?: CSS };
+export type TableRowGroupProps = Props &
+  TableRowGroupVariants &
+  NativeAttrs & { css?: CSS };
 
 const TableRowGroup: React.FC<React.PropsWithChildren<TableRowGroupProps>> = ({
   children,
