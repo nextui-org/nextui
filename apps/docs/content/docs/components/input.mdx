@@ -470,56 +470,60 @@ import { Input } from '@nextui-org/react';
 
 #### Input Props
 
-| Attribute               | Type                                                  | Accepted values                      | Description                                                                                       | Default   |
-| ----------------------- | ----------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------- | --------- |
-| **value**               | `string`                                              | -                                    | Input value                                                                                       | -         |
-| **initialValue**        | `string`                                              | -                                    | Input default value                                                                               | -         |
-| **placeholder**         | `string`                                              | -                                    | The short hint displayed in the input                                                             | -         |
-| **size**                | `NormalSizes`                                         | [NormalSizes](#normal-sizes)         | Change input size                                                                                 | `medium`  |
-| **color**               | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input text, border and label color                                                         | `default` |
-| **status**              | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input status color                                                                         | `default` |
-| **helperColor**         | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change helper text color                                                                          | `default` |
-| **required**            | `boolean`                                             | `true/false`                         | Required input prop                                                                               | `false`   |
-| **readOnly**            | `boolean`                                             | `true/false`                         | It prevents the user from changing the value of the field                                         | `false`   |
-| **disabled**            | `boolean`                                             | `true/false`                         | Disable input                                                                                     | `false`   |
-| **clearable**           | `boolean`                                             | `true/false`                         | Show clear button                                                                                 | `false`   |
-| **rounded**             | `boolean`                                             | `true/false`                         | Rounded input                                                                                     | `false`   |
-| **bordered**            | `boolean`                                             | `true/false`                         | Bordered input                                                                                    | `false`   |
-| **underlined**          | `boolean`                                             | `true/false`                         | Underlined input                                                                                  | `false`   |
-| **shadow**              | `boolean`                                             | `true/false`                         | Enable or disable the input shadow                                                                | `true`    |
-| **animated**            | `boolean`                                             | `true/false`                         | Enable or disable the input animation                                                             | `true`    |
-| **autoComplete**        | `string`                                              | -                                    | HTML input autocomplete attribute                                                                 | `off`     |
-| **borderWeight**        | `NormalWeights`                                       | [NormalWeights](#normal-weights)     | Border weight for `bordered` input                                                                | `normal`  |
-| **fullWidth**           | `boolean`                                             | -                                    | If `true`, the input will take up the full width of its container.                                | `false`   |
-| **width**               | `string`                                              | -                                    | Input width                                                                                       | `initial` |
-| **label**               | `string`                                              | -                                    | Text label for input                                                                              | -         |
-| **labelPlaceholder**    | `string`                                              | -                                    | The placeholder becomes a label                                                                   | -         |
-| **labelLeft**           | `string`                                              | -                                    | Text label at left of the input                                                                   | -         |
-| **labelRight**          | `string`                                              | -                                    | Text label at right of the input                                                                  | -         |
-| **helperText**          | `string`                                              | -                                    | Add a helper text to Input                                                                        | -         |
-| **contentLeft**         | `React.ReactNode`                                     | -                                    | Left content for input                                                                            | -         |
-| **contentRight**        | `React.ReactNode`                                     | -                                    | Right content for input                                                                           | -         |
-| **contentClickable**    | `boolean`                                             | `true/false`                         | Left/right content are clickable (just applied when the styling prop is true, see the next props) | `false`   |
-| **contentLeftStyling**  | `boolean`                                             | `true/false`                         | Allows the Input component to wrap the `contentLeft` in a container                               | `true`    |
-| **contentRightStyling** | `boolean`                                             | `true/false`                         | Allows the Input component to wrap the `contentRight` in a container                              | `true`    |
-| **onChange**            | `(e: React.ChangeEvent<HTMLInputElement>) => void`    | -                                    | Callback fired when the value is changed                                                          | -         |
-| **onFocus**             | `(e: React.FocusEvent<HTMLInputElement>) => void`     | -                                    | Callback fired when the input is focused.                                                         | -         |
-| **onBlur**              | `(e: React.FocusEvent<HTMLInputElement>) => void`     | -                                    | Callback fired when the input is blurred.                                                         | -         |
-| **onContentClick**      | `(key: ContentPosition, e: React.MouseEvent) => void` | [ContentPosition](#content-position) | click icon event                                                                                  | -         |
-| **onClearClick**        | `(e: React.MouseEvent) => void`                       | -                                    | clear icon event                                                                                  | -         |
-| **ref**                 | <Code>Ref<HTMLInputElement &#124; null></Code>        | -                                    | forwardRef                                                                                        | -         |
-| ...                     | `InputHTMLAttributes`                                 | `'alt', 'type', 'className', ...`    | Input native props                                                                                | -         |
+| Attribute               | Type                                                  | Accepted values                      | Description                                                                                       | Default          |
+| ----------------------- | ----------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------- | ---------------- |
+| **value**               | `string`                                              | -                                    | Input value                                                                                       | -                |
+| **initialValue**        | `string`                                              | -                                    | Input default value                                                                               | -                |
+| **placeholder**         | `string`                                              | -                                    | The short hint displayed in the input                                                             | -                |
+| **size**                | `NormalSizes`                                         | [NormalSizes](#normal-sizes)         | Change input size                                                                                 | `medium`         |
+| **color**               | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input text, border and label color                                                         | `default`        |
+| **status**              | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change input status color                                                                         | `default`        |
+| **helperColor**         | `SimpleColors`                                        | [SimpleColors](#simple-colors)       | Change helper text color                                                                          | `default`        |
+| **required**            | `boolean`                                             | `true/false`                         | Required input prop                                                                               | `false`          |
+| **readOnly**            | `boolean`                                             | `true/false`                         | It prevents the user from changing the value of the field                                         | `false`          |
+| **disabled**            | `boolean`                                             | `true/false`                         | Disable input                                                                                     | `false`          |
+| **clearable**           | `boolean`                                             | `true/false`                         | Show clear button                                                                                 | `false`          |
+| **rounded**             | `boolean`                                             | `true/false`                         | Rounded input                                                                                     | `false`          |
+| **bordered**            | `boolean`                                             | `true/false`                         | Bordered input                                                                                    | `false`          |
+| **underlined**          | `boolean`                                             | `true/false`                         | Underlined input                                                                                  | `false`          |
+| **shadow**              | `boolean`                                             | `true/false`                         | Enable or disable the input shadow                                                                | `true`           |
+| **animated**            | `boolean`                                             | `true/false`                         | Enable or disable the input animation                                                             | `true`           |
+| **autoComplete**        | `string`                                              | -                                    | HTML input autocomplete attribute                                                                 | `off`            |
+| **borderWeight**        | `NormalWeights`                                       | [NormalWeights](#normal-weights)     | Border weight for `bordered` input                                                                | `normal`         |
+| **fullWidth**           | `boolean`                                             | -                                    | If `true`, the input will take up the full width of its container.                                | `false`          |
+| **width**               | `string`                                              | -                                    | Input width                                                                                       | `initial`        |
+| **label**               | `string`                                              | -                                    | Text label for input                                                                              | -                |
+| **labelPlaceholder**    | `string`                                              | -                                    | The placeholder becomes a label                                                                   | -                |
+| **labelLeft**           | `string`                                              | -                                    | Text label at left of the input                                                                   | -                |
+| **labelRight**          | `string`                                              | -                                    | Text label at right of the input                                                                  | -                |
+| **helperText**          | `string`                                              | -                                    | Add a helper text to Input                                                                        | -                |
+| **contentLeft**         | `React.ReactNode`                                     | -                                    | Left content for input                                                                            | -                |
+| **contentRight**        | `React.ReactNode`                                     | -                                    | Right content for input                                                                           | -                |
+| **contentClickable**    | `boolean`                                             | `true/false`                         | Left/right content are clickable (just applied when the styling prop is true, see the next props) | `false`          |
+| **contentLeftStyling**  | `boolean`                                             | `true/false`                         | Allows the Input component to wrap the `contentLeft` in a container                               | `true`           |
+| **contentRightStyling** | `boolean`                                             | `true/false`                         | Allows the Input component to wrap the `contentRight` in a container                              | `true`           |
+| **onChange**            | `(e: React.ChangeEvent<HTMLInputElement>) => void`    | -                                    | Callback fired when the value is changed                                                          | -                |
+| **onFocus**             | `(e: React.FocusEvent<HTMLInputElement>) => void`     | -                                    | Callback fired when the input is focused.                                                         | -                |
+| **onBlur**              | `(e: React.FocusEvent<HTMLInputElement>) => void`     | -                                    | Callback fired when the input is blurred.                                                         | -                |
+| **onContentClick**      | `(key: ContentPosition, e: React.MouseEvent) => void` | [ContentPosition](#content-position) | click icon event                                                                                  | -                |
+| **onClearClick**        | `(e: React.MouseEvent) => void`                       | -                                    | clear icon event                                                                                  | -                |
+| **ref**                 | <Code>Ref<HTMLInputElement &#124; null></Code>        | -                                    | forwardRef                                                                                        | -                |
+| **css**                 | `Stitches.CSS`                                        | -                                    | Override Default CSS style                                                                        | -                |
+| **as**                  | `keyof JSX.IntrinsicElements`                         | -                                    | Changes which tag component outputs                                                               | `input`          |
+| ...                     | `InputHTMLAttributes`                                 | `'alt', 'type', 'className', ...`    | Input native props                                                                                | -                |
 
 <Spacer y={2} />
 
 ### Input.Password props
 
-| Attribute       | Type              | Accepted values             | Description                  | Default |
-| --------------- | ----------------- | --------------------------- | ---------------------------- | ------- |
-| **hideToggle**  | `boolean`         | -                           | Hide toggle icon             | `false` |
-| **visibleIcon** | `React.ReactNode` | -                           | Custom visible password icon | -       |
-| **hiddenIcon**  | `React.ReactNode` | -                           | Custom hidden password icon  | -       |
-| ...             | `Input Props`     | [Input Props](#input-props) | Input props                  | -       |
+| Attribute       | Type                              | Accepted values             | Description                            | Default          |
+| --------------- | --------------------------------- | --------------------------- | -------------------------------------- | ---------------- | 
+| **hideToggle**  | `boolean`                         | -                           | Hide toggle icon                       | `false`          |
+| **visibleIcon** | `React.ReactNode`                 | -                           | Custom visible password icon           | -                |
+| **hiddenIcon**  | `React.ReactNode`                 | -                           | Custom hidden password icon            | -                |
+| **css**         | `Stitches.CSS`                    | -                           | Override Default CSS style             | -                |
+| **as**          | `keyof JSX.IntrinsicElements`     | -                           | Changes which tag component outputs    | `input`          |
+| ...             | `Input Props`                     | [Input Props](#input-props) | Input props                            | -                |
 
 <Spacer y={2} />
 

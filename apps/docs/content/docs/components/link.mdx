@@ -129,15 +129,17 @@ return (
 
 #### Link Props
 
-| Attribute     | Type                                            | Accepted values            | Description                 | Default |
-| ------------- | ----------------------------------------------- | -------------------------- | --------------------------- | ------- |
-| **color**     | `LinkColors` `boolean` `string`                 | [LinkColors](#link-colors) | Change link color           | `false` |
-| **href**      | `string`                                        | -                          | Link url                    | -       |
-| **icon**      | `boolean`                                       | `true/false`               | Show link icon              | `false` |
-| **underline** | `boolean`                                       | `true/false`               | Display underline           | `false` |
-| **block**     | `boolean`                                       | `true/false`               | Display as a separate block | `false` |
-| **ref**       | <Code>Ref<HTMLAnchorElement &#124; null></Code> | -                          | forwardRef                  | -       |
-| ...           | `AnchorHTMLAttributes`                          | `'rel', 'target', ...`     | Native props                | -       |
+| Attribute     | Type                                            | Accepted values            | Description                             | Default |
+| ------------- | ----------------------------------------------- | -------------------------- | --------------------------------------- | ------- |
+| **color**     | `LinkColors` `boolean` `string`                 | [LinkColors](#link-colors) | Change link color                       | `false` |
+| **href**      | `string`                                        | -                          | Link url                                | -       |
+| **icon**      | `boolean`                                       | `true/false`               | Show link icon                          | `false` |
+| **underline** | `boolean`                                       | `true/false`               | Display underline                       | `false` |
+| **block**     | `boolean`                                       | `true/false`               | Display as a separate block             | `false` |
+| **ref**       | <Code>Ref<HTMLAnchorElement &#124; null></Code> | -                          | forwardRef                              | -       |
+| **css**       | `Stitches.CSS`                                  | -                          | Override Default CSS style              | -       |
+| **as**        | `keyof JSX.IntrinsicElements`                   | -                          | Changes which tag component outputs     | `a`     |
+| ...           | `AnchorHTMLAttributes`                          | `'rel', 'target', ...`     | Native props                            | -       |
 
 <Spacer y={2} />
 

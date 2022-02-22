@@ -132,14 +132,16 @@ import { Loading } from '@nextui-org/react';
 
 #### Loading Props
 
-| Attribute              | Type             | Accepted values                  | Description                                | Default   |
-| ---------------------- | ---------------- | -------------------------------- | ------------------------------------------ | --------- |
-| **size**               | `NormalSizes`    | [NormalSizes](#normal-sizes)     | Loading size                               | `medium`  |
-| **color**              | `SimpleColors`   | [SimpleColors](#simple-colors)   | Change loading color                       | `primary` |
-| **textColor**          | `SimpleColors`   | [SimpleColors](#simple-colors)   | Change loading text color                  | `default` |
-| **type**               | `NormalLoaders`  | [NormalLoaders](#normal-loaders) | Selected or not (in single)                | `default` |
-| **gradientBackground** | `string/null`    | -                                | Set a background for gradient loading type | -         |
-| ...                    | `HTMLAttributes` | `'id', 'className', ...`         | Native props                               | -         |
+| Attribute              | Type                           | Accepted values                  | Description                                | Default   |
+| ---------------------- | ------------------------------ | -------------------------------- | ------------------------------------------ | --------- |
+| **size**               | `NormalSizes`                  | [NormalSizes](#normal-sizes)     | Loading size                               | `medium`  |
+| **color**              | `SimpleColors`                 | [SimpleColors](#simple-colors)   | Change loading color                       | `primary` |
+| **textColor**          | `SimpleColors`                 | [SimpleColors](#simple-colors)   | Change loading text color                  | `default` |
+| **type**               | `NormalLoaders`                | [NormalLoaders](#normal-loaders) | Selected or not (in single)                | `default` |
+| **gradientBackground** | `string/null`                  | -                                | Set a background for gradient loading type | -         |
+| **css**                | `Stitches.CSS`                 | -                                | Override Default CSS style                 | -         |
+| **as**                 | `keyof JSX.IntrinsicElements`  | -                                | Changes which tag component outputs        | `span`    |
+| ...                    | `HTMLAttributes`               | `'id', 'className', ...`         | Native props                               | -         |
 
 <Spacer y={2} />
 
