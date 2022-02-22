@@ -229,39 +229,41 @@ import { Textarea } from '@nextui-org/react';
 
 #### Textarea Props
 
-| Attribute             | Type                                                  | Accepted values                  | Description                                                               | Default   |
-| --------------------- | ----------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------- | --------- |
-| **value**             | `string`                                              | -                                | Textarea value                                                            | -         |
-| **initialValue**      | `string`                                              | -                                | Textarea default value                                                    | -         |
-| **placeholder**       | `string`                                              | -                                | The short hint displayed in the textarea                                  | -         |
-| **size**              | `NormalSizes`                                         | [NormalSizes](#normal-sizes)     | Change textarea size                                                      | `medium`  |
-| **color**             | `SimpleColors`                                        | [SimpleColors](#simple-colors)   | Change textarea text, border and label color                              | `default` |
-| **status**            | `SimpleColors`                                        | [SimpleColors](#simple-colors)   | Change textarea status color                                              | `default` |
-| **rows**              | `number`                                              | -                                | Textarea rows count                                                       | -         |
-| **minRows**           | `number`                                              | -                                | Minimum number of rows to show for textarea                               | `3`       |
-| **maxRows**           | `number`                                              | -                                | Maximum number of rows up to which the textarea can grow                  | `6`       |
-| **cacheMeasurements** | `boolean`                                             | -                                | Reuse previously computed measurements when computing height of textarea. | `true`    |
-| **helperColor**       | `SimpleColors`                                        | [SimpleColors](#simple-colors)   | Change helper text color                                                  | `default` |
-| **required**          | `boolean`                                             | `true/false`                     | Required textarea prop                                                    | `false`   |
-| **readOnly**          | `boolean`                                             | `true/false`                     | It prevents the user from changing the value of the field                 | `false`   |
-| **disabled**          | `boolean`                                             | `true/false`                     | Disable textarea                                                          | `false`   |
-| **bordered**          | `boolean`                                             | `true/false`                     | Bordered textarea                                                         | `false`   |
-| **underlined**        | `boolean`                                             | `true/false`                     | Underlined textarea                                                       | `false`   |
-| **shadow**            | `boolean`                                             | `true/false`                     | Enable or disable the textarea shadow                                     | `true`    |
-| **animated**          | `boolean`                                             | `true/false`                     | Enable or disable the textarea animation                                  | `true`    |
-| **autoComplete**      | `string`                                              | -                                | HTML textarea autocomplete attribute                                      | `off`     |
-| **borderWeight**      | `NormalWeights`                                       | [NormalWeights](#normal-weights) | Border weight for `bordered` textarea                                     | `normal`  |
-| **fullWidth**         | `boolean`                                             | -                                | If `true`, the textarea will take up the full width of its container.     | `false`   |
-| **width**             | `string`                                              | -                                | Textarea width                                                            | `initial` |
-| **label**             | `string`                                              | -                                | Text label for textarea                                                   | -         |
-| **labelPlaceholder**  | `string`                                              | -                                | The placeholder becomes a label                                           | -         |
-| **helperText**        | `string`                                              | -                                | Add a helper text to textarea                                             | -         |
-| **onHeightChange**    | `(height: number, meta: {rowHeight: number}) => void` | -                                | Callback fired whenthe textarea height change                             | -         |
-| **onChange**          | `(e: React.ChangeEvent<HTMLTextAreaElement>) => void` | -                                | Callback fired when the value is changed                                  | -         |
-| **onFocus**           | `(e: React.FocusEvent<HTMLTextAreaElement>) => void`  | -                                | Callback fired when the textarea is focused.                              | -         |
-| **onBlur**            | `(e: React.FocusEvent<HTMLTextAreaElement>) => void`  | -                                | Callback fired when the textarea is blurred.                              | -         |
-| **ref**               | <Code>Ref<HTMLTextAreaElement &#124; null></Code>     | -                                | forwardRef                                                                | -         |
-| ...                   | `TextareaHTMLAttributes`                              | `'className', ...`               | Textarea native props                                                     | -         |
+| Attribute             | Type                                                  | Accepted values                  | Description                                                               | Default      |
+| --------------------- | ----------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------- | ------------ |
+| **value**             | `string`                                              | -                                | Textarea value                                                            | -            |
+| **initialValue**      | `string`                                              | -                                | Textarea default value                                                    | -            |
+| **placeholder**       | `string`                                              | -                                | The short hint displayed in the textarea                                  | -            |
+| **size**              | `NormalSizes`                                         | [NormalSizes](#normal-sizes)     | Change textarea size                                                      | `medium`     |
+| **color**             | `SimpleColors`                                        | [SimpleColors](#simple-colors)   | Change textarea text, border and label color                              | `default`    |
+| **status**            | `SimpleColors`                                        | [SimpleColors](#simple-colors)   | Change textarea status color                                              | `default`    |
+| **rows**              | `number`                                              | -                                | Textarea rows count                                                       | -            |
+| **minRows**           | `number`                                              | -                                | Minimum number of rows to show for textarea                               | `3`          |
+| **maxRows**           | `number`                                              | -                                | Maximum number of rows up to which the textarea can grow                  | `6`          |
+| **cacheMeasurements** | `boolean`                                             | -                                | Reuse previously computed measurements when computing height of textarea. | `true`       |
+| **helperColor**       | `SimpleColors`                                        | [SimpleColors](#simple-colors)   | Change helper text color                                                  | `default`    |
+| **required**          | `boolean`                                             | `true/false`                     | Required textarea prop                                                    | `false`      |
+| **readOnly**          | `boolean`                                             | `true/false`                     | It prevents the user from changing the value of the field                 | `false`      |
+| **disabled**          | `boolean`                                             | `true/false`                     | Disable textarea                                                          | `false`      |
+| **bordered**          | `boolean`                                             | `true/false`                     | Bordered textarea                                                         | `false`      |
+| **underlined**        | `boolean`                                             | `true/false`                     | Underlined textarea                                                       | `false`      |
+| **shadow**            | `boolean`                                             | `true/false`                     | Enable or disable the textarea shadow                                     | `true`       |
+| **animated**          | `boolean`                                             | `true/false`                     | Enable or disable the textarea animation                                  | `true`       |
+| **autoComplete**      | `string`                                              | -                                | HTML textarea autocomplete attribute                                      | `off`        |
+| **borderWeight**      | `NormalWeights`                                       | [NormalWeights](#normal-weights) | Border weight for `bordered` textarea                                     | `normal`     |
+| **fullWidth**         | `boolean`                                             | -                                | If `true`, the textarea will take up the full width of its container.     | `false`      |
+| **width**             | `string`                                              | -                                | Textarea width                                                            | `initial`    |
+| **label**             | `string`                                              | -                                | Text label for textarea                                                   | -            |
+| **labelPlaceholder**  | `string`                                              | -                                | The placeholder becomes a label                                           | -            |
+| **helperText**        | `string`                                              | -                                | Add a helper text to textarea                                             | -            |
+| **onHeightChange**    | `(height: number, meta: {rowHeight: number}) => void` | -                                | Callback fired whenthe textarea height change                             | -            |
+| **onChange**          | `(e: React.ChangeEvent<HTMLTextAreaElement>) => void` | -                                | Callback fired when the value is changed                                  | -            |
+| **onFocus**           | `(e: React.FocusEvent<HTMLTextAreaElement>) => void`  | -                                | Callback fired when the textarea is focused.                              | -            |
+| **onBlur**            | `(e: React.FocusEvent<HTMLTextAreaElement>) => void`  | -                                | Callback fired when the textarea is blurred.                              | -            |
+| **ref**               | <Code>Ref<HTMLTextAreaElement &#124; null></Code>     | -                                | forwardRef                                                                | -            |
+| **css**               | `styleObject`                                         | `css.properties`                 | Override Default CSS style                                                | -            |
+| **as**                | `ElementType`                                         | `'Button', 'a'`                  | Changes which tag component outputs                                       | `Textarea`   |
+| ...                   | `TextareaHTMLAttributes`                              | `'className', ...`               | Textarea native props                                                     | -            |
 
 <Spacer y={2} />
 

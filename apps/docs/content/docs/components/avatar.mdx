@@ -279,17 +279,21 @@ import { Avatar } from '@nextui-org/react';
 | **zoomed**       | `boolean`               | `true/false`                             | Zoomed avatar                          | `false`   |
 | **squared**      | `boolean`               | `true/false`                             | Squared avatar                         | `false`   |
 | **icon**         | `ReactNode`             | -                                        | Show icon in avatar                    | -         |
+| **css**          | `styleObject`           | `css.properties`                         | Override Default CSS style             | -         |
+| **as**           | `ElementType`           | `'Button', 'a'`                          | Changes which tag component outputs    | `Avatar`  |
 | ...              | `ImgHTMLAttributes`     | `'alt', 'crossOrigin', 'className', ...` | Native props                           | -         |
 
 <Spacer y={2} />
 
 #### Avatar Group Props
 
-| Attribute    | Type             | Accepted values                  | Description                             | Default |
-| ------------ | ---------------- | -------------------------------- | --------------------------------------- | ------- |
-| **count**    | `number`         | -                                | Total count of avatars                  | -       |
-| **animated** | `boolean`        | -                                | Display translations animation on hover | `false` |
-| ...          | `HTMLAttributes` | `'id', 'name', 'className', ...` | Native props                            | -       |
+| Attribute    | Type             | Accepted values                  | Description                             | Default        |
+| ------------ | ---------------- | -------------------------------- | --------------------------------------- | -------------- |
+| **count**    | `number`         | -                                | Total count of avatars                  | -              |
+| **animated** | `boolean`        | -                                | Display translations animation on hover | `false`        |
+| **css**      | `styleObject`    | `css.properties`                 | Override Default CSS style              | -              |
+| **as**       | `ElementType`    | `'Button', 'a'`                  | Changes which tag component outputs     | `Avatar.Group` |
+| ...          | `HTMLAttributes` | `'id', 'name', 'className', ...` | Native props                            | -              |
 
 <Spacer y={2} />
 

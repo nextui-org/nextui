@@ -266,23 +266,27 @@ return(
 | **preventDefault** | `boolean`                 | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
 | **onChange**       | `(e: RadioEvent) => void` | -                              | The callback invoked when the checked state of the `Radio` changes.       | -         |
 | **id**             | `string`                  | -                              | Native id attr                                                            | -         |
+| **css**            | `styleObject`             | `css.properties`               | Override Default CSS style                                                | -         |
+| **as**             | `ElementType`             | `'Button', 'a'`                | Changes which tag component outputs                                       | `Radio`   |
 | ...                | `InputHTMLAttributes`     | `'id', 'className', ...`       | Native radio props                                                        | -         |
 
 <Spacer y={2} />
 
 #### Radio Group Props
 
-| Attribute        | Type                                       | Accepted values                | Description                      | Default   |
-| ---------------- | ------------------------------------------ | ------------------------------ | -------------------------------- | --------- |
-| **color**        | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group color         | `primary` |
-| **textColor**    | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group text color    | `default` |
-| **initialValue** | `string/number`                            | -                              | Initial radio group value        | -         |
-| **value**        | `string/number`                            | -                              | Selected child radio             | -         |
-| **row**          | `boolean`                                  | `true/false`                   | Change the radio group direction | `false`   |
-| **disabled**     | `boolean`                                  | `true/false`                   | Disable all radios               | `false`   |
-| **size**         | `NormalSizes`                              | [NormalSizes](#normal-sizes)   | Size of all radios in the group  | `medium`  |
-| **onChange**     | `(e:`[RadioEvent](#radio-event)) `=> void` | -                              | Radio group event handler        | -         |
-| ...              | `InputHTMLAttributes`                      | `'id', 'className', ...`       | Native props                     | -         |
+| Attribute        | Type                                       | Accepted values                | Description                            | Default         |
+| ---------------- | ------------------------------------------ | ------------------------------ | -------------------------------------- | --------------- |
+| **color**        | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group color               | `primary`       |
+| **textColor**    | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group text color          | `default`       |
+| **initialValue** | `string/number`                            | -                              | Initial radio group value              | -               |
+| **value**        | `string/number`                            | -                              | Selected child radio                   | -               |
+| **row**          | `boolean`                                  | `true/false`                   | Change the radio group direction       | `false`         |
+| **disabled**     | `boolean`                                  | `true/false`                   | Disable all radios                     | `false`         |
+| **size**         | `NormalSizes`                              | [NormalSizes](#normal-sizes)   | Size of all radios in the group        | `medium`        |
+| **onChange**     | `(e:`[RadioEvent](#radio-event)) `=> void` | -                              | Radio group event handler              | -               |
+| **css**          | `styleObject`                              | `css.properties`               | Override Default CSS style             | -               |
+| **as**           | `ElementType`                              | `'Button', 'a'`                | Changes which tag component outputs    | `Radio.Group`   |
+| ...              | `InputHTMLAttributes`                      | `'id', 'className', ...`       | Native props                           | -               |
 
 <Spacer y={2} />
 

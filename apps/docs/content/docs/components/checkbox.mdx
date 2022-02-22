@@ -228,22 +228,26 @@ import { Checkbox } from '@nextui-org/react';
 | **rounded**        | `boolean`             | `true/false`                   | Rounded checkbox                                                          | `false`   |
 | **line**           | `boolean`             | `true/false`                   | Line in the middle of the label when the `Checkbox` is checked            | -         |
 | **onChange**       | `CheckboxEvent`       | -                              | The callback invoked when the checked state of the `Checkbox` changes.    | -         |
+| **css**            | `styleObject`         | `css.properties`               | Override Default CSS style                                                | -         |
+| **as**             | `ElementType`         | `'Button', 'a'`                | Changes which tag component outputs                                       |`Checkbox` |
 | ...                | `LabelHTMLAttributes` | `'form', 'className', ...`     | Native checkbox props                                                     | -         |
 
 <Spacer y={2} />
 
 #### Checkbox Group Props
 
-| Attribute      | Type                         | Accepted values                | Description                         | Default   |
-| -------------- | ---------------------------- | ------------------------------ | ----------------------------------- | --------- |
-| **value**      | `string[]`                   | -                              | List of checked checkbox            | `[]`      |
-| **row**        | `boolean`                    | `true/false`                   | Change the checkbox group direction | `false`   |
-| **size**       | `NormalSizes`                | [NormalSizes](#normal-sizes)   | Size of all checkboxes in the group | `medium`  |
-| **color**      | `NormalColors`               | [NormalColors](#normal-colors) | Change checkbox group color         | `default` |
-| **labelColor** | `SimpleColors`               | [SimpleColors](#simple-colors) | Change checkbox group label color   | `default` |
-| **disabled**   | `boolean`                    | `true/false`                   | Disable checkbox group              | `false`   |
-| **onChange**   | `(values: string[]) => void` | -                              | Checkbox group event handler        | -         |
-| ...            | `HTMLAttributes`             | `'id', 'className', ...`       | Native props                        | -         |
+| Attribute      | Type                         | Accepted values                | Description                                  | Default             |
+| -------------- | ---------------------------- | ------------------------------ | -------------------------------------------- | ------------------- |
+| **value**      | `string[]`                   | -                              | List of checked checkbox                     | `[]`                |
+| **row**        | `boolean`                    | `true/false`                   | Change the checkbox group direction          | `false`             |
+| **size**       | `NormalSizes`                | [NormalSizes](#normal-sizes)   | Size of all checkboxes in the group          | `medium`            |
+| **color**      | `NormalColors`               | [NormalColors](#normal-colors) | Change checkbox group color                  | `default`           |
+| **labelColor** | `SimpleColors`               | [SimpleColors](#simple-colors) | Change checkbox group label color            | `default`           |
+| **disabled**   | `boolean`                    | `true/false`                   | Disable checkbox group                       | `false`             |
+| **onChange**   | `(values: string[]) => void` | -                              | Checkbox group event handler                 | -                   |
+| **css**        | `styleObject`                | `css.properties`               | Override Default CSS style                   | -                   |
+| **as**         | `ElementType`                | `'Button', 'a'`                | Changes which tag component outputs          | `Checkbox.Group`    |
+| ...            | `HTMLAttributes`             | `'id', 'className', ...`       | Native props                                 | -                   |
 
 <Spacer y={2} />
 

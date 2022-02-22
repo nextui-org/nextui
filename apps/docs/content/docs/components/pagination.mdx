@@ -277,27 +277,29 @@ return(
 
 #### Pagination Props
 
-| Attribute        | Type                     | Accepted values                  | Description                                                      | Default   |
-| ---------------- | ------------------------ | -------------------------------- | ---------------------------------------------------------------- | --------- |
-| **color**        | `NormalColors`           | [NormalColors](#normal-colors)   | Change pagination color                                          | `default` |
-| **size**         | `NormalSizes`            | [NormalSizes](#normal-sizes)     | Change pagination size                                           | `medium`  |
-| **page**         | `number`                 | -                                | Active page number                                               | -         |
-| **initialPage**  | `number`                 | -                                | Selected page on initial render                                  | `1`       |
-| **total**        | `number`                 | -                                | Total amount of pages                                            | `1`       |
-| **siblings**     | `number`                 | -                                | Amount on left/right side of selected page                       | `1`       |
-| **boundaries**   | `number`                 | -                                | Amount of elements visible on left/right edges                   | `1`       |
-| **dotsJump**     | `number`                 | -                                | Number of pages that are added or subtracted on the '...' button | `5`       |
-| **bordered**     | `boolean`                | `true/false`                     | Bordered pagination                                              | `false`   |
-| **rounded**      | `boolean`                | `true/false`                     | Rounded pagination                                               | `false`   |
-| **shadow**       | `boolean`                | `true/false`                     | Display shadow effect                                            | `false`   |
-| **animated**     | `boolean`                | `true/false`                     | Display move and scale animation                                 | `true`    |
-| **borderWeight** | `NormalWeights`          | [NormalWeights](#normal-weights) | Border weight for `bordered` pagination                          | `normal`  |
-| **loop**         | `boolean`                | `true/false`                     | Non disable next/previous controls                               | `false`   |
-| **noMargin**     | `boolean`                | `true/false`                     | Remove margin amongst pagination items                           | `false`   |
-| **controls**     | `boolean`                | `true/false`                     | Enable/Disable pagination controls                               | `true`    |
-| **onlyDots**     | `boolean`                | `true/false`                     | Show only dots as pagination elements                            | `false`   |
-| **onChange**     | `(page: number) => void` | -                                | Callback fired after change of each page                         | -         |
-| ...              | `HTMLAttributes`         | `'id', 'className', ...`         | Native props                                                     | -         |
+| Attribute        | Type                     | Accepted values                  | Description                                                      | Default      |
+| ---------------- | ------------------------ | -------------------------------- | ---------------------------------------------------------------- | ------------ |
+| **color**        | `NormalColors`           | [NormalColors](#normal-colors)   | Change pagination color                                          | `default`    |
+| **size**         | `NormalSizes`            | [NormalSizes](#normal-sizes)     | Change pagination size                                           | `medium`     |
+| **page**         | `number`                 | -                                | Active page number                                               | -            |
+| **initialPage**  | `number`                 | -                                | Selected page on initial render                                  | `1`          |
+| **total**        | `number`                 | -                                | Total amount of pages                                            | `1`          |
+| **siblings**     | `number`                 | -                                | Amount on left/right side of selected page                       | `1`          |
+| **boundaries**   | `number`                 | -                                | Amount of elements visible on left/right edges                   | `1`          |
+| **dotsJump**     | `number`                 | -                                | Number of pages that are added or subtracted on the '...' button | `5`          |
+| **bordered**     | `boolean`                | `true/false`                     | Bordered pagination                                              | `false`      |
+| **rounded**      | `boolean`                | `true/false`                     | Rounded pagination                                               | `false`      |
+| **shadow**       | `boolean`                | `true/false`                     | Display shadow effect                                            | `false`      |
+| **animated**     | `boolean`                | `true/false`                     | Display move and scale animation                                 | `true`       |
+| **borderWeight** | `NormalWeights`          | [NormalWeights](#normal-weights) | Border weight for `bordered` pagination                          | `normal`     |
+| **loop**         | `boolean`                | `true/false`                     | Non disable next/previous controls                               | `false`      |
+| **noMargin**     | `boolean`                | `true/false`                     | Remove margin amongst pagination items                           | `false`      |
+| **controls**     | `boolean`                | `true/false`                     | Enable/Disable pagination controls                               | `true`       |
+| **onlyDots**     | `boolean`                | `true/false`                     | Show only dots as pagination elements                            | `false`      |
+| **onChange**     | `(page: number) => void` | -                                | Callback fired after change of each page                         | -            |
+| **css**          | `styleObject`            | `css.properties`                 | Override Default CSS style                                       | -            |
+| **as**           | `ElementType`            | `'Button', 'h1'`                 | Changes which tag component outputs                              | `Pagination` |
+| ...              | `HTMLAttributes`         | `'id', 'className', ...`         | Native props                                                     | -            |
 
 ### Pagination types
 

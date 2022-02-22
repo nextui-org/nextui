@@ -207,20 +207,22 @@ import { Progress } from '@nextui-org/react';
 
 #### Progress Props
 
-| Attribute          | Type                     | Accepted values                | Description                                     | Default   |
-| ------------------ | ------------------------ | ------------------------------ | ----------------------------------------------- | --------- |
-| **value**          | `number`                 | -                              | Current value                                   | -         |
-| **min**            | `number`                 | -                              | Progress min value                              | `0`       |
-| **max**            | `number`                 | -                              | Progress max value                              | `100`     |
-| **color**          | `NormalColors`           | [NormalColors](#normal-colors) | Change filler bar color                         | `default` |
-| **status**         | `NormalColors`           | [NormalColors](#normal-colors) | Change filler bar background color              | `default` |
-| **size**           | `NormalSizes`            | [NormalSizes](#normal-sizes)   | Change progress size                            | `medium`  |
-| **striped**        | `boolean`                | `true/false`                   | Stripe over the progress bar's background color | `false`   |
-| **indeterminated** | `boolean`                | `true/false`                   | Indeterminated progress                         | `false`   |
-| **shadow**         | `boolean`                | `true/false`                   | Display shadow effect                           | `false`   |
-| **squared**        | `boolean`                | `true/false`                   | Squared progress                                | `false`   |
-| **animated**       | `boolean`                | `true/false`                   | Enable or disable the progress animation        | `true`    |
-| ...                | `ProgressHTMLAttributes` | `'id', 'className', ...`       | Progress native props                           | -         |
+| Attribute          | Type                     | Accepted values                | Description                                     | Default    |
+| ------------------ | ------------------------ | ------------------------------ | ----------------------------------------------- | ---------- |
+| **value**          | `number`                 | -                              | Current value                                   | -          |
+| **min**            | `number`                 | -                              | Progress min value                              | `0`        |
+| **max**            | `number`                 | -                              | Progress max value                              | `100`      |
+| **color**          | `NormalColors`           | [NormalColors](#normal-colors) | Change filler bar color                         | `default`  |
+| **status**         | `NormalColors`           | [NormalColors](#normal-colors) | Change filler bar background color              | `default`  |
+| **size**           | `NormalSizes`            | [NormalSizes](#normal-sizes)   | Change progress size                            | `medium`   |
+| **striped**        | `boolean`                | `true/false`                   | Stripe over the progress bar's background color | `false`    |
+| **indeterminated** | `boolean`                | `true/false`                   | Indeterminated progress                         | `false`    |
+| **shadow**         | `boolean`                | `true/false`                   | Display shadow effect                           | `false`    |
+| **squared**        | `boolean`                | `true/false`                   | Squared progress                                | `false`    | 
+| **animated**       | `boolean`                | `true/false`                   | Enable or disable the progress animation        | `true`     |
+| **css**            | `styleObject`            | `css.properties`               | Override Default CSS style                      | -          |
+| **as**             | `ElementType`            | `'Button', 'a'`                | Changes which tag component outputs             | `Progress` |
+| ...                | `ProgressHTMLAttributes` | `'id', 'className', ...`       | Progress native props                           | -          |
 
 <Spacer y={2} />
 

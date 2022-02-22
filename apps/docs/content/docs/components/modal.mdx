@@ -826,36 +826,44 @@ return (
 | **width**        | `string` `number` | `%` `px` `rem` `em`      | Determine the width of the modal                                                              | `400px` |
 | **onClose**      | `() => void`      | -                        | Callback fired when the modal is closed                                                       | -       |
 | **onOpen**       | `() => void`      | -                        | Callback fired when the modal is open                                                         | -       |
+| **css**          | `styleObject`     | `css.properties`         | Override Default CSS style                                                                    | -       |
+| **as**           | `ElementType`     | `'Button', 'a'`          | Changes which tag component outputs                                                           | `Modal` |
 | ...              | `HTMLAttributes`  | `'id', 'className', ...` | Native props                                                                                  | -       |
 
 <Spacer y={2} />
 
 #### Modal.Header Props
 
-| Attribute      | Type             | Accepted values          | Description                                             | Default  |
-| -------------- | ---------------- | ------------------------ | ------------------------------------------------------- | -------- |
-| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | `true`   |
-| **justify**    | `Justify`        | [Justify](#justify)      | CSS "justify-content" property                          | `center` |
-| ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                            | -        |
+| Attribute      | Type             | Accepted values          | Description                                             | Default        |
+| -------------- | ---------------- | ------------------------ | ------------------------------------------------------- | -------------- |
+| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | `true`         |
+| **justify**    | `Justify`        | [Justify](#justify)      | CSS "justify-content" property                          | `center`       |
+| **css**          | `styleObject`     | `css.properties`      | Override Default CSS style                              | -              |
+| **as**           | `ElementType`     | `'Button', 'a'`       | Changes which tag component outputs                     | `Modal.Header` |
+| ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                            | -              |
 
 <Spacer y={2} />
 
 #### Modal.Body Props
 
-| Attribute      | Type             | Accepted values          | Description                                             | Default |
-| -------------- | ---------------- | ------------------------ | ------------------------------------------------------- | ------- |
-| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | `true`  |
-| ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                            | -       |
+| Attribute      | Type             | Accepted values          | Description                                             | Default      |
+| -------------- | ---------------- | ------------------------ | ------------------------------------------------------- | ------------ |
+| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | `true`       |
+| **css**          | `styleObject`     | `css.properties`         | Override Default CSS style                           | -            |
+| **as**           | `ElementType`     | `'Button', 'a'`          | Changes which tag component outputs                  | `Modal.Body` |
+| ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                            | -            |
 
 <Spacer y={2} />
 
 #### Modal.Footer Props
 
-| Attribute      | Type             | Accepted values          | Description                                             | Default    |
-| -------------- | ---------------- | ------------------------ | ------------------------------------------------------- | ---------- |
-| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | `true`     |
-| **justify**    | `Justify`        | [Justify](#justify)      | CSS "justify-content" property                          | `flex-end` |
-| ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                            | -          |
+| Attribute      | Type             | Accepted values          | Description                                             | Default        |
+| -------------- | ---------------- | ------------------------ | ------------------------------------------------------- | -------------- |
+| **autoMargin** | `boolean`        | `true/false`             | Apply or not a margin to the base elements of the modal | `true`         |
+| **justify**    | `Justify`        | [Justify](#justify)      | CSS "justify-content" property                          | `flex-end`     |
+| **css**        | `styleObject`    | `css.properties`         | Override Default CSS style                              | -              |
+| **as**         | `ElementType`    | `'Button', 'a'`          | Changes which tag component outputs                     | `Modal.Footer` |
+| ...            | `HTMLAttributes` | `'id', 'className', ...` | Native props                                            | -              |
 
 <Spacer y={2} />
 
