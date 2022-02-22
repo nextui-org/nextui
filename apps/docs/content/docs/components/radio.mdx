@@ -253,22 +253,22 @@ return(
 
 #### Radio Props
 
-| Attribute          | Type                      | Accepted values                | Description                                                               | Default   |
-| ------------------ | ------------------------- | ------------------------------ | ------------------------------------------------------------------------- | --------- |
-| **value**          | `string`                  | -                              | Unique ident value (in group)                                             | -         |
-| **color**          | `SimpleColors` `string`   | [SimpleColors](#simple-colors) | Change radio color                                                        | `primary` |
-| **size**           | `NormalSizes` `number`    | [NormalSizes](#normal-sizes)   | Radio size                                                                | `medium`  |
-| **textColor**      | `SimpleColors` `string`   | [SimpleColors](#simple-colors) | Change radio text color                                                   | `default` |
-| **checked**        | `boolean`                 | `true/false`                   | Selected or not (in single)                                               | `false`   |
-| **animated**       | `boolean`                 | `true/false`                   | Display radio animations                                                  | `true`    |
-| **squared**        | `boolean`                 | `true/false`                   | Squared radio                                                             | `false`   |
-| **disabled**       | `boolean`                 | `true/false`                   | Disable radio                                                             | `false`   |
-| **preventDefault** | `boolean`                 | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
-| **onChange**       | `(e: RadioEvent) => void` | -                              | The callback invoked when the checked state of the `Radio` changes.       | -         |
-| **id**             | `string`                  | -                              | Native id attr                                                            | -         |
-| **css**            | `styleObject`             | `css.properties`               | Override Default CSS style                                                | -         |
-| **as**             | `ElementType`             | `'Button', 'a'`                | Changes which tag component outputs                                       | `Radio`   |
-| ...                | `InputHTMLAttributes`     | `'id', 'className', ...`       | Native radio props                                                        | -         |
+| Attribute          | Type                           | Accepted values                | Description                                                               | Default   |
+| ------------------ | ------------------------------ | ------------------------------ | ------------------------------------------------------------------------- | --------- |
+| **value**          | `string`                       | -                              | Unique ident value (in group)                                             | -         |
+| **color**          | `SimpleColors` `string`        | [SimpleColors](#simple-colors) | Change radio color                                                        | `primary` |
+| **size**           | `NormalSizes` `number`         | [NormalSizes](#normal-sizes)   | Radio size                                                                | `medium`  |
+| **textColor**      | `SimpleColors` `string`        | [SimpleColors](#simple-colors) | Change radio text color                                                   | `default` |
+| **checked**        | `boolean`                      | `true/false`                   | Selected or not (in single)                                               | `false`   |
+| **animated**       | `boolean`                      | `true/false`                   | Display radio animations                                                  | `true`    |
+| **squared**        | `boolean`                      | `true/false`                   | Squared radio                                                             | `false`   |
+| **disabled**       | `boolean`                      | `true/false`                   | Disable radio                                                             | `false`   |
+| **preventDefault** | `boolean`                      | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
+| **onChange**       | `(e: RadioEvent) => void       | -                              | The callback invoked when the checked state of the `Radio` changes.       | -         |
+| **id**             | `string`                       | -                              | Native id attr                                                            | -         |
+| **css**            | `Stitches.CSS`                 | -                              | Override Default CSS style                                                | -         |
+| **as**             | `keyof JSX.IntrinsicElements`  | -                              | Changes which tag component outputs                                       | `label`   |
+| ...                | `InputHTMLAttributes`          | `'id', 'className', ...`       | Native radio props                                                        | -         |
 
 <Spacer y={2} />
 
@@ -284,8 +284,8 @@ return(
 | **disabled**     | `boolean`                                  | `true/false`                   | Disable all radios                     | `false`         |
 | **size**         | `NormalSizes`                              | [NormalSizes](#normal-sizes)   | Size of all radios in the group        | `medium`        |
 | **onChange**     | `(e:`[RadioEvent](#radio-event)) `=> void` | -                              | Radio group event handler              | -               |
-| **css**          | `styleObject`                              | `css.properties`               | Override Default CSS style             | -               |
-| **as**           | `ElementType`                              | `'Button', 'a'`                | Changes which tag component outputs    | `Radio.Group`   |
+| **css**          | `Stitches.CSS`                             | -                              | Override Default CSS style             | -               |
+| **as**           | `keyof JSX.IntrinsicElements`              | -                              | Changes which tag component outputs    | `div`           |
 | ...              | `InputHTMLAttributes`                      | `'id', 'className', ...`       | Native props                           | -               |
 
 <Spacer y={2} />

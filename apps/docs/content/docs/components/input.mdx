@@ -508,22 +508,22 @@ import { Input } from '@nextui-org/react';
 | **onContentClick**      | `(key: ContentPosition, e: React.MouseEvent) => void` | [ContentPosition](#content-position) | click icon event                                                                                  | -                |
 | **onClearClick**        | `(e: React.MouseEvent) => void`                       | -                                    | clear icon event                                                                                  | -                |
 | **ref**                 | <Code>Ref<HTMLInputElement &#124; null></Code>        | -                                    | forwardRef                                                                                        | -                |
-| **css**                 | `styleObject`                                         | `css.properties`                     | Override Default CSS style                                                                        | -                |
-| **as**                  | `ElementType`                                         | `'Button', 'a'`                      | Changes which tag component outputs                                                               | `Input`          |
+| **css**                 | `Stitches.CSS`                                        | -                                    | Override Default CSS style                                                                        | -                |
+| **as**                  | `keyof JSX.IntrinsicElements`                         | -                                    | Changes which tag component outputs                                                               | `input`          |
 | ...                     | `InputHTMLAttributes`                                 | `'alt', 'type', 'className', ...`    | Input native props                                                                                | -                |
 
 <Spacer y={2} />
 
 ### Input.Password props
 
-| Attribute       | Type              | Accepted values             | Description                            | Default          |
-| --------------- | ----------------- | --------------------------- | -------------------------------------- | ---------------- | 
-| **hideToggle**  | `boolean`         | -                           | Hide toggle icon                       | `false`          |
-| **visibleIcon** | `React.ReactNode` | -                           | Custom visible password icon           | -                |
-| **hiddenIcon**  | `React.ReactNode` | -                           | Custom hidden password icon            | -                |
-| **css**         | `styleObject`     | `css.properties`            | Override Default CSS style             | -                |
-| **as**          | `ElementType`     | `'Button', 'a'`             | Changes which tag component outputs    | `Input.password` |
-| ...             | `Input Props`     | [Input Props](#input-props) | Input props                            | -                |
+| Attribute       | Type                              | Accepted values             | Description                            | Default          |
+| --------------- | --------------------------------- | --------------------------- | -------------------------------------- | ---------------- | 
+| **hideToggle**  | `boolean`                         | -                           | Hide toggle icon                       | `false`          |
+| **visibleIcon** | `React.ReactNode`                 | -                           | Custom visible password icon           | -                |
+| **hiddenIcon**  | `React.ReactNode`                 | -                           | Custom hidden password icon            | -                |
+| **css**         | `Stitches.CSS`                    | -                           | Override Default CSS style             | -                |
+| **as**          | `keyof JSX.IntrinsicElements`     | -                           | Changes which tag component outputs    | `input`          |
+| ...             | `Input Props`                     | [Input Props](#input-props) | Input props                            | -                |
 
 <Spacer y={2} />
 

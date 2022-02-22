@@ -329,28 +329,28 @@ import { Tooltip } from '@nextui-org/react';
 
 #### Tooltip Props
 
-| Attribute           | Type                       | Accepted values                                      | Description                                                | Default   |
-| ------------------- | -------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- | --------- |
-| **content**         | `React.ReactNode` `string` | -                                                    | Tooltip content                                            | -         |
-| **color**           | `TooltipTypes` `string`    | [TooltipColors](#tooltip-colors)                     | Change tooltip background color                            | `default` |
-| **contentColor**    | `SimpleColors` `string`    | [SimpleColors](#simple-colors)                       | Checkbox tooltip text color                                | `default` |
-| **placement**       | `Placement`                | [Placement](#placement)                              | Tooltip placement relative to the target                   | `top`     |
-| **initialVisible**  | `boolean`                  | `true/false`                                         | Determine if the tooltip is visible on initial             | `false`   |
-| **animated**        | `boolean`                  | `true/false`                                         | Display tooltip animations                                 | `true`    |
-| **visible**         | `boolean`                  | `true/false`                                         | Force if the tooltip is visible or not                     | -         |
-| **shadow**          | `boolean`                  | `true/false`                                         | Display shadow effect                                      | `false`   |
-| **rounded**         | `boolean`                  | `true/false`                                         | Rounded tooltip                                            | `false`   |
-| **hideArrow**       | `boolean`                  | `true/false`                                         | Hide tooltip arrow icon                                    | -         |
-| **keepMounted**     | `boolean`                  | `true/false`                                         | Keep tooltip mounted on the DOM                            | `false`   |
-| **trigger**         | `TriggerTypes`             | [TriggerTypes](#trigger-types)                       | Tooltip trigger mode                                       | `hover`   |
-| **enterDelay(ms)**  | `number`                   | -                                                    | Delay before tooltip is shown                              | `0`       |
-| **leaveDelay(ms)**  | `number`                   | -                                                    | Delay before tooltip is hidden (only work in 'hover' mode) | `0`       |
-| **offset(px)**      | `number`                   | -                                                    | Distance between tooltip and target                        | `12`      |
-| **portalClassName** | `string`                   | -                                                    | Tooltip box content className                              | -         |
-| **onVisibleChange** | `number`                   | [TooltipOnVisibleChange](#tooltip-on-visible-change) | Callback when tooltip visibility has changed               | -         |
-| **css**             | `styleObject`              | `css.properties`                                     | Override Default CSS style                                 | -         |
-| **as**              | `ElementType`              | `'Button', 'h1'`                                     | Changes which tag component outputs                        | `Tooltip` |
-| ...                 | `DivHTMLAttributes`        | `'className', 'id', ...`                             | Native div props                                           | -         |
+| Attribute           | Type                          | Accepted values                                      | Description                                                | Default   |
+| ------------------- | ----------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- | --------- |
+| **content**         | `React.ReactNode` `string`    | -                                                    | Tooltip content                                            | -         |
+| **color**           | `TooltipTypes` `string`       | [TooltipColors](#tooltip-colors)                     | Change tooltip background color                            | `default` |
+| **contentColor**    | `SimpleColors` `string`       | [SimpleColors](#simple-colors)                       | Checkbox tooltip text color                                | `default` |
+| **placement**       | `Placement`                   | [Placement](#placement)                              | Tooltip placement relative to the target                   | `top`     |
+| **initialVisible**  | `boolean`                     | `true/false`                                         | Determine if the tooltip is visible on initial             | `false`   |
+| **animated**        | `boolean`                     | `true/false`                                         | Display tooltip animations                                 | `true`    |
+| **visible**         | `boolean`                     | `true/false`                                         | Force if the tooltip is visible or not                     | -         |
+| **shadow**          | `boolean`                     | `true/false`                                         | Display shadow effect                                      | `false`   |
+| **rounded**         | `boolean`                     | `true/false`                                         | Rounded tooltip                                            | `false`   |
+| **hideArrow**       | `boolean`                     | `true/false`                                         | Hide tooltip arrow icon                                    | -         |
+| **keepMounted**     | `boolean`                     | `true/false`                                         | Keep tooltip mounted on the DOM                            | `false`   |
+| **trigger**         | `TriggerTypes`                | [TriggerTypes](#trigger-types)                       | Tooltip trigger mode                                       | `hover`   |
+| **enterDelay(ms)**  | `number`                      | -                                                    | Delay before tooltip is shown                              | `0`       |
+| **leaveDelay(ms)**  | `number`                      | -                                                    | Delay before tooltip is hidden (only work in 'hover' mode) | `0`       |
+| **offset(px)**      | `number`                      | -                                                    | Distance between tooltip and target                        | `12`      |
+| **portalClassName** | `string`                      | -                                                    | Tooltip box content className                              | -         |
+| **onVisibleChange** | `number`                      | [TooltipOnVisibleChange](#tooltip-on-visible-change) | Callback when tooltip visibility has changed               | -         |
+| **css**             | `Stitches.CSS`                | -                                                    | Override Default CSS style                                 | -         |
+| **as**              | `keyof JSX.IntrinsicElements` | -                                                    | Changes which tag component outputs                        | `div`     |
+| ...                 | `DivHTMLAttributes`           | `'className', 'id', ...`                             | Native div props                                           | -         |
 
 <Spacer y={2} />
 

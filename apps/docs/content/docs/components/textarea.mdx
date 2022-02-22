@@ -261,8 +261,8 @@ import { Textarea } from '@nextui-org/react';
 | **onFocus**           | `(e: React.FocusEvent<HTMLTextAreaElement>) => void`  | -                                | Callback fired when the textarea is focused.                              | -            |
 | **onBlur**            | `(e: React.FocusEvent<HTMLTextAreaElement>) => void`  | -                                | Callback fired when the textarea is blurred.                              | -            |
 | **ref**               | <Code>Ref<HTMLTextAreaElement &#124; null></Code>     | -                                | forwardRef                                                                | -            |
-| **css**               | `styleObject`                                         | `css.properties`                 | Override Default CSS style                                                | -            |
-| **as**                | `ElementType`                                         | `'Button', 'a'`                  | Changes which tag component outputs                                       | `Textarea`   |
+| **css**               | `Stitches.CSS`                                        | -                                | Override Default CSS style                                                | -            |
+| **as**                | `keyof JSX.IntrinsicElements`                         | -                                | Changes which tag component outputs                                       | `input`      |
 | ...                   | `TextareaHTMLAttributes`                              | `'className', ...`               | Textarea native props                                                     | -            |
 
 <Spacer y={2} />
