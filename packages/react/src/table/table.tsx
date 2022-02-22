@@ -33,6 +33,7 @@ import TableBody from './table-body';
 import { hasChild, pickSingleChild } from '../utils/collections';
 import { StyledTable, TableVariantsProps } from './table.styles';
 import TableContext, { TableConfig } from './table-context';
+import { excludedTableProps } from '../utils/prop-types';
 import withDefaults from '../utils/with-defaults';
 import clsx from '../utils/clsx';
 
@@ -72,7 +73,17 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       ...tableProps,
       children: withoutPaginationChildren,
       showSelectionCheckboxes:
-        selectionMode === 'multiple' && selectionBehavior !== 'replace'
+        tableProps.showSelectionCheckboxes !== undefined
+          ? tableProps.showSelectionCheckboxes
+          : selectionMode === 'multiple' && selectionBehavior !== 'replace'
+    });
+
+    // clean table props
+    Object.keys(props).forEach((propNameKey: any) => {
+      if (excludedTableProps.indexOf(propNameKey) > -1) {
+        // @ts-ignored
+        delete props[propNameKey];
+      }
     });
 
     const tableRef = useRef<HTMLTableElement | null>(null);

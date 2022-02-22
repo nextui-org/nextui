@@ -212,6 +212,14 @@ export const excludedInputPropsForTextarea = tuple(
   'css'
 );
 
+export const excludedTableProps = tuple(
+  'items',
+  'disabledKeys',
+  'allowDuplicateSelectionEvents',
+  'sortDescriptor',
+  'onSortChange'
+);
+
 const selectionBehavior = tuple('toggle', 'replace');
 
 const selectionMode = tuple('none', 'single', 'multiple');

@@ -122,6 +122,13 @@ export const StyledTableRow = styled(
   {
     ov: 'visible',
     variants: {
+      isDisabled: {
+        true: {
+          color: '$accents3',
+          pointerEvents: 'none',
+          cursor: 'not-allowed'
+        }
+      },
       isSelected: {
         true: {
           color: '$$tableRowTextColor',

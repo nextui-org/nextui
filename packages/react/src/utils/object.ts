@@ -45,6 +45,18 @@ export const cleanObject = (obj: any) => {
   return newObj;
 };
 
+export const cleanObjectKeys = (obj: any, keys: string[] = []) => {
+  if (!isObject(obj)) return obj;
+  if (obj instanceof Array) return [...obj];
+  const newObj = { ...obj };
+  keys.forEach((key) => {
+    if (newObj[key]) {
+      delete newObj[key];
+    }
+  });
+  return newObj;
+};
+
 export const getKeyValue = (obj: any, key: Key) => {
   if (!isObject(obj)) return obj;
   if (obj instanceof Array) return [...obj];

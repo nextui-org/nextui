@@ -40,7 +40,14 @@ const TableRow = React.forwardRef<
         ref={tableRowRef}
         isFocusVisible={isFocusVisible}
         isSelected={!!rowProps['aria-selected']}
-        className={clsx('nextui-table-row', props.className)}
+        className={clsx(
+          'nextui-table-row',
+          {
+            'nextui-table-row--animated': props.animated,
+            'nextui-table-row--selected': rowProps['aria-selected']
+          },
+          props.className
+        )}
         {...mergeProps(rowProps, focusProps, props)}
       >
         {children}

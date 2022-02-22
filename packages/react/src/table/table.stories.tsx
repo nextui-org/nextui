@@ -435,7 +435,7 @@ export const DisabledKeys = () => {
   return (
     <BaseTable
       shadow={false}
-      disabledKeys={[3]}
+      disabledKeys={[2]}
       selectionMode="multiple"
       selectedColor="secondary"
     />
@@ -445,6 +445,8 @@ export const DisabledKeys = () => {
 export const Pagination = () => {
   return (
     <Table
+      bordered
+      shadow={false}
       aria-label="Example table with dynamic content"
       css={{ minWidth: '620px', height: 'auto' }}
       selectionMode="multiple"
