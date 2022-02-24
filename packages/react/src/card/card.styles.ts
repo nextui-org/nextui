@@ -159,8 +159,8 @@ export const StyledCard = styled('div', {
       },
       false: {
         '.nextui-image, .nextui-image-container': {
-          bblr: '0 !important', // TODO: remove important when image be styled
-          bbrr: '0 !important'
+          bblr: '0', // TODO: remove important when image be styled
+          bbrr: '0'
         }
       }
     },
