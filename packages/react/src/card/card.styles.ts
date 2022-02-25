@@ -2,6 +2,7 @@ import { styled, VariantProps } from '../theme/stitches.config';
 import { StyledDrip } from '../utils/drip';
 
 export const StyledCardBody = styled('div', {
+  borderRadius: "0",
   d: 'flex',
   w: '100%',
   h: 'auto',
