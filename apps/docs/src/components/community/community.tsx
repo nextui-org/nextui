@@ -31,7 +31,7 @@ const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
         </Row>
         <Row justify="center">
           <Subtitle css={{ textAlign: 'center' }}>
-            Get involved in our comunnity. Everyone is welcome!
+            Get involved in our community. Everyone is welcome!
           </Subtitle>
         </Row>
       </Grid>
@@ -68,7 +68,7 @@ const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
           <Spacer y={0.5} />
           <Row justify="flex-start" align="center">
             <Text css={{ color: '$accents6' }}>
-              To get involved in the communinty, ask questions and share tips.
+              To get involved in the community, ask questions and share tips.
             </Text>
           </Row>
         </StyledCommunityCard>

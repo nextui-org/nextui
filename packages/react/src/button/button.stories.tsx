@@ -10,12 +10,7 @@ export default {
   component: Button,
   decorators: [
     (Story) => (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column'
-        }}
-      >
+      <div style={{}}>
         <Story />
       </div>
     )
@@ -239,8 +234,12 @@ export const Icons = () => {
     <>
       <Button auto iconRight={<Activity theme={theme} fill="currentColor" />} />
       <Spacer y={0.5} />
-      <Button iconRight={<Camera theme={theme} fill="currentColor" />}>
-        Action
+      <Button auto iconRight={<Camera theme={theme} fill="currentColor" />}>
+        Right Icon
+      </Button>
+      <Spacer y={0.5} />
+      <Button auto icon={<Camera theme={theme} fill="currentColor" />}>
+        Left Icon
       </Button>
       <Spacer y={0.5} />
       <Button icon={<Lock theme={theme} fill="currentColor" />} color="success">

@@ -1,4 +1,5 @@
 import React, { PropsWithChildren, useState, useMemo, useEffect } from 'react';
+import { SSRProvider } from '@react-aria/ssr';
 import CssBaseline from '../css-baseline';
 import ThemeContext, { defaultContext } from './theme-context';
 import withDefaults from '../utils/with-defaults';
@@ -97,8 +98,10 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
 
   return (
     <ThemeContext.Provider value={providerValue}>
-      {!disableBaseline && <CssBaseline />}
-      {children}
+      <SSRProvider>
+        {!disableBaseline && <CssBaseline />}
+        {children}
+      </SSRProvider>
     </ThemeContext.Provider>
   );
 };

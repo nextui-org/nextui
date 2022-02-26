@@ -14,6 +14,8 @@ import { Grid } from '@nextui-org/react';
 
 <CarbonAd />
 
+<Spacer y={2} />
+
 <Playground
   title="Default"
   desc="Dynamically scale container width while maintaining spacing."
@@ -21,11 +23,11 @@ import { Grid } from '@nextui-org/react';
 () => {
   const MockItem = ({text}) => {
     return (
-        <ExampleBlock height={100}>
-            <Text h6 size={15} color="white" style={{ margin: 0 }}>
-                {text}
-            </Text>
-        </ExampleBlock>
+      <Card color="primary" css={{ h: '$24' }}>
+        <Text h6 size={15} color="white" css={{ mt: 0 }}>
+          {text}
+        </Text>
+      </Card>
     );
 }
 return (
@@ -50,11 +52,11 @@ return (
 () => {
  const MockItem = ({text}) => {
     return (
-        <ExampleBlock height={60}>
-            <Text h6 size={15} color="white" style={{ margin: 0 }}>
-                {text}
-            </Text>
-        </ExampleBlock>
+      <Card color="primary" css={{ h: '$20' }}>
+        <Text h6 size={15} color="white" css={{ m: 0 }}>
+         {text}
+        </Text>
+      </Card>
     );
 }
   return (
@@ -86,11 +88,11 @@ return (
  
  const MockItem = ({text}) => {
     return (
-        <ExampleBlock height={60}>
-            <Text h6 size={15} color="white" style={{ margin: 0 }}>
-                {text}
-            </Text>
-        </ExampleBlock>
+      <Card color="primary" css={{ h: '$20' }}>
+        <Text h6 size={15} color="white" css={{ m: 0 }}>
+         {text}
+        </Text>
+      </Card>
     );
 }
   return (
@@ -111,13 +113,13 @@ return (
   desc="Auto fill remaining width."
   code={`
 () => {
-  const MockItem = ({text}) => {
+ const MockItem = ({text}) => {
     return (
-        <ExampleBlock height={60}>
-            <Text h6 size={15} color="white" style={{ margin: 0 }}>
-                {text}
-            </Text>
-        </ExampleBlock>
+      <Card color="primary" css={{ h: '$20' }}>
+        <Text h6 size={15} color="white" css={{ m: 0 }}>
+         {text}
+        </Text>
+      </Card>
     );
 }
   return (
@@ -147,11 +149,11 @@ return (
  
  const MockItem = ({text}) => {
     return (
-        <ExampleBlock height={60}>
-            <Text h6 size={15} color="white" style={{ margin: 0 }}>
-                {text}
-            </Text>
-        </ExampleBlock>
+      <Card color="primary" css={{ h: '$20' }}>
+        <Text h6 size={15} color="white" css={{ m: 0 }}>
+         {text}
+        </Text>
+      </Card>
     );
 }
 return (<Grid.Container gap={2} justify="center">

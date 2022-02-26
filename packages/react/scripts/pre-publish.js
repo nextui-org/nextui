@@ -9,6 +9,8 @@ const rootDir = path.join(__dirname, '../');
 
 const buildPkg = step('build pkg...', () => shell(`yarn build`));
 
+const minifyPkg = step('minify pkg...', () => shell(`yarn build:minify`));
+
 const printPkg = step('print pkg...', () => {
   const genPkgJson = fse
     .readFileSync(`${libRoot}/package.json`)
@@ -21,6 +23,7 @@ const copyFromRoot = (file) =>
 
 Promise.resolve(true)
   .then(buildPkg)
+  .then(minifyPkg)
   .then(() => {
     setupPackage();
     printPkg();

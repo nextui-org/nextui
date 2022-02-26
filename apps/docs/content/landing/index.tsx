@@ -53,9 +53,9 @@ export default {
       icon: <TagUser fill="#FF4ECD" />
     },
     {
-      title: 'No annoying focus ring',
+      title: 'Focus interactions',
       description:
-        'Focus ring will appear only when user navigates with keyboard.',
+        'Focus ring will appear only when user navigates with keyboard or screen reader.',
       icon: <RoundPointer fill="#FF4ECD" />
     },
     {

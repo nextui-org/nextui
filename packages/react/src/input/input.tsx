@@ -7,13 +7,12 @@ import React, {
   useRef,
   useState
 } from 'react';
+import { useLabel } from '@react-aria/label';
 import { ContentPosition } from '../utils/prop-types';
 import { CSS } from '../theme/stitches.config';
 import Textarea from '../textarea';
 import InputPassword from './input-password';
-import { getId } from '../utils/collections';
 import { Props, FormElement, defaultProps } from './input-props';
-import { isEmpty } from '../utils/assertion';
 import useTheme from '../use-theme';
 import useWarning from '../use-warning';
 import {
@@ -190,19 +189,10 @@ const Input = React.forwardRef<FormElement, InputProps>(
       ...controlledValue
     };
 
-    const { inputId, labelId } = useMemo(() => {
-      const nextuiId = getId();
-      return {
-        inputId: inputProps.id || `${preClass}-${nextuiId}`,
-        labelId: !isEmpty(inputProps.id)
-          ? `${preClass}-label-${inputProps.id}`
-          : `${preClass}-label-${nextuiId}`
-      };
-    }, [inputProps.id]);
-
-    if (inputLabel) {
-      inputProps['aria-labelledby'] = labelId;
-    }
+    const { labelProps, fieldProps } = useLabel({
+      ...inputProps,
+      label: inputLabel
+    });
 
     const getState = useMemo(() => {
       return hover
@@ -237,9 +227,9 @@ const Input = React.forwardRef<FormElement, InputProps>(
       >
         {inputLabel && (
           <InputBlockLabel
-            id={labelId}
+            id={labelProps.id}
             className={`${preClass}-block-label`}
-            htmlFor={inputId}
+            htmlFor={labelProps.htmlFor}
             isTextarea={isTextarea}
             underlined={underlined}
             animated={animated}
@@ -324,7 +314,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
             <StyledInput
               type="text"
               as={Component}
-              id={inputId}
               ref={inputRef}
               className={clsx({
                 [`${preClass}`]: !isTextarea,
@@ -352,6 +341,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
               aria-required={required}
               aria-multiline={isTextarea}
               {...inputProps}
+              {...fieldProps}
             />
             {clearable && (
               <InputClearButton

@@ -35,7 +35,8 @@ export const StyledAvatar = styled('span', {
     right: 0,
     bottom: 0,
     zIndex: '$2',
-    transition: '$default'
+    transition: '$default',
+    size: '100%'
   },
   '.nextui-avatar-icon': {
     display: 'flex',
@@ -156,9 +157,6 @@ export const StyledAvatar = styled('span', {
       xs: {
         $$avatarXs: '$space$9',
         sizeMin: '$$avatarXs',
-        '&.nextui-avatar-bg': {
-          size: '$$avatarXs'
-        },
         '.nextui-avatar-text': {
           fontSize: '$xs'
         }
@@ -166,9 +164,6 @@ export const StyledAvatar = styled('span', {
       sm: {
         $$avatarSm: '$space$11',
         sizeMin: '$$avatarSm',
-        '.nextui-avatar-bg': {
-          size: '$$avatarSm'
-        },
         '.nextui-avatar-text': {
           fontSize: '$base'
         }
@@ -176,9 +171,6 @@ export const StyledAvatar = styled('span', {
       md: {
         $$avatarMd: '$space$14',
         sizeMin: '$$avatarMd',
-        '.nextui-avatar-bg': {
-          size: '$$avatarMd'
-        },
         '.nextui-avatar-text': {
           fontSize: '$sm'
         }
@@ -186,9 +178,6 @@ export const StyledAvatar = styled('span', {
       lg: {
         $$avatarLg: '$space$16',
         sizeMin: '$$avatarLg',
-        '.nextui-avatar-bg': {
-          size: '$$avatarLg'
-        },
         '.nextui-avatar-text': {
           fontSize: '$sm'
         }
@@ -196,9 +185,6 @@ export const StyledAvatar = styled('span', {
       xl: {
         $$avatarXl: '$space$18',
         sizeMin: '$$avatarXl',
-        '&.nextui-avatar-bg': {
-          size: '$$avatarXl'
-        },
         '.nextui-avatar-text': {
           fontSize: '$md'
         }

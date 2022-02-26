@@ -1,6 +1,6 @@
 import Switch from './switch';
 
-export type { SwitchProps } from './switch';
+export type { SwitchProps, SwitchEvent } from './switch';
 export {
   StyledSwitchContainer,
   StyledSwitchInput,

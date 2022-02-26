@@ -6,6 +6,7 @@ import React, {
   PropsWithoutRef,
   RefAttributes
 } from 'react';
+import { useFocusRing } from '@react-aria/focus';
 import useWarning from '../use-warning';
 import ButtonDrip from '../utils/drip';
 import { CSS } from '../theme/stitches.config';
@@ -29,6 +30,7 @@ export interface Props {
   disabled?: boolean;
   ghost?: boolean;
   bordered?: boolean;
+  auto?: boolean;
   ripple?: boolean;
   icon?: React.ReactNode;
   iconRight?: React.ReactNode;
@@ -44,6 +46,7 @@ const defaultProps = {
   ripple: true,
   animated: true,
   disabled: false,
+  auto: false,
   className: ''
 };
 
@@ -70,6 +73,7 @@ const Button = React.forwardRef<
     light,
     ripple,
     bordered,
+    auto,
     borderWeight,
     onClick,
     icon,
@@ -87,6 +91,17 @@ const Button = React.forwardRef<
   }
   const hasIcon = icon || iconRight;
   const isRight = Boolean(iconRight);
+
+  const {
+    isFocusVisible,
+    focusProps
+  }: {
+    isFocusVisible: boolean;
+    focusProps: Omit<
+      React.HTMLAttributes<HTMLButtonElement>,
+      keyof ButtonProps
+    >;
+  } = useFocusRing();
 
   const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
     false,
@@ -109,6 +124,7 @@ const Button = React.forwardRef<
     <StyledButton
       ref={buttonRef}
       borderWeight={borderWeight}
+      auto={auto}
       flat={flat}
       light={light}
       ghost={ghost}
@@ -118,16 +134,20 @@ const Button = React.forwardRef<
       disabled={disabled}
       animated={animated}
       onClick={clickHandler}
+      isFocusVisible={isFocusVisible}
       className={clsx('nextui-button', `nextui-button--${getState}`, className)}
+      {...focusProps}
       {...props}
     >
       {React.Children.count(children) === 0 ? (
-        <ButtonIcon isRight={isRight} isSingle>
+        <ButtonIcon isAuto={auto} isRight={isRight} isSingle>
           {hasIcon}
         </ButtonIcon>
       ) : hasIcon ? (
-        <div>
-          <ButtonIcon isRight={isRight}>{hasIcon}</ButtonIcon>
+        <>
+          <ButtonIcon isAuto={auto} isRight={isRight}>
+            {hasIcon}
+          </ButtonIcon>
           <div
             className={clsx('nextui-button-text', {
               'nextui-button-text-right': isRight,
@@ -136,7 +156,7 @@ const Button = React.forwardRef<
           >
             {children}
           </div>
-        </div>
+        </>
       ) : (
         <span className="nextui-button-text">{children}</span>
       )}

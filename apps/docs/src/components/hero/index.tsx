@@ -13,11 +13,11 @@ import {
 import { StyledTitle, StyledGradientTitle, StyledSubtitle } from './styles';
 
 const DynamicLopperBG = dynamic(() => import('../looper-bg'), {
-  ssr: false
+  ssr: true
 });
 
 const DynamicHeroComponents = dynamic(() => import('./components'), {
-  ssr: false
+  ssr: true
 });
 
 const Hero: React.FC = () => {

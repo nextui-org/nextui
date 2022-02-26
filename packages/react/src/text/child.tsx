@@ -31,7 +31,6 @@ export type TextChildProps = Props &
 const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   children,
   tag,
-  className,
   color: userColor,
   transform,
   margin: marginProp,
@@ -64,21 +63,19 @@ const TextChild: React.FC<React.PropsWithChildren<TextChildProps>> = ({
   }, [marginProp]);
 
   return (
-    <React.Fragment>
-      <StyledText
-        as={tag}
-        css={{
-          color,
-          fontSize: size ? fontSize : '',
-          margin,
-          tt: transform,
-          ...(css as any)
-        }}
-        {...props}
-      >
-        {children}
-      </StyledText>
-    </React.Fragment>
+    <StyledText
+      as={tag}
+      css={{
+        color,
+        fontSize: size ? fontSize : '',
+        margin,
+        tt: transform,
+        ...(css as any)
+      }}
+      {...props}
+    >
+      {children}
+    </StyledText>
   );
 };
 

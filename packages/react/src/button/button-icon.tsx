@@ -26,6 +26,13 @@ export const StyledButtonIcon = styled('span', {
     background: 'transparent'
   },
   variants: {
+    isAuto: {
+      true: {
+        position: 'relative',
+        transform: 'none',
+        top: '0%'
+      }
+    },
     isRight: {
       true: {
         right: '$$buttonPadding',
@@ -35,10 +42,43 @@ export const StyledButtonIcon = styled('span', {
     isSingle: {
       true: {
         position: 'static',
-        transform: 'none'
+        transform: 'none',
+        m: 0
       }
     }
-  }
+  },
+  compoundVariants: [
+    // isAuto && isRight
+    {
+      isAuto: true,
+      isRight: true,
+      css: {
+        order: 2,
+        ml: '$$buttonPadding',
+        right: '0%',
+        left: '0%'
+      }
+    },
+    // isAuto && !isRight
+    {
+      isAuto: true,
+      isRight: false,
+      css: {
+        order: 0,
+        mr: '$$buttonPadding',
+        right: '0%',
+        left: '0%'
+      }
+    },
+    // isAuto && isSingle
+    {
+      isAuto: true,
+      isSingle: true,
+      css: {
+        m: 0
+      }
+    }
+  ]
 });
 
 type ButtonIconVariants = VariantProps<typeof StyledButtonIcon>;

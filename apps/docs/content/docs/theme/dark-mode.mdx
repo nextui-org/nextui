@@ -44,14 +44,14 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 const lightTheme = createTheme({
   type: 'light',
   theme: {
-    colors: {...},
+    colors: {...}, // optional
   }
 })
 
 const darkTheme = createTheme({
   type: 'dark',
   theme: {
-    colors: {...},
+    colors: {...}, // optional
   }
 })
 
@@ -84,7 +84,7 @@ const App = () => {
     <div>
       The current theme is: {type}
       <Switch
-        initialChecked={isDark}
+        checked={isDark}
         onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
       />
     </div>
@@ -97,11 +97,13 @@ And that's it! 🎉
 
 You have a `no-flashing` dark theme implementation for your Next.js app.
 
-> For more information about `next-themes` check out the [docs](https://github.com/pacocoursey/next-themes)
+> For more information on the `next-themes` check out the [docs](https://github.com/pacocoursey/next-themes)
+
+> For more information on the default `colors`, `fonts`, `spaces`, etc.. please refer to the [default theme documentation](/docs/theme/default-theme).
 
 ### Using use-dark-mode
 
-If you are usign NextUI in conjuction with plain [React.js](https://reactjs.org) a good way to apply the dark mode
+If you are using NextUI in conjuction with plain [React.js](https://reactjs.org) a good way to apply the dark mode
 is using the [use-dark-mode](https://github.com/donavon/use-dark-mode) hook.
 
 Here is an example of how to use `use-dark-mode`:
@@ -152,7 +154,7 @@ const App = () => {
     <div>
       The current theme is: {type}
       <Switch
-        initialChecked={darkMode.value}
+        checked={darkMode.value}
         onChange={() => darkMode.toggle()}
       />
     </div>
@@ -168,7 +170,7 @@ const App = () => {
 NextUI exposes a `changeTheme` method that you can use to change the theme but you have to be sure
 that you have created the passed theme before.
 
-> This method is aslo useful when you want to change the theme outside a React Component.
+> This method is also useful when you want to change the theme outside a React Component.
 
 Here is an example of how to implement a custom dark mode:
 
@@ -242,7 +244,7 @@ const App = () => {
     <div>
       The current theme is: {type}
       <Switch
-        initialChecked={isDark}
+        checked={isDark}
         onChange={handleChange}
       />
     </div>

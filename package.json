@@ -88,46 +88,5 @@
   "dependencies": {
     "gray-matter": "^4.0.3"
   },
-  "turbo": {
-    "baseBranch": "origin/main",
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": [
-          ".next/**",
-          "dist/**",
-          "lib/**"
-        ]
-      },
-      "start": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": []
-      },
-      "test": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": []
-      },
-      "test-update": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": []
-      },
-      "lint": {
-        "outputs": []
-      },
-      "dev": {
-        "cache": false
-      },
-      "sb": {
-        "cache": false
-      }
-    }
-  }
+  "packageManager": "yarn@1.22.17"
 }

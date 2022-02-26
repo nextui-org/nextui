@@ -6,7 +6,7 @@ import useCurrentState from '../use-current-state';
 import CollapseGroup from './collapse-group';
 import useWarning from '../use-warning';
 import useTheme from '../use-theme';
-import { getId } from '../utils/collections';
+import { useId } from '@react-aria/utils';
 import { CSS } from '../theme/stitches.config';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import {
@@ -26,7 +26,7 @@ interface Props {
   bordered?: boolean;
   arrowIcon?: React.ReactNode;
   contentLeft?: React.ReactNode;
-  initialExpanded?: boolean;
+  expanded?: boolean;
   showArrow?: boolean;
   shadow?: boolean;
   index?: number;
@@ -48,7 +48,7 @@ const defaultProps = {
   animated: true,
   disabled: false,
   preventDefault: true,
-  initialExpanded: false
+  expanded: false
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -64,7 +64,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   children,
   title,
   subtitle,
-  initialExpanded,
+  expanded,
   shadow,
   className,
   divider,
@@ -80,8 +80,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   index,
   ...props
 }) => {
-  const [visible, setVisible, visibleRef] =
-    useCurrentState<boolean>(initialExpanded);
+  const [visible, setVisible, visibleRef] = useCurrentState<boolean>(expanded);
 
   const { isDark } = useTheme();
 
@@ -97,10 +96,19 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   }
 
   useEffect(() => {
+    if (visible !== expanded) {
+      setVisible(expanded);
+    }
+  }, [expanded]);
+
+  useEffect(() => {
     if (!values.length) return;
     const isActive = !!values.find((item) => item === index);
     setVisible(isActive);
   }, [values.join(',')]);
+
+  const ariaLabelledById = useId();
+  const ariaControlId = useId();
 
   const arrowComponent = useMemo(() => {
     if (!showArrow) return null;
@@ -112,14 +120,6 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
   const animated = useMemo(() => {
     return groupAnimated === undefined ? animatedProp : groupAnimated;
   }, [groupAnimated, animatedProp]);
-
-  const { ariaLabelledById, ariaControlId } = useMemo(() => {
-    const nextuiId = getId();
-    return {
-      ariaLabelledById: `${preClass}-button-${nextuiId}`,
-      ariaControlId: `${preClass}-${nextuiId}`
-    };
-  }, []);
 
   const handleChange = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>

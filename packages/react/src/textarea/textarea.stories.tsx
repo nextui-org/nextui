@@ -15,7 +15,8 @@ export default {
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          padding: '20px'
         }}
       >
         <Story />
@@ -41,6 +42,17 @@ export const Rows = () => (
       label="Write your thoughts"
       placeholder="Enter your amazing thoughts."
     />
+  </>
+);
+
+export const labelPlaceholder = () => (
+  <>
+    <Textarea
+      label="Write your thoughts"
+      placeholder="Enter your amazing thoughts."
+    />
+    <Spacer y={2} />
+    <Textarea labelPlaceholder="Write your thoughts" />
   </>
 );
 

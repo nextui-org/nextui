@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { Moon, Sun } from '../icons';
-import { CSS, styled } from '@nextui-org/react';
+import { CSS, styled, useTheme } from '@nextui-org/react';
 import { useTheme as useNextTheme } from 'next-themes';
 import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
@@ -28,8 +28,8 @@ const StyledButton = styled('button', {
 
 export const ThemeToggle: React.FC<Props> = ({ className, css }) => {
   const isMounted = useIsMounted();
-  const { setTheme, theme } = useNextTheme();
-  const isDark = theme === 'dark';
+  const { setTheme } = useNextTheme();
+  const { isDark } = useTheme();
 
   if (!isMounted) {
     return (

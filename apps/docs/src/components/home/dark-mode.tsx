@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import cn from 'classnames';
 import NextLink from 'next/link';
 import { Box, Section, Title, Subtitle, BlockLink } from '@primitives';
-import { Grid, Row, Col, Spacer } from '@nextui-org/react';
+import { Switch, Grid, Row, Col, Spacer, createTheme } from '@nextui-org/react';
 import landingContent from '@content/landing';
-import { darkTheme } from '@theme/shared';
-import { CodeDemoBlock, ThemeSwitch, Player } from '@components';
+import { darkTheme, lightTheme } from '@theme/shared';
+import { CodeDemoBlock, Player } from '@components';
+import { Moon, Sun } from '../icons';
+
+const playerDarkTheme = createTheme({
+  type: 'dark',
+  className: 'player-dark-theme'
+});
+const playerLightTheme = createTheme({
+  type: 'light',
+  className: 'player-light-theme'
+});
 
 const DarkModeSection = () => {
+  const [activeTheme, setActiveTheme] = useState('dark');
+
+  const handleToggleTheme = () => {
+    setActiveTheme(activeTheme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
     <Section css={{ position: 'relative', zIndex: '$10' }}>
       <Box
@@ -56,7 +73,12 @@ const DarkModeSection = () => {
         >
           <Col css={{ d: 'flex', fd: 'column', ai: 'flex-start', pt: '$4' }}>
             <Spacer y={0.2} />
-            <ThemeSwitch
+            <Switch
+              size="xl"
+              checked={activeTheme === 'dark'}
+              iconOn={<Moon filled />}
+              iconOff={<Sun filled />}
+              onChange={handleToggleTheme}
               css={{
                 $$switchColorHover:
                   'linear-gradient(180deg, #FF1CF7 25%, #b249f8 100%)',
@@ -69,8 +91,29 @@ const DarkModeSection = () => {
                 }
               }}
             />
+
             <Spacer y={1} />
-            <Player />
+            <Player
+              className={cn(
+                activeTheme === 'dark' ? playerDarkTheme : playerLightTheme,
+                {
+                  'is-dark': activeTheme === 'dark',
+                  'is-light': activeTheme === 'light'
+                }
+              )}
+              css={{
+                [`.${darkTheme} &`]: {
+                  '&.is-light': {
+                    $$cardColor: '$colors$white'
+                  }
+                },
+                [`.${lightTheme} &`]: {
+                  '&.is-dark': {
+                    $$cardColor: '$colors$gray900'
+                  }
+                }
+              }}
+            />
             <NextLink href="/docs/theme/dark-mode">
               <BlockLink>Learn more</BlockLink>
             </NextLink>

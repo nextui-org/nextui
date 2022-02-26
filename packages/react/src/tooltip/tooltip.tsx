@@ -157,7 +157,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       {...props}
     >
       {children}
-      <TooltipContent {...contentProps}>{content}</TooltipContent>
+      {content && <TooltipContent {...contentProps}>{content}</TooltipContent>}
     </StyledTooltipTrigger>
   );
 };
