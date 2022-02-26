@@ -6,7 +6,7 @@ import { TableVariantsProps } from './table.styles';
 export interface TableConfig {
   rowsPerPage: number;
   currentPage: number;
-  selectedColor?: TableVariantsProps['selectedColor'];
+  color?: TableVariantsProps['color'];
   animated?: boolean;
   footerAlign?: NormalAlignment;
   collection?: TableCollection<any>;
@@ -15,7 +15,7 @@ export interface TableConfig {
   setCollection?: (value: TableCollection<any>) => void;
   setRowsPerPage?: (value: number) => void;
   setCurrentPage?: (value: number) => void;
-  setSelectedColor?: (value: TableVariantsProps['selectedColor']) => void;
+  setColor?: (value: TableVariantsProps['color']) => void;
 }
 
 const defaultContext = {
@@ -54,9 +54,9 @@ const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({
   const [currentPage, setCurrentPage] = React.useState(
     defaultContext.currentPage
   );
-  const [selectedColor, setSelectedColor] = React.useState<
-    TableVariantsProps['selectedColor']
-  >(defaultValues?.selectedColor);
+  const [color, setColor] = React.useState<TableVariantsProps['color']>(
+    defaultValues?.color
+  );
 
   const providerValue = React.useMemo<TableConfig>(
     () => ({
@@ -65,15 +65,15 @@ const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({
       collection,
       rowsPerPage,
       currentPage,
-      selectedColor,
+      color,
       setFooterAlign,
       setCollection,
       setAnimated,
       setRowsPerPage,
-      setSelectedColor,
+      setColor,
       setCurrentPage
     }),
-    [animated, selectedColor, collection, footerAlign, rowsPerPage, currentPage]
+    [animated, color, collection, footerAlign, rowsPerPage, currentPage]
   );
 
   return (

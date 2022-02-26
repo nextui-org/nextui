@@ -18,7 +18,7 @@ import clsx from '../utils/clsx';
 interface Props<T> {
   column: GridNode<T>;
   state: TableState<T>;
-  color?: TableVariantsProps['selectedColor'];
+  color?: TableVariantsProps['color'];
   animated?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }

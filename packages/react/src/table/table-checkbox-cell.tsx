@@ -16,7 +16,7 @@ type CellProps<T> = GridNode<T> & { parentKey?: React.Key };
 interface Props<T> {
   cell: CellProps<T>;
   state: TableState<T>;
-  color?: TableVariantsProps['selectedColor'];
+  color?: TableVariantsProps['color'];
   animated?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }

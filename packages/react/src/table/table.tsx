@@ -42,6 +42,7 @@ interface Props<T> extends TableStateProps<T> {
   selectionMode?: SelectionMode;
   selectionBehavior?: SelectionBehavior;
   animated?: boolean;
+  hideLoading?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -56,13 +57,20 @@ export type TableProps<T = object> = Props<T> &
 
 const defaultProps = {
   animated: true,
+  hideLoading: false,
   selectionMode: 'none',
   selectionBehavior: 'toggle'
 };
 
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
   (tableProps, ref: React.Ref<HTMLTableElement | null>) => {
-    const { selectionMode, selectionBehavior, children, ...props } = tableProps;
+    const {
+      selectionMode,
+      selectionBehavior,
+      hideLoading,
+      children,
+      ...props
+    } = tableProps;
 
     const [withoutPaginationChildren, paginationChildren] = pickSingleChild<
       CollectionChildren<any>
@@ -101,10 +109,10 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
     const initialValues = React.useMemo<Partial<TableConfig>>(() => {
       return {
         collection,
-        selectedColor: props.selectedColor,
+        color: props.color,
         animated: props.animated
       };
-    }, [collection, props.animated, props.selectedColor]);
+    }, [collection, props.animated, props.color]);
 
     return (
       <TableContext.Provider defaultValues={initialValues}>
@@ -130,7 +138,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
                       key={column?.key}
                       column={column}
                       state={state}
-                      color={props.selectedColor}
+                      color={props.color}
                       animated={props.animated}
                     />
                   ) : (
@@ -147,10 +155,11 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           </TableRowGroup>
           <TableBody
             state={state}
+            color={props.color}
             collection={collection}
             animated={props.animated}
             hasPagination={hasPagination}
-            selectedColor={props.selectedColor}
+            hideLoading={hideLoading}
           >
             {!props.sticked && (
               <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />

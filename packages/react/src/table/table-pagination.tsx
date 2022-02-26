@@ -25,11 +25,11 @@ const TablePagination: React.FC<TablePaginationProps> = ({
   ...props
 }) => {
   const {
+    color,
     animated,
     collection,
     footerAlign,
     rowsPerPage,
-    selectedColor,
     setFooterAlign,
     setRowsPerPage,
     setCurrentPage
@@ -64,7 +64,7 @@ const TablePagination: React.FC<TablePaginationProps> = ({
       total={totalPagination}
       animated={animated}
       onChange={handlePageChanged}
-      color={props.color || (selectedColor as PaginationProps['color'])}
+      color={props.color || (color as PaginationProps['color'])}
       className={clsx('nextui-table-pagination', props.className)}
       {...props}
     />

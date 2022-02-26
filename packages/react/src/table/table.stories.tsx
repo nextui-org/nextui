@@ -385,7 +385,7 @@ export const SingleSelection = () => {
 };
 
 export const MultipleSelection = () => {
-  return <BaseTable selectionMode="multiple" selectedColor="secondary" />;
+  return <BaseTable selectionMode="multiple" color="secondary" />;
 };
 
 export const Striped = () => {
@@ -402,7 +402,7 @@ export const NoShadow = () => {
       sticked
       shadow={false}
       selectionMode="multiple"
-      selectedColor="secondary"
+      color="secondary"
     />
   );
 };
@@ -414,7 +414,7 @@ export const Lined = () => {
       headerLined
       shadow={false}
       selectionMode="multiple"
-      selectedColor="secondary"
+      color="secondary"
     />
   );
 };
@@ -426,7 +426,7 @@ export const Bordered = () => {
       sticked
       shadow={false}
       selectionMode="multiple"
-      selectedColor="secondary"
+      color="secondary"
     />
   );
 };
@@ -437,7 +437,7 @@ export const DisabledKeys = () => {
       shadow={false}
       disabledKeys={['2']}
       selectionMode="multiple"
-      selectedColor="secondary"
+      color="secondary"
     />
   );
 };
@@ -449,7 +449,7 @@ export const DisallowEmptySelection = () => {
       defaultSelectedKeys={['2']}
       disallowEmptySelection
       selectionMode="multiple"
-      selectedColor="secondary"
+      color="secondary"
     />
   );
 };
@@ -462,7 +462,7 @@ export const Pagination = () => {
       aria-label="Example table with dynamic content"
       css={{ minWidth: '620px', height: 'auto' }}
       selectionMode="multiple"
-      selectedColor="secondary"
+      color="secondary"
     >
       <Table.Header columns={columns}>
         {(column) => (
@@ -528,9 +528,8 @@ export const InfinityPagination = () => {
       bordered
       shadow={false}
       aria-label="Example table with dynamic content & infinity pagination"
-      css={{ width: '620px', height: '300px' }}
-      selectionMode="multiple"
-      selectedColor="secondary"
+      css={{ width: '640px', height: 'calc($space$14 * 10)' }}
+      color="secondary"
     >
       <Table.Header columns={scopedColumns}>
         {(column) => (
@@ -565,10 +564,6 @@ export const InfinityPagination = () => {
 
 export const NoAnimated = () => {
   return (
-    <BaseTable
-      animated={false}
-      selectionMode="multiple"
-      selectedColor="secondary"
-    />
+    <BaseTable animated={false} selectionMode="multiple" color="secondary" />
   );
 };

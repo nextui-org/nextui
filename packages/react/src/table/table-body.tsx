@@ -1,22 +1,29 @@
 import React, { useMemo } from 'react';
 import { CSS } from '../theme/stitches.config';
 import { TableCollection } from '@react-types/table';
-import { TableVariantsProps, StyledBaseTableCell } from './table.styles';
+import {
+  TableVariantsProps,
+  StyledBaseTableCell,
+  StyledTableLoadingRow
+} from './table.styles';
 import { TableState } from '@react-stately/table';
+import { mergeProps } from '@react-aria/utils';
 import TableRowGroup from './table-row-group';
 import TableRow from './table-row';
 import TableCell from './table-cell';
 import TableCheckboxCell from './table-checkbox-cell';
 import { useTableContext } from './table-context';
 import { isInfinityScroll } from './utils';
+import { Loading, LoadingProps } from '../index';
 import clsx from '../utils/clsx';
 
 interface Props<T> {
   state: TableState<T>;
   collection: TableCollection<T>;
   animated?: boolean;
+  hideLoading?: boolean;
   hasPagination?: boolean;
-  selectedColor?: TableVariantsProps['selectedColor'];
+  color?: TableVariantsProps['color'];
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -33,8 +40,9 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
   collection,
   state,
   animated,
-  selectedColor,
+  color,
   hasPagination,
+  hideLoading,
   ...props
 }) => {
   const { currentPage, rowsPerPage } = useTableContext();
@@ -43,6 +51,10 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
     () => isInfinityScroll(collection),
     [collection.body.props]
   );
+
+  const isLoading =
+    collection.body?.props?.loadingState === 'loading' ||
+    collection.body?.props?.loadingState === 'loadingMore';
 
   const rows = useMemo(() => {
     const data = [...collection.body.childNodes];
@@ -57,7 +69,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
 
   const completeSpaces = useMemo(() => {
     const rowsCount = rows.length;
-    if (rowsCount >= rowsPerPage) {
+    if (rowsCount >= rowsPerPage && !infinityScroll) {
       return null;
     }
     return (
@@ -65,13 +77,21 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
         <StyledBaseTableCell
           aria-hidden="true"
           colSpan={collection.columnCount}
+          style={mergeProps(
+            {
+              '--nextui--tableBodyEmptySpaceHeight': infinityScroll
+                ? 'var(--nextui-space-10)'
+                : `calc(${rowsPerPage - rowsCount} * var(--nextui-space-14))`
+            },
+            props?.style || {}
+          )}
           css={{
-            height: `calc(${rowsPerPage - rowsCount} * $space$14)`
+            height: 'var(--nextui--tableBodyEmptySpaceHeight)'
           }}
         />
       </tr>
     );
-  }, [collection.columnCount, rows, rowsPerPage]);
+  }, [collection.columnCount, rows, rowsPerPage, infinityScroll]);
 
   // handle scroll and call next page on infinity scroll
   const handleScroll = (e: React.BaseSyntheticEvent) => {
@@ -82,10 +102,6 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
     const isAtBottom =
       element.scrollHeight - (element.scrollTop + SCROLL_OFFSET) <=
       element.clientHeight;
-
-    const isLoading =
-      collection.body?.props?.loadingState === 'loading' ||
-      collection.body?.props?.loadingState === 'loadingMore';
 
     if (isAtBottom && !isLoading) {
       collection.body?.props?.onLoadMore?.();
@@ -98,6 +114,10 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
       className={clsx('nextui-table-body', props.className)}
       isInfinityScroll={infinityScroll}
       onScroll={handleScroll}
+      css={{
+        pb: '$10',
+        ...(props.css as any)
+      }}
       {...props}
     >
       {children}
@@ -119,7 +139,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
                   key={cell?.key}
                   cell={cell}
                   state={state}
-                  color={selectedColor}
+                  color={color}
                   animated={animated}
                 />
               ) : (
@@ -129,6 +149,16 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
           </TableRow>
         );
       })}
+      {!hideLoading && isLoading && (
+        <StyledTableLoadingRow
+          role="row"
+          className="nextui-table-hidden-row"
+          aria-hidden="true"
+          isAtEnd={rows.length > 0}
+        >
+          <Loading color={color as LoadingProps['color']} />
+        </StyledTableLoadingRow>
+      )}
       {completeSpaces}
     </TableRowGroup>
   );

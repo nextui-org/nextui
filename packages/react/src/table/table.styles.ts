@@ -82,6 +82,8 @@ export const StyledTableCell = styled(
     transition:
       'background 0.25s ease 0s, box-shadow 0.25s ease 0s, opacity 0.25s ease 0s',
     ov: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
     '&:first-child': {
       pl: '$8'
     },
@@ -132,7 +134,7 @@ export const StyledTableRow = styled(
           color: '$$tableRowTextColor',
           [`& ${StyledTableCell}:before`]: {
             opacity: 1,
-            bg: '$$tableRowSelectedColor'
+            bg: '$$tableRowColor'
           }
         }
       }
@@ -168,6 +170,21 @@ export const StyledTableRowGroup = styled('thead', {
   }
 });
 
+export const StyledTableLoadingRow = styled('tr', {
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: 'calc(100% - $space$14)',
+  variants: {
+    isAtEnd: {
+      true: {
+        height: '$space$18'
+      }
+    }
+  }
+});
+
 export const StyledTable = styled('table', {
   borderCollapse: 'separate',
   borderSpacing: 0,
@@ -193,25 +210,25 @@ export const StyledTable = styled('table', {
         }
       }
     },
-    selectedColor: {
+    color: {
       primary: {
-        $$tableRowSelectedColor: '$colors$primaryLight',
+        $$tableRowColor: '$colors$primaryLight',
         $$tableRowTextColor: '$colors$primary'
       },
       secondary: {
-        $$tableRowSelectedColor: '$colors$secondaryLight',
+        $$tableRowColor: '$colors$secondaryLight',
         $$tableRowTextColor: '$colors$secondary'
       },
       success: {
-        $$tableRowSelectedColor: '$colors$successLight',
+        $$tableRowColor: '$colors$successLight',
         $$tableRowTextColor: '$colors$success'
       },
       warning: {
-        $$tableRowSelectedColor: '$colors$warningLight',
+        $$tableRowColor: '$colors$warningLight',
         $$tableRowTextColor: '$colors$warning'
       },
       error: {
-        $$tableRowSelectedColor: '$colors$errorLight',
+        $$tableRowColor: '$colors$errorLight',
         $$tableRowTextColor: '$colors$error'
       }
     },
@@ -543,7 +560,7 @@ export const StyledTable = styled('table', {
   ],
   defaultVariants: {
     shadow: true,
-    selectedColor: 'primary',
+    color: 'primary',
     borderWeight: 'normal',
     lineWeight: 'light'
   }
