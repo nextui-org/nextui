@@ -24,6 +24,10 @@ const StyledContainer = styled('div', {
   zIndex: '$2',
   '@xsMax': {
     display: 'none'
+  },
+  '@md': {
+    position: 'absolute',
+    top: '70px',
   }
 });
 
@@ -59,7 +63,7 @@ const HeroComponents = () => {
       <ThemeSwitch
         css={{
           position: 'absolute',
-          top: '-30vh',
+          top: '-170%',
           right: '-120%',
           animation: `${levitating} 13s ease infinite 1s reverse`
         }}
@@ -121,7 +125,7 @@ const HeroComponents = () => {
           h: '120px',
           position: 'absolute',
           right: '-240px',
-          top: '-35vh',
+          top: '-300px',
           animation: `${levitating} 13s ease infinite 1s`
         }}
       >
@@ -193,7 +197,7 @@ const HeroComponents = () => {
         borderWeight="bold"
         css={{
           position: 'absolute',
-          top: '-25vh',
+          top: '-160px',
           left: '180%',
           animation: `${levitating} 16s ease infinite`,
           [`& ${StyledButton}`]: {
@@ -214,7 +218,7 @@ const HeroComponents = () => {
           position: 'absolute',
           size: '100px',
           cursor: 'pointer',
-          top: '-14vh',
+          top: '-110px',
           right: '-220px',
           dflex: 'center',
           animation: `${levitating} 18s ease infinite`,
@@ -237,7 +241,7 @@ const HeroComponents = () => {
         initialPage={6}
         css={{
           position: 'absolute',
-          top: '-6vh',
+          top: '-80px',
           right: '-190%',
           animation: `${levitating} 20s ease infinite 2s`
         }}
@@ -247,7 +251,7 @@ const HeroComponents = () => {
           position: 'absolute',
           zIndex: '$3',
           size: '80px',
-          top: '2vh',
+          top: '-20px',
           right: '-120%',
           display: 'flex',
           animation: `${levitating} 23s ease infinite`,
