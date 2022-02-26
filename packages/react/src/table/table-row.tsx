@@ -34,12 +34,15 @@ const TableRow = React.forwardRef<
     const { rowProps } = useTableRow({ node: item }, state, tableRowRef);
 
     const { isFocusVisible, focusProps } = useFocusRing();
+    const allowsInteraction = state.selectionManager.selectionMode !== 'none';
+    const isDisabled = !allowsInteraction || state.disabledKeys.has(item.key);
 
     return (
       <StyledTableRow
         ref={tableRowRef}
         isFocusVisible={isFocusVisible}
         isSelected={!!rowProps['aria-selected']}
+        isDisabled={isDisabled}
         className={clsx(
           'nextui-table-row',
           {

@@ -153,7 +153,7 @@ export const StyledTableRowGroup = styled('thead', {
     isInfinityScroll: {
       true: {
         display: 'block',
-        height: '200px',
+        height: '100%',
         overflow: 'auto',
         [`& ${StyledTableRow}`]: {
           display: 'table',

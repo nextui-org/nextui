@@ -317,22 +317,22 @@ const BaseTable = (props: Omit<TableProps, 'children'>) => {
         <Table.Column>DATE MODIFIED</Table.Column>
       </Table.Header>
       <Table.Body>
-        <Table.Row>
+        <Table.Row key="1">
           <Table.Cell>Games</Table.Cell>
           <Table.Cell>File folder</Table.Cell>
           <Table.Cell>6/7/2020</Table.Cell>
         </Table.Row>
-        <Table.Row>
+        <Table.Row key="2">
           <Table.Cell>Program Files</Table.Cell>
           <Table.Cell>File folder</Table.Cell>
           <Table.Cell>4/7/2021</Table.Cell>
         </Table.Row>
-        <Table.Row>
+        <Table.Row key="3">
           <Table.Cell>bootmgr</Table.Cell>
           <Table.Cell>System file</Table.Cell>
           <Table.Cell>11/20/2010</Table.Cell>
         </Table.Row>
-        <Table.Row>
+        <Table.Row key="4">
           <Table.Cell>log.txt</Table.Cell>
           <Table.Cell>Text Document</Table.Cell>
           <Table.Cell>1/18/2016</Table.Cell>
@@ -435,7 +435,7 @@ export const DisabledKeys = () => {
   return (
     <BaseTable
       shadow={false}
-      disabledKeys={[2]}
+      disabledKeys={['2']}
       selectionMode="multiple"
       selectedColor="secondary"
     />
@@ -446,7 +446,7 @@ export const DisallowEmptySelection = () => {
   return (
     <BaseTable
       shadow={false}
-      defaultSelectedKeys={[2]}
+      defaultSelectedKeys={['2']}
       disallowEmptySelection
       selectionMode="multiple"
       selectedColor="secondary"
@@ -528,7 +528,7 @@ export const InfinityPagination = () => {
       bordered
       shadow={false}
       aria-label="Example table with dynamic content & infinity pagination"
-      css={{ minWidth: '620px', height: 'auto' }}
+      css={{ width: '620px', height: '300px' }}
       selectionMode="multiple"
       selectedColor="secondary"
     >
