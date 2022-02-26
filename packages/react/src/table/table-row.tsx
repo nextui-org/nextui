@@ -47,7 +47,8 @@ const TableRow = React.forwardRef<
           'nextui-table-row',
           {
             'nextui-table-row--animated': props.animated,
-            'nextui-table-row--selected': rowProps['aria-selected']
+            'nextui-table-row--selected': rowProps['aria-selected'],
+            'nextui-table-row--disabled': isDisabled
           },
           props.className
         )}
