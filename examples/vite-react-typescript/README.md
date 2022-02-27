@@ -5,6 +5,7 @@ This is a [Vite React TypeScript](https://reactjs.org/) project bootstrapped wit
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
 ```
 
