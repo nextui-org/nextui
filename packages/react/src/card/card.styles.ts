@@ -1,6 +1,6 @@
 import { styled, VariantProps } from '../theme/stitches.config';
 import { StyledDrip } from '../utils/drip';
-import { StyledImage, StyledImageContainer } from './index';
+import { StyledImage, StyledImageContainer } from '../index';
 
 export const StyledCardBody = styled('div', {
   d: 'flex',
