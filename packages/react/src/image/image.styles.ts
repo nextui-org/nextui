@@ -13,6 +13,7 @@ export const StyledImageContainer = styled('div', {
   opacity: 0,
   margin: '0 auto',
   position: 'relative',
+  br: '$lg',
   overflow: 'hidden',
   maxWidth: '100%',
   transition: 'transform 250ms ease 0ms, opacity 200ms ease-in 0ms',
@@ -33,9 +34,7 @@ export const StyledImageContainer = styled('div', {
 
 export const StyledImage = styled('img', {
   size: '100%',
-  display: 'block',
-  borderRadius: "$lg"
-  
+  display: 'block'
 });
 
 export const StyledImageSkeleton = styled('div', {

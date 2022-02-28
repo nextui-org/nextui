@@ -1,8 +1,8 @@
 import { styled, VariantProps } from '../theme/stitches.config';
 import { StyledDrip } from '../utils/drip';
+import { StyledImage, StyledImageContainer } from './index';
 
 export const StyledCardBody = styled('div', {
-  borderRadius: "0",
   d: 'flex',
   w: '100%',
   h: 'auto',
@@ -37,7 +37,7 @@ export const StyledCard = styled('div', {
   '@motion': {
     transition: 'none'
   },
-  '.nextui-image': {
+  [`& ${StyledImage}`]: {
     width: '100%'
   },
   [`& ${StyledDrip}`]: {
@@ -151,17 +151,17 @@ export const StyledCard = styled('div', {
     },
     cover: {
       true: {
-        '.nextui-image': {
-          objectFit: 'cover !important' // TODO: remove important when image be styled
+        [`& ${StyledImage}`]: {
+          objectFit: 'cover ' // TODO: remove important when image be styled
         },
         [`& ${StyledCardBody}`]: {
           p: 0
         }
       },
       false: {
-        '.nextui-image, .nextui-image-container': {
-          bblr: '0 !important', // TODO: remove important when image be styled
-          bbrr: '0 !important'
+        [`& ${StyledImage}, & ${StyledImageContainer}`]: {
+          bblr: '0 ', // TODO: remove important when image be styled
+          bbrr: '0 '
         }
       }
     },
