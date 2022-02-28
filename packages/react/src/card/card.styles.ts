@@ -152,7 +152,7 @@ export const StyledCard = styled('div', {
     cover: {
       true: {
         [`& ${StyledImage}`]: {
-          objectFit: 'cover ' // TODO: remove important when image be styled
+          objectFit: 'cover ' 
         },
         [`& ${StyledCardBody}`]: {
           p: 0
@@ -160,7 +160,7 @@ export const StyledCard = styled('div', {
       },
       false: {
         [`& ${StyledImage}, & ${StyledImageContainer}`]: {
-          bblr: '0 ', // TODO: remove important when image be styled
+          bblr: '0 ',
           bbrr: '0 '
         }
       }
