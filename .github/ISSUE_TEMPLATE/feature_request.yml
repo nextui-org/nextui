@@ -1,4 +1,6 @@
 name: Feature request
+title: "[Feature Request] YOUR_FEATURE_TITLE_HERE_REPLACE_ME"
+labels: [feature request]
 description:  |
   💡 Suggest an idea for the `NextUI` project
   Examples
@@ -10,7 +12,7 @@ body:
     attributes:
       value: |
         This issue form is for requesting features only! For example, requesting a new component, behavior ... etc
-        If you want to report a bug, please use the [bug report](https://github.com/nextui-org/nextui/issues/new?assignees=&labels=&template=bug_report.yml) form.
+        If you want to report a bug, please use the [bug report form](https://github.com/nextui-org/nextui/issues/new?assignees=&labels=&template=bug_report.yml).
   - type: textarea
     validations:
       required: true
