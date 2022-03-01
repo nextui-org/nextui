@@ -114,7 +114,7 @@ export const changeTheme = (theme: ThemeType | string) => {
     el
       ?.getAttribute('style')
       ?.split(';')
-      .filter((stl) => !stl.includes('color-scheme'))
+      .filter((stl) => !stl.includes('color-scheme') && stl.length)
       .map((el) => `${el};`) || [];
 
   el?.setAttribute('class', clsx(prevClasses, `${getThemeName(theme)}-theme`));

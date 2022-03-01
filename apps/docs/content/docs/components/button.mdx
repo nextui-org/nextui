@@ -408,8 +408,10 @@ import { Button } from '@nextui-org/react';
 | **onClick**      | `MouseEventHandler`                             | -                                | Button click handler                      | -         |
 | **icon**         | `ReactNode`                                     | -                                | Show icon in button                       | -         |
 | **iconRight**    | `ReactNode`                                     | -                                | Show icon on the other side of the button | -         |
-| **type**         | `ButtonHTMLAttributes.type`                     | `button` `reset` `submit`        | Native type of button element             | `button`  |
+| **type**         | `ButtonHTMLAttributes.type`                     | `button` `reset` `submit`        | Native type of button element             | `submit`  |
 | **ref**          | <Code>Ref<HTMLButtonElement &#124; null></Code> | -                                | forwardRef                                | -         |
+| **css**          | `Stitches.CSS`                                  | -                                | Override Default CSS style                | -         |
+| **as**           | `keyof JSX.IntrinsicElements`                   | -                                | Changes which tag component outputs       | `button`  |
 | ...              | `ButtonHTMLAttributes`                          | `'id', 'className', ...`         | Button native props                       | -         |
 
 <Spacer y={2} />

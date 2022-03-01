@@ -473,47 +473,57 @@ return (
 | **borderWeight** | `NormalWeights`                              | [NormalWeights](#normal-weights) | Border weight for `bordered` card                                                                          | `normal`  |
 | **onClick**      | `MouseEventHandler`                          | -                                | Clickable card click handler                                                                               | -         |
 | **ref**          | <Code>Ref<HTMLDivElement &#124; null></Code> | -                                | forwardRef                                                                                                 | -         |
+| **css**          | `Stitches.CSS`                               | -                                | Override Default CSS style                                                                                 | -         |
+| **as**           | `keyof JSX.IntrinsicElements`                | -                                | Changes which tag component outputs                                                                        | `div`     |
 | ...              | `HTMLAttributes`                             | `'id', 'className', ...`         | Native props                                                                                               | -         |
 
 <Spacer y={2} />
 
 #### Card.Header Props
 
-| Attribute | Type             | Accepted values          | Description  | Default |
-| --------- | ---------------- | ------------------------ | ------------ | ------- |
-| ...       | `HTMLAttributes` | `'id', 'className', ...` | Native props | -       |
+| Attribute | Type                             | Accepted values          | Description                             | Default       |
+| --------- | -------------------------------- | ------------------------ | --------------------------------------- | ------------- |
+| **css**   | `Stitches.CSS`                   | -                        | Override Default CSS style              | -             |
+| **as**    | `keyof JSX.IntrinsicElements`    | -                        | Changes which tag component outputs     | `div`         |
+| ...       | `HTMLAttributes`                 | `'id', 'className', ...` | Native props                            | -             |
 
 <Spacer y={2} />
 
 #### Card.Body Props
 
-| Attribute | Type             | Accepted values          | Description  | Default |
-| --------- | ---------------- | ------------------------ | ------------ | ------- |
-| ...       | `HTMLAttributes` | `'id', 'className', ...` | Native props | -       |
+| Attribute | Type                             | Accepted values          | Description                             | Default       |
+| --------- | -------------------------------- | ------------------------ | --------------------------------------- | ------------- |
+| ...       | `HTMLAttributes`                 | `'id', 'className', ...` | Native props                            | -             |
+| **css**   | `Stitches.CSS`                   | -                        | Override Default CSS style              | -             |
+| **as**    | `keyof JSX.IntrinsicElements`    | -                        | Changes which tag component outputs     | `div`         |
 
 <Spacer y={2} />
 
 #### Card.Footer Props
 
-| Attribute | Type             | Accepted values          | Description                          | Default |
-| --------- | ---------------- | ------------------------ | ------------------------------------ | ------- |
-| **blur**  | `boolean`        | `true/false`             | Makes the card footer container blur | `false` |
-| ...       | `HTMLAttributes` | `'id', 'className', ...` | Native props                         | -       |
+| Attribute | Type                             | Accepted values          | Description                          | Default       |
+| --------- | -------------------------------- | ------------------------ | ------------------------------------ | ------------- |
+| **blur**  | `boolean`                        | `true/false`             | Makes the card footer container blur | `false`       |
+| **css**   | `Stitches.CSS`                   | -                        | Override Default CSS style           | -             |
+| **as**    | `keyof JSX.IntrinsicElements`    |  -                       | Changes which tag component outputs  | `div`         |
+| ...       | `HTMLAttributes`                 | `'id', 'className', ...` | Native props                         | -             |
 
 <Spacer y={2} />
 
 #### Card.Image Props
 
-| Attribute        | Type                | Accepted values                | Description                                       | Default      |
-| ---------------- | ------------------- | ------------------------------ | ------------------------------------------------- | ------------ |
-| **src**          | `string`            | -                              | Image source                                      | -            |
-| **width**        | `string` `number`   | `%` `px` `rem` `em`            | Determine the width of the card image             | `100%`       |
-| **height**       | `string` `number`   | `%` `px` `rem` `em`            | Determine the height of the card image            | `auto`       |
-| **showSkeleton** | `boolean`           | `true/false`                   | Show skeleton effect whereas the image is loading | `true`       |
-| **objectFit**    | `ObjectFit`         | [ObjectFit](#object-fit)       | CSS "object-fit" property                         | `scale-down` |
-| **maxDelay(ms)** | `number`            | -                              | Max duration of the skeleton animation            | `3000`       |
-| **autoResize**   | `boolean`           | `true/false`                   | Enables zooming when width is too small           | `true`       |
-| ...              | `ImgHTMLAttributes` | `'id', 'className', 'alt' ...` | Native props                                      | -            |
+| Attribute        | Type                                | Accepted values                | Description                                       | Default       |
+| ---------------- | ----------------------------------- | ------------------------------ | ------------------------------------------------- | ------------- |
+| **src**          | `string`                            | -                              | Image source                                      | -             |
+| **width**        | `string` `number`                   | `%` `px` `rem` `em`            | Determine the width of the card image             | `100%`        |
+| **height**       | `string` `number`                   | `%` `px` `rem` `em`            | Determine the height of the card image            | `auto`        |
+| **showSkeleton** | `boolean`                           | `true/false`                   | Show skeleton effect whereas the image is loading | `true`        |
+| **objectFit**    | `ObjectFit`                         | [ObjectFit](#object-fit)       | CSS "object-fit" property                         | `scale-down`  |
+| **maxDelay(ms)** | `number`                            | -                              | Max duration of the skeleton animation            | `3000`        |
+| **autoResize**   | `boolean`                           | `true/false`                   | Enables zooming when width is too small           | `true`        |
+| **css**          | `Stitches.CSS`                      | -                              | Override Default CSS style                        | -             |
+| **as**           | `keyof JSX.IntrinsicElements`       | -                              | Changes which tag component outputs               | `div`         |
+| ...              | `ImgHTMLAttributes`                 | `'id', 'className', 'alt' ...` | Native props                                      | -             |
 
 <Spacer y={2} />
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { LiveEditor } from 'react-live';
-import { useTheme, Row, Col, Tooltip } from '@nextui-org/react';
+import { useTheme, Row, Col, Tooltip, useClipboard } from '@nextui-org/react';
 import { capitalize, join } from 'lodash';
 import CopyIcon from '../icons/copy';
 import BugIcon from '../icons/bug';
@@ -10,14 +10,17 @@ import { ISSUE_REPORT_URL } from '../../lib/github/constants';
 
 export interface Props {
   initialOpen?: boolean;
+  code: string;
 }
 
-const Editor: React.FC<Props> = ({ initialOpen }) => {
+const Editor: React.FC<Props> = ({ initialOpen,code }) => {
   const { theme, isDark } = useTheme();
   const [visible, setVisible] = useState(initialOpen);
   const [copied, setCopied] = useState(false);
 
   const router = useRouter();
+
+  const { copy } = useClipboard();
 
   const slug = router.query.slug || '';
 
@@ -38,6 +41,8 @@ const Editor: React.FC<Props> = ({ initialOpen }) => {
     event.stopPropagation();
     event.preventDefault();
     setCopied(true);
+    copy(code);
+    
   };
 
   const handleTooltipVisibleChange = () => {
