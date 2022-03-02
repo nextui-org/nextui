@@ -152,6 +152,9 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
                 )}
               </TableHeaderRow>
             ))}
+            {!props.sticked && (
+              <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />
+            )}
           </TableRowGroup>
           <TableBody
             state={state}
@@ -160,11 +163,8 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             animated={props.animated}
             hasPagination={hasPagination}
             hideLoading={hideLoading}
-          >
-            {!props.sticked && (
-              <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />
-            )}
-          </TableBody>
+          />
+
           {hasPagination && (
             <TableFooter>
               <Spacer as="tr" className="nextui-table-hidden-row" y={0.6} />

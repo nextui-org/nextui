@@ -560,6 +560,7 @@ export const StyledTable = styled('table', {
   ],
   defaultVariants: {
     shadow: true,
+    sticked: false,
     color: 'primary',
     borderWeight: 'normal',
     lineWeight: 'light'
