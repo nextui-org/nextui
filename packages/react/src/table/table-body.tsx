@@ -156,7 +156,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
           aria-hidden="true"
           isAtEnd={rows.length > 0}
         >
-          <Loading color={color as LoadingProps['color']} />
+          <Loading as="td" color={color as LoadingProps['color']} />
         </StyledTableLoadingRow>
       )}
       {completeSpaces}
