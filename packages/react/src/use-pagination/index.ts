@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useState } from 'react';
+import { useMemo, useCallback, useState, useEffect } from 'react';
 import { range } from '../utils/numbers';
 
 export const DOTS = 'dots';
@@ -28,6 +28,12 @@ const usePagination = ({
     setActivePage(newPage);
     onChange && onChange(newPage);
   };
+
+  useEffect(() => {
+    if (page && page !== activePage) {
+      setActivePage(page);
+    }
+  }, [page]);
 
   const setPage = useCallback(
     (pageNumber: number) => {
