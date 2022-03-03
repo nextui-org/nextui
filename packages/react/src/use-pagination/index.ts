@@ -25,7 +25,7 @@ const usePagination = ({
   const [activePage, setActivePage] = useState(page || initialPage);
 
   const onChangeActivePage = (newPage: number) => {
-    setActivePage(page ?? newPage);
+    setActivePage(newPage);
     onChange && onChange(newPage);
   };
 
