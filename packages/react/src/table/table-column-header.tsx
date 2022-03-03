@@ -9,6 +9,7 @@ import { GridNode } from '@react-types/grid';
 import { TableState } from '@react-stately/table';
 import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
+import { VisuallyHidden } from '@react-aria/visually-hidden';
 import clsx from '../utils/clsx';
 
 interface Props<T> {
@@ -49,9 +50,13 @@ const TableColumnHeader = React.forwardRef<
       isFocusVisible={isFocusVisible}
       colSpan={column.colspan}
       className={clsx('nextui-table-column-header', props.className)}
-      {...mergeProps(props, columnHeaderProps, focusProps)}
+      {...mergeProps(props, columnHeaderProps, focusProps, column.props)}
     >
-      {column.rendered}
+      {column.props.hideHeader ? (
+        <VisuallyHidden>{column.rendered}</VisuallyHidden>
+      ) : (
+        column.rendered
+      )}
       {column.props.allowsSorting && (
         <span
           aria-hidden="true"
