@@ -68,7 +68,6 @@ export const StyledTooltipContent = styled('div', {
       },
       invert: {
         $$tooltipColor: '$colors$foreground',
-        $$tooltipTextColor: '$colors$background',
         bg: '$$tooltipColor'
       }
     },
@@ -96,6 +95,10 @@ export const StyledTooltipContent = styled('div', {
       error: {
         $$tooltipTextColor: '$colors$error',
         color: '$$tooltipTextColor'
+      }
+      invert: {
+       $$tooltipTextColor: '$colors$background',
+       color:'$$tooltipTextColor'
       }
     },
     rounded: {
