@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🤔 Long question or ideas?
+    url: https://github.com/nextui-org/nextui/discussions
+    about: Ask long-form questions and discuss ideas.
+  - name: 💬 Discord Community Chat
+    url: https://discord.gg/9b6yyZKmH4
+    about: Ask quick questions or simply chat on the `NextUI` community Discord server.
+  - name: 💬 New Updates (Twitter)
+    url: https://twitter.com/getnextui
+    about: Link to our twitter account if you want to follow us and stay up to date with NextUI news

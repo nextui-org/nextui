@@ -1,36 +1,61 @@
-import { useState } from 'react'
-import logo from './logo.png'
-import './App.css'
-import {Button,Text,Link } from "@nextui-org/react";
+import { useState } from 'react';
+import {
+  Button,
+  Text,
+  Link,
+  NextUIProvider,
+  createTheme,
+  Container,
+  Spacer
+} from '@nextui-org/react';
+
+const theme = createTheme({
+  type: 'light'
+});
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Text color="secondary"><p>Hello Vite + NextUI!</p></Text>
-        <p>
-          <Button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </Button>
-        </p>
-        <Text color="warning">
-        <p>
+    <NextUIProvider theme={theme}>
+      <Container
+        className="App"
+        css={{
+          dflex: 'center',
+          flexDirection: 'column',
+          minHeight: '100vh'
+        }}
+      >
+        <img src="/logo.png" className="App-logo" alt="NextUI logo" />
+        <Spacer y={0.5} />
+        <Text h1>Hello Vite + NextUI!</Text>
+        <Spacer y={0.5} />
+        <Button type="button" onClick={() => setCount((count) => count + 1)}>
+          Count is: {count}
+        </Button>
+        <Text css={{ my: '$8' }}>
           Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
         </Text>
-        <p>
-        <Link block color="warning" href="https://reactjs.org">Learn React</Link>
+        <Text>
+          <Link block href="https://reactjs.org">
+            Learn React
+          </Link>
           {' | '}
-          <Link block color="primary" href="https://vitejs.dev/guide/features.html">Vite Docs</Link>
+          <Link
+            block
+            color="primary"
+            href="https://vitejs.dev/guide/features.html"
+          >
+            Vite Docs
+          </Link>
           {' | '}
-          <Link block color="error" href="https://nextui.org/">NextUI Docs</Link>
-        </p>
-      </header>
-    </div>
-  )
+          <Link block href="https://nextui.org/">
+            NextUI Docs
+          </Link>
+        </Text>
+      </Container>
+    </NextUIProvider>
+  );
 }
 
-export default App
+export default App;
