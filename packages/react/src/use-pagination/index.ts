@@ -31,6 +31,10 @@ const usePagination = ({
 
   const setPage = useCallback(
     (pageNumber: number) => {
+      if (page) {
+        setActivePage(page)
+        return
+      }
       if (pageNumber <= 0) {
         onChangeActivePage(1);
       } else if (pageNumber > total) {
