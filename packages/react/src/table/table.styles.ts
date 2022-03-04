@@ -17,6 +17,10 @@ export const StyledTableColumnHeader = styled(
     color: '$accents6',
     fontSize: '$tiny',
     textAlign: 'left',
+    transition: '$default',
+    '@motion': {
+      transition: 'none'
+    },
     '&:first-child': {
       pl: '$8',
       br: '$md 0 0 $md'
@@ -36,10 +40,24 @@ export const StyledTableColumnHeader = styled(
         end: {
           textAlign: 'right'
         }
+      },
+      animated: {
+        false: {
+          transition: 'none'
+        }
+      },
+      allowsSorting: {
+        true: {
+          cursor: 'pointer',
+          '&:hover': {
+            color: '$accents7'
+          }
+        }
       }
     },
     defaultVariants: {
-      align: 'left'
+      align: 'left',
+      animated: true
     }
   },
   cssFocusVisible

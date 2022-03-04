@@ -1,8 +1,17 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import Table, { TableProps } from './index';
+import Table, { TableProps, SortDescriptor } from './index';
 import { getKeyValue } from '../utils/object';
-import { User, Text, Col, Row, Tooltip, styled } from '../index';
+import {
+  User,
+  Text,
+  Col,
+  Row,
+  Tooltip,
+  styled,
+  useAsyncList,
+  useCollator
+} from '../index';
 import { Eye, Edit, Delete } from '../utils/icons';
 
 export default {
@@ -285,6 +294,73 @@ export const DisallowEmptySelection = () => {
   );
 };
 
+export const Sortable = () => {
+  let collator = useCollator({ numeric: true });
+
+  let list = useAsyncList({
+    async load({ signal }) {
+      let res = await fetch(`https://swapi.py4e.com/api/people/?search`, {
+        signal
+      });
+      let json = await res.json();
+      return {
+        items: json.results
+      };
+    },
+    async sort({
+      items,
+      sortDescriptor
+    }: {
+      items: any[];
+      sortDescriptor: SortDescriptor;
+    }) {
+      return {
+        items: items.sort((a, b) => {
+          let first = a[sortDescriptor.column];
+          let second = b[sortDescriptor.column];
+          let cmp = collator.compare(first, second);
+          if (sortDescriptor.direction === 'descending') {
+            cmp *= -1;
+          }
+          return cmp;
+        })
+      };
+    }
+  });
+
+  return (
+    <Table
+      aria-label="Example static collection table"
+      css={{ width: '640px', height: 'calc($space$14 * 10)' }}
+      sortDescriptor={list.sortDescriptor}
+      onSortChange={list.sort}
+    >
+      <Table.Header>
+        <Table.Column key="name" allowsSorting>
+          Name
+        </Table.Column>
+        <Table.Column key="height" allowsSorting>
+          Height
+        </Table.Column>
+        <Table.Column key="mass" allowsSorting>
+          Mass
+        </Table.Column>
+        <Table.Column key="birth_year" allowsSorting>
+          Birth Year
+        </Table.Column>
+      </Table.Header>
+      <Table.Body items={list.items} loadingState={list.loadingState}>
+        {(item: any) => (
+          <Table.Row key={item.name}>
+            {(columnKey) => (
+              <Table.Cell>{getKeyValue(item, columnKey)}</Table.Cell>
+            )}
+          </Table.Row>
+        )}
+      </Table.Body>
+    </Table>
+  );
+};
 export const Pagination = () => {
   return (
     <Table
@@ -364,12 +440,7 @@ export const InfinityPagination = () => {
     >
       <Table.Header columns={scopedColumns}>
         {(column) => (
-          <Table.Column
-            key={column.uid}
-            align={column.uid === 'name' ? 'end' : 'start'}
-          >
-            {column.name}
-          </Table.Column>
+          <Table.Column key={column.uid}>{column.name}</Table.Column>
         )}
       </Table.Header>
       <Table.Body
@@ -548,7 +619,7 @@ export const CustomCells = () => {
   return (
     <Table
       aria-label="Example custom cells info table"
-      css={{ height: 'auto', minWidth: '800px' }}
+      css={{ height: 'auto', minWidth: '740px' }}
       selectionMode="none"
     >
       <Table.Header columns={customColumns}>

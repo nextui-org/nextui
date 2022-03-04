@@ -4,6 +4,8 @@ import TablePagination from './table-pagination';
 
 import { Cell, Row, TableBody, TableHeader } from '@react-stately/table';
 
+export type { SortDescriptor } from '@react-types/shared';
+
 export {
   StyledTable,
   StyledTableRow,
