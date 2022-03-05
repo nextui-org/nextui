@@ -819,7 +819,7 @@ export const StyledButton = styled(
         css :{
           bg: '$accents2',
           color: '$accents4',
-          borderStyle: 'none'
+          borderColor: '$accents2'
         }
       },
       {
@@ -831,23 +831,14 @@ export const StyledButton = styled(
         }
       },
       {
-        color: 'light',
+        light: true,
         disabled: true,
         css :{
-          bg: '$accents2',
           color: '$accents4'
         }
       },
       {
-        rounded: true,
-        disabled: true,
-        css :{
-          bg: '$accents2',
-          color: '$accents4'
-        }
-      },
-      {
-        color: 'ghost',
+        ghost: true,
         disabled: true,
         css :{
           bg: '$accents2',
@@ -858,8 +849,6 @@ export const StyledButton = styled(
         shadow: true,
         disabled: true,
         css :{
-          bg: '$accents2',
-          color: '$accents4',
           boxShadow: 'none'
         }
       },
