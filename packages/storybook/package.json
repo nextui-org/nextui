@@ -17,7 +17,8 @@
     "@storybook/manager-webpack5": "^6.5.0-alpha.39",
     "@storybook/react": "^6.5.0-alpha.39",
     "babel-loader": "^8.2.3",
-    "webpack": "5.69.1"
+    "webpack": "5.69.1",
+    "storybook-dark-mode": "^1.0.9"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 --no-manager-cache",
