@@ -180,8 +180,8 @@ export const StyledButton = styled(
       },
       disabled: {
         true: {
-          bg: '$accents2',
-          color: '$accents4',
+          bg: '$accents2 !important',
+          color: '$accents4 !important',
           cursor: 'not-allowed',
           pe: 'auto',
           '&:hover': {
