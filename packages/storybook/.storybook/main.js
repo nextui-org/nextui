@@ -3,7 +3,7 @@ module.exports = {
     '../../react/src/**/*.stories.mdx',
     '../../react/src/**/*.stories.@(js|jsx|ts|tsx)'
   ],
-  addons: ['@storybook/addon-a11y'],
+  addons: ['@storybook/addon-a11y','storybook-dark-mode'],
   babel: async (options) => ({
     ...options,
     plugins: [
