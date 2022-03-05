@@ -180,8 +180,8 @@ export const StyledButton = styled(
       },
       disabled: {
         true: {
-          bg: '$accents2 !important',
-          color: '$accents4 !important',
+          bg: '$accents2',
+          color: '$accents4',
           cursor: 'not-allowed',
           pe: 'auto',
           '&:hover': {
@@ -763,7 +763,106 @@ export const StyledButton = styled(
         css: {
           br: '$pill'
         }
-      }
+      },
+      //Variants Interaction with Disabled State
+      {
+        color: 'success',
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'primary',
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'secondary',
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'warning',
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'error',
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'gradient',
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        bordered: true,
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4',
+          borderStyle: 'none'
+        }
+      },
+      {
+        color: 'flat',
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'light',
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        rounded: true,
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'ghost',
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        shadow: true,
+        disabled: true,
+        css :{
+          bg: '$accents2',
+          color: '$accents4',
+          boxShadow: 'none'
+        }
+      },
     ],
     defaultVariants: {
       color: 'default',
