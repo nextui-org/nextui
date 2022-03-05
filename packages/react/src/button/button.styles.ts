@@ -823,7 +823,7 @@ export const StyledButton = styled(
         }
       },
       {
-        color: 'flat',
+        flat: true,
         disabled: true,
         css :{
           bg: '$accents2',
