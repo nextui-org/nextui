@@ -27,7 +27,7 @@ const Box = styled('div', {
 
 export const decorators = [
   (Story) => (
-    <NextUIProvider theme={darkTheme}>
+    <NextUIProvider theme={useDarkMode() ? darkTheme : lightTheme}>
       <Box>
         <Story />
       </Box>
