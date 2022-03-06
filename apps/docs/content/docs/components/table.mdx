@@ -1,0 +1,568 @@
+---
+title: 'Table'
+description: 'Tables are used to display tabular data using rows and columns. hey allow users to quickly scan, sort, compare, and take action on large amounts of data.'
+url: https://nextui.org/docs/components/table
+---
+
+# Table
+
+Tables are used to display tabular data using rows and columns. hey allow users to quickly scan, sort, compare, and take action on large amounts of data.
+
+```jsx
+import { Table } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+<Playground
+  title="Static"
+  desc="Table with static data"
+  code={`
+  <Table
+      aria-label="Example static collection table"
+      css={{
+        height: 'auto',
+        minWidth: '100%',
+      }}
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>ROLE</Table.Column>
+        <Table.Column>STATUS</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+  </Table>
+`}
+/>
+
+<Playground
+  title="Dynamic"
+  desc="Table with dynamic data"
+  code={`
+  () => {
+const columns = [
+  {
+    key: 'name',
+    label: 'Name',
+  },
+  {
+    key: 'role',
+    label: 'Role',
+  },
+  {
+    key: 'status',
+    label: 'Status',
+  },
+];
+const rows = [
+  {
+    key: '1',
+    name: 'Tony Reichert',
+    role: 'CEO',
+    status: 'Active',
+  },
+  {
+    key: '2',
+    name: 'Zoey Lang',
+    role: 'Technical Lead',
+    status: 'Paused',
+  },
+  {
+    key: '3',
+    name: 'Jane Fisher',
+    role: 'Senior Developer',
+    status: 'Active',
+  },
+  {
+    key: '4',
+    name: 'William Howard',
+    role: 'Community Manager',
+    status: 'Vacation',
+  },
+];
+return (
+  <Table
+      aria-label="Example dynamic collection table"
+      css={{
+        height: 'auto',
+        minWidth: '100%',
+      }}
+    >
+     <Table.Header columns={columns}>
+        {(column) => (
+          <Table.Column key={column.key}>{column.label}</Table.Column>
+        )}
+      </Table.Header>
+      <Table.Body items={rows}>
+        {(item) => (
+          <Table.Row key={item.key}>
+            {(columnKey) => (
+              <Table.Cell>{item[columnKey]}</Table.Cell>
+            )}
+          </Table.Row>
+        )}
+      </Table.Body>
+  </Table>
+  )
+  }
+  `}
+/>
+
+<Playground
+  title="Single selection"
+  desc="Table with single selection"
+  code={`
+  <Table
+      aria-label="Example static collection table"
+      css={{
+        height: 'auto',
+        minWidth: '100%',
+      }}
+      selectionMode="single"
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>ROLE</Table.Column>
+        <Table.Column>STATUS</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+  </Table>
+`}
+/>
+
+<Playground
+  title="Multiple selection"
+  desc="Table with multiple selection"
+  code={`
+  <Table
+      aria-label="Example static collection table"
+      css={{
+        height: 'auto',
+        minWidth: '100%',
+      }}
+      selectionMode="multiple"
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>ROLE</Table.Column>
+        <Table.Column>STATUS</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+  </Table>
+`}
+/>
+
+<Playground
+  title="Colors"
+  desc="Table with dynamic colors"
+  code={`
+  () => {
+const [selectedColor, setSelectedColor] = React.useState('primary');
+const colors = ['primary', 'secondary', 'success', 'warning', 'error']
+const capitalize = (str) => {
+  const lower = str.toLowerCase();
+  return str.charAt(0).toUpperCase() + lower.slice(1);
+}
+const columns = [
+  {
+    key: 'name',
+    label: 'Name',
+  },
+  {
+    key: 'role',
+    label: 'Role',
+  },
+  {
+    key: 'status',
+    label: 'Status',
+  },
+];
+const rows = [
+  {
+    key: '1',
+    name: 'Tony Reichert',
+    role: 'CEO',
+    status: 'Active',
+  },
+  {
+    key: '2',
+    name: 'Zoey Lang',
+    role: 'Technical Lead',
+    status: 'Paused',
+  },
+  {
+    key: '3',
+    name: 'Jane Fisher',
+    role: 'Senior Developer',
+    status: 'Active',
+  },
+  {
+    key: '4',
+    name: 'William Howard',
+    role: 'Community Manager',
+    status: 'Vacation',
+  },
+];
+return (
+<Grid.Container gap={2}>
+  <Grid xs={12}>
+    <Table
+        aria-label="Example dynamic collection table"
+        color={selectedColor}
+        selectionMode="multiple"
+        defaultSelectedKeys={['2']}
+        css={{
+          height: 'auto',
+          minWidth: '100%',
+        }}
+      >
+      <Table.Header columns={columns}>
+          {(column) => (
+            <Table.Column key={column.key}>{column.label}</Table.Column>
+          )}
+        </Table.Header>
+        <Table.Body items={rows}>
+          {(item) => (
+            <Table.Row key={item.key}>
+              {(columnKey) => (
+                <Table.Cell>{item[columnKey]}</Table.Cell>
+              )}
+            </Table.Row>
+          )}
+        </Table.Body>
+    </Table>
+  </Grid>
+  <Grid xs={12}>
+    <Radio.Group row size="sm" value={selectedColor} onChange={setSelectedColor}>
+      {colors.map((color) => (
+        <Radio key={color} value={color} color={selectedColor}>
+          {capitalize(color)}
+        </Radio>
+      ))}
+    </Radio.Group>
+  </Grid>    
+</Grid.Container>
+  )
+  }
+  `}
+/>
+
+<Playground
+  title="Bordered"
+  desc="Table bordered"
+  code={`
+  <Table
+      bordered
+      aria-label="Example static collection table"
+      css={{
+        height: 'auto',
+        minWidth: '100%',
+      }}
+      selectionMode="multiple"
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>ROLE</Table.Column>
+        <Table.Column>STATUS</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+  </Table>
+`}
+/>
+
+<Playground
+  title="Lined"
+  desc="Table lined"
+  code={`
+  <Table
+      lined
+      headerLined
+      aria-label="Example static collection table"
+      css={{
+        height: 'auto',
+        minWidth: '100%',
+      }}
+      selectionMode="multiple"
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>ROLE</Table.Column>
+        <Table.Column>STATUS</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+  </Table>
+`}
+/>
+
+<Playground
+  title="Sticked"
+  desc="Table sticked"
+  code={`
+  <Table
+      sticked
+      aria-label="Example static collection table"
+      css={{
+        height: 'auto',
+        minWidth: '100%',
+      }}
+      selectionMode="multiple"
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>ROLE</Table.Column>
+        <Table.Column>STATUS</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+  </Table>
+`}
+/>
+
+<Playground
+  title="Compact"
+  desc="Table compact"
+  code={`
+  <Table
+      compact
+      aria-label="Example static collection table"
+      css={{
+        height: 'auto',
+        minWidth: '100%',
+      }}
+      selectionMode="multiple"
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>ROLE</Table.Column>
+        <Table.Column>STATUS</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+  </Table>
+`}
+/>
+
+<Playground
+  title="Pagination"
+  desc="Table pagination"
+  code={`
+  <Table
+    bordered
+    shadow={false}
+    color="secondary"
+    aria-label="Example static collection table"
+    css={{
+      height: 'auto',
+      minWidth: '100%',
+    }}
+    selectionMode="multiple"
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>ROLE</Table.Column>
+        <Table.Column>STATUS</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+          <Table.Row key="5">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+        <Table.Row key="6">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+         <Table.Row key="7">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+         <Table.Row key="8">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+         <Table.Row key="9">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+      <Table.Pagination
+        shadow
+        noMargin
+        align="center"
+        rowsPerPage={3}
+        onPageChange={(page) => console.log({ page })}
+      />
+  </Table>
+`}
+/>

@@ -422,26 +422,45 @@ export const InfinityPagination = () => {
     { name: 'Birth Year', uid: 'birth_year' }
   ];
 
-  // fetch people from swapi
-  const [people, setPeople] = React.useState([]);
-  const [page, setPage] = React.useState(1);
-  const [loading, setLoading] = React.useState(false);
-  const [hasMore, setHasMore] = React.useState(true);
+  // // fetch people from swapi
+  // const [people, setPeople] = React.useState([]);
+  // const [page, setPage] = React.useState(1);
+  // const [loading, setLoading] = React.useState(false);
+  // const [hasMore, setHasMore] = React.useState(true);
 
-  React.useEffect(() => {
-    setLoading(true);
-    fetch(`https://swapi.dev/api/people/?page=${page}`)
-      .then((res) => res.json())
-      .then((res) => {
-        setPeople([...people, ...res.results]);
-        setLoading(false);
-        setHasMore(res.next !== null);
-      });
-  }, [page]);
+  // React.useEffect(() => {
+  //   setLoading(true);
+  //   fetch(`https://swapi.dev/api/people/?page=${page}`)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setPeople([...people, ...res.results]);
+  //       setLoading(false);
+  //       setHasMore(res.next !== null);
+  //     });
+  // }, [page]);
 
-  const nextPage = () => {
-    hasMore && setPage(page + 1);
-  };
+  // const nextPage = () => {
+  //   hasMore && setPage(page + 1);
+  // };
+
+  let list = useAsyncList({
+    async load({ signal, cursor }) {
+      if (cursor) {
+        cursor = cursor.replace(/^http:\/\//i, 'https://');
+      }
+
+      let res = await fetch(
+        cursor || 'https://swapi.py4e.com/api/people/?search=',
+        { signal }
+      );
+      let json = await res.json();
+
+      return {
+        items: json.results,
+        cursor: json.next
+      };
+    }
+  });
 
   return (
     <Table
@@ -457,15 +476,9 @@ export const InfinityPagination = () => {
         )}
       </Table.Header>
       <Table.Body
-        items={people}
-        loadingState={
-          loading && page == 1
-            ? 'loading'
-            : loading && page > 1
-            ? 'loadingMore'
-            : 'idle'
-        }
-        onLoadMore={nextPage}
+        items={list.items}
+        loadingState={list.loadingState}
+        onLoadMore={list.loadMore}
       >
         {(item: any) => (
           <Table.Row key={item.name}>
