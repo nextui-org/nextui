@@ -120,6 +120,9 @@ export const StyledTableCell = styled(
       left: 0,
       opacity: 0
     },
+    '@xsMax': {
+      fontSize: '$xs'
+    },
     variants: {
       align: {
         start: {
@@ -225,6 +228,9 @@ export const StyledTable = styled('table', {
     [`& ${StyledTableCell}:before`]: {
       transition: 'none'
     }
+  },
+  '@xsMax': {
+    overflowX: 'auto'
   },
   variants: {
     animated: {

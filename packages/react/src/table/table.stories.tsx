@@ -148,7 +148,13 @@ const BaseTable = (props: Omit<TableProps, 'children'>) => {
   return (
     <Table
       aria-label="Example static collection table"
-      css={{ height: 'auto', minWidth: '620px' }}
+      css={{
+        height: 'auto',
+        minWidth: '620px',
+        '@xsMax': {
+          minWidth: '100%'
+        }
+      }}
       {...props}
     >
       <Table.Header>
@@ -190,17 +196,18 @@ export const Dynamic = () => {
   return (
     <Table
       aria-label="Example table with dynamic content"
-      css={{ height: 'auto', minWidth: '620px' }}
+      css={{
+        height: 'auto',
+        minWidth: '620px',
+        '@xsMax': {
+          minWidth: '100%'
+        }
+      }}
       selectionMode="multiple"
     >
       <Table.Header columns={columns}>
         {(column) => (
-          <Table.Column
-            key={column.uid}
-            align={column.uid === 'date' ? 'end' : 'start'}
-          >
-            {column.name}
-          </Table.Column>
+          <Table.Column key={column.uid}>{column.name}</Table.Column>
         )}
       </Table.Header>
       <Table.Body items={rows}>
@@ -367,7 +374,13 @@ export const Pagination = () => {
       bordered
       shadow={false}
       aria-label="Example table with dynamic content"
-      css={{ minWidth: '620px', height: 'auto' }}
+      css={{
+        minWidth: '620px',
+        height: 'auto',
+        '@xsMax': {
+          minWidth: '100%'
+        }
+      }}
       selectionMode="multiple"
       color="secondary"
     >
