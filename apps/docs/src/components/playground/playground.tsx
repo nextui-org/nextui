@@ -2,7 +2,13 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { useTheme, Loading } from '@nextui-org/react';
 import withDefaults from '@utils/with-defaults';
+import {
+  SandpackEditor,
+  SandpackFiles,
+  SandpackPredefinedTemplate
+} from '@components';
 import Title from './title';
+import { isEmpty } from 'lodash';
 
 const DynamicLive = dynamic(() => import('./dynamic-live'), {
   ssr: false,
@@ -20,13 +26,16 @@ interface Props {
   showEditor?: boolean;
   initialEditorOpen?: boolean;
   overflow?: 'auto' | 'visible' | 'hidden';
-  code: string;
+  files?: SandpackFiles;
+  template?: SandpackPredefinedTemplate;
+  code?: string;
 }
 
 const defaultProps = {
   desc: '',
   title: '',
   code: '',
+  files: {},
   showEditor: true,
   initialEditorOpen: false,
   overflow: 'visible',
@@ -40,6 +49,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   code: inputCode,
   initialEditorOpen,
   showEditor,
+  files,
   overflow,
   desc
 }) => {
@@ -51,16 +61,19 @@ const Playground: React.FC<PlaygroundProps> = ({
     <>
       {(title || desc) && <Title title={title} desc={desc} />}
       <div className="playground">
-        <DynamicLive
-          showEditor={showEditor}
-          initialEditorOpen={initialEditorOpen}
-          code={code}
-          overflow={overflow}
-        />
+        {!isEmpty(files) ? (
+          <SandpackEditor files={files} />
+        ) : (
+          <DynamicLive
+            showEditor={showEditor}
+            initialEditorOpen={initialEditorOpen}
+            code={code}
+            overflow={overflow}
+          />
+        )}
         <style jsx>{`
           .playground {
             width: 100%;
-            border-radius: ${theme?.radii?.lg?.value};
             margin-bottom: ${theme?.space?.xl};
           }
         `}</style>

@@ -9,6 +9,7 @@ import { NextComponent } from '@lib/types';
 import generateKbarActions from '@lib/kbar-actions';
 import { KBarProvider } from 'kbar';
 import { lightTheme, darkTheme } from '../theme/shared';
+import '@codesandbox/sandpack-react/dist/index.css';
 
 type AppPropsType<
   R extends NextRouter = NextRouter,
@@ -29,7 +30,6 @@ const KbarComponent = dynamic(() => import('../components/kbar'), {
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const router = useRouter();
   const kbarActions = generateKbarActions(router);
-
   return (
     <NextThemesProvider
       defaultTheme="system"

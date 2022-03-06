@@ -19,8 +19,11 @@ import { Table } from '@nextui-org/react';
 <Playground
   title="Static"
   desc="Table with static data"
-  code={`
-  <Table
+  files={{
+    '/App.js': `import { Table } from '@nextui-org/react';
+    
+export default function App() {
+  return <Table
       aria-label="Example static collection table"
       css={{
         height: 'auto',
@@ -54,57 +57,60 @@ import { Table } from '@nextui-org/react';
           <Table.Cell>Vacation</Table.Cell>
         </Table.Row>
       </Table.Body>
-  </Table>
-`}
+  </Table>;
+}
+`
+  }}
 />
 
 <Playground
   title="Dynamic"
   desc="Table with dynamic data"
-  code={`
-  () => {
-const columns = [
-  {
-    key: 'name',
-    label: 'Name',
-  },
-  {
-    key: 'role',
-    label: 'Role',
-  },
-  {
-    key: 'status',
-    label: 'Status',
-  },
-];
-const rows = [
-  {
-    key: '1',
-    name: 'Tony Reichert',
-    role: 'CEO',
-    status: 'Active',
-  },
-  {
-    key: '2',
-    name: 'Zoey Lang',
-    role: 'Technical Lead',
-    status: 'Paused',
-  },
-  {
-    key: '3',
-    name: 'Jane Fisher',
-    role: 'Senior Developer',
-    status: 'Active',
-  },
-  {
-    key: '4',
-    name: 'William Howard',
-    role: 'Community Manager',
-    status: 'Vacation',
-  },
-];
-return (
-  <Table
+  files={{
+    '/App.js': `import { Table } from '@nextui-org/react';
+    
+export default function App() {
+  const columns = [
+    {
+      key: 'name',
+      label: 'Name',
+    },
+    {
+      key: 'role',
+      label: 'Role',
+    },
+    {
+      key: 'status',
+      label: 'Status',
+    },
+  ];
+  const rows = [
+    {
+      key: '1',
+      name: 'Tony Reichert',
+      role: 'CEO',
+      status: 'Active',
+    },
+    {
+      key: '2',
+      name: 'Zoey Lang',
+      role: 'Technical Lead',
+      status: 'Paused',
+    },
+    {
+      key: '3',
+      name: 'Jane Fisher',
+      role: 'Senior Developer',
+      status: 'Active',
+    },
+    {
+      key: '4',
+      name: 'William Howard',
+      role: 'Community Manager',
+      status: 'Vacation',
+    },
+  ];
+  return <Table
       aria-label="Example dynamic collection table"
       css={{
         height: 'auto',
@@ -125,17 +131,20 @@ return (
           </Table.Row>
         )}
       </Table.Body>
-  </Table>
-  )
-  }
-  `}
+  </Table>;
+}
+`
+  }}
 />
 
 <Playground
   title="Single selection"
   desc="Table with single selection"
-  code={`
-  <Table
+  files={{
+    '/App.js': `import { Table } from '@nextui-org/react';
+    
+export default function App() {
+  return <Table
       aria-label="Example static collection table"
       css={{
         height: 'auto',
@@ -170,15 +179,20 @@ return (
           <Table.Cell>Vacation</Table.Cell>
         </Table.Row>
       </Table.Body>
-  </Table>
-`}
+  </Table>;
+}
+`
+  }}
 />
 
 <Playground
   title="Multiple selection"
   desc="Table with multiple selection"
-  code={`
-  <Table
+  files={{
+    '/App.js': `import { Table } from '@nextui-org/react';
+    
+export default function App() {
+  return <Table
       aria-label="Example static collection table"
       css={{
         height: 'auto',
@@ -213,63 +227,67 @@ return (
           <Table.Cell>Vacation</Table.Cell>
         </Table.Row>
       </Table.Body>
-  </Table>
-`}
+  </Table>;
+}
+`
+  }}
 />
 
 <Playground
   title="Colors"
   desc="Table with dynamic colors"
-  code={`
-  () => {
-const [selectedColor, setSelectedColor] = React.useState('primary');
-const colors = ['primary', 'secondary', 'success', 'warning', 'error']
-const capitalize = (str) => {
-  const lower = str.toLowerCase();
-  return str.charAt(0).toUpperCase() + lower.slice(1);
-}
-const columns = [
-  {
-    key: 'name',
-    label: 'Name',
-  },
-  {
-    key: 'role',
-    label: 'Role',
-  },
-  {
-    key: 'status',
-    label: 'Status',
-  },
-];
-const rows = [
-  {
-    key: '1',
-    name: 'Tony Reichert',
-    role: 'CEO',
-    status: 'Active',
-  },
-  {
-    key: '2',
-    name: 'Zoey Lang',
-    role: 'Technical Lead',
-    status: 'Paused',
-  },
-  {
-    key: '3',
-    name: 'Jane Fisher',
-    role: 'Senior Developer',
-    status: 'Active',
-  },
-  {
-    key: '4',
-    name: 'William Howard',
-    role: 'Community Manager',
-    status: 'Vacation',
-  },
-];
-return (
-<Grid.Container gap={2}>
+  files={{
+    '/App.js': `import React from 'react';
+import { Table, Grid, Radio } from '@nextui-org/react';
+    
+export default function App() {
+  const [selectedColor, setSelectedColor] = React.useState('primary');
+  const colors = ['primary', 'secondary', 'success', 'warning', 'error'];
+  const capitalize = (str) => {
+    const lower = str.toLowerCase();
+    return str.charAt(0).toUpperCase() + lower.slice(1);
+  }
+  const columns = [
+    {
+      key: 'name',
+      label: 'Name',
+    },
+    {
+      key: 'role',
+      label: 'Role',
+    },
+    {
+      key: 'status',
+      label: 'Status',
+    },
+  ];
+  const rows = [
+    {
+      key: '1',
+      name: 'Tony Reichert',
+      role: 'CEO',
+      status: 'Active',
+    },
+    {
+      key: '2',
+      name: 'Zoey Lang',
+      role: 'Technical Lead',
+      status: 'Paused',
+    },
+    {
+      key: '3',
+      name: 'Jane Fisher',
+      role: 'Senior Developer',
+      status: 'Active',
+    },
+    {
+      key: '4',
+      name: 'William Howard',
+      role: 'Community Manager',
+      status: 'Vacation',
+    },
+  ];
+  return <Grid.Container gap={2}>
   <Grid xs={12}>
     <Table
         aria-label="Example dynamic collection table"
@@ -306,10 +324,10 @@ return (
       ))}
     </Radio.Group>
   </Grid>    
-</Grid.Container>
-  )
-  }
-  `}
+</Grid.Container>;
+}
+`
+  }}
 />
 
 <Playground
@@ -318,6 +336,7 @@ return (
   code={`
   <Table
       bordered
+      shadow={false}
       aria-label="Example static collection table"
       css={{
         height: 'auto',

@@ -13,7 +13,6 @@ import { useCheckbox } from './checkbox-context';
 import CheckboxGroup from './checkbox-group';
 import useWarning from '../use-warning';
 import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
-import useKeyboard, { KeyCode } from '../use-keyboard';
 import { CSS } from '../theme/stitches.config';
 import {
   StyledCheckboxLabel,
@@ -188,17 +187,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       setSelfChecked(checked);
     }, [checked]);
 
-    const { bindings } = useKeyboard(
-      (event: any) => {
-        changeHandle(event);
-      },
-      [KeyCode.Enter, KeyCode.Space],
-      {
-        disableGlobalEvent: true,
-        preventDefault
-      }
-    );
-
     const getState = useMemo(() => {
       return selfChecked && selfIndeterminate
         ? 'mixed'
@@ -228,7 +216,6 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           animated={animated}
           isFocusVisible={isFocusVisible}
           {...focusProps}
-          {...bindings}
         >
           <StyledCheckboxInput
             ref={checkboxRef}
