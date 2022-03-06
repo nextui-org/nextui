@@ -116,7 +116,9 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
       onScroll={handleScroll}
       css={{
         pb: '$10',
-        ...(props.css as any)
+        position: 'relative',
+        ...(props.css as any),
+        ...(collection.body?.props?.css as any)
       }}
       {...props}
     >
@@ -155,8 +157,14 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
           className="nextui-table-hidden-row"
           aria-hidden="true"
           isAtEnd={rows.length > 0}
+          isAbsolute={!infinityScroll}
         >
-          <Loading as="td" color={color as LoadingProps['color']} />
+          <StyledBaseTableCell
+            aria-hidden="true"
+            colSpan={collection.columnCount}
+          >
+            <Loading color={color as LoadingProps['color']} />
+          </StyledBaseTableCell>
         </StyledTableLoadingRow>
       )}
       {completeSpaces}

@@ -10,6 +10,7 @@ import { TableState } from '@react-stately/table';
 import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
+import TableSortIcon, { ICON_SIZE } from './table-sort-icon';
 import clsx from '../utils/clsx';
 
 interface Props<T> {
@@ -42,7 +43,6 @@ const TableColumnHeader = React.forwardRef<
   } = useTableColumnHeader({ node: column }, state, tableColumnHeaderRef);
 
   const { isFocusVisible, focusProps } = useFocusRing();
-  const arrowIcon = state.sortDescriptor?.direction === 'ascending' ? '▲' : '▼';
 
   return (
     <StyledTableColumnHeader
@@ -58,16 +58,15 @@ const TableColumnHeader = React.forwardRef<
         column.rendered
       )}
       {column.props.allowsSorting && (
-        <span
-          aria-hidden="true"
-          style={{
-            padding: '0 2px',
-            visibility:
-              state.sortDescriptor?.column === column.key ? 'visible' : 'hidden'
+        <TableSortIcon
+          visible={state.sortDescriptor?.column === column.key}
+          ascending={state.sortDescriptor?.direction === 'ascending'}
+          css={{
+            position: 'absolute',
+            m: '0 $2',
+            bottom: `calc(50% - ${ICON_SIZE / 2}px)`
           }}
-        >
-          {arrowIcon}
-        </span>
+        />
       )}
     </StyledTableColumnHeader>
   );

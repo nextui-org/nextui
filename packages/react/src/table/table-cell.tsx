@@ -43,6 +43,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
         ref={tableCellRef}
         isFocusVisible={isFocusVisible}
         className={clsx('nextui-table-cell', props.className)}
+        css={cell.props.css}
         {...mergeProps(gridCellProps, focusProps, props)}
       >
         {cell.rendered}

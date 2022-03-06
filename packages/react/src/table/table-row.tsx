@@ -51,6 +51,7 @@ const TableRow = React.forwardRef<
           },
           props.className
         )}
+        css={item.props.css}
         {...mergeProps(rowProps, focusProps, props)}
       >
         {children}

@@ -18,6 +18,7 @@ export const StyledTableColumnHeader = styled(
     fontSize: '$tiny',
     textAlign: 'left',
     transition: '$default',
+    position: 'relative',
     '@motion': {
       transition: 'none'
     },
@@ -50,7 +51,8 @@ export const StyledTableColumnHeader = styled(
         true: {
           cursor: 'pointer',
           '&:hover': {
-            color: '$accents7'
+            color: '$accents7',
+            bg: '$accents2'
           }
         }
       }
@@ -198,6 +200,13 @@ export const StyledTableLoadingRow = styled('tr', {
     isAtEnd: {
       true: {
         height: '$space$18'
+      }
+    },
+    isAbsolute: {
+      true: {
+        position: 'absolute',
+        left: '0',
+        top: '$10'
       }
     }
   }

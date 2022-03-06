@@ -5,14 +5,8 @@ import React, {
   PropsWithoutRef
 } from 'react';
 import { useTable } from '@react-aria/table';
-import {
-  Cell,
-  Row,
-  TableBody as TableBodyBase,
-  TableHeader,
-  useTableState,
-  TableStateProps
-} from '@react-stately/table';
+
+import { useTableState, TableStateProps } from '@react-stately/table';
 
 import {
   SelectionMode,
@@ -26,7 +20,14 @@ import TableRowGroup from './table-row-group';
 import TableColumnHeader from './table-column-header';
 import TableHeaderRow from './table-header-row';
 import TableSelectAllCheckbox from './table-select-all-checkbox';
-import TableColumn from './table-column';
+import {
+  TableColumn as TableColumnBase,
+  TableCell as TableCellBase,
+  TableRow as TableRowBase,
+  TableBody as TableBodyBase,
+  TableHeader as TableHeaderBase
+} from './base';
+
 import TablePagination from './table-pagination';
 import TableFooter from './table-footer';
 import TableBody from './table-body';
@@ -188,10 +189,10 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 > & {
-  Cell: typeof Cell;
-  Column: typeof TableColumn;
-  Row: typeof Row;
-  Header: typeof TableHeader;
+  Cell: typeof TableCellBase;
+  Column: typeof TableColumnBase;
+  Row: typeof TableRowBase;
+  Header: typeof TableHeaderBase;
   Body: typeof TableBodyBase;
   Pagination: typeof TablePagination;
 };
