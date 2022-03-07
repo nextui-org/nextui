@@ -2,15 +2,21 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { useTheme, Loading } from '@nextui-org/react';
 import withDefaults from '@utils/with-defaults';
-import {
-  SandpackEditor,
-  SandpackFiles,
-  SandpackPredefinedTemplate
-} from '@components';
+import { SandpackFiles, SandpackPredefinedTemplate } from '@components';
 import Title from './title';
 import { isEmpty } from 'lodash';
 
 const DynamicLive = dynamic(() => import('./dynamic-live'), {
+  ssr: false,
+  // eslint-disable-next-line react/display-name
+  loading: () => (
+    <div style={{ padding: '20pt 0' }}>
+      <Loading type="spinner" />
+    </div>
+  )
+});
+
+const DynamicSandpack = dynamic(() => import('../sandpack'), {
   ssr: false,
   // eslint-disable-next-line react/display-name
   loading: () => (
@@ -28,6 +34,7 @@ interface Props {
   overflow?: 'auto' | 'visible' | 'hidden';
   files?: SandpackFiles;
   template?: SandpackPredefinedTemplate;
+  highlightedLines?: string;
   code?: string;
 }
 
@@ -49,6 +56,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   code: inputCode,
   initialEditorOpen,
   showEditor,
+  highlightedLines,
   files,
   overflow,
   desc
@@ -62,7 +70,7 @@ const Playground: React.FC<PlaygroundProps> = ({
       {(title || desc) && <Title title={title} desc={desc} />}
       <div className="playground">
         {!isEmpty(files) ? (
-          <SandpackEditor files={files} />
+          <DynamicSandpack files={files} highlightedLines={highlightedLines} />
         ) : (
           <DynamicLive
             showEditor={showEditor}

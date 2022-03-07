@@ -12,6 +12,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@code-hike/classer": "0.3.0",
     "@codesandbox/sandpack-react": "0.14.3",
     "@mapbox/rehype-prism": "^0.6.0",
     "@mdx-js/react": "^1.6.22",
@@ -31,7 +32,7 @@
     "next-themes": "^0.0.15",
     "parse-numeric-range": "1.2.0",
     "prism-react-renderer": "^1.2.1",
-    "querystring": "^0.2.1",    
+    "querystring": "^0.2.1",
     "react": "^17.0.2",
     "react-autosuggest": "^10.1.0",
     "react-device-detect": "^1.17.0",

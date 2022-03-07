@@ -2,7 +2,7 @@ import React from 'react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { NextRouter, Router, useRouter } from 'next/router';
-import { NextUIProvider } from '@nextui-org/react';
+import { NextUIProvider, globalCss } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { AppInitialProps } from 'next/app';
 import { NextComponent } from '@lib/types';
@@ -27,9 +27,17 @@ const KbarComponent = dynamic(() => import('../components/kbar'), {
   ssr: false
 });
 
+const globalStyles = globalCss({
+  // sandpack-react
+  '.sp-highlight': {
+    background: '#1ea7fd2b'
+  }
+});
+
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
   const router = useRouter();
   const kbarActions = generateKbarActions(router);
+  globalStyles();
   return (
     <NextThemesProvider
       defaultTheme="system"

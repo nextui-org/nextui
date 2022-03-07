@@ -1304,6 +1304,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@code-hike/classer@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@code-hike/classer/-/classer-0.3.0.tgz#030e16dbf06ec91c6c18d8dce08d3d010b5b4424"
+  integrity sha512-kT6cRR1H7KCSXiPEAI1I5qUUBhQVIQwViSlhTkzQdkzOc0f/4TxRBWYfEby2ICItqELXPHFf/tSlU9uSUKf3pg==
+
 "@code-hike/classer@^0.0.0-aa6efee":
   version "0.0.0-e48fa74"
   resolved "https://registry.yarnpkg.com/@code-hike/classer/-/classer-0.0.0-e48fa74.tgz#17243ca84d5af303c51e62b378e8db65e01cd3f4"

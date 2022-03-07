@@ -333,16 +333,19 @@ export default function App() {
 <Playground
   title="Bordered"
   desc="Table bordered"
-  code={`
-  <Table
+  files={{
+    '/App.js': `import { Table } from '@nextui-org/react';
+    
+export default function App() {
+  return <Table
       bordered
       shadow={false}
+      selectionMode="multiple"
       aria-label="Example static collection table"
       css={{
         height: 'auto',
         minWidth: '100%',
       }}
-      selectionMode="multiple"
     >
       <Table.Header>
         <Table.Column>NAME</Table.Column>
@@ -371,23 +374,29 @@ export default function App() {
           <Table.Cell>Vacation</Table.Cell>
         </Table.Row>
       </Table.Body>
-  </Table>
-`}
+  </Table>;
+}
+`
+  }}
 />
 
 <Playground
   title="Lined"
   desc="Table lined"
-  code={`
-  <Table
+  files={{
+    '/App.js': `import { Table } from '@nextui-org/react';
+    
+export default function App() {
+  return <Table
       lined
       headerLined
+      shadow={false}
+      selectionMode="multiple"
       aria-label="Example static collection table"
       css={{
         height: 'auto',
         minWidth: '100%',
       }}
-      selectionMode="multiple"
     >
       <Table.Header>
         <Table.Column>NAME</Table.Column>
@@ -416,22 +425,27 @@ export default function App() {
           <Table.Cell>Vacation</Table.Cell>
         </Table.Row>
       </Table.Body>
-  </Table>
-`}
+  </Table>;
+}
+`
+  }}
 />
 
 <Playground
   title="Sticked"
   desc="Table sticked"
-  code={`
-  <Table
+  files={{
+    '/App.js': `import { Table } from '@nextui-org/react';
+    
+export default function App() {
+  return <Table
       sticked
       aria-label="Example static collection table"
+      selectionMode="multiple"
       css={{
         height: 'auto',
         minWidth: '100%',
       }}
-      selectionMode="multiple"
     >
       <Table.Header>
         <Table.Column>NAME</Table.Column>
@@ -460,16 +474,73 @@ export default function App() {
           <Table.Cell>Vacation</Table.Cell>
         </Table.Row>
       </Table.Body>
-  </Table>
-`}
+  </Table>;
+}
+`
+  }}
 />
 
 <Playground
   title="Compact"
   desc="Table compact"
-  code={`
-  <Table
+  files={{
+    '/App.js': `import { Table } from '@nextui-org/react';
+    
+export default function App() {
+  return <Table
       compact
+      aria-label="Example static collection table"
+      selectionMode="multiple"
+      css={{
+        height: 'auto',
+        minWidth: '100%',
+      }}
+    >
+      <Table.Header>
+        <Table.Column>NAME</Table.Column>
+        <Table.Column>ROLE</Table.Column>
+        <Table.Column>STATUS</Table.Column>
+      </Table.Header>
+      <Table.Body>
+        <Table.Row key="1">
+          <Table.Cell>Tony Reichert</Table.Cell>
+          <Table.Cell>CEO</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="2">
+          <Table.Cell>Zoey Lang</Table.Cell>
+          <Table.Cell>Technical Lead</Table.Cell>
+          <Table.Cell>Paused</Table.Cell>
+        </Table.Row>
+        <Table.Row key="3">
+          <Table.Cell>Jane Fisher</Table.Cell>
+          <Table.Cell>Senior Developer</Table.Cell>
+          <Table.Cell>Active</Table.Cell>
+        </Table.Row>
+        <Table.Row key="4">
+          <Table.Cell>William Howard</Table.Cell>
+          <Table.Cell>Community Manager</Table.Cell>
+          <Table.Cell>Vacation</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+  </Table>;
+}
+`
+  }}
+/>
+
+<Playground
+  title="Pagination"
+  desc="Table pagination"
+  highlightedLines="42-48"
+  files={{
+    '/App.js': `import { Table } from '@nextui-org/react';
+    
+export default function App() {
+  return <Table
+      bordered
+      shadow={false}
+      color="secondary"
       aria-label="Example static collection table"
       css={{
         height: 'auto',
@@ -499,77 +570,6 @@ export default function App() {
           <Table.Cell>Active</Table.Cell>
         </Table.Row>
         <Table.Row key="4">
-          <Table.Cell>William Howard</Table.Cell>
-          <Table.Cell>Community Manager</Table.Cell>
-          <Table.Cell>Vacation</Table.Cell>
-        </Table.Row>
-      </Table.Body>
-  </Table>
-`}
-/>
-
-<Playground
-  title="Pagination"
-  desc="Table pagination"
-  code={`
-  <Table
-    bordered
-    shadow={false}
-    color="secondary"
-    aria-label="Example static collection table"
-    css={{
-      height: 'auto',
-      minWidth: '100%',
-    }}
-    selectionMode="multiple"
-    >
-      <Table.Header>
-        <Table.Column>NAME</Table.Column>
-        <Table.Column>ROLE</Table.Column>
-        <Table.Column>STATUS</Table.Column>
-      </Table.Header>
-      <Table.Body>
-        <Table.Row key="1">
-          <Table.Cell>Tony Reichert</Table.Cell>
-          <Table.Cell>CEO</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-        </Table.Row>
-        <Table.Row key="2">
-          <Table.Cell>Zoey Lang</Table.Cell>
-          <Table.Cell>Technical Lead</Table.Cell>
-          <Table.Cell>Paused</Table.Cell>
-        </Table.Row>
-        <Table.Row key="3">
-          <Table.Cell>Jane Fisher</Table.Cell>
-          <Table.Cell>Senior Developer</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-        </Table.Row>
-        <Table.Row key="4">
-          <Table.Cell>William Howard</Table.Cell>
-          <Table.Cell>Community Manager</Table.Cell>
-          <Table.Cell>Vacation</Table.Cell>
-        </Table.Row>
-          <Table.Row key="5">
-          <Table.Cell>William Howard</Table.Cell>
-          <Table.Cell>Community Manager</Table.Cell>
-          <Table.Cell>Vacation</Table.Cell>
-        </Table.Row>
-        <Table.Row key="6">
-          <Table.Cell>Zoey Lang</Table.Cell>
-          <Table.Cell>Technical Lead</Table.Cell>
-          <Table.Cell>Paused</Table.Cell>
-        </Table.Row>
-         <Table.Row key="7">
-          <Table.Cell>Jane Fisher</Table.Cell>
-          <Table.Cell>Senior Developer</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-        </Table.Row>
-         <Table.Row key="8">
-          <Table.Cell>Tony Reichert</Table.Cell>
-          <Table.Cell>CEO</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-        </Table.Row>
-         <Table.Row key="9">
           <Table.Cell>William Howard</Table.Cell>
           <Table.Cell>Community Manager</Table.Cell>
           <Table.Cell>Vacation</Table.Cell>
@@ -582,6 +582,8 @@ export default function App() {
         rowsPerPage={3}
         onPageChange={(page) => console.log({ page })}
       />
-  </Table>
-`}
+  </Table>;
+}
+`
+  }}
 />
