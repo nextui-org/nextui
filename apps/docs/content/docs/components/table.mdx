@@ -73,15 +73,15 @@ export default function App() {
   const columns = [
     {
       key: 'name',
-      label: 'Name',
+      label: 'NAME',
     },
     {
       key: 'role',
-      label: 'Role',
+      label: 'ROLE',
     },
     {
       key: 'status',
-      label: 'Status',
+      label: 'STATUS',
     },
   ];
   const rows = [
@@ -140,6 +140,7 @@ export default function App() {
 <Playground
   title="Single selection"
   desc="Table with single selection"
+  highlightedLines="10"
   files={{
     '/App.js': `import { Table } from '@nextui-org/react';
     
@@ -188,6 +189,7 @@ export default function App() {
 <Playground
   title="Multiple selection"
   desc="Table with multiple selection"
+  highlightedLines="10"
   files={{
     '/App.js': `import { Table } from '@nextui-org/react';
     
@@ -236,6 +238,7 @@ export default function App() {
 <Playground
   title="Colors"
   desc="Table with dynamic colors"
+  highlightedLines="55"
   files={{
     '/App.js': `import React from 'react';
 import { Table, Grid, Radio } from '@nextui-org/react';
@@ -332,6 +335,7 @@ export default function App() {
 
 <Playground
   title="Bordered"
+  highlightedLines="5-6"
   desc="Table bordered"
   files={{
     '/App.js': `import { Table } from '@nextui-org/react';
@@ -383,6 +387,7 @@ export default function App() {
 <Playground
   title="Lined"
   desc="Table lined"
+  highlightedLines="5-7"
   files={{
     '/App.js': `import { Table } from '@nextui-org/react';
     
@@ -434,6 +439,7 @@ export default function App() {
 <Playground
   title="Sticked"
   desc="Table sticked"
+  highlightedLines="5"
   files={{
     '/App.js': `import { Table } from '@nextui-org/react';
     
@@ -483,6 +489,7 @@ export default function App() {
 <Playground
   title="Compact"
   desc="Table compact"
+  highlightedLines="5"
   files={{
     '/App.js': `import { Table } from '@nextui-org/react';
     

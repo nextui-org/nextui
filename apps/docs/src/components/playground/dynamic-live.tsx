@@ -11,6 +11,7 @@ import withDefaults from '@utils/with-defaults';
 import { Box } from '@components';
 import * as Components from '@nextui-org/react';
 import * as Icons from '../icons';
+import { transformCode } from './utils';
 
 export interface Props {
   code: string;
@@ -30,6 +31,7 @@ const StyledWrapper = Components.styled(Box, {
   display: 'flex',
   flexWrap: 'wrap',
   flexDirection: 'column',
+  background: '$background',
   '& > div': {
     width: '100%'
   },
@@ -43,6 +45,12 @@ const StyledWrapper = Components.styled(Box, {
       },
       auto: {
         overflowX: 'auto'
+      }
+    },
+    noInline: {
+      true: {
+        px: '$10',
+        ml: 0
       }
     }
   },
@@ -67,9 +75,35 @@ const DynamicLive: React.FC<Props> = ({
     useMediaQuery,
     validateEmail
   };
+
+  //transform scope to key text vlaue
+  const scopeKeys = Object.keys(scope);
+  // convert scopeKeys to string values
+  const scopeValues = scopeKeys.map((key) => {
+    return { [key]: `${key}` };
+  });
+  // add 'React' to scopeValues
+  scopeValues.push({ React: 'React' });
+  // convert scopeValues to object
+  const imports = Object.assign({}, ...scopeValues);
+
+  const transformedCode = transformCode(code, imports);
+  // check if transformedCode icludes 'const App = () => {'
+  const hasApp = transformedCode.includes('const App = () => {');
+  const noInline = hasApp;
+
   return (
-    <LiveProvider code={code} scope={scope} theme={codeTheme}>
-      <StyledWrapper className="wrapper" overflow={overflow}>
+    <LiveProvider
+      noInline={noInline}
+      code={transformedCode}
+      scope={scope}
+      theme={codeTheme}
+    >
+      <StyledWrapper
+        className="wrapper"
+        overflow={overflow}
+        noInline={noInline}
+      >
         <LivePreview />
         <LiveError />
       </StyledWrapper>

@@ -1,5 +1,4 @@
-export const entry = `
-import React, { StrictMode } from "react";
+export const entry = `import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { NextUIProvider, Container } from '@nextui-org/react';
 import App from "./App";

@@ -43,9 +43,8 @@ export const Preview = ({
   viewportOrientation = 'portrait'
 }: PreviewProps): JSX.Element => {
   const { sandpack, listen } = useSandpack();
-  const [iframeComputedHeight, setComputedAutoHeight] = React.useState<
-    number | null
-  >(null);
+  const [iframeComputedHeight, setComputedAutoHeight] =
+    React.useState<number | null>(null);
   const {
     status,
     registerBundler,

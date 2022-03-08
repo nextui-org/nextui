@@ -30,6 +30,7 @@ interface Props {
   title?: React.ReactNode | string;
   desc?: React.ReactNode | string;
   showEditor?: boolean;
+  showSandpackPreview?: boolean;
   initialEditorOpen?: boolean;
   overflow?: 'auto' | 'visible' | 'hidden';
   files?: SandpackFiles;
@@ -44,6 +45,7 @@ const defaultProps = {
   code: '',
   files: {},
   showEditor: true,
+  showSandpackPreview: false,
   initialEditorOpen: false,
   overflow: 'visible',
   bindings: {}
@@ -57,6 +59,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   initialEditorOpen,
   showEditor,
   highlightedLines,
+  showSandpackPreview,
   files,
   overflow,
   desc
@@ -65,12 +68,21 @@ const Playground: React.FC<PlaygroundProps> = ({
   const code = inputCode.trim();
   const title = inputTitle;
 
+  // get first item from files
+  const file = Object.values(files)[0] as string;
+
   return (
     <>
       {(title || desc) && <Title title={title} desc={desc} />}
       <div className="playground">
         {!isEmpty(files) ? (
-          <DynamicSandpack files={files} highlightedLines={highlightedLines} />
+          <DynamicSandpack
+            files={files}
+            showPreview={showSandpackPreview}
+            highlightedLines={highlightedLines}
+          >
+            <DynamicLive showEditor={false} code={file} overflow={overflow} />
+          </DynamicSandpack>
         ) : (
           <DynamicLive
             showEditor={showEditor}

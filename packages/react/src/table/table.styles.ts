@@ -120,9 +120,6 @@ export const StyledTableCell = styled(
       left: 0,
       opacity: 0
     },
-    '@xsMax': {
-      fontSize: '$xs'
-    },
     variants: {
       align: {
         start: {
@@ -144,6 +141,7 @@ export const StyledTableRow = styled(
   'tr',
   {
     ov: 'visible',
+    color: '$text',
     variants: {
       isDisabled: {
         true: {

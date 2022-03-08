@@ -31,7 +31,6 @@
                     "keywords": "themeable, theme, customize, palette",
                     "icon": "/category.svg",
                     "open": true,
-                    "updated": true,
                     "routes": [
                         {
                             "title": "Default theme",

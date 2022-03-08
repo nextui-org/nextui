@@ -48,6 +48,17 @@ export const getHighlightedLines = (highlightedLines?: string) => {
   if (!highlightedLines) {
     return [];
   }
+
+  // if integer, we assume it's a line number
+  if (Number.isInteger(Number(highlightedLines))) {
+    return [
+      {
+        className: 'sp-highlight',
+        line: Number(highlightedLines)
+      }
+    ];
+  }
+
   const [start, end] = highlightedLines?.includes('-')
     ? highlightedLines?.split('-')
     : [0, 0];

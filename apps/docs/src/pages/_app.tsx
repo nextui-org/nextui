@@ -11,15 +11,13 @@ import { KBarProvider } from 'kbar';
 import { lightTheme, darkTheme } from '../theme/shared';
 import '@codesandbox/sandpack-react/dist/index.css';
 
-type AppPropsType<
-  R extends NextRouter = NextRouter,
-  P = {}
-> = AppInitialProps & {
-  Component: NextComponent<P>;
-  router: R;
-  __N_SSG?: boolean;
-  __N_SSP?: boolean;
-};
+type AppPropsType<R extends NextRouter = NextRouter, P = {}> =
+  AppInitialProps & {
+    Component: NextComponent<P>;
+    router: R;
+    __N_SSG?: boolean;
+    __N_SSP?: boolean;
+  };
 
 type AppProps<P = {}> = AppPropsType<Router, P>;
 
@@ -30,7 +28,10 @@ const KbarComponent = dynamic(() => import('../components/kbar'), {
 const globalStyles = globalCss({
   // sandpack-react
   '.sp-highlight': {
-    background: '#1ea7fd2b'
+    background: '#7928ca3b'
+  },
+  '.sp-tabs': {
+    border: 'none !important'
   }
 });
 
