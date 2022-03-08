@@ -28,7 +28,7 @@ const KbarComponent = dynamic(() => import('../components/kbar'), {
 const globalStyles = globalCss({
   // sandpack-react
   '.sp-highlight': {
-    background: '#7928ca3b'
+    background: '#0070f33b'
   },
   '.sp-tabs': {
     border: 'none !important'

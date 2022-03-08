@@ -54,9 +54,11 @@ import { Spacer } from '@nextui-org/react';
 
 #### Spacer Props
 
-| Attribute  | Type               | Accepted values          | Description    | Default |
-| ---------- | ------------------ | ------------------------ | -------------- | ------- |
-| **x**      | `number` / `float` | -                        | x-axis spacing | 1       |
-| **y**      | `number` / `float` | -                        | y-axis spacing | 1       |
-| **inline** | `boolean`          | -                        | inline space   | `false` |
-| ...        | `HTMLAttributes`   | `'id', 'className', ...` | native props   | -       |
+| Attribute  | Type                          | Accepted values          | Description                         | Default |
+| ---------- | ----------------------------- | ------------------------ | ----------------------------------- | ------- |
+| **x**      | `number` / `float`            | -                        | x-axis spacing                      | 1       |
+| **y**      | `number` / `float`            | -                        | y-axis spacing                      | 1       |
+| **inline** | `boolean`                     | -                        | inline space                        | `false` |
+| **css**    | `Stitches.CSS`                | -                        | Override Default CSS style          | -       |
+| **as**     | `keyof JSX.IntrinsicElements` | -                        | Changes which tag component outputs | `div`   |
+| ...        | `HTMLAttributes`              | `'id', 'className', ...` | native props                        | -       |
