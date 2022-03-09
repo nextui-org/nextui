@@ -3,20 +3,13 @@ import dynamic from 'next/dynamic';
 import { useTheme, Loading } from '@nextui-org/react';
 import withDefaults from '@utils/with-defaults';
 import { SandpackFiles, SandpackPredefinedTemplate } from '@components';
+import Sandpack from '../sandpack';
 import Title from './title';
 import { isEmpty } from 'lodash';
+import LiveCode, { scope } from './dynamic-live';
+import { transformCode } from './utils';
 
 const DynamicLive = dynamic(() => import('./dynamic-live'), {
-  ssr: false,
-  // eslint-disable-next-line react/display-name
-  loading: () => (
-    <div style={{ padding: '20pt 0' }}>
-      <Loading type="spinner" />
-    </div>
-  )
-});
-
-const DynamicSandpack = dynamic(() => import('../sandpack'), {
   ssr: false,
   // eslint-disable-next-line react/display-name
   loading: () => (
@@ -65,24 +58,51 @@ const Playground: React.FC<PlaygroundProps> = ({
   desc
 }) => {
   const { theme } = useTheme();
-  const code = inputCode.trim();
-  const title = inputTitle;
 
-  // get first item from files
-  const file = Object.values(files)[0] as string;
+  const isSanpackEditor = !isEmpty(files);
+
+  const title = inputTitle;
+  let code = inputCode.trim();
+  let noInline = false;
+
+  if (isSanpackEditor) {
+    // get first item from files
+    const file = Object.values(files)[0] as string;
+
+    //transform scope to key text vlaue
+    const scopeKeys = Object.keys(scope);
+    // convert scopeKeys to string values
+    const scopeValues = scopeKeys.map((key) => {
+      return { [key]: `${key}` };
+    });
+    // add 'React' to scopeValues
+    scopeValues.push({ React: 'React' });
+    // convert scopeValues to object
+    const imports = Object.assign({}, ...scopeValues);
+
+    code = transformCode(file, imports);
+    console.log({ code });
+    // check if transformedCode icludes 'const App = () => {'
+    noInline = code.includes('const App = () => {');
+  }
 
   return (
     <>
       {(title || desc) && <Title title={title} desc={desc} />}
       <div className="playground">
         {!isEmpty(files) ? (
-          <DynamicSandpack
+          <Sandpack
             files={files}
             showPreview={showSandpackPreview}
             highlightedLines={highlightedLines}
           >
-            <DynamicLive showEditor={false} code={file} overflow={overflow} />
-          </DynamicSandpack>
+            <LiveCode
+              noInline={noInline}
+              showEditor={false}
+              code={code}
+              overflow={overflow}
+            />
+          </Sandpack>
         ) : (
           <DynamicLive
             showEditor={showEditor}

@@ -6,11 +6,11 @@ const themeColors = getCodeThemeColors();
 
 export const nextuiTheme: SandpackTheme = {
   palette: {
-    activeText: get(themeColors, 'color', '#151515'),
+    activeText: get(themeColors, 'color', '#F4F4F4'),
     defaultText: get(themeColors, 'commentColor.style.color', '#999'),
     inactiveText: '#e4e7eb',
     activeBackground: '#A258DF2b',
-    defaultBackground: get(themeColors, 'backgroundColor', '#f8f9fb'),
+    defaultBackground: get(themeColors, 'backgroundColor', '#363449'),
     inputBackground: '#ffffff',
     accent: '#A258DF',
     errorBackground: '#ffcdca',

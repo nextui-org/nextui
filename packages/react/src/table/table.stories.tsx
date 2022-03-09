@@ -446,7 +446,9 @@ export const InfinityPagination = () => {
   let list = useAsyncList({
     async load({ signal, cursor }) {
       if (cursor) {
-        cursor = cursor.replace(/^http:\/\//i, 'https://');
+        // write this /^http:\/\//i using RegExp
+        const regex = '/^http:///i';
+        cursor = cursor.replace(regex, 'https://');
       }
 
       let res = await fetch(

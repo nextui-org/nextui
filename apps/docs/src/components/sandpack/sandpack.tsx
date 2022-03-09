@@ -55,6 +55,7 @@ const Sandpack: React.FC<React.PropsWithChildren<Props>> = ({
     <SandpackProvider
       template={template}
       initMode="user-visible"
+      initModeObserverOptions={{ rootMargin: '1400px 0px' }}
       customSetup={{
         files: {
           ...files,

@@ -3,19 +3,19 @@ import { LivePreview, LiveProvider, LiveError } from 'react-live';
 import makeCodeTheme from './code-theme';
 import Editor from './editor';
 import NextLink from 'next/link';
-import { Palette } from '@components';
+import Palette from '../palette';
 import * as TemplateComponents from '../templates';
 import { useMediaQuery } from '@hooks/use-media-query';
 import { validateEmail } from '@utils/index';
 import withDefaults from '@utils/with-defaults';
-import { Box } from '@components';
+import { Box } from '@primitives';
 import * as Components from '@nextui-org/react';
 import * as Icons from '../icons';
-import { transformCode } from './utils';
 
 export interface Props {
   code: string;
   showEditor?: boolean;
+  noInline?: boolean;
   initialEditorOpen?: boolean;
   overflow?: 'auto' | 'visible' | 'hidden';
 }
@@ -59,43 +59,28 @@ const StyledWrapper = Components.styled(Box, {
   }
 });
 
+export const scope = {
+  ...Components,
+  ...Icons,
+  ...TemplateComponents,
+  NextLink,
+  Palette,
+  useMediaQuery,
+  validateEmail
+};
+
 const DynamicLive: React.FC<Props> = ({
   code,
   showEditor,
   initialEditorOpen,
+  noInline,
   overflow
 }) => {
   const codeTheme = makeCodeTheme();
-  const scope = {
-    ...Components,
-    ...Icons,
-    ...TemplateComponents,
-    NextLink,
-    Palette,
-    useMediaQuery,
-    validateEmail
-  };
-
-  //transform scope to key text vlaue
-  const scopeKeys = Object.keys(scope);
-  // convert scopeKeys to string values
-  const scopeValues = scopeKeys.map((key) => {
-    return { [key]: `${key}` };
-  });
-  // add 'React' to scopeValues
-  scopeValues.push({ React: 'React' });
-  // convert scopeValues to object
-  const imports = Object.assign({}, ...scopeValues);
-
-  const transformedCode = transformCode(code, imports);
-  // check if transformedCode icludes 'const App = () => {'
-  const hasApp = transformedCode.includes('const App = () => {');
-  const noInline = hasApp;
-
   return (
     <LiveProvider
       noInline={noInline}
-      code={transformedCode}
+      code={code}
       scope={scope}
       theme={codeTheme}
     >

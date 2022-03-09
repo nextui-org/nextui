@@ -25,5 +25,7 @@ export const transformCode = (code: string, imports = {}) => {
   if (cleanedCode.includes('const App = () => {')) {
     cleanedCode = `${cleanedCode}\nrender(<App/>);`;
   }
+  // delete comments from the code
+  cleanedCode = cleanedCode.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '');
   return cleanedCode;
 };
