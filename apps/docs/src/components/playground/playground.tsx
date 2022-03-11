@@ -81,7 +81,6 @@ const Playground: React.FC<PlaygroundProps> = ({
     const imports = Object.assign({}, ...scopeValues);
 
     code = transformCode(file, imports);
-    console.log({ code });
     // check if transformedCode icludes 'const App = () => {'
     noInline = code.includes('const App = () => {');
   }
