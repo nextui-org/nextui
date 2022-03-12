@@ -33,7 +33,17 @@ const globalStyles = globalCss({
     background: '$codeHighlight'
   },
   '.sp-tabs': {
-    border: 'none !important'
+    border: 'none !important',
+    borderRadius: 'inherit',
+    button: {
+      cursor: 'pointer'
+    }
+  },
+  '.sp-layout': {
+    border: 'none !important',
+    overflow: 'visible !important',
+    WebkitMaskImage: 'none !important',
+    background: 'transparent !important'
   }
 });
 

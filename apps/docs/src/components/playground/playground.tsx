@@ -2,7 +2,11 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { useTheme, Loading } from '@nextui-org/react';
 import withDefaults from '@utils/with-defaults';
-import { SandpackFiles, SandpackPredefinedTemplate } from '@components';
+import {
+  SandpackFiles,
+  SandpackPredefinedTemplate,
+  SandpackHighlightedLines
+} from '@components';
 import Sandpack from '../sandpack';
 import Title from './title';
 import { isEmpty } from 'lodash';
@@ -28,7 +32,7 @@ interface Props {
   overflow?: 'auto' | 'visible' | 'hidden';
   files?: SandpackFiles;
   template?: SandpackPredefinedTemplate;
-  highlightedLines?: string;
+  highlightedLines?: SandpackHighlightedLines;
   code?: string;
 }
 
@@ -89,7 +93,7 @@ const Playground: React.FC<PlaygroundProps> = ({
     <>
       {(title || desc) && <Title title={title} desc={desc} />}
       <div className="playground">
-        {!isEmpty(files) ? (
+        {isSanpackEditor ? (
           <Sandpack
             files={files}
             showPreview={showSandpackPreview}

@@ -1,3 +1,6 @@
+import { SandpackPredefinedTemplate } from '@components';
+import { HighlightedLines, HighlightedLine } from './types';
+
 export type ViewportSizePreset =
   | 'iPhone X'
   | 'Pixel 2'
@@ -44,10 +47,27 @@ export const computeViewportSize = (
   return viewport;
 };
 
-export const getHighlightedLines = (highlightedLines?: string) => {
+const getLines = (lines?: string): HighlightedLine => {
+  const [start, end] = lines?.includes('-') ? lines?.split('-') : [0, 0];
+
+  const count = end ? parseInt(`${end}`, 10) - parseInt(`${start}`, 10) + 1 : 0;
+
+  return {
+    start,
+    end,
+    count
+  };
+};
+
+export const getHighlightedLines = (
+  highlightedLines?: HighlightedLines,
+  template?: SandpackPredefinedTemplate
+) => {
   if (!highlightedLines) {
     return [];
   }
+
+  let lines: HighlightedLine = {};
 
   // if integer, we assume it's a line number
   if (Number.isInteger(Number(highlightedLines))) {
@@ -59,21 +79,30 @@ export const getHighlightedLines = (highlightedLines?: string) => {
     ];
   }
 
-  const [start, end] = highlightedLines?.includes('-')
-    ? highlightedLines?.split('-')
-    : [0, 0];
+  if (typeof highlightedLines === 'string') {
+    lines = getLines(highlightedLines);
+  }
 
-  const linesCount = end
-    ? parseInt(`${end}`, 10) - parseInt(`${start}`, 10) + 1
-    : 0;
+  if (typeof highlightedLines === 'object' && template) {
+    const templateLines = highlightedLines[template];
+    if (Number.isInteger(Number(templateLines))) {
+      return [
+        {
+          className: 'sp-highlight',
+          line: Number(templateLines)
+        }
+      ];
+    }
+    lines = getLines(templateLines);
+  }
 
-  if (linesCount === 0) {
+  if (!lines.count || lines.count === 0) {
     return [];
   }
 
   // map linesCount to { className: 'sp-highlight', line: 1 }
-  return Array.from({ length: linesCount }, (_, i) => ({
+  return Array.from({ length: lines.count }, (_, i) => ({
     className: 'sp-highlight',
-    line: parseInt(`${start}`, 10) + i
+    line: parseInt(`${lines.start}`, 10) + i
   }));
 };

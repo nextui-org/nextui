@@ -31,7 +31,7 @@ const StyledWrapper = Components.styled(Box, {
   display: 'flex',
   flexWrap: 'wrap',
   flexDirection: 'column',
-  background: '$background',
+  background: 'transparent',
   '& > div': {
     width: '100%'
   },
@@ -49,7 +49,7 @@ const StyledWrapper = Components.styled(Box, {
     },
     noInline: {
       true: {
-        px: '$10',
+        pb: '$10',
         ml: 0
       }
     }
@@ -69,12 +69,13 @@ export const scope = {
   validateEmail
 };
 
-const DynamicLive: React.FC<Props> = ({
+const DynamicLive: React.FC<Props & { css?: Components.CSS }> = ({
   code,
   showEditor,
   initialEditorOpen,
   noInline,
-  overflow
+  overflow,
+  css
 }) => {
   const codeTheme = makeCodeTheme();
   return (
@@ -88,6 +89,7 @@ const DynamicLive: React.FC<Props> = ({
         className="wrapper"
         overflow={overflow}
         noInline={noInline}
+        css={css}
       >
         <LivePreview />
         <LiveError />

@@ -4,7 +4,7 @@ import { Tooltip, useClipboard } from '@nextui-org/react';
 import { Copy as CopyIcon } from '@components';
 import { Box } from '@primitives';
 
-const CopyButton = ({}) => {
+const CopyButton = () => {
   const { copy } = useClipboard();
   const [copied, setCopied] = useState(false);
 
