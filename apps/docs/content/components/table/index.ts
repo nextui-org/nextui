@@ -11,6 +11,9 @@ import compactTable from './compact';
 import paginationTable from './pagination';
 import infinityPaginationTable from './infinity-pagination';
 import sortableTable from './sortable';
+import disabledKeysTable from './disabled-keys';
+import disallowEmptySelectionTable from './disallow-empty-selection';
+import noAnimatedTable from './no-animated';
 
 export default {
   staticTable,
@@ -25,5 +28,8 @@ export default {
   compactTable,
   paginationTable,
   infinityPaginationTable,
-  sortableTable
+  sortableTable,
+  disabledKeysTable,
+  disallowEmptySelectionTable,
+  noAnimatedTable
 };
