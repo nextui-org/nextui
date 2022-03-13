@@ -6,9 +6,9 @@ import clsx from '../utils/clsx';
 import withDefaults from '../utils/with-defaults';
 
 interface Props {
-  gap: number;
-  wrap: Wrap;
-  className: string;
+  gap?: number;
+  wrap?: Wrap;
+  className?: string;
   css?: CSS;
 }
 
@@ -18,7 +18,9 @@ const defaultProps = {
   className: ''
 };
 
-export type GridContainerProps = Props & typeof defaultProps & GridItemProps;
+export type GridContainerProps = Props &
+  Partial<typeof defaultProps> &
+  GridItemProps;
 
 const GridContainer = React.forwardRef<
   HTMLDivElement,

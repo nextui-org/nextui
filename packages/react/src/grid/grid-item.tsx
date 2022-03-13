@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, RefAttributes, PropsWithoutRef } from 'react';
 import {
   BreakpointsValue,
   Justify,
@@ -150,4 +150,11 @@ const GridItem = React.forwardRef<
 GridItem.displayName = 'NextUI - Grid Item';
 GridItem.toString = () => '.nextui-grid-item';
 
-export default withDefaults(GridItem, defaultProps);
+type GridItemComponent<T, P = {}> = React.ForwardRefExoticComponent<
+  PropsWithoutRef<P> & RefAttributes<T>
+>;
+
+export default withDefaults(GridItem, defaultProps) as GridItemComponent<
+  HTMLDivElement,
+  GridItemProps
+>;
