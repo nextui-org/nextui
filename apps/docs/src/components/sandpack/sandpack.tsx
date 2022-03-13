@@ -156,7 +156,6 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
           </Grid>
           <Grid
             ref={editorContainerRef}
-            id="sp-editor-container"
             xs={12}
             css={{
               height: '350px',

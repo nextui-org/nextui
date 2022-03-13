@@ -6,7 +6,6 @@ dist
 coverage
 public
 esm
-*.mdx
 *.json
 *.d.ts
 *.yml

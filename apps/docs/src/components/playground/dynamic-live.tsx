@@ -26,7 +26,7 @@ const defaultProps = {
 
 const StyledWrapper = Components.styled(Box, {
   width: '100%',
-  padding: '$lg $sm',
+  padding: '$10',
   marginLeft: '-$sm',
   display: 'flex',
   flexWrap: 'wrap',
@@ -34,6 +34,9 @@ const StyledWrapper = Components.styled(Box, {
   background: 'transparent',
   '& > div': {
     width: '100%'
+  },
+  '@xsMax': {
+    p: '$5'
   },
   variants: {
     overflow: {

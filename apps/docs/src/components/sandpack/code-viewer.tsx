@@ -33,7 +33,6 @@ export interface CodeViewerProps {
    */
   initMode?: SandpackInitMode;
   containerRef?: React.RefObject<HTMLDivElement>;
-  onToggleExpand?: (isExpanded: boolean) => void;
 }
 
 /**
@@ -48,7 +47,6 @@ const SandpackCodeViewer = React.forwardRef<CodeEditorRef, CodeViewerProps>(
       code: propCode,
       initMode,
       wrapContent,
-      onToggleExpand,
       containerRef
     },
     ref
@@ -88,8 +86,6 @@ const SandpackCodeViewer = React.forwardRef<CodeEditorRef, CodeViewerProps>(
     const handleExpand = () => {
       const nextIsExpanded = !isExpanded;
       setIsExpanded(nextIsExpanded);
-      onToggleExpand?.(nextIsExpanded);
-
       if (containerRef && containerRef?.current !== null) {
         const container = containerRef?.current;
         if (nextIsExpanded) {

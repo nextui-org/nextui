@@ -94,7 +94,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             css={{
               zIndex: '$10',
               maxWidth: '100%',
-              overflow: 'visible',
+              overflow: 'auto',
               '@xsMax': {
                 p: 0
               }

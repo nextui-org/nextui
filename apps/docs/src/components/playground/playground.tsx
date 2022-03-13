@@ -1,12 +1,13 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { useTheme, Loading } from '@nextui-org/react';
+import { Loading } from '@nextui-org/react';
 import withDefaults from '@utils/with-defaults';
 import {
   SandpackFiles,
   SandpackPredefinedTemplate,
   SandpackHighlightedLines
 } from '@components';
+import { Box } from '@primitives';
 import Sandpack from '../sandpack';
 import Title from './title';
 import { isEmpty } from 'lodash';
@@ -62,8 +63,6 @@ const Playground: React.FC<PlaygroundProps> = ({
   overflow,
   desc
 }) => {
-  const { theme } = useTheme();
-
   const isSanpackEditor = !isEmpty(files);
 
   const title = inputTitle;
@@ -131,7 +130,14 @@ const Playground: React.FC<PlaygroundProps> = ({
   return (
     <>
       {(title || desc) && <Title title={title} desc={desc} />}
-      <div className="playground">
+      <Box
+        className="playground"
+        css={{
+          w: '100%',
+          mb: '$xl',
+          ov: 'auto'
+        }}
+      >
         {isSanpackEditor ? (
           <Sandpack
             files={files}
@@ -153,13 +159,7 @@ const Playground: React.FC<PlaygroundProps> = ({
             overflow={overflow}
           />
         )}
-        <style jsx>{`
-          .playground {
-            width: 100%;
-            margin-bottom: ${theme?.space?.xl};
-          }
-        `}</style>
-      </div>
+      </Box>
     </>
   );
 };

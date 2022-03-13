@@ -49,7 +49,11 @@ export const StyledTableColumnHeader = styled(
       },
       allowsSorting: {
         true: {
+          transition: '$default',
           cursor: 'pointer',
+          '@motion': {
+            transition: 'none'
+          },
           '&:hover': {
             color: '$accents7',
             bg: '$accents2'
@@ -60,7 +64,17 @@ export const StyledTableColumnHeader = styled(
     defaultVariants: {
       align: 'left',
       animated: true
-    }
+    },
+    compoundVariants: [
+      // !animated & allowsSorting
+      {
+        animated: false,
+        allowsSorting: true,
+        css: {
+          transition: 'none'
+        }
+      }
+    ]
   },
   cssFocusVisible
 );
@@ -99,8 +113,7 @@ export const StyledTableCell = styled(
     userSelect: 'none',
     py: '$5',
     zIndex: '$2',
-    transition:
-      'background 0.25s ease 0s, box-shadow 0.25s ease 0s, opacity 0.25s ease 0s',
+    transition: '$default',
     ov: 'hidden',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',

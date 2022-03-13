@@ -368,6 +368,7 @@ export const Sortable = () => {
     </Table>
   );
 };
+
 export const Pagination = () => {
   return (
     <Table
