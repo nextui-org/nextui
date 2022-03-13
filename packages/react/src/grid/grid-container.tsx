@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, RefAttributes, PropsWithoutRef } from 'react';
 import { CSS } from '../theme/stitches.config';
 import GridBasicItem, { GridItemProps } from './grid-item';
 import { Wrap } from '../utils/prop-types';
@@ -51,4 +51,11 @@ const GridContainer = React.forwardRef<
 GridContainer.displayName = 'NextUI - GridContainer';
 GridContainer.toString = () => '.nextui-grid-container';
 
-export default withDefaults(GridContainer, defaultProps);
+type GridContainerComponent<T, P = {}> = React.ForwardRefExoticComponent<
+  PropsWithoutRef<P> & RefAttributes<T>
+>;
+
+export default withDefaults(
+  GridContainer,
+  defaultProps
+) as GridContainerComponent<HTMLDivElement, GridContainerProps>;
