@@ -1,23 +1,24 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import {
   SandpackProvider,
   SandpackLayout,
   SandpackFiles,
   SandpackPredefinedTemplate,
-  SandpackCodeViewer,
   SandpackPreview
 } from '@codesandbox/sandpack-react';
 import { Grid } from '@nextui-org/react';
+import withDefaults from '@utils/with-defaults';
+import useLocalStorage from '@hooks/use-local-storage';
+import { getHighlightedLines, getFileName } from './utils';
+import CopyButton from './copy-button';
 import { entry } from './entry';
 import { nextuiTheme } from './themes';
-import withDefaults from '@utils/with-defaults';
-import { getHighlightedLines } from './utils';
-import CopyButton from './copy-button';
 import CodeSandboxButton from './codesanbox-button';
 import BugReportButton from './bugreport-button';
 import { StyledPlaygroundButtons } from './styles';
 import LanguageSelector from './language-selector';
-import { HighlightedLines, Language } from './types';
+import { HighlightedLines } from './types';
+import CodeViewer from './code-viewer';
 
 interface Props {
   files?: SandpackFiles;
@@ -53,8 +54,9 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
   showCopyCode,
   template
 }) => {
+  // once the user select a template we store it in local storage
   const [currentTemplate, setCurrentTemplate] =
-    useState<SandpackPredefinedTemplate>(template);
+    useLocalStorage<SandpackPredefinedTemplate>('currentTemplate', template);
 
   const hasTypescript = Object.keys(files).some(
     (file) => file.includes('.ts') || file.includes('.tsx')
@@ -62,23 +64,24 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
 
   const decorators = getHighlightedLines(highlightedLines, currentTemplate);
 
-  const handleLanguageChange = (language: Language) => {
-    const newTemplate = language === 'typescript' ? 'react-ts' : 'react';
-    if (newTemplate !== currentTemplate) {
-      setCurrentTemplate(newTemplate);
-    }
-  };
+  const sandpackTemplate = useMemo(
+    () =>
+      currentTemplate === 'react-ts' && hasTypescript
+        ? currentTemplate
+        : 'react',
+    [currentTemplate, hasTypescript]
+  );
 
   // map current template to its mime type
   const mimeType = useMemo(
-    () => (currentTemplate === 'react-ts' ? '.ts' : '.js'),
-    [currentTemplate]
+    () => (sandpackTemplate === 'react-ts' ? '.ts' : '.js'),
+    [sandpackTemplate]
   );
 
   // get entry file by current template
   const entryFile = useMemo(
-    () => (currentTemplate === 'react-ts' ? '/index.tsx' : '/index.js'),
-    [currentTemplate]
+    () => (sandpackTemplate === 'react-ts' ? '/index.tsx' : '/index.js'),
+    [sandpackTemplate]
   );
 
   // filter files by current template
@@ -90,14 +93,38 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
     return acc;
   }, {});
 
+  // sort files by dependency
+  const sortedFiles = Object.keys(filteredFiles)
+    .sort((a: string, b: string) => {
+      const aFile = files[a] as string;
+      const bFile = files[b] as string;
+      const aName = getFileName(a);
+      const bName = getFileName(b);
+      if (aFile?.includes(bName)) {
+        return -1;
+      }
+      if (bFile.includes(aName)) {
+        return 1;
+      }
+      return 0;
+    })
+    .reduce((acc, key) => {
+      return {
+        ...acc,
+        [key]: files[key]
+      };
+    }, {});
+
+  // TODO: expand editor support
   return (
     <SandpackProvider
-      template={currentTemplate}
+      skipEval
+      template={sandpackTemplate}
       initMode="user-visible"
       initModeObserverOptions={{ rootMargin: '1400px 0px' }}
       customSetup={{
         files: {
-          ...filteredFiles,
+          ...sortedFiles,
           [entryFile]: {
             code: entry,
             hidden: true
@@ -117,7 +144,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
           '--sp-colors-fg-inactive': 'transparent'
         }}
       >
-        <Grid.Container>
+        <Grid.Container css={{ maxWidth: '100%' }}>
           <Grid
             xs={12}
             css={{
@@ -141,12 +168,13 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
               },
               '.sp-stack': {
                 background: 'var(--sp-colors-bg-default)',
-                borderRadius: '$lg'
+                borderRadius: '$lg',
+                overflowX: 'auto'
               }
             }}
           >
             {showEditor && (
-              <SandpackCodeViewer showLineNumbers decorators={decorators} />
+              <CodeViewer showLineNumbers decorators={decorators} />
             )}
             <StyledPlaygroundButtons className="sp-playground-buttons">
               {showReportBug && <BugReportButton />}
@@ -154,8 +182,11 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
               {!showPreview && showOpenInCodeSandbox && <CodeSandboxButton />}
             </StyledPlaygroundButtons>
 
-            {hasTypescript && (
-              <LanguageSelector onChange={handleLanguageChange} />
+            {hasTypescript && sandpackTemplate && (
+              <LanguageSelector
+                template={sandpackTemplate}
+                onChange={setCurrentTemplate}
+              />
             )}
           </Grid>
         </Grid.Container>

@@ -28,7 +28,7 @@ export { default as Unlock } from './unlock';
 export { default as Moon } from './moon';
 export { default as Notification } from './notification';
 export { default as Sun } from './sun';
-export { default as User } from './user';
+export { default as UserIcon } from './user';
 export { default as VolumeUp } from './volume-up';
 export { default as Heart } from './heart';
 export { default as Bug } from './bug';

@@ -6,7 +6,7 @@ import { Box } from '@primitives';
 import BugIcon from '../icons/bug';
 import { ISSUE_REPORT_URL } from '../../lib/github/constants';
 
-const BugReportButton = ({}) => {
+const BugReportButton = () => {
   const router = useRouter();
 
   const slug = router.query.slug || '';

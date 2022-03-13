@@ -59,8 +59,7 @@ export default function App() {
       </Table.Body>
   </Table>;
 }
-`
-  }}
+`}}
 />
 
 <Playground
@@ -136,6 +135,14 @@ export default function App() {
 `
   }}
 />
+
+
+<Playground
+  title="Custom cells"
+  desc="Table with custom cells"
+  files={tableContent.customCells}
+/>
+
 
 <Playground
   title="Single selection"
@@ -237,6 +244,7 @@ export default function App() {
 
 <Playground
   title="Colors"
+  overflow="auto"
   desc="Table with dynamic colors"
   highlightedLines="55"
   files={{

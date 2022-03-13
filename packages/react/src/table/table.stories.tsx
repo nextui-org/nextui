@@ -574,7 +574,7 @@ export const CustomCells = () => {
   ];
 
   const renderCell = (user: UserType, columnKey: React.Key) => {
-    const cellValue = getKeyValue(user, columnKey);
+    const cellValue = user[columnKey];
     switch (columnKey) {
       case 'name':
         return (

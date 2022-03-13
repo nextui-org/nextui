@@ -27,7 +27,7 @@ export const CSBIcon = (): React.ReactElement => (
   </svg>
 );
 
-const CodeSandboxButton = ({}) => {
+const CodeSandboxButton = () => {
   return (
     <Tooltip
       hideArrow

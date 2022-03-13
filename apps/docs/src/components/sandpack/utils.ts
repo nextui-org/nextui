@@ -106,3 +106,7 @@ export const getHighlightedLines = (
     line: parseInt(`${lines.start}`, 10) + i
   }));
 };
+
+export const getFileName = (filePath: string) => {
+  return filePath?.split('.')?.[0]?.replace(/\W/g, '');
+};

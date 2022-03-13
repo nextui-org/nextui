@@ -13,3 +13,11 @@ export type HighlightedLine = {
   end?: number | string;
   count?: number;
 };
+
+export type Decorators = Array<{
+  className?: string;
+  line: number;
+  startColumn?: number;
+  endColumn?: number;
+  elementAttributes?: Record<string, string>;
+}>;

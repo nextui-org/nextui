@@ -44,6 +44,10 @@ const globalStyles = globalCss({
     overflow: 'visible !important',
     WebkitMaskImage: 'none !important',
     background: 'transparent !important'
+  },
+  '.sp-pre-placeholder': {
+    background: 'transparent !important',
+    borderRadius: '0 !important'
   }
 });
 

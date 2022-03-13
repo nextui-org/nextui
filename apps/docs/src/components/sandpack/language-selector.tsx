@@ -1,48 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
+import { SandpackPredefinedTemplate } from '@codesandbox/sandpack-react';
 import { TypescriptLogo, JavascriptLogo } from '@components';
 import { StyledPlaygroundButtons, StyledLanguageButton } from './styles';
-import withDefaults from '@utils/with-defaults';
-import { Language } from './types';
+import useIsMounted from '@hooks/use-is-mounted';
 
 interface Props {
-  initialLanguage?: Language;
-  onChange?: (language: Language) => void;
+  template: SandpackPredefinedTemplate;
+  onChange?: (template: SandpackPredefinedTemplate) => void;
 }
 
-const defaultProps = {
-  initialLanguage: 'javascript'
-};
-
-export type LanguageSelectorProps = Props & typeof defaultProps;
+export type LanguageSelectorProps = Props;
 
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({
-  initialLanguage,
+  template,
   onChange
 }) => {
-  const [currentLanguage, setCurrentLanguage] =
-    useState<Language>(initialLanguage);
+  const isMounted = useIsMounted();
 
   const handleToggle = () => {
-    const newLanguage =
-      currentLanguage === 'javascript' ? 'typescript' : 'javascript';
-    setCurrentLanguage(newLanguage);
-    onChange?.(newLanguage);
+    const newTemplate = template === 'react' ? 'react-ts' : 'react';
+    onChange?.(newTemplate);
   };
+
+  if (!isMounted) return null;
 
   return (
     <StyledPlaygroundButtons bottom>
       <StyledLanguageButton onClick={handleToggle}>
         <JavascriptLogo
           className={cn('sp-language-icon', {
-            'sp-language-icon--selected': currentLanguage === 'javascript'
+            'sp-language-icon--selected': template === 'react'
           })}
         />
       </StyledLanguageButton>
       <StyledLanguageButton onClick={handleToggle}>
         <TypescriptLogo
           className={cn('sp-language-icon', {
-            'sp-language-icon--selected': currentLanguage === 'typescript'
+            'sp-language-icon--selected': template === 'react-ts'
           })}
         />
       </StyledLanguageButton>
@@ -50,4 +45,4 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   );
 };
 
-export default withDefaults(LanguageSelector, defaultProps);
+export default LanguageSelector;
