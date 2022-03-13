@@ -10,14 +10,14 @@ export const StyledPlaygroundButtons = styled('div', {
   ai: 'center',
   '.sp-language-icon': {
     transition: '$default',
-    fill: '$gray500',
+    fill: 'var(--sp-colors-fg-default)',
     ml: '$2',
     '&:hover': {
       opacity: 0.8
     }
   },
   '.sp-language-icon--selected': {
-    fill: '$gray100'
+    fill: 'var(--sp-colors-fg-active)'
   },
   variants: {
     bottom: {
@@ -38,4 +38,12 @@ export const StyledLanguageButton = styled('button', {
   border: 'none',
   outline: 'none',
   cursor: 'pointer'
+});
+
+export const StyledShoreMoreButton = styled(StyledLanguageButton, {
+  color: 'var(--sp-colors-fg-default)',
+  transition: '$default',
+  '&:hover': {
+    color: 'var(--sp-colors-fg-active)'
+  }
 });

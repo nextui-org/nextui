@@ -46,6 +46,7 @@
     "rehype-parse": "7.0.1",
     "remark-autolink-headings": "^6.0.1",
     "remark-slug": "^6.0.0",
+    "scroll-into-view-if-needed": "2.2.29",
     "shelljs": "^0.8.4",
     "styled-jsx": "^4.0.1",
     "unified": "9.2.1",

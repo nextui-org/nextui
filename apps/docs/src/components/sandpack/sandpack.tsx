@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import {
   SandpackProvider,
   SandpackLayout,
@@ -57,6 +57,8 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
   // once the user select a template we store it in local storage
   const [currentTemplate, setCurrentTemplate] =
     useLocalStorage<SandpackPredefinedTemplate>('currentTemplate', template);
+
+  const editorContainerRef = useRef<HTMLDivElement>(null);
 
   const hasTypescript = Object.keys(files).some(
     (file) => file.includes('.ts') || file.includes('.tsx')
@@ -120,8 +122,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
     <SandpackProvider
       skipEval
       template={sandpackTemplate}
-      initMode="user-visible"
-      initModeObserverOptions={{ rootMargin: '1400px 0px' }}
+      initMode="immediate"
       customSetup={{
         files: {
           ...sortedFiles,
@@ -154,6 +155,8 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
             {showPreview ? <SandpackPreview /> : children}
           </Grid>
           <Grid
+            ref={editorContainerRef}
+            id="sp-editor-container"
             xs={12}
             css={{
               height: '350px',
@@ -170,11 +173,17 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
                 background: 'var(--sp-colors-bg-default)',
                 borderRadius: '$lg',
                 overflowX: 'auto'
+              },
+              '.sp-cm': {
+                p: 'var(--sp-space-4)'
               }
             }}
           >
             {showEditor && (
-              <CodeViewer showLineNumbers decorators={decorators} />
+              <CodeViewer
+                containerRef={editorContainerRef}
+                decorators={decorators}
+              />
             )}
             <StyledPlaygroundButtons className="sp-playground-buttons">
               {showReportBug && <BugReportButton />}
