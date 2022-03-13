@@ -62,82 +62,92 @@ const getItemLayout = (val?: BreakpointsValue): React.CSSProperties => {
   };
 };
 
-const GridItem: React.FC<React.PropsWithChildren<GridItemProps>> = ({
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
-  css,
-  justify,
-  direction,
-  alignItems,
-  alignContent,
-  children,
-  className,
-  ...props
-}) => {
-  const classes = useMemo(() => {
-    const breaks: { [key: string]: unknown } = {
+const GridItem = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<GridItemProps>
+>(
+  (
+    {
       xs,
       sm,
       md,
       lg,
-      xl
-    };
-    const classString = Object.keys(breaks).reduce((pre, name) => {
-      if (breaks[name] !== undefined && breaks[name] !== false)
-        return `${pre} ${name}`;
-      return pre;
-    }, '');
-    return classString.trim();
-  }, [xs, sm, md, lg, xl]);
+      xl,
+      css,
+      justify,
+      direction,
+      alignItems,
+      alignContent,
+      children,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    const classes = useMemo(() => {
+      const breaks: { [key: string]: unknown } = {
+        xs,
+        sm,
+        md,
+        lg,
+        xl
+      };
+      const classString = Object.keys(breaks).reduce((pre, name) => {
+        if (breaks[name] !== undefined && breaks[name] !== false)
+          return `${pre} ${name}`;
+        return pre;
+      }, '');
+      return classString.trim();
+    }, [xs, sm, md, lg, xl]);
 
-  return (
-    <StyledGridItem
-      className={clsx('nextui-grid-item', classes, className)}
-      css={{
-        alignItems,
-        alignContent,
-        justifyContent: justify,
-        flexDirection: direction,
-        '&.xs': {
-          ...getItemLayout(xs)
-        },
-        '@xsMax': {
+    return (
+      <StyledGridItem
+        ref={ref}
+        className={clsx('nextui-grid-item', classes, className)}
+        css={{
+          alignItems,
+          alignContent,
+          justifyContent: justify,
+          flexDirection: direction,
           '&.xs': {
             ...getItemLayout(xs)
-          }
-        },
-        '@sm': {
-          '&.sm': {
-            ...getItemLayout(sm)
-          }
-        },
-        '@md': {
-          '&.md': {
-            ...getItemLayout(md)
-          }
-        },
-        '@lg': {
-          '&.lg': {
-            ...getItemLayout(lg)
-          }
-        },
-        '@xl': {
-          '&.xl': {
-            ...getItemLayout(xl)
-          }
-        },
-        ...(css as any)
-      }}
-      {...props}
-    >
-      {children}
-    </StyledGridItem>
-  );
-};
+          },
+          '@xsMax': {
+            '&.xs': {
+              ...getItemLayout(xs)
+            }
+          },
+          '@sm': {
+            '&.sm': {
+              ...getItemLayout(sm)
+            }
+          },
+          '@md': {
+            '&.md': {
+              ...getItemLayout(md)
+            }
+          },
+          '@lg': {
+            '&.lg': {
+              ...getItemLayout(lg)
+            }
+          },
+          '@xl': {
+            '&.xl': {
+              ...getItemLayout(xl)
+            }
+          },
+          ...(css as any)
+        }}
+        {...props}
+      >
+        {children}
+      </StyledGridItem>
+    );
+  }
+);
 
+GridItem.displayName = 'NextUI - Grid Item';
 GridItem.toString = () => '.nextui-grid-item';
 
 export default withDefaults(GridItem, defaultProps);

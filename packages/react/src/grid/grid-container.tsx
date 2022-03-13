@@ -20,20 +20,17 @@ const defaultProps = {
 
 export type GridContainerProps = Props & typeof defaultProps & GridItemProps;
 
-const GridContainer: React.FC<React.PropsWithChildren<GridContainerProps>> = ({
-  gap,
-  wrap,
-  css,
-  children,
-  className,
-  ...props
-}) => {
+const GridContainer = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<GridContainerProps>
+>(({ gap, wrap, css, children, className, ...props }, ref) => {
   const gapUnit = useMemo(() => {
     return `calc(${gap} * $space$3)`;
   }, [gap]);
 
   return (
     <GridBasicItem
+      ref={ref}
       className={clsx('nextui-grid-container', className)}
       css={{
         $$gridGapUnit: gapUnit,
@@ -49,8 +46,9 @@ const GridContainer: React.FC<React.PropsWithChildren<GridContainerProps>> = ({
       {children}
     </GridBasicItem>
   );
-};
+});
 
+GridContainer.displayName = 'NextUI - GridContainer';
 GridContainer.toString = () => '.nextui-grid-container';
 
 export default withDefaults(GridContainer, defaultProps);

@@ -4,18 +4,18 @@ exports[`Checkbox Group should render correctly 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "nextui-c-iJakRk nextui-c-iJakRk-daexIA-size-md nextui-c-iJakRk-ivavbS-row-true",
+      "class": "nextui-c-fixGjY nextui-c-fixGjY-daexIA-size-md nextui-c-fixGjY-lnptZJ-row-true",
       "role": "group",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-gLvohg nextui-c-gLvohg-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked",
+          "class": "nextui-c-gWSMie nextui-c-gWSMie-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container",
+              "class": "nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container",
               "tabindex": "0",
             },
             "children": Array [
@@ -23,7 +23,7 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-checked": "false",
                   "aria-disabled": "false",
-                  "class": "nextui-c-VVylU nextui-checkbox-input",
+                  "class": "nextui-c-jinykO nextui-checkbox-input",
                   "data-state": "uncheked",
                   "tabindex": "-1",
                   "type": "checkbox",
@@ -33,12 +33,12 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                    "class": "nextui-c-eboCpe nextui-checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                        "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                       },
                       "children": Array [
                         Node {
@@ -50,7 +50,7 @@ LoadedCheerio {
                           "namespace": "http://www.w3.org/1999/xhtml",
                           "next": Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -78,7 +78,7 @@ LoadedCheerio {
                         },
                         Node {
                           "attribs": Object {
-                            "class": "nextui-c-khOxv nextui-icon-check-line2",
+                            "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                           },
                           "children": Array [],
                           "name": "div",
@@ -161,12 +161,12 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                  "class": "nextui-c-eboCpe nextui-checkbox-mask",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                      "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                     },
                     "children": Array [
                       Node {
@@ -178,7 +178,7 @@ LoadedCheerio {
                         "namespace": "http://www.w3.org/1999/xhtml",
                         "next": Node {
                           "attribs": Object {
-                            "class": "nextui-c-khOxv nextui-icon-check-line2",
+                            "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                           },
                           "children": Array [],
                           "name": "div",
@@ -206,7 +206,7 @@ LoadedCheerio {
                       },
                       Node {
                         "attribs": Object {
-                          "class": "nextui-c-khOxv nextui-icon-check-line2",
+                          "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                         },
                         "children": Array [],
                         "name": "div",
@@ -262,7 +262,7 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-checked": "false",
                     "aria-disabled": "false",
-                    "class": "nextui-c-VVylU nextui-checkbox-input",
+                    "class": "nextui-c-jinykO nextui-checkbox-input",
                     "data-state": "uncheked",
                     "tabindex": "-1",
                     "type": "checkbox",
@@ -359,7 +359,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container",
+                "class": "nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container",
                 "tabindex": "0",
               },
               "children": Array [
@@ -367,7 +367,7 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-checked": "false",
                     "aria-disabled": "false",
-                    "class": "nextui-c-VVylU nextui-checkbox-input",
+                    "class": "nextui-c-jinykO nextui-checkbox-input",
                     "data-state": "uncheked",
                     "tabindex": "-1",
                     "type": "checkbox",
@@ -377,12 +377,12 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                      "class": "nextui-c-eboCpe nextui-checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                          "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                         },
                         "children": Array [
                           Node {
@@ -394,7 +394,7 @@ LoadedCheerio {
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -422,7 +422,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -505,12 +505,12 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                    "class": "nextui-c-eboCpe nextui-checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                        "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                       },
                       "children": Array [
                         Node {
@@ -522,7 +522,7 @@ LoadedCheerio {
                           "namespace": "http://www.w3.org/1999/xhtml",
                           "next": Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -550,7 +550,7 @@ LoadedCheerio {
                         },
                         Node {
                           "attribs": Object {
-                            "class": "nextui-c-khOxv nextui-icon-check-line2",
+                            "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                           },
                           "children": Array [],
                           "name": "div",
@@ -606,7 +606,7 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-checked": "false",
                       "aria-disabled": "false",
-                      "class": "nextui-c-VVylU nextui-checkbox-input",
+                      "class": "nextui-c-jinykO nextui-checkbox-input",
                       "data-state": "uncheked",
                       "tabindex": "-1",
                       "type": "checkbox",
@@ -672,12 +672,12 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-c-gLvohg nextui-c-gLvohg-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked",
+            "class": "nextui-c-gWSMie nextui-c-gWSMie-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container",
+                "class": "nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container",
                 "tabindex": "0",
               },
               "children": Array [
@@ -685,7 +685,7 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-checked": "false",
                     "aria-disabled": "false",
-                    "class": "nextui-c-VVylU nextui-checkbox-input",
+                    "class": "nextui-c-jinykO nextui-checkbox-input",
                     "data-state": "uncheked",
                     "tabindex": "-1",
                     "type": "checkbox",
@@ -695,12 +695,12 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                      "class": "nextui-c-eboCpe nextui-checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                          "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                         },
                         "children": Array [
                           Node {
@@ -712,7 +712,7 @@ LoadedCheerio {
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -740,7 +740,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -823,12 +823,12 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                    "class": "nextui-c-eboCpe nextui-checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                        "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                       },
                       "children": Array [
                         Node {
@@ -840,7 +840,7 @@ LoadedCheerio {
                           "namespace": "http://www.w3.org/1999/xhtml",
                           "next": Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -868,7 +868,7 @@ LoadedCheerio {
                         },
                         Node {
                           "attribs": Object {
-                            "class": "nextui-c-khOxv nextui-icon-check-line2",
+                            "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                           },
                           "children": Array [],
                           "name": "div",
@@ -924,7 +924,7 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-checked": "false",
                       "aria-disabled": "false",
-                      "class": "nextui-c-VVylU nextui-checkbox-input",
+                      "class": "nextui-c-jinykO nextui-checkbox-input",
                       "data-state": "uncheked",
                       "tabindex": "-1",
                       "type": "checkbox",
@@ -1021,7 +1021,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container",
+                  "class": "nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container",
                   "tabindex": "0",
                 },
                 "children": Array [
@@ -1029,7 +1029,7 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-checked": "false",
                       "aria-disabled": "false",
-                      "class": "nextui-c-VVylU nextui-checkbox-input",
+                      "class": "nextui-c-jinykO nextui-checkbox-input",
                       "data-state": "uncheked",
                       "tabindex": "-1",
                       "type": "checkbox",
@@ -1039,12 +1039,12 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                        "class": "nextui-c-eboCpe nextui-checkbox-mask",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                            "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                           },
                           "children": Array [
                             Node {
@@ -1056,7 +1056,7 @@ LoadedCheerio {
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                  "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -1084,7 +1084,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -1167,12 +1167,12 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                      "class": "nextui-c-eboCpe nextui-checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                          "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                         },
                         "children": Array [
                           Node {
@@ -1184,7 +1184,7 @@ LoadedCheerio {
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -1212,7 +1212,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -1268,7 +1268,7 @@ LoadedCheerio {
                       "attribs": Object {
                         "aria-checked": "false",
                         "aria-disabled": "false",
-                        "class": "nextui-c-VVylU nextui-checkbox-input",
+                        "class": "nextui-c-jinykO nextui-checkbox-input",
                         "data-state": "uncheked",
                         "tabindex": "-1",
                         "type": "checkbox",
@@ -1355,12 +1355,12 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-c-gLvohg nextui-c-gLvohg-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked",
+          "class": "nextui-c-gWSMie nextui-c-gWSMie-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container",
+              "class": "nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container",
               "tabindex": "0",
             },
             "children": Array [
@@ -1368,7 +1368,7 @@ LoadedCheerio {
                 "attribs": Object {
                   "aria-checked": "false",
                   "aria-disabled": "false",
-                  "class": "nextui-c-VVylU nextui-checkbox-input",
+                  "class": "nextui-c-jinykO nextui-checkbox-input",
                   "data-state": "uncheked",
                   "tabindex": "-1",
                   "type": "checkbox",
@@ -1378,12 +1378,12 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                    "class": "nextui-c-eboCpe nextui-checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                        "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                       },
                       "children": Array [
                         Node {
@@ -1395,7 +1395,7 @@ LoadedCheerio {
                           "namespace": "http://www.w3.org/1999/xhtml",
                           "next": Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -1423,7 +1423,7 @@ LoadedCheerio {
                         },
                         Node {
                           "attribs": Object {
-                            "class": "nextui-c-khOxv nextui-icon-check-line2",
+                            "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                           },
                           "children": Array [],
                           "name": "div",
@@ -1506,12 +1506,12 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                  "class": "nextui-c-eboCpe nextui-checkbox-mask",
                 },
                 "children": Array [
                   Node {
                     "attribs": Object {
-                      "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                      "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                     },
                     "children": Array [
                       Node {
@@ -1523,7 +1523,7 @@ LoadedCheerio {
                         "namespace": "http://www.w3.org/1999/xhtml",
                         "next": Node {
                           "attribs": Object {
-                            "class": "nextui-c-khOxv nextui-icon-check-line2",
+                            "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                           },
                           "children": Array [],
                           "name": "div",
@@ -1551,7 +1551,7 @@ LoadedCheerio {
                       },
                       Node {
                         "attribs": Object {
-                          "class": "nextui-c-khOxv nextui-icon-check-line2",
+                          "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                         },
                         "children": Array [],
                         "name": "div",
@@ -1607,7 +1607,7 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-checked": "false",
                     "aria-disabled": "false",
-                    "class": "nextui-c-VVylU nextui-checkbox-input",
+                    "class": "nextui-c-jinykO nextui-checkbox-input",
                     "data-state": "uncheked",
                     "tabindex": "-1",
                     "type": "checkbox",
@@ -1704,7 +1704,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container",
+                "class": "nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container",
                 "tabindex": "0",
               },
               "children": Array [
@@ -1712,7 +1712,7 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-checked": "false",
                     "aria-disabled": "false",
-                    "class": "nextui-c-VVylU nextui-checkbox-input",
+                    "class": "nextui-c-jinykO nextui-checkbox-input",
                     "data-state": "uncheked",
                     "tabindex": "-1",
                     "type": "checkbox",
@@ -1722,12 +1722,12 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                      "class": "nextui-c-eboCpe nextui-checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                          "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                         },
                         "children": Array [
                           Node {
@@ -1739,7 +1739,7 @@ LoadedCheerio {
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -1767,7 +1767,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -1850,12 +1850,12 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                    "class": "nextui-c-eboCpe nextui-checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                        "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                       },
                       "children": Array [
                         Node {
@@ -1867,7 +1867,7 @@ LoadedCheerio {
                           "namespace": "http://www.w3.org/1999/xhtml",
                           "next": Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -1895,7 +1895,7 @@ LoadedCheerio {
                         },
                         Node {
                           "attribs": Object {
-                            "class": "nextui-c-khOxv nextui-icon-check-line2",
+                            "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                           },
                           "children": Array [],
                           "name": "div",
@@ -1951,7 +1951,7 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-checked": "false",
                       "aria-disabled": "false",
-                      "class": "nextui-c-VVylU nextui-checkbox-input",
+                      "class": "nextui-c-jinykO nextui-checkbox-input",
                       "data-state": "uncheked",
                       "tabindex": "-1",
                       "type": "checkbox",
@@ -2019,12 +2019,12 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-c-gLvohg nextui-c-gLvohg-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked",
+            "class": "nextui-c-gWSMie nextui-c-gWSMie-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked",
           },
           "children": Array [
             Node {
               "attribs": Object {
-                "class": "nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container",
+                "class": "nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container",
                 "tabindex": "0",
               },
               "children": Array [
@@ -2032,7 +2032,7 @@ LoadedCheerio {
                   "attribs": Object {
                     "aria-checked": "false",
                     "aria-disabled": "false",
-                    "class": "nextui-c-VVylU nextui-checkbox-input",
+                    "class": "nextui-c-jinykO nextui-checkbox-input",
                     "data-state": "uncheked",
                     "tabindex": "-1",
                     "type": "checkbox",
@@ -2042,12 +2042,12 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                      "class": "nextui-c-eboCpe nextui-checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                          "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                         },
                         "children": Array [
                           Node {
@@ -2059,7 +2059,7 @@ LoadedCheerio {
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -2087,7 +2087,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -2170,12 +2170,12 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                    "class": "nextui-c-eboCpe nextui-checkbox-mask",
                   },
                   "children": Array [
                     Node {
                       "attribs": Object {
-                        "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                        "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                       },
                       "children": Array [
                         Node {
@@ -2187,7 +2187,7 @@ LoadedCheerio {
                           "namespace": "http://www.w3.org/1999/xhtml",
                           "next": Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -2215,7 +2215,7 @@ LoadedCheerio {
                         },
                         Node {
                           "attribs": Object {
-                            "class": "nextui-c-khOxv nextui-icon-check-line2",
+                            "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                           },
                           "children": Array [],
                           "name": "div",
@@ -2271,7 +2271,7 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-checked": "false",
                       "aria-disabled": "false",
-                      "class": "nextui-c-VVylU nextui-checkbox-input",
+                      "class": "nextui-c-jinykO nextui-checkbox-input",
                       "data-state": "uncheked",
                       "tabindex": "-1",
                       "type": "checkbox",
@@ -2368,7 +2368,7 @@ LoadedCheerio {
               "parent": [Circular],
               "prev": Node {
                 "attribs": Object {
-                  "class": "nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container",
+                  "class": "nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container",
                   "tabindex": "0",
                 },
                 "children": Array [
@@ -2376,7 +2376,7 @@ LoadedCheerio {
                     "attribs": Object {
                       "aria-checked": "false",
                       "aria-disabled": "false",
-                      "class": "nextui-c-VVylU nextui-checkbox-input",
+                      "class": "nextui-c-jinykO nextui-checkbox-input",
                       "data-state": "uncheked",
                       "tabindex": "-1",
                       "type": "checkbox",
@@ -2386,12 +2386,12 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                        "class": "nextui-c-eboCpe nextui-checkbox-mask",
                       },
                       "children": Array [
                         Node {
                           "attribs": Object {
-                            "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                            "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                           },
                           "children": Array [
                             Node {
@@ -2403,7 +2403,7 @@ LoadedCheerio {
                               "namespace": "http://www.w3.org/1999/xhtml",
                               "next": Node {
                                 "attribs": Object {
-                                  "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                  "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                                 },
                                 "children": Array [],
                                 "name": "div",
@@ -2431,7 +2431,7 @@ LoadedCheerio {
                             },
                             Node {
                               "attribs": Object {
-                                "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -2514,12 +2514,12 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "nextui-c-fwBnkL nextui-checkbox-mask",
+                      "class": "nextui-c-eboCpe nextui-checkbox-mask",
                     },
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check",
+                          "class": "nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check",
                         },
                         "children": Array [
                           Node {
@@ -2531,7 +2531,7 @@ LoadedCheerio {
                             "namespace": "http://www.w3.org/1999/xhtml",
                             "next": Node {
                               "attribs": Object {
-                                "class": "nextui-c-khOxv nextui-icon-check-line2",
+                                "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                               },
                               "children": Array [],
                               "name": "div",
@@ -2559,7 +2559,7 @@ LoadedCheerio {
                           },
                           Node {
                             "attribs": Object {
-                              "class": "nextui-c-khOxv nextui-icon-check-line2",
+                              "class": "nextui-c-jCGWyH nextui-icon-check-line2",
                             },
                             "children": Array [],
                             "name": "div",
@@ -2615,7 +2615,7 @@ LoadedCheerio {
                       "attribs": Object {
                         "aria-checked": "false",
                         "aria-disabled": "false",
-                        "class": "nextui-c-VVylU nextui-checkbox-input",
+                        "class": "nextui-c-jinykO nextui-checkbox-input",
                         "data-state": "uncheked",
                         "tabindex": "-1",
                         "type": "checkbox",
@@ -2808,4 +2808,4 @@ LoadedCheerio {
 }
 `;
 
-exports[`Checkbox Group should work correctly with different sizes 1`] = `"<div><div role=\\"group\\" class=\\"nextui-c-iJakRk nextui-c-iJakRk-eWknYe-size-xs nextui-c-iJakRk-fOcYGm-row-false\\"><label class=\\"nextui-c-gLvohg nextui-c-gLvohg-eWknYe-size-xs nextui-checkbox-label nextui-checkbox--uncheked\\"><div class=\\"nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container\\" tabindex=\\"0\\"><input type=\\"checkbox\\" class=\\"nextui-c-VVylU nextui-checkbox-input\\" tabindex=\\"-1\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-c-fwBnkL nextui-checkbox-mask\\"><i class=\\"nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-fHZZDy-size-xs nextui-icon-check\\"><div class=\\"nextui-c-edsSUO nextui-icon-check-line1\\"></div><div class=\\"nextui-c-khOxv nextui-icon-check-line2\\"></div></i></div></div><span class=\\"nextui-c-HDlzY nextui-c-HDlzY-cyFBRX-color-default nextui-checkbox-text\\">Sydney</span></label></div><div role=\\"group\\" class=\\"nextui-c-iJakRk nextui-c-iJakRk-ewcQbF-size-sm nextui-c-iJakRk-fOcYGm-row-false\\"><label class=\\"nextui-c-gLvohg nextui-c-gLvohg-ewcQbF-size-sm nextui-checkbox-label nextui-checkbox--uncheked\\"><div class=\\"nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container\\" tabindex=\\"0\\"><input type=\\"checkbox\\" class=\\"nextui-c-VVylU nextui-checkbox-input\\" tabindex=\\"-1\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-c-fwBnkL nextui-checkbox-mask\\"><i class=\\"nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-fHZZDy-size-sm nextui-icon-check\\"><div class=\\"nextui-c-edsSUO nextui-icon-check-line1\\"></div><div class=\\"nextui-c-khOxv nextui-icon-check-line2\\"></div></i></div></div><span class=\\"nextui-c-HDlzY nextui-c-HDlzY-cyFBRX-color-default nextui-checkbox-text\\">Sydney</span></label></div><div role=\\"group\\" class=\\"nextui-c-iJakRk nextui-c-iJakRk-daexIA-size-md nextui-c-iJakRk-fOcYGm-row-false\\"><label class=\\"nextui-c-gLvohg nextui-c-gLvohg-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked\\"><div class=\\"nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container\\" tabindex=\\"0\\"><input type=\\"checkbox\\" class=\\"nextui-c-VVylU nextui-checkbox-input\\" tabindex=\\"-1\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-c-fwBnkL nextui-checkbox-mask\\"><i class=\\"nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gXZkKf-size-md nextui-icon-check\\"><div class=\\"nextui-c-edsSUO nextui-icon-check-line1\\"></div><div class=\\"nextui-c-khOxv nextui-icon-check-line2\\"></div></i></div></div><span class=\\"nextui-c-HDlzY nextui-c-HDlzY-cyFBRX-color-default nextui-checkbox-text\\">Sydney</span></label></div><div role=\\"group\\" class=\\"nextui-c-iJakRk nextui-c-iJakRk-jcUEBU-size-lg nextui-c-iJakRk-fOcYGm-row-false\\"><label class=\\"nextui-c-gLvohg nextui-c-gLvohg-jcUEBU-size-lg nextui-checkbox-label nextui-checkbox--uncheked\\"><div class=\\"nextui-c-hGXOEk nextui-c-huiNHE nextui-c-hGXOEk-jewhUT-color-default nextui-checkbox-container\\" tabindex=\\"0\\"><input type=\\"checkbox\\" class=\\"nextui-c-VVylU nextui-checkbox-input\\" tabindex=\\"-1\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-c-fwBnkL nextui-checkbox-mask\\"><i class=\\"nextui-c-iQLINm nextui-c-iQLINm-hwMtuN-indeterminate-false nextui-c-iQLINm-gAAEng-size-lg nextui-icon-check\\"><div class=\\"nextui-c-edsSUO nextui-icon-check-line1\\"></div><div class=\\"nextui-c-khOxv nextui-icon-check-line2\\"></div></i></div></div><span class=\\"nextui-c-HDlzY nextui-c-HDlzY-cyFBRX-color-default nextui-checkbox-text\\">Sydney</span></label></div></div>"`;
+exports[`Checkbox Group should work correctly with different sizes 1`] = `"<div><div role=\\"group\\" class=\\"nextui-c-fixGjY nextui-c-fixGjY-eWknYe-size-xs nextui-c-fixGjY-cwiXnF-row-false\\"><label class=\\"nextui-c-gWSMie nextui-c-gWSMie-eWknYe-size-xs nextui-checkbox-label nextui-checkbox--uncheked\\"><div class=\\"nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container\\" tabindex=\\"0\\"><input type=\\"checkbox\\" class=\\"nextui-c-jinykO nextui-checkbox-input\\" tabindex=\\"-1\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-c-eboCpe nextui-checkbox-mask\\"><i class=\\"nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-fHZZDy-size-xs nextui-icon-check\\"><div class=\\"nextui-c-edsSUO nextui-icon-check-line1\\"></div><div class=\\"nextui-c-jCGWyH nextui-icon-check-line2\\"></div></i></div></div><span class=\\"nextui-c-HDlzY nextui-c-HDlzY-cyFBRX-color-default nextui-checkbox-text\\">Sydney</span></label></div><div role=\\"group\\" class=\\"nextui-c-fixGjY nextui-c-fixGjY-ewcQbF-size-sm nextui-c-fixGjY-cwiXnF-row-false\\"><label class=\\"nextui-c-gWSMie nextui-c-gWSMie-ewcQbF-size-sm nextui-checkbox-label nextui-checkbox--uncheked\\"><div class=\\"nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container\\" tabindex=\\"0\\"><input type=\\"checkbox\\" class=\\"nextui-c-jinykO nextui-checkbox-input\\" tabindex=\\"-1\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-c-eboCpe nextui-checkbox-mask\\"><i class=\\"nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-fHZZDy-size-sm nextui-icon-check\\"><div class=\\"nextui-c-edsSUO nextui-icon-check-line1\\"></div><div class=\\"nextui-c-jCGWyH nextui-icon-check-line2\\"></div></i></div></div><span class=\\"nextui-c-HDlzY nextui-c-HDlzY-cyFBRX-color-default nextui-checkbox-text\\">Sydney</span></label></div><div role=\\"group\\" class=\\"nextui-c-fixGjY nextui-c-fixGjY-daexIA-size-md nextui-c-fixGjY-cwiXnF-row-false\\"><label class=\\"nextui-c-gWSMie nextui-c-gWSMie-daexIA-size-md nextui-checkbox-label nextui-checkbox--uncheked\\"><div class=\\"nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container\\" tabindex=\\"0\\"><input type=\\"checkbox\\" class=\\"nextui-c-jinykO nextui-checkbox-input\\" tabindex=\\"-1\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-c-eboCpe nextui-checkbox-mask\\"><i class=\\"nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gXZkKf-size-md nextui-icon-check\\"><div class=\\"nextui-c-edsSUO nextui-icon-check-line1\\"></div><div class=\\"nextui-c-jCGWyH nextui-icon-check-line2\\"></div></i></div></div><span class=\\"nextui-c-HDlzY nextui-c-HDlzY-cyFBRX-color-default nextui-checkbox-text\\">Sydney</span></label></div><div role=\\"group\\" class=\\"nextui-c-fixGjY nextui-c-fixGjY-jcUEBU-size-lg nextui-c-fixGjY-cwiXnF-row-false\\"><label class=\\"nextui-c-gWSMie nextui-c-gWSMie-jcUEBU-size-lg nextui-checkbox-label nextui-checkbox--uncheked\\"><div class=\\"nextui-c-hGXOEk nextui-c-snRyY nextui-c-hGXOEk-jewhUT-color-default nextui-c-snRyY-gulvcB-isFocusVisible-false nextui-checkbox-container\\" tabindex=\\"0\\"><input type=\\"checkbox\\" class=\\"nextui-c-jinykO nextui-checkbox-input\\" tabindex=\\"-1\\" data-state=\\"uncheked\\" aria-checked=\\"false\\" aria-disabled=\\"false\\"><div class=\\"nextui-c-eboCpe nextui-checkbox-mask\\"><i class=\\"nextui-c-dRkEHU nextui-c-dRkEHU-hwMtuN-indeterminate-false nextui-c-dRkEHU-gAAEng-size-lg nextui-icon-check\\"><div class=\\"nextui-c-edsSUO nextui-icon-check-line1\\"></div><div class=\\"nextui-c-jCGWyH nextui-icon-check-line2\\"></div></i></div></div><span class=\\"nextui-c-HDlzY nextui-c-HDlzY-cyFBRX-color-default nextui-checkbox-text\\">Sydney</span></label></div></div>"`;
