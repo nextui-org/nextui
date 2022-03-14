@@ -97,7 +97,7 @@ You can run the nest command for component specific tests.
 yarn test:update # or npm run test:update
 
 # Test isolated component code
-yarn test src/button  # or npm run test src/button
+yarn test:update src/button  # or npm run test:update src/button
 
 ```
 

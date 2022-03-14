@@ -177,20 +177,29 @@ export const StyledPaginationHighlight = styled('div', {
   minWidth: '$$paginationSize',
   animationName: `${paginationAnimation}`,
   animationDirection: 'normal',
+  '&.nextui-pagination-highlight--moving': {
+    transform: 'scale($$paginationScaleTransform)'
+  },
   '@motion': {
-    transition: 'none'
+    transition: 'none',
+    '&.nextui-pagination-highlight--moving': {
+      transform: 'scale(1)'
+    }
   },
   variants: {
     animated: {
       true: {
         animationDuration: '350ms',
         animationTimingFunction: 'ease',
-        transition: 'left 350ms ease'
+        transition: 'left 350ms ease 0s, transform 300ms ease 0s'
       },
       false: {
         animationDuration: 'none',
         animationTimingFunction: 'none',
-        transition: 'none'
+        transition: 'none',
+        '&.nextui-pagination-highlight--moving': {
+          transform: 'scale(1)'
+        }
       }
     },
     noMargin: {
@@ -259,17 +268,17 @@ export const StyledPagination = styled('nav', {
     },
     size: {
       xs: {
-        $$paginationWidth: '$space$9',
+        $$paginationWidth: '$space$10',
         $$paginationFontSize: '$space$5',
-        fs: ' $$paginationFontSize'
+        fs: '$$paginationFontSize'
       },
       sm: {
-        $$paginationWidth: '$space$11',
+        $$paginationWidth: '$space$12',
         $$paginationFontSize: '$space$6',
         fs: '$$paginationFontSize'
       },
       md: {
-        $$paginationWidth: '$space$12',
+        $$paginationWidth: '$space$13',
         $$paginationFontSize: '$space$7',
         fs: '$$paginationFontSize'
       },
@@ -308,11 +317,11 @@ export const StyledPagination = styled('nav', {
       true: {
         $$paginationSize: 'calc($$paginationWidth / 2)',
         $$paginationItemRadius: '$radii$pill',
-        $$paginationScaleTransform: 0.8
+        $$paginationScaleTransform: 1.05
       },
       false: {
         $$paginationSize: '$$paginationWidth',
-        $$paginationScaleTransform: 0.9
+        $$paginationScaleTransform: 1.1
       }
     },
     rounded: {

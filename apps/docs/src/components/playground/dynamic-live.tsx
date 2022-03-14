@@ -3,18 +3,19 @@ import { LivePreview, LiveProvider, LiveError } from 'react-live';
 import makeCodeTheme from './code-theme';
 import Editor from './editor';
 import NextLink from 'next/link';
-import { Palette } from '@components';
+import Palette from '../palette';
 import * as TemplateComponents from '../templates';
 import { useMediaQuery } from '@hooks/use-media-query';
 import { validateEmail } from '@utils/index';
 import withDefaults from '@utils/with-defaults';
-import { Box } from '@components';
+import { Box } from '@primitives';
 import * as Components from '@nextui-org/react';
 import * as Icons from '../icons';
 
 export interface Props {
   code: string;
   showEditor?: boolean;
+  noInline?: boolean;
   initialEditorOpen?: boolean;
   overflow?: 'auto' | 'visible' | 'hidden';
 }
@@ -25,13 +26,17 @@ const defaultProps = {
 
 const StyledWrapper = Components.styled(Box, {
   width: '100%',
-  padding: '$lg $sm',
+  padding: '$10',
   marginLeft: '-$sm',
   display: 'flex',
   flexWrap: 'wrap',
   flexDirection: 'column',
+  background: 'transparent',
   '& > div': {
     width: '100%'
+  },
+  '@xsMax': {
+    p: '$5'
   },
   variants: {
     overflow: {
@@ -44,6 +49,12 @@ const StyledWrapper = Components.styled(Box, {
       auto: {
         overflowX: 'auto'
       }
+    },
+    noInline: {
+      true: {
+        pb: '$10',
+        ml: 0
+      }
     }
   },
   defaultVariants: {
@@ -51,25 +62,38 @@ const StyledWrapper = Components.styled(Box, {
   }
 });
 
-const DynamicLive: React.FC<Props> = ({
+export const scope = {
+  ...Components,
+  ...Icons,
+  ...TemplateComponents,
+  NextLink,
+  Palette,
+  useMediaQuery,
+  validateEmail
+};
+
+const DynamicLive: React.FC<Props & { css?: Components.CSS }> = ({
   code,
   showEditor,
   initialEditorOpen,
-  overflow
+  noInline,
+  overflow,
+  css
 }) => {
   const codeTheme = makeCodeTheme();
-  const scope = {
-    ...Components,
-    ...Icons,
-    ...TemplateComponents,
-    NextLink,
-    Palette,
-    useMediaQuery,
-    validateEmail
-  };
   return (
-    <LiveProvider code={code} scope={scope} theme={codeTheme}>
-      <StyledWrapper className="wrapper" overflow={overflow}>
+    <LiveProvider
+      noInline={noInline}
+      code={code}
+      scope={scope}
+      theme={codeTheme}
+    >
+      <StyledWrapper
+        className="wrapper"
+        overflow={overflow}
+        noInline={noInline}
+        css={css}
+      >
         <LivePreview />
         <LiveError />
       </StyledWrapper>

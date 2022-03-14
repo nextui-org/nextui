@@ -4,7 +4,7 @@ import Playground from '../playground';
 import Codeblock from '../codeblock';
 import CarbonAd from '../carbon-ad';
 import * as Icons from '../icons';
-import { useTheme } from '@nextui-org/react';
+import { styled, useTheme } from '@nextui-org/react';
 import { Anchor } from '@components';
 import Block from '../templates/example-block';
 import cn from 'classnames';
@@ -124,6 +124,11 @@ const List: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   );
 };
 
+// @ts-ignore
+const Paragraph = styled('p', {
+  fontSize: '1.125rem'
+});
+
 const MDXComponents = {
   ...Icons,
   h1: (props: React.DetailsHTMLAttributes<unknown>) => (
@@ -138,6 +143,7 @@ const MDXComponents = {
   h4: (props: React.DetailsHTMLAttributes<unknown>) => (
     <LinkedHeading as="h4" {...props} />
   ),
+  p: Paragraph,
   table: Table,
   thead: Thead,
   tr: Trow,

@@ -1,0 +1,129 @@
+---
+title: 'Table'
+description: 'Tables are used to display tabular data using rows and columns. hey allow users to quickly scan, sort, compare, and take action on large amounts of data.'
+url: https://nextui.org/docs/components/table
+---
+
+# Table
+
+Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data.
+The Table implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useTable.html" rel="noreferrer" target="_blank">
+@react-aria/table</a>
+
+```jsx
+import { Table } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+<Playground
+  title="Static"
+  desc="A simple example with static rows and columns, cells can also be statically defined as children."
+  files={tableContent.staticTable}
+/>
+
+<Playground
+  title="Dynamic"
+  desc="Table with dynamic data"
+  files={tableContent.dynamicTable}
+/>
+
+<Playground
+  title="Custom cells"
+  desc="Table with custom cells"
+  files={tableContent.customCellsTable}
+/>
+
+<Playground
+  title="Single selection"
+  desc="Table with single selection"
+  highlightedLines="10"
+  files={tableContent.singleSelectionTable}
+/>
+
+<Playground
+  title="Multiple selection"
+  desc="Table with multiple selection"
+  highlightedLines="10"
+  files={tableContent.multipleSelectionTable}
+/>
+
+<Playground
+  title="Colors"
+  overflow="auto"
+  desc="Table with dynamic colors"
+  highlightedLines="55"
+  files={tableContent.colorsTable}
+/>
+
+<Playground
+  title="Bordered"
+  highlightedLines="5-6"
+  desc="Table bordered"
+  files={tableContent.borderedTable}
+/>
+
+<Playground
+  title="Lined"
+  desc="Table lined"
+  highlightedLines="5-7"
+  files={tableContent.linedTable}
+/>
+
+<Playground
+  title="Sticked"
+  desc="Table sticked"
+  highlightedLines="5"
+  files={tableContent.stickedTable}
+/>
+
+<Playground
+  title="Compact"
+  desc="Table compact"
+  highlightedLines="5"
+  files={tableContent.compactTable}
+/>
+
+<Playground
+  title="Pagination"
+  desc="Table pagination"
+  highlightedLines="42-48"
+  files={tableContent.paginationTable}
+/>
+
+<Playground
+  title="Infinty Pagination"
+  desc="Table infinity pagination"
+  highlightedLines="37-39"
+  files={tableContent.infinityPaginationTable}
+/>
+
+<Playground
+  title="Sortable"
+  desc="Table sortable"
+  highlightedLines="37-38"
+  files={tableContent.sortableTable}
+/>
+
+<Playground
+  title="Disabled keys"
+  desc="Disabled keys table"
+  highlightedLines="10"
+  files={tableContent.disabledKeysTable}
+/>
+
+<Playground
+  title="Disallow empty selection"
+  desc="Disallow empty selection table"
+  highlightedLines="10"
+  files={tableContent.disallowEmptySelectionTable}
+/>
+
+<Playground
+  title="No animated"
+  desc="No animated table"
+  highlightedLines="10"
+  files={tableContent.noAnimatedTable}
+/>
