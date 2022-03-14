@@ -42,7 +42,7 @@ export default function App() {
     },
   ];
   return <Table
-      aria-label="Example dynamic collection table"
+      aria-label="Example table with dynamic content"
       css={{
         height: 'auto',
         minWidth: '100%',
