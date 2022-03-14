@@ -1,5 +1,6 @@
 import { styled } from '@nextui-org/react';
 import { StyledCardBlur } from '@primitives';
+import { lightTheme } from '@theme/shared';
 
 export const StyledNotifyBanner = styled(StyledCardBlur, {
   dflex: 'center',
@@ -14,7 +15,12 @@ export const StyledNotifyBanner = styled(StyledCardBlur, {
   border: '1.5px solid $border',
   borderTopColor: 'transparent',
   borderLeftColor: 'transparent',
-  borderRightColor: 'transparent'
+  borderRightColor: 'transparent',
+  [`.${lightTheme} &`]: {
+    '& .notify-gradient': {
+      display: 'none'
+    }
+  }
 });
 
 export const StyledContent = styled('a', {
@@ -27,8 +33,9 @@ export const StyledContent = styled('a', {
   color: '$text',
   cursor: 'pointer',
   transition: '$default',
+
   '& .chevron-right-icon': {
-    transition: 'cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
+    transition: 'transform cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
   },
   '&:hover': {
     opacity: 0.8,

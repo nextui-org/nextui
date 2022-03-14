@@ -9,13 +9,14 @@ const NotifyBanner = () => {
   return (
     <StyledNotifyBanner>
       <StyledImg
-        src="/theming-gradient.svg"
+        src="/notify-gradient.svg"
+        className="notify-gradient"
         alt="gradient blue background"
         css={{
           position: 'absolute',
-          opacity: 0.5,
+          opacity: 0.7,
           zIndex: '$1',
-          left: '10%'
+          left: '0%'
         }}
       />
       <Badge>🚀&nbsp;&nbsp;New</Badge>
