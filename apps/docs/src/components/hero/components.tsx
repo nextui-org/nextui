@@ -24,6 +24,10 @@ const StyledContainer = styled('div', {
   zIndex: '$2',
   '@xsMax': {
     display: 'none'
+  },
+  '@md': {
+    position: 'absolute',
+    top: '70px',
   }
 });
 

@@ -56,7 +56,7 @@ const IndexPage: React.FC<Props> = ({ routes, currentRoute }) => {
       <Hero />
 
       {/* Main features */}
-      <Section>
+      <Section css={{'@md' : {position: 'relative', top: '100px'}}}>
         <FeaturesGrid features={landingContent.topFeatures} />
       </Section>
 
