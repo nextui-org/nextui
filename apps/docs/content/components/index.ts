@@ -5,6 +5,7 @@ import avatarContent from './avatar';
 import buttonContent from './button';
 import buttonGrpContent from './buttonGrp'
 import cardContent from './card';
+import paginationContent from './pagination';
 
 export default {
   tableContent,
@@ -13,5 +14,6 @@ export default {
   avatarContent,
   buttonContent,
   buttonGrpContent,
-  cardContent
+  cardContent,
+  paginationContent
 };

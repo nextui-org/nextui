@@ -20,158 +20,42 @@ import { Pagination } from '@nextui-org/react';
   title="Default"
   overflow="auto"
   desc="You can set a starting page with the `initialPage` prop."
-  code={`
- <Pagination total={20} initialPage={1} />
-`}
-/>
+  files={paginationContent.default_pag}
+  />
 
 <Playground
   title="Colors"
   overflow="auto"
   desc="You can change the color of the `Pagination` with the property `color`."
-  code={`
-() => {
-const [selectedColor, setSelectedColor] = React.useState('primary');
-const colors = ['primary', 'secondary', 'success', 'warning', 'error', 'gradient']
-const capitalize = (str) => {
-  const lower = str.toLowerCase();
-  return str.charAt(0).toUpperCase() + lower.slice(1);
-}
-return(
-<Grid.Container gap={2}>
-  <Grid xs={12}>
-    <Pagination color={selectedColor} total={10} />
-  </Grid>
-  <Grid xs={12}>
-    <Radio.Group row size="sm" value={selectedColor} onChange={setSelectedColor}>
-      {colors.map((color) => (
-        <Radio key={color} value={color} color='primary'>
-          {capitalize(color)}
-        </Radio>
-      ))}
-    </Radio.Group>
-  </Grid>    
-</Grid.Container>
-)}  
-`}
+  files={paginationContent.color}
 />
 
 <Playground
   title="Sizes"
   overflow="auto"
   desc="Change the size of the entire `Pagination` including `width`, `height` and `font-size` with the `size` property."
-  code={`
-() => {
-const [selectedSize, setSelectedSize] = React.useState('md');
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
-const capitalize = (str) => {
-  const lower = str.toLowerCase();
-  return str.charAt(0).toUpperCase() + lower.slice(1);
-}
-return(
-<Grid.Container gap={2}>
-    <Grid xs={12}>
-      <Pagination color='secondary' size={selectedSize} total={10} />
-    </Grid>
-    <Grid xs={12}>
-        <Radio.Group row size="sm" value={selectedSize} onChange={setSelectedSize}>
-            {sizes.map((size) => (
-                <Radio color="secondary" key={size} value={size}>
-                    {capitalize(size)}
-                </Radio>
-            ))}
-        </Radio.Group>
-    </Grid>    
-</Grid.Container>
-)}  
-`}
+  files={paginationContent.sizes}
 />
 
 <Playground
   title="Rounded"
   overflow="auto"
   desc="You can completely round the corners of any type of `Pagination` with the `rounded` property."
-  code={`
-<Pagination rounded  total={10} initialPage={6} />
-`}
-/>
-
-<Playground
-  title="Bordered"
-  overflow="auto"
-  desc="You can change the full style to a bordered `Pagination` with the `bordered` property."
-  code={`
-<Grid.Container xs={12} gap={2} >  
-    <Grid>
-        <Pagination bordered total={10} initialPage={6} />
-    </Grid>
-    <Grid>
-        <Pagination rounded bordered total={10} initialPage={6} />
-    </Grid>
-</Grid.Container>
-`}
+   files={paginationContent.rounded}
 />
 
 <Playground
   title="Shadow"
   overflow="auto"
   desc="You can add a shadow effect with the property `shadow`."
-  code={`
-() => {
-const [selectedColor, setSelectedColor] = React.useState('primary');
-const colors = ['primary', 'secondary', 'success', 'warning', 'error']
-const capitalize = (str) => {
-  const lower = str.toLowerCase();
-  return str.charAt(0).toUpperCase() + lower.slice(1);
-}
-return(
-<Grid.Container gap={2}>
-  <Grid xs={12}>
-    <Pagination shadow color={selectedColor} total={10} />
-  </Grid>
-  <Grid xs={12}>
-    <Radio.Group row size="sm" value={selectedColor} onChange={setSelectedColor}>
-      {colors.map((color) => (
-        <Radio key={color} value={color} color='primary'>
-          {capitalize(color)}
-        </Radio>
-      ))}
-    </Radio.Group>
-  </Grid>    
-</Grid.Container>
-)}  
-`}
+  files={paginationContent.shadow}
 />
 
 <Playground
   title="Only Dots"
   overflow="auto"
   desc="You can completely change the style of the component and remove the internal numbers in each `Pagination` button with the property `onlyDots`."
-  code={`
-() => {
-const [selectedSize, setSelectedSize] = React.useState('md');
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
-const capitalize = (str) => {
-  const lower = str.toLowerCase();
-  return str.charAt(0).toUpperCase() + lower.slice(1);
-}
-return(
-<Grid.Container gap={2}>
-    <Grid xs={12}>
-      <Pagination onlyDots size={selectedSize} total={6} />
-    </Grid>
-    <Grid xs={12}>
-        <Radio.Group row size="sm" value={selectedSize} onChange={setSelectedSize}>
-            {sizes.map((size) => (
-                <Radio key={size} value={size}>
-                    {capitalize(size)}
-                </Radio>
-            ))}
-        </Radio.Group>
-    </Grid>    
-</Grid.Container>
-)}  
-`}
+  files={paginationContent.dots}
 />
 
 <Playground
@@ -179,9 +63,7 @@ return(
   overflow="auto"
   desc="You can make the pagination infinite with the `loop` property, this means that 
   the arrow buttons are no longer in the disabled state."
-  code={`
-<Pagination loop color="success" total={10} initialPage={6} />
-`}
+  files={paginationContent.loop}
 />
 
 <Playground
@@ -189,84 +71,35 @@ return(
   overflow="auto"
   desc="You can change the style of the entire `Pagination` component by removing the 
   margin between the buttons and changing the radius with the `noMargin` property."
-  code={`
-<Pagination noMargin shadow total={10} initialPage={6} />
-`}
+  files={paginationContent.noMargin}
 />
 
 <Playground
   title="No Controls"
   overflow="auto"
   desc="You can remove the `next` and `previous` arrows with `controls={false}` property."
-  code={`
-<Grid.Container gap={2}> 
-    <Grid> 
-        <Pagination shadow controls={false} total={10} initialPage={6} />
-    </Grid>
-    <Grid>
-        <Pagination noMargin shadow controls={false} total={10} initialPage={6} />
-    </Grid>
-</Grid.Container>
-`}
+  files={paginationContent.noCtrl}
 />
 
 <Playground
   title="No Animated"
   overflow="auto"
   desc="You can disable the animation of the entire `Modal` with the property `animated={false}`."
-  code={`
-<Pagination animated={false} total={10} initialPage={6} />
-`}
+  files={paginationContent.noAnimation}
 />
 
 <Playground
   title="Siblings"
   overflow="auto"
   desc="You can control the amount of active item siblings with `siblings` prop."
-  code={`
-<Grid.Container xs={12} gap={2}>  
-    <Grid>
-        <Text>1 Sibling (default)</Text>
-        <Spacer y={0.4}/>
-        <Pagination total={14} initialPage={6} />
-    </Grid>
-    <Grid>
-        <Text>2 Siblings</Text>
-        <Spacer y={0.4}/>
-        <Pagination siblings={2} total={14} initialPage={6} />
-    </Grid>
-    <Grid>
-        <Text>3 Siblings</Text>
-        <Spacer y={0.4}/>
-        <Pagination siblings={3} total={14} initialPage={6} />
-    </Grid>    
-</Grid.Container>
-`}
+  files={paginationContent.sibling}
 />
 
 <Playground
   title="Boundaries"
   overflow="auto"
   desc="You can control the amount of items displayed after previous and before next buttons with `boundaries` prop."
-  code={`
-<Grid.Container xs={12} gap={2}>  
-    <Grid>
-        <Text>1 Boundary (default)</Text>
-        <Spacer y={0.4}/>
-        <Pagination total={14} initialPage={6} />
-    </Grid>
-    <Grid>
-        <Text>2 Boundaries</Text>
-        <Spacer y={0.4}/>
-        <Pagination boundaries={2} total={14} initialPage={6} />
-    </Grid>
-    <Grid>
-        <Text>3 Boundaries</Text>
-        <Spacer y={0.4}/>
-        <Pagination boundaries={3} total={14} initialPage={6} />
-    </Grid>    
-</Grid.Container>
-`}
+  files={paginationContent.boundaries}
 />
 
 <Spacer y={3} />
