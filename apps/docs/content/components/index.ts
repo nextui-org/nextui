@@ -8,6 +8,7 @@ import cardContent from './card';
 import paginationContent from './pagination';
 import collapseContent from './collapse';
 import inputContent from './input';
+import textareaContent from './textarea';
 
 export default {
   tableContent,
@@ -19,5 +20,6 @@ export default {
   cardContent,
   paginationContent,
   collapseContent,
-  inputContent
+  inputContent,
+  textareaContent
 };
