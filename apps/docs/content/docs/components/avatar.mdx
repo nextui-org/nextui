@@ -19,207 +19,46 @@ import { Avatar } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="You can display an avatar with just text or image"
-  code={`
- <Grid.Container gap={2}>
-    <Grid>
-        <Avatar squared src="/avatars/avatar-1.png" />
-    </Grid>
-    <Grid>
-        <Avatar squared text="Junior" />
-    </Grid>
-    <Grid>
-        <Avatar squared src="/avatars/avatar-3.png" />
-    </Grid>
-    <Grid>
-        <Avatar squared text="Jane" />
-    </Grid>
-    <Grid>
-        <Avatar squared src="/avatars/avatar-6.png" />
-    </Grid>
-    <Grid>
-        <Avatar squared text="Joe" />
-    </Grid>
-</Grid.Container>
-`}
+  files={avatarContent.default_avatar}
 />
 
 <Playground
   title="Sizes"
   desc="The `Avatar` comes in 5 sizes and you can also set a custom size in px with `size` property."
-  code={`
-  <Grid.Container gap={2}>
-    <Grid>
-        <Avatar text="JR" size="xs" />
-    </Grid>
-    <Grid>
-        <Avatar src="/avatars/avatar-2.png" size="sm" />
-    </Grid>
-    <Grid>
-        <Avatar text="Joe" size="md" />
-    </Grid>
-    <Grid>
-        <Avatar src="/avatars/avatar-4.png" size="lg" />
-    </Grid>
-    <Grid>
-        <Avatar text="John" size="xl" />
-    </Grid>
-    <Grid>
-        <Avatar src="/avatars/avatar-1.png" css={{ size: "$20" }} />
-    </Grid>
- </Grid.Container>
-`}
+  files={avatarContent.size}
 />
 
 <Playground
   title="Colors"
   desc="You can change the color with `color` prop"
-  code={`
-  <Grid.Container gap={2}>
-    <Grid>
-        <Avatar text="Primary" color="primary" textColor="white" />
-    </Grid>
-    <Grid>
-        <Avatar text="Secondary" color="secondary" textColor="white" />
-    </Grid>
-    <Grid>
-        <Avatar text="S" color="success" textColor="white" />
-    </Grid>
-    <Grid>
-        <Avatar text="Warn" color="warning" textColor="white" />
-    </Grid>
-    <Grid>
-        <Avatar text="Err" color="error" textColor="white" />
-    </Grid>
-    <Grid>
-        <Avatar text="Grad" color="gradient" textColor="white" />
-    </Grid>
- </Grid.Container>
-`}
+  files={avatarContent.color}
 />
 
 <Playground
   title="Bordered"
   desc="You can change the full style to a bordered `Avatar` with the `bordered` property."
-  code={`
-  <Grid.Container gap={2}>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-6.png" color="primary" bordered />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-2.png" color="secondary" bordered/>
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-1.png" color="success" bordered />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-4.png" color="warning" bordered />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-5.png" color="error" bordered />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-7.png" color="gradient" bordered />
-    </Grid>
- </Grid.Container>
-`}
+  files={avatarContent.bordered}
 />
 
 <Playground
   title="Zoomed"
   desc="You can apply a zoom animation to avatar with the `zoomed` property."
-  code={`
-  <Grid.Container gap={2}>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-6.png" zoomed />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-2.png" zoomed/>
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-1.png" zoomed />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-4.png" zoomed />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-5.png" zoomed />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-7.png" zoomed />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-8.png" zoomed />
-    </Grid>
- </Grid.Container>
-`}
+  files={avatarContent.zoomed}
 />
 
 <Playground
   title="Squared"
   desc="You can change the full style to a squared `Avatar` with the `squared` property."
-  code={`
-  <Grid.Container gap={2}>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-6.png" color="primary" bordered squared />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-2.png" color="secondary" bordered squared/>
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-1.png" color="success" bordered squared />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-4.png" color="warning" bordered squared />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-5.png" color="error" bordered squared />
-    </Grid>
-    <Grid>
-        <Avatar size="lg" src="/avatars/avatar-7.png" color="gradient" bordered squared />
-    </Grid>
- </Grid.Container>
-`}
+  files={avatarContent.squared}
 />
+
 
 <Playground
   title="Icon"
   desc="NextUI doesn't use any library or icon font by default, with this we give the freedom to use the one you prefer. In the following example we use [Boxicons](https://boxicons.com/)"
-  code={`
-  <Grid.Container gap={2}>
-    <Grid>
-     <Avatar
-        squared
-       
-        icon={<Sun size={20} fill="currentColor"/>}
-      />
-    </Grid>
-    <Grid>
-      <Avatar
-        squared
-        icon={<Moon size={20} fill="currentColor"/>}
-      />
-    </Grid>
-    <Grid>
-      <Avatar
-        squared
-        icon={<Video size={20} fill="currentColor" />}
-      />
-    </Grid>
-    <Grid>
-      <Avatar
-        squared
-        icon={<VolumeUp size={20} fill="currentColor" />}
-      />
-    </Grid>
-    <Grid>
-      <Avatar
-        squared
-        icon={<Microphone size={20} fill="currentColor"/>}
-      />
-    </Grid>
- </Grid.Container>
-`}
+  files={avatarContent.icon}
 />
+
 
 <Playground
   title="Group"
