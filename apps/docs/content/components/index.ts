@@ -9,6 +9,7 @@ import paginationContent from './pagination';
 import collapseContent from './collapse';
 import inputContent from './input';
 import textareaContent from './textarea';
+import checkboxContent from './checkbox';
 
 export default {
   tableContent,
@@ -21,5 +22,6 @@ export default {
   paginationContent,
   collapseContent,
   inputContent,
-  textareaContent
+  textareaContent,
+  checkboxContent
 };
