@@ -1,4 +1,4 @@
-const App = `import { Image } from '@nextui-org/react';
+const App = `import { Avatar,Grid } from '@nextui-org/react';
     
 export default function App() {
   return <Grid.Container gap={2}>

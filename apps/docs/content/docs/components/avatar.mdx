@@ -63,36 +63,7 @@ import { Avatar } from '@nextui-org/react';
 <Playground
   title="Group"
   desc="You can group several avatars with the parent component `Avatar.Group`"
-  code={`
-  () => {
-    const nameUsers = ['Junior', 'Jane', 'W', 'John', 'JR'];
-    const pictureUsers = [
-        '/avatars/avatar-1.png',
-        '/avatars/avatar-2.png',
-        '/avatars/avatar-3.png',
-        '/avatars/avatar-4.png',
-        '/avatars/avatar-5.png',
-    ];
-    return (
-    <Grid.Container gap={1}>
-     <Grid xs={12}>
-        <Avatar.Group count={12}>
-            {nameUsers.map((name, index) => (
-            <Avatar key={index} size="lg" pointer text={name} stacked />
-            ))}
-        </Avatar.Group>
-      </Grid>
-      <Grid xs={12}>
-        <Avatar.Group count={12}>
-            {pictureUsers.map((url, index) => (
-            <Avatar key={index} size="lg" pointer src={url} bordered color="gradient" stacked />
-            ))}
-        </Avatar.Group>
-      </Grid>  
-    </Grid.Container>
-    );
- }
-`}
+  files={avatarContent.group}
 />
 
 <Spacer y={3} />

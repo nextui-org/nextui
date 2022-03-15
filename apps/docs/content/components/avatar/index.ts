@@ -5,6 +5,7 @@ import bordered from './bordered';
 import zoomed from './zoomed';
 import squared from './squared';
 import icon from './icon';
+import group from './group';
 
 export default {
   default_avatar,
@@ -13,5 +14,6 @@ export default {
   bordered,
   zoomed,
   squared,
-  icon
+  icon,
+  group
 };
