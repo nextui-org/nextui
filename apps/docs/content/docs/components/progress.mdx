@@ -19,184 +19,55 @@ import { Progress } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="You can control the current `value` of progress."
-  code={`
- <Grid.Container xs={12} sm={6} gap={2}>
-    <Grid>
-      <Progress color="primary" value={75} />
-    </Grid>
-    <Grid>
-      <Progress color="primary" value={55} />
-    </Grid>
-    <Grid>
-      <Progress color="primary" value={35} />
-    </Grid>
-</Grid.Container>
-`}
+  files={progressContent.default_progress}
 />
 
 <Playground
   title="Indeterminated"
   desc="You can have a `Progress` bar with indeterminate value with the `indeterminated` property."
-  code={`
- <Grid.Container xs={12} sm={6} gap={2}>
-    <Grid>
-        <Progress indeterminated value={50} color="secondary" status="secondary" />
-    </Grid>
-</Grid.Container>
-`}
+  files={progressContent.indeterminated_progress}
 />
 
 <Playground
   title="Colors"
   desc="You can change the color of the `Progress` with the property `color`."
-  code={`
-<Grid.Container xs={12} sm={6} gap={2}>
-  <Grid>
-    <Progress value={50} color="primary" />
-  </Grid>
-  <Grid>
-    <Progress value={30} color="secondary" />
-  </Grid>
-  <Grid>
-    <Progress value={70} color="success" />
-  </Grid>
-  <Grid>
-    <Progress value={90} color="warning" />
-  </Grid>
-  <Grid>
-    <Progress value={10} color="error" />
-  </Grid>
-  <Grid>
-    <Progress value={30} color="gradient" />
-  </Grid>
-</Grid.Container>
-`}
+  files={progressContent.color}
 />
 
 <Playground
   title="Sizes"
   desc="You can change the height of the progress with the property `size`."
-  code={`
- <Grid.Container xs={12} sm={6} gap={2}>
-    <Grid>
-      <Progress color="primary" size="xs" value={68} />
-    </Grid>
-    <Grid>
-      <Progress color="primary" size="sm" value={72} />
-    </Grid>
-    <Grid>
-      <Progress color="primary" size="md" value={74} />
-    </Grid>
-    <Grid>
-      <Progress color="primary" size="lg" value={76} />
-    </Grid>
-    <Grid>
-      <Progress color="primary" size="xl" value={78} />
-    </Grid>
-</Grid.Container>
-`}
+  files={progressContent.size}
 />
 
 <Playground
   title="Status"
   desc="You can change the background of the `Progress` with the property `status`."
-  code={`
-<Grid.Container xs={12} sm={6} gap={2}>
-  <Grid>
-    <Progress value={50} color="primary" status="primary"/>
-  </Grid>
-  <Grid>
-    <Progress value={30} color="secondary" status="secondary"/>
-  </Grid>
-  <Grid>
-    <Progress value={70} color="success" status="success"/>
-  </Grid>
-  <Grid>
-    <Progress value={90} color="warning" status="warning"/>
-  </Grid>
-  <Grid>
-    <Progress value={10} color="error" status="error"/>
-  </Grid>
-</Grid.Container>
-`}
+  files={progressContent.status}
 />
 
 <Playground
   title="Shadow"
   desc="You can add a shadow effect with the property `shadow`."
-  code={`
-<Grid.Container xs={12} sm={6} gap={2}>
-  <Grid>
-    <Progress value={50} shadow color="primary" status="primary"/>
-  </Grid>
-  <Grid>
-    <Progress value={30} shadow color="secondary" status="secondary"/>
-  </Grid>
-  <Grid>
-    <Progress value={70} shadow color="success" status="success"/>
-  </Grid>
-  <Grid>
-    <Progress value={90} shadow color="warning" status="warning"/>
-  </Grid>
-  <Grid>
-    <Progress value={10} shadow color="error" status="error"/>
-  </Grid>
-</Grid.Container>
-`}
+  files={progressContent.shadow}
 />
 
 <Playground
   title="Striped"
   desc="You can add `striped` prop to `Progress` to apply a stripe over the progress bar's background color."
-  code={`
-<Grid.Container xs={12} sm={6} gap={2}>
-  <Grid>
-    <Progress striped value={200} max={250} />
-  </Grid>
-  <Grid>
-    <Progress color="secondary" striped value={45} />
-  </Grid>
-  <Grid>
-    <Progress color="success" striped value={29} />
-  </Grid>
-</Grid.Container>
-`}
+  files={progressContent.striped}
 />
 
 <Playground
   title="Squared"
   desc="You can change the full style to a squared `Progress` with the `squared` property."
-  code={`
- <Grid.Container xs={12} sm={6} gap={2}>
-  <Grid>
-    <Progress squared color="primary" value={200} max={250} />
-  </Grid>
-  <Grid>
-    <Progress squared color="primary" value={45} />
-  </Grid>
-  <Grid>
-    <Progress squared color="primary" value={29} />
-  </Grid>
-</Grid.Container>
-`}
+  files={progressContent.squared}
 />
 
 <Playground
   title="No Animated"
   desc="You can disabled the initial animation setting `animated={false}`."
-  code={`
- <Grid.Container xs={12} sm={6} gap={2}>
-  <Grid>
-    <Progress color="primary" animated={false} value={200} max={250} />
-  </Grid>
-  <Grid>
-    <Progress color="primary" animated={false} value={45} />
-  </Grid>
-  <Grid>
-    <Progress color="primary" animated={false} value={29} />
-  </Grid>
-</Grid.Container>
-`}
+  files={progressContent.noAnimation}
 />
 
 <Spacer y={3} />

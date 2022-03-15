@@ -11,6 +11,7 @@ import inputContent from './input';
 import textareaContent from './textarea';
 import checkboxContent from './checkbox';
 import radioContent from './radio';
+import progressContent from './progress';
 
 export default {
   tableContent,
@@ -25,5 +26,6 @@ export default {
   inputContent,
   textareaContent,
   checkboxContent,
-  radioContent
+  radioContent,
+  progressContent
 };
