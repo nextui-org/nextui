@@ -105,7 +105,7 @@ export const MoonIcon = ({
 };
 `;
 
-const VideoIcon = `import { React,useTheme } from '@nextui-org/react';\n
+const VideoIcon = `import { React } from '@nextui-org/react';\n
 
 export const VideoIcon = ({
   fill = 'currentColor',
@@ -117,7 +117,6 @@ export const VideoIcon = ({
   ...props
 }) => {
 
-  const { theme } = useTheme();
   if (filled) {
     return (
       <svg
@@ -128,7 +127,7 @@ export const VideoIcon = ({
         {...props}
       >
         <path
-          fill={fill || theme?.colors?.foreground?.value}
+          fill={fill}
           d="M18,7c0-1.103-0.897-2-2-2H4C2.897,5,2,5.897,2,7v10c0,1.103,0.897,2,2,2h12c1.103,0,2-0.897,2-2v-3.333L22,17V7l-4,3.333 V7z"
         ></path>
       </svg>
@@ -143,7 +142,7 @@ export const VideoIcon = ({
       {...props}
     >
       <path
-        fill={fill || theme?.colors?.foreground?.value}
+        fill={fill}
         d="M18,7c0-1.103-0.897-2-2-2H4C2.897,5,2,5.897,2,7v10c0,1.103,0.897,2,2,2h12c1.103,0,2-0.897,2-2v-3.333L22,17V7l-4,3.333 V7z M16.002,17H4V7h12l0.001,4.999L16,12l0.001,0.001L16.002,17z"
       ></path>
     </svg>
@@ -151,7 +150,7 @@ export const VideoIcon = ({
 };
 `;
 
-const VolumeUpIcon = `import { React, useTheme } from '@nextui-org/react';\n
+const VolumeUpIcon = `import { React } from '@nextui-org/react';\n
 
 export const VolumeUpIcon = ({
   fill = 'currentColor',
@@ -163,7 +162,6 @@ export const VolumeUpIcon = ({
   ...props
 }) => {
 
-  const { theme } = useTheme();
 
   return (
     <svg
@@ -174,11 +172,11 @@ export const VolumeUpIcon = ({
       {...props}
     >
       <path
-        fill={fill || theme?.colors?.foreground?.value}
+        fill={fill}
         d="M16,21c3.527-1.547,5.999-4.909,5.999-9S19.527,4.547,16,3v2c2.387,1.386,3.999,4.047,3.999,7S18.387,17.614,16,19V21z"
       ></path>
       <path
-        fill={fill || theme?.colors?.foreground?.value}
+        fill={fill}
         d="M16 7v10c1.225-1.1 2-3.229 2-5S17.225 8.1 16 7zM4 17h2.697L14 21.868V2.132L6.697 7H4C2.897 7 2 7.897 2 9v6C2 16.103 2.897 17 4 17z"
       ></path>
     </svg>
@@ -186,7 +184,7 @@ export const VolumeUpIcon = ({
 };
 `;
 
-const MicrophoneIcon = `import { React } from '@nextui-org/react';\nimport { useTheme } from '@nextui-org/react';\n
+const MicrophoneIcon = `import { React } from '@nextui-org/react';\n
 
 export const MicrophoneIcon = ({
   fill = 'currentColor',
@@ -197,7 +195,6 @@ export const MicrophoneIcon = ({
   label,
   ...props
 }) => {
-  const { theme } = useTheme();
   if (filled) {
     return (
       <svg
@@ -208,11 +205,11 @@ export const MicrophoneIcon = ({
         {...props}
       >
         <path
-          fill={fill || theme?.colors?.foreground?.value}
+          fill={fill }
           d="M12,16c2.206,0,4-1.794,4-4V6c0-2.217-1.785-4.021-3.979-4.021c-0.069,0-0.14,0.009-0.209,0.025C9.693,2.104,8,3.857,8,6v6 C8,14.206,9.794,16,12,16z"
         />
         <path
-          fill={fill || theme?.colors?.foreground?.value}
+          fill={fill}
           d="M11,19.931V22h2v-2.069c3.939-0.495,7-3.858,7-7.931h-2c0,3.309-2.691,6-6,6s-6-2.691-6-6H4 C4,16.072,7.061,19.436,11,19.931z"
         ></path>
       </svg>
@@ -227,11 +224,11 @@ export const MicrophoneIcon = ({
       {...props}
     >
       <path
-        fill={fill || theme?.colors?.foreground?.value}
+        fill={fill}
         d="M16,12V6c0-2.217-1.785-4.021-3.979-4.021c-0.069,0-0.14,0.009-0.209,0.025C9.693,2.104,8,3.857,8,6v6c0,2.206,1.794,4,4,4 S16,14.206,16,12z M10,12V6c0-1.103,0.897-2,2-2c0.055,0,0.109-0.005,0.163-0.015C13.188,4.06,14,4.935,14,6v6c0,1.103-0.897,2-2,2 S10,13.103,10,12z"
       ></path>
       <path
-        fill={fill || theme?.colors?.foreground?.value}
+        fill={fill}
         d="M6,12H4c0,4.072,3.061,7.436,7,7.931V22h2v-2.069c3.939-0.495,7-3.858,7-7.931h-2c0,3.309-2.691,6-6,6S6,15.309,6,12z"
       ></path>
     </svg>
@@ -240,7 +237,7 @@ export const MicrophoneIcon = ({
 `;
 
 
-const AppJs = `import { Grid,Avatar,useTheme } from '@nextui-org/react';
+const AppJs = `import { Grid,Avatar } from '@nextui-org/react';
 import { SunIcon } from './SunIcon';
 import { MoonIcon } from './MoonIcon';
 import { VideoIcon } from './VideoIcon';
@@ -294,16 +291,7 @@ const react = {
   '/App.js': AppJs
 };
 
-// const reactTs = {
-//   '/SunIconTs.tsx': SunIconTs,
-//   '/MoonIconTs.tsx': MoonIconTs,
-//   '/VideoIconTs.tsx': VideoIconTs,
-//   '/Volume_UpIconTs.tsx': Volume_UpIconTs,
-//   '/MicrophoneIconTs.tsx': MicrophoneIconTs,
-//   '/App.tsx': AppTs
-// };
 
 export default {
   ...react,
-  // ...reactTs
 };
