@@ -1,24 +1,16 @@
-const App = `import { User } from '@nextui-org/react';
+const App = `import { User,Spacer } from '@nextui-org/react';
     
 export default function App() {
   return <>
-  <Grid.Container gap={2}>
-      <Grid>
           <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="xs" />
-      </Grid>
-      <Grid>
+          <Spacer />
           <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="sm" />
-      </Grid>
-      <Grid>
+          <Spacer />
          <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="md" />
-      </Grid>
-      <Grid>
+         <Spacer />
           <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="lg" />
-      </Grid>
-      <Grid>
+          <Spacer />
            <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="xl" />
-      </Grid>
-   </Grid.Container>
   </>
 }
 `;

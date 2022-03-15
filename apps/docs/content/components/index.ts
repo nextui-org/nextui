@@ -14,6 +14,7 @@ import radioContent from './radio';
 import progressContent from './progress';
 import tooltipContent from './tooltip';
 import modalContent from './modal';
+import loadingContent from './loading';
 
 export default {
   tableContent,
@@ -31,5 +32,6 @@ export default {
   radioContent,
   progressContent,
   tooltipContent,
-  modalContent
+  modalContent,
+  loadingContent
 };
