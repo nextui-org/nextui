@@ -12,6 +12,7 @@ import textareaContent from './textarea';
 import checkboxContent from './checkbox';
 import radioContent from './radio';
 import progressContent from './progress';
+import tooltipContent from './tooltip';
 
 export default {
   tableContent,
@@ -27,5 +28,6 @@ export default {
   textareaContent,
   checkboxContent,
   radioContent,
-  progressContent
+  progressContent,
+  tooltipContent
 };
