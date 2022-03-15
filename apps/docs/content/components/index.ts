@@ -10,6 +10,7 @@ import collapseContent from './collapse';
 import inputContent from './input';
 import textareaContent from './textarea';
 import checkboxContent from './checkbox';
+import radioContent from './radio';
 
 export default {
   tableContent,
@@ -23,5 +24,6 @@ export default {
   collapseContent,
   inputContent,
   textareaContent,
-  checkboxContent
+  checkboxContent,
+  radioContent
 };
