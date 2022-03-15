@@ -4,6 +4,7 @@ import imageContent from './image';
 import avatarContent from './avatar';
 import buttonContent from './button';
 import buttonGrpContent from './buttonGrp'
+import cardContent from './card';
 
 export default {
   tableContent,
@@ -11,5 +12,6 @@ export default {
   imageContent,
   avatarContent,
   buttonContent,
-  buttonGrpContent
+  buttonGrpContent,
+  cardContent
 };
