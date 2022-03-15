@@ -6,6 +6,7 @@ import buttonContent from './button';
 import buttonGrpContent from './buttonGrp'
 import cardContent from './card';
 import paginationContent from './pagination';
+import collapseContent from './collapse';
 
 export default {
   tableContent,
@@ -15,5 +16,6 @@ export default {
   buttonContent,
   buttonGrpContent,
   cardContent,
-  paginationContent
+  paginationContent,
+  collapseContent
 };
