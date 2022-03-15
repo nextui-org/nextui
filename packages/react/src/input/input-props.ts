@@ -12,7 +12,7 @@ export type FormElement = HTMLInputElement | HTMLTextAreaElement;
 export interface Props
   extends AsProp<'input' | 'textarea'>,
     React.HTMLAttributes<FormElement> {
-  value?: string;
+  value?: string | ReadonlyArray<string> | number;
   fullWidth?: boolean;
   initialValue?: string;
   placeholder?: string;
