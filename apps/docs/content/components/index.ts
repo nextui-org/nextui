@@ -13,6 +13,7 @@ import checkboxContent from './checkbox';
 import radioContent from './radio';
 import progressContent from './progress';
 import tooltipContent from './tooltip';
+import modalContent from './modal';
 
 export default {
   tableContent,
@@ -29,5 +30,6 @@ export default {
   checkboxContent,
   radioContent,
   progressContent,
-  tooltipContent
+  tooltipContent,
+  modalContent
 };
