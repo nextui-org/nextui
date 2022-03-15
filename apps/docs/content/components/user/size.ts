@@ -4,19 +4,19 @@ export default function App() {
   return <>
   <Grid.Container gap={2}>
       <Grid>
-          <User  src="/avatars/avatar-3.png" name="Ariana Wattson" size="xs" />
+          <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="xs" />
       </Grid>
       <Grid>
-          <User  src="/avatars/avatar-3.png" name="Ariana Wattson" size="sm" />
+          <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="sm" />
       </Grid>
       <Grid>
-         <User  src="/avatars/avatar-3.png" name="Ariana Wattson" size="md" />
+         <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="md" />
       </Grid>
       <Grid>
-          <User  src="/avatars/avatar-3.png" name="Ariana Wattson" size="lg" />
+          <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="lg" />
       </Grid>
       <Grid>
-           <User  src="/avatars/avatar-3.png" name="Ariana Wattson" size="xl" />
+           <User  src="https://i.pravatar.cc/150?u=a042581f4e29026704d" name="Ariana Wattson" size="xl" />
       </Grid>
    </Grid.Container>
   </>
