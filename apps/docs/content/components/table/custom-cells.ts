@@ -486,7 +486,7 @@ export default function App() {
     }
   };
   return <Table
-    aria-label="Example custom cells info table"
+    aria-label="Example table with custom cells"
     css={{  
       height: 'auto',
       minWidth: '100%'
@@ -665,7 +665,7 @@ export default function App() {
     }
   };
   return <Table
-    aria-label="Example custom cells info table"
+    aria-label="Example table with custom cells"
     css={{  
       height: 'auto',
       minWidth: '100%'
