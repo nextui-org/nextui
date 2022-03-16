@@ -176,4 +176,12 @@ describe('Input', () => {
     expect(ref.current).not.toBeNull();
     expect(() => wrapper.unmount()).not.toThrow();
   });
+
+
+  it('should keep the required parameter', () => {
+    let wrapper = mount(<Input required />);
+    let input = wrapper.find('input').getDOMNode() as HTMLInputElement;
+    expect(input.required).toEqual(true);
+  })
+
 });
