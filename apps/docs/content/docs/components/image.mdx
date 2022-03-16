@@ -18,6 +18,71 @@ import { Image } from '@nextui-org/react';
 
 <Playground
   title="Default"
-  desc="The default `User` display User Image with Text on Screen."
+  desc="The default `Image` acts as img component."
   files={imageContent.default_image}
 />
+
+<Playground
+  title="Size"
+  desc="Set the Size of Image with `width` & `height` prop."
+  files={imageContent.size}
+/>
+
+<Playground
+  title="ShowSkeleton"
+  desc="shows Skeleton Loading to indicate that the content is loading ."
+  files={imageContent.showSkeleton}
+/>
+
+<Playground
+  title="Object-Fit"
+  desc="This property tells the content to fill the container in a variety of ways. "
+  files={imageContent.objectFit}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Image Props
+
+
+| Attribute            | Type                                            | Accepted values                 | Description                                          | Default      |
+| -------------------- | ----------------------------------------------- | ------------------------------- | ---------------------------------------------------- | ------------ |
+| **src**              | `string`                                        | -                               | Image source (local or remote)                       | `-`          |
+| **autoResize**       | `boolean`                                       | `true/false`                    | Resize Image to fits screen                          | `false`      |
+| **showSkeleton**     | `boolean`                                       | `true/false`                    | Shows loading Skeleton while image is loading        | `true`       |
+| **objectFit**        | `ObjectFit`                                     | [ObjectFit](#image-objectfit)   | Property tells the content to fill the container     | `scale-down` |
+| **width**            | `string`                                        | `string`                        | Specifies Image Width                                | `-`          |
+| **height**           | `string`                                        | `string`                        | Specifies Image Height                               | `-`          |
+| **maxDelay**         | `number`                                        | -                               | Specifies how long ShowSkeleton Renders Animation    | `3000`       |
+| **className**        | `string`                                        | `string`                        | Give Image A ClasName                                | `-`          |
+| **containerCSS**     | `Stitches.CSS`                                  | -                               | Override Default Image Contianer Style               | `-`          |
+| **css**              | `Stitches.CSS`                                  | -                               | Override Default CSS style                           | `-`          |
+| **as**               | `keyof JSX.IntrinsicElements`                   | -                               | Changes which tag component outputs                  | `a`          |
+| ...                  | `AnchorHTMLAttributes`                          | `'rel', 'target', ...`          | Native props                                         | `-`          |
+
+
+<Spacer y={2} />
+
+### Image types
+
+<Spacer y={1} />
+
+#### Image objectFit
+
+```ts
+type ObjectFit =
+   | 'contain'
+   | 'cover'
+   | 'fill'
+   | 'none'
+   | 'scale-down'
+   | 'inherit'
+   | 'initial'
+   | 'revert'
+   | 'unset'
+);
+```
