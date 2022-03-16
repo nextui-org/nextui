@@ -15,6 +15,7 @@ import progressContent from './progress';
 import tooltipContent from './tooltip';
 import modalContent from './modal';
 import loadingContent from './loading';
+import switchContent from './switch';
 
 export default {
   tableContent,
@@ -33,5 +34,6 @@ export default {
   progressContent,
   tooltipContent,
   modalContent,
-  loadingContent
+  loadingContent,
+  switchContent
 };
