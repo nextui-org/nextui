@@ -97,7 +97,7 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
         >
           <Row justify="flex-start" align="center">
             <NextLink href="/">
-              <Link>
+              <Link href="/">
                 <Logo
                   auto
                   className="navbar__logo"

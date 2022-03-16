@@ -1,0 +1,138 @@
+---
+title: 'Table'
+description: 'Tables are used to display tabular data using rows and columns. hey allow users to quickly scan, sort, compare, and take action on large amounts of data.'
+url: https://nextui.org/docs/components/table
+---
+
+# Table
+
+Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data.
+The Table implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useTable.html" rel="noreferrer" target="_blank">
+@react-aria/table</a>
+
+```jsx
+import { Table } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+<Playground
+  title="Static"
+  desc="A simple example with static `rows` and `columns`, `cells` can also be statically defined as children."
+  files={tableContent.staticTable}
+/>
+
+<Playground
+  title="Dynamic"
+  desc="Table generated dynamically using a function based on the data passed to the `columns` or `items` prop respectively."
+  files={tableContent.dynamicTable}
+/>
+
+<Playground
+  title="Custom cells"
+  desc="You can render any React component in the `cells` prop. The `row` and `column` props are passed to the component."
+  files={tableContent.customCellsTable}
+/>
+
+<Playground
+  title="Single selection"
+  desc="You can set the `singleSelection` property as `single` to limit users to select only a single item at a time."
+  highlightedLines="10"
+  files={tableContent.singleSelectionTable}
+/>
+
+<Playground
+  title="Multiple selection"
+  desc="You can set the `singleSelection` property as `multiple` to allow users to select multiple items at a time."
+  highlightedLines="10"
+  files={tableContent.multipleSelectionTable}
+/>
+
+<Playground
+  title="Colors"
+  overflow="auto"
+  desc="`Table` component allows you to change the color of the selected rows, checkbox, loading and sort icon by passing the `color` prop."
+  highlightedLines="55"
+  files={tableContent.colorsTable}
+/>
+
+<Playground
+  title="Bordered"
+  highlightedLines="5-6"
+  desc="You can change the full style to a bordered `Table` with the `bordered` property."
+  files={tableContent.borderedTable}
+/>
+
+<Playground
+  title="Lined"
+  desc="You can change the full style to a lined `Table` with the `lined` and `headerLined` properties."
+  highlightedLines="5-7"
+  files={tableContent.linedTable}
+/>
+
+<Playground
+  title="Sticked"
+  desc="You can remove the padding of the `Table` with the `sticked` property."
+  highlightedLines="5"
+  files={tableContent.stickedTable}
+/>
+
+<Playground
+  title="Compact"
+  desc="You can reduce the amount of vertical padding that each row contains by using the `compact` property."
+  highlightedLines="5"
+  files={tableContent.compactTable}
+/>
+
+<Playground
+  title="Pagination"
+  desc="You can paginate the `Table` data by using the `Table.Pagination` component."
+  highlightedLines="62-68"
+  files={tableContent.paginationTable}
+/>
+
+<Playground
+  title="Infinty Pagination"
+  desc="Table supports loading data asynchronously, and will display a progress loading set by the loadingState prop. 
+  It also supports infinite scrolling to load more data on demand as the user scrolls, via the `onLoadMore` prop."
+  highlightedLines="37-39"
+  files={tableContent.infinityPaginationTable}
+/>
+
+> **Note:** This example performs client side async loading thanks to [@react-stately/async-list](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) hook, you can also create a custom implementation of it to fetch the data asynchronously.
+
+<Playground
+  title="Sortable"
+  desc="Table supports sorting its data when a column header is pressed, to set a column as sortable, you can use the `allowsSorting` property to the `column` prop."
+  highlightedLines="35"
+  files={tableContent.sortableTable}
+/>
+
+> **Note**: This example performs client side sorting by passing **load** and **sort** functions to the [@react-stately/async-list](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) hook and by comparing the data using [@react-aria/i18n](https://react-spectrum.adobe.com/react-aria/useCollator.html) **useCollector** hook. See the docs for more information on how to perform server side sorting.
+
+<Playground
+  title="Disabled keys"
+  desc="You can disable specific rows by providing an array of keys to `Table` through the `disabledKeys` prop. This will prevent rows from being selectable as shown in the example below."
+  highlightedLines="10"
+  files={tableContent.disabledKeysTable}
+/>
+
+> **Note**: Its important to have a unique key for each row, otherwise the disabled keys will not work.
+
+<Playground
+  title="Disallow empty selection"
+  desc="Table also supports a `disallowEmptySelection` prop which forces the user to have at least one row selected all the time. In this mode, if a single row is selected and the user presses it, it will not be deselected."
+  highlightedLines="10"
+  files={tableContent.disallowEmptySelectionTable}
+/>
+
+> **Note**: Its important to have a unique key for each row, otherwise the default selected keys will not work.
+
+<Playground
+  title="No animated"
+  desc="You can disable the animation of the entire `Table` by using `animated={false}` property."
+  highlightedLines="10"
+  files={tableContent.noAnimatedTable}
+/>

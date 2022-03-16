@@ -12,6 +12,8 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@code-hike/classer": "0.3.0",
+    "@codesandbox/sandpack-react": "0.14.3",
     "@mapbox/rehype-prism": "^0.6.0",
     "@mdx-js/react": "^1.6.22",
     "@nextui-org/react": "^1.0.2-beta.4",
@@ -25,7 +27,7 @@
     "kbar": "0.1.0-beta.6",
     "lodash": "^4.17.21",
     "match-sorter": "^6.3.0",
-    "next": "^12.0.10",
+    "next": "^12.1.0",
     "next-mdx-remote": "^3.0.2",
     "next-themes": "^0.0.15",
     "parse-numeric-range": "1.2.0",
@@ -44,6 +46,7 @@
     "rehype-parse": "7.0.1",
     "remark-autolink-headings": "^6.0.1",
     "remark-slug": "^6.0.0",
+    "scroll-into-view-if-needed": "2.2.29",
     "shelljs": "^0.8.4",
     "styled-jsx": "^4.0.1",
     "unified": "9.2.1",
