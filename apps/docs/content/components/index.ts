@@ -17,6 +17,7 @@ import modalContent from './modal';
 import loadingContent from './loading';
 import switchContent from './switch';
 import textContent from './text';
+import linkContent from './link';
 
 export default {
   tableContent,
@@ -37,5 +38,6 @@ export default {
   modalContent,
   loadingContent,
   switchContent,
-  textContent
+  textContent,
+  linkContent
 };
