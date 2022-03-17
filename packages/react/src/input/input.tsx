@@ -335,7 +335,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
               autoComplete={autoComplete}
               hasLeftContent={!!contentLeft}
               hasRightContent={!!contentRight}
-              required={required}
               data-state={getState}
               aria-placeholder={inputPlaceholder}
               aria-readonly={readOnly}

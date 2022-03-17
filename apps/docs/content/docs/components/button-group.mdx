@@ -20,172 +20,37 @@ import { Button } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="The default `Button.Group`"
-  code={`
-<Button.Group>
-  <Button>One</Button>
-  <Button>Two</Button>
-  <Button>Three</Button>
-</Button.Group>
-`}
+  files={buttonGrpContent.default_grp}
 />
 
 <Playground
   title="Disabled"
   desc="You can disabled all buttons with the property `disabled`."
-  code={`
-<>
-    <Button.Group size="sm" disabled>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </Button.Group>
-</>
-`}
+   files={buttonGrpContent.disabledGrp}
 />
 
 <Playground
   title="Loading"
   desc="You can use the loading status in any button you want"
-  code={`
-<Button.Group>
-  <Button clickable={false}>
-    <Loading color="white" size="sm" />
-  </Button>
-  <Button clickable={false}>
-    <Loading type="spinner" color="white" size="sm" />
-  </Button>
-  <Button clickable={false}>
-    <Loading type="points" color="white" size="sm" />
-  </Button>
-</Button.Group>
-`}
+     files={buttonGrpContent.loading}
 />
 
 <Playground
   title="Sizes"
   desc="Change the size of the entire group button including `padding`, `font-size` and `border` with the size property."
-  code={`
-<Grid.Container direction="vertical">
-    <Grid xs={12}>
-        <Button.Group size="xs">
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-        </Button.Group>
-    </Grid>
-    <Grid>
-        <Button.Group size="sm">
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-        </Button.Group>
-    </Grid>
-    <Grid xs={12}>
-        <Button.Group size="md">
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-        </Button.Group>
-    </Grid>
-    <Grid xs={12}>
-        <Button.Group size="lg">
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-        </Button.Group>
-    </Grid>
-    <Grid xs={12}>
-        <Button.Group size="xl">
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-        </Button.Group>
-    </Grid>
-  </Grid.Container>
-`}
+  files={buttonGrpContent.sizes}
 />
 
 <Playground
   title="Vertical"
   desc="You can use the `vertical` property to sort the buttons vertically."
-  code={`
-<>
-    <Button.Group size="xs" vertical>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-      <Button>Four</Button>
-    </Button.Group>
-     <Button.Group size="sm" vertical flat>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-      <Button>Four</Button>
-    </Button.Group>
-    <Button.Group size="md" vertical bordered>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-      <Button>Four</Button>
-    </Button.Group>
-    <Button.Group size="lg" vertical flat>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-      <Button>Four</Button>
-    </Button.Group>
-    <Button.Group size="xl" vertical color="gradient" bordered>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-      <Button>Four</Button>
-    </Button.Group>
-</>
-`}
+  files={buttonGrpContent.vertical}
 />
 
 <Playground
   title="Variants"
   desc="You can use any `Button` variant in a `Button.Group`"
-  code={`
-<>
-    <Button.Group color="success">
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </Button.Group>
-    <Button.Group color="gradient" ghost>
-      <Button>Action1</Button>
-      <Button>Action2</Button>
-      <Button>Action3</Button>
-    </Button.Group>
-    <Button.Group color="error" rounded>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </Button.Group>
-    <Button.Group color="primary" bordered>
-      <Button>Action1</Button>
-      <Button>Action2</Button>
-      <Button>Action3</Button>
-    </Button.Group>
-    <Button.Group color="warning" flat>
-      <Button>Action1</Button>
-      <Button>Action2</Button>
-      <Button>Action2</Button>
-    </Button.Group>
-    <Button.Group color="secondary" size="sm">
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </Button.Group>
-    <Button.Group color="secondary" light>
-      <Button>One</Button>
-      <Button>Two</Button>
-      <Button>Three</Button>
-    </Button.Group>
-  </>
-`}
+ files={buttonGrpContent.variants}
 />
 
 <Spacer y={3} />

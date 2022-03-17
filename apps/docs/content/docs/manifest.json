@@ -193,6 +193,16 @@
                             "title": "Link",
                             "keywords": "link, navigation, href, next link",
                             "path": "/docs/components/link.mdx"
+                        },
+                        {
+                            "title": "User",
+                            "keywords": "User",
+                            "path": "/docs/components/user.mdx"
+                        },
+                        {
+                            "title": "Image",
+                            "keywords": "User",
+                            "path": "/docs/components/image.mdx"
                         }
                     ]
                 }

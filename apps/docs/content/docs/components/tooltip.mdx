@@ -19,306 +19,49 @@ import { Tooltip } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="The default `Tooltip` has the background color."
-  code={`
-<Tooltip content={'Developers love Next.js'}>
-  <Button auto flat>
-    Do hover here
-  </Button>
-</Tooltip>
-`}
+  files={tooltipContent.default_tooltip}
 />
 
 <Playground
   title="Rounded"
   desc="You can completely round the `Tooltip` corners with the `rounded` property."
-  code={`
-<Tooltip content={'Developers love Next.js'} rounded color="primary">
-  <Button auto flat>
-    Do hover here
-  </Button>
-</Tooltip>
-`}
+  files={tooltipContent.rounded}
 />
 
 <Playground
   title="Colors"
   desc="You can change the color of the `Tooltip` with the property color."
-  code={`
-<Grid.Container gap={2}>
-  <Grid>
-    <Tooltip content="Developers love Next.js">
-      <Button light auto>
-        Default
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" color="invert">
-      <Button light auto>
-        Invert
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" color="primary">
-      <Button flat auto>
-        Primary
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" color="secondary">
-      <Button flat auto color="secondary">
-        Secondary
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" color="success">
-      <Button flat auto color="success">
-        Success
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" color="warning">
-      <Button flat auto color="warning">
-        Warning
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" color="error">
-      <Button flat auto color="error">
-        Error
-      </Button>
-    </Tooltip>
-  </Grid>
-</Grid.Container>
-`}
+  files={tooltipContent.color}
 />
 
 <Playground
   title="Text Colors"
   desc="You can change the `Tooltip` text color with `contentColor` prop"
-  code={`
-<Grid.Container gap={2}>
-  <Grid>
-    <Tooltip content="Developers love Next.js">
-      <Button light auto>
-        Default
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" contentColor="primary" color="white">
-      <Button flat auto>
-        Primary
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" contentColor="secondary" color="white">
-      <Button flat auto color="secondary">
-        Secondary
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" contentColor="success" color="white">
-      <Button flat auto color="success">
-        Success
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" contentColor="warning" color="white">
-      <Button flat auto color="warning">
-        Warning
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip content="Developers love Next.js" contentColor="error" color="white">
-      <Button flat auto color="error">
-        Error
-      </Button>
-    </Tooltip>
-  </Grid>
-</Grid.Container>
-`}
-/>
-
-<Playground
-  title="Rounded"
-  desc="You can completely round the corners of the tooltip with the `rounded` property."
-  code={`
-<Grid.Container gap={2}>
-  <Grid>
-    <Tooltip rounded color="primary" content="Developers love Next.js">
-        <Button auto color="primary" flat rounded>
-            Primary
-        </Button>
-    </Tooltip>
-  </Grid>
-</Grid.Container>
-`}
+  files={tooltipContent.textColor}
 />
 
 <Playground
   title="Trigger"
   desc="You can control the way to trigger the `Tooltip` wheater `hover` or `click` using the `trigger` property."
-  code={`
-<Grid.Container gap={2}>
-    <Grid>
-        <Tooltip content={'Developers love Next.js'} trigger="click" color="primary">
-            <Button auto flat>
-                Click me
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid>
-        <Tooltip content={'Developers love Next.js'} trigger="hover" color="secondary">
-            <Button auto flat color="secondary">
-                Hover me
-            </Button>
-        </Tooltip>
-    </Grid>
-</Grid.Container>
-`}
+  files={tooltipContent.trigger}
 />
 
 <Playground
   title="Placements"
   desc="Change the placement of the tooltip with the `placement` prop"
-  code={`
-<Grid.Container gap={2} justify="center" alignContent="center">
-    <Grid xs={4} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" placement="topStart">
-            <Button auto color="foreground" light>
-                topStart
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={4} justify="center">
-        <Tooltip color="primary" content="Developers love Next.js" placement="top">
-            <Button auto color="foreground" light>
-                top
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={4}>
-        <Tooltip color="primary" content="Developers love Next.js" placement="topEnd">
-            <Button auto color="foreground" light>
-                topEnd
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={3} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" placement="leftStart">
-            <Button auto color="foreground" light>
-                leftStart
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={6} />
-    <Grid xs={3}>
-        <Tooltip color="primary" content="Developers love Next.js" placement="rightStart">
-            <Button auto color="foreground" light>
-                rightStart
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={3} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" placement="left">
-            <Button auto color="foreground" light>
-                left
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={6} />
-    <Grid xs={3}>
-        <Tooltip color="primary" content="Developers love Next.js" placement="right">
-            <Button auto color="foreground" light>
-                right
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={3} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" placement="leftEnd">
-            <Button auto color="foreground" light>
-                leftEnd
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={6} />
-    <Grid xs={3}>
-        <Tooltip color="primary" content="Developers love Next.js" placement="rightEnd">
-            <Button auto color="foreground" light>
-                rightEnd
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={4} justify="flex-end">
-        <Tooltip color="primary" content="Developers love Next.js" placement="bottomStart">
-            <Button auto color="foreground" light>
-                bottomStart
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={4} justify="center">
-        <Tooltip color="primary" content="Developers love Next.js" placement="bottom">
-            <Button auto color="foreground" light>
-                bottom
-            </Button>
-        </Tooltip>
-    </Grid>
-    <Grid xs={4}>
-        <Tooltip color="primary" content="Developers love Next.js" placement="bottomEnd">
-            <Button auto color="foreground" light>
-                bottomEnd
-            </Button>
-        </Tooltip>
-    </Grid>
-</Grid.Container>
-  `}
+  files={tooltipContent.placement}
 />
 
 <Playground
   title="Not Arrow"
   desc="In some cases you may need to remove the arrow from the tooltip for this case you can use the `hideArrow` property"
-  code={`
-<Grid.Container>
-    <Grid>
-      <Tooltip content={'Developers love Next.js'} color="primary" hideArrow>
-        <Button auto flat>
-          Do hover me
-        </Button>
-      </Tooltip>
-    </Grid>
-</Grid.Container>
-  `}
+  files={tooltipContent.noArrow}
 />
 
 <Playground
   title="Custom Content"
   desc="You can customize the `Tooltip` content."
-  code={`
-<Grid.Container gap={2} alignItems="center">
-  <Grid>
-    <Tooltip trigger="click" content={<DeleteUser/>}>
-      <Button color="error" auto flat>
-        Click Delete User
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip placement="top" content={<UserTwitterCard/>}>
-      <Avatar pointer size="lg" src="/avatars/avatar-2.png" color="gradient" bordered squared />   
-    </Tooltip>
-  </Grid>
-</Grid.Container>
-`}
+  files={tooltipContent.customContent}
 />
 
 <Spacer y={3} />

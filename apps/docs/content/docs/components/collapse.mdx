@@ -19,455 +19,73 @@ import { Collapse } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="The `Collapse.Group` behavior is like an accordion by default."
-  code={` 
-<Collapse.Group>
-    <Collapse title="Option A">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-    <Collapse title="Option B">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-    <Collapse title="Option C">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-</Collapse.Group>`}
+  files={collapseContent.default_collapse}
 />
 
 <Playground
   title="No Accordion"
   desc="You can disable the accordion behavior with the `accordion` property."
-  code={` 
-<Collapse.Group accordion={false}>
-    <Collapse title="Option A">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-    <Collapse title="Option B">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-    <Collapse title="Option C">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-</Collapse.Group>`}
+  files={collapseContent.accordionDisabled}
 />
 
 <Playground
   title="Initial Expanded"
   desc="You can use the `expanded` property to expand an item."
-  code={` 
-  <Collapse.Group>
-    <Collapse title="Option A">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-    <Collapse title="Option B" expanded>
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-    <Collapse title="Option C">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-  </Collapse.Group>`}
+  files={collapseContent.initialExpand}
 />
 
 <Playground
   title="With subtitle"
   desc="You can add the `subtitle` property to the `Collapse` component to give more details."
-  code={` 
-<Collapse.Group>
-    <Collapse title="Option A" subtitle="More description about Option A">
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-    <Collapse
-      title="Option B"
-      subtitle={
-        <>
-          More description about <Text b>Option B</Text>
-        </>
-      }
-    >
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </Text>
-    </Collapse>
-  </Collapse.Group>`}
+  files={collapseContent.withSubtitle}
 />
 
 <Playground
   title="Shadow"
   desc="You can add a shadow effect with the property `shadow`."
-  code={` 
-<Grid.Container gap={2}>
-    <Grid>
-      <Collapse
-        shadow
-        title="Option"
-        subtitle="More description about Option"
-      >
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-    </Grid>
-    <Grid>
-      <Collapse.Group shadow>
-        <Collapse title="Option A">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-        <Collapse title="Option B">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-        <Collapse title="Option C">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-      </Collapse.Group>
-    </Grid>
-</Grid.Container>`}
+  files={collapseContent.shadow}
 />
 
 <Playground
   title="Bordered"
   desc="You can change the full style to a bordered `Collapse` with the `bordered` property."
-  code={` 
-<Grid.Container gap={2}>
-    <Grid>
-      <Collapse
-        bordered
-        title="Option"
-        subtitle="More description about Option"
-      >
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-    </Grid>
-    <Grid>
-      <Collapse.Group bordered>
-        <Collapse title="Option A">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-        <Collapse title="Option B">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-        <Collapse title="Option C">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-      </Collapse.Group>
-    </Grid>
-</Grid.Container>`}
+  files={collapseContent.bordered}
 />
 
 <Playground
   title="Splitted"
   desc="You can change the full style to a separated `Collapse` with the `splitted` property."
-  code={` 
-<Grid.Container gap={2}>
-    <Grid>
-      <Collapse.Group splitted>
-        <Collapse title="Option A">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-        <Collapse title="Option B">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-        <Collapse title="Option C">
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-      </Collapse.Group>
-    </Grid>
-</Grid.Container>`}
+  files={collapseContent.splitted}
 />
 
 <Playground
   title="Custom Arrow"
   desc="You can set a custom arrow with the `arrowIcon` property."
-  code={` 
-<Grid.Container gap={2}>
-  <Grid>
-    <Collapse.Group shadow>
-      <Collapse title="Anchor" arrowIcon={<Anchor />}>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-      <Collapse title="Moon" arrowIcon={<Moon />}>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-      <Collapse title="Sun" arrowIcon={<Sun />}>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-    </Collapse.Group>
-  </Grid>    
-</Grid.Container>
-`}
+  files={collapseContent.customArrow}
 />
 
 <Playground
   title="Content Left"
   desc="You can put any content at the begining of the `Collapse` with the `contentLeft` property."
-  code={` 
-<Grid.Container gap={2}>
-  <Grid>
-    <Collapse.Group shadow>
-      <Collapse title={<Text h4>Chung Miller</Text>} subtitle="4 unread messages" contentLeft={
-        <Avatar size="lg" src="/avatars/avatar-6.png" color="secondary" bordered squared />
-       }>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-      <Collapse title={<Text h4>Janelle Lenard</Text>} subtitle="3 incompleted steps" contentLeft={
-        <Avatar size="lg" src="/avatars/avatar-3.png" color="success" bordered squared />
-      }>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-      <Collapse title={<Text h4>Zoey Lang</Text>} subtitle={<Text>2 issues to <Link color>fix now</Link></Text>} contentLeft={
-        <Avatar size="lg" src="/avatars/avatar-5.png" color="error" bordered squared />
-      }>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-    </Collapse.Group>
-  </Grid>    
-</Grid.Container>
-`}
+  files={collapseContent.contentLeft}
 />
 
 <Playground
   title="No Divider"
   desc="You can remove the `Collapse` divider with the `divider` property."
-  code={` 
-<Grid.Container gap={2}>
-  <Grid>
-    <Collapse.Group shadow divider={false}>
-        <Collapse title="Option A">
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-            </Text>
-        </Collapse>
-        <Collapse title="Option B">
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-            </Text>
-        </Collapse>
-        <Collapse title="Option C">
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-            </Text>
-        </Collapse>
-    </Collapse.Group>
-  </Grid>    
-</Grid.Container>
-`}
+  files={collapseContent.noDivider}
 />
 
 <Playground
   title="Disabled"
   desc="You can disable an specific  `Collapse` item  with the `disabled` property."
-  code={` 
-<Grid.Container gap={2}>
-  <Grid>
-    <Collapse.Group shadow>
-        <Collapse title="Option A">
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-            </Text>
-        </Collapse>
-        <Collapse disabled title="Option B" subtitle="Disabled option">
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-            </Text>
-        </Collapse>
-        <Collapse title="Option C">
-            <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-            </Text>
-        </Collapse>
-    </Collapse.Group>
-  </Grid>    
-</Grid.Container>
-`}
+  files={collapseContent.disabled}
 />
 
 <Playground
   title="No Animated"
   desc="You can disable the entire animation with the `animated` property."
-  code={` 
-<Grid.Container gap={2}>
-  <Grid>
-    <Collapse.Group shadow animated={false}>
-      <Collapse title="Option A">
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-      <Collapse title="Option B">
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-      <Collapse title="Option C">
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-    </Collapse.Group>
-  </Grid>    
-</Grid.Container>
-`}
+  files={collapseContent.noAnimated}
 />
 
 <Spacer y={3} />
