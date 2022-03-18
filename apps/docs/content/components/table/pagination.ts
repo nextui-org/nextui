@@ -1,14 +1,15 @@
-const App = `import { Table } from '@nextui-org/react';
-    
+const App = `import { Table } from "@nextui-org/react";
+
 export default function App() {
-  return <Table
+  return (
+    <Table
       bordered
       shadow={false}
       color="secondary"
       aria-label="Example pagination  table"
       css={{
-        height: 'auto',
-        minWidth: '100%',
+        height: "auto",
+        minWidth: "100%",
       }}
       selectionMode="multiple"
     >
@@ -66,8 +67,10 @@ export default function App() {
         rowsPerPage={3}
         onPageChange={(page) => console.log({ page })}
       />
-  </Table>;
+    </Table>
+  );
 }
+
 `;
 
 const react = {

@@ -144,39 +144,41 @@ const AppJs = `import { Collapse,Text,Grid } from '@nextui-org/react';
 import { SunIcon } from './SunIcon';
 import { MoonIcon } from './MoonIcon';
 import { AnchorIcon } from './AnchorIcon';
-
 export default function App() {
-   return (<Grid.Container gap={2}>
-    <Grid>
-      <Collapse.Group shadow>
-        <Collapse title="Anchor" arrowIcon={<AnchorIcon />}>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-        <Collapse title="Moon" arrowIcon={<MoonIcon />}>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-        <Collapse title="Sun" arrowIcon={<SunIcon />}>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Text>
-        </Collapse>
-      </Collapse.Group>
-    </Grid>    
-  </Grid.Container>
- )}
+  return (
+    <Grid.Container gap={2}>
+      <Grid>
+        <Collapse.Group shadow>
+          <Collapse title="Anchor" arrowIcon={<AnchorIcon />}>
+            <Text>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Text>
+          </Collapse>
+          <Collapse title="Moon" arrowIcon={<MoonIcon />}>
+            <Text>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Text>
+          </Collapse>
+          <Collapse title="Sun" arrowIcon={<SunIcon />}>
+            <Text>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </Text>
+          </Collapse>
+        </Collapse.Group>
+      </Grid>
+    </Grid.Container>
+  );
+}
+
 `;
 
 const react = {

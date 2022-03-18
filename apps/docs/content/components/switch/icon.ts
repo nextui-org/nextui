@@ -372,53 +372,54 @@ import { NotificationIcon } from './NotificationIcon';
 import { VideoOffIcon } from './VideoOffIcon';
 
 export default function App() {
-   return (
+  return (
     <Grid.Container gap={2}>
-    <Grid>
-      <Switch
-        checked={true}
-        size="xl"
-        color="success"
-        icon={<NotificationIcon />}
-      />
-    </Grid>
-    <Grid>
-      <Switch
-        checked={true}
-        size="xl"
-        iconOn={<SunIcon filled />}
-        iconOff={<MoonIcon filled />}
-      />
-    </Grid>
-    <Grid>
-      <Switch
-        checked={true}
-        size="xl"
-        color="error"
-        iconOn={<MicrophoneOffIcon filled />}
-        iconOff={<MicrophoneIcon filled />}
-      />
-    </Grid>
-    <Grid>
-      <Switch
-        checked={true}
-        size="xl"
-        color="warning"
-        iconOn={<VideoOffIcon filled />}
-        iconOff={<VideoIcon filled />}
-      />
-    </Grid>
-    <Grid>
-      <Switch
-        checked={true}
-        size="xl"
-        color="secondary"
-        icon={<VolumeUpIcon />}
-      />
-    </Grid>
-  </Grid.Container>
-);
+      <Grid>
+        <Switch
+          checked={true}
+          size="xl"
+          color="success"
+          icon={<NotificationIcon />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+          checked={true}
+          size="xl"
+          iconOn={<SunIcon filled />}
+          iconOff={<MoonIcon filled />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+          checked={true}
+          size="xl"
+          color="error"
+          iconOn={<MicrophoneOffIcon filled />}
+          iconOff={<MicrophoneIcon filled />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+          checked={true}
+          size="xl"
+          color="warning"
+          iconOn={<VideoOffIcon filled />}
+          iconOff={<VideoIcon filled />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+          checked={true}
+          size="xl"
+          color="secondary"
+          icon={<VolumeUpIcon />}
+        />
+      </Grid>
+    </Grid.Container>
+  );
 }
+
 `;
 
 const react = {

@@ -31,6 +31,7 @@ export const DeleteUser = () => {
     </Grid.Container>
   );
 };
+
 `;
 
 const UserTwitterCard = `import React from "react";
@@ -151,26 +152,36 @@ export const UserTwitterCard = ({
 
 
 
-const AppJs = `import { Tooltip,Button,Grid,Avatar } from '@nextui-org/react';
+const AppJs = `import { Tooltip, Button, Grid, Avatar } from "@nextui-org/react";
 import { UserTwitterCard } from "./UserTwitterCard";
-import { DeleteUser } from "./DeleteUser";    
+import { DeleteUser } from "./DeleteUser";
 
 export default function App() {
-  return <Grid.Container gap={2} alignItems="center">
-  <Grid>
-    <Tooltip trigger="click" content={<DeleteUser/>}>
-      <Button color="error" auto flat>
-        Click Delete User
-      </Button>
-    </Tooltip>
-  </Grid>
-  <Grid>
-    <Tooltip placement="top" content={<UserTwitterCard/>}>
-      <Avatar pointer size="lg" src="https://i.pravatar.cc/150?u=a042581f4e29026704d" color="gradient" bordered squared />   
-    </Tooltip>
-  </Grid>
-</Grid.Container>
+  return (
+    <Grid.Container gap={2} alignItems="center">
+      <Grid>
+        <Tooltip trigger="click" content={<DeleteUser />}>
+          <Button color="error" auto flat>
+            Click Delete User
+          </Button>
+        </Tooltip>
+      </Grid>
+      <Grid>
+        <Tooltip placement="top" content={<UserTwitterCard />}>
+          <Avatar
+            pointer
+            size="lg"
+            src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+            color="gradient"
+            bordered
+            squared
+          />
+        </Tooltip>
+      </Grid>
+    </Grid.Container>
+  );
 }
+
 `;
 
 const react = {

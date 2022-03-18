@@ -1,10 +1,9 @@
-import default_grp from './default_grp';
-import disabledGrp from './disabledGrp';
-import loading from './loading';
-import sizes from './sizes';
-import vertical from './vertical';
-import variants from './variants';
-
+import default_grp from "./default_grp";
+import disabledGrp from "./disabledGrp";
+import loading from "./loading";
+import sizes from "./sizes";
+import vertical from "./vertical";
+import variants from "./variants";
 
 export default {
   default_grp,
@@ -12,7 +11,5 @@ export default {
   loading,
   sizes,
   vertical,
-  variants
-
-
+  variants,
 };

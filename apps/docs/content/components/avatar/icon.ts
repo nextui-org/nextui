@@ -2,7 +2,7 @@
 const SunIcon = `import { React } from '@nextui-org/react';\n
 
 export const SunIcon = ({
-  fill = 'currentColor',
+  fill = "currentColor",
   filled,
   size,
   height,
@@ -59,13 +59,15 @@ export const SunIcon = ({
       ></path>
     </svg>
   );
-};`;
+};
+
+`;
 
 
 const MoonIcon = `import { React } from '@nextui-org/react';\n
 
 export const MoonIcon = ({
-  fill = 'currentColor',
+  fill = "currentColor",
   filled,
   size,
   height,
@@ -103,12 +105,13 @@ export const MoonIcon = ({
     </svg>
   );
 };
+
 `;
 
 const VideoIcon = `import { React } from '@nextui-org/react';\n
 
 export const VideoIcon = ({
-  fill = 'currentColor',
+  fill = "currentColor",
   filled,
   size,
   height,
@@ -116,7 +119,6 @@ export const VideoIcon = ({
   label,
   ...props
 }) => {
-
   if (filled) {
     return (
       <svg
@@ -148,12 +150,13 @@ export const VideoIcon = ({
     </svg>
   );
 };
+
 `;
 
 const VolumeUpIcon = `import { React } from '@nextui-org/react';\n
 
 export const VolumeUpIcon = ({
-  fill = 'currentColor',
+  fill = "currentColor",
   filled,
   size,
   height,
@@ -161,8 +164,6 @@ export const VolumeUpIcon = ({
   label,
   ...props
 }) => {
-
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -182,12 +183,13 @@ export const VolumeUpIcon = ({
     </svg>
   );
 };
+
 `;
 
 const MicrophoneIcon = `import { React } from '@nextui-org/react';\n
 
 export const MicrophoneIcon = ({
-  fill = 'currentColor',
+  fill = "currentColor",
   filled,
   size,
   height,
@@ -205,7 +207,7 @@ export const MicrophoneIcon = ({
         {...props}
       >
         <path
-          fill={fill }
+          fill={fill}
           d="M12,16c2.206,0,4-1.794,4-4V6c0-2.217-1.785-4.021-3.979-4.021c-0.069,0-0.14,0.009-0.209,0.025C9.693,2.104,8,3.857,8,6v6 C8,14.206,9.794,16,12,16z"
         />
         <path
@@ -234,6 +236,7 @@ export const MicrophoneIcon = ({
     </svg>
   );
 };
+
 `;
 
 
@@ -250,7 +253,6 @@ export default function App() {
     <Grid>
      <Avatar
         squared
-       
         icon={<SunIcon size={20} fill="currentColor"/>}
       />
     </Grid>
