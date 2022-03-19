@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from '../link';
-import { StyledUserLink, UserLinkVariantsProps } from './user.styles';
+import { StyledUserLink } from './user.styles';
 import { CSS } from '../theme/stitches.config';
 import { __DEV__ } from '../utils/assertion';
 
@@ -8,9 +8,7 @@ interface Props {
   href?: string;
 }
 type NativeAttrs = Omit<React.AnchorHTMLAttributes<unknown>, keyof Props>;
-export type UserLinkProps = Props &
-  NativeAttrs &
-  UserLinkVariantsProps & { css?: CSS };
+export type UserLinkProps = Props & NativeAttrs & { css?: CSS };
 
 const UserLink = React.forwardRef<
   HTMLAnchorElement,

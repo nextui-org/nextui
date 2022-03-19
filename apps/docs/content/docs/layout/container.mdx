@@ -136,46 +136,52 @@ import { Container, Row, Col } from '@nextui-org/react';
 
 #### Container Props
 
-| Attribute        | Type             | Accepted values                | Description                                      | Default |
-| ---------------- | ---------------- | ------------------------------ | ------------------------------------------------ | ------- |
-| **fluid**        | `boolean`        | `true / false`                 | `width: 100%` at all breakpoints                 | `false` |
-| **responsive**   | `boolean`        | `true / false`                 | Sets a `max-width` at each responsive breakpoint | `true`  |
-| **xs**           | `boolean`        | `true / false`                 | Extra small devices (<650px)                     | `false` |
-| **sm**           | `boolean`        | `true / false`                 | Small devices (≥650px)                           | `false` |
-| **md**           | `boolean`        | `true / false`                 | Medium devices (≥960px)                          | `false` |
-| **lg**           | `boolean`        | `true / false`                 | Large devices (≥1280px)                          | `false` |
-| **xl**           | `boolean`        | `true / false`                 | Extra large devices (≥1400px)                    | `false` |
-| **gap**          | `number`         | -                              | Children's spacing                               | 2       |
-| **wrap**         | `Wrap`           | [Wrap](#wrap)                  | CSS "flex-wrap"                                  | `wrap`  |
-| **display**      | `Display`        | [Display](#display)            | CSS "display"                                    | `block` |
-| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content"                            | -       |
-| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction"                             | -       |
-| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items"                                | -       |
-| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content"                              | -       |
-| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props                             | -       |
+| Attribute        | Type                          | Accepted values                | Description                                      | Default |
+| ---------------- | ----------------------------- | ------------------------------ | ------------------------------------------------ | ------- |
+| **fluid**        | `boolean`                     | `true / false`                 | `width: 100%` at all breakpoints                 | `false` |
+| **responsive**   | `boolean`                     | `true / false`                 | Sets a `max-width` at each responsive breakpoint | `true`  |
+| **xs**           | `boolean`                     | `true / false`                 | Extra small devices (<650px)                     | `false` |
+| **sm**           | `boolean`                     | `true / false`                 | Small devices (≥650px)                           | `false` |
+| **md**           | `boolean`                     | `true / false`                 | Medium devices (≥960px)                          | `false` |
+| **lg**           | `boolean`                     | `true / false`                 | Large devices (≥1280px)                          | `false` |
+| **xl**           | `boolean`                     | `true / false`                 | Extra large devices (≥1400px)                    | `false` |
+| **gap**          | `number`                      | -                              | Children's spacing                               | 2       |
+| **wrap**         | `Wrap`                        | [Wrap](#wrap)                  | CSS "flex-wrap"                                  | `wrap`  |
+| **display**      | `Display`                     | [Display](#display)            | CSS "display"                                    | `block` |
+| **justify**      | `Justify`                     | [Justify](#justify)            | CSS "justify-content"                            | -       |
+| **direction**    | `Direction`                   | [Direction](#direction)        | CSS "flex-direction"                             | -       |
+| **alignItems**   | `AlignItems`                  | [AlignItems](#align-items)     | CSS "align-items"                                | -       |
+| **alignContent** | `AlignContent`                | [AlignContent](#align-content) | CSS "align-content"                              | -       |
+| **css**          | `Stitches.CSS`                | -                              | Override Default CSS style                       | -       |
+| **as**           | `keyof JSX.IntrinsicElements` | -                              | Changes which tag component outputs              | `div`   |
+| ...              | `HTMLAttributes`              | `'id', 'className', ...`       | Native element props                             | -       |
 
 <Spacer y={1} />
 
 #### Row Props
 
-| Attribute   | Type             | Accepted values            | Description                    | Default      |
-| ----------- | ---------------- | -------------------------- | ------------------------------ | ------------ |
-| **fluid**   | `boolean`        | `true / false`             | `width: 100%`                  | `true`       |
-| **gap**     | `number`         | -                          | Children's spacing             | 0            |
-| **wrap**    | `Wrap`           | [Wrap](#wrap)              | CSS "flex-wrap" property       | `nowrap`     |
-| **justify** | `Justify`        | [Justify](#justify)        | CSS "justify-content" property | `flex-start` |
-| **align**   | `AlignItems`     | [AlignItems](#align-items) | CSS "align-items" property     | `flex-start` |
-| ...         | `HTMLAttributes` | `'id', 'className', ...`   | Native element props           | -            |
+| Attribute   | Type                          | Accepted values            | Description                         | Default      |
+| ----------- | ----------------------------- | -------------------------- | ----------------------------------- | ------------ |
+| **fluid**   | `boolean`                     | `true / false`             | `width: 100%`                       | `true`       |
+| **gap**     | `number`                      | -                          | Children's spacing                  | 0            |
+| **wrap**    | `Wrap`                        | [Wrap](#wrap)              | CSS "flex-wrap" property            | `nowrap`     |
+| **justify** | `Justify`                     | [Justify](#justify)        | CSS "justify-content" property      | `flex-start` |
+| **align**   | `AlignItems`                  | [AlignItems](#align-items) | CSS "align-items" property          | `flex-start` |
+| **css**     | `Stitches.CSS`                | -                          | Override Default CSS style          | -            |
+| **as**      | `keyof JSX.IntrinsicElements` | -                          | Changes which tag component outputs | `div`        |
+| ...         | `HTMLAttributes`              | `'id', 'className', ...`   | Native element props                | -            |
 
 <Spacer y={1} />
 
 #### Col Props
 
-| Attribute  | Type             | Accepted values          | Description               | Default |
-| ---------- | ---------------- | ------------------------ | ------------------------- | ------- |
-| **span**   | `number`         | `0 - 12`                 | Column's width            | `12`    |
-| **offset** | `number`         | -                        | Move columns to the right | `0`     |
-| ...        | `HTMLAttributes` | `'id', 'className', ...` | Native element props      | -       |
+| Attribute  | Type                          | Accepted values          | Description                         | Default |
+| ---------- | ----------------------------- | ------------------------ | ----------------------------------- | ------- |
+| **span**   | `number`                      | `0 - 12`                 | Column's width                      | `12`    |
+| **offset** | `number`                      | -                        | Move columns to the right           | `0`     |
+| **css**    | `Stitches.CSS`                | -                        | Override Default CSS style          | -       |
+| **as**     | `keyof JSX.IntrinsicElements` | -                        | Changes which tag component outputs | `div`   |
+| ...        | `HTMLAttributes`              | `'id', 'className', ...` | Native element props                | -       |
 
 <Spacer y={2} />
 
