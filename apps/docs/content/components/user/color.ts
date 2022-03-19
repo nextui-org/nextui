@@ -47,9 +47,7 @@ export default function App() {
       </Grid.Container>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

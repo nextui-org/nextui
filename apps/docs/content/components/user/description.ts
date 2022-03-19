@@ -11,9 +11,7 @@ export default function App() {
       </User>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

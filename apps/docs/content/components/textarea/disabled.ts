@@ -12,9 +12,7 @@ export default function App() {
       />
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

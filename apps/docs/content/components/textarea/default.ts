@@ -5,8 +5,7 @@ export default function App() {
   label="Write your thoughts"
   placeholder="Enter your amazing ideas."
 />
-}
-`;
+}`;
 
 const react = {
   '/App.js': App

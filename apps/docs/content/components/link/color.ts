@@ -33,9 +33,7 @@ export default function App() {
       </Link>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

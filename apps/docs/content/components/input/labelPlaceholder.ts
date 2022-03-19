@@ -6,8 +6,7 @@ export default function App() {
       labelPlaceholder="NextUI" 
     />
     );
-}
-`;
+}`;
 
 const react = {
   '/App.js': App

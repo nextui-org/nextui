@@ -8,9 +8,7 @@ export default function App() {
       zoomed
     />
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

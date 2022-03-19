@@ -4,8 +4,7 @@ export default function App() {
   return (
     <Switch initialChecked />
     );
-}
-`;
+}`;
 
 const react = {
   '/App.js': App

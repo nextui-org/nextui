@@ -8,9 +8,7 @@ export default function App() {
       <Switch animated={false} />
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

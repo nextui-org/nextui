@@ -9,9 +9,7 @@ export default function App() {
       <Text b>{text}</Text>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App
