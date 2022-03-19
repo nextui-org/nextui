@@ -1,5 +1,5 @@
 // Tag to use if FORCE_TAG is enabled (only for production build)
-export const TAG = 'feat/table'; // Github branch
+export const TAG = 'next'; // Github branch
 
 export const CONTENT_PATH = '/apps/docs/content';
 

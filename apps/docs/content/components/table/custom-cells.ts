@@ -33,8 +33,7 @@ export const StyledBadge = styled('span', {
   defaultVariants: {
     type: 'active'
   }
-});
-    `;
+});`;
 
 const IconButton = `import { styled } from '@nextui-org/react';\n
 // IconButton component will be available as part of the core library soon
@@ -53,8 +52,7 @@ export const IconButton = styled('button', {
   '&:active': {
     opacity: '0.6'
   }
-});
-`;
+});`;
 
 const EyeIconTs = `import { React } from '@nextui-org/react';\n
 type IconProps = {
@@ -507,8 +505,7 @@ export default function App() {
       </Table.Body>
     </Table>
   );
-}
-`;
+}`;
 
 const AppTs = `import { Table, Row, Col, Tooltip, User, Text } from "@nextui-org/react";
 import { StyledBadge } from "./StyledBadge";
@@ -679,9 +676,7 @@ export default function App() {
       </Table.Body>
     </Table>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/StyledBadge.js': StyledBadge,
