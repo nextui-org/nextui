@@ -17,9 +17,7 @@ export default function App() {
       </Checkbox>
     </Checkbox.Group>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

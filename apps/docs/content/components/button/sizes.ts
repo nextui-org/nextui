@@ -16,9 +16,7 @@ export default function App() {
       <Button auto>Auto Width</Button>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

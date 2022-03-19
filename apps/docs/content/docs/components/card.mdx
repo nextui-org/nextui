@@ -19,7 +19,7 @@ import { Card } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="NextUI will wrap your content in a `Card.Body` component."
-  files={cardContent.defaultcard}
+  files={cardContent.defaultCard}
 />
 
 <Playground
@@ -31,14 +31,14 @@ import { Card } from '@nextui-org/react';
 <Playground
   title="Hoverable"
   desc="You can apply a fancy hover animation with the `hoverable` property."
-files={cardContent.hover}
+  files={cardContent.hover}
 />
 
 <Playground
   title="Clickable"
   desc="You can use the `clickable` property to allow users to interact with the entirety of its surface
   to trigger its main action, be it an expansion, a link to another screen or some other behavior."
- files={cardContent.clickable}
+  files={cardContent.clickable}
 />
 
 <Playground
@@ -100,49 +100,49 @@ files={cardContent.hover}
 
 #### Card.Header Props
 
-| Attribute | Type                             | Accepted values          | Description                             | Default       |
-| --------- | -------------------------------- | ------------------------ | --------------------------------------- | ------------- |
-| **css**   | `Stitches.CSS`                   | -                        | Override Default CSS style              | -             |
-| **as**    | `keyof JSX.IntrinsicElements`    | -                        | Changes which tag component outputs     | `div`         |
-| ...       | `HTMLAttributes`                 | `'id', 'className', ...` | Native props                            | -             |
+| Attribute | Type                          | Accepted values          | Description                         | Default |
+| --------- | ----------------------------- | ------------------------ | ----------------------------------- | ------- |
+| **css**   | `Stitches.CSS`                | -                        | Override Default CSS style          | -       |
+| **as**    | `keyof JSX.IntrinsicElements` | -                        | Changes which tag component outputs | `div`   |
+| ...       | `HTMLAttributes`              | `'id', 'className', ...` | Native props                        | -       |
 
 <Spacer y={2} />
 
 #### Card.Body Props
 
-| Attribute | Type                             | Accepted values          | Description                             | Default       |
-| --------- | -------------------------------- | ------------------------ | --------------------------------------- | ------------- |
-| ...       | `HTMLAttributes`                 | `'id', 'className', ...` | Native props                            | -             |
-| **css**   | `Stitches.CSS`                   | -                        | Override Default CSS style              | -             |
-| **as**    | `keyof JSX.IntrinsicElements`    | -                        | Changes which tag component outputs     | `div`         |
+| Attribute | Type                          | Accepted values          | Description                         | Default |
+| --------- | ----------------------------- | ------------------------ | ----------------------------------- | ------- |
+| ...       | `HTMLAttributes`              | `'id', 'className', ...` | Native props                        | -       |
+| **css**   | `Stitches.CSS`                | -                        | Override Default CSS style          | -       |
+| **as**    | `keyof JSX.IntrinsicElements` | -                        | Changes which tag component outputs | `div`   |
 
 <Spacer y={2} />
 
 #### Card.Footer Props
 
-| Attribute | Type                             | Accepted values          | Description                          | Default       |
-| --------- | -------------------------------- | ------------------------ | ------------------------------------ | ------------- |
-| **blur**  | `boolean`                        | `true/false`             | Makes the card footer container blur | `false`       |
-| **css**   | `Stitches.CSS`                   | -                        | Override Default CSS style           | -             |
-| **as**    | `keyof JSX.IntrinsicElements`    |  -                       | Changes which tag component outputs  | `div`         |
-| ...       | `HTMLAttributes`                 | `'id', 'className', ...` | Native props                         | -             |
+| Attribute | Type                          | Accepted values          | Description                          | Default |
+| --------- | ----------------------------- | ------------------------ | ------------------------------------ | ------- |
+| **blur**  | `boolean`                     | `true/false`             | Makes the card footer container blur | `false` |
+| **css**   | `Stitches.CSS`                | -                        | Override Default CSS style           | -       |
+| **as**    | `keyof JSX.IntrinsicElements` | -                        | Changes which tag component outputs  | `div`   |
+| ...       | `HTMLAttributes`              | `'id', 'className', ...` | Native props                         | -       |
 
 <Spacer y={2} />
 
 #### Card.Image Props
 
-| Attribute        | Type                                | Accepted values                | Description                                       | Default       |
-| ---------------- | ----------------------------------- | ------------------------------ | ------------------------------------------------- | ------------- |
-| **src**          | `string`                            | -                              | Image source                                      | -             |
-| **width**        | `string` `number`                   | `%` `px` `rem` `em`            | Determine the width of the card image             | `100%`        |
-| **height**       | `string` `number`                   | `%` `px` `rem` `em`            | Determine the height of the card image            | `auto`        |
-| **showSkeleton** | `boolean`                           | `true/false`                   | Show skeleton effect whereas the image is loading | `true`        |
-| **objectFit**    | `ObjectFit`                         | [ObjectFit](#object-fit)       | CSS "object-fit" property                         | `scale-down`  |
-| **maxDelay(ms)** | `number`                            | -                              | Max duration of the skeleton animation            | `3000`        |
-| **autoResize**   | `boolean`                           | `true/false`                   | Enables zooming when width is too small           | `true`        |
-| **css**          | `Stitches.CSS`                      | -                              | Override Default CSS style                        | -             |
-| **as**           | `keyof JSX.IntrinsicElements`       | -                              | Changes which tag component outputs               | `div`         |
-| ...              | `ImgHTMLAttributes`                 | `'id', 'className', 'alt' ...` | Native props                                      | -             |
+| Attribute        | Type                          | Accepted values                | Description                                       | Default      |
+| ---------------- | ----------------------------- | ------------------------------ | ------------------------------------------------- | ------------ |
+| **src**          | `string`                      | -                              | Image source                                      | -            |
+| **width**        | `string` `number`             | `%` `px` `rem` `em`            | Determine the width of the card image             | `100%`       |
+| **height**       | `string` `number`             | `%` `px` `rem` `em`            | Determine the height of the card image            | `auto`       |
+| **showSkeleton** | `boolean`                     | `true/false`                   | Show skeleton effect whereas the image is loading | `true`       |
+| **objectFit**    | `ObjectFit`                   | [ObjectFit](#object-fit)       | CSS "object-fit" property                         | `scale-down` |
+| **maxDelay(ms)** | `number`                      | -                              | Max duration of the skeleton animation            | `3000`       |
+| **autoResize**   | `boolean`                     | `true/false`                   | Enables zooming when width is too small           | `true`       |
+| **css**          | `Stitches.CSS`                | -                              | Override Default CSS style                        | -            |
+| **as**           | `keyof JSX.IntrinsicElements` | -                              | Changes which tag component outputs               | `div`        |
+| ...              | `ImgHTMLAttributes`           | `'id', 'className', 'alt' ...` | Native props                                      | -            |
 
 <Spacer y={2} />
 

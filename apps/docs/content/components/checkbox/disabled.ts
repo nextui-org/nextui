@@ -6,9 +6,7 @@ export default function App() {
       Default
     </Checkbox>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

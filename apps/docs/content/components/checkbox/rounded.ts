@@ -6,9 +6,7 @@ export default function App() {
       Rounded option
     </Checkbox>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

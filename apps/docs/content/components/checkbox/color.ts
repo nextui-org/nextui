@@ -1,5 +1,4 @@
 const App = `import { Checkbox, Spacer } from "@nextui-org/react";
-
 export default function App() {
   return (
     <>
@@ -28,9 +27,7 @@ export default function App() {
       </Checkbox>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

@@ -1,20 +1,20 @@
-import default_collapse from "./default";
-import accordionDisabled from "./accordionDisabled";
-import initialExpand from "./initialExpand";
-import withSubtitle from "./withSubtitle";
-import shadow from "./shadow";
-import bordered from "./bordered";
-import splitted from "./splitted";
-import customArrow from "./customArrow";
-import contentLeft from "./contentLeft";
-import noDivider from "./noDivider";
-import disabled from "./disabled";
-import noAnimated from "./noAnimated";
+import defaultCollapse from './default';
+import noAccordion from './no-accordion';
+import initialExpanded from './initial-expanded';
+import withSubtitle from './with-subtitle';
+import shadow from './shadow';
+import bordered from './bordered';
+import splitted from './splitted';
+import customArrow from './custom-arrow';
+import contentLeft from './content-left';
+import noDivider from './no-divider';
+import disabled from './disabled';
+import noAnimated from './no-animated';
 
 export default {
-  default_collapse,
-  accordionDisabled,
-  initialExpand,
+  defaultCollapse,
+  noAccordion,
+  initialExpanded,
   withSubtitle,
   shadow,
   bordered,
@@ -23,5 +23,5 @@ export default {
   contentLeft,
   noDivider,
   disabled,
-  noAnimated,
+  noAnimated
 };

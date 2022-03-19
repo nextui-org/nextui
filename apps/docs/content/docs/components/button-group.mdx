@@ -20,19 +20,19 @@ import { Button } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="The default `Button.Group`"
-  files={buttonGrpContent.default_grp}
+  files={buttonGrpContent.defaultButtonGroup}
 />
 
 <Playground
   title="Disabled"
   desc="You can disabled all buttons with the property `disabled`."
-   files={buttonGrpContent.disabledGrp}
+  files={buttonGrpContent.disabledButtonGroup}
 />
 
 <Playground
   title="Loading"
   desc="You can use the loading status in any button you want"
-     files={buttonGrpContent.loading}
+  files={buttonGrpContent.loading}
 />
 
 <Playground
@@ -50,7 +50,7 @@ import { Button } from '@nextui-org/react';
 <Playground
   title="Variants"
   desc="You can use any `Button` variant in a `Button.Group`"
- files={buttonGrpContent.variants}
+  files={buttonGrpContent.variants}
 />
 
 <Spacer y={3} />
@@ -61,22 +61,22 @@ import { Button } from '@nextui-org/react';
 
 #### Button Group Props
 
-| Attribute        | Type                              | Accepted values                  | Description                            | Default        |
-| ---------------- | --------------------------------- | -------------------------------- | -------------------------------------- | -------------- |
-| **color**        | `NormalColors`                    | [NormalColors](#normal-colors)   | Change buttons color                   | `default`      |
-| **size**         | `NormalSizes`                     | [NormalSizes](#normal-sizes)     | Change buttons size                    | `medium`       |
-| **disabled**     | `boolean`                         | `true/false`                     | Disable all buttons                    | `false`        |
-| **bordered**     | `boolean`                         | `true/false`                     | Bordered buttons                       | `false`        |
-| **flat**         | `boolean`                         | `true/false`                     | Flat buttons                           | `false`        |
-| **rounded**      | `boolean`                         | `true/false`                     | Rounded buttons                        | `false`        |
-| **ghost**        | `boolean`                         | `true/false`                     | The opposite color                     | `false`        |
-| **auto**         | `boolean`                         | `true/false`                     | Autoscale buttons width                | `false`        |
-| **ripple**       | `boolean`                         | `true/false`                     | Display drip animation for all buttons | `true`         |
-| **animated**     | `boolean`                         | `true/false`                     | Display drip and scale animation       | `true`         |
-| **borderWeight** | `NormalWeights`                   | [NormalWeights](#normal-weights) | Border weight for `bordered` buttons   | `normal`       |
-| **css**          | `Stitches.CSS`                    | -                                | Override Default CSS style             | -              |
-| **as**           | `keyof JSX.IntrinsicElements`     | -                                | Changes which tag component outputs    | `div`          |
-| ...              | `ButtonHTMLAttributes`            | `'id', 'className', ...`         | Native button props                    | -              |
+| Attribute        | Type                          | Accepted values                  | Description                            | Default   |
+| ---------------- | ----------------------------- | -------------------------------- | -------------------------------------- | --------- |
+| **color**        | `NormalColors`                | [NormalColors](#normal-colors)   | Change buttons color                   | `default` |
+| **size**         | `NormalSizes`                 | [NormalSizes](#normal-sizes)     | Change buttons size                    | `medium`  |
+| **disabled**     | `boolean`                     | `true/false`                     | Disable all buttons                    | `false`   |
+| **bordered**     | `boolean`                     | `true/false`                     | Bordered buttons                       | `false`   |
+| **flat**         | `boolean`                     | `true/false`                     | Flat buttons                           | `false`   |
+| **rounded**      | `boolean`                     | `true/false`                     | Rounded buttons                        | `false`   |
+| **ghost**        | `boolean`                     | `true/false`                     | The opposite color                     | `false`   |
+| **auto**         | `boolean`                     | `true/false`                     | Autoscale buttons width                | `false`   |
+| **ripple**       | `boolean`                     | `true/false`                     | Display drip animation for all buttons | `true`    |
+| **animated**     | `boolean`                     | `true/false`                     | Display drip and scale animation       | `true`    |
+| **borderWeight** | `NormalWeights`               | [NormalWeights](#normal-weights) | Border weight for `bordered` buttons   | `normal`  |
+| **css**          | `Stitches.CSS`                | -                                | Override Default CSS style             | -         |
+| **as**           | `keyof JSX.IntrinsicElements` | -                                | Changes which tag component outputs    | `div`     |
+| ...              | `ButtonHTMLAttributes`        | `'id', 'className', ...`         | Native button props                    | -         |
 
 <Spacer y={2} />
 

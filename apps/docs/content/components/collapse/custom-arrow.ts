@@ -1,4 +1,3 @@
-
 const SunIcon = `import { React } from '@nextui-org/react';\n
 
 export const SunIcon = ({
@@ -59,8 +58,7 @@ export const SunIcon = ({
       ></path>
     </svg>
   );
-};`;
-
+}`;
 
 const MoonIcon = `import { React } from '@nextui-org/react';\n
 
@@ -102,8 +100,7 @@ export const MoonIcon = ({
       ></path>
     </svg>
   );
-};
-`;
+}`;
 
 const AnchorIcon = `import { React } from '@nextui-org/react';\n
 
@@ -134,11 +131,7 @@ export const AnchorIcon = ({
       ></path>
     </svg>
   );
-};
-`;
-
-
-
+}`;
 
 const AppJs = `import { Collapse,Text,Grid } from '@nextui-org/react';
 import { SunIcon } from './SunIcon';
@@ -177,9 +170,7 @@ export default function App() {
       </Grid>
     </Grid.Container>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/SunIcon.js': SunIcon,
@@ -188,7 +179,6 @@ const react = {
   '/App.js': AppJs
 };
 
-
 export default {
-  ...react,
+  ...react
 };

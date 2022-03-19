@@ -9,9 +9,7 @@ export default function App() {
       height={400}
     />
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

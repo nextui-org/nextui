@@ -3,7 +3,7 @@ import UserContent from './user';
 import imageContent from './image';
 import avatarContent from './avatar';
 import buttonContent from './button';
-import buttonGrpContent from './buttonGrp'
+import buttonGrpContent from './button-group';
 import cardContent from './card';
 import paginationContent from './pagination';
 import collapseContent from './collapse';

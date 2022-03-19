@@ -56,7 +56,7 @@ export default function App() {
           color={selectedColor}
           selectionMode="multiple"
           defaultSelectedKeys={["2"]}
-          css={{
+          containerCss={{
             height: "auto",
             minWidth: "100%",
           }}

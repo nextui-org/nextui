@@ -27,7 +27,7 @@ export const HeartIcon = ({
       />
     </svg>
   );
-};`;
+}`;
 
 const CameraIcon = `import { React } from '@nextui-org/react';\n
 
@@ -57,8 +57,7 @@ export const CameraIcon = ({
       />
     </svg>
   );
-};
-`;
+}`;
 
 const LockIcon = `import { React } from '@nextui-org/react';\n
 
@@ -100,8 +99,7 @@ export const LockIcon = ({
       </g>
     </svg>
   );
-};
-`;
+}`;
 
 const NotificationIcon = `import { React } from '@nextui-org/react';\n
 
@@ -131,8 +129,7 @@ export const NotificationIcon = ({
       />
     </svg>
   );
-};
-`;
+}`;
 
 const UserIcon = `import { React } from '@nextui-org/react';\n
 
@@ -173,8 +170,7 @@ export const UserIcon = ({
       </g>
     </svg>
   );
-};
-`;
+}`;
 
 const AppJs = `import { Button,Spacer } from '@nextui-org/react';
 import { HeartIcon } from './HeartIcon';
@@ -213,8 +209,7 @@ export default function App() {
       </Button>
     </>
   );
-}
-`;
+}`;
 
 const react = {
   '/HeartIcon.js': HeartIcon,

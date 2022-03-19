@@ -1,4 +1,5 @@
 const App = `import { Collapse,Text,Grid  } from '@nextui-org/react';
+
 export default function App() {
   return (
     <Grid.Container gap={2}>
@@ -32,9 +33,7 @@ export default function App() {
       </Grid>
     </Grid.Container>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

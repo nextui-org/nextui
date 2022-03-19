@@ -7,7 +7,7 @@ url: https://nextui.org/docs/components/table
 # Table
 
 Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data.
-The Table implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useTable.html" rel="noreferrer" target="_blank">
+Table implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useTable.html" rel="noreferrer" target="_blank">
 @react-aria/table</a>
 
 ```jsx
@@ -136,3 +136,40 @@ import { Table } from '@nextui-org/react';
   highlightedLines="11"
   files={tableContent.noAnimatedTable}
 />
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Table Props
+
+| Attribute        | Type                                            | Accepted values                  | Description                               | Default   |
+| ---------------- | ----------------------------------------------- | -------------------------------- | ----------------------------------------- | --------- |
+| **color**        | `NormalColors`                                  | [NormalColors](#normal-colors)   | Change button color                       | `default` |
+| **size**         | `NormalSizes`                                   | [NormalSizes](#normal-sizes)     | Change button size                        | `medium`  |
+| **disabled**     | `boolean`                                       | `true/false`                     | Disable button                            | `false`   |
+| **clickable**    | `boolean`                                       | `true/false`                     | Inidicates if button is clickable         | `false`   |
+| **bordered**     | `boolean`                                       | `true/false`                     | Bordered button                           | `false`   |
+| **flat**         | `boolean`                                       | `true/false`                     | Flat button                               | `false`   |
+| **rounded**      | `boolean`                                       | `true/false`                     | Rounded button                            | `false`   |
+| **ghost**        | `boolean`                                       | `true/false`                     | The opposite color                        | `false`   |
+| **shadow**       | `boolean`                                       | `true/false`                     | Display shadow effect                     | `false`   |
+| **ripple**       | `boolean`                                       | `true/false`                     | Display drip animation                    | `true`    |
+| **auto**         | `boolean`                                       | `true/false`                     | Autoscale button width                    | `false`   |
+| **animated**     | `boolean`                                       | `true/false`                     | Display drip and scale animation          | `true`    |
+| **borderWeight** | `NormalWeights`                                 | [NormalWeights](#normal-weights) | Border weight for `bordered` button       | `normal`  |
+| **autoFocus**    | `boolean`                                       | `true/false`                     | Automatically focus button                | `false`   |
+| **onClick**      | `MouseEventHandler`                             | -                                | Button click handler                      | -         |
+| **icon**         | `ReactNode`                                     | -                                | Show icon in button                       | -         |
+| **iconRight**    | `ReactNode`                                     | -                                | Show icon on the other side of the button | -         |
+| **type**         | `ButtonHTMLAttributes.type`                     | `button` `reset` `submit`        | Native type of button element             | `submit`  |
+| **ref**          | <Code>Ref<HTMLButtonElement &#124; null></Code> | -                                | forwardRef                                | -         |
+| **css**          | `Stitches.CSS`                                  | -                                | Override Default CSS style                | -         |
+| **as**           | `keyof JSX.IntrinsicElements`                   | -                                | Changes which tag component outputs       | `button`  |
+| ...              | `ButtonHTMLAttributes`                          | `'id', 'className', ...`         | Button native props                       | -         |
+
+<Spacer y={2} />
+
+### Table types
