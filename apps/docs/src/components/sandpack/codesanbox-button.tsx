@@ -5,7 +5,7 @@ import { Box } from '@primitives';
 
 export const CSBIcon = (): React.ReactElement => (
   <svg
-    fill="currentColor"
+    fill="none"
     height="24"
     width="24"
     viewBox="0 0 18 18"

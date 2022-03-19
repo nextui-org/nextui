@@ -1,4 +1,3 @@
-
 const HeartIcon = `import { React } from '@nextui-org/react';\n
 
 export const HeartIcon = ({
@@ -30,7 +29,6 @@ export const HeartIcon = ({
   );
 };`;
 
-
 const CameraIcon = `import { React } from '@nextui-org/react';\n
 
 export const CameraIcon = ({
@@ -60,7 +58,6 @@ export const CameraIcon = ({
     </svg>
   );
 };
-
 `;
 
 const LockIcon = `import { React } from '@nextui-org/react';\n
@@ -179,7 +176,6 @@ export const UserIcon = ({
 };
 `;
 
-
 const AppJs = `import { Button,Spacer } from '@nextui-org/react';
 import { HeartIcon } from './HeartIcon';
 import { CameraIcon } from './CameraIcon';
@@ -218,7 +214,6 @@ export default function App() {
     </>
   );
 }
-
 `;
 
 const react = {
@@ -230,7 +225,6 @@ const react = {
   '/App.js': AppJs
 };
 
-
 export default {
-  ...react,
+  ...react
 };

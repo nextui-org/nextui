@@ -1,4 +1,3 @@
-
 const SunIcon = `import { React } from '@nextui-org/react';\n
 
 export const SunIcon = ({
@@ -62,7 +61,6 @@ export const SunIcon = ({
 };
 
 `;
-
 
 const MoonIcon = `import { React } from '@nextui-org/react';\n
 
@@ -239,49 +237,37 @@ export const MicrophoneIcon = ({
 
 `;
 
-
-const AppJs = `import { Grid,Avatar } from '@nextui-org/react';
-import { SunIcon } from './SunIcon';
-import { MoonIcon } from './MoonIcon';
-import { VideoIcon } from './VideoIcon';
-import { VolumeUpIcon } from './VolumeUpIcon';
-import { MicrophoneIcon } from './MicrophoneIcon';
+const AppJs = `import { Grid, Avatar } from "@nextui-org/react";
+import { SunIcon } from "./SunIcon";
+import { MoonIcon } from "./MoonIcon";
+import { VideoIcon } from "./VideoIcon";
+import { VolumeUpIcon } from "./VolumeUpIcon";
+import { MicrophoneIcon } from "./MicrophoneIcon";
 
 export default function App() {
-   return (
-<Grid.Container gap={2}>
-    <Grid>
-     <Avatar
-        squared
-        icon={<SunIcon size={20} fill="currentColor"/>}
-      />
-    </Grid>
-    <Grid>
-      <Avatar
-        squared
-        icon={<MoonIcon size={20} fill="currentColor"/>}
-      />
-    </Grid>
-    <Grid>
-      <Avatar
-        squared
-        icon={<VideoIcon size={20} fill="currentColor" />}
-      />
-    </Grid>
-    <Grid>
-      <Avatar
-        squared
-        icon={<VolumeUpIcon size={20} fill="currentColor" />}
-      />
-    </Grid>
-    <Grid>
-      <Avatar
-        squared
-        icon={<MicrophoneIcon size={20} fill="currentColor"/>}
-      />
-    </Grid>
- </Grid.Container>
- )}
+  return (
+    <Grid.Container gap={2} css={{ color: "$text" }}>
+      <Grid>
+        <Avatar squared icon={<SunIcon size={20} fill="currentColor" />} />
+      </Grid>
+      <Grid>
+        <Avatar squared icon={<MoonIcon size={20} fill="currentColor" />} />
+      </Grid>
+      <Grid>
+        <Avatar squared icon={<VideoIcon size={20} fill="currentColor" />} />
+      </Grid>
+      <Grid>
+        <Avatar squared icon={<VolumeUpIcon size={20} fill="currentColor" />} />
+      </Grid>
+      <Grid>
+        <Avatar
+          squared
+          icon={<MicrophoneIcon size={20} fill="currentColor" />}
+        />
+      </Grid>
+    </Grid.Container>
+  );
+}
 `;
 
 const react = {
@@ -293,7 +279,6 @@ const react = {
   '/App.js': AppJs
 };
 
-
 export default {
-  ...react,
+  ...react
 };
