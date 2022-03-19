@@ -6,9 +6,7 @@ export default function App() {
       Squared option
     </Switch>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

@@ -14,9 +14,7 @@ export default function App() {
       <Switch checked={true} size="xl" />
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

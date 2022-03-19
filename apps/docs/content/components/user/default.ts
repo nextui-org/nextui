@@ -7,9 +7,7 @@ export default function App() {
       name="Ariana Wattson"
     />
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

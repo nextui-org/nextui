@@ -12,9 +12,7 @@ export default function App() {
       <Text h6>{text}</Text>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

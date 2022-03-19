@@ -40,9 +40,7 @@ export const Mail = ({ fill, size, height, width, ...props }) => {
       </g>
     </svg>
   );
-};
-
-`;
+};`;
 
 
 const AppJs = `import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
@@ -114,9 +112,7 @@ export default function App() {
       </Modal>
     </div>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/Password.js': Password,

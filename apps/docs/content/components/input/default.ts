@@ -6,9 +6,7 @@ export default function App() {
       placeholder="Next UI" 
     />
     );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

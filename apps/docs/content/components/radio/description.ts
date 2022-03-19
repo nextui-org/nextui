@@ -23,9 +23,7 @@ export default function App() {
       </Radio>
     </Radio.Group>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

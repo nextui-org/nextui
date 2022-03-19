@@ -4,9 +4,7 @@ export default function App() {
   return (
     <Pagination noMargin shadow total={10} initialPage={6} />
     );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App
