@@ -148,40 +148,41 @@ const AppJs = `import { Grid,Input,Loading } from '@nextui-org/react';
 import { SunIcon } from "./SunIcon";
 import { SendButton } from "./SendButton";
 
-
 export default function App() {
-   return (
+  return (
     <>
-    <Grid.Container gap={4}>
-       <Grid>
-        <Input
+      <Grid.Container gap={4}>
+        <Grid>
+          <Input
             clearable
             contentRightStyling={false}
             placeholder="Type your message..."
             contentRight={<SendButton />}
-        />
+          />
         </Grid>
         <Grid>
-        <Input
+          <Input
             clearable
             underlined
             color="warning"
             labelPlaceholder="Sun icon"
             contentRight={<SunIcon filled width="16" height="16" fill="#f5a623" />}
-        />
+          />
         </Grid>
         <Grid>
-        <Input
+          <Input
             clearable
             bordered
             color="primary"
             labelPlaceholder="Loading..."
             contentRight={<Loading size="xs" />}
-        /> 
+          />
         </Grid>
-    </Grid.Container>
-</>
-)}
+      </Grid.Container>
+    </>
+  );
+}
+
 `;
 
 const react = {

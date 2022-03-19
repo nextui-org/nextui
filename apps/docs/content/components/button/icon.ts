@@ -188,29 +188,37 @@ import { NotificationIcon } from './NotificationIcon';
 import { UserIcon } from './UserIcon';
 
 export default function App() {
-   return (
+  return (
     <>
-    <Button auto color="error" icon={<HeartIcon fill="currentColor" filled />} />
-    <Spacer y={1} />
-    <Button iconRight={<CameraIcon fill="currentColor" />}>Take a photo</Button>
-    <Spacer y={1} />
-    <Button icon={<LockIcon fill="currentColor" />} color="success">
-      Lock
-    </Button>
-    <Spacer y={1} />
-    <Button icon={<NotificationIcon fill="currentColor" />} color="secondary">
-      Notifications
-    </Button>
-    <Spacer y={1} />
-    <Button icon={<UserIcon fill="currentColor" />} color="error" flat>
-      Delete User
-    </Button>
-    <Spacer y={1} />
-    <Button icon={<UserIcon />} disabled>
-      Delete User
-    </Button>
-</>
-)}
+      <Button
+        auto
+        color="error"
+        icon={<HeartIcon fill="currentColor" filled />}
+      />
+      <Spacer y={1} />
+      <Button iconRight={<CameraIcon fill="currentColor" />}>
+        Take a photo
+      </Button>
+      <Spacer y={1} />
+      <Button icon={<LockIcon fill="currentColor" />} color="success">
+        Lock
+      </Button>
+      <Spacer y={1} />
+      <Button icon={<NotificationIcon fill="currentColor" />} color="secondary">
+        Notifications
+      </Button>
+      <Spacer y={1} />
+      <Button icon={<UserIcon fill="currentColor" />} color="error" flat>
+        Delete User
+      </Button>
+      <Spacer y={1} />
+      <Button icon={<UserIcon />} disabled>
+        Delete User
+      </Button>
+    </>
+  );
+}
+
 `;
 
 const react = {

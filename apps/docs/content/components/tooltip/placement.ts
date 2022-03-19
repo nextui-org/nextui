@@ -1,96 +1,147 @@
-const App = `import { Tooltip,Button,Grid } from '@nextui-org/react';
-    
+const App = `import { Tooltip, Button, Grid } from "@nextui-org/react";
+
 export default function App() {
-  return <Grid.Container gap={2} justify="center" alignContent="center">
-  <Grid xs={4} justify="flex-end">
-      <Tooltip color="primary" content="Developers love Next.js" placement="topStart">
+  return (
+    <Grid.Container gap={2} justify="center" alignContent="center">
+      <Grid xs={4} justify="flex-end">
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="topStart"
+        >
           <Button auto color="foreground" light>
-              topStart
+            topStart
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={4} justify="center">
-      <Tooltip color="primary" content="Developers love Next.js" placement="top">
+        </Tooltip>
+      </Grid>
+      <Grid xs={4} justify="center">
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="top"
+        >
           <Button auto color="foreground" light>
-              top
+            top
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={4}>
-      <Tooltip color="primary" content="Developers love Next.js" placement="topEnd">
+        </Tooltip>
+      </Grid>
+      <Grid xs={4}>
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="topEnd"
+        >
           <Button auto color="foreground" light>
-              topEnd
+            topEnd
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={3} justify="flex-end">
-      <Tooltip color="primary" content="Developers love Next.js" placement="leftStart">
+        </Tooltip>
+      </Grid>
+      <Grid xs={3} justify="flex-end">
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="leftStart"
+        >
           <Button auto color="foreground" light>
-              leftStart
+            leftStart
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={6} />
-  <Grid xs={3}>
-      <Tooltip color="primary" content="Developers love Next.js" placement="rightStart">
+        </Tooltip>
+      </Grid>
+      <Grid xs={6} />
+      <Grid xs={3}>
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="rightStart"
+        >
           <Button auto color="foreground" light>
-              rightStart
+            rightStart
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={3} justify="flex-end">
-      <Tooltip color="primary" content="Developers love Next.js" placement="left">
+        </Tooltip>
+      </Grid>
+      <Grid xs={3} justify="flex-end">
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="left"
+        >
           <Button auto color="foreground" light>
-              left
+            left
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={6} />
-  <Grid xs={3}>
-      <Tooltip color="primary" content="Developers love Next.js" placement="right">
+        </Tooltip>
+      </Grid>
+      <Grid xs={6} />
+      <Grid xs={3}>
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="right"
+        >
           <Button auto color="foreground" light>
-              right
+            right
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={3} justify="flex-end">
-      <Tooltip color="primary" content="Developers love Next.js" placement="leftEnd">
+        </Tooltip>
+      </Grid>
+      <Grid xs={3} justify="flex-end">
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="leftEnd"
+        >
           <Button auto color="foreground" light>
-              leftEnd
+            leftEnd
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={6} />
-  <Grid xs={3}>
-      <Tooltip color="primary" content="Developers love Next.js" placement="rightEnd">
+        </Tooltip>
+      </Grid>
+      <Grid xs={6} />
+      <Grid xs={3}>
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="rightEnd"
+        >
           <Button auto color="foreground" light>
-              rightEnd
+            rightEnd
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={4} justify="flex-end">
-      <Tooltip color="primary" content="Developers love Next.js" placement="bottomStart">
+        </Tooltip>
+      </Grid>
+      <Grid xs={4} justify="flex-end">
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="bottomStart"
+        >
           <Button auto color="foreground" light>
-              bottomStart
+            bottomStart
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={4} justify="center">
-      <Tooltip color="primary" content="Developers love Next.js" placement="bottom">
+        </Tooltip>
+      </Grid>
+      <Grid xs={4} justify="center">
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="bottom"
+        >
           <Button auto color="foreground" light>
-              bottom
+            bottom
           </Button>
-      </Tooltip>
-  </Grid>
-  <Grid xs={4}>
-      <Tooltip color="primary" content="Developers love Next.js" placement="bottomEnd">
+        </Tooltip>
+      </Grid>
+      <Grid xs={4}>
+        <Tooltip
+          color="primary"
+          content="Developers love Next.js"
+          placement="bottomEnd"
+        >
           <Button auto color="foreground" light>
-              bottomEnd
+            bottomEnd
           </Button>
-      </Tooltip>
-  </Grid>
-</Grid.Container>
+        </Tooltip>
+      </Grid>
+    </Grid.Container>
+  );
 }
+
 `;
 
 const react = {

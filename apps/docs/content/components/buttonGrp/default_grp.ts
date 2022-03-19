@@ -1,12 +1,15 @@
-const App = `import { Button } from '@nextui-org/react';
-    
+const App = `import { Button } from "@nextui-org/react";
+
 export default function App() {
-  return <Button.Group>
-  <Button>One</Button>
-  <Button>Two</Button>
-  <Button>Three</Button>
-</Button.Group>
+  return (
+    <Button.Group>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </Button.Group>
+  );
 }
+
 `;
 
 const react = {

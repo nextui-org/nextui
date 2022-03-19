@@ -1,7 +1,9 @@
-const App = `import { Image } from '@nextui-org/react';
-    
+const App = `import { Image } from "@nextui-org/react";
+
 export default function App() {
-  return <Image src="/avatars/avatar-3.png" />
+  return (
+    <Image src="/avatars/avatar-3.png" />
+  );
 }
 `;
 
