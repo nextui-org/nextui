@@ -4,8 +4,7 @@ export default function App() {
   return (
     <Pagination rounded  total={10} initialPage={6} />
     );
-}
-`;
+}`;
 
 const react = {
   '/App.js': App

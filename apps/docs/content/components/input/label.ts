@@ -7,8 +7,7 @@ export default function App() {
     placeholder="Guillermo Rauch"
     />
     );
-}
-`;
+}`;
 
 const react = {
   '/App.js': App

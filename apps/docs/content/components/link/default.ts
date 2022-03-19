@@ -6,9 +6,7 @@ export default function App() {
       "First solve the problem. Then, write the code." - Jon Johnson.
     </Link>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

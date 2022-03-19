@@ -8,7 +8,6 @@ import striped from './striped';
 import squared from './squared';
 import noAnimation from './noAnimation';
 
-
 export default {
   default_progress,
   indeterminated_progress,
@@ -19,7 +18,4 @@ export default {
   striped,
   squared,
   noAnimation
-
-  
-
 };

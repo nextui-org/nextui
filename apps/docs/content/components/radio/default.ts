@@ -9,10 +9,7 @@ export default function App() {
       <Radio value="D">Option D</Radio>
     </Radio.Group>
   );
-}
-
-
-`;
+}`;
 
 const react = {
   '/App.js': App

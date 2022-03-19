@@ -23,9 +23,7 @@ export default function App() {
       </Text>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

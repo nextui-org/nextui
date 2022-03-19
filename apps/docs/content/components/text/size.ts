@@ -10,9 +10,7 @@ export default function App() {
       <Text size="2em">Font Size: 2em;</Text>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

@@ -181,9 +181,7 @@ export default function App() {
       </Grid.Container>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/SunIcon.js': SunIcon,

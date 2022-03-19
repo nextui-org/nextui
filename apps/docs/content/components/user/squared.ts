@@ -8,9 +8,7 @@ export default function App() {
       squared
     />
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

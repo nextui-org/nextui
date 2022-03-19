@@ -4,8 +4,7 @@ export default function App() {
   return (
     <Loading />
     );
-}
-`;
+}`;
 
 const react = {
   '/App.js': App
