@@ -1,11 +1,15 @@
-const App = `import { Link } from '@nextui-org/react';
-    
+const App = `import { Link } from "@nextui-org/react";
+
 export default function App() {
   return (
-  <NextLink href="/docs/components/button">
-  <Link block color="secondary">Go to Button</Link>
-</NextLink>
-)}
+    <NextLink href="/docs/components/button">
+      <Link block color="secondary">
+        Go to Button
+      </Link>
+    </NextLink>
+  );
+}
+
 `;
 
 const react = {

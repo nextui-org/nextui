@@ -1,8 +1,9 @@
-const App = `import { Pagination  } from '@nextui-org/react';
-    
+const App = `import { Pagination } from "@nextui-org/react";
+
 export default function App() {
-  return <Pagination total={20} initialPage={1} />
+  return <Pagination total={20} initialPage={1} />;
 }
+
 `;
 
 const react = {

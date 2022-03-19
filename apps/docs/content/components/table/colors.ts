@@ -92,6 +92,7 @@ export default function App() {
     </Grid.Container>
   );
 }
+
 `;
 
 const react = {

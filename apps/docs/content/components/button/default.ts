@@ -1,8 +1,13 @@
-const App = `import { Button } from '@nextui-org/react';
-    
+const App = `import { Button } from "@nextui-org/react";
+
 export default function App() {
-  return <Button>Default</Button>
+  return (
+    <Button>
+    Default
+    </Button>
+    );
 }
+
 `;
 
 const react = {

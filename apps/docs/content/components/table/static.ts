@@ -1,5 +1,5 @@
-const App = `import { Table } from '@nextui-org/react';
-    
+const App = `import { Table } from "@nextui-org/react";
+
 export default function App() {
   return (
     <Table
@@ -39,6 +39,7 @@ export default function App() {
     </Table>
   );
 }
+
 `;
 
 const react = {

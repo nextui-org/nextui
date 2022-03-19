@@ -45,79 +45,77 @@ export const Mail = ({ fill, size, height, width, ...props }) => {
 `;
 
 
-const AppJs = `import { Modal,Input,Row,Checkbox,Button,Text  } from '@nextui-org/react';
+const AppJs = `import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
 import { Mail } from "./Mail";
 import { Password } from "./Password";
-import React from 'react';
-    
+import React from "react";
+
 export default function App() {
   const [visible, setVisible] = React.useState(false);
   const handler = () => setVisible(true);
   const closeHandler = () => {
-      setVisible(false);
-      console.log('closed');
+    setVisible(false);
+    console.log("closed");
   };
-  return (<div>
-    <Button auto color="warning" shadow onClick={handler}>
-       Open modal
-    </Button>
-    <Modal
+  return (
+    <div>
+      <Button auto color="warning" shadow onClick={handler}>
+        Open modal
+      </Button>
+      <Modal
         closeButton
         blur
         aria-labelledby="modal-title"
         open={visible}
         onClose={closeHandler}
-    >
+      >
         <Modal.Header>
-            <Text id="modal-title" size={18}>
+          <Text id="modal-title" size={18}>
             Welcome to
             <Text b size={18}>
-                NextUI
+              NextUI
             </Text>
-            </Text>
+          </Text>
         </Modal.Header>
         <Modal.Body>
-            <Input
-                clearable
-                bordered
-                fullWidth
-                color="primary"
-                size="lg"
-                placeholder="Email"
-                contentLeft={<Mail />}
-            />
-            <Input
-                clearable
-                bordered
-                fullWidth
-                color="primary"
-                size="lg"
-                placeholder="Password"
-                contentLeft={<Password />}
-            />
-            <Row justify="space-between">
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Email"
+            contentLeft={<Mail />}
+          />
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Password"
+            contentLeft={<Password />}
+          />
+          <Row justify="space-between">
             <Checkbox>
-                <Text size={14}>
-                Remember me
-                </Text>
+              <Text size={14}>Remember me</Text>
             </Checkbox>
-            <Text size={14}>
-                Forgot password?
-            </Text>
-            </Row>
+            <Text size={14}>Forgot password?</Text>
+          </Row>
         </Modal.Body>
         <Modal.Footer>
-            <Button auto flat color="error" onClick={closeHandler}>
+          <Button auto flat color="error" onClick={closeHandler}>
             Close
-            </Button>
-            <Button auto onClick={closeHandler}>
+          </Button>
+          <Button auto onClick={closeHandler}>
             Sign in
-            </Button>
+          </Button>
         </Modal.Footer>
-    </Modal>
-</div>
-    );
+      </Modal>
+    </div>
+  );
 }
+
 `;
 
 const react = {
