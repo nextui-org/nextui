@@ -6,9 +6,7 @@ export default function App() {
     Default
     </Button>
     );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

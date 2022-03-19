@@ -14,9 +14,7 @@ export default function App() {
       <Switch bordered size="xl" color="error" />
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

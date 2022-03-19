@@ -6,9 +6,7 @@ export default function App() {
       <p>A bordered card.</p>
     </Card>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

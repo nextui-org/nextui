@@ -14,9 +14,7 @@ export default function App() {
       </Button>
     </Button.Group>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

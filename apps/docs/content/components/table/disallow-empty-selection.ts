@@ -42,9 +42,7 @@ export default function App() {
       </Table.Body>
     </Table>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

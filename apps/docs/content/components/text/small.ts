@@ -8,8 +8,7 @@ export default function App() {
    {text}
   </Text>
 </>
-}
-`;
+}`;
 
 const react = {
   '/App.js': App

@@ -8,9 +8,7 @@ export default function App() {
       </Link>
     </NextLink>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

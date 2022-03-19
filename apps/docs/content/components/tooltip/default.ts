@@ -8,9 +8,7 @@ export default function App() {
       </Button>
     </Tooltip>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

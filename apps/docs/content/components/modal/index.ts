@@ -14,6 +14,5 @@ export default {
   blurBackground,
   preventClose,
   noAnimated
-
 };
 

@@ -30,9 +30,7 @@ export const DeleteUser = () => {
       </Grid.Container>
     </Grid.Container>
   );
-};
-
-`;
+};`;
 
 const UserTwitterCard = `import React from "react";
 import {Avatar,Row,Col,Text,Button,Spacer,Grid} from "@nextui-org/react";
@@ -147,8 +145,7 @@ export const UserTwitterCard = ({
       </Grid.Container>
     </Grid.Container>
   );
-};
-`;
+};`;
 
 
 
@@ -180,9 +177,7 @@ export default function App() {
       </Grid>
     </Grid.Container>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/UserTwitterCard.js': UserTwitterCard,

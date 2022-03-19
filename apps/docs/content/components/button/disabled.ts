@@ -6,8 +6,7 @@ export default function App() {
     Disabled
     </Button>
     );
-}
-`;
+}`;
 
 const react = {
   '/App.js': App

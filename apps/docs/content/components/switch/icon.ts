@@ -59,8 +59,7 @@ export const SunIcon = ({
       ></path>
     </svg>
   );
-};
-`;
+};`;
 
 
 const MoonIcon = `import { React } from '@nextui-org/react';\n
@@ -103,8 +102,7 @@ export const MoonIcon = ({
       ></path>
     </svg>
   );
-};
-`;
+};`;
 
 const VideoIcon = `import { React } from '@nextui-org/react';\n
 
@@ -147,8 +145,7 @@ export const VideoIcon = ({
       ></path>
     </svg>
   );
-};
-`;
+};`;
 
 const VideoOffIcon = `import { React } from '@nextui-org/react';\n
 
@@ -191,8 +188,7 @@ export const VideoOffIcon = ({
       ></path>
     </svg>
   );
-};
-`;
+};`;
 
 const VolumeUpIcon = `import { React } from '@nextui-org/react';\n
 
@@ -222,8 +218,7 @@ export const VolumeUpIcon = ({
       ></path>
     </svg>
   );
-};
-`; 
+};`; 
 
 const NotificationIcon = `import { React } from '@nextui-org/react';\n
 
@@ -253,8 +248,7 @@ export const NotificationIcon = ({
       />
     </svg>
   );
-};
-`;
+};`;
 
 const MicrophoneIcon = `import { React } from '@nextui-org/react';\n
 
@@ -305,8 +299,7 @@ export const MicrophoneIcon = ({
       ></path>
     </svg>
   );
-};
-`;
+};`;
 
 const MicrophoneOffIcon = `import { React } from '@nextui-org/react';\n
 
@@ -357,8 +350,7 @@ export const MicrophoneOffIcon = ({
       ></path>
     </svg>
   );
-};
-`;
+};`;
 
 
 const AppJs = `import { Grid, Switch } from "@nextui-org/react";
@@ -418,9 +410,7 @@ export default function App() {
       </Grid>
     </Grid.Container>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/SunIcon.js': SunIcon,

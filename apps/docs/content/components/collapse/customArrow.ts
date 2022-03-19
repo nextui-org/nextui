@@ -102,8 +102,7 @@ export const MoonIcon = ({
       ></path>
     </svg>
   );
-};
-`;
+};`;
 
 const AnchorIcon = `import { React } from '@nextui-org/react';\n
 
@@ -134,8 +133,7 @@ export const AnchorIcon = ({
       ></path>
     </svg>
   );
-};
-`;
+};`;
 
 
 
@@ -177,9 +175,7 @@ export default function App() {
       </Grid>
     </Grid.Container>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/SunIcon.js': SunIcon,

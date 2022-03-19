@@ -29,9 +29,7 @@ export default function App() {
       </Collapse>
     </Collapse.Group>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

@@ -28,9 +28,7 @@ export default function App() {
       </Checkbox>
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

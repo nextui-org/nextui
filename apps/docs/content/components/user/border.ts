@@ -8,9 +8,7 @@ export default function App() {
       bordered
     />
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

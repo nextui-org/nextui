@@ -8,9 +8,7 @@ export default function App() {
       pointer
     />
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

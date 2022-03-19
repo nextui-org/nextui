@@ -4,8 +4,7 @@ export default function App() {
   return (
     <Pagination animated={false} total={10} initialPage={6} />
     );
-}
-`;
+}`;
 
 const react = {
   '/App.js': App

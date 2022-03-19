@@ -217,9 +217,7 @@ export default function App() {
       </Modal>
     </div>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

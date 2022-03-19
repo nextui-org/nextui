@@ -8,9 +8,7 @@ export default function App() {
       <Button>Three</Button>
     </Button.Group>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App

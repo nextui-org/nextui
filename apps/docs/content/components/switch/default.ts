@@ -8,9 +8,7 @@ export default function App() {
       <Switch checked={true} />
     </>
   );
-}
-
-`;
+}`;
 
 const react = {
   '/App.js': App
