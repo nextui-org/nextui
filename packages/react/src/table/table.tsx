@@ -32,7 +32,12 @@ import TablePagination from './table-pagination';
 import TableFooter from './table-footer';
 import TableBody from './table-body';
 import { hasChild, pickSingleChild } from '../utils/collections';
-import { StyledTable, TableVariantsProps } from './table.styles';
+import {
+  StyledTable,
+  StyledTableContainer,
+  TableVariantsProps,
+  TableContainerVariantsProps
+} from './table.styles';
 import TableContext, { TableConfig } from './table-context';
 import { excludedTableProps } from '../utils/prop-types';
 import { isInfinityScroll } from './utils';
@@ -54,7 +59,8 @@ type NativeAttrs = Omit<
 
 export type TableProps<T = object> = Props<T> &
   NativeAttrs &
-  Omit<TableVariantsProps, 'isMultiple'> & { css?: CSS };
+  Omit<TableVariantsProps, 'isMultiple' | 'shadow'> &
+  TableContainerVariantsProps & { css?: CSS; containerCss?: CSS };
 
 const defaultProps = {
   animated: true,
@@ -70,6 +76,9 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       selectionBehavior,
       hideLoading,
       children,
+      shadow,
+      borderWeight,
+      bordered,
       ...props
     } = tableProps;
 
@@ -117,70 +126,79 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 
     return (
       <TableContext.Provider defaultValues={initialValues}>
-        <StyledTable
-          ref={tableRef}
-          hoverable={selectionMode !== 'none' || props.hoverable}
-          isMultiple={selectionMode === 'multiple'}
-          hasPagination={hasPagination}
-          className={clsx('nextui-table', props.className)}
-          {...gridProps}
-          {...props}
+        <StyledTableContainer
+          shadow={shadow}
+          borderWeight={borderWeight}
+          bordered={bordered}
+          className="nextui-table-container"
+          css={{ ...(props.containerCss as any) }}
         >
-          <TableRowGroup as="thead" isFixed={isInfinityScroll(collection)}>
-            {collection.headerRows.map((headerRow) => (
-              <TableHeaderRow
-                key={headerRow?.key}
-                item={headerRow}
-                state={state}
-              >
-                {[...headerRow.childNodes].map((column) =>
-                  column?.props?.isSelectionCell ? (
-                    <TableSelectAllCheckbox
-                      key={column?.key}
-                      column={column}
-                      state={state}
-                      color={props.color}
-                      animated={props.animated}
-                    />
-                  ) : (
-                    <TableColumnHeader
-                      key={column?.key}
-                      column={column}
-                      state={state}
-                      animated={props.animated}
-                    />
-                  )
-                )}
-              </TableHeaderRow>
-            ))}
-            {!props.sticked && (
-              <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />
-            )}
-          </TableRowGroup>
-          <TableBody
-            state={state}
-            color={props.color}
-            collection={collection}
-            animated={props.animated}
+          <StyledTable
+            ref={tableRef}
+            shadow={shadow}
+            hoverable={selectionMode !== 'none' || props.hoverable}
+            isMultiple={selectionMode === 'multiple'}
             hasPagination={hasPagination}
-            hideLoading={hideLoading}
-          />
-
-          {hasPagination && (
-            <TableFooter>
-              <Spacer as="tr" className="nextui-table-hidden-row" y={0.6} />
-              <tr role="row">
-                <th
-                  tabIndex={-1}
-                  role="columnheader"
-                  colSpan={collection.columnCount}
+            className={clsx('nextui-table', props.className)}
+            {...gridProps}
+            {...props}
+          >
+            <TableRowGroup as="thead" isFixed={isInfinityScroll(collection)}>
+              {collection.headerRows.map((headerRow) => (
+                <TableHeaderRow
+                  key={headerRow?.key}
+                  item={headerRow}
+                  state={state}
                 >
-                  {paginationChildren}
-                </th>
-              </tr>
-            </TableFooter>
-          )}
-        </StyledTable>
+                  {[...headerRow.childNodes].map((column) =>
+                    column?.props?.isSelectionCell ? (
+                      <TableSelectAllCheckbox
+                        key={column?.key}
+                        column={column}
+                        state={state}
+                        color={props.color}
+                        animated={props.animated}
+                      />
+                    ) : (
+                      <TableColumnHeader
+                        key={column?.key}
+                        column={column}
+                        state={state}
+                        animated={props.animated}
+                      />
+                    )
+                  )}
+                </TableHeaderRow>
+              ))}
+              {!props.sticked && (
+                <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />
+              )}
+            </TableRowGroup>
+            <TableBody
+              state={state}
+              color={props.color}
+              collection={collection}
+              animated={props.animated}
+              hasPagination={hasPagination}
+              hideLoading={hideLoading}
+            />
+
+            {hasPagination && (
+              <TableFooter>
+                <Spacer as="tr" className="nextui-table-hidden-row" y={0.6} />
+                <tr role="row">
+                  <th
+                    tabIndex={-1}
+                    role="columnheader"
+                    colSpan={collection.columnCount}
+                  >
+                    {paginationChildren}
+                  </th>
+                </tr>
+              </TableFooter>
+            )}
+          </StyledTable>
+        </StyledTableContainer>
       </TableContext.Provider>
     );
   }

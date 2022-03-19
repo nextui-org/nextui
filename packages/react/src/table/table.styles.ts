@@ -230,7 +230,6 @@ export const StyledTable = styled('table', {
   borderCollapse: 'separate',
   borderSpacing: 0,
   width: '100%',
-  br: '$xl',
   p: '$md $sm',
   '@motion': {
     [`& ${StyledTableCell}`]: {
@@ -239,9 +238,6 @@ export const StyledTable = styled('table', {
     [`& ${StyledTableCell}:before`]: {
       transition: 'none'
     }
-  },
-  '@xsMax': {
-    overflowX: 'auto'
   },
   variants: {
     animated: {
@@ -302,33 +298,6 @@ export const StyledTable = styled('table', {
         [`& ${StyledTableColumnHeader}:last-child`]: {
           br: '0 $lg 0 0'
         }
-      }
-    },
-    bordered: {
-      true: {
-        ov: 'hidden',
-        borderStyle: 'solid',
-        borderColor: '$border'
-      },
-      false: {
-        bw: 0
-      }
-    },
-    borderWeight: {
-      light: {
-        bw: '$light'
-      },
-      normal: {
-        bw: '$normal'
-      },
-      bold: {
-        bw: '$bold'
-      },
-      extrabold: {
-        bw: '$extrabold'
-      },
-      black: {
-        bw: '$black'
       }
     },
     lineWeight: {
@@ -415,11 +384,6 @@ export const StyledTable = styled('table', {
         tableLayout: 'fixed'
       }
     },
-    shadow: {
-      true: {
-        bs: '$md'
-      }
-    },
     hoverable: {
       true: {
         [`& ${StyledTableCell}:first-child`]: {
@@ -457,6 +421,9 @@ export const StyledTable = styled('table', {
       true: {}
     },
     hasPagination: {
+      true: {}
+    },
+    shadow: {
       true: {}
     },
     compact: {
@@ -603,15 +570,61 @@ export const StyledTable = styled('table', {
     }
   ],
   defaultVariants: {
-    shadow: true,
     sticked: false,
     color: 'primary',
-    borderWeight: 'normal',
     lineWeight: 'light'
   }
 });
 
+export const StyledTableContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  br: '$xl',
+  overflowX: 'scroll',
+  variants: {
+    shadow: {
+      true: {
+        bs: '$md'
+      }
+    },
+    bordered: {
+      true: {
+        ov: 'hidden',
+        borderStyle: 'solid',
+        borderColor: '$border'
+      },
+      false: {
+        bw: 0
+      }
+    },
+    borderWeight: {
+      light: {
+        bw: '$light'
+      },
+      normal: {
+        bw: '$normal'
+      },
+      bold: {
+        bw: '$bold'
+      },
+      extrabold: {
+        bw: '$extrabold'
+      },
+      black: {
+        bw: '$black'
+      }
+    }
+  },
+  defaultVariants: {
+    shadow: true,
+    borderWeight: 'normal'
+  }
+});
+
 export type TableVariantsProps = VariantProps<typeof StyledTable>;
+export type TableContainerVariantsProps = VariantProps<
+  typeof StyledTableContainer
+>;
 export type TableCellVariantsProps = VariantProps<typeof StyledTableCell>;
 export type TableColumnHeaderVariantsProps = VariantProps<
   typeof StyledTableColumnHeader
