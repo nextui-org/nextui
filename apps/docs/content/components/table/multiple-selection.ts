@@ -1,11 +1,12 @@
-const App = `import { Table } from '@nextui-org/react';
-    
+const App = `import { Table } from "@nextui-org/react";
+
 export default function App() {
-  return <Table
+  return (
+    <Table
       aria-label="Example static collection table"
       css={{
-        height: 'auto',
-        minWidth: '100%',
+        height: "auto",
+        minWidth: "100%",
       }}
       selectionMode="multiple"
     >
@@ -36,7 +37,8 @@ export default function App() {
           <Table.Cell>Vacation</Table.Cell>
         </Table.Row>
       </Table.Body>
-  </Table>;
+    </Table>
+  );
 }
 `;
 

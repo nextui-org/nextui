@@ -117,7 +117,6 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
       };
     }, {});
 
-  // TODO: expand editor support
   return (
     <SandpackProvider
       skipEval
@@ -158,7 +157,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
             ref={editorContainerRef}
             xs={12}
             css={{
-              height: '350px',
+              maxHeight: 'auto',
               position: 'relative',
               '.sp-playground-buttons': {
                 opacity: 0
@@ -175,6 +174,9 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
               },
               '.sp-cm': {
                 p: 'var(--sp-space-4)'
+              },
+              '.cm-scroller::-webkit-scrollbar': {
+                width: '0px'
               }
             }}
           >

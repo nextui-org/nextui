@@ -39,14 +39,14 @@ import { Table } from '@nextui-org/react';
 <Playground
   title="Single selection"
   desc="You can set the `singleSelection` property as `single` to limit users to select only a single item at a time."
-  highlightedLines="10"
+  highlightedLines="11"
   files={tableContent.singleSelectionTable}
 />
 
 <Playground
   title="Multiple selection"
   desc="You can set the `singleSelection` property as `multiple` to allow users to select multiple items at a time."
-  highlightedLines="10"
+  highlightedLines="11"
   files={tableContent.multipleSelectionTable}
 />
 
@@ -54,13 +54,13 @@ import { Table } from '@nextui-org/react';
   title="Colors"
   overflow="auto"
   desc="`Table` component allows you to change the color of the selected rows, checkbox, loading and sort icon by passing the `color` prop."
-  highlightedLines="55"
+  highlightedLines="56"
   files={tableContent.colorsTable}
 />
 
 <Playground
   title="Bordered"
-  highlightedLines="5-6"
+  highlightedLines="6-7"
   desc="You can change the full style to a bordered `Table` with the `bordered` property."
   files={tableContent.borderedTable}
 />
@@ -68,28 +68,28 @@ import { Table } from '@nextui-org/react';
 <Playground
   title="Lined"
   desc="You can change the full style to a lined `Table` with the `lined` and `headerLined` properties."
-  highlightedLines="5-7"
+  highlightedLines="6-8"
   files={tableContent.linedTable}
 />
 
 <Playground
   title="Sticked"
   desc="You can remove the padding of the `Table` with the `sticked` property."
-  highlightedLines="5"
+  highlightedLines="6"
   files={tableContent.stickedTable}
 />
 
 <Playground
   title="Compact"
   desc="You can reduce the amount of vertical padding that each row contains by using the `compact` property."
-  highlightedLines="5"
+  highlightedLines="6"
   files={tableContent.compactTable}
 />
 
 <Playground
   title="Pagination"
   desc="You can paginate the `Table` data by using the `Table.Pagination` component."
-  highlightedLines="62-68"
+  highlightedLines="63-69"
   files={tableContent.paginationTable}
 />
 
@@ -97,7 +97,7 @@ import { Table } from '@nextui-org/react';
   title="Infinty Pagination"
   desc="Table supports loading data asynchronously, and will display a progress loading set by the loadingState prop. 
   It also supports infinite scrolling to load more data on demand as the user scrolls, via the `onLoadMore` prop."
-  highlightedLines="37-39"
+  highlightedLines="38-40"
   files={tableContent.infinityPaginationTable}
 />
 
@@ -106,7 +106,7 @@ import { Table } from '@nextui-org/react';
 <Playground
   title="Sortable"
   desc="Table supports sorting its data when a column header is pressed, to set a column as sortable, you can use the `allowsSorting` property to the `column` prop."
-  highlightedLines="35"
+  highlightedLines="36"
   files={tableContent.sortableTable}
 />
 
@@ -115,7 +115,7 @@ import { Table } from '@nextui-org/react';
 <Playground
   title="Disabled keys"
   desc="You can disable specific rows by providing an array of keys to `Table` through the `disabledKeys` prop. This will prevent rows from being selectable as shown in the example below."
-  highlightedLines="10"
+  highlightedLines="11"
   files={tableContent.disabledKeysTable}
 />
 
@@ -124,7 +124,7 @@ import { Table } from '@nextui-org/react';
 <Playground
   title="Disallow empty selection"
   desc="Table also supports a `disallowEmptySelection` prop which forces the user to have at least one row selected all the time. In this mode, if a single row is selected and the user presses it, it will not be deselected."
-  highlightedLines="10"
+  highlightedLines="11"
   files={tableContent.disallowEmptySelectionTable}
 />
 
@@ -133,6 +133,6 @@ import { Table } from '@nextui-org/react';
 <Playground
   title="No animated"
   desc="You can disable the animation of the entire `Table` by using `animated={false}` property."
-  highlightedLines="10"
+  highlightedLines="11"
   files={tableContent.noAnimatedTable}
 />

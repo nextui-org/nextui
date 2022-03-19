@@ -74,6 +74,12 @@ const SandpackCodeViewer = React.forwardRef<CodeEditorRef, CodeViewerProps>(
     const isExpandable = lineCount > 12 || isExpanded;
 
     React.useEffect(() => {
+      if (containerRef && containerRef?.current !== null && isExpandable) {
+        containerRef.current.style.height = '350px';
+      }
+    }, [containerRef]);
+
+    React.useEffect(() => {
       setInternalCode(propCode || code);
       setInternalKey(getId());
     }, [propCode, code]);
