@@ -18,6 +18,9 @@ import loadingContent from './loading';
 import switchContent from './switch';
 import textContent from './text';
 import linkContent from './link';
+import containerContent from './container';
+import gridContent from './grid';
+import spacerContent from './spacer';
 
 export default {
   tableContent,
@@ -39,5 +42,8 @@ export default {
   loadingContent,
   switchContent,
   textContent,
-  linkContent
+  linkContent,
+  containerContent,
+  gridContent,
+  spacerContent
 };

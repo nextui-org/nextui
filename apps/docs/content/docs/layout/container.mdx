@@ -19,50 +19,19 @@ import { Container, Row, Col } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="Container which sets a `max-width` and a default `gap` at each responsive breakpoint"
-  code={`
-<Container>
-  <Card color="primary">
-    <Row justify="center" align="center">
-      <Text h6 size={15} color="white" css={{ m: 0 }}>
-        NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.
-      </Text>
-    </Row>
-  </Card>
-</Container>
-`}
+  files={containerContent.default_container}
 />
 
 <Playground
   title="Fluid"
   desc="Container which its `width: 100%` at all breakpoints"
-  code={`
-<Container fluid>
-  <Card color="primary">
-    <Row justify="center" align="center">
-      <Text h6 size={15} color="white" css={{ m: 0 }}>
-        NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.
-      </Text>
-    </Row>
-  </Card>
-</Container>
-`}
+  files={containerContent.fluid}
 />
 
 <Playground
   title="Breakpoints"
   desc="Setting it to a breakpoint `(xs, sm, md, lg, xl)` will set the `Container` as `fluid` until the specified breakpoint."
-  code={`
-<Container xl>
-  <Card color="primary">
-    <Row justify="center" align="center">
-        <Text h6 size={15} color="white" css={{ m: 0 }}>
-          NextUI gives you the best developer experience with all the features you
-          need for building beautiful and modern websites and applications.
-        </Text>
-    </Row>
-  </Card>
-</Container>
-`}
+  files={containerContent.fluid}
 />
 
 <Spacer y={2} />

@@ -58,9 +58,7 @@ export const SunIcon = ({
       ></path>
     </svg>
   );
-};
-
-`;
+};`;
 
 const MoonIcon = `import { React } from '@nextui-org/react';\n
 
@@ -102,9 +100,7 @@ export const MoonIcon = ({
       ></path>
     </svg>
   );
-};
-
-`;
+};`;
 
 const VideoIcon = `import { React } from '@nextui-org/react';\n
 
@@ -147,9 +143,7 @@ export const VideoIcon = ({
       ></path>
     </svg>
   );
-};
-
-`;
+};`;
 
 const VolumeUpIcon = `import { React } from '@nextui-org/react';\n
 
@@ -180,9 +174,7 @@ export const VolumeUpIcon = ({
       ></path>
     </svg>
   );
-};
-
-`;
+};`;
 
 const MicrophoneIcon = `import { React } from '@nextui-org/react';\n
 
@@ -233,9 +225,7 @@ export const MicrophoneIcon = ({
       ></path>
     </svg>
   );
-};
-
-`;
+};`;
 
 const AppJs = `import { Grid, Avatar } from "@nextui-org/react";
 import { SunIcon } from "./SunIcon";
