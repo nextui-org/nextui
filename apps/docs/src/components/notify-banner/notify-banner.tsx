@@ -15,11 +15,16 @@ const NotifyBanner = () => {
         css={{
           position: 'absolute',
           opacity: 0.7,
-          zIndex: '$1',
+          zIndex: -1,
           left: '0%'
         }}
       />
-      <Badge>🚀&nbsp;&nbsp;New</Badge>
+      <Badge>
+        <span role="img" aria-label="notify-emoji">
+          🚀
+        </span>
+        &nbsp;&nbsp;New
+      </Badge>
       <NextLink href="/docs/components/table">
         <StyledContent>
           <Spacer x={0.2} />

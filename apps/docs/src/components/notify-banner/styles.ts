@@ -8,7 +8,7 @@ export const StyledNotifyBanner = styled(StyledCardBlur, {
   p: 0,
   br: 0,
   position: 'relative',
-  zIndex: '$10',
+  zIndex: '$1',
   height: '40px',
   color: '$text',
   width: '100%',

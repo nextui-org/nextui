@@ -88,7 +88,7 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
         alignItems="center"
       >
         <Col
-          className="navbar__logo-conta8iner"
+          className="navbar__logo-container"
           css={{
             '@mdMax': {
               width: '100%'
