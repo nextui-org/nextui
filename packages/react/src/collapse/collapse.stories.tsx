@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Grid, Text } from '../index';
+import { Grid, Text, Input } from '../index';
 import Collapse from './index';
 import useTheme from '../use-theme';
 import { Minus, Plus, User, Mail, Activity } from '../utils/icons';
@@ -28,6 +28,38 @@ export const Default = () => (
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat.
       </Text>
+    </Collapse>
+    <Collapse title="Option B">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+    <Collapse title="Option C">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+    <Collapse title="Option D">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+  </Collapse.Group>
+);
+
+export const WithInput = () => (
+  <Collapse.Group onChange={(index, value) => console.log({ index, value })}>
+    <Collapse title={<h3>Option 1</h3>}>
+      <Input />
     </Collapse>
     <Collapse title="Option B">
       <Text>
