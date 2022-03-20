@@ -52,7 +52,7 @@ export default function App() {
     <Grid.Container gap={2}>
       <Grid xs={12}>
         <Table
-          aria-label="Example dynamic collection table"
+          aria-label="Example dynamic collection table with color selection"
           color={selectedColor}
           selectionMode="multiple"
           defaultSelectedKeys={["2"]}

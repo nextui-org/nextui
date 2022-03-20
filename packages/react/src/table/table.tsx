@@ -59,7 +59,7 @@ type NativeAttrs = Omit<
 
 export type TableProps<T = object> = Props<T> &
   NativeAttrs &
-  Omit<TableVariantsProps, 'isMultiple' | 'shadow'> &
+  Omit<TableVariantsProps, 'isMultiple' | 'shadow' | 'hasPagination'> &
   TableContainerVariantsProps & { css?: CSS; containerCss?: CSS };
 
 const defaultProps = {

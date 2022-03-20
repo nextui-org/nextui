@@ -589,7 +589,6 @@ export const StyledTableContainer = styled('div', {
     },
     bordered: {
       true: {
-        ov: 'hidden',
         borderStyle: 'solid',
         borderColor: '$border'
       },

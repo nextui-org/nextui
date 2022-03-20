@@ -3,7 +3,7 @@ const App = `import { Table } from "@nextui-org/react";
 export default function App() {
   return (
     <Table
-      aria-label="Example static collection table"
+      aria-label="Example static collection table with multiple selection"
       css={{
         height: "auto",
         minWidth: "100%",

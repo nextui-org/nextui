@@ -68,7 +68,7 @@ const Tcol: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
       <style jsx>{`
         :global(.docs-col) {
           font-size: 0.9rem;
-          padding: 0 ${theme?.space?.sm?.value};
+          padding: ${theme?.space?.sm?.value};
         }
         :global(strong) {
           font-weight: 500;

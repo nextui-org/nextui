@@ -6,7 +6,7 @@ export default function App() {
       bordered
       shadow={false}
       selectionMode="multiple"
-      aria-label="Example static collection table"
+      aria-label="Example static bordered collection table"
       css={{
         height: "auto",
         minWidth: "100%",

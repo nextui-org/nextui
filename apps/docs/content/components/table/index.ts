@@ -8,6 +8,7 @@ import borderedTable from './bordered';
 import linedTable from './lined';
 import stickedTable from './sticked';
 import compactTable from './compact';
+import stripedTable from './striped';
 import paginationTable from './pagination';
 import infinityPaginationTable from './infinity-pagination';
 import sortableTable from './sortable';
@@ -26,6 +27,7 @@ export default {
   linedTable,
   stickedTable,
   compactTable,
+  stripedTable,
   paginationTable,
   infinityPaginationTable,
   sortableTable,

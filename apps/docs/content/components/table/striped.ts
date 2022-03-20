@@ -3,8 +3,9 @@ const App = `import { Table } from "@nextui-org/react";
 export default function App() {
   return (
     <Table
-      compact
-      aria-label="Example static compact collection table"
+      striped
+      sticked
+      aria-label="Example static striped collection table"
       selectionMode="multiple"
       css={{
         height: "auto",

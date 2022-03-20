@@ -56,7 +56,7 @@ const Codeblock: React.FC<React.PropsWithChildren<unknown>> = ({
           border: '0px',
           padding: '0px',
           width: '100%',
-          overflow: 'visible',
+          overflow: 'scroll',
           color: textColor?.style.color,
           borderRadius: '0px',
           '.token.string': {
