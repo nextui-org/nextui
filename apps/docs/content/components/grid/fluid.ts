@@ -9,46 +9,46 @@ export default function App() {
         </Text>
       </Card>
     );
-  };  
+  };
   return (
     <Grid.Container gap={2} justify="center">
-    <Grid xs={6}>
-      <MockItem text="1 of 2" />
-    </Grid>
-    <Grid xs={6}>
-      <MockItem text="2 of 2" />
-    </Grid>
-    <Grid xs={6}>
-      <MockItem text="1 of 3" />
-    </Grid>
-    <Grid xs={3}>
-      <MockItem text="2 of 3" />
-    </Grid>
-    <Grid xs={3}>
-      <MockItem text="3 of 3" />
-    </Grid>
-    <Grid xs={3}>
-      <MockItem text="1 of 4" />
-    </Grid>
-    <Grid xs={3}>
-      <MockItem text="2 of 4" />
-    </Grid>
-    <Grid xs={3}>
-      <MockItem text="3 of 4" />
-    </Grid>
-    <Grid xs={3}>
-      <MockItem text="4 of 4" />
-    </Grid>
-    <Grid xs={3}>
-      <MockItem text="1 of 3" />
-    </Grid>
-    <Grid xs={6}>
-      <MockItem text="2 of 3" />
-    </Grid>
-    <Grid xs={3}>
-      <MockItem text="3 of 3" />
-    </Grid>
-  </Grid.Container>  
+      <Grid xs={6}>
+        <MockItem text="1 of 2" />
+      </Grid>
+      <Grid xs={6}>
+        <MockItem text="2 of 2" />
+      </Grid>
+      <Grid xs={6}>
+        <MockItem text="1 of 3" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="2 of 3" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="3 of 3" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="1 of 4" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="2 of 4" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="3 of 4" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="4 of 4" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="1 of 3" />
+      </Grid>
+      <Grid xs={6}>
+        <MockItem text="2 of 3" />
+      </Grid>
+      <Grid xs={3}>
+        <MockItem text="3 of 3" />
+      </Grid>
+    </Grid.Container>
   );
 }`;
 

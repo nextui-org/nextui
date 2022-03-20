@@ -1,5 +1,4 @@
 const App = `import { Grid, Card, Text } from "@nextui-org/react";
-
 export default function App() {
   const MockItem = ({ text }) => {
     return (
@@ -9,19 +8,19 @@ export default function App() {
         </Text>
       </Card>
     );
-  };  
+  };
   return (
     <Grid.Container gap={2} justify="center">
-    <Grid xs={4}>
-      <MockItem text="1 of 3" />
-    </Grid>
-    <Grid xs={4}>
-      <MockItem text="2 of 3" />
-    </Grid>
-    <Grid xs={4}>
-      <MockItem text="3 of 3" />
-    </Grid>
-  </Grid.Container>
+      <Grid xs={4}>
+        <MockItem text="1 of 3" />
+      </Grid>
+      <Grid xs={4}>
+        <MockItem text="2 of 3" />
+      </Grid>
+      <Grid xs={4}>
+        <MockItem text="3 of 3" />
+      </Grid>
+    </Grid.Container>
   );
 }`;
 
