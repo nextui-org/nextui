@@ -1,4 +1,4 @@
-const App = `import { Container, Card, Row, Text, Col } from "@nextui-org/react";
+const App = `import { Container, Card, Row, Text, Col, Spacer } from "@nextui-org/react";
 
 export default function App() {
   return (
