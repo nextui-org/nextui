@@ -3,10 +3,11 @@ const App = `import { Image } from "@nextui-org/react";
 export default function App() {
   return (
     <Image
-      src="https://images.unsplash.com/photo-1647311955462-d4e8a725e5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1509&q=80"
+      width={320}
+      height={180}  
+      src="https://github.com/nextui-org/nextui/blob/next/apps/docs/public/nextui-banner.jpeg?raw=true"
       alt="Default Image"
-      width={500}
-      height={400}
+      objectFit="cover"
     />
   );
 }`;
