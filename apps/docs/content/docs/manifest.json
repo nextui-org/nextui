@@ -31,6 +31,7 @@
                     "keywords": "themeable, theme, customize, palette",
                     "icon": "/category.svg",
                     "open": true,
+                    "updated": true,
                     "routes": [
                         {
                             "title": "Default theme",
@@ -114,13 +115,12 @@
                         {
                             "title": "Pagination",
                             "keywords": "pagination, paginate, table pagination, pages, navigate",
-                            "path": "/docs/components/pagination.mdx"
+                            "path": "/docs/components/pagination.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Table",
-                            "keywords":"table, data table, grid, data grid",
-                            "path": "/docs/components/table.mdx",
-                            "newPost": true
+                            "comingSoon": true
                         },
                         {
                             "title": "Collapse",
@@ -193,16 +193,6 @@
                             "title": "Link",
                             "keywords": "link, navigation, href, next link",
                             "path": "/docs/components/link.mdx"
-                        },
-                        {
-                            "title": "User",
-                            "keywords": "User",
-                            "path": "/docs/components/user.mdx"
-                        },
-                        {
-                            "title": "Image",
-                            "keywords": "User",
-                            "path": "/docs/components/image.mdx"
                         }
                     ]
                 }

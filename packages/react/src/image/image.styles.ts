@@ -44,9 +44,9 @@ export const StyledImageSkeleton = styled('div', {
   right: 0,
   bottom: 0,
   size: '100%',
-  borderRadius: 'inherit',
+  borderRadius: '$lg',
   backgroundImage:
-    'linear-gradient(270deg, $colors$accents1, $colors$accents2, $colors$accents2, $colors$accents1)',
+    'linear-gradient(270deg,$accents1,$accents2,$accents2,$accents1)',
   backgroundSize: '400% 100%',
   animation: `${loading} 5s ease-in-out infinite`,
   transition: 'opacity 300ms ease-out'

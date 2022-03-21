@@ -127,7 +127,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-c-dNzlf nextui-user-desc",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -155,7 +155,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-c-dNzlf nextui-user-desc",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -244,7 +244,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "nextui-c-dNzlf nextui-user-desc",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -272,7 +272,7 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "nextui-c-dNzlf nextui-user-desc",
+                  "class": "nextui-c-dNzlf nextui-user-social",
                 },
                 "children": Array [],
                 "name": "span",
@@ -555,7 +555,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "nextui-c-dNzlf nextui-user-desc",
+                        "class": "nextui-c-dNzlf nextui-user-social",
                       },
                       "children": Array [],
                       "name": "span",
@@ -583,7 +583,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "nextui-c-dNzlf nextui-user-desc",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -672,7 +672,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-c-dNzlf nextui-user-desc",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -700,7 +700,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-c-dNzlf nextui-user-desc",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -1000,7 +1000,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-c-dNzlf nextui-user-desc",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1028,7 +1028,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-c-dNzlf nextui-user-desc",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -1117,7 +1117,7 @@ LoadedCheerio {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Node {
                   "attribs": Object {
-                    "class": "nextui-c-dNzlf nextui-user-desc",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",
@@ -1145,7 +1145,7 @@ LoadedCheerio {
               },
               Node {
                 "attribs": Object {
-                  "class": "nextui-c-dNzlf nextui-user-desc",
+                  "class": "nextui-c-dNzlf nextui-user-social",
                 },
                 "children": Array [],
                 "name": "span",
@@ -1430,7 +1430,7 @@ LoadedCheerio {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Node {
                       "attribs": Object {
-                        "class": "nextui-c-dNzlf nextui-user-desc",
+                        "class": "nextui-c-dNzlf nextui-user-social",
                       },
                       "children": Array [],
                       "name": "span",
@@ -1458,7 +1458,7 @@ LoadedCheerio {
                   },
                   Node {
                     "attribs": Object {
-                      "class": "nextui-c-dNzlf nextui-user-desc",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1547,7 +1547,7 @@ LoadedCheerio {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Node {
                     "attribs": Object {
-                      "class": "nextui-c-dNzlf nextui-user-desc",
+                      "class": "nextui-c-dNzlf nextui-user-social",
                     },
                     "children": Array [],
                     "name": "span",
@@ -1575,7 +1575,7 @@ LoadedCheerio {
                 },
                 Node {
                   "attribs": Object {
-                    "class": "nextui-c-dNzlf nextui-user-desc",
+                    "class": "nextui-c-dNzlf nextui-user-social",
                   },
                   "children": Array [],
                   "name": "span",

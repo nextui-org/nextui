@@ -25,7 +25,7 @@ const Title: React.FC<TitleProps> = ({ title, desc }) => {
       >
         <Anchor>{title}</Anchor>
       </h3>
-      {desc && <ReactMarkdown className="react-markdown">{desc}</ReactMarkdown>}
+      {desc && <ReactMarkdown>{desc}</ReactMarkdown>}
       <style jsx>{`
         h3 {
           margin-bottom: 0;
@@ -36,9 +36,6 @@ const Title: React.FC<TitleProps> = ({ title, desc }) => {
         }
         h3 > p {
           margin: 0;
-        }
-        :global(.react-markdown p) {
-          font-size: 1.125rem;
         }
         h3 > :global(code),
         h3 > :global(pre) {

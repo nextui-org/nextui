@@ -1,7 +1,7 @@
 import Checkbox from './checkbox';
 import CheckboxGroup from './checkbox-group';
 
-export type { CheckboxProps } from './checkbox';
+export type { CheckboxProps, CheckboxEvent } from './checkbox';
 export type { CheckboxGroupProps } from './checkbox-group';
 
 Checkbox.Group = CheckboxGroup;

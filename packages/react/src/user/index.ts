@@ -10,8 +10,15 @@ export {
   StyledUser,
   StyledUserInfo,
   StyledUserName,
-  StyledUserDesc,
+  StyledUserSocial,
   StyledUserLink
+} from './user.styles';
+export type {
+  UserVariantsProps,
+  UserInfoVariantsProps,
+  UserNameVariantsProps,
+  UserSocialVariantsProps,
+  UserLinkVariantsProps
 } from './user.styles';
 
 export default User;

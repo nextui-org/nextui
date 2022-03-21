@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import withDefaults from '@utils/with-defaults';
-import Script from 'next/script';
 import { toCapitalize } from '@utils/index';
 import { isProd } from '@utils/index';
 import { TWITTER_USER_NAME, SITE_URL } from '@lib/constants';
@@ -94,8 +93,14 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
           isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value
         }
       />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
       {isProd && (
-        <Script
+        <script
+          defer
           data-domain="nextui.org"
           src="https://plausible.io/js/plausible.js"
         />

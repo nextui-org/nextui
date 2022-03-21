@@ -19,13 +19,32 @@ import { Textarea } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="The default `Textarea` contains an animation effect."
-  files={textareaContent.default_textArea}
+  code={`
+<Textarea
+    label="Write your thoughts"
+    placeholder="Enter your amazing ideas."
+/>
+`}
 />
 
 <Playground
   title="Disabled"
   desc="Unusable and un-writtable `Textarea`."
-  files={textareaContent.disabled}
+  code={`
+<>
+    <Textarea
+        disabled
+        label="Disabled name"
+        placeholder="Enter your name"
+      />
+    <Spacer y={0.5} />
+    <Textarea
+        readOnly
+        label="Read only Text"
+        initialValue="Almost before we knew it, we had left the ground."
+    />
+</>
+`}
 />
 
 <Playground
@@ -33,26 +52,106 @@ import { Textarea } from '@nextui-org/react';
   desc="Unless the `rows` prop is set, the height of the text field dynamically 
   matches its content. You can use the `minRows` and `maxRows` props to bound it. This functionality
   has been based on [React Textarea Autosize](https://github.com/Andarist/react-textarea-autosize)"
-  files={textareaContent.autosize}
+  code={`
+<Grid.Container gap={2.5}>
+    <Grid>
+        <Textarea placeholder="Static rows, rows (4)" rows={4}/>
+    </Grid>
+    <Grid>
+        <Textarea placeholder="Min rows (2), write something large.." minRows={2}/>
+    </Grid>
+    <Grid>
+        <Textarea placeholder="Max rows (10), Min rows (1), write something large.." minRows={1} maxRows={10}/>
+    </Grid>
+</Grid.Container>
+`}
 />
 
 <Playground
   title="Types"
   desc="You can use the same `Input` types in `Textarea`."
-  files={textareaContent.types}
+  code={`
+<Grid.Container gap={2.5} css={{ mt: '4px' }}>
+  <Grid>
+    <Textarea placeholder="Default Textarea" />
+  </Grid>    
+  <Grid>
+    <Textarea
+      underlined
+      color="primary"
+      labelPlaceholder="Underlined Textarea"
+    />
+  </Grid>
+  <Grid>
+    <Textarea bordered color="secondary" labelPlaceholder="Bordered Textarea" />
+  </Grid>
+</Grid.Container>   
+`}
 />
 
 <Playground
   title="Status"
   desc="You can change the color of the entire `Textarea` with the property `status`."
-  files={textareaContent.status}
+  code={`
+<Grid.Container gap={2.5} css={{ mt: '4px' }}>
+  <Grid>
+    <Textarea labelPlaceholder="Default" status="default" />
+  </Grid>    
+  <Grid>
+    <Textarea labelPlaceholder="Primary" status="primary" />
+  </Grid>
+  <Grid>
+    <Textarea labelPlaceholder="Secondary" status="secondary" />
+  </Grid>
+  <Grid>
+    <Textarea labelPlaceholder="Success" status="success" />
+  </Grid>
+  <Grid>
+    <Textarea labelPlaceholder="Warning" status="warning" />
+  </Grid>
+  <Grid>
+    <Textarea labelPlaceholder="Error" status="error" />
+  </Grid>
+</Grid.Container>
+`}
 />
 
 <Playground
   title="Helper text"
   desc="As well as with `Input` you can set the prop `helperText` and customise its color with the `helperColor` prop in `Textarea`
   to show a helper text."
-  files={textareaContent.helper}
+  code={`
+<Grid.Container gap={2.5} css={{ mt: '4px' }}>
+     <Grid>
+      <Textarea
+        label="Default"
+        helperText="Please enter your name"
+        placeholder="Enter your name"
+      />
+      </Grid>  
+      <Grid>
+        <Textarea
+          status="success"
+          helperColor="success"
+          initialValue="NextUI is a Beautiful, fast and modern React UI library 🚀."
+          helperText="Excellent description"
+          placeholder="Description"
+          label="Success"
+        />
+      </Grid>       
+      <Grid>
+        <Textarea
+          bordered
+          color="error"
+          status="error"
+          helperColor="error"
+          helperText="Enter a larger description"
+          label="Description"
+          placeholder="Description"
+        />
+      </Grid>
+    </Grid.Container>
+`}
 />
 
 <Playground
@@ -60,7 +159,66 @@ import { Textarea } from '@nextui-org/react';
   desc="As well as the `Input` component, `Textarea` component can be controlled or uncontrolled. If you want to deep in this topic
   you can go to the official React documentation for [Controlled Components](https://reactjs.org/docs/forms.html#controlled-components)
   and [Uncontrolled Components](https://reactjs.org/docs/uncontrolled-components.html). The controlled Textarea example is using the hook [useInput](#useinput)"
-  files={textareaContent.controlledUncontrolled}
+  code={`
+()=> {
+  // Controlled
+  const { value: controlledValue, setValue: setControlledValue, reset, bindings } = useInput('Controlled Textarea');
+  React.useEffect(() => console.log({controlledValue}), [controlledValue]);
+  // Uncontrolled
+  const textareaRef = React.useRef(null);
+  const onClick = () => {
+    if (textareaRef.current) {
+      textareaRef.current.value = Math.random().toString(32);
+    }
+  };
+  return (
+<Grid.Container gap={1}>
+    <Grid>
+        <Textarea {...bindings} />
+        <Spacer y={0.5}/>
+        <Grid.Container gap={0.5}>
+            <Grid>
+                <Button
+                    auto
+                    color="primary"
+                    size="sm"
+                    onClick={() => setControlledValue(Math.random().toString(32))}
+                >
+                    Set value
+                </Button>
+            </Grid>
+            <Grid>
+                <Button auto flat size="sm" onClick={() => reset()}>
+                    Reset value
+                </Button>
+            </Grid>
+        </Grid.Container>
+    </Grid>
+    <Spacer x={2}/>
+    <Grid>
+        <Textarea 
+            ref={textareaRef} 
+            initialValue="Uncontrolled Textarea"
+            onChange={(e) => console.log(e.target.value)} 
+        />
+        <Spacer y={0.5}/>
+        <Grid.Container gap={0.5}>
+            <Grid>
+                <Button
+                    auto
+                    color="secondary"
+                    size="sm"
+                    onClick={onClick}
+                >
+                    Set value
+                </Button>
+            </Grid>
+        </Grid.Container>
+    </Grid>    
+</Grid.Container> 
+  );
+}
+`}
 />
 
 <Spacer y={3} />

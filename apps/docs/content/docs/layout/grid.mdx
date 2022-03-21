@@ -19,31 +19,158 @@ import { Grid } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="Dynamically scale container width while maintaining spacing."
-  files={gridContent.default_grid}
+  code={`
+() => {
+  const MockItem = ({text}) => {
+    return (
+      <Card color="primary" css={{ h: '$24' }}>
+        <Text h6 size={15} color="white" css={{ mt: 0 }}>
+          {text}
+        </Text>
+      </Card>
+    );
+}
+return (
+<Grid.Container gap={2} justify="center">
+  <Grid xs={4}>
+    <MockItem text="1 of 3" />
+  </Grid>
+  <Grid xs={4}>
+    <MockItem text="2 of 3" />
+  </Grid>
+  <Grid xs={4}>
+    <MockItem text="3 of 3" />
+  </Grid>
+</Grid.Container>
+) } `}
 />
 
 <Playground
   title="Fluid"
   desc="Containers for wrapping and scaling. The column widths apply at all breakpoints (i.e. `xs` and up)."
-  files={gridContent.fluid}
+  code={`
+() => {
+ const MockItem = ({text}) => {
+    return (
+      <Card color="primary" css={{ h: '$20' }}>
+        <Text h6 size={15} color="white" css={{ m: 0 }}>
+         {text}
+        </Text>
+      </Card>
+    );
+}
+  return (
+    <Grid.Container gap={2} justify="center">
+      <Grid xs={6}><MockItem text="1 of 2" /></Grid>
+      <Grid xs={6}><MockItem text="2 of 2" /></Grid>
+      <Grid xs={6}><MockItem text="1 of 3" /></Grid>
+      <Grid xs={3}><MockItem text="2 of 3" /></Grid>
+      <Grid xs={3}><MockItem text="3 of 3" /></Grid>
+      <Grid xs={3}><MockItem text="1 of 4" /></Grid>
+      <Grid xs={3}><MockItem text="2 of 4" /></Grid>
+      <Grid xs={3}><MockItem text="3 of 4" /></Grid>
+      <Grid xs={3}><MockItem text="4 of 4" /></Grid>
+      <Grid xs={3}><MockItem text="1 of 3" /></Grid>
+      <Grid xs={6}><MockItem text="2 of 3" /></Grid>
+      <Grid xs={3}><MockItem text="3 of 3" /></Grid>
+    </Grid.Container>
+  )
+}
+`}
 />
 
 <Playground
   title="Responsive"
   desc="Use different layouts for different screen widths."
-  files={gridContent.responsive}
+  code={`
+() => {
+ const isMd = useMediaQuery(960);
+ 
+ const MockItem = ({text}) => {
+    return (
+      <Card color="primary" css={{ h: '$20' }}>
+        <Text h6 size={15} color="white" css={{ m: 0 }}>
+         {text}
+        </Text>
+      </Card>
+    );
+}
+  return (
+    <Grid.Container gap={2} justify="center">
+      <Grid xs={12} md={6}><MockItem text={isMd ? "1 of 1" : "1 of 2"} /></Grid>
+      <Grid xs={6} md={6}><MockItem text={isMd ? "1 of 2" : "2 of 2"} /></Grid>
+      <Grid xs={6} md={3}><MockItem text={isMd ? "2 of 2" : "1 of 3"} /></Grid>
+      <Grid xs={6} md={3}><MockItem text={isMd ? "1 of 2" : "2 of 3"} /></Grid>
+      <Grid xs={6} md={3}><MockItem text={isMd ? "2 of 2" : "3 of 3"} /></Grid>
+    </Grid.Container>
+  )
+}
+`}
 />
 
 <Playground
   title="Auto width"
   desc="Auto fill remaining width."
-  files={gridContent.autoWidth}
+  code={`
+() => {
+ const MockItem = ({text}) => {
+    return (
+      <Card color="primary" css={{ h: '$20' }}>
+        <Text h6 size={15} color="white" css={{ m: 0 }}>
+         {text}
+        </Text>
+      </Card>
+    );
+}
+  return (
+    <>
+      <Grid.Container gap={2} justify="center">
+        <Grid xs><MockItem text="1 of 3" /></Grid>
+        <Grid xs><MockItem text="2 of 3" /></Grid>
+        <Grid xs><MockItem text="3 of 3" /></Grid>
+      </Grid.Container>
+      <Grid.Container gap={2} justify="center">
+        <Grid xs><MockItem text="1 of 3" /></Grid>
+        <Grid xs={6}><MockItem text="2 of 3" /></Grid>
+        <Grid xs><MockItem text="3 of 3" /></Grid>
+      </Grid.Container>
+    </>
+  )
+}
+`}
 />
 
 <Playground
   title="Hide elements"
   desc="Hide elements when unit size is 0 (i.e. `sm={0}` this will hide the element for resolutions greater than  `sm`). "
-  files={gridContent.hideElement}
+  code={`
+() => {
+ const isMd = useMediaQuery(960);
+ 
+ const MockItem = ({text}) => {
+    return (
+      <Card color="primary" css={{ h: '$20' }}>
+        <Text h6 size={15} color="white" css={{ m: 0 }}>
+         {text}
+        </Text>
+      </Card>
+    );
+}
+return (<Grid.Container gap={2} justify="center">
+  <Grid xs={6} sm={0}>
+    <MockItem text={isMd ? "1 of 2" : "1 of 1"} />
+  </Grid>
+  <Grid xs={6} sm={0}>
+    <MockItem text={isMd ? "2 of 2" : "1 of 1"} />
+  </Grid>
+  <Grid xs={12}>
+    <MockItem text="1 of 1" />
+  </Grid>
+  <Grid xs={12}>
+    <MockItem text="1 of 1" />
+  </Grid>
+</Grid.Container>) 
+}`}
 />
 
 <Spacer y={2} />
@@ -68,32 +195,28 @@ import { Grid } from '@nextui-org/react';
 
 #### Grid Props
 
-| Attribute        | Type                          | Accepted values                | Description                         | Default |
-| ---------------- | ----------------------------- | ------------------------------ | ----------------------------------- | ------- |
-| **xs**           | `boolean`                     | `true / false`                 | extra small devices (<650px)        | `false` |
-| **sm**           | `boolean`                     | `true / false`                 | small devices (≥650px)              | `false` |
-| **md**           | `boolean`                     | `true / false`                 | medium devices (≥960px)             | `false` |
-| **lg**           | `boolean`                     | `true / false`                 | large devices (≥1280px)             | `false` |
-| **xl**           | `boolean`                     | `true / false`                 | extra large devices (≥1400px)       | `false` |
-| **direction**    | `Direction`                   | [Direction](#direction)        | CSS "flex-direction" property       | -       |
-| **justify**      | `Justify`                     | [Justify](#justify)            | CSS "justify-content" property      | -       |
-| **alignItems**   | `AlignItems`                  | [AlignItems](#align-items)     | CSS "align-items" property          | -       |
-| **alignContent** | `AlignContent`                | [AlignContent](#align-content) | CSS "align-content" property        | -       |
-| **css**          | `Stitches.CSS`                | -                              | Override Default CSS style          | -       |
-| **as**           | `keyof JSX.IntrinsicElements` | -                              | Changes which tag component outputs | `div`   |
-| ...              | `HTMLAttributes`              | `'id', 'className', ...`       | Native element props                | -       |
+| Attribute        | Type             | Accepted values                | Description                    | Default |
+| ---------------- | ---------------- | ------------------------------ | ------------------------------ | ------- |
+| **xs**           | `boolean`        | `true / false`                 | extra small devices (<650px)   | `false` |
+| **sm**           | `boolean`        | `true / false`                 | small devices (≥650px)         | `false` |
+| **md**           | `boolean`        | `true / false`                 | medium devices (≥960px)        | `false` |
+| **lg**           | `boolean`        | `true / false`                 | large devices (≥1280px)        | `false` |
+| **xl**           | `boolean`        | `true / false`                 | extra large devices (≥1400px)  | `false` |
+| **direction**    | `Direction`      | [Direction](#direction)        | CSS "flex-direction" property  | -       |
+| **justify**      | `Justify`        | [Justify](#justify)            | CSS "justify-content" property | -       |
+| **alignItems**   | `AlignItems`     | [AlignItems](#align-items)     | CSS "align-items" property     | -       |
+| **alignContent** | `AlignContent`   | [AlignContent](#align-content) | CSS "align-content" property   | -       |
+| ...              | `HTMLAttributes` | `'id', 'className', ...`       | Native element props           | -       |
 
 <Spacer y={2} />
 
 #### Grid.Container Props
 
-| Attribute | Type                          | Accepted values          | Description                         | Default |
-| --------- | ----------------------------- | ------------------------ | ----------------------------------- | ------- |
-| **gap**   | `number`                      | -                        | spacing of children                 | 0       |
-| **wrap**  | `Wrap`                        | [Wrap](#wrap)            | CSS "flex-wrap" property            | `wrap`  |
-| **css**   | `Stitches.CSS`                | -                        | Override Default CSS style          | -       |
-| **as**    | `keyof JSX.IntrinsicElements` | -                        | Changes which tag component outputs | `div`   |
-| ...       | `HTMLAttributes`              | `'id', 'className', ...` | Native element props                | -       |
+| Attribute | Type             | Accepted values          | Description              | Default |
+| --------- | ---------------- | ------------------------ | ------------------------ | ------- |
+| **gap**   | `number`         | -                        | spacing of children      | 0       |
+| **wrap**  | `Wrap`           | [Wrap](#wrap)            | CSS "flex-wrap" property | `wrap`  |
+| ...       | `HTMLAttributes` | `'id', 'className', ...` | Native element props     | -       |
 
 ### Grid types
 

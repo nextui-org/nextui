@@ -88,7 +88,7 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
         alignItems="center"
       >
         <Col
-          className="navbar__logo-container"
+          className="navbar__logo-conta8iner"
           css={{
             '@mdMax': {
               width: '100%'
@@ -97,7 +97,7 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
         >
           <Row justify="flex-start" align="center">
             <NextLink href="/">
-              <Link href="/">
+              <Link>
                 <Logo
                   auto
                   className="navbar__logo"

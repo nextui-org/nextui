@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo } from 'react';
-import { useFocusRing } from '@react-aria/focus';
 import CollapseIcon from './collapse-icon';
 import Expand from '../utils/expand';
 import { useCollapseContext } from './collapse-context';
@@ -92,17 +91,6 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     updateValues
   } = useCollapseContext();
 
-  const {
-    isFocusVisible,
-    focusProps
-  }: {
-    isFocusVisible: boolean;
-    focusProps: Omit<
-      React.HTMLAttributes<HTMLButtonElement>,
-      keyof CollapseProps
-    >;
-  } = useFocusRing();
-
   if (!title) {
     useWarning('"title" is required.', 'Collapse');
   }
@@ -160,7 +148,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
 
   return (
     <StyledCollapse
-      tabIndex={-1}
+      tabIndex={disabled ? -1 : 0}
       shadow={shadow}
       bordered={bordered}
       animated={animated}
@@ -171,10 +159,11 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
       className={clsx(className, preClass, `${preClass}--${getState}`)}
       isDark={isDark}
       {...props}
+      {...bindings}
     >
       <StyledCollapseView
         role="button"
-        tabIndex={disabled ? -1 : 0}
+        tabIndex={-1}
         id={ariaLabelledById}
         className={`${preClass}-view`}
         data-state={getState}
@@ -182,10 +171,7 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
         aria-disabled={disabled}
         aria-expanded={visible}
         aria-controls={ariaControlId}
-        isFocusVisible={isFocusVisible}
         onClick={handleChange}
-        {...focusProps}
-        {...bindings}
       >
         <div className={clsx(`${preClass}-title-container`)}>
           {contentLeft && (

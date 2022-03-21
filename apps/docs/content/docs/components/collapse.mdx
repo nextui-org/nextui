@@ -19,73 +19,455 @@ import { Collapse } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="The `Collapse.Group` behavior is like an accordion by default."
-  files={collapseContent.defaultCollapse}
+  code={` 
+<Collapse.Group>
+    <Collapse title="Option A">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+    <Collapse title="Option B">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+    <Collapse title="Option C">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+</Collapse.Group>`}
 />
 
 <Playground
   title="No Accordion"
   desc="You can disable the accordion behavior with the `accordion` property."
-  files={collapseContent.noAccordion}
+  code={` 
+<Collapse.Group accordion={false}>
+    <Collapse title="Option A">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+    <Collapse title="Option B">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+    <Collapse title="Option C">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+</Collapse.Group>`}
 />
 
 <Playground
   title="Initial Expanded"
   desc="You can use the `expanded` property to expand an item."
-  files={collapseContent.initialExpanded}
+  code={` 
+  <Collapse.Group>
+    <Collapse title="Option A">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+    <Collapse title="Option B" expanded>
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+    <Collapse title="Option C">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+  </Collapse.Group>`}
 />
 
 <Playground
   title="With subtitle"
   desc="You can add the `subtitle` property to the `Collapse` component to give more details."
-  files={collapseContent.withSubtitle}
+  code={` 
+<Collapse.Group>
+    <Collapse title="Option A" subtitle="More description about Option A">
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+    <Collapse
+      title="Option B"
+      subtitle={
+        <>
+          More description about <Text b>Option B</Text>
+        </>
+      }
+    >
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </Text>
+    </Collapse>
+  </Collapse.Group>`}
 />
 
 <Playground
   title="Shadow"
   desc="You can add a shadow effect with the property `shadow`."
-  files={collapseContent.shadow}
+  code={` 
+<Grid.Container gap={2}>
+    <Grid>
+      <Collapse
+        shadow
+        title="Option"
+        subtitle="More description about Option"
+      >
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+    </Grid>
+    <Grid>
+      <Collapse.Group shadow>
+        <Collapse title="Option A">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+        </Collapse>
+        <Collapse title="Option B">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+        </Collapse>
+        <Collapse title="Option C">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+        </Collapse>
+      </Collapse.Group>
+    </Grid>
+</Grid.Container>`}
 />
 
 <Playground
   title="Bordered"
   desc="You can change the full style to a bordered `Collapse` with the `bordered` property."
-  files={collapseContent.bordered}
+  code={` 
+<Grid.Container gap={2}>
+    <Grid>
+      <Collapse
+        bordered
+        title="Option"
+        subtitle="More description about Option"
+      >
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+    </Grid>
+    <Grid>
+      <Collapse.Group bordered>
+        <Collapse title="Option A">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+        </Collapse>
+        <Collapse title="Option B">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+        </Collapse>
+        <Collapse title="Option C">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+        </Collapse>
+      </Collapse.Group>
+    </Grid>
+</Grid.Container>`}
 />
 
 <Playground
   title="Splitted"
   desc="You can change the full style to a separated `Collapse` with the `splitted` property."
-  files={collapseContent.splitted}
+  code={` 
+<Grid.Container gap={2}>
+    <Grid>
+      <Collapse.Group splitted>
+        <Collapse title="Option A">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+        </Collapse>
+        <Collapse title="Option B">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+        </Collapse>
+        <Collapse title="Option C">
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Text>
+        </Collapse>
+      </Collapse.Group>
+    </Grid>
+</Grid.Container>`}
 />
 
 <Playground
   title="Custom Arrow"
   desc="You can set a custom arrow with the `arrowIcon` property."
-  files={collapseContent.customArrow}
+  code={` 
+<Grid.Container gap={2}>
+  <Grid>
+    <Collapse.Group shadow>
+      <Collapse title="Anchor" arrowIcon={<Anchor />}>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+      <Collapse title="Moon" arrowIcon={<Moon />}>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+      <Collapse title="Sun" arrowIcon={<Sun />}>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+    </Collapse.Group>
+  </Grid>    
+</Grid.Container>
+`}
 />
 
 <Playground
   title="Content Left"
   desc="You can put any content at the begining of the `Collapse` with the `contentLeft` property."
-  files={collapseContent.contentLeft}
+  code={` 
+<Grid.Container gap={2}>
+  <Grid>
+    <Collapse.Group shadow>
+      <Collapse title={<Text h4>Chung Miller</Text>} subtitle="4 unread messages" contentLeft={
+        <Avatar size="lg" src="/avatars/avatar-6.png" color="secondary" bordered squared />
+       }>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+      <Collapse title={<Text h4>Janelle Lenard</Text>} subtitle="3 incompleted steps" contentLeft={
+        <Avatar size="lg" src="/avatars/avatar-3.png" color="success" bordered squared />
+      }>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+      <Collapse title={<Text h4>Zoey Lang</Text>} subtitle={<Text>2 issues to <Link color>fix now</Link></Text>} contentLeft={
+        <Avatar size="lg" src="/avatars/avatar-5.png" color="error" bordered squared />
+      }>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+    </Collapse.Group>
+  </Grid>    
+</Grid.Container>
+`}
 />
 
 <Playground
   title="No Divider"
   desc="You can remove the `Collapse` divider with the `divider` property."
-  files={collapseContent.noDivider}
+  code={` 
+<Grid.Container gap={2}>
+  <Grid>
+    <Collapse.Group shadow divider={false}>
+        <Collapse title="Option A">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+            </Text>
+        </Collapse>
+        <Collapse title="Option B">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+            </Text>
+        </Collapse>
+        <Collapse title="Option C">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+            </Text>
+        </Collapse>
+    </Collapse.Group>
+  </Grid>    
+</Grid.Container>
+`}
 />
 
 <Playground
   title="Disabled"
   desc="You can disable an specific  `Collapse` item  with the `disabled` property."
-  files={collapseContent.disabled}
+  code={` 
+<Grid.Container gap={2}>
+  <Grid>
+    <Collapse.Group shadow>
+        <Collapse title="Option A">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+            </Text>
+        </Collapse>
+        <Collapse disabled title="Option B" subtitle="Disabled option">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+            </Text>
+        </Collapse>
+        <Collapse title="Option C">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat.
+            </Text>
+        </Collapse>
+    </Collapse.Group>
+  </Grid>    
+</Grid.Container>
+`}
 />
 
 <Playground
   title="No Animated"
   desc="You can disable the entire animation with the `animated` property."
-  files={collapseContent.noAnimated}
+  code={` 
+<Grid.Container gap={2}>
+  <Grid>
+    <Collapse.Group shadow animated={false}>
+      <Collapse title="Option A">
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+      <Collapse title="Option B">
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+      <Collapse title="Option C">
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Text>
+      </Collapse>
+    </Collapse.Group>
+  </Grid>    
+</Grid.Container>
+`}
 />
 
 <Spacer y={3} />
@@ -96,44 +478,44 @@ import { Collapse } from '@nextui-org/react';
 
 #### Collapse Props
 
-| Attribute          | Type                                                           | Accepted values                  | Description                                                               | Default |
-| ------------------ | -------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------- | ------- |
-| **expanded**       | `boolean`                                                      | `true/false`                     | Manage the expand behaivor by prop                                        | `false` |
-| **title**          | `string` `React.ReactNode`                                     | -                                | Collapse title content                                                    | -       |
-| **subtitle**       | `string` `React.ReactNode`                                     | -                                | Collapse description content                                              | -       |
-| **divider**        | `boolean`                                                      | `true/false`                     | Show or hide the collapse divider                                         | `true`  |
-| **disabled**       | `boolean`                                                      | `true/false`                     | Disable collapse                                                          | `false` |
-| **bordered**       | `boolean`                                                      | `true/false`                     | Bordered collapse                                                         | `false` |
-| **shadow**         | `boolean`                                                      | `true/false`                     | Enable or disable the collapse shadow                                     | `false` |
-| **animated**       | `boolean`                                                      | `true/false`                     | Enable or disable the collapse animation                                  | `true`  |
-| **showArrow**      | `boolean`                                                      | `true/false`                     | Show or hide the collapse right arrow                                     | `true`  |
-| **arrowIcon**      | `React.ReactNode`                                              | -                                | Collapse arrow icon                                                       | -       |
-| **contentLeft**    | `React.ReactNode`                                              | -                                | Left content for the collapse                                             | -       |
-| **borderWeight**   | `NormalWeights`                                                | [NormalWeights](#normal-weights) | Border weight for `bordered` collapse                                     | `light` |
-| **index**          | `number`                                                       | -                                | Collapse's index, this value it's autogenerated by default                | -       |
-| **preventDefault** | `boolean`                                                      | `true/false`                     | Prevent default event on when is selected through the `Space, Enter` keys | `true`  |
-| **onChange**       | `(e: React.ChangeEvent, index:number, value: boolean) => void` | -                                | Callback fired when the value is changed                                  | -       |
-| **css**            | `Stitches.CSS`                                                 | -                                | Override Default CSS style                                                | -       |
-| **as**             | `keyof JSX.IntrinsicElements`                                  | -                                | Changes which tag component outputs                                       | `div`   |
-| ...                | `HTMLAttributes`                                               | `'id', 'className', ...`         | Div native props                                                          | -       |
+| Attribute          | Type                                                           | Accepted values                  | Description                                                               | Default  |
+| ------------------ | -------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------- | -------- |
+| **expanded**       | `boolean`                                                      | `true/false`                     | Manage the expand behaivor by prop                                        | `false`  |
+| **title**          | `string` `React.ReactNode`                                     | -                                | Collapse title content                                                    | -        |
+| **subtitle**       | `string` `React.ReactNode`                                     | -                                | Collapse description content                                              | -        |
+| **divider**        | `boolean`                                                      | `true/false`                     | Show or hide the collapse divider                                         | `true`   |
+| **disabled**       | `boolean`                                                      | `true/false`                     | Disable collapse                                                          | `false`  |
+| **bordered**       | `boolean`                                                      | `true/false`                     | Bordered collapse                                                         | `false`  |
+| **shadow**         | `boolean`                                                      | `true/false`                     | Enable or disable the collapse shadow                                     | `false`  |
+| **animated**       | `boolean`                                                      | `true/false`                     | Enable or disable the collapse animation                                  | `true`   |
+| **showArrow**      | `boolean`                                                      | `true/false`                     | Show or hide the collapse right arrow                                     | `true`   |
+| **arrowIcon**      | `React.ReactNode`                                              | -                                | Collapse arrow icon                                                       | -        |
+| **contentLeft**    | `React.ReactNode`                                              | -                                | Left content for the collapse                                             | -        |
+| **borderWeight**   | `NormalWeights`                                                | [NormalWeights](#normal-weights) | Border weight for `bordered` collapse                                     | `light`  |
+| **index**          | `number`                                                       | -                                | Collapse's index, this value it's autogenerated by default                | -        |
+| **preventDefault** | `boolean`                                                      | `true/false`                     | Prevent default event on when is selected through the `Space, Enter` keys | `true`   |
+| **onChange**       | `(e: React.ChangeEvent, index:number, value: boolean) => void` | -                                | Callback fired when the value is changed                                  | -        |
+| **css**            | `Stitches.CSS`                                                 | -                                | Override Default CSS style                                                | -        |
+| **as**             | `keyof JSX.IntrinsicElements`                                  | -                                | Changes which tag component outputs                                       |`div`     |
+| ...                | `HTMLAttributes`                                               | `'id', 'className', ...`         | Div native props                                                          | -        |
 
 <Spacer y={2} />
 
 ### Collapse.Group props
 
-| Attribute        | Type                                     | Accepted values                  | Description                                              | Default |
-| ---------------- | ---------------------------------------- | -------------------------------- | -------------------------------------------------------- | ------- |
-| **accordion**    | `boolean`                                | `true/false`                     | Expand children collapse like an accordion               | `true`  |
-| **animated**     | `boolean`                                | `true/false`                     | Enable or disable the collapse group animation           | `true`  |
-| **bordered**     | `boolean`                                | `true/false`                     | Bordered collapse group                                  | `false` |
-| **splitted**     | `boolean`                                | `true/false`                     | Separated collapse group                                 | `false` |
-| **shadow**       | `boolean`                                | `true/false`                     | Enable or disable the collapse group shadow              | `false` |
-| **divider**      | `boolean`                                | `true/false`                     | Show or hide the collapse group children divider         | -       |
-| **borderWeight** | `NormalWeights`                          | [NormalWeights](#normal-weights) | Border weight for `bordered` collapse group              | `light` |
-| **onChange**     | `(index:number, value: boolean) => void` | -                                | Callback fired when a collapse children value is changed | -       |
-| **css**          | `Stitches.CSS`                           | -                                | Override Default CSS style                               | -       |
-| **as**           | `keyof JSX.IntrinsicElements`            | -                                | Changes which tag component outputs                      | `div`   |
-| ...              | `HTMLAttributes`                         | `'id', 'className', ...`         | Div native props                                         | -       |
+| Attribute        | Type                                     | Accepted values                  | Description                                              | Default             |
+| ---------------- | ---------------------------------------- | -------------------------------- | -------------------------------------------------------- | ------------------- |
+| **accordion**    | `boolean`                                | `true/false`                     | Expand children collapse like an accordion               | `true`              |
+| **animated**     | `boolean`                                | `true/false`                     | Enable or disable the collapse group animation           | `true`              |
+| **bordered**     | `boolean`                                | `true/false`                     | Bordered collapse group                                  | `false`             |
+| **splitted**     | `boolean`                                | `true/false`                     | Separated collapse group                                 | `false`             |
+| **shadow**       | `boolean`                                | `true/false`                     | Enable or disable the collapse group shadow              | `false`             |
+| **divider**      | `boolean`                                | `true/false`                     | Show or hide the collapse group children divider         | -                   |
+| **borderWeight** | `NormalWeights`                          | [NormalWeights](#normal-weights) | Border weight for `bordered` collapse group              | `light`             |
+| **onChange**     | `(index:number, value: boolean) => void` | -                                | Callback fired when a collapse children value is changed | -                   |
+| **css**          | `Stitches.CSS`                           | -                                | Override Default CSS style                               | -                   |
+| **as**           | `keyof JSX.IntrinsicElements`            | -                                | Changes which tag component outputs                      | `div`               |
+| ...              | `HTMLAttributes`                         | `'id', 'className', ...`         | Div native props                                         | -                   |
 
 <Spacer y={2} />
 

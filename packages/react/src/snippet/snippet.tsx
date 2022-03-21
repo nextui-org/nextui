@@ -85,11 +85,10 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
     if (copyType === 'slient') return;
     setCopied(true);
   };
-
   const handleTooltipVisibleChange = () => {
     setTimeout(() => {
-      copied && setCopied(false);
-    }, 400);
+      setCopied(false);
+    }, 300);
   };
 
   return (

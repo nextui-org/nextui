@@ -20,43 +20,167 @@ import { Text } from '@nextui-org/react';
 <Playground
   title="Headings"
   desc="Headings `h1..h6` are titles or subtitles that you want to display on a webpage."
-  files={textContent.default_text}
+  code={`
+() => {
+  const text = 'Almost before we knew it, we had left the ground.'
+  return (
+    <>
+      <Text h1>{text}</Text>
+      <Text h2>{text}</Text>
+      <Text h3>{text}</Text>
+      <Text h4>{text}</Text>
+      <Text h5>{text}</Text>
+      <Text h6>{text}</Text>
+    </>
+  )
+}
+`}
 />
 
 <Playground
   title="Gradient"
   desc="You can use `css` prop and the `textGradient` util to render a gradient `Text`."
-  files={textContent.gradient}
+  code={`
+<>
+  <Text
+    h1
+    size={60}
+    css={{
+      textGradient: '45deg, $blue500 -20%, $pink500 50%'
+    }}
+    weight="bold"
+  >
+    Let's
+  </Text>
+  <Text
+    h1
+    size={60}
+    css={{
+      textGradient: '45deg, $purple500 -20%, $pink500 100%'
+    }}
+    weight="bold"
+  >
+    Make the Web
+  </Text>
+  <Text
+    h1
+    size={60}
+    css={{
+      textGradient: '45deg, $yellow500 -20%, $red500 100%'
+    }}
+    weight="bold"
+  >
+    Prettier
+  </Text>
+</>
+`}
 />
 
 <Playground
   title="Paragraph"
   desc="The `Text` component renders a paragraph by default."
-  files={textContent.paragraph}
+  code={`
+  () => {
+  const text = 'NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.';
+  return (
+    <>
+        <Text>{text}</Text>
+        <Text b>
+          {text}
+        </Text>
+    </>
+   )
+}
+`}
+/>
+
+<Playground
+  title="Small"
+  desc="You can use the `small` attribute to a `Text` to render a small paragraph."
+  code={`
+  () => {
+  const text = 'NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.';
+  return (
+    <>
+        <Text small>{text}</Text>
+        <Text small i>
+         {text}
+        </Text>
+    </>
+   )
+  }
+`}
 />
 
 <Playground
   title="Blockquote"
   desc="Use `blockquote` attribute to a `Text` to render a blockquote."
-  files={textContent.blockquote}
+  code={`
+<Text blockquote>
+  Almost before we knew it, we had left the ground.
+</Text>
+`}
 />
 
 <Playground
   title="Colors"
   desc="Use `color` attribute to a `Text` to render the paragraph with a different color."
-  files={textContent.color}
+  code={`
+<>
+  <Text color="primary">
+     Almost before we knew it, we had left the ground.
+  </Text>
+  <Text color="success">
+     Almost before we knew it, we had left the ground.
+  </Text>
+  <Text color="warning">
+     Almost before we knew it, we had left the ground.
+  </Text>
+  <Text color="secondary">
+     Almost before we knew it, we had left the ground.
+  </Text>
+  <Text color="error">
+     Almost before we knew it, we had left the ground.
+  </Text>
+  <Text color="#ff4ecd">
+     Almost before we knew it, we had left the ground.
+  </Text>
+</>
+`}
 />
 
 <Playground
   title="Sizes"
   desc="Change the `font-size` of the `Text` with the `size` property."
-  files={textContent.size}
+  code={`
+<>
+  <Text size={12}>Font Size: 12px;</Text>
+  <Text size={14}>Font Size: 14px;</Text>
+  <Text size="100%">Font Size: 100%;</Text>
+  <Text size="1.25rem">Font Size: 1.25rem;</Text>
+  <Text size="2em">Font Size: 2em;</Text>
+</>
+`}
 />
 
 <Playground
   title="Compose"
   desc="Effect of multiple `Text` stacks"
-  files={textContent.compose}
+  code={`
+  () => {
+  const smallText = 'Almost before we knew it, we had left the ground.'
+  const largeText = 'NextUI gives you the best developer experience with all the features you need for building beautiful and modern websites and applications.';
+  return (
+    <>
+        <Text>{largeText}</Text>
+        <Text>
+         <Text small del>{smallText}</Text>
+         <Text small b>{largeText}</Text>
+        </Text>
+    </>
+   )
+}
+`}
 />
 
 <Spacer y={3} />
