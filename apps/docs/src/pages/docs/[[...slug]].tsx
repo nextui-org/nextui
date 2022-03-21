@@ -23,12 +23,18 @@ import {
   getRawAsset,
   getPaths
 } from '@lib/docs/page';
+import componentsContent from '@content/components';
 import { isProd } from '@utils/index';
 import { getId } from '@utils/collections';
 
 const components = {
   ...Components,
   ...MDXComponents
+};
+
+const scope = {
+  // Markdown content
+  ...componentsContent
 };
 
 interface Props {
@@ -68,7 +74,9 @@ const DocsPage: React.FC<Props> = ({ routes, currentRoute, source, meta }) => {
       slug={slug}
       meta={meta}
     >
-      {source && <MDXRemote {...source} components={components} />}
+      {source && (
+        <MDXRemote {...source} components={components} scope={scope} />
+      )}
     </DocsLayout>
   );
 };

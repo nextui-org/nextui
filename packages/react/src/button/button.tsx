@@ -37,6 +37,7 @@ export interface Props {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   as?: keyof JSX.IntrinsicElements;
   className?: string;
+  type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
 }
 
 const defaultProps = {
@@ -47,7 +48,8 @@ const defaultProps = {
   animated: true,
   disabled: false,
   auto: false,
-  className: ''
+  className: '',
+  type: 'button'
 };
 
 type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;

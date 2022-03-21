@@ -4,21 +4,21 @@ import Playground from '../playground';
 import Codeblock from '../codeblock';
 import CarbonAd from '../carbon-ad';
 import * as Icons from '../icons';
-import { useTheme } from '@nextui-org/react';
+import { styled, useTheme } from '@nextui-org/react';
 import { Anchor } from '@components';
 import Block from '../templates/example-block';
 import cn from 'classnames';
 
 const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   return (
-    <div>
-      <table>{children}</table>
+    <div className="docs-table-container">
+      <table className="docs-table">{children}</table>
       <style jsx>{`
-        div {
+        .docs-table-container {
           overflow-x: auto;
           overflow-y: hidden;
         }
-        table {
+        .docs-table {
           border-collapse: separate;
           border-spacing: 0;
           width: 100%;
@@ -30,13 +30,13 @@ const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
 const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   const { theme } = useTheme();
   return (
-    <thead>
+    <thead className="docs-thead">
       {children}
       <style jsx>{`
-        :global(tr) {
+        :global(.docs-tr) {
           height: 2.875rem;
         }
-        :global(th) {
+        :global(.docs-thead th) {
           background: ${theme?.colors?.accents1?.value};
           color: ${theme?.colors?.accents5?.value};
           font-size: 0.8rem;
@@ -44,12 +44,12 @@ const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
           text-align: left;
           padding: 0 ${theme?.space?.lg?.value} 0 0;
         }
-        :global(th:nth-child(1)) {
+        :global(.docs-thead th:nth-child(1)) {
           padding-left: 1rem;
           border-radius: ${theme?.radii?.lg?.value} 0 0
             ${theme?.radii?.lg?.value};
         }
-        :global(th:last-child) {
+        :global(.docs-thead th:last-child) {
           border-radius: 0 ${theme?.radii?.lg?.value} ${theme?.radii?.lg?.value}
             0;
         }
@@ -58,24 +58,18 @@ const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   );
 };
 const Trow: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  const { theme } = useTheme();
-  return (
-    <tr>
-      {children}
-      <style jsx>{`
-        :global(tr td) {
-          font-size: 0.9rem;
-          padding: 0 ${theme?.space?.sm?.value};
-        }
-      `}</style>
-    </tr>
-  );
+  return <tr className="docs-tr">{children}</tr>;
 };
 const Tcol: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
+  const { theme } = useTheme();
   return (
-    <td>
+    <td className="docs-col">
       {children}
       <style jsx>{`
+        :global(.docs-col) {
+          font-size: 0.9rem;
+          padding: ${theme?.space?.sm?.value};
+        }
         :global(strong) {
           font-weight: 500;
         }
@@ -124,6 +118,11 @@ const List: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   );
 };
 
+// @ts-ignore
+const Paragraph = styled('p', {
+  fontSize: '1.125rem'
+});
+
 const MDXComponents = {
   ...Icons,
   h1: (props: React.DetailsHTMLAttributes<unknown>) => (
@@ -138,6 +137,7 @@ const MDXComponents = {
   h4: (props: React.DetailsHTMLAttributes<unknown>) => (
     <LinkedHeading as="h4" {...props} />
   ),
+  p: Paragraph,
   table: Table,
   thead: Thead,
   tr: Trow,

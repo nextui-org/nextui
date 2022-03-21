@@ -1,0 +1,117 @@
+---
+title: 'User'
+description: 'Flexible User Profile Component'
+url: https://nextui.org/docs/components/user
+---
+# User
+
+Flexible User Profile Component.
+
+```jsx
+import { User } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+<Playground
+  title="Default"
+  desc="The default `User` display User Image with Text on Screen."
+  files={UserContent.default_user}
+/>
+
+<Playground
+  title="Sizes"
+  desc="The `User` comes in 5 sizes and you can also set a custom size in px with `size` property."
+  files={UserContent.size}
+/>
+
+<Playground
+  title="Bordered"
+  desc="You can change the full style to a bordered `User` with the `bordered` property."
+  files={UserContent.border}
+/>
+
+<Playground
+  title="Colors"
+  desc="You can change the color of border with `color` prop."
+  files={UserContent.color}
+/>
+
+<Playground
+  title="Zoomed"
+  desc="You can apply a zoom animation to User with the `zoomed` property."
+  files={UserContent.zoomed}
+/>
+
+<Playground
+  title="Pointer"
+    desc="Display pointer cursor on hover."
+  files={UserContent.pointer}
+/>
+
+<Playground
+  title="Squared"
+  desc="You can change the full style to a squared `User` with the `squared` property."
+  files={UserContent.squared}
+/>
+
+<Playground
+  title="Description"
+  desc="You can add a info text under the name."
+  files={UserContent.description}
+/>
+
+<Playground
+  title="User Link"
+  desc="You can Add a Link Below Name Using User.Link Component"
+  files={UserContent.link}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### User Props
+
+| Attribute        | Type                           | Accepted values                          | Description                            | Default   |
+| ---------------- | ------------------------------ | ---------------------------------------- | -------------------------------------- | --------- |
+| **color**        | `NormalColors` `string`        | [NormalColors](#normal-colors)           | Change User Profile border color       | `default` |
+| **src**          | `string`                       | -                                        | Image source (local or remote)         | -         |
+| **name**         | `string`                       | -                                        | Display Text Next to Image             | -         |
+| **text**         | `string`                       | -                                        | Display Text when image is missing     | -         |
+| **alt**          | `string`                       | -                                        | Display alt text when image is missing | -         |
+| **size**         | `NormalSizes` `number`         | [NormalSizes](#normal-sizes)             | User Profile size                      | `medium`  |
+| **bordered**     | `boolean`                      | `true/false`                             | Bordered User Profile                  | `false`   |
+| **zoomed**       | `boolean`                      | `true/false`                             | Zoomed User Profile                    | `false`   |
+| **pointer**      | `boolean`                      | `true/false`                             | Display pointer cursor on hover        | `false`   |
+| **squared**      | `boolean`                      | `true/false`                             | Squared User Profile                   | `false`   |
+| **css**          | `Stitches.CSS`                 | -                                        | Override Default CSS style             | -         |
+| **as**           | `keyof JSX.IntrinsicElements`  | -                                        | Changes which tag component outputs    | `span`    |
+| ...              | `ImgHTMLAttributes`            | `'alt', 'crossOrigin', 'className', ...` | Native props                           | -         |
+<Spacer y={2} />
+
+### User types
+
+<Spacer y={1} />
+
+#### Simple Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+```

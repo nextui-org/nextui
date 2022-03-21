@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "1.0.2-beta.4",
+  "version": "1.0.2-beta.5",
   "license": "MIT",
   "description": "🚀 Beautiful and modern React UI library.",
   "homepage": "https://nextui.org",
@@ -56,10 +56,20 @@
   "dependencies": {
     "@babel/runtime": "7.9.6",
     "@stitches/react": "1.2.6",
-    "@react-aria/focus": "3.5.0",
-    "@react-aria/label": "3.2.1",
-    "@react-aria/ssr": "3.1.0",
-    "@react-aria/utils": "3.11.0"
+    "@react-aria/checkbox": "3.3.0",
+    "@react-aria/focus": "3.5.1",
+    "@react-aria/i18n": "3.3.6",
+    "@react-aria/interactions": "3.8.0",
+    "@react-aria/label": "3.2.2",
+    "@react-aria/ssr": "3.1.1",
+    "@react-aria/table": "3.2.1",
+    "@react-aria/utils": "3.11.1",
+    "@react-aria/visually-hidden": "3.2.4",
+    "@react-stately/data": "3.4.5",
+    "@react-stately/table": "3.1.1",
+    "@react-stately/toggle": "3.2.4",
+    "@react-types/grid": "3.0.1",
+    "@react-types/shared": "3.11.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
@@ -105,6 +115,7 @@
     "fs-extra": "^10.0.0",
     "jest": "^26.6.3",
     "p-iteration": "^1.1.8",
+    "parcel": "^2.3.1",
     "prettier": "^2.3.1",
     "rimraf": "^3.0.2",
     "terser": "5.10.0",

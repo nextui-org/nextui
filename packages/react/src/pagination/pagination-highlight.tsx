@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import clsx from '../utils/clsx';
 import { CSS } from '../theme/stitches.config';
 import {
   StyledPaginationHighlight,
   PaginationHighlightVariantsProps
 } from './pagination.styles';
+import { mergeProps } from '@react-aria/utils';
 
 interface Props {
   active: number;
@@ -15,7 +16,13 @@ interface Props {
   as?: keyof JSX.IntrinsicElements;
 }
 
-export type PaginationHighlightProps = Props & PaginationHighlightVariantsProps;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+
+export type PaginationHighlightProps = Props &
+  NativeAttrs &
+  PaginationHighlightVariantsProps;
+
+const preClass = 'nextui-pagination-highlight';
 
 const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   active,
@@ -25,12 +32,28 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
   css,
   ...props
 }) => {
+  const [selfActive, setSelfActive] = useState(active);
+  const [moveClassName, setMoveClassName] = useState('');
+
+  useEffect(() => {
+    if (active !== selfActive) {
+      setSelfActive(active);
+      setMoveClassName(`${preClass}--moving`);
+      const timer = setTimeout(() => {
+        setMoveClassName('');
+        clearTimeout(timer);
+      }, 350);
+    }
+  }, [active]);
+
   const leftValue = useMemo(
     () =>
       noMargin
-        ? `$$paginationSize * ${active}`
-        : `$$paginationSize * ${active} + ${active * 4 + 2}px`,
-    [active, noMargin]
+        ? `var(--nextui--paginationSize) * ${selfActive}`
+        : `var(--nextui--paginationSize) * ${selfActive} + ${
+            selfActive * 4 + 2
+          }px`,
+    [selfActive, noMargin]
   );
 
   return (
@@ -38,15 +61,24 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
       aria-hidden={true}
       shadow={shadow}
       rounded={rounded}
-      className={clsx('nextui-pagination-highlight', {
-        'nextui-pagination-highlight--rounded': rounded,
-        'nextui-pagination-highlight--active': active,
-        'nextui-pagination-highlight--no-margin': noMargin,
-        'nextui-pagination-highlight--shadow': shadow
-      })}
+      className={clsx(
+        preClass,
+        moveClassName,
+        {
+          [`${preClass}--rounded`]: rounded,
+          [`${preClass}--active`]: active,
+          [`${preClass}--no-margin`]: noMargin,
+          [`${preClass}--shadow`]: shadow
+        },
+        props.className
+      )}
       noMargin={noMargin}
+      style={mergeProps(
+        { '--nextui--paginationLeft': `calc(${leftValue})` },
+        props?.style || {}
+      )}
       css={{
-        left: `calc(${leftValue})`,
+        left: 'var(--nextui--paginationLeft)',
         ...(css as any)
       }}
       {...props}
