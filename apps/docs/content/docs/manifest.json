@@ -196,12 +196,12 @@
                         },
                         {
                             "title": "User",
-                            "keywords": "User",
+                            "keywords": "User, avatar, name, initials",
                             "path": "/docs/components/user.mdx"
                         },
                         {
                             "title": "Image",
-                            "keywords": "User",
+                            "keywords": "Image, Next.js Image, image component",
                             "path": "/docs/components/image.mdx"
                         }
                     ]
