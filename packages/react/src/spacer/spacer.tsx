@@ -28,7 +28,12 @@ const Spacer: React.FC<SpacerProps> = ({ x, y, inline, css, ...props }) => {
   const marginTop = getMargin(y);
   return (
     <StyledSpacer
-      css={{ marginLeft, marginTop, ...(css as any) }}
+      css={{
+        marginLeft: `${marginLeft} !important`,
+        marginTop: `${marginTop} !important`,
+        ...(css as any)
+      }}
+      aria-hidden="true"
       {...props}
     ></StyledSpacer>
   );

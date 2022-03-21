@@ -91,7 +91,7 @@ const CodeDemo: React.FC<CodeDemoProps> = ({ css, line, ...props }) => {
         code: {
           willChange: 'transform',
           transition: 'transform 200ms ease-in-out',
-          ...css.code
+          ...css?.code
         }
       }}
     />

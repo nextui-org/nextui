@@ -13,7 +13,7 @@ export interface Props {
   code: string;
 }
 
-const Editor: React.FC<Props> = ({ initialOpen,code }) => {
+const Editor: React.FC<Props> = ({ initialOpen, code }) => {
   const { theme, isDark } = useTheme();
   const [visible, setVisible] = useState(initialOpen);
   const [copied, setCopied] = useState(false);
@@ -42,13 +42,12 @@ const Editor: React.FC<Props> = ({ initialOpen,code }) => {
     event.preventDefault();
     setCopied(true);
     copy(code);
-    
   };
 
   const handleTooltipVisibleChange = () => {
     setTimeout(() => {
-      setCopied(false);
-    }, 200);
+      copied && setCopied(false);
+    }, 400);
   };
 
   const linkHandler = (event: React.MouseEvent) => {
