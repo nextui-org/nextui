@@ -33,6 +33,7 @@ export const StyledContent = styled('a', {
   color: '$text',
   cursor: 'pointer',
   transition: '$default',
+
   '& .chevron-right-icon': {
     transition: 'transform cubic-bezier(0.4, 0, 0.2, 1) 0.2s'
   },
