@@ -41,12 +41,6 @@ export const StyledContent = styled('a', {
     '& .chevron-right-icon': {
       transform: 'translateX(2px)'
     }
-  },
-  '&:active': {
-    '& .chevron-right-icon': {
-      opacity: 0.1,
-      transform: 'translateX(10px)'
-    }
   }
 });
 

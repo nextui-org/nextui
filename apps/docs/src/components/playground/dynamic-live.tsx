@@ -30,6 +30,7 @@ const StyledWrapper = Components.styled(Box, {
   marginLeft: '-$sm',
   display: 'flex',
   flexWrap: 'wrap',
+  color: '$text',
   flexDirection: 'column',
   background: 'transparent',
   '& > div': {

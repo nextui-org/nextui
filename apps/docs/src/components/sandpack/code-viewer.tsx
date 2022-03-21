@@ -1,21 +1,23 @@
 import * as React from 'react';
 import {
   FileTabs,
-  CodeEditor,
+  // CodeEditor,
   useSandpack,
   useActiveCode,
   SandpackStack
 } from '@codesandbox/sandpack-react';
 import type {
-  CodeEditorRef,
+  // CodeEditorRef,
   SandpackInitMode
 } from '@codesandbox/sandpack-react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import { Decorators } from './types';
-import { getId } from '@utils/collections';
+// import { getId } from '@utils/collections';
 import { Box } from '@primitives';
-import useIsMounted from '@hooks/use-is-mounted';
+import { CodeDemoBlock } from '@components';
+// import useIsMounted from '@hooks/use-is-mounted';
 import { StyledShoreMoreButton } from './styles';
+
 export interface CodeViewerProps {
   showTabs?: boolean;
   showLineNumbers?: boolean;
@@ -38,30 +40,19 @@ export interface CodeViewerProps {
 /**
  * @category Components
  */
-const SandpackCodeViewer = React.forwardRef<CodeEditorRef, CodeViewerProps>(
-  (
-    {
-      showTabs,
-      showLineNumbers,
-      decorators,
-      code: propCode,
-      initMode,
-      wrapContent,
-      containerRef
-    },
-    ref
-  ) => {
+const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
+  ({ showTabs, code: propCode, containerRef }, ref) => {
     const { sandpack } = useSandpack();
     const { code } = useActiveCode();
-    const isMounted = useIsMounted();
+    // const isMounted = useIsMounted();
 
     const { activePath } = sandpack;
 
-    const [internalCode, setInternalCode] = React.useState(propCode || code);
+    // const [internalCode, setInternalCode] = React.useState(propCode || code);
     const [isExpanded, setIsExpanded] = React.useState(false);
     // hack to make sure we re-render the code editor and chenge current file
     // TODO: open an issue on sandpack-react
-    const [internalKey, setInternalKey] = React.useState(getId());
+    // const [internalKey, setInternalKey] = React.useState(getId());
     const lineCountRef = React.useRef<{ [key: string]: number }>({});
 
     if (!lineCountRef.current[activePath]) {
@@ -79,15 +70,15 @@ const SandpackCodeViewer = React.forwardRef<CodeEditorRef, CodeViewerProps>(
       }
     }, [containerRef]);
 
-    React.useEffect(() => {
-      setInternalCode(propCode || code);
-      setInternalKey(getId());
-    }, [propCode, code]);
+    // React.useEffect(() => {
+    //   setInternalCode(propCode || code);
+    //   setInternalKey(getId());
+    // }, [propCode, code]);
 
     // to avoid flicker in prod mode
-    if (!isMounted) {
-      return null;
-    }
+    // if (!isMounted) {
+    //   return null;
+    // }
 
     const handleExpand = () => {
       const nextIsExpanded = !isExpanded;
@@ -110,7 +101,21 @@ const SandpackCodeViewer = React.forwardRef<CodeEditorRef, CodeViewerProps>(
     return (
       <SandpackStack>
         {shouldShowTabs ? <FileTabs /> : null}
-        <CodeEditor
+        <CodeDemoBlock
+          ref={ref}
+          language="jsx"
+          value={propCode || code}
+          css={{
+            py: 0,
+            mt: shouldShowTabs ? '$2' : '$5',
+            mb: 0,
+            ov: 'scroll',
+            bs: 'none',
+            borderRadius: 0
+          }}
+        />
+        {/* FIXME: For some reason on production mode the CodeEditor loses the styles */}
+        {/* <CodeEditor
           readOnly
           ref={ref}
           key={internalKey}
@@ -121,9 +126,9 @@ const SandpackCodeViewer = React.forwardRef<CodeEditorRef, CodeViewerProps>(
           showLineNumbers={showLineNumbers}
           showReadOnly={false}
           wrapContent={wrapContent}
-        />
+        /> */}
         {isExpandable && (
-          <Box css={{ pb: 'var(--sp-space-2)', pl: 'var(--sp-space-4)' }}>
+          <Box css={{ py: '$3', pl: 'var(--sp-space-4)' }}>
             <StyledShoreMoreButton onClick={handleExpand}>
               {isExpanded ? 'Show less' : 'Show more'}
             </StyledShoreMoreButton>

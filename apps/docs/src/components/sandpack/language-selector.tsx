@@ -3,7 +3,6 @@ import cn from 'classnames';
 import { SandpackPredefinedTemplate } from '@codesandbox/sandpack-react';
 import { TypescriptLogo, JavascriptLogo } from '@components';
 import { StyledPlaygroundButtons, StyledLanguageButton } from './styles';
-import useIsMounted from '@hooks/use-is-mounted';
 
 interface Props {
   template: SandpackPredefinedTemplate;
@@ -16,14 +15,10 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   template,
   onChange
 }) => {
-  const isMounted = useIsMounted();
-
   const handleToggle = () => {
     const newTemplate = template === 'react' ? 'react-ts' : 'react';
     onChange?.(newTemplate);
   };
-
-  if (!isMounted) return null;
 
   return (
     <StyledPlaygroundButtons bottom>

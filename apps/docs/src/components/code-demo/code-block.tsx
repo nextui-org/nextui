@@ -43,7 +43,7 @@ const WindowIcon = styled(Box, {
 
 type CodeBlockProps = PreProps & {
   language: 'js' | 'jsx' | 'bash' | 'css' | 'diff';
-  value: string;
+  value?: string;
   line?: string;
   css?: any;
   mode?: 'static' | 'typewriter';
@@ -144,7 +144,8 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
       showWindowIcons,
       ...props
     } = _props;
-    let result: any = refractor.highlight(value, language);
+
+    let result: any = refractor.highlight(value || '', language);
 
     result = highlightLine(result, rangeParser(line));
 
@@ -172,7 +173,7 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>(
       <Pre
         ref={forwardedRef}
         className={classes}
-        css={{ ...css, pt: showWindowIcons ? 0 : '$8' }}
+        css={{ pt: showWindowIcons ? 0 : '$8', ...css }}
         data-line-numbers={showLineNumbers}
         {...props}
       >
