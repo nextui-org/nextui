@@ -97,12 +97,12 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
   }, [isBrowser, userTheme]);
 
   return (
-    <ThemeContext.Provider value={providerValue}>
-      <SSRProvider>
+    <SSRProvider>
+      <ThemeContext.Provider value={providerValue}>
         {!disableBaseline && <CssBaseline />}
         {children}
-      </SSRProvider>
-    </ThemeContext.Provider>
+      </ThemeContext.Provider>
+    </SSRProvider>
   );
 };
 

@@ -19,266 +19,58 @@ import { Button } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="The default `Button` contains an animation effect."
-  code={`
-<Button>Default</Button>
-`}
+  files={buttonContent.default_button}
 />
 
 <Playground
   title="Disabled"
   desc="Unusable and un-clickable `Button`."
-  code={`
-<Button disabled>Disabled</Button>
-`}
+  files={buttonContent.disabled_button}
+  
 />
 
 <Playground
   title="Sizes"
   desc="Change the size of the entire `Button` including `padding`, `font-size` and `border` with the `size` property."
-  code={`
-<>
-    <Button size="xs">Mini</Button>
-    <Spacer y={0.5}/>
-    <Button size="sm">Small</Button>
-    <Spacer y={0.5}/>
-    <Button>Medium</Button>
-    <Spacer y={0.5}/>
-    <Button size="lg">Large</Button>
-    <Spacer y={0.5}/>
-    <Button size="xl">Xlarge</Button>
-    <Spacer y={0.5}/>
-    <Button auto>Auto Width</Button>
-</>
-`}
+  files={buttonContent.sizes}
 />
 
 <Playground
   title="Colors"
   desc="You can change the color of the `Button` with the property `color`."
-  code={`
-<Grid.Container gap={2}>
-  <Grid>
-    <Button color="primary" auto>
-        Primary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="secondary" auto>
-        Secondary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="success" auto>
-        Success
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="warning" auto>
-        Warning
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="error" auto>
-        Error
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="gradient" auto>
-        Gradient
-    </Button>
-  </Grid>
-</Grid.Container>
-`}
+  files={buttonContent.color}
+  
 />
 
 <Playground
   title="Shadow"
   desc="You can add a shadow effect with the property `shadow`."
-  code={`
-<Grid.Container gap={2}>
-  <Grid>
-    <Button shadow color="primary" auto>
-        Primary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button shadow color="secondary" auto>
-        Secondary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button shadow color="success" auto>
-        Success
-    </Button>
-  </Grid>
-  <Grid>
-    <Button shadow color="warning" auto>
-        Warning
-    </Button>
-  </Grid>
-  <Grid>
-    <Button shadow color="error" auto>
-        Error
-    </Button>
-  </Grid>
-  <Grid>
-    <Button shadow color="gradient" auto>
-        Gradient
-    </Button>
-  </Grid>
-</Grid.Container>
-`}
+  files={buttonContent.shadow}
+  
 />
 
 <Playground
   title="Loading"
   desc="You can add a `loading` status with the loading property. You can change the `loader` with the `loaderType` property"
-  code={`
-<Grid.Container gap={2}>
-  <Grid>
-    <Button auto clickable={false} color="primary" css={{ px: '$13' }}>
-      <Loading color="white" size="sm" />
-    </Button>
-  </Grid>
-  <Grid>
-    <Button auto clickable={false} color="secondary" css={{ px: '$13' }}>
-      <Loading type="spinner" color="white" size="sm" />
-    </Button>
-  </Grid>
-  <Grid>
-    <Button auto clickable={false} color="success" css={{ px: '$13' }}>
-      <Loading type="points" color="white" size="sm" />
-    </Button>
-  </Grid>
-  <Grid>
-    <Button auto clickable={false} color="warning" css={{ px: '$13' }}>
-      <Loading type="points-opacity" color="white" size="sm" />
-    </Button>
-  </Grid>
-  <Grid>
-    <Button auto clickable={false} color="error" css={{ px: '$13' }}>
-      <Loading type="spinner" color="white" size="sm" />
-    </Button>
-  </Grid>
-</Grid.Container>
-`}
+  files={buttonContent.loading}
 />
 
 <Playground
   title="Bordered"
   desc="You can change the full style to a bordered `Button` with the `bordered` property."
-  code={`
-  <Grid.Container gap={2}>
-  <Grid>
-    <Button bordered color="primary" auto>
-        Primary
-    </Button>
-  </Grid>
-  <Grid>
-  <Button bordered color="secondary" auto>
-    Secondary
-  </Button>
-  </Grid>
-  <Grid>
-  <Button bordered color="success" auto>
-    Success
-  </Button>
-  </Grid>
-  <Grid>
-  <Button bordered color="warning" auto>
-    Warning
-  </Button>
-  </Grid>
-  <Grid>
-  <Button bordered color="error" auto>
-    Error
-  </Button>
-  </Grid>
-  <Grid>
-  <Button bordered color="gradient" auto>
-    Gradient
-  </Button>
-  </Grid>
-</Grid.Container>
-`}
+  files={buttonContent.bordered}
 />
 
 <Playground
   title="Rounded"
   desc="You can completely round the corners of any type of `Button` with the `rounded` property."
-  code={`
-<Grid.Container gap={2}>
-  <Grid>
-    <Button auto color="primary" rounded>
-      Primary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button auto color="secondary" rounded flat>
-      Secondary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button auto color="success" rounded bordered>
-      Success
-    </Button>
-  </Grid>
-  <Grid>
-    <Button auto color="warning" rounded flat>
-      Warning
-    </Button>
-  </Grid>
-  <Grid>
-    <Button auto color="error" rounded bordered>
-      Error
-    </Button>
-  </Grid>
-  <Grid>
-    <Button auto color="gradient" rounded bordered>
-      Gradient
-    </Button>
-  </Grid>
-</Grid.Container>
-`}
+  files={buttonContent.rounded}
 />
 
 <Playground
   title="Ghost"
   desc="You can change the full style to a ghost button with the `ghost` property."
-  code={`
-  <Grid.Container gap={2}>
-  <Grid>
-    <Button color="primary" auto ghost>
-        Primary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="secondary" auto ghost>
-      Secondary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="success" auto ghost>
-      Success
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="warning" auto ghost>
-      Warning
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="error" auto ghost>
-      Error
-    </Button>
-  </Grid>
-  <Grid>
-    <Button color="gradient" auto ghost>
-      Gradient
-    </Button>
-  </Grid>
-</Grid.Container>
-`}
+  files={buttonContent.ghost}
 />
 
 <Playground
@@ -286,35 +78,7 @@ import { Button } from '@nextui-org/react';
   desc="You can change the full style to a flat button with the `flat` property.
                                         
 **_Note: `gradient` variant is not supported with the `flat` mode._**"
-  code={`
-<Grid.Container gap={2}>
-  <Grid>
-    <Button flat color="primary" auto>
-      Primary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button flat color="secondary" auto>
-      Secondary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button flat color="success" auto>
-      Success
-    </Button>
-  </Grid>
-  <Grid>
-    <Button flat color="warning" auto>
-      Warning
-    </Button>
-  </Grid>
-  <Grid>
-    <Button flat color="error" auto>
-      Error
-    </Button>
-  </Grid>
-</Grid.Container>
-`}
+  files={buttonContent.flat}
 />
 
 <Playground
@@ -322,63 +86,13 @@ import { Button } from '@nextui-org/react';
   desc="You can change the full style to a light button with the `light` property. 
   
   ***_Note: `gradient` variant is not supported with the `light` mode._***"
-  code={`
- <Grid.Container gap={2}>
-  <Grid>
-    <Button light color="primary" auto>
-      Primary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button light color="secondary" auto>
-      Secondary
-    </Button>
-  </Grid>
-  <Grid>
-    <Button light color="success" auto>
-      Success
-    </Button>
-  </Grid>
-  <Grid>
-    <Button light color="warning" auto>
-      Warning
-    </Button>
-  </Grid>
-  <Grid>
-    <Button light color="error" auto>
-      Error
-    </Button>
-  </Grid>
-</Grid.Container>
-`}
+  files={buttonContent.light}
 />
 
 <Playground
   title="Icons"
   desc="NextUI doesn't use any library or icon font by default, with this we give the freedom to use the one you prefer. In the following example we use [React Iconly](https://react-iconly.jrgarciadev.com)"
-  code={`
- <>
-    <Button auto color="error" icon={<Heart fill="currentColor" filled />} />
-    <Spacer y={1} />
-    <Button iconRight={<Camera fill="currentColor" />}>Take a photo</Button>
-    <Spacer y={1} />
-    <Button icon={<Lock fill="currentColor" />} color="success">
-      Lock
-    </Button>
-    <Spacer y={1} />
-    <Button icon={<Notification fill="currentColor" />} color="secondary">
-      Notifications
-    </Button>
-    <Spacer y={1} />
-    <Button icon={<User  fill="currentColor" />} color="error" flat>
-      Delete User
-    </Button>
-    <Spacer y={1} />
-    <Button icon={<User/>} disabled>
-      Delete User
-    </Button>
-</>
-`}
+  files={buttonContent.icon}
 />
 
 <Spacer y={3} />
@@ -408,7 +122,7 @@ import { Button } from '@nextui-org/react';
 | **onClick**      | `MouseEventHandler`                             | -                                | Button click handler                      | -         |
 | **icon**         | `ReactNode`                                     | -                                | Show icon in button                       | -         |
 | **iconRight**    | `ReactNode`                                     | -                                | Show icon on the other side of the button | -         |
-| **type**         | `ButtonHTMLAttributes.type`                     | `button` `reset` `submit`        | Native type of button element             | `submit`  |
+| **type**         | `ButtonHTMLAttributes.type`                     | `button` `reset` `submit`        | Native type of button element             | `button`  |
 | **ref**          | <Code>Ref<HTMLButtonElement &#124; null></Code> | -                                | forwardRef                                | -         |
 | **css**          | `Stitches.CSS`                                  | -                                | Override Default CSS style                | -         |
 | **as**           | `keyof JSX.IntrinsicElements`                   | -                                | Changes which tag component outputs       | `button`  |

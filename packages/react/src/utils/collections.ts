@@ -25,10 +25,10 @@ export const pick = <Obj extends { [key: string]: any }, Key extends keyof Obj>(
     return acc;
   }, {} as Pick<Obj, Key>);
 
-export const pickChild = (
+export const pickChild = <T = ReactNode>(
   children: ReactNode | undefined,
   targetChild: React.ElementType
-): [ReactNode | undefined, ReactNode | undefined] => {
+): [T | ReactNode | undefined, ReactNode[] | undefined] => {
   let target: ReactNode[] = [];
   const withoutTargetChildren = React.Children.map(children, (item) => {
     if (!React.isValidElement(item)) return item;
@@ -42,6 +42,20 @@ export const pickChild = (
   const targetChildren = target.length >= 0 ? target : undefined;
 
   return [withoutTargetChildren, targetChildren];
+};
+
+export const pickSingleChild = <T = ReactNode>(
+  children: ReactNode | undefined,
+  targetChild: React.ElementType
+): [T, ReactNode | null] => {
+  const [withoutTargetChildren, target] = pickChild<T>(children, targetChild);
+  let targetChildren: ReactNode = null;
+
+  if (target && target.length >= 1) {
+    targetChildren = target.length >= 0 ? target[0] : undefined;
+  }
+
+  return [withoutTargetChildren as T, targetChildren];
 };
 
 export const isChildElement = (

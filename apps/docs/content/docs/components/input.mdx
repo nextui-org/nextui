@@ -19,380 +19,95 @@ import { Input } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="The default `Input` contains an animation effect."
-  code={`
-<Input placeholder="Next UI" />
-`}
+  files={inputContent.default_input}
 />
 
 <Playground
   title="Disabled"
   desc="Unusable and un-writtable `Input`."
-  code={`
-<>
-    <Input disabled placeholder="Disabled" />
-    <Spacer y={0.5} />
-    <Input readOnly placeholder="Read only" initialValue="readOnly" />
-</>
-`}
+  files={inputContent.disabled}
 />
 
 <Playground
   title="Clearable"
   desc="Add a clear button in the `Input` box."
-  code={`
-<>
-<Input clearable bordered labelPlaceholder="Name" initialValue="NextUI"/>
-<Spacer y={2.5} />
-<Input clearable underlined labelPlaceholder="Name" initialValue="NextUI"/>
-<Spacer y={1.5} />
-<Input clearable label="Name" placeholder="Name" initialValue="NextUI" />
-</>
-`}
+  files={inputContent.clearable}
 />
 
 <Playground
   title="Label"
   desc="Add a label to the `Input` with the property `label`"
-  code={`
-<Input label="Full Name" placeholder="Guillermo Rauch" />
-`}
+  files={inputContent.label}
 />
 
 <Playground
   title="Label Placeholder"
   desc="With the property `labelPlaceholder` the placeholder becomes a label with an great animation."
-  code={`
-<Input labelPlaceholder="NextUI" />
-`}
+  files={inputContent.labelPlaceholder}
 />
 
 <Playground
   title="Password"
   desc="`Input` component with a show/hide password functionality, Important: You have to use the `Input.Password`
   component."
-  code={`
-<>
-    <Input.Password labelPlaceholder="Password" initialValue="nextui123" />
-    <Spacer y={1.6} />
-    <Input.Password 
-        labelPlaceholder="Custom icons" 
-        visibleIcon={<Unlock fill="currentColor" />} 
-        hiddenIcon={<Lock fill="currentColor" />}
-    />
-</>
-`}
+  files={inputContent.password}
 />
 
 <Playground
   title="Sizes"
   desc="Change the size of the entire `Input` including `padding`, `font-size` and `border` with the `size` property."
-  code={`
- <>
-    <Input size="xs" placeholder="Mini" />
-    <Spacer y={0.5} />
-    <Input size="sm" placeholder="Small" />
-    <Spacer y={0.5} />
-    <Input size="md" placeholder="Medium" />
-    <Spacer y={0.5} />
-    <Input size="lg" placeholder="Large" />
-    <Spacer y={0.5} />
-    <Input size="xl" placeholder="xLarge" />
-    <Spacer y={0.5} />
-    <Input width="120px" placeholder="120px" />
-  </>
-`}
+  files={inputContent.size}
 />
 
 <Playground
   title="Bordered"
   desc="You can change the full style to a bordered `Input` with the `bordered` property and 
   you can customize the color with the `color` prop."
-  code={`
-<Grid.Container gap={4}>
-  <Grid>
-    <Input bordered labelPlaceholder="Default" color="default" />
-  </Grid>    
-  <Grid>
-    <Input bordered labelPlaceholder="Primary" color="primary" />
-  </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="Secondary" color="secondary" />
-  </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="Success" color="success" />
-  </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="Warning" color="warning" />
-  </Grid>
-  <Grid>
-    <Input bordered labelPlaceholder="Error" color="error" />
-  </Grid>
-</Grid.Container>   
-`}
+  files={inputContent.bordered}
 />
 
 <Playground
   title="Underlined"
   desc="You can change the full style to an undelined `Input` like the material effect just adding 
  the `underlined` prop."
-  code={`
-<Grid.Container gap={4}>
-  <Grid>
-    <Input underlined labelPlaceholder="Default" color="default" />
-  </Grid>    
-  <Grid>
-    <Input underlined labelPlaceholder="Primary" color="primary" />
-  </Grid>
-  <Grid>
-    <Input underlined labelPlaceholder="Secondary" color="secondary" />
-  </Grid>
-  <Grid>
-    <Input underlined labelPlaceholder="Success" color="success" />
-  </Grid>
-  <Grid>
-    <Input underlined labelPlaceholder="Warning" color="warning" />
-  </Grid>
-  <Grid>
-    <Input underlined labelPlaceholder="Error" color="error" />
-  </Grid>
-</Grid.Container>   
-`}
+  files={inputContent.underlined}
 />
 
 <Playground
   title="Rounded"
   desc="You can completely round the corners of any type of `Input` with the `rounded` prop."
-  code={`
-<Grid.Container gap={4}>
-  <Grid>
-    <Input rounded bordered label="Default" placeholder="Default" color="default" />
-  </Grid>    
-  <Grid>
-    <Input rounded bordered label="Primary" placeholder="Primary" color="primary" />
-  </Grid>
-  <Grid>
-    <Input rounded bordered label="Secondary" placeholder="Secondary" color="secondary" />
-  </Grid>
-  <Grid>
-    <Input rounded bordered label="Success" placeholder="Success" color="success" />
-  </Grid>
-  <Grid>
-    <Input rounded bordered label="Warning" placeholder="Warning" color="warning" />
-  </Grid>
-  <Grid>
-    <Input rounded bordered label="Error" placeholder="Error" color="error" />
-  </Grid>
-</Grid.Container> 
-`}
+  files={inputContent.rounded}
 />
 
 <Playground
   title="Status"
   desc="You can change the color of the entire `Input` with the property `status`."
-  code={`
-<Grid.Container gap={4}>
-  <Grid>
-    <Input labelPlaceholder="Default" status="default" />
-  </Grid>    
-  <Grid>
-    <Input labelPlaceholder="Primary" status="primary" />
-  </Grid>
-  <Grid>
-    <Input labelPlaceholder="Secondary" status="secondary" />
-  </Grid>
-  <Grid>
-    <Input labelPlaceholder="Success" status="success" />
-  </Grid>
-  <Grid>
-    <Input labelPlaceholder="Warning" status="warning" />
-  </Grid>
-  <Grid>
-    <Input labelPlaceholder="Error" status="error" />
-  </Grid>
-</Grid.Container>
-`}
+  files={inputContent.status}
 />
 
 <Playground
   title="No Shadow"
   desc="You can disable the shadow of the entire `Input` with the property `shadow={false}`."
-  code={`
-<Grid.Container gap={4}>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Default" status="default" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Primary" status="primary" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Secondary" status="secondary" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Success" status="success" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Warning" status="warning" />
-  </Grid>
-  <Grid>
-    <Input shadow={false} labelPlaceholder="Error" status="error" />
-  </Grid>
-</Grid.Container>
-`}
+  files={inputContent.shadow}
 />
 
 <Playground
   title="No Animated"
   desc="You can disable the animation of the entire `Input` with the property `animated={false}`."
-  code={`
-<Grid.Container gap={4}>
-  <Grid>
-    <Input animated={false} labelPlaceholder="Default" status="default" />
-  </Grid>
-  <Grid>
-    <Input underlined animated={false} labelPlaceholder="Primary" color="primary" />
-  </Grid>
-  <Grid>
-    <Input bordered animated={false} labelPlaceholder="Secondary" color="secondary" />
-  </Grid>
-</Grid.Container>
-`}
+  files={inputContent.noAnimated}
 />
 
 <Playground
   title="Helper text"
   desc="You can add a helper text to `Input` with the prop `helperText` and customise its color with the `helperColor` prop. 
   The first example is using the hook [useInput](#useinput)"
-  code={`
-  () => {
-    const { value, reset, bindings } = useInput('');      
-    const helper = React.useMemo(() => {
-        if (!value) return { 
-            text:'', 
-            color:'' 
-        };
-        const isValid = validateEmail(value);
-        return { 
-            text: isValid ? 'Correct email' : 'Enter a valid email',
-            color: isValid ? 'success' : 'error'
-        };    
-    }, [value]);
-    return (
-<Grid.Container gap={4}>
-     <Grid>
-        <Input
-            {...bindings}
-            clearable
-            shadow={false}
-            onClearClick={reset}
-            status={helper.color}
-            color={helper.color}
-            helperColor={helper.color}
-            helperText={helper.text}
-            type="email"
-            label="Email"
-            placeholder="With regex validation"
-        />
-      </Grid>   
-     <Grid>
-        <Input
-            clearable
-            helperText="Please enter your name"
-            label="Name"
-            placeholder="Enter your name"
-        />
-      </Grid>
-      <Grid>
-        <Input
-            clearable
-            color="error"
-            helperText="Required"
-            label="Error"
-            placeholder="Enter something"
-        />
-      </Grid>
-      <Grid>
-        <Input
-            clearable
-            color="success"
-            initialValue="getnextui"
-            helperText="Excelent username"
-            type="test"
-            label="Username"
-            placeholder="Enter your username"
-        />
-      </Grid>
-      <Grid>
-        <Input
-            clearable
-            color="warning"
-            helperText="Insecure password"
-            type="password"
-            label="Password"
-            placeholder="Enter your password"
-        />
-      </Grid>
-      <Grid>
-        <Input.Password
-            clearable
-            color="warning"
-            initialValue="123"
-            helperText="Insecure password"
-            type="password"
-            label="Password"
-            placeholder="Enter your password with eye"
-        />
-      </Grid>
-    </Grid.Container>
-    );
- }
-`}
+  files={inputContent.helper}
 />
 
 <Playground
   title="Left/right labels"
   desc="You can put any content at the begining or at the end of the `Input`"
-  code={`
-<Grid.Container gap={4}>
-    <Grid>    
-     <Input
-        bordered
-        labelLeft="https://"
-        labelRight=".org"
-        placeholder="nextui"
-        />
-    </Grid>
-    <Grid>
-     <Input
-        bordered
-        labelRight=".org"
-        placeholder="https://nextui"
-        />
-    </Grid >
-    <Grid>
-     <Input
-        bordered
-        labelLeft="https://"
-        placeholder="nextui.org"
-        />
-    </Grid >    
-    <Grid>      
-        <Input labelLeft="username" placeholder="getnextui" />
-    </Grid>
-    <Grid>      
-        <Input
-        labelRight=".org"
-        placeholder="https://nextui"
-        />
-    </Grid>
-    <Grid>
-     <Input
-        underlined
-        labelLeft="username"
-        placeholder="Next UI"
-        />
-    </Grid>
-  </Grid.Container>
-`}
+  files={inputContent.LRLabels}
 />
 
 <Playground
@@ -400,66 +115,14 @@ import { Input } from '@nextui-org/react';
   desc="You can put any content at the begining or at the end of the `Input` with the properties `contentLeft` and `contentRight`.
   Important: If you want the `Input` component change the icon colors according to the current `status` color 
   you should use `currentColor` as the icon/svg color to allows ."
-  code={`
-  <Grid.Container gap={4}>
-       <Grid>
-        <Input
-            clearable
-            contentRightStyling={false}
-            placeholder="Type your message..."
-            contentRight={<SendButton />}
-        />
-        </Grid>
-        <Grid>
-        <Input
-            clearable
-            underlined
-            color="warning"
-            labelPlaceholder="Sun icon"
-            contentRight={<Sun filled width="16" height="16" fill="#f5a623" />}
-        />
-        </Grid>
-        <Grid>
-        <Input
-            clearable
-            bordered
-            color="primary"
-            labelPlaceholder="Loading..."
-            contentRight={<Loading size="xs" />}
-        /> 
-        </Grid>
-    </Grid.Container>
-`}
+  files={inputContent.content}
 />
 
 <Playground
   title="Input Types"
   desc="Change the type of `Input` with the `type` property as a native html input, the default value is `text`"
-  code={`
-  <Grid.Container gap={4}>
-    <Grid>
-      <Input label="Text" type="text" />
-    </Grid>
-    <Grid>
-      <Input label="Password" type="password" />
-    </Grid>
-    <Grid>
-      <Input label="Search" type="search" />
-    </Grid>
-    <Grid>
-      <Input label="Number" type="number" />
-    </Grid>
-    <Grid>
-      <Input label="Url" type="url" />
-    </Grid>
-    <Grid>
-      <Input width="186px" label="Time" type="time" />
-    </Grid>
-    <Grid>
-      <Input width="186px" label="Date" type="date" />
-    </Grid>
-  </Grid.Container>
-`}
+  files={inputContent.types}
+  
 />
 
 <Spacer y={3} />
@@ -472,7 +135,7 @@ import { Input } from '@nextui-org/react';
 
 | Attribute               | Type                                                  | Accepted values                      | Description                                                                                       | Default          |
 | ----------------------- | ----------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------- | ---------------- |
-| **value**               | `string`                                              | -                                    | Input value                                                                                       | -                |
+| **value**               | `string | string[] | number`                          | -                                    | Input value                                                                                       | -                |
 | **initialValue**        | `string`                                              | -                                    | Input default value                                                                               | -                |
 | **placeholder**         | `string`                                              | -                                    | The short hint displayed in the input                                                             | -                |
 | **size**                | `NormalSizes`                                         | [NormalSizes](#normal-sizes)         | Change input size                                                                                 | `medium`         |
