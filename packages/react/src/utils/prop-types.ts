@@ -194,8 +194,6 @@ const display = tuple(
 
 const contentPosition = tuple('left', 'right');
 
-const normalAlignments = tuple('start', 'center', 'end');
-
 export const excludedInputPropsForTextarea = tuple(
   'clearable',
   'as',
@@ -211,20 +209,6 @@ export const excludedInputPropsForTextarea = tuple(
   'onClearClick',
   'css'
 );
-
-export const excludedTableProps = tuple(
-  'items',
-  'disabledKeys',
-  'allowDuplicateSelectionEvents',
-  'disallowEmptySelection',
-  'defaultSelectedKeys',
-  'sortDescriptor',
-  'onSortChange'
-);
-
-const selectionBehavior = tuple('toggle', 'replace');
-
-const selectionMode = tuple('none', 'single', 'multiple');
 
 export type Display = typeof display[number];
 
@@ -264,8 +248,6 @@ export type TooltipColors = typeof extendedColorsNoGradient[number];
 
 export type NormalLoaders = typeof normalLoaders[number];
 
-export type NormalAlignment = typeof normalAlignments[number];
-
 export type SnippetTypes = typeof extendedColors[number];
 
 export type CopyTypes = typeof copyTypes[number];
@@ -289,6 +271,3 @@ export type ExcludedInputProps = typeof excludedInputPropsForTextarea[number];
 export interface AsProp<As extends ElementType = ElementType> {
   as?: As;
 }
-
-export type SelectionMode = typeof selectionMode[number];
-export type SelectionBehavior = typeof selectionBehavior[number];

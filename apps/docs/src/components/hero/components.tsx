@@ -21,7 +21,7 @@ import { useIsMobile } from '@hooks/use-media-query';
 const StyledContainer = styled('div', {
   dflex: 'center',
   position: 'absolute',
-  zIndex: '$max',
+  zIndex: '$2',
   '@xsMax': {
     display: 'none'
   }

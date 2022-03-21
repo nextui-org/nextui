@@ -1,36 +1,33 @@
 import React from 'react';
+const { CssBaseline } = require('@nextui-org/react');
 import { themes } from '@storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
-import { createTheme, NextUIProvider, styled } from '@nextui-org/react';
+import { createTheme, NextUIProvider } from "@nextui-org/react"
 
 const lightTheme = createTheme({
-  type: 'light',
-  className: 'light-mode'
-});
+  type: 'light'
+})
 
 const darkTheme = createTheme({
-  type: 'dark',
-  className: 'dark-mode'
-});
-
-const Box = styled('div', {
-  display: 'flex',
-  bg: '$background',
-  color: '$text',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexWrap: 'wrap',
-  width: '100vw',
-  height: 'calc(100vh - 60px)'
-});
-
+  type: 'dark'
+})
 export const decorators = [
   (Story) => (
     <NextUIProvider theme={useDarkMode() ? darkTheme : lightTheme}>
-      <Box>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          width: '100%',
+          height: '100%'
+        }}
+      >
+        <CssBaseline />
         <Story />
-      </Box>
+      </div>
     </NextUIProvider>
   )
 ];

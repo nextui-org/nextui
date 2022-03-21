@@ -7,7 +7,8 @@ import {
   StyledUser,
   StyledUserInfo,
   StyledUserName,
-  StyledUserDesc
+  StyledUserSocial,
+  UserVariantsProps
 } from './user.styles';
 
 interface Props {
@@ -20,7 +21,6 @@ interface Props {
   pointer?: boolean;
   altText?: string;
   text?: string;
-  description?: string;
   squared?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }
@@ -34,7 +34,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type UserProps = Props &
   typeof defaultProps &
-  NativeAttrs & { css?: CSS };
+  NativeAttrs &
+  UserVariantsProps & { css?: CSS };
 
 const preClass = 'nextui-user';
 
@@ -48,7 +49,6 @@ const User: React.FC<React.PropsWithChildren<UserProps>> = ({
   squared,
   bordered,
   size,
-  description,
   ...props
 }) => {
   return (
@@ -58,8 +58,6 @@ const User: React.FC<React.PropsWithChildren<UserProps>> = ({
         src={src}
         color={color}
         squared={squared}
-        zoomed={props.zoomed}
-        pointer={props.pointer}
         bordered={bordered}
         text={text}
         size={size}
@@ -67,9 +65,9 @@ const User: React.FC<React.PropsWithChildren<UserProps>> = ({
       />
       <StyledUserInfo className={`${preClass}-info`}>
         <StyledUserName className={`${preClass}-name`}>{name}</StyledUserName>
-        <StyledUserDesc className={`${preClass}-desc`}>
-          {description || children}
-        </StyledUserDesc>
+        <StyledUserSocial className={`${preClass}-social`}>
+          {children}
+        </StyledUserSocial>
       </StyledUserInfo>
     </StyledUser>
   );

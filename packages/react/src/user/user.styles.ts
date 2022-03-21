@@ -1,4 +1,4 @@
-import { styled } from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
 
 export const StyledUser = styled('div', {
   d: 'inline-flex',
@@ -27,7 +27,7 @@ export const StyledUserName = styled('span', {
   ov: 'hidden' // overflow
 });
 
-export const StyledUserDesc = styled('span', {
+export const StyledUserSocial = styled('span', {
   fontSize: '$tiny',
   color: '$accents4',
   '*:first-child': {
@@ -45,3 +45,10 @@ export const StyledUserLink = styled('a', {
     }
   }
 });
+
+// types
+export type UserVariantsProps = VariantProps<typeof StyledUser>;
+export type UserInfoVariantsProps = VariantProps<typeof StyledUserInfo>;
+export type UserNameVariantsProps = VariantProps<typeof StyledUserName>;
+export type UserSocialVariantsProps = VariantProps<typeof StyledUserSocial>;
+export type UserLinkVariantsProps = VariantProps<typeof StyledUserLink>;

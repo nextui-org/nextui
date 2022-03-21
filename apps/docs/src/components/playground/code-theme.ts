@@ -2,7 +2,7 @@ import { PrismTheme } from 'prism-react-renderer';
 
 const makeCodeTheme = (): PrismTheme => ({
   plain: {
-    backgroundColor: 'var(--nextui-colors-codeBackground)',
+    backgroundColor: '$colors$codeBackground',
     color: '#F4F4F4',
     fontWeight: '500',
     fontStyle: 'normal',
@@ -14,7 +14,7 @@ const makeCodeTheme = (): PrismTheme => ({
     {
       types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
       style: {
-        color: 'var(--nextui-colors-codeComment)',
+        color: '$colors$codeComment',
         opacity: 0.5
       }
     },
@@ -45,7 +45,7 @@ const makeCodeTheme = (): PrismTheme => ({
     {
       types: ['property', 'function'],
       style: {
-        color: 'var(--nextui-colors-success)'
+        color: '$success'
       }
     },
     {
@@ -57,7 +57,7 @@ const makeCodeTheme = (): PrismTheme => ({
     {
       types: ['attr-name'],
       style: {
-        color: 'var(--nextui-colors-yellow500)'
+        color: '$yellow500'
       }
     },
     {
@@ -90,7 +90,7 @@ const makeCodeTheme = (): PrismTheme => ({
     {
       types: ['language-javascript', 'script'],
       style: {
-        color: 'var(--nextui-colors-success)'
+        color: '$success'
       }
     },
     {
@@ -149,12 +149,12 @@ export const getCodeThemeColors = () => {
   const functionColor = codeTheme.styles.find((style) =>
     style.types.includes('function')
   );
+
   const primitiveColor = codeTheme.styles.find((style) =>
     style.types.includes('primitive')
   );
 
   return {
-    ...codeTheme.plain,
     stringColor,
     punctuationColor,
     numberColor,

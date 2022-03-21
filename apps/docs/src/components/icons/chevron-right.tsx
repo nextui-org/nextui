@@ -5,7 +5,6 @@ export interface Props {
   width?: number;
   height?: number;
   size?: number;
-  className?: string;
 }
 
 const ChevronRight: React.FC<Props> = ({

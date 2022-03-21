@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Text, Link, CSS } from '@nextui-org/react';
+import { Container, Row, Text, Spacer, Link, CSS } from '@nextui-org/react';
 import { VercelCallout } from '@components';
 
 export interface Props {
@@ -8,7 +8,7 @@ export interface Props {
 }
 
 const Footer: React.FC<Props> = ({ css, containerCss }) => {
-  // const year = new Date().getFullYear();
+  const year = new Date().getFullYear();
   return (
     <Container
       fluid
@@ -24,7 +24,7 @@ const Footer: React.FC<Props> = ({ css, containerCss }) => {
       }}
     >
       <Row justify="center" css={css}>
-        {/* <Text
+        <Text
           span
           className="footer__copy"
           css={{
@@ -37,7 +37,7 @@ const Footer: React.FC<Props> = ({ css, containerCss }) => {
         >
           &copy;&nbsp;Copyright&nbsp;{year}&nbsp;NextUI
         </Text>
-        <Spacer x={0.5} /> */}
+        <Spacer x={0.5} />
         <Text
           span
           className="footer__by"

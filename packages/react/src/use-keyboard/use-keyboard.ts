@@ -1,7 +1,6 @@
 import { KeyMod } from './codes';
 import React, { useEffect } from 'react';
 import { getActiveModMap, getCtrlKeysByPlatform } from './helper';
-import { getKeyValue } from '../utils/object';
 
 export type KeyboardOptions = {
   disableGlobalEvent?: boolean;
@@ -44,9 +43,7 @@ const useKeyboard: UseKeyboard = (handler, keyBindings, options = {}) => {
     event = 'keydown'
   } = options;
   const activeModMap = getActiveModMap(bindings);
-  const keyCodes = bindings.filter(
-    (item: number) => !getKeyValue(KeyMod, item)
-  );
+  const keyCodes = bindings.filter((item: number) => !KeyMod[item]);
   const { CtrlCmd, WinCtrl } = getCtrlKeysByPlatform();
 
   const eventHandler = (event: React.KeyboardEvent | KeyboardEvent) => {

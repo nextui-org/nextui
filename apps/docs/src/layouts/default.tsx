@@ -4,7 +4,6 @@ import Footer from './footer';
 import Navbar from './navbar';
 import { Container } from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
-import { NotifyBanner } from '@components';
 
 export interface Props {
   routes: Route[];
@@ -20,7 +19,6 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <>
       <Header />
-      <NotifyBanner />
       <Navbar isHome routes={routes} />
       <Container
         lg={true}

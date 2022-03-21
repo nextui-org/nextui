@@ -19,37 +19,109 @@ import { Loading } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="Indicate an action is running."
- files={loadingContent.default_loading}
+  code={`
+  <Loading />
+`}
 />
 
 <Playground
   title="Text"
   desc="You can include text in the `Loading` component."
-  files={loadingContent.text}
+  code={`
+  <Loading>Loading</Loading>
+`}
 />
 
 <Playground
   title="Sizes"
   desc="Change the size of the entire `Loading` with the `size` property."
-  files={loadingContent.size}
+  code={`
+<>
+  <Loading size="xs"/>
+  <Spacer />
+  <Loading size="sm"/>
+  <Spacer />
+  <Loading size="md"/>
+  <Spacer />
+  <Loading size="lg"/>
+  <Spacer />
+  <Loading size="xl"/>
+</>
+`}
 />
+
+> Note: If you want to use a custom size please see this [Codesanbox](https://codesandbox.io/s/great-montalcini-cyj39?file=/src/App.js)
 
 <Playground
   title="Types"
   desc="You can change the type of loading with the `type` prop."
-  files={loadingContent.types}
+  code={`
+  <Grid.Container gap={2}>
+    <Grid>
+      <Loading type="default"/>
+    </Grid>
+    <Grid>
+      <Loading type="spinner" size="lg"/>
+    </Grid>
+    <Grid>
+      <Loading type="points" />
+    </Grid>
+    <Grid>
+      <Loading type="points-opacity"/>
+    </Grid>
+    <Grid>
+      <Loading type="gradient"/>
+    </Grid>
+  </Grid.Container>
+`}
 />
 
 <Playground
   title="Colors"
   desc="You can change the color of the `loading` with the property color."
-  files={loadingContent.color}
+  code={`
+<Grid.Container gap={2}>
+  <Grid>
+    <Loading color="primary">Primary</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="secondary">Secondary</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="success">Success</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="warning">Warning</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="error">Error</Loading>
+  </Grid>
+</Grid.Container>
+`}
 />
 
 <Playground
   title="Text Colors"
   desc="You can change the `Loading` text color with `textColor` prop"
-  files={loadingContent.textColor}
+  code={`
+<Grid.Container gap={2}>
+  <Grid>
+    <Loading color="primary" textColor="primary">Primary</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="secondary" textColor="secondary">Secondary</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="success" textColor="success">Success</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="warning" textColor="warning">Warning</Loading>
+  </Grid>
+  <Grid>
+    <Loading color="error" textColor="error">Error</Loading>
+  </Grid>
+</Grid.Container>
+`}
 />
 
 <Spacer y={3} />

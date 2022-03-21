@@ -1,9 +1,4 @@
-import {
-  styled,
-  sharedFocus,
-  VariantProps,
-  cssFocusVisible
-} from '../theme/stitches.config';
+import { styled, sharedFocus, VariantProps } from '../theme/stitches.config';
 
 export const StyledCollapse = styled(
   'div',
@@ -135,30 +130,26 @@ export const StyledCollapse = styled(
   sharedFocus
 );
 
-export const StyledCollapseView = styled(
-  'div',
-  {
-    w: '100%',
-    d: 'block',
-    ta: 'left',
-    bg: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-    outline: 'none',
-    padding: '$lg 0',
-    variants: {
-      disabled: {
-        true: {
-          cursor: 'not-allowed',
-          '.nextui-collapse-title, .nextui-collapse-subtitle': {
-            opacity: 0.5
-          }
+export const StyledCollapseView = styled('div', {
+  w: '100%',
+  d: 'block',
+  ta: 'left',
+  bg: 'transparent',
+  border: 'none',
+  cursor: 'pointer',
+  outline: 'none',
+  padding: '$lg 0',
+  variants: {
+    disabled: {
+      true: {
+        cursor: 'not-allowed',
+        '.nextui-collapse-title, .nextui-collapse-subtitle': {
+          opacity: 0.5
         }
       }
     }
-  },
-  cssFocusVisible
-);
+  }
+});
 
 export const StyledCollapseContent = styled('div', {
   fontSize: '$base',
