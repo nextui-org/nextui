@@ -117,7 +117,7 @@ const Item: React.FC<ItemProps> = ({
         <Tooltip
           trigger="click"
           content="Copied!"
-          onClick={() => copy(hexColor.trim())}
+          onClick={() => copy(hexColor)}
         >
           <>{renderItem()}</>
         </Tooltip>

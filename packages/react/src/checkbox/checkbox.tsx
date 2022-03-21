@@ -1,18 +1,9 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  useRef,
-  useImperativeHandle,
-  PropsWithoutRef,
-  RefAttributes
-} from 'react';
-import { useFocusRing } from '@react-aria/focus';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useCheckbox } from './checkbox-context';
 import CheckboxGroup from './checkbox-group';
 import useWarning from '../use-warning';
 import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
+import useKeyboard, { KeyCode } from '../use-keyboard';
 import { CSS } from '../theme/stitches.config';
 import {
   StyledCheckboxLabel,
@@ -23,7 +14,6 @@ import {
   CheckboxVariantsProps,
   StyledIconCheckFirstLine,
   StyledIconCheckSecondLine,
-  CheckboxContainerVariantsProps,
   StyledCheckboxText
 } from './checkbox.styles';
 import clsx from '../utils/clsx';
@@ -80,186 +70,161 @@ export type CheckboxProps = Props &
   CheckboxVariantsProps &
   NativeAttrs & { css?: CSS };
 
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  (
-    {
-      checked,
-      initialChecked,
-      line,
-      rounded,
-      indeterminate,
-      disabled,
-      onChange,
-      size,
-      className,
-      children,
-      label,
-      color,
-      labelColor,
-      animated,
-      value,
-      preventDefault,
-      ...props
-    },
-    ref: React.Ref<HTMLInputElement | null>
-  ) => {
-    const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
-    const [selfIndeterminate, setSelfIndeterminate] =
-      useState<boolean>(indeterminate);
+const Checkbox: React.FC<CheckboxProps> = ({
+  checked,
+  initialChecked,
+  line,
+  rounded,
+  indeterminate,
+  disabled,
+  onChange,
+  size,
+  className,
+  children,
+  label,
+  color,
+  labelColor,
+  animated,
+  value,
+  preventDefault,
+  ...props
+}) => {
+  const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
+  const {
+    color: groupColor,
+    labelColor: labelGroupColor,
+    size: groupSize,
+    updateState,
+    inGroup,
+    disabledAll,
+    values
+  } = useCheckbox();
 
-    const checkboxRef = useRef<HTMLInputElement | null>(null);
+  const isDisabled = inGroup ? disabledAll || disabled : disabled;
 
-    useImperativeHandle(ref, () => checkboxRef?.current);
+  const checkboxColor = color !== 'default' ? color : groupColor;
+  const checkboxSize = size !== 'md' ? size : groupSize;
+  const textColor = labelColor !== 'default' ? labelColor : labelGroupColor;
 
-    const {
-      color: groupColor,
-      labelColor: labelGroupColor,
-      size: groupSize,
-      updateState,
-      inGroup,
-      disabledAll,
-      values
-    } = useCheckbox();
-
-    const {
-      isFocusVisible,
-      focusProps
-    }: {
-      isFocusVisible: boolean;
-      focusProps: Omit<
-        React.HTMLAttributes<HTMLElement>,
-        keyof CheckboxContainerVariantsProps | keyof CheckboxProps
-      >;
-    } = useFocusRing();
-
-    const isDisabled = inGroup ? disabledAll || disabled : disabled;
-
-    const checkboxColor = color !== 'default' ? color : groupColor;
-    const checkboxSize = size !== 'md' ? size : groupSize;
-    const textColor = labelColor !== 'default' ? labelColor : labelGroupColor;
-
-    if (__DEV__ && inGroup && checked) {
-      useWarning(
-        'Remove props "checked" when [Checkbox] component is in the group.',
-        'Checkbox'
-      );
-    }
-    if (inGroup) {
-      useEffect(() => {
-        const next = values.includes(value);
-        if (next === selfChecked) return;
-        setSelfChecked(next);
-      }, [values.join(',')]);
-    }
-
-    useEffect(() => {
-      setSelfIndeterminate(indeterminate);
-    }, [indeterminate]);
-
-    const changeHandle = useCallback(
-      (ev: React.ChangeEvent) => {
-        if (isDisabled) return;
-        const selfEvent: CheckboxEvent = {
-          target: {
-            checked: !selfChecked
-          },
-          stopPropagation: ev.stopPropagation,
-          preventDefault: ev.preventDefault,
-          nativeEvent: ev
-        };
-        if (inGroup && updateState) {
-          updateState && updateState(value, !selfChecked);
-        }
-
-        if (selfIndeterminate) {
-          setSelfIndeterminate(false);
-          setSelfChecked(true);
-        } else {
-          setSelfChecked(!selfChecked);
-        }
-
-        onChange && onChange(selfEvent);
-      },
-      [updateState, onChange, isDisabled, selfChecked, selfIndeterminate]
+  if (__DEV__ && inGroup && checked) {
+    useWarning(
+      'Remove props "checked" when [Checkbox] component is in the group.',
+      'Checkbox'
     );
+  }
+  if (inGroup) {
     useEffect(() => {
-      if (checked === undefined) return;
-      setSelfChecked(checked);
-    }, [checked]);
+      const next = values.includes(value);
+      if (next === selfChecked) return;
+      setSelfChecked(next);
+    }, [values.join(',')]);
+  }
 
-    const getState = useMemo(() => {
-      return selfChecked && selfIndeterminate
-        ? 'mixed'
-        : selfChecked
-        ? 'checked'
-        : 'uncheked';
-    }, [selfChecked, selfIndeterminate]);
+  const changeHandle = useCallback(
+    (ev: React.ChangeEvent) => {
+      if (isDisabled) return;
+      const selfEvent: CheckboxEvent = {
+        target: {
+          checked: !selfChecked
+        },
+        stopPropagation: ev.stopPropagation,
+        preventDefault: ev.preventDefault,
+        nativeEvent: ev
+      };
+      if (inGroup && updateState) {
+        updateState && updateState(value, !selfChecked);
+      }
 
-    return (
-      <StyledCheckboxLabel
-        size={checkboxSize}
+      setSelfChecked(!selfChecked);
+      onChange && onChange(selfEvent);
+    },
+    [updateState, onChange, isDisabled, selfChecked]
+  );
+  useEffect(() => {
+    if (checked === undefined) return;
+    setSelfChecked(checked);
+  }, [checked]);
+
+  const { bindings } = useKeyboard(
+    (event: any) => {
+      changeHandle(event);
+    },
+    [KeyCode.Enter, KeyCode.Space],
+    {
+      disableGlobalEvent: true,
+      preventDefault
+    }
+  );
+
+  const getState = useMemo(() => {
+    return selfChecked && indeterminate
+      ? 'mixed'
+      : selfChecked
+      ? 'checked'
+      : 'uncheked';
+  }, [selfChecked, indeterminate]);
+
+  return (
+    <StyledCheckboxLabel
+      size={checkboxSize}
+      disabled={isDisabled}
+      animated={animated}
+      className={clsx(
+        'nextui-checkbox-label',
+        `nextui-checkbox--${getState}`,
+        className
+      )}
+      css={props.css}
+    >
+      <StyledCheckboxContainer
+        className="nextui-checkbox-container"
+        tabIndex={isDisabled ? -1 : 0}
+        color={checkboxColor}
+        rounded={rounded}
         disabled={isDisabled}
         animated={animated}
-        className={clsx(
-          'nextui-checkbox-label',
-          `nextui-checkbox--${getState}`,
-          className
-        )}
-        css={props.css}
+        {...bindings}
       >
-        <StyledCheckboxContainer
-          className="nextui-checkbox-container"
-          tabIndex={isDisabled ? -1 : 0}
-          color={checkboxColor}
-          rounded={rounded}
+        <StyledCheckboxInput
+          type="checkbox"
+          className="nextui-checkbox-input"
+          tabIndex={-1}
+          data-state={getState}
           disabled={isDisabled}
+          checked={selfChecked}
+          aria-checked={selfChecked && indeterminate ? 'mixed' : selfChecked}
+          aria-disabled={isDisabled}
+          onChange={changeHandle}
+          {...props}
+        />
+        <StyledCheckboxMask
+          checked={selfChecked}
           animated={animated}
-          isFocusVisible={isFocusVisible}
-          {...focusProps}
+          className="nextui-checkbox-mask"
         >
-          <StyledCheckboxInput
-            ref={checkboxRef}
-            type="checkbox"
-            className="nextui-checkbox-input"
-            tabIndex={-1}
-            data-state={getState}
-            disabled={isDisabled}
-            checked={selfChecked}
-            aria-checked={
-              selfChecked && selfIndeterminate ? 'mixed' : selfChecked
-            }
-            aria-disabled={isDisabled}
-            onChange={changeHandle}
-            {...props}
-          />
-          <StyledCheckboxMask
+          <StyledIconCheck
+            size={checkboxSize}
+            indeterminate={indeterminate}
             checked={selfChecked}
             animated={animated}
-            className="nextui-checkbox-mask"
+            className="nextui-icon-check"
           >
-            <StyledIconCheck
-              size={checkboxSize}
-              indeterminate={selfIndeterminate}
+            <StyledIconCheckFirstLine
+              indeterminate={indeterminate}
               checked={selfChecked}
               animated={animated}
-              className="nextui-icon-check"
-            >
-              <StyledIconCheckFirstLine
-                indeterminate={selfIndeterminate}
-                checked={selfChecked}
-                animated={animated}
-                className="nextui-icon-check-line1"
-              />
-              <StyledIconCheckSecondLine
-                indeterminate={selfIndeterminate}
-                checked={selfChecked}
-                animated={animated}
-                className="nextui-icon-check-line2"
-              />
-            </StyledIconCheck>
-          </StyledCheckboxMask>
-        </StyledCheckboxContainer>
-        {(children || label) && (
+              className="nextui-icon-check-line1"
+            />
+            <StyledIconCheckSecondLine
+              indeterminate={indeterminate}
+              checked={selfChecked}
+              animated={animated}
+              className="nextui-icon-check-line2"
+            />
+          </StyledIconCheck>
+        </StyledCheckboxMask>
+      </StyledCheckboxContainer>
+      {(children || label) && (
           <StyledCheckboxText
             className="nextui-checkbox-text"
             color={textColor}
@@ -271,10 +236,9 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             {children || label}
           </StyledCheckboxText>
         )}
-      </StyledCheckboxLabel>
-    );
-  }
-);
+    </StyledCheckboxLabel>
+  );
+};
 
 Checkbox.defaultProps = defaultProps;
 
@@ -284,9 +248,7 @@ if (__DEV__) {
   Checkbox.displayName = 'NextUI - Checkbox';
 }
 
-type CheckboxComponent<T, P = {}> = React.ForwardRefExoticComponent<
-  PropsWithoutRef<P> & RefAttributes<T>
-> & {
+type CheckboxComponent<P = {}> = React.FC<P> & {
   Group: typeof CheckboxGroup;
 };
 
@@ -295,4 +257,4 @@ type ComponentProps = Partial<typeof defaultProps> &
   NativeAttrs &
   CheckboxVariantsProps & { css?: CSS };
 
-export default Checkbox as CheckboxComponent<HTMLInputElement, ComponentProps>;
+export default Checkbox as CheckboxComponent<ComponentProps>;

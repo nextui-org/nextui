@@ -1,4 +1,3 @@
-import { getKeyValue } from '../utils/object';
 import { isMac } from '../utils/collections';
 import { KeyMod } from './codes';
 
@@ -9,24 +8,22 @@ export const getCtrlKeysByPlatform = (): Record<
 > => {
   return {
     CtrlCmd: isMac() ? 'metaKey' : 'ctrlKey',
-    WinCtrl: isMac() ? 'ctrlKey' : 'metaKey'
+    WinCtrl: isMac() ? 'ctrlKey' : 'metaKey',
   };
 };
 
 export const getActiveModMap = (
   bindings: number[]
 ): Record<keyof typeof KeyMod, boolean> => {
-  const modBindings = bindings.filter(
-    (item: number) => !!getKeyValue(KeyMod, item)
-  );
+  const modBindings = bindings.filter((item: number) => !!KeyMod[item]);
   const activeModMap: Record<keyof typeof KeyMod, boolean> = {
     CtrlCmd: false,
     Shift: false,
     Alt: false,
-    WinCtrl: false
+    WinCtrl: false,
   };
   modBindings.forEach((code) => {
-    const modKey = getKeyValue(KeyMod, code) as keyof typeof KeyMod;
+    const modKey = KeyMod[code] as keyof typeof KeyMod;
     activeModMap[modKey] = true;
   });
   return activeModMap;

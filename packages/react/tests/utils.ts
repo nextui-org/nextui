@@ -18,7 +18,7 @@ export const updateWrapper = async (
 };
 
 export const mockNativeEvent = (fn: Function = () => {}) => ({
-  nativeEvent: { stopImmediatePropagation: fn }
+  nativeEvent: { stopImmediatePropagation: fn },
 });
 
 export const nativeEvent = mockNativeEvent();
@@ -31,13 +31,7 @@ export const mediaListMock = (width: number) => {
       matches: mediaQuery.match(query, { width }),
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       addListener: (fn: Function) => (window as any).listeners.push(fn),
-      removeListener: () => {}
+      removeListener: () => {},
     };
   };
 };
-
-export function triggerPress(element: ReactWrapper<unknown>) {
-  element.simulate('mouseDown');
-  element.simulate('mouseUp');
-  element.simulate('click');
-}

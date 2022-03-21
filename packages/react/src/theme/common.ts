@@ -145,7 +145,7 @@ export const defaultColors = {
   purple700: '#461491',
   purple800: '#310C75',
   purple900: '#220760',
-  green100: '#dafee8',
+  green100: '#c5f0d5',
   green200: '#A1F9AC',
   green300: '#6FEE8D',
   green400: '#4ADE7B',

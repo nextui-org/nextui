@@ -166,6 +166,7 @@ describe('Collapse', () => {
     const wrapper = mount(
       <Collapse title="Changed test" onChange={callback} />
     );
+
     wrapper.find('.nextui-collapse-view').at(0).simulate('click');
 
     expect(callback).toHaveBeenCalled();

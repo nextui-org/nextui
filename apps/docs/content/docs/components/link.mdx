@@ -19,37 +19,106 @@ import { Link } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="You can use it to navigate between pages."
-  files={linkContent.default_link}
+  code={`
+ <Link href="#">"First solve the problem. Then, write the code." - Jon Johnson.</Link>;
+`}
 />
 
 <Playground
   title="Colors"
   desc="You can use the `color` property to change `Link` color."
-  files={linkContent.color}
+  code={`
+  <>
+ <Link color href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Primary)</Link>
+ <Spacer/>
+ <Link color="secondary" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Secondary)</Link>
+ <Spacer/>
+ <Link color="success" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Success)</Link>
+ <Spacer/>
+ <Link color="warning" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Warning)</Link>
+ <Spacer/>
+ <Link color="error" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Error)</Link>
+ <Spacer/>
+ <Link href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Default)</Link>
+ </>
+`}
 />
 
 <Playground
   title="Variants"
   desc="You can choose between different styles of links."
-  files={linkContent.variation}
+  code={`
+() => {
+const text = "First solve the problem. Then, write the code. - Jon Johnson.";
+return (
+<>
+  <Text>
+    <Link href="#" color="text">{text}</Link>
+  </Text>
+  <Spacer/>
+  <Text>
+    <Link href="#" color="success">
+      {text}
+    </Link>
+  </Text>
+  <Spacer/>
+  <Text>
+    <Link href="#" underline>
+      {text}
+    </Link>
+  </Text>
+  <Spacer/>
+  <Text>
+    <Link href="#" color="error" underline>
+      {text}
+    </Link>
+  </Text>
+</>
+) }`}
 />
 
 <Playground
   title="Block"
   desc="You can use the `block` property to display a separate block."
-  files={linkContent.block}
+  code={`
+  <>
+ <Link block color="primary" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Primary)</Link>
+ <Spacer/>
+ <Link block color="secondary" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Secondary)</Link>
+ <Spacer/>
+ <Link block color="success" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Success)</Link>
+ <Spacer/>
+ <Link block color="warning" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Warning)</Link>
+ <Spacer/>
+ <Link block color="error" href="#">"First solve the problem. Then, write the code." - Jon Johnson. (Error)</Link>
+ </>
+`}
 />
 
 <Playground
   title="Icon"
   desc="Show an icon in the `Link` with the `icon` prop."
-  files={linkContent.icon}
+  code={`
+  <>
+    <Link href="#" icon>
+      "First solve the problem. Then, write the code." - Jon Johnson.
+    </Link>
+    <Spacer />
+    <Link href="#" icon color>
+      "First solve the problem. Then, write the code." - Jon Johnson.
+    </Link>
+  </>
+`}
 />
 
 <Playground
   title="Next.js Link"
   desc="If you are using [Next.js](https://nextjs.org) you can use `next/link` as a parent."
-  files={linkContent.nextLink}
+  code={`
+ <NextLink href="/docs/components/button">
+   <Link block color="secondary">Go to Button</Link>
+ </NextLink>
+`}
 />
 
 <Spacer y={3} />
@@ -74,7 +143,7 @@ import { Link } from '@nextui-org/react';
 
 <Spacer y={2} />
 
-### Link types
+### Switch types
 
 <Spacer y={1} />
 

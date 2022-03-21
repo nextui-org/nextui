@@ -64,25 +64,21 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             }
           }}
         >
-          <Col
-            css={{
-              width: '32%',
-              display: 'none',
-              '@md': {
-                display: 'block'
-              }
-            }}
-          >
+          <Col css={{ width: '32%' }}>
             <Fixed
               offset={92}
               className="docs__left-sidebar"
               css={{
                 maxHeight: 'calc(100vh - 4rem)',
                 overflow: 'auto',
+                display: 'none',
                 zIndex: '$2',
                 pb: '$28',
                 '&::-webkit-scrollbar': {
                   width: '0px'
+                },
+                '@md': {
+                  display: 'block'
                 }
               }}
             >
@@ -93,8 +89,6 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
             className="docs__center"
             css={{
               zIndex: '$10',
-              maxWidth: '100%',
-              overflow: 'auto',
               '@xsMax': {
                 p: 0
               }
@@ -116,25 +110,19 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               )}
             </footer>
           </Col>
-          <Col
-            css={{
-              width: '28%',
-              height: '100%',
-              display: 'none',
-              '@lg': {
-                display: 'block'
-              }
-            }}
-          >
+          <Col css={{ width: '28%' }}>
             <Fixed
               offset={92}
               className="docs__right-sidebar"
               css={{
-                width: '100%',
+                display: 'none',
                 zIndex: '$2',
                 pb: '$20',
                 '&::-webkit-scrollbar': {
                   width: '0px'
+                },
+                '@lg': {
+                  display: 'block'
                 }
               }}
             >

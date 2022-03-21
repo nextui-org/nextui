@@ -20,62 +20,193 @@ import { Switch } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="You can change the state with `checked` prop"
-  files={switchContent.default_switch}
+  code={`
+ <>
+    <Switch />
+    <Spacer />
+    <Switch checked={true} />
+ </>
+`}
 />
 
 <Playground
   title="Initial cheked"
   desc="You can set the `Switch` to be checked by default using `initialChecked` prop"
-  files={switchContent.initialCheck}
+  code={`
+    <Switch initialChecked />
+`}
 />
 
 <Playground
   title="Disabled"
   desc="Unusable and un-clickable `Switch`."
-  files={switchContent.disabled}  
+  code={`
+ <>
+    <Switch disabled/>
+    <Spacer />
+    <Switch checked={true} disabled/>
+ </>
+`}
 />
 
 <Playground
   title="Sizes"
   desc="Change the size of the entire `Switch` including `padding` and `border` with the `size` property."
-  files={switchContent.size}
+  code={`
+ <>
+    <Switch checked={true} size="xs" />
+    <Spacer />
+    <Switch size="sm" />
+    <Spacer />
+    <Switch checked={true} size="md" />
+    <Spacer />
+    <Switch size="lg" />
+    <Spacer />
+    <Switch checked={true} size="xl" />
+  </>
+`}
 />
 
 <Playground
   title="Colors"
   desc="You can change the color of the `Switch` with the property color."
-  files={switchContent.color}
+  code={`
+ <Grid.Container gap={2}>
+    <Grid>
+        <Switch color="primary" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="secondary" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="success" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="warning" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch color="error" checked={true}/>
+    </Grid>
+  </Grid.Container>
+`}
 />
 
 <Playground
   title="Shadow"
   desc="You can add a shadow effect with the property `shadow`."
-  files={switchContent.shadow}
+  code={`
+ <Grid.Container gap={2}>
+    <Grid>
+        <Switch shadow color="primary" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="secondary" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="success" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="warning" checked={true}/>
+    </Grid>
+    <Grid>
+        <Switch shadow color="error" checked={true}/>
+    </Grid>
+  </Grid.Container>
+`}
 />
 
 <Playground
   title="Squared"
   desc="You can change the full style to a squared `Switch` with the `squared` property."
-  files={switchContent.squared}
+  code={`
+ <Switch squared color="primary" checked={true}>
+    Squared option
+ </Switch>
+`}
 />
 
 <Playground
   title="Bordered"
   desc="You can change the full style to a bordered `Switch` with the `bordered` property."
-  files={switchContent.bordered}
+  code={`
+ <>
+    <Switch bordered size="xs" />
+    <Spacer />
+    <Switch bordered size="sm" color="secondary"/>
+    <Spacer />
+    <Switch bordered size="md" color="success"/>
+    <Spacer />
+    <Switch bordered size="lg" color="warning"/>
+    <Spacer />
+    <Switch bordered size="xl" color="error"/>
+  </>
+`}
 />
 
 <Playground
   title="No Animated"
   desc="You can disable the animation of the entire `Switch` with the property `animated={false}`."
-  files={switchContent.noAnimated}
+  code={`
+<>
+  <Switch animated={false} checked={true}/>
+  <Spacer/>
+  <Switch animated={false} />
+ </>
+`}
 />
 
 <Playground
   title="Icons"
   desc="NextUI doesn't use any library or icon font by default, with this we give the freedom to use the one you prefer. In the following example we use [Boxicons](https://boxicons.com/)"
-  files={switchContent.icon}
+  code={`
+  <Grid.Container gap={2}>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xl"
+            color="success"
+            icon={<Notification />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xl"
+            iconOn={<Sun filled />}
+            iconOff={<Moon filled />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xl"
+            color="error"
+            iconOn={<MicrophoneOff filled />}
+            iconOff={<Microphone filled />}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xl"
+            color="warning"
+            iconOn={<VideoOff filled />}
+            iconOff={<Video filled/>}
+        />
+      </Grid>
+      <Grid>
+        <Switch
+            checked={true}
+            size="xl"
+            color="secondary"
+            icon={<VolumeUp filled />}
+        />
+      </Grid>
+    </Grid.Container>
+`}
 />
+
+> Note: If you want to use the same icons you can see the following [Codesanbox](https://codesandbox.io/s/nextui-switch-icons-glgfs)
 
 <Spacer y={3} />
 

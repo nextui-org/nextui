@@ -22,6 +22,7 @@ interface Props {
   objectFit?: ObjectFit;
   className?: string;
   css?: CSS;
+  // TODO: put this on the docs
   containerCss?: CSS;
 }
 
@@ -73,6 +74,7 @@ const Image: React.FC<ImageProps> = ({
   };
 
   useEffect(() => {
+    if (!showAnimation) return;
     if (!imageRef.current) return;
     if (imageRef.current.complete) {
       setLoading(false);
@@ -126,7 +128,7 @@ const Image: React.FC<ImageProps> = ({
         className
       )}
       data-state={getState}
-      ready={!loading || showSkeleton}
+      ready={!loading}
       css={{
         ...(containerCss as any),
         width: w,

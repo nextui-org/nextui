@@ -111,7 +111,7 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
           animated={animated}
           bordered={bordered}
           active={value === active}
-          onClick={() => value !== active && setPage(value)}
+          onClick={() => setPage(value)}
           onlyDots={onlyDots}
         >
           {value}

@@ -19,52 +19,230 @@ import { Radio } from '@nextui-org/react';
 <Playground
   title="Default"
   desc="You can change the state with `checked` prop"
-  files={radioContent.default_radio}
+  code={`
+  <Radio.Group value="A">
+    <Radio value="A">Option A</Radio>
+    <Radio value="B">Option B</Radio>
+    <Radio value="C">Option C</Radio>
+    <Radio value="D">Option D</Radio>
+  </Radio.Group>
+`}
 />
 
 <Playground
   title="Disabled"
   desc="Unusable and un-clickable `Radio`."
-  files={radioContent.disabled}
+  code={`
+ <Radio.Group value="1">
+    <Radio value="1">Option 1</Radio>
+    <Radio value="2" disabled>
+      Option 2
+    </Radio>
+    <Radio value="3">Option 3</Radio>
+    <Radio value="4" disabled>
+      Option 4
+    </Radio>
+  </Radio.Group>
+`}
 />
 
 <Playground
   title="Sizes"
   desc="Change the size of the entire `Radio` including `padding`, `font-size` and `border` with the `size` property."
-  files={radioContent.size}
+  code={`
+  () => {
+const [selected, setSelected] = React.useState('xs');      
+return(
+<>
+    <Radio
+        checked={selected === 'xs'}
+        onChange={() => setSelected('xs')}
+        size="xs"
+    >
+        xs
+    </Radio>
+    <Spacer/>
+    <Radio
+        checked={selected === 'sm'}
+        onChange={() => setSelected('sm')}
+        size="sm"
+    >
+        small
+    </Radio>
+    <Spacer/>
+    <Radio
+        checked={selected === 'md'}
+        onChange={() => setSelected('md')}
+        size="md"
+    >
+        medium
+    </Radio>
+    <Spacer/>
+    <Radio
+        checked={selected === 'lg'}
+        onChange={() => setSelected('lg')}
+        size="lg"
+    >
+        large
+    </Radio>
+    <Spacer/>
+    <Radio
+        checked={selected === 'xl'}
+        onChange={() => setSelected('xl')}
+        size="xl"
+    >
+        xlarge
+    </Radio>
+</>
+)}
+  `}
 />
 
 <Playground
   title="Colors"
   overflow="auto"
   desc="You can change the color with `color` prop"
-  files={radioContent.color}
+  code={`
+  <Radio.Group row value="primary">
+    <Radio 
+        value="primary"
+        color="primary"  
+    >
+        Primary
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="secondary"  
+        color="secondary"  
+    >
+        Secondary
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="success"  
+        color="success"  
+    >
+        Success
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="warning"  
+        color="warning"  
+    >
+        Warning
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="error"  
+        color="error"  
+    >
+        Error
+    </Radio>
+ </Radio.Group>
+`}
 />
 
 <Playground
   title="Text Colors"
   overflow="auto"
   desc="You can change the `Radio` text color with `textColor` prop"
-  files={radioContent.textColor}
+  code={`
+  <Radio.Group row value="primary">
+    <Radio 
+        value="primary"
+        color="primary"  
+        textColor="primary"
+    >
+        Primary
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="secondary"  
+        color="secondary"  
+        textColor="secondary"
+    >
+        Secondary
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="success"  
+        color="success"  
+        textColor="success"
+    >
+        Success
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="warning"  
+        color="warning"  
+        textColor="warning"
+    >
+        Warning
+    </Radio>
+    <Spacer/>
+    <Radio 
+        value="error"  
+        color="error"  
+        textColor="error"
+    >
+        Error
+    </Radio>
+ </Radio.Group>
+`}
 />
 
 <Playground
   title="Squared"
   desc="You can change the full style to a squared `Radio` with the `squared` property."
-  files={radioContent.squared}
+  code={`
+<Radio.Group value="1">
+    <Radio value="1" squared>Option 1</Radio>
+    <Radio value="2" squared>
+      Option 2
+    </Radio>
+    <Radio value="3" squared>Option 3</Radio>
+    <Radio value="4" squared>
+      Option 4
+    </Radio>
+</Radio.Group>
+`}
 />
 
 <Playground
   title="Description"
   desc="You can add a description to the `Radio` with `Radio.Description` component"
-  files={radioContent.description}
+  code={`
+ <Radio.Group value="1">
+    <Radio value="1">
+      Option 1<Radio.Description>Description for Option1</Radio.Description>
+    </Radio>
+    <Radio value="2">
+      Option 2<Radio.Desc>Description for Option2</Radio.Desc>
+    </Radio>
+    <Radio value="3">
+      Option 3<Radio.Desc>Description for Option2</Radio.Desc>
+    </Radio>
+  </Radio.Group>
+`}
 />
 
 <Playground
   title="Row"
   overflow="auto"
   desc="You can change the `Radio.Group` direction with `row` prop."
-  files={radioContent.row}
+  code={`
+ <Radio.Group value="1" row>
+    <Radio value="1">
+      Option 1<Radio.Description>Description for Option1</Radio.Description>
+    </Radio>
+    <Radio value="2">
+      Option 2<Radio.Desc>Description for Option2</Radio.Desc>
+    </Radio>
+    <Radio value="3">
+      Option 3<Radio.Desc>Description for Option2</Radio.Desc>
+    </Radio>
+  </Radio.Group>
+`}
 />
 
 <Spacer y={3} />
