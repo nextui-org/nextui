@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@nextui-org/react": "^1.0.2-beta.5"
+    "@nextui-org/react": "1.0.3-beta.5"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
