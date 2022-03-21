@@ -132,7 +132,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
         },
         entry: entryFile,
         dependencies: {
-          '@nextui-org/react': 'debug'
+          '@nextui-org/react': 'latest'
         }
       }}
     >
