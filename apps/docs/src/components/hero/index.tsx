@@ -151,7 +151,7 @@ const Hero: React.FC = () => {
       </Row>
       <DynamicLopperBG
         css={{
-          zIndex: '$1',
+          zIndex: '0',
           position: 'absolute',
           transform: 'translate(10%, 5%)'
         }}
