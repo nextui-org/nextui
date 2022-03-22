@@ -13869,6 +13869,11 @@ next-mdx-remote@^3.0.2:
     esbuild "^0.12.9"
     pkg-dir "^5.0.0"
 
+next-plausible@3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/next-plausible/-/next-plausible-3.1.6.tgz#069e0ceb875c88726feb61186dfbd5e8565fac45"
+  integrity sha512-9L1l3f59122IBNjVDqZEE2y5kA/a8rk3xYqWWfHH9LLxtWw6hqiL43RQGT7xYjHofGdn+RX3WTVRGIv0Iq/wKA==
+
 next-sitemap@^1.6.140:
   version "1.9.12"
   resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.9.12.tgz#288c2dfc907039892e21eb1b0c7a94d288f323d9"

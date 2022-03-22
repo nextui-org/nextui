@@ -23,6 +23,7 @@ import { StyledNavContainer } from './styles';
 
 export interface Props {
   routes?: Route[];
+  hasNotify?: boolean;
   isHome?: boolean;
 }
 
@@ -40,7 +41,7 @@ const SearchInput = dynamic(
   }
 );
 
-const Navbar: React.FC<Props> = ({ isHome, routes }) => {
+const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
   const [expanded, setExpanded] = useState(false);
   const router = useRouter();
   const isMobile = useMediaQuery(960);
@@ -49,7 +50,7 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
     (typeof window !== 'undefined' && window.pageYOffset) || 0
   );
 
-  const detached = scrollPosition > 0;
+  const detached = hasNotify ? scrollPosition > 30 : scrollPosition > 0;
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll.bind(this));
@@ -311,8 +312,10 @@ const Navbar: React.FC<Props> = ({ isHome, routes }) => {
           </Box>
         </Col>
         <MobileNavigation
+          hasNotify={hasNotify}
           routes={routes}
           opened={expanded}
+          detached={detached}
           onClose={() => {
             setExpanded(false);
             setBodyHidden(false);

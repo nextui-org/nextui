@@ -1,7 +1,6 @@
 import React from 'react';
-import { useTheme, usePortal } from '@nextui-org/react';
+import { usePortal } from '@nextui-org/react';
 import cn from 'classnames';
-import { addColorAlpha } from '@utils/index';
 import withDefaults from '@utils/with-defaults';
 import { Route } from '@lib/docs/page';
 import { createPortal } from 'react-dom';
@@ -9,16 +8,24 @@ import { Sidebar } from '@components';
 
 interface Props {
   opened: boolean;
+  hasNotify?: boolean;
+  detached?: boolean;
   routes?: Route[];
   onClose?: () => void;
 }
 
 const defaultProps = {
-  opened: false
+  opened: false,
+  detached: false
 };
 
-const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
-  const { theme } = useTheme();
+const MobileNavigation: React.FC<Props> = ({
+  opened,
+  detached,
+  hasNotify,
+  routes,
+  onClose
+}) => {
   const portal = usePortal('mobile-navigation');
 
   const handlePostClick = () => {
@@ -27,7 +34,13 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
 
   return portal
     ? createPortal(
-        <nav className={cn('mobile-navigation__container', { opened })}>
+        <nav
+          className={cn('mobile-navigation__container', {
+            opened,
+            detached,
+            hasNotify
+          })}
+        >
           <div className="mobile-navigation__wrapper">
             <ul className="mobile-navigation__list">
               <li>
@@ -53,7 +66,8 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
               margin: 0;
               width: 100%;
               height: 0;
-              transition: all 0.25s ease;
+              transition: height 0.25s ease;
+              will-change: height;
               overflow-y: scroll;
               overflow-x: hidden;
               user-select: none;
@@ -62,11 +76,9 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
               display: none;
               width: 100%;
               min-height: 100%;
-              transition: all 0.2s ease 50ms;
-              background: ${addColorAlpha(
-                theme?.colors?.background?.value,
-                0.8
-              )};
+              background: var(--nextui-colors-menuBackground);
+              backdrop-filter: saturate(180%) blur(10px);
+              --webkit-backdrop-filter: saturate(180%) blur(10px);
             }
             .mobile-navigation__list {
               margin: 0;
@@ -76,24 +88,17 @@ const MobileNavigation: React.FC<Props> = ({ opened, routes, onClose }) => {
               top: 63px;
               height: calc(100% - 64px);
             }
+            .mobile-navigation__container.opened.hasNotify {
+              top: calc(63px + 40px);
+            }
+            .mobile-navigation__container.opened.hasNotify:not(.detached) {
+              padding-bottom: 30px;
+            }
+            .mobile-navigation__container.hasNotify.detached {
+              top: 63px;
+            }
             .mobile-navigation__container.opened .mobile-navigation__wrapper {
               display: block;
-            }
-            @supports (
-              (-webkit-backdrop-filter: blur(10px)) or
-                (backdrop-filter: blur(10px))
-            ) {
-              .mobile-navigation__wrapper {
-                backdrop-filter: saturate(180%) blur(10px);
-              }
-            }
-            @supports (
-              not (-webkit-backdrop-filter: blur(10px)) and not
-                (backdrop-filter: blur(10px))
-            ) {
-              .mobile-navigation__wrapper {
-                background: ${theme?.colors?.background?.value};
-              }
             }
           `}</style>
         </nav>,

@@ -1,9 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import withDefaults from '@utils/with-defaults';
-import Script from 'next/script';
 import { toCapitalize } from '@utils/index';
-import { isProd } from '@utils/index';
 import { TWITTER_USER_NAME, SITE_URL } from '@lib/constants';
 import { useTheme } from '@nextui-org/react';
 
@@ -94,12 +92,6 @@ const Header: React.FC<HeaderProps> = ({ title, description, image, url }) => {
           isDark ? theme?.colors?.black?.value : theme?.colors?.white?.value
         }
       />
-      {isProd && (
-        <Script
-          data-domain="nextui.org"
-          src="https://plausible.io/js/plausible.js"
-        />
-      )}
     </Head>
   );
 };

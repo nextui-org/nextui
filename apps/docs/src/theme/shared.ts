@@ -12,6 +12,7 @@ export const lightTheme = createTheme({
     fonts,
     colors: {
       headerBackground: 'hsla(0,0%,100%,0.8)',
+      menuBackground: 'rgba(255, 255, 255, 0.5)',
       headerIconColor: '$accents4',
       codeBackground: '#363449',
       codeComment: '$accents3',
@@ -32,6 +33,7 @@ export const darkTheme = createTheme({
   theme: {
     fonts,
     colors: {
+      menuBackground: 'rgba(0,0,0,0.8)',
       headerBackground: 'rgba(0,0,0,0.5)',
       headerIconColor: '$accents6',
       codeBackground: '#111111',

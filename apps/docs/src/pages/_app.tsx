@@ -4,11 +4,13 @@ import dynamic from 'next/dynamic';
 import { NextRouter, Router, useRouter } from 'next/router';
 import { NextUIProvider, globalCss } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import PlausibleProvider from 'next-plausible';
 import { AppInitialProps } from 'next/app';
 import { NextComponent } from '@lib/types';
 import generateKbarActions from '@lib/kbar-actions';
 import { KBarProvider } from 'kbar';
 import { lightTheme, darkTheme } from '../theme/shared';
+import { isProd } from '@utils/index';
 import '@codesandbox/sandpack-react/dist/index.css';
 
 type AppPropsType<
@@ -65,18 +67,20 @@ const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
       }}
     >
       <NextUIProvider>
-        <KBarProvider
-          actions={kbarActions}
-          options={{
-            animations: {
-              enterMs: 250,
-              exitMs: 100
-            }
-          }}
-        >
-          <KbarComponent />
-          <Component {...pageProps} />
-        </KBarProvider>
+        <PlausibleProvider domain="nextui.org" enabled={isProd}>
+          <KBarProvider
+            actions={kbarActions}
+            options={{
+              animations: {
+                enterMs: 250,
+                exitMs: 100
+              }
+            }}
+          >
+            <KbarComponent />
+            <Component {...pageProps} />
+          </KBarProvider>
+        </PlausibleProvider>
         <style global jsx>{`
           .noselect {
             -webkit-touch-callout: none; /* iOS Safari */

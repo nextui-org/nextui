@@ -21,7 +21,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
     <>
       <Header />
       <NotifyBanner />
-      <Navbar isHome routes={routes} />
+      <Navbar isHome hasNotify routes={routes} />
       <Container
         lg={true}
         display="flex"
