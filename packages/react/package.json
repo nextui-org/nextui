@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "1.0.3-beta.5",
+  "version": "1.0.4-beta.5",
   "license": "MIT",
   "description": "🚀 Beautiful and modern React UI library.",
   "homepage": "https://nextui.org",
@@ -61,7 +61,7 @@
     "@react-aria/i18n": "3.3.6",
     "@react-aria/interactions": "3.8.0",
     "@react-aria/label": "3.2.2",
-    "@react-aria/ssr": "3.1.1",
+    "@react-aria/ssr": "3.1.2",
     "@react-aria/table": "3.2.1",
     "@react-aria/utils": "3.11.1",
     "@react-aria/visually-hidden": "3.2.4",

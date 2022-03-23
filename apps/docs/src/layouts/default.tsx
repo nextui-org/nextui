@@ -18,7 +18,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
   routes
 }) => {
   return (
-    <>
+    <div id="app-container">
       <Header />
       <NotifyBanner />
       <Navbar isHome hasNotify routes={routes} />
@@ -39,7 +39,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
         {children}
         <Footer />
       </Container>
-    </>
+    </div>
   );
 };
 

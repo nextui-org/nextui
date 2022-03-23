@@ -128,13 +128,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
           return null;
         }
         return (
-          <TableRow
-            key={row?.key}
-            aria-hidden="false"
-            item={row}
-            state={state}
-            animated={animated}
-          >
+          <TableRow key={row?.key} aria-hidden="false" item={row} state={state}>
             {[...row.childNodes].map((cell) =>
               cell?.props?.isSelectionCell ? (
                 <TableCheckboxCell

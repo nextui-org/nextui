@@ -1,12 +1,13 @@
 import React from 'react';
 import { Section, Title, Subtitle } from '@primitives';
-import { Row } from '@nextui-org/react';
+import { Row, Spacer } from '@nextui-org/react';
 import landingContent from '@content/landing';
 import { FeaturesGrid } from '@components';
 
 const LastButNotLeastSection = () => {
   return (
     <Section css={{ zIndex: '$10' }}>
+      <Spacer y={6} css={{ '@xsMax': { mt: '$14' } }} />
       <Row justify="center">
         <Title>Last&nbsp;</Title>
         <Title color="warning">but&nbsp;</Title>

@@ -43,6 +43,7 @@ const TableColumnHeader = React.forwardRef<
   } = useTableColumnHeader({ node: column }, state, tableColumnHeaderRef);
 
   const { isFocusVisible, focusProps } = useFocusRing();
+  const { hideHeader, ...columnProps } = column.props;
 
   return (
     <StyledTableColumnHeader
@@ -50,14 +51,14 @@ const TableColumnHeader = React.forwardRef<
       isFocusVisible={isFocusVisible}
       colSpan={column.colspan}
       className={clsx('nextui-table-column-header', props.className)}
-      {...mergeProps(props, columnHeaderProps, focusProps, column.props)}
+      {...mergeProps(props, columnHeaderProps, focusProps, columnProps)}
     >
-      {column.props.hideHeader ? (
+      {hideHeader ? (
         <VisuallyHidden>{column.rendered}</VisuallyHidden>
       ) : (
         column.rendered
       )}
-      {column.props.allowsSorting && (
+      {columnProps.allowsSorting && (
         <TableSortIcon
           visible={state.sortDescriptor?.column === column.key}
           ascending={state.sortDescriptor?.direction === 'ascending'}

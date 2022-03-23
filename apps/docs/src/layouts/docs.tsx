@@ -45,7 +45,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}/${CONTENT_PATH}${currentRoute?.path}`;
 
   return (
-    <>
+    <div id="app-container">
       <Navbar routes={routes} />
       <Container
         lg={true}
@@ -185,7 +185,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
         </Row>
         <Footer css={{ jc: 'flex-end' }} />
       </Container>
-    </>
+    </div>
   );
 };
 
