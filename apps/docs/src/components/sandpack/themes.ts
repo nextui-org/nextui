@@ -1,34 +1,30 @@
-import { getCodeThemeColors } from '../playground/code-theme';
 import { SandpackTheme } from '@codesandbox/sandpack-react';
-import { get } from 'lodash';
-
-const themeColors = getCodeThemeColors();
 
 export const nextuiTheme: SandpackTheme = {
   palette: {
-    activeText: get(themeColors, 'color', '#F4F4F4'),
-    defaultText: get(themeColors, 'commentColor.style.color', '#999'),
+    activeText: '#F4F4F4',
+    defaultText: 'var(--nextui-colors-codeComment)',
     inactiveText: '#e4e7eb',
     activeBackground: '#A258DF2b',
-    defaultBackground: get(themeColors, 'backgroundColor', '#363449'),
+    defaultBackground: 'var(--nextui-colors-codeBackground)',
     inputBackground: '#ffffff',
     accent: '#A258DF',
     errorBackground: '#ffcdca',
     errorForeground: '#811e18'
   },
   syntax: {
-    plain: get(themeColors, 'color', '#151515'),
+    plain: '#F4F4F4',
     comment: {
-      color: get(themeColors, 'commentColor.style.color', '#999'),
+      color: 'var(--nextui-colors-codeComment)',
       fontStyle: 'italic'
     },
-    keyword: get(themeColors, 'primitiveColor.style.color', '#0971F1'),
-    tag: get(themeColors, 'classnameColor.style.color', '#0971F1'),
-    punctuation: get(themeColors, 'color', '#151515'),
-    definition: get(themeColors, 'color', '#151515'),
-    property: get(themeColors, 'color', '#151515'),
-    static: get(themeColors, 'attrColor.style.color', '#FF453A'),
-    string: get(themeColors, 'stringColor.style.color', '#BF5AF2')
+    keyword: '#c678dd',
+    tag: '#E5C07B',
+    punctuation: '#F4F4F4',
+    definition: '#F4F4F4',
+    property: '#F4F4F4',
+    static: 'var(--nextui-colors-yellow500)',
+    string: '#98C379'
   },
   typography: {
     bodyFont: 'var(--nextui-fonts-sans)',

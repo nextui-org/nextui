@@ -1,16 +1,20 @@
 import React from 'react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
+import { debounce } from 'lodash';
 import { NextRouter, Router, useRouter } from 'next/router';
-import { NextUIProvider, globalCss } from '@nextui-org/react';
+import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import NProgress from 'nprogress';
 import PlausibleProvider from 'next-plausible';
 import { AppInitialProps } from 'next/app';
 import { NextComponent } from '@lib/types';
 import generateKbarActions from '@lib/kbar-actions';
 import { KBarProvider } from 'kbar';
 import { lightTheme, darkTheme } from '../theme/shared';
+import globalStyles from '../styles/globalStyles';
 import { isProd } from '@utils/index';
+import RouterEvents from '@lib/router-events';
 import '@codesandbox/sandpack-react/dist/index.css';
 
 type AppPropsType<
@@ -29,28 +33,18 @@ const KbarComponent = dynamic(() => import('../components/kbar'), {
   ssr: false
 });
 
-const globalStyles = globalCss({
-  // sandpack-react
-  '.sp-highlight': {
-    background: '$codeHighlight'
-  },
-  '.sp-tabs': {
-    border: 'none !important',
-    borderRadius: 'inherit',
-    button: {
-      cursor: 'pointer'
-    }
-  },
-  '.sp-layout': {
-    border: 'none !important',
-    overflow: 'visible !important',
-    WebkitMaskImage: 'none !important',
-    background: 'transparent !important'
-  },
-  '.sp-pre-placeholder': {
-    background: 'transparent !important',
-    borderRadius: '0 !important'
-  }
+NProgress.configure({ parent: '#app-container' });
+
+const start = debounce(NProgress.start, 200);
+RouterEvents.on('routeChangeStart', start);
+RouterEvents.on('routeChangeComplete', (url) => {
+  console.log(`Changed to URL: ${url}`);
+  start.cancel();
+  NProgress.done();
+});
+RouterEvents.on('routeChangeError', () => {
+  start.cancel();
+  NProgress.done();
 });
 
 const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
