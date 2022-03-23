@@ -77,6 +77,8 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       hideLoading,
       children,
       shadow,
+      color,
+      animated,
       borderWeight,
       bordered,
       ...props
@@ -119,10 +121,10 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
     const initialValues = React.useMemo<Partial<TableConfig>>(() => {
       return {
         collection,
-        color: props.color,
-        animated: props.animated
+        color,
+        animated
       };
-    }, [collection, props.animated, props.color]);
+    }, [collection, animated, color]);
 
     return (
       <TableContext.Provider defaultValues={initialValues}>
@@ -135,7 +137,9 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
         >
           <StyledTable
             ref={tableRef}
+            color={color}
             shadow={shadow}
+            animated={animated}
             hoverable={selectionMode !== 'none' || props.hoverable}
             isMultiple={selectionMode === 'multiple'}
             hasPagination={hasPagination}
@@ -156,15 +160,15 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
                         key={column?.key}
                         column={column}
                         state={state}
-                        color={props.color}
-                        animated={props.animated}
+                        color={color}
+                        animated={animated}
                       />
                     ) : (
                       <TableColumnHeader
                         key={column?.key}
                         column={column}
                         state={state}
-                        animated={props.animated}
+                        animated={animated}
                       />
                     )
                   )}
@@ -176,9 +180,9 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             </TableRowGroup>
             <TableBody
               state={state}
-              color={props.color}
+              color={color}
               collection={collection}
-              animated={props.animated}
+              animated={animated}
               hasPagination={hasPagination}
               hideLoading={hideLoading}
             />
