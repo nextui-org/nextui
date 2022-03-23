@@ -11,7 +11,6 @@ import clsx from '../utils/clsx';
 interface Props<T> {
   item: GridNode<T>;
   state: TableState<T>;
-  animated?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -45,7 +44,6 @@ const TableRow = React.forwardRef<
         className={clsx(
           'nextui-table-row',
           {
-            'nextui-table-row--animated': props.animated,
             'nextui-table-row--selected': rowProps['aria-selected'],
             'nextui-table-row--disabled': isDisabled
           },
