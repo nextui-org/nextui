@@ -248,7 +248,6 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
       })}
     >
       <AutoSuggest
-        alwaysRenderSuggestions
         highlightFirstSuggestion={true}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={onClear}
