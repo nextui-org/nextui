@@ -10,7 +10,11 @@ import { useIsMobile } from '@hooks/use-media-query';
 const searchClient = getAlgoliaClient();
 const INDEX_NAME = process.env.NEXT_PUBLIC_ALGOLIA_INDEX;
 
-const InstantSearch: React.FC<unknown> = () => {
+export interface Props {
+  offsetTop?: number;
+}
+
+const InstantSearch: React.FC<Props> = (props) => {
   const isMobile = useIsMobile();
   return (
     <BaseInstantSearch
@@ -18,7 +22,7 @@ const InstantSearch: React.FC<unknown> = () => {
       searchClient={searchClient}
     >
       <Configure hitsPerPage={isMobile ? 6 : 8} />
-      <Autocomplete />
+      <Autocomplete {...props} />
     </BaseInstantSearch>
   );
 };

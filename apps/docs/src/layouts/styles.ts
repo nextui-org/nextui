@@ -1,13 +1,17 @@
 import { styled } from '@nextui-org/react';
 
-export const StyledNavContainer = styled('nav', {
+export const StyledNavMainContainer = styled('nav', {
   top: 0,
-  display: 'flex',
-  alignItems: 'center',
   height: '76px',
   position: 'sticky',
   background: 'transparent',
-  zIndex: '$max',
+  zIndex: '$max'
+});
+
+export const StyledNavContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  size: '100%',
   '& .navbar__social-icon': {
     fill: '$colors$headerIconColor'
   },

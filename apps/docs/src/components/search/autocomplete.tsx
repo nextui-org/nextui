@@ -3,12 +3,7 @@ import { createPortal } from 'react-dom';
 import cn from 'classnames';
 import { isMacOs } from 'react-device-detect';
 import { useRouter } from 'next/router';
-import {
-  useTheme,
-  useBodyScroll,
-  useClickAway,
-  usePortal
-} from '@nextui-org/react';
+import { useTheme, useBodyScroll, useClickAway } from '@nextui-org/react';
 import AutoSuggest, {
   ChangeEvent,
   OnSuggestionSelected,
@@ -29,16 +24,29 @@ import Suggestion from './suggestion';
 import { VisualState, useKBar } from 'kbar';
 import Blockholder from '../blockholder';
 import useIsMounted from '@hooks/use-is-mounted';
+import usePortal from '@hooks/use-portal';
+import withDeaults from '@utils/with-defaults';
 
-interface Props extends AutocompleteProvided {}
+interface Props extends AutocompleteProvided {
+  offsetTop?: number;
+}
 
-const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
+const defaultProps = {
+  offsetTop: 0
+};
+
+const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
   const [value, setValue] = React.useState('');
   const [isFocused, setIsFocused] = React.useState(false);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
   const router = useRouter();
-  const suggestionsPortal = usePortal('suggestions');
-  const noResultsPortal = usePortal('no-results');
+
+  const suggestionsPortal = usePortal('suggestions', () => {
+    return document?.getElementById('navbar-container');
+  });
+  const noResultsPortal = usePortal('no-results', () => {
+    return document?.getElementById('navbar-container');
+  });
 
   const { theme, isDark, type: themeType } = useTheme();
   const isMobile = useIsMobile();
@@ -150,7 +158,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
     containerProps,
     children
   }: RenderSuggestionsContainerParams) =>
-    isMobile && suggestionsPortal ? (
+    suggestionsPortal ? (
       createPortal(
         <div {...containerProps}>
           <a
@@ -240,6 +248,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
       })}
     >
       <AutoSuggest
+        alwaysRenderSuggestions
         highlightFirstSuggestion={true}
         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
         onSuggestionsClearRequested={onClear}
@@ -331,9 +340,9 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           }
           .react-autosuggest__suggestions-container,
           .no-results {
-            position: ${isMobile ? 'fixed' : 'absolute'};
-            top: 34px;
-            right: 0;
+            position: absolute;
+            top: 64px;
+            right: 20px;
             height: 0;
             padding: 12px 0;
             overflow-y: auto;
@@ -342,41 +351,21 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
             max-height: calc(100vh - 334px);
             min-height: 168px;
             transition: all 0.25s ease;
-            backdrop-filter: saturate(180%) blur(20px);
-            background: ${theme?.colors?.accents1?.value};
             box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
           }
-          @supports (
-            (-webkit-backdrop-filter: blur(10px)) or
-              (backdrop-filter: blur(10px))
-          ) {
-            .search__input-container,
-            .react-autosuggest__suggestions-container,
-            .no-results {
-              backdrop-filter: saturate(180%) blur(10px);
-              background: ${addColorAlpha(theme?.colors?.accents2?.value, 0.7)};
-            }
-            .search__input-container {
-              background: ${addColorAlpha(theme?.colors?.accents2?.value, 0.7)};
-            }
-            .react-autosuggest__suggestions-container,
-            .no-results {
-              background: ${theme?.colors?.accents1?.value};
-            }
+
+          .search__input-container,
+          .react-autosuggest__suggestions-container,
+          .no-results {
+            backdrop-filter: saturate(180%) blur(10px) !important;
+            background: ${addColorAlpha(theme?.colors?.accents1?.value, 0.7)};
           }
-          @supports (
-            not (-webkit-backdrop-filter: blur(10px)) and not
-              (backdrop-filter: blur(10px))
-          ) {
-            .search__input-container {
-              background: ${theme?.colors?.accents2?.value};
-            }
-            .react-autosuggest__suggestions-container,
-            .no-results {
-              background: ${theme?.colors?.accents1?.value};
-            }
+          .search__input-container {
+            z-index: 9999;
+            background: ${addColorAlpha(theme?.colors?.accents2?.value, 0.7)};
           }
+
           .react-autosuggest__suggestions-container::-webkit-scrollbar {
             width: 0px;
           }
@@ -437,13 +426,14 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
           @media only screen and (max-width: ${theme?.breakpoints?.xs.value}) {
             .react-autosuggest__suggestions-container,
             .no-results {
-              z-index: 1004;
+              position: fixed;
+              z-index: -1;
               width: 100%;
               height: calc(100vh + 10%);
               max-height: 100vh;
               padding: 0;
               border-radius: 0;
-              top: 0;
+              top: calc(20px + ${offsetTop}px);
               left: 0;
               right: 0;
             }
@@ -488,4 +478,4 @@ const Autocomplete: React.FC<Props> = ({ hits, refine }) => {
 
 const MemoAutocomplete = React.memo(Autocomplete);
 
-export default connectAutoComplete(MemoAutocomplete);
+export default connectAutoComplete(withDeaults(MemoAutocomplete, defaultProps));

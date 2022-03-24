@@ -35,7 +35,7 @@ const KbarComponent = dynamic(() => import('../components/kbar'), {
 
 NProgress.configure({ parent: '#app-container' });
 
-const start = debounce(NProgress.start, 200);
+const start = debounce(NProgress.start, 100);
 RouterEvents.on('routeChangeStart', start);
 RouterEvents.on('routeChangeComplete', (url) => {
   console.log(`Changed to URL: ${url}`);

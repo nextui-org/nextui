@@ -16100,6 +16100,13 @@ react-use-measure@^2.1.1:
   dependencies:
     debounce "^1.2.1"
 
+react-useportal@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/react-useportal/-/react-useportal-1.0.16.tgz#d442b4f430d92e5e9f7adb40f59375d12c51caa2"
+  integrity sha512-sbmixDvJvWAS2YaGB4dA6e7EA08MXTjQxjcujC4WYLWSJOR2BsF3PnVAlJ9N70dDC/Z6zjgs8IKiaPzmGYHcXQ==
+  dependencies:
+    use-ssr "^1.0.22"
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
@@ -18759,6 +18766,11 @@ use-latest@^1.0.0:
   integrity sha512-d2TEuG6nSLKQLAfW3By8mKr8HurOlTkul0sOpxbClIv4SQ4iOd7BYr7VIzdbktUCnv7dua/60xzd8igMU6jmyw==
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
+
+use-ssr@^1.0.22:
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/use-ssr/-/use-ssr-1.0.24.tgz#213a3df58f5ab9268e6fe1a57ad0a9de91e514d1"
+  integrity sha512-0MFps7ezL57/3o0yl4CvrHLlp9z20n1rQZV/lSRz7if+TUoM6POU1XdOvEjIgjgKeIhTEye1U0khrIYWCTWw4g==
 
 use-subscription@1.5.1:
   version "1.5.1"

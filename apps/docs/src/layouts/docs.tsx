@@ -50,6 +50,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
       <Container
         lg={true}
         as="main"
+        id="main-container"
         className="docs__container"
         display="flex"
         css={{ position: 'relative' }}
