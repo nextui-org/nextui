@@ -763,6 +763,346 @@ export const StyledButton = styled(
         css: {
           br: '$pill'
         }
+      },
+      //Variants Interaction with Disabled State
+      //default & disabled
+      {
+        disabled: true,
+        color: 'default',
+        bordered: true,
+        css: {
+          bg: 'transparent',
+          borderColor: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'default',
+        flat: true,
+        css: {
+          bg: '$accents1',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'default',
+        light: true,
+        css: {
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'default',
+        disabled: true,
+        css: {
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'default',
+        ghost: true,
+        css: {
+          bg: 'transparent',
+          color: '$accents4',
+          '&:hover': {
+            bg: 'transparent',
+            color: '$accents4'
+          }
+        }
+      },
+      //primary & disabled
+      {
+        disabled: true,
+        color: 'primary',
+        bordered: true,
+        css: {
+          bg: 'transparent',
+          borderColor: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'primary',
+        flat: true,
+        css: {
+          bg: '$accents1',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'primary',
+        light: true,
+        css: {
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'primary',
+        disabled: true,
+        css: {
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'primary',
+        ghost: true,
+        css: {
+          bg: 'transparent',
+          color: '$accents4',
+          '&:hover': {
+            bg: 'transparent',
+            color: '$accents4'
+          }
+        }
+      },
+      //secondary & disabled
+      {
+        disabled: true,
+        color: 'secondary',
+        bordered: true,
+        css: {
+          bg: 'transparent',
+          borderColor: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'secondary',
+        flat: true,
+        css: {
+          bg: '$accents1',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'secondary',
+        light: true,
+        css: {
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'secondary',
+        disabled: true,
+        css: {
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'secondary',
+        ghost: true,
+        css: {
+          bg: 'transparent',
+          color: '$accents4',
+          '&:hover': {
+            bg: 'transparent',
+            color: '$accents4'
+          }
+        }
+      },
+      //success & disabled
+      {
+        disabled: true,
+        color: 'success',
+        bordered: true,
+        css: {
+          bg: 'transparent',
+          borderColor: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'success',
+        flat: true,
+        css: {
+          bg: '$accents1',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'success',
+        light: true,
+        css: {
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'success',
+        disabled: true,
+        css: {
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'success',
+        ghost: true,
+        css: {
+          bg: 'transparent',
+          color: '$accents4',
+          '&:hover': {
+            bg: 'transparent',
+            color: '$accents4'
+          }
+        }
+      },
+      //warning & disabled
+      {
+        disabled: true,
+        color: 'warning',
+        bordered: true,
+        css: {
+          bg: 'transparent',
+          borderColor: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'warning',
+        flat: true,
+        css: {
+          bg: '$accents1',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'warning',
+        light: true,
+        css: {
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'warning',
+        disabled: true,
+        css: {
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'warning',
+        ghost: true,
+        css: {
+          bg: 'transparent',
+          color: '$accents4',
+          '&:hover': {
+            bg: 'transparent',
+            color: '$accents4'
+          }
+        }
+      },
+      //error & disabled
+      {
+        disabled: true,
+        color: 'error',
+        bordered: true,
+        css: {
+          bg: 'transparent',
+          borderColor: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'error',
+        flat: true,
+        css: {
+          bg: '$accents1',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'error',
+        light: true,
+        css: {
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'error',
+        disabled: true,
+        css: {
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'error',
+        ghost: true,
+        css: {
+          bg: 'transparent',
+          color: '$accents4',
+          '&:hover': {
+            bg: 'transparent',
+            color: '$accents4'
+          }
+        }
+      },
+      //gradient & disabled
+      {
+        disabled: true,
+        color: 'gradient',
+        bordered: true,
+        css: {
+          bg: 'transparent',
+          bgclip: 'content-box',
+          color: '$accents4',
+          borderStyle: 'solid'
+        }
+      },
+      {
+        disabled: true,
+        color: 'gradient',
+        light: true,
+        css: {
+          color: '$accents4'
+        }
+      },
+      {
+        color: 'gradient',
+        disabled: true,
+        css: {
+          bg: '$accents2',
+          color: '$accents4'
+        }
+      },
+      {
+        disabled: true,
+        color: 'gradient',
+        ghost: true,
+        css: {
+          bg: 'transparent',
+          bgclip: 'content-box',
+          color: '$accents4',
+          borderStyle: 'solid',
+          '&:hover': {
+            bg: 'transparent',
+            bgclip: 'content-box',
+            color: '$accents4',
+            borderStyle: 'solid'
+          }
+        }
       }
     ],
     defaultVariants: {
