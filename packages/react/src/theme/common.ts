@@ -111,7 +111,9 @@ export const defaultTokens = {
     black: '5px'
   },
   transitions: {
-    default: 'all 250ms ease'
+    default: 'all 250ms ease',
+    button:
+      'background 0.25s ease 0s, color 0.25s ease 0s, border-color 0.25s ease 0s, box-shadow 0.25s ease 0s, transform 0.25s ease 0s, opacity 0.25s ease 0s'
   },
   breakpoints: {
     xs: '650px',
