@@ -16,7 +16,7 @@ export const StyledButton = styled(
     lineHeight: '$sm',
     ta: 'center',
     whiteSpace: 'nowrap',
-    transition: '$default',
+    transition: '$button',
     position: 'relative',
     overflow: 'hidden',
     border: 'none',
@@ -142,19 +142,24 @@ export const StyledButton = styled(
       },
       borderWeight: {
         light: {
-          bw: '$light'
+          bw: '$light',
+          $$buttonBorderWeight: '$borderWeights$light'
         },
         normal: {
-          bw: '$normal'
+          bw: '$normal',
+          $$buttonBorderWeight: '$borderWeights$normal'
         },
         bold: {
-          bw: '$bold'
+          bw: '$bold',
+          $$buttonBorderWeight: '$borderWeights$bold'
         },
         extrabold: {
-          bw: '$extrabold'
+          bw: '$extrabold',
+          $$buttonBorderWeight: '$borderWeights$extrabold'
         },
         black: {
-          bw: '$black'
+          bw: '$black',
+          $$buttonBorderWeight: '$borderWeights$black'
         }
       },
       flat: {
@@ -180,13 +185,7 @@ export const StyledButton = styled(
       },
       disabled: {
         true: {
-          bg: '$accents2',
-          color: '$accents4',
-          cursor: 'not-allowed',
-          pe: 'auto',
-          '&:hover': {
-            opacity: 1
-          }
+          pe: 'none'
         }
       },
       clickable: {
@@ -459,7 +458,7 @@ export const StyledButton = styled(
         css: {
           bg: 'transparent',
           color: '$text',
-          padding: '$1',
+          padding: '$$buttonBorderWeight',
           bgClip: 'content-box, border-box',
           borderColor: '$primary',
           backgroundImage:
@@ -619,47 +618,6 @@ export const StyledButton = styled(
               fill: '$error'
             }
           }
-        }
-      },
-      // border-weight / gradient-color / bordered
-      {
-        bordered: true,
-        color: 'gradient',
-        borderWeight: 'light',
-        css: {
-          padding: '$borderWeights$light'
-        }
-      },
-      {
-        bordered: true,
-        color: 'gradient',
-        borderWeight: 'normal',
-        css: {
-          padding: '$borderWeights$normal'
-        }
-      },
-      {
-        bordered: true,
-        color: 'gradient',
-        borderWeight: 'bold',
-        css: {
-          padding: '$borderWeights$bold'
-        }
-      },
-      {
-        bordered: true,
-        color: 'gradient',
-        borderWeight: 'extrabold',
-        css: {
-          padding: '$borderWeights$extrabold'
-        }
-      },
-      {
-        bordered: true,
-        color: 'gradient',
-        borderWeight: 'black',
-        css: {
-          padding: '$borderWeights$black'
         }
       },
       // size / auto / gradient-color / bordered

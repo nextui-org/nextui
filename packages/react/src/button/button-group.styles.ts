@@ -102,19 +102,18 @@ export const StyledButtonGroup = styled('div', {
         }
       }
     },
-    // gradient / vertical:false
+    // bordered & vertical:false & gradient
     {
-      gradient: true,
+      bordered: true,
       vertical: false,
+      gradient: true,
       css: {
         [`& ${StyledButton}`]: {
           '&:not(:last-child)&:not(:first-child)': {
-            pl: 0,
-            filter: 'hue-rotate(310deg)'
+            pl: 0
           },
           '&:last-child': {
-            pl: 0,
-            filter: 'hue-rotate(250deg)'
+            pl: 0
           }
         }
       }

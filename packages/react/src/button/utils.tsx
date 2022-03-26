@@ -24,3 +24,42 @@ export const filterPropsWithGroup = (
     disabled: config.disabled ?? props.disabled
   };
 };
+
+export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
+  if (!props.disabled) return {};
+  const defaultColors = {
+    bg: '$accents2',
+    color: '$accents4'
+  };
+  if (!props.bordered && !props.flat && !props.ghost && !props.light) {
+    return defaultColors;
+  }
+  if (props.color === 'gradient' && (props.bordered || props.ghost)) {
+    return {
+      color: '$accents4',
+      backgroundImage:
+        'linear-gradient($background, $background), linear-gradient($accents2, $accents2)'
+    };
+  }
+  if (props.bordered) {
+    return {
+      ...defaultColors,
+      bg: 'transparent',
+      borderColor: '$accents2'
+    };
+  }
+  if (props.ghost || props.light) {
+    return {
+      ...defaultColors,
+      bg: 'transparent'
+    };
+  }
+  if (props.flat) {
+    return {
+      ...defaultColors,
+      bg: '$accents1'
+    };
+  }
+
+  return {};
+};

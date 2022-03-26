@@ -134,7 +134,7 @@ const globalStyles = globalCss({
     fontFamily: '$mono',
     fontSize: '$xs',
     whiteSpace: 'pre-wrap',
-    transition: '$default'
+    transition: 'opacity 0.25s ease 0s'
   },
   'code:hover': {
     opacity: 0.8
