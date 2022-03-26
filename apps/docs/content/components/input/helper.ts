@@ -1,4 +1,4 @@
-const App = `import { Input } from "@nextui-org/react";
+const App = `import { Input, useInput, validateEmail, Grid } from "@nextui-org/react";
 import React from "react";
 
 export default function App() {
