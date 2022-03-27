@@ -12,6 +12,7 @@ exports[`Button should render different variants 2`] = `
   disabled={false}
   ghost={false}
   ripple={true}
+  type="button"
 >
   button
 </NextUI - Button>
@@ -27,5 +28,6 @@ exports[`Button should render empty button correctly 1`] = `
   disabled={false}
   ghost={false}
   ripple={true}
+  type="button"
 />
 `;

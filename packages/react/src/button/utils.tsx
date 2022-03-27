@@ -26,13 +26,26 @@ export const filterPropsWithGroup = (
 };
 
 export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
-  if (!props.disabled) return {};
-  const defaultColors = {
+  if (!props.disabled) {
+    if (
+      props.auto &&
+      props.color === 'gradient' &&
+      (props.bordered || props.ghost)
+    ) {
+      return {
+        px: '$$buttonBorderWeight',
+        py: '$$buttonBorderWeight'
+      };
+    }
+    return {};
+  }
+  const defaultDisabledCss = {
     bg: '$accents2',
     color: '$accents4'
   };
+
   if (!props.bordered && !props.flat && !props.ghost && !props.light) {
-    return defaultColors;
+    return defaultDisabledCss;
   }
   if (props.color === 'gradient' && (props.bordered || props.ghost)) {
     return {
@@ -43,20 +56,20 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
   }
   if (props.bordered) {
     return {
-      ...defaultColors,
+      ...defaultDisabledCss,
       bg: 'transparent',
       borderColor: '$accents2'
     };
   }
   if (props.ghost || props.light) {
     return {
-      ...defaultColors,
+      ...defaultDisabledCss,
       bg: 'transparent'
     };
   }
   if (props.flat) {
     return {
-      ...defaultColors,
+      ...defaultDisabledCss,
       bg: '$accents1'
     };
   }
