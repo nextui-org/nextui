@@ -1,9 +1,7 @@
 const App = `import { Loading } from "@nextui-org/react";
 
 export default function App() {
-  return (
-    <Loading />
-    );
+  return <Loading />;
 }`;
 
 const react = {
@@ -13,4 +11,3 @@ const react = {
 export default {
   ...react
 };
-

@@ -12,10 +12,10 @@ import { NextComponent } from '@lib/types';
 import generateKbarActions from '@lib/kbar-actions';
 import { KBarProvider } from 'kbar';
 import { lightTheme, darkTheme } from '../theme/shared';
-import globalStyles from '../styles/globalStyles';
 import { isProd } from '@utils/index';
 import RouterEvents from '@lib/router-events';
-import '@codesandbox/sandpack-react/dist/index.css';
+import globalStyles from '../styles/globalStyles';
+import '../styles/sandpack.css';
 
 type AppPropsType<
   R extends NextRouter = NextRouter,

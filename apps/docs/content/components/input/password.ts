@@ -1,13 +1,13 @@
-const LockIcon = `import { React } from '@nextui-org/react';\n
+const LockIcon = `import { React } from '@nextui-org/react';
 
 export const LockIcon = ({
-  fill, 
-  filled, 
-  size, 
-  height, 
-  width, 
-  label, 
-  ...props 
+  fill,
+  filled,
+  size,
+  height,
+  width,
+  label,
+  ...props
 }) => {
   return (
     <svg
@@ -20,7 +20,7 @@ export const LockIcon = ({
     >
       <g
         fill="none"
-        stroke="black"
+        stroke={fill}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit={10}
@@ -40,17 +40,17 @@ export const LockIcon = ({
   );
 };`;
 
-const UnLockIcon = `import { React } from '@nextui-org/react';\n
+const UnLockIcon = `import { React } from "@nextui-org/react";
 
 export const UnLockIcon = ({
   fill,
   filled,
   size,
-  height, 
-  width, 
-  label, 
-  ...props }) => {
-  const color = "black";
+  height,
+  width,
+  label,
+  ...props
+}) => {
   return (
     <svg
       data-name="Iconly/Curved/Lock"
@@ -65,7 +65,7 @@ export const UnLockIcon = ({
           d="M8.927,3.237A4.562,4.562,0,0,0,0,4.484V6.653"
           transform="translate(3.849 0.75)"
           fill="none"
-          stroke={color}
+          stroke={fill}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="10"
@@ -75,7 +75,7 @@ export const UnLockIcon = ({
           d="M.5,0V2.221"
           transform="translate(7.91 12.156)"
           fill="none"
-          stroke={color}
+          stroke={fill}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="10"
@@ -85,7 +85,7 @@ export const UnLockIcon = ({
           d="M7.66,0C1.915,0,0,1.568,0,6.271s1.915,6.272,7.66,6.272,7.661-1.568,7.661-6.272S13.406,0,7.66,0Z"
           transform="translate(0.75 6.824)"
           fill="none"
-          stroke={color}
+          stroke={fill}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit="10"
@@ -97,16 +97,13 @@ export const UnLockIcon = ({
 };`;
 
 const AppJs = `import { Input, Spacer } from "@nextui-org/react";
-import {UnLockIcon} from "./UnLockIcon.js";
-import {LockIcon} from "./LockIcon.js";
+import { UnLockIcon } from "./UnLockIcon.js";
+import { LockIcon } from "./LockIcon.js";
 
 export default function App() {
   return (
     <>
-      <Input.Password 
-        labelPlaceholder="Password" 
-        initialValue="nextui123" 
-      />
+      <Input.Password labelPlaceholder="Password" initialValue="nextui123" />
       <Spacer y={1.6} />
       <Input.Password
         labelPlaceholder="Custom icons"
@@ -126,4 +123,3 @@ const react = {
 export default {
   ...react
 };
-

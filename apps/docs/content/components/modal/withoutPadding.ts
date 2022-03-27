@@ -1,5 +1,5 @@
-const App = `import { Modal, Button, Text, Link } from "@nextui-org/react";
-import React from "react";
+const App = `import React from "react";
+import { Modal, Button, Image, Text, Link } from "@nextui-org/react";
 
 export default function App() {
   const [visible, setVisible] = React.useState(false);
@@ -38,10 +38,11 @@ export default function App() {
           </Text>
         </Modal.Header>
         <Modal.Body>
-          <img
+          <Image
+            showSkeleton
             src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-            width="100%"
-            height="100%"
+            width={400}
+            height={490}
           />
         </Modal.Body>
       </Modal>
@@ -56,4 +57,3 @@ const react = {
 export default {
   ...react
 };
-

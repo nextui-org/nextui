@@ -1,4 +1,4 @@
-const SunIcon = `import { React } from '@nextui-org/react';\n
+const SunIcon = `import { React } from '@nextui-org/react';
 
 export const SunIcon = ({
   fill = 'currentColor',
@@ -60,7 +60,7 @@ export const SunIcon = ({
   );
 }`;
 
-const MoonIcon = `import { React } from '@nextui-org/react';\n
+const MoonIcon = `import { React } from '@nextui-org/react';
 
 export const MoonIcon = ({
   fill = 'currentColor',
@@ -102,7 +102,7 @@ export const MoonIcon = ({
   );
 }`;
 
-const AnchorIcon = `import { React } from '@nextui-org/react';\n
+const AnchorIcon = `import { React } from '@nextui-org/react';
 
 export const AnchorIcon = ({
   fill = 'currentColor',
@@ -137,6 +137,7 @@ const AppJs = `import { Collapse,Text,Grid } from '@nextui-org/react';
 import { SunIcon } from './SunIcon';
 import { MoonIcon } from './MoonIcon';
 import { AnchorIcon } from './AnchorIcon';
+
 export default function App() {
   return (
     <Grid.Container gap={2}>

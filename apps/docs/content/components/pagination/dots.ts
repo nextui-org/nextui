@@ -1,5 +1,5 @@
-const App = `import { Pagination, Grid, Radio } from "@nextui-org/react";
-import React from "react";
+const App = `import React from "react";
+import { Pagination, Grid, Radio } from "@nextui-org/react";
 
 export default function App() {
   const [selectedSize, setSelectedSize] = React.useState("md");

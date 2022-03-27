@@ -7,9 +7,6 @@ export default globalCss({
     width: '100%'
   },
   // sandpack-react
-  '.sp-wrapper *': {
-    boxSizing: 'initial !important'
-  },
   '.sp-highlight': {
     background: '$codeHighlight'
   },

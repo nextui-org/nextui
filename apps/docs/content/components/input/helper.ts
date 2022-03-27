@@ -1,8 +1,14 @@
-const App = `import { Input, useInput, validateEmail, Grid } from "@nextui-org/react";
-import React from "react";
+const App = `import React from "react";
+import { Input, useInput, Grid } from "@nextui-org/react";
+
 
 export default function App() {
   const { value, reset, bindings } = useInput("");
+  
+  const validateEmail = (value) => {
+    return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
+  };
+
   const helper = React.useMemo(() => {
     if (!value)
       return {
@@ -92,4 +98,3 @@ const react = {
 export default {
   ...react
 };
-
