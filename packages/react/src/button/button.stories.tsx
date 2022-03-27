@@ -3,7 +3,6 @@ import { Meta } from '@storybook/react';
 import Button from './index';
 import { Spacer, Grid, Loading } from '../index';
 import { Lock, Notification, User, Camera, Activity } from '../utils/icons';
-import useTheme from '../use-theme';
 
 export default {
   title: 'General/Button',
@@ -88,6 +87,35 @@ export const Colors = () => (
     <Button color="error">Error</Button>
     <Spacer y={0.5} />
     <Button color="gradient">Gradient</Button>
+    <Spacer y={0.5} />
+  </>
+);
+
+export const Ghost = () => (
+  <>
+    <Button color="primary" ghost>
+      Primary
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="secondary" ghost>
+      Secondary
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="success" ghost>
+      Success
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="warning" ghost>
+      Warning
+    </Button>
+    <Spacer y={0.5} />
+    <Button color="error" ghost>
+      Error
+    </Button>
+    <Spacer y={0.5} />
+    <Button ghost color="gradient">
+      Gradient
+    </Button>
     <Spacer y={0.5} />
   </>
 );
@@ -229,39 +257,31 @@ export const Light = () => (
 );
 
 export const Icons = () => {
-  const theme = useTheme();
   return (
     <>
-      <Button auto iconRight={<Activity theme={theme} fill="currentColor" />} />
+      <Button auto iconRight={<Activity fill="currentColor" />} />
       <Spacer y={0.5} />
-      <Button auto iconRight={<Camera theme={theme} fill="currentColor" />}>
+      <Button auto iconRight={<Camera fill="currentColor" />}>
         Right Icon
       </Button>
       <Spacer y={0.5} />
-      <Button auto icon={<Camera theme={theme} fill="currentColor" />}>
+      <Button auto icon={<Camera fill="currentColor" />}>
         Left Icon
       </Button>
       <Spacer y={0.5} />
-      <Button icon={<Lock theme={theme} fill="currentColor" />} color="success">
+      <Button icon={<Lock fill="currentColor" />} color="success">
         Lock
       </Button>
       <Spacer y={0.5} />
-      <Button
-        icon={<Notification theme={theme} fill="currentColor" />}
-        color="secondary"
-      >
+      <Button icon={<Notification fill="currentColor" />} color="secondary">
         Notifications
       </Button>
       <Spacer y={0.5} />
-      <Button
-        icon={<User theme={theme} fill="currentColor" />}
-        color="error"
-        flat
-      >
+      <Button icon={<User fill="currentColor" />} color="error" flat>
         Delete User
       </Button>
       <Spacer y={0.5} />
-      <Button icon={<User theme={theme} fill="currentColor" />} disabled>
+      <Button icon={<User fill="currentColor" />} disabled>
         Delete User
       </Button>
     </>

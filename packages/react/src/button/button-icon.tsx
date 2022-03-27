@@ -42,8 +42,7 @@ export const StyledButtonIcon = styled('span', {
     isSingle: {
       true: {
         position: 'static',
-        transform: 'none',
-        m: 0
+        transform: 'none'
       }
     }
   },
@@ -69,14 +68,6 @@ export const StyledButtonIcon = styled('span', {
         right: '0%',
         left: '0%'
       }
-    },
-    // isAuto && isSingle
-    {
-      isAuto: true,
-      isSingle: true,
-      css: {
-        m: 0
-      }
     }
   ]
 });
@@ -92,7 +83,14 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
 }) => {
   return (
     <StyledButtonIcon
-      className={clsx('nextui-button-icon', className)}
+      className={clsx(
+        'nextui-button-icon',
+        {
+          'nextui-button-icon-right': props.isRight,
+          'nextui-button-icon-single': props.isSingle
+        },
+        className
+      )}
       {...props}
     >
       {children}

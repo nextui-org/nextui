@@ -8,6 +8,7 @@ import { StyledDrip } from '../utils/drip';
 export const StyledButton = styled(
   'button',
   {
+    $$buttonBorderRadius: '$radii$md',
     dflex: 'center',
     appearance: 'none',
     boxSizing: ' border-box',
@@ -23,6 +24,7 @@ export const StyledButton = styled(
     cursor: 'pointer',
     pe: 'auto',
     p: 0,
+    br: '$$buttonBorderRadius',
     '&:hover': {
       opacity: 0.85
     },
@@ -91,53 +93,53 @@ export const StyledButton = styled(
       size: {
         xs: {
           $$buttonPadding: '$space$3',
+          $$buttonBorderRadius: '$radii$xs',
           px: '$3',
           height: '$10',
           lh: '$space$10',
           width: 'auto',
           minWidth: '$20',
-          fontSize: '$tiny',
-          br: '$xs'
+          fontSize: '$tiny'
         },
         sm: {
           $$buttonPadding: '$space$5',
+          $$buttonBorderRadius: '$radii$sm',
           px: '$5',
           height: '$12',
           lh: '$space$14',
           width: 'auto',
           minWidth: '$36',
-          fontSize: '$xs',
-          br: '$sm'
+          fontSize: '$xs'
         },
         md: {
           $$buttonPadding: '$space$7',
+          $$buttonBorderRadius: '$radii$md',
           px: '$7',
           height: '$14',
           lh: '$space$14',
           width: 'auto',
           minWidth: '$48',
-          fontSize: '$xs',
-          br: '$md'
+          fontSize: '$xs'
         },
         lg: {
           $$buttonPadding: '$space$9',
+          $$buttonBorderRadius: '$radii$base',
           px: '$9',
           height: '$15',
           lh: '$space$15',
           width: 'auto',
           minWidth: '$60',
-          fontSize: '$base',
-          br: '$base'
+          fontSize: '$base'
         },
         xl: {
           $$buttonPadding: '$space$10',
+          $$buttonBorderRadius: '$radii$xl',
           px: '$10',
           height: '$17',
           lh: '$space$17',
           width: 'auto',
           minWidth: '$72',
-          fontSize: '$sm',
-          br: '$xl'
+          fontSize: '$sm'
         }
       },
       borderWeight: {
@@ -212,7 +214,7 @@ export const StyledButton = styled(
       },
       rounded: {
         true: {
-          br: '$pill'
+          $$buttonBorderRadius: '$radii$pill'
         }
       }
     },
@@ -620,69 +622,26 @@ export const StyledButton = styled(
           }
         }
       },
-      // size / auto / gradient-color / bordered
+      // auto / gradient-color / bordered
       {
         auto: true,
         color: 'gradient',
         bordered: true,
-        size: 'xs',
         css: {
-          px: '$1',
-          py: '$1',
           '.nextui-button-text': {
-            px: '$5'
-          }
-        }
-      },
-      {
-        auto: true,
-        color: 'gradient',
-        bordered: true,
-        size: 'sm',
-        css: {
-          px: '$1',
-          py: '$1',
-          '.nextui-button-text': {
-            px: '$8'
-          }
-        }
-      },
-      {
-        auto: true,
-        color: 'gradient',
-        bordered: true,
-        size: 'md',
-        css: {
-          px: '$1',
-          py: '$1',
-          '.nextui-button-text': {
-            px: '$9'
-          }
-        }
-      },
-      {
-        auto: true,
-        color: 'gradient',
-        bordered: true,
-        size: 'lg',
-        css: {
-          px: '$1',
-          py: '$1',
-          '.nextui-button-text': {
-            px: '$14'
-          }
-        }
-      },
-      {
-        auto: true,
-        color: 'gradient',
-        bordered: true,
-        size: 'xl',
-        css: {
-          px: '$1',
-          py: '$1',
-          '.nextui-button-text': {
-            px: '$12'
+            px: '$$buttonPadding'
+          },
+          '.nextui-button-icon': {
+            ml: '$$buttonPadding'
+          },
+          '.nextui-button-icon-right': {
+            mr: '$$buttonPadding'
+          },
+          '.nextui-button-text-left': {
+            pl: 0
+          },
+          '.nextui-button-text-right': {
+            pr: 0
           }
         }
       },
