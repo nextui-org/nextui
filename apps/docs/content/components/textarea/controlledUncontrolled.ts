@@ -1,5 +1,5 @@
-const App = `import { Textarea, Grid, useInput, Spacer, Button } from "@nextui-org/react";
-import React from "react";
+const App = `import React from "react";
+import { Textarea, Grid, useInput, Spacer, Button } from "@nextui-org/react";
 
 export default function App() {
   // Controlled
@@ -9,7 +9,7 @@ export default function App() {
     reset,
     bindings,
   } = useInput("Controlled Textarea");
-  React.useEffect(() => console.log({ controlledValue }), [controlledValue]);
+
   // Uncontrolled
   const textareaRef = React.useRef(null);
   const onClick = () => {

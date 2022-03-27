@@ -52,7 +52,7 @@ export default function App() {
             <Card.Body css={{ p: 0 }}>
               <Card.Image
                 objectFit="cover"
-                src={item.img}
+                src={'https://nextui.org' + item.img}
                 width="100%"
                 height={140}
                 alt={item.title}

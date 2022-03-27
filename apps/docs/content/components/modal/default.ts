@@ -1,6 +1,4 @@
-const Password = `import React from "react";
-
-export const Password = ({ fill, size, height, width, ...props }) => {
+const Password = `export const Password = ({ fill, size, height, width, ...props }) => {
   return (
     <svg
       width={size || width || 24}
@@ -16,9 +14,7 @@ export const Password = ({ fill, size, height, width, ...props }) => {
   );
 };`;
 
-const Mail = `import React from "react";
-
-export const Mail = ({ fill, size, height, width, ...props }) => {
+const Mail = `export const Mail = ({ fill, size, height, width, ...props }) => {
   return (
     <svg
       width={size || width || 24}
@@ -28,7 +24,7 @@ export const Mail = ({ fill, size, height, width, ...props }) => {
     >
       <g
         fill="none"
-        stroke="#111111"
+        stroke={fill}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
@@ -40,19 +36,20 @@ export const Mail = ({ fill, size, height, width, ...props }) => {
   );
 };`;
 
-
-const AppJs = `import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
+const AppJs = `import React from "react";
+import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
 import { Mail } from "./Mail";
 import { Password } from "./Password";
-import React from "react";
 
 export default function App() {
   const [visible, setVisible] = React.useState(false);
   const handler = () => setVisible(true);
+
   const closeHandler = () => {
     setVisible(false);
     console.log("closed");
   };
+
   return (
     <div>
       <Button auto shadow onClick={handler}>
@@ -80,7 +77,7 @@ export default function App() {
             color="primary"
             size="lg"
             placeholder="Email"
-            contentLeft={<Mail />}
+            contentLeft={<Mail fill="currentColor" />}
           />
           <Input
             clearable
@@ -89,7 +86,7 @@ export default function App() {
             color="primary"
             size="lg"
             placeholder="Password"
-            contentLeft={<Password />}
+            contentLeft={<Password fill="currentColor" />}
           />
           <Row justify="space-between">
             <Checkbox>
@@ -117,7 +114,6 @@ const react = {
   '/App.js': AppJs
 };
 
-
 export default {
-  ...react,
+  ...react
 };
