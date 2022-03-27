@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
-import useTheme from '../use-theme';
 import Modal from './index';
 import Button from '../button';
 import Text from '../text';
@@ -101,7 +100,6 @@ export const Default = () => {
 
 export const WithCloseButton = () => {
   const [visible, setVisible] = useState(false);
-  const theme = useTheme();
   const handler = () => setVisible(true);
 
   const closeHandler = () => {
@@ -136,7 +134,7 @@ export const WithCloseButton = () => {
             color="primary"
             size="lg"
             placeholder="Email"
-            contentLeft={<Mail theme={theme} />}
+            contentLeft={<Mail fill="currentColor" />}
           />
           <Input
             clearable
@@ -145,7 +143,7 @@ export const WithCloseButton = () => {
             color="primary"
             size="lg"
             placeholder="Password"
-            contentLeft={<Password theme={theme} />}
+            contentLeft={<Password fill="currentColor" />}
           />
           <Row justify="space-between">
             <Checkbox>
@@ -174,7 +172,6 @@ export const WithCloseButton = () => {
 
 export const WithUseModal = () => {
   const { setVisible, bindings } = useModal();
-  const theme = useTheme();
 
   return (
     <div>
@@ -199,7 +196,7 @@ export const WithUseModal = () => {
             color="primary"
             size="lg"
             placeholder="Email"
-            contentLeft={<Mail theme={theme} />}
+            contentLeft={<Mail fill="currentColor" />}
           />
           <Input
             clearable
@@ -208,7 +205,7 @@ export const WithUseModal = () => {
             color="primary"
             size="lg"
             placeholder="Password"
-            contentLeft={<Password theme={theme} />}
+            contentLeft={<Password fill="currentColor" />}
           />
           <Row justify="space-between">
             <Checkbox>
@@ -237,7 +234,6 @@ export const WithUseModal = () => {
 
 export const NoAnimated = () => {
   const { setVisible, bindings } = useModal();
-  const theme = useTheme();
 
   return (
     <div>
@@ -262,7 +258,7 @@ export const NoAnimated = () => {
             color="primary"
             size="lg"
             placeholder="Email"
-            contentLeft={<Mail theme={theme} />}
+            contentLeft={<Mail fill="currentColor" />}
           />
           <Input
             clearable
@@ -271,7 +267,7 @@ export const NoAnimated = () => {
             color="primary"
             size="lg"
             placeholder="Password"
-            contentLeft={<Password theme={theme} />}
+            contentLeft={<Password fill="currentColor" />}
           />
           <Row justify="space-between">
             <Checkbox>
