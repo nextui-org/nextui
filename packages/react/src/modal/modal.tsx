@@ -27,7 +27,6 @@ interface Props {
   onOpen?: () => void;
   onClose?: () => void;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
@@ -45,8 +44,8 @@ const defaultProps = {
 type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
 
 export type ModalProps = Props &
-  typeof defaultProps &
   NativeAttrs &
+  Partial<typeof defaultProps> &
   ModalWrapperProps;
 
 const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
@@ -162,10 +161,6 @@ type ModalComponent<P = {}> = React.FC<P> & {
   Footer: typeof ModalFooter;
 };
 
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs;
-
 if (__DEV__) {
   Backdrop.displayName = 'NextUI - Modal';
 }
@@ -174,4 +169,4 @@ Modal.toString = () => '.nextui-modal';
 
 Modal.defaultProps = defaultProps;
 
-export default Modal as ModalComponent<ComponentProps>;
+export default Modal as ModalComponent<ModalProps>;
