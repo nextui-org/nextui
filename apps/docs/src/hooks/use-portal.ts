@@ -20,7 +20,6 @@ const usePortal = (
 
   useEffect(() => {
     const customContainer = getContainer ? getContainer() : null;
-    console.log({ customContainer });
     const parentElement = customContainer || document.body;
     const hasElement = parentElement.querySelector<HTMLElement>(`#${id}`);
     const el = hasElement || createElement(id);

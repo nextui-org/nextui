@@ -42,9 +42,11 @@ export const StyledButtonIcon = styled('span', {
     isSingle: {
       true: {
         position: 'static',
-        transform: 'none',
-        m: 0
+        transform: 'none'
       }
+    },
+    isGradientButtonBorder: {
+      true: {}
     }
   },
   compoundVariants: [
@@ -52,6 +54,7 @@ export const StyledButtonIcon = styled('span', {
     {
       isAuto: true,
       isRight: true,
+      isSingle: false,
       css: {
         order: 2,
         ml: '$$buttonPadding',
@@ -63,6 +66,7 @@ export const StyledButtonIcon = styled('span', {
     {
       isAuto: true,
       isRight: false,
+      isSingle: false,
       css: {
         order: 0,
         mr: '$$buttonPadding',
@@ -70,12 +74,29 @@ export const StyledButtonIcon = styled('span', {
         left: '0%'
       }
     },
-    // isAuto && isSingle
+    // isSingle && isRight
     {
-      isAuto: true,
       isSingle: true,
+      isRight: false,
       css: {
-        m: 0
+        ml: 0
+      }
+    },
+    // isSingle && !isRight
+    {
+      isSingle: true,
+      isRight: true,
+      css: {
+        mr: 0
+      }
+    },
+    // isSingle && !isRight && hasButttonBorder
+    {
+      isSingle: true,
+      isRight: false,
+      isGradientButtonBorder: true,
+      css: {
+        mr: '$$buttonPadding'
       }
     }
   ]
@@ -92,7 +113,14 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
 }) => {
   return (
     <StyledButtonIcon
-      className={clsx('nextui-button-icon', className)}
+      className={clsx(
+        'nextui-button-icon',
+        {
+          'nextui-button-icon-right': props.isRight,
+          'nextui-button-icon-single': props.isSingle
+        },
+        className
+      )}
       {...props}
     >
       {children}

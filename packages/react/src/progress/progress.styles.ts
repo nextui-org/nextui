@@ -105,7 +105,7 @@ export const StyledProgress = styled('div', {
     }
   },
   defaultVariants: {
-    color: 'defuault',
+    color: 'default',
     status: 'default',
     size: 'md'
   }

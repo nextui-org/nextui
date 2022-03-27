@@ -11,7 +11,7 @@ import useWarning from '../use-warning';
 import ButtonDrip from '../utils/drip';
 import { CSS } from '../theme/stitches.config';
 import { NormalColors } from '../utils/prop-types';
-import { filterPropsWithGroup } from './utils';
+import { filterPropsWithGroup, getCssColors } from './utils';
 import { useButtonGroupContext } from './button-group-context';
 import ButtonGroup from './button-group';
 import ButtonIcon from './button-icon';
@@ -66,6 +66,8 @@ const Button = React.forwardRef<
   useImperativeHandle(ref, () => buttonRef.current);
   const groupConfig = useButtonGroupContext();
   const filteredProps = filterPropsWithGroup(btnProps, groupConfig);
+  const cssColors = getCssColors(filteredProps);
+
   /* eslint-disable @typescript-eslint/no-unused-vars */
   const {
     flat,
@@ -138,16 +140,34 @@ const Button = React.forwardRef<
       onClick={clickHandler}
       isFocusVisible={isFocusVisible}
       className={clsx('nextui-button', `nextui-button--${getState}`, className)}
+      css={{
+        ...cssColors,
+        ...(props.css as any)
+      }}
       {...focusProps}
       {...props}
     >
       {React.Children.count(children) === 0 ? (
-        <ButtonIcon isAuto={auto} isRight={isRight} isSingle>
+        <ButtonIcon
+          isSingle
+          isAuto={auto}
+          isRight={isRight}
+          isGradientButtonBorder={
+            props.color === 'gradient' && (bordered || ghost)
+          }
+        >
           {hasIcon}
         </ButtonIcon>
       ) : hasIcon ? (
         <>
-          <ButtonIcon isAuto={auto} isRight={isRight}>
+          <ButtonIcon
+            isSingle={false}
+            isAuto={auto}
+            isRight={isRight}
+            isGradientButtonBorder={
+              props.color === 'gradient' && (bordered || ghost)
+            }
+          >
             {hasIcon}
           </ButtonIcon>
           <div

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "1.0.4-beta.5",
+  "version": "1.0.5-beta.5",
   "license": "MIT",
   "description": "🚀 Beautiful and modern React UI library.",
   "homepage": "https://nextui.org",
@@ -55,7 +55,6 @@
   },
   "dependencies": {
     "@babel/runtime": "7.9.6",
-    "@stitches/react": "1.2.6",
     "@react-aria/checkbox": "3.3.0",
     "@react-aria/focus": "3.5.1",
     "@react-aria/i18n": "3.3.6",
@@ -69,7 +68,8 @@
     "@react-stately/table": "3.1.1",
     "@react-stately/toggle": "3.2.4",
     "@react-types/grid": "3.0.1",
-    "@react-types/shared": "3.11.0"
+    "@react-types/shared": "3.11.0",
+    "@stitches/react": "1.2.7"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
