@@ -148,12 +148,26 @@ const Button = React.forwardRef<
       {...props}
     >
       {React.Children.count(children) === 0 ? (
-        <ButtonIcon isAuto={auto} isRight={isRight} isSingle>
+        <ButtonIcon
+          isSingle
+          isAuto={auto}
+          isRight={isRight}
+          isGradientButtonBorder={
+            props.color === 'gradient' && (bordered || ghost)
+          }
+        >
           {hasIcon}
         </ButtonIcon>
       ) : hasIcon ? (
         <>
-          <ButtonIcon isAuto={auto} isRight={isRight}>
+          <ButtonIcon
+            isSingle={false}
+            isAuto={auto}
+            isRight={isRight}
+            isGradientButtonBorder={
+              props.color === 'gradient' && (bordered || ghost)
+            }
+          >
             {hasIcon}
           </ButtonIcon>
           <div

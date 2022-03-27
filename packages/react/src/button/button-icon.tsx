@@ -44,6 +44,9 @@ export const StyledButtonIcon = styled('span', {
         position: 'static',
         transform: 'none'
       }
+    },
+    isGradientButtonBorder: {
+      true: {}
     }
   },
   compoundVariants: [
@@ -51,6 +54,7 @@ export const StyledButtonIcon = styled('span', {
     {
       isAuto: true,
       isRight: true,
+      isSingle: false,
       css: {
         order: 2,
         ml: '$$buttonPadding',
@@ -62,11 +66,37 @@ export const StyledButtonIcon = styled('span', {
     {
       isAuto: true,
       isRight: false,
+      isSingle: false,
       css: {
         order: 0,
         mr: '$$buttonPadding',
         right: '0%',
         left: '0%'
+      }
+    },
+    // isSingle && isRight
+    {
+      isSingle: true,
+      isRight: false,
+      css: {
+        ml: 0
+      }
+    },
+    // isSingle && !isRight
+    {
+      isSingle: true,
+      isRight: true,
+      css: {
+        mr: 0
+      }
+    },
+    // isSingle && !isRight && hasButttonBorder
+    {
+      isSingle: true,
+      isRight: false,
+      isGradientButtonBorder: true,
+      css: {
+        mr: '$$buttonPadding'
       }
     }
   ]

@@ -259,7 +259,7 @@ export const Light = () => (
 export const Icons = () => {
   return (
     <>
-      <Button auto iconRight={<Activity fill="currentColor" />} />
+      <Button auto color="secondary" icon={<Activity fill="currentColor" />} />
       <Spacer y={0.5} />
       <Button auto iconRight={<Camera fill="currentColor" />}>
         Right Icon
