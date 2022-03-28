@@ -1,3 +1,4 @@
+import { PressEvent } from '@react-types/shared';
 import React, { useState } from 'react';
 
 const useDrip = (
@@ -7,7 +8,7 @@ const useDrip = (
   visible: boolean;
   x: number;
   y: number;
-  onClick: (event: React.MouseEvent<HTMLElement>) => void;
+  onClick: (event: React.MouseEvent<HTMLElement> | PressEvent) => void;
   onCompleted: () => void;
 } => {
   const [dripVisible, setDripVisible] = useState<boolean>(initialValue);

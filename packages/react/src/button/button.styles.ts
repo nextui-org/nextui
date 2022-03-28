@@ -9,6 +9,8 @@ export const StyledButton = styled(
   'button',
   {
     $$buttonBorderRadius: '$radii$md',
+    $$buttonHoverOpacity: 0.85,
+    $$buttonPressedScale: 0.97,
     dflex: 'center',
     appearance: 'none',
     boxSizing: ' border-box',
@@ -26,7 +28,7 @@ export const StyledButton = styled(
     p: 0,
     br: '$$buttonBorderRadius',
     '&:hover': {
-      opacity: 0.85
+      opacity: '$$buttonHoverOpacity'
     },
     '@motion': {
       transition: 'none'
@@ -199,7 +201,7 @@ export const StyledButton = styled(
       animated: {
         true: {
           '&:active': {
-            transform: 'scale(0.97)'
+            transform: 'scale($$buttonPressedScale)'
           }
         },
         false: {
@@ -216,9 +218,25 @@ export const StyledButton = styled(
         true: {
           $$buttonBorderRadius: '$radii$pill'
         }
+      },
+      isPressed: {
+        true: {}
+      },
+      isHovered: {
+        true: {
+          opacity: '$$buttonHoverOpacity'
+        }
       }
     },
     compoundVariants: [
+      // isPressed && animated
+      {
+        isPressed: true,
+        animated: true,
+        css: {
+          transform: 'scale($$buttonPressedScale)'
+        }
+      },
       // size / auto
       {
         auto: true,
