@@ -1,4 +1,16 @@
-import { styled, VariantProps } from '../theme/stitches.config';
+import { styled, keyframes, VariantProps } from '../theme/stitches.config';
+
+const appearanceIn = keyframes({
+  '0%': {
+    opacity: 0
+  },
+  '60%': {
+    opacity: 0.75
+  },
+  '100%': {
+    opacity: 1
+  }
+});
 
 export const StyledBackdropContent = styled('div', {
   position: 'relative',
@@ -11,6 +23,21 @@ export const StyledBackdropContent = styled('div', {
   '@sm': {
     width: '90%',
     maxWidth: '90%'
+  },
+  variants: {
+    animated: {
+      true: {
+        '&': {
+          animationName: appearanceIn,
+          animationDuration: '200ms',
+          animationTimingFunction: 'ease-in',
+          animationDirection: 'normal'
+        }
+      },
+      false: {
+        transition: 'none'
+      }
+    }
   }
 });
 
