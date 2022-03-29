@@ -123,6 +123,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
             blur={blur}
           />
           <StyledBackdropContent
+            animated={animated}
             className={`${preClass}-content`}
             onClick={childrenClickHandler}
             css={{
