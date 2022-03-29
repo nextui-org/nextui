@@ -41,7 +41,10 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
   }
   const defaultDisabledCss = {
     bg: '$accents2',
-    color: '$accents4'
+    color: '$accents4',
+    transform: 'none',
+    boxShadow: 'none',
+    pe: 'none'
   };
 
   if (!props.bordered && !props.flat && !props.ghost && !props.light) {
@@ -51,20 +54,19 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
     return {
       color: '$accents4',
       backgroundImage:
-        'linear-gradient($background, $background), linear-gradient($accents2, $accents2)'
+        'linear-gradient($background, $background), linear-gradient($accents2, $accents2)',
+      transform: 'none',
+      boxShadow: 'none',
+      pe: 'none',
+      pl: '$$buttonBorderWeight',
+      pr: '$$buttonBorderWeight'
     };
   }
-  if (props.bordered) {
+  if (props.bordered || props.ghost || props.light) {
     return {
       ...defaultDisabledCss,
       bg: 'transparent',
       borderColor: '$accents2'
-    };
-  }
-  if (props.ghost || props.light) {
-    return {
-      ...defaultDisabledCss,
-      bg: 'transparent'
     };
   }
   if (props.flat) {

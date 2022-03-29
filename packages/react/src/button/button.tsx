@@ -2,7 +2,12 @@ import React, { useMemo, PropsWithoutRef, RefAttributes } from 'react';
 import { useFocusRing } from '@react-aria/focus';
 import { useButton } from '@react-aria/button';
 import { useHover } from '@react-aria/interactions';
-import { FocusableRef, PressEvents, PressEvent } from '@react-types/shared';
+import {
+  FocusableRef,
+  PressEvents,
+  PressEvent,
+  FocusableProps
+} from '@react-types/shared';
 import { AriaButtonProps } from '@react-types/button';
 import { mergeProps } from '@react-aria/utils';
 
@@ -20,14 +25,12 @@ import StyledButton, { ButtonVariantsProps } from './button.styles';
 import withDefaults from '../utils/with-defaults';
 import { useFocusableRef } from '../utils/dom';
 import { __DEV__ } from '../utils/assertion';
-import { FocusableProps } from '@react-types/shared';
 
 export interface Props extends PressEvents, FocusableProps, AriaButtonProps {
   light?: boolean;
   color?: NormalColors;
   flat?: boolean;
   animated?: boolean;
-  clickable?: boolean;
   disabled?: boolean;
   ghost?: boolean;
   bordered?: boolean;
@@ -42,7 +45,6 @@ export interface Props extends PressEvents, FocusableProps, AriaButtonProps {
 }
 
 const defaultProps = {
-  clickable: true,
   ghost: false,
   bordered: false,
   ripple: true,
@@ -62,7 +64,7 @@ export type ButtonProps = Props &
 
 const Button = React.forwardRef(
   (
-    { onClick, onPress, as, ...btnProps }: ButtonProps,
+    { onClick, onPress, as, css, ...btnProps }: ButtonProps,
     ref: FocusableRef<HTMLElement>
   ) => {
     const groupConfig = useButtonGroupContext();
@@ -83,7 +85,6 @@ const Button = React.forwardRef(
       icon,
       iconRight,
       ghost,
-      clickable,
       autoFocus,
       className,
       ...props
@@ -98,13 +99,11 @@ const Button = React.forwardRef(
     };
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-      if (disabled || !clickable) return;
       handleDrip(e);
       onClick?.(e);
     };
 
     const handlePress = (e: PressEvent) => {
-      if (disabled || !clickable) return;
       if (e.pointerType === 'keyboard' || e.pointerType === 'virtual') {
         handleDrip(e);
       }
@@ -117,22 +116,12 @@ const Button = React.forwardRef(
         ...btnProps,
         isDisabled: disabled,
         elementType: as,
-        onClick: handleClick,
         onPress: handlePress
       } as AriaButtonProps,
       buttonRef
     );
+
     const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
-
-    /* eslint-enable @typescript-eslint/no-unused-vars */
-    if (__DEV__ && filteredProps.color === 'gradient' && (flat || light)) {
-      useWarning(
-        'Using the gradient color on flat and light buttons will have no effect.'
-      );
-    }
-    const hasIcon = icon || iconRight;
-    const isRight = Boolean(iconRight);
-
     const {
       isFocusVisible,
       focusProps
@@ -148,6 +137,18 @@ const Button = React.forwardRef(
       false,
       buttonRef
     );
+
+    // TODO: remove this when we can use the new onPress(e) => e.clientX && e.clientY API
+    buttonProps.onClick = handleClick;
+
+    /* eslint-enable @typescript-eslint/no-unused-vars */
+    if (__DEV__ && filteredProps.color === 'gradient' && (flat || light)) {
+      useWarning(
+        'Using the gradient color on flat and light buttons will have no effect.'
+      );
+    }
+    const hasIcon = icon || iconRight;
+    const isRight = Boolean(iconRight);
 
     const getState = useMemo(() => {
       if (isPressed) return 'pressed';
@@ -165,21 +166,19 @@ const Button = React.forwardRef(
         light={light}
         ghost={ghost}
         bordered={bordered || ghost}
-        clickable={clickable}
         data-state={getState}
-        disabled={disabled}
         animated={animated}
         isPressed={isPressed}
         isHovered={isHovered}
-        isFocusVisible={isFocusVisible}
+        isFocusVisible={isFocusVisible && !disabled}
         className={clsx(
           'nextui-button',
           `nextui-button--${getState}`,
           className
         )}
         css={{
-          ...cssColors,
-          ...(props.css as any)
+          ...(css as any),
+          ...cssColors
         }}
         {...mergeProps(buttonProps, focusProps, hoverProps, props)}
       >

@@ -187,17 +187,6 @@ export const StyledButton = styled(
           bs: '$sm'
         }
       },
-      disabled: {
-        true: {
-          pe: 'none'
-        }
-      },
-      clickable: {
-        false: {
-          cursor: 'default',
-          pe: 'none'
-        }
-      },
       animated: {
         true: {
           '&:active': {
@@ -276,16 +265,6 @@ export const StyledButton = styled(
         css: {
           px: '$11',
           minWidth: 'min-content'
-        }
-      },
-      // animated / disabled
-      {
-        animated: true,
-        disabled: true,
-        css: {
-          '&:active': {
-            transform: 'none'
-          }
         }
       },
       // shadow / color
