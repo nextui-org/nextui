@@ -65,7 +65,7 @@ export type ButtonProps = Props &
 const Button = React.forwardRef(
   (
     { onClick, onPress, as, css, ...btnProps }: ButtonProps,
-    ref: FocusableRef<HTMLElement>
+    ref: React.Ref<HTMLButtonElement | null>
   ) => {
     const groupConfig = useButtonGroupContext();
     const filteredProps = filterPropsWithGroup(btnProps, groupConfig);
@@ -110,7 +110,8 @@ const Button = React.forwardRef(
       onPress?.(e);
     };
 
-    const buttonRef = useFocusableRef(ref);
+    // TODO: Improve types for refs
+    const buttonRef = useFocusableRef(ref as FocusableRef<HTMLElement>);
     const { buttonProps, isPressed } = useButton(
       {
         ...btnProps,
