@@ -329,6 +329,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
               placeholder={inputPlaceholder}
               disabled={disabled}
               readOnly={readOnly}
+              required={required}
               onFocus={focusHandler}
               onBlur={blurHandler}
               onChange={changeHandler}
