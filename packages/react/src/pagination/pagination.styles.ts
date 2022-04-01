@@ -368,6 +368,14 @@ export const StyledPagination = styled('nav', {
       css: {
         $$paginationItemRadius: '0px'
       }
+    },
+    {
+      // !rounded && noMargin
+      rounded: false,
+      noMargin: true,
+      css: {
+        $$paginationItemRadius: '0px'
+      }
     }
   ],
   defaultVariants: {
