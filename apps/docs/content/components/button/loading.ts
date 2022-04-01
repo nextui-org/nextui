@@ -22,11 +22,6 @@ export default function App() {
           <Loading type="points-opacity" color="currentColor" size="sm" />
         </Button>
       </Grid>
-      <Grid>
-        <Button disabled auto bordered color="error" css={{ px: "$13" }}>
-          <Loading type="spinner" color="currentColor" size="sm" />
-        </Button>
-      </Grid>
     </Grid.Container>
   );
 }`;
