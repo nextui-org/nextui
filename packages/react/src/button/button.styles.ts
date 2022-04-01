@@ -27,9 +27,6 @@ export const StyledButton = styled(
     pe: 'auto',
     p: 0,
     br: '$$buttonBorderRadius',
-    '&:hover': {
-      opacity: '$$buttonHoverOpacity'
-    },
     '@motion': {
       transition: 'none'
     },
@@ -188,11 +185,6 @@ export const StyledButton = styled(
         }
       },
       animated: {
-        true: {
-          '&:active': {
-            transform: 'scale($$buttonPressedScale)'
-          }
-        },
         false: {
           transition: 'none'
         }
@@ -470,68 +462,61 @@ export const StyledButton = styled(
           }
         }
       },
-      // ghost / color
+      // ghost / color && isHovered
       {
         ghost: true,
+        isHovered: true,
         color: 'default',
         css: {
-          '&:hover': {
-            bg: '$primary'
-          }
+          bg: '$primary'
         }
       },
       {
         ghost: true,
+        isHovered: true,
         color: 'primary',
         css: {
-          '&:hover': {
-            bg: '$primary'
-          }
+          bg: '$primary'
         }
       },
       {
         ghost: true,
+        isHovered: true,
         color: 'secondary',
         css: {
-          '&:hover': {
-            bg: '$secondary'
-          }
+          bg: '$secondary'
         }
       },
       {
         ghost: true,
+        isHovered: true,
         color: 'success',
         css: {
-          '&:hover': {
-            bg: '$success'
-          }
+          bg: '$success'
         }
       },
       {
         ghost: true,
+        isHovered: true,
         color: 'warning',
         css: {
-          '&:hover': {
-            bg: '$warning'
-          }
+          bg: '$warning'
         }
       },
       {
         ghost: true,
+        isHovered: true,
         color: 'error',
         css: {
-          '&:hover': {
-            bg: '$error'
-          }
+          bg: '$error'
         }
       },
       {
         ghost: true,
         color: 'gradient',
+        isHovered: true,
         css: {
-          '&:hover': {
-            bg: '$gradient'
-          }
+          bg: '$gradient'
         }
       },
       // flat / color
