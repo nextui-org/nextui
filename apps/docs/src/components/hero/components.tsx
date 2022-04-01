@@ -58,10 +58,14 @@ const HeroComponents = () => {
       />
       <ThemeSwitch
         css={{
+          color: '$black',
           position: 'absolute',
           top: '-170%',
           right: '-120%',
-          animation: `${levitating} 13s ease infinite 1s reverse`
+          animation: `${levitating} 13s ease infinite 1s reverse`,
+          '.nextui-switch-circle': {
+            bg: '$white'
+          }
         }}
       />
       <UserTwitterCard

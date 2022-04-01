@@ -47,28 +47,28 @@ export const Sizes = () => (
 export const Loadings = () => (
   <Grid.Container gap={2}>
     <Grid>
-      <Button auto clickable={false} color="primary" css={{ px: '$13' }}>
-        <Loading color="white" size="sm" />
+      <Button auto disabled color="primary" css={{ px: '$13' }}>
+        <Loading color="currentColor" size="sm" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto clickable={false} color="secondary" css={{ px: '$13' }}>
-        <Loading type="spinner" color="white" size="sm" />
+      <Button auto disabled color="secondary" css={{ px: '$13' }}>
+        <Loading type="spinner" color="currentColor" size="sm" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto clickable={false} color="success" css={{ px: '$13' }}>
-        <Loading type="points" color="white" size="sm" />
+      <Button auto disabled color="success" css={{ px: '$13' }}>
+        <Loading type="points" color="currentColor" size="sm" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto clickable={false} color="warning" css={{ px: '$13' }}>
-        <Loading type="points-opacity" color="white" size="sm" />
+      <Button auto disabled color="warning" css={{ px: '$13' }}>
+        <Loading type="points-opacity" color="currentColor" size="sm" />
       </Button>
     </Grid>
     <Grid>
-      <Button auto clickable={false} color="error" css={{ px: '$13' }}>
-        <Loading type="spinner" color="white" size="sm" />
+      <Button auto disabled color="error" css={{ px: '$13' }}>
+        <Loading type="spinner" color="currentColor" size="sm" />
       </Button>
     </Grid>
   </Grid.Container>
