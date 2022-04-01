@@ -100,30 +100,46 @@ import { Button } from '@nextui-org/react';
 
 #### Button Props
 
-| Attribute        | Type                                            | Accepted values                  | Description                               | Default   |
-| ---------------- | ----------------------------------------------- | -------------------------------- | ----------------------------------------- | --------- |
-| **color**        | `NormalColors`                                  | [NormalColors](#normal-colors)   | Change button color                       | `default` |
-| **size**         | `NormalSizes`                                   | [NormalSizes](#normal-sizes)     | Change button size                        | `medium`  |
-| **disabled**     | `boolean`                                       | `true/false`                     | Disable button                            | `false`   |
-| **clickable**    | `boolean`                                       | `true/false`                     | Inidicates if button is clickable         | `false`   |
-| **bordered**     | `boolean`                                       | `true/false`                     | Bordered button                           | `false`   |
-| **flat**         | `boolean`                                       | `true/false`                     | Flat button                               | `false`   |
-| **rounded**      | `boolean`                                       | `true/false`                     | Rounded button                            | `false`   |
-| **ghost**        | `boolean`                                       | `true/false`                     | The opposite color                        | `false`   |
-| **shadow**       | `boolean`                                       | `true/false`                     | Display shadow effect                     | `false`   |
-| **ripple**       | `boolean`                                       | `true/false`                     | Display drip animation                    | `true`    |
-| **auto**         | `boolean`                                       | `true/false`                     | Autoscale button width                    | `false`   |
-| **animated**     | `boolean`                                       | `true/false`                     | Display drip and scale animation          | `true`    |
-| **borderWeight** | `NormalWeights`                                 | [NormalWeights](#normal-weights) | Border weight for `bordered` button       | `normal`  |
-| **autoFocus**    | `boolean`                                       | `true/false`                     | Automatically focus button                | `false`   |
-| **onClick**      | `MouseEventHandler`                             | -                                | Button click handler                      | -         |
-| **icon**         | `ReactNode`                                     | -                                | Show icon in button                       | -         |
-| **iconRight**    | `ReactNode`                                     | -                                | Show icon on the other side of the button | -         |
-| **type**         | `ButtonHTMLAttributes.type`                     | `button` `reset` `submit`        | Native type of button element             | `button`  |
-| **ref**          | <Code>Ref<HTMLButtonElement &#124; null></Code> | -                                | forwardRef                                | -         |
-| **css**          | `Stitches.CSS`                                  | -                                | Override Default CSS style                | -         |
-| **as**           | `keyof JSX.IntrinsicElements`                   | -                                | Changes which tag component outputs       | `button`  |
-| ...              | `ButtonHTMLAttributes`                          | `'id', 'className', ...`         | Button native props                       | -         |
+| Attribute        | Type                                            | Description                               | Default   |
+| ---------------- | ----------------------------------------------- | ----------------------------------------- | --------- |
+| **color**        | [NormalColors](#normal-colors)                  | Change button color                       | `default` |
+| **size**         | [NormalSizes](#normal-sizes)                    | Change button size                        | `medium`  |
+| **disabled**     | `boolean`                                       | Disable button                            | `false`   |
+| **bordered**     | `boolean`                                       | Bordered button                           | `false`   |
+| **flat**         | `boolean`                                       | Flat button                               | `false`   |
+| **rounded**      | `boolean`                                       | Rounded button                            | `false`   |
+| **ghost**        | `boolean`                                       | The opposite color                        | `false`   |
+| **shadow**       | `boolean`                                       | Display shadow effect                     | `false`   |
+| **ripple**       | `boolean`                                       | Display drip animation                    | `true`    |
+| **auto**         | `boolean`                                       | Autoscale button width                    | `false`   |
+| **animated**     | `boolean`                                       | Display drip and scale animation          | `true`    |
+| **borderWeight** | [NormalWeights](#normal-weights)                | Border weight for `bordered` button       | `normal`  |
+| **autoFocus**    | `boolean`                                       | Automatically focus button                | `false`   |
+| **onClick**      | `MouseEventHandler`                             | Button click handler                      | -         |
+| **icon**         | `ReactNode`                                     | Show icon in button                       | -         |
+| **iconRight**    | `ReactNode`                                     | Show icon on the other side of the button | -         |
+| **type**         | `button` `reset` `submit`                       | Native type of button element             | `button`  |
+| **ref**          | <Code>Ref<HTMLButtonElement &#124; null></Code> | forwardRef                                | -         |
+| **css**          | `Stitches.CSS`                                  | Override Default CSS style                | -         |
+| **as**           | `keyof JSX.IntrinsicElements`                   | Changes which tag component outputs       | `button`  |
+| ...              | `'id', 'className', ...`                        | Button native props                       | -         |
+
+<Spacer y={2} />
+
+#### Button Accessibility Props
+
+| Attribute               | Type                                              | Description                                                                                                                                                                                                                                                                                   | Default |
+| ----------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **id**                  | `string`                                          | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)                                                                                                                                                                            | -       |
+| **excludeFromTabOrder** | `boolean`                                         | Whether to exclude the element from the sequential tab order. If true, the element will not be focusable via the keyboard by tabbing. This should be avoided except in rare scenarios where an alternative means of accessing the element or its functionality via the keyboard is available. | -       |
+| **aria-expanded**       | `boolean`                                         | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed.                                                                                                                                                                                   | -       |
+| **aria-haspopup**       | `boolean` `menu` `listbox` `tree` `grid` `dialog` | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element.                                                                                                                                                                | -       |
+| **aria-controls**       | `string`                                          | Identifies the element (or elements) whose contents or presence are controlled by the current element.                                                                                                                                                                                        | -       |
+| **aria-pressed**        | `boolean`                                         | Indicates the current "pressed" state of toggle buttons.                                                                                                                                                                                                                                      | -       |
+| **aria-label**          | `string`                                          | Defines a string value that labels the current element                                                                                                                                                                                                                                        | -       |
+| **aria-labelledby**     | `string`                                          | Identifies the element (or elements) that labels the current element                                                                                                                                                                                                                          | -       |
+| **aria-describedby**    | `string`                                          | Identifies the element (or elements) that describes the object.                                                                                                                                                                                                                               | -       |
+| **aria-details**        | `string`                                          | Identifies the element (or elements) that provide a detailed, extended description for the object.                                                                                                                                                                                            | -       |
 
 <Spacer y={2} />
 
