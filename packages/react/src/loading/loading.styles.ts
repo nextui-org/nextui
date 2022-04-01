@@ -49,6 +49,9 @@ export const StyledLoadingContainer = styled('div', {
   position: 'relative',
   variants: {
     color: {
+      currentColor: {
+        $$loadingColor: 'currentColor'
+      },
       white: {
         $$loadingColor: '$colors$white'
       },

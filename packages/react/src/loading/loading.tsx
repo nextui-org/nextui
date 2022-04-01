@@ -54,13 +54,13 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
         <>
           <StyledLoading
             className={`${preClass} ${preClass}-${type}`}
+            type={type}
+            size={size}
+            aria-label={ariaLabel}
             css={{
               ...(loadingCss as any),
               ...loadingGradientCSS
             }}
-            type={type}
-            size={size}
-            aria-label={ariaLabel}
           >
             <i className="_1" />
             <i className="_2" />

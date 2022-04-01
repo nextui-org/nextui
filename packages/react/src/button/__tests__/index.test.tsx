@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Button from '../index';
+import userEvent from '@testing-library/user-event';
+import { FocusableRef } from '@react-types/shared';
 
 describe('Button', () => {
   it('should render correctly', () => {
@@ -49,35 +51,6 @@ describe('Button', () => {
     expect(<Button />).toMatchSnapshot();
   });
 
-  it('should trigger callback function', () => {
-    const WrapperButton = () => {
-      const [state, setState] = React.useState<string>('state1');
-      return <Button onClick={() => setState('state2')}>{state}</Button>;
-    };
-    const wrapper = mount(<WrapperButton />);
-    expect(wrapper.text()).toContain('state1');
-
-    wrapper.simulate('click');
-    expect(wrapper.text()).toContain('state2');
-  });
-
-  it('should ignore events when disabled', () => {
-    const WrapperButton = () => {
-      const [state, setState] = React.useState<string>('state1');
-      return (
-        <Button disabled onClick={() => setState('state2')}>
-          {state}
-        </Button>
-      );
-    };
-    const wrapper = mount(<WrapperButton />);
-    expect(wrapper.text()).toContain('state1');
-
-    wrapper.simulate('click');
-    expect(wrapper.text()).toContain('state1');
-    expect(wrapper.text()).not.toContain('state2');
-  });
-
   it('should render different variants', () => {
     const wrapper = mount(
       <div>
@@ -94,8 +67,8 @@ describe('Button', () => {
         <Button rounded>button</Button>
         <Button flat>button</Button>
         <Button shadow>button</Button>
-        {/* <Button ghost>button</Button>
-        <Button bordered>button</Button> */}
+        <Button ghost>button</Button>
+        <Button bordered>button</Button>
         <Button auto>button</Button>
         <Button animated={false}>button</Button>
       </div>
@@ -104,16 +77,45 @@ describe('Button', () => {
     expect(<Button>button</Button>).toMatchSnapshot();
   });
 
-  it('should remove expired events', () => {
-    const wrapper = mount(<Button>button</Button>);
-    wrapper.simulate('click');
-    expect(() => wrapper.unmount()).not.toThrow();
-  });
-
   it('ref should be forwarded', () => {
     const ref = React.createRef<HTMLButtonElement>();
     const wrapper = mount(<Button ref={ref}>action</Button>);
-    expect(wrapper.find('button').getDOMNode()).toEqual(ref.current);
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it('should trigger callback function', () => {
+    const WrapperButton = () => {
+      const [state, setState] = React.useState<string>('state1');
+      return <Button onClick={() => setState('state2')}>{state}</Button>;
+    };
+    const wrapper = mount(<WrapperButton />);
+    expect(wrapper.text()).toContain('state1');
+
+    wrapper.simulate('click');
+    userEvent.click(wrapper.find('button').getDOMNode());
+    expect(wrapper.text()).toContain('state2');
+  });
+
+  it('should ignore events when disabled', () => {
+    const WrapperButton = () => {
+      const [state, setState] = React.useState<string>('state1');
+      return (
+        <Button disabled onClick={() => setState('state2')}>
+          {state}
+        </Button>
+      );
+    };
+    const wrapper = mount(<WrapperButton />);
+    expect(wrapper.text()).toContain('state1');
+
+    userEvent.click(wrapper.find('button').getDOMNode());
+    expect(wrapper.text()).toContain('state1');
+    expect(wrapper.text()).not.toContain('state2');
+  });
+
+  it('should remove expired events', () => {
+    const wrapper = mount(<Button>button</Button>);
+    userEvent.click(wrapper.find('button').getDOMNode());
     expect(() => wrapper.unmount()).not.toThrow();
   });
 });
