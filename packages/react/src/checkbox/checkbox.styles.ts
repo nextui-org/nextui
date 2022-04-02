@@ -58,72 +58,6 @@ export const StyledCheckboxLabel = styled('label', {
   }
 });
 
-export const StyledCheckboxContainer = styled(
-  'div',
-  {
-    br: '$squared',
-    position: 'relative',
-    sizeMin: '$$checkboxSize',
-    transition: 'box-shadow 0.25s ease',
-    zIndex: '$1',
-    '@motion': {
-      transition: 'none'
-    },
-    variants: {
-      color: {
-        default: {
-          $$checkboxColor: '$colors$primary',
-          $$checkboxColorHover: '$colors$primaryDark'
-        },
-        primary: {
-          $$checkboxColor: '$colors$primary',
-          $$checkboxColorHover: '$colors$primaryDark'
-        },
-        secondary: {
-          $$checkboxColor: '$colors$secondary',
-          $$checkboxColorHover: '$colors$secondaryDark'
-        },
-        success: {
-          $$checkboxColor: '$colors$success',
-          $$checkboxColorHover: '$colors$successDark'
-        },
-        warning: {
-          $$checkboxColor: '$colors$warning',
-          $$checkboxColorHover: '$colors$warningDark'
-        },
-        error: {
-          $$checkboxColor: '$colors$error',
-          $$checkboxColorHover: '$colors$errorDark'
-        },
-        gradient: {
-          $$checkboxColor: '$colors$gradient',
-          $$checkboxColorHover: '$colors$gradient'
-        }
-      },
-      rounded: {
-        true: {
-          br: '$pill'
-        }
-      },
-      disabled: {
-        true: {
-          opacity: 0.4,
-          cursor: 'not-allowed'
-        }
-      },
-      animated: {
-        false: {
-          transition: 'none'
-        }
-      }
-    },
-    defaultVariants: {
-      color: 'default'
-    }
-  },
-  cssFocusVisible
-);
-
 export const StyledIconCheckFirstLine = styled('div', {
   content: '',
   background: 'transparent',
@@ -518,35 +452,87 @@ export const StyledCheckboxText = styled('span', {
   ]
 });
 
-export const StyledCheckboxInput = styled('input', {
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  top: '0px',
-  left: '0px',
-  margin: '0px',
-  padding: '0px',
-  opacity: 0,
-  zIndex: '$1',
-  cursor: 'pointer',
-  '&:active': {
-    [`& ~${StyledCheckboxMask}:before`]: {
-      bg: '$border'
-    }
-  },
-  '&:hover': {
-    [`& ~${StyledCheckboxMask}:before`]: {
-      bg: '$$checkboxBorderColor',
-      border: '2px solid transparent'
+export const StyledCheckboxContainer = styled(
+  'div',
+  {
+    br: '$squared',
+    position: 'relative',
+    sizeMin: '$$checkboxSize',
+    transition: 'box-shadow 0.25s ease',
+    zIndex: '$1',
+    '&.nextui-checkbox-input': {
+      '&:disabled': {
+        cursor: 'not-allowed'
+      }
     },
-    [`& ~${StyledCheckboxMask}:after`]: {
-      bg: '$$checkboxColorHover'
+    '@motion': {
+      transition: 'none'
+    },
+    variants: {
+      color: {
+        default: {
+          $$checkboxColor: '$colors$primary',
+          $$checkboxColorHover: '$colors$primaryDark'
+        },
+        primary: {
+          $$checkboxColor: '$colors$primary',
+          $$checkboxColorHover: '$colors$primaryDark'
+        },
+        secondary: {
+          $$checkboxColor: '$colors$secondary',
+          $$checkboxColorHover: '$colors$secondaryDark'
+        },
+        success: {
+          $$checkboxColor: '$colors$success',
+          $$checkboxColorHover: '$colors$successDark'
+        },
+        warning: {
+          $$checkboxColor: '$colors$warning',
+          $$checkboxColorHover: '$colors$warningDark'
+        },
+        error: {
+          $$checkboxColor: '$colors$error',
+          $$checkboxColorHover: '$colors$errorDark'
+        },
+        gradient: {
+          $$checkboxColor: '$colors$gradient',
+          $$checkboxColorHover: '$colors$gradient'
+        }
+      },
+      rounded: {
+        true: {
+          br: '$pill'
+        }
+      },
+      disabled: {
+        true: {
+          opacity: 0.4,
+          cursor: 'not-allowed'
+        }
+      },
+      animated: {
+        false: {
+          transition: 'none'
+        }
+      },
+      isHovered: {
+        true: {
+          [`& ${StyledCheckboxMask}:before`]: {
+            bg: '$$checkboxBorderColor',
+            border: '2px solid transparent'
+          },
+          [`& ${StyledCheckboxMask}:after`]: {
+            bg: '$$checkboxColorHover'
+          }
+        }
+      }
+    },
+    defaultVariants: {
+      color: 'default'
     }
   },
-  '&:disabled': {
-    cursor: 'not-allowed'
-  }
-});
+  cssFocusVisible
+);
 
 export const StyledCheckboxGroup = styled('div', {
   display: 'flex',
@@ -593,7 +579,6 @@ export const StyledCheckboxGroup = styled('div', {
 
 // types
 
-export type CheckboxVariantsProps = VariantProps<typeof StyledCheckboxInput>;
 export type CheckboxGroupVariantsProps = VariantProps<
   typeof StyledCheckboxGroup
 >;

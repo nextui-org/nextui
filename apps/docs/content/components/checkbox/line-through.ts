@@ -2,7 +2,7 @@ const App = `import { Checkbox } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Checkbox line checked={true}>
+    <Checkbox line initialChecked={true}>
       Option
     </Checkbox>
   );

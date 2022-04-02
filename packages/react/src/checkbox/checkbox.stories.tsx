@@ -61,23 +61,23 @@ Default.args = {
 
 export const Colors = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox color="primary" checked={true}>
+    <Checkbox color="primary" initialChecked={true}>
       Primary
     </Checkbox>
     <br />
-    <Checkbox color="secondary" checked={true}>
+    <Checkbox color="secondary" initialChecked={true}>
       Secondary
     </Checkbox>
     <br />
-    <Checkbox color="success" checked={true}>
+    <Checkbox color="success" initialChecked={true}>
       Success
     </Checkbox>
     <br />
-    <Checkbox color="warning" checked={true}>
+    <Checkbox color="warning" initialChecked={true}>
       Warning
     </Checkbox>
     <br />
-    <Checkbox color="error" checked={true}>
+    <Checkbox color="error" initialChecked={true}>
       Error
     </Checkbox>
   </div>
