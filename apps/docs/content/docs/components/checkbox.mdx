@@ -90,25 +90,26 @@ import { Checkbox } from '@nextui-org/react';
 
 #### Checkbox Props
 
-| Attribute          | Type                          | Accepted values                | Description                                                               | Default   |
-| ------------------ | ----------------------------- | ------------------------------ | ------------------------------------------------------------------------- | --------- |
-| **value**          | `string`                      | -                              | Unique identification value (only in group)                               | -         |
-| **label**          | `string`                      | -                              | Checkbox label                                                            | -         |
-| **color**          | `NormalColors`                | [NormalColors](#normal-colors) | Change checkbox color                                                     | `default` |
-| **labelColor**     | `SimpleColors`                | [SimpleColors](#simple-colors) | Change checkbox label color                                               | `default` |
-| **size**           | `NormalSizes`                 | [NormalSizes](#normal-sizes)   | Checkbox size                                                             | `md`      |
-| **checked**        | `boolean`                     | `true/false`                   | Determine the value of the checkbox                                       | `false`   |
-| **initialChecked** | `boolean`                     | `true/false`                   | Determine the initial value of the checkbox                               | `false`   |
-| **animated**       | `boolean`                     | `true/false`                   | Display checkbox animations                                               | `true`    |
-| **disabled**       | `boolean`                     | `true/false`                   | Disable checkbox                                                          | `false`   |
-| **indeterminate**  | `boolean`                     | `true/false`                   | Indeterminate checkbox                                                    | `false`   |
-| **preventDefault** | `boolean`                     | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
-| **rounded**        | `boolean`                     | `true/false`                   | Rounded checkbox                                                          | `false`   |
-| **line**           | `boolean`                     | `true/false`                   | Line in the middle of the label when the `Checkbox` is checked            | -         |
-| **onChange**       | `CheckboxEvent`               | -                              | The callback invoked when the checked state of the `Checkbox` changes.    | -         |
-| **css**            | `Stitches.CSS`                | -                              | Override Default CSS style                                                | -         |
-| **as**             | `keyof JSX.IntrinsicElements` | -                              | Changes which tag component outputs                                       | `label`   |
-| ...                | `LabelHTMLAttributes`         | `'form', 'className', ...`     | Native checkbox props                                                     | -         |
+| Attribute          | Type                           | Description                                                               | Default   |
+| ------------------ | ------------------------------ | ------------------------------------------------------------------------- | --------- |
+| **value**          | `string`                       | Unique identification value (only in group)                               | -         |
+| **label**          | `string`                       | Checkbox label                                                            | -         |
+| **color**          | [NormalColors](#normal-colors) | Change checkbox color                                                     | `default` |
+| **labelColor**     | [SimpleColors](#simple-colors) | Change checkbox label color                                               | `default` |
+| **size**           | [NormalSizes](#normal-sizes)   | Checkbox size                                                             | `md`      |
+| **checked**        | `boolean`                      | Determine the value of the checkbox                                       | `false`   |
+| **initialChecked** | `boolean`                      | Determine the initial value of the checkbox                               | `false`   |
+| **animated**       | `boolean`                      | Display checkbox animations                                               | `true`    |
+| **disabled**       | `boolean`                      | Disable checkbox                                                          | `false`   |
+| **indeterminate**  | `boolean`                      | Indeterminate checkbox                                                    | `false`   |
+| **preventDefault** | `boolean`                      | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
+| **rounded**        | `boolean`                      | Rounded checkbox                                                          | `false`   |
+| **line**           | `boolean`                      | Line in the middle of the label when the `Checkbox` is checked            | -         |
+| **autoFocus**      | `boolean`                      | `false`                                                                   |
+| **onChange**       | `CheckboxEvent`                | The callback invoked when the checked state of the `Checkbox` changes.    | -         |
+| **css**            | `Stitches.CSS`                 | Override Default CSS style                                                | -         |
+| **as**             | `keyof JSX.IntrinsicElements`  | Changes which tag component outputs                                       | `label`   |
+| ...                | `'form', 'className', ...`     | Native checkbox props                                                     | -         |
 
 <Spacer y={2} />
 

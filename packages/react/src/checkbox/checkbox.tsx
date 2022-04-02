@@ -54,6 +54,7 @@ export interface Props {
   disabled?: boolean;
   initialChecked?: boolean;
   preventDefault?: boolean;
+  autoFocus?: boolean;
   onChange?: (e: CheckboxEvent) => void;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
@@ -69,6 +70,7 @@ const defaultProps = {
   initialChecked: false,
   indeterminate: false,
   rounded: false,
+  autoFocus: false,
   line: false,
   animated: true,
   className: ''
@@ -98,6 +100,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       labelColor,
       animated,
       value,
+      autoFocus,
       preventDefault,
       ...props
     },
@@ -130,7 +133,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         React.HTMLAttributes<HTMLElement>,
         keyof CheckboxContainerVariantsProps | keyof CheckboxProps
       >;
-    } = useFocusRing();
+    } = useFocusRing({ autoFocus });
 
     const isDisabled = inGroup ? disabledAll || disabled : disabled;
 
