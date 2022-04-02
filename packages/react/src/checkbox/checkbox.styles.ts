@@ -366,7 +366,7 @@ export const StyledIconCheck = styled('i', {
 
 export const StyledCheckboxMask = styled('div', {
   $$checkboxMaskTransition:
-    'transform 0.25s ease 0s, opacity 0.25s ease 0s, background 0.25s ease 0s',
+    'transform 0.25s ease 0s, opacity 0.25s ease 0s, background 0.25s ease 0s, border-color 0.25s ease 0s',
   size: '100%',
   position: 'absolute',
   pe: 'none',
