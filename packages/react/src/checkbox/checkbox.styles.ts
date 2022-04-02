@@ -11,9 +11,9 @@ export const StyledCheckboxLabel = styled('label', {
   position: 'relative',
   w: 'auto',
   cursor: 'pointer',
-  transition: '$default',
   zIndex: '$1',
   opacity: 1,
+  transition: 'opacity 0.25s ease',
   $$checkboxBorderColor: '$colors$border',
   '@motion': {
     transition: 'none'
@@ -42,6 +42,11 @@ export const StyledCheckboxLabel = styled('label', {
         cursor: 'not-allowed'
       }
     },
+    isHovered: {
+      true: {
+        opacity: 0.8
+      }
+    },
     animated: {
       false: {
         transition: 'none'
@@ -59,8 +64,7 @@ export const StyledCheckboxContainer = styled(
     br: '$squared',
     position: 'relative',
     sizeMin: '$$checkboxSize',
-    opacity: 1,
-    transition: '$default',
+    transition: 'box-shadow 0.25s ease',
     zIndex: '$1',
     '@motion': {
       transition: 'none'
@@ -126,7 +130,6 @@ export const StyledIconCheckFirstLine = styled('div', {
   position: 'absolute',
   width: '8px',
   height: '1px',
-  transition: '$default',
   br: '5px',
   zIndex: '$1',
   bottom: '0px',
@@ -137,11 +140,10 @@ export const StyledIconCheckFirstLine = styled('div', {
     width: '0%',
     height: '2px',
     background: '$white',
-    transition: '$default',
+
     br: '5px 0px 0px 5px'
   },
   '@motion': {
-    transition: 'none',
     '&:after': {
       transition: 'none'
     }
@@ -156,13 +158,12 @@ export const StyledIconCheckFirstLine = styled('div', {
       true: {
         '&:after': {
           width: '100%',
-          transition: 'all 0.25s ease 0.1s'
+          transition: 'width 0.25s ease 0.1s'
         }
       }
     },
     animated: {
       false: {
-        transition: 'none',
         '&:after': {
           transition: 'none'
         }
@@ -192,7 +193,6 @@ export const StyledIconCheckSecondLine = styled('div', {
   right: '0',
   zIndex: '$1',
   background: 'transparent',
-  transition: '$default',
   width: '2px',
   '&:after': {
     content: '',
@@ -200,13 +200,11 @@ export const StyledIconCheckSecondLine = styled('div', {
     width: '2px',
     height: '0%',
     background: '$white',
-    transition: '$default',
     left: '0px',
     bottom: '0px',
     br: '5px 5px 0px 0px'
   },
   '@motion': {
-    transition: 'none',
     '&:after': {
       transition: 'none'
     }
@@ -221,13 +219,12 @@ export const StyledIconCheckSecondLine = styled('div', {
       true: {
         '&:after': {
           height: '100%',
-          transition: 'all 0.2s ease 0.3s'
+          transition: 'height 0.2s ease 0.3s'
         }
       }
     },
     animated: {
       false: {
-        transition: 'none',
         '&:after': {
           transition: 'none'
         }
@@ -368,6 +365,8 @@ export const StyledIconCheck = styled('i', {
 });
 
 export const StyledCheckboxMask = styled('div', {
+  $$checkboxMaskTransition:
+    'transform 0.25s ease 0s, opacity 0.25s ease 0s, background 0.25s ease 0s',
   size: '100%',
   position: 'absolute',
   pe: 'none',
@@ -375,7 +374,6 @@ export const StyledCheckboxMask = styled('div', {
   dflex: 'center',
   zIndex: '-$1',
   br: 'inherit',
-  transition: '$default',
   color: '$$checkboxBorderColor',
   '&:before': {
     content: '',
@@ -384,7 +382,7 @@ export const StyledCheckboxMask = styled('div', {
     left: '0px',
     size: '100%',
     br: 'inherit',
-    transition: '$transitions$default',
+    transition: '$$checkboxMaskTransition',
     zIndex: '-$1',
     border: '$borderWeights$normal solid currentColor',
     boxSizing: 'border-box'
@@ -399,11 +397,10 @@ export const StyledCheckboxMask = styled('div', {
     scale: 0.5,
     br: 'inherit',
     opacity: 0,
-    transition: '$default',
+    transition: '$$checkboxMaskTransition',
     zIndex: '-$1'
   },
   '@motion': {
-    transition: 'none',
     '&:before': {
       transition: 'none'
     },
@@ -426,7 +423,6 @@ export const StyledCheckboxMask = styled('div', {
     },
     animated: {
       false: {
-        transition: 'none',
         '&:before': {
           transition: 'none'
         },
@@ -447,7 +443,9 @@ export const StyledCheckboxText = styled('span', {
   ln: '$$checkboxSize',
   fontSize: '$$checkboxSize',
   us: 'none',
+  transition: 'opacity 0.25s ease 0s',
   '@motion': {
+    transition: 'none',
     '&:before': {
       transition: 'none'
     }
@@ -481,7 +479,7 @@ export const StyledCheckboxText = styled('span', {
           width: '0px',
           height: '2px',
           background: '$text',
-          transition: '$default'
+          transition: 'width 0.25s ease 0s'
         }
       }
     },
@@ -499,6 +497,7 @@ export const StyledCheckboxText = styled('span', {
     },
     animated: {
       false: {
+        transition: 'none',
         '&:before': {
           transition: 'none'
         }
