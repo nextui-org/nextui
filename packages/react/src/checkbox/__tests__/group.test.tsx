@@ -1,6 +1,7 @@
 import React from 'react';
-import { mount, ReactWrapper, render } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import Checkbox from '../index';
+import userEvent from '@testing-library/user-event';
 
 const getCheckboxElement = (wrapper: ReactWrapper) => {
   return wrapper.find('input');
@@ -15,18 +16,6 @@ describe('Checkbox Group', () => {
       </Checkbox.Group>
     );
     expect(() => wrapper.unmount()).not.toThrow();
-    const rendered = render(
-      <Checkbox.Group
-        row
-        defaultValue={[]}
-        label="Select cities"
-        aria-label="Select cities row example"
-      >
-        <Checkbox value="sydney">Sydney</Checkbox>
-        <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
-      </Checkbox.Group>
-    );
-    expect(rendered).toMatchSnapshot();
   });
 
   it('should work correctly with different sizes', () => {
@@ -71,6 +60,7 @@ describe('Checkbox Group', () => {
     let value = ['sydney'];
     const wrapper = mount(
       <Checkbox.Group
+        label="Select cities"
         defaultValue={['sydney']}
         onChange={(val) => (value = val)}
       >
@@ -79,11 +69,11 @@ describe('Checkbox Group', () => {
       </Checkbox.Group>
     );
     const sydney = getCheckboxElement(wrapper).at(0);
-    sydney.simulate('change');
+    userEvent.click(sydney.getDOMNode());
     expect(value.length).toBe(0);
 
     const beijing = getCheckboxElement(wrapper).at(1);
-    beijing.simulate('change');
+    userEvent.click(beijing.getDOMNode());
     expect(value).toEqual(expect.arrayContaining(['beijing']));
   });
 
@@ -101,47 +91,11 @@ describe('Checkbox Group', () => {
       </Checkbox.Group>
     );
     const sydney = getCheckboxElement(wrapper).at(0);
-    sydney.simulate('change');
+    userEvent.click(sydney.getDOMNode());
     expect(value.length).not.toBe(0);
 
     const beijing = getCheckboxElement(wrapper).at(1);
-    beijing.simulate('change');
+    userEvent.click(beijing.getDOMNode());
     expect(value).not.toEqual(expect.arrayContaining(['beijing']));
-  });
-
-  it('should throw error when value missing', () => {
-    let errorMessage = '';
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const Group = Checkbox.Group as any;
-    const errorSpy = jest
-      .spyOn(console, 'error')
-      .mockImplementation((msg) => (errorMessage = msg));
-    mount(
-      <Group label="Select cities">
-        <Checkbox value="sydney">Sydney</Checkbox>
-        <Checkbox value="beijing">BeiJing</Checkbox>
-      </Group>
-    );
-
-    expect(errorMessage).toContain('required');
-    errorSpy.mockRestore();
-  });
-
-  it('should throw error when set check prop in group', () => {
-    let errorMessage = '';
-    const errorSpy = jest
-      .spyOn(console, 'error')
-      .mockImplementation((msg) => (errorMessage = msg));
-    mount(
-      <Checkbox.Group label="Select cities" defaultValue={[]}>
-        <Checkbox value="sydney" checked>
-          Sydney
-        </Checkbox>
-        <Checkbox value="beijing">BeiJing</Checkbox>
-      </Checkbox.Group>
-    );
-
-    expect(errorMessage.toLowerCase()).toContain('remove props');
-    errorSpy.mockRestore();
   });
 });
