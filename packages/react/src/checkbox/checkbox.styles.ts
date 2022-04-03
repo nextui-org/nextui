@@ -589,7 +589,7 @@ export const StyledCheckboxGroupLabel = styled('label', {
   fontWeight: '$normal',
   fontSize: 'calc($$checkboxSize * 0.8)',
   color: '$accents6',
-  mb: '$2',
+  mb: '$3',
   variants: {
     disabled: {
       true: {
