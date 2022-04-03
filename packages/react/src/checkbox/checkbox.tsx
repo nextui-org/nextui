@@ -117,10 +117,11 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
       focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof CheckboxProps>;
     } = useFocusRing({ autoFocus });
 
-    const checkboxColor = color !== 'default' ? color : groupState?.color;
-    const checkboxSize = size !== 'md' ? size : groupState?.size;
-    const textColor =
-      labelColor !== 'default' ? labelColor : groupState?.labelColor;
+    const checkboxColor = groupState?.color || color;
+    const checkboxSize = groupState?.size || size;
+    const textColor = groupState?.labelColor || labelColor;
+
+    console.log(inputProps);
 
     const getState = useMemo(() => {
       if (isHovered) return 'hovered';

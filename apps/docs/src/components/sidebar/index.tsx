@@ -107,6 +107,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             pathname,
             selected,
             comingSoon,
+            updated,
             newPost
           } as NavLinkProps;
 

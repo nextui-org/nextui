@@ -50,8 +50,9 @@ const TableCheckboxCell = React.forwardRef<
       { key: cell?.parentKey || cell.key },
       state
     );
-
     const { isFocusVisible, focusProps } = useFocusRing();
+
+    const mappedProps = mapPropsToCheckboxAttr(checkboxProps);
 
     return (
       <StyledTableCell
@@ -61,7 +62,7 @@ const TableCheckboxCell = React.forwardRef<
         {...mergeProps(gridCellProps, focusProps, props)}
       >
         <Checkbox
-          {...mapPropsToCheckboxAttr(checkboxProps)}
+          {...mappedProps}
           color={color as CheckboxProps['color']}
           animated={animated}
           css={{ display: 'inherit' }}

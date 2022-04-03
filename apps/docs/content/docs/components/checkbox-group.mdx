@@ -1,0 +1,133 @@
+---
+title: 'Checkbox Group'
+description: 'A CheckboxGroup allows users to select one or more items from a list of choices.'
+url: https://nextui.org/docs/components/checkbox-group
+---
+
+# Checkbox Group
+
+A CheckboxGroup allows users to select one or more items from a list of choices. CheckboxGrup implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useCheckboxGroup.html" rel="noreferrer" target="_blank">
+@react-aria/checkbox</a>
+
+```jsx
+import { Checkbox } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Playground
+  title="Default"
+  desc=" `Checkbox.Group` accepts multiple `Checkbox` elements as children. Each `Checkbox` represents an option that can be selected, labeled by its children."
+  files={checkboxGroupContent.column}
+/>
+
+<Playground
+  title="Row Group"
+  desc="You can change the `Checkbox.Group` direction with the `row` prop."
+  files={checkboxGroupContent.row}
+/>
+
+<Playground
+  title="Controlled vs Uncontrolled"
+  desc="An initial, **uncontrolled** value can be provided to the `Checkbox.Group` using the defaultValue prop. Alternatively, a **controlled** value can be provided using the value prop. Both of these props accept an array of selected items, which map to the value prop on each item."
+  files={checkboxGroupContent.controlledVsUncontrolled}
+/>
+
+> Note: See React's documentation on [uncontrolled components](https://reactjs.org/docs/uncontrolled-components.html) for more info.
+
+<Playground
+  title="Events"
+  desc="`Checkbox.Group` accepts an `onChange` prop, which is triggered when a user adds or removes an item from the selection. The example below uses `onChange` to log how the user is interacting with the component."
+  files={checkboxGroupContent.events}
+/>
+
+> Accessibility: If a visible label isn't specified for a `Checkbox.Group`, an aria-label must be provided for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead. Checkbox elements within a group should always have a visible label.
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Checkbox Group Props
+
+| Attribute        | Type                                              | Description                                                        | Default   |
+| ---------------- | ------------------------------------------------- | ------------------------------------------------------------------ | --------- |
+| **children\***   | [CheckboxGroupChildren](#checkbox-group-children) | The Checkboxes contained within the checkbox group.                | -         |
+| **label**        | `ReactNode`                                       | The content to display as the label.                               | -         |
+| **value**        | `string[]`                                        | The current value (controlled).                                    | -         |
+| **defaultValue** | `string[]`                                        | The current value (uncontrolled).                                  | -         |
+| **name**         | `string`                                          | The name of the checkbox group, used when submitting an HTML form. | -         |
+| **row**          | `boolean`                                         | Whether the checkbox group is horizontal                           | `false`   |
+| **size**         | [NormalSizes](#normal-sizes)                      | The size of the component                                          | `medium`  |
+| **color**        | [NormalColors](#normal-colors)                    | The color of the component                                         | `default` |
+| **labelColor**   | [SimpleColors](#simple-colors)                    | The color of the label                                             | `default` |
+| **disabled**     | `boolean`                                         | Whether the checkbox group is disabled                             | `false`   |
+| **readOnly**     | `boolean`                                         | Whether the input can be selected but not changed by the user.     | `false`   |
+| **css**          | `Stitches.CSS`                                    | Override Default CSS style                                         | -         |
+| **as**           | `keyof JSX.IntrinsicElements`                     | Changes which tag component outputs                                | `div`     |
+| ...              | `HTMLDivAttributes`                               | Native element props                                               | -         |
+
+<Spacer y={1} />
+
+#### Checkbox Group Events
+
+| Attribute    | Type                 | Description                                   | Default |
+| ------------ | -------------------- | --------------------------------------------- | ------- |
+| **onChange** | `(value: T) => void` | Handler that is called when the value changes | -       |
+
+<Spacer y={1} />
+
+#### Checkbox Group Accessibility Props
+
+| Attribute             | Type     | Description                                                                                                        | Default |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
+| **id**                | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
+| **aria-label**        | `string` | Defines a string value that labels the current element                                                             | -       |
+| **aria-labelledby**   | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
+| **aria-describedby**  | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
+| **aria-details**      | `string` | Identifies the element (or elements) that provide a detailed, extended description for the object.                 | -       |
+| **aria-errormessage** | `string` | Identifies the element that provides an error message for the object.                                              | -       |
+
+<Spacer y={2} />
+
+### Checkbox Group types
+
+<Spacer y={1} />
+
+#### Checkbox Group Children
+
+```ts
+type ReactElement<CheckboxProps> | ReactElement<CheckboxProps>[]
+```
+
+#### Normal Colors
+
+```ts
+type NormalColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'gradient';
+```
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+```
