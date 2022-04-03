@@ -4,12 +4,12 @@ exports[`AvatarGroup should render correctly 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "nextui-c-jzarVV",
+      "class": "nextui-c-eCcrGc",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+          "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
           "data-state": "ready",
         },
         "children": Array [
@@ -104,7 +104,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+            "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
             "data-state": "ready",
           },
           "children": Array [
@@ -199,7 +199,7 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+              "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
               "data-state": "ready",
             },
             "children": Array [
@@ -294,7 +294,7 @@ LoadedCheerio {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Node {
               "attribs": Object {
-                "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+                "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
                 "data-state": "ready",
               },
               "children": Array [
@@ -438,7 +438,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+          "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
           "data-state": "ready",
         },
         "children": Array [
@@ -533,7 +533,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+            "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
             "data-state": "ready",
           },
           "children": Array [
@@ -628,7 +628,7 @@ LoadedCheerio {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Node {
             "attribs": Object {
-              "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+              "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
               "data-state": "ready",
             },
             "children": Array [
@@ -749,7 +749,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+            "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
             "data-state": "ready",
           },
           "children": Array [
@@ -867,7 +867,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+          "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
           "data-state": "ready",
         },
         "children": Array [
@@ -962,7 +962,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+            "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
             "data-state": "ready",
           },
           "children": Array [
@@ -1071,7 +1071,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+            "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
             "data-state": "ready",
           },
           "children": Array [
@@ -1168,7 +1168,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+              "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
               "data-state": "ready",
             },
             "children": Array [
@@ -1296,7 +1296,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+          "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
           "data-state": "ready",
         },
         "children": Array [
@@ -1393,7 +1393,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+            "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
             "data-state": "ready",
           },
           "children": Array [
@@ -1490,7 +1490,7 @@ LoadedCheerio {
           "parent": [Circular],
           "prev": Node {
             "attribs": Object {
-              "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+              "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
               "data-state": "ready",
             },
             "children": Array [
@@ -1587,7 +1587,7 @@ LoadedCheerio {
             "parent": [Circular],
             "prev": Node {
               "attribs": Object {
-                "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-evoADT-bordered-true nextui-c-eFnRgP-gBVgtO-stacked-true nextui-c-eFnRgP-bAEoQm-rounded-true nextui-c-eFnRgP-MtAEf-cv only-text-avatar",
+                "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-evoADT-bordered-true nextui-c-iPvdXb-gBVgtO-stacked-true nextui-c-iPvdXb-bAEoQm-rounded-true nextui-c-iPvdXb-MtAEf-cv only-text-avatar",
                 "data-state": "ready",
               },
               "children": Array [
@@ -1835,12 +1835,12 @@ exports[`AvatarGroup should stacked when avatars are in a group 1`] = `
 LoadedCheerio {
   "0": Node {
     "attribs": Object {
-      "class": "nextui-c-jzarVV nextui-c-jzarVV-ekBRjY-animated-true",
+      "class": "nextui-c-eCcrGc nextui-c-eCcrGc-forCSF-animated-true",
     },
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-bAEoQm-rounded-true only-text-avatar",
+          "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-bAEoQm-rounded-true only-text-avatar",
           "data-state": "ready",
         },
         "children": Array [
@@ -1935,7 +1935,7 @@ LoadedCheerio {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Node {
           "attribs": Object {
-            "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-bAEoQm-rounded-true only-text-avatar",
+            "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-bAEoQm-rounded-true only-text-avatar",
             "data-state": "ready",
           },
           "children": Array [
@@ -2055,7 +2055,7 @@ LoadedCheerio {
       },
       Node {
         "attribs": Object {
-          "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-bAEoQm-rounded-true only-text-avatar",
+          "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-bAEoQm-rounded-true only-text-avatar",
           "data-state": "ready",
         },
         "children": Array [
@@ -2152,7 +2152,7 @@ LoadedCheerio {
         "parent": [Circular],
         "prev": Node {
           "attribs": Object {
-            "class": "nextui-c-eFnRgP nextui-c-eFnRgP-qXFXw-color-default nextui-c-eFnRgP-duCSmO-textColor-default nextui-c-eFnRgP-gbstao-size-md nextui-c-eFnRgP-krOtXB-borderWeight-normal nextui-c-eFnRgP-bAEoQm-rounded-true only-text-avatar",
+            "class": "nextui-c-iPvdXb nextui-c-iPvdXb-qXFXw-color-default nextui-c-iPvdXb-duCSmO-textColor-default nextui-c-iPvdXb-gbstao-size-md nextui-c-iPvdXb-krOtXB-borderWeight-normal nextui-c-iPvdXb-bAEoQm-rounded-true only-text-avatar",
             "data-state": "ready",
           },
           "children": Array [
