@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Button from '../index';
 import userEvent from '@testing-library/user-event';
-import { FocusableRef } from '@react-types/shared';
 
 describe('Button', () => {
   it('should render correctly', () => {

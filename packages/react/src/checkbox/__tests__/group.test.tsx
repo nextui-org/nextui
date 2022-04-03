@@ -9,14 +9,19 @@ const getCheckboxElement = (wrapper: ReactWrapper) => {
 describe('Checkbox Group', () => {
   it('should render correctly', () => {
     const wrapper = mount(
-      <Checkbox.Group value={[]}>
+      <Checkbox.Group defaultValue={[]} label="Select cities">
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
       </Checkbox.Group>
     );
     expect(() => wrapper.unmount()).not.toThrow();
     const rendered = render(
-      <Checkbox.Group value={[]} row>
+      <Checkbox.Group
+        row
+        defaultValue={[]}
+        label="Select cities"
+        aria-label="Select cities row example"
+      >
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
       </Checkbox.Group>
@@ -27,16 +32,20 @@ describe('Checkbox Group', () => {
   it('should work correctly with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Checkbox.Group value={[]} size="xs">
+        <Checkbox.Group
+          defaultValue={[]}
+          aria-label="Single city xs size"
+          size="xs"
+        >
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
-        <Checkbox.Group value={[]} size="sm">
+        <Checkbox.Group value={[]} aria-label="Single city sm size" size="sm">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
-        <Checkbox.Group value={[]} size="md">
+        <Checkbox.Group value={[]} aria-label="Single city md size" size="md">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
-        <Checkbox.Group value={[]} size="lg">
+        <Checkbox.Group value={[]} aria-label="Single city lg size" size="lg">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
       </div>
@@ -47,7 +56,7 @@ describe('Checkbox Group', () => {
 
   it('should work correctly with initial value', () => {
     let wrapper = mount(
-      <Checkbox.Group value={['sydney']}>
+      <Checkbox.Group label="Select cities" defaultValue={['sydney']}>
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="beijing">BeiJing</Checkbox>
       </Checkbox.Group>
@@ -61,7 +70,10 @@ describe('Checkbox Group', () => {
   it('should change value after click', () => {
     let value = ['sydney'];
     const wrapper = mount(
-      <Checkbox.Group value={['sydney']} onChange={(val) => (value = val)}>
+      <Checkbox.Group
+        defaultValue={['sydney']}
+        onChange={(val) => (value = val)}
+      >
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="beijing">BeiJing</Checkbox>
       </Checkbox.Group>
@@ -80,7 +92,8 @@ describe('Checkbox Group', () => {
     const wrapper = mount(
       <Checkbox.Group
         disabled
-        value={['sydney']}
+        label="Select cities"
+        defaultValue={['sydney']}
         onChange={(val) => (value = val)}
       >
         <Checkbox value="sydney">Sydney</Checkbox>
@@ -104,7 +117,7 @@ describe('Checkbox Group', () => {
       .spyOn(console, 'error')
       .mockImplementation((msg) => (errorMessage = msg));
     mount(
-      <Group>
+      <Group label="Select cities">
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="beijing">BeiJing</Checkbox>
       </Group>
@@ -120,7 +133,7 @@ describe('Checkbox Group', () => {
       .spyOn(console, 'error')
       .mockImplementation((msg) => (errorMessage = msg));
     mount(
-      <Checkbox.Group value={[]}>
+      <Checkbox.Group label="Select cities" defaultValue={[]}>
         <Checkbox value="sydney" checked>
           Sydney
         </Checkbox>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount, ReactWrapper, render } from 'enzyme';
+import userEvent from '@testing-library/user-event';
 import Checkbox from '../index';
 
 const getCheckboxElement = (wrapper: ReactWrapper) => {
@@ -47,10 +48,12 @@ describe('Checkbox', () => {
   });
 
   it('should work correctly with initial value', () => {
-    let wrapper = mount(<Checkbox checked={true}>Buenos Aires</Checkbox>);
+    let wrapper = mount(
+      <Checkbox initialChecked={true}>Buenos Aires</Checkbox>
+    );
     expectCheckboxIsChecked(wrapper, true);
 
-    wrapper = mount(<Checkbox checked={false}>Buenos Aires</Checkbox>);
+    wrapper = mount(<Checkbox initialChecked={false}>Buenos Aires</Checkbox>);
     expectCheckboxIsChecked(wrapper, false);
 
     wrapper = mount(<Checkbox initialChecked>Buenos Aires</Checkbox>);

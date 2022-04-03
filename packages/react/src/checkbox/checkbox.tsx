@@ -1,23 +1,15 @@
-import React, {
-  useEffect,
-  useMemo,
-  useState,
-  useRef,
-  PropsWithoutRef,
-  RefAttributes
-} from 'react';
+import React, { useMemo, useRef, PropsWithoutRef, RefAttributes } from 'react';
 import { FocusableRef } from '@react-types/shared';
 import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { useToggleState } from '@react-stately/toggle';
 import { AriaCheckboxProps } from '@react-types/checkbox';
-import { useCheckbox } from '@react-aria/checkbox';
+import { useCheckbox, useCheckboxGroupItem } from '@react-aria/checkbox';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { mergeProps } from '@react-aria/utils';
 
 import { useCheckbox as useCheckboxContext } from './checkbox-context';
 import CheckboxGroup from './checkbox-group';
-import useWarning from '../use-warning';
 import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
 import { CSS } from '../theme/stitches.config';
 import { useFocusableRef } from '../utils/dom';
@@ -32,11 +24,11 @@ import {
 } from './checkbox.styles';
 import { mapPropsToReactAriaAttr } from './utils';
 import clsx from '../utils/clsx';
-import { __DEV__ } from '../utils/assertion';
 
 interface Props
   extends Omit<
     AriaCheckboxProps,
+    | 'isDisabled'
     | 'isSelected'
     | 'defaultSelected'
     | 'isIndeterminate'
@@ -88,8 +80,6 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
     const mappedProps = mapPropsToReactAriaAttr(checkboxProps);
 
     const {
-      checked,
-      initialChecked,
       line,
       rounded,
       indeterminate,
@@ -101,12 +91,11 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
       color,
       labelColor,
       animated,
-      value,
       autoFocus,
       ...props
     } = checkboxProps;
 
-    const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
+    const groupState = useCheckboxContext();
 
     const inputRef = useRef<HTMLInputElement>(null);
     const domRef = useFocusableRef<HTMLLabelElement>(
@@ -114,23 +103,11 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
       inputRef
     );
 
-    const { inputProps } = useCheckbox(
-      mappedProps,
-      useToggleState(mappedProps),
-      inputRef
-    );
+    const { inputProps } = groupState?.inGroup
+      ? useCheckboxGroupItem(mappedProps, groupState, inputRef)
+      : useCheckbox(mappedProps, useToggleState(mappedProps), inputRef);
 
     const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
-
-    const {
-      color: groupColor,
-      labelColor: labelGroupColor,
-      size: groupSize,
-      // updateState,
-      inGroup,
-      // disabledAll,
-      values
-    } = useCheckboxContext();
 
     const {
       isFocusVisible,
@@ -140,61 +117,10 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
       focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof CheckboxProps>;
     } = useFocusRing({ autoFocus });
 
-    // const isDisabled = inGroup ? disabledAll || disabled : disabled;
-
-    const checkboxColor = color !== 'default' ? color : groupColor;
-    const checkboxSize = size !== 'md' ? size : groupSize;
-    const textColor = labelColor !== 'default' ? labelColor : labelGroupColor;
-
-    if (__DEV__ && inGroup && checked) {
-      useWarning(
-        'Remove props "checked" when [Checkbox] component is in the group.',
-        'Checkbox'
-      );
-    }
-    if (inGroup) {
-      useEffect(() => {
-        const next = values.includes(value);
-        if (next === selfChecked) return;
-        setSelfChecked(next);
-      }, [values.join(',')]);
-    }
-
-    // useEffect(() => {
-    //   setSelfIndeterminate(indeterminate);
-    // }, [indeterminate]);
-
-    // const changeHandle = useCallback(
-    //   (ev: React.ChangeEvent) => {
-    //     if (isDisabled) return;
-    //     const selfEvent = {
-    //       target: {
-    //         checked: !selfChecked
-    //       },
-    //       stopPropagation: ev.stopPropagation,
-    //       preventDefault: ev.preventDefault,
-    //       nativeEvent: ev
-    //     };
-    //     if (inGroup && updateState) {
-    //       updateState && updateState(value, !selfChecked);
-    //     }
-
-    //     if (selfIndeterminate) {
-    //       setSelfIndeterminate(false);
-    //       setSelfChecked(true);
-    //     } else {
-    //       setSelfChecked(!selfChecked);
-    //     }
-
-    //     onChange && onChange(selfEvent);
-    //   },
-    //   [updateState, onChange, isDisabled, selfChecked, selfIndeterminate]
-    // );
-
-    // useEffect(() => {
-    //   if (checked === undefined) return;
-    //   setSelfChecked(checked);
-    // }, [checked]);
+    const checkboxColor = color !== 'default' ? color : groupState?.color;
+    const checkboxSize = size !== 'md' ? size : groupState?.size;
+    const textColor =
+      labelColor !== 'default' ? labelColor : groupState?.labelColor;
 
     const getState = useMemo(() => {
       if (isHovered) return 'hovered';
@@ -283,11 +209,8 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
 
 Checkbox.defaultProps = defaultProps;
 
+Checkbox.displayName = 'NextUI - Checkbox';
 Checkbox.toString = () => '.nextui-checkbox';
-
-if (__DEV__) {
-  Checkbox.displayName = 'NextUI - Checkbox';
-}
 
 type CheckboxComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>

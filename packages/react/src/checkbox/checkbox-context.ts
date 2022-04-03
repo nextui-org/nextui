@@ -1,27 +1,14 @@
 import React from 'react';
+import { CheckboxGroupState } from '@react-stately/checkbox';
 import { NormalColors, NormalSizes, SimpleColors } from '../utils/prop-types';
 
-export interface CheckboxConfig {
+export interface CheckboxConfig extends CheckboxGroupState {
   color: NormalColors;
   size: NormalSizes;
   labelColor: SimpleColors;
-  updateState?: (value: string, checked: boolean) => void;
-  disabledAll: boolean;
-  values: string[];
   inGroup: boolean;
 }
 
-const defaultContext = {
-  color: 'default' as NormalColors,
-  labelColor: 'default' as SimpleColors,
-  size: 'md' as NormalSizes,
-  disabledAll: false,
-  inGroup: false,
-  values: []
-};
+export const CheckboxContext = React.createContext<CheckboxConfig | null>(null);
 
-export const CheckboxContext =
-  React.createContext<CheckboxConfig>(defaultContext);
-
-export const useCheckbox = (): CheckboxConfig =>
-  React.useContext<CheckboxConfig>(CheckboxContext);
+export const useCheckbox = () => React.useContext(CheckboxContext);

@@ -554,7 +554,14 @@ export const StyledCheckboxGroup = styled('div', {
       xl: {
         $$checkboxSize: '$space$11'
       }
-    },
+    }
+  }
+});
+
+export const StyledCheckboxGroupContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  variants: {
     row: {
       true: {
         flexDirection: 'row',
@@ -566,7 +573,7 @@ export const StyledCheckboxGroup = styled('div', {
       false: {
         mr: 0,
         flexDirection: 'column',
-        [`& ${StyledCheckboxLabel}`]: {
+        [`& ${StyledCheckboxLabel}:not(:first-child)`]: {
           mt: '$$checkboxSize'
         }
       }
@@ -574,6 +581,21 @@ export const StyledCheckboxGroup = styled('div', {
   },
   defaultVariants: {
     row: false
+  }
+});
+
+export const StyledCheckboxGroupLabel = styled('label', {
+  d: 'block',
+  fontWeight: '$normal',
+  fontSize: 'calc($$checkboxSize * 0.8)',
+  color: '$accents6',
+  mb: '$2',
+  variants: {
+    disabled: {
+      true: {
+        opacity: 0.75
+      }
+    }
   }
 });
 
