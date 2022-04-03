@@ -8,9 +8,15 @@ export const StyledAvatar = styled('span', {
   overflow: 'hidden',
   verticalAlign: 'top',
   cursor: 'auto',
-  transition: '$default',
-  '&:first-child': {
-    margin: 0
+  '.nextui-avatar-bg': {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: '$2',
+    transition: '$avatar',
+    size: '100%'
   },
   '&:hover .nextui-avatar-bg': {
     boxShadow: ' inset 0 0 40px 0 rgb(0 0 0 / 14%)'
@@ -27,16 +33,6 @@ export const StyledAvatar = styled('span', {
   },
   '&[data-state="ready"] .nextui-avatar-img': {
     opacity: 1
-  },
-  '.nextui-avatar-bg': {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: '$2',
-    transition: '$default',
-    size: '100%'
   },
   '.nextui-avatar-icon': {
     display: 'flex',
@@ -55,12 +51,13 @@ export const StyledAvatar = styled('span', {
     left: '50%',
     top: '50%',
     ta: 'center',
+    color: '$text',
+    fontWeight: '$medium',
     transform: 'translate(-50%, -50%) scale(0.65)',
     whiteSpace: 'nowrap',
     us: 'none'
   },
   '@motion': {
-    transition: 'none',
     '.nextui-avatar-bg, .nextui-avatar-img': {
       transition: 'none'
     }
@@ -75,49 +72,31 @@ export const StyledAvatar = styled('span', {
       primary: {
         '.nextui-avatar-bg': {
           bg: '$primary'
-        },
-        '.nextui-avatar-text': {
-          color: '$background'
         }
       },
       secondary: {
         '.nextui-avatar-bg': {
           bg: '$secondary'
-        },
-        '.nextui-avatar-text': {
-          color: '$background'
         }
       },
       success: {
         '.nextui-avatar-bg': {
           bg: '$success'
-        },
-        '.nextui-avatar-text': {
-          color: '$background'
         }
       },
       warning: {
         '.nextui-avatar-bg': {
           bg: '$warning'
-        },
-        '.nextui-avatar-text': {
-          color: '$background'
         }
       },
       error: {
         '.nextui-avatar-bg': {
           bg: '$error'
-        },
-        '.nextui-avatar-text': {
-          color: '$background'
         }
       },
       gradient: {
         '.nextui-avatar-bg': {
           bg: '$gradient'
-        },
-        '.nextui-avatar-text': {
-          color: '$background'
         }
       }
     },
@@ -125,6 +104,11 @@ export const StyledAvatar = styled('span', {
       default: {
         '.nextui-avatar-text': {
           color: '$text'
+        }
+      },
+      white: {
+        '.nextui-avatar-text': {
+          color: '$white'
         }
       },
       primary: {
@@ -263,6 +247,7 @@ export const StyledAvatar = styled('span', {
     }
   },
   compoundVariants: [
+    // bordered / borderWeight
     {
       bordered: true,
       borderWeight: 'light',
