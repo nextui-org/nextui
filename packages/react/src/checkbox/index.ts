@@ -15,11 +15,9 @@ export {
   StyledIconCheck,
   StyledCheckboxMask,
   StyledCheckboxText,
-  StyledCheckboxInput,
   StyledCheckboxGroup
 } from './checkbox.styles';
 export type {
-  CheckboxVariantsProps,
   CheckboxGroupVariantsProps,
   CheckboxTextVariantsProps,
   CheckboxMaskVariantsProps,

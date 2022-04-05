@@ -1,14 +1,13 @@
 import React, { useRef, useImperativeHandle } from 'react';
 import { CSS } from '../theme/stitches.config';
 import { useTableCell, useTableSelectionCheckbox } from '@react-aria/table';
-import { useToggleState } from '@react-stately/toggle';
 import { GridNode } from '@react-types/grid';
 import { TableState } from '@react-stately/table';
 import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
-import { useCheckbox } from '@react-aria/checkbox';
 import Checkbox, { CheckboxProps } from '../checkbox';
 import { StyledTableCell, TableVariantsProps } from './table.styles';
+import { mapPropsToCheckboxAttr } from './utils';
 import clsx from '../utils/clsx';
 
 type CellProps<T> = GridNode<T> & { parentKey?: React.Key };
@@ -51,19 +50,8 @@ const TableCheckboxCell = React.forwardRef<
       { key: cell?.parentKey || cell.key },
       state
     );
-
     const { isFocusVisible, focusProps } = useFocusRing();
-
-    const inputRef = useRef<HTMLInputElement | null>(null);
-
-    const {
-      inputProps
-    }: {
-      inputProps: Omit<
-        React.InputHTMLAttributes<HTMLInputElement>,
-        keyof CheckboxProps
-      >;
-    } = useCheckbox(checkboxProps, useToggleState(checkboxProps), inputRef);
+    const mappedProps = mapPropsToCheckboxAttr(checkboxProps);
 
     return (
       <StyledTableCell
@@ -73,8 +61,7 @@ const TableCheckboxCell = React.forwardRef<
         {...mergeProps(gridCellProps, focusProps, props)}
       >
         <Checkbox
-          {...inputProps}
-          ref={inputRef}
+          {...mappedProps}
           color={color as CheckboxProps['color']}
           animated={animated}
           css={{ display: 'inherit' }}

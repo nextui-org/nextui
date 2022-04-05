@@ -9,6 +9,7 @@ export interface Props {
   title: string;
   selected: boolean;
   newPost?: boolean;
+  updated?: boolean;
   comingSoon?: boolean;
   color?: string;
 }
@@ -90,7 +91,7 @@ const NavLink: React.FC<NavLinkProps> = ({
         href={pathname}
         selected={selected}
         disabled={comingSoon}
-        onClick={(e) => !comingSoon && onClick && onClick(e)}
+        onClick={(e: any) => !comingSoon && onClick && onClick(e)}
         css={{
           color: color ? color : 'inherit'
         }}

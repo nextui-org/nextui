@@ -69,6 +69,7 @@
     "@react-stately/table": "3.1.1",
     "@react-stately/toggle": "3.2.4",
     "@react-types/button": "^3.4.4",
+    "@react-types/checkbox": "3.2.6",
     "@react-types/grid": "3.0.1",
     "@react-types/shared": "3.11.0",
     "@stitches/react": "1.2.7"

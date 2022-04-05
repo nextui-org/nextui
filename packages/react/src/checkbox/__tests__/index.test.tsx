@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, ReactWrapper, render } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
+import userEvent from '@testing-library/user-event';
 import Checkbox from '../index';
 
 const getCheckboxElement = (wrapper: ReactWrapper) => {
@@ -17,19 +18,12 @@ const expectCheckboxToHaveARIAChecked = (
   expect(getCheckboxElement(wrapper).props()['aria-checked']).toBe(value);
 };
 
-const expectCheckboxToHaveARIADisabled = (
-  wrapper: ReactWrapper,
-  value: boolean
-) => {
-  expect(getCheckboxElement(wrapper).props()['aria-disabled']).toBe(value);
-};
-
 describe('Checkbox', () => {
   it('should render correctly', () => {
-    const wrapper = mount(<Checkbox checked={true}>Buenos Aires</Checkbox>);
+    const wrapper = mount(
+      <Checkbox initialChecked={true}>Buenos Aires</Checkbox>
+    );
     expect(() => wrapper.unmount()).not.toThrow();
-    const rendered = render(<Checkbox>Buenos Aires</Checkbox>);
-    expect(rendered.html()).toMatchSnapshot();
   });
 
   it('should work correctly with different sizes', () => {
@@ -47,10 +41,12 @@ describe('Checkbox', () => {
   });
 
   it('should work correctly with initial value', () => {
-    let wrapper = mount(<Checkbox checked={true}>Buenos Aires</Checkbox>);
+    let wrapper = mount(
+      <Checkbox initialChecked={true}>Buenos Aires</Checkbox>
+    );
     expectCheckboxIsChecked(wrapper, true);
 
-    wrapper = mount(<Checkbox checked={false}>Buenos Aires</Checkbox>);
+    wrapper = mount(<Checkbox initialChecked={false}>Buenos Aires</Checkbox>);
     expectCheckboxIsChecked(wrapper, false);
 
     wrapper = mount(<Checkbox initialChecked>Buenos Aires</Checkbox>);
@@ -74,7 +70,7 @@ describe('Checkbox', () => {
     };
     const wrapper = mount(<Wrapper />);
     const input = getCheckboxElement(wrapper);
-    input.simulate('change');
+    userEvent.click(input.getDOMNode());
     expect(wrapper.find('.nextui-checkbox-text').at(0).text()).toContain(
       'state2'
     );
@@ -93,13 +89,12 @@ describe('Checkbox', () => {
     };
     const wrapper = mount(<Wrapper />);
     const input = getCheckboxElement(wrapper);
-    input.simulate('change');
-    expect(wrapper.find('.nextui-checkbox-text').at(0).text()).not.toContain(
-      'state2'
+    userEvent.click(input.getDOMNode());
+    expect(wrapper.find('.nextui-checkbox-text').at(0).text()).toContain(
+      'state1'
     );
     expectCheckboxIsChecked(wrapper, false);
     expectCheckboxToHaveARIAChecked(wrapper, false);
-    expectCheckboxToHaveARIADisabled(wrapper, true);
     expect(() => wrapper.unmount()).not.toThrow();
   });
 

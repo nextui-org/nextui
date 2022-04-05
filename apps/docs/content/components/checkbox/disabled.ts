@@ -2,7 +2,7 @@ const App = `import { Checkbox } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Checkbox disabled checked={true}>
+    <Checkbox disabled initialChecked={true}>
       Default
     </Checkbox>
   );

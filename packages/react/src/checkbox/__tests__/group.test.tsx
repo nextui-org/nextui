@@ -1,6 +1,7 @@
 import React from 'react';
-import { mount, ReactWrapper, render } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import Checkbox from '../index';
+import userEvent from '@testing-library/user-event';
 
 const getCheckboxElement = (wrapper: ReactWrapper) => {
   return wrapper.find('input');
@@ -9,34 +10,31 @@ const getCheckboxElement = (wrapper: ReactWrapper) => {
 describe('Checkbox Group', () => {
   it('should render correctly', () => {
     const wrapper = mount(
-      <Checkbox.Group value={[]}>
+      <Checkbox.Group defaultValue={[]} label="Select cities">
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
       </Checkbox.Group>
     );
     expect(() => wrapper.unmount()).not.toThrow();
-    const rendered = render(
-      <Checkbox.Group value={[]} row>
-        <Checkbox value="sydney">Sydney</Checkbox>
-        <Checkbox value="buenos-aires">Buenos Aires</Checkbox>
-      </Checkbox.Group>
-    );
-    expect(rendered).toMatchSnapshot();
   });
 
   it('should work correctly with different sizes', () => {
     const wrapper = mount(
       <div>
-        <Checkbox.Group value={[]} size="xs">
+        <Checkbox.Group
+          defaultValue={[]}
+          aria-label="Single city xs size"
+          size="xs"
+        >
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
-        <Checkbox.Group value={[]} size="sm">
+        <Checkbox.Group value={[]} aria-label="Single city sm size" size="sm">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
-        <Checkbox.Group value={[]} size="md">
+        <Checkbox.Group value={[]} aria-label="Single city md size" size="md">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
-        <Checkbox.Group value={[]} size="lg">
+        <Checkbox.Group value={[]} aria-label="Single city lg size" size="lg">
           <Checkbox value="sydney">Sydney</Checkbox>
         </Checkbox.Group>
       </div>
@@ -47,7 +45,7 @@ describe('Checkbox Group', () => {
 
   it('should work correctly with initial value', () => {
     let wrapper = mount(
-      <Checkbox.Group value={['sydney']}>
+      <Checkbox.Group label="Select cities" defaultValue={['sydney']}>
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="beijing">BeiJing</Checkbox>
       </Checkbox.Group>
@@ -61,17 +59,21 @@ describe('Checkbox Group', () => {
   it('should change value after click', () => {
     let value = ['sydney'];
     const wrapper = mount(
-      <Checkbox.Group value={['sydney']} onChange={(val) => (value = val)}>
+      <Checkbox.Group
+        label="Select cities"
+        defaultValue={['sydney']}
+        onChange={(val) => (value = val)}
+      >
         <Checkbox value="sydney">Sydney</Checkbox>
         <Checkbox value="beijing">BeiJing</Checkbox>
       </Checkbox.Group>
     );
     const sydney = getCheckboxElement(wrapper).at(0);
-    sydney.simulate('change');
+    userEvent.click(sydney.getDOMNode());
     expect(value.length).toBe(0);
 
     const beijing = getCheckboxElement(wrapper).at(1);
-    beijing.simulate('change');
+    userEvent.click(beijing.getDOMNode());
     expect(value).toEqual(expect.arrayContaining(['beijing']));
   });
 
@@ -80,7 +82,8 @@ describe('Checkbox Group', () => {
     const wrapper = mount(
       <Checkbox.Group
         disabled
-        value={['sydney']}
+        label="Select cities"
+        defaultValue={['sydney']}
         onChange={(val) => (value = val)}
       >
         <Checkbox value="sydney">Sydney</Checkbox>
@@ -88,47 +91,11 @@ describe('Checkbox Group', () => {
       </Checkbox.Group>
     );
     const sydney = getCheckboxElement(wrapper).at(0);
-    sydney.simulate('change');
+    userEvent.click(sydney.getDOMNode());
     expect(value.length).not.toBe(0);
 
     const beijing = getCheckboxElement(wrapper).at(1);
-    beijing.simulate('change');
+    userEvent.click(beijing.getDOMNode());
     expect(value).not.toEqual(expect.arrayContaining(['beijing']));
-  });
-
-  it('should throw error when value missing', () => {
-    let errorMessage = '';
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const Group = Checkbox.Group as any;
-    const errorSpy = jest
-      .spyOn(console, 'error')
-      .mockImplementation((msg) => (errorMessage = msg));
-    mount(
-      <Group>
-        <Checkbox value="sydney">Sydney</Checkbox>
-        <Checkbox value="beijing">BeiJing</Checkbox>
-      </Group>
-    );
-
-    expect(errorMessage).toContain('required');
-    errorSpy.mockRestore();
-  });
-
-  it('should throw error when set check prop in group', () => {
-    let errorMessage = '';
-    const errorSpy = jest
-      .spyOn(console, 'error')
-      .mockImplementation((msg) => (errorMessage = msg));
-    mount(
-      <Checkbox.Group value={[]}>
-        <Checkbox value="sydney" checked>
-          Sydney
-        </Checkbox>
-        <Checkbox value="beijing">BeiJing</Checkbox>
-      </Checkbox.Group>
-    );
-
-    expect(errorMessage.toLowerCase()).toContain('remove props');
-    errorSpy.mockRestore();
   });
 });

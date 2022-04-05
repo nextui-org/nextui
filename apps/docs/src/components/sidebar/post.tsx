@@ -63,6 +63,11 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
           New
         </Badge>
       )}
+      {route?.updated && (
+        <Badge className="post__new-badge" type="secondary">
+          Updated
+        </Badge>
+      )}
       {route?.comingSoon && (
         <Badge className="post__coming-soon-badge" type="disabled">
           Coming soon

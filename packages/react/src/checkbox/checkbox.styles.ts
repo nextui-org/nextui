@@ -11,9 +11,9 @@ export const StyledCheckboxLabel = styled('label', {
   position: 'relative',
   w: 'auto',
   cursor: 'pointer',
-  transition: '$default',
   zIndex: '$1',
   opacity: 1,
+  transition: 'opacity 0.25s ease',
   $$checkboxBorderColor: '$colors$border',
   '@motion': {
     transition: 'none'
@@ -42,6 +42,11 @@ export const StyledCheckboxLabel = styled('label', {
         cursor: 'not-allowed'
       }
     },
+    isHovered: {
+      true: {
+        opacity: 0.8
+      }
+    },
     animated: {
       false: {
         transition: 'none'
@@ -53,80 +58,12 @@ export const StyledCheckboxLabel = styled('label', {
   }
 });
 
-export const StyledCheckboxContainer = styled(
-  'div',
-  {
-    br: '$squared',
-    position: 'relative',
-    sizeMin: '$$checkboxSize',
-    opacity: 1,
-    transition: '$default',
-    zIndex: '$1',
-    '@motion': {
-      transition: 'none'
-    },
-    variants: {
-      color: {
-        default: {
-          $$checkboxColor: '$colors$primary',
-          $$checkboxColorHover: '$colors$primaryDark'
-        },
-        primary: {
-          $$checkboxColor: '$colors$primary',
-          $$checkboxColorHover: '$colors$primaryDark'
-        },
-        secondary: {
-          $$checkboxColor: '$colors$secondary',
-          $$checkboxColorHover: '$colors$secondaryDark'
-        },
-        success: {
-          $$checkboxColor: '$colors$success',
-          $$checkboxColorHover: '$colors$successDark'
-        },
-        warning: {
-          $$checkboxColor: '$colors$warning',
-          $$checkboxColorHover: '$colors$warningDark'
-        },
-        error: {
-          $$checkboxColor: '$colors$error',
-          $$checkboxColorHover: '$colors$errorDark'
-        },
-        gradient: {
-          $$checkboxColor: '$colors$gradient',
-          $$checkboxColorHover: '$colors$gradient'
-        }
-      },
-      rounded: {
-        true: {
-          br: '$pill'
-        }
-      },
-      disabled: {
-        true: {
-          opacity: 0.4,
-          cursor: 'not-allowed'
-        }
-      },
-      animated: {
-        false: {
-          transition: 'none'
-        }
-      }
-    },
-    defaultVariants: {
-      color: 'default'
-    }
-  },
-  cssFocusVisible
-);
-
 export const StyledIconCheckFirstLine = styled('div', {
   content: '',
   background: 'transparent',
   position: 'absolute',
   width: '8px',
   height: '1px',
-  transition: '$default',
   br: '5px',
   zIndex: '$1',
   bottom: '0px',
@@ -137,11 +74,10 @@ export const StyledIconCheckFirstLine = styled('div', {
     width: '0%',
     height: '2px',
     background: '$white',
-    transition: '$default',
+
     br: '5px 0px 0px 5px'
   },
   '@motion': {
-    transition: 'none',
     '&:after': {
       transition: 'none'
     }
@@ -156,13 +92,12 @@ export const StyledIconCheckFirstLine = styled('div', {
       true: {
         '&:after': {
           width: '100%',
-          transition: 'all 0.25s ease 0.1s'
+          transition: 'width 0.25s ease 0.1s'
         }
       }
     },
     animated: {
       false: {
-        transition: 'none',
         '&:after': {
           transition: 'none'
         }
@@ -192,7 +127,6 @@ export const StyledIconCheckSecondLine = styled('div', {
   right: '0',
   zIndex: '$1',
   background: 'transparent',
-  transition: '$default',
   width: '2px',
   '&:after': {
     content: '',
@@ -200,13 +134,11 @@ export const StyledIconCheckSecondLine = styled('div', {
     width: '2px',
     height: '0%',
     background: '$white',
-    transition: '$default',
     left: '0px',
     bottom: '0px',
     br: '5px 5px 0px 0px'
   },
   '@motion': {
-    transition: 'none',
     '&:after': {
       transition: 'none'
     }
@@ -221,13 +153,12 @@ export const StyledIconCheckSecondLine = styled('div', {
       true: {
         '&:after': {
           height: '100%',
-          transition: 'all 0.2s ease 0.3s'
+          transition: 'height 0.2s ease 0.3s'
         }
       }
     },
     animated: {
       false: {
-        transition: 'none',
         '&:after': {
           transition: 'none'
         }
@@ -274,6 +205,7 @@ export const StyledIconCheck = styled('i', {
   variants: {
     indeterminate: {
       true: {
+        opacity: 1,
         transform: 'rotate(0deg)',
         width: 'auto',
         height: 'auto',
@@ -368,6 +300,8 @@ export const StyledIconCheck = styled('i', {
 });
 
 export const StyledCheckboxMask = styled('div', {
+  $$checkboxMaskTransition:
+    'transform 0.25s ease 0s, opacity 0.25s ease 0s, background 0.25s ease 0s, border-color 0.25s ease 0s',
   size: '100%',
   position: 'absolute',
   pe: 'none',
@@ -375,7 +309,6 @@ export const StyledCheckboxMask = styled('div', {
   dflex: 'center',
   zIndex: '-$1',
   br: 'inherit',
-  transition: '$default',
   color: '$$checkboxBorderColor',
   '&:before': {
     content: '',
@@ -384,7 +317,7 @@ export const StyledCheckboxMask = styled('div', {
     left: '0px',
     size: '100%',
     br: 'inherit',
-    transition: '$transitions$default',
+    transition: '$$checkboxMaskTransition',
     zIndex: '-$1',
     border: '$borderWeights$normal solid currentColor',
     boxSizing: 'border-box'
@@ -399,11 +332,10 @@ export const StyledCheckboxMask = styled('div', {
     scale: 0.5,
     br: 'inherit',
     opacity: 0,
-    transition: '$default',
+    transition: '$$checkboxMaskTransition',
     zIndex: '-$1'
   },
   '@motion': {
-    transition: 'none',
     '&:before': {
       transition: 'none'
     },
@@ -424,9 +356,20 @@ export const StyledCheckboxMask = styled('div', {
         }
       }
     },
+    indeterminate: {
+      true: {
+        '&:before': {
+          opacity: 0,
+          scale: 1.2
+        },
+        '&:after': {
+          opacity: 1,
+          scale: 1
+        }
+      }
+    },
     animated: {
       false: {
-        transition: 'none',
         '&:before': {
           transition: 'none'
         },
@@ -447,7 +390,9 @@ export const StyledCheckboxText = styled('span', {
   ln: '$$checkboxSize',
   fontSize: '$$checkboxSize',
   us: 'none',
+  transition: 'opacity 0.25s ease 0s',
   '@motion': {
+    transition: 'none',
     '&:before': {
       transition: 'none'
     }
@@ -481,7 +426,7 @@ export const StyledCheckboxText = styled('span', {
           width: '0px',
           height: '2px',
           background: '$text',
-          transition: '$default'
+          transition: 'width 0.25s ease 0s'
         }
       }
     },
@@ -499,6 +444,7 @@ export const StyledCheckboxText = styled('span', {
     },
     animated: {
       false: {
+        transition: 'none',
         '&:before': {
           transition: 'none'
         }
@@ -519,35 +465,97 @@ export const StyledCheckboxText = styled('span', {
   ]
 });
 
-export const StyledCheckboxInput = styled('input', {
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  top: '0px',
-  left: '0px',
-  margin: '0px',
-  padding: '0px',
-  opacity: 0,
-  zIndex: '$1',
-  cursor: 'pointer',
-  '&:active': {
-    [`& ~${StyledCheckboxMask}:before`]: {
-      bg: '$border'
-    }
-  },
-  '&:hover': {
-    [`& ~${StyledCheckboxMask}:before`]: {
-      bg: '$$checkboxBorderColor',
-      border: '2px solid transparent'
+export const StyledCheckboxContainer = styled(
+  'div',
+  {
+    br: '$squared',
+    position: 'relative',
+    sizeMin: '$$checkboxSize',
+    transition: 'box-shadow 0.25s ease',
+    zIndex: '$1',
+    '.nextui-checkbox-input': {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      top: '0px',
+      left: '0px',
+      margin: '0px',
+      padding: '0px',
+      opacity: 0,
+      zIndex: '$1',
+      cursor: 'pointer',
+      '&:disabled': {
+        cursor: 'not-allowed'
+      }
     },
-    [`& ~${StyledCheckboxMask}:after`]: {
-      bg: '$$checkboxColorHover'
+    '@motion': {
+      transition: 'none'
+    },
+    variants: {
+      color: {
+        default: {
+          $$checkboxColor: '$colors$primary',
+          $$checkboxColorHover: '$colors$primaryDark'
+        },
+        primary: {
+          $$checkboxColor: '$colors$primary',
+          $$checkboxColorHover: '$colors$primaryDark'
+        },
+        secondary: {
+          $$checkboxColor: '$colors$secondary',
+          $$checkboxColorHover: '$colors$secondaryDark'
+        },
+        success: {
+          $$checkboxColor: '$colors$success',
+          $$checkboxColorHover: '$colors$successDark'
+        },
+        warning: {
+          $$checkboxColor: '$colors$warning',
+          $$checkboxColorHover: '$colors$warningDark'
+        },
+        error: {
+          $$checkboxColor: '$colors$error',
+          $$checkboxColorHover: '$colors$errorDark'
+        },
+        gradient: {
+          $$checkboxColor: '$colors$gradient',
+          $$checkboxColorHover: '$colors$gradient'
+        }
+      },
+      rounded: {
+        true: {
+          br: '$pill'
+        }
+      },
+      disabled: {
+        true: {
+          opacity: 0.4,
+          cursor: 'not-allowed'
+        }
+      },
+      animated: {
+        false: {
+          transition: 'none'
+        }
+      },
+      isHovered: {
+        true: {
+          [`& ${StyledCheckboxMask}:before`]: {
+            bg: '$$checkboxBorderColor',
+            border: '2px solid transparent'
+          },
+          [`& ${StyledCheckboxMask}:after`]: {
+            bg: '$$checkboxColorHover'
+          }
+        }
+      }
+    },
+    defaultVariants: {
+      color: 'default'
     }
   },
-  '&:disabled': {
-    cursor: 'not-allowed'
-  }
-});
+  cssFocusVisible
+);
 
 export const StyledCheckboxGroup = styled('div', {
   display: 'flex',
@@ -569,7 +577,14 @@ export const StyledCheckboxGroup = styled('div', {
       xl: {
         $$checkboxSize: '$space$11'
       }
-    },
+    }
+  }
+});
+
+export const StyledCheckboxGroupContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  variants: {
     row: {
       true: {
         flexDirection: 'row',
@@ -581,7 +596,7 @@ export const StyledCheckboxGroup = styled('div', {
       false: {
         mr: 0,
         flexDirection: 'column',
-        [`& ${StyledCheckboxLabel}`]: {
+        [`& ${StyledCheckboxLabel}:not(:first-child)`]: {
           mt: '$$checkboxSize'
         }
       }
@@ -592,9 +607,23 @@ export const StyledCheckboxGroup = styled('div', {
   }
 });
 
+export const StyledCheckboxGroupLabel = styled('label', {
+  d: 'block',
+  fontWeight: '$normal',
+  fontSize: 'calc($$checkboxSize * 0.8)',
+  color: '$accents6',
+  mb: '$3',
+  variants: {
+    disabled: {
+      true: {
+        opacity: 0.75
+      }
+    }
+  }
+});
+
 // types
 
-export type CheckboxVariantsProps = VariantProps<typeof StyledCheckboxInput>;
 export type CheckboxGroupVariantsProps = VariantProps<
   typeof StyledCheckboxGroup
 >;

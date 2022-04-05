@@ -4098,7 +4098,7 @@
   dependencies:
     "@react-types/shared" "^3.11.2"
 
-"@react-types/checkbox@^3.2.4", "@react-types/checkbox@^3.2.6":
+"@react-types/checkbox@3.2.6", "@react-types/checkbox@^3.2.4", "@react-types/checkbox@^3.2.6":
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.2.6.tgz#61fd70857bdd2d6da9289892ea366f305ab47ed6"
   integrity sha512-bOQAnnDEpXL1P4oRBiwjnOskKQtawc+JcRZzQk/9k7NwKWfv5MHG/MFDJsW057GPm9Ks0onNATohtw6LFvzAQA==

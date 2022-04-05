@@ -61,23 +61,23 @@ Default.args = {
 
 export const Colors = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox color="primary" checked={true}>
+    <Checkbox color="primary" initialChecked={true}>
       Primary
     </Checkbox>
     <br />
-    <Checkbox color="secondary" checked={true}>
+    <Checkbox color="secondary" initialChecked={true}>
       Secondary
     </Checkbox>
     <br />
-    <Checkbox color="success" checked={true}>
+    <Checkbox color="success" initialChecked={true}>
       Success
     </Checkbox>
     <br />
-    <Checkbox color="warning" checked={true}>
+    <Checkbox color="warning" initialChecked={true}>
       Warning
     </Checkbox>
     <br />
-    <Checkbox color="error" checked={true}>
+    <Checkbox color="error" initialChecked={true}>
       Error
     </Checkbox>
   </div>
@@ -85,23 +85,23 @@ export const Colors = () => (
 
 export const TextColors = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox color="primary" labelColor="primary" checked={true}>
+    <Checkbox color="primary" labelColor="primary" initialChecked={true}>
       Primary
     </Checkbox>
     <br />
-    <Checkbox color="secondary" labelColor="secondary" checked={true}>
+    <Checkbox color="secondary" labelColor="secondary" initialChecked={true}>
       Secondary
     </Checkbox>
     <br />
-    <Checkbox color="success" labelColor="success" checked={true}>
+    <Checkbox color="success" labelColor="success" initialChecked={true}>
       Success
     </Checkbox>
     <br />
-    <Checkbox color="warning" labelColor="warning" checked={true}>
+    <Checkbox color="warning" labelColor="warning" initialChecked={true}>
       Warning
     </Checkbox>
     <br />
-    <Checkbox color="error" labelColor="error" checked={true}>
+    <Checkbox color="error" labelColor="error" initialChecked={true}>
       Error
     </Checkbox>
   </div>
@@ -109,23 +109,23 @@ export const TextColors = () => (
 
 export const Sizes = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox checked={true} size="xs">
+    <Checkbox initialChecked={true} size="xs">
       mini
     </Checkbox>
     <br />
-    <Checkbox checked={true} size="sm">
+    <Checkbox initialChecked={true} size="sm">
       small
     </Checkbox>
     <br />
-    <Checkbox checked={true} size="md">
+    <Checkbox initialChecked={true} size="md">
       medium
     </Checkbox>
     <br />
-    <Checkbox checked={true} size="lg">
+    <Checkbox initialChecked={true} size="lg">
       large
     </Checkbox>
     <br />
-    <Checkbox checked={true} size="xl">
+    <Checkbox initialChecked={true} size="xl">
       xlarge
     </Checkbox>
   </div>
@@ -133,23 +133,23 @@ export const Sizes = () => (
 
 export const Rounded = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox rounded color="primary" checked={true}>
+    <Checkbox rounded color="primary" initialChecked={true}>
       Primary
     </Checkbox>
     <br />
-    <Checkbox rounded color="secondary" checked={true}>
+    <Checkbox rounded color="secondary" initialChecked={true}>
       Secondary
     </Checkbox>
     <br />
-    <Checkbox rounded color="success" checked={true}>
+    <Checkbox rounded color="success" initialChecked={true}>
       Success
     </Checkbox>
     <br />
-    <Checkbox rounded color="warning" checked={true}>
+    <Checkbox rounded color="warning" initialChecked={true}>
       Warning
     </Checkbox>
     <br />
-    <Checkbox rounded color="error" checked={true}>
+    <Checkbox rounded color="error" initialChecked={true}>
       Error
     </Checkbox>
   </div>
@@ -157,11 +157,11 @@ export const Rounded = () => (
 
 export const Disabled = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox checked={true} size="xl">
+    <Checkbox initialChecked={true} size="xl">
       Enabled
     </Checkbox>
     <br />
-    <Checkbox disabled checked={true} size="xl">
+    <Checkbox disabled initialChecked={true} size="xl">
       Disabled
     </Checkbox>
   </div>
@@ -191,8 +191,8 @@ export const Group = () => {
     <Checkbox.Group
       color="warning"
       labelColor="primary"
-      value={['buenos-aires']}
-      aria-label="Select cities"
+      defaultValue={['buenos-aires']}
+      label="Select cities"
       onChange={handleGroupChange}
     >
       <Checkbox value="buenos-aires" color="primary">
@@ -210,7 +210,12 @@ export const Group = () => {
 };
 
 export const Row = () => (
-  <Checkbox.Group value={['1']} color="success" aria-label="Select cities" row>
+  <Checkbox.Group
+    defaultValue={['1']}
+    color="warning"
+    label="Select cities"
+    row
+  >
     <Checkbox value="1" color="primary">
       Buenos Aires
     </Checkbox>

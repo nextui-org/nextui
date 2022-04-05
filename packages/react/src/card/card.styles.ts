@@ -116,7 +116,7 @@ export const StyledCard = styled('div', {
     },
     animated: {
       true: {
-        transition: '$default'
+        transition: '$card'
       },
       false: {
         transition: 'none'
