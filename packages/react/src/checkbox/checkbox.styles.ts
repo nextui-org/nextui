@@ -205,6 +205,7 @@ export const StyledIconCheck = styled('i', {
   variants: {
     indeterminate: {
       true: {
+        opacity: 1,
         transform: 'rotate(0deg)',
         width: 'auto',
         height: 'auto',
@@ -355,6 +356,18 @@ export const StyledCheckboxMask = styled('div', {
         }
       }
     },
+    indeterminate: {
+      true: {
+        '&:before': {
+          opacity: 0,
+          scale: 1.2
+        },
+        '&:after': {
+          opacity: 1,
+          scale: 1
+        }
+      }
+    },
     animated: {
       false: {
         '&:before': {
@@ -460,7 +473,17 @@ export const StyledCheckboxContainer = styled(
     sizeMin: '$$checkboxSize',
     transition: 'box-shadow 0.25s ease',
     zIndex: '$1',
-    '&.nextui-checkbox-input': {
+    '.nextui-checkbox-input': {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      top: '0px',
+      left: '0px',
+      margin: '0px',
+      padding: '0px',
+      opacity: 0,
+      zIndex: '$1',
+      cursor: 'pointer',
       '&:disabled': {
         cursor: 'not-allowed'
       }

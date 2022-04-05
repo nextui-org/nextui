@@ -54,7 +54,7 @@ const TableSelectAllCheckbox = React.forwardRef<
     const { checkboxProps } = useTableSelectAllCheckbox(state);
     const { isFocusVisible, focusProps } = useFocusRing();
 
-    const mappedProps = mapPropsToCheckboxAttr(checkboxProps, true);
+    const mappedProps = mapPropsToCheckboxAttr(checkboxProps);
 
     return (
       <StyledTableHeaderCell
@@ -67,7 +67,7 @@ const TableSelectAllCheckbox = React.forwardRef<
           <VisuallyHidden>{checkboxProps['aria-label']}</VisuallyHidden>
         ) : (
           <Checkbox
-            {...mapPropsToCheckboxAttr(checkboxProps, true)}
+            {...mappedProps}
             color={color as CheckboxProps['color']}
             animated={animated}
             css={{

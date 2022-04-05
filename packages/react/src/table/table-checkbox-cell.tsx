@@ -51,7 +51,6 @@ const TableCheckboxCell = React.forwardRef<
       state
     );
     const { isFocusVisible, focusProps } = useFocusRing();
-
     const mappedProps = mapPropsToCheckboxAttr(checkboxProps);
 
     return (

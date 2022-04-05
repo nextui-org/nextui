@@ -9,10 +9,7 @@ export const isInfinityScroll = (collection: TableCollection<unknown>) => {
   );
 };
 
-export const mapPropsToCheckboxAttr = (
-  ariaProps: AriaCheckboxProps,
-  isSelectAll = false
-) => {
+export const mapPropsToCheckboxAttr = (ariaProps: AriaCheckboxProps) => {
   const {
     isSelected,
     defaultSelected,
@@ -22,7 +19,7 @@ export const mapPropsToCheckboxAttr = (
     ...ariaCheckboxProps
   } = ariaProps;
   return {
-    checked: isSelected || (isSelectAll && isIndeterminate),
+    checked: isSelected,
     initialChecked: defaultSelected,
     indeterminate: isIndeterminate,
     readOnly: isReadOnly,

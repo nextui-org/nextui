@@ -5,7 +5,6 @@ import { useHover } from '@react-aria/interactions';
 import { useToggleState } from '@react-stately/toggle';
 import { AriaCheckboxProps } from '@react-types/checkbox';
 import { useCheckbox, useCheckboxGroupItem } from '@react-aria/checkbox';
-import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { mergeProps } from '@react-aria/utils';
 
 import { useCheckbox as useCheckboxContext } from './checkbox-context';
@@ -121,8 +120,6 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
     const checkboxSize = groupState?.size || size;
     const textColor = groupState?.labelColor || labelColor;
 
-    console.log(inputProps);
-
     const getState = useMemo(() => {
       if (isHovered) return 'hovered';
       return inputProps.checked && indeterminate
@@ -134,7 +131,7 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
 
     return (
       <StyledCheckboxLabel
-        {...hoverProps}
+        {...mergeProps(hoverProps, props)}
         ref={domRef}
         className={clsx(
           'nextui-checkbox-label',
@@ -145,7 +142,6 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
         animated={animated}
         isHovered={isHovered}
         disabled={inputProps.disabled}
-        css={props.css}
       >
         <StyledCheckboxContainer
           className="nextui-checkbox-container"
@@ -157,16 +153,15 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
           disabled={inputProps.disabled}
           {...focusProps}
         >
-          <VisuallyHidden>
-            <input
-              ref={inputRef}
-              className="nextui-checkbox-input"
-              {...mergeProps(inputProps, focusProps)}
-            />
-          </VisuallyHidden>
+          <input
+            ref={inputRef}
+            className="nextui-checkbox-input"
+            {...mergeProps(inputProps, focusProps)}
+          />
           <StyledCheckboxMask
             className="nextui-checkbox-mask"
             animated={animated}
+            indeterminate={indeterminate}
             checked={inputProps.checked}
           >
             <StyledIconCheck

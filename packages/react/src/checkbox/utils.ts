@@ -1,21 +1,13 @@
 import { CheckboxProps } from './checkbox';
 
-export const mapPropsToReactAriaAttr = ({
-  indeterminate,
-  disabled,
-  readOnly,
-  required,
-  checked,
-  initialChecked,
-  ...checkboxProps
-}: CheckboxProps) => {
+export const mapPropsToReactAriaAttr = (checkboxProps: CheckboxProps) => {
   return {
     ...checkboxProps,
-    isIndeterminate: indeterminate,
-    isDisabled: disabled,
-    isReadOnly: readOnly,
-    isRequired: required,
-    isSelected: checked,
-    defaultSelected: initialChecked
+    isIndeterminate: checkboxProps.indeterminate,
+    isDisabled: checkboxProps.disabled,
+    isReadOnly: checkboxProps.readOnly,
+    isRequired: checkboxProps.required,
+    isSelected: checkboxProps.checked,
+    defaultSelected: checkboxProps.initialChecked
   };
 };
