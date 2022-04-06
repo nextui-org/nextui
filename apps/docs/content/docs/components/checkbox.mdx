@@ -1,12 +1,13 @@
 ---
 title: 'Checkbox'
-description: 'Checkboxes allow the user to select one or more items from a set of options.'
+description: 'Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.'
 url: https://nextui.org/docs/components/checkbox
 ---
 
 # Checkbox
 
-the `Checkbox` component allow the user to select one or more items from a set of options.
+Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected. Checkbox implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useCheckbox.html" rel="noreferrer" target="_blank">
+@react-aria/checkbox</a>
 
 ```jsx
 import { Checkbox } from '@nextui-org/react';
@@ -18,7 +19,7 @@ import { Checkbox } from '@nextui-org/react';
 
 <Playground
   title="Default"
-  desc="You can change the state with `checked` prop"
+  desc="Checkboxes accept children, which are rendered as the label."
   files={checkboxContent.default_checkbox}
 />
 
@@ -54,7 +55,7 @@ import { Checkbox } from '@nextui-org/react';
 
 <Playground
   title="Indeterminate"
-  desc="You can add the `indeterminate` property to add a different style to the `Checkbox`"
+  desc="A `Checkbox` can be in an indeterminate state, controlled using the `interminate` prop."
   files={checkboxContent.interminate}
 />
 
@@ -65,21 +66,17 @@ import { Checkbox } from '@nextui-org/react';
 />
 
 <Playground
+  title="Controlled vs Uncontrolled"
+  desc="Checkboxes are not selected by default. The `initialChecked` prop can be used to set the default state (uncontrolled). Alternatively, the `checked` prop can be used to make the selected state controlled."
+  files={checkboxContent.controlledVsUncontrolled}
+/>
+
+> Note: See React's documentation on [uncontrolled components](https://reactjs.org/docs/uncontrolled-components.html) for more info.
+
+<Playground
   title="No Animated"
   desc="You can disable the animation of the entire `Checkbox` with the property `animated={false}`."
   files={checkboxContent.noAnimation}
-/>
-
-<Playground
-  title="Group"
-  desc="You can manage a set of `Checkbox` with `Checkbox.Group`."
-  files={checkboxContent.checkboxGroup}
-/>
-
-<Playground
-  title="Row Group"
-  desc="You can change the `Checkbox.Group` direction with `row` prop."
-  files={checkboxContent.rowGroup}
 />
 
 <Spacer y={3} />
@@ -90,42 +87,56 @@ import { Checkbox } from '@nextui-org/react';
 
 #### Checkbox Props
 
-| Attribute          | Type                          | Accepted values                | Description                                                               | Default   |
-| ------------------ | ----------------------------- | ------------------------------ | ------------------------------------------------------------------------- | --------- |
-| **value**          | `string`                      | -                              | Unique identification value (only in group)                               | -         |
-| **label**          | `string`                      | -                              | Checkbox label                                                            | -         |
-| **color**          | `NormalColors`                | [NormalColors](#normal-colors) | Change checkbox color                                                     | `default` |
-| **labelColor**     | `SimpleColors`                | [SimpleColors](#simple-colors) | Change checkbox label color                                               | `default` |
-| **size**           | `NormalSizes`                 | [NormalSizes](#normal-sizes)   | Checkbox size                                                             | `md`      |
-| **checked**        | `boolean`                     | `true/false`                   | Determine the value of the checkbox                                       | `false`   |
-| **initialChecked** | `boolean`                     | `true/false`                   | Determine the initial value of the checkbox                               | `false`   |
-| **animated**       | `boolean`                     | `true/false`                   | Display checkbox animations                                               | `true`    |
-| **disabled**       | `boolean`                     | `true/false`                   | Disable checkbox                                                          | `false`   |
-| **indeterminate**  | `boolean`                     | `true/false`                   | Indeterminate checkbox                                                    | `false`   |
-| **preventDefault** | `boolean`                     | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
-| **rounded**        | `boolean`                     | `true/false`                   | Rounded checkbox                                                          | `false`   |
-| **line**           | `boolean`                     | `true/false`                   | Line in the middle of the label when the `Checkbox` is checked            | -         |
-| **onChange**       | `CheckboxEvent`               | -                              | The callback invoked when the checked state of the `Checkbox` changes.    | -         |
-| **css**            | `Stitches.CSS`                | -                              | Override Default CSS style                                                | -         |
-| **as**             | `keyof JSX.IntrinsicElements` | -                              | Changes which tag component outputs                                       | `label`   |
-| ...                | `LabelHTMLAttributes`         | `'form', 'className', ...`     | Native checkbox props                                                     | -         |
+| Attribute          | Type                           | Description                                                                                                                                                    | Default   |
+| ------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| **children**       | `ReactNode`                    | The label for the element                                                                                                                                      | -         |
+| **value**          | `string`                       | The value of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefvalue) | -         |
+| **label**          | `string`                       | The label for the element                                                                                                                                      | -         |
+| **name**           | `string`                       | The name of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname)   | -         |
+| **color**          | [NormalColors](#normal-colors) | The color of the component                                                                                                                                     | `default` |
+| **labelColor**     | [SimpleColors](#simple-colors) | The color of the label                                                                                                                                         | `default` |
+| **size**           | [NormalSizes](#normal-sizes)   | The size of the component                                                                                                                                      | `md`      |
+| **checked**        | `boolean`                      | Whether the element should be checked (controlled)                                                                                                             | `false`   |
+| **initialChecked** | `boolean`                      | Whether the element should be checked (uncontrolled)                                                                                                           | `false`   |
+| **animated**       | `boolean`                      | Whether the checkbox has animations                                                                                                                            | `true`    |
+| **disabled**       | `boolean`                      | Whether the input is disabled                                                                                                                                  | `false`   |
+| **indeterminate**  | `boolean`                      | Indeterminism is presentational only. The indeterminate visual representation remains regardless of user interaction.                                          | `false`   |
+| **rounded**        | `boolean`                      | Whether the checkbox is rounded                                                                                                                                | `false`   |
+| **line**           | `boolean`                      | Line in the middle of the label when the `Checkbox` is checked                                                                                                 | -         |
+| **readOnly**       | `boolean`                      | Whether the input can be selected but not changed by the user.                                                                                                 | `false`   |
+| **required**       | `boolean`                      | Whether user input is required on the input before form submission.                                                                                            | `false`   |
+| **autoFocus**      | `boolean`                      | Whether the element should receive focus on render                                                                                                             |
+| **css**            | `Stitches.CSS`                 | Override Default CSS style                                                                                                                                     | -         |
+| **as**             | `keyof JSX.IntrinsicElements`  | Changes which tag component outputs                                                                                                                            | `label`   |
+| ...                | `HTMLLabelElement`             | Native element props                                                                                                                                           | -         |
 
-<Spacer y={2} />
+<Spacer y={1} />
 
-#### Checkbox Group Props
+#### Checkbox Events
 
-| Attribute      | Type                          | Accepted values                | Description                         | Default   |
-| -------------- | ----------------------------- | ------------------------------ | ----------------------------------- | --------- |
-| **value**      | `string[]`                    | -                              | List of checked checkbox            | `[]`      |
-| **row**        | `boolean`                     | `true/false`                   | Change the checkbox group direction | `false`   |
-| **size**       | `NormalSizes`                 | [NormalSizes](#normal-sizes)   | Size of all checkboxes in the group | `medium`  |
-| **color**      | `NormalColors`                | [NormalColors](#normal-colors) | Change checkbox group color         | `default` |
-| **labelColor** | `SimpleColors`                | [SimpleColors](#simple-colors) | Change checkbox group label color   | `default` |
-| **disabled**   | `boolean`                     | `true/false`                   | Disable checkbox group              | `false`   |
-| **onChange**   | `(values: string[]) => void`  | -                              | Checkbox group event handler        | -         |
-| **css**        | `Stitches.CSS`                | -                              | Override Default CSS style          | -         |
-| **as**         | `keyof JSX.IntrinsicElements` | -                              | Changes which tag component outputs | `div`     |
-| ...            | `HTMLAttributes`              | `'id', 'className', ...`       | Native props                        | -         |
+| Attribute         | Type                                                                                                | Description                                                       | Default |
+| ----------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------- |
+| **onChange**      | `(checked: boolean) => void`                                                                        | Handler that is called when the element's selection state changes | -       |
+| **onFocus**       | <Code>(e: [FocusEvent](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent)) => void</Code> | Handler that is called when the element receives focus            | -       |
+| **onBlur**        | <Code>(e: [FocusEvent](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent)) => void</Code> | Handler that is called when the element loses focus               | -       |
+| **onFocusChange** | `(focused: boolean) => void`                                                                        | Handler that is called when the element's focus status changes    | -       |
+| **onKeyDown**     | <Code>(e: [KeyboardEvent](#keyboard-event)) => void</Code>                                          | Handler that is called when a key is pressed                      | -       |
+| **onKeyUp**       | <Code>(e: [KeyboardEvent](#keyboard-event)) => void</Code>                                          | Handler that is called when a key is released                     | -       |
+
+<Spacer y={1} />
+
+#### Checkbox Accessibility Props
+
+| Attribute               | Type      | Description                                                                                                                                                                                                                                                                                   | Default |
+| ----------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **id**                  | `string`  | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)                                                                                                                                                                            | -       |
+| **excludeFromTabOrder** | `boolean` | Whether to exclude the element from the sequential tab order. If true, the element will not be focusable via the keyboard by tabbing. This should be avoided except in rare scenarios where an alternative means of accessing the element or its functionality via the keyboard is available. | -       |
+| **aria-controls**       | `string`  | Identifies the element (or elements) whose contents or presence are controlled by the current element.                                                                                                                                                                                        | -       |
+| **aria-label**          | `string`  | Defines a string value that labels the current element                                                                                                                                                                                                                                        | -       |
+| **aria-labelledby**     | `string`  | Identifies the element (or elements) that labels the current element                                                                                                                                                                                                                          | -       |
+| **aria-describedby**    | `string`  | Identifies the element (or elements) that describes the object.                                                                                                                                                                                                                               | -       |
+| **aria-details**        | `string`  | Identifies the element (or elements) that provide a detailed, extended description for the object.                                                                                                                                                                                            | -       |
+| **aria-errormessage**   | `string`  | Identifies the element that provides an error message for the object.                                                                                                                                                                                                                         | -       |
 
 <Spacer y={2} />
 
@@ -162,4 +173,10 @@ type SimpleColors =
 
 ```ts
 type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+```
+
+#### Keyboard event
+
+```ts
+type BaseEvent<ReactKeyboardEvent<any>>
 ```

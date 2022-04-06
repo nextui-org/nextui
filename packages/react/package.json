@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "1.0.6-beta.5",
+  "version": "1.0.7-beta.5",
   "license": "MIT",
   "description": "🚀 Beautiful and modern React UI library.",
   "homepage": "https://nextui.org",
@@ -69,6 +69,7 @@
     "@react-stately/table": "3.1.1",
     "@react-stately/toggle": "3.2.4",
     "@react-types/button": "^3.4.4",
+    "@react-types/checkbox": "3.2.6",
     "@react-types/grid": "3.0.1",
     "@react-types/shared": "3.11.0",
     "@stitches/react": "1.2.7"

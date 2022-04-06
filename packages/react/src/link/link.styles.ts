@@ -59,7 +59,7 @@ export const StyledLink = styled('a', {
     },
     animated: {
       true: {
-        transition: '$default'
+        transition: '$link'
       }
     }
   },

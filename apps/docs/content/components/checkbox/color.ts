@@ -2,27 +2,27 @@ const App = `import { Checkbox, Spacer } from "@nextui-org/react";
 export default function App() {
   return (
     <>
-      <Checkbox color="primary" checked={true}>
+      <Checkbox color="primary" initialChecked={true}>
         Primary
       </Checkbox>
       <Spacer />
-      <Checkbox color="secondary" checked={true}>
+      <Checkbox color="secondary" initialChecked={true}>
         Secondary
       </Checkbox>
       <Spacer />
-      <Checkbox color="success" checked={true}>
+      <Checkbox color="success" initialChecked={true}>
         Success
       </Checkbox>
       <Spacer />
-      <Checkbox color="warning" checked={true}>
+      <Checkbox color="warning" initialChecked={true}>
         Warning
       </Checkbox>
       <Spacer />
-      <Checkbox color="error" checked={true}>
+      <Checkbox color="error" initialChecked={true}>
         Error
       </Checkbox>
       <Spacer />
-      <Checkbox color="gradient" checked={true}>
+      <Checkbox color="gradient" initialChecked={true}>
         Gradient
       </Checkbox>
     </>

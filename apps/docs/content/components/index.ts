@@ -10,6 +10,7 @@ import collapseContent from './collapse';
 import inputContent from './input';
 import textareaContent from './textarea';
 import checkboxContent from './checkbox';
+import checkboxGroupContent from './checkbox-group';
 import radioContent from './radio';
 import progressContent from './progress';
 import tooltipContent from './tooltip';
@@ -35,6 +36,7 @@ export default {
   inputContent,
   textareaContent,
   checkboxContent,
+  checkboxGroupContent,
   radioContent,
   progressContent,
   tooltipContent,

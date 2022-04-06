@@ -143,8 +143,14 @@
                         },
                         {
                             "title": "Checkbox",
+                            "updated": true,
                             "keywords": "check, radio, selectable, checkbox, box",
                             "path": "/docs/components/checkbox.mdx"
+                        },
+                        {
+                          "title": "Checkbox Group",
+                          "keywords": "check, radio, selectable, checkbox, box, group, items",
+                          "path": "/docs/components/checkbox-group.mdx"
                         },
                         {
                             "title": "Radio",

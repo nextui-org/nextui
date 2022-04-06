@@ -17,7 +17,6 @@ export const StyledTableColumnHeader = styled(
     color: '$accents6',
     fontSize: '$tiny',
     textAlign: 'left',
-    transition: '$default',
     position: 'relative',
     '@motion': {
       transition: 'none'
@@ -49,7 +48,7 @@ export const StyledTableColumnHeader = styled(
       },
       allowsSorting: {
         true: {
-          transition: '$default',
+          transition: 'background 0.25s ease 0s, color 0.25s ease 0s',
           cursor: 'pointer',
           '@motion': {
             transition: 'none'
@@ -113,7 +112,6 @@ export const StyledTableCell = styled(
     userSelect: 'none',
     py: '$5',
     zIndex: '$2',
-    transition: '$default',
     ov: 'hidden',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
@@ -125,7 +123,7 @@ export const StyledTableCell = styled(
     },
     '&:before': {
       zIndex: '-$1',
-      transition: '$default',
+      transition: 'background 0.25s ease 0s, opacity 0.25s ease 0s',
       content: '""',
       position: 'absolute',
       size: '100%',
@@ -232,9 +230,6 @@ export const StyledTable = styled('table', {
   width: '100%',
   p: '$md $sm',
   '@motion': {
-    [`& ${StyledTableCell}`]: {
-      transition: 'none'
-    },
     [`& ${StyledTableCell}:before`]: {
       transition: 'none'
     }
@@ -242,9 +237,6 @@ export const StyledTable = styled('table', {
   variants: {
     animated: {
       false: {
-        [`& ${StyledTableCell}`]: {
-          transition: 'none'
-        },
         [`& ${StyledTableCell}:before`]: {
           transition: 'none'
         }

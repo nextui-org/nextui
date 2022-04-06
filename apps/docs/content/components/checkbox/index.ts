@@ -6,9 +6,8 @@ import labelColor from './label-color';
 import rounded from './rounded';
 import interminate from './interminate';
 import noAnimation from './no-animated';
-import checkboxGroup from './checkbox-group';
 import lineThrough from './line-through';
-import rowGroup from './row-group';
+import controlledVsUncontrolled from './controlled-vs-uncontrolled';
 
 export default {
   default_checkbox,
@@ -19,7 +18,6 @@ export default {
   rounded,
   interminate,
   noAnimation,
-  checkboxGroup,
-  rowGroup,
-  lineThrough
+  lineThrough,
+  controlledVsUncontrolled
 };
