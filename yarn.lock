@@ -3974,7 +3974,7 @@
   resolved "https://registry.yarnpkg.com/@react-hook/passive-layout-effect/-/passive-layout-effect-1.2.1.tgz#c06dac2d011f36d61259aa1c6df4f0d5e28bc55e"
   integrity sha512-IwEphTD75liO8g+6taS+4oqz+nnroocNfWVHWz7j+N+ZO2vYrc6PV1q7GQhuahL0IOR7JccFTsFKQ/mb6iZWAg==
 
-"@react-stately/checkbox@^3.0.4":
+"@react-stately/checkbox@3.0.6", "@react-stately/checkbox@^3.0.4":
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@react-stately/checkbox/-/checkbox-3.0.6.tgz#6c3e125902f4478f6b8abf3e78a088804c66ae28"
   integrity sha512-RrXJlEtp2q3g6Yex9QI8/tRJhIDmG1oKc5+VyVvdxp0NXtK0Zz+ycIlXuzcI5gwlBemv5ETxbIG4p5gdNXVeKA==
