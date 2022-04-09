@@ -67,7 +67,7 @@ export const Card3 = () => (
   </Card>
 );`;
 
-const Card4 = `import { Card, Col, Row, Text } from "@nextui-org/react";
+const Card4 = `import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 
 export const Card4 = () => (
   <Card cover css={{ w: "100%" }}>
