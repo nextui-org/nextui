@@ -205,7 +205,7 @@ export const Card5 = () => (
   </Card>
 );`;
 
-const App = `import { Card, Grid, Col, Text, Row, Button } from "@nextui-org/react";
+const App = `import { Grid } from "@nextui-org/react";
 import { Card1 } from './Card1';
 import { Card2 } from './Card2';
 import { Card3 } from './Card3';
