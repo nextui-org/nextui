@@ -97,7 +97,7 @@ const BuiltInStitchesSection = () => {
             }}
           >
             <Col>
-              <Collapse.Group accordion onChange={handleChange}>
+              <Collapse.Group onChange={handleChange}>
                 {items.map(({ id, title, description }) => (
                   <Collapse
                     key={id}
@@ -110,10 +110,10 @@ const BuiltInStitchesSection = () => {
                       border: 'none',
                       p: '0 $lg',
                       margin: '$md 0',
+                      transition: 'all 0.3s ease-in-out',
                       '& .nextui-collapse-title': {
                         color: '$accents4',
-                        fontSize: '1.7rem',
-                        transition: 'color 0.2s ease-in-out'
+                        fontSize: '1.7rem'
                       },
                       '&.active': {
                         bf: 'saturate(180%) blur(14px)',
@@ -124,11 +124,20 @@ const BuiltInStitchesSection = () => {
                         pb: 0
                       },
                       '&.active .nextui-collapse-title': {
-                        color: '$text'
+                        color: '$text',
+                        animation: 'fadeIn 0.2s ease-in-out'
                       },
                       '&:hover': {
                         '&:not(.active) .nextui-collapse-title': {
                           color: '$accents5'
+                        },
+                      },
+                      '&@keyframes fadeIn': {
+                        from: {
+                          opacity: 0
+                        },
+                        to: {
+                          opacity: 1
                         }
                       }
                     }}
@@ -137,8 +146,17 @@ const BuiltInStitchesSection = () => {
                       css={{
                         fs: '1.4rem',
                         color: '$accents6',
+                        animation: 'fadeIn 0.2s ease-in-out',
                         '@xsMax': {
                           fs: '1rem'
+                        },
+                        '&@keyframes fadeIn': {
+                          from: {
+                            opacity: 0
+                          },
+                          to: {
+                            opacity: 1
+                          }
                         }
                       }}
                     >
