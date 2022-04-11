@@ -3,17 +3,15 @@ import NextLink from 'next/link';
 import { InView } from 'react-intersection-observer';
 import cn from 'classnames';
 import { Section, Title, Subtitle, BlockLink, Box } from '@primitives';
-import {
-  Grid,
-  Row,
-  Col,
-  Link,
-  Text,
-  Collapse,
-  Spacer
-} from '@nextui-org/react';
+import * as react from '@nextui-org/react';
 import landingContent from '@content/landing';
-import { CodeDemo, Blockholder } from '@components';
+import { Blockholder } from '@components';
+
+import dynamic from 'next/dynamic';
+
+const DynaminCodeDemo = dynamic(() => import('../code-demo/code-demo'), {
+  ssr: true
+});
 
 const items = [
   {
@@ -49,7 +47,7 @@ const BuiltInStitchesSection = () => {
 
   return (
     <InView as="section" className="inview-section" onChange={setIsVisible}>
-      <Spacer y={10} css={{ '@xsMax': { mt: '$16' } }} />
+      <react.Spacer y={10} css={{ '@xsMax': { mt: '$16' } }} />
       <Section css={{ position: 'relative' }}>
         <Box
           css={{
@@ -65,28 +63,28 @@ const BuiltInStitchesSection = () => {
         >
           <img src="/stitches-gradient.svg" alt="theming background" />
         </Box>
-        <Row justify="flex-start">
+        <react.Row justify="flex-start">
           <Title>Built-in Stitches</Title>
-        </Row>
-        <Row justify="flex-start">
+        </react.Row>
+        <react.Row justify="flex-start">
           <Title color="violet">utilities.</Title>
-        </Row>
+        </react.Row>
         <Subtitle>
           NextUI provides a set of out of the box&nbsp;
-          <Link
+          <react.Link
             href="https://stitches.dev/"
             rel="noreferer noopener"
             target="_blank"
             css={{ color: '#FF1CF7' }}
           >
             Stitches
-          </Link>
+          </react.Link>
           &nbsp;utilities for speeding up your workflow by abbreviating CSS
           properties, grouping multiple CSS properties together, or simplifying
           a tricky syntax.
         </Subtitle>
-        <Grid.Container gap={2}>
-          <Grid
+        <react.Grid.Container gap={2}>
+          <react.Grid
             xs={12}
             sm={6}
             css={{
@@ -96,10 +94,10 @@ const BuiltInStitchesSection = () => {
               }
             }}
           >
-            <Col>
-              <Collapse.Group onChange={handleChange}>
+            <react.Col>
+              <react.Collapse.Group onChange={handleChange}>
                 {items.map(({ id, title, description }) => (
-                  <Collapse
+                  <react.Collapse
                     key={id}
                     title={title}
                     showArrow={false}
@@ -110,10 +108,10 @@ const BuiltInStitchesSection = () => {
                       border: 'none',
                       p: '0 $lg',
                       margin: '$md 0',
-                      transition: 'all 0.3s ease-in-out',
                       '& .nextui-collapse-title': {
                         color: '$accents4',
-                        fontSize: '1.7rem'
+                        fontSize: '1.7rem',
+                        transition: 'color 0.2s ease-in-out'
                       },
                       '&.active': {
                         bf: 'saturate(180%) blur(14px)',
@@ -121,56 +119,39 @@ const BuiltInStitchesSection = () => {
                         boxShadow: '$md'
                       },
                       '&.active .nextui-collapse-view': {
-                        pb: 0
+                        pb: 0,
+                        transition: 'all 0.25s ease-in-out'
                       },
                       '&.active .nextui-collapse-title': {
-                        color: '$text',
-                        animation: 'fadeIn 0.2s ease-in-out'
+                        color: '$text'
                       },
                       '&:hover': {
                         '&:not(.active) .nextui-collapse-title': {
                           color: '$accents5'
-                        },
-                      },
-                      '&@keyframes fadeIn': {
-                        from: {
-                          opacity: 0
-                        },
-                        to: {
-                          opacity: 1
                         }
                       }
                     }}
                   >
-                    <Text
+                    <react.Text
                       css={{
                         fs: '1.4rem',
                         color: '$accents6',
-                        animation: 'fadeIn 0.2s ease-in-out',
                         '@xsMax': {
                           fs: '1rem'
                         },
-                        '&@keyframes fadeIn': {
-                          from: {
-                            opacity: 0
-                          },
-                          to: {
-                            opacity: 1
-                          }
-                        }
                       }}
                     >
                       {description}
-                    </Text>
-                  </Collapse>
+                    </react.Text>
+                  </react.Collapse>
                 ))}
-              </Collapse.Group>
-              <NextLink href="/docs/theme/utilities">
+              </react.Collapse.Group>
+              <NextLink href="/docs/theme/utilities" passHref>
                 <BlockLink color="violet">Learn more</BlockLink>
               </NextLink>
-            </Col>
-          </Grid>
-          <Grid
+            </react.Col>
+          </react.Grid>
+          <react.Grid
             xs={12}
             sm={6}
             css={{
@@ -184,7 +165,7 @@ const BuiltInStitchesSection = () => {
               }
             }}
           >
-            <Col
+            <react.Col
               css={{
                 dflex: 'center',
                 fd: 'column',
@@ -194,7 +175,7 @@ const BuiltInStitchesSection = () => {
               }}
             >
               {isVisible ? (
-                <CodeDemo
+                <DynaminCodeDemo
                   showWindowIcons
                   language="jsx"
                   value={landingContent.stitchesUtilitiesCode}
@@ -206,9 +187,9 @@ const BuiltInStitchesSection = () => {
               ) : (
                 <Blockholder height="420px" />
               )}
-            </Col>
-          </Grid>
-        </Grid.Container>
+            </react.Col>
+          </react.Grid>
+        </react.Grid.Container>
       </Section>
     </InView>
   );
