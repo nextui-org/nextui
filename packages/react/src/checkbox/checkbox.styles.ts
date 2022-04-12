@@ -74,7 +74,6 @@ export const StyledIconCheckFirstLine = styled('div', {
     width: '0%',
     height: '2px',
     background: '$white',
-
     br: '5px 0px 0px 5px'
   },
   '@motion': {
