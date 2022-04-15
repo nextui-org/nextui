@@ -140,3 +140,13 @@ export function useFocusableRef<T extends HTMLElement = HTMLElement>(
   useImperativeHandle(ref, () => createFocusableRef(domRef, focusableRef));
   return domRef;
 }
+
+export function unwrapDOMRef<T extends HTMLElement>(
+  ref: RefObject<DOMRefValue<T>>
+): RefObject<T> {
+  return {
+    get current() {
+      return ref.current && ref.current.UNSAFE_getDOMNode();
+    }
+  };
+}
