@@ -148,7 +148,7 @@ type CardComponent<T, P = {}> = React.ForwardRefExoticComponent<
 };
 
 if (__DEV__) {
-  Card.displayName = 'NextUI - Card';
+  Card.displayName = 'NextUI.Card';
 }
 
 Card.toString = () => '.nextui-card';

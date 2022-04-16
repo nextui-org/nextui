@@ -158,7 +158,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
 );
 
 if (__DEV__) {
-  Backdrop.displayName = 'NextUI - Backdrop';
+  Backdrop.displayName = 'NextUI.Backdrop';
 }
 
 Backdrop.toString = () => '.nextui-backdrop';

@@ -32,7 +32,7 @@ const TableFooter = React.forwardRef<
   );
 });
 
-TableFooter.displayName = 'NextUI - TableFooter';
+TableFooter.displayName = 'NextUI.TableFooter';
 
 TableFooter.toString = () => '.nextui-table-footer';
 

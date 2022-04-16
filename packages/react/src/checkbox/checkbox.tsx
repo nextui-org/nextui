@@ -205,7 +205,7 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
 
 Checkbox.defaultProps = defaultProps;
 
-Checkbox.displayName = 'NextUI - Checkbox';
+Checkbox.displayName = 'NextUI.Checkbox';
 Checkbox.toString = () => '.nextui-checkbox';
 
 type CheckboxComponent<T, P = {}> = React.ForwardRefExoticComponent<

@@ -34,6 +34,9 @@ interface Props extends HTMLAttributes<HTMLElement> {
   nonModal?: boolean;
   animated?: boolean;
   dismissable?: boolean;
+  shouldFlip?: boolean;
+  shouldCloseOnBlur?: boolean;
+  keyboardDismissDisabled?: boolean;
   offset?: number;
   onClose?: () => void;
   onOpenChange?: (open: boolean) => void;
@@ -42,6 +45,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 const defaultProps = {
   placement: 'bottom',
   dismissable: true,
+  shouldFlip: true,
   offset: 12,
   nonModal: true,
   animated: true
@@ -61,6 +65,9 @@ const Popover = React.forwardRef(
       nonModal,
       animated,
       dismissable,
+      shouldFlip,
+      shouldCloseOnBlur,
+      keyboardDismissDisabled,
       ...otherProps
     } = props;
 
@@ -85,11 +92,12 @@ const Popover = React.forwardRef(
     );
 
     const { overlayProps: positionProps } = useOverlayPosition({
+      isOpen: state.isOpen,
       targetRef: overlayTriggerRef,
-      overlayRef,
       placement: getAriaPlacement(placement),
-      offset,
-      isOpen: state.isOpen
+      overlayRef,
+      shouldFlip,
+      offset
     });
 
     const { buttonProps } = useButton(
@@ -126,6 +134,8 @@ const Popover = React.forwardRef(
               ref={overlayRef}
               open={state.isOpen}
               dismissable={dismissable}
+              shouldCloseOnBlur={shouldCloseOnBlur}
+              keyboardDismissDisabled={keyboardDismissDisabled}
               nonModal={nonModal}
               onClose={state.close}
               data-state={getState}

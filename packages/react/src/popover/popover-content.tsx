@@ -17,12 +17,16 @@ interface Props {
   animated?: boolean;
   dismissable?: boolean;
   nonModal?: boolean;
+  shouldCloseOnBlur?: boolean;
+  keyboardDismissDisabled?: boolean;
   onClose?: () => void;
   as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
   dimissable: true,
+  shouldCloseOnBlur: true,
+  keyboardDismissDisabled: false,
   animated: true
 };
 
@@ -32,13 +36,23 @@ export type PopoverContentProps = Props & NativeAttrs & { css?: CSS };
 
 const PopoverContent = React.forwardRef(
   (props: PopoverContentProps, ref: RefObject<HTMLDivElement>) => {
-    const { children, open, onClose, dismissable, nonModal, ...otherProps } =
-      props;
+    const {
+      children,
+      open,
+      onClose,
+      dismissable,
+      nonModal,
+      shouldCloseOnBlur,
+      keyboardDismissDisabled,
+      ...otherProps
+    } = props;
     const { overlayProps } = useOverlay(
       {
         onClose,
         isOpen: open,
-        isDismissable: dismissable && open
+        shouldCloseOnBlur,
+        isDismissable: dismissable && open,
+        isKeyboardDismissDisabled: keyboardDismissDisabled
       },
       ref
     );
@@ -64,7 +78,7 @@ const PopoverContent = React.forwardRef(
   }
 );
 
-PopoverContent.displayName = 'NextUI - Popover Content';
+PopoverContent.displayName = 'NextUI.PopoverContent';
 
 type PopoverContentComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>

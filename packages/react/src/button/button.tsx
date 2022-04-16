@@ -231,7 +231,7 @@ type ButtonComponent<T, P = {}> = React.ForwardRefExoticComponent<
 };
 
 if (__DEV__) {
-  Button.displayName = 'NextUI - Button';
+  Button.displayName = 'NextUI.Button';
 }
 
 Button.toString = () => '.nextui-button';

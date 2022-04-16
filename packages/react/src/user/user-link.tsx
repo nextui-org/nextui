@@ -35,7 +35,7 @@ const UserLink = React.forwardRef<
 );
 
 if (__DEV__) {
-  UserLink.displayName = 'NextUI - UserLink';
+  UserLink.displayName = 'NextUI.UserLink';
 }
 
 UserLink.toString = () => '.nextui-user-link';

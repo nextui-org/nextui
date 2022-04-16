@@ -71,7 +71,7 @@ const TablePagination: React.FC<TablePaginationProps> = ({
   );
 };
 
-TablePagination.displayName = 'NextUI - TablePagination';
+TablePagination.displayName = 'NextUI.TablePagination';
 
 TablePagination.toString = () => '.nextui-table-pagination';
 

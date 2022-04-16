@@ -197,7 +197,7 @@ type ComponentProps = Partial<typeof defaultProps> &
 Radio.defaultProps = defaultProps;
 
 if (__DEV__) {
-  Radio.displayName = 'NextUI - Radio';
+  Radio.displayName = 'NextUI.Radio';
 }
 
 Radio.toString = () => '.nextui-radio';

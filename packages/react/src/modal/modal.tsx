@@ -162,7 +162,7 @@ type ModalComponent<P = {}> = React.FC<P> & {
 };
 
 if (__DEV__) {
-  Backdrop.displayName = 'NextUI - Modal';
+  Backdrop.displayName = 'NextUI.Modal';
 }
 
 Modal.toString = () => '.nextui-modal';

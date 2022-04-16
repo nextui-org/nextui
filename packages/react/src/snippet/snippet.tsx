@@ -153,7 +153,7 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
 };
 
 if (__DEV__) {
-  Snippet.displayName = 'NextUI - Snippet';
+  Snippet.displayName = 'NextUI.Snippet';
 }
 
 Snippet.toString = () => '.nextui-snippet';

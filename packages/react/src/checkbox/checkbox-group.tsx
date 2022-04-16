@@ -107,7 +107,7 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
 );
 CheckboxGroup.defaultProps = defaultProps;
 
-CheckboxGroup.displayName = 'NextUI - CheckboxGroup';
+CheckboxGroup.displayName = 'NextUI.CheckboxGroup';
 CheckboxGroup.toString = () => '.nextui-checkbox-group';
 
 type CheckboxGroupComponent<T, P = {}> = React.ForwardRefExoticComponent<
