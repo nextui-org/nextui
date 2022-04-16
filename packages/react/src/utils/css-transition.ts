@@ -4,6 +4,7 @@ import clsx from '../utils/clsx';
 
 interface Props {
   visible?: boolean;
+  childrenRef?: React.RefObject<HTMLElement>;
   enterTime?: number;
   leaveTime?: number;
   clearTime?: number;
@@ -26,6 +27,7 @@ export type CSSTransitionProps = Props & typeof defaultProps;
 
 const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
   children,
+  childrenRef,
   className,
   visible,
   enterTime,
@@ -77,11 +79,28 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
     };
   }, [visible, renderable]);
 
+  // update children ref classes
+  useEffect(() => {
+    if (!childrenRef?.current) {
+      return;
+    }
+    const classesArr = classes.split(' ');
+    const refClassesArr = childrenRef.current.className.split(' ');
+    const newRefClassesArr = refClassesArr.filter(
+      (item) => !item.includes(name)
+    );
+    childrenRef.current.className = clsx(newRefClassesArr, classesArr);
+  }, [childrenRef, classes]);
+
   if (!React.isValidElement(children) || !renderable) return null;
 
   return React.cloneElement(children, {
     ...props,
-    className: clsx(children.props.className, className, classes)
+    className: clsx(
+      children.props.className,
+      className,
+      !childrenRef?.current ? classes : ''
+    )
   });
 };
 

@@ -1,6 +1,5 @@
 import React, { useMemo, RefAttributes, PropsWithoutRef } from 'react';
 import { useCheckboxGroupState } from '@react-stately/checkbox';
-import { DOMRef } from '@react-types/shared';
 import { AriaCheckboxGroupProps } from '@react-types/checkbox';
 import { useCheckboxGroup } from '@react-aria/checkbox';
 import { mergeProps } from '@react-aria/utils';
@@ -58,7 +57,7 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
     },
     ref: React.Ref<HTMLDivElement | null>
   ) => {
-    const domRef = useDOMRef(ref as DOMRef<HTMLDivElement>);
+    const domRef = useDOMRef(ref);
     const state = useCheckboxGroupState({
       ...props,
       isDisabled: disabled,

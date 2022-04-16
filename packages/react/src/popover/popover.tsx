@@ -8,8 +8,6 @@ import React, {
   PropsWithoutRef,
   HTMLAttributes
 } from 'react';
-import { DOMRef } from '@react-types/shared';
-import { useOverlayTriggerState } from '@react-stately/overlays';
 import {
   OverlayContainer,
   useOverlayPosition,
@@ -17,14 +15,16 @@ import {
 } from '@react-aria/overlays';
 import { useButton } from '@react-aria/button';
 import { mergeProps } from '@react-aria/utils';
+import { FocusScope } from '@react-aria/focus';
+import { useOverlayTriggerState } from '@react-stately/overlays';
 import { CSS } from '../theme/stitches.config';
 import CSSTransition from '../utils/css-transition';
 import { useDOMRef } from '../utils/dom';
-import { getAriaPlacement, PopoverPlacement } from './utils';
 import withDefaults from '../utils/with-defaults';
+import { getAriaPlacement, PopoverPlacement } from './utils';
 import PopoverContent from './popover-content';
 
-interface Props extends Omit<HTMLAttributes<HTMLElement>, 'css'> {
+interface Props extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   open?: boolean;
   initialOpen?: boolean;
@@ -61,7 +61,7 @@ const Popover = React.forwardRef(
       nonModal,
       animated,
       dismissable,
-      css
+      ...otherProps
     } = props;
 
     const state = useOverlayTriggerState({
@@ -73,7 +73,7 @@ const Popover = React.forwardRef(
     const [exited, setExited] = useState(!state.isOpen);
 
     const triggerRef = useRef<HTMLButtonElement>(null);
-    const domRef = useDOMRef(ref as DOMRef<HTMLButtonElement>);
+    const domRef = useDOMRef(ref);
 
     const overlayTriggerRef = domRef || triggerRef;
     const overlayRef = useRef<HTMLElement>(null);
@@ -120,26 +120,31 @@ const Popover = React.forwardRef(
         return null;
       }
       return (
-        <PopoverContent
-          ref={overlayRef}
-          open={state.isOpen}
-          dismissable={dismissable}
-          nonModal={nonModal}
-          onClose={state.close}
-          data-state={getState}
-          data-side={placement}
-          {...mergeProps(overlayProps, positionProps)}
-        >
-          {children}
-        </PopoverContent>
+        <OverlayContainer>
+          <FocusScope restoreFocus>
+            <PopoverContent
+              ref={overlayRef}
+              open={state.isOpen}
+              dismissable={dismissable}
+              nonModal={nonModal}
+              onClose={state.close}
+              data-state={getState}
+              data-side={placement}
+              {...mergeProps(overlayProps, positionProps, otherProps)}
+            >
+              {children}
+            </PopoverContent>
+          </FocusScope>
+        </OverlayContainer>
       );
     }, [
-      exited,
-      dismissable,
-      nonModal,
       state,
+      exited,
+      nonModal,
+      dismissable,
       overlayProps,
       positionProps,
+      otherProps,
       children
     ]);
 
@@ -152,44 +157,27 @@ const Popover = React.forwardRef(
           Open Popover
         </button>
         {animated ? (
-          <OverlayContainer>
-            <CSSTransition
-              visible={state.isOpen}
-              name="nextui-popover-content"
-              enterTime={200}
-              leaveTime={220}
-              clearTime={300}
-              onExited={handleExited}
-              onEntered={handleEntered}
-            >
-              {renderChildren}
-            </CSSTransition>
-          </OverlayContainer>
+          <CSSTransition
+            visible={state.isOpen}
+            childrenRef={overlayRef}
+            name="nextui-popover-content"
+            enterTime={60}
+            leaveTime={60}
+            clearTime={300}
+            onExited={handleExited}
+            onEntered={handleEntered}
+          >
+            {renderChildren}
+          </CSSTransition>
         ) : state.isOpen ? (
           renderChildren
         ) : null}
-        {/* {state.isOpen && (
-          <OverlayContainer>
-            <PopoverContent
-              ref={overlayRef}
-              open={state.isOpen}
-              dismissable={dismissable}
-              nonModal={nonModal}
-              onClose={state.close}
-              data-state={getState}
-              data-side={placement}
-              {...mergeProps(overlayProps, positionProps)}
-            >
-              {children}
-            </PopoverContent>
-          </OverlayContainer>
-        )} */}
       </>
     );
   }
 );
 
-Popover.displayName = 'NextUI - Popover';
+Popover.displayName = 'NextUI.Popover';
 
 type PopoverComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>

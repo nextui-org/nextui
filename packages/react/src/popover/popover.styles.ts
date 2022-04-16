@@ -1,54 +1,29 @@
 import { styled, keyframes } from '../theme/stitches.config';
 
-const appearanceIn = keyframes({
+export const appearanceIn = keyframes({
   '0%': {
     opacity: 0,
-    transform: 'scale(0.95)'
+    transform: 'scale(0.5)'
   },
   '60%': {
     opacity: 0.75,
-    transform: 'scale(1.02)'
+    transform: 'scale(1.05)'
   },
   '100%': {
     opacity: 1,
     transform: 'scale(1)'
   }
 });
-const appearanceOut = keyframes({
+
+export const appearanceOut = keyframes({
   '0%': {
     opacity: 1,
     transform: 'scale(1)'
   },
   '100%': {
     opacity: 0,
-    transform: 'scale(0.95)'
+    transform: 'scale(0.5)'
   }
-});
-
-const slideUpAndFade = keyframes({
-  '0%': {
-    opacity: 0,
-    transform: 'scale(0.95) translateY(-8px)'
-  },
-  '100%': {
-    opacity: 1,
-    transform: 'scale(1) translateY(0)'
-  }
-});
-
-const slideRightAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateX(-2px)' },
-  '100%': { opacity: 1, transform: 'translateX(0)' }
-});
-
-const slideDownAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateY(-2px)' },
-  '100%': { opacity: 1, transform: 'translateY(0)' }
-});
-
-const slideLeftAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateX(2px)' },
-  '100%': { opacity: 1, transform: 'translateX(0)' }
 });
 
 export const StyledPopoverContent = styled('div', {
@@ -71,31 +46,20 @@ export const StyledPopoverContent = styled('div', {
 
   borderRadius: '$$popoverBorderRadius',
 
-  animationDuration: '250ms',
-  animationTimingFunction: 'ease',
   animationFillMode: 'forwards',
   willChange: 'transform, opacity',
 
-  '&[data-side="bottom"]': {
-    '&.nextui-popover-content-enter': {
-      animationName: appearanceIn,
-      animationDuration: '200ms',
-      animationTimingFunction: 'ease-in',
-      animationDirection: 'normal'
-    },
-    '&.nextui-popover-content-enter-active': {
-      opacity: 1
-    },
-    '&.nextui-popover-content-leave': {
-      animationName: appearanceOut,
-      animationDuration: '50ms',
-      animationTimingFunction: 'ease-out'
-    }
+  transformOrigin: 'top center',
+
+  '&.nextui-popover-content-enter': {
+    animationName: appearanceIn,
+    animationTimingFunction: 'ease-out',
+    animationDirection: 'normal',
+    animationDuration: '250ms'
   },
-  '&[data-state="open"]': {
-    '&[data-side="top"]': { animationName: slideDownAndFade },
-    '&[data-side="right"]': { animationName: slideLeftAndFade },
-    // '&[data-side="bottom"]': {},
-    '&[data-side="left"]': { animationName: slideRightAndFade }
+  '&.nextui-popover-content-leave': {
+    animationName: appearanceOut,
+    animationTimingFunction: 'ease-in',
+    animationDuration: '60ms'
   }
 });

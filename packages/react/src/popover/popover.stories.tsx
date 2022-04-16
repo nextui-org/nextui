@@ -9,7 +9,7 @@ export default {
 } as Meta;
 
 export const Default = () => (
-  <Popover>
+  <Popover placement="bottom">
     <Text css={{ p: '$10' }}>This is the content of the popover.</Text>
   </Popover>
 );
