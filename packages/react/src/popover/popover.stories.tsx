@@ -1,5 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
+import { Text } from '../index';
 import Popover from './index';
 
 export default {
@@ -8,5 +9,7 @@ export default {
 } as Meta;
 
 export const Default = () => (
-  <Popover>This is the content of the popover.</Popover>
+  <Popover>
+    <Text css={{ p: '$10' }}>This is the content of the popover.</Text>
+  </Popover>
 );

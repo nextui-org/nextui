@@ -9,6 +9,8 @@ interface Props {
   clearTime?: number;
   className?: string;
   name?: string;
+  onExited?: () => void;
+  onEntered?: () => void;
 }
 
 const defaultProps = {
@@ -30,6 +32,8 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
   leaveTime,
   clearTime,
   name,
+  onExited,
+  onEntered,
   ...props
 }) => {
   const [classes, setClasses] = useState<string>('');
@@ -38,6 +42,7 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
   useEffect(() => {
     const statusClassName = visible ? 'enter' : 'leave';
     const time = visible ? enterTime : leaveTime;
+
     if (visible && !renderable) {
       setRenderable(true);
     }
@@ -49,6 +54,11 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
       setClasses(
         `${name}-${statusClassName} ${name}-${statusClassName}-active`
       );
+      if (statusClassName === 'leave') {
+        onExited?.();
+      } else {
+        onEntered?.();
+      }
       clearTimeout(timer);
     }, time);
 

@@ -5,24 +5,30 @@ import React, {
   PropsWithoutRef
 } from 'react';
 import { useModal, useOverlay, DismissButton } from '@react-aria/overlays';
-import { FocusScope } from '@react-aria/focus';
+import { CSS } from '../theme/stitches.config';
 import { useDialog } from '@react-aria/dialog';
-import withDefaults from '../utils/with-defaults';
 import { mergeProps } from '@react-aria/utils';
+import withDefaults from '../utils/with-defaults';
+import { StyledPopoverContent } from './popover.styles';
 
 interface Props {
   children: ReactNode;
   open?: boolean;
+  animated?: boolean;
   dismissable?: boolean;
   nonModal?: boolean;
   onClose?: () => void;
+  as?: keyof JSX.IntrinsicElements;
 }
 
 const defaultProps = {
-  dimissable: true
+  dimissable: true,
+  animated: true
 };
 
-export type PopoverContentProps = Props;
+type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
+
+export type PopoverContentProps = Props & NativeAttrs & { css?: CSS };
 
 const PopoverContent = React.forwardRef(
   (props: PopoverContentProps, ref: RefObject<HTMLDivElement>) => {
@@ -39,23 +45,21 @@ const PopoverContent = React.forwardRef(
     const { modalProps } = useModal({
       isDisabled: nonModal
     });
-    const { dialogProps } = useDialog({}, ref);
+    const { dialogProps } = useDialog(
+      {
+        role: 'dialog'
+      },
+      ref
+    );
 
     return (
-      <FocusScope restoreFocus>
-        <div
-          ref={ref}
-          style={{
-            background: 'blue',
-            color: 'black',
-            padding: 30
-          }}
-          {...mergeProps(overlayProps, dialogProps, modalProps, otherProps)}
-        >
-          {children}
-          <DismissButton onDismiss={onClose} />
-        </div>
-      </FocusScope>
+      <StyledPopoverContent
+        ref={ref}
+        {...mergeProps(overlayProps, dialogProps, modalProps, otherProps)}
+      >
+        {children}
+        <DismissButton onDismiss={onClose} />
+      </StyledPopoverContent>
     );
   }
 );
