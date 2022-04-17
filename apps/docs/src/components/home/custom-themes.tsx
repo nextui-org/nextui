@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import NextLink from 'next/link';
-import dynamic from 'next/dynamic';
 import { Box, Section, Title, Subtitle, BlockLink } from '@primitives';
 import { InView } from 'react-intersection-observer';
 import { Grid, Row, Col, Spacer } from '@nextui-org/react';
 import { darkTheme } from '@theme/shared';
 import landingContent from '@content/landing';
-import { Blockholder } from '@components';
+import { Blockholder, ShopCard, CodeDemo } from '@components';
 import { useTheme } from 'next-themes';
 import { get } from 'lodash';
 
@@ -24,14 +23,6 @@ const darkCodeHighlights = {
   elegant: '73-91',
   retro: '109-124'
 };
-
-const DynamicShopCard = dynamic(() => import('../templates/shop-card'), {
-  ssr: true
-});
-
-const DynamicCodeDemo = dynamic(() => import('../code-demo/code-demo'), {
-  ssr: true
-});
 
 const CustomThemesSection = () => {
   const [activeHighlight, setActiveHighlight] = useState('nextui');
@@ -89,7 +80,7 @@ const CustomThemesSection = () => {
             }}
           >
             <Col>
-              <DynamicShopCard onChangeTheme={setActiveHighlight} />
+              <ShopCard onChangeTheme={setActiveHighlight} />
               <NextLink href="/docs/theme/customize-theme">
                 <BlockLink color="blue">Learn more</BlockLink>
               </NextLink>
@@ -114,7 +105,7 @@ const CustomThemesSection = () => {
               }}
             >
               {isVisible ? (
-                <DynamicCodeDemo
+                <CodeDemo
                   showWindowIcons
                   line={get(
                     isDark ? darkCodeHighlights : codeHighlights,
