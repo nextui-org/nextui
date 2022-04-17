@@ -3,7 +3,7 @@ import { styled, keyframes } from '../theme/stitches.config';
 export const appearanceIn = keyframes({
   '0%': {
     opacity: 0,
-    transform: 'scale(0.5)'
+    transform: 'scale(0.95)'
   },
   '60%': {
     opacity: 0.75,
@@ -30,10 +30,11 @@ export const StyledPopoverContent = styled('div', {
   $$popoverMinWidth: '$space$13',
   $$popoverMinHeight: '$space$13',
   $$popoverBorderRadius: '$radii$lg',
+  $$popoverBackground: '$colors$background',
   boxShadow: '$md',
   outline: 'none' /* Hide focus outline */,
   overflow: 'hidden auto',
-  position: 'absolute',
+  bg: '$$popoverBackground',
   /* Be a flexbox to allow a full sized content area that scrolls */
   display: 'inline-flex',
   flexdirection: 'column',
@@ -48,8 +49,6 @@ export const StyledPopoverContent = styled('div', {
 
   animationFillMode: 'forwards',
   willChange: 'transform, opacity',
-
-  transformOrigin: 'top center',
 
   '&.nextui-popover-content-enter': {
     animationName: appearanceIn,

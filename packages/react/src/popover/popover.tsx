@@ -1,201 +1,55 @@
-import React, {
-  useRef,
-  useMemo,
-  useState,
-  useCallback,
-  RefAttributes,
-  ReactNode,
-  PropsWithoutRef,
-  HTMLAttributes
-} from 'react';
-import {
-  OverlayContainer,
-  useOverlayPosition,
-  useOverlayTrigger
-} from '@react-aria/overlays';
-import { useButton } from '@react-aria/button';
-import { mergeProps } from '@react-aria/utils';
+import React, { ReactNode } from 'react';
+import { OverlayContainer } from '@react-aria/overlays';
 import { FocusScope } from '@react-aria/focus';
-import { useOverlayTriggerState } from '@react-stately/overlays';
-import { CSS } from '../theme/stitches.config';
-import CSSTransition from '../utils/css-transition';
-import { useDOMRef } from '../utils/dom';
+import { __DEV__ } from '../utils/assertion';
 import withDefaults from '../utils/with-defaults';
-import { getAriaPlacement, PopoverPlacement } from './utils';
-import PopoverContent from './popover-content';
+import { pickChild } from '../utils/collections';
+import { PopoverContent } from './popover-content';
+import { usePopover, UsePopoverProps } from './use-popover';
+import { PopoverProvider } from './popover-context';
+import { PopoverTrigger } from './popover-trigger';
 
-interface Props extends HTMLAttributes<HTMLElement> {
-  children: ReactNode;
-  open?: boolean;
-  initialOpen?: boolean;
-  placement?: PopoverPlacement;
-  arrowProps?: HTMLAttributes<HTMLElement>;
-  hideArrow?: boolean;
-  nonModal?: boolean;
-  animated?: boolean;
-  dismissable?: boolean;
-  shouldFlip?: boolean;
-  shouldCloseOnBlur?: boolean;
-  keyboardDismissDisabled?: boolean;
-  offset?: number;
-  onClose?: () => void;
-  onOpenChange?: (open: boolean) => void;
+interface PopoverProps extends UsePopoverProps {
+  /**
+   * The content of the popover. It is usually the `Popover.Trigger`,
+   * and `Popover.Content`
+   */
+  children?: ReactNode | undefined;
 }
 
 const defaultProps = {
-  placement: 'bottom',
-  dismissable: true,
-  shouldFlip: true,
-  offset: 12,
-  nonModal: true,
   animated: true
 };
 
-export type PopoverProps = Props & { css?: CSS };
+const Popover = (props: PopoverProps) => {
+  const { children, ...otherProps } = props;
+  const context = usePopover(otherProps);
 
-const Popover = React.forwardRef(
-  (props: PopoverProps, ref: React.Ref<HTMLDivElement | null>) => {
-    const {
-      children,
-      open,
-      initialOpen,
-      onOpenChange,
-      placement,
-      offset,
-      nonModal,
-      animated,
-      dismissable,
-      shouldFlip,
-      shouldCloseOnBlur,
-      keyboardDismissDisabled,
-      ...otherProps
-    } = props;
+  const [withoutTrigger, triggerChildren] = pickChild(children, PopoverTrigger);
+  const [, contentChildren] = pickChild(withoutTrigger, PopoverContent);
 
-    const state = useOverlayTriggerState({
-      isOpen: open,
-      defaultOpen: initialOpen,
-      onOpenChange
-    });
+  return (
+    <PopoverProvider value={context}>
+      {triggerChildren}
+      <OverlayContainer>
+        <FocusScope restoreFocus>{contentChildren}</FocusScope>
+      </OverlayContainer>
+    </PopoverProvider>
+  );
+};
 
-    const [exited, setExited] = useState(!state.isOpen);
+type PopoverComponent<P = {}> = React.FC<P> & {
+  Trigger: typeof PopoverTrigger;
+  Content: typeof PopoverContent;
+};
 
-    const triggerRef = useRef<HTMLButtonElement>(null);
-    const domRef = useDOMRef(ref);
-
-    const overlayTriggerRef = domRef || triggerRef;
-    const overlayRef = useRef<HTMLElement>(null);
-
-    const { triggerProps, overlayProps } = useOverlayTrigger(
-      { type: 'dialog' },
-      state,
-      overlayTriggerRef
-    );
-
-    const { overlayProps: positionProps } = useOverlayPosition({
-      isOpen: state.isOpen,
-      targetRef: overlayTriggerRef,
-      placement: getAriaPlacement(placement),
-      overlayRef,
-      shouldFlip,
-      offset
-    });
-
-    const { buttonProps } = useButton(
-      {
-        onPress: () => state.open()
-      },
-      overlayTriggerRef
-    );
-
-    const getState = useMemo(() => {
-      if (state.isOpen) return 'open';
-      return 'closed';
-    }, [state.isOpen]);
-
-    const handleEntered = useCallback(() => {
-      setExited(false);
-    }, []);
-
-    const handleExited = useCallback(() => {
-      setExited(true);
-    }, []);
-
-    const renderChildren = useMemo(() => {
-      // Don't un-render the overlay while it's transitioning out.
-      const mountOverlay = state.isOpen || !exited;
-      if (!mountOverlay) {
-        // Don't bother showing anything if we don't have to.
-        return null;
-      }
-      return (
-        <OverlayContainer>
-          <FocusScope restoreFocus>
-            <PopoverContent
-              ref={overlayRef}
-              open={state.isOpen}
-              dismissable={dismissable}
-              shouldCloseOnBlur={shouldCloseOnBlur}
-              keyboardDismissDisabled={keyboardDismissDisabled}
-              nonModal={nonModal}
-              onClose={state.close}
-              data-state={getState}
-              data-side={placement}
-              {...mergeProps(overlayProps, positionProps, otherProps)}
-            >
-              {children}
-            </PopoverContent>
-          </FocusScope>
-        </OverlayContainer>
-      );
-    }, [
-      state,
-      exited,
-      nonModal,
-      dismissable,
-      overlayProps,
-      positionProps,
-      otherProps,
-      children
-    ]);
-
-    return (
-      <>
-        <button
-          ref={overlayTriggerRef}
-          {...mergeProps(buttonProps, triggerProps)}
-        >
-          Open Popover
-        </button>
-        {animated ? (
-          <CSSTransition
-            visible={state.isOpen}
-            childrenRef={overlayRef}
-            name="nextui-popover-content"
-            enterTime={60}
-            leaveTime={60}
-            clearTime={300}
-            onExited={handleExited}
-            onEntered={handleEntered}
-          >
-            {renderChildren}
-          </CSSTransition>
-        ) : state.isOpen ? (
-          renderChildren
-        ) : null}
-      </>
-    );
-  }
-);
-
-Popover.displayName = 'NextUI.Popover';
-
-type PopoverComponent<T, P = {}> = React.ForwardRefExoticComponent<
-  PropsWithoutRef<P> & RefAttributes<T>
-> & {};
+if (__DEV__) {
+  Popover.displayName = 'NextUI.Popover';
+}
 
 Popover.toString = () => '.nextui-popover';
 
-export default withDefaults(Popover, defaultProps) as PopoverComponent<
-  HTMLDivElement,
-  PopoverProps
->;
+export default withDefaults(
+  Popover,
+  defaultProps
+) as PopoverComponent<PopoverProps>;

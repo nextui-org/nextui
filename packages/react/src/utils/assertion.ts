@@ -32,3 +32,10 @@ export function isEmpty(value: any): boolean {
   if (value == null || value === '') return true;
   return false;
 }
+
+// Function assertions
+export function isFunction<T extends Function = Function>(
+  value: any
+): value is T {
+  return typeof value === 'function';
+}

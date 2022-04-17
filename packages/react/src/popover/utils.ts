@@ -4,25 +4,15 @@ export type PopoverPlacement =
   | 'bottom'
   | 'bottom-left'
   | 'bottom-right'
-  | 'bottom-start'
-  | 'bottom-end'
   | 'top'
   | 'top-left'
   | 'top-right'
-  | 'top-start'
-  | 'top-end'
   | 'left'
   | 'left-top'
   | 'left-bottom'
-  | 'start'
-  | 'start-top'
-  | 'start-bottom'
   | 'right'
   | 'right-top'
-  | 'right-bottom'
-  | 'end'
-  | 'end-top'
-  | 'end-bottom';
+  | 'right-bottom';
 
 export const getAriaPlacement = (placement?: PopoverPlacement) => {
   if (!placement) {
@@ -31,48 +21,36 @@ export const getAriaPlacement = (placement?: PopoverPlacement) => {
   return placement.replace('-', ' ') as Placement;
 };
 
-export const getOppositePlacement = (placement?: PopoverPlacement) => {
+export const getTransformOrigin = (placement?: PopoverPlacement) => {
   if (!placement) {
     return 'bottom' as Placement;
   }
   switch (placement) {
     case 'bottom':
-      return 'top';
+      return 'top center';
     case 'top':
-      return 'bottom';
+      return 'bottom center';
     case 'left':
-      return 'right';
+      return 'right center';
     case 'right':
-      return 'left';
+      return 'left center';
     case 'bottom-left':
-      return 'top-right';
+      return 'top left';
     case 'bottom-right':
-      return 'top-left';
+      return 'top right';
     case 'top-left':
-      return 'bottom-right';
+      return 'bottom left';
     case 'top-right':
-      return 'bottom-left';
+      return 'bottom right';
     case 'left-top':
-      return 'right-bottom';
+      return 'right top';
     case 'left-bottom':
-      return 'right-top';
+      return 'right bottom';
     case 'right-top':
-      return 'left-bottom';
+      return 'left top';
     case 'right-bottom':
-      return 'left-top';
-    case 'start':
-      return 'end';
-    case 'end':
-      return 'start';
-    case 'start-top':
-      return 'end-bottom';
-    case 'start-bottom':
-      return 'end-top';
-    case 'end-top':
-      return 'start-bottom';
-    case 'end-bottom':
-      return 'start-top';
+      return 'left bottom';
     default:
-      return 'bottom';
+      return 'top center';
   }
 };
