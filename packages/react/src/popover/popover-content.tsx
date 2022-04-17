@@ -1,6 +1,7 @@
-import React, { useCallback, useState, ReactNode, RefObject } from 'react';
+import React, { ReactNode, RefObject } from 'react';
 import { useModal, useOverlay, DismissButton } from '@react-aria/overlays';
 import { useDialog } from '@react-aria/dialog';
+import { FocusScope } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
 import { CSS } from '../theme/stitches.config';
 import CSSTransition from '../utils/css-transition';
@@ -32,10 +33,10 @@ export const PopoverContent = React.forwardRef(
       isDismissable,
       isKeyboardDismissDisabled,
       getPopoverProps,
-      onClose
+      onClose,
+      onEntered,
+      onExited
     } = usePopoverContext();
-
-    const [exited, setExited] = useState(!state.isOpen);
 
     const transformOrigin = getTransformOrigin(placement);
 
@@ -51,29 +52,14 @@ export const PopoverContent = React.forwardRef(
 
     const { overlayProps } = useOverlay(
       {
+        onClose,
         isOpen: state.isOpen,
-        onClose: state.close,
-        shouldCloseOnBlur,
         isDismissable: isDismissable && state.isOpen,
+        shouldCloseOnBlur,
         isKeyboardDismissDisabled
       },
       overlayRef
     );
-
-    const handleEntered = useCallback(() => {
-      setExited(false);
-    }, []);
-
-    const handleExited = useCallback(() => {
-      setExited(true);
-    }, []);
-
-    // Don't un-render the overlay while it's transitioning out.
-    const mountOverlay = state.isOpen || !exited;
-    if (!mountOverlay && !disableAnimation) {
-      // Don't bother showing anything if we don't have to.
-      return null;
-    }
 
     const contents = (
       <StyledPopoverContent
@@ -96,19 +82,21 @@ export const PopoverContent = React.forwardRef(
     return (
       <>
         {!disableAnimation ? (
-          <CSSTransition
-            visible={state.isOpen}
-            name="nextui-popover-content"
-            enterTime={20}
-            leaveTime={60}
-            clearTime={300}
-            onExited={handleExited}
-            onEntered={handleEntered}
-          >
-            {contents}
-          </CSSTransition>
+          <FocusScope restoreFocus>
+            <CSSTransition
+              visible={state.isOpen}
+              name="nextui-popover-content"
+              enterTime={20}
+              leaveTime={60}
+              clearTime={300}
+              onExited={onExited}
+              onEntered={onEntered}
+            >
+              {contents}
+            </CSSTransition>
+          </FocusScope>
         ) : state.isOpen ? (
-          contents
+          <FocusScope restoreFocus>{contents}</FocusScope>
         ) : null}
       </>
     );

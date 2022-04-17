@@ -167,6 +167,12 @@
                             "path": "/docs/components/progress.mdx"
                         },
                         {
+                          "title": "Popover",
+                          "keywords": "popover, tooltip, tooltip, popover, popover",
+                          "path": "/docs/components/popover.mdx",
+                          "newPost": true
+                        },
+                        {
                             "title": "Tooltip",
                             "keywords": "tool, popover, tooltip, hoverable",
                             "path": "/docs/components/tooltip.mdx"

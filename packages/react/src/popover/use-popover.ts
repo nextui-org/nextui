@@ -1,4 +1,4 @@
-import { useRef, useMemo, useCallback } from 'react';
+import { useRef, useMemo, useState, useCallback } from 'react';
 import { OverlayTriggerProps } from '@react-types/overlays';
 import { useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
 import { useOverlayTriggerState } from '@react-stately/overlays';
@@ -49,9 +49,9 @@ export function usePopover(props: UsePopoverProps = {}) {
     offset = 12,
     placement = 'bottom',
     onClose,
-    shouldCloseOnBlur = true,
+    shouldCloseOnBlur = false,
     isDismissable = true,
-    isKeyboardDismissDisabled = true,
+    isKeyboardDismissDisabled = false,
     disableAnimation = false
   } = props;
 
@@ -64,6 +64,8 @@ export function usePopover(props: UsePopoverProps = {}) {
     onOpenChange
   });
 
+  const [exited, setExited] = useState(!state.isOpen);
+
   const getState = useMemo(() => {
     if (state.isOpen) return 'open';
     return 'closed';
@@ -73,6 +75,14 @@ export function usePopover(props: UsePopoverProps = {}) {
     onClose?.();
     state.close();
   }, [state, onClose]);
+
+  const onEntered = useCallback(() => {
+    setExited(false);
+  }, []);
+
+  const onExited = useCallback(() => {
+    setExited(true);
+  }, []);
 
   const { triggerProps, overlayProps } = useOverlayTrigger(
     { type: 'dialog' },
@@ -123,6 +133,7 @@ export function usePopover(props: UsePopoverProps = {}) {
 
   return {
     state,
+    exited,
     overlayRef,
     placement,
     disableAnimation,
@@ -131,6 +142,8 @@ export function usePopover(props: UsePopoverProps = {}) {
     isKeyboardDismissDisabled,
     isOpen: state.isOpen,
     onClose: handleClose,
+    onExited,
+    onEntered,
     triggerProps,
     overlayProps,
     positionProps,

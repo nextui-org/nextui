@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import withDefaults from '../utils/with-defaults';
-import clsx from '../utils/clsx';
+import withDefaults from './with-defaults';
+import clsx from './clsx';
 
 interface Props {
   visible?: boolean;

@@ -123,7 +123,7 @@ const globalStyles = globalCss({
     color: 'inherit',
     margin: 0
   },
-  'button:focus, input:focus, select:focus,textarea:focus': {
+  'button:focus, input:focus, select:focus, textarea:focus': {
     outline: 'none'
   },
   code: {

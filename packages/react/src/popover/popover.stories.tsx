@@ -11,7 +11,7 @@ export default {
 export const Default = () => (
   <Grid.Container justify="center" gap={2} css={{ maxW: '600px' }}>
     <Grid>
-      <Popover placement="top">
+      <Popover disableAnimation placement="top">
         <Popover.Trigger>
           <button>top</button>
         </Popover.Trigger>

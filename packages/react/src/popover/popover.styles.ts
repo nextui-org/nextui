@@ -37,7 +37,7 @@ export const StyledPopoverContent = styled('div', {
   bg: '$$popoverBackground',
   /* Be a flexbox to allow a full sized content area that scrolls */
   display: 'inline-flex',
-  flexdirection: 'column',
+  flexDirection: 'column',
   boxSizing: 'border-box',
 
   minWidth: '$$popoverMinWidth',

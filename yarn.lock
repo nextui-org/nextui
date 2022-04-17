@@ -3743,18 +3743,7 @@
     "@react-stately/overlays" "^3.1.6"
     "@react-types/dialog" "^3.3.4"
 
-"@react-aria/focus@3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.5.1.tgz#b3d0cd5877c844db7f6fb28ba3eec1516dc3b123"
-  integrity sha512-8TTlxekumLxFZo0GELVUDCv6olQTMlGtobeGNaf0MVoonGz5oukjjPa3DB+PZRxMduTotRlniqpejnZi4fzMDw==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/interactions" "^3.8.0"
-    "@react-aria/utils" "^3.11.1"
-    "@react-types/shared" "^3.11.0"
-    clsx "^1.1.1"
-
-"@react-aria/focus@^3.5.1", "@react-aria/focus@^3.5.4":
+"@react-aria/focus@3.5.4", "@react-aria/focus@^3.5.1", "@react-aria/focus@^3.5.4":
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.5.4.tgz#8eb8234bae15421eb6d7926f656b291cee6e19a2"
   integrity sha512-N70J6boUPUKjBfGnYDwUXi1r0HKjvo7RmD381QbDBqZNy/j5v/pgQ+aauSuIlsHa/TmmiRuynIm4Q0sWN4/hbQ==

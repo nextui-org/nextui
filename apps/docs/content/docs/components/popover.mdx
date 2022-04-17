@@ -1,0 +1,30 @@
+---
+title: 'Popover'
+description: 'Tooltips displays informative text when users hover, focus, or click an element.'
+url: https://nextui.org/docs/components/tooltip
+---
+
+# Popover
+
+Tooltips displays informative text when users hover, focus, or click an element.
+
+```jsx
+import { Popover } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+<Playground
+  title="Default"
+  desc="The default `Popover` has the background color."
+  code={`<Popover placement="top">
+        <Popover.Trigger>
+          <button>top</button>
+        </Popover.Trigger>
+        <Popover.Content>
+          <Text css={{ p: '$10' }}>This is the content of the popover.</Text>
+        </Popover.Content>
+      </Popover>`}
+/>

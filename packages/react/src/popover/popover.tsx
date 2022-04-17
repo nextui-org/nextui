@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react';
 import { OverlayContainer } from '@react-aria/overlays';
-import { FocusScope } from '@react-aria/focus';
 import { __DEV__ } from '../utils/assertion';
-import withDefaults from '../utils/with-defaults';
 import { pickChild } from '../utils/collections';
 import { PopoverContent } from './popover-content';
 import { usePopover, UsePopoverProps } from './use-popover';
@@ -17,10 +15,6 @@ interface PopoverProps extends UsePopoverProps {
   children?: ReactNode | undefined;
 }
 
-const defaultProps = {
-  animated: true
-};
-
 const Popover = (props: PopoverProps) => {
   const { children, ...otherProps } = props;
   const context = usePopover(otherProps);
@@ -28,12 +22,12 @@ const Popover = (props: PopoverProps) => {
   const [withoutTrigger, triggerChildren] = pickChild(children, PopoverTrigger);
   const [, contentChildren] = pickChild(withoutTrigger, PopoverContent);
 
+  const mountOverlay = context.state.isOpen || !context.exited;
+
   return (
     <PopoverProvider value={context}>
       {triggerChildren}
-      <OverlayContainer>
-        <FocusScope restoreFocus>{contentChildren}</FocusScope>
-      </OverlayContainer>
+      {mountOverlay && <OverlayContainer>{contentChildren}</OverlayContainer>}
     </PopoverProvider>
   );
 };
@@ -49,7 +43,4 @@ if (__DEV__) {
 
 Popover.toString = () => '.nextui-popover';
 
-export default withDefaults(
-  Popover,
-  defaultProps
-) as PopoverComponent<PopoverProps>;
+export default Popover as PopoverComponent<PopoverProps>;
