@@ -8,3 +8,5 @@ node_modules
 /build/
 /public/build
 /api/index.js
+
+package-lock.json
