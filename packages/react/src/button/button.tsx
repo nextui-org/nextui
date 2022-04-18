@@ -2,12 +2,7 @@ import React, { useMemo, PropsWithoutRef, RefAttributes } from 'react';
 import { useFocusRing } from '@react-aria/focus';
 import { useButton } from '@react-aria/button';
 import { useHover } from '@react-aria/interactions';
-import {
-  FocusableRef,
-  PressEvents,
-  PressEvent,
-  FocusableProps
-} from '@react-types/shared';
+import { PressEvents, PressEvent, FocusableProps } from '@react-types/shared';
 import { AriaButtonProps } from '@react-types/button';
 import { mergeProps } from '@react-aria/utils';
 
@@ -23,7 +18,7 @@ import clsx from '../utils/clsx';
 import useDrip from '../use-drip';
 import StyledButton, { ButtonVariantsProps } from './button.styles';
 import withDefaults from '../utils/with-defaults';
-import { useFocusableRef } from '../utils/dom';
+import { useDOMRef } from '../utils/dom';
 import { __DEV__ } from '../utils/assertion';
 
 export interface Props extends PressEvents, FocusableProps, AriaButtonProps {
@@ -110,8 +105,7 @@ const Button = React.forwardRef(
       onPress?.(e);
     };
 
-    // TODO: Improve types for refs
-    const buttonRef = useFocusableRef(ref as FocusableRef<HTMLElement>);
+    const buttonRef = useDOMRef(ref);
     const { buttonProps, isPressed } = useButton(
       {
         ...btnProps,

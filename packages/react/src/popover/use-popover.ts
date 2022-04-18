@@ -2,7 +2,6 @@ import { useRef, useMemo, useState, useCallback } from 'react';
 import { OverlayTriggerProps } from '@react-types/overlays';
 import { useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
 import { useOverlayTriggerState } from '@react-stately/overlays';
-import { useButton } from '@react-aria/button';
 import { mergeRefs } from '../utils/refs';
 import { PopoverPlacement, getAriaPlacement } from './utils';
 
@@ -99,23 +98,15 @@ export function usePopover(props: UsePopoverProps = {}) {
     offset
   });
 
-  const { buttonProps: buttonTriggerProps } = useButton(
-    {
-      onPress: () => state.open()
-    },
-    triggerRef
-  );
-
   const getTriggerProps = useCallback(
     (props = {}, _ref = null) => {
       return {
         ...props,
-        ...buttonTriggerProps,
         ...triggerProps,
         ref: mergeRefs(triggerRef, _ref)
       };
     },
-    [triggerRef, triggerProps, buttonTriggerProps]
+    [triggerRef, triggerProps]
   );
 
   const getPopoverProps = useCallback(
@@ -135,6 +126,7 @@ export function usePopover(props: UsePopoverProps = {}) {
     state,
     exited,
     overlayRef,
+    triggerRef,
     placement,
     disableAnimation,
     shouldCloseOnBlur,

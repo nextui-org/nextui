@@ -246,7 +246,7 @@ export const defaultMedia = {
   mdMax: `(max-width: ${defaultTokens.breakpoints.md})`,
   lgMax: `(max-width: ${defaultTokens.breakpoints.lg})`,
   xlMax: `(max-width: ${defaultTokens.breakpoints.xl})`,
-  motion: '(prefers-reduced-motion: no-preference)',
+  motion: '(prefers-reduced-motion: reduce)',
   safari: 'not all and (min-resolution:.001dpcm)',
   hover: '(any-hover: hover)',
   dark: '(prefers-color-scheme: dark)',

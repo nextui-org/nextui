@@ -1,5 +1,9 @@
 import * as React from 'react';
+import { useButton } from '@react-aria/button';
+import { mergeProps } from '@react-aria/utils';
 import { usePopoverContext } from './popover-context';
+import { pickChild } from '../utils/collections';
+import { Button } from '../index';
 import { __DEV__ } from '../utils/assertion';
 
 /**
@@ -7,10 +11,30 @@ import { __DEV__ } from '../utils/assertion';
  * such as `button` or `a`.
  */
 export const PopoverTrigger = (props: React.PropsWithChildren<{}>) => {
+  const { state, triggerRef, getTriggerProps } = usePopoverContext();
+
+  const onPress = () => state.open();
+
+  const { buttonProps } = useButton(
+    {
+      onPress
+    },
+    triggerRef
+  );
   // enforce a single child
   const child: any = React.Children.only(props.children);
-  const { getTriggerProps } = usePopoverContext();
-  return React.cloneElement(child, getTriggerProps(child.props, child.ref));
+
+  // validates if contains a NextUI Button as a child
+  const [, triggerChildren] = pickChild(props.children, Button);
+  const hasNextUIButton = triggerChildren?.[0] !== undefined;
+
+  return React.cloneElement(
+    child,
+    getTriggerProps(
+      mergeProps(child.props, hasNextUIButton ? { onPress } : buttonProps),
+      child.ref
+    )
+  );
 };
 
 if (__DEV__) {

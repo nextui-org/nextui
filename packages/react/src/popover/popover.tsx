@@ -7,7 +7,7 @@ import { usePopover, UsePopoverProps } from './use-popover';
 import { PopoverProvider } from './popover-context';
 import { PopoverTrigger } from './popover-trigger';
 
-interface PopoverProps extends UsePopoverProps {
+export interface PopoverProps extends UsePopoverProps {
   /**
    * The content of the popover. It is usually the `Popover.Trigger`,
    * and `Popover.Content`
