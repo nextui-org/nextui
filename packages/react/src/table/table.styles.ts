@@ -111,6 +111,7 @@ export const StyledTableCell = styled(
     position: 'relative',
     userSelect: 'none',
     py: '$5',
+    pr: '$5',
     zIndex: '$2',
     ov: 'hidden',
     whiteSpace: 'nowrap',
@@ -572,7 +573,8 @@ export const StyledTableContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   br: '$xl',
-  overflowX: 'scroll',
+  overflowX: 'auto',
+  overflowY: 'hidden',
   variants: {
     shadow: {
       true: {
