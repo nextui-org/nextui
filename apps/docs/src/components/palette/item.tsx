@@ -128,6 +128,4 @@ const Item: React.FC<ItemProps> = ({
   );
 };
 
-const MemoItem = React.memo(Item);
-
-export default MemoItem;
+export default Item;

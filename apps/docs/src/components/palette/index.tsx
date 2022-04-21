@@ -1,5 +1,5 @@
-import React from 'react';
-import { Grid, Text, getTokenValue } from '@nextui-org/react';
+import React, { useMemo } from 'react';
+import { Grid, Text, getTokenValue, useTheme } from '@nextui-org/react';
 import { toNumber } from 'lodash';
 import Item from './item';
 
@@ -72,13 +72,20 @@ const mapMatrixColors = (colors: string[][]): MappedColor[] => {
 };
 
 const Palette: React.FC<Props> = ({ colors }) => {
+  const { isDark } = useTheme();
+
   const isMatrix = Array.isArray(colors[0]);
 
+  const mappedColors = useMemo(() => {
+    return isMatrix
+      ? mapMatrixColors(colors as string[][])
+      : mapColors(colors as string[]);
+  }, [isMatrix, colors, isDark]);
+
   if (isMatrix) {
-    const colorsMatrix = mapMatrixColors(colors as string[][]);
     return (
       <>
-        {colorsMatrix.map((row: MappedColor, i: number) => (
+        {mappedColors.map((row: any, i: number) => (
           <Grid.Container
             key={i}
             wrap="wrap"
@@ -106,8 +113,6 @@ const Palette: React.FC<Props> = ({ colors }) => {
     );
   }
 
-  const mappedColors = mapColors(colors as string[]);
-
   return (
     <Grid.Container
       className="palette"
@@ -115,7 +120,7 @@ const Palette: React.FC<Props> = ({ colors }) => {
         marginBottom: '$sm'
       }}
     >
-      {mappedColors?.map((color: Color, i) => {
+      {mappedColors?.map((color: any, i) => {
         return (
           <Item
             key={i}
