@@ -73,7 +73,7 @@ const TableColumnHeader = React.forwardRef<
   );
 });
 
-TableColumnHeader.displayName = 'NextUI - TableColumnHeader';
+TableColumnHeader.displayName = 'NextUI.TableColumnHeader';
 
 TableColumnHeader.toString = () => '.nextui-table-column-header';
 

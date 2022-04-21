@@ -1,48 +1,9 @@
+import { styled, VariantProps, sharedFocus } from '../theme/stitches.config';
 import {
-  styled,
-  VariantProps,
-  sharedFocus,
-  keyframes
-} from '../theme/stitches.config';
-
-const reboundAnimation = keyframes({
-  '0%': {
-    transform: 'scale(0.95)'
-  },
-  '40%': {
-    transform: 'scale(1.02)'
-  },
-  '80%': {
-    transform: 'scale(0.98)'
-  },
-  '100%': {
-    transform: 'scale(1)'
-  }
-});
-const appearanceIn = keyframes({
-  '0%': {
-    opacity: 0,
-    transform: 'scale(0.95)'
-  },
-  '60%': {
-    opacity: 0.75,
-    transform: 'scale(1.02)'
-  },
-  '100%': {
-    opacity: 1,
-    transform: 'scale(1)'
-  }
-});
-const appearanceOut = keyframes({
-  '0%': {
-    opacity: 1,
-    transform: 'scale(1)'
-  },
-  '100%': {
-    opacity: 0,
-    transform: 'scale(0.95)'
-  }
-});
+  reboundAnimation,
+  appearanceIn,
+  appearanceOut
+} from '../utils/animations';
 
 export const StyledModalHideTab = styled('div', {
   outline: 'none',
@@ -187,8 +148,13 @@ export const StyledModal = styled('section', {
   color: '$foreground',
   br: '$lg',
   boxShadow: '$lg',
-  bg: '$background',
+  bg: '$backgroundContrast',
   animationFillMode: 'forwards',
+
+  '@motion': {
+    transition: 'none'
+  },
+
   '&.nextui-modal-wrapper-enter:not(.nextui-modal-rendered)': {
     animationName: appearanceIn,
     animationDuration: '200ms',
@@ -228,11 +194,6 @@ export const StyledModal = styled('section', {
             size: '$10'
           }
         }
-      }
-    },
-    isDark: {
-      true: {
-        bg: '$accents1'
       }
     }
   },

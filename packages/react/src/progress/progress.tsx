@@ -111,7 +111,7 @@ const Progress: React.FC<ProgressProps> = ({
 };
 
 if (__DEV__) {
-  Progress.displayName = 'NextUI - Progress';
+  Progress.displayName = 'NextUI.Progress';
 }
 
 Progress.toString = () => '.nextui-progress';

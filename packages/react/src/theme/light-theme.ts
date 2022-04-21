@@ -1,5 +1,6 @@
 export default {
   colors: {
+    // accents
     accents1: '$gray100',
     accents2: '$gray200',
     accents3: '$gray300',
@@ -9,9 +10,14 @@ export default {
     accents7: '$gray700',
     accents8: '$gray800',
     accents9: '$gray900',
-    text: '$gray800',
+
+    // background colors
     background: '$white',
     foreground: '$black',
+    backgroundContrast: '$white',
+
+    // misc
+    text: '$gray800',
     codeLight: '$pink100',
     code: '$pink600',
     border: '$gray200',

@@ -17,10 +17,10 @@ class MyDocument extends Document {
     return {
       ...initialProps,
       styles: (
-        <>
+        <React.Fragment>
           {initialProps.styles}
           {styledJSXStyles}
-        </>
+        </React.Fragment>
       )
     };
   }

@@ -31,7 +31,7 @@ const Link = React.forwardRef<React.ElementRef<typeof StyledLink>, LinkProps>(
 );
 
 if (__DEV__) {
-  Link.displayName = 'NextUI - Link';
+  Link.displayName = 'NextUI.Link';
 }
 
 Link.toString = () => '.nextui-link';

@@ -51,7 +51,7 @@ const TableHeaderRow = React.forwardRef<
   }
 );
 
-TableHeaderRow.displayName = 'NextUI - TableHeaderRow';
+TableHeaderRow.displayName = 'NextUI.TableHeaderRow';
 
 TableHeaderRow.toString = () => '.nextui-table-header-row';
 

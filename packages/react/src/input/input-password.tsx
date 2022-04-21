@@ -65,7 +65,7 @@ const InputPassword = React.forwardRef<
   }
 );
 if (__DEV__) {
-  InputPassword.displayName = 'NextUI - Input Password';
+  InputPassword.displayName = 'NextUI.InputPassword';
 }
 
 InputPassword.toString = () => '.nextui-input-password';

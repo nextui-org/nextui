@@ -71,7 +71,7 @@ const TableCheckboxCell = React.forwardRef<
   }
 );
 
-TableCheckboxCell.displayName = 'NextUI - TableCheckboxCell';
+TableCheckboxCell.displayName = 'NextUI.TableCheckboxCell';
 
 TableCheckboxCell.toString = () => '.nextui-table-checkbox-cell';
 

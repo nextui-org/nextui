@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, useState, useMemo, useEffect } from 'react';
 import { SSRProvider } from '@react-aria/ssr';
+import { OverlayProvider } from '@react-aria/overlays';
 import CssBaseline from '../css-baseline';
 import ThemeContext, { defaultContext } from './theme-context';
 import withDefaults from '../utils/with-defaults';
@@ -98,10 +99,12 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
 
   return (
     <SSRProvider>
-      <ThemeContext.Provider value={providerValue}>
-        {!disableBaseline && <CssBaseline />}
-        {children}
-      </ThemeContext.Provider>
+      <OverlayProvider>
+        <ThemeContext.Provider value={providerValue}>
+          {!disableBaseline && <CssBaseline />}
+          {children}
+        </ThemeContext.Provider>
+      </OverlayProvider>
     </SSRProvider>
   );
 };

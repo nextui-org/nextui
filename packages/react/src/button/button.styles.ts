@@ -13,7 +13,7 @@ export const StyledButton = styled(
     $$buttonPressedScale: 0.97,
     dflex: 'center',
     appearance: 'none',
-    boxSizing: ' border-box',
+    boxSizing: 'border-box',
     fontWeight: '$medium',
     us: 'none',
     lineHeight: '$sm',

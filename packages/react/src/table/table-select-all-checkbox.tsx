@@ -81,7 +81,7 @@ const TableSelectAllCheckbox = React.forwardRef<
   }
 );
 
-TableSelectAllCheckbox.displayName = 'NextUI - TableSelectAllCheckbox';
+TableSelectAllCheckbox.displayName = 'NextUI.TableSelectAllCheckbox';
 
 TableSelectAllCheckbox.toString = () => '.nextui-table-select-all-checkbox';
 

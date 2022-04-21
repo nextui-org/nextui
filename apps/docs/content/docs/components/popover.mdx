@@ -1,0 +1,146 @@
+---
+title: 'Popover'
+description: "Popover is a non-modal dialog that floats around its disclosure. It's commonly used for displaying additional rich content on top of something."
+url: https://nextui.org/docs/components/tooltip
+---
+
+# Popover
+
+Popover is a **non-modal** dialog that floats around its disclosure. It's commonly used for displaying additional rich content on top of something. Popover implementation is based on [@react-aria/overlays](https://react-spectrum.adobe.com/react-aria/useOverlay.html).
+
+```jsx
+import { Popover } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+#### Anatomy
+
+- **Popover**: The wrapper that provides props, state, and context to its children.
+- **Popover.Trigger**: Used to wrap the reference (or trigger) element.
+- **Popover.Content**: The content that is displayed when the trigger is clicked.
+
+<Spacer y={2} />
+
+<Playground
+  title="Default"
+  desc="Shows how to build a typical popover overlay that is positioned relative to a trigger button."
+  files={popoverContent.defaultPopover}
+/>
+
+> The Popover can be closed by clicking or interacting outside the popover, or by pressing the <kbd>Escape</kbd> key. When the popover is closed, focus is restored back to its trigger button.
+
+<Playground
+  title="Placements"
+  highlightedLines="23"
+  desc="Positions the popover relative to the trigger button. The position is automatically adjusted when the `Popover` is likely to be offscreen or when the window is resized."
+  files={popoverContent.placements}
+/>
+
+> The Popover is automatically hidden when the user scroll the page.
+
+<Playground
+  title="Controlled vs Uncontrolled"
+  desc="The `defaultOpen` prop can be used to set the default state (uncontrolled). Alternatively, the `isOpen` prop can be used to make the selected state controlled."
+  files={popoverContent.controlledVsUncontrolled}
+/>
+
+> Note: See React's documentation on [uncontrolled components](https://reactjs.org/docs/uncontrolled-components.html) for more info.
+
+<Playground
+  title="Custom Content"
+  desc="The `Popover.Content` can be used to render any component you want. Ensure the children passed to `Popover.Trigger` is focusable. Users can tab to it using their keyboard, and it can take a `ref`. It is critical for accessiblity."
+  files={popoverContent.customContent}
+/>
+
+> **A11y**: When Popover opens, focus is sent to PopoverContent. When it closes, focus is returned to the trigger.
+
+<Playground
+  title="Disable animation"
+  highlightedLines="5"
+  desc="Disables the animation of the popover when it is opened or closed."
+  files={popoverContent.disableAnimation}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Popover Props
+
+| Attribute                     | Type                                   | Description                                                                                                  | Default  |
+| ----------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------- |
+| **children**                  | `ReactNode`                            | The content of the popover. It's usually the `Popover.Trigger` and `Popover.Content`.                        | -        |
+| **placement**                 | [PopoverPlacement](#popover-placement) | The placement of the popover relative to its trigger reference.                                              | `bottom` |
+| **triggerType**               | [PopoverPlacement](#popover-placement) | Type of overlay that is opened by the trigger.                                                               | `dialog` |
+| **shouldFlip**                | `boolean`                              | Whether the popover should change its placement and flip when it's about to overflow its boundary area.      | `true`   |
+| **offset(px)**                | `number`                               | The distance or margin between the reference and popper. It is used internally to create an offset modifier. | `12`     |
+| **isOpen**                    | `boolean`                              | Whether the overlay is open by default (controlled).                                                         | -        |
+| **defaultOpen**               | `boolean`                              | Whether the overlay is open by default (uncontrolled).                                                       | -        |
+| **isDismissable**             | `boolean`                              | Whether to close the overlay when the user interacts outside it.                                             | `true`   |
+| **isKeyboardDismissDisabled** | `boolean`                              | Whether pressing the escape key to close the overlay should be disabled.                                     | `false`  |
+| **shouldCloseOnBlur**         | `boolean`                              | Whether the overlay should close when focus is lost or moves outside it.                                     | `false`  |
+| **disableAnimation**          | `boolean`                              | Whether the popover is animated.                                                                             | `false`  |
+
+<Spacer y={1} />
+
+#### Popover Events
+
+| Attribute                        | Type                                                                                               | Description                                                                                                                                                                                                                                                                                               | Default |
+| -------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **onOpenChange**                 | `(isOpen: boolean) => void`                                                                        | Handler that is called when the overlay's open state changes.                                                                                                                                                                                                                                             | -       |
+| **onClose**                      | `() => void`                                                                                       | Handler that is called when the overlay should close.                                                                                                                                                                                                                                                     | -       |
+| **shouldCloseOnInteractOutside** | <Code>(e: [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)) => void</Code> | When user interacts with the argument element outside of the overlay ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the overlay. By default, onClose will always be called on interaction outside the overlay ref. | -       |
+
+<Spacer y={2} />
+
+#### Popover.Trigger Props
+
+| Attribute      | Type        | Description                                                                                                                                                               | Default |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **children\*** | `ReactNode` | The popover trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessiblity. | -       |
+
+<Spacer y={2} />
+
+#### Popover.Content Props
+
+| Attribute    | Type                          | Description                                                | Default |
+| ------------ | ----------------------------- | ---------------------------------------------------------- | ------- |
+| **children** | `ReactNode`                   | The content that is displayed when the trigger is clicked. | -       |
+| **css**      | `Stitches.CSS`                | Override Default CSS style.                                | -       |
+| **as**       | `keyof JSX.IntrinsicElements` | Changes which tag component outputs.                       | `div`   |
+| ...          | `HTMLDivElement`              | Native element props.                                      | -       |
+
+<Spacer y={2} />
+
+### Popover types
+
+<Spacer y={1} />
+
+#### Popover Placement
+
+```ts
+type PopoverPlacement =
+  | 'bottom'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'top'
+  | 'top-left'
+  | 'top-right'
+  | 'left'
+  | 'left-top'
+  | 'left-bottom'
+  | 'right'
+  | 'right-top'
+  | 'right-bottom';
+```
+
+#### Trigger Type
+
+```ts
+type TriggerType = 'dialog' | 'menu' | 'listbox' | 'tree' | 'grid';
+```

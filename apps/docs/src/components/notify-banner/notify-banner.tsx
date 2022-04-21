@@ -5,7 +5,15 @@ import { Text, Spacer } from '@nextui-org/react';
 import { ChevronRight } from '@components';
 import { StyledNotifyBanner, StyledContent, StyledImg } from './styles';
 
-const NotifyBanner = () => {
+interface Props {
+  text: string;
+  href?: string;
+  showBadge?: boolean;
+}
+
+const NotifyBanner: React.FC<Props> = (props) => {
+  const { showBadge = true, text, href = '#' } = props;
+
   return (
     <StyledNotifyBanner>
       <StyledImg
@@ -19,17 +27,19 @@ const NotifyBanner = () => {
           left: '0%'
         }}
       />
-      <Badge>
-        <span role="img" aria-label="notify-emoji">
-          🚀
-        </span>
-        &nbsp;&nbsp;New
-      </Badge>
-      <NextLink href="/docs/components/table">
+      {showBadge && (
+        <Badge>
+          <span role="img" aria-label="notify-emoji">
+            🚀
+          </span>
+          &nbsp;&nbsp;New
+        </Badge>
+      )}
+      <NextLink href={href}>
         <StyledContent>
           <Spacer x={0.2} />
           <Text b size={15} css={{ color: 'currentColor' }}>
-            Table component
+            {text}
           </Text>
           <Spacer x={0.2} />
           <ChevronRight

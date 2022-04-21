@@ -1,10 +1,9 @@
 import {
-  DOMRef,
   DOMRefValue,
   FocusableRef,
   FocusableRefValue
 } from '@react-types/shared';
-import { RefObject, useImperativeHandle, useRef } from 'react';
+import { Ref, RefObject, useImperativeHandle, useRef } from 'react';
 
 export function canUseDOM(): boolean {
   return !!(
@@ -125,10 +124,10 @@ export function createFocusableRef<T extends HTMLElement = HTMLElement>(
 }
 
 export function useDOMRef<T extends HTMLElement = HTMLElement>(
-  ref: DOMRef<T>
-): RefObject<T> {
+  ref: RefObject<T | null> | Ref<T | null>
+) {
   const domRef = useRef<T>(null);
-  useImperativeHandle(ref, () => createDOMRef(domRef));
+  useImperativeHandle(ref, () => domRef.current);
   return domRef;
 }
 
@@ -139,4 +138,14 @@ export function useFocusableRef<T extends HTMLElement = HTMLElement>(
   const domRef = useRef<T>(null);
   useImperativeHandle(ref, () => createFocusableRef(domRef, focusableRef));
   return domRef;
+}
+
+export function unwrapDOMRef<T extends HTMLElement>(
+  ref: RefObject<DOMRefValue<T>>
+): RefObject<T> {
+  return {
+    get current() {
+      return ref.current && ref.current.UNSAFE_getDOMNode();
+    }
+  };
 }

@@ -49,7 +49,7 @@ export const StyledCard = styled('div', {
   variants: {
     color: {
       default: {
-        $$cardColor: '$colors$background',
+        $$cardColor: '$colors$backgroundContrast',
         bg: '$$cardColor'
       },
       primary: {
@@ -163,41 +163,9 @@ export const StyledCard = styled('div', {
           bbrr: '0 !important'
         }
       }
-    },
-    isDark: {
-      true: {}
     }
   },
   compoundVariants: [
-    // isDark && color === 'default'
-    {
-      color: 'default',
-      isDark: true,
-      css: {
-        $$cardColor: '$colors$accents1'
-      }
-    },
-
-    // color default && shadow && !isDark
-    {
-      color: 'default',
-      shadow: true,
-      isDark: false,
-      css: {
-        $$cardColor: '$colors$background',
-        bg: '$$cardColor'
-      }
-    },
-    // color default && shadow && isDark
-    {
-      color: 'default',
-      shadow: true,
-      isDark: true,
-      css: {
-        $$cardColor: '$colors$accents1',
-        bg: '$$cardColor'
-      }
-    },
     // clickable && animated
     {
       clickable: true,

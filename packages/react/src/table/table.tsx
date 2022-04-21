@@ -220,7 +220,7 @@ type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Pagination: typeof TablePagination;
 };
 
-Table.displayName = 'NextUI - Table';
+Table.displayName = 'NextUI.Table';
 Table.toString = () => '.nextui-table';
 
 export default withDefaults(Table, defaultProps) as TableComponent<

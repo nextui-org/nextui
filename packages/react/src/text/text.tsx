@@ -1,9 +1,13 @@
 import React, { ReactNode, useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import { SimpleColors, TextTransforms } from '../utils/prop-types';
+import { ReactRef } from '../utils/refs';
+import { useDOMRef } from '../utils/dom';
+import { __DEV__ } from '../utils/assertion';
 import TextChild, { TextChildProps } from './child';
 
 interface Props {
+  children?: ReactNode;
   h1?: boolean;
   h2?: boolean;
   h3?: boolean;
@@ -67,70 +71,86 @@ const getModifierChild = (
   );
 };
 
-const Text: React.FC<React.PropsWithChildren<TextProps>> = ({
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  b,
-  small,
-  i,
-  span,
-  del,
-  em,
-  blockquote,
-  transform,
-  size,
-  margin,
-  children,
-  ...props
-}) => {
-  const elements: ElementMap = { h1, h2, h3, h4, h5, h6, blockquote };
-  const inlineElements: ElementMap = { span, small, b, em, i, del };
-  const names = Object.keys(elements).filter(
-    (name: keyof JSX.IntrinsicElements) => elements[name]
-  ) as TextRenderableElements;
-  const inlineNames = Object.keys(inlineElements).filter(
-    (name: keyof JSX.IntrinsicElements) => inlineElements[name]
-  ) as TextRenderableElements;
-  /**
-   *  Render element "p" only if no element is found.
-   *  If there is only one modifier, just rendered one modifier element
-   *  e.g.
-   *    <Text /> => <p />
-   *    <Text em /> => <em />
-   *    <Text b em /> => <b><em>children</em></b>
-   */
+export const Text = React.forwardRef(
+  (props: TextProps, ref: ReactRef<HTMLElement>) => {
+    const {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      b,
+      small,
+      i,
+      span,
+      del,
+      em,
+      blockquote,
+      transform,
+      size,
+      margin,
+      children,
+      ...otherProps
+    } = props;
 
-  const tag = useMemo(() => {
-    if (names[0]) return names[0];
-    if (inlineNames[0]) return inlineNames[0];
-    return 'p' as keyof JSX.IntrinsicElements;
-  }, [names, inlineNames]);
+    const domRef = useDOMRef(ref);
 
-  const renderableChildElements = inlineNames.filter(
-    (name: keyof JSX.IntrinsicElements) => name !== tag
-  ) as TextRenderableElements;
+    const elements: ElementMap = { h1, h2, h3, h4, h5, h6, blockquote };
+    const inlineElements: ElementMap = { span, small, b, em, i, del };
+    const names = Object.keys(elements).filter(
+      (name: keyof JSX.IntrinsicElements) => elements[name]
+    ) as TextRenderableElements;
+    const inlineNames = Object.keys(inlineElements).filter(
+      (name: keyof JSX.IntrinsicElements) => inlineElements[name]
+    ) as TextRenderableElements;
+    /**
+     *  Render element "p" only if no element is found.
+     *  If there is only one modifier, just rendered one modifier element
+     *  e.g.
+     *    <Text /> => <p />
+     *    <Text em /> => <em />
+     *    <Text b em /> => <b><em>children</em></b>
+     */
 
-  const modifers = useMemo(() => {
-    if (!renderableChildElements.length) return children;
-    return getModifierChild(renderableChildElements, children, size, transform);
-  }, [renderableChildElements, children, size, transform]);
+    const tag = useMemo(() => {
+      if (names[0]) return names[0];
+      if (inlineNames[0]) return inlineNames[0];
+      return 'p' as keyof JSX.IntrinsicElements;
+    }, [names, inlineNames]);
 
-  return (
-    <TextChild
-      transform={transform}
-      tag={tag}
-      margin={margin}
-      size={size}
-      {...props}
-    >
-      {modifers}
-    </TextChild>
-  );
-};
+    const renderableChildElements = inlineNames.filter(
+      (name: keyof JSX.IntrinsicElements) => name !== tag
+    ) as TextRenderableElements;
+
+    const modifers = useMemo(() => {
+      if (!renderableChildElements.length) return children;
+      return getModifierChild(
+        renderableChildElements,
+        children,
+        size,
+        transform
+      );
+    }, [renderableChildElements, children, size, transform]);
+
+    return (
+      <TextChild
+        ref={domRef}
+        transform={transform}
+        tag={tag}
+        margin={margin}
+        size={size}
+        {...otherProps}
+      >
+        {modifers}
+      </TextChild>
+    );
+  }
+);
+
+if (__DEV__) {
+  Text.displayName = 'NextUI.Text';
+}
 
 Text.toString = () => '.nextui-text';
 

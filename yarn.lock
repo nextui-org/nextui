@@ -3732,18 +3732,18 @@
     "@react-stately/toggle" "^3.2.4"
     "@react-types/checkbox" "^3.2.4"
 
-"@react-aria/focus@3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.5.1.tgz#b3d0cd5877c844db7f6fb28ba3eec1516dc3b123"
-  integrity sha512-8TTlxekumLxFZo0GELVUDCv6olQTMlGtobeGNaf0MVoonGz5oukjjPa3DB+PZRxMduTotRlniqpejnZi4fzMDw==
+"@react-aria/dialog@3.1.8":
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/@react-aria/dialog/-/dialog-3.1.8.tgz#3461fc16ff3b9869a9535b403dbcab36d0a6ac51"
+  integrity sha512-jWoApTZc1QSkfu3B/9H5Zj2DNnSG71PjC6cFrGwo2Eir1jQ0u9OjIpqeSqVtHoNFTqR0av0SyqhJsZx1dpjeVw==
   dependencies:
     "@babel/runtime" "^7.6.2"
-    "@react-aria/interactions" "^3.8.0"
-    "@react-aria/utils" "^3.11.1"
-    "@react-types/shared" "^3.11.0"
-    clsx "^1.1.1"
+    "@react-aria/focus" "^3.5.4"
+    "@react-aria/utils" "^3.11.3"
+    "@react-stately/overlays" "^3.1.6"
+    "@react-types/dialog" "^3.3.4"
 
-"@react-aria/focus@^3.5.1", "@react-aria/focus@^3.5.4":
+"@react-aria/focus@3.5.4", "@react-aria/focus@^3.5.1", "@react-aria/focus@^3.5.4":
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.5.4.tgz#8eb8234bae15421eb6d7926f656b291cee6e19a2"
   integrity sha512-N70J6boUPUKjBfGnYDwUXi1r0HKjvo7RmD381QbDBqZNy/j5v/pgQ+aauSuIlsHa/TmmiRuynIm4Q0sWN4/hbQ==
@@ -3845,6 +3845,22 @@
     "@babel/runtime" "^7.6.2"
     "@react-aria/utils" "^3.11.3"
     "@react-aria/visually-hidden" "^3.2.7"
+
+"@react-aria/overlays@3.8.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/overlays/-/overlays-3.8.1.tgz#7fc33eb56d9d5c12f20fd7fc8ac918acfa1cb671"
+  integrity sha512-6r86wO7DlcYXOwufzxuYWkh/lwgwpKYAhKHL8z8DcErX7mbauoeh2Z3wX+6a27rSrkqRksmsWYJR3nsg55u1DA==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.3.8"
+    "@react-aria/interactions" "^3.8.3"
+    "@react-aria/utils" "^3.11.3"
+    "@react-aria/visually-hidden" "^3.2.7"
+    "@react-stately/overlays" "^3.1.6"
+    "@react-types/button" "^3.4.4"
+    "@react-types/overlays" "^3.5.4"
+    "@react-types/shared" "^3.11.2"
+    dom-helpers "^3.3.1"
 
 "@react-aria/selection@^3.7.2", "@react-aria/selection@^3.8.1":
   version "3.8.1"
@@ -4010,6 +4026,15 @@
     "@react-types/grid" "^3.0.3"
     "@react-types/shared" "^3.11.2"
 
+"@react-stately/overlays@3.1.6", "@react-stately/overlays@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@react-stately/overlays/-/overlays-3.1.6.tgz#ffcdea406ded6f6a541986118fb2f8d02fcf1303"
+  integrity sha512-0iOdRqYjhTj8966lO9xN8+9IXXJ1Ngv2hCF2imPa40Jl1BXLBogLPblCq3HEQPcPsa+0pU3+xoaIb0MWdIkY9w==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/overlays" "^3.5.4"
+
 "@react-stately/selection@^3.9.1", "@react-stately/selection@^3.9.3":
   version "3.9.3"
   resolved "https://registry.yarnpkg.com/@react-stately/selection/-/selection-3.9.3.tgz#e40cadb8a248be189b919f256e55665d69219629"
@@ -4105,6 +4130,14 @@
   dependencies:
     "@react-types/shared" "^3.11.2"
 
+"@react-types/dialog@^3.3.4":
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/@react-types/dialog/-/dialog-3.3.4.tgz#bde08cc8f37c2c8bdfa17630e19c47f311a6c649"
+  integrity sha512-BSJuGdoblrf4N47TfH5U7R6HbBzG2qNbq0PA2Wwu+OD/oczQXFgrsYfM5AhPReEoVtr+ISstGVk+SpMnZbl/MA==
+  dependencies:
+    "@react-types/overlays" "^3.5.4"
+    "@react-types/shared" "^3.11.2"
+
 "@react-types/grid@3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@react-types/grid/-/grid-3.0.1.tgz#49979b5f5721a6eb268beba4a87c463d7a92d9cc"
@@ -4123,6 +4156,13 @@
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/@react-types/label/-/label-3.5.3.tgz#46c071abbc78a1678c796663b29166bc65d7b486"
   integrity sha512-YleKhsN2j17tQx2B8W6Hq8bVzIY/Q5b5YS/8oyey4WfsbIZXWJNXFH8DgQ4hVUxxAplwsRnxOmtiBYLWFMeXQg==
+  dependencies:
+    "@react-types/shared" "^3.11.2"
+
+"@react-types/overlays@3.5.4", "@react-types/overlays@^3.5.4":
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/@react-types/overlays/-/overlays-3.5.4.tgz#7bb52b738ae2d088a38563621e6ea65a173de6be"
+  integrity sha512-lofEJS+ng9ydgHwztftTGIOaiuOni1zPTSZHmxPqlOrC+VQIdvdHUKF+3IOR1d6CbYA65a80oXO5sbMwij2Z/w==
   dependencies:
     "@react-types/shared" "^3.11.2"
 
@@ -8826,6 +8866,13 @@ dom-converter@^0.2.0:
   integrity sha512-gd3ypIPfOMr9h5jIKq8E3sHOTCjeirnl0WK5ZdS1AW0Odt0b1PaWaHdJ4Qk4klv+YB9aJBS7mESXjFoDQPu6DA==
   dependencies:
     utila "~0.4"
+
+dom-helpers@^3.3.1:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.4.0.tgz#e9b369700f959f62ecde5a6babde4bccd9169af8"
+  integrity sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
 
 dom-iterator@^1.0.0:
   version "1.0.0"
