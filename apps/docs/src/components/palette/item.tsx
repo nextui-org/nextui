@@ -38,7 +38,7 @@ const Item: React.FC<ItemProps> = ({
         })}
         css={{
           size: '100px',
-          px: '$4',
+          px: '$5',
           dflex: 'center',
           marginBottom: '20px',
           flexDirection: 'column',
@@ -67,7 +67,6 @@ const Item: React.FC<ItemProps> = ({
             css={{
               m: 0,
               fontWeight: '$semibold',
-              tt: 'capitalize',
               color: textColor,
               '@smMax': {
                 fontSize: '$xs'
@@ -82,7 +81,6 @@ const Item: React.FC<ItemProps> = ({
               className="text"
               css={{
                 m: 0,
-                tt: 'capitalize',
                 fontWeight: '$semibold',
                 color: textColor,
                 '@smMax': {
