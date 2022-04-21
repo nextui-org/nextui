@@ -70,7 +70,6 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
           position: relative;
           list-style-type: none;
           margin-bottom: 0;
-          transition: all 0.25s ease;
         }
         .list-item a {
           font-size: 0.8rem;
@@ -91,7 +90,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
           border-radius: 10px;
           background: ${theme?.colors?.foreground?.value};
           transform: translateY(-50%);
-          transition: all 0.25s ease;
+          transition: opacity 0.25s ease;
         }
         .list-item.active:after {
           opacity: 1;

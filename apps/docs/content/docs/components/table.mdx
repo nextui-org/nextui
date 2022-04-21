@@ -18,6 +18,17 @@ import { Table } from '@nextui-org/react';
 
 <Spacer y={2} />
 
+#### Anatomy
+
+- **Table**: The wrapper that provides props, state, and context to its children.
+- **Table.Header**: The header of the table and wrapper for the table's header columns.
+- **Table.Column**: Table columns headers act as a label for all of the cells in that column, and can optionally support user interaction to sort by the column and change the sort order.
+- **Table.Body**: The body of the table and wrapper for the table's rows. Table body can be configured to display a loading indicator while data is being fetched.
+- **Table.Row**: Table rows can be navigated to using the arrow keys. Table rows support selection via mouse, touch, or keyboard. Clicking, tapping, or pressing the <kbd>Space</kbd> key anywhere in the row selects it.
+- **Table.Pagination**: Table pagination is used to navigate between pages of data.
+
+<Spacer y={2} />
+
 <Playground
   title="Static"
   desc="A simple example with static `rows` and `columns`, `cells` can also be statically defined as children."
@@ -167,7 +178,7 @@ import { Table } from '@nextui-org/react';
 | **lineWeight**                    | [NormalWeights](#normal-weights)                                     | Header border weight for `headerLined` table                                                                                                                                                   | `normal`  |
 | **borderWeight**                  | [NormalWeights](#normal-weights)                                     | Table border weight for `bordered` table                                                                                                                                                       | `normal`  |
 | **hideLoading**                   | `boolean`                                                            | Hide loading component on infinity pagination                                                                                                                                                  | `false`   |
-| **animated**                      | `boolean`                                                            | Display animated checkboxes, rows and sortable columns                                                                                                                                          | `true`    |
+| **animated**                      | `boolean`                                                            | Display animated checkboxes, rows and sortable columns                                                                                                                                         | `true`    |
 | **selectionMode**                 | [SelectionMode](#selection-mode)                                     | The type of selection that is allowed in the collection.                                                                                                                                       | `none`    |
 | **selectionBehavior**             | [SelectionBehavior](#selection-behavior)                             | How multiple selection should behave in the collection. Go to the [@react-aria/table](https://react-spectrum.adobe.com/react-aria/useTable.html#selection-behavior) docs for more information. | `toggle`  |
 | **allowDuplicateSelectionEvents** | `boolean`                                                            | Whether `onSelectionChange` should fire even if the new set of keys is the same as the last.                                                                                                   | -         |

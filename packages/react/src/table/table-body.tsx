@@ -166,7 +166,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
   );
 };
 
-TableBody.displayName = 'NextUI - TableBody';
+TableBody.displayName = 'NextUI.TableBody';
 
 TableBody.toString = () => '.nextui-table-body';
 

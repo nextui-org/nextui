@@ -143,3 +143,6 @@ export { default as Textarea } from './textarea';
 
 export { default as Table } from './table';
 export * from './table';
+
+export { default as Popover } from './popover';
+export * from './popover';

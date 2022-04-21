@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, render, shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import Avatar from '../index';
 
 describe('AvatarGroup', () => {
@@ -31,13 +32,16 @@ describe('AvatarGroup', () => {
   });
 
   it('group component should render all children', () => {
-    const group = mount(
+    const group = render(
       <Avatar.Group>
-        <Avatar text="1" />
-        <Avatar text="2" />
+        <Avatar data-testid="avatar-test" text="1" />
+        <Avatar data-testid="avatar-test" text="2" />
       </Avatar.Group>
     );
-    expect(group.find('Avatar')).toHaveLength(2);
+
+    const avatars = group.getAllByTestId('avatar-test');
+
+    expect(avatars).toHaveLength(2);
   });
 
   it('should stacked when avatars are in a group', () => {

@@ -3,6 +3,9 @@ import { Avatar } from '../index';
 import UserLink from './user-link';
 import { NormalColors, NormalSizes } from '../utils/prop-types';
 import { CSS } from '../theme/stitches.config';
+import { ReactRef } from '../utils/refs';
+import { useDOMRef } from '../utils/dom';
+import { __DEV__ } from '../utils/assertion';
 import {
   StyledUser,
   StyledUserInfo,
@@ -12,6 +15,7 @@ import {
 
 interface Props {
   name: ReactNode | string;
+  children?: ReactNode;
   color?: NormalColors;
   size?: NormalSizes;
   src?: string;
@@ -38,50 +42,60 @@ export type UserProps = Props &
 
 const preClass = 'nextui-user';
 
-const User: React.FC<React.PropsWithChildren<UserProps>> = ({
-  src,
-  text,
-  name,
-  children,
-  altText,
-  color,
-  squared,
-  bordered,
-  size,
-  description,
-  ...props
-}) => {
-  return (
-    <StyledUser {...props}>
-      <Avatar
-        className={`${preClass}-avatar`}
-        src={src}
-        color={color}
-        squared={squared}
-        zoomed={props.zoomed}
-        pointer={props.pointer}
-        bordered={bordered}
-        text={text}
-        size={size}
-        alt={altText}
-      />
-      <StyledUserInfo className={`${preClass}-info`}>
-        <StyledUserName className={`${preClass}-name`}>{name}</StyledUserName>
-        <StyledUserDesc className={`${preClass}-desc`}>
-          {description || children}
-        </StyledUserDesc>
-      </StyledUserInfo>
-    </StyledUser>
-  );
-};
+export const User = React.forwardRef(
+  (props: UserProps, ref: ReactRef<HTMLDivElement>) => {
+    const {
+      src,
+      text,
+      name,
+      children,
+      altText,
+      color,
+      squared,
+      bordered,
+      size,
+      description,
+      ...otherProps
+    } = props;
+
+    const domRef = useDOMRef(ref);
+
+    return (
+      <StyledUser ref={domRef} {...otherProps}>
+        <Avatar
+          className={`${preClass}-avatar`}
+          src={src}
+          color={color}
+          squared={squared}
+          zoomed={props.zoomed}
+          pointer={props.pointer}
+          bordered={bordered}
+          text={text}
+          size={size}
+          alt={altText}
+        />
+        <StyledUserInfo className={`${preClass}-info`}>
+          <StyledUserName className={`${preClass}-name`}>{name}</StyledUserName>
+          <StyledUserDesc className={`${preClass}-desc`}>
+            {description || children}
+          </StyledUserDesc>
+        </StyledUserInfo>
+      </StyledUser>
+    );
+  }
+);
+
+if (__DEV__) {
+  User.displayName = 'NextUI.User';
+}
 
 User.toString = () => '.nextui-user';
 
-type MemoUserComponent<P = {}> = React.NamedExoticComponent<P> & {
+type UserComponent<P = {}> = React.NamedExoticComponent<P> & {
   Link: typeof UserLink;
 };
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs & { css?: CSS };
 
-export default React.memo(User) as MemoUserComponent<ComponentProps>;
+export default User as UserComponent<ComponentProps>;

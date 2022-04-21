@@ -1,5 +1,6 @@
 export default {
   colors: {
+    // accents
     accents1: '$gray900',
     accents2: '$gray800',
     accents3: '$gray700',
@@ -9,7 +10,6 @@ export default {
     accents7: '$gray300',
     accents8: '$gray200',
     accents9: '$gray100',
-    text: '$white',
 
     blue900: '#001835',
     purple900: '#1c0631',
@@ -32,8 +32,13 @@ export default {
     errorLight: '$red900',
     errorShadow: '$red600',
 
+    // background
     background: '$black',
     foreground: '$white',
+    backgroundContrast: '$accents1',
+
+    // misc
+    text: '$white',
     codeLight: '#16272e',
     code: '#6cc0e1',
     border: '$gray700',

@@ -52,7 +52,7 @@ const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
   }
 );
 
-TableCell.displayName = 'NextUI - TableCell';
+TableCell.displayName = 'NextUI.TableCell';
 
 TableCell.toString = () => '.nextui-table-cell';
 

@@ -50,7 +50,7 @@ const GridContainer = React.forwardRef<
   );
 });
 
-GridContainer.displayName = 'NextUI - GridContainer';
+GridContainer.displayName = 'NextUI.GridContainer';
 GridContainer.toString = () => '.nextui-grid-container';
 
 type GridContainerComponent<T, P = {}> = React.ForwardRefExoticComponent<

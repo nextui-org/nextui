@@ -413,7 +413,7 @@ type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs & { css?: CSS };
 
-Input.displayName = 'NextUI - Input';
+Input.displayName = 'NextUI.Input';
 
 Input.defaultProps = defaultProps;
 

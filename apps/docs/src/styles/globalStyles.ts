@@ -1,6 +1,13 @@
 import { globalCss } from '@nextui-org/react';
 
 export default globalCss({
+  // css baseline overrides
+  blockquote: {
+    mb: '$14 !important',
+    '& p': {
+      fontSize: '1rem !important'
+    }
+  },
   // home sections
   '.inview-section': {
     zIndex: '$2',
@@ -8,7 +15,8 @@ export default globalCss({
   },
   // sandpack-react
   '.sp-highlight': {
-    background: '$codeHighlight'
+    background: '$codeHighlight',
+    borderLeft: '2px solid $gray400'
   },
   '.sp-tabs': {
     border: 'none !important',

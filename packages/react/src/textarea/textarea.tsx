@@ -139,7 +139,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 );
 
 if (__DEV__) {
-  Textarea.displayName = 'NextUI - Textarea';
+  Textarea.displayName = 'NextUI.Textarea';
 }
 
 Textarea.toString = () => '.nextui-textarea';

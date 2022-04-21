@@ -58,7 +58,7 @@ const TableRow = React.forwardRef<
   }
 );
 
-TableRow.displayName = 'NextUI - TableRow';
+TableRow.displayName = 'NextUI.TableRow';
 
 TableRow.toString = () => '.nextui-table-row';
 

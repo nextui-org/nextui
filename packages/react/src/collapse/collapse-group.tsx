@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import withDefaults from '../utils/with-defaults';
 import { CollapseContext, CollapseConfig } from './collapse-context';
 import useCurrentState from '../use-current-state';
-import useTheme from '../use-theme';
 import { setChildrenIndex } from '../utils/collections';
 import { CSS } from '../theme/stitches.config';
 
@@ -40,8 +39,6 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
 }) => {
   const [state, setState, stateRef] = useCurrentState<Array<number>>([]);
 
-  const { isDark } = useTheme();
-
   const updateValues = (currentIndex: number, nextState: boolean) => {
     const hasChild = stateRef.current.find((val) => val === currentIndex);
     onChange && onChange(currentIndex, nextState);
@@ -76,9 +73,7 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
 
   return (
     <CollapseContext.Provider value={initialValue}>
-      <StyledCollapseGroup isDark={isDark} {...props}>
-        {hasIndexChildren}
-      </StyledCollapseGroup>
+      <StyledCollapseGroup {...props}>{hasIndexChildren}</StyledCollapseGroup>
     </CollapseContext.Provider>
   );
 };

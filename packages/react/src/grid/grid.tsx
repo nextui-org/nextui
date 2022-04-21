@@ -15,7 +15,7 @@ const Grid = React.forwardRef<
   );
 });
 
-Grid.displayName = 'NextUI - Grid';
+Grid.displayName = 'NextUI.Grid';
 Grid.toString = () => '.nextui-grid';
 
 type GridComponent<T, P = {}> = React.ForwardRefExoticComponent<

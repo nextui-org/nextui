@@ -190,7 +190,7 @@ type ComponentProps = Partial<typeof defaultProps> &
 Pagination.defaultProps = defaultProps;
 
 if (__DEV__) {
-  Pagination.displayName = 'NextUI - Pagination';
+  Pagination.displayName = 'NextUI.Pagination';
 }
 
 Pagination.toString = () => '.nextui-pagination';
