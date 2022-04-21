@@ -1,4 +1,4 @@
-import { styled, keyframes } from '../theme/stitches.config';
+import { styled, keyframes, cssFocusVisible } from '../theme/stitches.config';
 
 export const appearanceIn = keyframes({
   '0%': {
@@ -26,39 +26,46 @@ export const appearanceOut = keyframes({
   }
 });
 
-export const StyledPopoverContent = styled('div', {
-  $$popoverMinWidth: '$space$13',
-  $$popoverMinHeight: '$space$13',
-  $$popoverBorderRadius: '$radii$lg',
-  $$popoverBackground: '$colors$background',
-  boxShadow: '$md',
-  outline: 'none' /* Hide focus outline */,
-  overflow: 'hidden auto',
-  bg: '$$popoverBackground',
-  /* Be a flexbox to allow a full sized content area that scrolls */
-  display: 'inline-flex',
-  flexDirection: 'column',
-  boxSizing: 'border-box',
+export const StyledPopoverContent = styled(
+  'div',
+  {
+    /* variables */
+    $$popoverMinWidth: '$space$13',
+    $$popoverMinHeight: '$space$13',
+    $$popoverBorderRadius: '$radii$lg',
+    $$popoverBackground: '$colors$backgroundContrast',
+    $$popoverBoxShadow: '$shadows$md',
 
-  minWidth: '$$popoverMinWidth',
-  minHeight: '$$popoverMinHeight',
-  maxWidth: 'calc(100% - $$popoverMinWidth)',
-  maxHeight: 'calc(100% - $$popoverMinWidth)',
+    boxShadow: '$$popoverBoxShadow',
+    outline: 'none' /* Hide focus outline */,
+    overflow: 'hidden auto',
+    bg: '$$popoverBackground',
+    /* Be a flexbox to allow a full sized content area that scrolls */
+    display: 'inline-flex',
+    flexDirection: 'column',
+    boxSizing: 'border-box',
 
-  borderRadius: '$$popoverBorderRadius',
+    minWidth: '$$popoverMinWidth',
+    minHeight: '$$popoverMinHeight',
+    maxWidth: 'calc(100% - $$popoverMinWidth)',
+    maxHeight: 'calc(100% - $$popoverMinWidth)',
 
-  animationFillMode: 'forwards',
-  willChange: 'transform, opacity',
+    borderRadius: '$$popoverBorderRadius',
 
-  '&.nextui-popover-content-enter': {
-    animationName: appearanceIn,
-    animationTimingFunction: 'ease-out',
-    animationDirection: 'normal',
-    animationDuration: '250ms'
+    animationFillMode: 'forwards',
+    willChange: 'transform, opacity',
+
+    '&.nextui-popover-content-enter': {
+      animationName: appearanceIn,
+      animationTimingFunction: 'ease-out',
+      animationDirection: 'normal',
+      animationDuration: '250ms'
+    },
+    '&.nextui-popover-content-leave': {
+      animationName: appearanceOut,
+      animationTimingFunction: 'ease-in',
+      animationDuration: '60ms'
+    }
   },
-  '&.nextui-popover-content-leave': {
-    animationName: appearanceOut,
-    animationTimingFunction: 'ease-in',
-    animationDuration: '60ms'
-  }
-});
+  cssFocusVisible
+);

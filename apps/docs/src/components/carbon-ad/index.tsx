@@ -57,7 +57,7 @@ const CarbonAd: React.FC<unknown> = () => {
             #carbonads a {
               color: inherit;
               text-decoration: none;
-              transition: all 0.25s ease;
+              transition: color 0.25s ease;
             }
             #carbonads a:hover {
               color: ${!isDark

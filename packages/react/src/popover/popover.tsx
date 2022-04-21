@@ -12,7 +12,7 @@ export interface PopoverProps extends UsePopoverProps {
    * The content of the popover. It is usually the `Popover.Trigger`,
    * and `Popover.Content`
    */
-  children?: ReactNode | undefined;
+  children: ReactNode | undefined;
 }
 
 const Popover = (props: PopoverProps) => {

@@ -1,12 +1,12 @@
 ---
 title: 'Popover'
-description: 'Tooltips displays informative text when users hover, focus, or click an element.'
+description: "Popover is a non-modal dialog that floats around its disclosure. It's commonly used for displaying additional rich content on top of something."
 url: https://nextui.org/docs/components/tooltip
 ---
 
 # Popover
 
-Tooltips displays informative text when users hover, focus, or click an element.
+Popover is a **non-modal** dialog that floats around its disclosure. It's commonly used for displaying additional rich content on top of something. Popover implementation is based on [@react-aria/overlays](https://react-spectrum.adobe.com/react-aria/useOverlay.html).
 
 ```jsx
 import { Popover } from '@nextui-org/react';
@@ -16,15 +16,170 @@ import { Popover } from '@nextui-org/react';
 
 <Spacer y={2} />
 
+#### Anatomy
+
+- **Popover**: The wrapper that provides props, state, and context to its children.
+- **Popover**.Trigger: Used to wrap the reference (or trigger) element.
+- **Popover.Content**: The content that is displayed when the trigger is clicked.
+
+<Spacer y={2} />
+
 <Playground
   title="Default"
-  desc="The default `Popover` has the background color."
-  code={`<Popover placement="top">
-        <Popover.Trigger>
-          <button>top</button>
-        </Popover.Trigger>
-        <Popover.Content>
-          <Text css={{ p: '$10' }}>This is the content of the popover.</Text>
-        </Popover.Content>
-      </Popover>`}
+  desc="Shows how to build a typical popover overlay that is positioned relative to a trigger button."
+  files={popoverContent.defaultPopover}
 />
+
+> The Popover can be closed by clicking or interacting outside the popover, or by pressing the <kbd>Escape</kbd> key. When the popover is closed, focus is restored back to its trigger button.
+
+<Playground
+  title="Placements"
+  highlightedLines="23"
+  desc="Positions the popover relative to the trigger button. The position is automatically adjusted when the `Popover` is likely to be offscreen or when the window is resized."
+  files={popoverContent.placements}
+/>
+
+> The Popover is automatically hidden when the user scroll the page.
+
+<Playground
+  title="Controlled vs Uncontrolled"
+  desc="The `defaultOpen` prop can be used to set the default state (uncontrolled). Alternatively, the `isOpen` prop can be used to make the selected state controlled."
+  files={popoverContent.controlledVsUncontrolled}
+/>
+
+> Note: See React's documentation on [uncontrolled components](https://reactjs.org/docs/uncontrolled-components.html) for more info.
+
+<Playground
+  title="Custom Content"
+  desc="The `Popover.Content` can be used to render any component you want. Ensure the children passed to `Popover.Trigger` is focusable. Users can tab to it using their keyboard, and it can take a `ref`. It is critical for accessiblity."
+  files={popoverContent.customContent}
+/>
+
+> **A11y**: When Popover opens, focus is sent to PopoverContent. When it closes, focus is returned to the trigger.
+
+<Playground
+  title="Disable animation"
+  highlightedLines="5"
+  desc="Disables the animation of the popover when it is opened or closed."
+  files={popoverContent.disableAnimation}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Popover Props
+
+| Attribute                     | Type                                   | Description                                                                                                  | Default |
+| ----------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------- |
+| **children**                  | `ReactNode`                            | The content of the popover. It's usually the `Popover.Trigger` and `Popover.Content`.                        | -       |
+| **placement**                 | [PopoverPlacement](#popover-placement) | The placement of the popover relative to its trigger reference.                                              |         |
+| **shouldFlip**                | `boolean`                              | Whether the popover should change its placement and flip when it's about to overflow its boundary area.      | `true`  |
+| **offset(px)**                | `number`                               | The distance or margin between the reference and popper. It is used internally to create an offset modifier. | `12`    |
+| **isOpen**                    | `boolean`                              | Whether the overlay is open by default (controlled).                                                         | -       |
+| **defaultOpen**               | `boolean`                              | Whether the overlay is open by default (uncontrolled).                                                       | -       |
+| **isDismissable**             | `boolean`                              | Whether to close the overlay when the user interacts outside it.                                             | `true`  |
+| **isKeyboardDismissDisabled** | `boolean`                              | Whether pressing the escape key to close the overlay should be disabled.                                     | `false` |
+| **shouldCloseOnBlur**         | `boolean`                              | Whether the overlay should close when focus is lost or moves outside it.                                     | `false` |
+| **disableAnimation**          | `boolean`                              | Whether the popover is animated.                                                                             | `false` |
+
+<Spacer y={1} />
+
+#### Popover Events
+
+| Attribute                        | Type                                                                                               | Description                                                                                                                                                                                                                                                                                               | Default |
+| -------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **onOpenChange**                 | `(isOpen: boolean) => void`                                                                        | Handler that is called when the overlay's open state changes.                                                                                                                                                                                                                                             | -       |
+| **onClose**                      | `() => void`                                                                                       | Handler that is called when the overlay should close.                                                                                                                                                                                                                                                     | -       |
+| **shouldCloseOnInteractOutside** | <Code>(e: [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)) => void</Code> | When user interacts with the argument element outside of the overlay ref, return true if onClose should be called. This gives you a chance to filter out interaction with elements that should not dismiss the overlay. By default, onClose will always be called on interaction outside the overlay ref. | -       |
+
+<Spacer y={1} />
+
+#### Popover Accessibility Props
+
+| Attribute               | Type      | Description                                                                                                                                                                                                                                                                                   | Default |
+| ----------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **id**                  | `string`  | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)                                                                                                                                                                            | -       |
+| **excludeFromTabOrder** | `boolean` | Whether to exclude the element from the sequential tab order. If true, the element will not be focusable via the keyboard by tabbing. This should be avoided except in rare scenarios where an alternative means of accessing the element or its functionality via the keyboard is available. | -       |
+| **aria-controls**       | `string`  | Identifies the element (or elements) whose contents or presence are controlled by the current element.                                                                                                                                                                                        | -       |
+| **aria-label**          | `string`  | Defines a string value that labels the current element                                                                                                                                                                                                                                        | -       |
+| **aria-labelledby**     | `string`  | Identifies the element (or elements) that labels the current element                                                                                                                                                                                                                          | -       |
+| **aria-describedby**    | `string`  | Identifies the element (or elements) that describes the object.                                                                                                                                                                                                                               | -       |
+| **aria-details**        | `string`  | Identifies the element (or elements) that provide a detailed, extended description for the object.                                                                                                                                                                                            | -       |
+| **aria-errormessage**   | `string`  | Identifies the element that provides an error message for the object.                                                                                                                                                                                                                         | -       |
+
+<Spacer y={1} />
+
+#### Popover.Trigger Props
+
+| Attribute     | Type                          | Description                                        | Default |
+| ------------- | ----------------------------- | -------------------------------------------------- | ------- |
+| **children**  | `ReactNode`                   | The label for the element                          | -       |
+| **autoFocus** | `boolean`                     | Whether the element should receive focus on render |
+| **css**       | `Stitches.CSS`                | Override Default CSS style                         | -       |
+| **as**        | `keyof JSX.IntrinsicElements` | Changes which tag component outputs                | `label` |
+| ...           | `HTMLLabelElement`            | Native element props                               | -       |
+
+<Spacer y={1} />
+
+#### Popover.Trigger Events
+
+| Attribute         | Type                                                                                                | Description                                                       | Default |
+| ----------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------- |
+| **onChange**      | `(checked: boolean) => void`                                                                        | Handler that is called when the element's selection state changes | -       |
+| **onFocus**       | <Code>(e: [FocusEvent](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent)) => void</Code> | Handler that is called when the element receives focus            | -       |
+| **onBlur**        | <Code>(e: [FocusEvent](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent)) => void</Code> | Handler that is called when the element loses focus               | -       |
+| **onFocusChange** | `(focused: boolean) => void`                                                                        | Handler that is called when the element's focus status changes    | -       |
+| **onKeyDown**     | <Code>(e: [KeyboardEvent](#keyboard-event)) => void</Code>                                          | Handler that is called when a key is pressed                      | -       |
+| **onKeyUp**       | <Code>(e: [KeyboardEvent](#keyboard-event)) => void</Code>                                          | Handler that is called when a key is released                     | -       |
+
+<Spacer y={1} />
+
+#### Popover.Content Props
+
+| Attribute     | Type                          | Description                                        | Default |
+| ------------- | ----------------------------- | -------------------------------------------------- | ------- |
+| **children**  | `ReactNode`                   | The label for the element                          | -       |
+| **autoFocus** | `boolean`                     | Whether the element should receive focus on render |
+| **css**       | `Stitches.CSS`                | Override Default CSS style                         | -       |
+| **as**        | `keyof JSX.IntrinsicElements` | Changes which tag component outputs                | `label` |
+| ...           | `HTMLLabelElement`            | Native element props                               | -       |
+
+<Spacer y={1} />
+
+#### Popover.Content Events
+
+| Attribute         | Type                                                                                                | Description                                                       | Default |
+| ----------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------- |
+| **onChange**      | `(checked: boolean) => void`                                                                        | Handler that is called when the element's selection state changes | -       |
+| **onFocus**       | <Code>(e: [FocusEvent](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent)) => void</Code> | Handler that is called when the element receives focus            | -       |
+| **onBlur**        | <Code>(e: [FocusEvent](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent)) => void</Code> | Handler that is called when the element loses focus               | -       |
+| **onFocusChange** | `(focused: boolean) => void`                                                                        | Handler that is called when the element's focus status changes    | -       |
+| **onKeyDown**     | <Code>(e: [KeyboardEvent](#keyboard-event)) => void</Code>                                          | Handler that is called when a key is pressed                      | -       |
+| **onKeyUp**       | <Code>(e: [KeyboardEvent](#keyboard-event)) => void</Code>                                          | Handler that is called when a key is released                     | -       |
+
+<Spacer y={2} />
+
+### Popover types
+
+<Spacer y={1} />
+
+#### Popover Placement
+
+```ts
+type PopoverPlacement =
+  | 'bottom'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'top'
+  | 'top-left'
+  | 'top-right'
+  | 'left'
+  | 'left-top'
+  | 'left-bottom'
+  | 'right'
+  | 'right-top'
+  | 'right-bottom';
+```

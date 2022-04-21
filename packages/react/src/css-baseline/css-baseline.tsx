@@ -210,6 +210,23 @@ const globalStyles = globalCss({
   },
   'blockquote *:last-child': {
     marginBottom: 0
+  },
+  kbd: {
+    width: 'fit-content',
+    textAlign: 'center',
+    display: 'inline-block',
+    color: '$accents6',
+    bg: '$backgroundContrast',
+    border: '1px solid $border',
+    boxShadow: '0 0 1px 0 rgb(0 0 0 / 14%)',
+    fontFamily: '$sans',
+    borderRadius: '5px',
+    padding: '$1 $3',
+    mx: '$1',
+    fontSize: '$tiny'
+  },
+  'kbd + kbd': {
+    ml: '$2'
   }
 });
 

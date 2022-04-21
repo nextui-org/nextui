@@ -204,6 +204,7 @@ export const defaultColors = {
   gray700: '#444444',
   gray800: '#333333',
   gray900: '#111111',
+
   // brand colors
   primaryLight: '$blue100',
   primary: '$blue500',

@@ -38,16 +38,20 @@ const Item: React.FC<ItemProps> = ({
         })}
         css={{
           size: '100px',
-          display: 'flex',
+          px: '$4',
+          dflex: 'center',
           marginBottom: '20px',
           flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
           transition: '$default',
           cursor: 'pointer',
           background: color,
           marginRight: '10px',
           br: '$lg',
+          '.text': {
+            fontSize: '$xs',
+            wordBreak: 'break-all',
+            textAlign: 'center'
+          },
           '&:hover': {
             transform: 'translateY(5px)'
           },

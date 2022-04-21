@@ -48,10 +48,11 @@ export function usePopover(props: UsePopoverProps = {}) {
     offset = 12,
     placement = 'bottom',
     onClose,
-    shouldCloseOnBlur = false,
     isDismissable = true,
+    shouldCloseOnBlur = false,
     isKeyboardDismissDisabled = false,
-    disableAnimation = false
+    disableAnimation = false,
+    shouldCloseOnInteractOutside
   } = props;
 
   const triggerRef = useRef<HTMLElement>(null);
@@ -89,10 +90,15 @@ export function usePopover(props: UsePopoverProps = {}) {
     triggerRef
   );
 
+  const overlayPlacement = useMemo(
+    () => getAriaPlacement(placement),
+    [placement]
+  );
+
   const { overlayProps: positionProps } = useOverlayPosition({
     isOpen: state.isOpen,
     targetRef: triggerRef,
-    placement: getAriaPlacement(placement),
+    placement: overlayPlacement,
     overlayRef,
     shouldFlip,
     offset
@@ -132,6 +138,7 @@ export function usePopover(props: UsePopoverProps = {}) {
     shouldCloseOnBlur,
     isDismissable,
     isKeyboardDismissDisabled,
+    shouldCloseOnInteractOutside,
     isOpen: state.isOpen,
     onClose: handleClose,
     onExited,

@@ -1,12 +1,12 @@
-import React, { ReactNode, RefObject } from 'react';
+import React, { ReactNode } from 'react';
 import { useModal, useOverlay, DismissButton } from '@react-aria/overlays';
 import { useDialog } from '@react-aria/dialog';
-import { FocusScope } from '@react-aria/focus';
+import { FocusScope, useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
 import { CSS } from '../theme/stitches.config';
 import CSSTransition from '../utils/css-transition';
 import { __DEV__ } from '../utils/assertion';
-import { mergeRefs } from '../utils/refs';
+import { mergeRefs, ReactRef } from '../utils/refs';
 import { StyledPopoverContent } from './popover.styles';
 import { usePopoverContext } from './popover-context';
 import { getTransformOrigin } from './utils';
@@ -21,7 +21,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type PopoverContentProps = Props & NativeAttrs & { css?: CSS };
 
 export const PopoverContent = React.forwardRef(
-  (props: PopoverContentProps, ref: RefObject<HTMLElement>) => {
+  (props: PopoverContentProps, ref: ReactRef<HTMLElement>) => {
     const { children, as, css, ...otherProps } = props;
 
     const {
@@ -32,6 +32,7 @@ export const PopoverContent = React.forwardRef(
       shouldCloseOnBlur,
       isDismissable,
       isKeyboardDismissDisabled,
+      shouldCloseOnInteractOutside,
       getPopoverProps,
       onClose,
       onEntered,
@@ -56,17 +57,27 @@ export const PopoverContent = React.forwardRef(
         isOpen: state.isOpen,
         isDismissable: isDismissable && state.isOpen,
         shouldCloseOnBlur,
-        isKeyboardDismissDisabled
+        isKeyboardDismissDisabled,
+        shouldCloseOnInteractOutside
       },
       overlayRef
     );
 
+    const { isFocusVisible, focusProps } = useFocusRing();
+
     const contents = (
       <StyledPopoverContent
         {...getPopoverProps(
-          mergeProps(overlayProps, modalProps, dialogProps, otherProps)
+          mergeProps(
+            overlayProps,
+            modalProps,
+            dialogProps,
+            focusProps,
+            otherProps
+          )
         )}
         ref={mergeRefs(overlayRef, ref)}
+        isFocusVisible={isFocusVisible}
         as={as}
         css={{
           transformOrigin,

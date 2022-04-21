@@ -22,6 +22,7 @@ import linkContent from './link';
 import containerContent from './container';
 import gridContent from './grid';
 import spacerContent from './spacer';
+import popoverContent from './popover';
 
 export default {
   tableContent,
@@ -47,5 +48,6 @@ export default {
   linkContent,
   containerContent,
   gridContent,
-  spacerContent
+  spacerContent,
+  popoverContent
 };

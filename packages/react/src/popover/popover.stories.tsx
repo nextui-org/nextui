@@ -54,3 +54,20 @@ export const Placements = () => (
     ))}
   </Grid.Container>
 );
+
+export const DisableAnimation = () => (
+  <Grid.Container justify="center" gap={2} css={{ maxW: '600px' }}>
+    <Grid>
+      <Popover disableAnimation placement="top">
+        <Popover.Trigger>
+          <Button auto animated={false}>
+            Open popover
+          </Button>
+        </Popover.Trigger>
+        <Popover.Content>
+          <Text css={{ p: '$10' }}>This is the content of the popover.</Text>
+        </Popover.Content>
+      </Popover>
+    </Grid>
+  </Grid.Container>
+);

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, ReactNode } from 'react';
 import { useRadioContext } from './radio-context';
 import RadioGroup from './radio-group';
 import { pickChild } from '../utils/collections';
@@ -6,6 +6,11 @@ import useWarning from '../use-warning';
 import useKeyboard, { KeyCode } from '../use-keyboard';
 import { SimpleColors, NormalSizes } from '../utils/prop-types';
 import { CSS } from '../theme/stitches.config';
+import withDefaults from '../utils/with-defaults';
+import { ReactRef } from '../utils/refs';
+import { useDOMRef } from '../utils/dom';
+import { __DEV__ } from '../utils/assertion';
+import clsx from '../utils/clsx';
 import {
   StyledRadio,
   StyledRadioLabel,
@@ -14,9 +19,6 @@ import {
   StyledRadioDescription,
   RadioVariantsProps
 } from './radio.styles';
-import withDefaults from '../utils/with-defaults';
-import clsx from '../utils/clsx';
-import { __DEV__ } from '../utils/assertion';
 
 interface RadioEventTarget {
   checked: boolean;
@@ -30,6 +32,7 @@ export interface RadioEvent {
 }
 
 interface Props {
+  children?: ReactNode;
   checked?: boolean;
   value?: string | number;
   size?: NormalSizes;
@@ -57,131 +60,139 @@ export type RadioProps = Props &
 
 const preClass = 'nextui-radio';
 
-const Radio: React.FC<React.PropsWithChildren<RadioProps>> = ({
-  checked,
-  onChange,
-  disabled,
-  color,
-  size,
-  textColor,
-  value: radioValue,
-  preventDefault,
-  children,
-  ...props
-}) => {
-  const [selfChecked, setSelfChecked] = useState<boolean>(!!checked);
+export const Radio = React.forwardRef(
+  (props: RadioProps, ref: ReactRef<HTMLInputElement>) => {
+    const {
+      checked,
+      onChange,
+      disabled,
+      color,
+      size,
+      textColor,
+      value: radioValue,
+      preventDefault,
+      children,
+      ...otherProps
+    } = props;
 
-  const {
-    value: groupValue,
-    disabledAll,
-    inGroup,
-    color: groupColor,
-    size: groupSize,
-    textColor: textGroupColor,
-    updateState
-  } = useRadioContext();
+    const [selfChecked, setSelfChecked] = useState<boolean>(!!checked);
 
-  const [withoutDescChildren, DescChildren] = pickChild(
-    children,
-    StyledRadioDescription
-  );
+    const domRef = useDOMRef(ref);
 
-  if (inGroup && __DEV__) {
-    if (checked !== undefined) {
-      useWarning('Remove props "checked" if in the Radio.Group.', 'Radio');
+    const {
+      value: groupValue,
+      disabledAll,
+      inGroup,
+      color: groupColor,
+      size: groupSize,
+      textColor: textGroupColor,
+      updateState
+    } = useRadioContext();
+
+    const [withoutDescChildren, DescChildren] = pickChild(
+      children,
+      StyledRadioDescription
+    );
+
+    if (inGroup && __DEV__) {
+      if (checked !== undefined) {
+        useWarning('Remove props "checked" if in the Radio.Group.', 'Radio');
+      }
+      if (radioValue === undefined) {
+        useWarning(
+          'Props "value" must be deinfed if in the Radio.Group.',
+          'Radio'
+        );
+      }
     }
-    if (radioValue === undefined) {
-      useWarning(
-        'Props "value" must be deinfed if in the Radio.Group.',
-        'Radio'
-      );
-    }
-  }
 
-  useEffect(() => {
-    setSelfChecked(groupValue === radioValue);
-  }, [groupValue, radioValue]);
+    useEffect(() => {
+      setSelfChecked(groupValue === radioValue);
+    }, [groupValue, radioValue]);
 
-  const isDisabled = useMemo(
-    () => disabled || disabledAll,
-    [disabled, disabledAll]
-  );
+    const isDisabled = useMemo(
+      () => disabled || disabledAll,
+      [disabled, disabledAll]
+    );
 
-  const radioColor = (color !== 'default' ? color : groupColor) as SimpleColors;
-  const radioSize = (size !== 'md' ? size : groupSize) as NormalSizes;
-  const labelColor = (
-    textColor !== 'default' ? textColor : textGroupColor
-  ) as SimpleColors;
+    const radioColor = (
+      color !== 'default' ? color : groupColor
+    ) as SimpleColors;
+    const radioSize = (size !== 'md' ? size : groupSize) as NormalSizes;
+    const labelColor = (
+      textColor !== 'default' ? textColor : textGroupColor
+    ) as SimpleColors;
 
-  const changeHandler = (event: React.ChangeEvent) => {
-    if (isDisabled || (inGroup && selfChecked)) return;
-    const selfEvent: RadioEvent = {
-      target: {
-        checked: !selfChecked
-      },
-      stopPropagation: event.stopPropagation,
-      preventDefault: event.preventDefault,
-      nativeEvent: event
+    const changeHandler = (event: React.ChangeEvent) => {
+      if (isDisabled || (inGroup && selfChecked)) return;
+      const selfEvent: RadioEvent = {
+        target: {
+          checked: !selfChecked
+        },
+        stopPropagation: event.stopPropagation,
+        preventDefault: event.preventDefault,
+        nativeEvent: event
+      };
+      setSelfChecked(!selfChecked);
+      if (inGroup) {
+        updateState && updateState(radioValue as string | number);
+      }
+      onChange && onChange(selfEvent);
     };
-    setSelfChecked(!selfChecked);
-    if (inGroup) {
-      updateState && updateState(radioValue as string | number);
-    }
-    onChange && onChange(selfEvent);
-  };
 
-  const { bindings } = useKeyboard(
-    (event: any) => {
-      changeHandler(event);
-    },
-    [KeyCode.Enter, KeyCode.Space],
-    {
-      disableGlobalEvent: true,
-      preventDefault
-    }
-  );
-  useEffect(() => {
-    if (checked === undefined) return;
-    setSelfChecked(Boolean(checked));
-  }, [checked]);
+    const { bindings } = useKeyboard(
+      (event: any) => {
+        changeHandler(event);
+      },
+      [KeyCode.Enter, KeyCode.Space],
+      {
+        disableGlobalEvent: true,
+        preventDefault
+      }
+    );
+    useEffect(() => {
+      if (checked === undefined) return;
+      setSelfChecked(Boolean(checked));
+    }, [checked]);
 
-  return (
-    <StyledRadio
-      aria-checked={selfChecked}
-      disabled={isDisabled}
-      active={selfChecked}
-      size={radioSize}
-      color={radioColor}
-      {...props}
-      {...bindings}
-    >
-      <StyledRadioInput
-        type="radio"
-        tabIndex={-1}
-        value={radioValue}
-        checked={selfChecked}
-        onChange={changeHandler}
-        className={`${preClass}-input`}
-        {...props}
-      />
-      <StyledRadioLabel
-        color={labelColor}
+    return (
+      <StyledRadio
+        aria-checked={selfChecked}
         disabled={isDisabled}
-        className={`${preClass}-name`}
+        active={selfChecked}
+        size={radioSize}
+        color={radioColor}
+        {...otherProps}
+        {...bindings}
       >
-        <StyledRadioPoint
-          tabIndex={isDisabled ? -1 : 0}
-          className={clsx(`${preClass}-point`, {
-            [`${preClass}-active`]: selfChecked,
-            [`${preClass}-disabled`]: isDisabled
-          })}
+        <StyledRadioInput
+          type="radio"
+          tabIndex={-1}
+          ref={domRef}
+          value={radioValue}
+          checked={selfChecked}
+          onChange={changeHandler}
+          className={`${preClass}-input`}
         />
-        {withoutDescChildren}
-      </StyledRadioLabel>
-      {DescChildren && DescChildren}
-    </StyledRadio>
-  );
-};
+        <StyledRadioLabel
+          color={labelColor}
+          disabled={isDisabled}
+          className={`${preClass}-name`}
+        >
+          <StyledRadioPoint
+            tabIndex={isDisabled ? -1 : 0}
+            className={clsx(`${preClass}-point`, {
+              [`${preClass}-active`]: selfChecked,
+              [`${preClass}-disabled`]: isDisabled
+            })}
+          />
+          {withoutDescChildren}
+        </StyledRadioLabel>
+        {DescChildren && DescChildren}
+      </StyledRadio>
+    );
+  }
+);
 
 type RadioComponent<P = {}> = React.FC<P> & {
   Group: typeof RadioGroup;

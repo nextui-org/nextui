@@ -34,6 +34,7 @@
                     "routes": [
                         {
                             "title": "Default theme",
+                            "updated": true,
                             "path": "/docs/theme/default-theme.mdx"
                         },
                         {
@@ -119,8 +120,7 @@
                         {
                             "title": "Table",
                             "keywords":"table, data table, grid, data grid",
-                            "path": "/docs/components/table.mdx",
-                            "newPost": true
+                            "path": "/docs/components/table.mdx"
                         },
                         {
                             "title": "Collapse",
@@ -143,7 +143,6 @@
                         },
                         {
                             "title": "Checkbox",
-                            "updated": true,
                             "keywords": "check, radio, selectable, checkbox, box",
                             "path": "/docs/components/checkbox.mdx"
                         },
@@ -167,10 +166,10 @@
                             "path": "/docs/components/progress.mdx"
                         },
                         {
-                          "title": "Popover",
-                          "keywords": "popover, tooltip, tooltip, popover, popover",
-                          "path": "/docs/components/popover.mdx",
-                          "newPost": true
+                            "title": "Popover",
+                            "keywords": "popover, tooltip, tooltip, popover, popover",
+                            "path": "/docs/components/popover.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Tooltip",

@@ -53,7 +53,7 @@ export const StyledCollapse = styled(
           boxShadow: '$md',
           br: '$lg',
           p: '0 $lg',
-          bg: '$background'
+          bg: '$backgroundContrast'
         }
       },
       borderWeight: {
@@ -113,24 +113,11 @@ export const StyledCollapse = styled(
             }
           }
         }
-      },
-      isDark: {
-        true: {}
       }
     },
     defaultVariants: {
       borderWeight: 'light'
-    },
-    compoundVariants: [
-      // isDark && shadow
-      {
-        isDark: true,
-        shadow: true,
-        css: {
-          bg: '$accents1'
-        }
-      }
-    ]
+    }
   },
   sharedFocus
 );
@@ -214,7 +201,7 @@ export const StyledCollapseGroup = styled('div', {
         border: 'none',
         boxShadow: '$md',
         p: '0 $lg',
-        bg: '$background'
+        bg: '$backgroundContrast'
       }
     },
     bordered: {
@@ -229,15 +216,12 @@ export const StyledCollapseGroup = styled('div', {
         [`& ${StyledCollapse}`]: {
           br: '$lg',
           border: 'none',
-          bg: '$background',
+          bg: '$backgroundContrast',
           boxShadow: '$md',
           p: '0 $lg',
           margin: '$md 0'
         }
       }
-    },
-    isDark: {
-      true: {}
     }
   },
   defaultVariants: {
@@ -245,27 +229,7 @@ export const StyledCollapseGroup = styled('div', {
     shadow: false,
     bordered: false,
     splitted: false
-  },
-  compoundVariants: [
-    // isDark && shadow
-    {
-      isDark: true,
-      shadow: true,
-      css: {
-        bg: '$accents1'
-      }
-    },
-    // splitted && isDark
-    {
-      isDark: true,
-      splitted: true,
-      css: {
-        [`& ${StyledCollapse}`]: {
-          bg: '$accents1'
-        }
-      }
-    }
-  ]
+  }
 });
 
 export type CollapseVariantsProps = VariantProps<typeof StyledCollapse>;
