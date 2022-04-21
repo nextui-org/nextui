@@ -83,6 +83,7 @@ const MobileNavigation: React.FC<Props> = ({
             .mobile-navigation__list {
               margin: 0;
               padding: 16px 0 16px 16px;
+              text-shadow: 0 0 black;
             }
             .mobile-navigation__container.opened {
               top: 63px;
