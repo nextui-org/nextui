@@ -26,7 +26,8 @@ const reverseColors: { [key in string]: string } = {
   text: '$background',
   border: '$text',
   white: '$black',
-  black: '$white'
+  black: '$white',
+  backgroundContrast: '$foreground'
 };
 
 const getColorTitle = (color: string) => {
