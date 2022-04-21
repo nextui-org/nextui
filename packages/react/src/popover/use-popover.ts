@@ -17,6 +17,10 @@ export interface UsePopoverProps extends OverlayTriggerProps {
    */
   isDismissable?: boolean;
   /**
+   * Type of overlay that is opened by the trigger.
+   */
+  triggerType?: 'dialog' | 'menu' | 'listbox' | 'tree' | 'grid';
+  /**
    * Whether the popover is animated.
    */
   disableAnimation?: boolean;
@@ -48,6 +52,7 @@ export function usePopover(props: UsePopoverProps = {}) {
     offset = 12,
     placement = 'bottom',
     onClose,
+    triggerType = 'dialog',
     isDismissable = true,
     shouldCloseOnBlur = false,
     isKeyboardDismissDisabled = false,
@@ -85,7 +90,7 @@ export function usePopover(props: UsePopoverProps = {}) {
   }, []);
 
   const { triggerProps, overlayProps } = useOverlayTrigger(
-    { type: 'dialog' },
+    { type: triggerType },
     state,
     triggerRef
   );

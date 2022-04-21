@@ -3,15 +3,15 @@ const AppTs = `import { Popover, Button, Grid, PopoverPlacement } from "@nextui-
 export default function App() {
   const placements = [
     "bottom",
+    "top",
+    "left",
+    "right",
     "bottom-left",
     "bottom-right",
-    "top",
     "top-left",
     "top-right",
-    "left",
     "left-top",
     "left-bottom",
-    "right",
     "right-top",
     "right-bottom",
   ];
@@ -41,15 +41,15 @@ const AppJs = `import { Popover, Button, Grid } from "@nextui-org/react";
 export default function App() {
   const placements = [
     "bottom",
+    "top",
+    "left",
+    "right",
     "bottom-left",
     "bottom-right",
-    "top",
     "top-left",
     "top-right",
-    "left",
     "left-top",
     "left-bottom",
-    "right",
     "right-top",
     "right-bottom",
   ];

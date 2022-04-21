@@ -10,6 +10,7 @@ import { mergeRefs, ReactRef } from '../utils/refs';
 import { StyledPopoverContent } from './popover.styles';
 import { usePopoverContext } from './popover-context';
 import { getTransformOrigin } from './utils';
+import clsx from '../utils/clsx';
 
 interface Props {
   children: ReactNode;
@@ -21,8 +22,8 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type PopoverContentProps = Props & NativeAttrs & { css?: CSS };
 
 export const PopoverContent = React.forwardRef(
-  (props: PopoverContentProps, ref: ReactRef<HTMLElement>) => {
-    const { children, as, css, ...otherProps } = props;
+  (props: PopoverContentProps, ref: ReactRef<HTMLDivElement>) => {
+    const { children, as, css, className, ...otherProps } = props;
 
     const {
       state,
@@ -67,6 +68,7 @@ export const PopoverContent = React.forwardRef(
 
     const contents = (
       <StyledPopoverContent
+        ref={mergeRefs(overlayRef, ref)}
         {...getPopoverProps(
           mergeProps(
             overlayProps,
@@ -76,7 +78,7 @@ export const PopoverContent = React.forwardRef(
             otherProps
           )
         )}
-        ref={mergeRefs(overlayRef, ref)}
+        className={clsx('nextui-popover-content', className)}
         isFocusVisible={isFocusVisible}
         as={as}
         css={{

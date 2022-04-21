@@ -1,10 +1,10 @@
 import React from 'react';
+import { Container } from '@nextui-org/react';
+import { NotifyBanner } from '@components';
+import { Route } from '@lib/docs/page';
 import Header from './header';
 import Footer from './footer';
 import Navbar from './navbar';
-import { Container } from '@nextui-org/react';
-import { Route } from '@lib/docs/page';
-import { NotifyBanner } from '@components';
 
 export interface Props {
   routes: Route[];
@@ -20,7 +20,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <div id="app-container">
       <Header />
-      <NotifyBanner />
+      <NotifyBanner text="Popover component" href="/docs/components/popover" />
       <Navbar isHome hasNotify routes={routes} />
       <Container
         lg={true}

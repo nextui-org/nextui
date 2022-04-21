@@ -219,10 +219,11 @@ const globalStyles = globalCss({
     bg: '$backgroundContrast',
     border: '1px solid $border',
     boxShadow: '0 0 1px 0 rgb(0 0 0 / 14%)',
-    fontFamily: '$sans',
+    fontFamily: '$mono',
     borderRadius: '5px',
     padding: '$1 $3',
     mx: '$1',
+    lineHeight: '$sm',
     fontSize: '$tiny'
   },
   'kbd + kbd': {

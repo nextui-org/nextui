@@ -55,6 +55,10 @@ export const StyledPopoverContent = styled(
     animationFillMode: 'forwards',
     willChange: 'transform, opacity',
 
+    '@motion': {
+      transition: 'none'
+    },
+
     '&.nextui-popover-content-enter': {
       animationName: appearanceIn,
       animationTimingFunction: 'ease-out',

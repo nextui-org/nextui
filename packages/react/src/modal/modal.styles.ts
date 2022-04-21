@@ -150,6 +150,11 @@ export const StyledModal = styled('section', {
   boxShadow: '$lg',
   bg: '$backgroundContrast',
   animationFillMode: 'forwards',
+
+  '@motion': {
+    transition: 'none'
+  },
+
   '&.nextui-modal-wrapper-enter:not(.nextui-modal-rendered)': {
     animationName: appearanceIn,
     animationDuration: '200ms',
