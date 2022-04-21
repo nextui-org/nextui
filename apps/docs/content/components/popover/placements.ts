@@ -22,7 +22,7 @@ export default function App() {
         <Grid key={placement}>
           <Popover placement={placement}>
             <Popover.Trigger>
-              <Button auto>{placement}</Button>
+              <Button auto bordered color="secondary">{placement}</Button>
             </Popover.Trigger>
             <Popover.Content>
               <Text css={{ p: "$10" }}>
@@ -60,7 +60,7 @@ export default function App() {
         <Grid key={placement}>
           <Popover placement={placement}>
             <Popover.Trigger>
-              <Button auto color="secondary" ghost>{placement}</Button>
+              <Button auto bordered color="secondary">{placement}</Button>
             </Popover.Trigger>
             <Popover.Content>
               <Text css={{ p: "$10" }}>
