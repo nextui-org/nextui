@@ -95,6 +95,7 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
       }}
       responsive={responsive}
       fluid={fluid}
+      as={as}
       {...props}
     >
       {children}
