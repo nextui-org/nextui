@@ -38,7 +38,7 @@ const GridContainer = React.forwardRef<
         $$gridGapUnit: gapUnit,
         display: 'flex',
         flexWrap: wrap,
-        boxZizing: 'border-box',
+        boxSizing: 'border-box',
         margin: 'calc(-1 * $$gridGapUnit)',
         width: 'calc(100% + $$gridGapUnit * 2)',
         ...(css as any)

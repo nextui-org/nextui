@@ -1,4 +1,4 @@
-const AppTs = `import { Popover, Button, Grid, PopoverPlacement } from "@nextui-org/react";
+const AppTs = `import { Popover, Button, Grid, Text, PopoverPlacement } from "@nextui-org/react";
 
 export default function App() {
   const placements = [
@@ -36,7 +36,7 @@ export default function App() {
   );
 }`;
 
-const AppJs = `import { Popover, Button, Grid } from "@nextui-org/react";
+const AppJs = `import { Popover, Button, Text, Grid } from "@nextui-org/react";
 
 export default function App() {
   const placements = [
