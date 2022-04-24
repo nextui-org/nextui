@@ -1,20 +1,28 @@
-## [LEVEL]/[COMPONENT]
-**TASK**: <!--- [Github ISSUE](Issue Link) -->
+<!---
+Thanks for creating a Pull Request ❤️!
 
+Please read the following before submitting:
+- PRs that adds new external dependencies might take a while to review.
+- Keep your PR as small as possible.
+- Limit your PR to one type (docs, feature, refactoring, ci, repo, or bugfix)
+-->
 
-### Types of changes
-<!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
+Closes # <!-- Github issue # here -->
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation Only
-- [ ] Refactor
+## 📝 Description
 
-### Description, Motivation and Context
-<!--- Describe your changes in detail -->
-<!--- Why is this change required? What problem does it solve? -->
-<!--- If it is solving an issue... How can it be reproduced in order to compare between both behaviors? -->
+> Add a brief description
 
-### Screenshots - Animations
-<!-- Adding images or gif animations of your changes improves the understanding of your changes -->
+## ⛳️ Current behavior (updates)
+
+> Please describe the current behavior that you are modifying
+
+## 🚀 New behavior
+
+> Please describe the behavior or changes this PR adds
+
+## 💣 Is this a breaking change (Yes/No):
+
+<!-- If Yes, please describe the impact and migration path for existing Chakra users. -->
+
+## 📝 Additional Information
