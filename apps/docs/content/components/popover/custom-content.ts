@@ -11,7 +11,7 @@ export const DeleteUser = () => {
       </Row>
       <Row>
         <Text>
-          Are you sure you want to delete this user ?, by doing this, you will
+          Are you sure you want to delete this user ? By doing this, you will
           not be able to recover the data.
         </Text>
       </Row>
