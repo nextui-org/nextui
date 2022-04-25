@@ -77,7 +77,7 @@
     "@react-types/grid": "3.0.1",
     "@react-types/overlays": "3.5.4",
     "@react-types/shared": "3.11.0",
-    "@stitches/react": "1.2.7"
+    "@stitches/react": "1.2.8"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
