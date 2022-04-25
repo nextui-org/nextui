@@ -1,5 +1,5 @@
 const DeleteUser = `import React from "react";
-import { useTheme, Text, Button, Grid, Row } from "@nextui-org/react";
+import { Text, Button, Grid, Row } from "@nextui-org/react";
 
 export const DeleteUser = () => {
   return (
