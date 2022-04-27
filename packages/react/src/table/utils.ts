@@ -16,10 +16,12 @@ export const mapPropsToCheckboxAttr = (ariaProps: AriaCheckboxProps) => {
     isIndeterminate,
     isReadOnly,
     isRequired,
+    isDisabled,
     ...ariaCheckboxProps
   } = ariaProps;
   return {
     checked: isSelected,
+    disabled: isDisabled,
     initialChecked: defaultSelected,
     indeterminate: isIndeterminate,
     readOnly: isReadOnly,
