@@ -21,7 +21,7 @@ import {
   StyledIconCheckSecondLine,
   StyledCheckboxText
 } from './checkbox.styles';
-import { mapPropsToReactAriaAttr } from './utils';
+import { mapPropsToReactAriaAttr, mapPropsToHTMLLabelAttr } from './utils';
 import clsx from '../utils/clsx';
 
 interface Props
@@ -131,7 +131,7 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
 
     return (
       <StyledCheckboxLabel
-        {...mergeProps(hoverProps, props)}
+        {...mergeProps(hoverProps, mapPropsToHTMLLabelAttr(props))}
         ref={domRef}
         className={clsx(
           'nextui-checkbox-label',
@@ -214,7 +214,7 @@ type CheckboxComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Group: typeof CheckboxGroup;
 };
 
-type ComponentProps = Partial<typeof defaultProps> &
+export type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs & { css?: CSS };
 

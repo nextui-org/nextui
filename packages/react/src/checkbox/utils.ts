@@ -1,4 +1,4 @@
-import { CheckboxProps } from './checkbox';
+import { CheckboxProps, ComponentProps } from './checkbox';
 
 export const mapPropsToReactAriaAttr = (checkboxProps: CheckboxProps) => {
   return {
@@ -10,4 +10,9 @@ export const mapPropsToReactAriaAttr = (checkboxProps: CheckboxProps) => {
     isSelected: checkboxProps.checked,
     defaultSelected: checkboxProps.initialChecked
   };
+};
+
+export const mapPropsToHTMLLabelAttr = (labelProps: ComponentProps) => {
+  delete labelProps['initialChecked'];
+  return labelProps;
 };
