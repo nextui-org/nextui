@@ -19,7 +19,7 @@ const StyledButton = styled('button', {
   border: 'none',
   padding: 0,
   '& .theme-selector-icon': {
-    color: '$colors$headerIconColor'
+    color: '$colors$accents8'
   },
   '@xsMax': {
     px: '$2'

@@ -42,8 +42,8 @@ const mapColors = (colors: string[]): Color[] => {
   return colors.map((color) => {
     const num = getColorNumber(color);
     const isBrand = num === 0;
-    const isAccent = num >= 1 && num < 10;
-    const isBase = num >= 100 && num < 1000;
+    const isAccent = num >= 0 && num < 10;
+    const isBase = num >= 50 && num < 1000;
     const reverseColor = reverseColors[color];
 
     const textColor = isBrand
