@@ -73,7 +73,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
         }
         .list-item a {
           font-size: 0.8rem;
-          color: ${theme?.colors?.accents6?.value};
+          color: ${theme?.colors?.accents8?.value};
         }
         .list-item.active a {
           color: inherit;

@@ -15,7 +15,7 @@ export const lightTheme = createTheme({
       menuBackground: 'rgba(255, 255, 255, 0.5)',
       headerIconColor: '$accents4',
       codeBackground: '#363449',
-      codeComment: '$accents3',
+      codeComment: '$accents6',
       codeCopyIconColor: '$accents2',
       cardBackground: '$background',
       codeHighlight: 'hsl(243, 16%, 30%)',
@@ -35,18 +35,16 @@ export const darkTheme = createTheme({
     colors: {
       menuBackground: 'rgba(0,0,0,0.8)',
       headerBackground: 'rgba(0,0,0,0.5)',
-      headerIconColor: '$accents6',
+      headerIconColor: '$accents8',
       codeBackground: '#111111',
-      codeComment: '$accents6',
+      codeComment: '$accents8',
       codeCopyIconColor: '$accents5',
       codeHighlight: 'hsl(0, 0%, 15%)',
       cardBackground: '$accents1',
       backgroundBlur: 'rgba(255, 255, 255, 0.1)',
       blockLinkColor: '#FFA4E3',
       blockLinkBackground: '$accents1',
-      blockLinkHoverBackground: '#55057A',
-      selection: '$purple700',
-      link: '$blue400'
+      blockLinkHoverBackground: '#55057A'
     }
   }
 });

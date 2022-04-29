@@ -61,31 +61,31 @@ export const StyledButton = styled(
       color: {
         default: {
           bg: '$primary',
-          color: '$white'
+          color: '$primarySolidContrast'
         },
         primary: {
           bg: '$primary',
-          color: '$white'
+          color: '$primarySolidContrast'
         },
         secondary: {
           bg: '$secondary',
-          color: '$white'
+          color: '$secondarySolidContrast'
         },
         success: {
           bg: '$success',
-          color: '$white'
+          color: '$successSolidContrast'
         },
         warning: {
           bg: '$warning',
-          color: '$white'
+          color: '$warningSolidContrast'
         },
         error: {
           bg: '$error',
-          color: '$white'
+          color: '$errorSolidContrast'
         },
         gradient: {
           bg: '$gradient',
-          color: '$white'
+          color: '$primarySolidContrast'
         }
       },
       size: {
@@ -312,7 +312,13 @@ export const StyledButton = styled(
         color: 'default',
         css: {
           bg: 'transparent',
-          color: '$text'
+          color: '$text',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$primaryLightActive'
+            }
+          }
         }
       },
       {
@@ -320,7 +326,13 @@ export const StyledButton = styled(
         color: 'primary',
         css: {
           bg: 'transparent',
-          color: '$primary'
+          color: '$primary',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$primaryLightActive'
+            }
+          }
         }
       },
       {
@@ -328,7 +340,13 @@ export const StyledButton = styled(
         color: 'secondary',
         css: {
           bg: 'transparent',
-          color: '$secondary'
+          color: '$secondary',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$secondaryLightActive'
+            }
+          }
         }
       },
       {
@@ -336,7 +354,13 @@ export const StyledButton = styled(
         color: 'warning',
         css: {
           bg: 'transparent',
-          color: '$warning'
+          color: '$warning',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$warningLightActive'
+            }
+          }
         }
       },
       {
@@ -344,7 +368,13 @@ export const StyledButton = styled(
         color: 'success',
         css: {
           bg: 'transparent',
-          color: '$success'
+          color: '$success',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$successLightActive'
+            }
+          }
         }
       },
       {
@@ -352,7 +382,13 @@ export const StyledButton = styled(
         color: 'error',
         css: {
           bg: 'transparent',
-          color: '$error'
+          color: '$error',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$errorLightActive'
+            }
+          }
         }
       },
       // bordered / color

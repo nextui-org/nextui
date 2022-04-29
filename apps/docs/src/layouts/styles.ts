@@ -13,7 +13,7 @@ export const StyledNavContainer = styled('div', {
   alignItems: 'center',
   size: '100%',
   '& .navbar__social-icon': {
-    fill: '$colors$accents8'
+    fill: '$colors$accents6'
   },
   variants: {
     showBlur: {

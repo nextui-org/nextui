@@ -40,8 +40,8 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
     return {};
   }
   const defaultDisabledCss = {
-    bg: '$accents0',
-    color: '$accents5',
+    bg: '$accents1',
+    color: '$accents7',
     transform: 'none',
     boxShadow: 'none',
     pe: 'none'
@@ -66,7 +66,7 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
     return {
       ...defaultDisabledCss,
       bg: 'transparent',
-      borderColor: '$accents2'
+      borderColor: '$accents4'
     };
   }
   if (props.flat) {

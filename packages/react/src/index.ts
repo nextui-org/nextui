@@ -58,6 +58,7 @@ export {
   sharedFocus,
   sharedVisuallyHidden
 } from './theme/stitches.config';
+export * from './theme/colors';
 
 // Components
 export { default as Avatar } from './avatar';
