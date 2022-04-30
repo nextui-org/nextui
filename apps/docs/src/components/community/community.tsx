@@ -48,7 +48,7 @@ const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
           </Row>
           <Spacer y={0.5} />
           <Row justify="flex-start" align="center">
-            <Text css={{ color: '$accents6', textAlign: 'left' }}>
+            <Text css={{ color: '$accents8', textAlign: 'left' }}>
               For announcements, tips and general information.
             </Text>
           </Row>
@@ -67,7 +67,7 @@ const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
           </Row>
           <Spacer y={0.5} />
           <Row justify="flex-start" align="center">
-            <Text css={{ color: '$accents6' }}>
+            <Text css={{ color: '$accents8' }}>
               To get involved in the community, ask questions and share tips.
             </Text>
           </Row>
@@ -86,7 +86,7 @@ const Community: React.FC<CommunityProps> = ({ twitter, github, discord }) => {
           </Row>
           <Spacer y={0.5} />
           <Row justify="flex-start" align="center">
-            <Text css={{ color: '$accents6' }}>
+            <Text css={{ color: '$accents8' }}>
               For issues, feature requests and contribute.
             </Text>
           </Row>

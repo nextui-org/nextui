@@ -27,28 +27,39 @@ export default {
     ...grayDark,
 
     // brand colors
-    primarySolidContrast: '$black',
+    primaryLight: '$blue50',
+    primaryLightHover: '$blue100',
+    primaryLightActive: '$blue200',
+    primaryLightContrast: '$blue600',
 
-    secondaryLightContrast: '$purple700',
+    secondaryLight: '$purple50',
+    secondaryLightHover: '$purple100',
+    secondaryLightActive: '$purple200',
+    secondaryLightContrast: '$purple800',
     secondary: '$purple700',
     secondaryBorder: '$purple500',
     secondaryBorderHover: '$purple600',
     secondarySolidHover: '$purple700',
-    secondarySolidContrast: '$black',
     secondaryShadow: '$purple500',
 
-    successSolidContrast: '$black',
+    successLight: '$green50',
+    successLightHover: '$green100',
+    successLightActive: '$green200',
 
-    warningSolidContrast: '$black',
+    warningLight: '$yellow50',
+    warningLightHover: '$yellow100',
+    warningLightActive: '$yellow200',
 
-    errorSolidContrast: '$black',
+    errorLight: '$red50',
+    errorLightHover: '$red100',
+    errorLightActive: '$red200',
+    errorLightContrast: '$red700',
 
     // misc
-    text: '$white',
+    text: '$gray900',
     link: '$blue700',
     codeLight: '$cyan50',
-    code: '$cyan700',
-    border: '$gray700',
+    code: '$cyan600',
     selection: '$pink800'
   },
   shadows: {

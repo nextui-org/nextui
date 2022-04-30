@@ -46,9 +46,9 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
   }, [ref, isMobile]);
 
   const linkColor = useMemo(() => {
-    if (route.selected) return;
-    if (route.comingSoon) return theme?.colors?.accents6?.value;
-    return theme?.colors?.accents8?.value;
+    if (route.selected) return theme?.colors?.text?.value;
+    if (route.comingSoon) return theme?.colors?.accents5?.value;
+    return theme?.colors?.accents7?.value;
   }, [isDark, route.selected]);
 
   return (
@@ -92,8 +92,8 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
           height: 4px;
           border-radius: 50%;
           background: ${route.selected
-            ? theme?.colors?.accents8?.value
-            : theme?.colors?.accents7?.value};
+            ? theme?.colors?.accents7?.value
+            : theme?.colors?.accents5?.value};
           margin-right: 16px;
         }
         .link:first-child {

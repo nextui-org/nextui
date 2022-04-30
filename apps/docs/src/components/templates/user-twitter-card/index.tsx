@@ -68,7 +68,7 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
                 className="user-twitter-card__text"
                 size={14}
                 css={{ mt: '-$3' }}
-                color={theme?.colors?.accents5?.value}
+                color={theme?.colors?.accents7?.value}
               >
                 @zoeylang
               </Text>
@@ -98,7 +98,7 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
             className="user-twitter-card__text"
             size={14}
             css={{ mt: '$1' }}
-            color={theme?.colors?.accents5?.value}
+            color={theme?.colors?.accents6?.value}
           >
             Full-stack developer, @getnextui lover she/her 🎉
           </Text>
@@ -113,7 +113,7 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
         <Text
           className="user-twitter-card__text"
           size={14}
-          color={theme?.colors?.accents5?.value}
+          color={theme?.colors?.accents7?.value}
         >
           <Text
             b
@@ -129,7 +129,7 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
         <Text
           className="user-twitter-card__text"
           size={14}
-          color={theme?.colors?.accents5?.value}
+          color={theme?.colors?.accents7?.value}
         >
           <Text
             b

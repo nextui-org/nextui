@@ -22,7 +22,6 @@ export default {
     link: '$blue600',
     codeLight: '$pink100',
     code: '$pink600',
-    border: '$gray200',
     selection: '$blue200'
   },
   shadows: {
