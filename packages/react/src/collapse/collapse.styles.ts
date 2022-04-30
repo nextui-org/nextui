@@ -24,7 +24,7 @@ export const StyledCollapse = styled(
       color: '$foreground'
     },
     '.nextui-collapse-subtitle': {
-      color: '$accents5',
+      color: '$accents7',
       margin: 0,
       '*': {
         margin: 0
@@ -161,7 +161,7 @@ export const StyledCollapseContent = styled('div', {
 
 export const StyledCollapseIcon = styled('svg', {
   path: {
-    stroke: '$accents5'
+    stroke: '$accents7'
   }
 });
 

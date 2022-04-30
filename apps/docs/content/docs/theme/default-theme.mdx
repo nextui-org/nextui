@@ -58,39 +58,25 @@ export default {
     // generic colors
     white: '#ffffff',
     black: '#000000',
-    //semantic colors
-    blue100: '#CBECFE',
+    //semantic colors (light)
+    blue50: '#EDF5FF',
     // ...
-    blue900: '#002074',
+    blue900: '#00254D',
     // ...
 
     // brand colors
-    primaryLight: '$blue200', //  $blue600 on dark mode
-    primary: '$blue500',
-    primaryDark: '$blue600',
-    primaryShadow: '$blue100', // $blue600 on dark mode
+    primaryLight: '$blue200',
+    primaryLightHover: '$blue300', // commonly used on hover state
+    primaryLightActive: '$blue400', // commonly used on pressed state
+    primaryLightContrast: '$blue600', // commonly used for text inside the component
+    primary: '$blue600',
+    primaryBorder: '$blue500',
+    primaryBorderHover: '$blue600',
+    primarySolidHover: '$blue700',
+    primarySolidContrast: '$white', // commonly used for text inside the component
+    primaryShadow: '$blue500'
 
-    secondaryLight: '$purple200', // $purple600 on dark mode
-    secondary: '$purple500',
-    secondaryDark: '$purple600',
-    secondaryShadow: '$purple100', // $purple600 on dark mode
-
-    successLight: '$green200', // $green600 on dark mode
-    success: '$green500',
-    successDark: '$green600',
-    successShadow: '$green100', // $green600 on dark mode
-
-    warningLight: '$yellow200', // $yellow600 on dark mode
-    warning: '$yellow500',
-    warningDark: '$yellow600',
-    warningShadow: '$yellow100', // $yellow600 on dark mode
-
-    errorLight: '$red200', // $red600 on dark mode
-    error: '$red500',
-    errorDark: '$red600',
-    errorShadow: '$red100' // $red600 on dark mode
-
-    // ... rest of colors
+    // ... rest of colors (secondary, success, warning, error, etc)
   }
 };
 ```
@@ -99,7 +85,6 @@ export default {
 
 <Playground
   title="Brand"
-  desc="The default theme has a brand color palette, each brand color has its light, dark and shadow variants like `primaryLight`, `primaryDark` and `primaryShadow`."
   showEditor={false}
   code={`
     <Palette colors={[
@@ -112,6 +97,29 @@ export default {
     ]}/>
  `}
 />
+
+#### Understanding the Base scale
+
+There are 10 steps in each scale from 50 to 900. Each step was designed for at least one specific use case.
+
+This table is a simple overview of the most common use case for each step. However, there are many exceptions and caveats to factor in, which are covered in further detail below.
+
+| Step    | Use Case                                |
+| ------- | --------------------------------------- |
+| **50**  | UI element background                   |
+| **100** | Hovered UI element background           |
+| **200** | Active / Selected UI element background |
+| **300** | Subtle borders and separators           |
+| **400** | UI element border and focus rings       |
+| **500** | Hovered UI element border               |
+| **600** | Solid backgrounds                       |
+| **700** | Hovered solid backgrounds               |
+| **800** | Low-contrast text                       |
+| **900** | High-contrast text                      |
+
+> **Note**: NextUI uses different colors for each theme type (light, dark). You can check it out by toggling the docs theme on the navbar.
+
+<Spacer y={2} />
 
 <Playground
   title="Base"
@@ -614,5 +622,3 @@ export const darkTheme = {
   ...
 };
 ```
-
-<Spacer y={2} />

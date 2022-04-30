@@ -157,7 +157,7 @@ export const StyledTableRow = styled(
     variants: {
       isDisabled: {
         true: {
-          color: '$accents2',
+          color: '$accents3',
           pointerEvents: 'none',
           cursor: 'not-allowed'
         }

@@ -431,7 +431,7 @@ export default function App() {
               </Text>
             </Row>
             <Row>
-              <Text b size={13} css={{ tt: "capitalize", color: "$accents5" }}>
+              <Text b size={13} css={{ tt: "capitalize", color: "$accents7" }}>
                 {user.team}
               </Text>
             </Row>
@@ -602,7 +602,7 @@ export default function App() {
               </Text>
             </Row>
             <Row>
-              <Text b size={13} css={{ tt: "capitalize", color: "$accents5" }}>
+              <Text b size={13} css={{ tt: "capitalize", color: "$accents7" }}>
                 {user?.team}
               </Text>
             </Row>

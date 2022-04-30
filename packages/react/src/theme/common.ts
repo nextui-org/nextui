@@ -204,7 +204,7 @@ export const defaultColors = {
   accents9: '$gray900',
 
   // misc
-  border: '$gray200'
+  border: '$gray300'
 };
 
 export const defaultMedia = {

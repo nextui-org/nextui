@@ -200,8 +200,8 @@ const globalStyles = globalCss({
   },
   blockquote: {
     padding: '$md $lg',
-    color: '$accents5',
-    backgroundColor: '$accents1',
+    color: '$accents7',
+    backgroundColor: '$accents0',
     borderRadius: '$lg',
     margin: '$10 0'
   },
@@ -215,8 +215,8 @@ const globalStyles = globalCss({
     width: 'fit-content',
     textAlign: 'center',
     display: 'inline-block',
-    color: '$accents6',
-    bg: '$backgroundContrast',
+    color: '$accents7',
+    bg: '$accents2',
     border: '1px solid $border',
     boxShadow: '0 0 1px 0 rgb(0 0 0 / 14%)',
     fontFamily: '$mono',

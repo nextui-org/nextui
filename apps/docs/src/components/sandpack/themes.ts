@@ -23,7 +23,7 @@ export const nextuiTheme: SandpackTheme = {
     punctuation: '#F4F4F4',
     definition: '#F4F4F4',
     property: '#F4F4F4',
-    static: 'var(--nextui-colors-yellow500)',
+    static: 'var(--nextui-colors-yellow600)',
     string: '#98C379'
   },
   typography: {

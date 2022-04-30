@@ -82,27 +82,27 @@ export const StyledRadio = styled('label', {
     color: {
       default: {
         $$radioColor: '$colors$primary',
-        $$radioColorHover: '$colors$primaryDark'
+        $$radioColorHover: '$colors$primarySolidHover'
       },
       primary: {
         $$radioColor: '$colors$primary',
-        $$radioColorHover: '$colors$primaryDark'
+        $$radioColorHover: '$colors$primarySolidHover'
       },
       secondary: {
         $$radioColor: '$colors$secondary',
-        $$radioColorHover: '$colors$secondaryDark'
+        $$radioColorHover: '$colors$secondarySolidHover'
       },
       success: {
         $$radioColor: '$colors$success',
-        $$radioColorHover: '$colors$successDark'
+        $$radioColorHover: '$colors$successSolidHover'
       },
       warning: {
         $$radioColor: '$colors$warning',
-        $$radioColorHover: '$colors$warningDark'
+        $$radioColorHover: '$colors$warningSolidHover'
       },
       error: {
         $$radioColor: '$colors$error',
-        $$radioColorHover: '$colors$errorDark'
+        $$radioColorHover: '$colors$errorSolidHover'
       }
     },
     size: {
@@ -238,7 +238,7 @@ export const StyledRadioGroup = styled('div', {
 });
 
 export const StyledRadioDescription = styled('span', {
-  color: '$accents4',
+  color: '$accents7',
   fontSize: 'calc($$radioSize * 0.85)',
   paddingLeft: 'calc($$radioSize + $$radioSize * 0.375)'
 });

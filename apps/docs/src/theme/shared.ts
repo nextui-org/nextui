@@ -38,7 +38,7 @@ export const darkTheme = createTheme({
       headerIconColor: '$accents8',
       codeBackground: '#111111',
       codeComment: '$accents8',
-      codeCopyIconColor: '$accents5',
+      codeCopyIconColor: '$accents7',
       codeHighlight: 'hsl(0, 0%, 15%)',
       cardBackground: '$accents0',
       backgroundBlur: 'rgba(255, 255, 255, 0.1)',

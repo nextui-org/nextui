@@ -494,27 +494,27 @@ export const StyledCheckboxContainer = styled(
       color: {
         default: {
           $$checkboxColor: '$colors$primary',
-          $$checkboxColorHover: '$colors$primaryDark'
+          $$checkboxColorHover: '$colors$primarySolidHover'
         },
         primary: {
           $$checkboxColor: '$colors$primary',
-          $$checkboxColorHover: '$colors$primaryDark'
+          $$checkboxColorHover: '$colors$primarySolidHover'
         },
         secondary: {
           $$checkboxColor: '$colors$secondary',
-          $$checkboxColorHover: '$colors$secondaryDark'
+          $$checkboxColorHover: '$colors$secondarySolidHover'
         },
         success: {
           $$checkboxColor: '$colors$success',
-          $$checkboxColorHover: '$colors$successDark'
+          $$checkboxColorHover: '$colors$successSolidHover'
         },
         warning: {
           $$checkboxColor: '$colors$warning',
-          $$checkboxColorHover: '$colors$warningDark'
+          $$checkboxColorHover: '$colors$warningSolidHover'
         },
         error: {
           $$checkboxColor: '$colors$error',
-          $$checkboxColorHover: '$colors$errorDark'
+          $$checkboxColorHover: '$colors$errorSolidHover'
         },
         gradient: {
           $$checkboxColor: '$colors$gradient',
