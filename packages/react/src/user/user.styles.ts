@@ -29,7 +29,7 @@ export const StyledUserName = styled('span', {
 
 export const StyledUserDesc = styled('span', {
   fontSize: '$tiny',
-  color: '$accents6',
+  color: '$accents7',
   '*:first-child': {
     mt: 0
   },

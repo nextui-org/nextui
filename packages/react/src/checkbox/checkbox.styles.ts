@@ -438,7 +438,7 @@ export const StyledCheckboxText = styled('span', {
     },
     disabled: {
       true: {
-        color: '$accents4'
+        color: '$accents5'
       }
     },
     animated: {
@@ -610,7 +610,7 @@ export const StyledCheckboxGroupLabel = styled('label', {
   d: 'block',
   fontWeight: '$normal',
   fontSize: 'calc($$checkboxSize * 0.8)',
-  color: '$accents6',
+  color: '$accents7',
   mb: '$3',
   variants: {
     disabled: {

@@ -35,7 +35,7 @@ export const StyledRadioLabel = styled('span', {
     },
     disabled: {
       true: {
-        color: '$accents4'
+        color: '$accents5'
       }
     }
   }
