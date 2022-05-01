@@ -9,7 +9,6 @@ export const StyledButton = styled(
   'button',
   {
     $$buttonBorderRadius: '$radii$md',
-    $$buttonHoverOpacity: 0.85,
     $$buttonPressedScale: 0.97,
     dflex: 'center',
     appearance: 'none',
@@ -62,31 +61,31 @@ export const StyledButton = styled(
       color: {
         default: {
           bg: '$primary',
-          color: '$white'
+          color: '$primarySolidContrast'
         },
         primary: {
           bg: '$primary',
-          color: '$white'
+          color: '$primarySolidContrast'
         },
         secondary: {
           bg: '$secondary',
-          color: '$white'
+          color: '$secondarySolidContrast'
         },
         success: {
           bg: '$success',
-          color: '$white'
+          color: '$successSolidContrast'
         },
         warning: {
           bg: '$warning',
-          color: '$white'
+          color: '$warningSolidContrast'
         },
         error: {
           bg: '$error',
-          color: '$white'
+          color: '$errorSolidContrast'
         },
         gradient: {
           bg: '$gradient',
-          color: '$white'
+          color: '$primarySolidContrast'
         }
       },
       size: {
@@ -204,9 +203,7 @@ export const StyledButton = styled(
         true: {}
       },
       isHovered: {
-        true: {
-          opacity: '$$buttonHoverOpacity'
-        }
+        true: {}
       }
     },
     compoundVariants: [
@@ -315,7 +312,13 @@ export const StyledButton = styled(
         color: 'default',
         css: {
           bg: 'transparent',
-          color: '$text'
+          color: '$text',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$primaryLightActive'
+            }
+          }
         }
       },
       {
@@ -323,7 +326,13 @@ export const StyledButton = styled(
         color: 'primary',
         css: {
           bg: 'transparent',
-          color: '$primary'
+          color: '$primary',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$primaryLightActive'
+            }
+          }
         }
       },
       {
@@ -331,7 +340,13 @@ export const StyledButton = styled(
         color: 'secondary',
         css: {
           bg: 'transparent',
-          color: '$secondary'
+          color: '$secondary',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$secondaryLightActive'
+            }
+          }
         }
       },
       {
@@ -339,7 +354,13 @@ export const StyledButton = styled(
         color: 'warning',
         css: {
           bg: 'transparent',
-          color: '$warning'
+          color: '$warning',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$warningLightActive'
+            }
+          }
         }
       },
       {
@@ -347,7 +368,13 @@ export const StyledButton = styled(
         color: 'success',
         css: {
           bg: 'transparent',
-          color: '$success'
+          color: '$success',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$successLightActive'
+            }
+          }
         }
       },
       {
@@ -355,7 +382,13 @@ export const StyledButton = styled(
         color: 'error',
         css: {
           bg: 'transparent',
-          color: '$error'
+          color: '$error',
+          [`& ${StyledDrip}`]: {
+            '.nextui-drip-filler': {
+              opacity: 0.8,
+              fill: '$errorLightActive'
+            }
+          }
         }
       },
       // bordered / color
@@ -525,7 +558,7 @@ export const StyledButton = styled(
         color: 'default',
         css: {
           bg: '$primaryLight',
-          color: '$primary',
+          color: '$primaryLightContrast',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
               opacity: 0.4,
@@ -539,7 +572,7 @@ export const StyledButton = styled(
         color: 'primary',
         css: {
           bg: '$primaryLight',
-          color: '$primary',
+          color: '$primaryLightContrast',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
               opacity: 0.4,
@@ -553,7 +586,7 @@ export const StyledButton = styled(
         color: 'secondary',
         css: {
           bg: '$secondaryLight',
-          color: '$secondary',
+          color: '$secondaryLightContrast',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
               opacity: 0.4,
@@ -567,7 +600,7 @@ export const StyledButton = styled(
         color: 'success',
         css: {
           bg: '$successLight',
-          color: '$success',
+          color: '$successLightContrast',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
               opacity: 0.4,
@@ -581,7 +614,7 @@ export const StyledButton = styled(
         color: 'warning',
         css: {
           bg: '$warningLight',
-          color: '$warning',
+          color: '$warningLightContrast',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
               opacity: 0.4,
@@ -595,13 +628,111 @@ export const StyledButton = styled(
         color: 'error',
         css: {
           bg: '$errorLight',
-          color: '$error',
+          color: '$errorLightContrast',
           [`& ${StyledDrip}`]: {
             '.nextui-drip-filler': {
               opacity: 0.4,
               fill: '$error'
             }
           }
+        }
+      },
+      // flat / isHovered / color
+      {
+        flat: true,
+        isHovered: true,
+        color: 'default',
+        css: {
+          bg: '$primaryLightHover'
+        }
+      },
+      {
+        flat: true,
+        isHovered: true,
+        color: 'primary',
+        css: {
+          bg: '$primaryLightHover'
+        }
+      },
+      {
+        flat: true,
+        isHovered: true,
+        color: 'secondary',
+        css: {
+          bg: '$secondaryLightHover'
+        }
+      },
+      {
+        flat: true,
+        isHovered: true,
+        color: 'success',
+        css: {
+          bg: '$successLightHover'
+        }
+      },
+      {
+        flat: true,
+        isHovered: true,
+        color: 'warning',
+        css: {
+          bg: '$warningLightHover'
+        }
+      },
+      {
+        flat: true,
+        isHovered: true,
+        color: 'error',
+        css: {
+          bg: '$errorLightHover'
+        }
+      },
+      // flat / isPressed / color
+      {
+        flat: true,
+        isPressed: true,
+        color: 'default',
+        css: {
+          bg: '$primaryLightActive'
+        }
+      },
+      {
+        flat: true,
+        isPressed: true,
+        color: 'primary',
+        css: {
+          bg: '$primaryLightActive'
+        }
+      },
+      {
+        flat: true,
+        isPressed: true,
+        color: 'secondary',
+        css: {
+          bg: '$secondaryLightActive'
+        }
+      },
+      {
+        flat: true,
+        isPressed: true,
+        color: 'success',
+        css: {
+          bg: '$successLightActive'
+        }
+      },
+      {
+        flat: true,
+        isPressed: true,
+        color: 'warning',
+        css: {
+          bg: '$warningLightActive'
+        }
+      },
+      {
+        flat: true,
+        isPressed: true,
+        color: 'error',
+        css: {
+          bg: '$errorLightActive'
         }
       },
       // auto / gradient-color / bordered

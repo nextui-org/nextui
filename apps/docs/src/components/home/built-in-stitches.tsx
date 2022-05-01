@@ -128,7 +128,7 @@ const BuiltInStitchesSection = () => {
                       },
                       '&:hover': {
                         '&:not(.active) .nextui-collapse-title': {
-                          color: '$accents5'
+                          color: '$accents7'
                         }
                       }
                     }}

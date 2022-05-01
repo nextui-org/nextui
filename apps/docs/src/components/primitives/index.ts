@@ -26,7 +26,7 @@ export const Title = styled('h1', {
         textGradient: '180deg, #f36534 25%, #F69F27 100%'
       },
       blue: {
-        textGradient: '180deg, $blue300 25%, $blue500 100%'
+        textGradient: '180deg, #5EA2EF 25%, #0072F5 100%'
       },
       cyan: {
         textGradient: '180deg, #00b7fa 25%, #01cfea 100%'
@@ -51,7 +51,7 @@ export const Subtitle = styled('p', {
   pl: '$1',
   fs: '$sm',
   fontWeight: '$medium',
-  color: '$accents6',
+  color: '$accents7',
   display: 'block',
   mw: '100%',
   width: '100%',
@@ -78,6 +78,7 @@ export const BlockLink = styled(Link, {
   bg: '$blockLinkBackground',
   fontSize: '$xs',
   color: '$blockLinkColor',
+  fontWeight: '$medium',
   '&:hover': {
     bg: '$blockLinkHoverBackground'
   },
@@ -87,42 +88,31 @@ export const BlockLink = styled(Link, {
         color: '$blockLinkColor'
       },
       green: {
-        color: '$green300',
-        bg: '$accents1',
+        color: '$green800',
+        bg: '$green100',
         '&:hover': {
-          bg: '$green800'
-        },
-        [`.${lightTheme} &`]: {
-          color: '$green500',
-          '&:hover': {
-            bg: '$cyan400'
-          }
+          bg: '$green300'
+        }
+      },
+      pink: {
+        color: '$pink600',
+        bg: '$pink100',
+        '&:hover': {
+          bg: '$pink300'
         }
       },
       violet: {
-        color: '$pink300',
-        bg: '$accents1',
+        color: '$purple600',
+        bg: '$purple100',
         '&:hover': {
-          bg: '$pink800'
-        },
-        [`.${lightTheme} &`]: {
-          color: '$pink500',
-          '&:hover': {
-            bg: '$pink400'
-          }
+          bg: '$purple300'
         }
       },
       blue: {
-        color: '$blue300',
-        bg: '$accents1',
+        color: '$blue700',
+        bg: '$blue100',
         '&:hover': {
-          bg: '$blue800'
-        },
-        [`.${lightTheme} &`]: {
-          color: '$blue500',
-          '&:hover': {
-            bg: '$blue100'
-          }
+          bg: '$blue300'
         }
       }
     }

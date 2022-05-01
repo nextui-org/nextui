@@ -37,8 +37,8 @@ const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
           height: 2.875rem;
         }
         :global(.docs-thead th) {
-          background: ${theme?.colors?.accents1?.value};
-          color: ${theme?.colors?.accents5?.value};
+          background: ${theme?.colors?.accents0?.value};
+          color: ${theme?.colors?.accents7?.value};
           font-size: 0.8rem;
           font-weight: 600;
           text-align: left;

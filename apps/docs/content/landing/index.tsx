@@ -334,7 +334,7 @@ const CustomButton = () => {
         boxShadow: '$md',
         position: 'relative',
         overflow: 'visible',
-        color: '$green800',
+        color: '#0F9549',
         px: '$18',
         '&:after': {
           content: '""',

@@ -201,7 +201,7 @@ export const StyledStar = styled(Star, {
   },
   '&:hover': {
     '& path': {
-      stroke: '$yellow500'
+      stroke: '$yellow700'
     }
   },
   [`.${darkModernTheme} &, .${lightModernTheme} &`]: {
@@ -233,12 +233,12 @@ export const StyledStar = styled(Star, {
     liked: {
       true: {
         '& path': {
-          fill: '$yellow400',
-          stroke: '$yellow400'
+          fill: '$yellow600',
+          stroke: '$yellow600'
         },
         '&:hover': {
           '& path': {
-            fill: '$yellow500'
+            fill: '$yellow600'
           }
         }
       },
@@ -274,7 +274,7 @@ export const StyledTitle = styled(BaseText, {
 });
 
 export const StyledSubtitle = styled(BaseText, {
-  color: '$accents6',
+  color: '$accents7',
   fontWeight: '$semibold',
   fontSize: '$base',
   [`.${darkRetroTheme} &, .${lightRetroTheme} &`]: {

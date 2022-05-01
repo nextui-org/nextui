@@ -13,8 +13,8 @@ export const StyledTableColumnHeader = styled(
   {
     height: '$14',
     cursor: 'default',
-    bg: '$accents1',
-    color: '$accents6',
+    bg: '$accents0',
+    color: '$accents7',
     fontSize: '$tiny',
     textAlign: 'left',
     position: 'relative',
@@ -54,8 +54,8 @@ export const StyledTableColumnHeader = styled(
             transition: 'none'
           },
           '&:hover': {
-            color: '$accents7',
-            bg: '$accents2'
+            color: '$accents8',
+            bg: '$accents1'
           }
         }
       }
@@ -246,30 +246,30 @@ export const StyledTable = styled('table', {
     color: {
       primary: {
         $$tableRowColor: '$colors$primaryLight',
-        $$tableRowTextColor: '$colors$primary'
+        $$tableRowTextColor: '$colors$primaryLightContrast'
       },
       secondary: {
         $$tableRowColor: '$colors$secondaryLight',
-        $$tableRowTextColor: '$colors$secondary'
+        $$tableRowTextColor: '$colors$secondaryLightContrast'
       },
       success: {
         $$tableRowColor: '$colors$successLight',
-        $$tableRowTextColor: '$colors$success'
+        $$tableRowTextColor: '$colors$successLightContrast'
       },
       warning: {
         $$tableRowColor: '$colors$warningLight',
-        $$tableRowTextColor: '$colors$warning'
+        $$tableRowTextColor: '$colors$warningLightContrast'
       },
       error: {
         $$tableRowColor: '$colors$errorLight',
-        $$tableRowTextColor: '$colors$error'
+        $$tableRowTextColor: '$colors$errorLightContrast'
       }
     },
     striped: {
       true: {
         [`& ${StyledTableRow}[aria-selected=false]:nth-child(even)`]: {
           [`& ${StyledTableCell}`]: {
-            bg: '$accents1'
+            bg: '$accents0'
           }
         },
         [`& ${StyledTableRow}:nth-child(even)`]: {
@@ -322,7 +322,7 @@ export const StyledTable = styled('table', {
             right: 0,
             bottom: 0,
             height: 'calc($$tableLineWeight * 1.5)',
-            bg: '$accents2'
+            bg: '$accents1'
           },
           '&:first-child': {
             ml: '$12',
@@ -392,7 +392,7 @@ export const StyledTable = styled('table', {
           '&:hover': {
             [`& ${StyledTableCell}:before`]: {
               opacity: 1,
-              bg: '$accents1'
+              bg: '$accents0'
             }
           }
         },

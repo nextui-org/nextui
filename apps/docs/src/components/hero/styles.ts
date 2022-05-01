@@ -27,5 +27,5 @@ export const StyledSubtitle = styled('p', {
   width: '100%',
   display: 'inline-flex',
   fontWeight: '$medium',
-  color: '$accents6'
+  color: '$accents7'
 });

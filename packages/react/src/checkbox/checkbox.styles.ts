@@ -438,7 +438,7 @@ export const StyledCheckboxText = styled('span', {
     },
     disabled: {
       true: {
-        color: '$accents4'
+        color: '$accents5'
       }
     },
     animated: {
@@ -494,27 +494,27 @@ export const StyledCheckboxContainer = styled(
       color: {
         default: {
           $$checkboxColor: '$colors$primary',
-          $$checkboxColorHover: '$colors$primaryDark'
+          $$checkboxColorHover: '$colors$primarySolidHover'
         },
         primary: {
           $$checkboxColor: '$colors$primary',
-          $$checkboxColorHover: '$colors$primaryDark'
+          $$checkboxColorHover: '$colors$primarySolidHover'
         },
         secondary: {
           $$checkboxColor: '$colors$secondary',
-          $$checkboxColorHover: '$colors$secondaryDark'
+          $$checkboxColorHover: '$colors$secondarySolidHover'
         },
         success: {
           $$checkboxColor: '$colors$success',
-          $$checkboxColorHover: '$colors$successDark'
+          $$checkboxColorHover: '$colors$successSolidHover'
         },
         warning: {
           $$checkboxColor: '$colors$warning',
-          $$checkboxColorHover: '$colors$warningDark'
+          $$checkboxColorHover: '$colors$warningSolidHover'
         },
         error: {
           $$checkboxColor: '$colors$error',
-          $$checkboxColorHover: '$colors$errorDark'
+          $$checkboxColorHover: '$colors$errorSolidHover'
         },
         gradient: {
           $$checkboxColor: '$colors$gradient',
@@ -610,7 +610,7 @@ export const StyledCheckboxGroupLabel = styled('label', {
   d: 'block',
   fontWeight: '$normal',
   fontSize: 'calc($$checkboxSize * 0.8)',
-  color: '$accents6',
+  color: '$accents7',
   mb: '$3',
   variants: {
     disabled: {

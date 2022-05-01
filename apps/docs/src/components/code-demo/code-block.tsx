@@ -29,13 +29,13 @@ const WindowIcon = styled(Box, {
   variants: {
     color: {
       red: {
-        bg: '$red500'
+        bg: '$red600'
       },
       green: {
-        bg: '$green500'
+        bg: '$green600'
       },
       yellow: {
-        bg: '$yellow500'
+        bg: '$yellow600'
       }
     }
   }
