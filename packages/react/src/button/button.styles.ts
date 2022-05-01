@@ -52,11 +52,7 @@ export const StyledButton = styled(
         }
       },
       ghost: {
-        true: {
-          '&:hover': {
-            color: '$white'
-          }
-        }
+        true: {}
       },
       color: {
         default: {
@@ -501,7 +497,8 @@ export const StyledButton = styled(
         isHovered: true,
         color: 'default',
         css: {
-          bg: '$primary'
+          bg: '$primary',
+          color: '$primarySolidContrast'
         }
       },
       {
@@ -509,7 +506,8 @@ export const StyledButton = styled(
         isHovered: true,
         color: 'primary',
         css: {
-          bg: '$primary'
+          bg: '$primary',
+          color: '$primarySolidContrast'
         }
       },
       {
@@ -517,7 +515,8 @@ export const StyledButton = styled(
         isHovered: true,
         color: 'secondary',
         css: {
-          bg: '$secondary'
+          bg: '$secondary',
+          color: '$secondarySolidContrast'
         }
       },
       {
@@ -525,7 +524,8 @@ export const StyledButton = styled(
         isHovered: true,
         color: 'success',
         css: {
-          bg: '$success'
+          bg: '$success',
+          color: '$successSolidContrast'
         }
       },
       {
@@ -533,7 +533,8 @@ export const StyledButton = styled(
         isHovered: true,
         color: 'warning',
         css: {
-          bg: '$warning'
+          bg: '$warning',
+          color: '$warningSolidContrast'
         }
       },
       {
@@ -541,7 +542,8 @@ export const StyledButton = styled(
         isHovered: true,
         color: 'error',
         css: {
-          bg: '$error'
+          bg: '$error',
+          color: '$errorSolidContrast'
         }
       },
       {
@@ -549,7 +551,8 @@ export const StyledButton = styled(
         color: 'gradient',
         isHovered: true,
         css: {
-          bg: '$gradient'
+          bg: '$gradient',
+          color: '$white'
         }
       },
       // flat / color
