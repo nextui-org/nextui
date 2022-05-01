@@ -37,7 +37,8 @@ const CustomizationSection = () => {
           <Title color="green">easy.</Title>
         </Row>
         <Subtitle>
-          Thanks to NextUI is based on the amazing CSS-in-JS library&nbsp;
+          Thanks to NextUI is built on top of the amazing CSS-in-JS
+          library&nbsp;
           <Link
             href="https://stitches.dev/"
             rel="noreferer noopener"
@@ -55,7 +56,7 @@ const CustomizationSection = () => {
           <NextLink href="/docs/theme/override-styles#using-the-styled-function">
             <Link css={{ color: '$green600' }}>styled&nbsp;</Link>
           </NextLink>
-          function or native css class names.
+          function or native CSS selectors.
         </Subtitle>
         <Grid.Container gap={2}>
           <Grid
