@@ -118,9 +118,11 @@ const Button = React.forwardRef(
 
     const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
     const {
+      isFocused,
       isFocusVisible,
       focusProps
     }: {
+      isFocused: boolean;
       isFocusVisible: boolean;
       focusProps: Omit<
         React.HTMLAttributes<HTMLButtonElement>,
@@ -164,7 +166,7 @@ const Button = React.forwardRef(
         data-state={getState}
         animated={animated}
         isPressed={isPressed}
-        isHovered={isHovered}
+        isHovered={isHovered || (ghost && isFocused)}
         isFocusVisible={isFocusVisible && !disabled}
         className={clsx(
           'nextui-button',
