@@ -22,6 +22,7 @@ import {
   StyledCheckboxText
 } from './checkbox.styles';
 import { mapPropsToReactAriaAttr } from './utils';
+import { __DEV__ } from '../utils/assertion';
 import clsx from '../utils/clsx';
 
 interface Props
@@ -91,6 +92,8 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
       labelColor,
       animated,
       autoFocus,
+      // @ts-ignore
+      initialChecked,
       ...props
     } = checkboxProps;
 
@@ -205,7 +208,10 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
 
 Checkbox.defaultProps = defaultProps;
 
-Checkbox.displayName = 'NextUI.Checkbox';
+if (__DEV__) {
+  Checkbox.displayName = 'NextUI.Checkbox';
+}
+
 Checkbox.toString = () => '.nextui-checkbox';
 
 type CheckboxComponent<T, P = {}> = React.ForwardRefExoticComponent<
