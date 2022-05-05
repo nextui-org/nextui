@@ -1,5 +1,4 @@
 import { styled, Link } from '@nextui-org/react';
-import { lightTheme } from '@theme/shared';
 
 export const Title = styled('h1', {
   display: 'inline',
