@@ -1,5 +1,4 @@
 import { styled, VariantProps } from '@nextui-org/react';
-import { lightTheme } from '@theme/shared';
 
 export const StyledBadge = styled('span', {
   display: 'inline-block',
