@@ -3807,7 +3807,25 @@
     "@react-aria/utils" "^3.12.0"
     "@react-aria/visually-hidden" "^3.2.8"
 
-"@react-aria/overlays@3.8.2":
+"@react-aria/menu@3.4.4":
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/@react-aria/menu/-/menu-3.4.4.tgz#19db4c02c1ed1d0b5e66f5c0d5d664836eb10f23"
+  integrity sha512-PoeadoSKv4mgx+05KLiRfupu30Pku7nzuL3e+3FAaWi5KyX8siiX6ADMZp8ulnYXoQgQ4C7XzulbwiSE1P/nxg==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/i18n" "^3.3.9"
+    "@react-aria/interactions" "^3.8.4"
+    "@react-aria/overlays" "^3.8.2"
+    "@react-aria/selection" "^3.8.2"
+    "@react-aria/utils" "^3.12.0"
+    "@react-stately/collections" "^3.3.8"
+    "@react-stately/menu" "^3.2.7"
+    "@react-stately/tree" "^3.2.4"
+    "@react-types/button" "^3.4.5"
+    "@react-types/menu" "^3.5.3"
+    "@react-types/shared" "^3.12.0"
+
+"@react-aria/overlays@3.8.2", "@react-aria/overlays@^3.8.2":
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/@react-aria/overlays/-/overlays-3.8.2.tgz#630177cdd20bd6aa20e3516485d90003390d896e"
   integrity sha512-HeOkYUILH4CrMVv3HkTrcK1jeZ2NJ7tS39tTciEGZ9JO1d8nUJ5jzDGGiQ587T9YWc1EYxiA+fbnn5Krxyq8IQ==
@@ -3995,6 +4013,17 @@
     "@react-types/grid" "^3.0.4"
     "@react-types/shared" "^3.12.0"
 
+"@react-stately/menu@^3.2.7":
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/@react-stately/menu/-/menu-3.2.7.tgz#b5af095f6c3314cd2809ea9ce01d1af78e65dcf6"
+  integrity sha512-ybmi//FFoWUnUnHGzdHvAkCoFV6cNf6eAhTldtHMW/P1Qp/99vlxJGhnpekY6oFrqPe68RjKKANASymOnnKEow==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/overlays" "^3.2.0"
+    "@react-stately/utils" "^3.4.1"
+    "@react-types/menu" "^3.5.3"
+    "@react-types/shared" "^3.12.0"
+
 "@react-stately/overlays@3.2.0", "@react-stately/overlays@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@react-stately/overlays/-/overlays-3.2.0.tgz#4bd2b42e28caa527b7400a7c7d135a44f286ac57"
@@ -4045,6 +4074,17 @@
     "@babel/runtime" "^7.6.2"
     "@react-stately/utils" "^3.4.1"
     "@react-types/checkbox" "^3.2.7"
+    "@react-types/shared" "^3.12.0"
+
+"@react-stately/tree@3.2.4", "@react-stately/tree@^3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@react-stately/tree/-/tree-3.2.4.tgz#d1841c071dcfd12df949cf84c0d3d1c931c4f1b5"
+  integrity sha512-rGZuU0ynoN8Lv/Hhfh04FNlx+1c0RnM/5DIwwr8s7S0VWPQHMwGQiPkz+MFOk6Cx28sA/9ZXI4RjupjHvzJvKw==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-stately/collections" "^3.3.8"
+    "@react-stately/selection" "^3.9.4"
+    "@react-stately/utils" "^3.4.1"
     "@react-types/shared" "^3.12.0"
 
 "@react-stately/utils@^3.4.1":
@@ -4120,6 +4160,14 @@
   resolved "https://registry.yarnpkg.com/@react-types/label/-/label-3.5.4.tgz#56bf50332845a161761902876cc5e6034521b48b"
   integrity sha512-LuShOdEYokzn58SKUIo7kQdN3CV5Rs+HCxmvix4+Uw6BAYG9/aqqoKKolTA9klbM8rvvEzDqFzNZZHeMTBoN6w==
   dependencies:
+    "@react-types/shared" "^3.12.0"
+
+"@react-types/menu@3.5.3", "@react-types/menu@^3.5.3":
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/@react-types/menu/-/menu-3.5.3.tgz#bd3b893f1fb8583af7b9a0ff26cc2643f5185928"
+  integrity sha512-Lj8TYgrWelV49ewSf5gV1QQ9/QRt162nO7dmYOyRWWBXkOJ+YlHpuZRF+7TkuBwFK+xsxzVSaG6QRfndecvxmw==
+  dependencies:
+    "@react-types/overlays" "^3.5.5"
     "@react-types/shared" "^3.12.0"
 
 "@react-types/overlays@3.5.5", "@react-types/overlays@^3.5.5":
