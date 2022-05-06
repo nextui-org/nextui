@@ -81,7 +81,7 @@ describe('Checkbox Group', () => {
     let value = ['sydney'];
     const wrapper = mount(
       <Checkbox.Group
-        disabled
+        isDisabled
         label="Select cities"
         defaultValue={['sydney']}
         onChange={(val) => (value = val)}

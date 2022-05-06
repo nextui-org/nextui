@@ -1,124 +1,81 @@
-import React, { useMemo, RefAttributes, PropsWithoutRef } from 'react';
-import { useCheckboxGroupState } from '@react-stately/checkbox';
-import { AriaCheckboxGroupProps } from '@react-types/checkbox';
-import { useCheckboxGroup } from '@react-aria/checkbox';
-import { mergeProps } from '@react-aria/utils';
-
-import { CheckboxContext } from './checkbox-context';
-import { NormalSizes, NormalColors, SimpleColors } from '../utils/prop-types';
+import React from 'react';
+import clsx from '../utils/clsx';
+import { useDOMRef } from '../utils/dom';
+import { __DEV__ } from '../utils/assertion';
+import { CheckboxGroupProvider } from './checkbox-context';
+import { useCheckboxGroup, UseCheckboxGroupProps } from './use-checkboxGroup';
 import {
   StyledCheckboxGroup,
   StyledCheckboxGroupLabel,
   StyledCheckboxGroupContainer
 } from './checkbox.styles';
-import { CSS } from '../theme/stitches.config';
-import { useDOMRef } from '../utils/dom';
+import type { CSS } from '../theme/stitches.config';
 
-interface Props
-  extends Omit<
-    AriaCheckboxGroupProps,
-    'isDisabled' | 'isReadOnly' | 'defaultChecked'
-  > {
-  color?: NormalColors;
-  labelColor?: SimpleColors;
-  row?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
-  size?: NormalSizes;
+interface Props extends UseCheckboxGroupProps {
+  css?: CSS;
+  className?: string;
+  children?: React.ReactNode;
+  as?: keyof JSX.IntrinsicElements;
 }
 
-const defaultProps = {
-  color: 'default' as NormalColors,
-  labelColor: 'default' as SimpleColors,
-  disabled: false,
-  readOnly: false,
-  row: false,
-  size: 'md' as NormalSizes
-};
+// type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-
-export type CheckboxGroupProps = Props &
-  typeof defaultProps &
-  NativeAttrs & { css?: CSS };
+export type CheckboxGroupProps = Props;
 
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
   (
-    {
-      color,
-      labelColor,
-      disabled,
-      size,
-      label,
-      children,
-      readOnly,
-      row,
-      ...props
-    },
-    ref: React.Ref<HTMLDivElement | null>
+    props: CheckboxGroupProps,
+    forwardedRef: React.Ref<HTMLDivElement | null>
   ) => {
-    const domRef = useDOMRef(ref);
-    const state = useCheckboxGroupState({
-      ...props,
-      isDisabled: disabled,
-      isReadOnly: readOnly
-    });
-    const { groupProps } = useCheckboxGroup(
-      {
-        ...props,
-        'aria-label':
-          props['aria-label'] ||
-          (typeof label === 'string' ? label : undefined),
-        isDisabled: disabled,
-        isReadOnly: readOnly
-      },
-      state
-    );
+    const { className, as, css, children, label, ...otherProps } = props;
 
-    const providerValue = useMemo(() => {
-      return {
-        ...state,
-        color: color,
-        size: size,
-        labelColor: labelColor,
-        inGroup: true
-      };
-    }, [state, color, size, labelColor]);
+    const { size, row, groupProps, groupState, getProviderValue } =
+      useCheckboxGroup({ ...otherProps, label });
+
+    const ref = useDOMRef(forwardedRef);
 
     return (
       <StyledCheckboxGroup
-        ref={domRef}
+        className={clsx('nextui-checkbox-group', className)}
+        as={as}
+        ref={ref}
+        css={css}
         size={size}
-        {...mergeProps(props, groupProps)}
+        {...groupProps}
       >
         {label && (
-          <StyledCheckboxGroupLabel disabled={disabled}>
+          <StyledCheckboxGroupLabel
+            className="nextui-checkbox-group-label"
+            disabled={groupState.isDisabled}
+          >
             {label}
           </StyledCheckboxGroupLabel>
         )}
-        <StyledCheckboxGroupContainer role="presentation" row={row}>
-          <CheckboxContext.Provider value={providerValue}>
+        <StyledCheckboxGroupContainer
+          className="nextui-checkbox-group-items"
+          role="presentation"
+          row={row}
+        >
+          <CheckboxGroupProvider value={getProviderValue}>
             {children}
-          </CheckboxContext.Provider>
+          </CheckboxGroupProvider>
         </StyledCheckboxGroupContainer>
       </StyledCheckboxGroup>
     );
   }
 );
-CheckboxGroup.defaultProps = defaultProps;
-
-CheckboxGroup.displayName = 'NextUI.CheckboxGroup';
-CheckboxGroup.toString = () => '.nextui-checkbox-group';
 
 type CheckboxGroupComponent<T, P = {}> = React.ForwardRefExoticComponent<
-  PropsWithoutRef<P> & RefAttributes<T>
+  React.PropsWithoutRef<P> & React.RefAttributes<T>
 >;
 
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs & { css?: CSS };
+if (__DEV__) {
+  CheckboxGroup.displayName = 'NextUI.CheckboxGroup';
+}
+
+CheckboxGroup.toString = () => '.nextui-checkbox-group';
 
 export default CheckboxGroup as CheckboxGroupComponent<
   HTMLDivElement,
-  ComponentProps
+  CheckboxGroupProps
 >;

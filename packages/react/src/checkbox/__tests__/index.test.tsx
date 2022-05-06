@@ -20,9 +20,7 @@ const expectCheckboxToHaveARIAChecked = (
 
 describe('Checkbox', () => {
   it('should render correctly', () => {
-    const wrapper = mount(
-      <Checkbox initialChecked={true}>Buenos Aires</Checkbox>
-    );
+    const wrapper = mount(<Checkbox isSelected={true}>Buenos Aires</Checkbox>);
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -41,18 +39,16 @@ describe('Checkbox', () => {
   });
 
   it('should work correctly with initial value', () => {
-    let wrapper = mount(
-      <Checkbox initialChecked={true}>Buenos Aires</Checkbox>
-    );
+    let wrapper = mount(<Checkbox isSelected={true}>Buenos Aires</Checkbox>);
     expectCheckboxIsChecked(wrapper, true);
 
-    wrapper = mount(<Checkbox initialChecked={false}>Buenos Aires</Checkbox>);
+    wrapper = mount(<Checkbox isSelected={false}>Buenos Aires</Checkbox>);
     expectCheckboxIsChecked(wrapper, false);
 
-    wrapper = mount(<Checkbox initialChecked>Buenos Aires</Checkbox>);
+    wrapper = mount(<Checkbox isSelected>Buenos Aires</Checkbox>);
     expectCheckboxIsChecked(wrapper, true);
 
-    wrapper = mount(<Checkbox initialChecked={false}>Buenos Aires</Checkbox>);
+    wrapper = mount(<Checkbox isSelected={false}>Buenos Aires</Checkbox>);
     expectCheckboxIsChecked(wrapper, false);
 
     expect(() => wrapper.unmount()).not.toThrow();
@@ -63,7 +59,7 @@ describe('Checkbox', () => {
       const [state, setState] = React.useState<string>('state1');
 
       return (
-        <Checkbox initialChecked onChange={() => setState('state2')}>
+        <Checkbox isSelected onChange={() => setState('state2')}>
           {state}
         </Checkbox>
       );
@@ -82,7 +78,7 @@ describe('Checkbox', () => {
       const [state, setState] = React.useState<string>('state1');
 
       return (
-        <Checkbox disabled onChange={() => setState('state2')}>
+        <Checkbox isDisabled onChange={() => setState('state2')}>
           {state}
         </Checkbox>
       );
@@ -100,14 +96,14 @@ describe('Checkbox', () => {
 
   it('should work correctly with indeterminate value', () => {
     let wrapper = mount(
-      <Checkbox checked indeterminate>
+      <Checkbox isSelected isIndeterminate>
         Buenos Aires
       </Checkbox>
     );
 
     expect(getCheckboxElement(wrapper).props()['aria-checked']).toBe('mixed');
 
-    wrapper = mount(<Checkbox indeterminate={false}>Buenos Aires</Checkbox>);
+    wrapper = mount(<Checkbox isIndeterminate={false}>Buenos Aires</Checkbox>);
     expect(getCheckboxElement(wrapper).props()['aria-checked']).toBe(false);
 
     expect(() => wrapper.unmount()).not.toThrow();

@@ -1,8 +1,5 @@
-import {
-  styled,
-  cssFocusVisible,
-  VariantProps
-} from '../theme/stitches.config';
+import { styled, cssFocusVisible } from '../theme/stitches.config';
+import type { VariantProps } from '../theme/stitches.config';
 
 export const StyledCheckboxLabel = styled('label', {
   d: 'inline-flex',
@@ -82,7 +79,7 @@ export const StyledIconCheckFirstLine = styled('div', {
     }
   },
   variants: {
-    indeterminate: {
+    isIndeterminate: {
       true: {
         display: 'none'
       }
@@ -143,7 +140,7 @@ export const StyledIconCheckSecondLine = styled('div', {
     }
   },
   variants: {
-    indeterminate: {
+    isIndeterminate: {
       true: {
         display: 'none'
       }
@@ -202,7 +199,7 @@ export const StyledIconCheck = styled('i', {
     }
   },
   variants: {
-    indeterminate: {
+    isIndeterminate: {
       true: {
         opacity: 1,
         transform: 'rotate(0deg)',
@@ -255,41 +252,41 @@ export const StyledIconCheck = styled('i', {
     }
   },
   compoundVariants: [
-    // indeterminate && xs size
+    // isIndeterminate && xs size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'xs',
       css: {
         scale: '0.5'
       }
     },
-    // indeterminate && sm size
+    // isIndeterminate && sm size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'sm',
       css: {
         scale: '0.5'
       }
     },
-    // indeterminate && md size
+    // isIndeterminate && md size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'md',
       css: {
         scale: '0.8'
       }
     },
-    // indeterminate && lg size
+    // isIndeterminate && lg size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'lg',
       css: {
         transform: 'none'
       }
     },
-    // indeterminate && xl size
+    // isIndeterminate && xl size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'lg',
       css: {
         transform: 'none'
@@ -355,7 +352,7 @@ export const StyledCheckboxMask = styled('div', {
         }
       }
     },
-    indeterminate: {
+    isIndeterminate: {
       true: {
         '&:before': {
           opacity: 0,
