@@ -26,7 +26,7 @@ export const appearanceOut = keyframes({
   }
 });
 
-export const StyledPopoverContent = styled(
+export const StyledPopoverContentContainer = styled(
   'div',
   {
     /* variables */
@@ -73,3 +73,9 @@ export const StyledPopoverContent = styled(
   },
   cssFocusVisible
 );
+
+export const StyledPopoverContent = styled('div', {
+  /* Avoid blurriness */
+  transform: 'translateZ(0)',
+  backfaceVisibility: 'hidden'
+});
