@@ -3,7 +3,7 @@ import clsx from '../utils/clsx';
 import { useDOMRef } from '../utils/dom';
 import { __DEV__ } from '../utils/assertion';
 import { CheckboxGroupProvider } from './checkbox-context';
-import { useCheckboxGroup, UseCheckboxGroupProps } from './use-checkboxGroup';
+import { useCheckboxGroup, UseCheckboxGroupProps } from './use-checkbox-group';
 import {
   StyledCheckboxGroup,
   StyledCheckboxGroupLabel,
