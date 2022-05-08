@@ -43,16 +43,16 @@ const StyledBadge = styled('span', {
   variants: {
     type: {
       active: {
-        bg: '$green100',
-        color: '$green600'
+        bg: '$successLight',
+        color: '$success'
       },
       paused: {
-        bg: '$red100',
-        color: '$red600'
+        bg: '$errorLight',
+        color: '$error'
       },
       vacation: {
-        bg: '$yellow100',
-        color: '$yellow600'
+        bg: '$warningLight',
+        color: '$warning'
       }
     }
   },

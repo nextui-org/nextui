@@ -101,7 +101,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           className="arrow-right"
           width={14}
           height={14}
-          fill={theme?.colors?.accents7?.value}
+          fill={theme?.colors?.accents8?.value}
         />
         {updated && (
           <Badge
@@ -149,7 +149,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           color: ${theme?.colors?.accents8?.value};
         }
         .open .label {
-          color: ${theme?.colors?.accents8?.value};
+          color: ${theme?.colors?.accents9?.value};
         }
         .open .label-container :global(svg) {
           margin-right: 1px;

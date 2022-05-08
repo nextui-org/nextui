@@ -1,26 +1,27 @@
+import { blue, purple, green, yellow, red, cyan, pink, gray } from './colors';
+
 export default {
   colors: {
-    // accents
-    accents1: '$gray100',
-    accents2: '$gray200',
-    accents3: '$gray300',
-    accents4: '$gray400',
-    accents5: '$gray500',
-    accents6: '$gray600',
-    accents7: '$gray700',
-    accents8: '$gray800',
-    accents9: '$gray900',
-
     // background colors
     background: '$white',
     foreground: '$black',
     backgroundContrast: '$white',
 
+    //semantic colors
+    ...blue,
+    ...purple,
+    ...green,
+    ...yellow,
+    ...red,
+    ...cyan,
+    ...pink,
+    ...gray,
+
     // misc
-    text: '$gray800',
+    text: '$gray900',
+    link: '$blue600',
     codeLight: '$pink100',
     code: '$pink600',
-    border: '$gray200',
     selection: '$blue200'
   },
   shadows: {

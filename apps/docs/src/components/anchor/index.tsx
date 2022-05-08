@@ -63,7 +63,7 @@ const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({
           font-size: inherit;
           width: 1em;
           height: 1em;
-          color: ${theme?.colors?.accents5?.value};
+          color: ${theme?.colors?.accents7?.value};
           transition: all 0.25s ease;
         }
         .parent:hover > .icon {

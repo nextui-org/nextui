@@ -1,5 +1,4 @@
 import { styled, VariantProps } from '@nextui-org/react';
-import { lightTheme } from '@theme/shared';
 
 export const StyledBadge = styled('span', {
   display: 'inline-block',
@@ -38,11 +37,8 @@ export const StyledBadge = styled('span', {
       },
       disabled: {
         fontSize: '9px',
-        color: '$accents6',
-        bg: 'rgba(255, 255, 255, 0.1)',
-        [`.${lightTheme} &`]: {
-          bg: '$accents1'
-        }
+        color: '$accents8',
+        bg: '$accents0'
       }
     }
   },

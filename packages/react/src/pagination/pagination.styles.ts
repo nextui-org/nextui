@@ -86,12 +86,12 @@ export const StyledPaginationItem = styled(
     cursor: 'pointer',
     br: '$$paginationItemRadius',
     color: '$text',
-    bg: '$accents1',
+    bg: '$accents0',
     '@motion': {
       transition: 'none'
     },
     '&:hover': {
-      bg: '$accents2'
+      bg: '$accents1'
     },
     [`& ${StyledPaginationIcon}`]: {
       size: '$$paginationFontSize'

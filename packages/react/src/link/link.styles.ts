@@ -14,6 +14,10 @@ export const StyledLink = styled('a', {
   lineHeight: 'inherit',
   textDecoration: 'none',
   width: 'fitContent',
+  backgroundImage: 'inherit',
+  backgroundColor: 'inherit',
+  backgroundClip: 'inherit',
+  WebkitTextFillColor: 'inherit',
   '&:hover': {
     opacity: 0.8
   },

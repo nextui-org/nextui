@@ -113,13 +113,13 @@ const DarkModeSection = () => {
                   },
                   [`.${lightTheme} &`]: {
                     '&.is-dark': {
-                      $$cardColor: '$colors$gray900'
+                      $$cardColor: '#363449'
                     }
                   }
                 }}
               />
               <NextLink href="/docs/theme/dark-mode">
-                <BlockLink>Learn more</BlockLink>
+                <BlockLink color="pink">Learn more</BlockLink>
               </NextLink>
             </Col>
           </Grid>

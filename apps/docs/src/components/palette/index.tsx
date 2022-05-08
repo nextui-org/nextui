@@ -35,15 +35,19 @@ const getColorTitle = (color: string) => {
 };
 
 const getColorNumber = (color: string) => {
+  // check if color doesn't have a number
+  if (!color.match(/[0-9]/g)) {
+    return -1; // brand colors
+  }
   return toNumber(color.replace(/[^0-9]/g, ''));
 };
 
 const mapColors = (colors: string[]): Color[] => {
   return colors.map((color) => {
     const num = getColorNumber(color);
-    const isBrand = num === 0;
-    const isAccent = num >= 1 && num < 10;
-    const isBase = num >= 100 && num < 1000;
+    const isBrand = num === -1;
+    const isAccent = num >= 0 && num < 10;
+    const isBase = num >= 50 && num < 1000;
     const reverseColor = reverseColors[color];
 
     const textColor = isBrand
@@ -87,7 +91,7 @@ const Palette: React.FC<Props> = ({ colors }) => {
       <>
         {mappedColors.map((row: any, i: number) => (
           <Grid.Container
-            key={i}
+            key={`${row.title}-${i}`}
             wrap="wrap"
             className="palette-colors-row"
             css={{ mb: '$8', position: 'relative' }}

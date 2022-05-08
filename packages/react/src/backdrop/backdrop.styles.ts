@@ -56,10 +56,16 @@ export const StyledBackdropLayer = styled('div', {
   variants: {
     blur: {
       true: {
-        opacity: 1,
-        transition: 'background 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
-        backdropFilter: 'saturate(180%) blur(20px)',
-        bg: 'rgba(0, 0, 0, 0.1)'
+        bg: '$black',
+        opacity: '$$backdropOpacity',
+        transition: 'opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+        '@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))':
+          {
+            opacity: 1,
+            transition: 'background 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+            backdropFilter: 'saturate(180%) blur(20px)',
+            bg: 'rgba(0, 0, 0, 0.1)'
+          }
       },
       false: {
         bg: '$black',

@@ -16,12 +16,12 @@ class MyDocument extends Document {
 
     return {
       ...initialProps,
-      styles: (
-        <React.Fragment>
+      styles: [
+        <>
           {initialProps.styles}
           {styledJSXStyles}
-        </React.Fragment>
-      )
+        </>
+      ]
     };
   }
   render() {

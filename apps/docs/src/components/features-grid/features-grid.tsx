@@ -68,7 +68,7 @@ const FeaturesGrid: React.FC<FeaturesGridProps> = ({
             <Row align="center" css={{ px: '$2', pt: '$4', pb: '$2' }}>
               <Text
                 className="feature-description"
-                css={{ color: '$accents7' }}
+                css={{ color: '$accents8' }}
               >
                 {feat.description}
               </Text>

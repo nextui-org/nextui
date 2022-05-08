@@ -24,8 +24,10 @@ export type LinkProps = Props &
 const Link = React.forwardRef<React.ElementRef<typeof StyledLink>, LinkProps>(
   ({ children, icon, ...props }, forwardedRef) => (
     <StyledLink {...props} ref={forwardedRef}>
-      {children}
-      {icon && <LinkIcon />}
+      <>
+        {children}
+        {icon && <LinkIcon />}
+      </>
     </StyledLink>
   )
 );

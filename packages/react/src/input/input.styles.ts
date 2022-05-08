@@ -5,10 +5,9 @@ import {
 } from '../theme/stitches.config';
 
 const baseInputValues = {
-  $$inputColor: '$colors$accents1',
+  $$inputColor: '$colors$accents0',
   $$inputTextColor: '$colors$text',
-  $$inputPlaceholderColor: '$colors$accents3',
-  $$inputPlaceholderOpacity: 1,
+  $$inputPlaceholderColor: '$colors$accents6',
   $$inputShadow: '$shadows$sm',
   $$inputBorderColor: '$colors$border',
   $$inputHoverBorderColor: '$colors$foreground',
@@ -51,43 +50,38 @@ export const StyledInputMainContainer = styled('div', {
       default: {},
       primary: {
         $$inputColor: '$colors$primaryLight',
-        $$inputPlaceholderColor: '$colors$primary',
-        $$inputTextColor: '$colors$primary',
+        $$inputPlaceholderColor: '$colors$primaryLightContrast',
+        $$inputTextColor: '$colors$primaryLightContrast',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$primary',
-        $$inputPlaceholderOpacity: 0.5
+        $$inputHoverBorderColor: '$colors$primary'
       },
       secondary: {
         $$inputColor: '$colors$secondaryLight',
-        $$inputPlaceholderColor: '$colors$secondary',
-        $$inputTextColor: '$colors$secondary',
+        $$inputPlaceholderColor: '$colors$secondaryLightContrast',
+        $$inputTextColor: '$colors$secondaryLightContrast',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$secondary',
-        $$inputPlaceholderOpacity: 0.5
+        $$inputHoverBorderColor: '$colors$secondary'
       },
       success: {
         $$inputColor: '$colors$successLight',
-        $$inputPlaceholderColor: '$colors$success',
-        $$inputTextColor: '$colors$success',
+        $$inputPlaceholderColor: '$colors$successLightContrast',
+        $$inputTextColor: '$colors$successLightContrast',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$success',
-        $$inputPlaceholderOpacity: 0.5
+        $$inputHoverBorderColor: '$colors$success'
       },
       warning: {
         $$inputColor: '$colors$warningLight',
-        $$inputPlaceholderColor: '$colors$warning',
-        $$inputTextColor: '$colors$warning',
+        $$inputPlaceholderColor: '$colors$warningLightContrast',
+        $$inputTextColor: '$colors$warningLightContrast',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$warning',
-        $$inputPlaceholderOpacity: 0.5
+        $$inputHoverBorderColor: '$colors$warning'
       },
       error: {
         $$inputColor: '$colors$errorLight',
-        $$inputPlaceholderColor: '$colors$error',
-        $$inputTextColor: '$colors$error',
+        $$inputPlaceholderColor: '$colors$errorLightContrast',
+        $$inputTextColor: '$colors$errorLightContrast',
         $$inputLabelColor: '$$inputTextColor',
-        $$inputHoverBorderColor: '$colors$error',
-        $$inputPlaceholderOpacity: 0.5
+        $$inputHoverBorderColor: '$colors$error'
       }
     },
     helperColor: {
@@ -166,9 +160,9 @@ export const StyledInputMainContainer = styled('div', {
     },
     disabled: {
       true: {
-        $$inputColor: '$colors$accents2',
-        $$inputTextColor: '$colors$accents3',
-        $$inputPlaceholderColor: '$colors$accents3',
+        $$inputColor: '$colors$accents1',
+        $$inputTextColor: '$colors$accents7',
+        $$inputPlaceholderColor: '$colors$accents7',
         $$inputShadow: '$shadows$sm'
       }
     }

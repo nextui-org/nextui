@@ -49,7 +49,9 @@ const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({
   );
   const [collection, setCollection] = React.useState(defaultValues?.collection);
   const [rowsPerPage, setRowsPerPage] = React.useState(
-    defaultContext.rowsPerPage
+    defaultValues?.rowsPerPage === undefined
+      ? defaultContext.rowsPerPage
+      : defaultValues?.rowsPerPage
   );
   const [currentPage, setCurrentPage] = React.useState(
     defaultContext.currentPage

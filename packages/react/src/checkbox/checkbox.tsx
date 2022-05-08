@@ -23,6 +23,7 @@ import type { FocusRingAria } from '@react-aria/focus';
 import type { FocusableRef } from '@react-types/shared';
 import type { PressResult } from '@react-aria/interactions';
 
+
 interface Props extends UseCheckboxProps {
   css?: CSS;
   label?: string;
@@ -59,8 +60,9 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
       inputProps
     } = useCheckbox({ ...otherProps, children: children ?? label });
 
-    const ref = useFocusableRef<HTMLLabelElement>(
-      forwardedRef as FocusableRef<HTMLLabelElement>,
+    const inputRef = useRef<HTMLInputElement>(null);
+    const domRef = useFocusableRef<HTMLLabelElement>(
+      ref as FocusableRef<HTMLLabelElement>,
       inputRef
     );
 
@@ -163,6 +165,9 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
     );
   }
 );
+
+
+Checkbox.defaultProps = defaultProps;
 
 type CheckboxComponent<T, P = {}> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>
