@@ -1,8 +1,5 @@
-import {
-  styled,
-  cssFocusVisible,
-  VariantProps
-} from '../theme/stitches.config';
+import { styled, cssFocusVisible } from '../theme/stitches.config';
+import type { VariantProps } from '../theme/stitches.config';
 
 export const StyledCheckboxLabel = styled('label', {
   d: 'inline-flex',
@@ -47,7 +44,7 @@ export const StyledCheckboxLabel = styled('label', {
         opacity: 0.8
       }
     },
-    animated: {
+    disableAnimation: {
       false: {
         transition: 'none'
       }
@@ -82,7 +79,7 @@ export const StyledIconCheckFirstLine = styled('div', {
     }
   },
   variants: {
-    indeterminate: {
+    isIndeterminate: {
       true: {
         display: 'none'
       }
@@ -95,8 +92,8 @@ export const StyledIconCheckFirstLine = styled('div', {
         }
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         '&:after': {
           transition: 'none'
         }
@@ -104,10 +101,10 @@ export const StyledIconCheckFirstLine = styled('div', {
     }
   },
   compoundVariants: [
-    // checked && !animated
+    // checked && disableAnimation
     {
       checked: true,
-      animated: false,
+      disableAnimation: true,
       css: {
         '&:after': {
           transition: 'none'
@@ -143,7 +140,7 @@ export const StyledIconCheckSecondLine = styled('div', {
     }
   },
   variants: {
-    indeterminate: {
+    isIndeterminate: {
       true: {
         display: 'none'
       }
@@ -156,8 +153,8 @@ export const StyledIconCheckSecondLine = styled('div', {
         }
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         '&:after': {
           transition: 'none'
         }
@@ -165,10 +162,10 @@ export const StyledIconCheckSecondLine = styled('div', {
     }
   },
   compoundVariants: [
-    // checked && !animated
+    // checked && disableAnimation
     {
       checked: true,
-      animated: false,
+      disableAnimation: true,
       css: {
         '&:after': {
           transition: 'none'
@@ -202,7 +199,7 @@ export const StyledIconCheck = styled('i', {
     }
   },
   variants: {
-    indeterminate: {
+    isIndeterminate: {
       true: {
         opacity: 1,
         transform: 'rotate(0deg)',
@@ -245,8 +242,8 @@ export const StyledIconCheck = styled('i', {
         opacity: 1
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         transition: 'none',
         '&:after': {
           transition: 'none'
@@ -255,41 +252,41 @@ export const StyledIconCheck = styled('i', {
     }
   },
   compoundVariants: [
-    // indeterminate && xs size
+    // isIndeterminate && xs size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'xs',
       css: {
         scale: '0.5'
       }
     },
-    // indeterminate && sm size
+    // isIndeterminate && sm size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'sm',
       css: {
         scale: '0.5'
       }
     },
-    // indeterminate && md size
+    // isIndeterminate && md size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'md',
       css: {
         scale: '0.8'
       }
     },
-    // indeterminate && lg size
+    // isIndeterminate && lg size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'lg',
       css: {
         transform: 'none'
       }
     },
-    // indeterminate && xl size
+    // isIndeterminate && xl size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'lg',
       css: {
         transform: 'none'
@@ -355,7 +352,7 @@ export const StyledCheckboxMask = styled('div', {
         }
       }
     },
-    indeterminate: {
+    isIndeterminate: {
       true: {
         '&:before': {
           opacity: 0,
@@ -367,8 +364,8 @@ export const StyledCheckboxMask = styled('div', {
         }
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         '&:before': {
           transition: 'none'
         },
@@ -417,7 +414,7 @@ export const StyledCheckboxText = styled('span', {
         color: '$error'
       }
     },
-    line: {
+    lineThrough: {
       true: {
         '&:before': {
           content: '',
@@ -441,8 +438,8 @@ export const StyledCheckboxText = styled('span', {
         color: '$accents5'
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         transition: 'none',
         '&:before': {
           transition: 'none'
@@ -452,7 +449,7 @@ export const StyledCheckboxText = styled('span', {
   },
   compoundVariants: [
     {
-      line: true,
+      lineThrough: true,
       checked: true,
       css: {
         opacity: 0.6,
@@ -521,7 +518,7 @@ export const StyledCheckboxContainer = styled(
           $$checkboxColorHover: '$colors$gradient'
         }
       },
-      rounded: {
+      isRounded: {
         true: {
           br: '$pill'
         }
@@ -532,8 +529,8 @@ export const StyledCheckboxContainer = styled(
           cursor: 'not-allowed'
         }
       },
-      animated: {
-        false: {
+      disableAnimation: {
+        true: {
           transition: 'none'
         }
       },

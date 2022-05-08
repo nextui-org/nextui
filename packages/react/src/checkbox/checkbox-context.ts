@@ -1,14 +1,22 @@
-import React from 'react';
-import { CheckboxGroupState } from '@react-stately/checkbox';
-import { NormalColors, NormalSizes, SimpleColors } from '../utils/prop-types';
+import { createContext, useContext } from 'react';
+import type { CheckboxGroupState } from '@react-stately/checkbox';
+import type {
+  NormalColors,
+  NormalSizes,
+  SimpleColors
+} from '../utils/prop-types';
 
-export interface CheckboxConfig extends CheckboxGroupState {
-  color: NormalColors;
+export interface ICheckboxGroupContext {
   size: NormalSizes;
+  color: NormalColors;
   labelColor: SimpleColors;
-  inGroup: boolean;
+  groupState: CheckboxGroupState;
 }
 
-export const CheckboxContext = React.createContext<CheckboxConfig | null>(null);
+const CheckboxGroupContext = createContext<ICheckboxGroupContext | undefined>(
+  undefined
+);
 
-export const useCheckbox = () => React.useContext(CheckboxContext);
+export const CheckboxGroupProvider = CheckboxGroupContext.Provider;
+
+export const useCheckboxGroupContext = () => useContext(CheckboxGroupContext);

@@ -3,23 +3,23 @@ const App = `import { Checkbox, Spacer } from "@nextui-org/react";
 export default function App() {
   return (
     <>
-      <Checkbox initialChecked={true} size="xs">
+      <Checkbox defaultSelected={true} size="xs">
         mini
       </Checkbox>
       <Spacer />
-      <Checkbox initialChecked={true} size="sm">
+      <Checkbox defaultSelected={true} size="sm">
         small
       </Checkbox>
       <Spacer />
-      <Checkbox initialChecked={true} size="md">
+      <Checkbox defaultSelected={true} size="md">
         medium
       </Checkbox>
       <Spacer />
-      <Checkbox initialChecked={true} size="lg">
+      <Checkbox defaultSelected={true} size="lg">
         large
       </Checkbox>
       <Spacer />
-      <Checkbox initialChecked={true} size="xl">
+      <Checkbox defaultSelected={true} size="xl">
         xlarge
       </Checkbox>
     </>
