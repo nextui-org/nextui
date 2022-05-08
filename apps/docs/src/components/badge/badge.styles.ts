@@ -18,33 +18,94 @@ export const StyledBadge = styled('span', {
   variants: {
     type: {
       default: {
-        bg: '$primary'
+        bg: '$primaryLight',
+        color: '$primary'
       },
       primary: {
-        bg: '$primary'
+        bg: '$primaryLight',
+        color: '$primary'
       },
       secondary: {
-        bg: '$secondary'
+        bg: '$secondaryLight',
+        color: '$secondary'
       },
       warning: {
-        bg: '$warning'
+        bg: '$warningLight',
+        color: '$warning'
       },
       success: {
-        bg: '$success'
+        bg: '$successLight',
+        color: '$success'
       },
       error: {
-        bg: '$error'
+        bg: '$errorLight',
+        color: '$error'
       },
       disabled: {
         fontSize: '9px',
         color: '$accents8',
         bg: '$accents0'
       }
+    },
+    solid: {
+      true: {
+        color: '$white'
+      }
     }
   },
   defaultVariants: {
     type: 'default'
-  }
+  },
+  compoundVariants: [
+    // solid: true && type: 'default'
+    {
+      type: 'default',
+      solid: true,
+      css: {
+        bg: '$primary'
+      }
+    },
+    // solid: true && type: 'primary'
+    {
+      type: 'primary',
+      solid: true,
+      css: {
+        bg: '$primary'
+      }
+    },
+    // solid: true && type: 'secondary'
+    {
+      type: 'secondary',
+      solid: true,
+      css: {
+        bg: '$secondary'
+      }
+    },
+    // solid: true && type: 'warning'
+    {
+      type: 'warning',
+      solid: true,
+      css: {
+        bg: '$warning'
+      }
+    },
+    // solid: true && type: 'success'
+    {
+      type: 'success',
+      solid: true,
+      css: {
+        bg: '$success'
+      }
+    },
+    // solid: true && type: 'error'
+    {
+      type: 'error',
+      solid: true,
+      css: {
+        bg: '$error'
+      }
+    }
+  ]
 });
 
 export type BadgeVariantsProps = VariantProps<typeof StyledBadge>;

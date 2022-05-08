@@ -1,12 +1,12 @@
 import { useMemo, useRef } from 'react';
 import { useToggleState } from '@react-stately/toggle';
+import type { AriaCheckboxProps } from '@react-types/checkbox';
 import {
   useCheckbox as useReactAriaCheckbox,
   useCheckboxGroupItem as useReactAriaCheckboxGroupItem
 } from '@react-aria/checkbox';
 import { __DEV__ } from '../utils/assertion';
 import { useCheckboxGroupContext } from './checkbox-context';
-import type { AriaCheckboxProps } from '@react-types/checkbox';
 import type {
   NormalSizes,
   NormalColors,
@@ -26,12 +26,12 @@ export interface UseCheckboxProps extends AriaCheckboxProps {
  * @internal
  */
 export const useCheckbox = (props: UseCheckboxProps) => {
-  const group = useCheckboxGroupContext();
+  const groupContext = useCheckboxGroupContext();
 
   const {
-    size = group?.size ?? 'md',
-    color = group?.color ?? 'default',
-    labelColor = group?.labelColor ?? 'default',
+    size = groupContext?.size ?? 'md',
+    color = groupContext?.color ?? 'default',
+    labelColor = groupContext?.labelColor ?? 'default',
     lineThrough,
     isRounded = false,
     disableAnimation = false,
@@ -39,7 +39,7 @@ export const useCheckbox = (props: UseCheckboxProps) => {
     ...otherProps
   } = props;
 
-  if (group && __DEV__) {
+  if (groupContext && __DEV__) {
     const warningMessage =
       'The Checkbox.Group is being used, `%s` will be ignored. Use the `%s` of the Checkbox.Group instead.';
     if ('isSelected' in otherProps) {
@@ -56,14 +56,18 @@ export const useCheckbox = (props: UseCheckboxProps) => {
     return {
       ...otherProps,
       isIndeterminate,
-      value: otherProps.value ?? ''
+      value: otherProps.value ?? '',
+      isRequired: otherProps.isRequired ?? false
     };
-  }, [otherProps, isIndeterminate]);
+  }, [isIndeterminate, otherProps]);
 
-  const { inputProps } = group
+  const { inputProps } = groupContext
     ? useReactAriaCheckboxGroupItem(
-        ariaCheckboxProps,
-        group.groupState,
+        {
+          ...ariaCheckboxProps,
+          validationState: otherProps.validationState
+        },
+        groupContext.groupState,
         inputRef
       )
     : useReactAriaCheckbox(

@@ -4,11 +4,15 @@ import { useFocusRing } from '@react-aria/focus';
 import { useHover } from '@react-aria/interactions';
 import { usePress } from '@react-aria/interactions';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
+import type { FocusRingAria } from '@react-aria/focus';
+import type { FocusableRef } from '@react-types/shared';
+import type { PressResult } from '@react-aria/interactions';
+import type { CSS } from '../theme/stitches.config';
 import clsx from '../utils/clsx';
-import CheckboxGroup from './checkbox-group';
 import { __DEV__ } from '../utils/assertion';
 import { useFocusableRef } from '../utils/dom';
 import { useCheckbox, UseCheckboxProps } from './use-checkbox';
+import CheckboxGroup from './checkbox-group';
 import {
   StyledCheckboxLabel,
   StyledCheckboxContainer,
@@ -18,23 +22,17 @@ import {
   StyledIconCheckSecondLine,
   StyledCheckboxText
 } from './checkbox.styles';
-import type { CSS } from '../theme/stitches.config';
-import type { FocusRingAria } from '@react-aria/focus';
-import type { FocusableRef } from '@react-types/shared';
-import type { PressResult } from '@react-aria/interactions';
-
 
 interface Props extends UseCheckboxProps {
-  css?: CSS;
   label?: string;
   className?: string;
   children?: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
 }
 
-// type NativeAttrs = Omit<React.LabelHTMLAttributes<unknown>, keyof Props>;
+type NativeAttrs = Omit<React.LabelHTMLAttributes<unknown>, keyof Props>;
 
-export type CheckboxProps = Props;
+export type CheckboxProps = NativeAttrs & Props & { css?: CSS };
 
 interface IFocusRingAria extends FocusRingAria {
   focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof CheckboxProps>;
@@ -45,7 +43,7 @@ interface IPressResult extends PressResult {
 }
 
 const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
-  (props: CheckboxProps, forwardedRef: React.Ref<HTMLLabelElement | null>) => {
+  (props: CheckboxProps, ref: React.Ref<HTMLLabelElement | null>) => {
     const { className, as, css, children, label, ...otherProps } = props;
 
     const {
@@ -60,7 +58,6 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
       inputProps
     } = useCheckbox({ ...otherProps, children: children ?? label });
 
-    const inputRef = useRef<HTMLInputElement>(null);
     const domRef = useFocusableRef<HTMLLabelElement>(
       ref as FocusableRef<HTMLLabelElement>,
       inputRef
@@ -90,26 +87,25 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
 
     return (
       <StyledCheckboxLabel
+        ref={domRef}
+        {...mergeProps(hoverProps, pressProps)}
         className={clsx(
           'nextui-checkbox-label',
           `nextui-checkbox--${checkboxState}`,
           className
         )}
         as={as}
-        ref={ref}
         css={css}
         size={size}
-        isHovered={isHovered}
-        disabled={inputProps.disabled}
+        isDisabled={inputProps.disabled}
         disableAnimation={disableAnimation}
-        {...mergeProps(hoverProps, pressProps)}
       >
         <StyledCheckboxContainer
           className="nextui-checkbox-container"
           color={color}
           isRounded={isRounded}
           isHovered={isHovered}
-          disabled={inputProps.disabled}
+          isDisabled={inputProps.disabled}
           isFocusVisible={isFocusVisible}
           disableAnimation={disableAnimation}
           {...focusProps}
@@ -123,26 +119,26 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
           </VisuallyHidden>
           <StyledCheckboxMask
             className="nextui-checkbox-mask"
-            checked={inputProps.checked}
+            isChecked={inputProps.checked}
             isIndeterminate={isIndeterminate}
             disableAnimation={disableAnimation}
           >
             <StyledIconCheck
               className="nextui-icon-check"
               size={size}
-              checked={inputProps.checked}
+              isChecked={inputProps.checked}
               isIndeterminate={isIndeterminate}
               disableAnimation={disableAnimation}
             >
               <StyledIconCheckFirstLine
                 className="nextui-icon-check-line1"
-                checked={inputProps.checked}
+                isChecked={inputProps.checked}
                 isIndeterminate={isIndeterminate}
                 disableAnimation={disableAnimation}
               />
               <StyledIconCheckSecondLine
                 className="nextui-icon-check-line2"
-                checked={inputProps.checked}
+                isChecked={inputProps.checked}
                 isIndeterminate={isIndeterminate}
                 disableAnimation={disableAnimation}
               />
@@ -154,8 +150,8 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
             className="nextui-checkbox-text"
             color={labelColor}
             lineThrough={lineThrough}
-            checked={inputProps.checked}
-            disabled={inputProps.disabled}
+            isChecked={inputProps.checked}
+            isDisabled={inputProps.disabled}
             disableAnimation={disableAnimation}
           >
             {children || label}
@@ -165,9 +161,6 @@ const Checkbox = React.forwardRef<HTMLLabelElement, CheckboxProps>(
     );
   }
 );
-
-
-Checkbox.defaultProps = defaultProps;
 
 type CheckboxComponent<T, P = {}> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>

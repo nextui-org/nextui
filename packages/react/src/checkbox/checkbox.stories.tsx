@@ -277,10 +277,10 @@ export const Group = () => {
 
 export const GroupRow = () => (
   <Checkbox.Group
+    isRow
     color="warning"
     label="Select cities"
     defaultValue={['1']}
-    row
   >
     <Checkbox value="1" color="primary">
       Buenos Aires

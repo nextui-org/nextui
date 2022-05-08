@@ -3,60 +3,52 @@ import clsx from '../utils/clsx';
 import { useDOMRef } from '../utils/dom';
 import { __DEV__ } from '../utils/assertion';
 import { CheckboxGroupProvider } from './checkbox-context';
-import { useCheckboxGroup, UseCheckboxGroupProps } from './use-checkboxGroup';
+import { useCheckboxGroup, UseCheckboxGroupProps } from './use-checkbox-group';
 import {
   StyledCheckboxGroup,
-  StyledCheckboxGroupLabel,
   StyledCheckboxGroupContainer
 } from './checkbox.styles';
-import type { CSS } from '../theme/stitches.config';
 
 interface Props extends UseCheckboxGroupProps {
-  css?: CSS;
+  children: React.ReactNode;
   className?: string;
-  children?: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
 }
-
-// type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type CheckboxGroupProps = Props;
 
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
-  (
-    props: CheckboxGroupProps,
-    forwardedRef: React.Ref<HTMLDivElement | null>
-  ) => {
-    const { className, as, css, children, label, ...otherProps } = props;
+  (props: CheckboxGroupProps, ref: React.Ref<HTMLDivElement | null>) => {
+    const { children, className, as, label, ...otherProps } = props;
 
-    const { size, row, groupProps, groupState, getProviderValue } =
-      useCheckboxGroup({ ...otherProps, label });
+    const { css, ...context } = useCheckboxGroup({ ...otherProps, label });
 
-    const ref = useDOMRef(forwardedRef);
+    const domRef = useDOMRef(ref);
 
     return (
       <StyledCheckboxGroup
+        ref={domRef}
+        {...context.groupProps}
         className={clsx('nextui-checkbox-group', className)}
+        size={context.size}
+        isDisabled={context.groupState.isDisabled}
         as={as}
-        ref={ref}
         css={css}
-        size={size}
-        {...groupProps}
       >
         {label && (
-          <StyledCheckboxGroupLabel
+          <label
             className="nextui-checkbox-group-label"
-            disabled={groupState.isDisabled}
+            {...context.labelProps}
           >
             {label}
-          </StyledCheckboxGroupLabel>
+          </label>
         )}
         <StyledCheckboxGroupContainer
           className="nextui-checkbox-group-items"
           role="presentation"
-          row={row}
+          isRow={context.isRow}
         >
-          <CheckboxGroupProvider value={getProviderValue}>
+          <CheckboxGroupProvider value={context}>
             {children}
           </CheckboxGroupProvider>
         </StyledCheckboxGroupContainer>

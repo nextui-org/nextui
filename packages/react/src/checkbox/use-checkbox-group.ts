@@ -1,20 +1,24 @@
-import { useMemo } from 'react';
+import React from 'react';
 import { useCheckboxGroupState } from '@react-stately/checkbox';
 import { useCheckboxGroup as useReactAriaCheckboxGroup } from '@react-aria/checkbox';
-import type { ICheckboxGroupContext } from './checkbox-context';
 import type { AriaCheckboxGroupProps } from '@react-types/checkbox';
+import type { CSS } from '../theme/stitches.config';
 import type {
   NormalSizes,
   NormalColors,
   SimpleColors
 } from '../utils/prop-types';
 
-export interface UseCheckboxGroupProps extends AriaCheckboxGroupProps {
-  row?: boolean;
+interface Props extends AriaCheckboxGroupProps {
+  isRow?: boolean;
   size?: NormalSizes;
   color?: NormalColors;
   labelColor?: SimpleColors;
 }
+
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+
+export type UseCheckboxGroupProps = Props & NativeAttrs & { css?: CSS };
 
 /**
  * @internal
@@ -24,25 +28,31 @@ export const useCheckboxGroup = (props: UseCheckboxGroupProps = {}) => {
     size = 'md',
     color = 'default',
     labelColor = 'default',
-    row = false,
+    isRow = false,
+    css,
     ...otherProps
   } = props;
 
   const groupState = useCheckboxGroupState(otherProps);
 
-  const { groupProps } = useReactAriaCheckboxGroup(otherProps, groupState);
-
-  const getProviderValue = useMemo<ICheckboxGroupContext>(() => {
-    return { size, color, labelColor, groupState };
-  }, [size, color, labelColor, groupState]);
+  const { labelProps, groupProps } = useReactAriaCheckboxGroup(
+    otherProps,
+    groupState
+  );
 
   return {
+    css,
     size,
-    row,
-    groupProps,
+    isRow,
+    color,
+    labelColor,
     groupState,
-    getProviderValue
+    labelProps,
+    groupProps
   };
 };
 
-export type UseCheckboxGroupReturn = ReturnType<typeof useCheckboxGroup>;
+export type UseCheckboxGroupReturn = Omit<
+  ReturnType<typeof useCheckboxGroup>,
+  'css'
+>;

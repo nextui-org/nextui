@@ -33,15 +33,10 @@ export const StyledCheckboxLabel = styled('label', {
         $$checkboxSize: '$space$11'
       }
     },
-    disabled: {
+    isDisabled: {
       true: {
         opacity: 0.75,
         cursor: 'not-allowed'
-      }
-    },
-    isHovered: {
-      true: {
-        opacity: 0.8
       }
     },
     disableAnimation: {
@@ -84,7 +79,7 @@ export const StyledIconCheckFirstLine = styled('div', {
         display: 'none'
       }
     },
-    checked: {
+    isChecked: {
       true: {
         '&:after': {
           width: '100%',
@@ -103,7 +98,7 @@ export const StyledIconCheckFirstLine = styled('div', {
   compoundVariants: [
     // checked && disableAnimation
     {
-      checked: true,
+      isChecked: true,
       disableAnimation: true,
       css: {
         '&:after': {
@@ -145,7 +140,7 @@ export const StyledIconCheckSecondLine = styled('div', {
         display: 'none'
       }
     },
-    checked: {
+    isChecked: {
       true: {
         '&:after': {
           height: '100%',
@@ -164,7 +159,7 @@ export const StyledIconCheckSecondLine = styled('div', {
   compoundVariants: [
     // checked && disableAnimation
     {
-      checked: true,
+      isChecked: true,
       disableAnimation: true,
       css: {
         '&:after': {
@@ -237,7 +232,7 @@ export const StyledIconCheck = styled('i', {
         transform: 'rotate(45deg)'
       }
     },
-    checked: {
+    isChecked: {
       true: {
         opacity: 1
       }
@@ -340,7 +335,7 @@ export const StyledCheckboxMask = styled('div', {
     }
   },
   variants: {
-    checked: {
+    isChecked: {
       true: {
         '&:before': {
           opacity: 0,
@@ -426,14 +421,14 @@ export const StyledCheckboxText = styled('span', {
         }
       }
     },
-    checked: {
+    isChecked: {
       true: {
         '&:before': {
           opacity: 0.8
         }
       }
     },
-    disabled: {
+    isDisabled: {
       true: {
         color: '$accents5'
       }
@@ -450,7 +445,7 @@ export const StyledCheckboxText = styled('span', {
   compoundVariants: [
     {
       lineThrough: true,
-      checked: true,
+      isChecked: true,
       css: {
         opacity: 0.6,
         '&:before': {
@@ -523,7 +518,7 @@ export const StyledCheckboxContainer = styled(
           br: '$pill'
         }
       },
-      disabled: {
+      isDisabled: {
         true: {
           opacity: 0.4,
           cursor: 'not-allowed'
@@ -556,6 +551,13 @@ export const StyledCheckboxContainer = styled(
 export const StyledCheckboxGroup = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  '& .nextui-checkbox-group-label': {
+    d: 'block',
+    fontWeight: '$normal',
+    fontSize: 'calc($$checkboxSize * 0.8)',
+    color: '$accents7',
+    mb: '$3'
+  },
   variants: {
     size: {
       xs: {
@@ -573,6 +575,13 @@ export const StyledCheckboxGroup = styled('div', {
       xl: {
         $$checkboxSize: '$space$11'
       }
+    },
+    isDisabled: {
+      true: {
+        '& .nextui-checkbox-group-label': {
+          color: '$accents5'
+        }
+      }
     }
   }
 });
@@ -581,7 +590,7 @@ export const StyledCheckboxGroupContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   variants: {
-    row: {
+    isRow: {
       true: {
         flexDirection: 'row',
         mt: 0,
@@ -599,27 +608,11 @@ export const StyledCheckboxGroupContainer = styled('div', {
     }
   },
   defaultVariants: {
-    row: false
-  }
-});
-
-export const StyledCheckboxGroupLabel = styled('label', {
-  d: 'block',
-  fontWeight: '$normal',
-  fontSize: 'calc($$checkboxSize * 0.8)',
-  color: '$accents7',
-  mb: '$3',
-  variants: {
-    disabled: {
-      true: {
-        opacity: 0.75
-      }
-    }
+    isRow: false
   }
 });
 
 // types
-
 export type CheckboxGroupVariantsProps = VariantProps<
   typeof StyledCheckboxGroup
 >;
