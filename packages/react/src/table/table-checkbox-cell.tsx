@@ -7,7 +7,6 @@ import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
 import Checkbox, { CheckboxProps } from '../checkbox';
 import { StyledTableCell, TableVariantsProps } from './table.styles';
-import { mapPropsToCheckboxAttr } from './utils';
 import clsx from '../utils/clsx';
 
 type CellProps<T> = GridNode<T> & { parentKey?: React.Key };
@@ -51,7 +50,6 @@ const TableCheckboxCell = React.forwardRef<
       state
     );
     const { isFocusVisible, focusProps } = useFocusRing();
-    const mappedProps = mapPropsToCheckboxAttr(checkboxProps);
 
     return (
       <StyledTableCell
@@ -61,9 +59,9 @@ const TableCheckboxCell = React.forwardRef<
         {...mergeProps(gridCellProps, focusProps, props)}
       >
         <Checkbox
-          {...mappedProps}
+          {...checkboxProps}
           color={color as CheckboxProps['color']}
-          animated={animated}
+          disableAnimation={!animated}
           css={{ display: 'inherit' }}
         />
       </StyledTableCell>

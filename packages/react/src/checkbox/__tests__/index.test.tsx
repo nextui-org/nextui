@@ -110,13 +110,15 @@ describe('Checkbox', () => {
   });
 
   it('should work correctly with line-through value', () => {
-    let wrapper = mount(<Checkbox line>Buenos Aires</Checkbox>);
+    let wrapper = mount(<Checkbox lineThrough>Buenos Aires</Checkbox>);
     let icon = wrapper.find('.nextui-checkbox-text').at(0).getDOMNode();
-    expect((icon as HTMLInputElement).className).toContain('line-true');
+    expect((icon as HTMLInputElement).className).toContain('lineThrough-true');
 
-    wrapper = mount(<Checkbox line={false}>Buenos Aires</Checkbox>);
+    wrapper = mount(<Checkbox lineThrough={false}>Buenos Aires</Checkbox>);
     icon = wrapper.find('.nextui-checkbox-text').at(0).getDOMNode();
-    expect((icon as HTMLInputElement).className).not.toContain('line-true');
+    expect((icon as HTMLInputElement).className).not.toContain(
+      'lineThrough-true'
+    );
 
     expect(() => wrapper.unmount()).not.toThrow();
   });

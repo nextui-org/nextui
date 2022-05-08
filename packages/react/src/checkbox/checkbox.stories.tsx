@@ -155,23 +155,23 @@ export const LabelColors = () => (
 
 export const Rounded = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Checkbox rounded color="primary" defaultSelected>
+    <Checkbox isRounded color="primary" defaultSelected>
       Primary
     </Checkbox>
     <br />
-    <Checkbox rounded color="secondary" defaultSelected>
+    <Checkbox isRounded color="secondary" defaultSelected>
       Secondary
     </Checkbox>
     <br />
-    <Checkbox rounded color="success" defaultSelected>
+    <Checkbox isRounded color="success" defaultSelected>
       Success
     </Checkbox>
     <br />
-    <Checkbox rounded color="warning" defaultSelected>
+    <Checkbox isRounded color="warning" defaultSelected>
       Warning
     </Checkbox>
     <br />
-    <Checkbox rounded color="error" defaultSelected>
+    <Checkbox isRounded color="error" defaultSelected>
       Error
     </Checkbox>
   </div>
@@ -187,7 +187,7 @@ export const Indeterminate = () => {
 
 export const LineThrough = () => {
   return (
-    <Checkbox size="lg" color="primary" defaultSelected line>
+    <Checkbox size="lg" color="primary" defaultSelected lineThrough>
       Option
     </Checkbox>
   );
@@ -239,11 +239,11 @@ export const Controlled = () => {
 export const NoAnimated = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <Checkbox size="md" animated={false} defaultSelected>
+      <Checkbox size="md" disableAnimation={true} defaultSelected>
         Option
       </Checkbox>
       <br />
-      <Checkbox size="md" animated={false} line defaultSelected>
+      <Checkbox size="md" disableAnimation={true} lineThrough defaultSelected>
         Option
       </Checkbox>
     </div>

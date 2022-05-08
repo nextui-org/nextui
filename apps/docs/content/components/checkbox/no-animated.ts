@@ -2,7 +2,7 @@ const App = `import { Checkbox } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Checkbox line animated={false} defaultSelected={true}>
+    <Checkbox disableAnimation={true} defaultSelected={true} lineThrough={true}>
       Option
     </Checkbox>
   );

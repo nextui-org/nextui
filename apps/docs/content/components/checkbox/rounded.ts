@@ -2,7 +2,7 @@ const App = `import { Checkbox } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Checkbox rounded color="primary" defaultSelected={true}>
+    <Checkbox isRounded={true} defaultSelected={true} color="primary">
       Rounded option
     </Checkbox>
   );

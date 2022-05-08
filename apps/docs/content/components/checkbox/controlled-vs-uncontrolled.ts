@@ -6,7 +6,7 @@ export default function App() {
 
   return (
     <>
-      <Checkbox defaultSelected color="success">Subscribe (uncontrolled)</Checkbox>
+      <Checkbox defaultSelected={true} color="success">Subscribe (uncontrolled)</Checkbox>
       <Spacer x={1} />
       <Checkbox isSelected={selected} color="success" onChange={setSelected} >
         Subscribe (controlled)

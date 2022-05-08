@@ -3,7 +3,7 @@ import clsx from '../utils/clsx';
 import { useDOMRef } from '../utils/dom';
 import { __DEV__ } from '../utils/assertion';
 import { CheckboxGroupProvider } from './checkbox-context';
-import { useCheckboxGroup, UseCheckboxGroupProps } from './use-checkbox-group';
+import { useCheckboxGroup, UseCheckboxGroupProps } from './use-checkboxGroup';
 import {
   StyledCheckboxGroup,
   StyledCheckboxGroupLabel,
@@ -18,7 +18,7 @@ interface Props extends UseCheckboxGroupProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
-// type NativeAttrs = Omit<React.HTMLAttributes<HTMLDivElement>, keyof Props>;
+// type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type CheckboxGroupProps = Props;
 

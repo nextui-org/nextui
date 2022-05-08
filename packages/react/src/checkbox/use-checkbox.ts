@@ -14,9 +14,9 @@ import type {
 } from '../utils/prop-types';
 
 export interface UseCheckboxProps extends AriaCheckboxProps {
-  line?: boolean;
-  rounded?: boolean;
-  animated?: boolean;
+  isRounded?: boolean;
+  lineThrough?: boolean;
+  disableAnimation?: boolean;
   size?: NormalSizes;
   color?: NormalColors;
   labelColor?: SimpleColors;
@@ -32,9 +32,9 @@ export const useCheckbox = (props: UseCheckboxProps) => {
     size = group?.size ?? 'md',
     color = group?.color ?? 'default',
     labelColor = group?.labelColor ?? 'default',
-    line,
-    rounded = false,
-    animated = true,
+    lineThrough,
+    isRounded = false,
+    disableAnimation = false,
     isIndeterminate = false,
     ...otherProps
   } = props;
@@ -76,9 +76,9 @@ export const useCheckbox = (props: UseCheckboxProps) => {
     size,
     color,
     labelColor,
-    line,
-    rounded,
-    animated,
+    isRounded,
+    lineThrough,
+    disableAnimation,
     isIndeterminate,
     inputRef,
     inputProps
