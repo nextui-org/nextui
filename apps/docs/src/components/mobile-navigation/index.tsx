@@ -76,9 +76,16 @@ const MobileNavigation: React.FC<Props> = ({
               display: none;
               width: 100%;
               min-height: 100%;
-              background: var(--nextui-colors-menuBackground);
-              backdrop-filter: saturate(180%) blur(10px);
-              --webkit-backdrop-filter: saturate(180%) blur(10px);
+              background: var(--nextui-colors-background);
+            }
+            @supports (
+              (-webkit-backdrop-filter: none) or (backdrop-filter: none)
+            ) {
+              .mobile-navigation__wrapper {
+                background: var(--nextui-colors-menuBackground);
+                backdrop-filter: saturate(180%) blur(10px);
+                --webkit-backdrop-filter: saturate(180%) blur(10px);
+              }
             }
             .mobile-navigation__list {
               margin: 0;

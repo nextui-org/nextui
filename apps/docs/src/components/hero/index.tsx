@@ -123,8 +123,12 @@ const Hero: React.FC = () => {
                   transition: 'opacity 0.3s ease-in-out',
                   dflex: 'center',
                   boxShadow: '$sm',
-                  bf: 'saturate(180%) blur(10px)',
-                  bg: '$backgroundBlur',
+                  bg: '$backgroundContrast',
+                  '@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))':
+                    {
+                      bf: 'saturate(180%) blur(10px)',
+                      bg: '$backgroundBlur'
+                    },
                   '@xsMax': {
                     width: '100%'
                   }

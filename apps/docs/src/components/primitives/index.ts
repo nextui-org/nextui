@@ -128,8 +128,11 @@ export const StyledCardBlur = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   p: '$8',
-  bf: 'saturate(180%) blur(14px)',
-  bg: 'rgba(255, 255, 255, 0.05)'
+  bg: '$backgroundContrast',
+  '@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))': {
+    bf: 'saturate(180%) blur(14px)',
+    bg: 'rgba(255, 255, 255, 0.05)'
+  }
 });
 
 export const StyledImg = styled('img', {});

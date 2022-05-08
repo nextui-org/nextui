@@ -18,7 +18,11 @@ export const StyledNavContainer = styled('div', {
   variants: {
     showBlur: {
       true: {
-        background: '$headerBackground'
+        background: '$background',
+        '@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))':
+          {
+            background: '$headerBackground'
+          }
       }
     },
     detached: {
