@@ -48,9 +48,7 @@ export const StyledBadge = styled('span', {
       }
     },
     solid: {
-      true: {
-        color: '$white'
-      }
+      true: {}
     }
   },
   defaultVariants: {
@@ -62,7 +60,8 @@ export const StyledBadge = styled('span', {
       type: 'default',
       solid: true,
       css: {
-        bg: '$primary'
+        bg: '$primary',
+        color: '$white'
       }
     },
     // solid: true && type: 'primary'
@@ -70,7 +69,8 @@ export const StyledBadge = styled('span', {
       type: 'primary',
       solid: true,
       css: {
-        bg: '$primary'
+        bg: '$primary',
+        color: '$white'
       }
     },
     // solid: true && type: 'secondary'
@@ -78,7 +78,8 @@ export const StyledBadge = styled('span', {
       type: 'secondary',
       solid: true,
       css: {
-        bg: '$secondary'
+        bg: '$secondary',
+        color: '$white'
       }
     },
     // solid: true && type: 'warning'
@@ -86,7 +87,8 @@ export const StyledBadge = styled('span', {
       type: 'warning',
       solid: true,
       css: {
-        bg: '$warning'
+        bg: '$warning',
+        color: '$white'
       }
     },
     // solid: true && type: 'success'
@@ -94,7 +96,8 @@ export const StyledBadge = styled('span', {
       type: 'success',
       solid: true,
       css: {
-        bg: '$success'
+        bg: '$success',
+        color: '$white'
       }
     },
     // solid: true && type: 'error'
@@ -102,7 +105,8 @@ export const StyledBadge = styled('span', {
       type: 'error',
       solid: true,
       css: {
-        bg: '$error'
+        bg: '$error',
+        color: '$white'
       }
     }
   ]
