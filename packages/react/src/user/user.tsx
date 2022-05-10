@@ -55,6 +55,8 @@ export const User = React.forwardRef(
       bordered,
       size,
       description,
+      zoomed,
+      pointer,
       ...otherProps
     } = props;
 
@@ -67,8 +69,8 @@ export const User = React.forwardRef(
           src={src}
           color={color}
           squared={squared}
-          zoomed={props.zoomed}
-          pointer={props.pointer}
+          zoomed={zoomed}
+          pointer={pointer}
           bordered={bordered}
           text={text}
           size={size}
