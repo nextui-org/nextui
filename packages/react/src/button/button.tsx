@@ -33,6 +33,7 @@ export interface Props extends PressEvents, FocusableProps, AriaButtonProps {
   ripple?: boolean;
   icon?: React.ReactNode;
   iconRight?: React.ReactNode;
+  // @deprecated
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   as?: keyof JSX.IntrinsicElements;
   className?: string;
@@ -101,6 +102,8 @@ const Button = React.forwardRef(
     const handlePress = (e: PressEvent) => {
       if (e.pointerType === 'keyboard' || e.pointerType === 'virtual') {
         handleDrip(e);
+        // TODO: take this out and deprecate onClick function for next release (only use the @react-aria/button impl)
+        onClick?.(e as any);
       }
       onPress?.(e);
     };
@@ -109,6 +112,7 @@ const Button = React.forwardRef(
     const { buttonProps, isPressed } = useButton(
       {
         ...btnProps,
+        onClick: handleClick,
         isDisabled: disabled,
         elementType: as,
         onPress: handlePress
@@ -118,9 +122,11 @@ const Button = React.forwardRef(
 
     const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
     const {
+      isFocused,
       isFocusVisible,
       focusProps
     }: {
+      isFocused: boolean;
       isFocusVisible: boolean;
       focusProps: Omit<
         React.HTMLAttributes<HTMLButtonElement>,
@@ -132,9 +138,6 @@ const Button = React.forwardRef(
       false,
       buttonRef
     );
-
-    // TODO: remove this when we can use the new onPress(e) => e.clientX && e.clientY API
-    buttonProps.onClick = handleClick;
 
     /* eslint-enable @typescript-eslint/no-unused-vars */
     if (__DEV__ && filteredProps.color === 'gradient' && (flat || light)) {
@@ -164,7 +167,7 @@ const Button = React.forwardRef(
         data-state={getState}
         animated={animated}
         isPressed={isPressed}
-        isHovered={isHovered}
+        isHovered={isHovered || (ghost && isFocused)}
         isFocusVisible={isFocusVisible && !disabled}
         className={clsx(
           'nextui-button',

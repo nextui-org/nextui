@@ -18,15 +18,15 @@ export const StyledBadge = styled('span', {
     type: {
       active: {
         bg: '$successLight',
-        color: '$success'
+        color: '$successLightContrast'
       },
       paused: {
         bg: '$errorLight',
-        color: '$error'
+        color: '$errorLightContrast'
       },
       vacation: {
         bg: '$warningLight',
-        color: '$warning'
+        color: '$warningLightContrast'
       }
     }
   },
@@ -431,7 +431,7 @@ export default function App() {
               </Text>
             </Row>
             <Row>
-              <Text b size={13} css={{ tt: "capitalize", color: "$accents3" }}>
+              <Text b size={13} css={{ tt: "capitalize", color: "$accents7" }}>
                 {user.team}
               </Text>
             </Row>
@@ -602,7 +602,7 @@ export default function App() {
               </Text>
             </Row>
             <Row>
-              <Text b size={13} css={{ tt: "capitalize", color: "$accents3" }}>
+              <Text b size={13} css={{ tt: "capitalize", color: "$accents7" }}>
                 {user?.team}
               </Text>
             </Row>

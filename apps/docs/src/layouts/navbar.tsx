@@ -112,6 +112,7 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
               </NextLink>
               <Spacer x={0.4} />
               <Badge
+                solid
                 css={{
                   px: '$4',
                   '@mdMax': {

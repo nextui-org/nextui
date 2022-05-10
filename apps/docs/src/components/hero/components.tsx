@@ -17,6 +17,7 @@ import { useRouter } from 'next/router';
 import { levitating } from '@utils/animations';
 import { Logo, UserTwitterCard, ThemeSwitch } from '@components';
 import { useIsMobile } from '@hooks/use-media-query';
+import { darkTheme } from '@theme/shared';
 
 const StyledContainer = styled('div', {
   dflex: 'center',
@@ -301,9 +302,11 @@ const HeroComponents = () => {
           <Row align="center">
             <Col>
               <Text
-                color="#fff"
                 size={12}
-                css={{ textShadow: '0 2px 2px rgba(0,0,0,0.3)' }}
+                css={{
+                  textShadow: '0 2px 2px rgba(0,0,0,0.3)',
+                  color: '$white'
+                }}
               >
                 Available soon.
               </Text>
@@ -312,14 +315,17 @@ const HeroComponents = () => {
               <Row justify="flex-end" align="center">
                 <Button
                   auto
-                  flat
                   rounded
                   color="secondary"
                   css={{
                     px: '$4',
                     height: '$space$10',
                     fontSize: '$tiny',
-                    color: '$white'
+                    color: '$white',
+                    [`.${darkTheme} &`]: {
+                      bg: '$purple900',
+                      color: '$purple300'
+                    }
                   }}
                 >
                   Notify Me

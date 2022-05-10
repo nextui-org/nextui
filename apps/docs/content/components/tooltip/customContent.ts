@@ -1,4 +1,3 @@
-
 const DeleteUser = `import React from "react";
 import { useTheme, Text, Button, Grid, Row } from "@nextui-org/react";
 
@@ -32,8 +31,8 @@ export const DeleteUser = () => {
   );
 };`;
 
-const UserTwitterCard = `import React from "react";
-import {Avatar,Row,Col,Text,Button,Spacer,Grid} from "@nextui-org/react";
+const UserTwitterCard = `import React from "react"; 
+import { Avatar, Row, Col, Text, Button, Spacer, Grid } from "@nextui-org/react";
 
 export const UserTwitterCard = ({
   avatarUrl,
@@ -51,7 +50,7 @@ export const UserTwitterCard = ({
         mw: "250px",
         borderRadius: "$lg",
         padding: "$sm",
-        ...css
+        ...css,
       }}
       onClick={onClick}
       {...props}
@@ -91,7 +90,7 @@ export const UserTwitterCard = ({
                 fs: "$tiny",
                 fontWeight: "$semibold",
                 borderColor: following ? "$foreground" : "$primary",
-                color: following ? "$foreground" : "$white"
+                color: following ? "$foreground" : "$white",
               }}
               color="primary"
               bordered={following}
@@ -125,10 +124,11 @@ export const UserTwitterCard = ({
             color="foreground"
             className="user-twitter-card__text"
             size={14}
+            css={{ mr: "$1" }}
           >
             4
           </Text>
-          &nbsp;Following
+          Following
         </Text>
         <Spacer inline x={0.5} />
         <Text className="user-twitter-card__text" size={14} color="#888888">
@@ -137,17 +137,16 @@ export const UserTwitterCard = ({
             color="foreground"
             className="user-twitter-card__text"
             size={14}
+            css={{ mr: "$1" }}
           >
             97.1K
           </Text>
-          &nbsp;Followers
+          Followers
         </Text>
       </Grid.Container>
     </Grid.Container>
   );
 };`;
-
-
 
 const AppJs = `import { Tooltip, Button, Grid, Avatar } from "@nextui-org/react";
 import { UserTwitterCard } from "./UserTwitterCard";
@@ -185,7 +184,6 @@ const react = {
   '/App.js': AppJs
 };
 
-
 export default {
-  ...react,
+  ...react
 };

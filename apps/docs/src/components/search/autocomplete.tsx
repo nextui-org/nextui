@@ -357,8 +357,17 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
           .search__input-container,
           .react-autosuggest__suggestions-container,
           .no-results {
-            backdrop-filter: saturate(180%) blur(10px) !important;
-            background: ${addColorAlpha(theme?.colors?.accents1?.value, 0.7)};
+            background: var(--nextui-colors-accents0);
+          }
+          @supports (
+            (-webkit-backdrop-filter: none) or (backdrop-filter: none)
+          ) {
+            .search__input-container,
+            .react-autosuggest__suggestions-container,
+            .no-results {
+              backdrop-filter: saturate(180%) blur(10px) !important;
+              background: ${addColorAlpha(theme?.colors?.accents1?.value, 0.7)};
+            }
           }
           .search__input-container {
             z-index: 9999;
@@ -416,7 +425,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
             transition: opacity 0.25s ease 0s;
           }
           .search__input-container input::placeholder {
-            color: ${theme?.colors?.accents4?.value};
+            color: ${theme?.colors?.accents8?.value};
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
             -ms-transition: opacity 0.25s ease 0s;

@@ -13,13 +13,7 @@ export const StyledCardBody = styled('div', {
   p: '$sm $lg',
   oy: 'auto',
   position: 'relative',
-  ta: 'left',
-  '*:first-child': {
-    mt: 0
-  },
-  '*:last-child': {
-    mb: 0
-  }
+  ta: 'left'
 });
 
 export const StyledCard = styled('div', {
@@ -144,7 +138,7 @@ export const StyledCard = styled('div', {
       true: {
         '&:hover': {
           transform: 'translateY(-2px)',
-          boxShadow: '$lg'
+          boxShadow: '$md'
         }
       }
     },
@@ -196,13 +190,7 @@ export const StyledCardHeader = styled('div', {
   overflow: 'hidden',
   color: 'inherit',
   fontSize: '$xs',
-  p: '$sm',
-  '*:first-child': {
-    mt: 0
-  },
-  '*:last-child': {
-    mb: 0
-  }
+  p: '$sm'
 });
 
 export const StyledCardFooter = styled('div', {
@@ -216,10 +204,6 @@ export const StyledCardFooter = styled('div', {
   fontSize: '$xs',
   bblr: '$lg',
   bbrr: '$lg',
-  '*': {
-    mt: 0,
-    mb: 0
-  },
   variants: {
     blur: {
       true: {

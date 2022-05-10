@@ -73,10 +73,11 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
         }
         .list-item a {
           font-size: 0.8rem;
-          color: ${theme?.colors?.accents6?.value};
+          color: ${theme?.colors?.accents7?.value};
         }
         .list-item.active a {
           color: inherit;
+          font-weight: 500;
         }
         .list-item:after {
           content: '';
@@ -88,6 +89,7 @@ const TableOfContent: React.FC<TableOfContentProps> = ({
           height: 5px;
           opacity: 0;
           border-radius: 10px;
+
           background: ${theme?.colors?.foreground?.value};
           transform: translateY(-50%);
           transition: opacity 0.25s ease;

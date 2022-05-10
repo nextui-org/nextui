@@ -19,7 +19,7 @@ export const Pre = styled('pre', {
   $$syntax3: primitiveColor?.style.color,
   $$syntax4: '$colors$yellow600',
   $$syntax5: classnameColor?.style.color,
-  $$syntax6: '$colors$yellow400',
+  $$syntax6: '$colors$yellow600',
   $$comment: punctuationColor?.style.color,
   $$removed: '$colors$red300',
   $$added: '$colors$green300',

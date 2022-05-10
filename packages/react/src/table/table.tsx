@@ -31,7 +31,7 @@ import {
 import TablePagination from './table-pagination';
 import TableFooter from './table-footer';
 import TableBody from './table-body';
-import { hasChild, pickSingleChild } from '../utils/collections';
+import { pickSingleChild } from '../utils/collections';
 import {
   StyledTable,
   StyledTableContainer,
@@ -40,7 +40,7 @@ import {
 } from './table.styles';
 import TableContext, { TableConfig } from './table-context';
 import { excludedTableProps } from '../utils/prop-types';
-import { isInfinityScroll } from './utils';
+import { isInfinityScroll, hasPaginationChild } from './utils';
 import withDefaults from '../utils/with-defaults';
 import clsx from '../utils/clsx';
 
@@ -89,7 +89,10 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       CollectionChildren<any>
     >(children, TablePagination);
 
-    const hasPagination = hasChild(children, TablePagination);
+    const { hasPagination, rowsPerPage } = hasPaginationChild(
+      children,
+      TablePagination
+    );
 
     const state = useTableState({
       ...tableProps,
@@ -123,9 +126,10 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       return {
         collection,
         color,
-        animated
+        animated,
+        rowsPerPage
       };
-    }, [collection, animated, color]);
+    }, [collection, animated, color, rowsPerPage]);
 
     return (
       <TableContext.Provider defaultValues={initialValues}>

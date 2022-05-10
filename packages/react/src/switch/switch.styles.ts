@@ -23,32 +23,32 @@ export const StyledSwitchContainer = styled('label', {
       default: {
         $$switchColor: '$colors$primary',
         $$switchColorShadow: '$colors$primaryShadow',
-        $$switchColorHover: '$colors$primaryDark'
+        $$switchColorHover: '$colors$primarySolidHover'
       },
       primary: {
         $$switchColor: '$colors$primary',
         $$switchColorShadow: '$colors$primaryShadow',
-        $$switchColorHover: '$colors$primaryDark'
+        $$switchColorHover: '$colors$primarySolidHover'
       },
       secondary: {
         $$switchColor: '$colors$secondary',
         $$switchColorShadow: '$colors$secondaryShadow',
-        $$switchColorHover: '$colors$secondaryDark'
+        $$switchColorHover: '$colors$secondarySolidHover'
       },
       success: {
         $$switchColor: '$colors$success',
         $$switchColorShadow: '$colors$successShadow',
-        $$switchColorHover: '$colors$successDark'
+        $$switchColorHover: '$colors$successSolidHover'
       },
       warning: {
         $$switchColor: '$colors$warning',
         $$switchColorShadow: '$colors$warningShadow',
-        $$switchColorHover: '$colors$warningDark'
+        $$switchColorHover: '$colors$warningSolidHover'
       },
       error: {
         $$switchColor: '$colors$error',
         $$switchColorShadow: '$colors$errorShadow',
-        $$switchColorHover: '$colors$errorDark'
+        $$switchColorHover: '$colors$errorSolidHover'
       }
     },
     size: {
@@ -202,7 +202,7 @@ export const StyledSwitch = styled(
           borderColor: '$accents2',
           bg: '$accents2',
           [`& ${StyledSwitchCircle}`]: {
-            bg: '$accents3'
+            bg: '$accents4'
           }
         }
       },
@@ -230,10 +230,10 @@ export const StyledSwitch = styled(
         css: {
           bg: '$accents3',
           [`& ${StyledSwitchCircle}`]: {
-            bg: '$accents2'
+            bg: '$accents0'
           },
           '&:hover:not(&:active)': {
-            bg: '$accents3'
+            bg: '$accents4'
           }
         }
       },

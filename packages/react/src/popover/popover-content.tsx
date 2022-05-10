@@ -7,7 +7,10 @@ import { CSS } from '../theme/stitches.config';
 import CSSTransition from '../utils/css-transition';
 import { __DEV__ } from '../utils/assertion';
 import { mergeRefs, ReactRef } from '../utils/refs';
-import { StyledPopoverContent } from './popover.styles';
+import {
+  StyledPopoverContentContainer,
+  StyledPopoverContent
+} from './popover.styles';
 import { usePopoverContext } from './popover-context';
 import { getTransformOrigin } from './utils';
 import clsx from '../utils/clsx';
@@ -67,7 +70,7 @@ export const PopoverContent = React.forwardRef(
     const { isFocusVisible, focusProps } = useFocusRing();
 
     const contents = (
-      <StyledPopoverContent
+      <StyledPopoverContentContainer
         ref={mergeRefs(overlayRef, ref)}
         {...getPopoverProps(
           mergeProps(
@@ -78,7 +81,7 @@ export const PopoverContent = React.forwardRef(
             otherProps
           )
         )}
-        className={clsx('nextui-popover-content', className)}
+        className={clsx('nextui-popover-content-container', className)}
         isFocusVisible={isFocusVisible}
         as={as}
         css={{
@@ -87,9 +90,11 @@ export const PopoverContent = React.forwardRef(
         }}
       >
         <DismissButton onDismiss={onClose} />
-        {children}
+        <StyledPopoverContent className="nextui-popover-content">
+          {children}
+        </StyledPopoverContent>
         <DismissButton onDismiss={onClose} />
-      </StyledPopoverContent>
+      </StyledPopoverContentContainer>
     );
 
     return (

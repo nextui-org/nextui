@@ -1,5 +1,4 @@
 import { styled, VariantProps } from '@nextui-org/react';
-import { lightTheme } from '@theme/shared';
 
 export const StyledBadge = styled('span', {
   display: 'inline-block',
@@ -19,36 +18,98 @@ export const StyledBadge = styled('span', {
   variants: {
     type: {
       default: {
-        bg: '$primary'
+        bg: '$primaryLight',
+        color: '$primary'
       },
       primary: {
-        bg: '$primary'
+        bg: '$primaryLight',
+        color: '$primary'
       },
       secondary: {
-        bg: '$secondary'
+        bg: '$secondaryLight',
+        color: '$secondary'
       },
       warning: {
-        bg: '$warning'
+        bg: '$warningLight',
+        color: '$warning'
       },
       success: {
-        bg: '$success'
+        bg: '$successLight',
+        color: '$success'
       },
       error: {
-        bg: '$error'
+        bg: '$errorLight',
+        color: '$error'
       },
       disabled: {
         fontSize: '9px',
-        color: '$accents6',
-        bg: 'rgba(255, 255, 255, 0.1)',
-        [`.${lightTheme} &`]: {
-          bg: '$accents1'
-        }
+        color: '$accents8',
+        bg: '$accents0'
       }
+    },
+    solid: {
+      true: {}
     }
   },
   defaultVariants: {
     type: 'default'
-  }
+  },
+  compoundVariants: [
+    // solid: true && type: 'default'
+    {
+      type: 'default',
+      solid: true,
+      css: {
+        bg: '$primary',
+        color: '$white'
+      }
+    },
+    // solid: true && type: 'primary'
+    {
+      type: 'primary',
+      solid: true,
+      css: {
+        bg: '$primary',
+        color: '$white'
+      }
+    },
+    // solid: true && type: 'secondary'
+    {
+      type: 'secondary',
+      solid: true,
+      css: {
+        bg: '$secondary',
+        color: '$white'
+      }
+    },
+    // solid: true && type: 'warning'
+    {
+      type: 'warning',
+      solid: true,
+      css: {
+        bg: '$warning',
+        color: '$white'
+      }
+    },
+    // solid: true && type: 'success'
+    {
+      type: 'success',
+      solid: true,
+      css: {
+        bg: '$success',
+        color: '$white'
+      }
+    },
+    // solid: true && type: 'error'
+    {
+      type: 'error',
+      solid: true,
+      css: {
+        bg: '$error',
+        color: '$white'
+      }
+    }
+  ]
 });
 
 export type BadgeVariantsProps = VariantProps<typeof StyledBadge>;

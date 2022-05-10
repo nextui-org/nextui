@@ -43,7 +43,7 @@ const Footer: React.FC<Props> = ({ css, containerCss }) => {
           className="footer__by"
           css={{
             fontSize: '$xs',
-            color: '$accents6',
+            color: '$accents7',
             '@mdMax': {
               fontSize: '$tiny'
             }

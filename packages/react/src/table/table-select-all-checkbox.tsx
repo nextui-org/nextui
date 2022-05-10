@@ -11,7 +11,6 @@ import { useFocusRing } from '@react-aria/focus';
 import { mergeProps } from '@react-aria/utils';
 import Checkbox, { CheckboxProps } from '../checkbox';
 import { StyledTableHeaderCell, TableVariantsProps } from './table.styles';
-import { mapPropsToCheckboxAttr } from './utils';
 import clsx from '../utils/clsx';
 
 interface Props<T> {
@@ -54,8 +53,6 @@ const TableSelectAllCheckbox = React.forwardRef<
     const { checkboxProps } = useTableSelectAllCheckbox(state);
     const { isFocusVisible, focusProps } = useFocusRing();
 
-    const mappedProps = mapPropsToCheckboxAttr(checkboxProps);
-
     return (
       <StyledTableHeaderCell
         ref={tableCellRef}
@@ -67,9 +64,9 @@ const TableSelectAllCheckbox = React.forwardRef<
           <VisuallyHidden>{checkboxProps['aria-label']}</VisuallyHidden>
         ) : (
           <Checkbox
-            {...mappedProps}
+            {...checkboxProps}
             color={color as CheckboxProps['color']}
-            animated={animated}
+            disableAnimation={!animated}
             css={{
               display: 'inherit',
               $$checkboxBorderColor: '$colors$accents3'
