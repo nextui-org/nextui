@@ -7,7 +7,7 @@ const CustomButton = () => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     const { currentTarget } = event;
-    const { innerWidth, innerHeight } = event.view as Window;
+    const { clientWidth, clientHeight } = document.documentElement;
     const {
       y: targetY,
       x: targetX,
@@ -19,8 +19,8 @@ const CustomButton = () => {
       particleCount: 100,
       spread: 70,
       origin: {
-        y: targetY / innerHeight,
-        x: targetCenterX / innerWidth
+        y: targetY / clientHeight,
+        x: targetCenterX / clientWidth
       }
     });
   };

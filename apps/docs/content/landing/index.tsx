@@ -314,9 +314,7 @@ import confetti from 'canvas-confetti';
 
 const CustomButton = () => {
   const handleConfetti = () => {
-    confetti({
-      // confetti options...
-    });
+    confetti({...});
   };
 
   return (
