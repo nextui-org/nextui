@@ -16,12 +16,7 @@ class MyDocument extends Document {
 
     return {
       ...initialProps,
-      styles: [
-        <>
-          {initialProps.styles}
-          {styledJSXStyles}
-        </>
-      ]
+      styles: React.Children.toArray([initialProps.styles, styledJSXStyles])
     };
   }
   render() {
