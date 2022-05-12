@@ -3,21 +3,35 @@ import { Button } from '@nextui-org/react';
 import confetti from 'canvas-confetti';
 
 const CustomButton = () => {
-  const handleConfetti = () => {
+  const handleConfetti = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const { currentTarget } = event;
+    const { innerWidth, innerHeight } = event.view as Window;
+    const {
+      y: targetY,
+      x: targetX,
+      width: targetWidth
+    } = currentTarget.getBoundingClientRect();
+    const targetCenterX = targetX + targetWidth / 2;
     confetti({
       zIndex: 999,
       particleCount: 100,
       spread: 70,
-      origin: { x: 0.75, y: 0.8 }
+      origin: {
+        y: targetY / innerHeight,
+        x: targetCenterX / innerWidth
+      }
     });
   };
+
   return (
     <Button
       auto
       rounded
       ripple={false}
       size="xl"
-      onClick={handleConfetti}
+      onClick={(event) => handleConfetti(event)}
       css={{
         background: '$white',
         fontWeight: '$semibold',

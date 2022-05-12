@@ -252,7 +252,7 @@ const MyComponent = () => {
       showPassword: !values.showPassword
     });
   };
-  
+
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -296,7 +296,7 @@ const darkTheme = createTheme({
   }
 })
 
-// 3. Apply dark theme 
+// 3. Apply dark theme
 // Entry point of your app
 const App = () => {
   return (
@@ -315,12 +315,10 @@ import confetti from 'canvas-confetti';
 const CustomButton = () => {
   const handleConfetti = () => {
     confetti({
-      zIndex: 999,
-      particleCount: 100,
-      spread: 70,
-      origin: { x: 0.75, y: 0.8 }
+      // confetti options...
     });
   };
+
   return (
     <Button
       auto
@@ -411,6 +409,6 @@ export default CustomButton;
     WebkitBackgroundClip: value,
     backgroundClip: value
   }),
-  
+
 }`
 };
