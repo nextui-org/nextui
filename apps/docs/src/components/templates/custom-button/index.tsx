@@ -31,7 +31,7 @@ const CustomButton = () => {
       rounded
       ripple={false}
       size="xl"
-      onClick={(event) => handleConfetti(event)}
+      onClick={handleConfetti}
       css={{
         background: '$white',
         fontWeight: '$semibold',
