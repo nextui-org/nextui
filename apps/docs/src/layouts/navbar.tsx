@@ -6,13 +6,21 @@ import {
   Twitter,
   Discord,
   Github,
-  ThemeToggle
+  ThemeToggle,
+  Heart
 } from '@components';
 import { Box } from '@primitives';
 import cn from 'classnames';
 import NextLink from 'next/link';
 import dynamic from 'next/dynamic';
-import { Row, Col, Spacer, Link, useBodyScroll } from '@nextui-org/react';
+import {
+  Row,
+  Col,
+  Spacer,
+  Link,
+  Button,
+  useBodyScroll
+} from '@nextui-org/react';
 import { Route } from '@lib/docs/page';
 import { Container } from '@nextui-org/react';
 import { useRouter } from 'next/router';
@@ -20,6 +28,7 @@ import { useMediaQuery } from '@hooks/use-media-query';
 import { isActive } from '@utils/links';
 import { includes } from 'lodash';
 import { StyledNavContainer, StyledNavMainContainer } from './styles';
+import { darkTheme } from '@theme/shared';
 
 export interface Props {
   routes?: Route[];
@@ -281,6 +290,42 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
                 />
               </Row>
               <SearchInput offsetTop={detached ? 0 : 30} />
+              <Spacer x={0.5} />
+              <Button
+                auto
+                as="a"
+                href="https://patreon.com/jrgarciadev"
+                target="_blank"
+                rel="noreferrer"
+                icon={
+                  <Heart filled size={20} fill="var(--nextui-colors-red600)" />
+                }
+                css={{
+                  bg: '$gray50',
+                  color: '$text',
+                  maxH: '38px',
+                  px: '$8',
+                  '@mdMax': {
+                    d: 'none'
+                  },
+                  '& .nextui-button-icon': {
+                    mr: '$2'
+                  },
+                  '& .nextui-button-icon svg': {
+                    transition: '$default'
+                  },
+                  '&:hover': {
+                    '& .nextui-button-icon svg': {
+                      transform: 'scale(1.2)'
+                    }
+                  },
+                  [`.${darkTheme} &`]: {
+                    bg: 'rgba(255, 255, 255, 0.1)'
+                  }
+                }}
+              >
+                Sponsor
+              </Button>
             </Row>
           </Col>
           <Col
