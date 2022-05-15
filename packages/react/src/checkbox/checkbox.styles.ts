@@ -40,7 +40,7 @@ export const StyledCheckboxLabel = styled('label', {
       }
     },
     disableAnimation: {
-      false: {
+      true: {
         transition: 'none'
       }
     }
