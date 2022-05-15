@@ -321,7 +321,11 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
                     }
                   },
                   [`.${darkTheme} &`]: {
-                    bg: 'rgba(255, 255, 255, 0.1)'
+                    bg: 'rgba(51, 51,51,0.7)',
+                    '@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))':
+                      {
+                        bf: 'saturate(180%) blur(14px)'
+                      }
                   }
                 }}
               >
