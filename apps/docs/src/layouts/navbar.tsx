@@ -29,6 +29,7 @@ import { isActive } from '@utils/links';
 import { includes } from 'lodash';
 import { StyledNavContainer, StyledNavMainContainer } from './styles';
 import { darkTheme } from '@theme/shared';
+import { pulse } from '@utils/animations';
 
 export interface Props {
   routes?: Route[];
@@ -316,7 +317,7 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
                   },
                   '&:hover': {
                     '& .nextui-button-icon svg': {
-                      transform: 'scale(1.2)'
+                      animation: `${pulse} 1s infinite`
                     }
                   },
                   [`.${darkTheme} &`]: {
