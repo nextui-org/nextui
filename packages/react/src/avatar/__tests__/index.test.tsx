@@ -95,7 +95,7 @@ describe('Avatar', () => {
     expect(avatar).toMatchSnapshot();
   });
 
-  it.only('should populate imgRef', () => {
+  it('should populate imgRef', () => {
     const imgRef = createRef<HTMLImageElement>();
     const wrapper = mount(
       <Avatar
