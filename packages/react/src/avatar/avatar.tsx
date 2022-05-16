@@ -6,6 +6,7 @@ import { useDOMRef } from '../utils/dom';
 import { __DEV__ } from '../utils/assertion';
 import StyledAvatar, { AvatarVariantsProps } from './avatar.styles';
 import clsx from '../utils/clsx';
+import useForkRef from '../use-fork-ref';
 
 interface Props {
   text?: string;
@@ -13,6 +14,7 @@ interface Props {
   icon?: React.ReactNode;
   alt?: string;
   className?: string;
+  imgRef?: ReactRef<HTMLImageElement>;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -32,7 +34,15 @@ const safeText = (text: string): string => {
 
 export const Avatar = React.forwardRef(
   (props: AvatarProps, ref: ReactRef<HTMLSpanElement>) => {
-    const { src, text, icon, alt, className, ...otherProps } = props;
+    const {
+      src,
+      text,
+      icon,
+      alt,
+      className,
+      imgRef: imgRefProp,
+      ...otherProps
+    } = props;
 
     const domRef = useDOMRef(ref);
 
@@ -40,6 +50,10 @@ export const Avatar = React.forwardRef(
     const [ready, setReady] = useState(false);
 
     const imgRef = useRef<HTMLImageElement>(null);
+    const handleImgRef = useForkRef<HTMLImageElement, HTMLImageElement>(
+      imgRefProp,
+      imgRef
+    );
 
     useEffect(() => {
       imgRef?.current?.complete && setReady(true);
@@ -64,7 +78,7 @@ export const Avatar = React.forwardRef(
         <span className="nextui-avatar-bg" />
         {!showText && (
           <img
-            ref={imgRef}
+            ref={handleImgRef}
             className={clsx('nextui-avatar-img', `nextui-avatar--${getState}`, {
               'nextui-avatar-ready': ready
             })}
