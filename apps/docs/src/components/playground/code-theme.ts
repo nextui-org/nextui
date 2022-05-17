@@ -57,7 +57,7 @@ const makeCodeTheme = (): PrismTheme => ({
     {
       types: ['attr-name'],
       style: {
-        color: 'var(--nextui-colors-yellow500)'
+        color: 'var(--nextui-colors-yellow600)'
       }
     },
     {
