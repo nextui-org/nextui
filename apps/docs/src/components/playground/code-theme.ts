@@ -1,4 +1,5 @@
 import { PrismTheme } from 'prism-react-renderer';
+import { green } from '@nextui-org/react';
 
 const makeCodeTheme = (): PrismTheme => ({
   plain: {
@@ -12,16 +13,21 @@ const makeCodeTheme = (): PrismTheme => ({
   },
   styles: [
     {
-      types: ['comment', 'prolog', 'doctype', 'cdata', 'punctuation'],
+      types: ['comment', 'prolog', 'doctype', 'cdata'],
       style: {
-        color: 'var(--nextui-colors-codeComment)',
-        opacity: 0.5
+        color: 'var(--nextui-colors-codeComment)'
       }
     },
     {
-      types: ['punctuation', 'symbol', 'text'],
+      types: ['symbol', 'text'],
       style: {
-        color: '#fff'
+        color: 'var(--nextui-colors-white)'
+      }
+    },
+    {
+      types: ['punctuation'],
+      style: {
+        color: green.green200
       }
     },
     {
