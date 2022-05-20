@@ -1,8 +1,5 @@
-import {
-  styled,
-  cssFocusVisible,
-  VariantProps
-} from '../theme/stitches.config';
+import { styled, cssFocusVisible } from '../theme/stitches.config';
+import type { VariantProps } from '../theme/stitches.config';
 
 export const StyledCheckboxLabel = styled('label', {
   d: 'inline-flex',
@@ -36,19 +33,14 @@ export const StyledCheckboxLabel = styled('label', {
         $$checkboxSize: '$space$11'
       }
     },
-    disabled: {
+    isDisabled: {
       true: {
         opacity: 0.75,
         cursor: 'not-allowed'
       }
     },
-    isHovered: {
+    disableAnimation: {
       true: {
-        opacity: 0.8
-      }
-    },
-    animated: {
-      false: {
         transition: 'none'
       }
     }
@@ -82,12 +74,12 @@ export const StyledIconCheckFirstLine = styled('div', {
     }
   },
   variants: {
-    indeterminate: {
+    isIndeterminate: {
       true: {
         display: 'none'
       }
     },
-    checked: {
+    isChecked: {
       true: {
         '&:after': {
           width: '100%',
@@ -95,8 +87,8 @@ export const StyledIconCheckFirstLine = styled('div', {
         }
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         '&:after': {
           transition: 'none'
         }
@@ -104,10 +96,10 @@ export const StyledIconCheckFirstLine = styled('div', {
     }
   },
   compoundVariants: [
-    // checked && !animated
+    // checked && disableAnimation
     {
-      checked: true,
-      animated: false,
+      isChecked: true,
+      disableAnimation: true,
       css: {
         '&:after': {
           transition: 'none'
@@ -143,12 +135,12 @@ export const StyledIconCheckSecondLine = styled('div', {
     }
   },
   variants: {
-    indeterminate: {
+    isIndeterminate: {
       true: {
         display: 'none'
       }
     },
-    checked: {
+    isChecked: {
       true: {
         '&:after': {
           height: '100%',
@@ -156,8 +148,8 @@ export const StyledIconCheckSecondLine = styled('div', {
         }
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         '&:after': {
           transition: 'none'
         }
@@ -165,10 +157,10 @@ export const StyledIconCheckSecondLine = styled('div', {
     }
   },
   compoundVariants: [
-    // checked && !animated
+    // checked && disableAnimation
     {
-      checked: true,
-      animated: false,
+      isChecked: true,
+      disableAnimation: true,
       css: {
         '&:after': {
           transition: 'none'
@@ -202,7 +194,7 @@ export const StyledIconCheck = styled('i', {
     }
   },
   variants: {
-    indeterminate: {
+    isIndeterminate: {
       true: {
         opacity: 1,
         transform: 'rotate(0deg)',
@@ -240,13 +232,13 @@ export const StyledIconCheck = styled('i', {
         transform: 'rotate(45deg)'
       }
     },
-    checked: {
+    isChecked: {
       true: {
         opacity: 1
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         transition: 'none',
         '&:after': {
           transition: 'none'
@@ -255,41 +247,41 @@ export const StyledIconCheck = styled('i', {
     }
   },
   compoundVariants: [
-    // indeterminate && xs size
+    // isIndeterminate && xs size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'xs',
       css: {
         scale: '0.5'
       }
     },
-    // indeterminate && sm size
+    // isIndeterminate && sm size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'sm',
       css: {
         scale: '0.5'
       }
     },
-    // indeterminate && md size
+    // isIndeterminate && md size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'md',
       css: {
         scale: '0.8'
       }
     },
-    // indeterminate && lg size
+    // isIndeterminate && lg size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'lg',
       css: {
         transform: 'none'
       }
     },
-    // indeterminate && xl size
+    // isIndeterminate && xl size
     {
-      indeterminate: true,
+      isIndeterminate: true,
       size: 'lg',
       css: {
         transform: 'none'
@@ -343,7 +335,7 @@ export const StyledCheckboxMask = styled('div', {
     }
   },
   variants: {
-    checked: {
+    isChecked: {
       true: {
         '&:before': {
           opacity: 0,
@@ -355,7 +347,7 @@ export const StyledCheckboxMask = styled('div', {
         }
       }
     },
-    indeterminate: {
+    isIndeterminate: {
       true: {
         '&:before': {
           opacity: 0,
@@ -367,8 +359,8 @@ export const StyledCheckboxMask = styled('div', {
         }
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         '&:before': {
           transition: 'none'
         },
@@ -417,7 +409,7 @@ export const StyledCheckboxText = styled('span', {
         color: '$error'
       }
     },
-    line: {
+    lineThrough: {
       true: {
         '&:before': {
           content: '',
@@ -429,20 +421,20 @@ export const StyledCheckboxText = styled('span', {
         }
       }
     },
-    checked: {
+    isChecked: {
       true: {
         '&:before': {
           opacity: 0.8
         }
       }
     },
-    disabled: {
+    isDisabled: {
       true: {
         color: '$accents5'
       }
     },
-    animated: {
-      false: {
+    disableAnimation: {
+      true: {
         transition: 'none',
         '&:before': {
           transition: 'none'
@@ -452,8 +444,8 @@ export const StyledCheckboxText = styled('span', {
   },
   compoundVariants: [
     {
-      line: true,
-      checked: true,
+      lineThrough: true,
+      isChecked: true,
       css: {
         opacity: 0.6,
         '&:before': {
@@ -521,19 +513,19 @@ export const StyledCheckboxContainer = styled(
           $$checkboxColorHover: '$colors$gradient'
         }
       },
-      rounded: {
+      isRounded: {
         true: {
           br: '$pill'
         }
       },
-      disabled: {
+      isDisabled: {
         true: {
           opacity: 0.4,
           cursor: 'not-allowed'
         }
       },
-      animated: {
-        false: {
+      disableAnimation: {
+        true: {
           transition: 'none'
         }
       },
@@ -559,6 +551,13 @@ export const StyledCheckboxContainer = styled(
 export const StyledCheckboxGroup = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  '& .nextui-checkbox-group-label': {
+    d: 'block',
+    fontWeight: '$normal',
+    fontSize: 'calc($$checkboxSize * 0.8)',
+    color: '$accents7',
+    mb: '$3'
+  },
   variants: {
     size: {
       xs: {
@@ -576,6 +575,13 @@ export const StyledCheckboxGroup = styled('div', {
       xl: {
         $$checkboxSize: '$space$11'
       }
+    },
+    isDisabled: {
+      true: {
+        '& .nextui-checkbox-group-label': {
+          color: '$accents5'
+        }
+      }
     }
   }
 });
@@ -584,7 +590,7 @@ export const StyledCheckboxGroupContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   variants: {
-    row: {
+    isRow: {
       true: {
         flexDirection: 'row',
         mt: 0,
@@ -602,27 +608,11 @@ export const StyledCheckboxGroupContainer = styled('div', {
     }
   },
   defaultVariants: {
-    row: false
-  }
-});
-
-export const StyledCheckboxGroupLabel = styled('label', {
-  d: 'block',
-  fontWeight: '$normal',
-  fontSize: 'calc($$checkboxSize * 0.8)',
-  color: '$accents7',
-  mb: '$3',
-  variants: {
-    disabled: {
-      true: {
-        opacity: 0.75
-      }
-    }
+    isRow: false
   }
 });
 
 // types
-
 export type CheckboxGroupVariantsProps = VariantProps<
   typeof StyledCheckboxGroup
 >;

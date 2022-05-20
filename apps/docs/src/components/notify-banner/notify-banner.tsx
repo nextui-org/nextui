@@ -28,7 +28,7 @@ const NotifyBanner: React.FC<Props> = (props) => {
         }}
       />
       {showBadge && (
-        <Badge>
+        <Badge solid>
           <span role="img" aria-label="notify-emoji">
             🚀
           </span>

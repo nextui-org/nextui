@@ -222,7 +222,12 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
         />
         <style jsx global>{`
           .search__placeholder-block {
-            max-width: 228px;
+            max-width: 200px;
+          }
+          @media only screen and (max-width: ${theme?.breakpoints?.md.value}) {
+            .search__placeholder-block {
+              max-width: 228px;
+            }
           }
           @media only screen and (max-width: ${theme?.breakpoints?.xs.value}) {
             .search__placeholder-block {
@@ -325,13 +330,18 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
             text-align: left;
             background: none;
             color: ${theme?.colors?.text?.value};
-            width: 228px;
+            width: 200px;
             height: 28px;
             padding: 16px;
             padding-right: calc(5% + 18px);
             font-size: 1rem;
             outline: none;
             border: none;
+          }
+          @media only screen and (max-width: ${theme?.breakpoints?.md.value}) {
+            .react-autosuggest__input {
+              width: 228px;
+            }
           }
           .react-autosuggest__suggestions-container {
             display: none;
@@ -425,7 +435,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
             transition: opacity 0.25s ease 0s;
           }
           .search__input-container input::placeholder {
-            color: ${theme?.colors?.accents8?.value};
+            color: ${theme?.colors?.accents6?.value};
             transition: opacity 0.25s ease 0s;
             -moz-transition: opacity 0.25s ease 0s;
             -ms-transition: opacity 0.25s ease 0s;

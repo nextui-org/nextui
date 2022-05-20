@@ -11,7 +11,7 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-gJBdwd",
+          "class": "nextui-c-kArxtH",
         },
         "children": Array [
           Node {
@@ -23,7 +23,7 @@ LoadedCheerio {
             "children": Array [
               Node {
                 "attribs": Object {
-                  "class": "nextui-c-gJBdwd",
+                  "class": "nextui-c-kArxtH",
                 },
                 "children": Array [
                   Node {
@@ -35,7 +35,7 @@ LoadedCheerio {
                     "children": Array [
                       Node {
                         "attribs": Object {
-                          "class": "nextui-c-gJBdwd",
+                          "class": "nextui-c-kArxtH",
                         },
                         "children": Array [
                           Node {
@@ -249,7 +249,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-c-gJBdwd",
+              "class": "nextui-c-kArxtH",
             },
             "children": Array [
               Node {
@@ -409,7 +409,7 @@ LoadedCheerio {
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-c-gJBdwd",
+              "class": "nextui-c-kArxtH",
             },
             "children": Array [
               Node {
@@ -562,14 +562,14 @@ LoadedCheerio {
     "children": Array [
       Node {
         "attribs": Object {
-          "class": "nextui-c-kltynt nextui-c-kltynt-fKnEka-color-default nextui-c-kltynt-iVCgFB-shadow-true nextui-c-kltynt-bVtBym-bordered-false nextui-c-kltynt-bzEnZV-borderWeight-normal nextui-c-kltynt-cuwTXc-animated-true nextui-c-kltynt-jQJOMy-hoverable-true nextui-c-kltynt-ifTMkJ-cover-false",
+          "class": "nextui-c-kltynt nextui-c-kltynt-fKnEka-color-default nextui-c-kltynt-iVCgFB-shadow-true nextui-c-kltynt-bVtBym-bordered-false nextui-c-kltynt-bzEnZV-borderWeight-normal nextui-c-kltynt-cuwTXc-animated-true nextui-c-kltynt-gKZCTo-hoverable-true nextui-c-kltynt-ifTMkJ-cover-false",
           "role": "section",
           "tabindex": "-1",
         },
         "children": Array [
           Node {
             "attribs": Object {
-              "class": "nextui-c-gJBdwd",
+              "class": "nextui-c-kArxtH",
             },
             "children": Array [
               Node {
