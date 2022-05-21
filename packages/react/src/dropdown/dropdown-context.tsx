@@ -1,16 +1,9 @@
-import React, { HTMLAttributes, RefObject, useContext } from 'react';
-import { FocusStrategy } from '@react-types/shared';
+import { createContext } from '../utils/context';
+import { UseDropdownReturn } from './use-dropdown';
 
-export interface DropdownContextValue extends HTMLAttributes<HTMLElement> {
-  onClose?: () => void;
-  closeOnSelect?: boolean;
-  shouldFocusWrap?: boolean;
-  autoFocus?: boolean | FocusStrategy;
-  ref?: RefObject<HTMLUListElement>;
-}
-
-export const DropdownContext = React.createContext<DropdownContextValue>({});
-
-export function useDropdownContext(): DropdownContextValue {
-  return useContext(DropdownContext);
-}
+export const [DropdownProvider, useDropdownContext] =
+  createContext<UseDropdownReturn>({
+    name: 'DropdownContext',
+    errorMessage:
+      'useDropdownContext: `context` is undefined. Seems you forgot to wrap all popover components within `<Dropdown />`'
+  });

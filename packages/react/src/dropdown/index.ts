@@ -1,10 +1,10 @@
 import { Item, Section } from '@react-stately/collections';
-import Popover from '../popover';
+import { DropdownTrigger } from './dropdown-trigger';
+import DropdownMenu from './dropdown-menu';
 import Dropdown from './dropdown';
-import DropdownContent from './dropdown-content';
 
-Dropdown.Trigger = Popover.Trigger;
-Dropdown.Content = DropdownContent;
+Dropdown.Trigger = DropdownTrigger;
+Dropdown.Menu = DropdownMenu;
 Dropdown.Section = Section;
 Dropdown.Item = Item;
 

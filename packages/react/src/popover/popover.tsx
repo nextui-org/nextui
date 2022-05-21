@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import { OverlayContainer } from '@react-aria/overlays';
 import { __DEV__ } from '../utils/assertion';
-import { pickChild } from '../utils/collections';
 import { PopoverContent } from './popover-content';
 import { usePopover, UsePopoverProps } from './use-popover';
 import { PopoverProvider } from './popover-context';
@@ -19,15 +18,14 @@ const Popover = (props: PopoverProps) => {
   const { children, ...otherProps } = props;
   const context = usePopover(otherProps);
 
-  const [withoutTrigger, triggerChildren] = pickChild(children, PopoverTrigger);
-  const [, contentChildren] = pickChild(withoutTrigger, PopoverContent);
+  const [trigger, content] = React.Children.toArray(children);
 
   const mountOverlay = context.state.isOpen || !context.exited;
 
   return (
     <PopoverProvider value={context}>
-      {triggerChildren}
-      {mountOverlay && <OverlayContainer>{contentChildren}</OverlayContainer>}
+      {trigger}
+      {mountOverlay && <OverlayContainer>{content}</OverlayContainer>}
     </PopoverProvider>
   );
 };

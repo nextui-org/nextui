@@ -37,21 +37,36 @@ const DropdownItem = <T extends object>({
 
   const ref = useRef<HTMLLIElement>(null);
 
-  const { menuItemProps, labelProps, descriptionProps, keyboardShortcutProps } =
-    useMenuItem(
-      {
-        isSelected,
-        isDisabled,
-        'aria-label': item['aria-label'],
-        key,
-        onClose,
-        closeOnSelect,
-        isVirtualized,
-        onAction
-      },
-      state,
-      ref
-    );
+  // const { menuItemProps, labelProps, descriptionProps, keyboardShortcutProps } =
+  // useMenuItem(
+  //   {
+  //     isSelected,
+  //     isDisabled,
+  //     'aria-label': item['aria-label'],
+  //     key,
+  //     onClose,
+  //     closeOnSelect,
+  //     isVirtualized,
+  //     onAction
+  //   },
+  //   state,
+  //   ref
+  // );
+
+  const { menuItemProps } = useMenuItem(
+    {
+      isSelected,
+      isDisabled,
+      'aria-label': item['aria-label'],
+      key,
+      onClose,
+      closeOnSelect,
+      isVirtualized,
+      onAction
+    },
+    state,
+    ref
+  );
 
   const { hoverProps, isHovered } = useHover({ isDisabled });
 

@@ -1,8 +1,5 @@
-import {
-  styled,
-  VariantProps,
-  cssFocusVisible
-} from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { cssFocusVisible, sharedDialogPopup } from '../theme/shared-css';
 import { StyledDrip } from '../utils/drip';
 
 export const StyledButton = styled(
@@ -805,7 +802,8 @@ export const StyledButton = styled(
       size: 'md'
     }
   },
-  cssFocusVisible
+  cssFocusVisible,
+  sharedDialogPopup
 );
 
 export type ButtonVariantsProps = VariantProps<typeof StyledButton>;

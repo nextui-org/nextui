@@ -1,13 +1,11 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Item as DropdownMenuItem } from '@react-stately/collections';
-import DropdownTrigger from './dropdown-trigger';
 import { Grid, Button } from '../index';
-import DropdownMenu from './dropdown';
+import Dropdown from './index';
 
 export default {
   title: 'General/Dropdown',
-  component: DropdownMenu,
+  component: Dropdown,
   decorators: [
     (Story) => (
       <Grid.Container gap={1} justify="center" direction="column">
@@ -39,14 +37,16 @@ export default {
 // </Dropdown>
 
 export const Default = () => (
-  <DropdownTrigger>
-    <Button auto css={{ maxWidth: '200px' }}>
-      Trigger
-    </Button>
-    <DropdownMenu onAction={alert}>
-      <DropdownMenuItem>Cut</DropdownMenuItem>
-      <DropdownMenuItem>Copy</DropdownMenuItem>
-      <DropdownMenuItem>Paste</DropdownMenuItem>
-    </DropdownMenu>
-  </DropdownTrigger>
+  <Dropdown aria-label="Actions">
+    <Dropdown.Trigger>
+      <Button auto css={{ maxWidth: '200px' }}>
+        Trigger
+      </Button>
+    </Dropdown.Trigger>
+    <Dropdown.Menu onAction={alert}>
+      <Dropdown.Item>Cut</Dropdown.Item>
+      <Dropdown.Item>Copy</Dropdown.Item>
+      <Dropdown.Item>Paste</Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
 );

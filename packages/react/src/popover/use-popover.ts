@@ -82,8 +82,8 @@ export function usePopover(props: UsePopoverProps = {}) {
     shouldCloseOnInteractOutside
   } = props;
 
-  const domTriggerRef = useRef<HTMLElement>(null);
   const domRef = useRef<HTMLElement>(null);
+  const domTriggerRef = useRef<HTMLElement>(null);
 
   const overlayRef = ref || domRef;
   const triggerRef = triggerRefProp || domTriggerRef;

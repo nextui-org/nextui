@@ -1,4 +1,5 @@
-import { styled, keyframes, cssFocusVisible } from '../theme/stitches.config';
+import { styled, keyframes } from '../theme/stitches.config';
+import { cssFocusVisible } from '../theme/shared-css';
 
 export const appearanceIn = keyframes({
   '0%': {

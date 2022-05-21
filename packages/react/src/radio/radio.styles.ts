@@ -1,9 +1,5 @@
-import {
-  styled,
-  sharedVisuallyHidden,
-  sharedFocus,
-  VariantProps
-} from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { sharedFocus, sharedVisuallyHidden } from '../theme/shared-css';
 
 export const StyledRadioInput = styled('input', {}, sharedVisuallyHidden);
 

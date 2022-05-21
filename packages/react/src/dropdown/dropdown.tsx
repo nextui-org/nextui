@@ -1,102 +1,58 @@
-import React, { RefAttributes, PropsWithoutRef, useContext } from 'react';
-
-import { DOMProps, AriaLabelingProps } from '@react-types/shared';
-import { AriaMenuProps } from '@react-types/menu';
-import { useMenu } from '@react-aria/menu';
-import { useTreeState } from '@react-stately/tree';
-import {
-  Item as DropdownBaseItem,
-  Section as DropdownBaseSection
-} from '@react-stately/collections';
-import { mergeProps } from '@react-aria/utils';
-
-import withDefaults from '../utils/with-defaults';
-import { useDOMRef, useSyncRef } from '../utils/dom';
+import React, { ReactNode } from 'react';
+import { Item, Section } from '@react-stately/collections';
 import Popover from '../popover';
+import { DropdownProvider } from './dropdown-context';
+import { DropdownTrigger } from './dropdown-trigger';
+import DropdownMenu from './dropdown-menu';
+import { useDropdown, UseDropdownProps } from './use-dropdown';
+import { __DEV__ } from '../utils/assertion';
 
-import { DropdownContext } from './dropdown-context';
-import DropdownSection from './dropdown-section';
-import DropdownItem from './dropdown-item';
-import clsx from '../utils/clsx';
+interface Props extends UseDropdownProps {
+  /**
+   * The content of the dropdown. It is usually the `Dropdown.Trigger`,
+   * and `Dropdown.Menu`
+   */
+  children: ReactNode | undefined;
+}
 
-interface Props<T> extends AriaMenuProps<T>, DOMProps, AriaLabelingProps {}
+export type DropdownProps = Props;
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<object>>;
+const Dropdown = (props: DropdownProps) => {
+  const { children, ...otherProps } = props;
 
-const defaultProps = {};
+  const context = useDropdown(otherProps);
 
-export type DropdownProps<T = object> = Props<T> &
-  NativeAttrs &
-  typeof defaultProps;
+  const [menuTrigger, menu] = React.Children.toArray(children);
 
-const Dropdown = React.forwardRef(
-  (props: DropdownProps, ref: React.Ref<HTMLUListElement | null>) => {
-    const contextProps = useContext(DropdownContext);
-    const completeProps = {
-      ...mergeProps(contextProps, props)
-    };
-    const domRef = useDOMRef(ref);
-
-    const state = useTreeState(completeProps);
-    const { menuProps: dropdownProps } = useMenu(completeProps, state, domRef);
-
-    useSyncRef(contextProps, domRef);
-
-    return (
-      <ul
-        {...dropdownProps}
-        ref={domRef}
-        style={{
-          padding: 0,
-          listStyle: 'none',
-          border: '1px solid gray',
-          minWidth: 250
-        }}
-        className={clsx('nextui-dropdown', props.className)}
+  return (
+    <DropdownProvider value={context}>
+      <Popover
+        ref={context.menuPopoverRef}
+        triggerRef={context.menuTriggerRef}
+        scrollRef={context.menuRef}
+        shouldFlip={context.shouldFlip}
+        isOpen={context.state.isOpen}
+        placement={context.placement}
+        onClose={context.state.close}
       >
-        {[...state.collection].map((item) => {
-          if (item.type === 'section') {
-            return (
-              <DropdownSection
-                key={item.key}
-                item={item}
-                state={state}
-                onAction={completeProps.onAction}
-              />
-            );
-          }
-          let dropdownItem = (
-            <DropdownItem
-              key={item.key}
-              item={item}
-              state={state}
-              onAction={completeProps.onAction}
-            />
-          );
-          if (item.wrapper) {
-            dropdownItem = item.wrapper(dropdownItem);
-          }
-          return dropdownItem;
-        })}
-      </ul>
-    );
-  }
-);
+        {menuTrigger}
+        <Popover.Content>{menu}</Popover.Content>
+      </Popover>
+    </DropdownProvider>
+  );
+};
 
-Dropdown.displayName = 'NextUI - Dropdown';
+if (__DEV__) {
+  Dropdown.displayName = 'NextUI.Dropdown';
+}
 
-type DropdownComponent<T, P = {}> = React.ForwardRefExoticComponent<
-  PropsWithoutRef<P> & RefAttributes<T>
-> & {
-  Section: typeof DropdownBaseSection;
-  Item: typeof DropdownBaseItem;
-  Trigger: typeof Popover.Trigger;
-  Content: typeof Popover.Content;
+type DropdownComponent<P = {}> = React.FC<P> & {
+  Trigger: typeof DropdownTrigger;
+  Menu: typeof DropdownMenu;
+  Item: typeof Item;
+  Section: typeof Section;
 };
 
 Dropdown.toString = () => '.nextui-dropdown';
 
-export default withDefaults(Dropdown, defaultProps) as DropdownComponent<
-  HTMLUListElement,
-  DropdownProps
->;
+export default Dropdown as DropdownComponent<DropdownProps>;
