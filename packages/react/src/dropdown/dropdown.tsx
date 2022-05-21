@@ -1,6 +1,6 @@
 import React, { RefAttributes, PropsWithoutRef, useContext } from 'react';
 
-import { DOMProps, DOMRef, AriaLabelingProps } from '@react-types/shared';
+import { DOMProps, AriaLabelingProps } from '@react-types/shared';
 import { AriaMenuProps } from '@react-types/menu';
 import { useMenu } from '@react-aria/menu';
 import { useTreeState } from '@react-stately/tree';
@@ -35,7 +35,7 @@ const Dropdown = React.forwardRef(
     const completeProps = {
       ...mergeProps(contextProps, props)
     };
-    const domRef = useDOMRef(ref as DOMRef<HTMLUListElement>);
+    const domRef = useDOMRef(ref);
 
     const state = useTreeState(completeProps);
     const { menuProps: dropdownProps } = useMenu(completeProps, state, domRef);
@@ -50,7 +50,7 @@ const Dropdown = React.forwardRef(
           padding: 0,
           listStyle: 'none',
           border: '1px solid gray',
-          maxWidth: 250
+          minWidth: 250
         }}
         className={clsx('nextui-dropdown', props.className)}
       >

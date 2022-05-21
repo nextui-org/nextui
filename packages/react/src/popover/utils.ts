@@ -1,4 +1,4 @@
-import { Placement } from '@react-types/overlays';
+import { Placement, PlacementAxis } from '@react-types/overlays';
 
 export type PopoverPlacement =
   | 'bottom'
@@ -19,6 +19,20 @@ export const getAriaPlacement = (placement?: PopoverPlacement) => {
     return 'bottom' as Placement;
   }
   return placement.replace('-', ' ') as Placement;
+};
+
+export const getPopoverPlacementFromAxis = (placementAxis?: PlacementAxis) => {
+  if (!placementAxis) {
+    return 'bottom';
+  }
+  return placementAxis.replace('-', ' ') as PopoverPlacement;
+};
+
+export const getPopoverPlacement = (ariaPlacement?: Placement) => {
+  if (!ariaPlacement) {
+    return 'bottom' as Placement;
+  }
+  return ariaPlacement.replace(' ', '-') as PopoverPlacement;
 };
 
 export const getTransformOrigin = (placement?: PopoverPlacement) => {

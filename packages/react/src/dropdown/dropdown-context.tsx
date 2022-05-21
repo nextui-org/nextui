@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, MutableRefObject, useContext } from 'react';
+import React, { HTMLAttributes, RefObject, useContext } from 'react';
 import { FocusStrategy } from '@react-types/shared';
 
 export interface DropdownContextValue extends HTMLAttributes<HTMLElement> {
@@ -6,7 +6,7 @@ export interface DropdownContextValue extends HTMLAttributes<HTMLElement> {
   closeOnSelect?: boolean;
   shouldFocusWrap?: boolean;
   autoFocus?: boolean | FocusStrategy;
-  ref?: MutableRefObject<HTMLUListElement>;
+  ref?: RefObject<HTMLUListElement>;
 }
 
 export const DropdownContext = React.createContext<DropdownContextValue>({});

@@ -1,11 +1,15 @@
-import { useRef, useMemo, useState, useCallback } from 'react';
+import { useRef, useMemo, useState, useCallback, RefObject } from 'react';
 import { OverlayTriggerProps } from '@react-types/overlays';
+import { mergeProps } from '@react-aria/utils';
 import { useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
 import { useOverlayTriggerState } from '@react-stately/overlays';
 import { mergeRefs } from '../utils/refs';
 import { PopoverPlacement, getAriaPlacement } from './utils';
 
 export interface UsePopoverProps extends OverlayTriggerProps {
+  ref?: RefObject<HTMLElement>;
+  triggerRef?: RefObject<HTMLElement>;
+  scrollRef?: RefObject<HTMLElement>;
   placement?: PopoverPlacement;
   shouldFlip?: boolean;
   offset?: number;
@@ -45,6 +49,9 @@ export interface UsePopoverProps extends OverlayTriggerProps {
  */
 export function usePopover(props: UsePopoverProps = {}) {
   const {
+    ref,
+    triggerRef: triggerRefProp,
+    scrollRef,
     isOpen,
     defaultOpen,
     onOpenChange,
@@ -60,8 +67,11 @@ export function usePopover(props: UsePopoverProps = {}) {
     shouldCloseOnInteractOutside
   } = props;
 
-  const triggerRef = useRef<HTMLElement>(null);
-  const overlayRef = useRef<HTMLElement>(null);
+  const domTriggerRef = useRef<HTMLElement>(null);
+  const domRef = useRef<HTMLElement>(null);
+
+  const overlayRef = ref || domRef;
+  const triggerRef = triggerRefProp || domTriggerRef;
 
   const state = useOverlayTriggerState({
     isOpen,
@@ -103,6 +113,7 @@ export function usePopover(props: UsePopoverProps = {}) {
   const { overlayProps: positionProps } = useOverlayPosition({
     isOpen: state.isOpen,
     targetRef: triggerRef,
+    scrollRef,
     placement: overlayPlacement,
     overlayRef,
     shouldFlip,
@@ -111,13 +122,15 @@ export function usePopover(props: UsePopoverProps = {}) {
 
   const getTriggerProps = useCallback(
     (props = {}, _ref = null) => {
+      const realTriggerProps = triggerRefProp?.current
+        ? mergeProps(triggerProps, props)
+        : mergeProps(props, triggerProps);
       return {
-        ...props,
-        ...triggerProps,
+        ...realTriggerProps,
         ref: mergeRefs(triggerRef, _ref)
       };
     },
-    [triggerRef, triggerProps]
+    [triggerRef, triggerRefProp, triggerProps]
   );
 
   const getPopoverProps = useCallback(
