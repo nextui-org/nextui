@@ -4,15 +4,27 @@ import { MenuTriggerType } from '@react-types/menu';
 import { useMenuTrigger } from '@react-aria/menu';
 import Popover, { PopoverProps } from '../popover';
 import { DropdownContext as MenuContext } from './dropdown-context';
-import withDefaults from '../utils/with-defaults';
 import { useDOMRef } from '../utils/dom';
 
-interface Props extends PopoverProps {
+interface MenuTriggerAriaProps {
+  /**
+   * The type of menu that the menu trigger opens.
+   * @default 'menu'
+   */
+  type?: 'menu' | 'listbox';
+  /**
+   * Whether menu trigger is disabled.
+   * @default false
+   */
+  isDisabled?: boolean;
   /**
    * How the menu is triggered.
    * @default 'press'
    */
   trigger?: MenuTriggerType;
+}
+
+interface Props extends PopoverProps, MenuTriggerAriaProps {
   /**
    * Whether the Menu closes when a selection is made.
    * @default true
@@ -20,9 +32,7 @@ interface Props extends PopoverProps {
   closeOnSelect?: boolean;
 }
 
-const defaultProps = {};
-
-export type DropdownTriggerProps = Props & typeof defaultProps;
+export type DropdownTriggerProps = Props;
 
 const DropdownTrigger = React.forwardRef(
   (props: DropdownTriggerProps, ref: React.Ref<HTMLElement | null>) => {
@@ -37,17 +47,21 @@ const DropdownTrigger = React.forwardRef(
       shouldFlip = true,
       placement = 'bottom',
       closeOnSelect,
-      trigger = 'press'
+      trigger = 'press',
+      isDisabled = false,
+      type = 'menu'
     } = props;
 
     const [menuTrigger, menu] = React.Children.toArray(children);
     const state = useMenuTriggerState(props);
 
     const { menuTriggerProps, menuProps } = useMenuTrigger(
-      { trigger },
+      { type, trigger, isDisabled },
       state,
       menuTriggerRef
     );
+
+    console.log({ menuProps, menuTriggerProps });
 
     const menuContext = {
       ...menuProps,
@@ -86,7 +100,7 @@ type DropdownTriggerComponent<T, P = {}> = React.ForwardRefExoticComponent<
 
 DropdownTrigger.toString = () => '.nextui-DropdownTrigger';
 
-export default withDefaults(
-  DropdownTrigger,
-  defaultProps
-) as DropdownTriggerComponent<HTMLElement, DropdownTriggerProps>;
+export default DropdownTrigger as DropdownTriggerComponent<
+  HTMLElement,
+  DropdownTriggerProps
+>;

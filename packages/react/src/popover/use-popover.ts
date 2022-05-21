@@ -8,9 +8,24 @@ import { PopoverPlacement, getAriaPlacement } from './utils';
 
 export interface UsePopoverProps extends OverlayTriggerProps {
   ref?: RefObject<HTMLElement>;
+  /**
+   * The ref for the element which the overlay positions itself with respect to.
+   */
   triggerRef?: RefObject<HTMLElement>;
+  /**
+   * A ref for the scrollable region within the overlay.
+   * @default overlayRef
+   */
   scrollRef?: RefObject<HTMLElement>;
+  /**
+   * The placement of the element with respect to its anchor element.
+   * @default 'bottom'
+   */
   placement?: PopoverPlacement;
+  /**
+   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely.
+   * @default true
+   */
   shouldFlip?: boolean;
   offset?: number;
   /** Handler that is called when the overlay should close. */
