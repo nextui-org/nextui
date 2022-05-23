@@ -5,42 +5,45 @@ import { useMenu } from '@react-aria/menu';
 import { useTreeState } from '@react-stately/tree';
 import { mergeProps } from '@react-aria/utils';
 import { useDOMRef, useSyncRef } from '../utils/dom';
+import { CSS } from '../theme/stitches.config';
 import { useDropdownContext } from './dropdown-context';
 import DropdownSection from './dropdown-section';
 import DropdownItem from './dropdown-item';
+import { StyledDropdownMenu } from './dropdown.styles';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
-interface Props<T> extends AriaMenuProps<T>, DOMProps, AriaLabelingProps {}
+interface Props<T> extends AriaMenuProps<T>, DOMProps, AriaLabelingProps {
+  as?: keyof JSX.IntrinsicElements;
+}
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<object>>;
 
-export type DropdownMenuProps<T = object> = Props<T> & NativeAttrs;
+export type DropdownMenuProps<T = object> = Props<T> &
+  NativeAttrs & { css?: CSS };
 
 const DropdownMenu = React.forwardRef(
   (props: DropdownMenuProps, ref: React.Ref<HTMLUListElement | null>) => {
+    const { css = {}, as, ...otherProps } = props;
+
     const context = useDropdownContext();
     const completeProps = {
-      ...mergeProps(context, props)
+      ...mergeProps(context, otherProps)
     };
     const domRef = useDOMRef(ref);
 
     const state = useTreeState(completeProps);
-    const { menuProps: dropdownProps } = useMenu(completeProps, state, domRef);
+    const { menuProps } = useMenu(completeProps, state, domRef);
 
     useSyncRef(context, domRef);
 
     return (
-      <ul
-        {...dropdownProps}
+      <StyledDropdownMenu
         ref={domRef}
-        style={{
-          padding: 0,
-          listStyle: 'none',
-          border: '1px solid gray',
-          minWidth: 250
-        }}
+        as={as}
+        css={{ ...(css as any) }}
         className={clsx('nextui-dropdown-menu', props.className)}
+        {...menuProps}
       >
         {[...state.collection].map((item) => {
           if (item.type === 'section') {
@@ -66,7 +69,7 @@ const DropdownMenu = React.forwardRef(
           }
           return dropdownItem;
         })}
-      </ul>
+      </StyledDropdownMenu>
     );
   }
 );

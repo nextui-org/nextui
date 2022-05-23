@@ -3,10 +3,16 @@ import { mergeProps } from '@react-aria/utils';
 import { MenuTriggerType } from '@react-types/menu';
 import { useMenuTrigger } from '@react-aria/menu';
 import { useMenuTriggerState } from '@react-stately/menu';
+import { SimpleColors } from '../utils/prop-types';
 import { mergeRefs } from '../utils/refs';
 import { PopoverProps } from '../popover';
 
 export interface UseDropdownProps extends Omit<PopoverProps, 'children'> {
+  /**
+   * The color of the dropdown items (focused, hovered)
+   * @default 'primary'
+   */
+  color?: SimpleColors;
   /**
    * The type of menu that the menu trigger opens.
    * @default 'menu'
@@ -35,18 +41,21 @@ export interface UseDropdownProps extends Omit<PopoverProps, 'children'> {
 export function useDropdown(props: UseDropdownProps = {}) {
   const {
     triggerRef: triggerRefProp,
-    shouldFlip = true,
-    placement = 'bottom',
     type = 'menu',
+    color = 'default',
     trigger = 'press',
     isDisabled = false,
-    closeOnSelect
+    closeOnSelect,
+    disableAnimation = false,
+    ...popoverProps
   } = props;
 
   const triggerRef = useRef<HTMLElement>(null);
   const menuTriggerRef = triggerRefProp || triggerRef;
   const menuRef = useRef<HTMLUListElement>(null);
   const menuPopoverRef = useRef<HTMLDivElement>(null);
+
+  const highlightItemRef = useRef<HTMLDivElement>(null);
 
   const state = useMenuTriggerState(props);
 
@@ -71,15 +80,17 @@ export function useDropdown(props: UseDropdownProps = {}) {
 
   return {
     ...menuProps,
+    popoverProps,
     state,
+    color,
     ref: menuRef,
     onClose: state.close,
     autoFocus: state.focusStrategy || true,
+    disableAnimation,
     menuRef,
+    highlightItemRef,
     menuPopoverRef,
     menuTriggerRef,
-    shouldFlip,
-    placement,
     closeOnSelect,
     getMenuTriggerProps
   };

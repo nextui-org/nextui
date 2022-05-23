@@ -188,6 +188,17 @@ export const defaultColors = {
   errorSolidContrast: '$white',
   errorShadow: '$red500',
 
+  neutralLight: '$gray100',
+  neutralLightHover: '$gray200',
+  neutralLightActive: '$gray300',
+  neutralLightContrast: '$gray500',
+  neutral: '$gray500',
+  neutralBorder: '$gray400',
+  neutralBorderHover: '$gray500',
+  neutralSolidHover: '$gray600',
+  neutralSolidContrast: '$white',
+  neutralShadow: '$gray400',
+
   gradient:
     'linear-gradient(112deg, $cyan600 -63.59%, $pink600 -20.3%, $blue600 70.46%)',
 

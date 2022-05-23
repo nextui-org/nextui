@@ -45,7 +45,7 @@ export const sharedVisuallyHidden = css({
 export const sharedDialogPopup = css({
   // for dropdown triggers
   '&[aria-haspopup="true"]&[aria-expanded="true"]': {
-    opacity: 0.6,
+    opacity: 0.7,
     transform: 'scale(0.97)'
   }
 });

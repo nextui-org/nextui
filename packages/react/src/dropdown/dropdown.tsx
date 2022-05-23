@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import { Item, Section } from '@react-stately/collections';
+import { Section } from '@react-stately/collections';
+import DropdownItemBase from './base/dropdown-item-base';
 import Popover from '../popover';
 import { DropdownProvider } from './dropdown-context';
 import { DropdownTrigger } from './dropdown-trigger';
@@ -28,12 +29,12 @@ const Dropdown = (props: DropdownProps) => {
     <DropdownProvider value={context}>
       <Popover
         ref={context.menuPopoverRef}
+        {...context.popoverProps}
         triggerRef={context.menuTriggerRef}
         scrollRef={context.menuRef}
-        shouldFlip={context.shouldFlip}
         isOpen={context.state.isOpen}
-        placement={context.placement}
         onClose={context.state.close}
+        disableAnimation={context.disableAnimation}
       >
         {menuTrigger}
         <Popover.Content>{menu}</Popover.Content>
@@ -49,7 +50,7 @@ if (__DEV__) {
 type DropdownComponent<P = {}> = React.FC<P> & {
   Trigger: typeof DropdownTrigger;
   Menu: typeof DropdownMenu;
-  Item: typeof Item;
+  Item: typeof DropdownItemBase;
   Section: typeof Section;
 };
 

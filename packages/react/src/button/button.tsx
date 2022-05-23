@@ -38,6 +38,10 @@ export interface Props extends PressEvents, FocusableProps, AriaButtonProps {
   as?: keyof JSX.IntrinsicElements;
   className?: string;
   children?: React.ReactNode | undefined;
+  // TODO: put this on the docs
+  iconLeftCss?: CSS;
+  // TODO: put this on the docs
+  iconRightCss?: CSS;
 }
 
 const defaultProps = {
@@ -60,7 +64,15 @@ export type ButtonProps = Props &
 
 const Button = React.forwardRef(
   (
-    { onClick, onPress, as, css, ...btnProps }: ButtonProps,
+    {
+      onClick,
+      onPress,
+      as,
+      css,
+      iconLeftCss,
+      iconRightCss,
+      ...btnProps
+    }: ButtonProps,
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
     const groupConfig = useButtonGroupContext();
@@ -154,6 +166,11 @@ const Button = React.forwardRef(
       return disabled ? 'disabled' : 'ready';
     }, [disabled, isHovered, isPressed]);
 
+    const getIconCss = useMemo<any>(() => {
+      if (isRight) return iconRightCss;
+      return iconLeftCss;
+    }, [isRight, iconRightCss, iconLeftCss]);
+
     return (
       <StyledButton
         as={as}
@@ -185,6 +202,7 @@ const Button = React.forwardRef(
             isSingle
             isAuto={auto}
             isRight={isRight}
+            css={getIconCss}
             isGradientButtonBorder={
               props.color === 'gradient' && (bordered || ghost)
             }
@@ -197,6 +215,7 @@ const Button = React.forwardRef(
               isSingle={false}
               isAuto={auto}
               isRight={isRight}
+              css={getIconCss}
               isGradientButtonBorder={
                 props.color === 'gradient' && (bordered || ghost)
               }

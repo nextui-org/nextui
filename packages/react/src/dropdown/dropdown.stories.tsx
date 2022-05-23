@@ -1,18 +1,12 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Grid, Button } from '../index';
+import { Button } from '../index';
+import { ChevronDownBold } from '../utils/icons';
 import Dropdown from './index';
 
 export default {
   title: 'General/Dropdown',
-  component: Dropdown,
-  decorators: [
-    (Story) => (
-      <Grid.Container gap={1} justify="center" direction="column">
-        <Story />
-      </Grid.Container>
-    )
-  ]
+  component: Dropdown
 } as Meta;
 
 // desired API
@@ -37,16 +31,59 @@ export default {
 // </Dropdown>
 
 export const Default = () => (
-  <Dropdown aria-label="Actions">
+  <Dropdown>
     <Dropdown.Trigger>
-      <Button auto css={{ maxWidth: '200px' }}>
+      <Button auto>Trigger</Button>
+    </Dropdown.Trigger>
+    <Dropdown.Menu aria-label="Actions" onAction={alert}>
+      <Dropdown.Item key="new">New file</Dropdown.Item>
+      <Dropdown.Item key="copy">Copy link</Dropdown.Item>
+      <Dropdown.Item key="edit">Edit file</Dropdown.Item>
+      <Dropdown.Item key="delete" color="error">
+        Delete file
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+);
+
+export const WithDivider = () => (
+  <Dropdown>
+    <Dropdown.Trigger>
+      <Button auto>Trigger</Button>
+    </Dropdown.Trigger>
+    <Dropdown.Menu aria-label="Actions" onAction={alert}>
+      <Dropdown.Item key="new">New file</Dropdown.Item>
+      <Dropdown.Item key="copy">Copy link</Dropdown.Item>
+      <Dropdown.Item key="edit">Edit file</Dropdown.Item>
+      <Dropdown.Item key="delete" color="error" withDivider>
+        Delete file
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+);
+
+export const WithChevron = () => (
+  <Dropdown>
+    <Dropdown.Trigger>
+      <Button
+        auto
+        iconRight={
+          <ChevronDownBold size={14} fill="var(--nextui-colors-white)" />
+        }
+        iconRightCss={{
+          mt: '$1'
+        }}
+      >
         Trigger
       </Button>
     </Dropdown.Trigger>
-    <Dropdown.Menu onAction={alert}>
-      <Dropdown.Item>Cut</Dropdown.Item>
-      <Dropdown.Item>Copy</Dropdown.Item>
-      <Dropdown.Item>Paste</Dropdown.Item>
+    <Dropdown.Menu aria-label="Actions" onAction={alert}>
+      <Dropdown.Item key="new">New file</Dropdown.Item>
+      <Dropdown.Item key="copy">Copy link</Dropdown.Item>
+      <Dropdown.Item key="edit">Edit file</Dropdown.Item>
+      <Dropdown.Item key="delete" color="error" withDivider>
+        Delete file
+      </Dropdown.Item>
     </Dropdown.Menu>
   </Dropdown>
 );

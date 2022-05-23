@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, VariantProps } from '../theme/stitches.config';
+import { styled, VariantProps, CSS } from '../theme/stitches.config';
 import withDefaults from '../utils/with-defaults';
 import clsx from '../utils/clsx';
 
@@ -57,7 +57,7 @@ export const StyledButtonIcon = styled('span', {
       isSingle: false,
       css: {
         order: 2,
-        ml: '$$buttonPadding',
+        ml: 'calc($$buttonPadding / 2)',
         right: '0%',
         left: '0%'
       }
@@ -69,7 +69,7 @@ export const StyledButtonIcon = styled('span', {
       isSingle: false,
       css: {
         order: 0,
-        mr: '$$buttonPadding',
+        mr: 'calc($$buttonPadding / 2)',
         right: '0%',
         left: '0%'
       }
@@ -96,7 +96,7 @@ export const StyledButtonIcon = styled('span', {
       isRight: false,
       isGradientButtonBorder: true,
       css: {
-        mr: '$$buttonPadding'
+        mr: 'calc($$buttonPadding / 2)'
       }
     }
   ]
@@ -104,11 +104,16 @@ export const StyledButtonIcon = styled('span', {
 
 type ButtonIconVariants = VariantProps<typeof StyledButtonIcon>;
 
-export type ButtonIconProps = Props & typeof defaultProps & ButtonIconVariants;
+export type ButtonIconProps = Props &
+  typeof defaultProps &
+  ButtonIconVariants & {
+    css?: CSS;
+  };
 
 const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
   children,
   className,
+  css,
   ...props
 }) => {
   return (
@@ -121,6 +126,9 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
         },
         className
       )}
+      css={{
+        ...(css as any)
+      }}
       {...props}
     >
       {children}

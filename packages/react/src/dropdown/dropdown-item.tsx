@@ -2,33 +2,38 @@ import React, { Key, useRef, useMemo } from 'react';
 import { Node } from '@react-types/shared';
 import { mergeProps } from '@react-aria/utils';
 import { TreeState } from '@react-stately/tree';
-import { useHover } from '@react-aria/interactions';
+import { useHover, usePress } from '@react-aria/interactions';
 import { useMenuItem } from '@react-aria/menu';
-import Text from '../text';
-import withDefaults from '../utils/with-defaults';
+import { CSS } from '../theme/stitches.config';
 import { useDropdownContext } from './dropdown-context';
+import { StyledDropdownItem } from './dropdown.styles';
 import clsx from '../utils/clsx';
+import { __DEV__ } from '../utils/assertion';
 
 interface Props<T> {
   item: Node<T>;
   state: TreeState<T>;
   isVirtualized?: boolean;
+  as?: keyof JSX.IntrinsicElements;
   onAction?: (key: Key) => void;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<object>>;
 
-const defaultProps = {};
-
-export type DropdownItemProps<T> = Props<T> & NativeAttrs & typeof defaultProps;
+export type DropdownItemProps<T> = Props<T> & NativeAttrs & { css?: CSS };
 
 const DropdownItem = <T extends object>({
+  as,
+  css,
   item,
   state,
   isVirtualized,
-  onAction
+  onAction,
+  className
 }: DropdownItemProps<T>) => {
-  const { onClose, closeOnSelect } = useDropdownContext();
+  const { color, onClose, closeOnSelect, disableAnimation } =
+    useDropdownContext();
+
   const { rendered, key } = item;
 
   const isSelected = state.selectionManager.isSelected(key);
@@ -36,6 +41,11 @@ const DropdownItem = <T extends object>({
   const isDisabled = state.disabledKeys.has(key);
 
   const ref = useRef<HTMLLIElement>(null);
+
+  const { pressProps, isPressed } = usePress({
+    ref,
+    isDisabled
+  });
 
   // const { menuItemProps, labelProps, descriptionProps, keyboardShortcutProps } =
   // useMenuItem(
@@ -69,37 +79,53 @@ const DropdownItem = <T extends object>({
   );
 
   const { hoverProps, isHovered } = useHover({ isDisabled });
+  const isSelectable =
+    state.selectionManager.selectionMode !== 'none' && !isDisabled;
 
-  const contents =
-    typeof rendered === 'string' ? <Text>{rendered}</Text> : rendered;
+  // const contents =
+  //   typeof rendered === 'string' ? (
+  //     <Text css={{ mb: 0, size: '100%' }}>{rendered}</Text>
+  //   ) : (
+  //     rendered
+  //   );
 
   const getState = useMemo(() => {
     if (isHovered) return 'hovered';
     if (isSelected) return 'selected';
+    if (isPressed) return 'pressed';
     return isDisabled ? 'disabled' : 'ready';
-  }, [isSelected, isDisabled, isHovered]);
+  }, [isSelected, isDisabled, isHovered, isPressed]);
 
   return (
-    <li
-      {...mergeProps(menuItemProps, hoverProps)}
+    <StyledDropdownItem
       ref={ref}
+      {...mergeProps(menuItemProps, hoverProps, pressProps)}
+      as={item.props.as || as}
+      css={{ ...mergeProps(css, item.props.css) }}
       data-state={getState}
-      style={{
-        background: isFocused ? 'gray' : 'transparent',
-        color: isFocused ? 'white' : 'transparent',
-        padding: '2px 5px',
-        outline: 'none',
-        cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-      }}
-      className={clsx('nextui-dropdown-item', {
-        'is-disabled': isDisabled,
-        'is-selected': isSelected,
-        'is-selectable': state.selectionManager.selectionMode !== 'none',
-        'is-hovered': isHovered
-      })}
+      color={item.props.color || color}
+      textColor={item.props.textColor || item.props.color}
+      isFocused={isFocused}
+      isHovered={isHovered}
+      isSelected={isSelected}
+      isDisabled={isDisabled}
+      isPressed={isPressed}
+      isSelectable={isSelectable}
+      withDivider={item.props.withDivider}
+      disableAnimation={disableAnimation}
+      className={clsx(
+        'nextui-dropdown-item',
+        {
+          'is-disabled': isDisabled,
+          'is-selected': isSelected,
+          'is-selectable': isSelectable,
+          'is-hovered': isHovered,
+          'is-focused': isFocused,
+          'is-pressed': isPressed
+        },
+        className,
+        item.props.className
+      )}
     >
       {/* <Grid UNSAFE_className={classNames(styles, 'spectrum-Menu-itemGrid')}>
         <ClearSlots>
@@ -127,7 +153,7 @@ const DropdownItem = <T extends object>({
               }
             }}
           > */}
-      {contents}
+      {rendered}
       {/* {isSelected && (
               <CheckmarkMedium
                 slot="checkmark"
@@ -137,12 +163,13 @@ const DropdownItem = <T extends object>({
           </SlotProvider>
         </ClearSlots>
       </Grid> */}
-    </li>
+    </StyledDropdownItem>
   );
 };
 
-DropdownItem.displayName = 'NextUI - DropdownItem';
-
+if (__DEV__) {
+  DropdownItem.displayName = 'NextUI.DropdownItem';
+}
 DropdownItem.toString = () => '.nextui-dropdown-item';
 
-export default withDefaults(DropdownItem, defaultProps);
+export default DropdownItem;
