@@ -2,10 +2,14 @@ import React, { useMemo, PropsWithoutRef, RefAttributes } from 'react';
 import { useFocusRing } from '@react-aria/focus';
 import { useButton } from '@react-aria/button';
 import { useHover } from '@react-aria/interactions';
-import { PressEvents, PressEvent, FocusableProps } from '@react-types/shared';
-import { AriaButtonProps } from '@react-types/button';
 import { mergeProps } from '@react-aria/utils';
-
+import type {
+  PressEvents,
+  PressEvent,
+  FocusableProps
+} from '@react-types/shared';
+import type { AriaButtonProps } from '@react-types/button';
+import type { FocusRingAria } from '@react-aria/focus';
 import useWarning from '../use-warning';
 import ButtonDrip from '../utils/drip';
 import { CSS } from '../theme/stitches.config';
@@ -57,6 +61,10 @@ const defaultProps = {
 };
 
 type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
+
+interface IFocusRingAria extends FocusRingAria {
+  focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof ButtonProps>;
+}
 
 export type ButtonProps = Props &
   NativeAttrs &
@@ -133,18 +141,8 @@ const Button = React.forwardRef(
     );
 
     const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
-    const {
-      isFocused,
-      isFocusVisible,
-      focusProps
-    }: {
-      isFocused: boolean;
-      isFocusVisible: boolean;
-      focusProps: Omit<
-        React.HTMLAttributes<HTMLButtonElement>,
-        keyof ButtonProps
-      >;
-    } = useFocusRing({ autoFocus });
+    const { isFocused, isFocusVisible, focusProps }: IFocusRingAria =
+      useFocusRing({ autoFocus });
 
     const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
       false,

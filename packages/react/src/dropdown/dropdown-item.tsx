@@ -2,6 +2,9 @@ import React, { Key, useRef, useMemo } from 'react';
 import { Node } from '@react-types/shared';
 import { mergeProps } from '@react-aria/utils';
 import { TreeState } from '@react-stately/tree';
+import { useFocusRing } from '@react-aria/focus';
+import type { FocusableProps } from '@react-types/shared';
+import type { FocusRingAria } from '@react-aria/focus';
 import { useHover, usePress } from '@react-aria/interactions';
 import { useMenuItem } from '@react-aria/menu';
 import { CSS } from '../theme/stitches.config';
@@ -10,7 +13,7 @@ import { StyledDropdownItem } from './dropdown.styles';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
-interface Props<T> {
+interface Props<T> extends FocusableProps {
   item: Node<T>;
   state: TreeState<T>;
   isVirtualized?: boolean;
@@ -20,18 +23,24 @@ interface Props<T> {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<object>>;
 
-export type DropdownItemProps<T> = Props<T> & NativeAttrs & { css?: CSS };
+export type DropdownItemProps<T = object> = Props<T> &
+  NativeAttrs & { css?: CSS };
+
+interface IFocusRingAria extends FocusRingAria {
+  focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof DropdownItemProps>;
+}
 
 const DropdownItem = <T extends object>({
   as,
   css,
   item,
   state,
+  autoFocus,
   isVirtualized,
   onAction,
   className
 }: DropdownItemProps<T>) => {
-  const { color, onClose, closeOnSelect, disableAnimation } =
+  const { color, onClose, closeOnSelect, disableAnimation, borderWeight } =
     useDropdownContext();
 
   const { rendered, key } = item;
@@ -45,6 +54,10 @@ const DropdownItem = <T extends object>({
   const { pressProps, isPressed } = usePress({
     ref,
     isDisabled
+  });
+
+  const { isFocusVisible, focusProps }: IFocusRingAria = useFocusRing({
+    autoFocus
   });
 
   // const { menuItemProps, labelProps, descriptionProps, keyboardShortcutProps } =
@@ -82,13 +95,6 @@ const DropdownItem = <T extends object>({
   const isSelectable =
     state.selectionManager.selectionMode !== 'none' && !isDisabled;
 
-  // const contents =
-  //   typeof rendered === 'string' ? (
-  //     <Text css={{ mb: 0, size: '100%' }}>{rendered}</Text>
-  //   ) : (
-  //     rendered
-  //   );
-
   const getState = useMemo(() => {
     if (isHovered) return 'hovered';
     if (isSelected) return 'selected';
@@ -99,19 +105,21 @@ const DropdownItem = <T extends object>({
   return (
     <StyledDropdownItem
       ref={ref}
-      {...mergeProps(menuItemProps, hoverProps, pressProps)}
+      {...mergeProps(menuItemProps, hoverProps, pressProps, focusProps)}
       as={item.props.as || as}
       css={{ ...mergeProps(css, item.props.css) }}
       data-state={getState}
       color={item.props.color || color}
       textColor={item.props.textColor || item.props.color}
       isFocused={isFocused}
+      isFocusVisible={isFocusVisible}
       isHovered={isHovered}
       isSelected={isSelected}
       isDisabled={isDisabled}
       isPressed={isPressed}
       isSelectable={isSelectable}
       withDivider={item.props.withDivider}
+      dividerWeight={item.props.dividerWeight || borderWeight}
       disableAnimation={disableAnimation}
       className={clsx(
         'nextui-dropdown-item',

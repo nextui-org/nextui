@@ -5,8 +5,11 @@ import { useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
 import { useOverlayTriggerState } from '@react-stately/overlays';
 import { mergeRefs } from '../utils/refs';
 import { PopoverPlacement, getAriaPlacement } from './utils';
+import { PopoverContentVariantsProps } from './popover.styles';
 
-export interface UsePopoverProps extends OverlayTriggerProps {
+export interface UsePopoverProps
+  extends OverlayTriggerProps,
+    PopoverContentVariantsProps {
   ref?: RefObject<HTMLElement>;
   /**
    * The ref for the element which the overlay positions itself with respect to.
@@ -70,6 +73,9 @@ export function usePopover(props: UsePopoverProps = {}) {
     isOpen,
     defaultOpen,
     onOpenChange,
+    isBordered, // TODO: add this to the docs
+    borderWeight, // TODO: add this to the docs
+    disableShadow, // TODO: add this to the docs
     shouldFlip = true,
     offset = 12,
     placement = 'bottom',
@@ -167,9 +173,12 @@ export function usePopover(props: UsePopoverProps = {}) {
     overlayRef,
     triggerRef,
     placement,
+    disableShadow,
     disableAnimation,
     shouldCloseOnBlur,
     isDismissable,
+    isBordered,
+    borderWeight,
     isKeyboardDismissDisabled,
     shouldCloseOnInteractOutside,
     isOpen: state.isOpen,

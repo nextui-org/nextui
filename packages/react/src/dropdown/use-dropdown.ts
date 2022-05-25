@@ -45,6 +45,7 @@ export function useDropdown(props: UseDropdownProps = {}) {
     color = 'default',
     trigger = 'press',
     isDisabled = false,
+    borderWeight,
     closeOnSelect,
     disableAnimation = false,
     ...popoverProps
@@ -54,8 +55,6 @@ export function useDropdown(props: UseDropdownProps = {}) {
   const menuTriggerRef = triggerRefProp || triggerRef;
   const menuRef = useRef<HTMLUListElement>(null);
   const menuPopoverRef = useRef<HTMLDivElement>(null);
-
-  const highlightItemRef = useRef<HTMLDivElement>(null);
 
   const state = useMenuTriggerState(props);
 
@@ -80,6 +79,7 @@ export function useDropdown(props: UseDropdownProps = {}) {
 
   return {
     ...menuProps,
+
     popoverProps,
     state,
     color,
@@ -88,7 +88,7 @@ export function useDropdown(props: UseDropdownProps = {}) {
     autoFocus: state.focusStrategy || true,
     disableAnimation,
     menuRef,
-    highlightItemRef,
+    borderWeight,
     menuPopoverRef,
     menuTriggerRef,
     closeOnSelect,

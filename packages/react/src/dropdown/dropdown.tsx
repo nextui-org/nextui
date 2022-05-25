@@ -3,8 +3,9 @@ import { Section } from '@react-stately/collections';
 import DropdownItemBase from './base/dropdown-item-base';
 import Popover from '../popover';
 import { DropdownProvider } from './dropdown-context';
-import { DropdownTrigger } from './dropdown-trigger';
+import DropdownTrigger from './dropdown-trigger';
 import DropdownMenu from './dropdown-menu';
+import DropdownButton from './dropdown-button';
 import { useDropdown, UseDropdownProps } from './use-dropdown';
 import { __DEV__ } from '../utils/assertion';
 
@@ -34,6 +35,7 @@ const Dropdown = (props: DropdownProps) => {
         scrollRef={context.menuRef}
         isOpen={context.state.isOpen}
         onClose={context.state.close}
+        borderWeight={context.borderWeight}
         disableAnimation={context.disableAnimation}
       >
         {menuTrigger}
@@ -49,6 +51,7 @@ if (__DEV__) {
 
 type DropdownComponent<P = {}> = React.FC<P> & {
   Trigger: typeof DropdownTrigger;
+  Button: typeof DropdownButton;
   Menu: typeof DropdownMenu;
   Item: typeof DropdownItemBase;
   Section: typeof Section;

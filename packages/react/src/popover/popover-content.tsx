@@ -9,7 +9,8 @@ import { __DEV__ } from '../utils/assertion';
 import { mergeRefs, ReactRef } from '../utils/refs';
 import {
   StyledPopoverContentContainer,
-  StyledPopoverContent
+  StyledPopoverContent,
+  PopoverContentVariantsProps
 } from './popover.styles';
 import { usePopoverContext } from './popover-context';
 import { getTransformOrigin } from './utils';
@@ -22,7 +23,9 @@ interface Props {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type PopoverContentProps = Props & NativeAttrs & { css?: CSS };
+export type PopoverContentProps = Props &
+  NativeAttrs &
+  PopoverContentVariantsProps & { css?: CSS };
 
 export const PopoverContent = React.forwardRef(
   (props: PopoverContentProps, ref: ReactRef<HTMLDivElement>) => {
@@ -33,11 +36,14 @@ export const PopoverContent = React.forwardRef(
       placement,
       overlayRef,
       disableAnimation,
+      disableShadow,
       shouldCloseOnBlur,
       isDismissable,
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside,
       getPopoverProps,
+      isBordered,
+      borderWeight,
       onClose,
       onEntered,
       onExited
@@ -67,6 +73,11 @@ export const PopoverContent = React.forwardRef(
       overlayRef
     );
 
+    const completeProps = mergeProps(
+      { isBordered, disableShadow, borderWeight },
+      otherProps
+    );
+
     const { isFocusVisible, focusProps } = useFocusRing();
 
     const contents = (
@@ -78,7 +89,7 @@ export const PopoverContent = React.forwardRef(
             modalProps,
             dialogProps,
             focusProps,
-            otherProps
+            completeProps
           )
         )}
         className={clsx('nextui-popover-content-container', className)}

@@ -1,4 +1,5 @@
-import { styled } from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { cssFocusVisible } from '../theme/shared-css';
 
 export const StyledDropdownMenu = styled('ul', {
   $$dropdownItemHeight: '$space$13',
@@ -11,147 +12,171 @@ export const StyledDropdownMenu = styled('ul', {
   outline: 'none'
 });
 
-export const StyledDropdownItem = styled('li', {
-  $$dropdownItemPressedScale: 0.97,
-  $$dropdownItemTextColor: '$text',
-  outline: 'none',
-  cursor: 'pointer',
-  dflex: 'center',
-  justifyContent: 'space-between',
-  bg: 'transparent',
-  position: 'relative',
-  height: '$$dropdownItemHeight',
-  px: '$6',
-  br: '$sm',
-  color: '$$dropdownItemTextColor',
-  mb: 0,
-  transition: 'background 0.25s ease, transform 0.25s ease, color 0.15s ease',
-  /* Avoid blurriness */
-  transform: 'translateZ(0)',
-  backfaceVisibility: 'hidden',
-  '@motion': {
-    transition: 'none'
-  },
-  variants: {
-    color: {
-      default: {
-        $$dropdownItemHoverBackground: '$colors$neutralLight',
-        $$dropdownItemHoverColor: '$foreground',
-        $$dropdownItemActiveBackground: '$colors$neutralLightActive'
-      },
-      primary: {
-        $$dropdownItemHoverBackground: '$colors$primaryLight',
-        $$dropdownItemHoverColor: '$colors$primaryLightContrast',
-        $$dropdownItemActiveBackground: '$colors$primaryLightActive'
-      },
-      secondary: {
-        $$dropdownItemHoverBackground: '$colors$secondaryLight',
-        $$dropdownItemHoverColor: '$colors$secondaryLightContrast',
-        $$dropdownItemActiveBackground: '$colors$secondaryLightActive'
-      },
-      success: {
-        $$dropdownItemHoverBackground: '$colors$successLight',
-        $$dropdownItemHoverColor: '$colors$successLightContrast',
-        $$dropdownItemActiveBackground: '$colors$successLightActive'
-      },
-      warning: {
-        $$dropdownItemHoverBackground: '$colors$warningLight',
-        $$dropdownItemHoverColor: '$colors$warningLightContrast',
-        $$dropdownItemActiveBackground: '$colors$warningLightActive'
-      },
-      error: {
-        $$dropdownItemHoverBackground: '$colors$errorLight',
-        $$dropdownItemHoverColor: '$colors$errorLightContrast',
-        $$dropdownItemActiveBackground: '$colors$errorLightActive'
-      }
+export const StyledDropdownItem = styled(
+  'li',
+  {
+    $$dropdownItemPressedScale: 0.97,
+    $$dropdownItemTextColor: '$text',
+    outline: 'none',
+    cursor: 'pointer',
+    dflex: 'center',
+    justifyContent: 'space-between',
+    bg: 'transparent',
+    position: 'relative',
+    height: '$$dropdownItemHeight',
+    px: '$6',
+    br: '$sm',
+    color: '$$dropdownItemTextColor',
+    mb: 0,
+    transition: '$dropdownItem',
+    /* Avoid blurriness */
+    transform: 'translateZ(0)',
+    backfaceVisibility: 'hidden',
+    '@motion': {
+      transition: 'none'
     },
-    textColor: {
-      default: {
-        $$dropdownItemTextColor: '$colors$text',
-        $$dropdownItemHoverColor: '$colors$text'
+    variants: {
+      color: {
+        default: {
+          $$dropdownItemHoverBackground: '$colors$neutralLight',
+          $$dropdownItemHoverColor: '$foreground',
+          $$dropdownItemActiveBackground: '$colors$neutralLightActive'
+        },
+        primary: {
+          $$dropdownItemHoverBackground: '$colors$primaryLight',
+          $$dropdownItemHoverColor: '$colors$primaryLightContrast',
+          $$dropdownItemActiveBackground: '$colors$primaryLightActive'
+        },
+        secondary: {
+          $$dropdownItemHoverBackground: '$colors$secondaryLight',
+          $$dropdownItemHoverColor: '$colors$secondaryLightContrast',
+          $$dropdownItemActiveBackground: '$colors$secondaryLightActive'
+        },
+        success: {
+          $$dropdownItemHoverBackground: '$colors$successLight',
+          $$dropdownItemHoverColor: '$colors$successLightContrast',
+          $$dropdownItemActiveBackground: '$colors$successLightActive'
+        },
+        warning: {
+          $$dropdownItemHoverBackground: '$colors$warningLight',
+          $$dropdownItemHoverColor: '$colors$warningLightContrast',
+          $$dropdownItemActiveBackground: '$colors$warningLightActive'
+        },
+        error: {
+          $$dropdownItemHoverBackground: '$colors$errorLight',
+          $$dropdownItemHoverColor: '$colors$errorLightContrast',
+          $$dropdownItemActiveBackground: '$colors$errorLightActive'
+        }
       },
-      primary: {
-        $$dropdownItemTextColor: '$colors$primaryLightContrast',
-        $$dropdownItemHoverColor: '$colors$primaryLightContrast'
+      textColor: {
+        default: {
+          $$dropdownItemTextColor: '$colors$text',
+          $$dropdownItemHoverColor: '$colors$text'
+        },
+        primary: {
+          $$dropdownItemTextColor: '$colors$primaryLightContrast',
+          $$dropdownItemHoverColor: '$colors$primaryLightContrast'
+        },
+        secondary: {
+          $$dropdownItemTextColor: '$colors$secondaryLightContrast',
+          $$dropdownItemHoverColor: '$colors$secondaryLightContrast'
+        },
+        success: {
+          $$dropdownItemTextColor: '$colors$successLightContrast',
+          $$dropdownItemHoverColor: '$colors$successLightContrast'
+        },
+        warning: {
+          $$dropdownItemTextColor: '$colors$warningLightContrast',
+          $$dropdownItemHoverColor: '$colors$warningLightContrast'
+        },
+        error: {
+          $$dropdownItemTextColor: '$colors$errorLightContrast',
+          $$dropdownItemHoverColor: '$colors$errorLightContrast'
+        }
       },
-      secondary: {
-        $$dropdownItemTextColor: '$colors$secondaryLightContrast',
-        $$dropdownItemHoverColor: '$colors$secondaryLightContrast'
+      isPressed: {
+        true: {
+          bg: '$$dropdownItemActiveBackground'
+        }
       },
-      success: {
-        $$dropdownItemTextColor: '$colors$successLightContrast',
-        $$dropdownItemHoverColor: '$colors$successLightContrast'
+      isFocused: {
+        true: {
+          bg: '$$dropdownItemHoverBackground',
+          color: '$$dropdownItemHoverColor'
+        }
       },
-      warning: {
-        $$dropdownItemTextColor: '$colors$warningLightContrast',
-        $$dropdownItemHoverColor: '$colors$warningLightContrast'
+      isHovered: {
+        true: {
+          bg: '$$dropdownItemHoverBackground',
+          color: '$$dropdownItemHoverColor'
+        }
       },
-      error: {
-        $$dropdownItemTextColor: '$colors$errorLightContrast',
-        $$dropdownItemHoverColor: '$colors$errorLightContrast'
-      }
-    },
-    isPressed: {
-      true: {
-        bg: '$$dropdownItemActiveBackground'
-      }
-    },
-    isFocused: {
-      true: {
-        bg: '$$dropdownItemHoverBackground',
-        color: '$$dropdownItemHoverColor'
-      }
-    },
-    isHovered: {
-      true: {
-        bg: '$$dropdownItemHoverBackground',
-        color: '$$dropdownItemHoverColor'
-      }
-    },
-    isSelected: {
-      true: {}
-    },
-    isSelectable: {
-      true: {}
-    },
-    isDisabled: {
-      true: {
-        color: '$accents5',
-        cursor: 'default'
-      }
-    },
-    withDivider: {
-      true: {
-        mt: '$6',
-        '&:before': {
-          content: '""',
-          position: 'absolute',
-          top: '-$3',
-          left: '-$$dropdownMenuPadding',
-          right: '-$$dropdownMenuPadding',
-          height: '1px',
-          bg: '$border'
+      isSelected: {
+        true: {}
+      },
+      isSelectable: {
+        true: {}
+      },
+      isDisabled: {
+        true: {
+          color: '$accents5',
+          cursor: 'default'
+        }
+      },
+      withDivider: {
+        true: {
+          mt: '$6',
+          '&:before': {
+            content: '""',
+            position: 'absolute',
+            top: '-$3',
+            left: '-$$dropdownMenuPadding',
+            right: '-$$dropdownMenuPadding',
+            height: '$$dropdownItemBorderWeight',
+            bg: '$border'
+          }
+        }
+      },
+      dividerWeight: {
+        light: {
+          $$dropdownItemBorderWeight: '$borderWeights$light'
+        },
+        normal: {
+          $$dropdownItemBorderWeight: '$borderWeights$normal'
+        },
+        bold: {
+          $$dropdownItemBorderWeight: '$borderWeights$bold'
+        },
+        extrabold: {
+          $$dropdownItemBorderWeight: '$borderWeights$extrabold'
+        },
+        black: {
+          $$dropdownItemBorderWeight: '$borderWeights$black'
+        }
+      },
+      disableAnimation: {
+        true: {
+          transition: 'none'
         }
       }
     },
-    disableAnimation: {
-      true: {
-        transition: 'none'
+    compoundVariants: [
+      // !disableAnimation && isPressed
+      {
+        isPressed: true,
+        disableAnimation: false,
+        css: {
+          transform: 'scale($$dropdownItemPressedScale)'
+        }
       }
+    ],
+    defaultVariants: {
+      color: 'default',
+      textColor: 'default',
+      dividerWeight: 'light'
     }
   },
-  compoundVariants: [
-    // !disableAnimation && isPressed
-    {
-      isPressed: true,
-      disableAnimation: false,
-      css: {
-        transform: 'scale($$dropdownItemPressedScale)'
-      }
-    }
-  ],
-  defaultVariants: {
-    color: 'default',
-    textColor: 'default'
-  }
-});
+  cssFocusVisible
+);
+
+export type DropdownItemVariantsProps = VariantProps<typeof StyledDropdownItem>;

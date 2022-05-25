@@ -1,6 +1,6 @@
 import { Item } from '@react-stately/collections';
 import { ItemProps } from '@react-types/shared';
-import { SimpleColors } from '../../utils/prop-types';
+import { SimpleColors, NormalWeights } from '../../utils/prop-types';
 import { CSS } from '../../theme/stitches.config';
 
 export type DropdownItemBaseProps<T = object> = ItemProps<T> & {
@@ -9,6 +9,7 @@ export type DropdownItemBaseProps<T = object> = ItemProps<T> & {
   color?: SimpleColors;
   textColor?: SimpleColors;
   withDivider?: boolean;
+  dividerWeight?: NormalWeights;
   className?: string;
 };
 
