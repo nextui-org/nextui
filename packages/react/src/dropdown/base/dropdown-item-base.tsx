@@ -1,12 +1,17 @@
 import { Item } from '@react-stately/collections';
 import { ItemProps } from '@react-types/shared';
-import { SimpleColors, NormalWeights } from '../../utils/prop-types';
+import {
+  SimpleColors,
+  NormalWeights,
+  DropdownVariants
+} from '../../utils/prop-types';
 import { CSS } from '../../theme/stitches.config';
 
 export type DropdownItemBaseProps<T = object> = ItemProps<T> & {
   as?: keyof JSX.IntrinsicElements;
   css?: CSS;
   color?: SimpleColors;
+  variant?: DropdownVariants;
   textColor?: SimpleColors;
   withDivider?: boolean;
   dividerWeight?: NormalWeights;

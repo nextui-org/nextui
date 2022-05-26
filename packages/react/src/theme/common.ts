@@ -193,7 +193,7 @@ export const defaultColors = {
   neutralLight: '$gray100',
   neutralLightHover: '$gray200',
   neutralLightActive: '$gray300',
-  neutralLightContrast: '$gray500',
+  neutralLightContrast: '$gray800',
   neutral: '$gray500',
   neutralBorder: '$gray400',
   neutralBorderHover: '$gray500',

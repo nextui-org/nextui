@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Button } from '../index';
-import { ChevronDownBold } from '../utils/icons';
+import { Button, Grid } from '../index';
 import Dropdown from './index';
 
 export default {
@@ -88,6 +87,82 @@ export const Bordered = () => (
       </Dropdown.Item>
     </Dropdown.Menu>
   </Dropdown>
+);
+
+export const Variants = () => (
+  <Grid.Container gap={1.5} justify="center">
+    <Grid>
+      <Dropdown>
+        <Dropdown.Button flat>Flat</Dropdown.Button>
+        <Dropdown.Menu aria-label="Actions" onAction={alert}>
+          <Dropdown.Item key="new">New file</Dropdown.Item>
+          <Dropdown.Item key="copy">Copy link</Dropdown.Item>
+          <Dropdown.Item key="edit">Edit file</Dropdown.Item>
+          <Dropdown.Item key="delete" color="error" withDivider>
+            Delete file
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </Grid>
+    <Grid>
+      <Dropdown>
+        <Dropdown.Button color="primary">Solid</Dropdown.Button>
+        <Dropdown.Menu
+          color="primary"
+          variant="solid"
+          aria-label="Actions"
+          onAction={alert}
+        >
+          <Dropdown.Item key="new">New file</Dropdown.Item>
+          <Dropdown.Item key="copy">Copy link</Dropdown.Item>
+          <Dropdown.Item key="edit">Edit file</Dropdown.Item>
+          <Dropdown.Item key="delete" color="error" withDivider>
+            Delete file
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </Grid>
+    <Grid>
+      <Dropdown>
+        <Dropdown.Button color="primary" shadow>
+          Shadow
+        </Dropdown.Button>
+        <Dropdown.Menu
+          color="primary"
+          variant="shadow"
+          aria-label="Actions"
+          onAction={alert}
+        >
+          <Dropdown.Item key="new">New file</Dropdown.Item>
+          <Dropdown.Item key="copy">Copy link</Dropdown.Item>
+          <Dropdown.Item key="edit">Edit file</Dropdown.Item>
+          <Dropdown.Item key="delete" color="error" withDivider>
+            Delete file
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </Grid>
+    <Grid>
+      <Dropdown>
+        <Dropdown.Button color="primary" light>
+          Light
+        </Dropdown.Button>
+        <Dropdown.Menu
+          color="primary"
+          variant="light"
+          aria-label="Actions"
+          onAction={alert}
+        >
+          <Dropdown.Item key="new">New file</Dropdown.Item>
+          <Dropdown.Item key="copy">Copy link</Dropdown.Item>
+          <Dropdown.Item key="edit">Edit file</Dropdown.Item>
+          <Dropdown.Item key="delete" color="error" withDivider>
+            Delete file
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </Grid>
+  </Grid.Container>
 );
 
 export const DisableAnimation = () => (

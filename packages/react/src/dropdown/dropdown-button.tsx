@@ -26,11 +26,7 @@ const DropdownButton = React.forwardRef(
     const buttonRef = useDOMRef(ref);
 
     const getIconRight = useMemo(() => {
-      return (
-        iconRight || (
-          <DropdownIcon size={14} fill="var(--nextui-colors-white)" />
-        )
-      );
+      return iconRight || <DropdownIcon size={14} fill="currentColor" />;
     }, [iconRight]);
 
     const isAnimated = useMemo(

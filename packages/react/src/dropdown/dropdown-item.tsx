@@ -8,6 +8,11 @@ import type { FocusRingAria } from '@react-aria/focus';
 import { useHover, usePress } from '@react-aria/interactions';
 import { useMenuItem } from '@react-aria/menu';
 import { CSS } from '../theme/stitches.config';
+import type {
+  SimpleColors,
+  NormalWeights,
+  DropdownVariants
+} from '../utils/prop-types';
 import { useDropdownContext } from './dropdown-context';
 import { StyledDropdownItem } from './dropdown.styles';
 import clsx from '../utils/clsx';
@@ -16,7 +21,12 @@ import { __DEV__ } from '../utils/assertion';
 interface Props<T> extends FocusableProps {
   item: Node<T>;
   state: TreeState<T>;
+  color?: SimpleColors;
+  variant?: DropdownVariants;
+  textColor?: SimpleColors;
   isVirtualized?: boolean;
+  withDivider?: boolean;
+  dividerWeight?: NormalWeights;
   as?: keyof JSX.IntrinsicElements;
   onAction?: (key: Key) => void;
 }
@@ -35,12 +45,17 @@ const DropdownItem = <T extends object>({
   css,
   item,
   state,
+  color,
+  textColor,
+  variant,
   autoFocus,
   isVirtualized,
+  withDivider,
+  dividerWeight,
   onAction,
   className
 }: DropdownItemProps<T>) => {
-  const { color, onClose, closeOnSelect, disableAnimation, borderWeight } =
+  const { onClose, closeOnSelect, disableAnimation, borderWeight } =
     useDropdownContext();
 
   const { rendered, key } = item;
@@ -102,6 +117,16 @@ const DropdownItem = <T extends object>({
     return isDisabled ? 'disabled' : 'ready';
   }, [isSelected, isDisabled, isHovered, isPressed]);
 
+  const getTextColor = useMemo(() => {
+    if (item.props.textColor) {
+      return item.props.textColor;
+    }
+    if (item.props.color && textColor === 'default') {
+      return item.props.color;
+    }
+    return textColor;
+  }, [textColor, item.props.color, item.props.textColor]);
+
   return (
     <StyledDropdownItem
       ref={ref}
@@ -110,7 +135,8 @@ const DropdownItem = <T extends object>({
       css={{ ...mergeProps(css, item.props.css) }}
       data-state={getState}
       color={item.props.color || color}
-      textColor={item.props.textColor || item.props.color}
+      variant={item.props.variant || variant}
+      textColor={getTextColor}
       isFocused={isFocused}
       isFocusVisible={isFocusVisible}
       isHovered={isHovered}
@@ -118,8 +144,8 @@ const DropdownItem = <T extends object>({
       isDisabled={isDisabled}
       isPressed={isPressed}
       isSelectable={isSelectable}
-      withDivider={item.props.withDivider}
-      dividerWeight={item.props.dividerWeight || borderWeight}
+      withDivider={withDivider || item.props.withDivider}
+      dividerWeight={dividerWeight || item.props.dividerWeight || borderWeight}
       disableAnimation={disableAnimation}
       className={clsx(
         'nextui-dropdown-item',

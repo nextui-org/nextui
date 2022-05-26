@@ -16,7 +16,8 @@ export const StyledDropdownItem = styled(
   'li',
   {
     $$dropdownItemPressedScale: 0.97,
-    $$dropdownItemTextColor: '$text',
+    $$dropdownItemTextColor: '$colors$text',
+    $$dropdownItemBorderRadius: '$radii$sm',
     outline: 'none',
     cursor: 'pointer',
     dflex: 'center',
@@ -25,13 +26,14 @@ export const StyledDropdownItem = styled(
     position: 'relative',
     height: '$$dropdownItemHeight',
     px: '$6',
-    br: '$sm',
+    br: '$$dropdownItemBorderRadius',
     color: '$$dropdownItemTextColor',
     mb: 0,
     transition: '$dropdownItem',
     /* Avoid blurriness */
     transform: 'translateZ(0)',
     backfaceVisibility: 'hidden',
+    $$dropdownItemShadow: '$colors$primaryShadow',
     '@motion': {
       transition: 'none'
     },
@@ -39,59 +41,88 @@ export const StyledDropdownItem = styled(
       color: {
         default: {
           $$dropdownItemHoverBackground: '$colors$neutralLight',
-          $$dropdownItemHoverColor: '$foreground',
-          $$dropdownItemActiveBackground: '$colors$neutralLightActive'
+          $$dropdownItemHoverTextColor: '$colors$neutralLightContrast',
+          $$dropdownItemActiveBackground: '$colors$neutralLightActive',
+          $$dropdownItemSolidHoverBackground: '$colors$neutral',
+          $$dropdownItemSolidHoverTextColor: '$colors$neutralSolidContrast',
+          $$dropdownItemShadow: '$colors$neutralShadow'
         },
         primary: {
           $$dropdownItemHoverBackground: '$colors$primaryLight',
-          $$dropdownItemHoverColor: '$colors$primaryLightContrast',
-          $$dropdownItemActiveBackground: '$colors$primaryLightActive'
+          $$dropdownItemHoverTextColor: '$colors$primaryLightContrast',
+          $$dropdownItemActiveBackground: '$colors$primaryLightActive',
+          $$dropdownItemSolidHoverBackground: '$colors$primary',
+          $$dropdownItemSolidHoverTextColor: '$colors$primarySolidContrast',
+          $$dropdownItemShadow: '$colors$primaryShadow'
         },
         secondary: {
           $$dropdownItemHoverBackground: '$colors$secondaryLight',
-          $$dropdownItemHoverColor: '$colors$secondaryLightContrast',
-          $$dropdownItemActiveBackground: '$colors$secondaryLightActive'
+          $$dropdownItemHoverTextColor: '$colors$secondaryLightContrast',
+          $$dropdownItemActiveBackground: '$colors$secondaryLightActive',
+          $$dropdownItemSolidHoverBackground: '$colors$secondary',
+          $$dropdownItemSolidHoverTextColor: '$colors$secondarySolidContrast',
+          $$dropdownItemShadow: '$colors$secondaryShadow'
         },
         success: {
           $$dropdownItemHoverBackground: '$colors$successLight',
-          $$dropdownItemHoverColor: '$colors$successLightContrast',
-          $$dropdownItemActiveBackground: '$colors$successLightActive'
+          $$dropdownItemHoverTextColor: '$colors$successLightContrast',
+          $$dropdownItemActiveBackground: '$colors$successLightActive',
+          $$dropdownItemSolidHoverBackground: '$colors$success',
+          $$dropdownItemSolidHoverTextColor: '$colors$successSolidContrast',
+          $$dropdownItemShadow: '$colors$successShadow'
         },
         warning: {
           $$dropdownItemHoverBackground: '$colors$warningLight',
-          $$dropdownItemHoverColor: '$colors$warningLightContrast',
-          $$dropdownItemActiveBackground: '$colors$warningLightActive'
+          $$dropdownItemHoverTextColor: '$colors$warningLightContrast',
+          $$dropdownItemActiveBackground: '$colors$warningLightActive',
+          $$dropdownItemSolidHoverBackground: '$colors$warning',
+          $$dropdownItemSolidHoverTextColor: '$colors$warningSolidContrast',
+          $$dropdownItemShadow: '$colors$warningShadow'
         },
         error: {
           $$dropdownItemHoverBackground: '$colors$errorLight',
-          $$dropdownItemHoverColor: '$colors$errorLightContrast',
-          $$dropdownItemActiveBackground: '$colors$errorLightActive'
+          $$dropdownItemHoverTextColor: '$colors$errorLightContrast',
+          $$dropdownItemActiveBackground: '$colors$errorLightActive',
+          $$dropdownItemSolidHoverBackground: '$colors$error',
+          $$dropdownItemSolidHoverTextColor: '$colors$errorSolidContrast',
+          $$dropdownItemShadow: '$colors$errorShadow'
         }
       },
       textColor: {
-        default: {
-          $$dropdownItemTextColor: '$colors$text',
-          $$dropdownItemHoverColor: '$colors$text'
-        },
+        default: {},
         primary: {
           $$dropdownItemTextColor: '$colors$primaryLightContrast',
-          $$dropdownItemHoverColor: '$colors$primaryLightContrast'
+          $$dropdownItemHoverTextColor: '$colors$primaryLightContrast'
         },
         secondary: {
           $$dropdownItemTextColor: '$colors$secondaryLightContrast',
-          $$dropdownItemHoverColor: '$colors$secondaryLightContrast'
+          $$dropdownItemHoverTextColor: '$colors$secondaryLightContrast'
         },
         success: {
           $$dropdownItemTextColor: '$colors$successLightContrast',
-          $$dropdownItemHoverColor: '$colors$successLightContrast'
+          $$dropdownItemHoverTextColor: '$colors$successLightContrast'
         },
         warning: {
           $$dropdownItemTextColor: '$colors$warningLightContrast',
-          $$dropdownItemHoverColor: '$colors$warningLightContrast'
+          $$dropdownItemHoverTextColor: '$colors$warningLightContrast'
         },
         error: {
           $$dropdownItemTextColor: '$colors$errorLightContrast',
-          $$dropdownItemHoverColor: '$colors$errorLightContrast'
+          $$dropdownItemHoverTextColor: '$colors$errorLightContrast'
+        }
+      },
+      variant: {
+        flat: {
+          true: {}
+        },
+        light: {
+          true: {}
+        },
+        solid: {
+          true: {}
+        },
+        shadow: {
+          true: {}
         }
       },
       isPressed: {
@@ -102,13 +133,13 @@ export const StyledDropdownItem = styled(
       isFocused: {
         true: {
           bg: '$$dropdownItemHoverBackground',
-          color: '$$dropdownItemHoverColor'
+          color: '$$dropdownItemHoverTextColor'
         }
       },
       isHovered: {
         true: {
           bg: '$$dropdownItemHoverBackground',
-          color: '$$dropdownItemHoverColor'
+          color: '$$dropdownItemHoverTextColor'
         }
       },
       isSelected: {
@@ -168,12 +199,76 @@ export const StyledDropdownItem = styled(
         css: {
           transform: 'scale($$dropdownItemPressedScale)'
         }
+      },
+
+      // isHovered & variant === 'light'
+      {
+        isHovered: true,
+        variant: 'light',
+        css: {
+          bg: 'transparent'
+        }
+      },
+      // isFocused & variant === 'light'
+      {
+        isFocused: true,
+        variant: 'light',
+        css: {
+          bg: 'transparent'
+        }
+      },
+      // isHovered && variant === 'solid'
+      {
+        isHovered: true,
+        variant: 'solid',
+        css: {
+          bg: '$$dropdownItemSolidHoverBackground',
+          color: '$$dropdownItemSolidHoverTextColor'
+        }
+      },
+      // isFocused && variant === 'solid'
+      {
+        isFocused: true,
+        variant: 'solid',
+        css: {
+          bg: '$$dropdownItemSolidHoverBackground',
+          color: '$$dropdownItemSolidHoverTextColor'
+        }
+      },
+      // isHovered && variant === 'shadow'
+      {
+        isHovered: true,
+        variant: 'shadow',
+        css: {
+          bg: '$$dropdownItemSolidHoverBackground',
+          color: '$$dropdownItemSolidHoverTextColor',
+          boxShadow: `0 3px 10px 0 $$dropdownItemShadow`
+        }
+      },
+      // isFocused && variant === 'shadow'
+      {
+        isFocused: true,
+        variant: 'shadow',
+        css: {
+          bg: '$$dropdownItemSolidHoverBackground',
+          color: '$$dropdownItemSolidHoverTextColor',
+          boxShadow: `0 3px 10px 0 $$dropdownItemShadow`
+        }
+      },
+      // variant === 'flat' && color === 'default'
+      {
+        variant: 'flat',
+        color: 'default',
+        css: {
+          $$dropdownItemHoverTextColor: '$colors$foreground'
+        }
       }
     ],
     defaultVariants: {
       color: 'default',
       textColor: 'default',
-      dividerWeight: 'light'
+      dividerWeight: 'light',
+      variant: 'flat'
     }
   },
   cssFocusVisible

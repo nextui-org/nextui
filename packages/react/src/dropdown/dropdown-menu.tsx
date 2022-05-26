@@ -10,11 +10,27 @@ import { useDropdownContext } from './dropdown-context';
 import DropdownSection from './dropdown-section';
 import DropdownItem from './dropdown-item';
 import { StyledDropdownMenu } from './dropdown.styles';
+import type { SimpleColors, DropdownVariants } from '../utils/prop-types';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
 interface Props<T> extends AriaMenuProps<T>, DOMProps, AriaLabelingProps {
   as?: keyof JSX.IntrinsicElements;
+  /**
+   * The color of the dropdown items on (focused, hovered)
+   * @default 'default'
+   */
+  color?: SimpleColors;
+  /**
+   * The dropdowm item variation
+   * @default 'flat'
+   */
+  variant?: DropdownVariants;
+  /**
+   * The text color of the dropdown items on (focused, hovered)
+   * @default 'default'
+   */
+  textColor?: SimpleColors;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<object>>;
@@ -24,7 +40,14 @@ export type DropdownMenuProps<T = object> = Props<T> &
 
 const DropdownMenu = React.forwardRef(
   (props: DropdownMenuProps, ref: React.Ref<HTMLUListElement | null>) => {
-    const { css = {}, as, ...otherProps } = props;
+    const {
+      css = {},
+      as,
+      color = 'default',
+      textColor = 'default',
+      variant = 'flat',
+      ...otherProps
+    } = props;
 
     const context = useDropdownContext();
     const completeProps = {
@@ -62,6 +85,9 @@ const DropdownMenu = React.forwardRef(
               item={item}
               state={state}
               onAction={completeProps.onAction}
+              color={color}
+              textColor={textColor}
+              variant={variant}
             />
           );
           if (item.wrapper) {
