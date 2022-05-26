@@ -56,13 +56,14 @@ const Navbar: React.FC<Props> = ({ isHome, hasNotify, routes }) => {
   const router = useRouter();
   const isMobile = useMediaQuery(960);
   const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
-  const [scrollPosition, setScrollPosition] = useState(
-    (typeof window !== 'undefined' && window.pageYOffset) || 0
-  );
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const detached = hasNotify ? scrollPosition > 30 : scrollPosition > 0;
 
   useEffect(() => {
+    setScrollPosition(
+      (typeof window !== 'undefined' && window.pageYOffset) || 0
+    );
     window.addEventListener('scroll', onScroll.bind(this));
     return () => {
       window.removeEventListener('scroll', onScroll.bind(this));
