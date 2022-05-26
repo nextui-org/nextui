@@ -42,15 +42,15 @@ import { Radio } from '@nextui-org/react';
 />
 
 <Playground
-  title="Text Colors"
+  title="Label Colors"
   overflow="auto"
-  desc="You can change the `Radio` text color with `textColor` prop"
-  files={radioContent.textColor}
+  desc="You can change the `Radio` text color with `labelColor` prop"
+  files={radioContent.labelColor}
 />
 
 <Playground
   title="Squared"
-  desc="You can change the full style to a squared `Radio` with the `squared` property."
+  desc="You can change the full style to a squared `Radio` with the `isSquared` property."
   files={radioContent.squared}
 />
 
@@ -63,8 +63,14 @@ import { Radio } from '@nextui-org/react';
 <Playground
   title="Row"
   overflow="auto"
-  desc="You can change the `Radio.Group` direction with `row` prop."
+  desc="You can change the `Radio.Group` direction with `isRow` prop."
   files={radioContent.row}
+/>
+
+<Playground
+  title="No Animated"
+  desc="You can disable the animation of the entire `Radio` with the property `disableAnimation={true}`."
+  files={radioContent.noAnimation}
 />
 
 <Spacer y={3} />
@@ -75,40 +81,37 @@ import { Radio } from '@nextui-org/react';
 
 #### Radio Props
 
-| Attribute          | Type                           | Accepted values                | Description                                                               | Default   |
-| ------------------ | ------------------------------ | ------------------------------ | ------------------------------------------------------------------------- | --------- |
-| **value**          | `string`                       | -                              | Unique ident value (in group)                                             | -         |
-| **color**          | `SimpleColors` `string`        | [SimpleColors](#simple-colors) | Change radio color                                                        | `primary` |
-| **size**           | `NormalSizes` `number`         | [NormalSizes](#normal-sizes)   | Radio size                                                                | `medium`  |
-| **textColor**      | `SimpleColors` `string`        | [SimpleColors](#simple-colors) | Change radio text color                                                   | `default` |
-| **checked**        | `boolean`                      | `true/false`                   | Selected or not (in single)                                               | `false`   |
-| **animated**       | `boolean`                      | `true/false`                   | Display radio animations                                                  | `true`    |
-| **squared**        | `boolean`                      | `true/false`                   | Squared radio                                                             | `false`   |
-| **disabled**       | `boolean`                      | `true/false`                   | Disable radio                                                             | `false`   |
-| **preventDefault** | `boolean`                      | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
-| **onChange**       | `(e: RadioEvent) => void       | -                              | The callback invoked when the checked state of the `Radio` changes.       | -         |
-| **id**             | `string`                       | -                              | Native id attr                                                            | -         |
-| **css**            | `Stitches.CSS`                 | -                              | Override Default CSS style                                                | -         |
-| **as**             | `keyof JSX.IntrinsicElements`  | -                              | Changes which tag component outputs                                       | `label`   |
-| ...                | `InputHTMLAttributes`          | `'id', 'className', ...`       | Native radio props                                                        | -         |
+| Attribute            | Type                                                 | Accepted values                | Description                                                         | Default   |
+| -------------------- | ---------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------- | --------- |
+| **value**            | `string`                                             | -                              | Unique ident value                                                  | -         |
+| **color**            | `SimpleColors` `string`                              | [SimpleColors](#simple-colors) | Change radio color                                                  | `primary` |
+| **labelColor**       | `SimpleColors` `string`                              | [SimpleColors](#simple-colors) | Change radio label color                                            | `default` |
+| **size**             | `NormalSizes` `number`                               | [NormalSizes](#normal-sizes)   | Radio size                                                          | `medium`  |
+| **checked**          | `boolean`                                            | `true/false`                   | Selected or not (in single)                                         | `false`   |
+| **disableAnimation** | `boolean`                                            | `true/false`                   | Whether the checkbox has animations                                 | `false`   |
+| **isSquared**        | `boolean`                                            | `true/false`                   | Squared radio                                                       | `false`   |
+| **isDisabled**       | `boolean`                                            | `true/false`                   | Disable radio                                                       | `false`   |
+| **onChange**         | <Code>(e: [RadioEvent](#radio-event)) => void</Code> | -                              | The callback invoked when the checked state of the `Radio` changes. | -         |
+| **id**               | `string`                                             | -                              | Native id attr                                                      | -         |
+| **css**              | `Stitches.CSS`                                       | -                              | Override Default CSS style                                          | -         |
+| **as**               | `keyof JSX.IntrinsicElements`                        | -                              | Changes which tag component outputs                                 | `label`   |
 
 <Spacer y={2} />
 
 #### Radio Group Props
 
-| Attribute        | Type                                       | Accepted values                | Description                            | Default         |
-| ---------------- | ------------------------------------------ | ------------------------------ | -------------------------------------- | --------------- |
-| **color**        | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group color               | `primary`       |
-| **textColor**    | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group text color          | `default`       |
-| **initialValue** | `string/number`                            | -                              | Initial radio group value              | -               |
-| **value**        | `string/number`                            | -                              | Selected child radio                   | -               |
-| **row**          | `boolean`                                  | `true/false`                   | Change the radio group direction       | `false`         |
-| **disabled**     | `boolean`                                  | `true/false`                   | Disable all radios                     | `false`         |
-| **size**         | `NormalSizes`                              | [NormalSizes](#normal-sizes)   | Size of all radios in the group        | `medium`        |
-| **onChange**     | `(e:`[RadioEvent](#radio-event)) `=> void` | -                              | Radio group event handler              | -               |
-| **css**          | `Stitches.CSS`                             | -                              | Override Default CSS style             | -               |
-| **as**           | `keyof JSX.IntrinsicElements`              | -                              | Changes which tag component outputs    | `div`           |
-| ...              | `InputHTMLAttributes`                      | `'id', 'className', ...`       | Native props                           | -               |
+| Attribute        | Type                                                 | Accepted values                | Description                         | Default   |
+| ---------------- | ---------------------------------------------------- | ------------------------------ | ----------------------------------- | --------- |
+| **value**        | `string`                                             | -                              | Selected child radio                | -         |
+| **defaultValue** | `string`                                             | -                              | Initial radio group value           | -         |
+| **color**        | `SimpleColors` `string`                              | [SimpleColors](#simple-colors) | Change radio group color            | `primary` |
+| **labelColor**   | `SimpleColors` `string`                              | [SimpleColors](#simple-colors) | Change radio group label color      | `default` |
+| **size**         | `NormalSizes`                                        | [NormalSizes](#normal-sizes)   | Size of all radios in the group     | `medium`  |
+| **isRow**        | `boolean`                                            | `true/false`                   | Change the radio group direction    | `false`   |
+| **isDisabled**   | `boolean`                                            | `true/false`                   | Disable all radios                  | `false`   |
+| **onChange**     | <Code>(e: [RadioEvent](#radio-event)) => void</Code> | -                              | Radio group event handler           | -         |
+| **css**          | `Stitches.CSS`                                       | -                              | Override Default CSS style          | -         |
+| **as**           | `keyof JSX.IntrinsicElements`                        | -                              | Changes which tag component outputs | `div`     |
 
 <Spacer y={2} />
 
@@ -140,23 +143,4 @@ type SimpleColors =
 
 ```ts
 type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-```
-
-#### Radio Event
-
-```ts
-interface RadioEvent {
-  target: RadioEventTarget;
-  stopPropagation: () => void;
-  preventDefault: () => void;
-  nativeEvent: React.ChangeEvent;
-}
-```
-
-#### Radio Event Target
-
-```ts
-interface RadioEventTarget {
-  checked: boolean;
-}
 ```
