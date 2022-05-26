@@ -142,6 +142,11 @@ export const StyledDropdownItem = styled(
           color: '$$dropdownItemHoverTextColor'
         }
       },
+      shouldShowOutline: {
+        true: {
+          outline: 'solid 2px $$dropdownItemActiveBackground'
+        }
+      },
       isSelected: {
         true: {}
       },

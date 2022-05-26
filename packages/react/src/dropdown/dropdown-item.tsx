@@ -139,6 +139,7 @@ const DropdownItem = <T extends object>({
       textColor={getTextColor}
       isFocused={isFocused}
       isFocusVisible={isFocusVisible}
+      shouldShowOutline={isFocusVisible && variant === 'shadow'}
       isHovered={isHovered}
       isSelected={isSelected}
       isDisabled={isDisabled}
