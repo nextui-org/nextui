@@ -334,7 +334,7 @@ export const defaultUtils = {
   }),
   bgBlur: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
     bf: 'saturate(180%) blur(10px)',
-    bg: `${value}66`
+    bg: value
   }),
   bgColor: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
     backgroundColor: value
