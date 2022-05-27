@@ -26,6 +26,7 @@ interface Props<T> extends FocusableProps {
   textColor?: SimpleColors;
   isVirtualized?: boolean;
   withDivider?: boolean;
+  command?: string;
   dividerWeight?: NormalWeights;
   as?: keyof JSX.IntrinsicElements;
   onAction?: (key: Key) => void;
@@ -46,6 +47,7 @@ const DropdownItem = <T extends object>({
   item,
   state,
   color,
+  command,
   textColor,
   variant,
   autoFocus,
@@ -91,7 +93,7 @@ const DropdownItem = <T extends object>({
   //   ref
   // );
 
-  const { menuItemProps } = useMenuItem(
+  const { menuItemProps, keyboardShortcutProps } = useMenuItem(
     {
       isSelected,
       isDisabled,
@@ -126,6 +128,11 @@ const DropdownItem = <T extends object>({
     }
     return textColor;
   }, [textColor, item.props.color, item.props.textColor]);
+
+  const withCommand = useMemo(
+    () => command || item.props.command,
+    [command, item.props.command]
+  );
 
   return (
     <StyledDropdownItem
@@ -189,6 +196,7 @@ const DropdownItem = <T extends object>({
             }}
           > */}
       {rendered}
+      {withCommand && <kbd {...keyboardShortcutProps}>{withCommand}</kbd>}
       {/* {isSelected && (
               <CheckmarkMedium
                 slot="checkmark"

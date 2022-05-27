@@ -15,6 +15,7 @@ export type DropdownItemBaseProps<T = object> = ItemProps<T> & {
   textColor?: SimpleColors;
   withDivider?: boolean;
   dividerWeight?: NormalWeights;
+  command?: string;
   className?: string;
 };
 

@@ -178,3 +178,23 @@ export const DisableAnimation = () => (
     </Dropdown.Menu>
   </Dropdown>
 );
+
+export const WithCommand = () => (
+  <Dropdown>
+    <Dropdown.Button flat color="secondary" size="sm" />
+    <Dropdown.Menu color="secondary" aria-label="Actions" onAction={alert}>
+      <Dropdown.Item key="new" command="⌘N">
+        New file
+      </Dropdown.Item>
+      <Dropdown.Item key="copy" command="⌘C">
+        Copy link
+      </Dropdown.Item>
+      <Dropdown.Item key="edit" command="⌘⇧E">
+        Edit file
+      </Dropdown.Item>
+      <Dropdown.Item withDivider key="delete" color="error" command="⌘⇧D">
+        Delete file
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+);

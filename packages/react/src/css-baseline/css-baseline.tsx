@@ -219,7 +219,7 @@ const globalStyles = globalCss({
     bg: '$accents0',
     border: '1px solid $border',
     boxShadow: '0 0 1px 0 rgb(0 0 0 / 14%)',
-    fontFamily: '$mono',
+    fontFamily: '$sans',
     borderRadius: '5px',
     padding: '$1 $3',
     mx: '$1',
