@@ -68,7 +68,9 @@ interface IFocusRingAria extends FocusRingAria {
 
 export type ButtonProps = Props &
   NativeAttrs &
-  Omit<ButtonVariantsProps, 'isPressed' | 'isHovered'> & { css?: CSS };
+  Omit<ButtonVariantsProps, 'isPressed' | 'isHovered' | 'isChildLess'> & {
+    css?: CSS;
+  };
 
 const Button = React.forwardRef(
   (
@@ -156,6 +158,7 @@ const Button = React.forwardRef(
       );
     }
     const hasIcon = icon || iconRight;
+    const isChildLess = React.Children.count(children) === 0;
     const isRight = Boolean(iconRight);
 
     const getState = useMemo(() => {
@@ -181,6 +184,7 @@ const Button = React.forwardRef(
         bordered={bordered || ghost}
         data-state={getState}
         animated={animated}
+        isChildLess={isChildLess}
         isPressed={isPressed}
         isHovered={isHovered || (ghost && isFocused)}
         isFocusVisible={isFocusVisible && !disabled}
