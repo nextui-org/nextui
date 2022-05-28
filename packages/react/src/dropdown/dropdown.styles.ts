@@ -4,12 +4,50 @@ import { cssFocusVisible } from '../theme/shared-css';
 export const StyledDropdownMenu = styled('ul', {
   $$dropdownItemHeight: '$space$13',
   $$dropdownMenuPadding: '$space$4',
+  $$dropdownMenuWidth: '250px',
   listStyle: 'none',
-  minWidth: '250px',
   position: 'relative',
+  minWidth: '$$dropdownMenuWidth',
   p: '$$dropdownMenuPadding',
   m: 0,
   outline: 'none'
+});
+
+export const StyledDropdownItemIconWrapper = styled('span', {
+  dflex: 'center',
+  flexShrink: 0,
+  mr: '$4'
+});
+
+export const StyledDropdownItemKbd = styled('kbd', {
+  opacity: 0.8,
+  ml: '$4',
+  mr: 0,
+  dflex: 'center',
+  color: '$$dropdownItemKeyboardColor',
+  fontSize: '$xs',
+  fontFamily: '$sans',
+  boxShadow: 'none',
+  bg: 'transparent',
+  transition: 'border 0.25s ease 0s'
+});
+
+export const StyledDropdownItemContentWrapper = styled('div', {
+  d: 'flex',
+  flex: '1 1 0%',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  lineHeight: 1.2
+});
+
+export const StyledDropdownItemContent = styled('span', {
+  flex: '1 1 0%'
+});
+
+export const StyledDropdownItemDescription = styled('span', {
+  fontSize: '$tiny',
+  color: '$$dropdownItemDescriptionColor',
+  truncateText: 'calc($$dropdownMenuWidth - $$dropdownMenuPadding * 8)'
 });
 
 export const StyledDropdownItem = styled(
@@ -18,7 +56,8 @@ export const StyledDropdownItem = styled(
     $$dropdownItemPressedScale: 0.97,
     $$dropdownItemTextColor: '$colors$text',
     $$dropdownItemBorderRadius: '$radii$sm',
-    $$dropdownKeyboardColor: '$colors$accents8',
+    $$dropdownItemKeyboardColor: '$colors$accents8',
+    $$dropdownItemDescriptionColor: '$colors$accents8',
     dflex: 'center',
     outline: 'none',
     cursor: 'pointer',
@@ -37,15 +76,6 @@ export const StyledDropdownItem = styled(
     $$dropdownItemShadow: '$colors$primaryShadow',
     '@motion': {
       transition: 'none'
-    },
-    kbd: {
-      opacity: 0.8,
-      color: '$$dropdownKeyboardColor',
-      fontSize: '$xs',
-      fontFamily: '$sans',
-      boxShadow: 'none',
-      bg: 'transparent',
-      transition: 'border 0.25s ease 0s'
     },
     variants: {
       color: {
@@ -150,9 +180,12 @@ export const StyledDropdownItem = styled(
         true: {
           bg: '$$dropdownItemHoverBackground',
           color: '$$dropdownItemHoverTextColor',
-          kbd: {
+          [`& ${StyledDropdownItemKbd}`]: {
             color: '$$dropdownItemHoverTextColor',
             borderColor: '$$dropdownItemHoverBorderColor'
+          },
+          [`& ${StyledDropdownItemDescription}`]: {
+            color: 'currentColor'
           }
         }
       },
@@ -160,9 +193,12 @@ export const StyledDropdownItem = styled(
         true: {
           bg: '$$dropdownItemHoverBackground',
           color: '$$dropdownItemHoverTextColor',
-          kbd: {
+          [`& ${StyledDropdownItemKbd}`]: {
             color: '$$dropdownItemHoverTextColor',
             borderColor: '$$dropdownItemHoverBorderColor'
+          },
+          [`& ${StyledDropdownItemDescription}`]: {
+            color: 'currentColor'
           }
         }
       },
@@ -181,6 +217,11 @@ export const StyledDropdownItem = styled(
         true: {
           color: '$accents5',
           cursor: 'default'
+        }
+      },
+      withDescription: {
+        true: {
+          height: 'calc($$dropdownItemHeight * 1.2)'
         }
       },
       withDivider: {
@@ -216,7 +257,10 @@ export const StyledDropdownItem = styled(
       },
       disableAnimation: {
         true: {
-          transition: 'none'
+          transition: 'none',
+          [`& ${StyledDropdownItemKbd}`]: {
+            transition: 'none'
+          }
         }
       }
     },
@@ -253,7 +297,7 @@ export const StyledDropdownItem = styled(
         css: {
           bg: '$$dropdownItemSolidHoverBackground',
           color: '$$dropdownItemSolidHoverTextColor',
-          kbd: {
+          [`& ${StyledDropdownItemKbd}`]: {
             color: '$$dropdownItemSolidHoverTextColor'
           }
         }
@@ -265,7 +309,7 @@ export const StyledDropdownItem = styled(
         css: {
           bg: '$$dropdownItemSolidHoverBackground',
           color: '$$dropdownItemSolidHoverTextColor',
-          kbd: {
+          [`& ${StyledDropdownItemKbd}`]: {
             color: '$$dropdownItemSolidHoverTextColor'
           }
         }
@@ -278,7 +322,7 @@ export const StyledDropdownItem = styled(
           bg: '$$dropdownItemSolidHoverBackground',
           color: '$$dropdownItemSolidHoverTextColor',
           boxShadow: `0 3px 10px 0 $$dropdownItemShadow`,
-          kbd: {
+          [`& ${StyledDropdownItemKbd}`]: {
             color: '$$dropdownItemSolidHoverTextColor'
           }
         }
@@ -291,7 +335,7 @@ export const StyledDropdownItem = styled(
           bg: '$$dropdownItemSolidHoverBackground',
           color: '$$dropdownItemSolidHoverTextColor',
           boxShadow: `0 3px 10px 0 $$dropdownItemShadow`,
-          kbd: {
+          [`& ${StyledDropdownItemKbd}`]: {
             color: '$$dropdownItemSolidHoverTextColor'
           }
         }

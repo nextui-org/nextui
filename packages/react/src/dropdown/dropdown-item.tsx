@@ -1,10 +1,9 @@
-import React, { Key, useRef, useMemo } from 'react';
+import React, { ReactNode, Key, useRef, useMemo } from 'react';
 import { Node } from '@react-types/shared';
 import { mergeProps } from '@react-aria/utils';
 import { TreeState } from '@react-stately/tree';
 import { useFocusRing } from '@react-aria/focus';
 import type { FocusableProps } from '@react-types/shared';
-import type { FocusRingAria } from '@react-aria/focus';
 import { useHover, usePress } from '@react-aria/interactions';
 import { useMenuItem } from '@react-aria/menu';
 import { CSS } from '../theme/stitches.config';
@@ -13,8 +12,16 @@ import type {
   NormalWeights,
   DropdownVariants
 } from '../utils/prop-types';
+import type { IFocusRingAria, IMenuItemAria } from './dropdown-types';
 import { useDropdownContext } from './dropdown-context';
-import { StyledDropdownItem } from './dropdown.styles';
+import {
+  StyledDropdownItem,
+  StyledDropdownItemKbd,
+  StyledDropdownItemContent,
+  StyledDropdownItemIconWrapper,
+  StyledDropdownItemContentWrapper,
+  StyledDropdownItemDescription
+} from './dropdown.styles';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 
@@ -27,6 +34,8 @@ interface Props<T> extends FocusableProps {
   isVirtualized?: boolean;
   withDivider?: boolean;
   command?: string;
+  description?: string;
+  icon?: ReactNode;
   dividerWeight?: NormalWeights;
   as?: keyof JSX.IntrinsicElements;
   onAction?: (key: Key) => void;
@@ -37,17 +46,15 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<object>>;
 export type DropdownItemProps<T = object> = Props<T> &
   NativeAttrs & { css?: CSS };
 
-interface IFocusRingAria extends FocusRingAria {
-  focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof DropdownItemProps>;
-}
-
 const DropdownItem = <T extends object>({
   as,
   css,
   item,
   state,
   color,
+  icon,
   command,
+  description,
   textColor,
   variant,
   autoFocus,
@@ -77,29 +84,23 @@ const DropdownItem = <T extends object>({
     autoFocus
   });
 
-  // const { menuItemProps, labelProps, descriptionProps, keyboardShortcutProps } =
-  // useMenuItem(
-  //   {
-  //     isSelected,
-  //     isDisabled,
-  //     'aria-label': item['aria-label'],
-  //     key,
-  //     onClose,
-  //     closeOnSelect,
-  //     isVirtualized,
-  //     onAction
-  //   },
-  //   state,
-  //   ref
-  // );
+  const { hoverProps, isHovered } = useHover({ isDisabled });
 
-  const { menuItemProps, keyboardShortcutProps } = useMenuItem(
+  const isSelectable =
+    state.selectionManager.selectionMode !== 'none' && !isDisabled;
+
+  const {
+    menuItemProps,
+    labelProps,
+    descriptionProps,
+    keyboardShortcutProps
+  }: IMenuItemAria = useMenuItem(
     {
+      key,
+      onClose,
       isSelected,
       isDisabled,
       'aria-label': item['aria-label'],
-      key,
-      onClose,
       closeOnSelect,
       isVirtualized,
       onAction
@@ -107,10 +108,6 @@ const DropdownItem = <T extends object>({
     state,
     ref
   );
-
-  const { hoverProps, isHovered } = useHover({ isDisabled });
-  const isSelectable =
-    state.selectionManager.selectionMode !== 'none' && !isDisabled;
 
   const getState = useMemo(() => {
     if (isHovered) return 'hovered';
@@ -129,9 +126,19 @@ const DropdownItem = <T extends object>({
     return textColor;
   }, [textColor, item.props.color, item.props.textColor]);
 
+  const withDescription = useMemo(
+    () => description || item.props.description,
+    [description, item.props.description]
+  );
+
   const withCommand = useMemo(
     () => command || item.props.command,
     [command, item.props.command]
+  );
+
+  const withIcon = useMemo(
+    () => icon || item.props.icon,
+    [icon, item.props.icon]
   );
 
   return (
@@ -153,6 +160,7 @@ const DropdownItem = <T extends object>({
       isPressed={isPressed}
       isSelectable={isSelectable}
       withDivider={withDivider || item.props.withDivider}
+      withDescription={!!withDescription}
       dividerWeight={dividerWeight || item.props.dividerWeight || borderWeight}
       disableAnimation={disableAnimation}
       className={clsx(
@@ -169,43 +177,50 @@ const DropdownItem = <T extends object>({
         item.props.className
       )}
     >
-      {/* <Grid UNSAFE_className={classNames(styles, 'spectrum-Menu-itemGrid')}>
-        <ClearSlots>
-          <SlotProvider
-            slots={{
-              text: {
-                UNSAFE_className: styles['spectrum-Menu-itemLabel'],
-                ...labelProps
-              },
-              end: {
-                UNSAFE_className: styles['spectrum-Menu-end'],
-                ...descriptionProps
-              },
-              icon: {
-                UNSAFE_className: styles['spectrum-Menu-icon'],
-                size: 'S'
-              },
-              description: {
-                UNSAFE_className: styles['spectrum-Menu-description'],
-                ...descriptionProps
-              },
-              keyboard: {
-                UNSAFE_className: styles['spectrum-Menu-keyboard'],
-                ...keyboardShortcutProps
-              }
-            }}
-          > */}
-      {rendered}
-      {withCommand && <kbd {...keyboardShortcutProps}>{withCommand}</kbd>}
+      {withIcon && (
+        <StyledDropdownItemIconWrapper className="nextui-dropdown-item-icon-wrapper">
+          {withIcon}
+        </StyledDropdownItemIconWrapper>
+      )}
+      {withDescription ? (
+        <StyledDropdownItemContentWrapper>
+          <StyledDropdownItemContent
+            className="nextui-dropdown-item-content"
+            {...labelProps}
+          >
+            {rendered}
+          </StyledDropdownItemContent>
+          <StyledDropdownItemDescription
+            className="nextui-dropdown-item-description"
+            {...descriptionProps}
+          >
+            {withDescription}
+          </StyledDropdownItemDescription>
+        </StyledDropdownItemContentWrapper>
+      ) : (
+        <StyledDropdownItemContent
+          className="nextui-dropdown-item-content"
+          {...labelProps}
+        >
+          {rendered}
+        </StyledDropdownItemContent>
+      )}
+
+      {withCommand && (
+        <StyledDropdownItemKbd
+          className="nextui-dropdown-item-command"
+          {...keyboardShortcutProps}
+        >
+          {withCommand}
+        </StyledDropdownItemKbd>
+      )}
       {/* {isSelected && (
               <CheckmarkMedium
                 slot="checkmark"
                 UNSAFE_className={classNames(styles, 'spectrum-Menu-checkmark')}
               />
             )}
-          </SlotProvider>
-        </ClearSlots>
-      </Grid> */}
+      */}
     </StyledDropdownItem>
   );
 };

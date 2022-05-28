@@ -447,6 +447,13 @@ export const defaultUtils = {
   tdl: (value: Stitches.PropertyValue<'textDecorationLine'>) => ({
     textDecorationLine: value
   }),
+  // TODO: put this in the docs
+  truncateText: (value: Stitches.PropertyValue<'width'>) => ({
+    maxWidth: value,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  }),
   textGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
     backgroundImage: `linear-gradient(${value})`,
     WebkitBackgroundClip: 'text',

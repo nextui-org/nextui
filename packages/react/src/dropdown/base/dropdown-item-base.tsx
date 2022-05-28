@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Item } from '@react-stately/collections';
 import { ItemProps } from '@react-types/shared';
 import {
@@ -16,6 +17,8 @@ export type DropdownItemBaseProps<T = object> = ItemProps<T> & {
   withDivider?: boolean;
   dividerWeight?: NormalWeights;
   command?: string;
+  description?: string;
+  icon?: ReactNode;
   className?: string;
 };
 

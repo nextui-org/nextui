@@ -14,7 +14,7 @@ interface Props extends UseDropdownProps {
    * The content of the dropdown. It is usually the `Dropdown.Trigger`,
    * and `Dropdown.Menu`
    */
-  children: ReactNode | undefined;
+  children: ReactNode[];
 }
 
 export type DropdownProps = Props;

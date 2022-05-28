@@ -1,6 +1,12 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { Button, Grid } from '../index';
+import {
+  AddNoteBulk,
+  CopyDocumentBulk,
+  DeleteDocumentBulk,
+  EditDocumentBulk
+} from '../utils/icons';
 import Dropdown from './index';
 
 export default {
@@ -79,6 +85,27 @@ export const Bordered = () => (
   <Dropdown isBordered disableShadow>
     <Dropdown.Button>Trigger</Dropdown.Button>
     <Dropdown.Menu aria-label="Actions" onAction={alert}>
+      <Dropdown.Item key="new">New file</Dropdown.Item>
+      <Dropdown.Item key="copy">Copy link</Dropdown.Item>
+      <Dropdown.Item key="edit">Edit file</Dropdown.Item>
+      <Dropdown.Item key="delete" color="error" withDivider>
+        Delete file
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+);
+
+export const DisabledKeys = () => (
+  <Dropdown>
+    <Dropdown.Button color="secondary" flat>
+      Trigger
+    </Dropdown.Button>
+    <Dropdown.Menu
+      color="secondary"
+      aria-label="Actions"
+      onAction={alert}
+      disabledKeys={['edit', 'delete']}
+    >
       <Dropdown.Item key="new">New file</Dropdown.Item>
       <Dropdown.Item key="copy">Copy link</Dropdown.Item>
       <Dropdown.Item key="edit">Edit file</Dropdown.Item>
@@ -193,6 +220,94 @@ export const WithCommand = () => (
         Edit file
       </Dropdown.Item>
       <Dropdown.Item withDivider key="delete" color="error" command="⌘⇧D">
+        Delete file
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+);
+
+export const WithIcon = () => (
+  <Dropdown>
+    <Dropdown.Button flat color="primary" size="sm" />
+    <Dropdown.Menu color="primary" aria-label="Actions" onAction={alert}>
+      <Dropdown.Item
+        key="new"
+        command="⌘N"
+        icon={<AddNoteBulk size={22} fill="var(--nextui-colors-primary)" />}
+      >
+        New file
+      </Dropdown.Item>
+      <Dropdown.Item
+        key="copy"
+        command="⌘C"
+        icon={
+          <CopyDocumentBulk size={22} fill="var(--nextui-colors-primary)" />
+        }
+      >
+        Copy link
+      </Dropdown.Item>
+      <Dropdown.Item
+        key="edit"
+        command="⌘⇧E"
+        icon={
+          <EditDocumentBulk size={22} fill="var(--nextui-colors-primary)" />
+        }
+      >
+        Edit file
+      </Dropdown.Item>
+      <Dropdown.Item
+        withDivider
+        key="delete"
+        color="error"
+        command="⌘⇧D"
+        icon={<DeleteDocumentBulk size={22} fill="currentColor" />}
+      >
+        Delete file
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+);
+
+export const WithDescription = () => (
+  <Dropdown>
+    <Dropdown.Button flat color="secondary" size="sm" />
+    <Dropdown.Menu color="secondary" aria-label="Actions" onAction={alert}>
+      <Dropdown.Item
+        key="new"
+        command="⌘N"
+        description="Create a new file"
+        icon={<AddNoteBulk size={22} fill="var(--nextui-colors-secondary)" />}
+      >
+        New file
+      </Dropdown.Item>
+      <Dropdown.Item
+        key="copy"
+        command="⌘C"
+        description="Copy the link"
+        icon={
+          <CopyDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
+        }
+      >
+        Copy link
+      </Dropdown.Item>
+      <Dropdown.Item
+        key="edit"
+        command="⌘⇧E"
+        description="Edit the file"
+        icon={
+          <EditDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
+        }
+      >
+        Edit file
+      </Dropdown.Item>
+      <Dropdown.Item
+        withDivider
+        key="delete"
+        color="error"
+        command="⌘⇧D"
+        description="Delete the file"
+        icon={<DeleteDocumentBulk size={22} fill="currentColor" />}
+      >
         Delete file
       </Dropdown.Item>
     </Dropdown.Menu>
