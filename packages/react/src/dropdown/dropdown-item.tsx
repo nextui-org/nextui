@@ -12,6 +12,7 @@ import type {
   NormalWeights,
   DropdownVariants
 } from '../utils/prop-types';
+import Checkmark from '../utils/checkmark';
 import type { IFocusRingAria, IMenuItemAria } from './dropdown-types';
 import { useDropdownContext } from './dropdown-context';
 import {
@@ -216,7 +217,13 @@ const DropdownItem = <T extends object>({
           {withCommand}
         </StyledDropdownItemKbd>
       )}
-      {isSelected && <b>*</b>}
+      {isSelected && (
+        <Checkmark
+          css={{
+            ml: '$4'
+          }}
+        />
+      )}
     </StyledDropdownItem>
   );
 };

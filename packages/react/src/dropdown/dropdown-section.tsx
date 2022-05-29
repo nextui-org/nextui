@@ -109,7 +109,7 @@ const DropdownSection = <T extends object>(props: DropdownSectionProps<T>) => {
 };
 
 if (__DEV__) {
-  DropdownSection.displayName = 'NextUI - DropdownSection';
+  DropdownSection.displayName = 'NextUI.DropdownSection';
 }
 
 DropdownSection.toString = () => '.nextui-dropdown-section';
