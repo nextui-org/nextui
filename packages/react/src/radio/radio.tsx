@@ -28,9 +28,7 @@ interface Props extends UseRadioProps {
   as?: keyof JSX.IntrinsicElements;
 }
 
-type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
-
-export type RadioProps = Props & NativeAttrs & { css?: CSS };
+export type RadioProps = Props & { css?: CSS };
 
 interface IFocusRingAria extends FocusRingAria {
   focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof RadioProps>;

@@ -7,6 +7,8 @@ import squared from './squared';
 import description from './description';
 import row from './row';
 import noAnimation from './noAnimation';
+import controlledVsUncontrolled from './controlled-vs-uncontrolled';
+import events from './events';
 
 export default {
   default_radio,
@@ -17,5 +19,7 @@ export default {
   squared,
   description,
   row,
-  noAnimation
+  noAnimation,
+  controlledVsUncontrolled,
+  events
 };

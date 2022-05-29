@@ -9,19 +9,24 @@ import type { RadioDescriptionVariantsProps } from './radio.styles';
 interface Props {
   className?: string;
   children?: React.ReactNode;
+  as?: keyof JSX.IntrinsicElements;
 }
 
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+
 export type RadioDescProps = Props &
-  RadioDescriptionVariantsProps & { css?: CSS };
+  RadioDescriptionVariantsProps &
+  NativeAttrs & { css?: CSS };
 
 export const RadioDesc = React.forwardRef<HTMLDivElement, RadioDescProps>(
   (props: RadioDescProps, ref: ReactRef<HTMLDivElement>) => {
-    const { className, css, children, ...otherProps } = props;
+    const { as, className, css, children, ...otherProps } = props;
 
     return (
       <StyledRadioDescription
         ref={ref}
         className={clsx('nextui-radio-desc', className)}
+        as={as}
         css={css as any}
         {...otherProps}
       >

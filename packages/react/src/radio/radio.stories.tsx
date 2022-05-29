@@ -175,6 +175,23 @@ export const Row = () => (
   </div>
 );
 
+export const Controlled = () => {
+  const [checked, setChecked] = React.useState<string>('london');
+
+  React.useEffect(() => {
+    console.log('checked:', checked);
+  }, [checked]);
+
+  return (
+    <Radio.Group label="Check cities" value={checked} onChange={setChecked}>
+      <Radio value="buenos-aires">Buenos Aires</Radio>
+      <Radio value="sydney">Sydney</Radio>
+      <Radio value="london">London</Radio>
+      <Radio value="tokyo">Tokyo</Radio>
+    </Radio.Group>
+  );
+};
+
 export const NoAnimated = () => {
   return (
     <Radio.Group label="Options" defaultValue="A">

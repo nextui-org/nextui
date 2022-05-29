@@ -1,5 +1,7 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { useRadio as useReactAriaRadio } from '@react-aria/radio';
+import useWarning from '../use-warning';
+import { __DEV__ } from '../utils/assertion';
 import { useRadioGroupContext } from './radio-context';
 import type { AriaRadioProps } from '@react-types/radio';
 import type {
@@ -16,7 +18,9 @@ interface Props extends AriaRadioProps {
   labelColor?: SimpleColors;
 }
 
-export type UseRadioProps = Props;
+type NativeAttrs = Omit<React.InputHTMLAttributes<unknown>, keyof Props>;
+
+export type UseRadioProps = Props & NativeAttrs;
 
 /**
  * @internal
@@ -32,6 +36,18 @@ export const useRadio = (props: UseRadioProps) => {
     disableAnimation = false,
     ...otherProps
   } = props;
+
+  if (groupContext && __DEV__) {
+    if (otherProps.checked !== undefined) {
+      useWarning('Remove props "checked" if in the Radio.Group.', 'Radio');
+    }
+    if (otherProps.value === undefined) {
+      useWarning(
+        'Props "value" must be deinfed if in the Radio.Group.',
+        'Radio'
+      );
+    }
+  }
 
   const inputRef = useRef<HTMLInputElement>(null);
 
