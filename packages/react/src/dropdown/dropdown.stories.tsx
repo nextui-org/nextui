@@ -14,27 +14,6 @@ export default {
   component: Dropdown
 } as Meta;
 
-// desired API
-// <Dropdown aria-label="Actions">
-//   {/* <Dropdown.Trigger>
-//     <button>Actions</button>
-//   </Dropdown.Trigger> */}
-//   <Dropdown.Content>
-//     <Dropdown.Item key="one">One</Dropdown.Item>
-//     <Dropdown.Item key="two">Two</Dropdown.Item>
-//     {/* <Dropdown.Section title="Section 1">
-//       <Dropdown.Item key="section1-item1">One</Dropdown.Item>
-//       <Dropdown.Item key="section1-item2">Two</Dropdown.Item>
-//       <Dropdown.Item key="section1-item3">Three</Dropdown.Item>
-//     </Dropdown.Section>
-//     <Dropdown.Section title="Section 2">
-//       <Dropdown.Item key="section2-item1">One</Dropdown.Item>
-//       <Dropdown.Item key="section2-item2">Two</Dropdown.Item>
-//       <Dropdown.Item key="section2-item3">Three</Dropdown.Item>
-//     </Dropdown.Section> */}
-//   </Dropdown.Content>
-// </Dropdown>
-
 export const Default = () => (
   <Dropdown>
     <Dropdown.Trigger>
