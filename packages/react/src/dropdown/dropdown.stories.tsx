@@ -192,20 +192,6 @@ export const Variants = () => (
   </Grid.Container>
 );
 
-export const DisableAnimation = () => (
-  <Dropdown disableAnimation>
-    <Dropdown.Button>Trigger</Dropdown.Button>
-    <Dropdown.Menu aria-label="Actions" onAction={alert}>
-      <Dropdown.Item key="new">New file</Dropdown.Item>
-      <Dropdown.Item key="copy">Copy link</Dropdown.Item>
-      <Dropdown.Item key="edit">Edit file</Dropdown.Item>
-      <Dropdown.Item key="delete" color="error" withDivider>
-        Delete file
-      </Dropdown.Item>
-    </Dropdown.Menu>
-  </Dropdown>
-);
-
 export const WithCommand = () => (
   <Dropdown>
     <Dropdown.Button flat color="secondary" size="sm" />
@@ -275,6 +261,52 @@ export const WithDescription = () => (
       <Dropdown.Item
         key="new"
         command="⌘N"
+        description="Create a new file lorem ipsum dolor sit amet"
+        icon={<AddNoteBulk size={22} fill="var(--nextui-colors-secondary)" />}
+      >
+        New file
+      </Dropdown.Item>
+      <Dropdown.Item
+        key="copy"
+        command="⌘C"
+        description="Copy the link"
+        icon={
+          <CopyDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
+        }
+      >
+        Copy link
+      </Dropdown.Item>
+      <Dropdown.Item
+        key="edit"
+        command="⌘⇧E"
+        description="Edit the file"
+        icon={
+          <EditDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
+        }
+      >
+        Edit file
+      </Dropdown.Item>
+      <Dropdown.Item
+        withDivider
+        key="delete"
+        color="error"
+        command="⌘⇧D"
+        description="Delete the file"
+        icon={<DeleteDocumentBulk size={22} fill="currentColor" />}
+      >
+        Delete file
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+);
+
+export const DisableAnimation = () => (
+  <Dropdown disableAnimation>
+    <Dropdown.Button flat color="secondary" size="sm" />
+    <Dropdown.Menu color="secondary" aria-label="Actions" onAction={alert}>
+      <Dropdown.Item
+        key="new"
+        command="⌘N"
         description="Create a new file"
         icon={<AddNoteBulk size={22} fill="var(--nextui-colors-secondary)" />}
       >
@@ -313,3 +345,5 @@ export const WithDescription = () => (
     </Dropdown.Menu>
   </Dropdown>
 );
+
+export const Sections = () => {};

@@ -192,6 +192,8 @@ const DropdownItem = <T extends object>({
           </StyledDropdownItemContent>
           <StyledDropdownItemDescription
             className="nextui-dropdown-item-description"
+            hasIcon={!!withIcon}
+            hasCommand={!!withCommand}
             {...descriptionProps}
           >
             {withDescription}
@@ -214,13 +216,7 @@ const DropdownItem = <T extends object>({
           {withCommand}
         </StyledDropdownItemKbd>
       )}
-      {/* {isSelected && (
-              <CheckmarkMedium
-                slot="checkmark"
-                UNSAFE_className={classNames(styles, 'spectrum-Menu-checkmark')}
-              />
-            )}
-      */}
+      {isSelected && <b>*</b>}
     </StyledDropdownItem>
   );
 };

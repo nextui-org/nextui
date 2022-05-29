@@ -47,7 +47,29 @@ export const StyledDropdownItemContent = styled('span', {
 export const StyledDropdownItemDescription = styled('span', {
   fontSize: '$tiny',
   color: '$$dropdownItemDescriptionColor',
-  truncateText: 'calc($$dropdownMenuWidth - $$dropdownMenuPadding * 8)'
+  truncateText: 'calc($$dropdownMenuWidth * 0.9)',
+  variants: {
+    hasIcon: {
+      true: {
+        truncateText: 'calc($$dropdownMenuWidth * 0.7)'
+      }
+    },
+    hasCommand: {
+      true: {
+        truncateText: 'calc($$dropdownMenuWidth * 0.7)'
+      }
+    }
+  },
+  compoundVariants: [
+    // hasIcon && hasCommand
+    {
+      hasIcon: true,
+      hasCommand: true,
+      css: {
+        truncateText: 'calc($$dropdownMenuWidth * 0.6)'
+      }
+    }
+  ]
 });
 
 export const StyledDropdownItem = styled(
