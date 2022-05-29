@@ -306,7 +306,7 @@ export const WithDescription = () => (
       <Dropdown.Item
         key="new"
         command="⌘N"
-        description="Create a new fil"
+        description="Create a new file"
         icon={<AddNoteBulk size={22} fill="var(--nextui-colors-secondary)" />}
       >
         New file

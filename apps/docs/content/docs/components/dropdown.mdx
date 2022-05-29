@@ -1,0 +1,99 @@
+---
+title: 'Dropdown'
+description: 'Displays a list of actions or options that a user can choose.'
+url: https://nextui.org/docs/components/dropdown
+---
+
+# Dropdown
+
+Displays a list of actions or options that a user can choose. Dropdown implementation is based on <br/> <a href="https://react-spectrum.adobe.com/react-aria/useMenu.html" rel="noreferrer" target="_blank">@react-aria/menu</a>
+
+```jsx
+import { Dropdown } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+#### Anatomy
+
+- **Dropdown**: The wrapper that provides state, context and focus management.
+- **Dropdown.Trigger**: Used to wrap the reference (or trigger) element.
+- **Dropdown.Button**: A NextUI `Button` component used as the trigger (includes a chevron icon).
+- **Dropdown.Menu**: The wrapper for the items. Must be a direct child of `Dropdown`.
+- **Dropdown.Item**: The individual items. Must be a direct child of `Dropdown.Menu`.
+- **Dropdown.Section**: A wrapper to group related menu items.
+
+<Spacer y={2} />
+
+<Playground
+  title="Static"
+  desc="Static collections, as in this example, can be used when the full list of items is known ahead of time."
+  files={dropdownContent.staticDropdown}
+/>
+
+> The Dropdown can be closed by clicking or interacting outside the popover, or by pressing the <kbd>Escape</kbd> key. When the popover is closed, focus is restored back to its trigger button.
+
+<Playground
+  title="Dynamic"
+  desc="Dynamic collections, as shown below, can be used when the items come from an external data source such as an API call, or update over time. Providing the data in this way allows for Menu to automatically cache the rendering of each item, which dramatically improves performance."
+  files={dropdownContent.dynamicDropdown}
+/>
+
+<Playground
+  title="Divider"
+  highlightedLines="11"
+  desc="Dropdown items include a prop called `withDivider` that can be used to separate items in the menu."
+  files={dropdownContent.withDivider}
+/>
+
+<Playground
+  title="Disabled Keys"
+  highlightedLines="8"
+  desc="You can disable specific rows by providing an array of keys to `Dropdown.Menu` through the `disabledKeys` prop. This will prevent items from being selectable as shown in the example below."
+  files={dropdownContent.disabledKeys}
+/>
+
+> **Note**: Its important to have a unique key for each item, otherwise the disabled keys will not work.
+
+<Playground
+  title="Variants"
+  desc="Dropdown can be styled with different variants. The default variant is `flat`, but you can also use `light`, `solid` and `shadow`."
+  files={dropdownContent.variants}
+/>
+
+<Playground
+  title="Single selection"
+  desc="You can set the `selectionMode` property as `single` to limit users to select only a single item at a time."
+  highlightedLines="21"
+  files={dropdownContent.singleSelection}
+/>
+
+<Playground
+  title="Multiple selection"
+  desc="You can set the `selectionMode` property as `multiple` to allow users to select multiple items at a time."
+  highlightedLines="21"
+  files={dropdownContent.multipleSelection}
+/>
+
+<Playground
+  title="Command"
+  desc="Dropdown items support adding commands (or hotkeys), you can use the `command` prop."
+  highlightedLines="21"
+  files={dropdownContent.command}
+/>
+
+<Playground
+  title="Icons"
+  desc="Dropdown items can include icons, you can use the `icon` prop."
+  files={dropdownContent.icon}
+/>
+
+> **Note**: If you use **currentColor** as the icon color, the icon will have the same color as the item text.
+
+<Playground
+  title="Description"
+  desc="Dropdown items can include descriptions, you can use the `description` prop."
+  files={dropdownContent.description}
+/>

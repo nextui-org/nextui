@@ -194,7 +194,7 @@ export const defaultColors = {
   neutralLightHover: '$gray200',
   neutralLightActive: '$gray300',
   neutralLightContrast: '$gray800',
-  neutral: '$gray500',
+  neutral: '$gray600',
   neutralBorder: '$gray400',
   neutralBorderHover: '$gray500',
   neutralSolidHover: '$gray600',
@@ -447,7 +447,6 @@ export const defaultUtils = {
   tdl: (value: Stitches.PropertyValue<'textDecorationLine'>) => ({
     textDecorationLine: value
   }),
-  // TODO: put this in the docs
   truncateText: (value: Stitches.PropertyValue<'width'>) => ({
     maxWidth: value,
     whiteSpace: 'nowrap',

@@ -73,9 +73,9 @@ export function usePopover(props: UsePopoverProps = {}) {
     isOpen,
     defaultOpen,
     onOpenChange,
-    isBordered, // TODO: add this to the docs
-    borderWeight, // TODO: add this to the docs
-    disableShadow, // TODO: add this to the docs
+    isBordered,
+    borderWeight,
+    disableShadow,
     shouldFlip = true,
     offset = 12,
     placement = 'bottom',

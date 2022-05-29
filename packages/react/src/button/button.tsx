@@ -42,9 +42,7 @@ export interface Props extends PressEvents, FocusableProps, AriaButtonProps {
   as?: keyof JSX.IntrinsicElements;
   className?: string;
   children?: React.ReactNode | undefined;
-  // TODO: put this on the docs
   iconLeftCss?: CSS;
-  // TODO: put this on the docs
   iconRightCss?: CSS;
 }
 

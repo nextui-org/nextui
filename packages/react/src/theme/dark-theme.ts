@@ -55,10 +55,10 @@ export default {
     errorLightActive: '$red200',
     errorLightContrast: '$red700',
 
-    neutralLight: '$gray50',
-    neutralLightHover: '$gray100',
-    neutralLightActive: '$gray200',
-    neutralSolidContrast: '$black',
+    neutralLight: '$gray200',
+    neutralLightHover: '$gray300',
+    neutralLightActive: '$gray400',
+    neutralSolidContrast: '$white',
 
     // misc
     text: '$gray900',
