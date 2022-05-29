@@ -192,54 +192,42 @@ export const Variants = () => (
   </Grid.Container>
 );
 
-export const Sections = () => (
-  <Dropdown>
-    <Dropdown.Button flat color="secondary" size="sm" />
-    <Dropdown.Menu color="secondary" aria-label="Actions" onAction={alert}>
-      <Dropdown.Section title="Actions">
-        <Dropdown.Item
-          key="new"
-          command="⌘N"
-          description="Create a new fil"
-          icon={<AddNoteBulk size={22} fill="var(--nextui-colors-secondary)" />}
-        >
-          New file
-        </Dropdown.Item>
-        <Dropdown.Item
-          key="copy"
-          command="⌘C"
-          description="Copy the link"
-          icon={
-            <CopyDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
-          }
-        >
-          Copy link
-        </Dropdown.Item>
-        <Dropdown.Item
-          key="edit"
-          command="⌘⇧E"
-          description="Edit the file"
-          icon={
-            <EditDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
-          }
-        >
-          Edit file
-        </Dropdown.Item>
-      </Dropdown.Section>
-      <Dropdown.Section title="Danger zone">
-        <Dropdown.Item
-          key="delete"
-          color="error"
-          command="⌘⇧D"
-          description="Delete the file"
-          icon={<DeleteDocumentBulk size={22} fill="currentColor" />}
-        >
-          Delete file
-        </Dropdown.Item>
-      </Dropdown.Section>
-    </Dropdown.Menu>
-  </Dropdown>
-);
+export const SingleSelection = () => {
+  const [selected, setSelected] = React.useState<string | Set<React.Key>>(
+    new Set(['text'])
+  );
+
+  const selectedValue = React.useMemo(
+    () => Array.from(selected).join(', ').replaceAll('_', ' '),
+    [selected]
+  );
+
+  return (
+    <Dropdown>
+      <Dropdown.Button
+        flat
+        color="primary"
+        size="sm"
+        css={{ tt: 'capitalize' }}
+      >
+        {selectedValue}
+      </Dropdown.Button>
+      <Dropdown.Menu
+        aria-label="Actions"
+        color="primary"
+        selectionMode="single"
+        selectedKeys={selected}
+        onSelectionChange={setSelected}
+      >
+        <Dropdown.Item key="text">Text</Dropdown.Item>
+        <Dropdown.Item key="number">Number</Dropdown.Item>
+        <Dropdown.Item key="date">Date</Dropdown.Item>
+        <Dropdown.Item key="single_date">Single Date</Dropdown.Item>
+        <Dropdown.Item key="iteration">Iteration</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+};
 
 export const WithCommand = () => (
   <Dropdown>
@@ -345,6 +333,55 @@ export const WithDescription = () => (
       >
         Delete file
       </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+);
+
+export const Sections = () => (
+  <Dropdown>
+    <Dropdown.Button flat color="secondary" size="sm" />
+    <Dropdown.Menu color="secondary" aria-label="Actions" onAction={alert}>
+      <Dropdown.Section title="Actions">
+        <Dropdown.Item
+          key="new"
+          command="⌘N"
+          description="Create a new fil"
+          icon={<AddNoteBulk size={22} fill="var(--nextui-colors-secondary)" />}
+        >
+          New file
+        </Dropdown.Item>
+        <Dropdown.Item
+          key="copy"
+          command="⌘C"
+          description="Copy the link"
+          icon={
+            <CopyDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
+          }
+        >
+          Copy link
+        </Dropdown.Item>
+        <Dropdown.Item
+          key="edit"
+          command="⌘⇧E"
+          description="Edit the file"
+          icon={
+            <EditDocumentBulk size={22} fill="var(--nextui-colors-secondary)" />
+          }
+        >
+          Edit file
+        </Dropdown.Item>
+      </Dropdown.Section>
+      <Dropdown.Section title="Danger zone">
+        <Dropdown.Item
+          key="delete"
+          color="error"
+          command="⌘⇧D"
+          description="Delete the file"
+          icon={<DeleteDocumentBulk size={22} fill="currentColor" />}
+        >
+          Delete file
+        </Dropdown.Item>
+      </Dropdown.Section>
     </Dropdown.Menu>
   </Dropdown>
 );
