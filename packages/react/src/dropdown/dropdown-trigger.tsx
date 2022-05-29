@@ -19,7 +19,7 @@ const DropdownTrigger = (props: React.PropsWithChildren<{}>) => {
 };
 
 if (__DEV__) {
-  DropdownTrigger.displayName = 'NextUI - DropdownTrigger';
+  DropdownTrigger.displayName = 'NextUI.DropdownTrigger';
 }
 
 DropdownTrigger.toString = () => '.nextui-dropdown-trigger';
