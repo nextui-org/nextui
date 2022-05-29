@@ -69,6 +69,7 @@ const DropdownMenu = React.forwardRef(
         {...menuProps}
       >
         {[...state.collection].map((item) => {
+          console.log(item.props);
           if (item.type === 'section') {
             return (
               <DropdownSection
@@ -76,6 +77,9 @@ const DropdownMenu = React.forwardRef(
                 item={item}
                 state={state}
                 onAction={completeProps.onAction}
+                color={color}
+                textColor={textColor}
+                variant={variant}
               />
             );
           }

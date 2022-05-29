@@ -7,7 +7,7 @@ export const StyledDropdownMenu = styled('ul', {
   $$dropdownMenuWidth: '250px',
   listStyle: 'none',
   position: 'relative',
-  minWidth: '$$dropdownMenuWidth',
+  width: '$$dropdownMenuWidth',
   p: '$$dropdownMenuPadding',
   m: 0,
   outline: 'none'
@@ -381,4 +381,24 @@ export const StyledDropdownItem = styled(
   cssFocusVisible
 );
 
+export const StyledDropdownSectionWrapper = styled('li', {
+  mb: 0
+});
+
+export const StyledDropdownSection = styled('ul', {
+  m: 0,
+  p: 0,
+  listStyle: 'none'
+});
+
+export const StyledDropdownSectionTitle = styled('span', {
+  fontWeight: '$medium',
+  fontSize: '$xs',
+  padding: '0 $4',
+  color: '$accents8'
+});
+
 export type DropdownItemVariantsProps = VariantProps<typeof StyledDropdownItem>;
+export type StyledDropdownItemDescriptionProps = VariantProps<
+  typeof StyledDropdownItemDescription
+>;
