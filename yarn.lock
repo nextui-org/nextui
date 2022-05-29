@@ -3823,7 +3823,7 @@
     "@react-types/shared" "^3.12.0"
     dom-helpers "^3.3.1"
 
-"@react-aria/radio@^3.1.11":
+"@react-aria/radio@3.1.11":
   version "3.1.11"
   resolved "https://registry.yarnpkg.com/@react-aria/radio/-/radio-3.1.11.tgz#269c67fb7163870a6bc8bd1e34658d5a72e2c66e"
   integrity sha512-xT7FgxECPgGHFDCiMu9QZlRJheesjy13N5KwIfCwKt+Tl8ZDacZ8jxswPrDpTfdwdQaA0TCiHWcmfWkAs790Yw==
@@ -4018,7 +4018,7 @@
     "@react-stately/utils" "^3.4.1"
     "@react-types/overlays" "^3.5.5"
 
-"@react-stately/radio@^3.3.6":
+"@react-stately/radio@3.3.6", "@react-stately/radio@^3.3.6":
   version "3.3.6"
   resolved "https://registry.yarnpkg.com/@react-stately/radio/-/radio-3.3.6.tgz#c0cea40c9625818b211544c5028341f128e7f4f7"
   integrity sha512-G35xuEIk7TkqA3SGGlSVUyrkauf7bNVxq0/ELSM1mhrAuKF6nXkLqK2kI5LtOrngk/ZrsVFtfJYN+H6cBNhu2Q==
