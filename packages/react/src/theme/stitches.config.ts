@@ -81,7 +81,12 @@ export const createTheme = ({ type, theme, className }: Theme) => {
   }
   return createThemeBase(
     className || `${type}-theme`,
-    deepMerge(type === 'dark' ? darkTheme : lightTheme, theme)
+    deepMerge(
+      type === 'dark'
+        ? getStitchesTheme(darkTheme)
+        : getStitchesTheme(lightTheme),
+      theme
+    )
   );
 };
 
