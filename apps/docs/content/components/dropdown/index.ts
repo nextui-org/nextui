@@ -8,6 +8,9 @@ import multipleSelection from './multiple-selection';
 import command from './command';
 import icon from './icon';
 import description from './description';
+import sections from './sections';
+import customTrigger from './custom-trigger';
+import disableAnimation from './disable-animation';
 
 export default {
   staticDropdown,
@@ -19,5 +22,8 @@ export default {
   multipleSelection,
   command,
   icon,
-  description
+  description,
+  sections,
+  customTrigger,
+  disableAnimation
 };

@@ -29,7 +29,7 @@ export const StyledDropdownItemKbd = styled('kbd', {
   fontFamily: '$sans',
   boxShadow: 'none',
   bg: 'transparent',
-  transition: 'border 0.25s ease 0s'
+  transition: 'border 0.26s ease 0s'
 });
 
 export const StyledDropdownItemContentWrapper = styled('div', {
@@ -48,6 +48,7 @@ export const StyledDropdownItemDescription = styled('span', {
   fontSize: '$tiny',
   color: '$$dropdownItemDescriptionColor',
   truncateText: 'calc($$dropdownMenuWidth * 0.9)',
+  transition: 'color 0.26s ease 0s',
   variants: {
     hasIcon: {
       true: {
@@ -97,7 +98,13 @@ export const StyledDropdownItem = styled(
     backfaceVisibility: 'hidden',
     $$dropdownItemShadow: '$colors$primaryShadow',
     '@motion': {
-      transition: 'none'
+      transition: 'none',
+      [`& ${StyledDropdownItemKbd}`]: {
+        transition: 'none'
+      },
+      [`& ${StyledDropdownItemDescription}`]: {
+        transition: 'none'
+      }
     },
     variants: {
       color: {
@@ -281,6 +288,9 @@ export const StyledDropdownItem = styled(
         true: {
           transition: 'none',
           [`& ${StyledDropdownItemKbd}`]: {
+            transition: 'none'
+          },
+          [`& ${StyledDropdownItemDescription}`]: {
             transition: 'none'
           }
         }

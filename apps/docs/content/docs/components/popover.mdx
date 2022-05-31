@@ -79,22 +79,24 @@ import { Popover } from '@nextui-org/react';
 
 #### Popover Props
 
-| Attribute                     | Type                                   | Description                                                                                                  | Default  |
-| ----------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------- |
-| **children**                  | `ReactNode`                            | The content of the popover. It's usually the `Popover.Trigger` and `Popover.Content`.                        | -        |
-| **placement**                 | [PopoverPlacement](#popover-placement) | The placement of the popover relative to its trigger reference.                                              | `bottom` |
-| **triggerType**               | [PopoverPlacement](#popover-placement) | Type of overlay that is opened by the trigger.                                                               | `dialog` |
-| **shouldFlip**                | `boolean`                              | Whether the popover should change its placement and flip when it's about to overflow its boundary area.      | `true`   |
-| **offset(px)**                | `number`                               | The distance or margin between the reference and popper. It is used internally to create an offset modifier. | `12`     |
-| **isOpen**                    | `boolean`                              | Whether the overlay is open by default (controlled).                                                         | -        |
-| **isBordered**                | `boolean`                              | Whether the overlay should have a border.                                                                    | `false`  |
-| **borderWeight**              | [NormalWeights](#normal-weights)       | The border weight of the bordered overlay.                                                                   | `light`  |
-| **defaultOpen**               | `boolean`                              | Whether the overlay is open by default (uncontrolled).                                                       | -        |
-| **isDismissable**             | `boolean`                              | Whether to close the overlay when the user interacts outside it.                                             | `true`   |
-| **disableShadow**             | `boolean`                              | Whether to disable the shadow.                                                                               | `false`  |
-| **isKeyboardDismissDisabled** | `boolean`                              | Whether pressing the escape key to close the overlay should be disabled.                                     | `false`  |
-| **shouldCloseOnBlur**         | `boolean`                              | Whether the overlay should close when focus is lost or moves outside it.                                     | `false`  |
-| **disableAnimation**          | `boolean`                              | Whether the popover is animated.                                                                             | `false`  |
+| Attribute                     | Type                                   | Description                                                                                                  | Default      |
+| ----------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------ |
+| **children\***                | `ReactNode[]`                          | The content of the popover. It's usually the `Popover.Trigger` and `Popover.Content`.                        | -            |
+| **placement**                 | [PopoverPlacement](#popover-placement) | The placement of the popover relative to its trigger reference.                                              | `bottom`     |
+| **triggerType**               | [TriggerType](#trigger-type)           | Type of overlay that is opened by the trigger.                                                               | `dialog`     |
+| **shouldFlip**                | `boolean`                              | Whether the popover should change its placement and flip when it's about to overflow its boundary area.      | `true`       |
+| **offset(px)**                | `number`                               | The distance or margin between the reference and popper. It is used internally to create an offset modifier. | `12`         |
+| **isOpen**                    | `boolean`                              | Whether the overlay is open by default (controlled).                                                         | -            |
+| **isBordered**                | `boolean`                              | Whether the overlay should have a border.                                                                    | `false`      |
+| **borderWeight**              | [NormalWeights](#normal-weights)       | The border weight of the bordered overlay.                                                                   | `light`      |
+| **defaultOpen**               | `boolean`                              | Whether the overlay is open by default (uncontrolled).                                                       | -            |
+| **isDismissable**             | `boolean`                              | Whether to close the overlay when the user interacts outside it.                                             | `true`       |
+| **disableShadow**             | `boolean`                              | Whether to disable the shadow.                                                                               | `false`      |
+| **isKeyboardDismissDisabled** | `boolean`                              | Whether pressing the escape key to close the overlay should be disabled.                                     | `false`      |
+| **shouldCloseOnBlur**         | `boolean`                              | Whether the overlay should close when focus is lost or moves outside it.                                     | `false`      |
+| **disableAnimation**          | `boolean`                              | Whether the popover is animated.                                                                             | `false`      |
+| **triggerRef**                | `RefObject<HTMLElement>`               | The ref for the element which the overlay positions itself with respect to.                                  | -            |
+| **scrollRef**                 | `RefObject<HTMLElement>`               | A ref for the scrollable region within the overlay.                                                          | `overlayRef` |
 
 <Spacer y={1} />
 

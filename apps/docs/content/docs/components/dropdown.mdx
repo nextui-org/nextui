@@ -97,3 +97,83 @@ import { Dropdown } from '@nextui-org/react';
   desc="Dropdown items can include descriptions, you can use the `description` prop."
   files={dropdownContent.description}
 />
+
+<Playground
+  title="Sections"
+  desc="Dropdown supports sections in order to group options. Sections can be used by wrapping groups of Items in a Section component. Each Section takes a `title` and key prop."
+  files={dropdownContent.sections}
+/>
+
+> **A11y**: Sections without a title must provide an aria-label for accessibility.
+
+<Playground
+  title="Custom Trigger"
+  desc="Dropdown trigger can be mixed with other components like `Avatar` or `User`."
+  files={dropdownContent.customTrigger}
+/>
+
+<Playground
+  title="Disable animation"
+  highlightedLines="9"
+  desc="Disables the animation of the dropdown and its items when it is opened or closed."
+  files={dropdownContent.disableAnimation}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Dropdown Props
+
+| Attribute         | Type                                                   | Description                                                                                              | Default |
+| ----------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- | ------- |
+| **children\***    | `ReactNode[]`                                          | The content of the dropdown. It's usually the `Dropdown.Trigger`, `Dropdown.Button` and `Dropdown.Menu`. | -       |
+| **type**          | [TriggerType](#trigger-type)                           | The type of menu that the dropdown trigger opens.                                                        | `menu`  |
+| **trigger**       | [MenuTriggerType](#menu-trigger-type)                  | How the dropdown menu is triggered.                                                                      | `press` |
+| **closeOnSelect** | `boolean`                                              | Whether the Menu closes when a selection is made.                                                        | `true`  |
+| **isDisabled**    | `boolean`                                              | Whether dropdown trigger is disabled.                                                                    | `false` |
+| **PopoverProps**  | [PopoverProps](/docs/components/popover#popover-props) | Since dropdown is based on the `Popover` you can use any of the `Popover` props.                         | -       |
+
+<Spacer y={2} />
+
+#### Dropdown Events
+
+| Attribute         | Type                                                     | Description                                                                       | Default |
+| ----------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------- | ------- |
+| **PopoverEvents** | [PopoverEvents](/docs/components/popover#popover-events) | Since dropdown is based on the `Popover` you can use any of the `Popover` events. | -       |
+
+<Spacer y={2} />
+
+#### Dropdown.Trigger Props
+
+| Attribute      | Type        | Description                                                                                                                                                                | Default |
+| -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **children\*** | `ReactNode` | The dropdown trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessiblity. | -       |
+
+<Spacer y={2} />
+
+#### Dropdown.Button Props
+
+| Attribute       | Type                                                | Description                                                                           | Default |
+| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------- | ------- |
+| **ButtonProps** | [ButtonProps](/docs/components/button#button-props) | Since dropdown button is based on the `Button` you can use any of the `Button` props. | -       |
+
+<Spacer y={2} />
+
+### Dropdown types
+
+<Spacer y={1} />
+
+#### Trigger Type
+
+```ts
+type TriggerType = 'menu' | 'listbox';
+```
+
+#### Menu Trigger Type
+
+```ts
+type MenuTriggerType = 'press' | 'longPress';
+```

@@ -1,4 +1,5 @@
-import { useRef, useMemo, useState, useCallback, RefObject } from 'react';
+import { useRef, useMemo, useState, useCallback } from 'react';
+import type { RefObject } from 'react';
 import { OverlayTriggerProps } from '@react-types/overlays';
 import { mergeProps } from '@react-aria/utils';
 import { useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';

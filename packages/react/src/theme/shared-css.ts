@@ -30,6 +30,12 @@ export const cssFocusVisible = css({
   }
 });
 
+export const cssNoBlurriness = css({
+  /* Avoid blurriness */
+  transform: 'translateZ(0)',
+  backfaceVisibility: 'hidden'
+});
+
 export const sharedVisuallyHidden = css({
   border: '0px',
   clip: 'rect(0px, 0px, 0px, 0px)',

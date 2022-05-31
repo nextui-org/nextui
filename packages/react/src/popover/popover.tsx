@@ -1,39 +1,41 @@
-import React, { ReactNode } from 'react';
+import React, {
+  RefObject,
+  ReactNode,
+  RefAttributes,
+  PropsWithoutRef
+} from 'react';
 import { OverlayContainer } from '@react-aria/overlays';
-import { __DEV__ } from '../utils/assertion';
 import { PopoverContent } from './popover-content';
 import { usePopover, UsePopoverProps } from './use-popover';
 import { PopoverProvider } from './popover-context';
 import { PopoverTrigger } from './popover-trigger';
+import { __DEV__ } from '../utils/assertion';
 
 export interface PopoverProps extends UsePopoverProps {
   /**
    * The content of the popover. It is usually the `Popover.Trigger`,
    * and `Popover.Content`
    */
-  children: ReactNode | undefined;
+  children: ReactNode[];
 }
 
-const Popover = (props: PopoverProps) => {
-  const { children, ...otherProps } = props;
-  const context = usePopover(otherProps);
+const Popover = React.forwardRef(
+  (props: PopoverProps, ref: RefObject<HTMLElement>) => {
+    const { children, ...otherProps } = props;
+    const context = usePopover({ ref, ...otherProps });
 
-  const [trigger, content] = React.Children.toArray(children);
+    const [trigger, content] = React.Children.toArray(children);
 
-  const mountOverlay = context.state.isOpen || !context.exited;
+    const mountOverlay = context.state.isOpen || !context.exited;
 
-  return (
-    <PopoverProvider value={context}>
-      {trigger}
-      {mountOverlay && <OverlayContainer>{content}</OverlayContainer>}
-    </PopoverProvider>
-  );
-};
-
-type PopoverComponent<P = {}> = React.FC<P> & {
-  Trigger: typeof PopoverTrigger;
-  Content: typeof PopoverContent;
-};
+    return (
+      <PopoverProvider value={context}>
+        {trigger}
+        {mountOverlay && <OverlayContainer>{content}</OverlayContainer>}
+      </PopoverProvider>
+    );
+  }
+);
 
 if (__DEV__) {
   Popover.displayName = 'NextUI.Popover';
@@ -41,4 +43,11 @@ if (__DEV__) {
 
 Popover.toString = () => '.nextui-popover';
 
-export default Popover as PopoverComponent<PopoverProps>;
+type PopoverComponent<T, P = {}> = React.ForwardRefExoticComponent<
+  PropsWithoutRef<P> & RefAttributes<T>
+> & {
+  Trigger: typeof PopoverTrigger;
+  Content: typeof PopoverContent;
+};
+
+export default Popover as PopoverComponent<HTMLElement, PopoverProps>;
