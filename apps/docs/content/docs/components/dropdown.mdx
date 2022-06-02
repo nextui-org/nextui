@@ -130,13 +130,13 @@ import { Dropdown } from '@nextui-org/react';
 | Attribute         | Type                                                   | Description                                                                                              | Default |
 | ----------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- | ------- |
 | **children\***    | `ReactNode[]`                                          | The content of the dropdown. It's usually the `Dropdown.Trigger`, `Dropdown.Button` and `Dropdown.Menu`. | -       |
-| **type**          | [TriggerType](#trigger-type)                           | The type of menu that the dropdown trigger opens.                                                        | `menu`  |
+| **type**          | [TriggerType](#trigger-type)                           | The type of dropdown menu that the dropdown trigger opens.                                               | `menu`  |
 | **trigger**       | [MenuTriggerType](#menu-trigger-type)                  | How the dropdown menu is triggered.                                                                      | `press` |
-| **closeOnSelect** | `boolean`                                              | Whether the Menu closes when a selection is made.                                                        | `true`  |
+| **closeOnSelect** | `boolean`                                              | Whether the dropdown menu closes when a selection is made.                                               | `true`  |
 | **isDisabled**    | `boolean`                                              | Whether dropdown trigger is disabled.                                                                    | `false` |
 | **PopoverProps**  | [PopoverProps](/docs/components/popover#popover-props) | Since dropdown is based on the `Popover` you can use any of the `Popover` props.                         | -       |
 
-<Spacer y={2} />
+<Spacer y={1} />
 
 #### Dropdown Events
 
@@ -162,6 +162,105 @@ import { Dropdown } from '@nextui-org/react';
 
 <Spacer y={2} />
 
+#### Dropdown.Menu Props
+
+| Attribute                  | Type                                                                                                         | Description                                                                                             | Default   |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
+| **children\***             | [CollectionChildrentype](#collection-children-type)                                                          | The contents of the collection. It's usually the `Dropdown.Item` or `Dropdown.Section`.                 | -         |
+| **items**                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)       | Item objects in the collection.                                                                         | -         |
+| **selectedKeys**           | `all` [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The currently selected keys in the collection (controlled).                                             | -         |
+| **defaultSelectedKeys**    | `all` [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The initial selected keys in the collection (uncontrolled).                                             | -         |
+| **disabledKeys**           | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)       | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
+| **selectionMode**          | [SelectionModeType](#selection-mode-type)                                                                    | The type of selection that is allowed in the collection.                                                | -         |
+| **isVirtualized**          | `boolean`                                                                                                    | Whether the dropdown menu uses virtual scrolling.                                                       | `false`   |
+| **disallowEmptySelection** | `boolean`                                                                                                    | Whether the collection allows empty selection.                                                          | `false`   |
+| **autoFocus**              | `boolean` [FocusStrategyType](#focus-strategy-type)                                                          | Where the focus should be set.                                                                          | `false`   |
+| **shouldFocusWrap**        | `boolean`                                                                                                    | Whether keyboard navigation is circular.                                                                | `false`   |
+| **keyboardDelegate**       | [KeyboardDelegateType](#keyboard-delegate-type)                                                              | An optional keyboard delegate implementation for type to select, to override the default.               | -         |
+| **color**                  | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items color                                                                           | `default` |
+| **textColor**              | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items text color                                                                      | `default` |
+| **dropdownVariant**        | [DropdownVariant](#dropdown-variant)                                                                         | The dropdown menu items variantion                                                                      | `flat`    |
+| **css**                    | `Stitches.CSS`                                                                                               | Override Default CSS style.                                                                             | -         |
+| **as**                     | `keyof JSX.IntrinsicElements`                                                                                | Changes which tag component outputs.                                                                    | `ul`      |
+
+<Spacer y={1} />
+
+#### Dropdown.Menu Events
+
+| Attribute             | Type                                                                            | Description                                        | Default |
+| --------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| **onAction**          | <Code>(key: [Key](https://reactjs.org/docs/lists-and-keys.html)) => void</Code> | Handler that is called when an item is selected.   | -       |
+| **onSelectionChange** | <Code>(keys:[SelectionType](#selection-type)) => any</Code>                     | Handler that is called when the selection changes. | -       |
+
+<Spacer y={1} />
+
+#### Dropdown.Menu Accessibility Props
+
+| Attribute            | Type     | Description                                                                                                        | Default |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
+| **id**               | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
+| **aria-label**       | `string` | Defines a string value that labels the current element                                                             | -       |
+| **aria-labelledby**  | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
+| **aria-describedby** | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
+| **aria-details**     | `string` | Identifies the element (or elements) that provide a detailed, extended description for the object.                 | -       |
+
+<Spacer y={2} />
+
+#### Dropdown.Item Props
+
+| Attribute           | Type                                                | Description                                                             | Default   |
+| ------------------- | --------------------------------------------------- | ----------------------------------------------------------------------- | --------- |
+| **key**             | [Key](https://reactjs.org/docs/lists-and-keys.html) | The unique key for the menu item.                                       | `false`   |
+| **command**         | `boolean`                                           | Right-aligned label text content, useful for displaying hotkeys.        | -         |
+| **description**     | `boolean`                                           | Description text element inside the dropdown menu item.                 | -         |
+| **icon**            | `ReactNode`                                         | The icon to render before the dropdown menu item's label.               | -         |
+| **isSelected**      | `boolean`                                           | Whether the dropdown item is selected.                                  | `false`   |
+| **isDisabled**      | `boolean`                                           | Whether the dropdown item is disabled.                                  | `false`   |
+| **isVirtualized**   | `boolean`                                           | Whether the dropdown item is contained in a virtual scrolling dropdown. | `false`   |
+| **closeOnSelect**   | `boolean`                                           | Whether the dropdown should close when the dropdown item is selected.   | `true`    |
+| **withDivider**     | `boolean`                                           | Whether the dropdown item should have a border on top                   | `false`   |
+| **dividerWeight**   | [NormalWeight](#normal-weight)                      | The dropdown item divider height                                        | `light`   |
+| **color**           | [SimpleColors](#simple-colors)                      | The dropdown item color                                                 | `default` |
+| **textColor**       | [SimpleColors](#simple-colors)                      | The dropdown item text color                                            | `default` |
+| **dropdownVariant** | [DropdownVariant](#dropdown-variant)                | The dropdown item variantion                                            | `flat`    |
+| **css**             | `Stitches.CSS`                                      | Override Default CSS style.                                             | -         |
+| **as**              | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                                    | `li`      |
+
+<Spacer y={1} />
+
+#### Dropdown.Item Accessibility Props
+
+| Attribute      | Type     | Description                                            | Default |
+| -------------- | -------- | ------------------------------------------------------ | ------- |
+| **aria-label** | `string` | A screen reader only label for the dropdown menu item. | -       |
+
+<Spacer y={1} />
+
+#### Dropdown.Item Events
+
+| Attribute    | Type                                                                            | Description                                                                | Default |
+| ------------ | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------- |
+| **onAction** | <Code>(key: [Key](https://reactjs.org/docs/lists-and-keys.html)) => void</Code> | Handler that is called when the user activates the item.                   | -       |
+| **onClose**  | <Code>() => void</Code>                                                         | Handler that is called when the menu should close after selecting an item. | -       |
+
+<Spacer y={2} />
+
+#### Dropdown.Section Props
+
+| Attribute   | Type        | Description                  | Default |
+| ----------- | ----------- | ---------------------------- | ------- |
+| **heading** | `ReactNode` | The heading for the section. | -       |
+
+<Spacer y={1} />
+
+#### Dropdown.Section Accessibility Props
+
+| Attribute      | Type     | Description                                                                 | Default |
+| -------------- | -------- | --------------------------------------------------------------------------- | ------- |
+| **aria-label** | `string` | An accessibility label for the section. Required if heading is not present. | -       |
+
+<Spacer y={2} />
+
 ### Dropdown types
 
 <Spacer y={1} />
@@ -176,4 +275,88 @@ type TriggerType = 'menu' | 'listbox';
 
 ```ts
 type MenuTriggerType = 'press' | 'longPress';
+```
+
+#### Collection Element Type
+
+```ts
+type CollectionElement<T> = SectionElement<T> | ItemElement<T>;
+```
+
+#### Collection Children Type
+
+```ts
+type CollectionChildren<T> =
+  | CollectionElement<T>
+  | CollectionElement<T>[]
+  | ((item: T) => CollectionElement<T>);
+```
+
+#### Focus Strategy Type
+
+```ts
+type FocusStrategyType = 'first' | 'last';
+```
+
+#### Keyboard Delegate Type
+
+```ts
+import { Key } from 'react';
+
+// Returns the key visually below the given one, or null for none.
+getKeyBelow(key: Key): Key
+// Returns the key visually above the given one, or null for none.
+getKeyAbove(key: Key): Key
+// Returns the key visually to the left of the given one, or null for none.
+getKeyLeftOf(key: Key): Key
+// Returns the key visually to the right of the given one, or null for none.
+getKeyRightOf(key: Key): Key
+// Returns the key visually one page below the given one, or null for none.
+getKeyPageBelow(key: Key): Key
+// Returns the key visually one page above the given one, or null for none.
+getKeyPageAbove(key: Key): Key
+// Returns the first key, or null for none.
+getFirstKey(key?: Key, global?: boolean): Key
+// Returns the last key, or null for none.
+getLastKey(key?: Key, global?: boolean): Key
+// Returns the next key after fromKey that matches the given search string, or null for none.
+getKeyForSearch(search: string, fromKey?: Key): Key
+```
+
+#### Selection Mode Type
+
+```ts
+type SelectionModeType = 'none' | 'single' | 'multiple';
+```
+
+#### Selection Type
+
+```ts
+import { Key } from 'react';
+
+type SelectionType = 'all' | Set<Key>;
+```
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'error';
+```
+
+#### Dropdown Variants
+
+```ts
+type DropdownVariants = 'flat' | 'light' | 'solid' | 'shadow';
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = 'light' | 'normal' | 'bold' | 'extrabold' | 'black';
 ```

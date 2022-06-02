@@ -6,10 +6,10 @@ import DropdownButton from './dropdown-button';
 import Dropdown from './dropdown';
 
 Dropdown.Trigger = DropdownTrigger;
+Dropdown.Button = DropdownButton;
 Dropdown.Menu = DropdownMenu;
 Dropdown.Section = Section;
 Dropdown.Item = DropdownItemBase;
-Dropdown.Button = DropdownButton;
 
 // export styled components
 export {
