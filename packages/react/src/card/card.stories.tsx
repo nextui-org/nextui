@@ -243,7 +243,7 @@ export const AbsImgWithHeaderFooter = () => {
             blur
             css={{
               position: 'absolute',
-              bgBlur: '#0f1114',
+              bgBlur: '#0f111466',
               borderTop: '$borderWeights$light solid $gray500',
               bottom: 0,
               zIndex: 1

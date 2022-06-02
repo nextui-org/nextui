@@ -161,7 +161,7 @@ export const utils = {
   }),
   bgBlur: (value) => ({
     bf: 'saturate(180%) blur(10px)',
-    bg: `${value}66`
+    bg: value
   }),
   bgColor: (value) => ({
     backgroundColor: value
@@ -279,6 +279,12 @@ export const utils = {
     backgroundImage: `linear-gradient(${value})`,
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent'
+  }),
+  truncateText: (value: Stitches.PropertyValue<'width'>) => ({
+    maxWidth: value,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
   })
 };
 ```

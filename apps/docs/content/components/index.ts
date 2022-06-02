@@ -23,6 +23,7 @@ import containerContent from './container';
 import gridContent from './grid';
 import spacerContent from './spacer';
 import popoverContent from './popover';
+import dropdownContent from './dropdown';
 
 export default {
   tableContent,
@@ -49,5 +50,6 @@ export default {
   containerContent,
   gridContent,
   spacerContent,
-  popoverContent
+  popoverContent,
+  dropdownContent
 };

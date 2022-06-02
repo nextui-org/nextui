@@ -1,8 +1,5 @@
-import {
-  styled,
-  sharedVisuallyHidden,
-  VariantProps
-} from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { sharedVisuallyHidden } from '../theme/shared-css';
 
 const baseInputValues = {
   $$inputColor: '$colors$accents0',

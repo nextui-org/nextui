@@ -1,6 +1,9 @@
 import { globalCss } from '@nextui-org/react';
 
 export default globalCss({
+  html: {
+    scrollPaddingTop: '80px'
+  },
   // css baseline overrides
   blockquote: {
     mb: '$14 !important',

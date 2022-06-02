@@ -116,7 +116,9 @@ export const defaultTokens = {
       'background 0.25s ease 0s, color 0.25s ease 0s, border-color 0.25s ease 0s, box-shadow 0.25s ease 0s, transform 0.25s ease 0s, opacity 0.25s ease 0s',
     avatar: 'box-shadow 0.25s ease 0s, opacity 0.25s ease 0s',
     link: 'opacity 0.25s ease 0s, background 0.25s ease 0s',
-    card: 'transform 0.25s ease 0s, box-shadow 0.25s ease 0s'
+    card: 'transform 0.25s ease 0s, box-shadow 0.25s ease 0s',
+    dropdownItem:
+      'background 0.25s ease, transform 0.25s ease, color 0.15s ease, box-shadow 0.25s ease 0s'
   },
   breakpoints: {
     xs: '650px',
@@ -187,6 +189,17 @@ export const defaultColors = {
   errorSolidHover: '$red700',
   errorSolidContrast: '$white',
   errorShadow: '$red500',
+
+  neutralLight: '$gray100',
+  neutralLightHover: '$gray200',
+  neutralLightActive: '$gray300',
+  neutralLightContrast: '$gray800',
+  neutral: '$gray600',
+  neutralBorder: '$gray400',
+  neutralBorderHover: '$gray500',
+  neutralSolidHover: '$gray600',
+  neutralSolidContrast: '$white',
+  neutralShadow: '$gray400',
 
   gradient:
     'linear-gradient(112deg, $cyan600 -63.59%, $pink600 -20.3%, $blue600 70.46%)',
@@ -321,7 +334,7 @@ export const defaultUtils = {
   }),
   bgBlur: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
     bf: 'saturate(180%) blur(10px)',
-    bg: `${value}66`
+    bg: value
   }),
   bgColor: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
     backgroundColor: value
@@ -433,6 +446,12 @@ export const defaultUtils = {
   }),
   tdl: (value: Stitches.PropertyValue<'textDecorationLine'>) => ({
     textDecorationLine: value
+  }),
+  truncateText: (value: Stitches.PropertyValue<'width'>) => ({
+    maxWidth: value,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
   }),
   textGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
     backgroundImage: `linear-gradient(${value})`,

@@ -1,8 +1,5 @@
-import {
-  styled,
-  VariantProps,
-  cssFocusVisible
-} from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { cssFocusVisible } from '../theme/shared-css';
 
 export const StyledTableHeaderRow = styled('tr', {
   ov: 'visible'

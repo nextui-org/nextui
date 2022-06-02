@@ -1,4 +1,5 @@
-import { styled, keyframes, cssFocusVisible } from '../theme/stitches.config';
+import { styled, keyframes, VariantProps } from '../theme/stitches.config';
+import { cssFocusVisible } from '../theme/shared-css';
 
 export const appearanceIn = keyframes({
   '0%': {
@@ -35,6 +36,7 @@ export const StyledPopoverContentContainer = styled(
     $$popoverBorderRadius: '$radii$lg',
     $$popoverBackground: '$colors$backgroundContrast',
     $$popoverBoxShadow: '$shadows$md',
+    $$popoverBorderColor: '$colors$border',
 
     boxShadow: '$$popoverBoxShadow',
     outline: 'none' /* Hide focus outline */,
@@ -69,6 +71,45 @@ export const StyledPopoverContentContainer = styled(
       animationName: appearanceOut,
       animationTimingFunction: 'ease-in',
       animationDuration: '60ms'
+    },
+    variants: {
+      disableShadow: {
+        true: {
+          boxShadow: 'none'
+        }
+      },
+      isBordered: {
+        true: {
+          borderStyle: 'solid',
+          borderColor: '$$popoverBorderColor'
+        }
+      },
+      borderWeight: {
+        light: {
+          bw: '$light',
+          $$popoverBorderWeight: '$borderWeights$light'
+        },
+        normal: {
+          bw: '$normal',
+          $$popoverBorderWeight: '$borderWeights$normal'
+        },
+        bold: {
+          bw: '$bold',
+          $$popoverBorderWeight: '$borderWeights$bold'
+        },
+        extrabold: {
+          bw: '$extrabold',
+          $$popoverBorderWeight: '$borderWeights$extrabold'
+        },
+        black: {
+          bw: '$black',
+          $$popoverBorderWeight: '$borderWeights$black'
+        }
+      }
+    },
+    defaultVariants: {
+      isBordered: false,
+      borderWeight: 'light'
     }
   },
   cssFocusVisible
@@ -79,3 +120,7 @@ export const StyledPopoverContent = styled('div', {
   transform: 'translateZ(0)',
   backfaceVisibility: 'hidden'
 });
+
+export type PopoverContentVariantsProps = VariantProps<
+  typeof StyledPopoverContentContainer
+>;

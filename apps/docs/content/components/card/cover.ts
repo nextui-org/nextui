@@ -93,7 +93,7 @@ export const Card4 = () => (
       blur
       css={{
         position: "absolute",
-        bgBlur: "#ffffff",
+        bgBlur: "#ffffff66",
         borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
         bottom: 0,
         zIndex: 1,
@@ -153,7 +153,7 @@ export const Card5 = () => (
       blur
       css={{
         position: "absolute",
-        bgBlur: "#0f1114",
+        bgBlur: "#0f111466",
         borderTop: "$borderWeights$light solid $gray700",
         bottom: 0,
         zIndex: 1,

@@ -1,8 +1,5 @@
-import {
-  styled,
-  VariantProps,
-  cssFocusVisible
-} from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { cssFocusVisible, sharedDialogPopup } from '../theme/shared-css';
 import { StyledDrip } from '../utils/drip';
 
 export const StyledButton = styled(
@@ -88,8 +85,9 @@ export const StyledButton = styled(
         xs: {
           $$buttonPadding: '$space$3',
           $$buttonBorderRadius: '$radii$xs',
+          $$buttonHeight: '$space$10',
           px: '$3',
-          height: '$10',
+          height: '$$buttonHeight',
           lh: '$space$10',
           width: 'auto',
           minWidth: '$20',
@@ -98,8 +96,9 @@ export const StyledButton = styled(
         sm: {
           $$buttonPadding: '$space$5',
           $$buttonBorderRadius: '$radii$sm',
+          $$buttonHeight: '$space$12',
           px: '$5',
-          height: '$12',
+          height: '$$buttonHeight',
           lh: '$space$14',
           width: 'auto',
           minWidth: '$36',
@@ -108,8 +107,9 @@ export const StyledButton = styled(
         md: {
           $$buttonPadding: '$space$7',
           $$buttonBorderRadius: '$radii$md',
+          $$buttonHeight: '$space$14',
           px: '$7',
-          height: '$14',
+          height: '$$buttonHeight',
           lh: '$space$14',
           width: 'auto',
           minWidth: '$48',
@@ -118,8 +118,9 @@ export const StyledButton = styled(
         lg: {
           $$buttonPadding: '$space$9',
           $$buttonBorderRadius: '$radii$base',
+          $$buttonHeight: '$space$16',
           px: '$9',
-          height: '$15',
+          height: '$$buttonHeight',
           lh: '$space$15',
           width: 'auto',
           minWidth: '$60',
@@ -128,8 +129,9 @@ export const StyledButton = styled(
         xl: {
           $$buttonPadding: '$space$10',
           $$buttonBorderRadius: '$radii$xl',
+          $$buttonHeight: '$space$18',
           px: '$10',
-          height: '$17',
+          height: '$$buttonHeight',
           lh: '$space$17',
           width: 'auto',
           minWidth: '$72',
@@ -200,6 +202,13 @@ export const StyledButton = styled(
       },
       isHovered: {
         true: {}
+      },
+      isChildLess: {
+        true: {
+          p: 0,
+          width: '$$buttonHeight',
+          height: '$$buttonHeight'
+        }
       }
     },
     compoundVariants: [
@@ -211,9 +220,10 @@ export const StyledButton = styled(
           transform: 'scale($$buttonPressedScale)'
         }
       },
-      // size / auto
+      // size / auto / isChildLess
       {
         auto: true,
+        isChildLess: false,
         size: 'xs',
         css: {
           px: '$5',
@@ -222,6 +232,7 @@ export const StyledButton = styled(
       },
       {
         auto: true,
+        isChildLess: false,
         size: 'sm',
         css: {
           px: '$8',
@@ -230,6 +241,7 @@ export const StyledButton = styled(
       },
       {
         auto: true,
+        isChildLess: false,
         size: 'md',
         css: {
           px: '$9',
@@ -238,6 +250,7 @@ export const StyledButton = styled(
       },
       {
         auto: true,
+        isChildLess: false,
         size: 'lg',
         css: {
           px: '$10',
@@ -246,6 +259,7 @@ export const StyledButton = styled(
       },
       {
         auto: true,
+        isChildLess: false,
         size: 'xl',
         css: {
           px: '$11',
@@ -805,7 +819,8 @@ export const StyledButton = styled(
       size: 'md'
     }
   },
-  cssFocusVisible
+  cssFocusVisible,
+  sharedDialogPopup
 );
 
 export type ButtonVariantsProps = VariantProps<typeof StyledButton>;
