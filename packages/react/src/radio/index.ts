@@ -1,23 +1,28 @@
 import Radio from './radio';
+import RadioDesc from './radio-desc';
 import RadioGroup from './radio-group';
-import { StyledRadioDescription as RadioDescription } from './radio.styles';
 
 Radio.Group = RadioGroup;
-Radio.Description = RadioDescription;
-Radio.Desc = RadioDescription;
+Radio.Desc = RadioDesc;
+Radio.Description = RadioDesc;
 
 export {
-  StyledRadioInput,
   StyledRadioLabel,
+  StyledRadioText,
   StyledRadioPoint,
-  StyledRadio,
+  StyledRadioContainer,
+  StyledRadioDescription,
   StyledRadioGroup,
-  StyledRadioDescription
+  StyledRadioGroupContainer
 } from './radio.styles';
 export type {
-  RadioVariantsProps,
   RadioLabelVariantsProps,
-  RadioGroupVariantsProps
+  RadioTexVariantsProps,
+  RadioPointVariantsProps,
+  RadioContainerVariantsProps,
+  RadioDescriptionVariantsProps,
+  RadioGroupVariantsProps,
+  RadioGroupContainerVariantsProps
 } from './radio.styles';
 
 export default Radio;

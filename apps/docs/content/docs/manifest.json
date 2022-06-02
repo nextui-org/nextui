@@ -153,6 +153,7 @@
                         },
                         {
                             "title": "Radio",
+                            "updated": true,
                             "keywords": "check, radio, select",
                             "path": "/docs/components/radio.mdx"
                         },

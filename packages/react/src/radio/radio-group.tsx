@@ -1,91 +1,52 @@
-import React, { useEffect, useMemo, useState, ReactNode } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { RadioContext } from './radio-context';
-import { NormalSizes, SimpleColors } from '../utils/prop-types';
-import { ReactRef } from '../utils/refs';
+import React from 'react';
+import clsx from '../utils/clsx';
 import { useDOMRef } from '../utils/dom';
 import { __DEV__ } from '../utils/assertion';
-import { StyledRadioGroup, RadioGroupVariantsProps } from './radio.styles';
-import { CSS } from '../theme/stitches.config';
+import { useRadioGroup } from './use-radio-group';
+import { RadioGroupProvider } from './radio-context';
+import { StyledRadioGroup, StyledRadioGroupContainer } from './radio.styles';
+import type { ReactRef } from '../utils/refs';
+import type { CSS } from '../theme/stitches.config';
+import type { UseRadioGroupProps } from './use-radio-group';
 
-interface Props {
-  children?: ReactNode;
-  value?: string | number;
-  initialValue?: string | number;
-  disabled?: boolean;
-  color?: SimpleColors;
-  textColor?: SimpleColors;
-  size?: NormalSizes;
-  onChange?: (value: string | number) => void;
+interface Props extends UseRadioGroupProps {
+  className?: string;
+  children: React.ReactNode;
+  as?: keyof JSX.IntrinsicElements;
 }
 
-const defaultProps = {
-  disabled: false,
-  size: 'md' as NormalSizes | number,
-  color: 'default' as SimpleColors,
-  textColor: 'default' as SimpleColors
-};
-
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-
-export type RadioGroupProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  RadioGroupVariantsProps & { css?: CSS };
+export type RadioGroupProps = Props & { css?: CSS };
 
 export const RadioGroup = React.forwardRef(
   (props: RadioGroupProps, ref: ReactRef<HTMLDivElement>) => {
-    const {
-      disabled,
-      onChange,
-      value,
-      size,
-      color,
-      textColor,
-      children,
-      initialValue,
-      ...otherProps
-    } = props;
-
-    const [selfVal, setSelfVal] = useState<string | number | undefined>(
-      initialValue
-    );
+    const { as, css, className, children, label, ...otherProps } = props;
 
     const domRef = useDOMRef(ref);
 
-    const updateState = (nextValue: string | number) => {
-      setSelfVal(nextValue);
-      onChange && onChange(nextValue);
-    };
-
-    const providerValue = useMemo(() => {
-      return {
-        updateState,
-        disabledAll: disabled,
-        inGroup: true,
-        size,
-        color,
-        textColor,
-        value: selfVal
-      };
-    }, [disabled, selfVal]);
-
-    useEffect(() => {
-      if (value === undefined) return;
-      setSelfVal(value);
-    }, [value]);
+    const context = useRadioGroup({ ...otherProps, label });
 
     return (
-      <RadioContext.Provider value={providerValue}>
-        <StyledRadioGroup
-          ref={domRef}
-          role="radiogroup"
-          size={size}
-          {...otherProps}
+      <StyledRadioGroup
+        ref={domRef}
+        className={clsx('nextui-radio-group', className)}
+        as={as}
+        css={css as any}
+        size={context.size}
+        {...context.radioGroupProps}
+      >
+        {label && (
+          <label className="nextui-radio-group-label" {...context.labelProps}>
+            {label}
+          </label>
+        )}
+        <StyledRadioGroupContainer
+          className="nextui-radio-group-items"
+          role="presentation"
+          isRow={context.isRow}
         >
-          {children}
-        </StyledRadioGroup>
-      </RadioContext.Provider>
+          <RadioGroupProvider value={context}>{children}</RadioGroupProvider>
+        </StyledRadioGroupContainer>
+      </StyledRadioGroup>
     );
   }
 );
@@ -96,4 +57,4 @@ if (__DEV__) {
 
 RadioGroup.toString = () => '.nextui-radio-group';
 
-export default withDefaults(RadioGroup, defaultProps);
+export default RadioGroup;
