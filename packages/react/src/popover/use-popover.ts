@@ -1,12 +1,35 @@
 import { useRef, useMemo, useState, useCallback } from 'react';
+import type { RefObject } from 'react';
 import { OverlayTriggerProps } from '@react-types/overlays';
+import { mergeProps } from '@react-aria/utils';
 import { useOverlayPosition, useOverlayTrigger } from '@react-aria/overlays';
 import { useOverlayTriggerState } from '@react-stately/overlays';
 import { mergeRefs } from '../utils/refs';
 import { PopoverPlacement, getAriaPlacement } from './utils';
+import { PopoverContentVariantsProps } from './popover.styles';
 
-export interface UsePopoverProps extends OverlayTriggerProps {
+export interface UsePopoverProps
+  extends OverlayTriggerProps,
+    PopoverContentVariantsProps {
+  ref?: RefObject<HTMLElement>;
+  /**
+   * The ref for the element which the overlay positions itself with respect to.
+   */
+  triggerRef?: RefObject<HTMLElement>;
+  /**
+   * A ref for the scrollable region within the overlay.
+   * @default overlayRef
+   */
+  scrollRef?: RefObject<HTMLElement>;
+  /**
+   * The placement of the element with respect to its anchor element.
+   * @default 'bottom'
+   */
   placement?: PopoverPlacement;
+  /**
+   * Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely.
+   * @default true
+   */
   shouldFlip?: boolean;
   offset?: number;
   /** Handler that is called when the overlay should close. */
@@ -45,9 +68,15 @@ export interface UsePopoverProps extends OverlayTriggerProps {
  */
 export function usePopover(props: UsePopoverProps = {}) {
   const {
+    ref,
+    triggerRef: triggerRefProp,
+    scrollRef,
     isOpen,
     defaultOpen,
     onOpenChange,
+    isBordered,
+    borderWeight,
+    disableShadow,
     shouldFlip = true,
     offset = 12,
     placement = 'bottom',
@@ -60,8 +89,11 @@ export function usePopover(props: UsePopoverProps = {}) {
     shouldCloseOnInteractOutside
   } = props;
 
-  const triggerRef = useRef<HTMLElement>(null);
-  const overlayRef = useRef<HTMLElement>(null);
+  const domRef = useRef<HTMLElement>(null);
+  const domTriggerRef = useRef<HTMLElement>(null);
+
+  const overlayRef = ref || domRef;
+  const triggerRef = triggerRefProp || domTriggerRef;
 
   const state = useOverlayTriggerState({
     isOpen,
@@ -103,6 +135,7 @@ export function usePopover(props: UsePopoverProps = {}) {
   const { overlayProps: positionProps } = useOverlayPosition({
     isOpen: state.isOpen,
     targetRef: triggerRef,
+    scrollRef,
     placement: overlayPlacement,
     overlayRef,
     shouldFlip,
@@ -111,13 +144,15 @@ export function usePopover(props: UsePopoverProps = {}) {
 
   const getTriggerProps = useCallback(
     (props = {}, _ref = null) => {
+      const realTriggerProps = triggerRefProp?.current
+        ? mergeProps(triggerProps, props)
+        : mergeProps(props, triggerProps);
       return {
-        ...props,
-        ...triggerProps,
+        ...realTriggerProps,
         ref: mergeRefs(triggerRef, _ref)
       };
     },
-    [triggerRef, triggerProps]
+    [triggerRef, triggerRefProp, triggerProps]
   );
 
   const getPopoverProps = useCallback(
@@ -139,9 +174,12 @@ export function usePopover(props: UsePopoverProps = {}) {
     overlayRef,
     triggerRef,
     placement,
+    disableShadow,
     disableAnimation,
     shouldCloseOnBlur,
     isDismissable,
+    isBordered,
+    borderWeight,
     isKeyboardDismissDisabled,
     shouldCloseOnInteractOutside,
     isOpen: state.isOpen,

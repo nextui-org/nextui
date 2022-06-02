@@ -1,9 +1,5 @@
-import {
-  styled,
-  VariantProps,
-  sharedFocus,
-  keyframes
-} from '../theme/stitches.config';
+import { styled, VariantProps, keyframes } from '../theme/stitches.config';
+import { sharedFocus } from '../theme/shared-css';
 
 const paginationAnimation = keyframes({
   '0%': {

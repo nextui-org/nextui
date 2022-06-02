@@ -2,7 +2,6 @@
     "extends": ["../../.eslintrc.json"],
     "ignorePatterns": ["!**/*"],
     "overrides": [
-        
       {
         "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
         "parserOptions": {
@@ -10,12 +9,14 @@
           "ecmaFeatures": {
             "jsx": true
           }
-        },
-        "rules": {}
+        }
       },
       {
         "files": ["*.ts", "*.tsx"],
-        "rules": {}
+        "rules": {
+            "react/jsx-uses-react": "off",
+            "react/react-in-jsx-scope": "off"
+        }
       },
       {
         "files": ["*.js", "*.jsx"],

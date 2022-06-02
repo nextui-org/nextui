@@ -2,10 +2,14 @@ import React, { useMemo, PropsWithoutRef, RefAttributes } from 'react';
 import { useFocusRing } from '@react-aria/focus';
 import { useButton } from '@react-aria/button';
 import { useHover } from '@react-aria/interactions';
-import { PressEvents, PressEvent, FocusableProps } from '@react-types/shared';
-import { AriaButtonProps } from '@react-types/button';
 import { mergeProps } from '@react-aria/utils';
-
+import type {
+  PressEvents,
+  PressEvent,
+  FocusableProps
+} from '@react-types/shared';
+import type { AriaButtonProps } from '@react-types/button';
+import type { FocusRingAria } from '@react-aria/focus';
 import useWarning from '../use-warning';
 import ButtonDrip from '../utils/drip';
 import { CSS } from '../theme/stitches.config';
@@ -38,6 +42,8 @@ export interface Props extends PressEvents, FocusableProps, AriaButtonProps {
   as?: keyof JSX.IntrinsicElements;
   className?: string;
   children?: React.ReactNode | undefined;
+  iconLeftCss?: CSS;
+  iconRightCss?: CSS;
 }
 
 const defaultProps = {
@@ -54,13 +60,27 @@ const defaultProps = {
 
 type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
 
+interface IFocusRingAria extends FocusRingAria {
+  focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof ButtonProps>;
+}
+
 export type ButtonProps = Props &
   NativeAttrs &
-  Omit<ButtonVariantsProps, 'isPressed' | 'isHovered'> & { css?: CSS };
+  Omit<ButtonVariantsProps, 'isPressed' | 'isHovered' | 'isChildLess'> & {
+    css?: CSS;
+  };
 
 const Button = React.forwardRef(
   (
-    { onClick, onPress, as, css, ...btnProps }: ButtonProps,
+    {
+      onClick,
+      onPress,
+      as,
+      css,
+      iconLeftCss,
+      iconRightCss,
+      ...btnProps
+    }: ButtonProps,
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
     const groupConfig = useButtonGroupContext();
@@ -121,18 +141,8 @@ const Button = React.forwardRef(
     );
 
     const { hoverProps, isHovered } = useHover({ isDisabled: disabled });
-    const {
-      isFocused,
-      isFocusVisible,
-      focusProps
-    }: {
-      isFocused: boolean;
-      isFocusVisible: boolean;
-      focusProps: Omit<
-        React.HTMLAttributes<HTMLButtonElement>,
-        keyof ButtonProps
-      >;
-    } = useFocusRing({ autoFocus });
+    const { isFocused, isFocusVisible, focusProps }: IFocusRingAria =
+      useFocusRing({ autoFocus });
 
     const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
       false,
@@ -146,6 +156,7 @@ const Button = React.forwardRef(
       );
     }
     const hasIcon = icon || iconRight;
+    const isChildLess = React.Children.count(children) === 0;
     const isRight = Boolean(iconRight);
 
     const getState = useMemo(() => {
@@ -153,6 +164,11 @@ const Button = React.forwardRef(
       if (isHovered) return 'hovered';
       return disabled ? 'disabled' : 'ready';
     }, [disabled, isHovered, isPressed]);
+
+    const getIconCss = useMemo<any>(() => {
+      if (isRight) return iconRightCss;
+      return iconLeftCss;
+    }, [isRight, iconRightCss, iconLeftCss]);
 
     return (
       <StyledButton
@@ -166,6 +182,7 @@ const Button = React.forwardRef(
         bordered={bordered || ghost}
         data-state={getState}
         animated={animated}
+        isChildLess={isChildLess}
         isPressed={isPressed}
         isHovered={isHovered || (ghost && isFocused)}
         isFocusVisible={isFocusVisible && !disabled}
@@ -185,6 +202,7 @@ const Button = React.forwardRef(
             isSingle
             isAuto={auto}
             isRight={isRight}
+            css={getIconCss}
             isGradientButtonBorder={
               props.color === 'gradient' && (bordered || ghost)
             }
@@ -197,6 +215,7 @@ const Button = React.forwardRef(
               isSingle={false}
               isAuto={auto}
               isRight={isRight}
+              css={getIconCss}
               isGradientButtonBorder={
                 props.color === 'gradient' && (bordered || ghost)
               }

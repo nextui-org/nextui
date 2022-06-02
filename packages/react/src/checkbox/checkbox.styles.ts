@@ -1,4 +1,5 @@
-import { styled, cssFocusVisible } from '../theme/stitches.config';
+import { styled } from '../theme/stitches.config';
+import { cssFocusVisible } from '../theme/shared-css';
 import type { VariantProps } from '../theme/stitches.config';
 
 export const StyledCheckboxLabel = styled('label', {

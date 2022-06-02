@@ -265,7 +265,12 @@ export const Icons = () => {
         Right Icon
       </Button>
       <Spacer y={0.5} />
-      <Button auto icon={<Camera fill="currentColor" />}>
+      <Button
+        auto
+        bordered
+        color="gradient"
+        icon={<Camera fill="currentColor" />}
+      >
         Left Icon
       </Button>
       <Spacer y={0.5} />

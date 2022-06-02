@@ -1,4 +1,5 @@
-import { styled, sharedFocus, VariantProps } from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { sharedFocus } from '../theme/shared-css';
 
 export const StyledSnippet = styled('div', {
   display: 'flex',

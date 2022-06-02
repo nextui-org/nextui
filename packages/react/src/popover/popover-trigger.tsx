@@ -12,17 +12,20 @@ import { __DEV__ } from '../utils/assertion';
  */
 export const PopoverTrigger = (props: React.PropsWithChildren<{}>) => {
   const { state, triggerRef, getTriggerProps } = usePopoverContext();
+  const { children, ...otherProps } = props;
 
   const onPress = () => state.open();
 
   const { buttonProps } = useButton(
     {
-      onPress
+      onPress,
+      ...otherProps
     },
     triggerRef
   );
+
   // enforce a single child
-  const child: any = React.Children.only(props.children);
+  const child: any = React.Children.only(children);
 
   // validates if contains a NextUI Button as a child
   const [, triggerChildren] = pickChild(props.children, Button);
@@ -31,7 +34,10 @@ export const PopoverTrigger = (props: React.PropsWithChildren<{}>) => {
   return React.cloneElement(
     child,
     getTriggerProps(
-      mergeProps(child.props, hasNextUIButton ? { onPress } : buttonProps),
+      mergeProps(
+        child.props,
+        hasNextUIButton ? { onPress, ...otherProps } : buttonProps
+      ),
       child.ref
     )
   );
