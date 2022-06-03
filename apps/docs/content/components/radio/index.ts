@@ -6,9 +6,10 @@ import labelColor from './labelColor';
 import squared from './squared';
 import description from './description';
 import row from './row';
-import noAnimation from './noAnimation';
+import disableAnimation from './disableAnimation';
 import controlledVsUncontrolled from './controlled-vs-uncontrolled';
 import events from './events';
+import invalid from './invalid';
 
 export default {
   default_radio,
@@ -19,7 +20,8 @@ export default {
   squared,
   description,
   row,
-  noAnimation,
+  disableAnimation,
   controlledVsUncontrolled,
+  invalid,
   events
 };

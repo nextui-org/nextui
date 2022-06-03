@@ -93,7 +93,7 @@ export default function App() {
       </Grid>
       <Grid xs={12}>
         <Radio.Group
-          row
+          isRow
           size="sm"
           value={selectedColor}
           onChange={setSelectedColor}
