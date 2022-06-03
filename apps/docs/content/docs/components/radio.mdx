@@ -78,7 +78,7 @@ import { Radio } from '@nextui-org/react';
 <Playground
   title="Row"
   overflow="auto"
-  desc="You can change the `Radio.Group` direction with `isRow` prop."
+  desc="Radio groups are vertically oriented by default. The `orientation` prop can be used to change the orientation to horizontal."
   files={radioContent.row}
 />
 
@@ -108,12 +108,10 @@ import { Radio } from '@nextui-org/react';
 
 ### Keyboard Interactions
 
-| Key                   | Description                                                 |
-| --------------------- | ----------------------------------------------------------- |
-| <kbd>ArrowDown</kbd>  | When focus is on an item, moves focus to the next item.     |
-| <kbd>ArrowUp</kbd>    | When focus is on an item, moves focus to the previous item. |
-| <kbd>ArrowLeft</kbd>  | When focus is on an item, moves focus to the previous item. |
-| <kbd>ArrowRight</kbd> | When focus is on an item, moves focus to the next item.     |
+| Key                                        | Description                                                 |
+| ------------------------------------------ | ----------------------------------------------------------- |
+| <kbd>ArrowDown</kbd> <kbd>ArrowRight</kbd> | When focus is on an item, moves focus to the next item.     |
+| <kbd>ArrowUp</kbd> <kbd>ArrowLeft</kbd>    | When focus is on an item, moves focus to the previous item. |
 
 <Spacer y={3} />
 
@@ -133,7 +131,6 @@ import { Radio } from '@nextui-org/react';
 | **labelColor**      | `SimpleColors` `string`       | Change radio group label color                                                                                                                                   | `default`  |
 | **size**            | `NormalSizes`                 | Size of all radios in the group                                                                                                                                  | `md`       |
 | **name**            | `string`                      | The name of the RadioGroup, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons) | -          |
-| **isRow**           | `boolean`                     | Change the radio group direction                                                                                                                                 | `false`    |
 | **orientation**     | `horizontal` `vertical`       | The axis the radio group items should align with.                                                                                                                | `vertical` |
 | **validationState** | `valid` `invalid`             | Whether the input should display its "valid" or "invalid" visual styling.                                                                                        | -          |
 | **isDisabled**      | `boolean`                     | Whether the radio group items are disabled.                                                                                                                      | `false`    |

@@ -3,8 +3,8 @@ const App = `import { Checkbox } from "@nextui-org/react";
 export default function App() {
   return (
     <Checkbox.Group
-      isRow
       label="Select cities"
+      orientation="horizontal"
       color="secondary"
       defaultValue={["buenos-aires"]}
     >

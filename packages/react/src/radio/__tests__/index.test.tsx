@@ -20,7 +20,7 @@ describe('Radio', () => {
         <Radio.Group label="Options">
           <Radio value="1">Option 1</Radio>
         </Radio.Group>
-        <Radio.Group label="Options" defaultValue="1" isRow>
+        <Radio.Group label="Options" defaultValue="1" orientation="horizontal">
           <Radio value="1">1</Radio>
           <Radio value="2">2</Radio>
         </Radio.Group>

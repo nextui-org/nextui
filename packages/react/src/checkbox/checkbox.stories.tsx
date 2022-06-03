@@ -277,8 +277,8 @@ export const Group = () => {
 
 export const GroupRow = () => (
   <Checkbox.Group
-    isRow
     color="warning"
+    orientation="horizontal"
     label="Select cities"
     defaultValue={['1']}
   >

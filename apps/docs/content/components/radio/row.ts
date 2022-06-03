@@ -2,7 +2,7 @@ const App = `import { Radio } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Radio.Group label="Options" defaultValue="1" isRow>
+    <Radio.Group label="Options" defaultValue="1" orientation="horizontal">
       <Radio value="1" description="Description for Option1">
         Option 1
       </Radio>

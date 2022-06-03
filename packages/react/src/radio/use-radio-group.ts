@@ -5,7 +5,6 @@ import type { AriaRadioGroupProps } from '@react-types/radio';
 import type { NormalSizes, SimpleColors } from '../utils/prop-types';
 
 interface Props extends AriaRadioGroupProps {
-  isRow?: boolean;
   size?: NormalSizes;
   color?: SimpleColors;
   labelColor?: SimpleColors;
@@ -30,17 +29,16 @@ export const useRadioGroup = (props: UseRadioGroupProps) => {
     size = 'md',
     color = 'default',
     labelColor = 'default',
-    orientation,
+    orientation = 'vertical',
     isRequired,
     validationState,
-    isRow = false,
     ...otherProps
   } = props;
 
   const otherPropsWithOrientation = useMemo<AriaRadioGroupProps>(() => {
     return {
       ...otherProps,
-      orientation: orientation || isRow ? 'horizontal' : 'vertical'
+      orientation
     };
   }, [otherProps]);
 
@@ -51,8 +49,8 @@ export const useRadioGroup = (props: UseRadioGroupProps) => {
 
   return {
     size,
-    isRow,
     color,
+    orientation,
     labelColor,
     isRequired,
     validationState,

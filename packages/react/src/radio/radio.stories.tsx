@@ -166,13 +166,13 @@ export const Invalid = () => (
 
 export const Row = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 100 }}>
-    <Radio.Group label="Options" defaultValue="A" isRow>
+    <Radio.Group label="Options" defaultValue="A" orientation="horizontal">
       <Radio value="A">Option A</Radio>
       <Radio value="B">Option B</Radio>
       <Radio value="C">Option C</Radio>
       <Radio value="D">Option D</Radio>
     </Radio.Group>
-    <Radio.Group label="Options" defaultValue="A" isRow>
+    <Radio.Group label="Options" defaultValue="A" orientation="horizontal">
       <Radio value="A" description="Description for Option A">
         Option A
       </Radio>

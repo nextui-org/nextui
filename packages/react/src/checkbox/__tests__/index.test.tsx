@@ -34,7 +34,6 @@ describe('Checkbox', () => {
         <Checkbox size="xl">xlarge</Checkbox>
       </div>
     );
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 

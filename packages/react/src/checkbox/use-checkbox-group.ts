@@ -2,6 +2,7 @@ import React from 'react';
 import { useCheckboxGroupState } from '@react-stately/checkbox';
 import { useCheckboxGroup as useReactAriaCheckboxGroup } from '@react-aria/checkbox';
 import type { AriaCheckboxGroupProps } from '@react-types/checkbox';
+import type { Orientation } from '@react-types/shared';
 import type { CSS } from '../theme/stitches.config';
 import type {
   NormalSizes,
@@ -10,10 +11,10 @@ import type {
 } from '../utils/prop-types';
 
 interface Props extends AriaCheckboxGroupProps {
-  isRow?: boolean;
   size?: NormalSizes;
   color?: NormalColors;
   labelColor?: SimpleColors;
+  orientation?: Orientation;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -28,7 +29,7 @@ export const useCheckboxGroup = (props: UseCheckboxGroupProps = {}) => {
     size = 'md',
     color = 'default',
     labelColor = 'default',
-    isRow = false,
+    orientation = 'vertical',
     css,
     ...otherProps
   } = props;
@@ -43,7 +44,7 @@ export const useCheckboxGroup = (props: UseCheckboxGroupProps = {}) => {
   return {
     css,
     size,
-    isRow,
+    orientation,
     color,
     labelColor,
     groupState,

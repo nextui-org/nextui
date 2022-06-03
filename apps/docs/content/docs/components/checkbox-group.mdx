@@ -24,8 +24,8 @@ import { Checkbox } from '@nextui-org/react';
 />
 
 <Playground
-  title="Row Group"
-  desc="You can change the `Checkbox.Group` direction with the `isRow` prop."
+  title="Row"
+  desc="Checkbox groups are vertically oriented by default. The `orientation` prop can be used to change the orientation to horizontal."
   files={checkboxGroupContent.row}
 />
 
@@ -53,21 +53,21 @@ import { Checkbox } from '@nextui-org/react';
 
 #### Checkbox Group Props
 
-| Attribute        | Type                                              | Description                                                        | Default   |
-| ---------------- | ------------------------------------------------- | ------------------------------------------------------------------ | --------- |
-| **children\***   | [CheckboxGroupChildren](#checkbox-group-children) | The Checkboxes contained within the checkbox group.                | -         |
-| **label**        | `ReactNode`                                       | The content to display as the label.                               | -         |
-| **value**        | `string[]`                                        | The current value (controlled).                                    | -         |
-| **defaultValue** | `string[]`                                        | The current value (uncontrolled).                                  | -         |
-| **name**         | `string`                                          | The name of the checkbox group, used when submitting an HTML form. | -         |
-| **isRow**        | `boolean`                                         | Whether the checkbox group is horizontal                           | `false`   |
-| **size**         | [NormalSizes](#normal-sizes)                      | The size of the component                                          | `medium`  |
-| **color**        | [NormalColors](#normal-colors)                    | The color of the component                                         | `default` |
-| **labelColor**   | [SimpleColors](#simple-colors)                    | The color of the label                                             | `default` |
-| **isDisabled**   | `boolean`                                         | Whether the checkbox group is disabled                             | `false`   |
-| **isReadOnly**   | `boolean`                                         | Whether the input can be selected but not changed by the user.     | `false`   |
-| **css**          | `Stitches.CSS`                                    | Override Default CSS style                                         | -         |
-| **as**           | `keyof JSX.IntrinsicElements`                     | Changes which tag component outputs                                | `div`     |
+| Attribute        | Type                                              | Description                                                        | Default    |
+| ---------------- | ------------------------------------------------- | ------------------------------------------------------------------ | ---------- |
+| **children\***   | [CheckboxGroupChildren](#checkbox-group-children) | The Checkboxes contained within the checkbox group.                | -          |
+| **label**        | `ReactNode`                                       | The content to display as the label.                               | -          |
+| **value**        | `string[]`                                        | The current value (controlled).                                    | -          |
+| **defaultValue** | `string[]`                                        | The current value (uncontrolled).                                  | -          |
+| **name**         | `string`                                          | The name of the checkbox group, used when submitting an HTML form. | -          |
+| **orientation**  | `horizontal` `vertical`                           | The axis the checkbox group items should align with.               | `vertical` |
+| **size**         | [NormalSizes](#normal-sizes)                      | The size of the component                                          | `medium`   |
+| **color**        | [NormalColors](#normal-colors)                    | The color of the component                                         | `default`  |
+| **labelColor**   | [SimpleColors](#simple-colors)                    | The color of the label                                             | `default`  |
+| **isDisabled**   | `boolean`                                         | Whether the checkbox group is disabled                             | `false`    |
+| **isReadOnly**   | `boolean`                                         | Whether the input can be selected but not changed by the user.     | `false`    |
+| **css**          | `Stitches.CSS`                                    | Override Default CSS style                                         | -          |
+| **as**           | `keyof JSX.IntrinsicElements`                     | Changes which tag component outputs                                | `div`      |
 
 <Spacer y={1} />
 

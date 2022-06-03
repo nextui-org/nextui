@@ -46,7 +46,7 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
         <StyledCheckboxGroupContainer
           className="nextui-checkbox-group-items"
           role="presentation"
-          isRow={context.isRow}
+          isRow={context.orientation === 'horizontal'}
         >
           <CheckboxGroupProvider value={context}>
             {children}

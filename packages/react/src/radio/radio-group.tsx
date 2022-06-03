@@ -49,7 +49,7 @@ export const RadioGroup = React.forwardRef(
         <StyledRadioGroupContainer
           className="nextui-radio-group-items"
           role="presentation"
-          isRow={context.isRow}
+          isRow={context.orientation === 'horizontal'}
         >
           <RadioGroupProvider value={context}>{children}</RadioGroupProvider>
         </StyledRadioGroupContainer>
