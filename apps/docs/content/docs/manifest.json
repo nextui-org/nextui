@@ -179,7 +179,10 @@
                             "keywords": "progress, bar, task, display, activity",
                             "path": "/docs/components/progress.mdx"
                         },
-
+                        {
+                          "title": "Select",
+                          "comingSoon": true
+                        },
                         {
                             "title": "Modal",
                             "keywords": "modal, dialog, backdrop",
