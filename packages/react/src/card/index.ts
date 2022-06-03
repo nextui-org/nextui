@@ -4,7 +4,7 @@ import {
   StyledCardFooter as CardFooter,
   StyledCardBody as CardBody
 } from './card.styles';
-import CardImage from '../image';
+import CardImage from './card-image';
 
 export type { CardProps } from './card';
 

@@ -24,7 +24,7 @@ export const Card1 = () => (
 const Card2 = `import { Card, Col, Text } from "@nextui-org/react";
 
 export const Card2 = () => (
-  <Card width="100%" cover>
+  <Card cover css={{ w: "100%" }}>
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
       <Col>
         <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">

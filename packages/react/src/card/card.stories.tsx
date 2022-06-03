@@ -31,13 +31,13 @@ export default {
 } as Meta;
 
 export const Default = () => (
-  <Card hoverable css={{ w: '400px', br: '$lg' }}>
+  <Card isHoverable css={{ w: '400px', br: '$lg' }}>
     <p>A basic card.</p>
   </Card>
 );
 
 export const Bordered = () => (
-  <Card bordered clickable css={{ w: '400px' }}>
+  <Card isBordered isPressable css={{ w: '400px' }}>
     <p>A bordered card.</p>
   </Card>
 );
@@ -70,8 +70,8 @@ export const Colors = () => {
   );
 };
 
-export const NoShadow = () => (
-  <Card shadow={false} bordered css={{ w: '400px' }}>
+export const DisableShadow = () => (
+  <Card isBordered disableShadow css={{ w: '400px' }}>
     <Card.Header>
       <h4>Next UI</h4>
     </Card.Header>
@@ -130,7 +130,7 @@ export const AbsImageWithHeader = () => {
   return (
     <Grid.Container gap={1} justify="center">
       <Grid>
-        <Card css={{ w: '330px' }} cover>
+        <Card css={{ w: '330px' }} isImageCover>
           <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
             <Col>
               <Text
@@ -164,7 +164,7 @@ export const AbsImgWithHeaderFooter = () => {
   return (
     <Grid.Container gap={2} justify="center">
       <Grid>
-        <Card cover css={{ w: '330px', bg: '$gray100' }}>
+        <Card isImageCover css={{ w: '330px', bg: '$gray100' }}>
           <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
             <Col>
               <Text
@@ -212,7 +212,7 @@ export const AbsImgWithHeaderFooter = () => {
         </Card>
       </Grid>
       <Grid>
-        <Card cover css={{ w: '630px', p: 0 }}>
+        <Card isImageCover css={{ w: '630px', p: 0 }}>
           <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
             <Col>
               <Text
@@ -294,6 +294,297 @@ export const AbsImgWithHeaderFooter = () => {
   );
 };
 
+export const CoverImage = () => (
+  <Grid.Container gap={2} justify="center">
+    <Grid xs={12} sm={4}>
+      <Card isImageCover>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text
+              size={12}
+              weight="bold"
+              transform="uppercase"
+              color="#ffffffAA"
+            >
+              What to watch
+            </Text>
+            <Text h4 color="white">
+              Stream the Acme event
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Image
+          objectFit="cover"
+          src="https://nextui.org/images/card-example-4.jpeg"
+          height={340}
+          width="100%"
+          alt="Card image background"
+        />
+      </Card>
+    </Grid>
+    <Grid xs={12} sm={4}>
+      <Card css={{ w: '100%' }} isImageCover>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text
+              size={12}
+              weight="bold"
+              transform="uppercase"
+              color="#ffffffAA"
+            >
+              Plant a tree
+            </Text>
+            <Text h4 color="white">
+              Contribute to the planet
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Image
+          src="https://nextui.org/images/card-example-3.jpeg"
+          height={340}
+          width="100%"
+          alt="Card image background"
+        />
+      </Card>
+    </Grid>
+    <Grid xs={12} sm={4}>
+      <Card isImageCover css={{ bg: '$black', w: '100%' }}>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text
+              size={12}
+              weight="bold"
+              transform="uppercase"
+              color="#ffffffAA"
+            >
+              Supercharged
+            </Text>
+            <Text h4 color="white">
+              Creates beauty like a beast
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Image
+          src="https://nextui.org/images/card-example-2.jpeg"
+          height={340}
+          width="100%"
+          alt="Card image background"
+        />
+      </Card>
+    </Grid>
+    <Grid xs={12} sm={5}>
+      <Card isImageCover css={{ w: '100%' }}>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text
+              size={12}
+              weight="bold"
+              transform="uppercase"
+              color="#ffffffAA"
+            >
+              New
+            </Text>
+            <Text h3 color="black">
+              Acme camera
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Body>
+          <Card.Image
+            src="https://nextui.org/images/card-example-6.jpeg"
+            height={400}
+            width="100%"
+            alt="Card example background"
+          />
+        </Card.Body>
+        <Card.Footer
+          blur
+          css={{
+            position: 'absolute',
+            bgBlur: '#ffffff66',
+            borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
+            bottom: 0,
+            zIndex: 1
+          }}
+        >
+          <Row>
+            <Col>
+              <Text color="#000" size={12}>
+                Available soon.
+              </Text>
+              <Text color="#000" size={12}>
+                Get notified.
+              </Text>
+            </Col>
+            <Col>
+              <Row justify="flex-end">
+                <Button flat auto rounded color="secondary">
+                  <Text
+                    css={{ color: 'inherit' }}
+                    size={12}
+                    weight="bold"
+                    transform="uppercase"
+                  >
+                    Notify Me
+                  </Text>
+                </Button>
+              </Row>
+            </Col>
+          </Row>
+        </Card.Footer>
+      </Card>
+    </Grid>
+    <Grid xs={12} sm={7}>
+      <Card isImageCover css={{ w: '100%', p: 0 }}>
+        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+          <Col>
+            <Text size={12} weight="bold" transform="uppercase" color="#9E9E9E">
+              Your day your way
+            </Text>
+            <Text h3 color="white">
+              Your checklist for better sleep
+            </Text>
+          </Col>
+        </Card.Header>
+        <Card.Body>
+          <Card.Image
+            src="https://nextui.org/images/card-example-5.jpeg"
+            height={400}
+            width="100%"
+            alt="Relaxing app background"
+          />
+        </Card.Body>
+        <Card.Footer
+          blur
+          css={{
+            position: 'absolute',
+            bgBlur: '#0f111466',
+            borderTop: '$borderWeights$light solid $gray700',
+            bottom: 0,
+            zIndex: 1
+          }}
+        >
+          <Row>
+            <Col>
+              <Row>
+                <Col span={3}>
+                  <Card.Image
+                    src="/images/breathing-app-icon.jpeg"
+                    css={{ background: 'black' }}
+                    height={40}
+                    width={40}
+                    alt="Breathing app icon"
+                  />
+                </Col>
+                <Col>
+                  <Text color="#d1d1d1" size={12}>
+                    Breathing App
+                  </Text>
+                  <Text color="#d1d1d1" size={12}>
+                    Get a good night's sleep.
+                  </Text>
+                </Col>
+              </Row>
+            </Col>
+            <Col>
+              <Row justify="flex-end">
+                <Button
+                  flat
+                  auto
+                  rounded
+                  css={{ color: '#94f9f0', bg: '#94f9f026' }}
+                >
+                  <Text
+                    css={{ color: 'inherit' }}
+                    size={12}
+                    weight="bold"
+                    transform="uppercase"
+                  >
+                    Get App
+                  </Text>
+                </Button>
+              </Row>
+            </Col>
+          </Row>
+        </Card.Footer>
+      </Card>
+    </Grid>
+  </Grid.Container>
+);
+
+export const PrimaryAction = () => {
+  const list = [
+    {
+      title: 'Orange',
+      img: '/images/fruit-1.jpeg',
+      price: '$5.50'
+    },
+    {
+      title: 'Tangerine',
+      img: '/images/fruit-2.jpeg',
+      price: '$3.00'
+    },
+    {
+      title: 'Raspberry',
+      img: '/images/fruit-3.jpeg',
+      price: '$10.00'
+    },
+    {
+      title: 'Lemon',
+      img: '/images/fruit-4.jpeg',
+      price: '$5.30'
+    },
+    {
+      title: 'Advocato',
+      img: '/images/fruit-5.jpeg',
+      price: '$15.70'
+    },
+    {
+      title: 'Lemon 2',
+      img: '/images/fruit-6.jpeg',
+      price: '$8.00'
+    },
+    {
+      title: 'Banana',
+      img: '/images/fruit-7.jpeg',
+      price: '$7.50'
+    },
+    {
+      title: 'Watermelon',
+      img: '/images/fruit-8.jpeg',
+      price: '$12.20'
+    }
+  ];
+
+  return (
+    <Grid.Container gap={2} justify="flex-start">
+      {list.map((item, index) => (
+        <Grid xs={6} sm={3} key={index}>
+          <Card isHoverable isPressable>
+            <Card.Body css={{ p: 0 }}>
+              <Card.Image
+                objectFit="cover"
+                src={'https://nextui.org' + item.img}
+                width="100%"
+                height={140}
+                alt={item.title}
+              />
+            </Card.Body>
+            <Card.Footer css={{ justifyItems: 'flex-start' }}>
+              <Row wrap="wrap" justify="space-between">
+                <Text b>{item.title}</Text>
+                <Text css={{ color: '$accents7', fontWeight: '$semibold' }}>
+                  {item.price}
+                </Text>
+              </Row>
+            </Card.Footer>
+          </Card>
+        </Grid>
+      ))}
+    </Grid.Container>
+  );
+};
+
 export const CenterImgWithHeader = () => {
   const list = [
     {
@@ -337,7 +628,7 @@ export const CenterImgWithHeader = () => {
     <Grid.Container gap={2} justify="center">
       {list.map((item, index) => (
         <Grid key={index}>
-          <Card hoverable clickable css={{ w: '200px', h: '220px' }}>
+          <Card isHoverable isPressable css={{ w: '200px', h: '220px' }}>
             <Card.Header css={{ p: 0 }}>
               <Text h5 style={{ paddingLeft: '24px', paddingTop: '10px' }}>
                 {item.title}
@@ -369,7 +660,7 @@ export const WithDivider = () => (
         The Object constructor creates an object wrapper for the given value.
       </Text>
     </Card.Body>
-    <Divider y={0} css={{ bg: '#e2e2e2' }} />
+    <Divider y={0} />
     <Card.Footer>
       <Text>
         When called in a non-constructor context, Object behaves identically to{' '}

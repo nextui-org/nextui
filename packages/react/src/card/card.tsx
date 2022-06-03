@@ -1,138 +1,77 @@
-import React, {
-  useImperativeHandle,
-  useRef,
-  MouseEvent,
-  PropsWithoutRef,
-  RefAttributes
-} from 'react';
-import Image from '../image';
+import React, { PropsWithoutRef, RefAttributes } from 'react';
+import { mergeProps } from '@react-aria/utils';
 import Drip from '../utils/drip';
-import useDrip from '../use-drip';
 import { CSS } from '../theme/stitches.config';
-import { hasChild, pickChild } from '../utils/collections';
-import useKeyboard, { KeyCode } from '../use-keyboard';
+import { useCard } from './use-card';
+import type { UseCardProps } from './use-card';
+import CardImage from './card-image';
 import {
   StyledCard,
   StyledCardHeader as CardHeader,
   StyledCardFooter as CardFooter,
-  StyledCardBody as CardBody,
-  CardVariantsProps
+  StyledCardBody as CardBody
 } from './card.styles';
-import withDefaults from '../utils/with-defaults';
+import { CardProvider } from './card-context';
 import { __DEV__ } from '../utils/assertion';
 
-interface Props {
-  cover?: boolean;
-  ripple?: boolean;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
+interface Props extends UseCardProps {
   as?: keyof JSX.IntrinsicElements;
-  preventDefault?: boolean;
 }
 
-const defaultProps = {
-  animated: true,
-  ripple: true,
-  cover: false,
-  preventDefault: false
-};
+export type CardProps = Props & { css?: CSS };
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ ...cardProps }, ref: React.Ref<HTMLDivElement | null>) => {
+    const { as, css, ...otherProps } = cardProps;
 
-export type CardProps = Props & NativeAttrs & CardVariantsProps & { css?: CSS };
+    const context = useCard({ ...otherProps, ref });
 
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.PropsWithChildren<CardProps>
->(({ ...cardProps }, ref: React.Ref<HTMLDivElement | null>) => {
-  const {
-    children,
-    cover,
-    animated,
-    ripple,
-    clickable,
-    onClick,
-    preventDefault,
-    ...props
-  } = cardProps;
+    console.log({ isFocusVisible: context.isFocusVisible });
 
-  const cardRef = useRef<HTMLDivElement>(null);
-  useImperativeHandle(ref, () => cardRef.current);
-
-  const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
-    false,
-    cardRef
-  );
-
-  const [withoutHeaderChildren, headerChildren] = pickChild(
-    children,
-    CardHeader
-  );
-
-  const [withoutFooterChildren, footerChildren] = pickChild(
-    withoutHeaderChildren,
-    CardFooter
-  );
-
-  const [withoutImageChildren, imageChildren] = pickChild(
-    withoutFooterChildren,
-    Image
-  );
-
-  const hasContent = hasChild(withoutImageChildren, CardBody);
-
-  const hasHeader = hasChild(children, CardHeader);
-
-  const clickHandler = (event: MouseEvent<HTMLDivElement>) => {
-    if (animated && cardRef.current) {
-      onDripClickHandler(event);
-    }
-    onClick && onClick(event);
-  };
-
-  const { bindings } = useKeyboard(
-    (event: any) => {
-      if (!clickable) {
-        return;
-      }
-      clickHandler(event);
-    },
-    [KeyCode.Enter, KeyCode.Space],
-    {
-      disableGlobalEvent: true,
-      preventDefault
-    }
-  );
-
-  return (
-    <StyledCard
-      ref={cardRef}
-      role={clickable ? 'button' : 'section'}
-      cover={cover}
-      animated={animated}
-      clickable={clickable}
-      tabIndex={clickable ? 0 : -1}
-      onClick={clickHandler}
-      {...props}
-      {...bindings}
-    >
-      {hasHeader ? (
-        <>
-          {headerChildren}
-          {imageChildren}
-        </>
-      ) : (
-        imageChildren
-      )}
-      {hasContent ? (
-        withoutImageChildren
-      ) : !cover ? (
-        <CardBody>{withoutImageChildren}</CardBody>
-      ) : null}
-      {clickable && animated && ripple && <Drip {...dripBindings} />}
-      {footerChildren}
-    </StyledCard>
-  );
-});
+    return (
+      <StyledCard
+        ref={context.cardRef}
+        as={as}
+        css={css as any}
+        role={context.isPressable ? 'button' : 'section'}
+        borderWeight={context.borderWeight}
+        isImageCover={context.isImageCover}
+        disableAnimation={context.disableAnimation}
+        disableShadow={context.disableShadow}
+        shouldShowOutline={context.isFocusVisible && !context.disableShadow}
+        isPressable={context.isPressable}
+        isPressed={context.isPressed}
+        isHoverable={context.isHoverable}
+        isBordered={context.isBordered}
+        isHovered={context.isHovered}
+        tabIndex={context.isPressable ? 0 : -1}
+        onClick={context.onClick}
+        isFocusVisible={context.isFocusVisible}
+        {...mergeProps(context.pressProps, context.focusProps, otherProps)}
+      >
+        <CardProvider value={context}>
+          {context.hasHeader ? (
+            <>
+              {context.headerChildren}
+              {context.imageChildren}
+            </>
+          ) : (
+            context.imageChildren
+          )}
+        </CardProvider>
+        {context.hasContent ? (
+          context.withoutImageChildren
+        ) : !context.isImageCover ? (
+          <CardBody>{context.withoutImageChildren}</CardBody>
+        ) : null}
+        {context.isPressable &&
+          !context.disableAnimation &&
+          !context.disableRipple && <Drip {...context.dripBindings} />}
+        {context.footerChildren}
+      </StyledCard>
+    );
+  }
+);
 
 type CardComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
@@ -140,7 +79,7 @@ type CardComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Header: typeof CardHeader;
   Body: typeof CardBody;
   Footer: typeof CardFooter;
-  Image: typeof Image;
+  Image: typeof CardImage;
 };
 
 if (__DEV__) {
@@ -149,7 +88,4 @@ if (__DEV__) {
 
 Card.toString = () => '.nextui-card';
 
-export default withDefaults(Card, defaultProps) as CardComponent<
-  HTMLDivElement,
-  CardProps
->;
+export default Card as CardComponent<HTMLDivElement, CardProps>;

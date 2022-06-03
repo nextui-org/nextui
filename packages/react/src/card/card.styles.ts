@@ -1,5 +1,6 @@
 import { styled, VariantProps } from '../theme/stitches.config';
 import { StyledDrip } from '../utils/drip';
+import { StyledImage, StyledImageContainer } from '../index';
 
 export const StyledCardBody = styled('div', {
   d: 'flex',
@@ -77,12 +78,12 @@ export const StyledCard = styled('div', {
         bg: '$$cardColor'
       }
     },
-    shadow: {
-      true: {
+    disableShadow: {
+      false: {
         boxShadow: '$md'
       }
     },
-    bordered: {
+    isBordered: {
       true: {
         borderStyle: 'solid',
         borderColor: '$border'
@@ -108,76 +109,93 @@ export const StyledCard = styled('div', {
         bw: '$black'
       }
     },
-    animated: {
+    disableAnimation: {
       true: {
-        transition: '$card'
+        transition: 'none'
       },
       false: {
-        transition: 'none'
+        transition: '$card'
       }
     },
-    clickable: {
+    isPressable: {
       true: {
         cursor: 'pointer',
         us: 'none',
-        WebkitTapHighlightColor: 'transparent',
-        '&:focus:not(&:focus-visible)': {
-          boxShadow: 'none'
-        },
-        '&:focus': {
-          outline: 'none',
-          boxShadow: '0 0 0 2px $colors$background, 0 0 0 4px $colors$primary'
-        },
-        '@safari': {
-          WebkitTapHighlightColor: 'transparent',
-          outline: 'none'
-        }
+        WebkitTapHighlightColor: 'transparent'
       }
     },
-    hoverable: {
+    isPressed: {
+      true: {}
+    },
+    isHoverable: {
+      true: {}
+    },
+    isHovered: {
+      true: {}
+    },
+    isFocusVisible: {
       true: {
-        '&:hover': {
-          transform: 'translateY(-2px)',
-          boxShadow: '$md'
-        }
+        outline: 'transparent solid 2px',
+        outlineOffset: '2px',
+        boxShadow: '0 0 0 2px $colors$background, 0 0 0 4px $colors$primary'
+      },
+      false: {
+        outline: 'none'
       }
     },
-    cover: {
+    isImageCover: {
       true: {
-        '.nextui-image': {
-          objectFit: 'cover !important' // TODO: remove important when image be styled
+        [`& ${StyledImage}`]: {
+          objectFit: 'cover'
         },
         [`& ${StyledCardBody}`]: {
           p: 0
         }
       },
       false: {
-        '.nextui-image, .nextui-image-container': {
-          bblr: '0 !important', // TODO: remove important when image be styled
-          bbrr: '0 !important'
+        [`& ${StyledImage}`]: {
+          bblr: '0',
+          bbrr: '0'
+        },
+        [`& ${StyledImageContainer}`]: {
+          bblr: '0',
+          bbrr: '0'
         }
       }
     }
   },
   compoundVariants: [
-    // clickable && animated
+    // isPressable && !disableAnimation && isPreseed
     {
-      clickable: true,
-      animated: true,
+      isPressable: true,
+      disableAnimation: false,
+      isPressed: true,
       css: {
-        '&:active': {
-          scale: 0.97
+        scale: 0.97
+      }
+    },
+    // isHoverable && !isHovered
+    {
+      isHoverable: true,
+      isHovered: false,
+      css: {
+        transform: 'translateY(-2px)',
+        boxShadow: '$md'
+      }
+    },
+    // isFocusVisible && !disableShadow
+    {
+      isFocusVisible: true,
+      disableShadow: false,
+      css: {
+        shouldShowOutline: {
+          true: {
+            outline: 'solid 2px $colors$primary'
+          }
         }
       }
     }
-  ],
-  defaultVariants: {
-    color: 'default',
-    borderWeight: 'normal',
-    animated: true,
-    bordered: false,
-    shadow: true
-  }
+  ]
 });
 
 export const StyledCardHeader = styled('div', {

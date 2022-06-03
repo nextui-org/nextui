@@ -58,10 +58,10 @@ export default function App() {
                 alt={item.title}
               />
             </Card.Body>
-            <Card.Footer justify="flex-start">
+            <Card.Footer css={{ justifyItems: 'flex-start' }}>
               <Row wrap="wrap" justify="space-between">
                 <Text b>{item.title}</Text>
-                <Text css={{ color: "$accents4", fontWeight: "$semibold" }}>
+                <Text css={{ color: "$accents7", fontWeight: "$semibold" }}>
                   {item.price}
                 </Text>
               </Row>
