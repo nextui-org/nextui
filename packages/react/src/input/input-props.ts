@@ -28,8 +28,8 @@ export interface Props
   label?: string;
   helperText?: string;
   labelPlaceholder?: string;
-  labelLeft?: string;
-  labelRight?: string;
+  labelLeft?: string | React.ReactNode;
+  labelRight?: string | React.ReactNode;
   contentLeft?: React.ReactNode;
   contentRight?: React.ReactNode;
   contentClickable?: boolean;
