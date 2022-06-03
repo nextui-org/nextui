@@ -1,18 +1,17 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, ReactNode } from 'react';
 import { mergeProps } from '@react-aria/utils';
 import { useFocusRing } from '@react-aria/focus';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
 import { useFocusableRef } from '../utils/dom';
-import { pickChild } from '../utils/collections';
-import RadioDesc from './radio-desc';
 import RadioGroup from './radio-group';
 import { useRadio } from './use-radio';
 import {
   StyledRadioText,
   StyledRadioPoint,
   StyledRadioLabel,
+  StyledRadioDescription,
   StyledRadioContainer
 } from './radio.styles';
 import type { FocusRingAria } from '@react-aria/focus';
@@ -23,8 +22,9 @@ import type { UseRadioProps } from './use-radio';
 
 interface Props extends UseRadioProps {
   label?: string;
+  children?: ReactNode;
+  description?: string | ReactNode;
   className?: string;
-  children?: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -36,17 +36,21 @@ interface IFocusRingAria extends FocusRingAria {
 
 export const Radio = React.forwardRef(
   (props: RadioProps, ref: ReactRef<HTMLInputElement>) => {
-    const { className, as, css, children, label, ...otherProps } = props;
-
-    const [textChildren, descChildren] = pickChild(children, RadioDesc);
+    const { className, as, css, children, label, description, ...otherProps } =
+      props;
 
     const {
       size,
       color,
-      labelColor,
-      isSquared,
-      disableAnimation,
       inputRef,
+      labelColor,
+      isHovered,
+      isSquared,
+      isInvalid,
+      isDisabled,
+      autoFocus,
+      disableAnimation,
+      hoverProps,
       inputProps
     } = useRadio({ ...otherProps, children: children ?? label });
 
@@ -56,17 +60,19 @@ export const Radio = React.forwardRef(
     );
 
     const { focusProps, isFocusVisible }: IFocusRingAria = useFocusRing({
-      autoFocus: inputProps.autoFocus
+      autoFocus
     });
 
     const radioState = useMemo(() => {
-      if (inputProps.disabled) return 'disabled';
+      if (isHovered) return 'is-hovered';
+      if (isDisabled) return 'is-disabled';
       return inputProps.checked ? 'checked' : 'uncheked';
-    }, [inputProps.disabled, inputProps.checked]);
+    }, [isDisabled, inputProps.checked, isHovered]);
 
     return (
       <StyledRadioLabel
         ref={domRef}
+        {...hoverProps}
         className={clsx(
           'nextui-radio-label',
           `nextui-radio--${radioState}`,
@@ -75,10 +81,13 @@ export const Radio = React.forwardRef(
         as={as}
         css={css as any}
         size={size}
-        color={color as any}
+        color={color}
+        data-state={radioState}
         isSquared={isSquared}
+        isHovered={isHovered}
+        isInvalid={isInvalid}
         isChecked={inputProps.checked}
-        isDisabled={inputProps.disabled}
+        isDisabled={isDisabled}
         disableAnimation={disableAnimation}
       >
         <StyledRadioContainer className="nextui-radio-container">
@@ -96,14 +105,23 @@ export const Radio = React.forwardRef(
             </VisuallyHidden>
           </StyledRadioPoint>
           <StyledRadioText
-            className="nextui-radio-text"
             color={labelColor}
-            isDisabled={inputProps.disabled}
+            isInvalid={isInvalid}
+            isDisabled={isDisabled}
+            className="nextui-radio-label"
           >
-            {textChildren}
+            {children}
           </StyledRadioText>
         </StyledRadioContainer>
-        {descChildren && descChildren}
+        {description && (
+          <StyledRadioDescription
+            className="nextui-radio-description"
+            isInvalid={isInvalid}
+            isDisabled={isDisabled}
+          >
+            {description}
+          </StyledRadioDescription>
+        )}
       </StyledRadioLabel>
     );
   }
@@ -113,8 +131,6 @@ type RadioComponent<T, P = {}> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>
 > & {
   Group: typeof RadioGroup;
-  Desc: typeof RadioDesc;
-  Description: typeof RadioDesc;
 };
 
 if (__DEV__) {

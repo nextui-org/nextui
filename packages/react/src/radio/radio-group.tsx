@@ -1,13 +1,17 @@
 import React from 'react';
 import clsx from '../utils/clsx';
 import { useDOMRef } from '../utils/dom';
-import { __DEV__ } from '../utils/assertion';
 import { useRadioGroup } from './use-radio-group';
 import { RadioGroupProvider } from './radio-context';
-import { StyledRadioGroup, StyledRadioGroupContainer } from './radio.styles';
+import {
+  StyledRadioGroup,
+  StyledRadioGroupContainer,
+  StyledRadioGroupLabel
+} from './radio.styles';
 import type { ReactRef } from '../utils/refs';
 import type { CSS } from '../theme/stitches.config';
 import type { UseRadioGroupProps } from './use-radio-group';
+import { __DEV__ } from '../utils/assertion';
 
 interface Props extends UseRadioGroupProps {
   className?: string;
@@ -21,9 +25,9 @@ export const RadioGroup = React.forwardRef(
   (props: RadioGroupProps, ref: ReactRef<HTMLDivElement>) => {
     const { as, css, className, children, label, ...otherProps } = props;
 
-    const domRef = useDOMRef(ref);
-
     const context = useRadioGroup({ ...otherProps, label });
+
+    const domRef = useDOMRef(ref);
 
     return (
       <StyledRadioGroup
@@ -35,9 +39,12 @@ export const RadioGroup = React.forwardRef(
         {...context.radioGroupProps}
       >
         {label && (
-          <label className="nextui-radio-group-label" {...context.labelProps}>
+          <StyledRadioGroupLabel
+            className="nextui-radio-group-label"
+            {...context.labelProps}
+          >
             {label}
-          </label>
+          </StyledRadioGroupLabel>
         )}
         <StyledRadioGroupContainer
           className="nextui-radio-group-items"

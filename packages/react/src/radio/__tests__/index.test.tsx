@@ -26,7 +26,6 @@ describe('Radio', () => {
         </Radio.Group>
       </div>
     );
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -71,7 +70,6 @@ describe('Radio', () => {
         </Radio>
       </Radio.Group>
     );
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -85,7 +83,6 @@ describe('Radio', () => {
         <Radio value="error" color="error" label="error" />
       </Radio.Group>
     );
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -99,7 +96,6 @@ describe('Radio', () => {
         <Radio value="error" labelColor="error" label="error" />
       </Radio.Group>
     );
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -107,18 +103,21 @@ describe('Radio', () => {
     const wrapper = mount(
       <Radio.Group label="Options">
         <Radio value="1">Option 1</Radio>
-        <Radio value="2">
-          Option 2<Radio.Desc>Description for Option2</Radio.Desc>
+        <Radio value="2" description="Description for Option2">
+          Option 2
         </Radio>
-        <Radio value="3">
+        <Radio
+          value="3"
+          description={
+            <p>
+              <b>Description</b> for Option3
+            </p>
+          }
+        >
           Option 3
-          <Radio.Desc>
-            <b>Description</b> for Option3
-          </Radio.Desc>
         </Radio>
       </Radio.Group>
     );
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 

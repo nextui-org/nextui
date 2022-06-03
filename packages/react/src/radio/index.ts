@@ -1,10 +1,7 @@
 import Radio from './radio';
-import RadioDesc from './radio-desc';
 import RadioGroup from './radio-group';
 
 Radio.Group = RadioGroup;
-Radio.Desc = RadioDesc;
-Radio.Description = RadioDesc;
 
 export {
   StyledRadioLabel,

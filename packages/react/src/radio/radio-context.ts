@@ -6,5 +6,5 @@ export const [RadioGroupProvider, useRadioGroupContext] =
     name: 'RadioGroupContext',
     strict: true,
     errorMessage:
-      'useRadioGroupContext: `context` is undefined. Seems you forgot to wrap all popover components within `<Radio.Group />`'
+      'useRadioGroupContext: `context` is undefined. Seems you forgot to wrap all checkbox components within `<Radio.Group />`'
   });

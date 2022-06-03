@@ -1,20 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { useRadio as useReactAriaRadio } from '@react-aria/radio';
+import { useHover } from '@react-aria/interactions';
 import useWarning from '../use-warning';
 import { __DEV__ } from '../utils/assertion';
 import { useRadioGroupContext } from './radio-context';
 import type { AriaRadioProps } from '@react-types/radio';
-import type {
-  NormalSizes,
-  NormalColors,
-  SimpleColors
-} from '../utils/prop-types';
+import type { NormalSizes, SimpleColors } from '../utils/prop-types';
 
 interface Props extends AriaRadioProps {
   isSquared?: boolean;
   disableAnimation?: boolean;
   size?: NormalSizes;
-  color?: NormalColors;
+  color?: SimpleColors;
   labelColor?: SimpleColors;
 }
 
@@ -32,6 +29,7 @@ export const useRadio = (props: UseRadioProps) => {
     size = groupContext.size ?? 'md',
     color = groupContext.color ?? 'default',
     labelColor = groupContext.labelColor ?? 'default',
+    autoFocus,
     isSquared = false,
     disableAnimation = false,
     ...otherProps
@@ -43,7 +41,7 @@ export const useRadio = (props: UseRadioProps) => {
     }
     if (otherProps.value === undefined) {
       useWarning(
-        'Props "value" must be deinfed if in the Radio.Group.',
+        'Props "value" must be defined if in the Radio.Group.',
         'Radio'
       );
     }
@@ -57,14 +55,31 @@ export const useRadio = (props: UseRadioProps) => {
     inputRef
   );
 
+  const isDisabled = useMemo(
+    () => inputProps.disabled ?? false,
+    [inputProps.disabled]
+  );
+
+  const { hoverProps, isHovered } = useHover({ isDisabled });
+
+  const isInvalid = useMemo(
+    () => groupContext.validationState === 'invalid',
+    [groupContext.validationState]
+  );
+
   return {
     size,
     color,
+    inputRef,
+    autoFocus,
+    isDisabled,
     labelColor,
+    isInvalid,
+    isHovered,
     isSquared,
     disableAnimation,
-    inputRef,
-    inputProps
+    inputProps,
+    hoverProps
   };
 };
 

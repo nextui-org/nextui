@@ -19,7 +19,9 @@ export const Default = () => (
 
 export const Disabled = () => (
   <Radio.Group label="Options" defaultValue="A" isDisabled>
-    <Radio value="A">Option A</Radio>
+    <Radio value="A" description="Description for Option A">
+      Option A
+    </Radio>
     <Radio value="B">Option B</Radio>
     <Radio value="C">Option C</Radio>
     <Radio value="D">Option D</Radio>
@@ -47,25 +49,20 @@ export const Sizes = () => {
         </Radio>
       </Radio.Group>
       <Radio.Group label="Sizes" defaultValue="md">
-        <Radio value="xs" size="xs">
+        <Radio value="xs" size="xs" description="Description for Option mini">
           mini
-          <Radio.Desc>Description for Option mini</Radio.Desc>
         </Radio>
-        <Radio value="sm" size="sm">
+        <Radio value="sm" size="sm" description="Description for Option small">
           small
-          <Radio.Desc>Description for Option small</Radio.Desc>
         </Radio>
-        <Radio value="md" size="md">
+        <Radio value="md" size="md" description="Description for Option medium">
           medium
-          <Radio.Desc>Description for Option medium</Radio.Desc>
         </Radio>
-        <Radio value="lg" size="lg">
+        <Radio value="lg" size="lg" description="Description for Option large">
           large
-          <Radio.Desc>Description for Option large</Radio.Desc>
         </Radio>
-        <Radio value="xl" size="xl">
+        <Radio value="xl" size="xl" description="Description for Option xlarge">
           xlarge
-          <Radio.Desc>Description for Option xlarge</Radio.Desc>
         </Radio>
       </Radio.Group>
     </div>
@@ -135,17 +132,34 @@ export const Squared = () => (
 
 export const Description = () => (
   <Radio.Group label="Options" defaultValue="A">
-    <Radio value="A">
-      Option A<Radio.Desc>Description for Option A</Radio.Desc>
+    <Radio value="A" description="Description for Option A">
+      Option A
     </Radio>
-    <Radio value="B">
-      Option B<Radio.Desc>Description for Option B</Radio.Desc>
+    <Radio value="B" description="Description for Option B">
+      Option B
     </Radio>
-    <Radio value="C">
-      Option C<Radio.Desc>Description for Option C</Radio.Desc>
+    <Radio value="C" description="Description for Option C">
+      Option C
     </Radio>
-    <Radio value="D">
-      Option D<Radio.Desc>Description for Option D</Radio.Desc>
+    <Radio value="D" description="Description for Option D">
+      Option D
+    </Radio>
+  </Radio.Group>
+);
+
+export const Invalid = () => (
+  <Radio.Group label="Options" defaultValue="A" validationState="invalid">
+    <Radio value="A" description="Description for Option A">
+      Option A
+    </Radio>
+    <Radio value="B" description="Description for Option B">
+      Option B
+    </Radio>
+    <Radio value="C" description="Description for Option C">
+      Option C
+    </Radio>
+    <Radio value="D" description="Description for Option D">
+      Option D
     </Radio>
   </Radio.Group>
 );
@@ -159,17 +173,17 @@ export const Row = () => (
       <Radio value="D">Option D</Radio>
     </Radio.Group>
     <Radio.Group label="Options" defaultValue="A" isRow>
-      <Radio value="A">
-        Option A<Radio.Desc>Description for Option A</Radio.Desc>
+      <Radio value="A" description="Description for Option A">
+        Option A
       </Radio>
-      <Radio value="B">
-        Option B<Radio.Desc>Description for Option B</Radio.Desc>
+      <Radio value="B" description="Description for Option B">
+        Option B
       </Radio>
-      <Radio value="C">
-        Option C<Radio.Desc>Description for Option C</Radio.Desc>
+      <Radio value="C" description="Description for Option C">
+        Option C
       </Radio>
-      <Radio value="D">
-        Option D<Radio.Desc>Description for Option D</Radio.Desc>
+      <Radio value="D" description="Description for Option D">
+        Option D
       </Radio>
     </Radio.Group>
   </div>
@@ -192,7 +206,7 @@ export const Controlled = () => {
   );
 };
 
-export const NoAnimated = () => {
+export const DisableAnimation = () => {
   return (
     <Radio.Group label="Options" defaultValue="A">
       <Radio value="A" disableAnimation>

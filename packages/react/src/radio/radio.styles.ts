@@ -1,5 +1,6 @@
-import { styled, cssFocusVisible } from '../theme/stitches.config';
+import { styled } from '../theme/stitches.config';
 import type { VariantProps } from '../theme/stitches.config';
+import { cssFocusVisible } from '../theme/shared-css';
 
 export const StyledRadioText = styled('span', {
   fontSize: '$$radioSize',
@@ -30,6 +31,11 @@ export const StyledRadioText = styled('span', {
     isDisabled: {
       true: {
         color: '$accents5'
+      }
+    },
+    isInvalid: {
+      true: {
+        color: '$error'
       }
     }
   }
@@ -116,6 +122,20 @@ export const StyledRadioLabel = styled('label', {
         $$radioSize: '$space$11'
       }
     },
+    isHovered: {
+      true: {}
+    },
+    isInvalid: {
+      true: {
+        $$radioColor: '$colors$error',
+        $$radioColorHover: '$colors$errorSolidHover',
+        [`& ${StyledRadioPoint}`]: {
+          '&:after': {
+            borderColor: '$colors$error'
+          }
+        }
+      }
+    },
     isDisabled: {
       true: {
         cursor: 'not-allowed',
@@ -135,13 +155,6 @@ export const StyledRadioLabel = styled('label', {
         [`& ${StyledRadioPoint}`]: {
           '&:after': {
             border: 'calc($$radioSize * 0.34) solid $$radioColor'
-          }
-        },
-        '&:hover': {
-          [`& ${StyledRadioPoint}`]: {
-            '&:after': {
-              border: 'calc($$radioSize * 0.34) solid $$radioColorHover'
-            }
           }
         }
       }
@@ -171,29 +184,39 @@ export const StyledRadioLabel = styled('label', {
     disableAnimation: false
   },
   compoundVariants: [
+    // isChecked && isHovered
     {
-      // isChecked && isDisabled
       isChecked: true,
-      isDisabled: true,
+      isHovered: true,
       css: {
-        '&:hover': {
-          [`& ${StyledRadioPoint}`]: {
-            '&:after': {
-              border: 'calc($$radioSize * 0.34) solid $$radioColor'
-            }
+        [`& ${StyledRadioPoint}`]: {
+          '&:after': {
+            border: 'calc($$radioSize * 0.34) solid $$radioColorHover'
           }
         }
       }
     },
+    // isChecked && isDisabled & isHovered
     {
-      // !isChecked && !isDisabled
+      isChecked: true,
+      isDisabled: true,
+      isHovered: true,
+      css: {
+        [`& ${StyledRadioPoint}`]: {
+          '&:after': {
+            border: 'calc($$radioSize * 0.34) solid $$radioColor'
+          }
+        }
+      }
+    },
+    // !isChecked && !isDisabled && isHovered
+    {
       isChecked: false,
       isDisabled: false,
+      isHovered: true,
       css: {
-        '&:hover': {
-          [`& ${StyledRadioPoint}`]: {
-            bg: '$border'
-          }
+        [`& ${StyledRadioPoint}`]: {
+          bg: '$border'
         }
       }
     }
@@ -203,7 +226,19 @@ export const StyledRadioLabel = styled('label', {
 export const StyledRadioDescription = styled('span', {
   color: '$accents7',
   fontSize: 'calc($$radioSize * 0.85)',
-  paddingLeft: 'calc($$radioSize + $$radioSize * 0.375)'
+  paddingLeft: 'calc($$radioSize + $$radioSize * 0.375)',
+  variants: {
+    isInvalid: {
+      true: {
+        color: '$red500'
+      }
+    },
+    isDisabled: {
+      true: {
+        color: '$accents5'
+      }
+    }
+  }
 });
 
 export const StyledRadioContainer = styled('div', {
@@ -215,19 +250,20 @@ export const StyledRadioContainer = styled('div', {
   jc: 'flex-start'
 });
 
+export const StyledRadioGroupLabel = styled('label', {
+  d: 'block',
+  fontWeight: '$normal',
+  fontSize: 'calc($$checkboxSize * 0.9)',
+  color: '$accents8',
+  mb: '$3'
+});
+
 export const StyledRadioGroup = styled('div', {
   border: 0,
   margin: 0,
   padding: 0,
   display: 'flex',
   fd: 'column',
-  '& .nextui-radio-group-label': {
-    d: 'block',
-    fontWeight: '$normal',
-    fontSize: 'calc($$checkboxSize * 0.8)',
-    color: '$accents7',
-    mb: '$3'
-  },
   variants: {
     size: {
       xs: {
