@@ -7,13 +7,20 @@ export const defaultTokens = {
     mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;"
   },
   fontSizes: {
-    tiny: '.75rem',
-    xs: '0.875rem',
+    xs: '0.75rem',
+    sm: '0.875rem',
     base: '1rem',
-    sm: '1.25rem',
-    md: '1.5rem',
-    lg: '2.25rem',
-    xl: '3rem'
+    md: '1rem',
+    lg: '1.125rem',
+    xl: '1.25rem',
+    xl2: '1.5rem',
+    xl3: '1.875rem',
+    xl4: '2.25rem',
+    xl5: '3rem',
+    xl6: '3.75rem',
+    xl7: '4.5rem',
+    xl8: '6rem',
+    xl9: '8rem'
   },
   fontWeights: {
     hairline: 100,
@@ -29,9 +36,18 @@ export const defaultTokens = {
   lineHeights: {
     xs: 1,
     sm: 1.25,
+    base: 1.5,
     md: 1.5,
-    lg: 1.625,
-    xl: 1.75
+    lg: 1.75,
+    xl: 1.75,
+    xl2: 2,
+    xl3: 2.25,
+    xl4: 2.5,
+    xl5: 1,
+    xl6: 1,
+    xl7: 1,
+    xl8: 1,
+    xl9: 1
   },
   letterSpacings: {
     tighter: '-0.05em',

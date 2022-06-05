@@ -52,7 +52,7 @@ describe('Card', () => {
   it('should render correctly when nested', () => {
     const wrapper = mount(
       <Card>
-        <Card disableShadow>
+        <Card>
           <Card>card</Card>
         </Card>
       </Card>

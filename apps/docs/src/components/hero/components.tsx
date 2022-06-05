@@ -320,7 +320,7 @@ const HeroComponents = () => {
                   css={{
                     px: '$4',
                     height: '$space$10',
-                    fontSize: '$tiny',
+                    fontSize: '$sm',
                     color: '$white',
                     [`.${darkTheme} &`]: {
                       bg: '$purple900',

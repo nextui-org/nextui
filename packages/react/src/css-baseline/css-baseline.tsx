@@ -34,7 +34,6 @@ const globalStyles = globalCss({
     fontFamily: '$sans'
   },
   p: {
-    margin: '$md 0',
     fontSize: '$base',
     lineHeight: '$lg'
   },
@@ -88,32 +87,32 @@ const globalStyles = globalCss({
   h1: {
     letterSpacing: '$tighter',
     lineHeight: '$md',
-    fontSize: '$xl',
+    fontSize: '$xl5',
     fontWeight: '$bold'
   },
   h2: {
     letterSpacing: '$tighter',
-    fontSize: '$lg',
+    fontSize: '$xl4',
     fontWeight: '$semibold'
   },
   h3: {
     letterSpacing: '$tighter',
-    fontSize: '$md',
+    fontSize: '$xl2',
     fontWeight: '$semibold'
   },
   h4: {
     letterSpacing: '$tighter',
-    fontSize: '$sm',
+    fontSize: '$xl',
     fontWeight: '$semibold'
   },
   h5: {
     letterSpacing: '$tight',
-    fontSize: '$base',
+    fontSize: '$md',
     fontWeight: '$semibold'
   },
   h6: {
     letterSpacing: '$tight',
-    fontSize: '$xs',
+    fontSize: '$sm',
     fontWeight: '$semibold'
   },
   'button, input, select,textarea': {
@@ -224,7 +223,7 @@ const globalStyles = globalCss({
     padding: '$1 $3',
     mx: '$1',
     lineHeight: '$sm',
-    fontSize: '$tiny'
+    fontSize: '$xs'
   },
   'kbd + kbd': {
     ml: '$2'

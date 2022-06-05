@@ -30,7 +30,7 @@ const MyComponent = () => {
       <Text
         css={{
           color: '$blue800',
-          fontSize: '$tiny',
+          fontSize: '$sm',
           padding: '$2 $4'
         }}
       >
@@ -39,7 +39,7 @@ const MyComponent = () => {
       <p
         style={{
           color: theme.colors.primary.value,
-          fontSize: theme.fontSizes.tiny.value,
+          fontSize: theme.fontSizes.sm.value,
           padding: `${theme.space[2].value} ${theme.space[4].value}`
         }}
       >
@@ -315,13 +315,20 @@ export default {
   colors: {...}, // color palette object
   fonts: {...}, // font families object
   fontSizes: {
-    tiny: '.75rem',
-    xs: '0.875rem',
-    base: '1rem',
-    sm: '1.25rem',
-    md: '1.5rem',
-    lg: '2.25rem',
-    xl: '3rem'
+    xs: '0.75rem', /* 12px */
+    sm: '0.875rem', /* 14px */
+    base: '1rem', /* 16px */
+    md: '1rem', /* 16px */
+    lg: '1.125rem', /* 18px */
+    xl: '1.25rem', /* 20px */
+    xl2: '1.5rem', /* 24px */
+    xl3: '1.875rem', /* 30px */
+    xl4: '2.25rem', /* 36px */
+    xl5: '3rem', /* 48px */
+    xl6: '3.75rem', /* 60px */
+    xl7: '4.5rem', /* 72px */
+    xl8: '6rem', /* 96px */
+    xl9: '8rem', /* 128px */
   }
   ...
 };
@@ -360,11 +367,20 @@ export default {
   fontSizes: {...}, // font sizes object
   fontWeights: {...}, // font weights object
   lineHeights: {
-    xs: 1,
-    sm: 1.25,
-    md: 1.5,
-    lg: 1.625,
-    xl: 1.75
+    xs: 1, /* 16px */
+    sm: 1.25, /* 20px */
+    base: 1.5, /* 24px */
+    md: 1.5, /* 24px */
+    lg: 1.75, /* 28px */
+    xl: 1.75, /* 28px */
+    xl2: 2, /* 32px */
+    xl3: 2.25, /* 36px */
+    xl4: 2.5, /* 40px */
+    xl5: 1,
+    xl6: 1,
+    xl7: 1,
+    xl8: 1,
+    xl9: 1
   }
   ...
 };
@@ -601,19 +617,19 @@ export const lightTheme = {
   // default theme object
   // ... previous theme properties
   shadows: {
-    xs: '0 1px 3px 0 rgb(17 24 28 / 0.1), 0 1px 2px -1px rgb(17 24 28 / 0.1)',
-    sm: '0 4px 6px -1px rgb(17 24 28 / 0.1), 0 2px 4px -2px rgb(17 24 28 / 0.1)',
-    md: '0 10px 15px -3px rgb(17 24 28 / 0.1), 0 4px 6px -4px rgb(17 24 28 / 0.1)',
-    lg: '0 20px 25px -5px rgb(17 24 28 / 0.1), 0 8px 10px -6px rgb(17 24 28 / 0.1)',
-    xl: '0 25px 50px -12px rgb(17 24 28 / 0.25)'
+    xs: '0 2px 8px 1px rgb(17 24 28 / 0.07), 0 1px 1px -1px rgb(17 24 28 / 0.04)',
+    sm: '0 2px 8px 2px rgb(17 24 28 / 0.07), 0 2px 4px -1px rgb(17 24 28 / 0.04)',
+    md: '0 12px 20px 6px rgb(17 24 28 / 0.08)',
+    lg: '0 12px 34px 6px rgb(17 24 28 / 0.18)',
+    xl: '0 25px 65px 0px rgb(17 24 28 / 0.35)'
   },
    // to use along with css dropShadow utility
   dropShadows: {
-    xs: 'drop-shadow(0 1px 2px rgb(17 24 28 / 0.1)) drop-shadow(0 1px 1px rgb(17 24 28 / 0.06))',
-    sm: 'drop-shadow(0 4px 3px rgb(17 24 28 / 0.07)) drop-shadow(0 2px 2px rgb(17 24 28 / 0.06))',
-    md: 'drop-shadow(0 10px 8px rgb(17 24 28 / 0.04)) drop-shadow(0 4px 3px rgb(17 24 28 / 0.1))',
-    lg: 'drop-shadow(0 20px 13px rgb(17 24 28 / 0.03)) drop-shadow(0 8px 5px rgb(17 24 28 / 0.08))',
-    xl: 'drop-shadow(0 25px 25px rgb(17 24 28 / 0.15))'
+    xs: 'drop-shadow(0 2px 4px rgb(17 24 28 / 0.07)) drop-shadow(0 1px 1px rgb(17 24 28 / 0.04))',
+    sm: 'drop-shadow(0 2px 8px rgb(17 24 28 / 0.07)) drop-shadow(0 2px 4px rgb(17 24 28 / 0.04))',
+    md: 'drop-shadow(0 4px 12px rgb(17 24 28 / 0.08)) drop-shadow(0 20px 8px rgb(17 24 28 / 0.04))',
+    lg: 'drop-shadow(0 12px 24px rgb(17 24 28 / 0.15)) drop-shadow(0 12px 14px rgb(17 24 28 / 0.1))',
+    xl: 'drop-shadow(0 25px 34px rgb(17 24 28 / 0.35))'
   }
   ...
 };
@@ -622,19 +638,19 @@ export const darkTheme = {
   // default theme object
   // ... previous theme properties
   shadows: {
-    xs: '0 1px 3px 0 rgb(22 24 26 / 0.1), 0 1px 2px -1px rgb(22 24 26 / 0.1)',
-    sm: '0 4px 6px -1px rgb(22 24 26 / 0.1), 0 2px 4px -2px rgb(22 24 26 / 0.1)',
-    md: '0 10px 15px -3px rgb(22 24 26 / 0.1), 0 4px 6px -4px rgb(22 24 26 / 0.1)',
-    lg: '0 20px 25px -5px rgb(22 24 26 / 0.1), 0 8px 10px -6px rgb(22 24 26 / 0.1)',
-    xl: '0 25px 50px -12px rgb(22 24 26 / 0.25)'
+    xs: '0 2px 8px 1px rgb(22 24 26 / 0.07), 0 1px 1px -1px rgb(22 24 26 / 0.04)',
+    sm: '0 2px 8px 2px rgb(22 24 26 / 0.07), 0 2px 4px -1px rgb(22 24 26 / 0.04)',
+    md: '0 12px 20px 6px rgb(22 24 26 / 0.08)',
+    lg: '0 12px 34px 6px rgb(22 24 26 / 0.18)',
+    xl: '0 25px 65px 0px rgb(22 24 26 / 0.35)'
   },
    // to use along with css dropShadow utility
   dropShadows: {
-    xs: 'drop-shadow(0 1px 2px rgb(22 24 26 / 0.1)) drop-shadow(0 1px 1px rgb(22 24 26 / 0.06))',
-    sm: 'drop-shadow(0 4px 3px rgb(22 24 26 / 0.07)) drop-shadow(0 2px 2px rgb(22 24 26 / 0.06))',
-    md: 'drop-shadow(0 10px 8px rgb(22 24 26 / 0.04)) drop-shadow(0 4px 3px rgb(22 24 26 / 0.1))',
-    lg: 'drop-shadow(0 20px 13px rgb(22 24 26 / 0.03)) drop-shadow(0 8px 5px rgb(22 24 26 / 0.08))',
-    xl: 'drop-shadow(0 25px 25px rgb(22 24 26 / 0.15))'
+    xs: 'drop-shadow(0 2px 4px rgb(22 24 26 / 0.07)) drop-shadow(0 1px 1px rgb(22 24 26 / 0.04))',
+    sm: 'drop-shadow(0 2px 8px rgb(22 24 26 / 0.07)) drop-shadow(0 2px 4px rgb(22 24 26 / 0.04))',
+    md: 'drop-shadow(0 4px 12px rgb(22 24 26 / 0.08)) drop-shadow(0 20px 8px rgb(22 24 26 / 0.04))',
+    lg: 'drop-shadow(0 12px 24px rgb(22 24 26 / 0.15)) drop-shadow(0 12px 14px rgb(22 24 26 / 0.1))',
+    xl: 'drop-shadow(0 25px 34px rgb(22 24 26 / 0.35))'
   }
   ...
 };

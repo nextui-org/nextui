@@ -638,7 +638,7 @@ export const Shadows = () => {
   const Box = styled('div', {
     size: '120px',
     dflex: 'center',
-    bg: '$white',
+    bg: '$backgroundContrast',
     br: '$md'
   });
 

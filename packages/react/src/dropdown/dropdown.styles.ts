@@ -45,7 +45,7 @@ export const StyledDropdownItemContent = styled('span', {
 });
 
 export const StyledDropdownItemDescription = styled('span', {
-  fontSize: '$tiny',
+  fontSize: '$xs',
   color: '$$dropdownItemDescriptionColor',
   truncateText: 'calc($$dropdownMenuWidth * 0.9)',
   transition: 'color 0.26s ease 0s',
