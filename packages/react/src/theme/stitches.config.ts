@@ -17,6 +17,9 @@ const stitches = createStitches({
     shadows: {
       ...lightTheme.shadows
     },
+    dropShadows: {
+      ...lightTheme.dropShadows
+    },
     colors: {
       ...commonTheme.theme.colors,
       ...lightTheme.colors

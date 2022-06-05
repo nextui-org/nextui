@@ -195,6 +195,18 @@ export const utils = {
   bs: (value) => ({
     boxShadow: value
   }),
+  ds: (value) => ({
+    dropShadow: value
+  }),
+  shadow: (value) => ({
+    boxShadow: value
+  }),
+  dshadow: (value) => ({
+    dropShadow: value
+  }),
+  dropShadow: (value) => ({
+    filter: `$dropShadows${value}`
+  }),
   normalShadow: (value) => ({
     boxShadow: `0 4px 14px 0 $colors${value}`
   }),

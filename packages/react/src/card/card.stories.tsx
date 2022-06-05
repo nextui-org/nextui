@@ -1,18 +1,8 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Card from './index';
-import {
-  Row,
-  Col,
-  Link,
-  Text,
-  Spacer,
-  Divider,
-  Code,
-  Button,
-  Grid
-} from '../index';
-import { NormalColors } from '../utils/prop-types';
+import { styled } from '../theme/stitches.config';
+import { Row, Col, Link, Text, Code, Button, Grid } from '../index';
 import AppleEvent from '../../assets/apple-event.jpeg';
 import Homepods from '../../assets/homepod.jpeg';
 import Relaxing from '../../assets/relaxing.jpeg';
@@ -20,117 +10,90 @@ import BreathingApp from '../../assets/breathing-app-icon.jpeg';
 
 export default {
   title: 'Surfaces/Card',
-  component: Card,
-  decorators: [
-    (Story) => (
-      <Grid.Container gap={1} justify="center" direction="column">
-        <Story />
-      </Grid.Container>
-    )
-  ]
+  component: Card
 } as Meta;
 
 export const Default = () => (
-  <Card isHoverable css={{ w: '400px', br: '$lg' }}>
-    <p>A basic card.</p>
+  <Card css={{ w: '400px' }}>
+    <Card.Body css={{ py: '$lg' }}>
+      <Text>A basic card</Text>
+    </Card.Body>
   </Card>
 );
 
-export const Bordered = () => (
-  <Card isBordered isPressable css={{ w: '400px' }}>
-    <p>A bordered card.</p>
-  </Card>
-);
-
-export const Colors = () => {
-  const colors: Array<NormalColors> = [
-    'primary',
-    'secondary',
-    'success',
-    'warning',
-    'error',
-    'gradient'
-  ];
-
-  return (
-    <>
-      {colors.map((color) => (
-        <Grid.Container gap={2} key={color} style={{ marginBottom: '18px' }}>
-          <Grid xs={12}>
-            <Card color={color}>
-              <Text h4 transform="capitalize">
-                {color}
-              </Text>
-              <Text span>{color}</Text>
-            </Card>
-          </Grid>
-        </Grid.Container>
-      ))}
-    </>
-  );
-};
-
-export const DisableShadow = () => (
-  <Card isBordered disableShadow css={{ w: '400px' }}>
-    <Card.Header>
-      <h4>Next UI</h4>
-    </Card.Header>
-    <p>
-      <span role="img" aria-label="Rocket">
-        🚀
-      </span>
-      &nbsp; Beautiful and modern React UI library..
-    </p>
-  </Card>
+export const Variants = () => (
+  <Grid.Container gap={2}>
+    <Grid xs={4}>
+      <Card>
+        <Card.Body>
+          <Text>Default card. (shadow)</Text>
+        </Card.Body>
+      </Card>
+    </Grid>
+    <Grid xs={4}>
+      <Card variant="flat">
+        <Card.Body>
+          <Text>Flat card.</Text>
+        </Card.Body>
+      </Card>
+    </Grid>
+    <Grid xs={4}>
+      <Card variant="bordered">
+        <Card.Body>
+          <Text>Bordered card.</Text>
+        </Card.Body>
+      </Card>
+    </Grid>
+  </Grid.Container>
 );
 
 export const WithFooter = () => (
-  <Row wrap="wrap" justify="flex-start">
-    <Card css={{ w: '330px' }}>
-      <Text h4>Next UI</Text>
-      <Text>
-        <span role="img" aria-label="Rocket">
-          🚀
-        </span>
-        Beautiful and modern React UI library.
-      </Text>
-      <Card.Footer>
-        <Link
-          color="primary"
-          target="_blank"
-          href="https://github.com/nextui-org/nextui"
-        >
-          Visit source code on GitHub.
-        </Link>
-      </Card.Footer>
-    </Card>
-    <Spacer x={1} />
-    <Card css={{ w: '330px' }} color="primary">
-      <Text h4>Next UI</Text>
-      <Text>
-        <span role="img" aria-label="Rocket">
-          🚀
-        </span>
-        Beautiful and modern React UI library.
-      </Text>
-      <Card.Footer>
-        <Link
-          css={{ color: 'white' }}
-          target="_blank"
-          href="https://github.com/nextui-org/nextui"
-        >
-          Visit source code on GitHub.
-        </Link>
-      </Card.Footer>
-    </Card>
-  </Row>
+  <Grid.Container gap={2}>
+    <Grid xs={4}>
+      <Card css={{ p: '$6' }}>
+        <Card.Header>
+          <img
+            alt="nextui logo"
+            src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+            width="34px"
+            height="34px"
+          />
+          <Grid.Container css={{ pl: '$6' }}>
+            <Grid xs={12}>
+              <Text h4 css={{ lineHeight: '$xs' }}>
+                Next UI
+              </Text>
+            </Grid>
+            <Grid xs={12}>
+              <Text css={{ color: '$accents8' }}>nextui.org</Text>
+            </Grid>
+          </Grid.Container>
+        </Card.Header>
+        <Card.Body css={{ py: '$2' }}>
+          <Text>
+            Make beautiful websites regardless of your design experience.
+          </Text>
+        </Card.Body>
+        <Card.Footer>
+          <Link
+            icon
+            color="primary"
+            target="_blank"
+            href="https://github.com/nextui-org/nextui"
+          >
+            Visit source code on GitHub.
+          </Link>
+        </Card.Footer>
+      </Card>
+    </Grid>
+  </Grid.Container>
 );
 
 export const AbsImageWithHeader = () => {
   return (
     <Grid.Container gap={1} justify="center">
       <Grid>
-        <Card css={{ w: '330px' }} isImageCover>
+        <Card css={{ w: '330px' }}>
           <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
             <Col>
               <Text
@@ -164,7 +127,7 @@ export const AbsImgWithHeaderFooter = () => {
   return (
     <Grid.Container gap={2} justify="center">
       <Grid>
-        <Card isImageCover css={{ w: '330px', bg: '$gray100' }}>
+        <Card css={{ w: '330px', bg: '$gray50' }}>
           <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
             <Col>
               <Text
@@ -212,7 +175,7 @@ export const AbsImgWithHeaderFooter = () => {
         </Card>
       </Grid>
       <Grid>
-        <Card isImageCover css={{ w: '630px', p: 0 }}>
+        <Card css={{ w: '630px' }}>
           <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
             <Col>
               <Text
@@ -228,17 +191,14 @@ export const AbsImgWithHeaderFooter = () => {
               </Text>
             </Col>
           </Card.Header>
-          <Card.Body>
-            <Card.Image
-              autoResize={false}
-              src={Relaxing}
-              height={440}
-              width="100%"
-              alt="Apple homedpods background"
-              style={{ objectFit: 'cover' }}
-            />
-          </Card.Body>
-
+          <Card.Image
+            autoResize={false}
+            src={Relaxing}
+            height={440}
+            width="100%"
+            alt="Apple homedpods background"
+            style={{ objectFit: 'cover' }}
+          />
           <Card.Footer
             blur
             css={{
@@ -297,7 +257,7 @@ export const AbsImgWithHeaderFooter = () => {
 export const CoverImage = () => (
   <Grid.Container gap={2} justify="center">
     <Grid xs={12} sm={4}>
-      <Card isImageCover>
+      <Card>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
           <Col>
             <Text
@@ -314,16 +274,16 @@ export const CoverImage = () => (
           </Col>
         </Card.Header>
         <Card.Image
-          objectFit="cover"
           src="https://nextui.org/images/card-example-4.jpeg"
-          height={340}
+          objectFit="cover"
           width="100%"
+          height={340}
           alt="Card image background"
         />
       </Card>
     </Grid>
     <Grid xs={12} sm={4}>
-      <Card css={{ w: '100%' }} isImageCover>
+      <Card css={{ w: '100%' }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
           <Col>
             <Text
@@ -341,14 +301,15 @@ export const CoverImage = () => (
         </Card.Header>
         <Card.Image
           src="https://nextui.org/images/card-example-3.jpeg"
-          height={340}
           width="100%"
+          height={340}
+          objectFit="cover"
           alt="Card image background"
         />
       </Card>
     </Grid>
     <Grid xs={12} sm={4}>
-      <Card isImageCover css={{ bg: '$black', w: '100%' }}>
+      <Card css={{ bg: '$black', w: '100%' }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
           <Col>
             <Text
@@ -366,14 +327,15 @@ export const CoverImage = () => (
         </Card.Header>
         <Card.Image
           src="https://nextui.org/images/card-example-2.jpeg"
-          height={340}
           width="100%"
+          height={340}
+          objectFit="cover"
           alt="Card image background"
         />
       </Card>
     </Grid>
     <Grid xs={12} sm={5}>
-      <Card isImageCover css={{ w: '100%' }}>
+      <Card css={{ w: '100%', h: '400px' }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
           <Col>
             <Text
@@ -389,11 +351,12 @@ export const CoverImage = () => (
             </Text>
           </Col>
         </Card.Header>
-        <Card.Body>
+        <Card.Body css={{ p: 0 }}>
           <Card.Image
             src="https://nextui.org/images/card-example-6.jpeg"
-            height={400}
             width="100%"
+            height="100%"
+            objectFit="cover"
             alt="Card example background"
           />
         </Card.Body>
@@ -435,7 +398,7 @@ export const CoverImage = () => (
       </Card>
     </Grid>
     <Grid xs={12} sm={7}>
-      <Card isImageCover css={{ w: '100%', p: 0 }}>
+      <Card css={{ w: '100%', h: '400px' }}>
         <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
           <Col>
             <Text size={12} weight="bold" transform="uppercase" color="#9E9E9E">
@@ -446,11 +409,12 @@ export const CoverImage = () => (
             </Text>
           </Col>
         </Card.Header>
-        <Card.Body>
+        <Card.Body css={{ p: 0 }}>
           <Card.Image
             src="https://nextui.org/images/card-example-5.jpeg"
-            height={400}
+            objectFit="cover"
             width="100%"
+            height="100%"
             alt="Relaxing app background"
           />
         </Card.Body>
@@ -469,8 +433,8 @@ export const CoverImage = () => (
               <Row>
                 <Col span={3}>
                   <Card.Image
-                    src="/images/breathing-app-icon.jpeg"
-                    css={{ background: 'black' }}
+                    src="https://nextui.org/images/breathing-app-icon.jpeg"
+                    css={{ bg: 'black', br: '50%' }}
                     height={40}
                     width={40}
                     alt="Breathing app icon"
@@ -560,11 +524,11 @@ export const PrimaryAction = () => {
     <Grid.Container gap={2} justify="flex-start">
       {list.map((item, index) => (
         <Grid xs={6} sm={3} key={index}>
-          <Card isHoverable isPressable>
+          <Card isPressable>
             <Card.Body css={{ p: 0 }}>
               <Card.Image
-                objectFit="cover"
                 src={'https://nextui.org' + item.img}
+                objectFit="cover"
                 width="100%"
                 height={140}
                 alt={item.title}
@@ -654,13 +618,13 @@ export const WithDivider = () => (
     <Card.Header>
       <Text b>Description</Text>
     </Card.Header>
-    <Divider y={0} />
-    <Card.Body css={{ padding: '30px 20px' }}>
+    <Card.Divider />
+    <Card.Body>
       <Text>
         The Object constructor creates an object wrapper for the given value.
       </Text>
     </Card.Body>
-    <Divider y={0} />
+    <Card.Divider />
     <Card.Footer>
       <Text>
         When called in a non-constructor context, Object behaves identically to{' '}
@@ -669,3 +633,39 @@ export const WithDivider = () => (
     </Card.Footer>
   </Card>
 );
+
+export const Shadows = () => {
+  const Box = styled('div', {
+    size: '120px',
+    dflex: 'center',
+    bg: '$white',
+    br: '$md'
+  });
+
+  const shadows = ['$xs', '$sm', '$md', '$lg', '$xl'];
+
+  return (
+    <Grid.Container justify="center" gap={3}>
+      <Grid xs={12} justify="center">
+        <Text b>Drop shadows</Text>
+      </Grid>
+      {shadows.map((shadow, index) => (
+        <Grid key={`${shadow}_${index}`} xs={6} sm={2}>
+          <Box css={{ dropShadow: shadow }}>
+            <Text>Shadow: {shadow}</Text>
+          </Box>
+        </Grid>
+      ))}
+      <Grid xs={12} justify="center">
+        <Text b>Box shadows</Text>
+      </Grid>
+      {shadows.map((shadow, index) => (
+        <Grid key={`${shadow}_${index}`} xs={6} sm={2}>
+          <Box css={{ boxShadow: shadow }}>
+            <Text>Shadow: {shadow}</Text>
+          </Box>
+        </Grid>
+      ))}
+    </Grid.Container>
+  );
+};

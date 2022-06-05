@@ -16,6 +16,7 @@ declare namespace ConfigType {
     borderWeights?: { [token in number | string]: boolean | number | string };
     colors?: { [token in number | string]: boolean | number | string };
     shadows?: { [token in number | string]: boolean | number | string };
+    dropShadows?: { [token in number | string]: boolean | number | string };
     transitions?: { [token in number | string]: boolean | number | string };
     breakpoints?: { [token in number | string]: boolean | number | string };
   } & {

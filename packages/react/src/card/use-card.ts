@@ -1,5 +1,4 @@
 import React from 'react';
-import type { ReactNode } from 'react';
 import { useFocusRing } from '@react-aria/focus';
 import type {
   PressEvents,
@@ -9,28 +8,17 @@ import type {
 import type { FocusRingAria } from '@react-aria/focus';
 import { usePress } from '@react-aria/interactions';
 import { useHover } from '@react-aria/interactions';
-import {
-  StyledCardHeader as CardHeader,
-  StyledCardFooter as CardFooter,
-  StyledCardBody as CardBody
-} from './card.styles';
-import Image from '../image';
 import type { ReactRef } from './../utils/refs';
-import type { NormalColors, NormalWeights } from './../utils/prop-types';
-import { hasChild, pickChild } from '../utils/collections';
+import type { NormalWeights, CardVariants } from './../utils/prop-types';
 import useDrip from '../use-drip';
 import { useDOMRef } from '../utils/dom';
 
 interface Props extends PressEvents, FocusableProps {
-  children: ReactNode | ReactNode[];
   ref: ReactRef<HTMLDivElement | null>;
-  color?: NormalColors;
+  variant?: CardVariants;
   borderWeight?: NormalWeights;
-  isImageCover?: boolean;
   isPressable?: boolean;
   isHoverable?: boolean;
-  isBordered?: boolean;
-  disableShadow?: boolean;
   disableRipple?: boolean;
   disableAnimation?: boolean;
 }
@@ -49,14 +37,11 @@ interface IFocusRingAria extends FocusRingAria {
 export const useCard = (props: UseCardProps) => {
   const {
     ref,
-    children,
-    color = 'default',
     disableAnimation = false,
     disableRipple = false,
-    isImageCover = false,
-    disableShadow = false,
+    variant = 'shadow',
     isHoverable = false,
-    borderWeight = 'normal',
+    borderWeight = 'light',
     isPressable = false,
     onClick,
     onPress,
@@ -64,31 +49,12 @@ export const useCard = (props: UseCardProps) => {
     ...otherProps
   } = props;
 
-  const cardRef = useDOMRef(ref);
+  const cardRef = useDOMRef<HTMLDivElement>(ref);
 
   const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
     false,
     cardRef
   );
-
-  const [withoutHeaderChildren, headerChildren] = pickChild(
-    children,
-    CardHeader
-  );
-
-  const [withoutFooterChildren, footerChildren] = pickChild(
-    withoutHeaderChildren,
-    CardFooter
-  );
-
-  const [withoutImageChildren, imageChildren] = pickChild(
-    withoutFooterChildren,
-    Image
-  );
-
-  const hasContent = hasChild(withoutImageChildren, CardBody);
-
-  const hasHeader = hasChild(children, CardHeader);
 
   const handleDrip = (e: React.MouseEvent<HTMLButtonElement> | PressEvent) => {
     if (!disableAnimation && !disableRipple && cardRef.current) {
@@ -128,31 +94,23 @@ export const useCard = (props: UseCardProps) => {
     autoFocus
   });
 
+  pressProps.onClick = handleClick;
+
   return {
     cardRef,
-    color,
+    variant,
     borderWeight,
     isPressable,
-    isHoverable,
     isHovered,
     isPressed,
-    isImageCover,
-    hasHeader,
-    hasContent,
-    disableShadow,
     disableAnimation,
     disableRipple,
-    headerChildren,
-    footerChildren,
-    imageChildren,
-    withoutImageChildren,
     pressProps,
     hoverProps,
     dripBindings,
     focusProps,
     onDripClickHandler,
     isFocusVisible,
-    onClick: handleClick,
     ...otherProps
   };
 };
