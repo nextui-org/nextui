@@ -10,8 +10,7 @@ export {
   StyledUser,
   StyledUserInfo,
   StyledUserName,
-  StyledUserDesc,
-  StyledUserLink
+  StyledUserDesc
 } from './user.styles';
 
 export default User;

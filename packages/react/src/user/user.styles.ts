@@ -53,11 +53,3 @@ export const StyledUserDesc = styled('span', {
     mb: 0
   }
 });
-
-export const StyledUserLink = styled('a', {
-  a: {
-    '&:hover': {
-      opacity: 0.7
-    }
-  }
-});
