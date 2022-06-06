@@ -1,10 +1,10 @@
-const App = `import { Card } from "@nextui-org/react";
+const App = `import { Card, Text } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Card css={{ mw: "400px" }}>
+    <Card isHoverable variant="bordered" css={{ mw: "400px" }}>
       <Card.Body>
-        <Text>A basic card</Text>
+        <Text>A hoverable card.</Text>
       </Card.Body>
     </Card>
   );

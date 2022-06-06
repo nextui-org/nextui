@@ -89,7 +89,7 @@ export const StyledSnippetPre = styled('pre', {
   br: 0,
   bgColor: 'transparent',
   color: 'inherit',
-  fontSize: '$xs',
+  fontSize: '$sm',
   '*': {
     margin: 0,
     padding: 0,

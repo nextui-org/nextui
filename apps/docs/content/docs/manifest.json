@@ -110,7 +110,8 @@
                         {
                             "title": "Card",
                             "keywords": "card, content, action, media",
-                            "path": "/docs/components/card.mdx"
+                            "path": "/docs/components/card.mdx",
+                            "updated": "true"
                         },
                         {
                             "title": "Pagination",

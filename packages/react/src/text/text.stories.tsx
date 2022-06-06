@@ -36,7 +36,7 @@ export const Gradient = () => (
     <Text
       h1
       css={{
-        textGradient: '45deg, $blue500 0%, $cyan500 100%'
+        textGradient: '45deg, $blue600 0%, $cyan600 100%'
       }}
       weight="bold"
     >
@@ -45,7 +45,7 @@ export const Gradient = () => (
     <Text
       h1
       css={{
-        textGradient: '45deg, $pink500 0%, $red500 100%'
+        textGradient: '45deg, $pink600 0%, $red600 100%'
       }}
       weight="bold"
     >
@@ -54,7 +54,7 @@ export const Gradient = () => (
     <Text
       h1
       css={{
-        textGradient: '45deg, $yellow500 0%, $red500 100%'
+        textGradient: '45deg, $yellow600 0%, $red600 100%'
       }}
       weight="bold"
     >

@@ -12,7 +12,7 @@ export const StyledTableColumnHeader = styled(
     cursor: 'default',
     bg: '$accents0',
     color: '$accents7',
-    fontSize: '$tiny',
+    fontSize: '$xs',
     textAlign: 'left',
     position: 'relative',
     '@motion': {

@@ -63,7 +63,7 @@ export const UserTwitterCard = () => {
               onClick={() => setFollowing(!following)}
               css={{
                 maxHeight: "$space$12",
-                fs: "$tiny",
+                fs: "$xs",
                 fontWeight: "$semibold",
                 borderColor: following ? "$foreground" : "$primary",
                 color: following ? "$foreground" : "$white"

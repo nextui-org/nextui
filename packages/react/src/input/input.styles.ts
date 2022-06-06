@@ -121,31 +121,31 @@ export const StyledInputMainContainer = styled('div', {
     size: {
       xs: {
         $$inputBorderRadius: '$space$3',
-        $$inputFontSize: '$fontSizes$tiny',
+        $$inputFontSize: '$fontSizes$xs',
         $$inputHeightRatio: '1.2',
         br: '$$inputBorderRadius'
       },
       sm: {
         $$inputBorderRadius: '$space$4',
-        $$inputFontSize: '$fontSizes$tiny',
+        $$inputFontSize: '$fontSizes$xs',
         $$inputHeightRatio: '1.6',
         br: '$$inputBorderRadius'
       },
       md: {
         $$inputBorderRadius: '$space$6',
-        $$inputFontSize: '$fontSizes$xs',
+        $$inputFontSize: '$fontSizes$sm',
         $$inputHeightRatio: '2',
         br: '$$inputBorderRadius'
       },
       lg: {
         $$inputBorderRadius: '$space$7',
-        $$inputFontSize: '$fontSizes$base',
+        $$inputFontSize: '$fontSizes$md',
         $$inputHeightRatio: '2.2',
         br: '$$inputBorderRadius'
       },
       xl: {
         $$inputBorderRadius: '$space$8',
-        $$inputFontSize: '$fontSizes$sm',
+        $$inputFontSize: '$fontSizes$lg',
         $$inputHeightRatio: '2.6',
         br: '$$inputBorderRadius'
       }

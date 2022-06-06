@@ -48,7 +48,7 @@ export const Title = styled('h1', {
 
 export const Subtitle = styled('p', {
   pl: '$1',
-  fs: '$sm',
+  fs: '$xl',
   fontWeight: '$medium',
   color: '$accents7',
   display: 'block',

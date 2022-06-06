@@ -91,7 +91,7 @@ export const StyledButton = styled(
           lh: '$space$10',
           width: 'auto',
           minWidth: '$20',
-          fontSize: '$tiny'
+          fontSize: '$xs'
         },
         sm: {
           $$buttonPadding: '$space$5',
@@ -102,7 +102,7 @@ export const StyledButton = styled(
           lh: '$space$14',
           width: 'auto',
           minWidth: '$36',
-          fontSize: '$xs'
+          fontSize: '$sm'
         },
         md: {
           $$buttonPadding: '$space$7',
@@ -113,7 +113,7 @@ export const StyledButton = styled(
           lh: '$space$14',
           width: 'auto',
           minWidth: '$48',
-          fontSize: '$xs'
+          fontSize: '$sm'
         },
         lg: {
           $$buttonPadding: '$space$9',
@@ -124,7 +124,7 @@ export const StyledButton = styled(
           lh: '$space$15',
           width: 'auto',
           minWidth: '$60',
-          fontSize: '$base'
+          fontSize: '$md'
         },
         xl: {
           $$buttonPadding: '$space$10',
@@ -135,7 +135,7 @@ export const StyledButton = styled(
           lh: '$space$17',
           width: 'auto',
           minWidth: '$72',
-          fontSize: '$sm'
+          fontSize: '$lg'
         }
       },
       borderWeight: {

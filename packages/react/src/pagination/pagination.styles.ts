@@ -108,7 +108,7 @@ export const StyledPaginationItem = styled(
       },
       disabled: {
         true: {
-          color: '$accents4',
+          color: '$accents5',
           cursor: 'not-allowed'
         }
       },

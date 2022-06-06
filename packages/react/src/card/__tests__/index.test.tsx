@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import Card from '../index';
 
 describe('Card', () => {
@@ -9,30 +9,30 @@ describe('Card', () => {
   });
 
   it('should support hoverable', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <div>
-        <Card hoverable>card</Card>
+        <Card isHoverable>card</Card>
       </div>
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('should support clikable', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <div>
-        <Card clickable>card</Card>
+        <Card isPressable>card</Card>
       </div>
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('should support custom css', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <div>
         <Card css={{ bg: '$red400' }}>card</Card>
       </div>
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('should support card types', () => {
@@ -50,14 +50,14 @@ describe('Card', () => {
   });
 
   it('should render correctly when nested', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Card>
-        <Card shadow>
+        <Card>
           <Card>card</Card>
         </Card>
       </Card>
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('the component Card.Content should be injected automatically', () => {

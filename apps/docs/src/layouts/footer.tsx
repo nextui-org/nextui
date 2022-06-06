@@ -31,7 +31,7 @@ const Footer: React.FC<Props> = ({ css, containerCss }) => {
             fontSize: '$xs',
             color: '$accents6',
             '@mdMax': {
-              fontSize: '$tiny'
+              fontSize: '$xs'
             }
           }}
         >
@@ -45,7 +45,7 @@ const Footer: React.FC<Props> = ({ css, containerCss }) => {
             fontSize: '$xs',
             color: '$accents7',
             '@mdMax': {
-              fontSize: '$tiny'
+              fontSize: '$xs'
             }
           }}
         >

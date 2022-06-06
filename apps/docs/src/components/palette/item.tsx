@@ -94,7 +94,7 @@ const Item: React.FC<ItemProps> = ({
               className="hex-text"
               css={{
                 m: 0,
-                fontSize: '$tiny',
+                fontSize: '$xs',
                 color: textColor,
                 opacity: 0.8,
                 tt: 'uppercase',
