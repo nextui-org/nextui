@@ -127,7 +127,9 @@ export const StyledTableCell = styled(
       size: '100%',
       top: 0,
       left: 0,
-      opacity: 0
+      opacity: 0,
+      transform: 'translateZ(0)',
+      backfaceVisibility: 'hidden'
     },
     variants: {
       align: {
