@@ -39,7 +39,7 @@ const globalStyles = globalCss({
   },
   small: {
     margin: 0,
-    lineHeight: '$md',
+    lineHeight: '$xs',
     fontSize: '$xs'
   },
   b: {
@@ -86,8 +86,8 @@ const globalStyles = globalCss({
   },
   h1: {
     letterSpacing: '$tighter',
-    lineHeight: '$md',
     fontSize: '$xl5',
+    lineHeight: '$md',
     fontWeight: '$bold'
   },
   h2: {
@@ -131,7 +131,7 @@ const globalStyles = globalCss({
     borderRadius: '$xs',
     bg: '$codeLight',
     fontFamily: '$mono',
-    fontSize: '$xs',
+    fontSize: '$sm',
     whiteSpace: 'pre-wrap',
     transition: 'opacity 0.25s ease 0s'
   },
@@ -142,7 +142,7 @@ const globalStyles = globalCss({
     overflow: 'auto',
     whiteSpace: 'pre',
     textAlign: 'left',
-    fontSize: '$xs',
+    fontSize: '$sm',
     borderRadius: '$lg',
     padding: '$md $lg',
     margin: '$lg 0 ',
@@ -152,7 +152,7 @@ const globalStyles = globalCss({
   },
   'pre code': {
     color: '$foreground',
-    fontSize: '$xs',
+    fontSize: '$sm',
     lineHeight: '$sm',
     whiteSpace: 'pre'
   },
@@ -169,7 +169,11 @@ const globalStyles = globalCss({
     background: 'transparent'
   },
   hr: {
-    borderColor: '$accents2'
+    background: '$border',
+    borderColor: 'transparent',
+    borderWidth: '0px',
+    borderStyle: 'none',
+    height: '1px'
   },
   details: {
     backgroundColor: '$accents1',
@@ -223,7 +227,7 @@ const globalStyles = globalCss({
     padding: '$1 $3',
     mx: '$1',
     lineHeight: '$sm',
-    fontSize: '$xs'
+    fontSize: '$sm'
   },
   'kbd + kbd': {
     ml: '$2'

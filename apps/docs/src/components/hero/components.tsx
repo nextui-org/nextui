@@ -109,7 +109,8 @@ const HeroComponents = () => {
           trigger="click"
           css={{
             animation: `${levitating} 14s ease infinite 0.1s`,
-            marginLeft: '-90px',
+            marginLeft: '-80px',
+            marginTop: '$2',
             transform: 'translate(0, 0)'
           }}
         >
@@ -317,10 +318,10 @@ const HeroComponents = () => {
                   auto
                   rounded
                   color="secondary"
+                  size="sm"
                   css={{
                     px: '$4',
                     height: '$space$10',
-                    fontSize: '$sm',
                     color: '$white',
                     [`.${darkTheme} &`]: {
                       bg: '$purple900',

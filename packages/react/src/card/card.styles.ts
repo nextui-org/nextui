@@ -54,7 +54,7 @@ export const StyledCard = styled(
           bg: '$accents0'
         },
         shadow: {
-          dropShadow: '$md'
+          dropShadow: '$lg'
         },
         bordered: {
           borderStyle: 'solid',
@@ -118,6 +118,14 @@ export const StyledCard = styled(
         css: {
           transform: 'translateY(-2px)'
         }
+      },
+      // isHovered && variant === 'shadow'
+      {
+        isHovered: true,
+        variant: 'shadow',
+        css: {
+          dropShadow: '$xl'
+        }
       }
     ]
   },
@@ -134,7 +142,6 @@ export const StyledCardHeader = styled('div', {
   ai: 'center',
   overflow: 'hidden',
   color: 'inherit',
-  fontSize: '$xs',
   p: '$sm'
 });
 
@@ -146,11 +153,10 @@ export const StyledCardFooter = styled('div', {
   ai: 'center',
   overflow: 'hidden',
   color: 'inherit',
-  fontSize: '$xs',
   bblr: '$lg',
   bbrr: '$lg',
   variants: {
-    blur: {
+    isBlurred: {
       true: {
         bf: 'saturate(180%) blur(10px)',
         bg: '$$cardColor'

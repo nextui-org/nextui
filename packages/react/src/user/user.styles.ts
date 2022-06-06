@@ -33,7 +33,7 @@ export const StyledUserInfo = styled('div', {
 });
 
 export const StyledUserName = styled('span', {
-  fontSize: '$xs',
+  fontSize: '$sm',
   color: '$text',
   lh: '$sm',
   tt: 'capitalize',

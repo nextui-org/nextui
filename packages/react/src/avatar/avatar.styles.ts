@@ -147,35 +147,35 @@ export const StyledAvatar = styled(
           $$avatarXs: '$space$9',
           sizeMin: '$$avatarXs',
           '.nextui-avatar-text': {
-            fontSize: '$xs'
+            fontSize: '$sm'
           }
         },
         sm: {
           $$avatarSm: '$space$11',
           sizeMin: '$$avatarSm',
           '.nextui-avatar-text': {
-            fontSize: '$base'
+            fontSize: '$md'
           }
         },
         md: {
           $$avatarMd: '$space$14',
           sizeMin: '$$avatarMd',
           '.nextui-avatar-text': {
-            fontSize: '$sm'
+            fontSize: '$lg'
           }
         },
         lg: {
           $$avatarLg: '$space$16',
           sizeMin: '$$avatarLg',
           '.nextui-avatar-text': {
-            fontSize: '$sm'
+            fontSize: '$xl'
           }
         },
         xl: {
           $$avatarXl: '$space$18',
           sizeMin: '$$avatarXl',
           '.nextui-avatar-text': {
-            fontSize: '$md'
+            fontSize: '$xl2'
           }
         }
       },

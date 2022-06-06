@@ -102,7 +102,7 @@ export const StyledButton = styled(
           lh: '$space$14',
           width: 'auto',
           minWidth: '$36',
-          fontSize: '$xs'
+          fontSize: '$sm'
         },
         md: {
           $$buttonPadding: '$space$7',

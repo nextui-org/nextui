@@ -200,7 +200,7 @@ export const AbsImgWithHeaderFooter = () => {
             style={{ objectFit: 'cover' }}
           />
           <Card.Footer
-            blur
+            isBlurred
             css={{
               position: 'absolute',
               bgBlur: '#0f111466',
@@ -361,7 +361,7 @@ export const CoverImage = () => (
           />
         </Card.Body>
         <Card.Footer
-          blur
+          isBlurred
           css={{
             position: 'absolute',
             bgBlur: '#ffffff66',
@@ -419,7 +419,7 @@ export const CoverImage = () => (
           />
         </Card.Body>
         <Card.Footer
-          blur
+          isBlurred
           css={{
             position: 'absolute',
             bgBlur: '#0f111466',

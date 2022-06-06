@@ -30,16 +30,17 @@ const CustomButton = () => {
       auto
       rounded
       ripple={false}
-      size="xl"
       onClick={handleConfetti}
       css={{
         background: '$white',
         fontWeight: '$semibold',
-        boxShadow: '$md',
+        boxShadow: '$lg',
         position: 'relative',
         overflow: 'visible',
         color: '#0F9549',
+        fontSize: '$lg',
         px: '$18',
+        py: '$11',
         '&:after': {
           content: '""',
           position: 'absolute',

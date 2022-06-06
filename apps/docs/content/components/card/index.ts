@@ -1,8 +1,7 @@
 import defaultCard from './default';
-import bordered from './bordered';
-import hover from './hover';
-import clickable from './clickable';
-import color from './color';
+import variants from './variants';
+import hoverable from './hoverable';
+import pressable from './pressable';
 import divider from './divider';
 import cover from './cover';
 import action from './action';
@@ -10,10 +9,9 @@ import footer from './footer';
 
 export default {
   defaultCard,
-  bordered,
-  hover,
-  clickable,
-  color,
+  variants,
+  hoverable,
+  pressable,
   divider,
   cover,
   action,
