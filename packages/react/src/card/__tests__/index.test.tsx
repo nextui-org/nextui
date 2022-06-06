@@ -59,14 +59,4 @@ describe('Card', () => {
     );
     expect(() => wrapper.unmount()).not.toThrow();
   });
-
-  it('the component Card.Content should be injected automatically', () => {
-    const card = mount(<Card>test-value</Card>);
-    const content = mount(
-      <Card>
-        <Card.Body>test-value</Card.Body>
-      </Card>
-    );
-    expect(card.html()).toEqual(content.html());
-  });
 });
