@@ -51,7 +51,9 @@ const mapColors = (colors: string[]): Color[] => {
     const reverseColor = reverseColors[color];
 
     const textColor = isBrand
-      ? '$white'
+      ? color === 'gradient'
+        ? '$white'
+        : `$${color}SolidContrast`
       : (isAccent && num <= 5) || (isBase && num <= 500)
       ? `$${colors[colors.length - 1]}`
       : `$${colors[1]}`;

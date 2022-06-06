@@ -4,7 +4,8 @@ import {
   StyledCardFooter as CardFooter,
   StyledCardBody as CardBody
 } from './card.styles';
-import CardImage from '../image';
+import Image from '../image';
+import Divider from '../divider';
 
 export type { CardProps } from './card';
 
@@ -19,6 +20,7 @@ export type { CardFooterVariantsProps, CardVariantsProps } from './card.styles';
 Card.Header = CardHeader;
 Card.Body = CardBody;
 Card.Footer = CardFooter;
-Card.Image = CardImage;
+Card.Image = Image;
+Card.Divider = Divider;
 
 export default Card;

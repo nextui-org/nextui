@@ -77,7 +77,7 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
                   fill={
                     !isDark
                       ? theme?.colors?.accents2?.value
-                      : theme?.colors?.accents6?.value
+                      : theme?.colors?.accents8?.value
                   }
                 />
               </span>
@@ -144,6 +144,7 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
         }
         .title {
           font-weight: 600;
+          color: ${theme?.colors?.white?.value};
         }
         details {
           transition: all 0.2s ease;

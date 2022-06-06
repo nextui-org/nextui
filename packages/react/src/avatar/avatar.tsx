@@ -1,4 +1,7 @@
 import React, { useMemo, useState, useRef, useEffect } from 'react';
+import { useFocusRing } from '@react-aria/focus';
+import type { FocusRingAria } from '@react-aria/focus';
+import { mergeProps } from '@react-aria/utils';
 import AvatarGroup from './avatar-group';
 import { CSS } from '../theme/stitches.config';
 import { ReactRef } from '../utils/refs';
@@ -25,6 +28,10 @@ export type AvatarProps = Props &
   AvatarVariantsProps &
   NativeAttrs & { css?: CSS };
 
+interface IFocusRingAria extends FocusRingAria {
+  focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof AvatarProps>;
+}
+
 const safeText = (text: string): string => {
   if (text?.length <= 4) return text;
   return text?.slice(0, 3);
@@ -32,7 +39,7 @@ const safeText = (text: string): string => {
 
 export const Avatar = React.forwardRef(
   (props: AvatarProps, ref: ReactRef<HTMLSpanElement>) => {
-    const { src, text, icon, alt, className, ...otherProps } = props;
+    const { as, src, css, text, icon, alt, className, ...otherProps } = props;
 
     const domRef = useDOMRef(ref);
 
@@ -40,6 +47,8 @@ export const Avatar = React.forwardRef(
     const [ready, setReady] = useState(false);
 
     const imgRef = useRef<HTMLImageElement>(null);
+
+    const { isFocusVisible, focusProps }: IFocusRingAria = useFocusRing();
 
     useEffect(() => {
       imgRef?.current?.complete && setReady(true);
@@ -52,6 +61,8 @@ export const Avatar = React.forwardRef(
     return (
       <StyledAvatar
         ref={domRef}
+        as={as}
+        {...mergeProps(otherProps, focusProps)}
         className={clsx(
           {
             'only-text-avatar': showText
@@ -59,7 +70,19 @@ export const Avatar = React.forwardRef(
           className
         )}
         data-state={getState}
-        {...otherProps}
+        isFocusVisible={isFocusVisible}
+        css={mergeProps(
+          as === 'button'
+            ? {
+                // reset button styles
+                appearance: 'none',
+                outline: 'none',
+                border: 'none',
+                cursor: 'pointer'
+              }
+            : {},
+          css as any
+        )}
       >
         <span className="nextui-avatar-bg" />
         {!showText && (

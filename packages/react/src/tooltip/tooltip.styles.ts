@@ -17,7 +17,7 @@ export const StyledTooltipArrow = styled('span', {
 
 export const StyledTooltip = styled('div', {
   position: 'relative',
-  fs: '$xs',
+  fs: '$sm',
   padding: 0,
   variants: {
     hideArrow: {
@@ -158,7 +158,7 @@ export const StyledTooltipContent = styled('div', {
       color: 'invert',
       contentColor: 'default',
       css: {
-        $$tooltipTextColor: "$colors$background"
+        $$tooltipTextColor: '$colors$background'
       }
     }
   ],

@@ -7,13 +7,20 @@ export const defaultTokens = {
     mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;"
   },
   fontSizes: {
-    tiny: '.75rem',
-    xs: '0.875rem',
+    xs: '0.75rem',
+    sm: '0.875rem',
     base: '1rem',
-    sm: '1.25rem',
-    md: '1.5rem',
-    lg: '2.25rem',
-    xl: '3rem'
+    md: '1rem',
+    lg: '1.125rem',
+    xl: '1.25rem',
+    xl2: '1.5rem',
+    xl3: '1.875rem',
+    xl4: '2.25rem',
+    xl5: '3rem',
+    xl6: '3.75rem',
+    xl7: '4.5rem',
+    xl8: '6rem',
+    xl9: '8rem'
   },
   fontWeights: {
     hairline: 100,
@@ -29,9 +36,18 @@ export const defaultTokens = {
   lineHeights: {
     xs: 1,
     sm: 1.25,
+    base: 1.5,
     md: 1.5,
-    lg: 1.625,
-    xl: 1.75
+    lg: 1.75,
+    xl: 1.75,
+    xl2: 2,
+    xl3: 2.25,
+    xl4: 2.5,
+    xl5: 1,
+    xl6: 1,
+    xl7: 1,
+    xl8: 1,
+    xl9: 1
   },
   letterSpacings: {
     tighter: '-0.05em',
@@ -116,7 +132,9 @@ export const defaultTokens = {
       'background 0.25s ease 0s, color 0.25s ease 0s, border-color 0.25s ease 0s, box-shadow 0.25s ease 0s, transform 0.25s ease 0s, opacity 0.25s ease 0s',
     avatar: 'box-shadow 0.25s ease 0s, opacity 0.25s ease 0s',
     link: 'opacity 0.25s ease 0s, background 0.25s ease 0s',
-    card: 'transform 0.25s ease 0s, box-shadow 0.25s ease 0s'
+    card: 'transform 0.25s ease 0s, filter 0.25s ease 0s, box-shadow 0.25s ease 0s',
+    dropdownItem:
+      'background 0.25s ease, transform 0.25s ease, color 0.15s ease, box-shadow 0.25s ease 0s'
   },
   breakpoints: {
     xs: '650px',
@@ -187,6 +205,17 @@ export const defaultColors = {
   errorSolidHover: '$red700',
   errorSolidContrast: '$white',
   errorShadow: '$red500',
+
+  neutralLight: '$gray100',
+  neutralLightHover: '$gray200',
+  neutralLightActive: '$gray300',
+  neutralLightContrast: '$gray800',
+  neutral: '$gray600',
+  neutralBorder: '$gray400',
+  neutralBorderHover: '$gray500',
+  neutralSolidHover: '$gray600',
+  neutralSolidContrast: '$white',
+  neutralShadow: '$gray400',
 
   gradient:
     'linear-gradient(112deg, $cyan600 -63.59%, $pink600 -20.3%, $blue600 70.46%)',
@@ -321,7 +350,7 @@ export const defaultUtils = {
   }),
   bgBlur: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
     bf: 'saturate(180%) blur(10px)',
-    bg: `${value}66`
+    bg: value
   }),
   bgColor: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
     backgroundColor: value
@@ -354,6 +383,18 @@ export const defaultUtils = {
   }),
   bs: (value: Stitches.PropertyValue<'boxShadow'>) => ({
     boxShadow: value
+  }),
+  ds: (value: Stitches.PropertyValue<'boxShadow'>) => ({
+    dropShadow: value
+  }),
+  shadow: (value: Stitches.PropertyValue<'boxShadow'>) => ({
+    boxShadow: value
+  }),
+  dshadow: (value: Stitches.PropertyValue<'boxShadow'>) => ({
+    dropShadow: value
+  }),
+  dropShadow: (value: Stitches.PropertyValue<'boxShadow'>) => ({
+    filter: `$dropShadows${value}`
   }),
   normalShadow: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
     boxShadow: `0 4px 14px 0 $colors${value}`
@@ -434,6 +475,12 @@ export const defaultUtils = {
   tdl: (value: Stitches.PropertyValue<'textDecorationLine'>) => ({
     textDecorationLine: value
   }),
+  truncateText: (value: Stitches.PropertyValue<'width'>) => ({
+    maxWidth: value,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  }),
   textGradient: (value: Stitches.PropertyValue<'backgroundImage'>) => ({
     backgroundImage: `linear-gradient(${value})`,
     WebkitBackgroundClip: 'text',
@@ -469,7 +516,8 @@ export default {
   theme: {
     ...defaultTokens,
     colors: defaultColors,
-    shadows: {}
+    shadows: {},
+    dropShadows: {}
   },
   media: defaultMedia,
   utils: defaultUtils,

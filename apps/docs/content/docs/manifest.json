@@ -110,7 +110,8 @@
                         {
                             "title": "Card",
                             "keywords": "card, content, action, media",
-                            "path": "/docs/components/card.mdx"
+                            "path": "/docs/components/card.mdx",
+                            "updated": true
                         },
                         {
                             "title": "Pagination",
@@ -143,24 +144,36 @@
                         },
                         {
                             "title": "Checkbox",
-                            "updated": true,
                             "keywords": "check, radio, selectable, checkbox, box",
                             "path": "/docs/components/checkbox.mdx"
                         },
                         {
                             "title": "Checkbox Group",
-                            "updated": true,
                             "keywords": "check, radio, selectable, checkbox, box, group, items",
                             "path": "/docs/components/checkbox-group.mdx"
                         },
                         {
                             "title": "Radio",
+                            "updated": true,
                             "keywords": "check, radio, select",
                             "path": "/docs/components/radio.mdx"
                         },
                         {
+                          "title": "Popover",
+                          "keywords": "popover, tooltip, tooltip, popover, popover",
+                          "path": "/docs/components/popover.mdx",
+                          "updated": true
+                        },
+                        {
+                          "title": "Tooltip",
+                          "keywords": "tool, popover, tooltip, hoverable",
+                          "path": "/docs/components/tooltip.mdx"
+                        },
+                        {
                             "title": "Dropdown",
-                            "comingSoon": true
+                            "keywords": "dropdown, select, selectable, menu",
+                            "path": "/docs/components/dropdown.mdx",
+                            "newPost": true
                         },
                         {
                             "title": "Progress",
@@ -168,15 +181,8 @@
                             "path": "/docs/components/progress.mdx"
                         },
                         {
-                            "title": "Popover",
-                            "keywords": "popover, tooltip, tooltip, popover, popover",
-                            "path": "/docs/components/popover.mdx",
-                            "newPost": true
-                        },
-                        {
-                            "title": "Tooltip",
-                            "keywords": "tool, popover, tooltip, hoverable",
-                            "path": "/docs/components/tooltip.mdx"
+                          "title": "Select",
+                          "comingSoon": true
                         },
                         {
                             "title": "Modal",

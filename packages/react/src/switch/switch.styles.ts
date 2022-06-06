@@ -1,9 +1,5 @@
-import {
-  styled,
-  sharedFocus,
-  sharedVisuallyHidden,
-  VariantProps
-} from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { sharedFocus, sharedVisuallyHidden } from '../theme/shared-css';
 
 export const StyledSwitchContainer = styled('label', {
   WebkitTapHighlightColor: 'transparent',

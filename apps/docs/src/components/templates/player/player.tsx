@@ -28,7 +28,7 @@ const Player: React.FC<Props> = ({ css, ...props }) => {
   const [liked, setLiked] = React.useState(false);
 
   return (
-    <Card css={{ p: '$6', mt: '$8', boxShadow: '$lg', ...css }} {...props}>
+    <Card css={{ p: '$6', mt: '$8', boxShadow: '$md', ...css }} {...props}>
       <Card.Header css={{ d: 'flex', ai: 'center', py: '$8' }}>
         <Grid.Container>
           <Grid css={{ mr: '$8' }}>

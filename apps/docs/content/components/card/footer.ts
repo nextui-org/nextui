@@ -2,40 +2,41 @@ const App = `import { Card, Grid, Text, Link } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Grid.Container gap={2}>
-      <Grid sm={12} md={5}>
-        <Card css={{ mw: "330px" }}>
-          <Text h4>Next UI</Text>
-          <Text>🚀 Beautiful and modern React UI library.</Text>
-          <Card.Footer>
-            <Link
-              color="primary"
-              target="_blank"
-              href="https://github.com/nextui-org/nextui"
-            >
-              Visit source code on GitHub.
-            </Link>
-          </Card.Footer>
-        </Card>
-      </Grid>
-      <Grid sm={12} md={5}>
-        <Card css={{ mw: "330px" }} color="primary">
-          <Text h4 color="white">
-            Next UI
-          </Text>
-          <Text color="white">🚀 Beautiful and modern React UI library.</Text>
-          <Card.Footer>
-            <Link
-              target="_blank"
-              css={{ color: "white" }}
-              href="https://github.com/nextui-org/nextui"
-            >
-              Visit source code on GitHub.
-            </Link>
-          </Card.Footer>
-        </Card>
-      </Grid>
-    </Grid.Container>
+    <Card css={{ p: "$6", mw: "400px" }}>
+      <Card.Header>
+        <img
+          alt="nextui logo"
+          src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+          width="34px"
+          height="34px"
+        />
+        <Grid.Container css={{ pl: "$6" }}>
+          <Grid xs={12}>
+            <Text h4 css={{ lineHeight: "$xs" }}>
+              Next UI
+            </Text>
+          </Grid>
+          <Grid xs={12}>
+            <Text css={{ color: "$accents8" }}>nextui.org</Text>
+          </Grid>
+        </Grid.Container>
+      </Card.Header>
+      <Card.Body css={{ py: "$2" }}>
+        <Text>
+          Make beautiful websites regardless of your design experience.
+        </Text>
+      </Card.Body>
+      <Card.Footer>
+        <Link
+          icon
+          color="primary"
+          target="_blank"
+          href="https://github.com/nextui-org/nextui"
+        >
+          Visit source code on GitHub.
+        </Link>
+      </Card.Footer>
+    </Card>
   );
 }`;
 

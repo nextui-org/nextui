@@ -1,26 +1,22 @@
-const App = `import { Radio, Spacer } from "@nextui-org/react";
+const App = `import { Radio } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Radio.Group row value="primary">
+    <Radio.Group orientation="horizontal" label="Colors" defaultValue="primary" >
       <Radio value="primary" color="primary">
-        Primary
+        primary
       </Radio>
-      <Spacer />
       <Radio value="secondary" color="secondary">
-        Secondary
+        secondary
       </Radio>
-      <Spacer />
       <Radio value="success" color="success">
-        Success
+        success
       </Radio>
-      <Spacer />
       <Radio value="warning" color="warning">
-        Warning
+        warning
       </Radio>
-      <Spacer />
       <Radio value="error" color="error">
-        Error
+        error
       </Radio>
     </Radio.Group>
   );

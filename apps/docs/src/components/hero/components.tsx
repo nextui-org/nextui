@@ -109,7 +109,8 @@ const HeroComponents = () => {
           trigger="click"
           css={{
             animation: `${levitating} 14s ease infinite 0.1s`,
-            marginLeft: '-90px',
+            marginLeft: '-80px',
+            marginTop: '$2',
             transform: 'translate(0, 0)'
           }}
         >
@@ -119,7 +120,6 @@ const HeroComponents = () => {
         </Tooltip>
       </Grid>
       <Card
-        cover
         css={{
           p: 0,
           w: '120px',
@@ -146,6 +146,7 @@ const HeroComponents = () => {
           <Card.Image
             src="/images/card-example-6.jpeg"
             height={400}
+            objectFit="cover"
             width="100%"
             alt="Card example background"
             css={{
@@ -266,7 +267,6 @@ const HeroComponents = () => {
         <Loading size="lg" />
       </Grid>
       <Card
-        cover
         css={{
           p: 0,
           w: '200px',
@@ -281,13 +281,14 @@ const HeroComponents = () => {
         <Card.Body css={{ p: 0 }}>
           <Card.Image
             src="/images/hero-card.png"
+            objectFit="cover"
             height={400}
             width="100%"
             alt="Hero Card background"
           />
         </Card.Body>
         <Card.Footer
-          blur
+          isBlurred
           css={{
             position: 'absolute',
             bf: 'saturate(180%) blur(10px)',
@@ -317,10 +318,10 @@ const HeroComponents = () => {
                   auto
                   rounded
                   color="secondary"
+                  size="sm"
                   css={{
                     px: '$4',
                     height: '$space$10',
-                    fontSize: '$tiny',
                     color: '$white',
                     [`.${darkTheme} &`]: {
                       bg: '$purple900',

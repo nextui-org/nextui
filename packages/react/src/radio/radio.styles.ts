@@ -1,13 +1,8 @@
-import {
-  styled,
-  sharedVisuallyHidden,
-  sharedFocus,
-  VariantProps
-} from '../theme/stitches.config';
+import { styled } from '../theme/stitches.config';
+import type { VariantProps } from '../theme/stitches.config';
+import { cssFocusVisible } from '../theme/shared-css';
 
-export const StyledRadioInput = styled('input', {}, sharedVisuallyHidden);
-
-export const StyledRadioLabel = styled('span', {
+export const StyledRadioText = styled('span', {
   fontSize: '$$radioSize',
   us: 'none',
   d: 'inline-flex',
@@ -33,9 +28,14 @@ export const StyledRadioLabel = styled('span', {
         color: '$error'
       }
     },
-    disabled: {
+    isDisabled: {
       true: {
         color: '$accents5'
+      }
+    },
+    isInvalid: {
+      true: {
+        color: '$error'
       }
     }
   }
@@ -59,10 +59,10 @@ export const StyledRadioPoint = styled(
       border: '2px solid $border'
     }
   },
-  sharedFocus
+  cssFocusVisible
 );
 
-export const StyledRadio = styled('label', {
+export const StyledRadioLabel = styled('label', {
   d: 'flex',
   w: 'initial',
   ai: 'flex-start',
@@ -122,50 +122,57 @@ export const StyledRadio = styled('label', {
         $$radioSize: '$space$11'
       }
     },
-    disabled: {
+    isHovered: {
+      true: {}
+    },
+    isInvalid: {
+      true: {
+        $$radioColor: '$colors$error',
+        $$radioColorHover: '$colors$errorSolidHover',
+        [`& ${StyledRadioPoint}`]: {
+          '&:after': {
+            borderColor: '$colors$error'
+          }
+        }
+      }
+    },
+    isDisabled: {
       true: {
         cursor: 'not-allowed',
         $$radioColor: '$colors$accents4'
       }
     },
-    squared: {
+    isSquared: {
       true: {
-        $$radioRadii: '$space$1'
+        $$radioRadii: '$radii$squared'
       },
       false: {
         $$radioRadii: '$radii$rounded'
       }
     },
-    active: {
+    isChecked: {
       true: {
         [`& ${StyledRadioPoint}`]: {
           '&:after': {
             border: 'calc($$radioSize * 0.34) solid $$radioColor'
           }
-        },
-        '&:hover': {
-          [`& ${StyledRadioPoint}`]: {
-            '&:after': {
-              border: 'calc($$radioSize * 0.34) solid $$radioColorHover'
-            }
-          }
         }
       }
     },
-    animated: {
+    disableAnimation: {
       true: {
         [`& ${StyledRadioPoint}`]: {
-          transition: '$default',
+          transition: 'none',
           '&:after': {
-            transition: '$default'
+            transition: 'none'
           }
         }
       },
       false: {
         [`& ${StyledRadioPoint}`]: {
-          transition: 'none',
+          transition: '$default',
           '&:after': {
-            transition: 'none'
+            transition: '$default'
           }
         }
       }
@@ -173,23 +180,82 @@ export const StyledRadio = styled('label', {
   },
   defaultVariants: {
     size: 'md',
-    squared: false,
-    animated: true
+    isSquared: false,
+    disableAnimation: false
   },
   compoundVariants: [
+    // isChecked && isHovered
     {
-      // !active && !disabled
-      active: false,
-      disabled: false,
+      isChecked: true,
+      isHovered: true,
       css: {
-        '&:hover': {
-          [`& ${StyledRadioPoint}`]: {
-            bg: '$border'
+        [`& ${StyledRadioPoint}`]: {
+          '&:after': {
+            border: 'calc($$radioSize * 0.34) solid $$radioColorHover'
           }
+        }
+      }
+    },
+    // isChecked && isDisabled & isHovered
+    {
+      isChecked: true,
+      isDisabled: true,
+      isHovered: true,
+      css: {
+        [`& ${StyledRadioPoint}`]: {
+          '&:after': {
+            border: 'calc($$radioSize * 0.34) solid $$radioColor'
+          }
+        }
+      }
+    },
+    // !isChecked && !isDisabled && isHovered
+    {
+      isChecked: false,
+      isDisabled: false,
+      isHovered: true,
+      css: {
+        [`& ${StyledRadioPoint}`]: {
+          bg: '$border'
         }
       }
     }
   ]
+});
+
+export const StyledRadioDescription = styled('span', {
+  color: '$accents7',
+  fontSize: 'calc($$radioSize * 0.85)',
+  paddingLeft: 'calc($$radioSize + $$radioSize * 0.375)',
+  variants: {
+    isInvalid: {
+      true: {
+        color: '$red500'
+      }
+    },
+    isDisabled: {
+      true: {
+        color: '$accents5'
+      }
+    }
+  }
+});
+
+export const StyledRadioContainer = styled('div', {
+  w: 'initial',
+  position: 'relative',
+  d: 'flex',
+  fd: 'row',
+  ai: 'center',
+  jc: 'flex-start'
+});
+
+export const StyledRadioGroupLabel = styled('label', {
+  d: 'block',
+  fontWeight: '$normal',
+  fontSize: 'calc($$checkboxSize * 0.9)',
+  color: '$accents8',
+  mb: '$3'
 });
 
 export const StyledRadioGroup = styled('div', {
@@ -215,35 +281,47 @@ export const StyledRadioGroup = styled('div', {
       xl: {
         $$radioGroupGap: '$space$11'
       }
-    },
-    row: {
+    }
+  }
+});
+
+export const StyledRadioGroupContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  variants: {
+    isRow: {
       true: {
-        fd: 'row',
-        [`& ${StyledRadio}`]: {
-          marginTop: 0,
-          marginRight: '$$radioGroupGap'
+        mt: 0,
+        flexDirection: 'row',
+        [`& ${StyledRadioLabel}:not(:last-child)`]: {
+          mr: '$$radioSize'
         }
       },
       false: {
-        [`& ${StyledRadio}`]: {
-          marginTop: '$$radioGroupGap',
-          marginRight: 0
+        mr: 0,
+        flexDirection: 'column',
+        [`& ${StyledRadioLabel}:not(:first-child)`]: {
+          mt: '$$radioSize'
         }
       }
     }
   },
   defaultVariants: {
-    row: false
+    isRow: false
   }
 });
 
-export const StyledRadioDescription = styled('span', {
-  color: '$accents7',
-  fontSize: 'calc($$radioSize * 0.85)',
-  paddingLeft: 'calc($$radioSize + $$radioSize * 0.375)'
-});
-
 // types
-export type RadioVariantsProps = VariantProps<typeof StyledRadio>;
 export type RadioLabelVariantsProps = VariantProps<typeof StyledRadioLabel>;
+export type RadioTexVariantsProps = VariantProps<typeof StyledRadioText>;
+export type RadioPointVariantsProps = VariantProps<typeof StyledRadioPoint>;
 export type RadioGroupVariantsProps = VariantProps<typeof StyledRadioGroup>;
+export type RadioContainerVariantsProps = VariantProps<
+  typeof StyledRadioContainer
+>;
+export type RadioGroupContainerVariantsProps = VariantProps<
+  typeof StyledRadioGroupContainer
+>;
+export type RadioDescriptionVariantsProps = VariantProps<
+  typeof StyledRadioDescription
+>;

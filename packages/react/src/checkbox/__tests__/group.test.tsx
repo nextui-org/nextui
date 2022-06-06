@@ -39,7 +39,6 @@ describe('Checkbox Group', () => {
         </Checkbox.Group>
       </div>
     );
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 

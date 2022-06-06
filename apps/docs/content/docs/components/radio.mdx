@@ -6,7 +6,7 @@ url: https://nextui.org/docs/components/radio
 
 # Radio
 
-Radios are used when only one choice may be selected in a series of options.
+Radios allow users to select a single option from a list of mutually exclusive options. All possible options are exposed up front for users to compare. Radio implementation is based on <a href="https://react-spectrum.adobe.com/react-aria/useRadioGroup.html" rel="noreferrer" target="_blank">@react-aria/radio</a>
 
 ```jsx
 import { Radio } from '@nextui-org/react';
@@ -16,11 +16,20 @@ import { Radio } from '@nextui-org/react';
 
 <Spacer y={2} />
 
+#### Anatomy
+
+- **Radio.Group**: Radio group component that holds all radios in a group and provides a common API for managing the group state.
+- **Radio**: Radio component that represents a single option
+
+<Spacer y={2} />
+
 <Playground
   title="Default"
-  desc="You can change the state with `checked` prop"
+  desc="`Radio.Group` accepts multiple `Radio` elements as children. Each `Radio` represents an item that can only be checked singularly, labeled by its children."
   files={radioContent.default_radio}
 />
+
+> **Note**: Note: A Radio cannot be used outside of a Radio.Group.
 
 <Playground
   title="Disabled"
@@ -37,35 +46,72 @@ import { Radio } from '@nextui-org/react';
 <Playground
   title="Colors"
   overflow="auto"
-  desc="You can change the color with `color` prop"
+  desc="You can change the color with `color` prop."
   files={radioContent.color}
 />
 
 <Playground
-  title="Text Colors"
+  title="Label Colors"
   overflow="auto"
-  desc="You can change the `Radio` text color with `textColor` prop"
-  files={radioContent.textColor}
+  desc="You can change the `Radio` label color with `labelColor` prop."
+  files={radioContent.labelColor}
 />
 
 <Playground
   title="Squared"
-  desc="You can change the full style to a squared `Radio` with the `squared` property."
+  desc="You can change the full style to a squared `Radio` with the `isSquared` prop."
   files={radioContent.squared}
 />
 
 <Playground
   title="Description"
-  desc="You can add a description to the `Radio` with `Radio.Description` component"
+  desc="You can add a description to the `Radio` with `description` prop."
   files={radioContent.description}
+/>
+
+<Playground
+  title="Invalid"
+  desc="Radios can display a validation state to communicate to the user if the current value is invalid. Implement your own validation logic in your app and pass `invalid` to the Radio.Group via the `validationState` prop."
+  files={radioContent.invalid}
 />
 
 <Playground
   title="Row"
   overflow="auto"
-  desc="You can change the `Radio.Group` direction with `row` prop."
+  desc="Radio groups are vertically oriented by default. The `orientation` prop can be used to change the orientation to horizontal."
   files={radioContent.row}
 />
+
+<Playground
+  title="Disable Animation"
+  desc="You can disable the animation of the entire `Radio` with the property `disableAnimation`."
+  files={radioContent.disableAnimation}
+/>
+
+<Playground
+  title="Controlled vs Uncontrolled"
+  desc="An initial, **uncontrolled** value can be provided to the `Radio.Group` using the defaultValue prop. Alternatively, a **controlled** value can be provided using the value prop."
+  files={radioContent.controlledVsUncontrolled}
+/>
+
+> Note: See React's documentation on [uncontrolled components](https://reactjs.org/docs/uncontrolled-components.html) for more info.
+
+<Playground
+  title="Events"
+  desc="`Radio.Group` accepts an `onChange` prop, which is triggered when a user checks an item from the list. The example below uses `onChange` to log how the user is interacting with the component."
+  files={radioContent.events}
+/>
+
+> Accessibility: If a visible label isn't specified for a `Radio.Group`, an aria-label must be provided for accessibility. If the field is labeled by a separate element, an aria-labelledby prop must be provided using the id of the labeling element instead. `Radio` elements within a group should always have a visible label.
+
+<Spacer y={3} />
+
+### Keyboard Interactions
+
+| Key                                        | Description                                                 |
+| ------------------------------------------ | ----------------------------------------------------------- |
+| <kbd>ArrowDown</kbd> <kbd>ArrowRight</kbd> | When focus is on an item, moves focus to the next item.     |
+| <kbd>ArrowUp</kbd> <kbd>ArrowLeft</kbd>    | When focus is on an item, moves focus to the previous item. |
 
 <Spacer y={3} />
 
@@ -73,50 +119,97 @@ import { Radio } from '@nextui-org/react';
 
 <Spacer y={2} />
 
+#### Radio.Group Props
+
+| Attribute           | Type                          | Description                                                                                                                                                      | Default    |
+| ------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **children\***      | `ReactNode[]`                 | The content of the radio group. It must be a list of radio items.                                                                                                | -          |
+| **label**           | `ReactNode`                   | The content to display as the label.                                                                                                                             | -          |
+| **value**           | `string`                      | The current value (controlled).                                                                                                                                  | -          |
+| **defaultValue**    | `string`                      | The default value (uncontrolled).                                                                                                                                | -          |
+| **color**           | `SimpleColors` `string`       | Change radio group color                                                                                                                                         | `primary`  |
+| **labelColor**      | `SimpleColors` `string`       | Change radio group label color                                                                                                                                   | `default`  |
+| **size**            | `NormalSizes`                 | Size of all radios in the group                                                                                                                                  | `md`       |
+| **name**            | `string`                      | The name of the RadioGroup, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons) | -          |
+| **orientation**     | `horizontal` `vertical`       | The axis the radio group items should align with.                                                                                                                | `vertical` |
+| **validationState** | `valid` `invalid`             | Whether the input should display its "valid" or "invalid" visual styling.                                                                                        | -          |
+| **isDisabled**      | `boolean`                     | Whether the radio group items are disabled.                                                                                                                      | `false`    |
+| **isReadOnly**      | `boolean`                     | Whether the input can be selected but not changed by the user.                                                                                                   | `false`    |
+| **isRequired**      | `boolean`                     | Whether user input is required on the input before form submission. Often paired with the necessityIndicator prop to add a visual indicator to the input.        | `false`    |
+| **css**             | `Stitches.CSS`                | Override Default CSS style                                                                                                                                       | -          |
+| **as**              | `keyof JSX.IntrinsicElements` | Changes which tag component outputs                                                                                                                              | `div`      |
+
+<Spacer y={1} />
+
+#### Radio.Group Events
+
+| Attribute    | Type                 | Description                                    | Default |
+| ------------ | -------------------- | ---------------------------------------------- | ------- |
+| **onChange** | `(value: T) => void` | Handler that is called when the value changes. | -       |
+
+<Spacer y={1} />
+
+#### Radio.Group Accessibility Props
+
+| Attribute             | Type     | Description                                                                                                        | Default |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
+| **id**                | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
+| **aria-label**        | `string` | Defines a string value that labels the current element                                                             | -       |
+| **aria-labelledby**   | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
+| **aria-describedby**  | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
+| **aria-details**      | `string` | Identifies the element (or elements) that provide a detailed, extended description for the object.                 | -       |
+| **aria-errormessage** | `string` | Identifies the element that provides an error message for the object.                                              | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
 #### Radio Props
 
-| Attribute          | Type                           | Accepted values                | Description                                                               | Default   |
-| ------------------ | ------------------------------ | ------------------------------ | ------------------------------------------------------------------------- | --------- |
-| **value**          | `string`                       | -                              | Unique ident value (in group)                                             | -         |
-| **color**          | `SimpleColors` `string`        | [SimpleColors](#simple-colors) | Change radio color                                                        | `primary` |
-| **size**           | `NormalSizes` `number`         | [NormalSizes](#normal-sizes)   | Radio size                                                                | `medium`  |
-| **textColor**      | `SimpleColors` `string`        | [SimpleColors](#simple-colors) | Change radio text color                                                   | `default` |
-| **checked**        | `boolean`                      | `true/false`                   | Selected or not (in single)                                               | `false`   |
-| **animated**       | `boolean`                      | `true/false`                   | Display radio animations                                                  | `true`    |
-| **squared**        | `boolean`                      | `true/false`                   | Squared radio                                                             | `false`   |
-| **disabled**       | `boolean`                      | `true/false`                   | Disable radio                                                             | `false`   |
-| **preventDefault** | `boolean`                      | `true/false`                   | Prevent default event on when is selected through the `Space, Enter` keys | `true`    |
-| **onChange**       | `(e: RadioEvent) => void       | -                              | The callback invoked when the checked state of the `Radio` changes.       | -         |
-| **id**             | `string`                       | -                              | Native id attr                                                            | -         |
-| **css**            | `Stitches.CSS`                 | -                              | Override Default CSS style                                                | -         |
-| **as**             | `keyof JSX.IntrinsicElements`  | -                              | Changes which tag component outputs                                       | `label`   |
-| ...                | `InputHTMLAttributes`          | `'id', 'className', ...`       | Native radio props                                                        | -         |
+| Attribute            | Type                          | Description                                                                                                                                              | Default   |
+| -------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| **value\***          | `string`                      | The value of the radio button, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#Value) | -         |
+| **children**         | `ReactNode`                   | The label for the Radio. Accepts any renderable node.                                                                                                    | -         |
+| **color**            | `SimpleColors` `string`       | The radio color                                                                                                                                          | `primary` |
+| **labelColor**       | `SimpleColors` `string`       | The radio label color                                                                                                                                    | `default` |
+| **description**      | `string` `ReactNode`          | The radio description text                                                                                                                               | -         |
+| **size**             | `NormalSizes`                 | The radio size                                                                                                                                           | `md`      |
+| **isSquared**        | `boolean`                     | Whether the radio button has squared corners                                                                                                             | `false`   |
+| **isDisabled**       | `boolean`                     | Whether the radio button is disabled or not. Shows that a selection exists, but is not available in that circumstance.                                   | `false`   |
+| **disableAnimation** | `boolean`                     | Whether the checkbox has animations                                                                                                                      | `false`   |
+| **autoFocus**        | `boolean`                     | Whether the element should receive focus on render.                                                                                                      | `false`   |
+| **css**              | `Stitches.CSS`                | Override Default CSS style                                                                                                                               | -         |
+| **as**               | `keyof JSX.IntrinsicElements` | Changes which tag component outputs                                                                                                                      | `label`   |
+
+<Spacer y={1} />
+
+#### Radio Events
+
+| Attribute         | Type                                                                                                                                                                                                          | Description                                                     | Default |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ------- |
+| **onFocus**       | <Code>(e: [FocusEvent](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent)) => any</Code>                                                                                                            | Handler that is called when the element receives focus.         | -       |
+| **onBlur**        | <Code>(e: [FocusEvent](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent)) => any</Code>                                                                                                            | Handler that is called when the element loses focus.            | -       |
+| **onFocusChange** | <Code>(isFocused: boolean) => void</Code>                                                                                                                                                                     | Handler that is called when the element's focus status changes. | -       |
+| **onKeyDown**     | <Code>(e: [KeyboardEvent](https://react-spectrum.adobe.com/react-aria/useRadioGroup.html#/tmp/861dffb663a40fd12ec71559168ad29a/node_modules/@react-types/shared/src/events.d.ts:KeyboardEvent)) => any</Code> | Handler that is called when a key is pressed.                   | -       |
+| **onKeyUp**       | <Code>(e: [KeyboardEvent](https://react-spectrum.adobe.com/react-aria/useRadioGroup.html#/tmp/861dffb663a40fd12ec71559168ad29a/node_modules/@react-types/shared/src/events.d.ts:KeyboardEvent)) => any</Code> | Handler that is called when a key is released.                  | -       |
+
+<Spacer y={1} />
+
+#### Radio Accessibility Props
+
+| Attribute            | Type     | Description                                                                                                        | Default |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
+| **id**               | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
+| **aria-label**       | `string` | Defines a string value that labels the current element                                                             | -       |
+| **aria-labelledby**  | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
+| **aria-describedby** | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
+| **aria-details**     | `string` | Identifies the element (or elements) that provide a detailed, extended description for the object.                 | -       |
 
 <Spacer y={2} />
 
-#### Radio Group Props
-
-| Attribute        | Type                                       | Accepted values                | Description                            | Default         |
-| ---------------- | ------------------------------------------ | ------------------------------ | -------------------------------------- | --------------- |
-| **color**        | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group color               | `primary`       |
-| **textColor**    | `SimpleColors` `string`                    | [SimpleColors](#simple-colors) | Change radio group text color          | `default`       |
-| **initialValue** | `string/number`                            | -                              | Initial radio group value              | -               |
-| **value**        | `string/number`                            | -                              | Selected child radio                   | -               |
-| **row**          | `boolean`                                  | `true/false`                   | Change the radio group direction       | `false`         |
-| **disabled**     | `boolean`                                  | `true/false`                   | Disable all radios                     | `false`         |
-| **size**         | `NormalSizes`                              | [NormalSizes](#normal-sizes)   | Size of all radios in the group        | `medium`        |
-| **onChange**     | `(e:`[RadioEvent](#radio-event)) `=> void` | -                              | Radio group event handler              | -               |
-| **css**          | `Stitches.CSS`                             | -                              | Override Default CSS style             | -               |
-| **as**           | `keyof JSX.IntrinsicElements`              | -                              | Changes which tag component outputs    | `div`           |
-| ...              | `InputHTMLAttributes`                      | `'id', 'className', ...`       | Native props                           | -               |
-
-<Spacer y={2} />
-
-#### Radio Desc Props
-
-| Attribute | Type             | Accepted values          | Description  | Default |
-| --------- | ---------------- | ------------------------ | ------------ | ------- |
-| ...       | `HTMLAttributes` | `'id', 'className', ...` | native props | -       |
+---
 
 <Spacer y={2} />
 
@@ -140,23 +233,4 @@ type SimpleColors =
 
 ```ts
 type NormalSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-```
-
-#### Radio Event
-
-```ts
-interface RadioEvent {
-  target: RadioEventTarget;
-  stopPropagation: () => void;
-  preventDefault: () => void;
-  nativeEvent: React.ChangeEvent;
-}
-```
-
-#### Radio Event Target
-
-```ts
-interface RadioEventTarget {
-  checked: boolean;
-}
 ```

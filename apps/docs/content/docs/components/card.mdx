@@ -16,40 +16,49 @@ import { Card } from '@nextui-org/react';
 
 <Spacer y={2} />
 
+#### Anatomy
+
+- **Card**: The wrapper that provides state, context and focus management.
+- **Card.Header**: Commonly used for the title of a card.
+- **Card.Body**: The content of the card.
+- **Card.Footer**: Commonly used for actions.
+- **Card.Image**: The image of the card, based on the NextUI [Image](/docs/components/image).
+- **Card.Divider**: A divider between cards.
+
+<Spacer y={2} />
+
 <Playground
   title="Default"
-  desc="NextUI will wrap your content in a `Card.Body` component."
+  desc="Cards have no fixed width to start, so they'll naturally fill the full width of its parent element."
   files={cardContent.defaultCard}
 />
 
 <Playground
-  title="Bordered"
-  desc="You can change the full style to a bordered `Card` with the `bordered` property."
-  files={cardContent.bordered}
+  title="Variants"
+  desc="Cards can be given a variety of visual styles. There are three variants: `shadow`, `flat`, and `bordered`."
+  files={cardContent.variants}
 />
 
 <Playground
   title="Hoverable"
-  desc="You can apply a fancy hover animation with the `hoverable` property."
-  files={cardContent.hover}
+  desc="You can apply a fancy hover animation with the `isHoverable` prop."
+  files={cardContent.hoverable}
 />
 
+> **Note**: NextUI uses the **react-aria** [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html) hook under the hood in order to handle mouse and touch events, ignore emulated mouse events in mobile browsers, and other accessibility features.
+
 <Playground
-  title="Clickable"
-  desc="You can use the `clickable` property to allow users to interact with the entirety of its surface
+  title="Pressable"
+  desc="You can use the `isPressable` property to allow users to interact with the entirety of its surface
   to trigger its main action, be it an expansion, a link to another screen or some other behavior."
-  files={cardContent.clickable}
+  files={cardContent.pressable}
 />
 
-<Playground
-  title="Colors"
-  desc="You can change the color of the `Card` with the property `color`."
-  files={cardContent.color}
-/>
+> **Note**: NextUI uses the **react-aria** [usePress](https://react-spectrum.adobe.com/react-aria/usePress.html) hook under the hood in order to handle mouse and touch events, <kbd>Enter</kbd> and <kbd>Space</kbd> keys, screen readers virtual clicks, and other accessibility features.
 
 <Playground
   title="With divider"
-  desc="You can use the `Divider` component to split the `Card` sections."
+  desc="You can add a divider between cards with the `Card.Divider` component."
   files={cardContent.divider}
 />
 
@@ -61,14 +70,13 @@ import { Card } from '@nextui-org/react';
 
 <Playground
   title="Cover Image"
-  desc="You can use the `cover` prop and `Card.Image` component to add a coverred image to the `Card.Body`. NextUI automatically
-  applies `object-fit: cover` to the inner image."
+  desc="You can use the `Card.Image` component to add an image to the `Card`."
   files={cardContent.cover}
 />
 
 <Playground
   title="Primary Action"
-  desc="You can use the `clickable` property to allow users to interact with the `Card`."
+  desc="You can use the `isPressable` property to allow users to interact with the `Card`."
   files={cardContent.action}
 />
 
@@ -80,69 +88,85 @@ import { Card } from '@nextui-org/react';
 
 #### Card Props
 
-| Attribute        | Type                                         | Accepted values                  | Description                                                                                                | Default   |
-| ---------------- | -------------------------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------- | --------- |
-| **color**        | `NormalColors`                               | [NormalColors](#normal-colors)   | Change card color                                                                                          | `default` |
-| **shadow**       | `boolean`                                    | `true/false`                     | Display shadow effect                                                                                      | `true`    |
-| **bordered**     | `boolean`                                    | `true/false`                     | Bordered card                                                                                              | `false`   |
-| **animated**     | `boolean`                                    | `true/false`                     | Display drip, shadow, hover and scale animation                                                            | `true`    |
-| **hoverable**    | `boolean`                                    | `true/false`                     | Display a translate and shadow animation on hover                                                          | `false`   |
-| **clickable**    | `boolean`                                    | `true/false`                     | Allow users to interact with the card                                                                      | `false`   |
-| **cover**        | `boolean`                                    | `true/false`                     | It removes the [Card.Body](#card.body-props) padding and set the property `object-fit: cover` to the image | `false`   |
-| **borderWeight** | `NormalWeights`                              | [NormalWeights](#normal-weights) | Border weight for `bordered` card                                                                          | `normal`  |
-| **onClick**      | `MouseEventHandler`                          | -                                | Clickable card click handler                                                                               | -         |
-| **ref**          | <Code>Ref<HTMLDivElement &#124; null></Code> | -                                | forwardRef                                                                                                 | -         |
-| **css**          | `Stitches.CSS`                               | -                                | Override Default CSS style                                                                                 | -         |
-| **as**           | `keyof JSX.IntrinsicElements`                | -                                | Changes which tag component outputs                                                                        | `div`     |
-| ...              | `HTMLAttributes`                             | `'id', 'className', ...`         | Native props                                                                                               | -         |
+| Attribute            | Type                             | Description                                                         | Default  |
+| -------------------- | -------------------------------- | ------------------------------------------------------------------- | -------- |
+| **children\***       | `ReactNode` `ReactNode[]`        | The content of the card. It's usually the header, body, and footer. | -        |
+| **variant**          | [CardVariants](#card-variants)   | The card variant style.                                             | `shadow` |
+| **borderWeight**     | [NormalWeights](#normal-weights) | The border weight of the bordered card.                             | `light`  |
+| **isHoverable**      | `boolean`                        | Whether the card can be hovered by the user.                        | `false`  |
+| **isPressable**      | `boolean`                        | Whether the card should allow users to interact with the card.      | `false`  |
+| **disableAnimation** | `boolean`                        | Whether the card is animated.                                       | `false`  |
+| **disableRipple**    | `boolean`                        | Whether the card should show a ripple animation on press            | `false`  |
+| **css**              | `Stitches.CSS`                   | Override Default CSS style.                                         | -        |
+| **as**               | `keyof JSX.IntrinsicElements`    | Changes which tag component outputs.                                | `div`    |
+
+<Spacer y={1} />
+
+#### Card Events
+
+| Attribute         | Type                                                                                                    | Description                                                                                                             | Default |
+| ----------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------- |
+| **onPress**       | <Code>(e: [PressEvent](https://react-spectrum.adobe.com/react-aria/usePress.html#usage)) => void</Code> | Handler that is called when the press is released over the target.                                                      | -       |
+| **onPressStart**  | <Code>(e: [PressEvent](https://react-spectrum.adobe.com/react-aria/usePress.html#usage)) => void</Code> | Handler that is called when a press interaction starts.                                                                 | -       |
+| **onPressEnd**    | <Code>(e: [PressEvent](https://react-spectrum.adobe.com/react-aria/usePress.html#usage)) => void</Code> | Handler that is called when a press interaction ends, either over the target or when the pointer leaves the target.     | -       |
+| **onPressChange** | <Code>(isPressed: boolean) => void</Code>                                                               | Handler that is called when the press state changes.                                                                    | -       |
+| **onPressUp**     | <Code>(e: [PressEvent](https://react-spectrum.adobe.com/react-aria/usePress.html#usage)) => void</Code> | Handler that is called when a press is released over the target, regardless of whether it started on the target or not. | -       |
+
+<Spacer y={2} />
+
+---
 
 <Spacer y={2} />
 
 #### Card.Header Props
 
-| Attribute | Type                          | Accepted values          | Description                         | Default |
-| --------- | ----------------------------- | ------------------------ | ----------------------------------- | ------- |
-| **css**   | `Stitches.CSS`                | -                        | Override Default CSS style          | -       |
-| **as**    | `keyof JSX.IntrinsicElements` | -                        | Changes which tag component outputs | `div`   |
-| ...       | `HTMLAttributes`              | `'id', 'className', ...` | Native props                        | -       |
+| Attribute | Type                          | Description                         | Default |
+| --------- | ----------------------------- | ----------------------------------- | ------- |
+| **css**   | `Stitches.CSS`                | Override Default CSS style          | -       |
+| **as**    | `keyof JSX.IntrinsicElements` | Changes which tag component outputs | `div`   |
+
+<Spacer y={2} />
+
+---
 
 <Spacer y={2} />
 
 #### Card.Body Props
 
-| Attribute | Type                          | Accepted values          | Description                         | Default |
-| --------- | ----------------------------- | ------------------------ | ----------------------------------- | ------- |
-| ...       | `HTMLAttributes`              | `'id', 'className', ...` | Native props                        | -       |
-| **css**   | `Stitches.CSS`                | -                        | Override Default CSS style          | -       |
-| **as**    | `keyof JSX.IntrinsicElements` | -                        | Changes which tag component outputs | `div`   |
+| Attribute | Type                          | Description                         | Default |
+| --------- | ----------------------------- | ----------------------------------- | ------- |
+| **css**   | `Stitches.CSS`                | Override Default CSS style          | -       |
+| **as**    | `keyof JSX.IntrinsicElements` | Changes which tag component outputs | `div`   |
+
+<Spacer y={2} />
+
+---
 
 <Spacer y={2} />
 
 #### Card.Footer Props
 
-| Attribute | Type                          | Accepted values          | Description                          | Default |
-| --------- | ----------------------------- | ------------------------ | ------------------------------------ | ------- |
-| **blur**  | `boolean`                     | `true/false`             | Makes the card footer container blur | `false` |
-| **css**   | `Stitches.CSS`                | -                        | Override Default CSS style           | -       |
-| **as**    | `keyof JSX.IntrinsicElements` | -                        | Changes which tag component outputs  | `div`   |
-| ...       | `HTMLAttributes`              | `'id', 'className', ...` | Native props                         | -       |
+| Attribute     | Type                          | Description                                          | Default |
+| ------------- | ----------------------------- | ---------------------------------------------------- | ------- |
+| **isBlurred** | `boolean`                     | Whether the card footer background should be blurry. | `false` |
+| **css**       | `Stitches.CSS`                | Override Default CSS style                           | -       |
+| **as**        | `keyof JSX.IntrinsicElements` | Changes which tag component outputs                  | `div`   |
+
+<Spacer y={2} />
+
+---
 
 <Spacer y={2} />
 
 #### Card.Image Props
 
-| Attribute        | Type                          | Accepted values                | Description                                       | Default      |
-| ---------------- | ----------------------------- | ------------------------------ | ------------------------------------------------- | ------------ |
-| **src**          | `string`                      | -                              | Image source                                      | -            |
-| **width**        | `string` `number`             | `%` `px` `rem` `em`            | Determine the width of the card image             | `100%`       |
-| **height**       | `string` `number`             | `%` `px` `rem` `em`            | Determine the height of the card image            | `auto`       |
-| **showSkeleton** | `boolean`                     | `true/false`                   | Show skeleton effect whereas the image is loading | `true`       |
-| **objectFit**    | `ObjectFit`                   | [ObjectFit](#object-fit)       | CSS "object-fit" property                         | `scale-down` |
-| **maxDelay(ms)** | `number`                      | -                              | Max duration of the skeleton animation            | `3000`       |
-| **autoResize**   | `boolean`                     | `true/false`                   | Enables zooming when width is too small           | `true`       |
-| **css**          | `Stitches.CSS`                | -                              | Override Default CSS style                        | -            |
-| **as**           | `keyof JSX.IntrinsicElements` | -                              | Changes which tag component outputs               | `div`        |
-| ...              | `ImgHTMLAttributes`           | `'id', 'className', 'alt' ...` | Native props                                      | -            |
+| Attribute      | Type                                             | Accepted values                                                                | Description | Default |
+| -------------- | ------------------------------------------------ | ------------------------------------------------------------------------------ | ----------- | ------- |
+| **ImageProps** | [ImageProps](/docs/components/image#image-props) | Since card image is based on the `Image` you can use any of the `Image` props. | -           |
+
+<Spacer y={2} />
+
+---
 
 <Spacer y={2} />
 
@@ -150,37 +174,14 @@ import { Card } from '@nextui-org/react';
 
 <Spacer y={1} />
 
-#### Normal Colors
+#### Card Variants
 
 ```ts
-type NormalColors =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'gradient';
+type CardVariants = 'shadow' | 'flat' | 'bordered';
 ```
 
 #### Normal Weights
 
 ```ts
 type NormalWeights = 'light' | 'normal' | 'bold' | 'extrabold' | 'black';
-```
-
-### Object Fit
-
-```ts
-type ObjectFit =
-  | 'contain'
-  | 'cover'
-  | 'fill'
-  | 'none'
-  | 'scale-down'
-  /* Global values */
-  | 'inherit'
-  | 'initial'
-  | 'revert'
-  | 'unset';
 ```

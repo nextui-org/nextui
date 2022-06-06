@@ -1,8 +1,5 @@
-import {
-  styled,
-  VariantProps,
-  cssFocusVisible
-} from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { cssFocusVisible } from '../theme/shared-css';
 
 export const StyledTableHeaderRow = styled('tr', {
   ov: 'visible'
@@ -15,7 +12,7 @@ export const StyledTableColumnHeader = styled(
     cursor: 'default',
     bg: '$accents0',
     color: '$accents7',
-    fontSize: '$tiny',
+    fontSize: '$xs',
     textAlign: 'left',
     position: 'relative',
     '@motion': {
@@ -130,7 +127,9 @@ export const StyledTableCell = styled(
       size: '100%',
       top: 0,
       left: 0,
-      opacity: 0
+      opacity: 0,
+      transform: 'translateZ(0)',
+      backfaceVisibility: 'hidden'
     },
     variants: {
       align: {
