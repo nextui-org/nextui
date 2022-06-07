@@ -204,7 +204,7 @@ import { Dropdown } from '@nextui-org/react';
 | **keyboardDelegate**       | [KeyboardDelegateType](#keyboard-delegate-type)                                                              | An optional keyboard delegate implementation for type to select, to override the default.               | -         |
 | **color**                  | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items color                                                                           | `default` |
 | **textColor**              | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items text color                                                                      | `default` |
-| **dropdownVariant**        | [DropdownVariant](#dropdown-variant)                                                                         | The dropdown menu items variantion                                                                      | `flat`    |
+| **variant**                | [DropdownVariant](#dropdown-variants)                                                                        | The dropdown menu items variantion                                                                      | `flat`    |
 | **css**                    | `Stitches.CSS`                                                                                               | Override Default CSS style.                                                                             | -         |
 | **as**                     | `keyof JSX.IntrinsicElements`                                                                                | Changes which tag component outputs.                                                                    | `ul`      |
 
@@ -237,23 +237,23 @@ import { Dropdown } from '@nextui-org/react';
 
 #### Dropdown.Item Props
 
-| Attribute           | Type                                                | Description                                                             | Default   |
-| ------------------- | --------------------------------------------------- | ----------------------------------------------------------------------- | --------- |
-| **key**             | [Key](https://reactjs.org/docs/lists-and-keys.html) | The unique key for the menu item.                                       | `false`   |
-| **command**         | `boolean`                                           | Right-aligned label text content, useful for displaying hotkeys.        | -         |
-| **description**     | `boolean`                                           | Description text element inside the dropdown menu item.                 | -         |
-| **icon**            | `ReactNode`                                         | The icon to render before the dropdown menu item's label.               | -         |
-| **isSelected**      | `boolean`                                           | Whether the dropdown item is selected.                                  | `false`   |
-| **isDisabled**      | `boolean`                                           | Whether the dropdown item is disabled.                                  | `false`   |
-| **isVirtualized**   | `boolean`                                           | Whether the dropdown item is contained in a virtual scrolling dropdown. | `false`   |
-| **closeOnSelect**   | `boolean`                                           | Whether the dropdown should close when the dropdown item is selected.   | `true`    |
-| **withDivider**     | `boolean`                                           | Whether the dropdown item should have a border on top                   | `false`   |
-| **dividerWeight**   | [NormalWeight](#normal-weight)                      | The dropdown item divider height                                        | `light`   |
-| **color**           | [SimpleColors](#simple-colors)                      | The dropdown item color                                                 | `default` |
-| **textColor**       | [SimpleColors](#simple-colors)                      | The dropdown item text color                                            | `default` |
-| **dropdownVariant** | [DropdownVariant](#dropdown-variant)                | The dropdown item variantion                                            | `flat`    |
-| **css**             | `Stitches.CSS`                                      | Override Default CSS style.                                             | -         |
-| **as**              | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                                    | `li`      |
+| Attribute         | Type                                                | Description                                                             | Default   |
+| ----------------- | --------------------------------------------------- | ----------------------------------------------------------------------- | --------- |
+| **key**           | [Key](https://reactjs.org/docs/lists-and-keys.html) | The unique key for the menu item.                                       | `false`   |
+| **command**       | `boolean`                                           | Right-aligned label text content, useful for displaying hotkeys.        | -         |
+| **description**   | `boolean`                                           | Description text element inside the dropdown menu item.                 | -         |
+| **icon**          | `ReactNode`                                         | The icon to render before the dropdown menu item's label.               | -         |
+| **isSelected**    | `boolean`                                           | Whether the dropdown item is selected.                                  | `false`   |
+| **isDisabled**    | `boolean`                                           | Whether the dropdown item is disabled.                                  | `false`   |
+| **isVirtualized** | `boolean`                                           | Whether the dropdown item is contained in a virtual scrolling dropdown. | `false`   |
+| **closeOnSelect** | `boolean`                                           | Whether the dropdown should close when the dropdown item is selected.   | `true`    |
+| **withDivider**   | `boolean`                                           | Whether the dropdown item should have a border on top                   | `false`   |
+| **dividerWeight** | [NormalWeight](#normal-weight)                      | The dropdown item divider height                                        | `light`   |
+| **color**         | [SimpleColors](#simple-colors)                      | The dropdown item color                                                 | `default` |
+| **textColor**     | [SimpleColors](#simple-colors)                      | The dropdown item text color                                            | `default` |
+| **variant**       | [DropdownVariant](#dropdown-variants)               | The dropdown item variantion                                            | `flat`    |
+| **css**           | `Stitches.CSS`                                      | Override Default CSS style.                                             | -         |
+| **as**            | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                                    | `li`      |
 
 <Spacer y={1} />
 
