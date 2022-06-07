@@ -1,5 +1,8 @@
 import React, { ReactNode } from 'react';
 import { Avatar } from '../index';
+import { useFocusRing } from '@react-aria/focus';
+import type { FocusRingAria } from '@react-aria/focus';
+import { mergeProps } from '@react-aria/utils';
 import UserLink from './user-link';
 import { NormalColors, NormalSizes } from '../utils/prop-types';
 import { CSS } from '../theme/stitches.config';
@@ -40,11 +43,17 @@ export type UserProps = Props &
   typeof defaultProps &
   NativeAttrs & { css?: CSS };
 
+interface IFocusRingAria extends FocusRingAria {
+  focusProps: Omit<React.HTMLAttributes<HTMLElement>, keyof UserProps>;
+}
+
 const preClass = 'nextui-user';
 
 export const User = React.forwardRef(
   (props: UserProps, ref: ReactRef<HTMLDivElement>) => {
     const {
+      as,
+      css,
       src,
       text,
       name,
@@ -55,20 +64,45 @@ export const User = React.forwardRef(
       bordered,
       size,
       description,
+      zoomed,
+      pointer,
       ...otherProps
     } = props;
 
     const domRef = useDOMRef(ref);
 
+    const { isFocusVisible, focusProps }: IFocusRingAria = useFocusRing();
+
     return (
-      <StyledUser ref={domRef} {...otherProps}>
+      <StyledUser
+        ref={domRef}
+        as={as}
+        {...mergeProps(otherProps, focusProps)}
+        css={mergeProps(
+          as === 'button'
+            ? {
+                borderRadius: '$xs',
+                // reset button styles
+                background: 'none',
+                appearance: 'none',
+                p: 0,
+                m: 0,
+                outline: 'none',
+                border: 'none',
+                cursor: 'pointer'
+              }
+            : {},
+          css as any
+        )}
+        isFocusVisible={isFocusVisible}
+      >
         <Avatar
           className={`${preClass}-avatar`}
           src={src}
           color={color}
           squared={squared}
-          zoomed={props.zoomed}
-          pointer={props.pointer}
+          zoomed={zoomed}
+          pointer={pointer}
           bordered={bordered}
           text={text}
           size={size}

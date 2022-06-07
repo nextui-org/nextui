@@ -226,6 +226,10 @@ const selectionBehavior = tuple('toggle', 'replace');
 
 const selectionMode = tuple('none', 'single', 'multiple');
 
+const dropdownVariants = tuple('flat', 'light', 'solid', 'shadow');
+
+const cardVariants = tuple('flat', 'bordered', 'shadow');
+
 export type Display = typeof display[number];
 
 export type Justify = typeof justify[number];
@@ -285,6 +289,10 @@ export type ContentPosition = typeof contentPosition[number];
 export type BreakpointsValue = number | boolean;
 
 export type ExcludedInputProps = typeof excludedInputPropsForTextarea[number];
+
+export type DropdownVariants = typeof dropdownVariants[number];
+
+export type CardVariants = typeof cardVariants[number];
 
 export interface AsProp<As extends ElementType = ElementType> {
   as?: As;

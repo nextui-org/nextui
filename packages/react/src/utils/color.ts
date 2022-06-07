@@ -1,4 +1,4 @@
-import { normalColors } from './prop-types';
+import { normalColors, simpleColors } from './prop-types';
 
 export const getCssVar = (name: string) => {
   if (typeof document !== 'undefined' || !name) {
@@ -53,6 +53,11 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
 
 export const isNormalColor = (color: string): boolean => {
   let found = normalColors.find((el) => el === color);
+  return found !== undefined && found !== null;
+};
+
+export const isSimpleColor = (color: string): boolean => {
+  let found = simpleColors.find((el) => el === color);
   return found !== undefined && found !== null;
 };
 

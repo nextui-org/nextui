@@ -9,7 +9,7 @@ export default {
 } as Meta;
 
 export const Default = () => (
-  <Radio.Group value="A">
+  <Radio.Group label="Options">
     <Radio value="A">Option A</Radio>
     <Radio value="B">Option B</Radio>
     <Radio value="C">Option C</Radio>
@@ -17,158 +17,210 @@ export const Default = () => (
   </Radio.Group>
 );
 
-export const Colors = () => (
-  <Radio.Group value="primary">
-    <Radio value="primary" color="primary" checked={true}>
-      Primary
+export const Disabled = () => (
+  <Radio.Group label="Options" defaultValue="A" isDisabled>
+    <Radio value="A" description="Description for Option A">
+      Option A
     </Radio>
-    <br />
-    <Radio value="secondary" color="secondary">
-      Secondary
-    </Radio>
-    <br />
-    <Radio value="success" color="success">
-      Success
-    </Radio>
-    <br />
-    <Radio value="warning" color="warning">
-      Warning
-    </Radio>
-    <br />
-    <Radio value="error" color="error">
-      Error
-    </Radio>
-  </Radio.Group>
-);
-
-export const TextColors = () => (
-  <Radio.Group value="primary">
-    <Radio value="primary" color="primary" textColor="primary">
-      Primary
-    </Radio>
-    <br />
-    <Radio value="secondary" color="secondary" textColor="secondary">
-      Secondary
-    </Radio>
-    <br />
-    <Radio value="success" color="success" textColor="success">
-      Success
-    </Radio>
-    <br />
-    <Radio value="warning" color="warning" textColor="warning">
-      Warning
-    </Radio>
-    <br />
-    <Radio value="error" color="error" textColor="error">
-      Error
-    </Radio>
+    <Radio value="B">Option B</Radio>
+    <Radio value="C">Option C</Radio>
+    <Radio value="D">Option D</Radio>
   </Radio.Group>
 );
 
 export const Sizes = () => {
-  const [selected, setSelected] = React.useState('small');
   return (
-    <>
-      <Radio
-        checked={selected === 'mini'}
-        onChange={() => setSelected('mini')}
-        size="xs"
-      >
-        mini
+    <div style={{ display: 'flex', flexDirection: 'row', gap: 200 }}>
+      <Radio.Group label="Sizes" defaultValue="md">
+        <Radio value="xs" size="xs">
+          mini
+        </Radio>
+        <Radio value="sm" size="sm">
+          small
+        </Radio>
+        <Radio value="md" size="md">
+          medium
+        </Radio>
+        <Radio value="lg" size="lg">
+          large
+        </Radio>
+        <Radio value="xl" size="xl">
+          xlarge
+        </Radio>
+      </Radio.Group>
+      <Radio.Group label="Sizes" defaultValue="md">
+        <Radio value="xs" size="xs" description="Description for Option mini">
+          mini
+        </Radio>
+        <Radio value="sm" size="sm" description="Description for Option small">
+          small
+        </Radio>
+        <Radio value="md" size="md" description="Description for Option medium">
+          medium
+        </Radio>
+        <Radio value="lg" size="lg" description="Description for Option large">
+          large
+        </Radio>
+        <Radio value="xl" size="xl" description="Description for Option xlarge">
+          xlarge
+        </Radio>
+      </Radio.Group>
+    </div>
+  );
+};
+
+export const Colors = () => {
+  return (
+    <Radio.Group label="Colors" defaultValue="primary">
+      <Radio value="primary" color="primary">
+        primary
       </Radio>
-      <Radio
-        checked={selected === 'small'}
-        onChange={() => setSelected('small')}
-        size="sm"
-      >
-        small
+      <Radio value="secondary" color="secondary">
+        secondary
       </Radio>
-      <Radio
-        checked={selected === 'medium'}
-        onChange={() => setSelected('medium')}
-        size="md"
-      >
-        medium
+      <Radio value="success" color="success">
+        success
       </Radio>
-      <Radio
-        checked={selected === 'large'}
-        onChange={() => setSelected('large')}
-        size="lg"
-      >
-        large
+      <Radio value="warning" color="warning">
+        warning
       </Radio>
-      <Radio
-        checked={selected === 'xlarge'}
-        onChange={() => setSelected('xlarge')}
-        size="xl"
-      >
-        xlarge
+      <Radio value="error" color="error">
+        error
       </Radio>
-    </>
+    </Radio.Group>
+  );
+};
+
+export const LabelColors = () => {
+  return (
+    <Radio.Group label="Label colors" defaultValue="primary">
+      <Radio value="primary" color="primary" labelColor="primary">
+        primary
+      </Radio>
+      <Radio value="secondary" color="secondary" labelColor="secondary">
+        secondary
+      </Radio>
+      <Radio value="success" color="success" labelColor="success">
+        success
+      </Radio>
+      <Radio value="warning" color="warning" labelColor="warning">
+        warning
+      </Radio>
+      <Radio value="error" color="error" labelColor="error">
+        error
+      </Radio>
+    </Radio.Group>
   );
 };
 
 export const Squared = () => (
-  <Radio.Group value="primary">
-    <Radio squared value="primary" color="primary" checked={true}>
-      Primary
+  <Radio.Group label="Options" defaultValue="A">
+    <Radio value="A" isSquared>
+      Option A
     </Radio>
-    <br />
-    <Radio squared value="secondary" color="secondary">
-      Secondary
+    <Radio value="B" isSquared>
+      Option B
     </Radio>
-    <br />
-    <Radio squared value="success" color="success">
-      Success
+    <Radio value="C" isSquared>
+      Option C
     </Radio>
-    <br />
-    <Radio squared value="warning" color="warning">
-      Warning
-    </Radio>
-    <br />
-    <Radio squared value="error" color="error">
-      Error
-    </Radio>
-  </Radio.Group>
-);
-
-export const Disabled = () => (
-  <Radio.Group value="1">
-    <Radio value="1">Option 1</Radio>
-    <Radio value="2" disabled>
-      Option 2
-    </Radio>
-    <Radio value="3">Option 3</Radio>
-    <Radio value="4" disabled>
-      Option 4
+    <Radio value="D" isSquared>
+      Option D
     </Radio>
   </Radio.Group>
 );
 
 export const Description = () => (
-  <Radio.Group value="1">
-    <Radio value="1">
-      Option 1<Radio.Description>Description for Option1</Radio.Description>
+  <Radio.Group label="Options" defaultValue="A">
+    <Radio value="A" description="Description for Option A">
+      Option A
     </Radio>
-    <Radio value="2">
-      Option 2<Radio.Desc>Description for Option2</Radio.Desc>
+    <Radio value="B" description="Description for Option B">
+      Option B
     </Radio>
-    <Radio value="3">
-      Option 3<Radio.Desc>Description for Option2</Radio.Desc>
+    <Radio value="C" description="Description for Option C">
+      Option C
+    </Radio>
+    <Radio value="D" description="Description for Option D">
+      Option D
+    </Radio>
+  </Radio.Group>
+);
+
+export const Invalid = () => (
+  <Radio.Group label="Options" defaultValue="A" validationState="invalid">
+    <Radio value="A" description="Description for Option A">
+      Option A
+    </Radio>
+    <Radio value="B" description="Description for Option B">
+      Option B
+    </Radio>
+    <Radio value="C" description="Description for Option C">
+      Option C
+    </Radio>
+    <Radio value="D" description="Description for Option D">
+      Option D
     </Radio>
   </Radio.Group>
 );
 
 export const Row = () => (
-  <Radio.Group value="1" row>
-    <Radio value="1">
-      Option 1<Radio.Desc>Description for Option1</Radio.Desc>
-    </Radio>
-    <Radio value="2">
-      Option 2<Radio.Desc>Description for Option2</Radio.Desc>
-    </Radio>
-    <Radio value="3">
-      Option 3<Radio.Desc>Description for Option2</Radio.Desc>
-    </Radio>
-  </Radio.Group>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 100 }}>
+    <Radio.Group label="Options" defaultValue="A" orientation="horizontal">
+      <Radio value="A">Option A</Radio>
+      <Radio value="B">Option B</Radio>
+      <Radio value="C">Option C</Radio>
+      <Radio value="D">Option D</Radio>
+    </Radio.Group>
+    <Radio.Group label="Options" defaultValue="A" orientation="horizontal">
+      <Radio value="A" description="Description for Option A">
+        Option A
+      </Radio>
+      <Radio value="B" description="Description for Option B">
+        Option B
+      </Radio>
+      <Radio value="C" description="Description for Option C">
+        Option C
+      </Radio>
+      <Radio value="D" description="Description for Option D">
+        Option D
+      </Radio>
+    </Radio.Group>
+  </div>
 );
+
+export const Controlled = () => {
+  const [checked, setChecked] = React.useState<string>('london');
+
+  React.useEffect(() => {
+    console.log('checked:', checked);
+  }, [checked]);
+
+  return (
+    <Radio.Group label="Check cities" value={checked} onChange={setChecked}>
+      <Radio value="buenos-aires">Buenos Aires</Radio>
+      <Radio value="sydney">Sydney</Radio>
+      <Radio value="london">London</Radio>
+      <Radio value="tokyo">Tokyo</Radio>
+    </Radio.Group>
+  );
+};
+
+export const DisableAnimation = () => {
+  return (
+    <Radio.Group label="Options" defaultValue="A">
+      <Radio value="A" disableAnimation>
+        Option A
+      </Radio>
+      <Radio value="B" disableAnimation>
+        Option B
+      </Radio>
+      <Radio value="C" disableAnimation>
+        Option C
+      </Radio>
+      <Radio value="D" disableAnimation>
+        Option D
+      </Radio>
+    </Radio.Group>
+  );
+};

@@ -1,9 +1,10 @@
-import { styled, VariantProps, sharedFocus } from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
 import {
   reboundAnimation,
   appearanceIn,
   appearanceOut
 } from '../utils/animations';
+import { sharedFocus } from '../theme/shared-css';
 
 export const StyledModalHideTab = styled('div', {
   outline: 'none',

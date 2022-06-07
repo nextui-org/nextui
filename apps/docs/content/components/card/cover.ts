@@ -1,7 +1,7 @@
 const Card1 = `import { Card, Col, Text } from "@nextui-org/react";
 
 export const Card1 = () => (
-  <Card cover>
+  <Card>
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
       <Col>
         <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
@@ -14,8 +14,9 @@ export const Card1 = () => (
     </Card.Header>
     <Card.Image
       src="https://nextui.org/images/card-example-4.jpeg"
-      height={340}
+      objectFit="cover"
       width="100%"
+      height={340}
       alt="Card image background"
     />
   </Card>
@@ -24,7 +25,7 @@ export const Card1 = () => (
 const Card2 = `import { Card, Col, Text } from "@nextui-org/react";
 
 export const Card2 = () => (
-  <Card width="100%" cover>
+  <Card css={{ w: "100%" }}>
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
       <Col>
         <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
@@ -37,8 +38,9 @@ export const Card2 = () => (
     </Card.Header>
     <Card.Image
       src="https://nextui.org/images/card-example-3.jpeg"
-      height={340}
       width="100%"
+      height={340}
+      objectFit="cover"
       alt="Card image background"
     />
   </Card>
@@ -47,7 +49,7 @@ export const Card2 = () => (
 const Card3 = `import { Card, Col, Text } from "@nextui-org/react";
 
 export const Card3 = () => (
-  <Card cover css={{ bg: "$black", w: "100%" }}>
+  <Card css={{ bg: "$black", w: "100%" }}>
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
       <Col>
         <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
@@ -60,8 +62,9 @@ export const Card3 = () => (
     </Card.Header>
     <Card.Image
       src="https://nextui.org/images/card-example-2.jpeg"
-      height={340}
       width="100%"
+      height={340}
+      objectFit="cover"
       alt="Card image background"
     />
   </Card>
@@ -70,7 +73,7 @@ export const Card3 = () => (
 const Card4 = `import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 
 export const Card4 = () => (
-  <Card cover css={{ w: "100%" }}>
+  <Card css={{ w: "100%", h: "400px" }}>
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
       <Col>
         <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
@@ -81,19 +84,20 @@ export const Card4 = () => (
         </Text>
       </Col>
     </Card.Header>
-    <Card.Body>
+    <Card.Body css={{ p: 0 }}>
       <Card.Image
         src="https://nextui.org/images/card-example-6.jpeg"
-        height={400}
         width="100%"
+        height="100%"
+        objectFit="cover"
         alt="Card example background"
       />
     </Card.Body>
     <Card.Footer
-      blur
+      isBlurred
       css={{
         position: "absolute",
-        bgBlur: "#ffffff",
+        bgBlur: "#ffffff66",
         borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
         bottom: 0,
         zIndex: 1,
@@ -130,7 +134,7 @@ export const Card4 = () => (
 const Card5 = `import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 
 export const Card5 = () => (
-  <Card cover css={{ w: "100%", p: 0 }}>
+  <Card css={{ w: "100%", h: "400px" }}>
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
       <Col>
         <Text size={12} weight="bold" transform="uppercase" color="#9E9E9E">
@@ -141,20 +145,21 @@ export const Card5 = () => (
         </Text>
       </Col>
     </Card.Header>
-    <Card.Body>
+    <Card.Body css={{ p: 0 }}>
       <Card.Image
         src="https://nextui.org/images/card-example-5.jpeg"
-        height={400}
+        objectFit="cover"
         width="100%"
+        height="100%"
         alt="Relaxing app background"
       />
     </Card.Body>
     <Card.Footer
-      blur
+      isBlurred
       css={{
         position: "absolute",
-        bgBlur: "#0f1114",
-        borderTop: "$borderWeights$light solid $gray700",
+        bgBlur: "#0f111466",
+        borderTop: "$borderWeights$light solid $gray800",
         bottom: 0,
         zIndex: 1,
       }}
@@ -164,8 +169,8 @@ export const Card5 = () => (
           <Row>
             <Col span={3}>
               <Card.Image
-                src="/images/breathing-app-icon.jpeg"
-                css={{ background: "black" }}
+                src="https://nextui.org/images/breathing-app-icon.jpeg"
+                css={{ bg: "black", br: "50%" }}
                 height={40}
                 width={40}
                 alt="Breathing app icon"

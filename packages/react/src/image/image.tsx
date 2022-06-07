@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import type { PropsWithoutRef, RefAttributes } from 'react';
 import { ObjectFit } from '../utils/prop-types';
 import ImageSkeleton from './image.skeleton';
 import useRealShape from '../use-real-shape';
@@ -28,20 +29,9 @@ interface Props {
   containerCss?: CSS;
 }
 
-const defaultProps = {
-  showSkeleton: true,
-  autoResize: false,
-  objectFit: 'scale-down' as ObjectFit,
-  maxDelay: 3000,
-  className: ''
-};
-
 type NativeAttrs = Omit<React.ImgHTMLAttributes<unknown>, keyof Props>;
 
-export type ImageProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  ImageContainerVariantProps;
+export type ImageProps = Props & NativeAttrs & ImageContainerVariantProps;
 
 export const Image = React.forwardRef(
   (props: ImageProps, ref: ReactRef<HTMLImageElement>) => {
@@ -49,11 +39,11 @@ export const Image = React.forwardRef(
       src,
       width,
       height,
-      showSkeleton: showSkeletonProp,
+      showSkeleton: showSkeletonProp = true,
       className,
-      maxDelay,
-      autoResize,
-      objectFit,
+      maxDelay = 3000,
+      autoResize = false,
+      objectFit = 'scale-down',
       containerCss,
       css,
       ...otherProps
@@ -173,12 +163,11 @@ if (__DEV__) {
 
 Image.toString = () => '.nextui-image';
 
-type MemoImageComponent<P = {}> = React.NamedExoticComponent<P>;
+type MemoImageComponent<T, P = {}> = React.ForwardRefExoticComponent<
+  PropsWithoutRef<P> & RefAttributes<T>
+>;
 
-type ComponentProps = Partial<typeof defaultProps> &
-  Omit<Props, keyof typeof defaultProps> &
-  NativeAttrs;
-
-Image.defaultProps = defaultProps;
-
-export default React.memo(Image) as MemoImageComponent<ComponentProps>;
+export default React.memo(Image) as MemoImageComponent<
+  HTMLImageElement,
+  ImageProps
+>;

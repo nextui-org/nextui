@@ -1,9 +1,5 @@
-import {
-  styled,
-  VariantProps,
-  sharedFocus,
-  keyframes
-} from '../theme/stitches.config';
+import { styled, VariantProps, keyframes } from '../theme/stitches.config';
+import { sharedFocus } from '../theme/shared-css';
 
 const paginationAnimation = keyframes({
   '0%': {
@@ -112,7 +108,7 @@ export const StyledPaginationItem = styled(
       },
       disabled: {
         true: {
-          color: '$accents4',
+          color: '$accents5',
           cursor: 'not-allowed'
         }
       },

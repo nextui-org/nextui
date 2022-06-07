@@ -20,7 +20,10 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <div id="app-container">
       <Header />
-      <NotifyBanner text="Popover component" href="/docs/components/popover" />
+      <NotifyBanner
+        text="Dropdown component"
+        href="/docs/components/dropdown"
+      />
       <Navbar isHome hasNotify routes={routes} />
       <Container
         lg={true}

@@ -2,15 +2,15 @@ const App = `import { Radio } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Radio.Group value="1" row>
-      <Radio value="1">
-        Option 1<Radio.Description>Description for Option1</Radio.Description>
+    <Radio.Group label="Options" defaultValue="1" orientation="horizontal">
+      <Radio value="1" description="Description for Option1">
+        Option 1
       </Radio>
-      <Radio value="2">
-        Option 2<Radio.Desc>Description for Option2</Radio.Desc>
+      <Radio value="2" description="Description for Option2">
+        Option 2
       </Radio>
-      <Radio value="3">
-        Option 3<Radio.Desc>Description for Option2</Radio.Desc>
+      <Radio value="3" description="Description for Option3">
+        Option 3
       </Radio>
     </Radio.Group>
   );

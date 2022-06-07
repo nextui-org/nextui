@@ -1,35 +1,37 @@
 import React from 'react';
 import Link from '../link';
-import { StyledUserLink } from './user.styles';
-import { CSS } from '../theme/stitches.config';
+import clsx from '../utils/clsx';
 import { __DEV__ } from '../utils/assertion';
+import type { LinkProps } from '../link';
 
 interface Props {
-  href?: string;
+  children?: React.ReactNode;
 }
-type NativeAttrs = Omit<React.AnchorHTMLAttributes<unknown>, keyof Props>;
-export type UserLinkProps = Props & NativeAttrs & { css?: CSS };
 
-const UserLink = React.forwardRef<
-  HTMLAnchorElement,
-  React.PropsWithChildren<UserLinkProps>
->(
-  (
-    { href, className, children, ...props },
-    ref: React.Ref<HTMLAnchorElement>
-  ) => {
+export type UserLinkProps = Props & Omit<LinkProps, 'icon'>;
+
+const UserLink = React.forwardRef<HTMLAnchorElement, UserLinkProps>(
+  (props: UserLinkProps, ref: React.Ref<HTMLAnchorElement>) => {
+    const {
+      rel = 'noopener',
+      color = 'primary',
+      target = '_blank',
+      className,
+      children,
+      ...otherProps
+    } = props;
+
     return (
-      <StyledUserLink {...props}>
-        <Link
-          ref={ref}
-          href={href}
-          color="primary"
-          target="_blank"
-          rel="noopener"
-        >
-          {children}
-        </Link>
-      </StyledUserLink>
+      <Link
+        ref={ref}
+        rel={rel}
+        color={color}
+        target={target}
+        className={clsx('nextui-user-link', className)}
+        {...otherProps}
+      >
+        {children}
+      </Link>
     );
   }
 );

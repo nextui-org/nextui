@@ -1,9 +1,5 @@
-import {
-  styled,
-  sharedFocus,
-  VariantProps,
-  cssFocusVisible
-} from '../theme/stitches.config';
+import { styled, VariantProps } from '../theme/stitches.config';
+import { sharedFocus, cssFocusVisible } from '../theme/shared-css';
 
 export const StyledCollapse = styled(
   'div',

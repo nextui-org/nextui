@@ -40,7 +40,7 @@ export const Pre = styled('pre', {
   padding: '$8',
   overflow: 'auto',
   fontFamily: '$mono',
-  fontSize: '$xs',
+  fontSize: '$sm',
   lineHeight: '21px',
   whiteSpace: 'pre',
   position: 'relative',

@@ -34,13 +34,12 @@ const globalStyles = globalCss({
     fontFamily: '$sans'
   },
   p: {
-    margin: '$md 0',
     fontSize: '$base',
     lineHeight: '$lg'
   },
   small: {
     margin: 0,
-    lineHeight: '$md',
+    lineHeight: '$xs',
     fontSize: '$xs'
   },
   b: {
@@ -87,33 +86,33 @@ const globalStyles = globalCss({
   },
   h1: {
     letterSpacing: '$tighter',
+    fontSize: '$xl5',
     lineHeight: '$md',
-    fontSize: '$xl',
     fontWeight: '$bold'
   },
   h2: {
     letterSpacing: '$tighter',
-    fontSize: '$lg',
+    fontSize: '$xl4',
     fontWeight: '$semibold'
   },
   h3: {
     letterSpacing: '$tighter',
-    fontSize: '$md',
+    fontSize: '$xl2',
     fontWeight: '$semibold'
   },
   h4: {
     letterSpacing: '$tighter',
-    fontSize: '$sm',
+    fontSize: '$xl',
     fontWeight: '$semibold'
   },
   h5: {
     letterSpacing: '$tight',
-    fontSize: '$base',
+    fontSize: '$md',
     fontWeight: '$semibold'
   },
   h6: {
     letterSpacing: '$tight',
-    fontSize: '$xs',
+    fontSize: '$sm',
     fontWeight: '$semibold'
   },
   'button, input, select,textarea': {
@@ -132,7 +131,7 @@ const globalStyles = globalCss({
     borderRadius: '$xs',
     bg: '$codeLight',
     fontFamily: '$mono',
-    fontSize: '$xs',
+    fontSize: '$sm',
     whiteSpace: 'pre-wrap',
     transition: 'opacity 0.25s ease 0s'
   },
@@ -143,7 +142,7 @@ const globalStyles = globalCss({
     overflow: 'auto',
     whiteSpace: 'pre',
     textAlign: 'left',
-    fontSize: '$xs',
+    fontSize: '$sm',
     borderRadius: '$lg',
     padding: '$md $lg',
     margin: '$lg 0 ',
@@ -153,7 +152,7 @@ const globalStyles = globalCss({
   },
   'pre code': {
     color: '$foreground',
-    fontSize: '$xs',
+    fontSize: '$sm',
     lineHeight: '$sm',
     whiteSpace: 'pre'
   },
@@ -170,7 +169,11 @@ const globalStyles = globalCss({
     background: 'transparent'
   },
   hr: {
-    borderColor: '$accents2'
+    background: '$border',
+    borderColor: 'transparent',
+    borderWidth: '0px',
+    borderStyle: 'none',
+    height: '1px'
   },
   details: {
     backgroundColor: '$accents1',
@@ -219,12 +222,12 @@ const globalStyles = globalCss({
     bg: '$accents0',
     border: '1px solid $border',
     boxShadow: '0 0 1px 0 rgb(0 0 0 / 14%)',
-    fontFamily: '$mono',
+    fontFamily: '$sans',
     borderRadius: '5px',
     padding: '$1 $3',
     mx: '$1',
     lineHeight: '$sm',
-    fontSize: '$tiny'
+    fontSize: '$sm'
   },
   'kbd + kbd': {
     ml: '$2'

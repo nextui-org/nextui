@@ -13,7 +13,7 @@ import { Star } from '../../icons';
 export const StyledCard = styled(Card, {
   py: '$2',
   mt: '$8',
-  boxShadow: '$lg',
+  boxShadow: '$md',
   br: '35px',
   ov: 'visible',
   [`.${darkElegantTheme} &, .${lightElegantTheme} &`]: {

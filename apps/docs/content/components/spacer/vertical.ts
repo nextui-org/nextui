@@ -3,16 +3,22 @@ const AppJs = `import { Spacer, Card } from "@nextui-org/react";
 export default function App() {
   return (
     <>
-      <Card color="primary">
-        <Spacer y={1} />
+      <Card css={{ $$cardColor: '$colors$primary' }}>
+        <Card.Body>
+          <Spacer y={1} />
+        </Card.Body>
       </Card>
       <Spacer y={1} />
-      <Card color="primary">
-        <Spacer y={2} />
+      <Card css={{ $$cardColor: '$colors$primary' }}>
+        <Card.Body>
+          <Spacer y={2} />
+        </Card.Body>
       </Card>
       <Spacer y={1} />
-      <Card color="primary">
-        <Spacer y={3} />
+      <Card css={{ $$cardColor: '$colors$primary' }}>
+        <Card.Body>
+          <Spacer y={3} />
+        </Card.Body>
       </Card>
     </>
   );

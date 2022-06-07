@@ -57,7 +57,7 @@ const ComparationSection = () => {
                   }}
                 />
               )}
-              <Text css={{ color: '$text', fontSize: '$md' }}>NextUI</Text>
+              <Text css={{ color: '$text', fontSize: '$xl' }}>NextUI</Text>
             </Col>
           </Grid>
           <Grid
@@ -84,7 +84,7 @@ const ComparationSection = () => {
                   value={landingContent.comparativeCode.others}
                 />
               )}
-              <Text css={{ color: '$accents5', fontSize: '$md' }}>Others</Text>
+              <Text css={{ color: '$accents6', fontSize: '$xl' }}>Others</Text>
             </Col>
           </Grid>
         </Grid.Container>

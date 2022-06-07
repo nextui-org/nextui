@@ -10,7 +10,6 @@ describe('Card Footer', () => {
         <Card.Footer>footer</Card.Footer>
       </Card>
     );
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 

@@ -394,7 +394,7 @@ export default CustomButton;
   }),
   bgBlur: (value) => ({
     bf: 'saturate(180%) blur(10px)',
-    bg: \`$\{value}66\`,
+    bg: value
   }),
   bgColor: (value) => ({
     backgroundColor: value

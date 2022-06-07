@@ -54,10 +54,9 @@ export {
   keyframes,
   config,
   config as stitchesConfig,
-  theme as defaultTheme,
-  sharedFocus,
-  sharedVisuallyHidden
+  theme as defaultTheme
 } from './theme/stitches.config';
+export * from './theme/shared-css';
 export * from './theme/colors';
 
 // Components
@@ -147,3 +146,6 @@ export * from './table';
 
 export { default as Popover } from './popover';
 export * from './popover';
+
+export { default as Dropdown } from './dropdown';
+export * from './dropdown';

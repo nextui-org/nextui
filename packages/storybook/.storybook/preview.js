@@ -5,12 +5,12 @@ import { createTheme, NextUIProvider, styled } from '@nextui-org/react';
 
 const lightTheme = createTheme({
   type: 'light',
-  className: 'light-mode'
+  className: 'light-theme'
 });
 
 const darkTheme = createTheme({
   type: 'dark',
-  className: 'dark-mode'
+  className: 'dark-theme'
 });
 
 const Box = styled('div', {
@@ -22,7 +22,7 @@ const Box = styled('div', {
   alignItems: 'center',
   flexWrap: 'wrap',
   width: '100vw',
-  height: 'calc(100vh - 60px)'
+  height: '100vh'
 });
 
 export const decorators = [
@@ -36,11 +36,32 @@ export const decorators = [
 ];
 
 export const parameters = {
+  layout: 'fullscreen',
   actions: { argTypesRegex: '^on[A-Z].*' },
   darkMode: {
     stylePreview: true,
-    dark: { ...themes.dark, appBg: 'black' },
-    light: { ...themes.normal, appBg: 'white' }
+    darkClass: 'dark-theme',
+    lightClass: 'light-theme',
+    dark: {
+      ...themes.dark,
+      // accent0, accent1
+      appBg: '#161616',
+      barBg: '#262626',
+      background: '#161616',
+      appContentBg: '#161616',
+      // radii xs
+      appBorderRadius: 7
+    },
+    light: {
+      ...themes.normal,
+      // accent0, accent1
+      appBg: '#F5F5F5',
+      barBg: '#EDEDED',
+      background: '#F5F5F5',
+      appContentBg: '#F5F5F5',
+      // radii xs
+      appBorderRadius: 7
+    }
   },
   backgrounds: {
     default: 'light'
