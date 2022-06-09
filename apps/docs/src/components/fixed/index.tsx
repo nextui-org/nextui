@@ -38,7 +38,7 @@ const Fixed: React.FC<React.PropsWithChildren<FixedProps>> = ({
 }) => {
   return (
     <StyledFixed
-      css={{ ...(css as any), top: offset || 0 }}
+      css={{ ...css, top: offset || 0 }}
       className={cn(className, { shadow })}
       shadow={shadow}
     >
