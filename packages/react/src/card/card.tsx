@@ -45,7 +45,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       <StyledCard
         ref={cardRef}
         as={as}
-        css={css as any}
+        css={css}
         variant={variant}
         role={isPressable ? 'button' : 'section'}
         borderWeight={borderWeight}

@@ -95,10 +95,7 @@ export const PopoverContent = React.forwardRef(
         className={clsx('nextui-popover-content-container', className)}
         isFocusVisible={isFocusVisible}
         as={as}
-        css={{
-          transformOrigin,
-          ...(css as any)
-        }}
+        css={{ transformOrigin, ...css }}
       >
         <DismissButton onDismiss={onClose} />
         <StyledPopoverContent className="nextui-popover-content">

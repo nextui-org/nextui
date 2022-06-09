@@ -165,7 +165,7 @@ const Button = React.forwardRef(
       return disabled ? 'disabled' : 'ready';
     }, [disabled, isHovered, isPressed]);
 
-    const getIconCss = useMemo<any>(() => {
+    const getIconCss = useMemo<CSS | undefined>(() => {
       if (isRight) return iconRightCss;
       return iconLeftCss;
     }, [isRight, iconRightCss, iconLeftCss]);
@@ -191,10 +191,7 @@ const Button = React.forwardRef(
           `nextui-button--${getState}`,
           className
         )}
-        css={{
-          ...(css as any),
-          ...cssColors
-        }}
+        css={{ ...css, ...cssColors }}
         {...mergeProps(buttonProps, focusProps, hoverProps, props)}
       >
         {React.Children.count(children) === 0 ? (

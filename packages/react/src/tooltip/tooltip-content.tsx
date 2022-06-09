@@ -125,7 +125,7 @@ const TooltipContent: React.FC<
             opacity: 1,
             top: rect.top
           },
-          ...(css as any)
+          ...css
         }}
         {...props}
       >

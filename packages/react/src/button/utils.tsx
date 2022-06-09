@@ -1,6 +1,7 @@
 import React from 'react';
 import { ButtonProps } from './button';
 import { ButtonGroupConfig } from './button-group-context';
+import type { CSS } from '../theme/stitches.config';
 
 export const filterPropsWithGroup = (
   props: React.PropsWithChildren<ButtonProps>,
@@ -25,7 +26,9 @@ export const filterPropsWithGroup = (
   };
 };
 
-export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
+export const getCssColors = (
+  props: React.PropsWithChildren<ButtonProps>
+): CSS | undefined => {
   if (!props.disabled) {
     if (
       props.auto &&
@@ -37,9 +40,9 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
         py: '$$buttonBorderWeight'
       };
     }
-    return {};
+    return;
   }
-  const defaultDisabledCss = {
+  const defaultDisabledCss: CSS = {
     bg: '$accents1',
     color: '$accents7',
     transform: 'none',
@@ -76,5 +79,5 @@ export const getCssColors = (props: React.PropsWithChildren<ButtonProps>) => {
     };
   }
 
-  return {};
+  return;
 };

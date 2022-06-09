@@ -54,10 +54,7 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
       )}
       noPadding={noPadding}
       autoMargin={autoMargin}
-      css={{
-        justifyContent: justify,
-        ...(css as any)
-      }}
+      css={{ justifyContent: justify, ...css }}
       {...props}
     >
       {children}

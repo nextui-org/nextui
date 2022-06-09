@@ -80,7 +80,7 @@ export const TextChild = React.forwardRef(
           fontSize: size ? fontSize : '',
           margin,
           tt: transform,
-          ...(css as any)
+          ...css
         }}
         {...otherProps}
       >

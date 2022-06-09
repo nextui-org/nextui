@@ -42,7 +42,7 @@ const Row: React.FC<React.PropsWithChildren<RowProps>> = ({
         marginRight: `calc(${gap} * $space$lg / 2)`,
         justifyContent: justify,
         alignItems: align,
-        ...(css as any)
+        ...css
       }}
       {...props}
     >

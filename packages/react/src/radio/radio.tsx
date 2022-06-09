@@ -79,7 +79,7 @@ export const Radio = React.forwardRef(
           className
         )}
         as={as}
-        css={css as any}
+        css={css}
         size={size}
         color={color}
         data-state={radioState}

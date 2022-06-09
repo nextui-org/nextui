@@ -28,7 +28,7 @@ const ImageSkeleton: React.FC<ImageSkeletonProps> = React.memo(
   ({ opacity, css, className, ...props }) => {
     return (
       <StyledImageSkeleton
-        css={{ opacity, ...(css as any) }}
+        css={{ opacity, ...css }}
         className={clsx('nextui-image-skeleton', className)}
         {...props}
       />

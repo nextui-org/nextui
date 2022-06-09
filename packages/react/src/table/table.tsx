@@ -138,7 +138,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           borderWeight={borderWeight}
           bordered={bordered}
           className="nextui-table-container"
-          css={{ ...(containerCss as any) }}
+          css={containerCss}
         >
           <StyledTable
             ref={tableRef}

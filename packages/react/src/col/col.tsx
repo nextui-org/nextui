@@ -34,7 +34,7 @@ const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
       css={{
         width: `${(100 / 12) * span}%`,
         marginLeft: `${(100 / 12) * offset}%`,
-        ...(css as any)
+        ...css
       }}
       {...props}
     >

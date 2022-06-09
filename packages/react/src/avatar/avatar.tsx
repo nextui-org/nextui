@@ -58,6 +58,18 @@ export const Avatar = React.forwardRef(
       return !ready && src ? 'loading' : 'ready';
     }, [src, ready]);
 
+    const getAsButtonCss = useMemo<CSS | undefined>(() => {
+      if (as === 'button') {
+        // reset button styles
+        return {
+          appearance: 'none',
+          outline: 'none',
+          border: 'none',
+          cursor: 'pointer'
+        };
+      }
+    }, [as]);
+
     return (
       <StyledAvatar
         ref={domRef}
@@ -71,18 +83,7 @@ export const Avatar = React.forwardRef(
         )}
         data-state={getState}
         isFocusVisible={isFocusVisible}
-        css={mergeProps(
-          as === 'button'
-            ? {
-                // reset button styles
-                appearance: 'none',
-                outline: 'none',
-                border: 'none',
-                cursor: 'pointer'
-              }
-            : {},
-          css as any
-        )}
+        css={{ ...getAsButtonCss, ...css }}
       >
         <span className="nextui-avatar-bg" />
         {!showText && (

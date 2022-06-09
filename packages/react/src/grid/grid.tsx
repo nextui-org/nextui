@@ -9,7 +9,7 @@ const Grid = React.forwardRef<
   React.PropsWithChildren<GridProps>
 >(({ children, css, ...props }, ref) => {
   return (
-    <GridBasicItem ref={ref} css={{ ...(css as any) }} {...props}>
+    <GridBasicItem ref={ref} css={css} {...props}>
       {children}
     </GridBasicItem>
   );

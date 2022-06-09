@@ -93,7 +93,7 @@ const Expand: React.FC<React.PropsWithChildren<ExpandProps>> = ({
           ? `height ${delay}ms ease 0ms,
     opacity ${delay * 1.5}ms ease 0ms;`
           : 'none',
-        ...(css as any)
+        ...css
       }}
     >
       <div ref={contentRef} className="nextui-expand-content">

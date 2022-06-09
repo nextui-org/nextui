@@ -52,7 +52,7 @@ const Checkmark: React.FC<CheckmarkProps> = (props) => {
       className={clsx('nextui-checkmark', className)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 52 52"
-      css={{ ...(css as any) }}
+      css={css}
     >
       <path
         stroke={fill}

@@ -55,10 +55,7 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
       )}
       noPadding={noPadding}
       autoMargin={autoMargin}
-      css={{
-        justifyContent: justify,
-        ...(css as any)
-      }}
+      css={{ justifyContent: justify, ...css }}
       {...props}
     >
       {children}

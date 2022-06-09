@@ -117,8 +117,8 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
       css={{
         pb: '$10',
         position: 'relative',
-        ...(props.css as any),
-        ...(collection.body?.props?.css as any)
+        ...props.css,
+        ...collection.body?.props?.css
       }}
       {...props}
     >

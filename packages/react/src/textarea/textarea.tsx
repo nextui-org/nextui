@@ -131,7 +131,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         as="textarea"
         ref={textareaRef}
         onChange={handleChange}
-        css={{ ...(css as any) }}
+        css={css}
         {...props}
       />
     );

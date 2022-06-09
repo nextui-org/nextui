@@ -77,10 +77,7 @@ const PaginationHighlight: React.FC<PaginationHighlightProps> = ({
         { '--nextui--paginationLeft': `calc(${leftValue})` },
         props?.style || {}
       )}
-      css={{
-        left: 'var(--nextui--paginationLeft)',
-        ...(css as any)
-      }}
+      css={{ left: 'var(--nextui--paginationLeft)', ...css }}
       {...props}
     />
   );

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import { Avatar } from '../index';
 import { useFocusRing } from '@react-aria/focus';
 import type { FocusRingAria } from '@react-aria/focus';
@@ -73,27 +73,28 @@ export const User = React.forwardRef(
 
     const { isFocusVisible, focusProps }: IFocusRingAria = useFocusRing();
 
+    const getAsButtonCss = useMemo<CSS | undefined>(() => {
+      if (as === 'button') {
+        // reset button styles
+        return {
+          borderRadius: '$xs',
+          background: 'none',
+          appearance: 'none',
+          p: 0,
+          m: 0,
+          outline: 'none',
+          border: 'none',
+          cursor: 'pointer'
+        };
+      }
+    }, [as]);
+
     return (
       <StyledUser
         ref={domRef}
         as={as}
         {...mergeProps(otherProps, focusProps)}
-        css={mergeProps(
-          as === 'button'
-            ? {
-                borderRadius: '$xs',
-                // reset button styles
-                background: 'none',
-                appearance: 'none',
-                p: 0,
-                m: 0,
-                outline: 'none',
-                border: 'none',
-                cursor: 'pointer'
-              }
-            : {},
-          css as any
-        )}
+        css={{ ...getAsButtonCss, ...css }}
         isFocusVisible={isFocusVisible}
       >
         <Avatar

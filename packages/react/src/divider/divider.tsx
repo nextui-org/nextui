@@ -39,8 +39,8 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
   css,
   ...props
 }) => {
-  const alignCss = useMemo(() => {
-    if (!align || align === 'center') return '';
+  const alignCss = useMemo<CSS | undefined>(() => {
+    if (!align || align === 'center') return;
     if (align === 'left' || align === 'start') {
       return { transform: 'translateY(-50%)', left: '7%' };
     }
@@ -60,13 +60,13 @@ const Divider: React.FC<React.PropsWithChildren<DividerProps>> = ({
       css={{
         margin: `${top} ${left}`,
         height: `calc(${height} * 1px)`,
-        ...(css as any)
+        ...css
       }}
       {...props}
     >
       {children && (
         <StyledDividerText
-          css={{ ...alignCss }}
+          css={alignCss}
           color={textColor}
           className="nextui-divider-text"
         >

@@ -126,9 +126,7 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
         },
         className
       )}
-      css={{
-        ...(css as any)
-      }}
+      css={css}
       {...props}
     >
       {children}

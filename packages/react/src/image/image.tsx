@@ -130,11 +130,7 @@ export const Image = React.forwardRef(
         )}
         data-state={getState}
         ready={!loading || showSkeleton}
-        css={{
-          width: w,
-          height: zoomHeight,
-          ...(containerCss as any)
-        }}
+        css={{ width: w, height: zoomHeight, ...containerCss }}
       >
         {showSkeleton && <ImageSkeleton opacity={1} />}
         <StyledImage
@@ -146,10 +142,7 @@ export const Image = React.forwardRef(
           src={src}
           data-state={getState}
           alt={props.alt || ''}
-          css={{
-            objectFit,
-            ...(css as any)
-          }}
+          css={{ objectFit, ...css }}
           {...otherProps}
         />
       </StyledImageContainer>

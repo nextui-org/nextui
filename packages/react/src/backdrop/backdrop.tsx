@@ -106,10 +106,7 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
           data-state={getState}
           onClick={clickHandler}
           onMouseUp={mouseUpHandler}
-          css={{
-            $$backdropOpacity: opacity,
-            ...(css as any)
-          }}
+          css={{ $$backdropOpacity: opacity, ...css }}
           className={cslx(preClass, `${preClass}--${getState}`, className)}
           {...bindings}
           {...props}

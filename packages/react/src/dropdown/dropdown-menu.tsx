@@ -41,8 +41,8 @@ export type DropdownMenuProps<T = object> = Props<T> &
 const DropdownMenu = React.forwardRef(
   (props: DropdownMenuProps, ref: React.Ref<HTMLUListElement | null>) => {
     const {
-      css = {},
       as,
+      css,
       color = 'default',
       textColor = 'default',
       variant = 'flat',
@@ -64,7 +64,7 @@ const DropdownMenu = React.forwardRef(
       <StyledDropdownMenu
         ref={domRef}
         as={as}
-        css={{ ...(css as any) }}
+        css={css}
         className={clsx('nextui-dropdown-menu', props.className)}
         {...menuProps}
       >

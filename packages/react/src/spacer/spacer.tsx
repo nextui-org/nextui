@@ -31,7 +31,7 @@ const Spacer: React.FC<SpacerProps> = ({ x, y, inline, css, ...props }) => {
       css={{
         marginLeft: `${marginLeft} !important`,
         marginTop: `${marginTop} !important`,
-        ...(css as any)
+        ...css
       }}
       aria-hidden="true"
       {...props}

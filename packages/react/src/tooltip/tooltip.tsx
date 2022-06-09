@@ -151,9 +151,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       onMouseLeave={() => mouseEventHandler(false)}
       onFocus={() => mouseEventHandler(true)}
       onBlur={() => mouseEventHandler(false)}
-      css={{
-        ...(triggerCss as any)
-      }}
+      css={triggerCss}
       {...props}
     >
       {children}

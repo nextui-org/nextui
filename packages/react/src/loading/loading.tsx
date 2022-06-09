@@ -42,8 +42,8 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
 }) => {
   const ariaLabel = children ? '' : 'Loading';
 
-  const loadingGradientCSS = useMemo(() => {
-    return type === 'gradient' ? { '._2': { bg: gradientBackground } } : {};
+  const loadingGradientCSS = useMemo<CSS | undefined>(() => {
+    if (type === 'gradient') return { '._2': { bg: gradientBackground } };
   }, [type]);
 
   return (
@@ -57,10 +57,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
             type={type}
             size={size}
             aria-label={ariaLabel}
-            css={{
-              ...(loadingCss as any),
-              ...loadingGradientCSS
-            }}
+            css={{ ...loadingCss, ...loadingGradientCSS }}
           >
             <i className="_1" />
             <i className="_2" />

@@ -137,7 +137,7 @@ const GridItem = React.forwardRef<
               ...getItemLayout(xl)
             }
           },
-          ...(css as any)
+          ...css
         }}
         {...props}
       >

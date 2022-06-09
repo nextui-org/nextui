@@ -80,7 +80,7 @@ const Progress: React.FC<ProgressProps> = ({
           opacity: 1,
           width: `${percent}%`
         },
-        ...(css as any)
+        ...css
       }}
       {...props}
     >
