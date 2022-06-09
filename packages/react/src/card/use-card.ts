@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useFocusRing } from '@react-aria/focus';
 import type {
   PressEvents,
   PressEvent,
   FocusableProps
 } from '@react-types/shared';
+import { mergeProps } from '@react-aria/utils';
 import type { FocusRingAria } from '@react-aria/focus';
 import { usePress } from '@react-aria/interactions';
 import { useHover } from '@react-aria/interactions';
@@ -96,6 +97,20 @@ export const useCard = (props: UseCardProps) => {
 
   pressProps.onClick = handleClick;
 
+  const getCardProps = useCallback(
+    (props = {}) => {
+      return {
+        ...mergeProps(
+          isPressable ? { ...pressProps, ...focusProps } : {},
+          isHoverable ? hoverProps : {},
+          otherProps,
+          props
+        )
+      };
+    },
+    [isPressable, isHoverable, pressProps, focusProps, hoverProps, otherProps]
+  );
+
   return {
     cardRef,
     variant,
@@ -105,13 +120,10 @@ export const useCard = (props: UseCardProps) => {
     isPressed,
     disableAnimation,
     disableRipple,
-    pressProps,
-    hoverProps,
     dripBindings,
-    focusProps,
     onDripClickHandler,
     isFocusVisible,
-    ...otherProps
+    getCardProps
   };
 };
 
