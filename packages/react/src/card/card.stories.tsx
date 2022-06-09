@@ -2,11 +2,23 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import Card from './index';
 import { styled } from '../theme/stitches.config';
-import { Row, Col, Link, Text, Code, Button, Grid } from '../index';
+import {
+  Row,
+  Col,
+  Link,
+  Text,
+  Code,
+  Button,
+  Grid,
+  Checkbox,
+  Spacer,
+  Input
+} from '../index';
 import AppleEvent from '../../assets/apple-event.jpeg';
 import Homepods from '../../assets/homepod.jpeg';
 import Relaxing from '../../assets/relaxing.jpeg';
 import BreathingApp from '../../assets/breathing-app-icon.jpeg';
+import { Mail, Password } from '../utils/icons';
 
 export default {
   title: 'Surfaces/Card',
@@ -667,5 +679,64 @@ export const Shadows = () => {
         </Grid>
       ))}
     </Grid.Container>
+  );
+};
+
+export const withForm = () => {
+  return (
+    <Card css={{ mw: '400px' }}>
+      <Card.Header css={{ justifyContent: 'center' }}>
+        <Text size={18}>
+          Welcome to&nbsp;
+          <Text b size={18}>
+            NextUI
+          </Text>
+        </Text>
+      </Card.Header>
+      <Card.Body css={{ px: '$10', pt: '$1', ov: 'visible' }}>
+        <Input
+          clearable
+          bordered
+          fullWidth
+          size="lg"
+          color="primary"
+          placeholder="Email"
+          contentLeft={<Mail fill="currentColor" />}
+        />
+        <Spacer y={0.5} />
+        <Input
+          clearable
+          bordered
+          fullWidth
+          size="lg"
+          color="primary"
+          placeholder="Password"
+          contentLeft={<Password />}
+        />
+        <Spacer y={0.5} />
+        <Row justify="space-between" align="center">
+          <Checkbox>
+            <Text size={14} css={{ color: '$accents8' }}>
+              Remember me
+            </Text>
+          </Checkbox>
+          <Link href="#" css={{ color: '$link', fontSize: '$sm' }}>
+            Forgot password?
+          </Link>
+        </Row>
+      </Card.Body>
+      <Card.Footer css={{ pt: 0 }}>
+        <Grid.Container justify="flex-end" gap={1}>
+          <Grid>
+            <Button auto flat>
+              Sign Up
+            </Button>
+          </Grid>
+          <Grid>
+            <Button auto>Login</Button>
+          </Grid>
+        </Grid.Container>
+      </Card.Footer>
+    </Card>
   );
 };

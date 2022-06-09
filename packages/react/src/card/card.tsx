@@ -1,6 +1,5 @@
 import React, { PropsWithoutRef, RefAttributes } from 'react';
 import type { ReactNode } from 'react';
-import { mergeProps } from '@react-aria/utils';
 import Drip from '../utils/drip';
 import { CSS } from '../theme/stitches.config';
 import { useCard } from './use-card';
@@ -35,9 +34,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       disableRipple,
       borderWeight,
       isHovered,
-      pressProps,
-      focusProps,
-      hoverProps,
+      getCardProps,
       dripBindings
     } = useCard({ ...otherProps, ref });
 
@@ -55,9 +52,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         isHovered={isHovered}
         tabIndex={isPressable ? 0 : -1}
         isFocusVisible={isFocusVisible}
-        {...(isPressable
-          ? mergeProps(pressProps, focusProps, hoverProps, otherProps)
-          : mergeProps(focusProps, hoverProps, otherProps))}
+        {...getCardProps()}
       >
         {isPressable && !disableAnimation && !disableRipple && (
           <Drip {...dripBindings} />
