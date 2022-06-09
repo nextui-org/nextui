@@ -5,10 +5,10 @@ import React, {
   PropsWithoutRef
 } from 'react';
 import { OverlayContainer } from '@react-aria/overlays';
-import { PopoverContent } from './popover-content';
 import { usePopover, UsePopoverProps } from './use-popover';
 import { PopoverProvider } from './popover-context';
-import { PopoverTrigger } from './popover-trigger';
+import PopoverTrigger from './popover-trigger';
+import PopoverContent from './popover-content';
 import { __DEV__ } from '../utils/assertion';
 
 export interface PopoverProps extends UsePopoverProps {

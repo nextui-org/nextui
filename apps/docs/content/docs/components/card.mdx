@@ -88,17 +88,18 @@ import { Card } from '@nextui-org/react';
 
 #### Card Props
 
-| Attribute            | Type                             | Description                                                         | Default  |
-| -------------------- | -------------------------------- | ------------------------------------------------------------------- | -------- |
-| **children\***       | `ReactNode` `ReactNode[]`        | The content of the card. It's usually the header, body, and footer. | -        |
-| **variant**          | [CardVariants](#card-variants)   | The card variant style.                                             | `shadow` |
-| **borderWeight**     | [NormalWeights](#normal-weights) | The border weight of the bordered card.                             | `light`  |
-| **isHoverable**      | `boolean`                        | Whether the card can be hovered by the user.                        | `false`  |
-| **isPressable**      | `boolean`                        | Whether the card should allow users to interact with the card.      | `false`  |
-| **disableAnimation** | `boolean`                        | Whether the card is animated.                                       | `false`  |
-| **disableRipple**    | `boolean`                        | Whether the card should show a ripple animation on press            | `false`  |
-| **css**              | `Stitches.CSS`                   | Override Default CSS style.                                         | -        |
-| **as**               | `keyof JSX.IntrinsicElements`    | Changes which tag component outputs.                                | `div`    |
+| Attribute                     | Type                             | Description                                                                       | Default  |
+| ----------------------------- | -------------------------------- | --------------------------------------------------------------------------------- | -------- |
+| **children\***                | `ReactNode` `ReactNode[]`        | The content of the card. It's usually the header, body, and footer.               | -        |
+| **variant**                   | [CardVariants](#card-variants)   | The card variant style.                                                           | `shadow` |
+| **borderWeight**              | [NormalWeights](#normal-weights) | The border weight of the bordered card.                                           | `light`  |
+| **isHoverable**               | `boolean`                        | Whether the card can be hovered by the user.                                      | `false`  |
+| **isPressable**               | `boolean`                        | Whether the card should allow users to interact with the card.                    | `false`  |
+| **disableAnimation**          | `boolean`                        | Whether the card is animated.                                                     | `false`  |
+| **disableRipple**             | `boolean`                        | Whether the card should show a ripple animation on press                          | `false`  |
+| **allowTextSelectionOnPress** | `boolean`                        | Whether the card should allow text selection on press. (only for pressable cards) | `true`   |
+| **css**                       | `Stitches.CSS`                   | Override Default CSS style.                                                       | -        |
+| **as**                        | `keyof JSX.IntrinsicElements`    | Changes which tag component outputs.                                              | `div`    |
 
 <Spacer y={1} />
 
