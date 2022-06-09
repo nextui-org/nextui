@@ -5,7 +5,7 @@ import useTheme from '../use-theme';
 
 export default {
   title: 'Layout/Spacer',
-  component: Spacer,
+  component: Spacer
 } as Meta;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,7 +17,7 @@ const Container = ({ children, vertical }: any) => (
       justifyContent: 'space-between',
       width: '100%',
       maxWidth: '50%',
-      minWidth: '50%',
+      minWidth: '50%'
     }}
   >
     {children}
@@ -26,13 +26,13 @@ const Container = ({ children, vertical }: any) => (
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SpacerContainer = ({ children }: any) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   return (
     <div
       style={{
         width: '100%',
-        background: theme.palette.primary,
-        borderRadius: '8px',
+        background: theme?.colors.primary.value,
+        borderRadius: '8px'
       }}
     >
       {children}
