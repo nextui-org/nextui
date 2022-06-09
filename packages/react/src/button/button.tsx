@@ -73,12 +73,16 @@ export type ButtonProps = Props &
 const Button = React.forwardRef(
   (
     {
-      onClick,
-      onPress,
       as,
       css,
       iconLeftCss,
       iconRightCss,
+      onClick,
+      onPress,
+      onPressStart,
+      onPressEnd,
+      onPressChange,
+      onPressUp,
       ...btnProps
     }: ButtonProps,
     ref: React.Ref<HTMLButtonElement | null>
@@ -135,7 +139,11 @@ const Button = React.forwardRef(
         onClick: handleClick,
         isDisabled: disabled,
         elementType: as,
-        onPress: handlePress
+        onPress: handlePress,
+        onPressStart,
+        onPressEnd,
+        onPressChange,
+        onPressUp
       } as AriaButtonProps,
       buttonRef
     );
