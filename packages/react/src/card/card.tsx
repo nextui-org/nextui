@@ -55,7 +55,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         isHovered={isHovered}
         tabIndex={isPressable ? 0 : -1}
         isFocusVisible={isFocusVisible}
-        {...mergeProps(pressProps, focusProps, hoverProps, otherProps)}
+        {...(isPressable
+          ? mergeProps(pressProps, focusProps, hoverProps, otherProps)
+          : mergeProps(focusProps, hoverProps, otherProps))}
       >
         {isPressable && !disableAnimation && !disableRipple && (
           <Drip {...dripBindings} />
