@@ -27,7 +27,7 @@ export type PopoverContentProps = Props &
   NativeAttrs &
   PopoverContentVariantsProps & { css?: CSS };
 
-export const PopoverContent = React.forwardRef(
+const PopoverContent = React.forwardRef(
   (props: PopoverContentProps, ref: ReactRef<HTMLDivElement>) => {
     const { children, as, css, className, ...otherProps } = props;
 
@@ -134,3 +134,12 @@ if (__DEV__) {
 }
 
 PopoverContent.toString = () => '.nextui-popover-content';
+
+type PopoverContentComponent<T, P = {}> = React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<P> & React.RefAttributes<T>
+>;
+
+export default PopoverContent as PopoverContentComponent<
+  HTMLDivElement,
+  PopoverContentProps
+>;

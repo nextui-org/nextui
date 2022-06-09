@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useFocusRing } from '@react-aria/focus';
 import type {
   PressEvents,
   PressEvent,
   FocusableProps
 } from '@react-types/shared';
+import { mergeProps } from '@react-aria/utils';
 import type { FocusRingAria } from '@react-aria/focus';
 import { usePress } from '@react-aria/interactions';
 import { useHover } from '@react-aria/interactions';
@@ -21,6 +22,8 @@ interface Props extends PressEvents, FocusableProps {
   isHoverable?: boolean;
   disableRipple?: boolean;
   disableAnimation?: boolean;
+  /** Whether text selection should be enabled on the pressable element. */
+  allowTextSelectionOnPress?: boolean;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -46,6 +49,7 @@ export const useCard = (props: UseCardProps) => {
     onClick,
     onPress,
     autoFocus,
+    allowTextSelectionOnPress = true,
     ...otherProps
   } = props;
 
@@ -82,6 +86,7 @@ export const useCard = (props: UseCardProps) => {
   const { isPressed, pressProps } = usePress({
     isDisabled: !isPressable,
     onPress: handlePress,
+    allowTextSelectionOnPress,
     ...otherProps
   });
 
@@ -96,6 +101,20 @@ export const useCard = (props: UseCardProps) => {
 
   pressProps.onClick = handleClick;
 
+  const getCardProps = useCallback(
+    (props = {}) => {
+      return {
+        ...mergeProps(
+          isPressable ? { ...pressProps, ...focusProps } : {},
+          isHoverable ? hoverProps : {},
+          otherProps,
+          props
+        )
+      };
+    },
+    [isPressable, isHoverable, pressProps, focusProps, hoverProps, otherProps]
+  );
+
   return {
     cardRef,
     variant,
@@ -105,13 +124,10 @@ export const useCard = (props: UseCardProps) => {
     isPressed,
     disableAnimation,
     disableRipple,
-    pressProps,
-    hoverProps,
     dripBindings,
-    focusProps,
     onDripClickHandler,
     isFocusVisible,
-    ...otherProps
+    getCardProps
   };
 };
 
