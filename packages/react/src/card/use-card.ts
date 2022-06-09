@@ -22,6 +22,8 @@ interface Props extends PressEvents, FocusableProps {
   isHoverable?: boolean;
   disableRipple?: boolean;
   disableAnimation?: boolean;
+  /** Whether text selection should be enabled on the pressable element. */
+  allowTextSelectionOnPress?: boolean;
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -47,6 +49,7 @@ export const useCard = (props: UseCardProps) => {
     onClick,
     onPress,
     autoFocus,
+    allowTextSelectionOnPress = true,
     ...otherProps
   } = props;
 
@@ -83,6 +86,7 @@ export const useCard = (props: UseCardProps) => {
   const { isPressed, pressProps } = usePress({
     isDisabled: !isPressable,
     onPress: handlePress,
+    allowTextSelectionOnPress,
     ...otherProps
   });
 
