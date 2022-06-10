@@ -139,7 +139,7 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
         {...bindings}
       >
         <ModalWrapper
-          visible={visible}
+          visible={false}
           onCloseButtonClick={closeModal}
           className={className}
           fullScreen={fullScreen}

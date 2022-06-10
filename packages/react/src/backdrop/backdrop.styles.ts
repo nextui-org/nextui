@@ -12,6 +12,15 @@ const appearanceIn = keyframes({
   }
 });
 
+/**
+ * animate StyledBackdropLayer when it shows up
+ */
+const fadeIn = keyframes({
+  '0%': {
+    opacity: 0
+  }
+});
+
 export const StyledBackdropContent = styled('div', {
   position: 'relative',
   display: 'inline-block',
@@ -62,7 +71,6 @@ export const StyledBackdropLayer = styled('div', {
         '@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))':
           {
             opacity: 1,
-            transition: 'background 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
             backdropFilter: 'saturate(180%) blur(20px)',
             bg: 'rgba(0, 0, 0, 0.1)'
           }
@@ -70,10 +78,18 @@ export const StyledBackdropLayer = styled('div', {
       false: {
         bg: '$black',
         opacity: '$$backdropOpacity',
-        transition: 'opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1)'
+        animationName: `${fadeIn}`,
+        animationDuration: '0.2s',
+        animationTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
       }
     },
     animated: {
+      true: {
+        opacity: '$$backdropOpacity',
+        animationName: `${fadeIn}`,
+        animationDuration: '0.2s',
+        animationTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+      },
       false: {
         transition: 'none'
       }
