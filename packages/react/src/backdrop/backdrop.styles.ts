@@ -67,7 +67,6 @@ export const StyledBackdropLayer = styled('div', {
       true: {
         bg: '$black',
         opacity: '$$backdropOpacity',
-        transition: 'opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
         '@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))':
           {
             opacity: 1,
@@ -85,7 +84,6 @@ export const StyledBackdropLayer = styled('div', {
     },
     animated: {
       true: {
-        opacity: '$$backdropOpacity',
         animationName: `${fadeIn}`,
         animationDuration: '0.2s',
         animationTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
