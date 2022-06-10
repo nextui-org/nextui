@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Tooltip, Button, Code, Spacer, Grid } from '../index';
+import { Tooltip, Button, Code, Spacer, Grid, Card } from '../index';
 
 export default {
   title: 'Display/Tooltip',
@@ -229,9 +229,7 @@ export const Trigger = () => {
         trigger="click"
         color="primary"
       >
-        <Button auto flat>
-          Click me
-        </Button>
+        <Card>Click me</Card>
       </Tooltip>
     </Container>
   );

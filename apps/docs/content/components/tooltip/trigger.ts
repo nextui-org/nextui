@@ -1,4 +1,4 @@
-const App = `import { Tooltip, Button, Grid } from "@nextui-org/react";
+const App = `import { Tooltip, Grid, Card } from "@nextui-org/react";
 
 export default function App() {
   return (
@@ -9,9 +9,9 @@ export default function App() {
           trigger="click"
           color="primary"
         >
-          <Button auto flat>
+          <Card>
             Click me
-          </Button>
+          </Card>
         </Tooltip>
       </Grid>
       <Grid>
