@@ -15,9 +15,15 @@ const appearanceIn = keyframes({
 /**
  * animate StyledBackdropLayer when it shows up
  */
-const fadeIn = keyframes({
+const opacityFadeIn = keyframes({
   '0%': {
     opacity: 0
+  }
+});
+
+const filterFadeIn = keyframes({
+  '0%': {
+    backdropFilter: 'saturate(0%) blur(0)'
   }
 });
 
@@ -71,20 +77,21 @@ export const StyledBackdropLayer = styled('div', {
           {
             opacity: 1,
             backdropFilter: 'saturate(180%) blur(20px)',
+            animationName: `${filterFadeIn}, ${opacityFadeIn}`,
             bg: 'rgba(0, 0, 0, 0.1)'
           }
       },
       false: {
         bg: '$black',
         opacity: '$$backdropOpacity',
-        animationName: `${fadeIn}`,
+        animationName: `${opacityFadeIn}`,
         animationDuration: '0.2s',
         animationTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
       }
     },
     animated: {
       true: {
-        animationName: `${fadeIn}`,
+        animationName: `${opacityFadeIn}`,
         animationDuration: '0.2s',
         animationTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
       },
