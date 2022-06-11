@@ -47,7 +47,7 @@ export default {
       icon: <Server fill="#FF4ECD" />
     },
     {
-      title: 'Accesible components',
+      title: 'Accessible components',
       description:
         'NextUI components follow the WAI-ARIA guidelines, provide keyboard support and sensible focus management.',
       icon: <TagUser fill="#FF4ECD" />
@@ -83,7 +83,7 @@ export default {
       icon: <Flash fill="#FF4ECD" />
     },
     {
-      title: 'Beatifully designed',
+      title: 'Beautifully designed',
       description:
         'NextUI components are unique and are not tied to any visual trend or design rule, which makes us unique and of course your projects as well.',
       icon: <Magic fill="#FF4ECD" />
