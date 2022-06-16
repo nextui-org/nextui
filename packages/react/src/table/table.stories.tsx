@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import Table, { TableProps, SortDescriptor } from './index';
 import { getKeyValue } from '../utils/object';
@@ -10,7 +10,9 @@ import {
   Tooltip,
   styled,
   useAsyncList,
-  useCollator
+  useCollator,
+  Button,
+  Spacer
 } from '../index';
 import { Eye, Edit, Delete } from '../utils/icons';
 
@@ -412,6 +414,63 @@ export const Pagination = () => {
         onPageChange={(page) => console.log({ page })}
       />
     </Table>
+  );
+};
+
+export const SwitchPagination = () => {
+  const [moreRows, setMoreRows] = useState(true);
+  return (
+    <>
+      <Button
+        onPress={() => {
+          setMoreRows(!moreRows);
+        }}
+      >
+        Switch
+      </Button>
+      <Spacer />
+      <Table
+        bordered
+        shadow={false}
+        aria-label="Example table with dynamic content"
+        css={{
+          minWidth: '620px',
+          height: 'auto',
+          '@xsMax': {
+            minWidth: '100%'
+          }
+        }}
+        selectionMode="multiple"
+        color="secondary"
+      >
+        <Table.Header columns={columns}>
+          {(column) => (
+            <Table.Column
+              key={column.uid}
+              align={column.uid === 'date' ? 'end' : 'start'}
+            >
+              {column.name}
+            </Table.Column>
+          )}
+        </Table.Header>
+        <Table.Body items={moreRows ? rows : paginatedRows}>
+          {(item) => (
+            <Table.Row>
+              {(columnKey) => (
+                <Table.Cell>{getKeyValue(item, columnKey)}</Table.Cell>
+              )}
+            </Table.Row>
+          )}
+        </Table.Body>
+        <Table.Pagination
+          shadow
+          noMargin
+          align="center"
+          rowsPerPage={3}
+          onPageChange={(page) => console.log({ page })}
+        />
+      </Table>
+    </>
   );
 };
 
