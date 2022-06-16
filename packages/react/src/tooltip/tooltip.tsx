@@ -139,27 +139,49 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     changeVisible(customVisible);
   }, [customVisible]);
 
-  return (
-    <StyledTooltipTrigger
-      ref={ref}
-      role="button"
-      tabIndex={-1}
-      className={`nextui-tooltip-button ${className}`}
-      onClick={clickEventHandler}
-      onKeyUp={() => mouseEventHandler(true)}
-      onMouseEnter={() => mouseEventHandler(true)}
-      onMouseLeave={() => mouseEventHandler(false)}
-      onFocus={() => mouseEventHandler(true)}
-      onBlur={() => mouseEventHandler(false)}
-      css={{
-        ...(triggerCss as any)
-      }}
-      {...props}
-    >
-      {children}
-      {content && <TooltipContent {...contentProps}>{content}</TooltipContent>}
-    </StyledTooltipTrigger>
-  );
+  if (trigger === 'click') {
+    return (
+      <StyledTooltipTrigger
+        ref={ref}
+        role="button"
+        tabIndex={-1}
+        className={`nextui-tooltip-button ${className}`}
+        onFocus={clickEventHandler}
+        css={{
+          ...(triggerCss as any)
+        }}
+        {...props}
+      >
+        {children}
+        {content && (
+          <TooltipContent {...contentProps}>{content}</TooltipContent>
+        )}
+      </StyledTooltipTrigger>
+    );
+  } else {
+    return (
+      <StyledTooltipTrigger
+        ref={ref}
+        role="button"
+        tabIndex={-1}
+        className={`nextui-tooltip-button ${className}`}
+        onKeyUp={() => mouseEventHandler(true)}
+        onMouseEnter={() => mouseEventHandler(true)}
+        onMouseLeave={() => mouseEventHandler(false)}
+        onFocus={() => mouseEventHandler(true)}
+        onBlur={() => mouseEventHandler(false)}
+        css={{
+          ...(triggerCss as any)
+        }}
+        {...props}
+      >
+        {children}
+        {content && (
+          <TooltipContent {...contentProps}>{content}</TooltipContent>
+        )}
+      </StyledTooltipTrigger>
+    );
+  }
 };
 
 Tooltip.toString = () => '.nextui-tooltip';
