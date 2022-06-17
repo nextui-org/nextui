@@ -453,7 +453,7 @@ export const SwitchPagination = () => {
             </Table.Column>
           )}
         </Table.Header>
-        <Table.Body items={moreRows ? rows : paginatedRows}>
+        <Table.Body items={moreRows ? paginatedRows : rows}>
           {(item) => (
             <Table.Row>
               {(columnKey) => (
