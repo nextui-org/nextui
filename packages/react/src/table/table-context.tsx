@@ -62,6 +62,7 @@ const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({
 
   useEffect(() => {
     setCollection(defaultValues?.collection);
+    setCurrentPage(defaultContext.currentPage);
   }, [defaultValues?.collection]);
 
   const providerValue = React.useMemo<TableConfig>(
