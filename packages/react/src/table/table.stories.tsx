@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Meta } from '@storybook/react';
 import Table, { TableProps, SortDescriptor } from './index';
 import { getKeyValue } from '../utils/object';
@@ -418,7 +418,7 @@ export const Pagination = () => {
 };
 
 export const SwitchPagination = () => {
-  const [moreRows, setMoreRows] = useState(true);
+  const [moreRows, setMoreRows] = React.useState(true);
   return (
     <>
       <Button

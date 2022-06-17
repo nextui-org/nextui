@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { TableCollection } from '@react-types/table';
 import { NormalAlignment } from '../utils/prop-types';
 import { TableVariantsProps } from './table.styles';
@@ -60,7 +60,7 @@ const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({
     defaultValues?.color
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
     setCollection(defaultValues?.collection);
     setCurrentPage(defaultContext.currentPage);
   }, [defaultValues?.collection]);
