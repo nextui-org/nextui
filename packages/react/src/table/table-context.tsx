@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { TableCollection } from '@react-types/table';
 import { NormalAlignment } from '../utils/prop-types';
 import { TableVariantsProps } from './table.styles';
@@ -59,6 +59,10 @@ const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({
   const [color, setColor] = React.useState<TableVariantsProps['color']>(
     defaultValues?.color
   );
+
+  useEffect(() => {
+    setCollection(defaultValues?.collection);
+  }, [defaultValues?.collection]);
 
   const providerValue = React.useMemo<TableConfig>(
     () => ({
