@@ -127,10 +127,10 @@ export const StyledSwitchCircle = styled('span', {
   size: 'calc($$switchHeight * 0.7)',
   jc: 'center',
   ai: 'center',
-  top: '50%',
-  transform: 'translateY(-50%)',
-  left: 'calc($$switchWidth / 15)',
-  transition: 'left 0.25s ease, width 0.2s ease',
+  top: 'calc(50% - $$switchHeight * 0.35)',
+  left: '0',
+  transform: 'translateX(calc($$switchWidth / 15))',
+  transition: 'transform 0.25s ease, width 0.2s ease',
   bg: '$background',
   br: '$pill',
   '& svg': {
@@ -162,7 +162,8 @@ export const StyledSwitch = styled(
         true: {
           bg: '$$switchColor',
           [`& ${StyledSwitchCircle}`]: {
-            left: 'calc(100% - ($$switchWidth / 15) - $$switchHeight * 0.7)'
+            transform:
+              'translateX(calc($$switchWidth - $$switchWidth / 15 - 100%))'
           },
           '&:hover:not(&:active)': {
             bg: '$$switchColorHover'
@@ -177,7 +178,8 @@ export const StyledSwitch = styled(
             borderColor: '$$switchColor'
           },
           [`& ${StyledSwitchCircle}`]: {
-            left: 'calc(($$switchWidth / 15) - ($$switchBorderW / 2))',
+            transform:
+              'translateX(calc(($$switchWidth / 15) - ($$switchBorderW / 2)))',
             bg: '$accents2'
           }
         }
@@ -248,7 +250,7 @@ export const StyledSwitch = styled(
         css: {
           '&:active': {
             [`& ${StyledSwitchCircle}`]: {
-              left: 'calc($$switchWidth / 7.5)'
+              transform: 'translateX(calc($$switchWidth / 7.5))'
             }
           }
         }
@@ -260,7 +262,8 @@ export const StyledSwitch = styled(
         css: {
           '&:active': {
             [`& ${StyledSwitchCircle}`]: {
-              left: 'calc(100% - ($$switchWidth / 5) - $$switchHeight * 0.7)'
+              transform:
+                'translateX(calc($$switchWidth - $$switchWidth / 7.5 - 100%))'
             }
           }
         }
