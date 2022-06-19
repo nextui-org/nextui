@@ -119,8 +119,6 @@ export const StyledSwitchContainer = styled('label', {
   }
 });
 
-export const StyledSwitchInput = styled('input', {}, sharedVisuallyHidden);
-
 export const StyledSwitchCircle = styled('span', {
   position: 'absolute',
   display: 'flex',
@@ -129,7 +127,6 @@ export const StyledSwitchCircle = styled('span', {
   ai: 'center',
   top: 'calc(50% - $$switchHeight * 0.35)',
   left: '0',
-  transform: 'translateX(calc($$switchWidth / 15))',
   transition: 'transform 0.25s ease, width 0.2s ease',
   bg: '$background',
   br: '$pill',
@@ -161,10 +158,6 @@ export const StyledSwitch = styled(
       checked: {
         true: {
           bg: '$$switchColor',
-          [`& ${StyledSwitchCircle}`]: {
-            transform:
-              'translateX(calc($$switchWidth - $$switchWidth / 15 - 100%))'
-          },
           '&:hover:not(&:active)': {
             bg: '$$switchColorHover'
           }
@@ -178,8 +171,6 @@ export const StyledSwitch = styled(
             borderColor: '$$switchColor'
           },
           [`& ${StyledSwitchCircle}`]: {
-            transform:
-              'translateX(calc(($$switchWidth / 15) - ($$switchBorderW / 2)))',
             bg: '$accents2'
           }
         }
@@ -243,31 +234,6 @@ export const StyledSwitch = styled(
           normalShadowVar: '$$switchColorShadow'
         }
       },
-      // animated && !checked
-      {
-        animated: true,
-        checked: false,
-        css: {
-          '&:active': {
-            [`& ${StyledSwitchCircle}`]: {
-              transform: 'translateX(calc($$switchWidth / 7.5))'
-            }
-          }
-        }
-      },
-      // animated && checked
-      {
-        animated: true,
-        checked: true,
-        css: {
-          '&:active': {
-            [`& ${StyledSwitchCircle}`]: {
-              transform:
-                'translateX(calc($$switchWidth - $$switchWidth / 7.5 - 100%))'
-            }
-          }
-        }
-      },
       // checked && bordered
       {
         checked: true,
@@ -279,7 +245,6 @@ export const StyledSwitch = styled(
             borderColor: 'transparent'
           },
           [`& ${StyledSwitchCircle}`]: {
-            left: 'calc(100% - ($$switchWidth / 15) - $$switchHeight * 0.7 + ($$switchBorderW / 2))',
             bg: '$background'
           }
         }
@@ -287,6 +252,49 @@ export const StyledSwitch = styled(
     ]
   },
   sharedFocus
+);
+
+export const StyledSwitchInput = styled(
+  'input',
+  {
+    [`& + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
+      transform: 'translateX(calc($$switchWidth / 15))'
+    },
+    [`&:checked + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
+      transform:
+        'translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchHeight * 0.7))'
+    },
+    [`& + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+      transform: 'translateX(calc($$switchWidth / 7.5))'
+    },
+    [`&:checked + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+      transform:
+        'translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchHeight * 0.7))'
+    },
+    variants: {
+      bordered: {
+        true: {
+          [`& + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
+            transform:
+              'translateX(calc($$switchWidth / 15 - $$switchBorderW / 2))'
+          },
+          [`&:checked + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
+            transform:
+              'translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchBorderW * 1.5 - $$switchHeight * 0.7))'
+          },
+          [`& + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+            transform:
+              'translateX(calc($$switchWidth / 7.5 - $$switchBorderW / 2))'
+          },
+          [`&:checked + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+            transform:
+              'translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchBorderW * 1.5 - $$switchHeight * 0.7))'
+          }
+        }
+      }
+    }
+  },
+  sharedVisuallyHidden
 );
 
 // types

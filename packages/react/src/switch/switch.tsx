@@ -140,6 +140,7 @@ const Switch: React.FC<SwitchProps> = ({
         className={clsx(`${preClass}-input`)}
         data-state={getState}
         disabled={disabled}
+        bordered={bordered}
         checked={selfChecked}
         onChange={changeHandle}
       />
