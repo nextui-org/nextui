@@ -175,7 +175,7 @@ export const StyledAvatar = styled(
           $$avatarXl: '$space$18',
           sizeMin: '$$avatarXl',
           '.nextui-avatar-text': {
-            fontSize: '$xl2'
+            fontSize: '$2xl'
           }
         }
       },

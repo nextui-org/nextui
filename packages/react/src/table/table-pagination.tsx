@@ -12,11 +12,14 @@ interface Props {
   onPageChange?: PaginationProps['onChange'];
 }
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+type NativeAttrs = Omit<
+  React.HTMLAttributes<unknown>,
+  keyof Props | 'onChange'
+>;
 
 export type TablePaginationProps = Props &
   NativeAttrs &
-  Omit<Partial<PaginationProps>, 'onChage'> & { css?: CSS };
+  Omit<Partial<PaginationProps>, 'onChange'> & { css?: CSS };
 
 const TablePagination: React.FC<TablePaginationProps> = ({
   align,

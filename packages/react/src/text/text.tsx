@@ -1,6 +1,5 @@
 import React, { ReactNode, useMemo } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { SimpleColors, TextTransforms } from '../utils/prop-types';
+import { TextTransforms } from '../utils/prop-types';
 import { ReactRef } from '../utils/refs';
 import { useDOMRef } from '../utils/dom';
 import { __DEV__ } from '../utils/assertion';
@@ -22,35 +21,13 @@ interface Props {
   del?: boolean;
   em?: boolean;
   blockquote?: boolean;
-  size?: string | number;
-  margin?: string | number;
-  color?: SimpleColors | string;
 }
-
-const defaultProps = {
-  h1: false,
-  h2: false,
-  h3: false,
-  h4: false,
-  h5: false,
-  h6: false,
-  b: false,
-  small: false,
-  transform: 'none' as TextTransforms,
-  i: false,
-  span: false,
-  del: false,
-  em: false,
-  blockquote: false,
-  color: 'default' as SimpleColors | string
-};
 
 type ElementMap = { [key in keyof JSX.IntrinsicElements]?: boolean };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type TextProps = Props &
-  typeof defaultProps &
   NativeAttrs &
   Omit<TextChildProps, keyof Props | 'tag'>;
 
@@ -59,7 +36,7 @@ type TextRenderableElements = Array<keyof JSX.IntrinsicElements>;
 const getModifierChild = (
   tags: TextRenderableElements,
   children: ReactNode,
-  size?: string | number,
+  size?: TextChildProps['size'],
   transform?: TextTransforms
 ) => {
   if (!tags.length) return children;
@@ -74,22 +51,21 @@ const getModifierChild = (
 export const Text = React.forwardRef(
   (props: TextProps, ref: ReactRef<HTMLElement>) => {
     const {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      b,
-      small,
-      i,
-      span,
-      del,
-      em,
-      blockquote,
-      transform,
+      h1 = false,
+      h2 = false,
+      h3 = false,
+      h4 = false,
+      h5 = false,
+      h6 = false,
+      b = false,
+      small = false,
+      i = false,
+      span = false,
+      del = false,
+      em = false,
+      blockquote = false,
+      transform = 'none',
       size,
-      margin,
       children,
       ...otherProps
     } = props;
@@ -138,7 +114,6 @@ export const Text = React.forwardRef(
         ref={domRef}
         transform={transform}
         tag={tag}
-        margin={margin}
         size={size}
         {...otherProps}
       >
@@ -154,6 +129,4 @@ if (__DEV__) {
 
 Text.toString = () => '.nextui-text';
 
-const MemoText = React.memo(Text);
-
-export default withDefaults(MemoText, defaultProps);
+export default React.memo(Text);

@@ -86,18 +86,18 @@ const globalStyles = globalCss({
   },
   h1: {
     letterSpacing: '$tighter',
-    fontSize: '$xl5',
+    fontSize: '$5xl',
     lineHeight: '$md',
     fontWeight: '$bold'
   },
   h2: {
     letterSpacing: '$tighter',
-    fontSize: '$xl4',
+    fontSize: '$4xl',
     fontWeight: '$semibold'
   },
   h3: {
     letterSpacing: '$tighter',
-    fontSize: '$xl2',
+    fontSize: '$2xl',
     fontWeight: '$semibold'
   },
   h4: {
