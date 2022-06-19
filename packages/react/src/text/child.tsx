@@ -1,7 +1,8 @@
+import type {CSS} from "../theme/stitches.config";
+import type {SimpleColors} from "../utils/prop-types";
+
 import React, {useMemo, ReactNode} from "react";
 
-import {CSS, FontSizes, baseTheme} from "../theme/stitches.config";
-import {SimpleColors, TextTransforms} from "../utils/prop-types";
 import {isNormalColor} from "../utils/color";
 import {ReactRef} from "../utils/refs";
 import {useDOMRef} from "../utils/dom";
@@ -10,14 +11,30 @@ import {__DEV__} from "../utils/assertion";
 import {StyledText, TextVariantsProps} from "./text.styles";
 
 type As = keyof JSX.IntrinsicElements | React.ComponentType<any>;
-type FontSize = number | string | keyof FontSizes;
+type FontSize = CSS["fontSize"];
 
 export interface Props {
   tag: keyof JSX.IntrinsicElements;
   children?: ReactNode;
   color?: SimpleColors | string;
+  /**
+   * The **`font-size`** CSS property sets the size of the font. Changing the font size also updates the sizes of the font size-relative `<length>` units, such as `em`, `ex`, and so forth.
+   *
+   * **Syntax**: `<absolute-size> | <relative-size> | <length-percentage>`
+   *
+   * **Initial value**: `medium`
+   *
+   */
   size?: FontSize;
-  transform?: TextTransforms;
+  /**
+   * The **`text-transform`** CSS property specifies how to capitalize an element's text. It can be used to make text appear in all-uppercase or all-lowercase, or with each word capitalized. It also can help improve legibility for ruby.
+   *
+   * **Syntax**: `none | capitalize | uppercase | lowercase | full-width | full-size-kana`
+   *
+   * **Initial value**: `none`
+   *
+   */
+  transform?: CSS["textTransform"];
   css?: CSS;
   as?: As;
 }
@@ -27,19 +44,17 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type TextChildProps = Props & NativeAttrs & TextVariantsProps;
 
 export const TextChild = React.forwardRef((props: TextChildProps, ref: ReactRef<HTMLElement>) => {
-  const {children, tag, color: userColor = "default", transform, size, css, ...otherProps} = props;
+  const {
+    children,
+    tag,
+    color: userColor = "default",
+    transform,
+    size: fontSize,
+    css,
+    ...otherProps
+  } = props;
 
   const domRef = useDOMRef(ref);
-
-  const fontSize = useMemo<FontSize>(() => {
-    if (!size) return "inherit";
-    if (typeof size === "number") return `${size}px`;
-    if (baseTheme.theme.fontSizes?.[size as keyof FontSizes]) {
-      return `$${size}`;
-    }
-
-    return size;
-  }, [size]);
 
   const color = useMemo(() => {
     if (isNormalColor(userColor)) {
@@ -60,7 +75,7 @@ export const TextChild = React.forwardRef((props: TextChildProps, ref: ReactRef<
       as={tag}
       css={{
         color,
-        fontSize: size ? fontSize : "",
+        fontSize,
         tt: transform,
         ...(css as any),
       }}

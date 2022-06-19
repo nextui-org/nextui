@@ -38,7 +38,6 @@ export const keyframes = stitches.keyframes;
 export const getCssText = stitches.getCssText;
 export const theme = stitches.theme;
 export const config = stitches.config;
-export const baseTheme = commonTheme;
 
 export const createTheme = ({type, theme, className}: Theme) => {
   if (!type) {
@@ -52,22 +51,24 @@ export const createTheme = ({type, theme, className}: Theme) => {
 };
 
 // stitches types
+export type StitchesConfig = typeof config;
 export type VariantProps<T> = Stitches.VariantProps<T>;
 export type PropertyValue<T extends keyof Stitches.CSSProperties> = Stitches.PropertyValue<T>;
+export type ScaleValue<T> = Stitches.ScaleValue<T>;
 export type CSSProperties = Stitches.CSSProperties;
-export type CSS = Stitches.CSS<typeof config>;
+export type CSS = Stitches.CSS<StitchesConfig>;
 export type StitchesTheme = typeof theme;
 
 // common theme types
-export type Spaces = typeof commonTheme.theme["space"];
-export type FontSizes = typeof commonTheme.theme["fontSizes"];
-export type Fonts = typeof commonTheme.theme["fonts"];
-export type FontWeights = typeof commonTheme.theme["fontWeights"];
-export type LineHeights = typeof commonTheme.theme["lineHeights"];
-export type LetterSpacings = typeof commonTheme.theme["letterSpacings"];
-export type Colors = typeof commonTheme.theme["colors"];
-export type Radii = typeof commonTheme.theme["radii"];
-export type zIndices = typeof commonTheme.theme["zIndices"];
-export type BorderWeights = typeof commonTheme.theme["borderWeights"];
-export type Tranistions = typeof commonTheme.theme["transitions"];
-export type Breakpoints = typeof commonTheme.theme["breakpoints"];
+export type Spaces = StitchesConfig["theme"]["space"];
+export type FontSizes = StitchesConfig["theme"]["fontSizes"];
+export type Fonts = StitchesConfig["theme"]["fonts"];
+export type FontWeights = StitchesConfig["theme"]["fontWeights"];
+export type LineHeights = StitchesConfig["theme"]["lineHeights"];
+export type LetterSpacings = StitchesConfig["theme"]["letterSpacings"];
+export type Colors = StitchesConfig["theme"]["colors"];
+export type Radii = StitchesConfig["theme"]["radii"];
+export type zIndices = StitchesConfig["theme"]["zIndices"];
+export type BorderWeights = StitchesConfig["theme"]["borderWeights"];
+export type Tranistions = StitchesConfig["theme"]["transitions"];
+export type Breakpoints = StitchesConfig["theme"]["breakpoints"];
