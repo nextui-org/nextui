@@ -1,6 +1,6 @@
 ---
-title: 'Text'
-description: 'Text component is the used to render text and paragraphs within an interface using well-defined typographic styles.'
+title: "Text"
+description: "Text component is the used to render text and paragraphs within an interface using well-defined typographic styles."
 url: https://nextui.org/docs/components/text
 ---
 
@@ -10,7 +10,7 @@ Text component is the used to render text and paragraphs within an interface usi
 It renders a `<p>` tag by default.
 
 ```jsx
-import { Text } from '@nextui-org/react';
+import { Text } from "@nextui-org/react";
 ```
 
 <CarbonAd />
@@ -53,7 +53,7 @@ import { Text } from '@nextui-org/react';
   files={textContent.size}
 />
 
-> **Note:** You can use any of the [theme font sizes](http://localhost:3000/docs/theme/default-theme#2.-font-sizes) included your own [custom font sizes](http://localhost:3000/docs/theme/customize-theme) (if you have).
+> **Note:** You can use any of the [theme font sizes](/docs/theme/default-theme#2.-font-sizes) included your own [custom font sizes](http://localhost:3000/docs/theme/customize-theme) (if you have).
 
 <Playground
   title="Compose"
@@ -69,23 +69,22 @@ import { Text } from '@nextui-org/react';
 
 #### Text Props
 
-| Attribute      | Type                          | Accepted values                    | Description                         | Default   |
-| -------------- | ----------------------------- | ---------------------------------- | ----------------------------------- | --------- |
-| **h1 - h6**    | `boolean`                     | -                                  | Component name                      | `false`   |
-| **small**      | `boolean`                     | -                                  | Component name                      | `false`   |
-| **span**       | `boolean`                     | -                                  | Component name                      | `false`   |
-| **del**        | `boolean`                     | -                                  | Component name                      | `false`   |
-| **i**          | `boolean`                     | -                                  | Component name                      | `false`   |
-| **em**         | `boolean`                     | -                                  | Component name                      | `false`   |
-| **b**          | `boolean`                     | -                                  | Component name                      | `false`   |
-| **blockquote** | `boolean`                     | -                                  | Component name                      | `false`   |
-| **transform**  | `TextTransform`               | [TextTransforms](#text-transforms) | text-transform prop                 | `none`    |
-| **size**       | `string` `number`             | -                                  | Text size                           | `inherit` |
-| **color**      | `SimpleColors` `string`       | [SimpleColors](#simple-colors)     | Text color                          | `default` |
-| **weight**     | `TextWeights`                 | [TextWeights](#text-weights)       | Text weight                         | `noset`   |
-| **css**        | `Stitches.CSS`                | -                                  | Override Default CSS style          | -         |
-| **as**         | `keyof JSX.IntrinsicElements` | -                                  | Changes which tag component outputs | `p`       |
-| ...            | `HTMLAttributes`              | `'id', 'className', ...`           | native props                        | -         |
+| Attribute      | Type                                                                  | Description                         | Default   |
+| -------------- | --------------------------------------------------------------------- | ----------------------------------- | --------- |
+| **h1 - h6**    | `boolean`                                                             | Component name                      | `false`   |
+| **small**      | `boolean`                                                             | Component name                      | `false`   |
+| **span**       | `boolean`                                                             | Component name                      | `false`   |
+| **del**        | `boolean`                                                             | Component name                      | `false`   |
+| **i**          | `boolean`                                                             | Component name                      | `false`   |
+| **em**         | `boolean`                                                             | Component name                      | `false`   |
+| **b**          | `boolean`                                                             | Component name                      | `false`   |
+| **blockquote** | `boolean`                                                             | Component name                      | `false`   |
+| **transform**  | [TextTransforms](#text-transforms)                                    | text-transform prop                 | `none`    |
+| **size**       | `string` `number` [FontSize](/docs/theme/default-theme#2-font-sizes) | Text size                           | `inherit` |
+| **color**      | [SimpleColors](#simple-colors) `string`                               | Text color                          | `default` |
+| **weight**     | [TextWeights](#text-weights)                                          | Text weight                         | `noset`   |
+| **css**        | `Stitches.CSS`                                                        | Override Default CSS style          | -         |
+| **as**         | `keyof JSX.IntrinsicElements`                                         | Changes which tag component outputs | `p`       |
 
 <Spacer y={2} />
 
@@ -98,29 +97,29 @@ import { Text } from '@nextui-org/react';
 ```ts
 type TextTransforms =
   /* Keyword values */
-  | 'none'
-  | 'capitalize'
-  | 'uppercase'
-  | 'lowercase'
-  | 'full-width'
-  | 'full-size-kana'
+  | "none"
+  | "capitalize"
+  | "uppercase"
+  | "lowercase"
+  | "full-width"
+  | "full-size-kana"
   /* Global values */
-  | 'inherit'
-  | 'initial'
-  | 'revert'
-  | 'unset';
+  | "inherit"
+  | "initial"
+  | "revert"
+  | "unset";
 ```
 
 #### Simple Colors
 
 ```ts
 type SimpleColors =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'warning'
-  | 'error';
+  | "default"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error";
 ```
 
 #### Text Weights
