@@ -2,7 +2,7 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "jsx": "preserve",
+        "jsx": "react",
         "skipLibCheck": true,
         "moduleResolution": "node",
         "allowJs": true,
