@@ -1,202 +1,198 @@
-import { styled, VariantProps } from '../theme/stitches.config';
-import {
-  reboundAnimation,
-  appearanceIn,
-  appearanceOut
-} from '../utils/animations';
-import { sharedFocus } from '../theme/shared-css';
+import {styled, VariantProps} from "../theme/stitches.config";
+import {reboundAnimation, appearanceIn, appearanceOut} from "../utils/animations";
+import {sharedFocus} from "../theme/shared-css";
 
-export const StyledModalHideTab = styled('div', {
-  outline: 'none',
-  overflow: 'hidden',
+export const StyledModalHideTab = styled("div", {
+  outline: "none",
+  overflow: "hidden",
   width: 0,
   height: 0,
-  opacity: 0
+  opacity: 0,
 });
 
 export const StyledModalCloseButton = styled(
-  'button',
+  "button",
   {
-    position: 'absolute',
-    background: 'transparent',
-    border: 'none',
-    zIndex: '$1',
-    top: '$space$3',
-    right: '$space$2',
+    position: "absolute",
+    background: "transparent",
+    border: "none",
+    zIndex: "$1",
+    top: "$space$3",
+    right: "$space$2",
     margin: 0,
-    d: 'inline-flex',
-    ai: 'center',
-    height: 'auto',
-    cursor: 'pointer',
-    boxSizing: 'border-box',
-    transition: '$default',
-    padding: 'calc($space$sm * 0.5)',
-    color: '$accents4',
-    br: '$space$5',
+    d: "inline-flex",
+    ai: "center",
+    height: "auto",
+    cursor: "pointer",
+    boxSizing: "border-box",
+    transition: "$default",
+    padding: "calc($space$sm * 0.5)",
+    color: "$accents4",
+    br: "$space$5",
     svg: {
-      color: 'currentColor'
+      color: "currentColor",
     },
-    '&:hover': {
+    "&:hover": {
       svg: {
-        opacity: 0.8
-      }
+        opacity: 0.8,
+      },
     },
     variants: {
       disabled: {
         true: {
-          cursor: 'not-allowed'
-        }
-      }
-    }
+          cursor: "not-allowed",
+        },
+      },
+    },
   },
-  sharedFocus
+  sharedFocus,
 );
 
-export const StyledModalHeader = styled('div', {
-  display: 'flex',
+export const StyledModalHeader = styled("div", {
+  display: "flex",
   flexShrink: 0,
-  ai: 'center',
-  ov: 'hidden',
-  color: 'inherit',
-  padding: '$sm $10',
-  fs: '$xs',
+  ai: "center",
+  ov: "hidden",
+  color: "inherit",
+  padding: "$sm $10",
+  fs: "$xs",
   variants: {
     noPadding: {
       true: {
-        padding: 0
-      }
+        padding: 0,
+      },
     },
     autoMargin: {
       true: {
-        '> *:first-child': {
-          mt: 0
+        "> *:first-child": {
+          mt: 0,
         },
-        '> *:last-child': {
-          mb: 0
-        }
-      }
-    }
-  }
+        "> *:last-child": {
+          mb: 0,
+        },
+      },
+    },
+  },
 });
 
-export const StyledModalBody = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  flex: '1 1 auto',
-  padding: '$sm $10',
-  oy: 'auto',
-  position: 'relative',
-  ta: 'left',
+export const StyledModalBody = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  flex: "1 1 auto",
+  padding: "$sm $10",
+  oy: "auto",
+  position: "relative",
+  ta: "left",
   variants: {
     noPadding: {
       true: {
         flex: 1,
-        padding: 0
-      }
+        padding: 0,
+      },
     },
     autoMargin: {
       true: {
-        '> *:first-child': {
-          mt: 0
+        "> *:first-child": {
+          mt: 0,
         },
-        '> *': {
-          mb: '$8'
+        "> *": {
+          mb: "$8",
         },
-        '> *:last-child': {
-          mb: 0
-        }
-      }
-    }
-  }
+        "> *:last-child": {
+          mb: 0,
+        },
+      },
+    },
+  },
 });
 
-export const StyledModalFooter = styled('div', {
-  d: 'flex',
-  flexWrap: 'wrap',
+export const StyledModalFooter = styled("div", {
+  d: "flex",
+  flexWrap: "wrap",
   flexShrink: 0,
-  overflow: 'hidden',
-  color: 'inherit',
-  ai: 'center',
-  fs: '$xs',
-  padding: '$sm $lg',
+  overflow: "hidden",
+  color: "inherit",
+  ai: "center",
+  fs: "$xs",
+  padding: "$sm $lg",
   variants: {
     noPadding: {
       true: {
-        padding: 0
-      }
+        padding: 0,
+      },
     },
     autoMargin: {
       true: {
-        '> *': {
-          m: '$2'
-        }
-      }
-    }
-  }
+        "> *": {
+          m: "$2",
+        },
+      },
+    },
+  },
 });
 
-export const StyledModal = styled('section', {
-  maxWidth: '100%',
-  verticalAlign: 'middle',
-  overflow: 'hidden',
-  height: 'fit-content(20em)',
-  maxHeight: 'inherit',
-  display: 'flex',
-  outline: 'none',
-  flexDirection: 'column',
-  position: 'relative',
-  boxSizing: 'border-box',
-  color: '$foreground',
-  br: '$lg',
-  boxShadow: '$lg',
-  bg: '$backgroundContrast',
-  animationFillMode: 'forwards',
+export const StyledModal = styled("section", {
+  maxWidth: "100%",
+  verticalAlign: "middle",
+  overflow: "hidden",
+  height: "fit-content(20em)",
+  maxHeight: "inherit",
+  display: "flex",
+  outline: "none",
+  flexDirection: "column",
+  position: "relative",
+  boxSizing: "border-box",
+  color: "$foreground",
+  br: "$lg",
+  boxShadow: "$lg",
+  bg: "$backgroundContrast",
+  animationFillMode: "forwards",
 
-  '@motion': {
-    transition: 'none'
+  "@motion": {
+    transition: "none",
   },
 
-  '&.nextui-modal-wrapper-enter:not(.nextui-modal-rendered)': {
+  "&.nextui-modal-wrapper-enter:not(.nextui-modal-rendered)": {
     animationName: appearanceIn,
-    animationDuration: '200ms',
-    animationTimingFunction: 'ease-in',
-    animationDirection: 'normal'
+    animationDuration: "200ms",
+    animationTimingFunction: "ease-in",
+    animationDirection: "normal",
   },
-  '&.nextui-modal-wrapper-leave': {
+  "&.nextui-modal-wrapper-leave": {
     animationName: appearanceOut,
-    animationDuration: '50ms',
-    animationTimingFunction: 'ease-out'
+    animationDuration: "50ms",
+    animationTimingFunction: "ease-out",
   },
   variants: {
     fullScreen: {
       true: {
-        size: '100%',
-        maxHeight: '100%'
+        size: "100%",
+        maxHeight: "100%",
       },
       false: {
-        '&.nextui-modal-rebound': {
-          animationDuration: '250ms',
+        "&.nextui-modal-rebound": {
+          animationDuration: "250ms",
           animationName: reboundAnimation,
-          animationTimingFunction: 'ease',
-          animationFillMode: 'forwards'
-        }
-      }
+          animationTimingFunction: "ease",
+          animationFillMode: "forwards",
+        },
+      },
     },
     scroll: {
       true: {
-        maxHeight: 'calc(100vh - 200px)'
-      }
+        maxHeight: "calc(100vh - 200px)",
+      },
     },
     closeButton: {
       true: {
-        paddingTop: '$lg',
+        paddingTop: "$lg",
         [`& ${StyledModalCloseButton}`]: {
           svg: {
-            size: '$10'
-          }
-        }
-      }
-    }
+            size: "$10",
+          },
+        },
+      },
+    },
   },
   compoundVariants: [
     {
@@ -204,16 +200,14 @@ export const StyledModal = styled('section', {
       scroll: true,
       fullScreen: true,
       css: {
-        maxHeight: '100%'
-      }
-    }
-  ]
+        maxHeight: "100%",
+      },
+    },
+  ],
 });
 
 export type ModalVariantsProps = VariantProps<typeof StyledModal>;
-export type ModalCloseButtonVariantsProps = VariantProps<
-  typeof StyledModalCloseButton
->;
+export type ModalCloseButtonVariantsProps = VariantProps<typeof StyledModalCloseButton>;
 export type ModalBodyVariantsProps = VariantProps<typeof StyledModalBody>;
 export type ModalHeaderVariantsProps = VariantProps<typeof StyledModalHeader>;
 export type ModalFooterVariantsProps = VariantProps<typeof StyledModalFooter>;

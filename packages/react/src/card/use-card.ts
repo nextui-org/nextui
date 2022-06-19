@@ -1,18 +1,16 @@
-import React, { useCallback } from 'react';
-import { useFocusRing } from '@react-aria/focus';
-import type {
-  PressEvents,
-  PressEvent,
-  FocusableProps
-} from '@react-types/shared';
-import { mergeProps } from '@react-aria/utils';
-import type { FocusRingAria } from '@react-aria/focus';
-import { usePress } from '@react-aria/interactions';
-import { useHover } from '@react-aria/interactions';
-import type { ReactRef } from './../utils/refs';
-import type { NormalWeights, CardVariants } from './../utils/prop-types';
-import useDrip from '../use-drip';
-import { useDOMRef } from '../utils/dom';
+import type {PressEvents, PressEvent, FocusableProps} from "@react-types/shared";
+import type {FocusRingAria} from "@react-aria/focus";
+import type {ReactRef} from "./../utils/refs";
+import type {NormalWeights, CardVariants} from "./../utils/prop-types";
+
+import React, {useCallback} from "react";
+import {useFocusRing} from "@react-aria/focus";
+import {mergeProps} from "@react-aria/utils";
+import {usePress} from "@react-aria/interactions";
+import {useHover} from "@react-aria/interactions";
+
+import useDrip from "../use-drip";
+import {useDOMRef} from "../utils/dom";
 
 interface Props extends PressEvents, FocusableProps {
   ref: ReactRef<HTMLDivElement | null>;
@@ -31,7 +29,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type UseCardProps = Props & NativeAttrs;
 
 interface IFocusRingAria extends FocusRingAria {
-  focusProps: Omit<React.HTMLAttributes<HTMLElement>, 'css'>;
+  focusProps: Omit<React.HTMLAttributes<HTMLElement>, "css">;
 }
 
 /**
@@ -42,9 +40,9 @@ export const useCard = (props: UseCardProps) => {
     ref,
     disableAnimation = false,
     disableRipple = false,
-    variant = 'shadow',
+    variant = "shadow",
     isHoverable = false,
-    borderWeight = 'light',
+    borderWeight = "light",
     isPressable = false,
     onClick,
     onPress,
@@ -55,10 +53,7 @@ export const useCard = (props: UseCardProps) => {
 
   const cardRef = useDOMRef<HTMLDivElement>(ref);
 
-  const { onClick: onDripClickHandler, ...dripBindings } = useDrip(
-    false,
-    cardRef
-  );
+  const {onClick: onDripClickHandler, ...dripBindings} = useDrip(false, cardRef);
 
   const handleDrip = (e: React.MouseEvent<HTMLButtonElement> | PressEvent) => {
     if (!disableAnimation && !disableRipple && cardRef.current) {
@@ -75,7 +70,7 @@ export const useCard = (props: UseCardProps) => {
   };
 
   const handlePress = (e: PressEvent) => {
-    if (e.pointerType === 'keyboard' || e.pointerType === 'virtual') {
+    if (e.pointerType === "keyboard" || e.pointerType === "virtual") {
       handleDrip(e);
       // TODO: take this out and deprecate onClick function for next release (only use the @react-aria/button impl)
       onClick?.(e as any);
@@ -83,20 +78,20 @@ export const useCard = (props: UseCardProps) => {
     onPress?.(e);
   };
 
-  const { isPressed, pressProps } = usePress({
+  const {isPressed, pressProps} = usePress({
     isDisabled: !isPressable,
     onPress: handlePress,
     allowTextSelectionOnPress,
-    ...otherProps
+    ...otherProps,
   });
 
-  const { hoverProps, isHovered } = useHover({
+  const {hoverProps, isHovered} = useHover({
     isDisabled: !isHoverable,
-    ...otherProps
+    ...otherProps,
   });
 
-  const { isFocusVisible, focusProps }: IFocusRingAria = useFocusRing({
-    autoFocus
+  const {isFocusVisible, focusProps}: IFocusRingAria = useFocusRing({
+    autoFocus,
   });
 
   pressProps.onClick = handleClick;
@@ -105,14 +100,14 @@ export const useCard = (props: UseCardProps) => {
     (props = {}) => {
       return {
         ...mergeProps(
-          isPressable ? { ...pressProps, ...focusProps } : {},
+          isPressable ? {...pressProps, ...focusProps} : {},
           isHoverable ? hoverProps : {},
           otherProps,
-          props
-        )
+          props,
+        ),
       };
     },
-    [isPressable, isHoverable, pressProps, focusProps, hoverProps, otherProps]
+    [isPressable, isHoverable, pressProps, focusProps, hoverProps, otherProps],
   );
 
   return {
@@ -127,7 +122,7 @@ export const useCard = (props: UseCardProps) => {
     dripBindings,
     onDripClickHandler,
     isFocusVisible,
-    getCardProps
+    getCardProps,
   };
 };
 

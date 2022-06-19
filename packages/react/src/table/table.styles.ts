@@ -1,65 +1,65 @@
-import { styled, VariantProps } from '../theme/stitches.config';
-import { cssFocusVisible } from '../theme/shared-css';
+import {styled, VariantProps} from "../theme/stitches.config";
+import {cssFocusVisible} from "../theme/shared-css";
 
-export const StyledTableHeaderRow = styled('tr', {
-  ov: 'visible'
+export const StyledTableHeaderRow = styled("tr", {
+  ov: "visible",
 });
 
 export const StyledTableColumnHeader = styled(
-  'th',
+  "th",
   {
-    height: '$14',
-    cursor: 'default',
-    bg: '$accents0',
-    color: '$accents7',
-    fontSize: '$xs',
-    textAlign: 'left',
-    position: 'relative',
-    '@motion': {
-      transition: 'none'
+    height: "$14",
+    cursor: "default",
+    bg: "$accents0",
+    color: "$accents7",
+    fontSize: "$xs",
+    textAlign: "left",
+    position: "relative",
+    "@motion": {
+      transition: "none",
     },
-    '&:first-child': {
-      pl: '$8',
-      br: '$md 0 0 $md'
+    "&:first-child": {
+      pl: "$8",
+      br: "$md 0 0 $md",
     },
-    '&:last-child': {
-      pr: '$8',
-      br: '0 $md $md 0'
+    "&:last-child": {
+      pr: "$8",
+      br: "0 $md $md 0",
     },
     variants: {
       align: {
         start: {
-          textAlign: 'left'
+          textAlign: "left",
         },
         center: {
-          textAlign: 'center'
+          textAlign: "center",
         },
         end: {
-          textAlign: 'right'
-        }
+          textAlign: "right",
+        },
       },
       animated: {
         false: {
-          transition: 'none'
-        }
+          transition: "none",
+        },
       },
       allowsSorting: {
         true: {
-          transition: 'background 0.25s ease 0s, color 0.25s ease 0s',
-          cursor: 'pointer',
-          '@motion': {
-            transition: 'none'
+          transition: "background 0.25s ease 0s, color 0.25s ease 0s",
+          cursor: "pointer",
+          "@motion": {
+            transition: "none",
           },
-          '&:hover': {
-            color: '$accents8',
-            bg: '$accents1'
-          }
-        }
-      }
+          "&:hover": {
+            color: "$accents8",
+            bg: "$accents1",
+          },
+        },
+      },
     },
     defaultVariants: {
-      align: 'left',
-      animated: true
+      align: "left",
+      animated: true,
     },
     compoundVariants: [
       // !animated & allowsSorting
@@ -67,373 +67,370 @@ export const StyledTableColumnHeader = styled(
         animated: false,
         allowsSorting: true,
         css: {
-          transition: 'none'
-        }
-      }
-    ]
+          transition: "none",
+        },
+      },
+    ],
   },
-  cssFocusVisible
+  cssFocusVisible,
 );
 
-export const StyledTableHeaderCell = styled(
-  StyledTableColumnHeader,
-  cssFocusVisible
-);
+export const StyledTableHeaderCell = styled(StyledTableColumnHeader, cssFocusVisible);
 
-export const StyledTableFooter = styled('tfoot', {
-  height: '$14',
+export const StyledTableFooter = styled("tfoot", {
+  height: "$14",
   variants: {
     align: {
       start: {
-        textAlign: 'left'
+        textAlign: "left",
       },
       center: {
-        textAlign: 'center'
+        textAlign: "center",
       },
       end: {
-        textAlign: 'right'
-      }
-    }
+        textAlign: "right",
+      },
+    },
   },
   defaultVariants: {
-    align: 'right'
-  }
+    align: "right",
+  },
 });
 
-export const StyledBaseTableCell = styled('td', {});
+export const StyledBaseTableCell = styled("td", {});
 
 export const StyledTableCell = styled(
   StyledBaseTableCell,
   {
-    position: 'relative',
-    userSelect: 'none',
-    py: '$5',
-    pr: '$5',
-    zIndex: '$2',
-    ov: 'hidden',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    '&:first-child': {
-      pl: '$8'
+    position: "relative",
+    userSelect: "none",
+    py: "$5",
+    pr: "$5",
+    zIndex: "$2",
+    ov: "hidden",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
+    "&:first-child": {
+      pl: "$8",
     },
-    '&:last-child': {
-      pr: '$8'
+    "&:last-child": {
+      pr: "$8",
     },
-    '&:before': {
-      zIndex: '-$1',
-      transition: 'background 0.25s ease 0s, opacity 0.25s ease 0s',
+    "&:before": {
+      zIndex: "-$1",
+      transition: "background 0.25s ease 0s, opacity 0.25s ease 0s",
       content: '""',
-      position: 'absolute',
-      size: '100%',
+      position: "absolute",
+      size: "100%",
       top: 0,
       left: 0,
       opacity: 0,
-      transform: 'translateZ(0)',
-      backfaceVisibility: 'hidden'
+      transform: "translateZ(0)",
+      backfaceVisibility: "hidden",
     },
     variants: {
       align: {
         start: {
-          textAlign: 'left'
+          textAlign: "left",
         },
         center: {
-          textAlign: 'center'
+          textAlign: "center",
         },
         end: {
-          textAlign: 'right'
-        }
-      }
-    }
+          textAlign: "right",
+        },
+      },
+    },
   },
-  cssFocusVisible
+  cssFocusVisible,
 );
 
 export const StyledTableRow = styled(
-  'tr',
+  "tr",
   {
-    ov: 'visible',
-    color: '$text',
+    ov: "visible",
+    color: "$text",
     variants: {
       isDisabled: {
         true: {
-          color: '$accents3',
-          pointerEvents: 'none',
-          cursor: 'not-allowed'
-        }
+          color: "$accents3",
+          pointerEvents: "none",
+          cursor: "not-allowed",
+        },
       },
       isSelected: {
         true: {
-          color: '$$tableRowTextColor',
+          color: "$$tableRowTextColor",
           [`& ${StyledTableCell}:before`]: {
             opacity: 1,
-            bg: '$$tableRowColor'
-          }
-        }
-      }
-    }
+            bg: "$$tableRowColor",
+          },
+        },
+      },
+    },
   },
-  cssFocusVisible
+  cssFocusVisible,
 );
 
-export const StyledTableRowGroup = styled('thead', {
+export const StyledTableRowGroup = styled("thead", {
   variants: {
     isFixed: {
       true: {
-        display: 'table',
-        width: '100%',
-        tableLayout: 'fixed'
-      }
+        display: "table",
+        width: "100%",
+        tableLayout: "fixed",
+      },
     },
     isInfinityScroll: {
       true: {
-        display: 'block',
-        height: '100%',
-        overflow: 'auto',
+        display: "block",
+        height: "100%",
+        overflow: "auto",
         [`& ${StyledTableRow}`]: {
-          display: 'table',
-          width: '100%',
-          tableLayout: 'fixed'
-        }
-      }
-    }
+          display: "table",
+          width: "100%",
+          tableLayout: "fixed",
+        },
+      },
+    },
   },
   defaultVariants: {
-    isInfinityScroll: false
-  }
+    isInfinityScroll: false,
+  },
 });
 
-export const StyledTableLoadingRow = styled('tr', {
-  width: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: 'calc(100% - $space$14)',
+export const StyledTableLoadingRow = styled("tr", {
+  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "calc(100% - $space$14)",
   variants: {
     isAtEnd: {
       true: {
-        height: '$space$18'
-      }
+        height: "$space$18",
+      },
     },
     isAbsolute: {
       true: {
-        position: 'absolute',
-        left: '0',
-        top: '$10'
-      }
-    }
-  }
+        position: "absolute",
+        left: "0",
+        top: "$10",
+      },
+    },
+  },
 });
 
-export const StyledTable = styled('table', {
-  borderCollapse: 'separate',
+export const StyledTable = styled("table", {
+  borderCollapse: "separate",
   borderSpacing: 0,
-  width: '100%',
-  p: '$md $sm',
-  '@motion': {
+  width: "100%",
+  p: "$md $sm",
+  "@motion": {
     [`& ${StyledTableCell}:before`]: {
-      transition: 'none'
-    }
+      transition: "none",
+    },
   },
   variants: {
     animated: {
       false: {
         [`& ${StyledTableCell}:before`]: {
-          transition: 'none'
-        }
-      }
+          transition: "none",
+        },
+      },
     },
     color: {
       primary: {
-        $$tableRowColor: '$colors$primaryLight',
-        $$tableRowTextColor: '$colors$primaryLightContrast'
+        $$tableRowColor: "$colors$primaryLight",
+        $$tableRowTextColor: "$colors$primaryLightContrast",
       },
       secondary: {
-        $$tableRowColor: '$colors$secondaryLight',
-        $$tableRowTextColor: '$colors$secondaryLightContrast'
+        $$tableRowColor: "$colors$secondaryLight",
+        $$tableRowTextColor: "$colors$secondaryLightContrast",
       },
       success: {
-        $$tableRowColor: '$colors$successLight',
-        $$tableRowTextColor: '$colors$successLightContrast'
+        $$tableRowColor: "$colors$successLight",
+        $$tableRowTextColor: "$colors$successLightContrast",
       },
       warning: {
-        $$tableRowColor: '$colors$warningLight',
-        $$tableRowTextColor: '$colors$warningLightContrast'
+        $$tableRowColor: "$colors$warningLight",
+        $$tableRowTextColor: "$colors$warningLightContrast",
       },
       error: {
-        $$tableRowColor: '$colors$errorLight',
-        $$tableRowTextColor: '$colors$errorLightContrast'
-      }
+        $$tableRowColor: "$colors$errorLight",
+        $$tableRowTextColor: "$colors$errorLightContrast",
+      },
     },
     striped: {
       true: {
         [`& ${StyledTableRow}[aria-selected=false]:nth-child(even)`]: {
           [`& ${StyledTableCell}`]: {
-            bg: '$accents0'
-          }
+            bg: "$accents0",
+          },
         },
         [`& ${StyledTableRow}:nth-child(even)`]: {
           [`& ${StyledTableCell}:first-child`]: {
-            br: '$lg 0 0 $lg'
+            br: "$lg 0 0 $lg",
           },
           [`& ${StyledTableCell}:last-child`]: {
-            br: '0 $lg $lg 0'
-          }
-        }
-      }
+            br: "0 $lg $lg 0",
+          },
+        },
+      },
     },
     sticked: {
       true: {
         p: 0,
         [`& ${StyledTableColumnHeader}:first-child`]: {
-          br: '$lg 0 0 0'
+          br: "$lg 0 0 0",
         },
         [`& ${StyledTableColumnHeader}:last-child`]: {
-          br: '0 $lg 0 0'
-        }
-      }
+          br: "0 $lg 0 0",
+        },
+      },
     },
     lineWeight: {
       light: {
-        $$tableLineWeight: '$borderWeights$light'
+        $$tableLineWeight: "$borderWeights$light",
       },
       normal: {
-        $$tableLineWeight: '$borderWeights$normal'
+        $$tableLineWeight: "$borderWeights$normal",
       },
       bold: {
-        $$tableLineWeight: '$borderWeights$bold'
+        $$tableLineWeight: "$borderWeights$bold",
       },
       extrabold: {
-        $$tableLineWeight: '$borderWeights$extrabold'
+        $$tableLineWeight: "$borderWeights$extrabold",
       },
       black: {
-        $$tableLineWeight: '$borderWeights$black'
-      }
+        $$tableLineWeight: "$borderWeights$black",
+      },
     },
     headerLined: {
       true: {
         [`& ${StyledTableColumnHeader}`]: {
-          position: 'relative',
-          bg: 'transparent',
-          '&:after': {
-            content: '',
-            position: 'absolute',
+          position: "relative",
+          bg: "transparent",
+          "&:after": {
+            content: "",
+            position: "absolute",
             left: 0,
             right: 0,
             bottom: 0,
-            height: 'calc($$tableLineWeight * 1.5)',
-            bg: '$accents1'
+            height: "calc($$tableLineWeight * 1.5)",
+            bg: "$accents1",
           },
-          '&:first-child': {
-            ml: '$12',
-            br: '0',
-            '&:after': {
-              left: '$space$md'
-            }
+          "&:first-child": {
+            ml: "$12",
+            br: "0",
+            "&:after": {
+              left: "$space$md",
+            },
           },
-          '&:last-child': {
-            br: '0',
-            '&:after': {
-              right: '$space$md'
-            }
-          }
-        }
-      }
+          "&:last-child": {
+            br: "0",
+            "&:after": {
+              right: "$space$md",
+            },
+          },
+        },
+      },
     },
     lined: {
       true: {
         [`& ${StyledTableRow}:not(:last-child)`]: {
-          position: 'relative',
+          position: "relative",
           [`& ${StyledTableCell}:after`]: {
-            content: '',
-            position: 'absolute',
+            content: "",
+            position: "absolute",
             bottom: 0,
             left: 0,
             right: 0,
-            height: '$$tableLineWeight',
-            bg: '$border'
+            height: "$$tableLineWeight",
+            bg: "$border",
           },
           [`& ${StyledTableCell}:first-child`]: {
-            '&:after': {
-              left: '$space$md'
-            }
+            "&:after": {
+              left: "$space$md",
+            },
           },
           [`& ${StyledTableCell}:last-child`]: {
-            '&:after': {
-              right: '$space$md'
-            }
-          }
+            "&:after": {
+              right: "$space$md",
+            },
+          },
         },
         [`& ${StyledTableRow}[aria-selected=true]:not(last-child)`]: {
           [`& ${StyledTableCell}:after`]: {
-            bg: '$$tableRowTextColor',
-            opacity: 0.3
-          }
-        }
-      }
+            bg: "$$tableRowTextColor",
+            opacity: 0.3,
+          },
+        },
+      },
     },
     fixed: {
       true: {
-        tableLayout: 'fixed'
-      }
+        tableLayout: "fixed",
+      },
     },
     hoverable: {
       true: {
         [`& ${StyledTableCell}:first-child`]: {
-          br: '$md 0 0 $md'
+          br: "$md 0 0 $md",
         },
         [`& ${StyledTableCell}:last-child`]: {
-          br: '0 $md $md 0'
+          br: "0 $md $md 0",
         },
         [`& ${StyledTableRow}`]: {
-          cursor: 'pointer'
+          cursor: "pointer",
         },
         [`& ${StyledTableRow}[aria-selected=false]`]: {
-          '&:hover': {
+          "&:hover": {
             [`& ${StyledTableCell}:before`]: {
               opacity: 1,
-              bg: '$accents0'
-            }
-          }
+              bg: "$accents0",
+            },
+          },
         },
         [`& ${StyledTableRow}[aria-selected=true]`]: {
-          '&:hover': {
+          "&:hover": {
             [`& ${StyledTableCell}:before`]: {
-              opacity: 0.8
-            }
-          }
-        }
+              opacity: 0.8,
+            },
+          },
+        },
       },
       false: {
         [`& ${StyledTableCell}`]: {
-          userSelect: 'all'
-        }
-      }
+          userSelect: "all",
+        },
+      },
     },
     isMultiple: {
-      true: {}
+      true: {},
     },
     hasPagination: {
-      true: {}
+      true: {},
     },
     shadow: {
-      true: {}
+      true: {},
     },
     compact: {
       true: {
         [`& ${StyledTableCell}`]: {
-          py: '$1'
+          py: "$1",
         },
         [`& ${StyledTableColumnHeader}`]: {
-          height: '$12',
-          '&:first-child': {
-            br: '$sm 0 0 $sm'
+          height: "$12",
+          "&:first-child": {
+            br: "$sm 0 0 $sm",
           },
-          '&:last-child': {
-            br: '0 $sm $sm 0'
-          }
-        }
-      }
-    }
+          "&:last-child": {
+            br: "0 $sm $sm 0",
+          },
+        },
+      },
+    },
   },
   compoundVariants: [
     // isMultiple && hoverable
@@ -443,29 +440,29 @@ export const StyledTable = styled('table', {
       css: {
         [`& ${StyledTableRow}:not(:first-child):not(:last-child)`]: {
           [`& ${StyledTableCell}:first-child`]: {
-            br: 0
+            br: 0,
           },
           [`& ${StyledTableCell}:last-child`]: {
-            br: 0
-          }
+            br: 0,
+          },
         },
         [`& ${StyledTableRow}:first-child`]: {
           [`& ${StyledTableCell}:first-child`]: {
-            br: '$md 0 0 0'
+            br: "$md 0 0 0",
           },
           [`& ${StyledTableCell}:last-child`]: {
-            br: '0 $md 0 0'
-          }
+            br: "0 $md 0 0",
+          },
         },
         [`& ${StyledTableRow}:last-child`]: {
           [`& ${StyledTableCell}:first-child`]: {
-            br: '0 0 0 $md'
+            br: "0 0 0 $md",
           },
           [`& ${StyledTableCell}:last-child`]: {
-            br: '0 0 $md 0'
-          }
-        }
-      }
+            br: "0 0 $md 0",
+          },
+        },
+      },
     },
     // isMultiple && hoverable && sticked
     {
@@ -475,29 +472,29 @@ export const StyledTable = styled('table', {
       css: {
         [`& ${StyledTableRow}:first-child`]: {
           [`& ${StyledTableCell}:first-child`]: {
-            br: '0'
+            br: "0",
           },
           [`& ${StyledTableCell}:last-child`]: {
-            br: '0'
-          }
-        }
-      }
+            br: "0",
+          },
+        },
+      },
     },
     // compact && shadow
     {
       compact: true,
       shadow: true,
       css: {
-        p: '$md $sm'
-      }
+        p: "$md $sm",
+      },
     },
     // compact && sticked
     {
       compact: true,
       sticked: true,
       css: {
-        p: 0
-      }
+        p: 0,
+      },
     },
     // sticked && !isMultiple && hoverable && !hasPagination
     {
@@ -508,18 +505,18 @@ export const StyledTable = styled('table', {
       css: {
         [`& ${StyledTableRow}:not(:last-child)`]: {
           [`& ${StyledTableCell}`]: {
-            br: '0'
-          }
+            br: "0",
+          },
         },
         [`& ${StyledTableRow}:last-child`]: {
           [`& ${StyledTableCell}:first-child`]: {
-            br: '0 0 0 $md'
+            br: "0 0 0 $md",
           },
           [`& ${StyledTableCell}:last-child`]: {
-            br: '0 0 $md 0'
-          }
-        }
-      }
+            br: "0 0 $md 0",
+          },
+        },
+      },
     },
     // sticked && !isMultiple && hoverable && hasPagination
     {
@@ -530,18 +527,18 @@ export const StyledTable = styled('table', {
       css: {
         [`& ${StyledTableRow}`]: {
           [`& ${StyledTableCell}`]: {
-            br: '0'
-          }
-        }
-      }
+            br: "0",
+          },
+        },
+      },
     },
     // sticked && hasPagination
     {
       sticked: true,
       hasPagination: true,
       css: {
-        pb: '$5'
-      }
+        pb: "$5",
+      },
     },
     // sticked && hasPagination && isMultiple && hoverable
     {
@@ -552,74 +549,70 @@ export const StyledTable = styled('table', {
       css: {
         [`& ${StyledTableRow}:last-child`]: {
           [`& ${StyledTableCell}:first-child`]: {
-            br: '0'
+            br: "0",
           },
           [`& ${StyledTableCell}:last-child`]: {
-            br: '0'
-          }
-        }
-      }
-    }
+            br: "0",
+          },
+        },
+      },
+    },
   ],
   defaultVariants: {
     sticked: false,
-    color: 'primary',
-    lineWeight: 'light'
-  }
+    color: "primary",
+    lineWeight: "light",
+  },
 });
 
-export const StyledTableContainer = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  br: '$xl',
-  overflowX: 'auto',
-  overflowY: 'hidden',
+export const StyledTableContainer = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  br: "$xl",
+  overflowX: "auto",
+  overflowY: "hidden",
   variants: {
     shadow: {
       true: {
-        bs: '$md'
-      }
+        bs: "$md",
+      },
     },
     bordered: {
       true: {
-        borderStyle: 'solid',
-        borderColor: '$border'
+        borderStyle: "solid",
+        borderColor: "$border",
       },
       false: {
-        bw: 0
-      }
+        bw: 0,
+      },
     },
     borderWeight: {
       light: {
-        bw: '$light'
+        bw: "$light",
       },
       normal: {
-        bw: '$normal'
+        bw: "$normal",
       },
       bold: {
-        bw: '$bold'
+        bw: "$bold",
       },
       extrabold: {
-        bw: '$extrabold'
+        bw: "$extrabold",
       },
       black: {
-        bw: '$black'
-      }
-    }
+        bw: "$black",
+      },
+    },
   },
   defaultVariants: {
     shadow: true,
-    borderWeight: 'normal'
-  }
+    borderWeight: "normal",
+  },
 });
 
 export type TableVariantsProps = VariantProps<typeof StyledTable>;
-export type TableContainerVariantsProps = VariantProps<
-  typeof StyledTableContainer
->;
+export type TableContainerVariantsProps = VariantProps<typeof StyledTableContainer>;
 export type TableCellVariantsProps = VariantProps<typeof StyledTableCell>;
-export type TableColumnHeaderVariantsProps = VariantProps<
-  typeof StyledTableColumnHeader
->;
+export type TableColumnHeaderVariantsProps = VariantProps<typeof StyledTableColumnHeader>;
 export type TableFooterVatiantsProps = VariantProps<typeof StyledTableFooter>;
 export type TableRowGroupVariants = VariantProps<typeof StyledTableRowGroup>;

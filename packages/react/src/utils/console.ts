@@ -1,6 +1,6 @@
 const warningStack: {[key: string]: boolean} = {};
 
-const useWarning = (message: string, component?: string) => {
+export const warn = (message: string, component?: string) => {
   const tag = component ? ` [${component}]` : " ";
   const log = `[Next UI]${tag}: ${message}`;
 
@@ -9,9 +9,9 @@ const useWarning = (message: string, component?: string) => {
   warningStack[log] = true;
 
   if (process.env.NODE_ENV !== "production") {
+    // eslint-disable-next-line no-console
     return console.error(log);
   }
+  // eslint-disable-next-line no-console
   console.warn(log);
 };
-
-export default useWarning;

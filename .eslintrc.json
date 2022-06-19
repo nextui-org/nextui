@@ -1,89 +1,79 @@
 {
-  "plugins": ["prettier", "@typescript-eslint", "jsx-a11y"],
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier", "plugin:jsx-a11y/recommended"],
-  "parser": "@typescript-eslint/parser",
-  "globals": {
-    "JSX": true
-  },
   "env": {
-    "browser": true,
-    "amd": true,
-    "node": true,
-    "jest": true
+    "browser": false,
+    "es2021": true,
+    "node": true
   },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": ["react", "prettier", "import", "@typescript-eslint", "jsx-a11y"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
   },
   "settings": {
     "react": {
-      "pragma": "React",
       "version": "detect"
-    },
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
-      }
     }
   },
   "rules": {
-    "object-curly-spacing": ["warn", "always"],
-    "no-unused-vars": [
+    "no-console": "warn",
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": [
       "warn",
       {
-        "vars": "all",
-        "args": "none"
+        "printWidth": 100,
+        "trailingComma": "all",
+        "tabWidth": 2,
+        "semi": true,
+        "singleQuote": false,
+        "bracketSpacing": false,
+        "arrowParens": "always",
+        "endOfLine":"auto"
       }
     ],
-    "jsx-a11y/no-static-element-interactions": ["warn"],
-    "jsx-a11y/click-events-have-key-events": ["warn"],
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
-        "vars": "all",
-        "args": "none"
+        "args": "after-used",
+        "ignoreRestSiblings": false,
+        "argsIgnorePattern": "^_.*?$"
       }
     ],
-    "@typescript-eslint/no-explicit-any": [
+    "import/order": ["warn", {
+      "groups": ["type", "builtin", "object", "external", "internal", "parent", "sibling", "index"],
+      "pathGroups": [{
+        "pattern": "~/**",
+        "group": "external",
+        "position": "after"
+      }],
+      "newlines-between": "always"
+    }],
+    "react/self-closing-comp": "warn",
+    "react/jsx-sort-props": [
       "warn",
       {
-        "ignoreRestArgs": true
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true
       }
     ],
-    "max-len": [
+    "padding-line-between-statements": [
       "warn",
-      {
-        "code": 80,
-        "ignoreStrings": true,
-        "ignoreTemplateLiterals": true,
-        "ignoreComments": true
-      }
-    ],
-    "no-plusplus": [
-      "error",
-      {
-        "allowForLoopAfterthoughts": true
-      }
-    ],
-    "react/jsx-key": "error",
-    "react/jsx-props-no-spreading": "off",
-    "import/prefer-default-export": "off",
-    "react/jsx-boolean-value": "off",
-    "react/prop-types": "off",
-    "react/no-unescaped-entities": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/jsx-wrap-multilines": "off",
-    "react/destructuring-assignment": "off",
-    "@typescript-eslint/comma-dangle": [
-      "error",
-      {
-        "arrays": "only-multiline",
-        "objects": "only-multiline",
-        "imports": "only-multiline",
-        "exports": "only-multiline",
-        "functions": "never"
-      }
+      {"blankLine": "always", "prev": "*", "next": "return"},
+      {"blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+      {"blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
     ]
   }
 }

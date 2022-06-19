@@ -1,106 +1,106 @@
-import { styled, VariantProps } from '../theme/stitches.config';
-import { StyledDrip } from '../utils/drip';
-import { cssNoBlurriness, cssFocusVisible } from '../theme/shared-css';
+import {styled, VariantProps} from "../theme/stitches.config";
+import {StyledDrip} from "../utils/drip";
+import {cssNoBlurriness, cssFocusVisible} from "../theme/shared-css";
 
-export const StyledCardBody = styled('div', {
-  d: 'flex',
-  w: '100%',
-  h: 'auto',
-  flex: '1 1 auto',
-  fd: 'column',
-  jc: 'inherit',
-  ai: 'inherit',
-  ac: 'inherit',
-  py: '$lg',
-  px: '$sm',
-  oy: 'auto',
-  position: 'relative',
-  ta: 'left'
+export const StyledCardBody = styled("div", {
+  d: "flex",
+  w: "100%",
+  h: "auto",
+  flex: "1 1 auto",
+  fd: "column",
+  jc: "inherit",
+  ai: "inherit",
+  ac: "inherit",
+  py: "$lg",
+  px: "$sm",
+  oy: "auto",
+  position: "relative",
+  ta: "left",
 });
 
 export const StyledCard = styled(
-  'div',
+  "div",
   {
-    $$cardColor: '$colors$backgroundContrast',
-    $$cardTextColor: '$colors$text',
+    $$cardColor: "$colors$backgroundContrast",
+    $$cardTextColor: "$colors$text",
     m: 0,
     p: 0,
-    br: '$lg',
-    bg: '$$cardColor',
-    color: '$$cardTextColor',
-    position: 'relative',
-    display: 'flex',
-    overflow: 'hidden',
-    fd: 'column',
-    width: '100%',
-    height: 'auto',
-    boxSizing: 'border-box',
-    '@motion': {
-      transition: 'none'
+    br: "$lg",
+    bg: "$$cardColor",
+    color: "$$cardTextColor",
+    position: "relative",
+    display: "flex",
+    overflow: "hidden",
+    fd: "column",
+    width: "100%",
+    height: "auto",
+    boxSizing: "border-box",
+    "@motion": {
+      transition: "none",
     },
-    '.nextui-image': {
-      width: '100%'
+    ".nextui-image": {
+      width: "100%",
     },
     [`& ${StyledDrip}`]: {
-      zIndex: '$1',
-      '.nextui-drip-filler': {
+      zIndex: "$1",
+      ".nextui-drip-filler": {
         opacity: 0.25,
-        fill: '$accents6'
-      }
+        fill: "$accents6",
+      },
     },
     variants: {
       variant: {
         flat: {
-          bg: '$accents0'
+          bg: "$accents0",
         },
         shadow: {
-          dropShadow: '$lg'
+          dropShadow: "$lg",
         },
         bordered: {
-          borderStyle: 'solid',
-          borderColor: '$border'
-        }
+          borderStyle: "solid",
+          borderColor: "$border",
+        },
       },
       borderWeight: {
         light: {
-          bw: '$light'
+          bw: "$light",
         },
         normal: {
-          bw: '$normal'
+          bw: "$normal",
         },
         bold: {
-          bw: '$bold'
+          bw: "$bold",
         },
         extrabold: {
-          bw: '$extrabold'
+          bw: "$extrabold",
         },
         black: {
-          bw: '$black'
-        }
+          bw: "$black",
+        },
       },
       disableAnimation: {
         true: {
-          transition: 'none'
+          transition: "none",
         },
         false: {
-          transition: '$card'
-        }
+          transition: "$card",
+        },
       },
       isPressable: {
         true: {
-          cursor: 'pointer',
-          us: 'none',
-          WebkitTapHighlightColor: 'transparent'
-        }
+          cursor: "pointer",
+          us: "none",
+          WebkitTapHighlightColor: "transparent",
+        },
       },
       isPressed: {
-        true: {}
+        true: {},
       },
       isHovered: {
         true: {
-          dropShadow: '$lg'
-        }
-      }
+          dropShadow: "$lg",
+        },
+      },
     },
     compoundVariants: [
       //  isPreseed && !disableAnimation
@@ -108,61 +108,61 @@ export const StyledCard = styled(
         isPressed: true,
         disableAnimation: false,
         css: {
-          transform: 'scale(0.97)'
-        }
+          transform: "scale(0.97)",
+        },
       },
       // isHovered && !disableAnimation
       {
         isHovered: true,
         disableAnimation: false,
         css: {
-          transform: 'translateY(-2px)'
-        }
+          transform: "translateY(-2px)",
+        },
       },
       // isHovered && variant === 'shadow'
       {
         isHovered: true,
-        variant: 'shadow',
+        variant: "shadow",
         css: {
-          dropShadow: '$xl'
-        }
-      }
-    ]
+          dropShadow: "$xl",
+        },
+      },
+    ],
   },
   cssNoBlurriness,
-  cssFocusVisible
+  cssFocusVisible,
 );
 
-export const StyledCardHeader = styled('div', {
-  w: '100%',
-  display: 'flex',
+export const StyledCardHeader = styled("div", {
+  w: "100%",
+  display: "flex",
   flexShrink: 0,
-  zIndex: '$1',
-  jc: 'flex-start',
-  ai: 'center',
-  overflow: 'hidden',
-  color: 'inherit',
-  p: '$sm'
+  zIndex: "$1",
+  jc: "flex-start",
+  ai: "center",
+  overflow: "hidden",
+  color: "inherit",
+  p: "$sm",
 });
 
-export const StyledCardFooter = styled('div', {
-  w: '100%',
-  h: 'auto',
-  p: '$sm',
-  d: 'flex',
-  ai: 'center',
-  overflow: 'hidden',
-  color: 'inherit',
-  bblr: '$lg',
-  bbrr: '$lg',
+export const StyledCardFooter = styled("div", {
+  w: "100%",
+  h: "auto",
+  p: "$sm",
+  d: "flex",
+  ai: "center",
+  overflow: "hidden",
+  color: "inherit",
+  bblr: "$lg",
+  bbrr: "$lg",
   variants: {
     isBlurred: {
       true: {
-        bf: 'saturate(180%) blur(10px)',
-        bg: '$$cardColor'
-      }
-    }
-  }
+        bf: "saturate(180%) blur(10px)",
+        bg: "$$cardColor",
+      },
+    },
+  },
 });
 
 // types

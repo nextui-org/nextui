@@ -1,5 +1,6 @@
-import React from 'react';
-import { NormalSizes, NormalColors, NormalWeights } from '../utils/prop-types';
+import React from "react";
+
+import {NormalSizes, NormalColors, NormalWeights} from "../utils/prop-types";
 
 export interface ButtonGroupConfig {
   size?: NormalSizes;
@@ -23,8 +24,7 @@ const defaultContext = {
   disabled: false,
 };
 
-export const ButtonGroupContext =
-  React.createContext<ButtonGroupConfig>(defaultContext);
+export const ButtonGroupContext = React.createContext<ButtonGroupConfig>(defaultContext);
 
 export const useButtonGroupContext = (): ButtonGroupConfig =>
   React.useContext<ButtonGroupConfig>(ButtonGroupContext);

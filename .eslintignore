@@ -7,3 +7,4 @@ public/*
 scripts/*
 tests/*
 *.config.js
+.DS_Store

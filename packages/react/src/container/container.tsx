@@ -1,14 +1,9 @@
-import React, { useMemo } from 'react';
-import { CSS } from '../theme/stitches.config';
-import {
-  Wrap,
-  Display,
-  Justify,
-  Direction,
-  AlignItems,
-  AlignContent
-} from '../utils/prop-types';
-import StyledContainer from './container.styles';
+import React, {useMemo} from "react";
+
+import {CSS} from "../theme/stitches.config";
+import {Wrap, Display, Justify, Direction, AlignItems, AlignContent} from "../utils/prop-types";
+
+import StyledContainer from "./container.styles";
 
 interface Props {
   gap?: number;
@@ -38,9 +33,9 @@ const defaultProps = {
   xl: false,
   responsive: true,
   fluid: false,
-  wrap: 'wrap' as Wrap,
-  as: 'div' as keyof JSX.IntrinsicElements,
-  display: 'block' as Display
+  wrap: "wrap" as Wrap,
+  as: "div" as keyof JSX.IntrinsicElements,
+  display: "block" as Display,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -72,16 +67,18 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   }, [gap]);
 
   const getMaxWidth = () => {
-    if (xs) return '$breakpoints$xs';
-    if (sm) return '$breakpoints$sm';
-    if (md) return '$breakpoints$md';
-    if (lg) return '$breakpoints$lg';
-    if (xl) return '$breakpoints$xl';
-    return '';
+    if (xs) return "$breakpoints$xs";
+    if (sm) return "$breakpoints$sm";
+    if (md) return "$breakpoints$md";
+    if (lg) return "$breakpoints$lg";
+    if (xl) return "$breakpoints$xl";
+
+    return "";
   };
 
   return (
     <StyledContainer
+      as={as}
       css={{
         px: gapUnit,
         maxWidth: getMaxWidth(),
@@ -91,11 +88,10 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
         display: display,
         justifyContent: justify,
         flexDirection: direction,
-        ...(css as any)
+        ...(css as any),
       }}
-      responsive={responsive}
       fluid={fluid}
-      as={as}
+      responsive={responsive}
       {...props}
     >
       {children}
@@ -103,7 +99,7 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   );
 };
 
-Container.toString = () => '.nextui-container';
+Container.toString = () => ".nextui-container";
 
 type ComponentProps = Omit<Props, keyof typeof defaultProps> &
   Partial<typeof defaultProps> &

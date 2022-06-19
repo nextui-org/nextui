@@ -1,33 +1,26 @@
-import React from 'react';
-import {
-  StyledCollapseIcon,
-  CollapseIconVariantsProps
-} from './collapse.styles';
+import React from "react";
 
-const CollapseIcon: React.FC<CollapseIconVariantsProps> = ({ ...props }) => {
+import {StyledCollapseIcon, CollapseIconVariantsProps} from "./collapse.styles";
+
+const CollapseIcon: React.FC<CollapseIconVariantsProps> = ({...props}) => {
   return (
     <StyledCollapseIcon
-      role="presentation"
-      focusable="false"
       className="nextui-collapse-icon"
-      width="20"
-      height="20"
       fill="none"
+      focusable="false"
+      height="20"
+      role="presentation"
       viewBox="0 0 24 24"
+      width="20"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M15.5 19l-7-7 7-7"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M15.5 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} />
     </StyledCollapseIcon>
   );
 };
 
-CollapseIcon.toString = () => '.nextui-collapse-icon';
+CollapseIcon.toString = () => ".nextui-collapse-icon";
 
 const MemoCollapseIcon = React.memo(CollapseIcon);
 

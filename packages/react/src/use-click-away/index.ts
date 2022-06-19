@@ -1,3 +1,3 @@
-import useClickAway from './use-click-away';
+import useClickAway from "./use-click-away";
 
 export default useClickAway;

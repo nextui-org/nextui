@@ -1,3 +1,3 @@
-import useWarning from './use-warning';
+import useWarning from "./use-warning";
 
 export default useWarning;
