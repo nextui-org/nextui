@@ -1,24 +1,18 @@
-import * as React from 'react';
-import { IconProps } from './index';
-import { useTheme } from '@nextui-org/react';
+import * as React from "react";
+import {useTheme} from "@nextui-org/react";
 
-const Activity: React.FC<IconProps> = ({
-  fill,
-  filled,
-  size,
-  height,
-  width,
-  label,
-  ...props
-}) => {
-  const { theme } = useTheme();
+import {IconProps} from "./index";
+
+const Activity: React.FC<IconProps> = ({fill, filled, size, height, width, label, ...props}) => {
+  const {theme} = useTheme();
+
   return (
     <svg
       data-name="Iconly/Curved/Activity"
-      xmlns="http://www.w3.org/2000/svg"
-      width={size || width || 24}
       height={size || height || 24}
       viewBox="0 0 24 24"
+      width={size || width || 24}
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <g

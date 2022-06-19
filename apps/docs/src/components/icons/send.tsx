@@ -1,6 +1,7 @@
-import React from 'react';
-import { IconProps } from './index';
-import { useTheme } from '@nextui-org/react';
+import React from "react";
+import {useTheme} from "@nextui-org/react";
+
+import {IconProps} from "./index";
 
 const Send: React.FC<IconProps> = ({
   fill,
@@ -12,16 +13,17 @@ const Send: React.FC<IconProps> = ({
   className,
   ...props
 }) => {
-  const { theme } = useTheme();
+  const {theme} = useTheme();
   const color = fill || theme?.colors?.accents3?.value;
+
   return (
     <svg
+      className={className}
       data-name="Iconly/Curved/Lock"
-      xmlns="http://www.w3.org/2000/svg"
-      width={size || width || 24}
       height={size || height || 24}
       viewBox="0 0 24 24"
-      className={className}
+      width={size || width || 24}
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <g transform="translate(2 2)">

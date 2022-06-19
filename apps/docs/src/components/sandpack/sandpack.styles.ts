@@ -1,5 +1,5 @@
-import { styled } from '@nextui-org/react';
+import {styled} from "@nextui-org/react";
 
-export const StyledPreviewIframe = styled('iframe', {
-  bg: '$background'
+export const StyledPreviewIframe = styled("iframe", {
+  bg: "$background",
 });

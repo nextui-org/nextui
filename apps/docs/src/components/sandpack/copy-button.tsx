@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
-import { useSandpack } from '@codesandbox/sandpack-react';
-import { Tooltip, useClipboard } from '@nextui-org/react';
-import { Copy as CopyIcon } from '@components';
-import { Box } from '@primitives';
+import React, {useState} from "react";
+import {useSandpack} from "@codesandbox/sandpack-react";
+import {Tooltip, useClipboard} from "@nextui-org/react";
+import {Copy as CopyIcon} from "@components";
+import {Box} from "@primitives";
 
 const CopyButton = () => {
-  const { copy } = useClipboard();
+  const {copy} = useClipboard();
   const [copied, setCopied] = useState(false);
 
-  const { sandpack } = useSandpack();
+  const {sandpack} = useSandpack();
 
   const copyHandler = (event: React.MouseEvent) => {
     event.stopPropagation();
     event.preventDefault();
     setCopied(true);
     const code = sandpack.files[sandpack.activePath].code;
+
     copy(code);
   };
 
@@ -28,13 +29,13 @@ const CopyButton = () => {
     <Tooltip
       hideArrow
       className="action-tooltip"
-      content={copied ? 'Copied!' : 'Copy'}
+      content={copied ? "Copied!" : "Copy"}
       triggerCss={{
-        cursor: 'pointer',
-        ml: '$3',
-        '&:hover': {
-          opacity: 0.8
-        }
+        cursor: "pointer",
+        ml: "$3",
+        "&:hover": {
+          opacity: 0.8,
+        },
       }}
       onVisibleChange={handleTooltipVisibleChange}
     >

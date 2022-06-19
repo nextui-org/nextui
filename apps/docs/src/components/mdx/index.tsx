@@ -1,15 +1,16 @@
 /* eslint-disable react/display-name */
-import * as React from 'react';
-import Playground from '../playground';
-import Codeblock from '../codeblock';
-import CarbonAd from '../carbon-ad';
-import * as Icons from '../icons';
-import { styled, useTheme } from '@nextui-org/react';
-import { Anchor } from '@components';
-import Block from '../templates/example-block';
-import cn from 'classnames';
+import * as React from "react";
+import {styled, useTheme} from "@nextui-org/react";
+import {Anchor} from "@components";
+import cn from "classnames";
 
-const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
+import Playground from "../playground";
+import Codeblock from "../codeblock";
+import CarbonAd from "../carbon-ad";
+import * as Icons from "../icons";
+import Block from "../templates/example-block";
+
+const Table: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
   return (
     <div className="docs-table-container">
       <table className="docs-table">{children}</table>
@@ -27,8 +28,9 @@ const Table: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
     </div>
   );
 };
-const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  const { theme } = useTheme();
+const Thead: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+  const {theme} = useTheme();
+
   return (
     <thead className="docs-thead">
       {children}
@@ -46,22 +48,21 @@ const Thead: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
         }
         :global(.docs-thead th:nth-child(1)) {
           padding-left: 1rem;
-          border-radius: ${theme?.radii?.lg?.value} 0 0
-            ${theme?.radii?.lg?.value};
+          border-radius: ${theme?.radii?.lg?.value} 0 0 ${theme?.radii?.lg?.value};
         }
         :global(.docs-thead th:last-child) {
-          border-radius: 0 ${theme?.radii?.lg?.value} ${theme?.radii?.lg?.value}
-            0;
+          border-radius: 0 ${theme?.radii?.lg?.value} ${theme?.radii?.lg?.value} 0;
         }
       `}</style>
     </thead>
   );
 };
-const Trow: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
+const Trow: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
   return <tr className="docs-tr">{children}</tr>;
 };
-const Tcol: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  const { theme } = useTheme();
+const Tcol: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+  const {theme} = useTheme();
+
   return (
     <td className="docs-col">
       {children}
@@ -77,30 +78,25 @@ const Tcol: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
     </td>
   );
 };
+
 export interface LinkedHeadingProps {
   as: keyof JSX.IntrinsicElements;
   linked?: boolean;
 }
 
-const LinkedHeading: React.FC<LinkedHeadingProps> = ({
-  as,
-  linked = true,
-  ...props
-}) => {
+const LinkedHeading: React.FC<LinkedHeadingProps> = ({as, linked = true, ...props}) => {
   const Component = as;
+
   return (
-    <Component
-      className={cn({ 'linked-heading': linked })}
-      data-name={props.children}
-      {...props}
-    >
+    <Component className={cn({"linked-heading": linked})} data-name={props.children} {...props}>
       {linked ? <Anchor>{props.children}</Anchor> : <>{props.children}</>}
     </Component>
   );
 };
 
-const List: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  const { theme } = useTheme();
+const List: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+  const {theme} = useTheme();
+
   return (
     <ul className="mdx-ul">
       {children}
@@ -119,8 +115,8 @@ const List: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
 };
 
 // @ts-ignore
-const Paragraph = styled('p', {
-  fontSize: '1.125rem'
+const Paragraph = styled("p", {
+  fontSize: "1.125rem",
 });
 
 const MDXComponents = {
@@ -128,15 +124,9 @@ const MDXComponents = {
   h1: (props: React.DetailsHTMLAttributes<unknown>) => (
     <LinkedHeading as="h1" linked={false} {...props} />
   ),
-  h2: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h2" {...props} />
-  ),
-  h3: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h3" {...props} />
-  ),
-  h4: (props: React.DetailsHTMLAttributes<unknown>) => (
-    <LinkedHeading as="h4" {...props} />
-  ),
+  h2: (props: React.DetailsHTMLAttributes<unknown>) => <LinkedHeading as="h2" {...props} />,
+  h3: (props: React.DetailsHTMLAttributes<unknown>) => <LinkedHeading as="h3" {...props} />,
+  h4: (props: React.DetailsHTMLAttributes<unknown>) => <LinkedHeading as="h4" {...props} />,
   p: Paragraph,
   table: Table,
   thead: Thead,
@@ -146,7 +136,7 @@ const MDXComponents = {
   CarbonAd,
   code: Codeblock,
   ul: List,
-  Block
+  Block,
 };
 
 export default MDXComponents;
