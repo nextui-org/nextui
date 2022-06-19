@@ -62,12 +62,14 @@ const Drip: React.FC<DripProps> = ({visible, x, y, color, onCompleted, className
   const left = Number.isNaN(+x) ? 0 : x - 10;
 
   useEffect(() => {
-    if (!dripRef.current) return;
-    dripRef.current.addEventListener("animationend", onCompleted);
+    let drip = dripRef.current;
+
+    if (!drip) return;
+    drip.addEventListener("animationend", onCompleted);
 
     return () => {
-      if (!dripRef.current) return;
-      dripRef.current.removeEventListener("animationend", onCompleted);
+      if (!drip) return;
+      drip.removeEventListener("animationend", onCompleted);
     };
   });
 

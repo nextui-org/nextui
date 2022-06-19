@@ -83,7 +83,6 @@ const TooltipContent: React.FC<React.PropsWithChildren<TooltipContentProps>> = (
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     updateRect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
   const preventHandler = (event: React.MouseEvent<HTMLDivElement>) => {

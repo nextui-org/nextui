@@ -107,7 +107,6 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     if (visible !== expanded) {
       setVisible(expanded);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [expanded]);
 
   useEffect(() => {
@@ -115,7 +114,6 @@ const Collapse: React.FC<React.PropsWithChildren<CollapseProps>> = ({
     const isActive = !!values.find((item) => item === index);
 
     setVisible(isActive);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values.join(",")]);
 
   const ariaLabelledById = useId();

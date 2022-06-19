@@ -72,7 +72,6 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (groupP
       ripple,
       isButtonGroup: true,
     }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [disabled, animated, size, ripple, color, bordered, light, ghost, flat, borderWeight],
   );
 

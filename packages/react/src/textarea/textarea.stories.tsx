@@ -133,6 +133,7 @@ export const WithHelperText = () => {
 export const WithUseInput = () => {
   const {value, setValue, reset, bindings} = useInput("NextUI");
 
+  // eslint-disable-next-line no-console
   useEffect(() => console.log(value), [value]);
 
   return (
@@ -173,7 +174,7 @@ export const Uncontrolled = () => {
         <Textarea
           ref={textareaRef}
           initialValue="Hello"
-          onChange={(e) => console.log(e.target.value)}
+          onChange={(e) => console.log(e.target.value)} // eslint-disable-line no-console
         />
         <Spacer y={0.5} />
         <Grid>

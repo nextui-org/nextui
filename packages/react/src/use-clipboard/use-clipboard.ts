@@ -49,7 +49,6 @@ const useClipboard = (options: UseClipboardOptions = defaultOptions): UseClipboa
     (text: string) => {
       copyText(el, text);
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [el],
   );
 

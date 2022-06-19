@@ -15,7 +15,6 @@ describe("UseInput", () => {
 
       useEffect(() => {
         if (propValue) setValue(propValue);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [propValue]);
 
       useEffect(() => {

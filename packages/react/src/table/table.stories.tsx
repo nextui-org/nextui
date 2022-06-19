@@ -360,7 +360,7 @@ export const Pagination = () => {
         shadow
         align="center"
         rowsPerPage={3}
-        onPageChange={(page) => console.log({page})}
+        onPageChange={(page) => console.log({page})} // eslint-disable-line no-console
       />
     </Table>
   );
@@ -548,14 +548,24 @@ export const CustomCells = () => {
           <Row align="center" justify="center">
             <Col css={{d: "flex"}}>
               <Tooltip content="Details">
-                <IconButton onClick={() => console.log(`View user ${user?.id}`)}>
+                <IconButton
+                  onClick={() => {
+                    // eslint-disable-next-line no-console
+                    console.log(`View user ${user?.id}`);
+                  }}
+                >
                   <Eye fill="#979797" size={20} />
                 </IconButton>
               </Tooltip>
             </Col>
             <Col css={{d: "flex"}}>
               <Tooltip content="Edit user">
-                <IconButton onClick={() => console.log(`edit user ${user?.id}`)}>
+                <IconButton
+                  onClick={() => {
+                    // eslint-disable-next-line no-console
+                    console.log(`edit user ${user?.id}`);
+                  }}
+                >
                   <Edit fill="#979797" size={20} />
                 </IconButton>
               </Tooltip>
@@ -564,7 +574,7 @@ export const CustomCells = () => {
               <Tooltip
                 color="error"
                 content="Delete user"
-                onClick={() => console.log(`Delete user ${user?.id}`)}
+                onClick={() => console.log(`Delete user ${user?.id}`)} // eslint-disable-line no-console
               >
                 <IconButton>
                   <Delete fill="#FF0080" size={20} />

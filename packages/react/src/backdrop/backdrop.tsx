@@ -130,7 +130,6 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
           </StyledBackdropContent>
         </StyledBackdrop>
       );
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [children]);
 
     return (

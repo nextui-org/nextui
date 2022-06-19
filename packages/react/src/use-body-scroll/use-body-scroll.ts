@@ -81,7 +81,6 @@ const useBodyScroll = (
       document.removeEventListener("touchmove", touchHandler);
     }
     elementStack.delete(elRef.current);
-    //  eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hidden, elRef]);
 
   return [hidden, setHidden];

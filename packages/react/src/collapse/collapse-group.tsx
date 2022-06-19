@@ -62,7 +62,6 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
       divider,
       animated,
     }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [state.join(",")],
   );
 
