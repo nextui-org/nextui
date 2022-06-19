@@ -1,4 +1,3 @@
-
 const SunIcon = `import { React } from '@nextui-org/react';\n
 
 export const SunIcon = ({
@@ -60,7 +59,6 @@ export const SunIcon = ({
     </svg>
   );
 };`;
-
 
 const MoonIcon = `import { React } from '@nextui-org/react';\n
 
@@ -218,7 +216,7 @@ export const VolumeUpIcon = ({
       ></path>
     </svg>
   );
-};`; 
+};`;
 
 const NotificationIcon = `import { React } from '@nextui-org/react';\n
 
@@ -352,7 +350,6 @@ export const MicrophoneOffIcon = ({
   );
 };`;
 
-
 const AppJs = `import { Grid, Switch } from "@nextui-org/react";
 import { SunIcon } from './SunIcon';
 import { MoonIcon } from './MoonIcon';
@@ -413,17 +410,16 @@ export default function App() {
 }`;
 
 const react = {
-  '/SunIcon.js': SunIcon,
-  '/MoonIcon.js': MoonIcon,
-  '/VideoIcon.js': VideoIcon,
-  '/VolumeUpIcon.js': VolumeUpIcon,
-  '/MicrophoneIcon.js': MicrophoneIcon,
-  '/MicrophoneOffIcon.js': MicrophoneOffIcon,
-  '/NotificationIcon.js': NotificationIcon,
-  '/VideoOffIcon.js': VideoOffIcon,
-  '/App.js': AppJs
+  "/SunIcon.js": SunIcon,
+  "/MoonIcon.js": MoonIcon,
+  "/VideoIcon.js": VideoIcon,
+  "/VolumeUpIcon.js": VolumeUpIcon,
+  "/MicrophoneIcon.js": MicrophoneIcon,
+  "/MicrophoneOffIcon.js": MicrophoneOffIcon,
+  "/NotificationIcon.js": NotificationIcon,
+  "/VideoOffIcon.js": VideoOffIcon,
+  "/App.js": AppJs,
 };
-
 
 export default {
   ...react,

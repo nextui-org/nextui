@@ -1,7 +1,7 @@
-import vertical from './vertical';
-import horizontal from './horizontal'
+import vertical from "./vertical";
+import horizontal from "./horizontal";
 
 export default {
   vertical,
-  horizontal
+  horizontal,
 };
