@@ -1,5 +1,6 @@
-import * as React from 'react';
-import withDefaults from './with-defaults';
+import * as React from "react";
+
+import withDefaults from "./with-defaults";
 
 interface Props {
   width?: number;
@@ -14,42 +15,35 @@ const defaultProps = {
   width: 24,
   height: 24,
   plain: false,
-  className: ''
+  className: "",
 };
 
-const Close: React.FC<Props> = ({
-  size,
-  fill,
-  plain,
-  width,
-  height,
-  className,
-  ...props
-}) => {
+const Close: React.FC<Props> = ({size, fill, plain, width, height, className, ...props}) => {
   if (plain) {
     return (
       <svg
-        width={size || width}
-        height={size || height}
-        viewBox="0 0 24 24"
+        className={className}
         fill="none"
+        height={size || height}
         stroke={fill}
-        strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={className}
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+        width={size || width}
         {...props}
       >
         <path d="M18 6L6 18M6 6l12 12" />
       </svg>
     );
   }
+
   return (
     <svg
-      width={size || width}
+      className={className}
       height={size || height}
       viewBox="0 0 24 24"
-      className={className}
+      width={size || width}
       {...props}
     >
       <path

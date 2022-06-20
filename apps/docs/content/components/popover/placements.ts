@@ -75,14 +75,14 @@ export default function App() {
 }`;
 
 const react = {
-  '/App.js': AppJs
+  "/App.js": AppJs,
 };
 
 const reactTs = {
-  '/App.tsx': AppTs
+  "/App.tsx": AppTs,
 };
 
 export default {
   ...react,
-  ...reactTs
+  ...reactTs,
 };

@@ -1,30 +1,28 @@
-import * as React from 'react';
-import cn from 'classnames';
-import { matchSorter } from 'match-sorter';
-import { VisualState, useKBar } from 'kbar';
-import { groupBy, isEmpty } from 'lodash';
-import { useTheme } from '@nextui-org/react';
-import { Action, ResultState, KBarResultsProps, ResultHandlers } from './types';
+import * as React from "react";
+import cn from "classnames";
+import {matchSorter} from "match-sorter";
+import {VisualState, useKBar} from "kbar";
+import {groupBy, isEmpty} from "lodash";
+import {useTheme} from "@nextui-org/react";
+
+import {Action, ResultState, KBarResultsProps, ResultHandlers} from "./types";
 
 function useMatches(term: string, actions: Action[]) {
   // TODO: we can throttle this if needed
   return React.useMemo(
-    () =>
-      term.trim() === ''
-        ? actions
-        : matchSorter(actions, term, { keys: ['keywords', 'name'] }),
-    [term, actions]
+    () => (term.trim() === "" ? actions : matchSorter(actions, term, {keys: ["keywords", "name"]})),
+    [term, actions],
   );
 }
 
 export default function KBarResults(props: KBarResultsProps) {
-  const { search, actions, currentRootActionId, query } = useKBar((state) => ({
+  const {search, actions, currentRootActionId, query} = useKBar((state) => ({
     search: state.searchQuery,
     currentRootActionId: state.currentRootActionId,
-    actions: state.actions
+    actions: state.actions,
   }));
 
-  const { theme } = useTheme();
+  const {theme} = useTheme();
 
   // Store reference to a list of all actions
   const actionsList = React.useMemo(
@@ -32,7 +30,7 @@ export default function KBarResults(props: KBarResultsProps) {
       Object.keys(actions).map((key) => {
         return actions[key];
       }),
-    [actions]
+    [actions],
   );
 
   const currActions = React.useMemo(() => {
@@ -41,6 +39,7 @@ export default function KBarResults(props: KBarResultsProps) {
         if (!curr.parent) {
           acc[curr.id] = curr;
         }
+
         return acc;
       }, {});
     }
@@ -50,15 +49,16 @@ export default function KBarResults(props: KBarResultsProps) {
 
     if (!children) {
       return {
-        [root.id]: root
+        [root.id]: root,
       };
     }
 
     return {
       ...children.reduce((acc: any, actionId) => {
         acc[actionId] = actions[actionId];
+
         return acc;
-      }, {})
+      }, {}),
     };
   }, [actions, actionsList, currentRootActionId]);
 
@@ -66,9 +66,10 @@ export default function KBarResults(props: KBarResultsProps) {
     () =>
       Object.keys(currActions).map((key) => {
         const action = currActions[key];
+
         return action;
       }) as Action[],
-    [currActions]
+    [currActions],
   );
 
   const matches = useMatches(search, filteredList);
@@ -96,7 +97,7 @@ export default function KBarResults(props: KBarResultsProps) {
   React.useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       event.stopPropagation();
-      if (event.key === 'ArrowDown' || (event.ctrlKey && event.key === 'j')) {
+      if (event.key === "ArrowDown" || (event.ctrlKey && event.key === "j")) {
         event.preventDefault();
         setActiveIndex((index) => {
           if (index >= matches.length - 1) {
@@ -107,7 +108,7 @@ export default function KBarResults(props: KBarResultsProps) {
         });
       }
 
-      if (event.key === 'ArrowUp' || (event.ctrlKey && event.key === 'k')) {
+      if (event.key === "ArrowUp" || (event.ctrlKey && event.key === "k")) {
         event.preventDefault();
         setActiveIndex((index) => {
           if (index === 0) {
@@ -117,13 +118,14 @@ export default function KBarResults(props: KBarResultsProps) {
           }
         });
       }
-      if (event.key === 'Enter') {
+      if (event.key === "Enter") {
         event.preventDefault();
         select();
       }
     }
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [matches, select, activeIndex]);
 
   // Reset focused index when searching & updated results.
@@ -131,49 +133,46 @@ export default function KBarResults(props: KBarResultsProps) {
     setActiveIndex(0);
   }, [filteredList.length, search]);
 
-  const groupedMatches = groupBy(matches, 'section');
+  const groupedMatches = groupBy(matches, "section");
 
   const renderAction = (action: any, index: number) => {
     const handlers: ResultHandlers = {
       onClick: select,
       onPointerDown: () => setActiveIndex(index),
-      onMouseEnter: () => setActiveIndex(index)
+      onMouseEnter: () => setActiveIndex(index),
     };
     const state: ResultState = {
       activeIndex,
-      index
+      index,
     };
+
     if (props.onRender) {
       // Implicitly add a `key` so the user won't have to.
       return React.cloneElement(props.onRender(action, handlers, state), {
-        key: action.id
+        key: action.id,
       });
     }
+
     return (
-      <DefaultResultWrapper
-        key={action.id}
-        isActive={activeIndex === index}
-        {...handlers}
-      >
+      <DefaultResultWrapper key={action.id} isActive={activeIndex === index} {...handlers}>
         {action.name}
       </DefaultResultWrapper>
     );
   };
   let idx = -1;
+
   return (
-    <div className={cn('kbar-section', props.className)} style={props.style}>
+    <div className={cn("kbar-section", props.className)} style={props.style}>
       {!isEmpty(groupedMatches)
         ? Object.keys(groupedMatches).map((section, sectionIndex) => {
             return (
-              <ul
-                key={`${section}_${sectionIndex}`}
-                className="kbar-section-list"
-              >
-                {section && section !== 'undefined' ? (
+              <ul key={`${section}_${sectionIndex}`} className="kbar-section-list">
+                {section && section !== "undefined" ? (
                   <b className="kbar-section-list__title">{section}</b>
                 ) : null}
                 {groupedMatches[section].map((action) => {
                   idx = idx + 1;
+
                   return renderAction(action, idx);
                 })}
               </ul>
@@ -203,11 +202,7 @@ export default function KBarResults(props: KBarResultsProps) {
 }
 
 // Separate component to ensure we can scrollTo active elements properly.
-const DefaultResultWrapper: React.FC<{ isActive: boolean }> = ({
-  isActive,
-  children,
-  ...rest
-}) => {
+const DefaultResultWrapper: React.FC<{isActive: boolean}> = ({isActive, children, ...rest}) => {
   const ownRef = React.useRef<HTMLUListElement>(null);
 
   React.useEffect(() => {
@@ -217,11 +212,12 @@ const DefaultResultWrapper: React.FC<{ isActive: boolean }> = ({
       window.requestAnimationFrame(() =>
         window.requestAnimationFrame(() => {
           const element = ownRef.current;
+
           if (!element) {
             return;
           }
-          element.scrollIntoView({ block: 'nearest' });
-        })
+          element.scrollIntoView({block: "nearest"});
+        }),
       );
     }
   }, [isActive]);

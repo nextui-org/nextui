@@ -1,11 +1,11 @@
-import defaultCard from './default';
-import variants from './variants';
-import hoverable from './hoverable';
-import pressable from './pressable';
-import divider from './divider';
-import cover from './cover';
-import action from './action';
-import footer from './footer';
+import defaultCard from "./default";
+import variants from "./variants";
+import hoverable from "./hoverable";
+import pressable from "./pressable";
+import divider from "./divider";
+import cover from "./cover";
+import action from "./action";
+import footer from "./footer";
 
 export default {
   defaultCard,
@@ -15,5 +15,5 @@ export default {
   divider,
   cover,
   action,
-  footer
+  footer,
 };

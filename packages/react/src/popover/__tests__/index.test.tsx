@@ -1,12 +1,13 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import Button from '../../button';
-import { fireEvent, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import Popover from '../index';
+import React from "react";
+import {mount} from "enzyme";
+import {fireEvent, render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
-describe('Popover', () => {
-  it('should render correctly', () => {
+import Button from "../../button";
+import Popover from "../index";
+
+describe("Popover", () => {
+  it("should render correctly", () => {
     const wrapper = mount(
       <Popover>
         <Popover.Trigger>
@@ -15,12 +16,13 @@ describe('Popover', () => {
         <Popover.Content>
           <p>This is the content of the popover.</p>
         </Popover.Content>
-      </Popover>
+      </Popover>,
     );
+
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should hide the popover when clicking outside', () => {
+  it("should hide the popover when clicking outside", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
@@ -31,16 +33,16 @@ describe('Popover', () => {
         <Popover.Content>
           <p>This is the content of the popover.</p>
         </Popover.Content>
-      </Popover>
+      </Popover>,
     );
 
-    const trigger = wrapper.getByTestId('trigger-test');
+    const trigger = wrapper.getByTestId("trigger-test");
 
     userEvent.click(trigger);
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('should hide the popover when pressing the escape key', () => {
+  it("should hide the popover when pressing the escape key", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
@@ -51,76 +53,76 @@ describe('Popover', () => {
         <Popover.Content data-testid="content-test">
           <p>This is the content of the popover.</p>
         </Popover.Content>
-      </Popover>
+      </Popover>,
     );
 
-    const content = wrapper.getByTestId('content-test');
+    const content = wrapper.getByTestId("content-test");
 
-    fireEvent.keyDown(content, { key: 'Escape' });
+    fireEvent.keyDown(content, {key: "Escape"});
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('should still hide the popover when pressing the escape key if isDismissable is false', () => {
+  it("should still hide the popover when pressing the escape key if isDismissable is false", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
-      <Popover isOpen onClose={onClose} isDismissable={false}>
+      <Popover isOpen isDismissable={false} onClose={onClose}>
         <Popover.Trigger>
           <button>Open popover</button>
         </Popover.Trigger>
         <Popover.Content data-testid="content-test">
           <p>This is the content of the popover.</p>
         </Popover.Content>
-      </Popover>
+      </Popover>,
     );
 
-    const content = wrapper.getByTestId('content-test');
+    const content = wrapper.getByTestId("content-test");
 
-    fireEvent.keyDown(content, { key: 'Escape' });
+    fireEvent.keyDown(content, {key: "Escape"});
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('should not hide the popover when clicking outside if isDismissable is false', () => {
+  it("should not hide the popover when clicking outside if isDismissable is false", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
-      <Popover isOpen onClose={onClose} isDismissable={false}>
+      <Popover isOpen isDismissable={false} onClose={onClose}>
         <Popover.Trigger>
           <button data-testid="trigger-test">Open popover</button>
         </Popover.Trigger>
         <Popover.Content>
           <p>This is the content of the popover.</p>
         </Popover.Content>
-      </Popover>
+      </Popover>,
     );
 
-    const trigger = wrapper.getByTestId('trigger-test');
+    const trigger = wrapper.getByTestId("trigger-test");
 
     userEvent.click(trigger);
     expect(onClose).toHaveBeenCalledTimes(0);
   });
 
-  it('should hide the popover on blur when shouldCloseOnBlur is true', () => {
+  it("should hide the popover on blur when shouldCloseOnBlur is true", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
-      <Popover isOpen onClose={onClose} shouldCloseOnBlur>
+      <Popover isOpen shouldCloseOnBlur onClose={onClose}>
         <Popover.Trigger>
           <button>Open popover</button>
         </Popover.Trigger>
         <Popover.Content data-testid="content-test">
           <p>This is the content of the popover.</p>
         </Popover.Content>
-      </Popover>
+      </Popover>,
     );
 
-    const content = wrapper.getByTestId('content-test');
+    const content = wrapper.getByTestId("content-test");
 
     fireEvent.blur(content);
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('should work with NextUI button', () => {
+  it("should work with NextUI button", () => {
     const onClose = jest.fn();
 
     const wrapper = render(
@@ -131,10 +133,10 @@ describe('Popover', () => {
         <Popover.Content>
           <p>This is the content of the popover.</p>
         </Popover.Content>
-      </Popover>
+      </Popover>,
     );
 
-    const trigger = wrapper.getByTestId('trigger-test');
+    const trigger = wrapper.getByTestId("trigger-test");
 
     userEvent.click(trigger);
     expect(onClose).toHaveBeenCalledTimes(1);

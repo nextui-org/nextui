@@ -1,3 +1,3 @@
-import useClickAnyWhere from './use-click-anywhere';
+import useClickAnyWhere from "./use-click-anywhere";
 
 export default useClickAnyWhere;

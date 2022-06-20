@@ -115,11 +115,11 @@ export default function App() {
 }`;
 
 const react = {
-  '/UnLockIcon.js': UnLockIcon,
-  '/LockIcon.js': LockIcon,
-  '/App.js': AppJs
+  "/UnLockIcon.js": UnLockIcon,
+  "/LockIcon.js": LockIcon,
+  "/App.js": AppJs,
 };
 
 export default {
-  ...react
+  ...react,
 };

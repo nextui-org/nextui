@@ -1,18 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { MouseEvent, useCallback, useMemo } from 'react';
-import withDefaults from '../utils/with-defaults';
-import CSSTransition from '../utils/css-transition';
-import { CSS } from '../theme/stitches.config';
-import useCurrentState from '../use-current-state';
-import cslx from '../utils/clsx';
-import useKeyboard, { KeyCode } from '../use-keyboard';
+import React, {MouseEvent, useCallback, useMemo} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import CSSTransition from "../utils/css-transition";
+import {CSS} from "../theme/stitches.config";
+import useCurrentState from "../use-current-state";
+import cslx from "../utils/clsx";
+import useKeyboard, {KeyCode} from "../use-keyboard";
+import {__DEV__} from "../utils/assertion";
+
 import {
   StyledBackdrop,
   StyledBackdropLayer,
   StyledBackdropContent,
-  BackdropVariantsProps
-} from './backdrop.styles';
-import { __DEV__ } from '../utils/assertion';
+  BackdropVariantsProps,
+} from "./backdrop.styles";
 
 interface Props {
   onClick?: (event: MouseEvent<HTMLElement>) => void;
@@ -35,17 +37,14 @@ const defaultProps = {
   animated: true,
   preventDefault: true,
   opacity: 0.5,
-  className: ''
+  className: "",
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type BackdropProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  BackdropVariantsProps;
+export type BackdropProps = Props & typeof defaultProps & NativeAttrs & BackdropVariantsProps;
 
-const preClass = 'nextui-backdrop';
+const preClass = "nextui-backdrop";
 
 const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
   ({
@@ -62,18 +61,14 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
     css,
     ...props
   }) => {
-    const [, setIsContentMouseDown, IsContentMouseDownRef] =
-      useCurrentState(false);
+    const [, setIsContentMouseDown, IsContentMouseDownRef] = useCurrentState(false);
     const clickHandler = (event: MouseEvent<HTMLElement>) => {
       if (IsContentMouseDownRef.current) return;
       onClick && onClick(event);
     };
-    const childrenClickHandler = useCallback(
-      (event: MouseEvent<HTMLElement>) => {
-        event.stopPropagation();
-      },
-      []
-    );
+    const childrenClickHandler = useCallback((event: MouseEvent<HTMLElement>) => {
+      event.stopPropagation();
+    }, []);
     const mouseUpHandler = () => {
       if (!IsContentMouseDownRef.current) return;
       const timer = setTimeout(() => {
@@ -82,53 +77,53 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
       }, 0);
     };
 
-    const { bindings } = useKeyboard(
+    const {bindings} = useKeyboard(
       (ev: React.KeyboardEvent | KeyboardEvent) => {
         onKeyPress && onKeyPress(ev);
       },
       [KeyCode.Escape, KeyCode.Space],
       {
         disableGlobalEvent: true,
-        preventDefault
-      }
+        preventDefault,
+      },
     );
 
     const getState = useMemo(() => {
-      return visible ? 'open' : 'closed';
+      return visible ? "open" : "closed";
     }, [visible]);
 
     const renderChildren = useMemo(() => {
       return (
         <StyledBackdrop
-          tabIndex={-1}
-          role="button"
           aria-hidden={true}
-          data-state={getState}
-          onClick={clickHandler}
-          onMouseUp={mouseUpHandler}
+          className={cslx(preClass, `${preClass}--${getState}`, className)}
           css={{
             $$backdropOpacity: opacity,
-            ...(css as any)
+            ...(css as any),
           }}
-          className={cslx(preClass, `${preClass}--${getState}`, className)}
+          data-state={getState}
+          role="button"
+          tabIndex={-1}
+          onClick={clickHandler}
+          onMouseUp={mouseUpHandler}
           {...bindings}
           {...props}
         >
           <StyledBackdropLayer
-            className={cslx(
-              `${preClass}-layer`,
-              blur ? `${preClass}-layer-blur` : `${preClass}-layer-default`
-            )}
             animated={animated}
             blur={blur}
+            className={cslx(
+              `${preClass}-layer`,
+              blur ? `${preClass}-layer-blur` : `${preClass}-layer-default`,
+            )}
           />
           <StyledBackdropContent
             animated={animated}
             className={`${preClass}-content`}
-            onClick={childrenClickHandler}
             css={{
-              maxWidth
+              maxWidth,
             }}
+            onClick={childrenClickHandler}
             onMouseDown={() => setIsContentMouseDown(true)}
           >
             {children}
@@ -141,11 +136,11 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
       <>
         {animated ? (
           <CSSTransition
-            name={`${preClass}-wrapper`}
-            visible={visible}
+            clearTime={150}
             enterTime={20}
             leaveTime={20}
-            clearTime={150}
+            name={`${preClass}-wrapper`}
+            visible={visible}
           >
             {renderChildren}
           </CSSTransition>
@@ -154,13 +149,13 @@ const Backdrop: React.FC<React.PropsWithChildren<BackdropProps>> = React.memo(
         ) : null}
       </>
     );
-  }
+  },
 );
 
 if (__DEV__) {
-  Backdrop.displayName = 'NextUI.Backdrop';
+  Backdrop.displayName = "NextUI.Backdrop";
 }
 
-Backdrop.toString = () => '.nextui-backdrop';
+Backdrop.toString = () => ".nextui-backdrop";
 
 export default withDefaults(Backdrop, defaultProps);

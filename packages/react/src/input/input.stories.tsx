@@ -1,34 +1,28 @@
-import React, { useEffect, useMemo } from 'react';
-import { Meta } from '@storybook/react';
-import Input from './index';
-import useInput from '../use-input';
-import { Text, Spacer, Button, Grid } from '../index';
-import {
-  Lock,
-  Unlock,
-  User,
-  Activity,
-  Notification,
-  Sun,
-  Moon
-} from '../utils/icons';
-import useTheme from '../use-theme';
+import React, {useEffect, useMemo} from "react";
+import {Meta} from "@storybook/react";
+
+import useInput from "../use-input";
+import {Text, Spacer, Button, Grid} from "../index";
+import {Lock, Unlock, User, Activity, Notification, Sun, Moon} from "../utils/icons";
+import useTheme from "../use-theme";
+
+import Input from "./index";
 
 export default {
-  title: 'General/Input',
+  title: "General/Input",
   component: Input,
   decorators: [
     (Story) => (
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column'
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <Story />
       </div>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
 export const Default = () => <Input label="Name" placeholder="Next UI" />;
@@ -37,15 +31,16 @@ export const FullWidth = () => <Input placeholder="Next UI" width="100%" />;
 
 export const Password = () => {
   const theme = useTheme();
+
   return (
     <>
       <Spacer y={1} />
-      <Input.Password labelPlaceholder="Password" initialValue="nextui123" />
+      <Input.Password initialValue="nextui123" labelPlaceholder="Password" />
       <Spacer y={1.5} />
       <Input.Password
+        hiddenIcon={<Lock fill="currentColor" theme={theme} />}
         labelPlaceholder="Custom icon"
-        visibleIcon={<Unlock theme={theme} fill="currentColor" />}
-        hiddenIcon={<Lock theme={theme} fill="currentColor" />}
+        visibleIcon={<Unlock fill="currentColor" theme={theme} />}
       />
     </>
   );
@@ -53,44 +48,45 @@ export const Password = () => {
 
 export const WithIcons = () => {
   const theme = useTheme();
+
   return (
     <>
       <Spacer y={1} />
       <Input
         clearable
+        contentLeft={<User fill="currentColor" theme={theme} />}
         labelPlaceholder="Icon left"
-        contentLeft={<User theme={theme} fill="currentColor" />}
       />
       <Spacer y={1.5} />
       <Input
         clearable
+        contentRight={<Activity fill="currentColor" theme={theme} />}
         labelPlaceholder="Icon right"
-        contentRight={<Activity theme={theme} fill="currentColor" />}
       />
       <Spacer y={1.5} />
       <Input
         clearable
-        status="success"
+        contentRight={<Notification fill="currentColor" theme={theme} />}
         labelPlaceholder="Icon left"
-        contentRight={<Notification theme={theme} fill="currentColor" />}
+        status="success"
       />
       <Spacer y={1.5} />
       <Input
         clearable
         underlined
         color="warning"
-        status="warning"
+        contentRight={<Sun filled fill="currentColor" theme={theme} />}
         labelPlaceholder="Icon left"
-        contentRight={<Sun theme={theme} filled fill="currentColor" />}
+        status="warning"
       />
       <Spacer y={1.5} />
       <Input
-        clearable
         bordered
+        clearable
         color="secondary"
-        status="secondary"
+        contentRight={<Moon filled fill="currentColor" theme={theme} />}
         labelPlaceholder="Icon left"
-        contentRight={<Moon theme={theme} filled fill="currentColor" />}
+        status="secondary"
       />
     </>
   );
@@ -113,17 +109,17 @@ export const ReadOnly = () => (
 
 export const Sizes = () => (
   <>
-    <Input size="xs" placeholder="Mini" />
+    <Input placeholder="Mini" size="xs" />
     <Spacer y={0.5} />
-    <Input size="sm" placeholder="Small" />
+    <Input placeholder="Small" size="sm" />
     <Spacer y={0.5} />
-    <Input size="md" placeholder="Medium" />
+    <Input placeholder="Medium" size="md" />
     <Spacer y={0.5} />
-    <Input size="lg" placeholder="Large" />
+    <Input placeholder="Large" size="lg" />
     <Spacer y={0.5} />
-    <Input size="xl" placeholder="xLarge" />
+    <Input placeholder="xLarge" size="xl" />
     <Spacer y={0.5} />
-    <Input width="50%" placeholder="Custom" />
+    <Input placeholder="Custom" width="50%" />
   </>
 );
 
@@ -147,71 +143,66 @@ export const NoShadow = () => (
     <Spacer y={1.5} />
     <Input labelPlaceholder="Default" shadow={false} />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Primary" status="primary" shadow={false} />
+    <Input labelPlaceholder="Primary" shadow={false} status="primary" />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Secondary" status="secondary" shadow={false} />
+    <Input labelPlaceholder="Secondary" shadow={false} status="secondary" />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Success" status="success" shadow={false} />
+    <Input labelPlaceholder="Success" shadow={false} status="success" />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Warning" status="warning" shadow={false} />
+    <Input labelPlaceholder="Warning" shadow={false} status="warning" />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Error" status="error" shadow={false} />
+    <Input labelPlaceholder="Error" shadow={false} status="error" />
   </>
 );
 
 export const NoAnimated = () => (
   <>
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Default" animated={false} />
+    <Input animated={false} labelPlaceholder="Default" />
     <Spacer y={1.5} />
-    <Input
-      underlined
-      labelPlaceholder="Primary"
-      animated={false}
-      color="primary"
-    />
+    <Input underlined animated={false} color="primary" labelPlaceholder="Primary" />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Secondary" status="secondary" animated={false} />
+    <Input animated={false} labelPlaceholder="Secondary" status="secondary" />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Success" status="success" animated={false} />
+    <Input animated={false} labelPlaceholder="Success" status="success" />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Warning" status="warning" animated={false} />
+    <Input animated={false} labelPlaceholder="Warning" status="warning" />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Error" status="error" animated={false} />
+    <Input animated={false} labelPlaceholder="Error" status="error" />
   </>
 );
 
 export const Bordered = () => (
   <>
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Default" color="default" />
+    <Input bordered color="default" labelPlaceholder="Default" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Primary" color="primary" />
+    <Input bordered color="primary" labelPlaceholder="Primary" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Secondary" color="secondary" />
+    <Input bordered color="secondary" labelPlaceholder="Secondary" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Success" color="success" />
+    <Input bordered color="success" labelPlaceholder="Success" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Warning" color="warning" />
+    <Input bordered color="warning" labelPlaceholder="Warning" />
     <Spacer y={1.5} />
-    <Input bordered labelPlaceholder="Error" color="error" />
+    <Input bordered color="error" labelPlaceholder="Error" />
   </>
 );
 
 export const Underlined = () => (
   <>
     <Spacer y={1.5} />
-    <Input underlined labelPlaceholder="Default" color="default" />
+    <Input underlined color="default" labelPlaceholder="Default" />
     <Spacer y={1.5} />
-    <Input underlined labelPlaceholder="Primary" color="primary" />
+    <Input underlined color="primary" labelPlaceholder="Primary" />
     <Spacer y={1.5} />
-    <Input underlined labelPlaceholder="Secondary" color="secondary" />
+    <Input underlined color="secondary" labelPlaceholder="Secondary" />
     <Spacer y={1.5} />
-    <Input underlined labelPlaceholder="Success" color="success" />
+    <Input underlined color="success" labelPlaceholder="Success" />
     <Spacer y={1.5} />
-    <Input underlined labelPlaceholder="Warning" color="warning" />
+    <Input underlined color="warning" labelPlaceholder="Warning" />
     <Spacer y={1.5} />
-    <Input underlined labelPlaceholder="Error" color="error" />
+    <Input underlined color="error" labelPlaceholder="Error" />
   </>
 );
 
@@ -260,59 +251,39 @@ export const WithLabels = () => (
   <>
     <Input label="Name" placeholder="Enter your name" />
     <Spacer y={1.5} />
-    <Input labelPlaceholder="Label placeholder" color="primary" />
+    <Input color="primary" labelPlaceholder="Label placeholder" />
     <Spacer y={1.5} />
     <Input labelLeft="username" placeholder="Next UI" />
     <Spacer y={1.5} />
-    <Input
-      status="error"
-      labelRight=".com"
-      placeholder="https://github/nextui-org/nextui"
-    />
+    <Input labelRight=".com" placeholder="https://github/nextui-org/nextui" status="error" />
     <Spacer y={1.5} />
-    <Input
-      status="primary"
-      underlined
-      labelLeft="username"
-      placeholder="Next UI"
-    />
+    <Input underlined labelLeft="username" placeholder="Next UI" status="primary" />
     <Spacer y={1.5} />
-    <Input
-      bordered
-      labelRight=".com"
-      placeholder="https://github/nextui-org/nextui"
-    />
+    <Input bordered labelRight=".com" placeholder="https://github/nextui-org/nextui" />
     <Spacer y={1.5} />
-    <Input
-      bordered
-      labelLeft="https://"
-      placeholder="github/nextui-org/nextui"
-    />
+    <Input bordered labelLeft="https://" placeholder="github/nextui-org/nextui" />
     <Spacer y={1.5} />
-    <Input
-      bordered
-      labelLeft="https://"
-      labelRight=".org"
-      placeholder="nextui"
-    />
+    <Input bordered labelLeft="https://" labelRight=".org" placeholder="nextui" />
   </>
 );
 
 export const WithHelperText = () => {
-  const { value, reset, bindings } = useInput('');
+  const {value, reset, bindings} = useInput("");
 
   const validateEmail = (value: string) => {
     return /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(value);
   };
 
   const helperText = useMemo(() => {
-    if (!value) return '';
-    return !validateEmail(value) ? 'Enter a valid email' : 'Correct email';
+    if (!value) return "";
+
+    return !validateEmail(value) ? "Enter a valid email" : "Correct email";
   }, [value]);
 
   const helperColor = useMemo(() => {
-    if (!value) return 'default';
-    return !validateEmail(value) ? 'error' : 'success';
+    if (!value) return "default";
+
+    return !validateEmail(value) ? "error" : "success";
   }, [value]);
 
   return (
@@ -320,14 +291,14 @@ export const WithHelperText = () => {
       <Input
         {...bindings}
         clearable
-        shadow={false}
-        onClearClick={reset}
-        helperText={helperText}
         helperColor={helperColor}
-        status={helperColor}
-        type="email"
+        helperText={helperText}
         label="Email"
         placeholder="With regex validation"
+        shadow={false}
+        status={helperColor}
+        type="email"
+        onClearClick={reset}
       />
       <Spacer y={1.4} />
       <Input
@@ -340,57 +311,59 @@ export const WithHelperText = () => {
       <Input
         clearable
         color="error"
-        label="Error"
-        status="error"
-        helperText="Required"
         helperColor="error"
+        helperText="Required"
+        label="Error"
         placeholder="Enter something"
+        status="error"
       />
       <Spacer y={1.4} />
       <Input
         clearable
         color="success"
-        initialValue="getnextui"
         helperText="Excelent username"
-        type="test"
+        initialValue="getnextui"
         label="Username"
         placeholder="Enter your username"
+        type="test"
       />
       <Spacer y={1.4} />
       <Input
         clearable
         color="error"
         helperText="Required"
-        type="email"
         label="Email"
         placeholder="Enter your email"
+        type="email"
       />
       <Spacer y={1.4} />
       <Input
         clearable
         color="warning"
         helperText="Insecure password"
-        type="password"
         label="Password"
         placeholder="Enter your password"
+        type="password"
       />
       <Spacer y={1.4} />
       <Input.Password
         clearable
         color="warning"
-        initialValue="123"
         helperText="Insecure password"
-        type="password"
+        initialValue="123"
         label="Password"
         placeholder="Enter your password with eye"
+        type="password"
       />
     </>
   );
 };
 
 export const WithUseInput = () => {
-  const { value, setValue, reset, bindings } = useInput('NextUI');
+  const {value, setValue, reset, bindings} = useInput("NextUI");
+
   useEffect(() => console.log(value), [value]);
+
   return (
     <>
       <Input {...bindings} />
@@ -421,14 +394,11 @@ export const Uncontrolled = () => {
   const onClick = () => {
     if (inputRef.current) inputRef.current.value = Math.random().toString(32);
   };
+
   return (
     <>
       <Text>Update component in an uncontrolled way.</Text>
-      <Input
-        ref={inputRef}
-        initialValue="Hello"
-        onChange={(e) => console.log(e.target.value)}
-      />
+      <Input ref={inputRef} initialValue="Hello" onChange={(e) => console.log(e.target.value)} />
       <Spacer y={0.5} />
       <Button auto color="secondary" size="sm" onClick={onClick}>
         Set value

@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import {useEffect} from "react";
 
 const useDomClean = (): void => {
   useEffect(() => {
-    document.documentElement.removeAttribute('style');
-    document.body.removeAttribute('style');
+    document.documentElement.removeAttribute("style");
+    document.body.removeAttribute("style");
   }, []);
 };
 

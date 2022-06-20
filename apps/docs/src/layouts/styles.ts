@@ -1,40 +1,39 @@
-import { styled } from '@nextui-org/react';
+import {styled} from "@nextui-org/react";
 
-export const StyledNavMainContainer = styled('nav', {
+export const StyledNavMainContainer = styled("nav", {
   top: 0,
-  height: '76px',
-  position: 'sticky',
-  background: 'transparent',
-  zIndex: '$max'
+  height: "76px",
+  position: "sticky",
+  background: "transparent",
+  zIndex: "$max",
 });
 
-export const StyledNavContainer = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  size: '100%',
-  '& .navbar__social-icon': {
-    fill: '$colors$accents6'
+export const StyledNavContainer = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  size: "100%",
+  "& .navbar__social-icon": {
+    fill: "$colors$accents6",
   },
   variants: {
     showBlur: {
       true: {
-        background: '$background',
-        '@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))':
-          {
-            background: '$headerBackground'
-          }
-      }
+        background: "$background",
+        "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
+          background: "$headerBackground",
+        },
+      },
     },
     detached: {
       true: {
-        backdropFilter: 'saturate(180%) blur(10px)',
-        boxShadow: '0px 5px 20px -5px rgba(2, 1, 1, 0.1)'
+        backdropFilter: "saturate(180%) blur(10px)",
+        boxShadow: "0px 5px 20px -5px rgba(2, 1, 1, 0.1)",
       },
       false: {
-        backdropFilter: 'none',
-        boxShadow: 'none',
-        background: 'transparent'
-      }
-    }
-  }
+        backdropFilter: "none",
+        boxShadow: "none",
+        background: "transparent",
+      },
+    },
+  },
 });

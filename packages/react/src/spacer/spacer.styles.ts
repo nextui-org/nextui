@@ -1,20 +1,20 @@
-import { styled, VariantProps } from '../theme/stitches.config';
+import {styled, VariantProps} from "../theme/stitches.config";
 
-export const StyledSpacer = styled('span', {
-  size: '1px',
+export const StyledSpacer = styled("span", {
+  size: "1px",
   variants: {
     inline: {
       true: {
-        display: 'inline-block'
+        display: "inline-block",
       },
       false: {
-        display: 'block'
-      }
-    }
+        display: "block",
+      },
+    },
   },
   defaultVariants: {
-    inline: false
-  }
+    inline: false,
+  },
 });
 
 export type SpacerVariantsProps = VariantProps<typeof StyledSpacer>;

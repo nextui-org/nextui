@@ -1,234 +1,209 @@
-import { ElementType } from 'react';
+import {ElementType} from "react";
 
 export const tuple = <T extends string[]>(...args: T) => args;
 
-const normalSizes = tuple('xs', 'sm', 'md', 'lg', 'xl');
+const normalSizes = tuple("xs", "sm", "md", "lg", "xl");
 
 export const normalColors = tuple(
-  'default',
-  'primary',
-  'secondary',
-  'success',
-  'warning',
-  'error',
-  'gradient'
+  "default",
+  "primary",
+  "secondary",
+  "success",
+  "warning",
+  "error",
+  "gradient",
 );
 
-export const simpleColors = tuple(
-  'default',
-  'primary',
-  'secondary',
-  'success',
-  'warning',
-  'error'
-);
+export const simpleColors = tuple("default", "primary", "secondary", "success", "warning", "error");
 
 export const extendedColors = tuple(
-  'default',
-  'primary',
-  'secondary',
-  'success',
-  'warning',
-  'error',
-  'invert',
-  'gradient'
+  "default",
+  "primary",
+  "secondary",
+  "success",
+  "warning",
+  "error",
+  "invert",
+  "gradient",
 );
 
 export const extendedColorsNoGradient = tuple(
-  'default',
-  'primary',
-  'secondary',
-  'success',
-  'warning',
-  'error',
-  'invert'
+  "default",
+  "primary",
+  "secondary",
+  "success",
+  "warning",
+  "error",
+  "invert",
 );
 
 export const extraColors = tuple(
-  'default',
-  'primary',
-  'secondary',
-  'success',
-  'warning',
-  'error',
-  'dark',
-  'lite',
-  'alert',
-  'purple',
-  'violet',
-  'gradient',
-  'cyan'
+  "default",
+  "primary",
+  "secondary",
+  "success",
+  "warning",
+  "error",
+  "dark",
+  "lite",
+  "alert",
+  "purple",
+  "violet",
+  "gradient",
+  "cyan",
 );
 
-export const normalLoaders = tuple(
-  'default',
-  'points',
-  'points-opacity',
-  'gradient',
-  'spinner'
-);
+export const normalLoaders = tuple("default", "points", "points-opacity", "gradient", "spinner");
 
-export const normalWeights = tuple(
-  'light',
-  'normal',
-  'bold',
-  'extrabold',
-  'black'
-);
+export const normalWeights = tuple("light", "normal", "bold", "extrabold", "black");
 
 export const textWeights = tuple(
   /* Keyword values */
-  'normal',
-  'bold',
+  "normal",
+  "bold",
   /* Keyword values relative to the parent */
-  'lighter',
-  'bolder',
+  "lighter",
+  "bolder",
   /* Global values */
-  'inherit',
-  'initial',
-  'revert',
-  'unset'
+  "inherit",
+  "initial",
+  "revert",
+  "unset",
 );
 
 export const textTransforms = tuple(
   /* Keyword values */
-  'none',
-  'capitalize',
-  'uppercase',
-  'lowercase',
-  'full-width',
-  'full-size-kana',
+  "none",
+  "capitalize",
+  "uppercase",
+  "lowercase",
+  "full-width",
+  "full-size-kana",
   /* Global values */
-  'inherit',
-  'initial',
-  'revert',
-  'unset'
+  "inherit",
+  "initial",
+  "revert",
+  "unset",
 );
 
-const copyTypes = tuple('default', 'slient', 'prevent');
+const copyTypes = tuple("default", "slient", "prevent");
 
-const triggerTypes = tuple('hover', 'click');
+const triggerTypes = tuple("hover", "click");
 
 const placement = tuple(
-  'top',
-  'topStart',
-  'topEnd',
-  'left',
-  'leftStart',
-  'leftEnd',
-  'bottom',
-  'bottomStart',
-  'bottomEnd',
-  'right',
-  'rightStart',
-  'rightEnd'
+  "top",
+  "topStart",
+  "topEnd",
+  "left",
+  "leftStart",
+  "leftEnd",
+  "bottom",
+  "bottomStart",
+  "bottomEnd",
+  "right",
+  "rightStart",
+  "rightEnd",
 );
 
 const position = tuple(
-  'static',
-  'relative',
-  'absolute',
-  'fixed',
-  'sticky',
+  "static",
+  "relative",
+  "absolute",
+  "fixed",
+  "sticky",
   /* Global values */
-  'inherit',
-  'initial',
-  'revert',
-  'unset'
+  "inherit",
+  "initial",
+  "revert",
+  "unset",
 );
 
 const objectFit = tuple(
-  'contain',
-  'cover',
-  'fill',
-  'none',
-  'scale-down',
+  "contain",
+  "cover",
+  "fill",
+  "none",
+  "scale-down",
   /* Global values */
-  'inherit',
-  'initial',
-  'revert',
-  'unset'
+  "inherit",
+  "initial",
+  "revert",
+  "unset",
 );
 
-const dividerAlign = tuple('start', 'center', 'end', 'left', 'right');
+const dividerAlign = tuple("start", "center", "end", "left", "right");
 
 const justify = tuple(
-  'flex-start',
-  'center',
-  'flex-end',
-  'space-between',
-  'space-around',
-  'space-evenly'
+  "flex-start",
+  "center",
+  "flex-end",
+  "space-between",
+  "space-around",
+  "space-evenly",
 );
 
-const alignItems = tuple(
-  'flex-start',
-  'flex-end',
-  'center',
-  'stretch',
-  'baseline'
-);
+const alignItems = tuple("flex-start", "flex-end", "center", "stretch", "baseline");
 
 const alignContent = tuple(
-  'stretch',
-  'center',
-  'flex-start',
-  'flex-end',
-  'space-between',
-  'space-around'
+  "stretch",
+  "center",
+  "flex-start",
+  "flex-end",
+  "space-between",
+  "space-around",
 );
 
-const direction = tuple('row', 'row-reverse', 'column', 'column-reverse');
+const direction = tuple("row", "row-reverse", "column", "column-reverse");
 
-const wrap = tuple('nowrap', 'wrap', 'wrap-reverse');
+const wrap = tuple("nowrap", "wrap", "wrap-reverse");
 
 const display = tuple(
-  'flex',
-  'block',
-  'grid',
-  'inline',
-  'inline-block',
-  'inline-flex',
-  'inline-grid'
+  "flex",
+  "block",
+  "grid",
+  "inline",
+  "inline-block",
+  "inline-flex",
+  "inline-grid",
 );
 
-const contentPosition = tuple('left', 'right');
+const contentPosition = tuple("left", "right");
 
-const normalAlignments = tuple('start', 'center', 'end');
+const normalAlignments = tuple("start", "center", "end");
 
 export const excludedInputPropsForTextarea = tuple(
-  'clearable',
-  'as',
-  'rounded',
-  'labelLeft',
-  'labelRight',
-  'contentLeft',
-  'contentRight',
-  'contentClickable',
-  'contentLeftStyling',
-  'contentRightStyling',
-  'onContentClick',
-  'onClearClick',
-  'css'
+  "clearable",
+  "as",
+  "rounded",
+  "labelLeft",
+  "labelRight",
+  "contentLeft",
+  "contentRight",
+  "contentClickable",
+  "contentLeftStyling",
+  "contentRightStyling",
+  "onContentClick",
+  "onClearClick",
+  "css",
 );
 
 export const excludedTableProps = tuple(
-  'items',
-  'disabledKeys',
-  'allowDuplicateSelectionEvents',
-  'disallowEmptySelection',
-  'defaultSelectedKeys',
-  'sortDescriptor',
-  'onSortChange'
+  "items",
+  "disabledKeys",
+  "allowDuplicateSelectionEvents",
+  "disallowEmptySelection",
+  "defaultSelectedKeys",
+  "sortDescriptor",
+  "onSortChange",
 );
 
-const selectionBehavior = tuple('toggle', 'replace');
+const selectionBehavior = tuple("toggle", "replace");
 
-const selectionMode = tuple('none', 'single', 'multiple');
+const selectionMode = tuple("none", "single", "multiple");
 
-const dropdownVariants = tuple('flat', 'light', 'solid', 'shadow');
+const dropdownVariants = tuple("flat", "light", "solid", "shadow");
 
-const cardVariants = tuple('flat', 'bordered', 'shadow');
+const cardVariants = tuple("flat", "bordered", "shadow");
 
 export type Display = typeof display[number];
 
