@@ -1,7 +1,7 @@
 import type {FocusRingAria} from "@react-aria/focus";
 
 import {useFocusRing} from "@react-aria/focus";
-import React, {useMemo, useState, useRef, useEffect} from "react";
+import React, {useMemo, useState, useEffect} from "react";
 import {mergeProps} from "@react-aria/utils";
 
 import {CSS} from "../theme/stitches.config";
@@ -19,6 +19,7 @@ interface Props {
   icon?: React.ReactNode;
   alt?: string;
   className?: string;
+  imgRef?: ReactRef<HTMLImageElement>;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -40,14 +41,14 @@ const safeText = (text: string): string => {
 };
 
 export const Avatar = React.forwardRef((props: AvatarProps, ref: ReactRef<HTMLSpanElement>) => {
-  const {as, src, css, text, icon, alt, className, ...otherProps} = props;
+  const {as, src, css, text, icon, alt, className,       imgRef: imgRefProp,...otherProps} = props;
 
   const domRef = useDOMRef(ref);
 
   const showText = !src;
   const [ready, setReady] = useState(false);
 
-  const imgRef = useRef<HTMLImageElement>(null);
+  const imgRef = useDOMRef(imgRefProp);
 
   const {isFocusVisible, focusProps}: IFocusRingAria = useFocusRing();
 
