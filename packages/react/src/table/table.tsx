@@ -68,6 +68,8 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       borderWeight,
       bordered,
       containerCss,
+      onSelectionChange,
+      onSortChange,
       ...props
     } = tableProps;
 
@@ -79,6 +81,8 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 
     const state = useTableState({
       ...tableProps,
+      onSelectionChange,
+      onSortChange,
       children: withoutPaginationChildren,
       showSelectionCheckboxes:
         tableProps.showSelectionCheckboxes !== undefined
