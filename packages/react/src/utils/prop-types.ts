@@ -1,4 +1,4 @@
-import {ElementType} from "react";
+import { ElementType } from "react";
 
 export const tuple = <T extends string[]>(...args: T) => args;
 
@@ -11,10 +11,17 @@ export const normalColors = tuple(
   "success",
   "warning",
   "error",
-  "gradient",
+  "gradient"
 );
 
-export const simpleColors = tuple("default", "primary", "secondary", "success", "warning", "error");
+export const simpleColors = tuple(
+  "default",
+  "primary",
+  "secondary",
+  "success",
+  "warning",
+  "error"
+);
 
 export const extendedColors = tuple(
   "default",
@@ -24,7 +31,7 @@ export const extendedColors = tuple(
   "warning",
   "error",
   "invert",
-  "gradient",
+  "gradient"
 );
 
 export const extendedColorsNoGradient = tuple(
@@ -34,7 +41,7 @@ export const extendedColorsNoGradient = tuple(
   "success",
   "warning",
   "error",
-  "invert",
+  "invert"
 );
 
 export const extraColors = tuple(
@@ -50,12 +57,24 @@ export const extraColors = tuple(
   "purple",
   "violet",
   "gradient",
-  "cyan",
+  "cyan"
 );
 
-export const normalLoaders = tuple("default", "points", "points-opacity", "gradient", "spinner");
+export const normalLoaders = tuple(
+  "default",
+  "points",
+  "points-opacity",
+  "gradient",
+  "spinner"
+);
 
-export const normalWeights = tuple("light", "normal", "bold", "extrabold", "black");
+export const normalWeights = tuple(
+  "light",
+  "normal",
+  "bold",
+  "extrabold",
+  "black"
+);
 
 export const textWeights = tuple(
   /* Keyword values */
@@ -68,7 +87,7 @@ export const textWeights = tuple(
   "inherit",
   "initial",
   "revert",
-  "unset",
+  "unset"
 );
 
 export const textTransforms = tuple(
@@ -83,7 +102,7 @@ export const textTransforms = tuple(
   "inherit",
   "initial",
   "revert",
-  "unset",
+  "unset"
 );
 
 const copyTypes = tuple("default", "slient", "prevent");
@@ -102,7 +121,7 @@ const placement = tuple(
   "bottomEnd",
   "right",
   "rightStart",
-  "rightEnd",
+  "rightEnd"
 );
 
 const position = tuple(
@@ -115,7 +134,7 @@ const position = tuple(
   "inherit",
   "initial",
   "revert",
-  "unset",
+  "unset"
 );
 
 const objectFit = tuple(
@@ -128,7 +147,7 @@ const objectFit = tuple(
   "inherit",
   "initial",
   "revert",
-  "unset",
+  "unset"
 );
 
 const dividerAlign = tuple("start", "center", "end", "left", "right");
@@ -139,10 +158,16 @@ const justify = tuple(
   "flex-end",
   "space-between",
   "space-around",
-  "space-evenly",
+  "space-evenly"
 );
 
-const alignItems = tuple("flex-start", "flex-end", "center", "stretch", "baseline");
+const alignItems = tuple(
+  "flex-start",
+  "flex-end",
+  "center",
+  "stretch",
+  "baseline"
+);
 
 const alignContent = tuple(
   "stretch",
@@ -150,7 +175,7 @@ const alignContent = tuple(
   "flex-start",
   "flex-end",
   "space-between",
-  "space-around",
+  "space-around"
 );
 
 const direction = tuple("row", "row-reverse", "column", "column-reverse");
@@ -164,7 +189,7 @@ const display = tuple(
   "inline",
   "inline-block",
   "inline-flex",
-  "inline-grid",
+  "inline-grid"
 );
 
 const contentPosition = tuple("left", "right");
@@ -184,17 +209,7 @@ export const excludedInputPropsForTextarea = tuple(
   "contentRightStyling",
   "onContentClick",
   "onClearClick",
-  "css",
-);
-
-export const excludedTableProps = tuple(
-  "items",
-  "disabledKeys",
-  "allowDuplicateSelectionEvents",
-  "disallowEmptySelection",
-  "defaultSelectedKeys",
-  "sortDescriptor",
-  "onSortChange",
+  "css"
 );
 
 const selectionBehavior = tuple("toggle", "replace");
