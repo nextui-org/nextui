@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Table from '../index';
+import { updateWrapper } from 'tests/utils';
+import { getKeyValue } from '../../utils/object';
 
 const STITCHES_FACTOR = 2;
 
@@ -350,5 +352,70 @@ describe('Table', () => {
     const thirdColumnHeader = columnHeaders.at(2 * STITCHES_FACTOR);
     expect(thirdColumnHeader.text()).toBe('DATE MODIFIED');
     expect(thirdColumnHeader.props()['aria-sort']).toBe('none');
+  });
+
+  it('should reset pagination when amount of rows change', async () => {
+    const rows1 = [
+      { id: 1, name: 'Games', date: '6/7/2020', type: 'File folder' },
+      { id: 2, name: 'Program Files', date: '4/7/2021', type: 'File folder' },
+      { id: 3, name: 'bootmgr', date: '11/20/2010', type: 'System file' }
+    ];
+
+    const rows2 = [
+      ...rows1,
+      { id: 4, name: 'log.txt', date: '1/18/2016', type: 'Text Document' }
+    ];
+
+    const CustomRender: React.FC = () => {
+      const [moreRows, setMoreRows] = React.useState(true);
+
+      return (
+        <>
+          <button onClick={() => setMoreRows(!moreRows)}>Switch</button>
+          <Table
+            aria-label="Test sorting table"
+            sortDescriptor={{ column: 'type', direction: 'descending' }}
+          >
+            <Table.Header>
+              <Table.Column key="name">NAME</Table.Column>
+              <Table.Column key="type" allowsSorting>
+                TYPE
+              </Table.Column>
+              <Table.Column key="date_modified" allowsSorting>
+                DATE MODIFIED
+              </Table.Column>
+            </Table.Header>
+            <Table.Body items={moreRows ? rows2 : rows1}>
+              {(item) => (
+                <Table.Row>
+                  {(columnKey) => (
+                    <Table.Cell>{getKeyValue(item, columnKey)}</Table.Cell>
+                  )}
+                </Table.Row>
+              )}
+            </Table.Body>
+            <Table.Pagination rowsPerPage={2} />
+          </Table>
+        </>
+      );
+    };
+
+    const wrapper = mount(<CustomRender />);
+
+    const getPagination = () => wrapper.find('nav').at(0);
+    const getActivePaginationBtn = () =>
+      getPagination().find('button[aria-label*="active"]').at(0);
+
+    getPagination().find('button[aria-label="2 item"]').at(0).simulate('click');
+
+    await updateWrapper(wrapper);
+
+    expect(getActivePaginationBtn().props()['aria-label']).toMatch(/2 item/i);
+
+    wrapper.find('button').at(0).simulate('click');
+
+    await updateWrapper(wrapper);
+
+    expect(getActivePaginationBtn().props()['aria-label']).toMatch(/1 item/i);
   });
 });
