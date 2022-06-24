@@ -1,7 +1,14 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 
-import {CSS} from "../theme/stitches.config";
-import {Wrap, Display, Justify, Direction, AlignItems, AlignContent} from "../utils/prop-types";
+import { CSS } from "../theme/stitches.config";
+import {
+  Wrap,
+  Display,
+  Justify,
+  Direction,
+  AlignItems,
+  AlignContent,
+} from "../utils/prop-types";
 
 import StyledContainer from "./container.styles";
 
@@ -42,62 +49,73 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type ContainerProps = Props & typeof defaultProps & NativeAttrs;
 
-const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
-  wrap,
-  gap,
-  as,
-  display,
-  justify,
-  direction,
-  alignItems,
-  alignContent,
-  children,
-  responsive,
-  fluid,
-  css,
-  ...props
-}) => {
-  const gapUnit = useMemo(() => {
-    return `calc(${gap} * $space$sm)`;
-  }, [gap]);
+const Container = React.forwardRef<
+  HTMLElement,
+  React.PropsWithChildren<ContainerProps>
+>(
+  (
+    {
+      xs,
+      sm,
+      md,
+      lg,
+      xl,
+      wrap,
+      gap,
+      as,
+      display,
+      justify,
+      direction,
+      alignItems,
+      alignContent,
+      children,
+      responsive,
+      fluid,
+      css,
+      ...props
+    },
+    ref
+  ) => {
+    const gapUnit = useMemo(() => {
+      return `calc(${gap} * $space$sm)`;
+    }, [gap]);
 
-  const getMaxWidth = () => {
-    if (xs) return "$breakpoints$xs";
-    if (sm) return "$breakpoints$sm";
-    if (md) return "$breakpoints$md";
-    if (lg) return "$breakpoints$lg";
-    if (xl) return "$breakpoints$xl";
+    const getMaxWidth = () => {
+      if (xs) return "$breakpoints$xs";
+      if (sm) return "$breakpoints$sm";
+      if (md) return "$breakpoints$md";
+      if (lg) return "$breakpoints$lg";
+      if (xl) return "$breakpoints$xl";
 
-    return "";
-  };
+      return "";
+    };
 
-  return (
-    <StyledContainer
-      as={as}
-      css={{
-        px: gapUnit,
-        maxWidth: getMaxWidth(),
-        alignItems,
-        alignContent,
-        flexWrap: wrap,
-        display: display,
-        justifyContent: justify,
-        flexDirection: direction,
-        ...(css as any),
-      }}
-      fluid={fluid}
-      responsive={responsive}
-      {...props}
-    >
-      {children}
-    </StyledContainer>
-  );
-};
+    return (
+      <StyledContainer
+        ref={ref}
+        as={as}
+        css={{
+          px: gapUnit,
+          maxWidth: getMaxWidth(),
+          alignItems,
+          alignContent,
+          flexWrap: wrap,
+          display: display,
+          justifyContent: justify,
+          flexDirection: direction,
+          ...(css as any),
+        }}
+        fluid={fluid}
+        responsive={responsive}
+        {...props}
+      >
+        {children}
+      </StyledContainer>
+    );
+  }
+);
+
+Container.displayName = "NextUI.Container";
 
 Container.toString = () => ".nextui-container";
 
