@@ -1,7 +1,7 @@
 const DeleteUser = `import React from "react";
 import { useTheme, Text, Button, Grid, Row } from "@nextui-org/react";
 
-export const DeleteUser = () => {
+export const DeleteUser = () => {  
   return (
     <Grid.Container
       css={{ borderRadius: "14px", padding: "0.75rem", maxWidth: "330px" }}
@@ -148,7 +148,7 @@ export const UserTwitterCard = ({
   );
 };`;
 
-const AppJs = `import { Tooltip, Button, Grid, Avatar } from "@nextui-org/react";
+const AppJs = `import { Tooltip, Link, Grid, Avatar } from "@nextui-org/react";
 import { UserTwitterCard } from "./UserTwitterCard";
 import { DeleteUser } from "./DeleteUser";
 
@@ -157,9 +157,9 @@ export default function App() {
     <Grid.Container gap={2} alignItems="center">
       <Grid>
         <Tooltip trigger="click" content={<DeleteUser />}>
-          <Button color="error" auto flat>
+          <Link color="error">
             Click Delete User
-          </Button>
+          </Link>
         </Tooltip>
       </Grid>
       <Grid>
