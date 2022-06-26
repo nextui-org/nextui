@@ -440,7 +440,6 @@ export const SwitchPagination = () => {
             minWidth: '100%'
           }
         }}
-        selectionMode="multiple"
         color="secondary"
       >
         <Table.Header columns={columns}>
