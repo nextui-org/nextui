@@ -11,7 +11,7 @@ const useResize = (
     }
     window.addEventListener('resize', fn);
     return () => window.removeEventListener('resize', fn);
-  }, []);
+  }, [callback, immediatelyInvoke]);
 };
 
 export default useResize;
