@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 
 import { CSS } from "../theme/stitches.config";
+import { useDOMRef } from "../utils/dom";
 import {
   Wrap,
   Display,
@@ -52,68 +53,67 @@ export type ContainerProps = Props & typeof defaultProps & NativeAttrs;
 const Container = React.forwardRef<
   HTMLElement,
   React.PropsWithChildren<ContainerProps>
->(
-  (
-    {
-      xs,
-      sm,
-      md,
-      lg,
-      xl,
-      wrap,
-      gap,
-      as,
-      display,
-      justify,
-      direction,
-      alignItems,
-      alignContent,
-      children,
-      responsive,
-      fluid,
-      css,
-      ...props
-    },
-    ref
-  ) => {
-    const gapUnit = useMemo(() => {
-      return `calc(${gap} * $space$sm)`;
-    }, [gap]);
+>((containerProps, ref) => {
+  const {
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    wrap,
+    gap,
+    as,
+    display,
+    justify,
+    direction,
+    alignItems,
+    alignContent,
+    children,
+    responsive,
+    fluid,
+    css,
+    ...otherProps
+  } = containerProps;
 
-    const getMaxWidth = () => {
-      if (xs) return "$breakpoints$xs";
-      if (sm) return "$breakpoints$sm";
-      if (md) return "$breakpoints$md";
-      if (lg) return "$breakpoints$lg";
-      if (xl) return "$breakpoints$xl";
+  const domRef = useDOMRef(ref);
 
-      return "";
-    };
+  const gapUnit = useMemo(() => {
+    return `calc(${gap} * $space$sm)`;
+  }, [gap]);
 
-    return (
-      <StyledContainer
-        ref={ref}
-        as={as}
-        css={{
-          px: gapUnit,
-          maxWidth: getMaxWidth(),
-          alignItems,
-          alignContent,
-          flexWrap: wrap,
-          display: display,
-          justifyContent: justify,
-          flexDirection: direction,
-          ...(css as any),
-        }}
-        fluid={fluid}
-        responsive={responsive}
-        {...props}
-      >
-        {children}
-      </StyledContainer>
-    );
-  }
-);
+  const getMaxWidth = () => {
+    if (xs) return "$breakpoints$xs";
+    if (sm) return "$breakpoints$sm";
+    if (md) return "$breakpoints$md";
+    if (lg) return "$breakpoints$lg";
+    if (xl) return "$breakpoints$xl";
+
+    return "";
+  };
+
+  return (
+    <StyledContainer
+      ref={domRef}
+      as={as}
+      css={{
+        px: gapUnit,
+        maxWidth: getMaxWidth(),
+        alignItems,
+        alignContent,
+        flexWrap: wrap,
+        display: display,
+        justifyContent: justify,
+        flexDirection: direction,
+        ...(css as any),
+      }}
+      fluid={fluid}
+      responsive={responsive}
+      {...otherProps}
+    >
+      {children}
+    </StyledContainer>
+  );
+});
 
 Container.displayName = "NextUI.Container";
 
