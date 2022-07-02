@@ -55,6 +55,10 @@ export const StyledCard = styled(
         },
         shadow: {
           dropShadow: "$lg",
+          "@safari": {
+            boxShadow: "$lg",
+            dropShadow: "none",
+          },
         },
         bordered: {
           borderStyle: "solid",
@@ -99,6 +103,10 @@ export const StyledCard = styled(
       isHovered: {
         true: {
           dropShadow: "$lg",
+          "@safari": {
+            boxShadow: "$lg",
+            dropShadow: "none",
+          },
         },
       },
     },
@@ -125,6 +133,10 @@ export const StyledCard = styled(
         variant: "shadow",
         css: {
           dropShadow: "$xl",
+          "@safari": {
+            boxShadow: "$xl",
+            dropShadow: "none",
+          },
         },
       },
     ],
