@@ -24,6 +24,14 @@ export const Default = () => (
   </Card>
 );
 
+export const Hoverable = () => (
+  <Card isHoverable css={{w: "400px"}} variant="bordered">
+    <Card.Body css={{py: "$lg"}}>
+      <Text>A basic card</Text>
+    </Card.Body>
+  </Card>
+);
+
 export const Variants = () => (
   <Grid.Container gap={2}>
     <Grid xs={4}>
