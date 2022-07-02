@@ -69,10 +69,7 @@ const Editor: React.FC<Props> = ({initialOpen, code}) => {
           <Row align="center" justify="space-between" style={{height: "100%", width: "100%"}}>
             <Col className="action left-side">
               <span className="arrow">
-                <RightIcon
-                  fill={!isDark ? theme?.colors?.accents2?.value : theme?.colors?.accents8?.value}
-                  size={16}
-                />
+                <RightIcon fill="currentColor" size={16} />
               </span>
               <span className="title">Live Editor</span>
             </Col>
@@ -85,12 +82,7 @@ const Editor: React.FC<Props> = ({initialOpen, code}) => {
                   onVisibleChange={handleTooltipVisibleChange}
                 >
                   <span className="icon" role="button" title="Copy Code" onClick={copyHandler}>
-                    <CopyIcon
-                      fill={
-                        !isDark ? theme?.colors?.accents2?.value : theme?.colors?.accents5?.value
-                      }
-                      size={18}
-                    />
+                    <CopyIcon fill="currentColor" size={18} />
                   </span>
                 </Tooltip>
                 <Tooltip hideArrow className="action-tooltip" content="Report a bug">
@@ -102,12 +94,7 @@ const Editor: React.FC<Props> = ({initialOpen, code}) => {
                     title="Report a bug"
                     onClick={linkHandler}
                   >
-                    <BugIcon
-                      fill={
-                        !isDark ? theme?.colors?.accents2?.value : theme?.colors?.accents5?.value
-                      }
-                      size={18}
-                    />
+                    <BugIcon fill="currentColor" size={18} />
                   </a>
                 </Tooltip>
               </>
@@ -164,7 +151,7 @@ const Editor: React.FC<Props> = ({initialOpen, code}) => {
           position: relative;
           box-sizing: border-box;
           white-space: pre;
-          font-size: 1em;
+          font-size: ${theme?.fontSizes?.sm?.value};
           overflow: hidden;
           font-family: ${theme?.fonts?.mono};
           padding: ${theme?.space?.sm?.value};
@@ -179,6 +166,7 @@ const Editor: React.FC<Props> = ({initialOpen, code}) => {
           width: 1rem;
           height: 1rem;
           margin-right: 0.5rem;
+          color: ${theme?.colors?.accents6?.value};
         }
         details[open] .arrow {
           transform: rotate(90deg);
@@ -188,11 +176,11 @@ const Editor: React.FC<Props> = ({initialOpen, code}) => {
           z-index: 100;
           align-items: center;
           margin-left: 0.5rem;
-          color: ${theme?.colors?.accents4?.value};
+          color: ${theme?.colors?.accents6?.value};
           transition: color 0.2s ease;
         }
         .icon:hover {
-          color: ${theme?.colors?.accents6?.value};
+          color: ${theme?.colors?.accents8?.value};
         }
       `}</style>
     </div>

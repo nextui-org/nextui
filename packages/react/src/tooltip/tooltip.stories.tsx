@@ -1,7 +1,7 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 
-import {Tooltip, Button, Code, Spacer, Grid} from "../index";
+import {Tooltip, Button, Code, Spacer, Grid, Link} from "../index";
 
 export default {
   title: "Display/Tooltip",
@@ -227,9 +227,7 @@ export const Trigger = () => {
   return (
     <Container>
       <Tooltip color="primary" content={"Developers love Next.js"} trigger="click">
-        <Button auto flat>
-          Click me
-        </Button>
+        <Link>Click me</Link>
       </Tooltip>
     </Container>
   );

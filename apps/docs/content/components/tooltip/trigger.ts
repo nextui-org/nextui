@@ -1,17 +1,19 @@
-const App = `import { Tooltip, Button, Grid } from "@nextui-org/react";
+const App = `import { Tooltip, Grid, Link, Text } from "@nextui-org/react";
 
 export default function App() {
   return (
-    <Grid.Container gap={2}>
-      <Grid>
+    <Grid.Container gap={2} alignContent="center">
+      <Grid css={{ dflex:"center" }}>
         <Tooltip
           content={"Developers love Next.js"}
           trigger="click"
           color="primary"
         >
-          <Button auto flat>
-            Click me
-          </Button>
+          <Link>
+            <Text b color="primary">
+              Click me
+            </Text>
+          </Link>
         </Tooltip>
       </Grid>
       <Grid>

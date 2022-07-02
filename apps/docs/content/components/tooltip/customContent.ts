@@ -1,10 +1,14 @@
 const DeleteUser = `import React from "react";
-import { useTheme, Text, Button, Grid, Row } from "@nextui-org/react";
+import { Text, Button, Grid, Row } from "@nextui-org/react";
 
 export const DeleteUser = () => {
   return (
     <Grid.Container
-      css={{ borderRadius: "14px", padding: "0.75rem", maxWidth: "330px" }}
+      css={{
+        borderRadius: "14px",
+        padding: "0.75rem",
+        maxWidth: "330px",
+      }}
     >
       <Row justify="center" align="center">
         <Text b>Confirm</Text>
@@ -157,9 +161,11 @@ export default function App() {
     <Grid.Container gap={2} alignItems="center">
       <Grid>
         <Tooltip trigger="click" content={<DeleteUser />}>
-          <Button color="error" auto flat>
-            Click Delete User
-          </Button>
+          <Link>
+            <Text b color="error">
+              Click Delete User
+            </Text>
+          </Link>
         </Tooltip>
       </Grid>
       <Grid>

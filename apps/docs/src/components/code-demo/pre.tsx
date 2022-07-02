@@ -3,7 +3,7 @@ import {styled} from "@nextui-org/react";
 import makeCodeTheme, {getCodeThemeColors} from "../playground/code-theme";
 
 const codeTheme = makeCodeTheme();
-const {stringColor, functionColor, punctuationColor, primitiveColor, classnameColor} =
+const {stringColor, functionColor, commentColor, primitiveColor, classnameColor} =
   getCodeThemeColors();
 
 export const Pre = styled("pre", {
@@ -16,7 +16,7 @@ export const Pre = styled("pre", {
   $$syntax4: "$colors$yellow600",
   $$syntax5: classnameColor?.style.color,
   $$syntax6: "$colors$yellow600",
-  $$comment: punctuationColor?.style.color,
+  $$comment: commentColor?.style.color,
   $$removed: "$colors$red300",
   $$added: "$colors$green300",
   $$lineNumbers: "$colors$gray700",
