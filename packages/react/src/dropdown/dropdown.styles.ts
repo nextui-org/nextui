@@ -209,7 +209,7 @@ export const StyledDropdownItem = styled(
         true: {
           bg: '$$dropdownItemHoverBackground',
           color: '$$dropdownItemHoverTextColor',
-          zIndex: 1,
+          zIndex: '$1',
           [`& ${StyledDropdownItemKbd}`]: {
             color: '$$dropdownItemHoverTextColor',
             borderColor: '$$dropdownItemHoverBorderColor'
