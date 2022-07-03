@@ -1,20 +1,11 @@
-import React, {
-  useImperativeHandle,
-  useRef,
-  RefAttributes,
-  PropsWithoutRef,
-} from "react";
-import { useTable } from "@react-aria/table";
-import { useTableState, TableStateProps } from "@react-stately/table";
-import {
-  SelectionMode,
-  SelectionBehavior,
-  CollectionChildren,
-} from "@react-types/shared";
+import React, {useImperativeHandle, useRef, RefAttributes, PropsWithoutRef} from "react";
+import {useTable} from "@react-aria/table";
+import {useTableState, TableStateProps} from "@react-stately/table";
+import {SelectionMode, SelectionBehavior, CollectionChildren} from "@react-types/shared";
 
-import { Spacer } from "../index";
-import { CSS } from "../theme/stitches.config";
-import { pickSingleChild } from "../utils/collections";
+import {Spacer} from "../index";
+import {CSS} from "../theme/stitches.config";
+import {pickSingleChild} from "../utils/collections";
 import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
 
@@ -38,8 +29,8 @@ import {
   TableVariantsProps,
   TableContainerVariantsProps,
 } from "./table.styles";
-import TableContext, { TableConfig } from "./table-context";
-import { isInfinityScroll, hasPaginationChild } from "./utils";
+import TableContext, {TableConfig} from "./table-context";
+import {isInfinityScroll, hasPaginationChild} from "./utils";
 
 interface Props<T> extends TableStateProps<T> {
   selectionMode?: SelectionMode;
@@ -49,15 +40,12 @@ interface Props<T> extends TableStateProps<T> {
   as?: keyof JSX.IntrinsicElements;
 }
 
-type NativeAttrs = Omit<
-  React.TableHTMLAttributes<unknown>,
-  keyof Props<object>
->;
+type NativeAttrs = Omit<React.TableHTMLAttributes<unknown>, keyof Props<object>>;
 
 export type TableProps<T = object> = Props<T> &
   NativeAttrs &
   Omit<TableVariantsProps, "isMultiple" | "shadow" | "hasPagination"> &
-  TableContainerVariantsProps & { css?: CSS; containerCss?: CSS };
+  TableContainerVariantsProps & {css?: CSS; containerCss?: CSS};
 
 const defaultProps = {
   animated: true,
@@ -89,10 +77,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       CollectionChildren<any>
     >(children, TablePagination);
 
-    const { hasPagination, rowsPerPage } = hasPaginationChild(
-      children,
-      TablePagination
-    );
+    const {hasPagination, rowsPerPage} = hasPaginationChild(children, TablePagination);
 
     const state = useTableState({
       ...tableProps,
@@ -107,7 +92,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
 
     useImperativeHandle(ref, () => tableRef?.current);
 
-    const { collection } = state;
+    const {collection} = state;
     const {
       gridProps,
     }: {
@@ -129,7 +114,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           borderWeight={borderWeight}
           bordered={bordered}
           className="nextui-table-container"
-          css={{ ...(containerCss as any) }}
+          css={{...(containerCss as any)}}
           shadow={shadow}
         >
           <StyledTable
@@ -146,11 +131,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           >
             <TableRowGroup as="thead" isFixed={isInfinityScroll(collection)}>
               {collection.headerRows.map((headerRow) => (
-                <TableHeaderRow
-                  key={headerRow?.key}
-                  item={headerRow}
-                  state={state}
-                >
+                <TableHeaderRow key={headerRow?.key} item={headerRow} state={state}>
                   {[...headerRow.childNodes].map((column) =>
                     column?.props?.isSelectionCell ? (
                       <TableSelectAllCheckbox
@@ -167,13 +148,11 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
                         column={column}
                         state={state}
                       />
-                    )
+                    ),
                   )}
                 </TableHeaderRow>
               ))}
-              {!sticked && (
-                <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />
-              )}
+              {!sticked && <Spacer as="tr" className="nextui-table-hidden-row" y={0.4} />}
             </TableRowGroup>
             <TableBody
               animated={animated}
@@ -188,11 +167,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
               <TableFooter>
                 <Spacer as="tr" className="nextui-table-hidden-row" y={0.6} />
                 <tr role="row">
-                  <th
-                    colSpan={collection.columnCount}
-                    role="columnheader"
-                    tabIndex={-1}
-                  >
+                  <th colSpan={collection.columnCount} role="columnheader" tabIndex={-1}>
                     {paginationChildren}
                   </th>
                 </tr>
@@ -202,7 +177,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
         </StyledTableContainer>
       </TableContext.Provider>
     );
-  }
+  },
 );
 
 type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
@@ -219,7 +194,4 @@ type TableComponent<T, P = {}> = React.ForwardRefExoticComponent<
 Table.displayName = "NextUI.Table";
 Table.toString = () => ".nextui-table";
 
-export default withDefaults(Table, defaultProps) as TableComponent<
-  HTMLTableElement,
-  TableProps
->;
+export default withDefaults(Table, defaultProps) as TableComponent<HTMLTableElement, TableProps>;
