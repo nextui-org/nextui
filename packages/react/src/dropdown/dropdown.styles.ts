@@ -207,9 +207,9 @@ export const StyledDropdownItem = styled(
       },
       isFocused: {
         true: {
-          bg: '$$dropdownItemHoverBackground',
-          color: '$$dropdownItemHoverTextColor',
-          zIndex: '$1',
+          bg: "$$dropdownItemHoverBackground",
+          color: "$$dropdownItemHoverTextColor",
+          zIndex: "$1",
           [`& ${StyledDropdownItemKbd}`]: {
             color: "$$dropdownItemHoverTextColor",
             borderColor: "$$dropdownItemHoverBorderColor",
