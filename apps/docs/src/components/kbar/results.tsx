@@ -191,7 +191,7 @@ export default function KBarResults(props: KBarResultsProps) {
           }
           .kbar-section-list__title {
             padding: 4px 16px;
-            color: ${theme?.colors?.accents7?.value};
+            color: ${theme?.colors?.accents9?.value};
             opacity: 0.4;
             font-size: 12px;
             font-weight: 500;
