@@ -1,17 +1,19 @@
-import React, { useMemo, useState, useRef } from 'react';
-import Tooltip from '../tooltip';
-import withDefaults from '../utils/with-defaults';
-import { CopyTypes, TooltipColors } from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
-import SnippetIcon from './snippet-icon';
-import useClipboard from '../use-clipboard';
+import React, {useMemo, useState, useRef} from "react";
+
+import Tooltip from "../tooltip";
+import withDefaults from "../utils/with-defaults";
+import {CopyTypes, TooltipColors} from "../utils/prop-types";
+import {CSS} from "../theme/stitches.config";
+import useClipboard from "../use-clipboard";
+import {__DEV__} from "../utils/assertion";
+
+import SnippetIcon from "./snippet-icon";
 import {
   StyledSnippet,
   StyledSnippetPre,
   StyledSnippetCopyButton,
-  SnippetVariantsProps
-} from './snippet.styles';
-import { __DEV__ } from '../utils/assertion';
+  SnippetVariantsProps,
+} from "./snippet.styles";
 
 interface Props {
   text?: string | string[];
@@ -25,12 +27,12 @@ interface Props {
 }
 
 const defaultProps = {
-  symbol: '$',
+  symbol: "$",
   showTooltip: true,
-  copy: 'default' as CopyTypes,
-  tooltipColor: 'default' as TooltipColors | string,
-  tooltipCopyText: 'Copy',
-  tooltipCopiedText: 'Copied'
+  copy: "default" as CopyTypes,
+  tooltipColor: "default" as TooltipColors | string,
+  tooltipCopyText: "Copy",
+  tooltipCopiedText: "Copied",
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -38,13 +40,14 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type SnippetProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  SnippetVariantsProps & { css?: CSS };
+  SnippetVariantsProps & {css?: CSS};
 
 const textArrayToString = (text: string[]): string => {
   return text.reduce((pre, current) => {
     if (!current) return pre;
+
     return pre ? `${pre}\n${current}` : current;
-  }, '');
+  }, "");
 };
 
 const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
@@ -61,28 +64,30 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  const { copy } = useClipboard();
+  const {copy} = useClipboard();
   const ref = useRef<HTMLPreElement>(null);
   const isMultiLine = text && Array.isArray(text);
 
-  const showCopyIcon = useMemo(() => copyType !== 'prevent', [copyType]);
+  const showCopyIcon = useMemo(() => copyType !== "prevent", [copyType]);
 
   const childText = useMemo<string | undefined | null>(() => {
     if (isMultiLine) return textArrayToString(text as string[]);
     if (!children) return text as string;
-    if (!ref.current) return '';
+    if (!ref.current) return "";
+
     return ref.current.textContent;
   }, [ref.current, children, text]);
 
   const symbolBefore = useMemo(() => {
     const str = symbol.trim();
-    return str ? `${str} ` : '';
+
+    return str ? `${str} ` : "";
   }, [symbol]);
 
   const clickHandler = () => {
     if (!childText || !showCopyIcon) return;
     copy(childText);
-    if (copyType === 'slient') return;
+    if (copyType === "slient") return;
     setCopied(true);
   };
 
@@ -97,33 +102,33 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
       {isMultiLine ? (
         (text as string[]).map((t, index) => (
           <StyledSnippetPre
-            css={{
-              '&:before': {
-                content: symbolBefore,
-                us: 'none'
-              }
-            }}
-            className="nextui-snippet-pre"
             key={`${index}-${t}`}
+            className="nextui-snippet-pre"
+            css={{
+              "&:before": {
+                content: symbolBefore,
+                us: "none",
+              },
+            }}
           >
             {t}
           </StyledSnippetPre>
         ))
       ) : (
         <StyledSnippetPre
-          css={{
-            '&:before': {
-              content: symbolBefore,
-              us: 'none'
-            }
-          }}
-          className="nextui-snippet-pre"
           ref={ref}
+          className="nextui-snippet-pre"
+          css={{
+            "&:before": {
+              content: symbolBefore,
+              us: "none",
+            },
+          }}
         >
           {children || text}
         </StyledSnippetPre>
       )}
-      {showCopyIcon && copyType !== 'slient' ? (
+      {showCopyIcon && copyType !== "slient" ? (
         <Tooltip
           hideArrow
           rounded
@@ -131,19 +136,13 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
           content={copied ? tooltipCopiedText : tooltipCopyText}
           onVisibleChange={handleTooltipVisibleChange}
         >
-          <StyledSnippetCopyButton
-            className="nextui-snippet-copy-button"
-            onClick={clickHandler}
-          >
+          <StyledSnippetCopyButton className="nextui-snippet-copy-button" onClick={clickHandler}>
             <SnippetIcon />
           </StyledSnippetCopyButton>
         </Tooltip>
       ) : (
-        copyType !== 'prevent' && (
-          <StyledSnippetCopyButton
-            className="nextui-snippet-copy-button"
-            onClick={clickHandler}
-          >
+        copyType !== "prevent" && (
+          <StyledSnippetCopyButton className="nextui-snippet-copy-button" onClick={clickHandler}>
             <SnippetIcon />
           </StyledSnippetCopyButton>
         )
@@ -153,10 +152,10 @@ const Snippet: React.FC<React.PropsWithChildren<SnippetProps>> = ({
 };
 
 if (__DEV__) {
-  Snippet.displayName = 'NextUI.Snippet';
+  Snippet.displayName = "NextUI.Snippet";
 }
 
-Snippet.toString = () => '.nextui-snippet';
+Snippet.toString = () => ".nextui-snippet";
 
 const MemoSnippet = React.memo(Snippet);
 

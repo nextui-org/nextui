@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useTheme } from '@nextui-org/react';
-import { Anchor } from '../icons';
+import React, {useEffect, useRef, useState} from "react";
+import {Link, useTheme} from "@nextui-org/react";
+
+import {Anchor} from "../icons";
 
 export interface Props {
   pure?: boolean;
@@ -8,14 +9,12 @@ export interface Props {
 
 export const virtualAnchorEncode = (text?: string) => {
   if (!text) return undefined;
-  return text.toLowerCase().replace(/ /g, '-');
+
+  return text.toLowerCase().replace(/ /g, "-");
 };
 
-const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({
-  children,
-  pure
-}) => {
-  const { theme } = useTheme();
+const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({children, pure}) => {
+  const {theme} = useTheme();
   const ref = useRef<HTMLAnchorElement>(null);
   const [id, setId] = useState<string | undefined>();
 
@@ -25,7 +24,7 @@ const VirtualAnchor: React.FC<React.PropsWithChildren<Props>> = ({
   }, [ref.current]);
 
   return (
-    <span className="parent" ref={ref}>
+    <span ref={ref} className="parent">
       <Link href={`#${id}`}>{children}</Link>
       <span className="virtual" id={id} />
       {!pure && (

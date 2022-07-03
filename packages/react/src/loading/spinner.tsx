@@ -1,14 +1,16 @@
-import React from 'react';
-import { NormalSizes, SimpleColors } from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
+import React from "react";
+
+import {NormalSizes, SimpleColors} from "../utils/prop-types";
+import {CSS} from "../theme/stitches.config";
+import clsx from "../utils/clsx";
+
 import {
   StyledSpinner,
   StyledSpinnerContainer,
   StyledSpinnerSpan,
   StyledLoadingLabel,
-  SpinnerVariantsProps
-} from './loading.styles';
-import clsx from '../utils/clsx';
+  SpinnerVariantsProps,
+} from "./loading.styles";
 
 interface Props {
   size?: NormalSizes;
@@ -19,9 +21,7 @@ interface Props {
 }
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type SpinnerProps = Props &
-  NativeAttrs &
-  SpinnerVariantsProps & { css?: CSS };
+export type SpinnerProps = Props & NativeAttrs & SpinnerVariantsProps & {css?: CSS};
 
 const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
   children,
@@ -35,25 +35,22 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
     ? children?.length > 1 && children[0] !== undefined
     : children !== undefined;
 
-  const ariaLabel = children && isValidChildren ? '' : 'Loading';
+  const ariaLabel = children && isValidChildren ? "" : "Loading";
 
   return (
     <StyledSpinner
-      className={clsx('nextui-spinner', className)}
+      className={clsx("nextui-spinner", className)}
       color={color}
       size={size}
       {...props}
     >
-      <StyledSpinnerContainer
-        className="nextui-spinner-container"
-        aria-label={ariaLabel}
-      >
+      <StyledSpinnerContainer aria-label={ariaLabel} className="nextui-spinner-container">
         {[...new Array(12)].map((_, index) => (
           <StyledSpinnerSpan key={`nextui-spinner-${index}`} />
         ))}
       </StyledSpinnerContainer>
       {children && (
-        <StyledLoadingLabel size={size} color={textColor}>
+        <StyledLoadingLabel color={textColor} size={size}>
           {children}
         </StyledLoadingLabel>
       )}
@@ -61,6 +58,6 @@ const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({
   );
 };
 
-Spinner.toString = () => '.nextui-spinner';
+Spinner.toString = () => ".nextui-spinner";
 
 export default Spinner;

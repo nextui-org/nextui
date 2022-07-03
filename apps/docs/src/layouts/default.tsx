@@ -1,10 +1,11 @@
-import React from 'react';
-import { Container } from '@nextui-org/react';
-import { NotifyBanner } from '@components';
-import { Route } from '@lib/docs/page';
-import Header from './header';
-import Footer from './footer';
-import Navbar from './navbar';
+import React from "react";
+import {Container} from "@nextui-org/react";
+import {NotifyBanner} from "@components";
+import {Route} from "@lib/docs/page";
+
+import Header from "./header";
+import Footer from "./footer";
+import Navbar from "./navbar";
 
 export interface Props {
   routes: Route[];
@@ -13,32 +14,26 @@ export interface Props {
   slug?: string;
 }
 
-const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
-  children,
-  routes
-}) => {
+const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({children, routes}) => {
   return (
     <div id="app-container">
       <Header />
-      <NotifyBanner
-        text="Dropdown component"
-        href="/docs/components/dropdown"
-      />
-      <Navbar isHome hasNotify routes={routes} />
+      <NotifyBanner href="/docs/components/dropdown" text="Dropdown component" />
+      <Navbar hasNotify isHome routes={routes} />
       <Container
-        lg={true}
-        id="main-container"
-        display="flex"
-        as="main"
         alignContent="space-between"
+        as="main"
         className="main-container"
         css={{
-          position: 'relative',
-          minHeight: '100vh',
-          '@mdMax': {
-            overflowX: 'hidden'
-          }
+          position: "relative",
+          minHeight: "100vh",
+          "@mdMax": {
+            overflowX: "hidden",
+          },
         }}
+        display="flex"
+        id="main-container"
+        lg={true}
       >
         {children}
         <Footer />

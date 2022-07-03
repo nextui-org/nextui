@@ -174,12 +174,12 @@ export default function App() {
 }`;
 
 const react = {
-  '/SunIcon.js': SunIcon,
-  '/MoonIcon.js': MoonIcon,
-  '/AnchorIcon.js': AnchorIcon,
-  '/App.js': AppJs
+  "/SunIcon.js": SunIcon,
+  "/MoonIcon.js": MoonIcon,
+  "/AnchorIcon.js": AnchorIcon,
+  "/App.js": AppJs,
 };
 
 export default {
-  ...react
+  ...react,
 };

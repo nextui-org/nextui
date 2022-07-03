@@ -1,61 +1,62 @@
-import React from 'react';
-import { Palette, Magic, GamingConsole } from '../../icons';
-import { Logo } from '@components';
+import React from "react";
+import {Logo} from "@components";
+
+import {Palette, Magic, GamingConsole} from "../../icons";
 
 const themes = [
   {
-    id: 'nextui',
-    title: 'NextUI',
+    id: "nextui",
+    title: "NextUI",
     icon: () => (
       <Logo
         small
-        size={44}
         css={{
-          '& path': {
-            fill: 'currentColor'
-          }
+          "& path": {
+            fill: "currentColor",
+          },
         }}
+        size={44}
       />
-    )
+    ),
   },
   {
-    id: 'modern',
-    title: 'Modern',
-    icon: () => <Palette size={44} fill="currentColor" />
+    id: "modern",
+    title: "Modern",
+    icon: () => <Palette fill="currentColor" size={44} />,
   },
   {
-    id: 'elegant',
-    title: 'Elegant',
-    icon: () => <Magic size={44} fill="currentColor" />
+    id: "elegant",
+    title: "Elegant",
+    icon: () => <Magic fill="currentColor" size={44} />,
   },
   {
-    id: 'retro',
-    title: 'Retro',
-    icon: () => <GamingConsole size={44} fill="currentColor" />
-  }
+    id: "retro",
+    title: "Retro",
+    icon: () => <GamingConsole fill="currentColor" size={44} />,
+  },
 ];
 
 const sizes = [
   {
-    id: 'extra-small',
-    title: 'XS'
+    id: "extra-small",
+    title: "XS",
   },
   {
-    id: 'small',
-    title: 'S'
+    id: "small",
+    title: "S",
   },
   {
-    id: 'medium',
-    title: 'M'
+    id: "medium",
+    title: "M",
   },
   {
-    id: 'large',
-    title: 'L'
+    id: "large",
+    title: "L",
   },
   {
-    id: 'extra-large',
-    title: 'XL'
-  }
+    id: "extra-large",
+    title: "XL",
+  },
 ];
 
-export { themes, sizes };
+export {themes, sizes};

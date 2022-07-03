@@ -1,11 +1,13 @@
-import React, { useMemo, RefAttributes, PropsWithoutRef } from 'react';
-import { Button, ButtonProps } from '../index';
-import DropdownTrigger from './dropdown-trigger';
-import { useDropdownContext } from './dropdown-context';
-import DropdownIcon from './dropdown-icon';
-import { useDOMRef } from '../utils/dom';
-import { __DEV__ } from '../utils/assertion';
-import clsx from '../utils/clsx';
+import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
+
+import {Button, ButtonProps} from "../index";
+import {useDOMRef} from "../utils/dom";
+import {__DEV__} from "../utils/assertion";
+import clsx from "../utils/clsx";
+
+import DropdownTrigger from "./dropdown-trigger";
+import {useDropdownContext} from "./dropdown-context";
+import DropdownIcon from "./dropdown-icon";
 
 export type DropdownButtonProps = ButtonProps;
 
@@ -21,30 +23,27 @@ const DropdownButton = React.forwardRef(
       ...otherProps
     } = props;
 
-    const { disableAnimation } = useDropdownContext();
+    const {disableAnimation} = useDropdownContext();
 
     const buttonRef = useDOMRef(ref);
 
     const getIconRight = useMemo(() => {
-      return iconRight || <DropdownIcon size={14} fill="currentColor" />;
+      return iconRight || <DropdownIcon fill="currentColor" size={14} />;
     }, [iconRight]);
 
-    const isAnimated = useMemo(
-      () => animated || !disableAnimation,
-      [animated, disableAnimation]
-    );
+    const isAnimated = useMemo(() => animated || !disableAnimation, [animated, disableAnimation]);
 
     return (
       <DropdownTrigger>
         <Button
           ref={buttonRef}
-          auto={auto}
-          className={clsx('nextui-dropdown-button', className)}
-          iconRight={getIconRight}
           animated={isAnimated}
+          auto={auto}
+          className={clsx("nextui-dropdown-button", className)}
+          iconRight={getIconRight}
           iconRightCss={{
-            mt: '$1',
-            ...iconRightCss
+            mt: "$1",
+            ...iconRightCss,
           }}
           {...otherProps}
         >
@@ -52,20 +51,17 @@ const DropdownButton = React.forwardRef(
         </Button>
       </DropdownTrigger>
     );
-  }
+  },
 );
 
 if (__DEV__) {
-  DropdownButton.displayName = 'NextUI.DropdownButton';
+  DropdownButton.displayName = "NextUI.DropdownButton";
 }
 
 type DropdownButtonComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 > & {};
 
-DropdownButton.toString = () => '.nextui-dropdown-button';
+DropdownButton.toString = () => ".nextui-dropdown-button";
 
-export default DropdownButton as DropdownButtonComponent<
-  HTMLButtonElement,
-  DropdownButtonProps
->;
+export default DropdownButton as DropdownButtonComponent<HTMLButtonElement, DropdownButtonProps>;

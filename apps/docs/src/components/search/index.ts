@@ -1,1 +1,1 @@
-export { default as SearchInput } from './instant-search';
+export {default as SearchInput} from "./instant-search";

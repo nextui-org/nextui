@@ -1,11 +1,14 @@
-import React, { useRef, useMemo } from 'react';
-import { useRadio as useReactAriaRadio } from '@react-aria/radio';
-import { useHover } from '@react-aria/interactions';
-import useWarning from '../use-warning';
-import { __DEV__ } from '../utils/assertion';
-import { useRadioGroupContext } from './radio-context';
-import type { AriaRadioProps } from '@react-types/radio';
-import type { NormalSizes, SimpleColors } from '../utils/prop-types';
+import type {AriaRadioProps} from "@react-types/radio";
+import type {NormalSizes, SimpleColors} from "../utils/prop-types";
+
+import React, {useRef, useMemo} from "react";
+import {useRadio as useReactAriaRadio} from "@react-aria/radio";
+import {useHover} from "@react-aria/interactions";
+
+import {warn} from "../utils/console";
+import {__DEV__} from "../utils/assertion";
+
+import {useRadioGroupContext} from "./radio-context";
 
 interface Props extends AriaRadioProps {
   isSquared?: boolean;
@@ -26,9 +29,9 @@ export const useRadio = (props: UseRadioProps) => {
   const groupContext = useRadioGroupContext();
 
   const {
-    size = groupContext.size ?? 'md',
-    color = groupContext.color ?? 'default',
-    labelColor = groupContext.labelColor ?? 'default',
+    size = groupContext.size ?? "md",
+    color = groupContext.color ?? "default",
+    labelColor = groupContext.labelColor ?? "default",
     autoFocus,
     isSquared = false,
     disableAnimation = false,
@@ -37,34 +40,24 @@ export const useRadio = (props: UseRadioProps) => {
 
   if (groupContext && __DEV__) {
     if (otherProps.checked !== undefined) {
-      useWarning('Remove props "checked" if in the Radio.Group.', 'Radio');
+      warn('Remove props "checked" if in the Radio.Group.', "Radio");
     }
     if (otherProps.value === undefined) {
-      useWarning(
-        'Props "value" must be defined if in the Radio.Group.',
-        'Radio'
-      );
+      warn('Props "value" must be defined if in the Radio.Group.', "Radio");
     }
   }
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { inputProps } = useReactAriaRadio(
-    otherProps,
-    groupContext.radioGroupState,
-    inputRef
-  );
+  const {inputProps} = useReactAriaRadio(otherProps, groupContext.radioGroupState, inputRef);
 
-  const isDisabled = useMemo(
-    () => inputProps.disabled ?? false,
-    [inputProps.disabled]
-  );
+  const isDisabled = useMemo(() => inputProps.disabled ?? false, [inputProps.disabled]);
 
-  const { hoverProps, isHovered } = useHover({ isDisabled });
+  const {hoverProps, isHovered} = useHover({isDisabled});
 
   const isInvalid = useMemo(
-    () => groupContext.validationState === 'invalid',
-    [groupContext.validationState]
+    () => groupContext.validationState === "invalid",
+    [groupContext.validationState],
   );
 
   return {
@@ -79,7 +72,7 @@ export const useRadio = (props: UseRadioProps) => {
     isSquared,
     disableAnimation,
     inputProps,
-    hoverProps
+    hoverProps,
   };
 };
 

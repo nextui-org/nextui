@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { CSS } from '../theme/stitches.config';
-import { NormalSizes, NormalColors, NormalWeights } from '../utils/prop-types';
-import { ButtonGroupContext, ButtonGroupConfig } from './button-group-context';
-import StyledButtonGroup, {
-  ButtonGroupVariantsProps
-} from './button-group.styles';
+import React, {useMemo} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import {CSS} from "../theme/stitches.config";
+import {NormalSizes, NormalColors, NormalWeights} from "../utils/prop-types";
+
+import {ButtonGroupContext, ButtonGroupConfig} from "./button-group-context";
+import StyledButtonGroup, {ButtonGroupVariantsProps} from "./button-group.styles";
 
 interface Props {
   disabled?: boolean;
@@ -24,9 +24,9 @@ interface Props {
 }
 
 const defaultProps = {
-  borderWeight: 'normal' as NormalWeights | undefined,
-  size: 'md' as NormalSizes,
-  color: 'default' as NormalColors
+  borderWeight: "normal" as NormalWeights | undefined,
+  size: "md" as NormalSizes,
+  color: "default" as NormalColors,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -34,11 +34,9 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type ButtonGroupProps = Props &
   ButtonGroupVariantsProps &
   NativeAttrs &
-  typeof defaultProps & { css?: CSS };
+  typeof defaultProps & {css?: CSS};
 
-const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
-  groupProps
-) => {
+const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (groupProps) => {
   const {
     disabled,
     size,
@@ -72,28 +70,17 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
       animated,
       rounded,
       ripple,
-      isButtonGroup: true
+      isButtonGroup: true,
     }),
-    [
-      disabled,
-      animated,
-      size,
-      ripple,
-      color,
-      bordered,
-      light,
-      ghost,
-      flat,
-      borderWeight
-    ]
+    [disabled, animated, size, ripple, color, bordered, light, ghost, flat, borderWeight],
   );
 
   return (
     <ButtonGroupContext.Provider value={initialValue}>
       <StyledButtonGroup
-        size={size}
         bordered={bordered || ghost}
-        gradient={groupProps.color === 'gradient'}
+        gradient={groupProps.color === "gradient"}
+        size={size}
         {...props}
       >
         {children}
@@ -102,7 +89,7 @@ const ButtonGroup: React.FC<React.PropsWithChildren<ButtonGroupProps>> = (
   );
 };
 
-ButtonGroup.toString = () => '.nextui-button-group';
+ButtonGroup.toString = () => ".nextui-button-group";
 
 const MemoButtonGroup = React.memo(ButtonGroup);
 

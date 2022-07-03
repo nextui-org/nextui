@@ -260,14 +260,14 @@ export default function App() {
 }`;
 
 const react = {
-  '/SunIcon.js': SunIcon,
-  '/MoonIcon.js': MoonIcon,
-  '/VideoIcon.js': VideoIcon,
-  '/VolumeUpIcon.js': VolumeUpIcon,
-  '/MicrophoneIcon.js': MicrophoneIcon,
-  '/App.js': AppJs
+  "/SunIcon.js": SunIcon,
+  "/MoonIcon.js": MoonIcon,
+  "/VideoIcon.js": VideoIcon,
+  "/VolumeUpIcon.js": VolumeUpIcon,
+  "/MicrophoneIcon.js": MicrophoneIcon,
+  "/App.js": AppJs,
 };
 
 export default {
-  ...react
+  ...react,
 };

@@ -1,29 +1,29 @@
-import React from 'react';
-import { Container, Row, Text, Link, CSS } from '@nextui-org/react';
-import { VercelCallout } from '@components';
+import React from "react";
+import {Container, Row, Text, Link, CSS} from "@nextui-org/react";
+import {VercelCallout} from "@components";
 
 export interface Props {
   css?: CSS;
   containerCss?: CSS;
 }
 
-const Footer: React.FC<Props> = ({ css, containerCss }) => {
+const Footer: React.FC<Props> = ({css, containerCss}) => {
   // const year = new Date().getFullYear();
   return (
     <Container
       fluid
       className="footer__container"
-      gap={2}
       css={{
-        zIndex: '$1',
-        padding: '$md $sm',
-        '@xsMax': {
-          padding: '$sm $xs'
+        zIndex: "$1",
+        padding: "$md $sm",
+        "@xsMax": {
+          padding: "$sm $xs",
         },
-        ...containerCss
+        ...containerCss,
       }}
+      gap={2}
     >
-      <Row justify="center" css={css}>
+      <Row css={css} justify="center">
         {/* <Text
           span
           className="footer__copy"
@@ -42,11 +42,11 @@ const Footer: React.FC<Props> = ({ css, containerCss }) => {
           span
           className="footer__by"
           css={{
-            fontSize: '$xs',
-            color: '$accents7',
-            '@mdMax': {
-              fontSize: '$xs'
-            }
+            fontSize: "$xs",
+            color: "$accents7",
+            "@mdMax": {
+              fontSize: "$xs",
+            },
           }}
         >
           Created&nbsp;by&nbsp;
@@ -55,7 +55,7 @@ const Footer: React.FC<Props> = ({ css, containerCss }) => {
           </Link>
         </Text>
       </Row>
-      <Row justify="center" css={css}>
+      <Row css={css} justify="center">
         <VercelCallout />
       </Row>
     </Container>

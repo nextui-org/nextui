@@ -15,9 +15,9 @@ export default function App() {
 }`;
 
 const react = {
-  '/App.js': AppJs
+  "/App.js": AppJs,
 };
 
 export default {
-  ...react
+  ...react,
 };

@@ -1,57 +1,56 @@
-import * as React from 'react';
-import { createPortal } from 'react-dom';
-import cn from 'classnames';
-import { isMacOs } from 'react-device-detect';
-import { useRouter } from 'next/router';
-import { useTheme, useBodyScroll, useClickAway } from '@nextui-org/react';
+import * as React from "react";
+import {createPortal} from "react-dom";
+import cn from "classnames";
+import {isMacOs} from "react-device-detect";
+import {useRouter} from "next/router";
+import {useTheme, useBodyScroll, useClickAway} from "@nextui-org/react";
 import AutoSuggest, {
   ChangeEvent,
   OnSuggestionSelected,
   RenderSuggestionsContainerParams,
-  RenderInputComponentProps
-} from 'react-autosuggest';
-import { useIsMobile } from '@hooks/use-media-query';
-import { SearchByAlgolia, Close } from '../icons';
-import { addColorAlpha } from '@utils/index';
-import {
-  connectAutoComplete,
-  connectStateResults
-} from 'react-instantsearch-dom';
-import { isEmpty } from 'lodash';
-import { AutocompleteProvided } from 'react-instantsearch-core';
-import Keyboard from '../keyboard';
-import Suggestion from './suggestion';
-import { VisualState, useKBar } from 'kbar';
-import Blockholder from '../blockholder';
-import useIsMounted from '@hooks/use-is-mounted';
-import usePortal from '@hooks/use-portal';
-import withDeaults from '@utils/with-defaults';
+  RenderInputComponentProps,
+} from "react-autosuggest";
+import {useIsMobile} from "@hooks/use-media-query";
+import {addColorAlpha} from "@utils/index";
+import {connectAutoComplete, connectStateResults} from "react-instantsearch-dom";
+import {isEmpty} from "lodash";
+import {AutocompleteProvided} from "react-instantsearch-core";
+import {VisualState, useKBar} from "kbar";
+import useIsMounted from "@hooks/use-is-mounted";
+import usePortal from "@hooks/use-portal";
+import withDeaults from "@utils/with-defaults";
+
+import Blockholder from "../blockholder";
+import Keyboard from "../keyboard";
+import {SearchByAlgolia, Close} from "../icons";
+
+import Suggestion from "./suggestion";
 
 interface Props extends AutocompleteProvided {
   offsetTop?: number;
 }
 
 const defaultProps = {
-  offsetTop: 0
+  offsetTop: 0,
 };
 
-const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
-  const [value, setValue] = React.useState('');
+const Autocomplete: React.FC<Props> = ({hits, refine, offsetTop}) => {
+  const [value, setValue] = React.useState("");
   const [isFocused, setIsFocused] = React.useState(false);
-  const [, setBodyHidden] = useBodyScroll(null, { scrollLayer: true });
+  const [, setBodyHidden] = useBodyScroll(null, {scrollLayer: true});
   const router = useRouter();
 
-  const suggestionsPortal = usePortal('suggestions', () => {
-    return document?.getElementById('navbar-container');
+  const suggestionsPortal = usePortal("suggestions", () => {
+    return document?.getElementById("navbar-container");
   });
-  const noResultsPortal = usePortal('no-results', () => {
-    return document?.getElementById('navbar-container');
+  const noResultsPortal = usePortal("no-results", () => {
+    return document?.getElementById("navbar-container");
   });
 
-  const { theme, isDark, type: themeType } = useTheme();
+  const {theme, isDark, type: themeType} = useTheme();
   const isMobile = useIsMobile();
 
-  const { query } = useKBar();
+  const {query} = useKBar();
   const isMounted = useIsMounted();
 
   let inputRef = React.useRef<HTMLInputElement>(null);
@@ -64,18 +63,17 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
   React.useEffect(() => {
     if (isMobile) {
       const isOpen = !isEmpty(
-        document.getElementsByClassName(
-          'react-autosuggest__suggestions-container--open'
-        )
+        document.getElementsByClassName("react-autosuggest__suggestions-container--open"),
       );
       const noResults = isEmpty(hits) && !isEmpty(value);
+
       setBodyHidden(isFocused && (isOpen || noResults));
     } else {
       setBodyHidden(false);
     }
   }, [hits, value, isFocused, isMobile]);
 
-  const onChange = (_: unknown, { newValue }: ChangeEvent) => {
+  const onChange = (_: unknown, {newValue}: ChangeEvent) => {
     setValue(newValue);
   };
 
@@ -83,20 +81,17 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
     value,
     onChange,
     ref: inputRef,
-    type: 'search',
+    type: "search",
     onFocus: () => setIsFocused(true),
-    onBlur: () => setIsFocused(false)
+    onBlur: () => setIsFocused(false),
   };
 
-  const onSuggestionsFetchRequested = ({ value }: any) => {
+  const onSuggestionsFetchRequested = ({value}: any) => {
     refine(value);
   };
 
-  const onSuggestionSelected: OnSuggestionSelected<any> = (
-    _,
-    { suggestion, method }
-  ) => {
-    if (method === 'enter') {
+  const onSuggestionSelected: OnSuggestionSelected<any> = (_, {suggestion, method}) => {
+    if (method === "enter") {
       onClear();
       router.push(suggestion.url);
     }
@@ -104,14 +99,13 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
 
   const getSuggestionValue = () => value;
 
-  const renderSuggestion = (
-    hit: any,
-    { isHighlighted }: { isHighlighted: boolean }
-  ) => <Suggestion highlighted={isHighlighted} hit={hit} />;
+  const renderSuggestion = (hit: any, {isHighlighted}: {isHighlighted: boolean}) => (
+    <Suggestion highlighted={isHighlighted} hit={hit} />
+  );
 
   const onClear = () => {
     refine();
-    setValue('');
+    setValue("");
     inputRef && inputRef?.current?.blur();
   };
 
@@ -119,7 +113,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
     query.setVisualState((vs) =>
       [VisualState.animatingOut, VisualState.hidden].includes(vs)
         ? VisualState.animatingIn
-        : VisualState.animatingOut
+        : VisualState.animatingOut,
     );
   };
 
@@ -127,11 +121,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
     (inputProps: RenderInputComponentProps) => {
       return (
         <label className="search__input-container">
-          <input
-            className="search__input"
-            {...inputProps}
-            placeholder="Search..."
-          />
+          <input className="search__input" {...inputProps} placeholder="Search..." />
           {!value ? (
             <span className="search__placeholder-container">
               <Keyboard
@@ -144,42 +134,42 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
               </Keyboard>
             </span>
           ) : (
-            <span className="search__reset-container" onClick={onClear}>
-              <Close size={16} fill={theme?.colors?.accents6?.value} />
+            <span className="search__reset-container" role="button" onClick={onClear}>
+              <Close fill={theme?.colors?.accents6?.value} size={16} />
             </span>
           )}
         </label>
       );
     },
-    [value, themeType]
+    [value, themeType],
   );
 
   const renderSuggestionsContainer = ({
     containerProps,
-    children
+    children,
   }: RenderSuggestionsContainerParams) =>
     suggestionsPortal ? (
       createPortal(
         <div {...containerProps}>
           <a
-            href="https://www.algolia.com/"
-            target="_blank"
-            rel="noreferrer"
             className="react-autosuggest__suggestions-header"
+            href="https://www.algolia.com/"
+            rel="noreferrer"
+            target="_blank"
           >
             <SearchByAlgolia fill={theme?.colors?.accents6?.value} />
           </a>
           {children}
         </div>,
-        suggestionsPortal
+        suggestionsPortal,
       )
     ) : (
       <div {...containerProps}>
         <a
-          href="https://www.algolia.com/"
-          target="_blank"
-          rel="noreferrer"
           className="react-autosuggest__suggestions-header"
+          href="https://www.algolia.com/"
+          rel="noreferrer"
+          target="_blank"
         >
           <SearchByAlgolia fill={theme?.colors?.accents6?.value} />
         </a>
@@ -187,40 +177,33 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
       </div>
     );
 
-  const NoResults = connectStateResults(
-    ({ searchState, searchResults, searching }) => {
-      const open =
-        searchState &&
-        searchState.query &&
-        !searching &&
-        searchResults &&
-        searchResults.nbHits === 0;
-      const NoResultsContainer = () => (
-        <div className="no-results">
-          <span>
-            No results for <span>"{value}"</span>
-          </span>
-          <br />
-          <span>Try again with a different keyword</span>
-        </div>
-      );
-      if (isMobile && open) {
-        if (!noResultsPortal) return null;
-        return createPortal(<NoResultsContainer />, noResultsPortal);
-      }
-      return open ? <NoResultsContainer /> : null;
+  const NoResults = connectStateResults(({searchState, searchResults, searching}) => {
+    const open =
+      searchState && searchState.query && !searching && searchResults && searchResults.nbHits === 0;
+    const NoResultsContainer = () => (
+      <div className="no-results">
+        <span>
+          No results for <span>&quot;{value}&quot;</span>
+        </span>
+        <br />
+        <span>Try again with a different keyword</span>
+      </div>
+    );
+
+    if (isMobile && open) {
+      if (!noResultsPortal) return null;
+
+      return createPortal(<NoResultsContainer />, noResultsPortal);
     }
-  );
+
+    return open ? <NoResultsContainer /> : null;
+  });
 
   if (!isMounted) {
     return (
       <>
-        <Blockholder
-          className="search__placeholder-block"
-          alt="search placeholder"
-          height="38px"
-        />
-        <style jsx global>{`
+        <Blockholder alt="search placeholder" className="search__placeholder-block" height="38px" />
+        <style global jsx>{`
           .search__placeholder-block {
             max-width: 200px;
           }
@@ -247,27 +230,27 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
 
   return (
     <div
-      className={cn('search__container', {
+      className={cn("search__container", {
         focused: isFocused,
-        'has-value': !!value.length
+        "has-value": !!value.length,
       })}
     >
       <AutoSuggest
-        highlightFirstSuggestion={true}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onClear}
-        onSuggestionSelected={onSuggestionSelected}
         getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
+        highlightFirstSuggestion={true}
+        inputProps={inputProps}
         renderInputComponent={renderInput}
+        renderSuggestion={renderSuggestion}
         renderSuggestionsContainer={renderSuggestionsContainer}
         suggestions={hits}
-        inputProps={inputProps}
+        onSuggestionSelected={onSuggestionSelected}
+        onSuggestionsClearRequested={onClear}
+        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
       />
 
       <NoResults />
 
-      <style jsx global>
+      <style global jsx>
         {`
           .search__container {
             display: flex;
@@ -321,9 +304,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
             align-items: center;
             z-index: 9999;
             background: ${addColorAlpha(theme?.colors?.background?.value, 0.7)};
-            box-shadow: ${isDark
-              ? '0px 5px 20px -5px rgba(0, 0, 0, 0.1)'
-              : 'none'};
+            box-shadow: ${isDark ? "0px 5px 20px -5px rgba(0, 0, 0, 0.1)" : "none"};
             border-radius: 8px;
           }
           .react-autosuggest__input {
@@ -369,9 +350,7 @@ const Autocomplete: React.FC<Props> = ({ hits, refine, offsetTop }) => {
           .no-results {
             background: var(--nextui-colors-accents0);
           }
-          @supports (
-            (-webkit-backdrop-filter: none) or (backdrop-filter: none)
-          ) {
+          @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
             .search__input-container,
             .react-autosuggest__suggestions-container,
             .no-results {

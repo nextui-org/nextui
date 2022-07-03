@@ -1,13 +1,15 @@
-import React, { useCallback } from 'react';
-import usePagination, { DOTS, PaginationItemParam } from '../use-pagination';
-import { CSS } from '../theme/stitches.config';
-import PaginationItem from './pagination-item';
-import PaginationEllipsis from './pagination-ellipsis';
-import PaginationIcon from './pagination-icon';
-import PaginationHighlight from './pagination-highlight';
-import { StyledPagination, PaginationVariantsProps } from './pagination.styles';
-import { __DEV__ } from '../utils/assertion';
-import clsx from '../utils/clsx';
+import React, {useCallback} from "react";
+
+import usePagination, {DOTS, PaginationItemParam} from "../use-pagination";
+import {CSS} from "../theme/stitches.config";
+import {__DEV__} from "../utils/assertion";
+import clsx from "../utils/clsx";
+
+import PaginationItem from "./pagination-item";
+import PaginationEllipsis from "./pagination-ellipsis";
+import PaginationIcon from "./pagination-icon";
+import PaginationHighlight from "./pagination-highlight";
+import {StyledPagination, PaginationVariantsProps} from "./pagination.styles";
 
 interface Props {
   page?: number;
@@ -41,7 +43,7 @@ const defaultProps = {
   animated: true,
   onlyDots: false,
   noMargin: false,
-  rounded: false
+  rounded: false,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -49,9 +51,9 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type PaginationProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  PaginationVariantsProps & { css?: CSS };
+  PaginationVariantsProps & {css?: CSS};
 
-const preClass = 'nextui-pagination';
+const preClass = "nextui-pagination";
 
 const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
   page,
@@ -71,60 +73,59 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
   rounded,
   ...props
 }) => {
-  const { range, active, setPage, previous, next, first, last } = usePagination(
-    {
-      page,
-      initialPage,
-      siblings: onlyDots ? 10 : siblings,
-      boundaries: onlyDots ? 10 : boundaries,
-      total,
-      onChange
-    }
-  );
+  const {range, active, setPage, previous, next, first, last} = usePagination({
+    page,
+    initialPage,
+    siblings: onlyDots ? 10 : siblings,
+    boundaries: onlyDots ? 10 : boundaries,
+    total,
+    onChange,
+  });
 
   const renderItem = useCallback(
     (value: PaginationItemParam, index: number) => {
       if (value === DOTS) {
         const isBefore = index < range.indexOf(active);
+
         return (
           <PaginationEllipsis
             key={`${preClass}-item-${value}-${index}`}
-            value={value}
-            bordered={bordered}
             animated={animated}
+            bordered={bordered}
             isBefore={isBefore}
             onlyDots={onlyDots}
+            value={value}
             onClick={() =>
               isBefore
                 ? setPage(active - dotsJump >= 1 ? active - dotsJump : 1)
-                : setPage(
-                    active + dotsJump <= total ? active + dotsJump : total
-                  )
+                : setPage(active + dotsJump <= total ? active + dotsJump : total)
             }
           />
         );
       }
+
       return (
         <PaginationItem
           key={`${preClass}-item-${value}-${index}`}
-          value={value}
+          active={value === active}
           animated={animated}
           bordered={bordered}
-          active={value === active}
-          onClick={() => value !== active && setPage(value)}
           onlyDots={onlyDots}
+          value={value}
+          onClick={() => value !== active && setPage(value)}
         >
           {value}
         </PaginationItem>
       );
     },
-    [total, onlyDots, active, bordered, animated]
+    [total, onlyDots, active, bordered, animated],
   );
 
   const handleNext = () => {
     if (loop && active === total) {
       return first();
     }
+
     return next();
   };
 
@@ -132,48 +133,49 @@ const Pagination: React.FC<React.PropsWithChildren<PaginationProps>> = ({
     if (loop && active === 1) {
       return last();
     }
+
     return previous();
   };
 
   return (
     <StyledPagination
-      noMargin={noMargin}
       bordered={bordered}
-      rounded={rounded}
-      onlyDots={onlyDots}
       className={clsx(preClass, {
         [`${preClass}--no-margin`]: noMargin,
         [`${preClass}--bordered`]: bordered,
         [`${preClass}--shadow`]: shadow,
-        [`${preClass}--rounded`]: rounded
+        [`${preClass}--rounded`]: rounded,
       })}
+      noMargin={noMargin}
+      onlyDots={onlyDots}
+      rounded={rounded}
       {...props}
     >
       {controls && (
         <PaginationIcon
           isPrev
-          bordered={bordered}
           animated={animated}
+          bordered={bordered}
+          disabled={!loop && active === 1}
           onlyDots={onlyDots}
           onClick={handlePrevious}
-          disabled={!loop && active === 1}
         />
       )}
       <PaginationHighlight
-        noMargin={noMargin}
-        animated={animated}
-        shadow={shadow}
-        rounded={rounded}
         active={controls ? range.indexOf(active) + 1 : range.indexOf(active)}
+        animated={animated}
+        noMargin={noMargin}
+        rounded={rounded}
+        shadow={shadow}
       />
       {range.map(renderItem)}
       {controls && (
         <PaginationIcon
-          bordered={bordered}
           animated={animated}
+          bordered={bordered}
+          disabled={!loop && active === total}
           onlyDots={onlyDots}
           onClick={handleNext}
-          disabled={!loop && active === total}
         />
       )}
     </StyledPagination>
@@ -185,16 +187,14 @@ type MemoPaginationComponent<P = {}> = React.NamedExoticComponent<P>;
 type ComponentProps = Partial<typeof defaultProps> &
   Omit<Props, keyof typeof defaultProps> &
   NativeAttrs &
-  PaginationVariantsProps & { css?: CSS };
+  PaginationVariantsProps & {css?: CSS};
 
 Pagination.defaultProps = defaultProps;
 
 if (__DEV__) {
-  Pagination.displayName = 'NextUI.Pagination';
+  Pagination.displayName = "NextUI.Pagination";
 }
 
-Pagination.toString = () => '.nextui-pagination';
+Pagination.toString = () => ".nextui-pagination";
 
-export default React.memo(
-  Pagination
-) as MemoPaginationComponent<ComponentProps>;
+export default React.memo(Pagination) as MemoPaginationComponent<ComponentProps>;
