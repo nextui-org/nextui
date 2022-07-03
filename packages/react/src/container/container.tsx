@@ -1,7 +1,15 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 
-import {CSS} from "../theme/stitches.config";
-import {Wrap, Display, Justify, Direction, AlignItems, AlignContent} from "../utils/prop-types";
+import { CSS } from "../theme/stitches.config";
+import { useDOMRef } from "../utils/dom";
+import {
+  Wrap,
+  Display,
+  Justify,
+  Direction,
+  AlignItems,
+  AlignContent,
+} from "../utils/prop-types";
 
 import StyledContainer from "./container.styles";
 
@@ -42,26 +50,33 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type ContainerProps = Props & typeof defaultProps & NativeAttrs;
 
-const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
-  wrap,
-  gap,
-  as,
-  display,
-  justify,
-  direction,
-  alignItems,
-  alignContent,
-  children,
-  responsive,
-  fluid,
-  css,
-  ...props
-}) => {
+const Container = React.forwardRef<
+  HTMLElement,
+  React.PropsWithChildren<ContainerProps>
+>((containerProps, ref) => {
+  const {
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    wrap,
+    gap,
+    as,
+    display,
+    justify,
+    direction,
+    alignItems,
+    alignContent,
+    children,
+    responsive,
+    fluid,
+    css,
+    ...otherProps
+  } = containerProps;
+
+  const domRef = useDOMRef(ref);
+
   const gapUnit = useMemo(() => {
     return `calc(${gap} * $space$sm)`;
   }, [gap]);
@@ -78,6 +93,7 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
 
   return (
     <StyledContainer
+      ref={domRef}
       as={as}
       css={{
         px: gapUnit,
@@ -92,12 +108,14 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
       }}
       fluid={fluid}
       responsive={responsive}
-      {...props}
+      {...otherProps}
     >
       {children}
     </StyledContainer>
   );
-};
+});
+
+Container.displayName = "NextUI.Container";
 
 Container.toString = () => ".nextui-container";
 
