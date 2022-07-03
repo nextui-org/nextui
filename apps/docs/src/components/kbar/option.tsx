@@ -47,8 +47,8 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
           <Icon
             fill={
               active
-                ? theme?.colors?.accents5?.value
-                : theme?.colors?.accents3?.value
+                ? theme?.colors?.accents7?.value
+                : theme?.colors?.accents6?.value
             }
             name="arrow-right"
           />
@@ -79,8 +79,8 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
           <Icon
             fill={
               active
-                ? theme?.colors?.accents5?.value
-                : theme?.colors?.accents3?.value
+                ? theme?.colors?.accents7?.value
+                : theme?.colors?.accents6?.value
             }
             name={action.icon}
           />
@@ -157,7 +157,7 @@ const KBarOption: React.FC<Props> = ({ action, handlers, state }) => {
           }
           .option-text-subtitle {
             font-size: 12px;
-            color: ${theme?.colors?.accents4?.value};
+            color: ${theme?.colors?.accents7?.value};
           }
           .kbd-container {
             display: grid;

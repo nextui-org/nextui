@@ -52,7 +52,7 @@ export default function KBarSearch(
           transition: opacity 0.25s ease 0s;
         }
         input::placeholder {
-          color: ${theme?.colors?.accents4?.value};
+          color: ${theme?.colors?.accents7?.value};
           transition: opacity 0.25s ease 0s;
           -moz-transition: opacity 0.25s ease 0s;
           -ms-transition: opacity 0.25s ease 0s;
