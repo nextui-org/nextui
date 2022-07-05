@@ -1,8 +1,8 @@
-const App = `import React from 'react';
+const App = `import { useState } from 'react';
 import { Popover, Button, Text, Grid } from "@nextui-org/react";
 
 export default function App() {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Grid.Container gap={2} alignContent="center">
