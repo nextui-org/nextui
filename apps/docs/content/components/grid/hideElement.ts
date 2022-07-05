@@ -1,16 +1,17 @@
-const useMediaQuery = `import React from 'react';\n
+const useMediaQuery = `import { useState, useCallback, useEffect } from 'react';
 
 export const useMediaQuery = (width)=> {
-  const [targetReached, setTargetReached] = React.useState(false);
+  const [targetReached, setTargetReached] = useState(false);
 
-  const updateTarget = React.useCallback((e) => {
+  const updateTarget = useCallback((e) => {
     if (e.matches) {
       setTargetReached(true);
     } else {
       setTargetReached(false);
     }
   }, []);
-  React.useEffect(() => {
+
+  useEffect(() => {
     const media = window.matchMedia(\`(max-width: \${width}px)\`);
     media.addListener(updateTarget);
 
