@@ -1,8 +1,8 @@
-const App = `import React from 'react'
+const App = `import { useState } from 'react'
 import { Checkbox, Grid } from "@nextui-org/react";
 
 export default function App() {
-  const [selected, setSelected] = React.useState(['buenos-aires', 'sydney']);
+  const [selected, setSelected] = useState(['buenos-aires', 'sydney']);
 
   return (
     <Grid.Container gap={2}>
