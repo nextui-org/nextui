@@ -36,13 +36,13 @@ const Mail = `export const Mail = ({ fill, size, height, width, ...props }) => {
   );
 };`;
 
-const AppJs = `import React from "react";
+const AppJs = `import { useState } from "react";
 import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
 import { Mail } from "./Mail";
 import { Password } from "./Password";
 
 export default function App() {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useState(false);
   const handler = () => setVisible(true);
   const closeHandler = () => {
     setVisible(false);
