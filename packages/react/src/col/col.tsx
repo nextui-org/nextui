@@ -1,7 +1,10 @@
-import React from 'react';
-import withDefaults from '../utils/with-defaults';
-import StyledCol, { ColVariantsProps } from './col.styles';
-import { CSS } from '../theme/stitches.config';
+import type {CSS} from "../theme/stitches.config";
+
+import React from "react";
+
+import withDefaults from "../utils/with-defaults";
+
+import StyledCol, {ColVariantsProps} from "./col.styles";
 
 interface Props {
   span?: number;
@@ -12,15 +15,12 @@ interface Props {
 
 const defaultProps = {
   span: 12,
-  offset: 0
+  offset: 0,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type ColProps = Props &
-  typeof defaultProps &
-  ColVariantsProps &
-  NativeAttrs;
+export type ColProps = Props & typeof defaultProps & ColVariantsProps & NativeAttrs;
 
 const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
   children,
@@ -34,7 +34,7 @@ const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
       css={{
         width: `${(100 / 12) * span}%`,
         marginLeft: `${(100 / 12) * offset}%`,
-        ...css
+        ...css,
       }}
       {...props}
     >
@@ -43,7 +43,7 @@ const Col: React.FC<React.PropsWithChildren<ColProps>> = ({
   );
 };
 
-Col.toString = () => '.nextui-column';
+Col.toString = () => ".nextui-column";
 
 const MemoCol = React.memo(Col);
 

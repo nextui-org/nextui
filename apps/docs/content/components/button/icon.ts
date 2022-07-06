@@ -212,14 +212,14 @@ export default function App() {
 }`;
 
 const react = {
-  '/HeartIcon.js': HeartIcon,
-  '/CameraIcon.js': CameraIcon,
-  '/LockIcon.js': LockIcon,
-  '/NotificationIcon.js': NotificationIcon,
-  '/UserIcon.js': UserIcon,
-  '/App.js': AppJs
+  "/HeartIcon.js": HeartIcon,
+  "/CameraIcon.js": CameraIcon,
+  "/LockIcon.js": LockIcon,
+  "/NotificationIcon.js": NotificationIcon,
+  "/UserIcon.js": UserIcon,
+  "/App.js": AppJs,
 };
 
 export default {
-  ...react
+  ...react,
 };

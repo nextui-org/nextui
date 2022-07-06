@@ -1,13 +1,16 @@
-import React from 'react';
-import { ButtonProps } from './button';
-import { ButtonGroupConfig } from './button-group-context';
-import type { CSS } from '../theme/stitches.config';
+import type {CSS} from "../theme/stitches.config";
+
+import React from "react";
+
+import {ButtonProps} from "./button";
+import {ButtonGroupConfig} from "./button-group-context";
 
 export const filterPropsWithGroup = (
   props: React.PropsWithChildren<ButtonProps>,
-  config: ButtonGroupConfig
+  config: ButtonGroupConfig,
 ): ButtonProps => {
   if (!config.isButtonGroup) return props;
+
   return {
     ...props,
     auto: true,
@@ -22,60 +25,59 @@ export const filterPropsWithGroup = (
     light: config.light ?? props.light,
     size: config.size ?? props.size,
     color: config.color ?? props.color,
-    disabled: config.disabled ?? props.disabled
+    disabled: config.disabled ?? props.disabled,
   };
 };
 
-export const getCssColors = (
-  props: React.PropsWithChildren<ButtonProps>
-): CSS | undefined => {
+export const getCssColors = (props: React.PropsWithChildren<ButtonProps>): CSS | undefined => {
   if (!props.disabled) {
-    if (
-      props.auto &&
-      props.color === 'gradient' &&
-      (props.bordered || props.ghost)
-    ) {
+    if (props.auto && props.color === "gradient" && (props.bordered || props.ghost)) {
       return {
-        px: '$$buttonBorderWeight',
-        py: '$$buttonBorderWeight'
+        px: "$$buttonBorderWeight",
+        py: "$$buttonBorderWeight",
       };
     }
-    return;
+
+    return {};
   }
+
   const defaultDisabledCss: CSS = {
-    bg: '$accents1',
-    color: '$accents7',
-    transform: 'none',
-    boxShadow: 'none',
-    pe: 'none'
+    bg: "$accents1",
+    color: "$accents7",
+    transform: "none",
+    boxShadow: "none",
+    pe: "none",
   };
 
   if (!props.bordered && !props.flat && !props.ghost && !props.light) {
     return defaultDisabledCss;
   }
-  if (props.color === 'gradient' && (props.bordered || props.ghost)) {
+
+  if (props.color === "gradient" && (props.bordered || props.ghost)) {
     return {
-      color: '$accents4',
+      color: "$accents4",
       backgroundImage:
-        'linear-gradient($background, $background), linear-gradient($accents2, $accents2)',
-      transform: 'none',
-      boxShadow: 'none',
-      pe: 'none',
-      pl: '$$buttonBorderWeight',
-      pr: '$$buttonBorderWeight'
+        "linear-gradient($background, $background), linear-gradient($accents2, $accents2)",
+      transform: "none",
+      boxShadow: "none",
+      pe: "none",
+      pl: "$$buttonBorderWeight",
+      pr: "$$buttonBorderWeight",
     };
   }
+
   if (props.bordered || props.ghost || props.light) {
     return {
       ...defaultDisabledCss,
-      bg: 'transparent',
-      borderColor: '$accents4'
+      bg: "transparent",
+      borderColor: "$accents4",
     };
   }
+
   if (props.flat) {
     return {
       ...defaultDisabledCss,
-      bg: '$accents1'
+      bg: "$accents1",
     };
   }
 

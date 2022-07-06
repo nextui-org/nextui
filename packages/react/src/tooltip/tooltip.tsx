@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
-import withDefaults from '../utils/with-defaults';
-import TooltipContent from './tooltip-content';
-import useClickAway from '../use-click-away';
-import { Placement } from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
-import { TriggerTypes } from '../utils/prop-types';
-import { TooltipContentProps } from './tooltip-content';
-import {
-  StyledTooltipTrigger,
-  TooltipContentVariantsProps
-} from './tooltip.styles';
+import type {CSS} from "../theme/stitches.config";
+
+import React, {useEffect, useRef, useState} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import useClickAway from "../use-click-away";
+import {Placement} from "../utils/prop-types";
+import {TriggerTypes} from "../utils/prop-types";
+
+import TooltipContent from "./tooltip-content";
+import {TooltipContentProps} from "./tooltip-content";
+import {StyledTooltipTrigger, TooltipContentVariantsProps} from "./tooltip.styles";
 
 export type TooltipOnVisibleChange = (visible: boolean) => void;
 
@@ -42,12 +42,12 @@ const defaultProps = {
   shadow: true,
   rounded: false,
   keepMounted: false,
-  trigger: 'hover' as TriggerTypes,
+  trigger: "hover" as TriggerTypes,
   enterDelay: 0,
   leaveDelay: 0,
-  className: '',
-  portalClassName: '',
-  onVisibleChange: (() => {}) as TooltipOnVisibleChange
+  className: "",
+  portalClassName: "",
+  onVisibleChange: (() => {}) as TooltipOnVisibleChange,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>;
@@ -55,8 +55,8 @@ type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>;
 export type TooltipProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  Pick<TooltipContentVariantsProps, 'color' | 'contentColor'> &
-  Pick<TooltipContentProps, 'css'>;
+  Pick<TooltipContentVariantsProps, "color" | "contentColor"> &
+  Pick<TooltipContentProps, "css">;
 
 const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   children,
@@ -99,7 +99,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
     contentColor,
     hideArrow,
     parent: ref,
-    className: portalClassName
+    className: portalClassName,
   };
 
   const changeVisible = (nextState: boolean) => {
@@ -112,27 +112,26 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       onVisibleChange(nextState);
       clear();
     };
+
     clear();
     if (nextState) {
       timer.current = window.setTimeout(() => handler(true), enterDelay);
+
       return;
     }
     timer.current = window.setTimeout(() => handler(false), leaveDelay);
   };
 
   const mouseEventHandler = (next: boolean) => {
-    trigger === 'hover' && changeVisible(next);
+    trigger === "hover" && changeVisible(next);
   };
 
   const clickEventHandler = () => {
-    trigger === 'click' && changeVisible(!visible);
+    trigger === "click" && changeVisible(!visible);
     onClick?.();
   };
 
-  useClickAway(
-    ref,
-    () => trigger === 'click' && !keepMounted && changeVisible(false)
-  );
+  useClickAway(ref, () => trigger === "click" && !keepMounted && changeVisible(false));
 
   useEffect(() => {
     if (customVisible === undefined) return;
@@ -142,16 +141,16 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   return (
     <StyledTooltipTrigger
       ref={ref}
+      className={`nextui-tooltip-button ${className}`}
+      css={triggerCss}
       role="button"
       tabIndex={-1}
-      className={`nextui-tooltip-button ${className}`}
+      onBlur={() => mouseEventHandler(false)}
       onClick={clickEventHandler}
+      onFocus={() => mouseEventHandler(true)}
       onKeyUp={() => mouseEventHandler(true)}
       onMouseEnter={() => mouseEventHandler(true)}
       onMouseLeave={() => mouseEventHandler(false)}
-      onFocus={() => mouseEventHandler(true)}
-      onBlur={() => mouseEventHandler(false)}
-      css={triggerCss}
       {...props}
     >
       {children}
@@ -160,6 +159,6 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   );
 };
 
-Tooltip.toString = () => '.nextui-tooltip';
+Tooltip.toString = () => ".nextui-tooltip";
 
 export default withDefaults(Tooltip, defaultProps);

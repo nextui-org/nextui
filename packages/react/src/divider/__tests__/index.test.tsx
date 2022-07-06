@@ -1,35 +1,39 @@
-import React from 'react';
-import { mount, render } from 'enzyme';
-import Divider from '../index';
+import React from "react";
+import {mount, render} from "enzyme";
 
-describe('Divider', () => {
-  it('should render correctly', () => {
+import Divider from "../index";
+
+describe("Divider", () => {
+  it("should render correctly", () => {
     const wrapper = mount(<Divider />);
+
     expect(wrapper).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it('should work with x and y', () => {
+  it("should work with x and y", () => {
     const wrapper = render(
       <div>
         <Divider x={3} />
         <Divider y={3} />
-      </div>
+      </div>,
     );
+
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should work with type', () => {
+  it("should work with type", () => {
     const wrapper = render(
       <div>
         <Divider color="secondary" />
         <Divider color="warning" />
-      </div>
+      </div>,
     );
+
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should work with align and volume', () => {
+  it("should work with align and volume", () => {
     const wrapper = render(
       <div>
         <Divider align="start">start</Divider>
@@ -38,18 +42,20 @@ describe('Divider', () => {
         <Divider align="start" height={2}>
           start
         </Divider>
-      </div>
+      </div>,
     );
+
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should support float', () => {
+  it("should support float", () => {
     const wrapper = mount(
       <div>
         <Divider x={1.1} y={2.5} />
         <Divider height={2.5} />
-      </div>
+      </div>,
     );
+
     expect(wrapper).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });

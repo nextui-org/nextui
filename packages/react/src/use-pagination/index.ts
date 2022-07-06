@@ -1,7 +1,8 @@
-import { useMemo, useCallback, useState, useEffect } from 'react';
-import { range } from '../utils/numbers';
+import {useMemo, useCallback, useState, useEffect} from "react";
 
-export const DOTS = 'dots';
+import {range} from "../utils/numbers";
+
+export const DOTS = "dots";
 
 export interface PaginationParams {
   total: number;
@@ -20,7 +21,7 @@ const usePagination = ({
   siblings = 1,
   boundaries = 1,
   initialPage = 1,
-  onChange
+  onChange,
 }: PaginationParams) => {
   const [activePage, setActivePage] = useState(page || initialPage);
 
@@ -45,7 +46,7 @@ const usePagination = ({
         onChangeActivePage(pageNumber);
       }
     },
-    [total]
+    [total],
   );
 
   const next = () => setPage(activePage + 1);
@@ -55,14 +56,12 @@ const usePagination = ({
 
   const paginationRange = useMemo((): PaginationItemParam[] => {
     const totalPageNumbers = siblings * 2 + 3 + boundaries * 2;
+
     if (totalPageNumbers >= total) {
       return range(1, total);
     }
     const leftSiblingIndex = Math.max(activePage - siblings, boundaries);
-    const rightSiblingIndex = Math.min(
-      activePage + siblings,
-      total - boundaries
-    );
+    const rightSiblingIndex = Math.min(activePage + siblings, total - boundaries);
 
     /*
      * We do not want to show dots if there is only one position left
@@ -74,20 +73,14 @@ const usePagination = ({
 
     if (!shouldShowLeftDots && shouldShowRightDots) {
       const leftItemCount = siblings * 2 + boundaries + 2;
-      return [
-        ...range(1, leftItemCount),
-        DOTS,
-        ...range(total - (boundaries - 1), total)
-      ];
+
+      return [...range(1, leftItemCount), DOTS, ...range(total - (boundaries - 1), total)];
     }
 
     if (shouldShowLeftDots && !shouldShowRightDots) {
       const rightItemCount = boundaries + 1 + 2 * siblings;
-      return [
-        ...range(1, boundaries),
-        DOTS,
-        ...range(total - rightItemCount, total)
-      ];
+
+      return [...range(1, boundaries), DOTS, ...range(total - rightItemCount, total)];
     }
 
     return [
@@ -95,7 +88,7 @@ const usePagination = ({
       DOTS,
       ...range(leftSiblingIndex, rightSiblingIndex),
       DOTS,
-      ...range(total - boundaries + 1, total)
+      ...range(total - boundaries + 1, total),
     ];
   }, [total, siblings, activePage]);
 
@@ -106,7 +99,7 @@ const usePagination = ({
     next,
     previous,
     first,
-    last
+    last,
   };
 };
 

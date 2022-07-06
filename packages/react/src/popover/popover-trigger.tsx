@@ -1,11 +1,14 @@
-import * as React from 'react';
-import { useButton } from '@react-aria/button';
-import { mergeProps } from '@react-aria/utils';
-import { usePopoverContext } from './popover-context';
-import { pickChild } from '../utils/collections';
-import { Button } from '../index';
-import type { ReactRef } from '../utils/refs';
-import { __DEV__ } from '../utils/assertion';
+import type {ReactRef} from "../utils/refs";
+
+import * as React from "react";
+import {useButton} from "@react-aria/button";
+import {mergeProps} from "@react-aria/utils";
+
+import {pickChild} from "../utils/collections";
+import {Button} from "../index";
+import {__DEV__} from "../utils/assertion";
+
+import {usePopoverContext} from "./popover-context";
 
 /**
  * PopoverTrigger opens the popover's content. It must be an interactive element
@@ -13,17 +16,17 @@ import { __DEV__ } from '../utils/assertion';
  */
 const PopoverTrigger = React.forwardRef(
   (props: React.PropsWithChildren<{}>, _: ReactRef<HTMLElement>) => {
-    const { state, triggerRef, getTriggerProps } = usePopoverContext();
-    const { children, ...otherProps } = props;
+    const {state, triggerRef, getTriggerProps} = usePopoverContext();
+    const {children, ...otherProps} = props;
 
     const onPress = () => state.open();
 
-    const { buttonProps } = useButton(
+    const {buttonProps} = useButton(
       {
         onPress,
-        ...otherProps
+        ...otherProps,
       },
-      triggerRef
+      triggerRef,
     );
 
     // enforce a single child
@@ -36,27 +39,21 @@ const PopoverTrigger = React.forwardRef(
     return React.cloneElement(
       child,
       getTriggerProps(
-        mergeProps(
-          child.props,
-          hasNextUIButton ? { onPress, ...otherProps } : buttonProps
-        ),
-        child.ref
-      )
+        mergeProps(child.props, hasNextUIButton ? {onPress, ...otherProps} : buttonProps),
+        child.ref,
+      ),
     );
-  }
+  },
 );
 
 if (__DEV__) {
-  PopoverTrigger.displayName = 'NextUI.PopoverTrigger';
+  PopoverTrigger.displayName = "NextUI.PopoverTrigger";
 }
 
-PopoverTrigger.toString = () => '.nextui-popover-trigger';
+PopoverTrigger.toString = () => ".nextui-popover-trigger";
 
 type PopoverTriggerComponent<T, P = {}> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>
 >;
 
-export default PopoverTrigger as PopoverTriggerComponent<
-  HTMLElement,
-  React.PropsWithChildren<{}>
->;
+export default PopoverTrigger as PopoverTriggerComponent<HTMLElement, React.PropsWithChildren<{}>>;

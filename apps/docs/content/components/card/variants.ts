@@ -1,4 +1,4 @@
-const App = `import { Card } from "@nextui-org/react";
+const App = `import { Card, Grid, Text } from "@nextui-org/react";
 
 export default function App() {
   return (
@@ -29,9 +29,9 @@ export default function App() {
 }`;
 
 const react = {
-  '/App.js': App
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

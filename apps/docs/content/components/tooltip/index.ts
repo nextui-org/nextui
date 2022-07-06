@@ -1,11 +1,11 @@
-import default_tooltip from './default';
-import rounded from './rounded';
-import color from './color';
-import textColor from './textColor';
-import trigger from './trigger';
-import placement from './placement';
-import noArrow from './noArrow';
-import customContent from './customContent';
+import default_tooltip from "./default";
+import rounded from "./rounded";
+import color from "./color";
+import textColor from "./textColor";
+import trigger from "./trigger";
+import placement from "./placement";
+import noArrow from "./noArrow";
+import customContent from "./customContent";
 
 export default {
   default_tooltip,
@@ -15,5 +15,5 @@ export default {
   trigger,
   placement,
   noArrow,
-  customContent
+  customContent,
 };

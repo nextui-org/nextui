@@ -1,28 +1,31 @@
-import React, { PropsWithoutRef, RefAttributes } from 'react';
-import type { ReactNode } from 'react';
-import Drip from '../utils/drip';
-import { CSS } from '../theme/stitches.config';
-import { useCard } from './use-card';
-import type { UseCardProps } from './use-card';
-import { Image, Divider } from '../index';
+import type {ReactNode} from "react";
+import type {UseCardProps} from "./use-card";
+import type {CSS} from "../theme/stitches.config";
+
+import React, {PropsWithoutRef, RefAttributes} from "react";
+
+import Drip from "../utils/drip";
+import {Image, Divider} from "../index";
+import {__DEV__} from "../utils/assertion";
+
+import {useCard} from "./use-card";
 import {
   StyledCard,
   StyledCardHeader as CardHeader,
   StyledCardFooter as CardFooter,
-  StyledCardBody as CardBody
-} from './card.styles';
-import { __DEV__ } from '../utils/assertion';
+  StyledCardBody as CardBody,
+} from "./card.styles";
 
-interface Props extends Omit<UseCardProps, 'ref'> {
+interface Props extends Omit<UseCardProps, "ref"> {
   children: ReactNode | ReactNode[];
   as?: keyof JSX.IntrinsicElements;
 }
 
-export type CardProps = Props & { css?: CSS };
+export type CardProps = Props & {css?: CSS};
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ ...cardProps }, ref: React.Ref<HTMLDivElement | null>) => {
-    const { as, css, children, ...otherProps } = cardProps;
+  ({...cardProps}, ref: React.Ref<HTMLDivElement | null>) => {
+    const {as, css, children, ...otherProps} = cardProps;
 
     const {
       cardRef,
@@ -35,32 +38,30 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       borderWeight,
       isHovered,
       getCardProps,
-      dripBindings
-    } = useCard({ ...otherProps, ref });
+      dripBindings,
+    } = useCard({...otherProps, ref});
 
     return (
       <StyledCard
         ref={cardRef}
         as={as}
-        css={css}
-        variant={variant}
-        role={isPressable ? 'button' : 'section'}
         borderWeight={borderWeight}
+        css={css}
         disableAnimation={disableAnimation}
+        isFocusVisible={isFocusVisible}
+        isHovered={isHovered}
         isPressable={isPressable}
         isPressed={isPressed}
-        isHovered={isHovered}
+        role={isPressable ? "button" : "section"}
         tabIndex={isPressable ? 0 : -1}
-        isFocusVisible={isFocusVisible}
+        variant={variant}
         {...getCardProps()}
       >
-        {isPressable && !disableAnimation && !disableRipple && (
-          <Drip {...dripBindings} />
-        )}
+        {isPressable && !disableAnimation && !disableRipple && <Drip {...dripBindings} />}
         {children}
       </StyledCard>
     );
-  }
+  },
 );
 
 type CardComponent<T, P = {}> = React.ForwardRefExoticComponent<
@@ -74,9 +75,9 @@ type CardComponent<T, P = {}> = React.ForwardRefExoticComponent<
 };
 
 if (__DEV__) {
-  Card.displayName = 'NextUI.Card';
+  Card.displayName = "NextUI.Card";
 }
 
-Card.toString = () => '.nextui-card';
+Card.toString = () => ".nextui-card";
 
 export default Card as CardComponent<HTMLDivElement, CardProps>;

@@ -1,13 +1,13 @@
-import useKeyboard from './use-keyboard';
-import { KeyMod, KeyCode } from './codes';
+import useKeyboard from "./use-keyboard";
+import {KeyMod, KeyCode} from "./codes";
 
-export { KeyMod, KeyCode };
+export {KeyMod, KeyCode};
 
 export type {
   UseKeyboardHandler,
   KeyboardOptions,
   KeyboardResult,
-  UseKeyboard
-} from './use-keyboard';
+  UseKeyboard,
+} from "./use-keyboard";
 
 export default useKeyboard;

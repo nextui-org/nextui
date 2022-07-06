@@ -1,10 +1,13 @@
-import React, { useMemo, useContext } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { ModalContext } from './modal-context';
-import { Justify } from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
-import { StyledModalFooter, ModalFooterVariantsProps } from './modal.styles';
-import cslx from '../utils/clsx';
+import type {CSS} from "../theme/stitches.config";
+
+import React, {useMemo, useContext} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import {Justify} from "../utils/prop-types";
+import cslx from "../utils/clsx";
+
+import {StyledModalFooter, ModalFooterVariantsProps} from "./modal.styles";
+import {ModalContext} from "./modal-context";
 
 interface Props {
   className?: string;
@@ -15,18 +18,15 @@ interface Props {
 }
 
 const defaultProps = {
-  className: '',
-  justify: 'flex-end' as Justify,
-  autoMargin: true
+  className: "",
+  justify: "flex-end" as Justify,
+  autoMargin: true,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type ModalFooterProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  ModalFooterVariantsProps;
+export type ModalFooterProps = Props & typeof defaultProps & NativeAttrs & ModalFooterVariantsProps;
 
-const preClass = 'nextui-modal-footer';
+const preClass = "nextui-modal-footer";
 
 const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
   children,
@@ -36,7 +36,7 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
   css,
   ...props
 }) => {
-  const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
+  const {autoMargin: autoMarginContext, noPadding} = useContext(ModalContext);
 
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
@@ -44,17 +44,17 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
 
   return (
     <StyledModalFooter
+      autoMargin={autoMargin}
       className={cslx(
         preClass,
         {
           [`${preClass}-auto-margin`]: autoMargin,
-          [`${preClass}-no-padding`]: noPadding
+          [`${preClass}-no-padding`]: noPadding,
         },
-        className
+        className,
       )}
+      css={{justifyContent: justify, ...css}}
       noPadding={noPadding}
-      autoMargin={autoMargin}
-      css={{ justifyContent: justify, ...css }}
       {...props}
     >
       {children}
@@ -62,7 +62,7 @@ const ModalFooter: React.FC<React.PropsWithChildren<ModalFooterProps>> = ({
   );
 };
 
-ModalFooter.toString = () => '.nextui-modal-footer';
+ModalFooter.toString = () => ".nextui-modal-footer";
 
 const MemoModalFooter = React.memo(ModalFooter);
 

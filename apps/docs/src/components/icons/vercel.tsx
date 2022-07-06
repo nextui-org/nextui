@@ -1,6 +1,7 @@
-import * as React from 'react';
-import withDefaults from '@utils/with-defaults';
-import { Icon } from './index';
+import * as React from "react";
+import withDefaults from "@utils/with-defaults";
+
+import {Icon} from "./index";
 
 interface Props {
   width?: number;
@@ -11,23 +12,17 @@ interface Props {
 
 const defaultProps = {
   height: 44,
-  fill: 'currentColor',
-  className: ''
+  fill: "currentColor",
+  className: "",
 };
 
-const Vercel: React.FC<Props> = ({
-  fill,
-  width,
-  height,
-  className,
-  ...props
-}) => {
+const Vercel: React.FC<Props> = ({fill, width, height, className, ...props}) => {
   return (
     <Icon
-      width={width}
+      fill="none"
       height={height}
       viewBox="0 0 4438 1000"
-      fill="none"
+      width={width}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >

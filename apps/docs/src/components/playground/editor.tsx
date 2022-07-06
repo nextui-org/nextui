@@ -1,33 +1,34 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
-import { LiveEditor } from 'react-live';
-import { useTheme, Row, Col, Tooltip, useClipboard } from '@nextui-org/react';
-import { capitalize, join } from 'lodash';
-import CopyIcon from '../icons/copy';
-import BugIcon from '../icons/bug';
-import RightIcon from '../icons/arrow-right';
-import { ISSUE_REPORT_URL } from '../../lib/github/constants';
+import React, {useState} from "react";
+import {useRouter} from "next/router";
+import {LiveEditor} from "react-live";
+import {useTheme, Row, Col, Tooltip, useClipboard} from "@nextui-org/react";
+import {capitalize, join} from "lodash";
+
+import CopyIcon from "../icons/copy";
+import BugIcon from "../icons/bug";
+import RightIcon from "../icons/arrow-right";
+import {ISSUE_REPORT_URL} from "../../lib/github/constants";
 
 export interface Props {
   initialOpen?: boolean;
   code: string;
 }
 
-const Editor: React.FC<Props> = ({ initialOpen, code }) => {
-  const { theme, isDark } = useTheme();
+const Editor: React.FC<Props> = ({initialOpen, code}) => {
+  const {theme, isDark} = useTheme();
   const [visible, setVisible] = useState(initialOpen);
   const [copied, setCopied] = useState(false);
 
   const router = useRouter();
 
-  const { copy } = useClipboard();
+  const {copy} = useClipboard();
 
-  const slug = router.query.slug || '';
+  const slug = router.query.slug || "";
 
   const componentTitle = Array.isArray(slug)
     ? join(
         slug.map((s) => capitalize(s)),
-        '/'
+        "/",
       )
     : capitalize(slug);
 
@@ -54,10 +55,10 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
     event.stopPropagation();
     event.preventDefault();
 
-    Object.assign(document.createElement('a'), {
-      target: '_blank',
-      rel: 'noopener noreferrer',
-      href: `${ISSUE_REPORT_URL}${componentTitle}`
+    Object.assign(document.createElement("a"), {
+      target: "_blank",
+      rel: "noopener noreferrer",
+      href: `${ISSUE_REPORT_URL}${componentTitle}`,
     }).click();
   };
 
@@ -65,21 +66,10 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
     <div className="editor">
       <details open={visible}>
         <summary onClick={clickHandler}>
-          <Row
-            justify="space-between"
-            align="center"
-            style={{ height: '100%', width: '100%' }}
-          >
+          <Row align="center" justify="space-between" style={{height: "100%", width: "100%"}}>
             <Col className="action left-side">
               <span className="arrow">
-                <RightIcon
-                  size={16}
-                  fill={
-                    !isDark
-                      ? theme?.colors?.accents2?.value
-                      : theme?.colors?.accents8?.value
-                  }
-                />
+                <RightIcon fill="currentColor" size={16} />
               </span>
               <span className="title">Live Editor</span>
             </Col>
@@ -88,45 +78,23 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
                 <Tooltip
                   hideArrow
                   className="action-tooltip"
-                  content={copied ? 'Copied!' : 'Copy'}
+                  content={copied ? "Copied!" : "Copy"}
                   onVisibleChange={handleTooltipVisibleChange}
                 >
-                  <span
-                    className="icon"
-                    onClick={copyHandler}
-                    title="Copy Code"
-                  >
-                    <CopyIcon
-                      fill={
-                        !isDark
-                          ? theme?.colors?.accents2?.value
-                          : theme?.colors?.accents5?.value
-                      }
-                      size={18}
-                    />
+                  <span className="icon" role="button" title="Copy Code" onClick={copyHandler}>
+                    <CopyIcon fill="currentColor" size={18} />
                   </span>
                 </Tooltip>
-                <Tooltip
-                  hideArrow
-                  className="action-tooltip"
-                  content="Report a bug"
-                >
+                <Tooltip hideArrow className="action-tooltip" content="Report a bug">
                   <a
                     className="icon"
-                    title="Report a bug"
+                    href={`${ISSUE_REPORT_URL}${componentTitle}`}
                     rel="noopener noreferrer"
                     target="_blank"
+                    title="Report a bug"
                     onClick={linkHandler}
-                    href={`${ISSUE_REPORT_URL}${componentTitle}`}
                   >
-                    <BugIcon
-                      fill={
-                        !isDark
-                          ? theme?.colors?.accents2?.value
-                          : theme?.colors?.accents5?.value
-                      }
-                      size={18}
-                    />
+                    <BugIcon fill="currentColor" size={18} />
                   </a>
                 </Tooltip>
               </>
@@ -150,7 +118,7 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
           transition: all 0.2s ease;
           overflow: hidden;
           border-radius: ${theme?.radii?.lg?.value};
-          background-color: ${!isDark ? '#363449' : '#111'};
+          background-color: ${!isDark ? "#363449" : "#111"};
           box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
         }
         details[open] :global(.right-side) {
@@ -164,9 +132,7 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
           justify-content: space-between;
           align-items: center;
           padding: 0 ${theme?.space?.lg?.value};
-          color: ${!isDark
-            ? theme?.colors?.accents2?.value
-            : theme?.colors?.accents5?.value};
+          color: ${!isDark ? theme?.colors?.accents2?.value : theme?.colors?.accents5?.value};
           height: 2.875rem;
           list-style: none;
           user-select: none;
@@ -185,7 +151,7 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
           position: relative;
           box-sizing: border-box;
           white-space: pre;
-          font-size: 1em;
+          font-size: ${theme?.fontSizes?.sm?.value};
           overflow: hidden;
           font-family: ${theme?.fonts?.mono};
           padding: ${theme?.space?.sm?.value};
@@ -200,6 +166,7 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
           width: 1rem;
           height: 1rem;
           margin-right: 0.5rem;
+          color: ${theme?.colors?.accents6?.value};
         }
         details[open] .arrow {
           transform: rotate(90deg);
@@ -209,11 +176,11 @@ const Editor: React.FC<Props> = ({ initialOpen, code }) => {
           z-index: 100;
           align-items: center;
           margin-left: 0.5rem;
-          color: ${theme?.colors?.accents4?.value};
+          color: ${theme?.colors?.accents6?.value};
           transition: color 0.2s ease;
         }
         .icon:hover {
-          color: ${theme?.colors?.accents6?.value};
+          color: ${theme?.colors?.accents8?.value};
         }
       `}</style>
     </div>

@@ -1,7 +1,7 @@
 export interface GithubError extends Error {
   url: string;
   status: number;
-  headers: Response['headers'];
+  headers: Response["headers"];
 }
 
 function getErrorText(res: Response) {
@@ -14,9 +14,7 @@ function getErrorText(res: Response) {
 
 export async function getError(msg: string, res: Response) {
   const errorText = await getErrorText(res);
-  const error = new Error(
-    `${msg} (${res.status}): ${errorText}`
-  ) as GithubError;
+  const error = new Error(`${msg} (${res.status}): ${errorText}`) as GithubError;
 
   error.url = res.url;
   error.status = res.status;

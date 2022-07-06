@@ -1,14 +1,17 @@
-import React, { useMemo } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { NormalSizes, NormalLoaders } from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
+import type {CSS} from "../theme/stitches.config";
+
+import React, {useMemo} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import {NormalSizes, NormalLoaders} from "../utils/prop-types";
+
 import {
   StyledLoadingContainer,
   StyledLoading,
   StyledLoadingLabel,
-  LoadingContainerVariantsProps
-} from './loading.styles';
-import Spinner from './spinner';
+  LoadingContainerVariantsProps,
+} from "./loading.styles";
+import Spinner from "./spinner";
 
 interface Props {
   size?: NormalSizes;
@@ -19,8 +22,8 @@ interface Props {
 }
 
 const defaultProps = {
-  size: 'md' as NormalSizes,
-  type: 'default' as NormalLoaders
+  size: "md" as NormalSizes,
+  type: "default" as NormalLoaders,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -28,9 +31,9 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 export type LoadingProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  LoadingContainerVariantsProps & { css?: CSS };
+  LoadingContainerVariantsProps & {css?: CSS};
 
-const preClass = 'nextui-loading';
+const preClass = "nextui-loading";
 
 const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   children,
@@ -40,31 +43,31 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   type,
   ...props
 }) => {
-  const ariaLabel = children ? '' : 'Loading';
+  const ariaLabel = children ? "" : "Loading";
 
   const loadingGradientCSS = useMemo<CSS | undefined>(() => {
-    if (type === 'gradient') return { '._2': { bg: gradientBackground } };
+    if (type === "gradient") return {"._2": {bg: gradientBackground}};
   }, [type]);
 
   return (
     <StyledLoadingContainer {...props}>
-      {type === 'spinner' ? (
+      {type === "spinner" ? (
         <Spinner size={size}>{children}</Spinner>
       ) : (
         <>
           <StyledLoading
-            className={`${preClass} ${preClass}-${type}`}
-            type={type}
-            size={size}
             aria-label={ariaLabel}
-            css={{ ...loadingCss, ...loadingGradientCSS }}
+            className={`${preClass} ${preClass}-${type}`}
+            css={{...loadingCss, ...loadingGradientCSS}}
+            size={size}
+            type={type}
           >
             <i className="_1" />
             <i className="_2" />
             <i className="_3" />
           </StyledLoading>
           {children && (
-            <StyledLoadingLabel size={size} className={`${preClass}-label`}>
+            <StyledLoadingLabel className={`${preClass}-label`} size={size}>
               {children}
             </StyledLoadingLabel>
           )}
@@ -74,7 +77,7 @@ const Loading: React.FC<React.PropsWithChildren<LoadingProps>> = ({
   );
 };
 
-Loading.toString = () => '.nextui-loading';
+Loading.toString = () => ".nextui-loading";
 
 const MemoLoading = React.memo(Loading);
 

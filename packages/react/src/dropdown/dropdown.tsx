@@ -1,13 +1,15 @@
-import React, { ReactNode } from 'react';
-import { Section } from '@react-stately/collections';
-import DropdownItemBase from './base/dropdown-item-base';
-import Popover from '../popover';
-import { DropdownProvider } from './dropdown-context';
-import DropdownTrigger from './dropdown-trigger';
-import DropdownMenu from './dropdown-menu';
-import DropdownButton from './dropdown-button';
-import { useDropdown, UseDropdownProps } from './use-dropdown';
-import { __DEV__ } from '../utils/assertion';
+import React, {ReactNode} from "react";
+import {Section} from "@react-stately/collections";
+
+import Popover from "../popover";
+import {__DEV__} from "../utils/assertion";
+
+import DropdownItemBase from "./base/dropdown-item-base";
+import {DropdownProvider} from "./dropdown-context";
+import DropdownTrigger from "./dropdown-trigger";
+import DropdownMenu from "./dropdown-menu";
+import DropdownButton from "./dropdown-button";
+import {useDropdown, UseDropdownProps} from "./use-dropdown";
 
 interface Props extends UseDropdownProps {
   /**
@@ -20,7 +22,7 @@ interface Props extends UseDropdownProps {
 export type DropdownProps = Props;
 
 const Dropdown = (props: DropdownProps) => {
-  const { children, ...otherProps } = props;
+  const {children, ...otherProps} = props;
 
   const context = useDropdown(otherProps);
 
@@ -31,12 +33,12 @@ const Dropdown = (props: DropdownProps) => {
       <Popover
         ref={context.menuPopoverRef}
         {...context.popoverProps}
-        triggerRef={context.menuTriggerRef}
-        scrollRef={context.menuRef}
-        isOpen={context.state.isOpen}
-        onClose={context.state.close}
         borderWeight={context.borderWeight}
         disableAnimation={context.disableAnimation}
+        isOpen={context.state.isOpen}
+        scrollRef={context.menuRef}
+        triggerRef={context.menuTriggerRef}
+        onClose={context.state.close}
       >
         {menuTrigger}
         <Popover.Content>{menu}</Popover.Content>
@@ -46,7 +48,7 @@ const Dropdown = (props: DropdownProps) => {
 };
 
 if (__DEV__) {
-  Dropdown.displayName = 'NextUI.Dropdown';
+  Dropdown.displayName = "NextUI.Dropdown";
 }
 
 type DropdownComponent<P = {}> = React.FC<P> & {
@@ -57,6 +59,6 @@ type DropdownComponent<P = {}> = React.FC<P> & {
   Section: typeof Section;
 };
 
-Dropdown.toString = () => '.nextui-dropdown';
+Dropdown.toString = () => ".nextui-dropdown";
 
 export default Dropdown as DropdownComponent<DropdownProps>;

@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { styled, CSS } from '../theme/stitches.config';
-import withDefaults from '../utils/with-defaults';
-import useRealShape from '../use-real-shape';
+import React, {useEffect, useRef, useState} from "react";
+
+import {styled, CSS} from "../theme/stitches.config";
+import withDefaults from "../utils/with-defaults";
+import useRealShape from "../use-real-shape";
 
 interface Props {
   isExpanded?: boolean;
@@ -13,22 +14,22 @@ interface Props {
 const defaultProps = {
   isExpanded: false,
   animated: true,
-  delay: 200
+  delay: 200,
 };
 
-const StyledExpand = styled('div', {
+const StyledExpand = styled("div", {
   p: 0,
   m: 0,
   h: 0,
   opacity: 0,
-  overflow: 'hidden',
+  overflow: "hidden",
   variants: {
     expanded: {
       true: {
-        opacity: 1
-      }
-    }
-  }
+        opacity: 1,
+      },
+    },
+  },
 });
 
 export type ExpandProps = Props & typeof defaultProps;
@@ -38,9 +39,9 @@ const Expand: React.FC<React.PropsWithChildren<ExpandProps>> = ({
   delay,
   animated,
   css,
-  children
+  children,
 }) => {
-  const [height, setHeight] = useState<string>(isExpanded ? 'auto' : '0');
+  const [height, setHeight] = useState<string>(isExpanded ? "auto" : "0");
   const [selfExpanded, setSelfExpanded] = useState<boolean>(isExpanded);
   const contentRef = useRef<HTMLDivElement>(null);
   const entryTimer = useRef<number>();
@@ -68,7 +69,7 @@ const Expand: React.FC<React.PropsWithChildren<ExpandProps>> = ({
     // Reset height after animation
     if (isExpanded) {
       resetTimer.current = window.setTimeout(() => {
-        setHeight('auto');
+        setHeight("auto");
         clearTimeout(resetTimer.current);
       }, delay);
     } else {
@@ -86,15 +87,15 @@ const Expand: React.FC<React.PropsWithChildren<ExpandProps>> = ({
 
   return (
     <StyledExpand
-      expanded={selfExpanded}
       css={{
-        height: selfExpanded ? height : '0',
+        height: selfExpanded ? height : "0",
         transition: animated
           ? `height ${delay}ms ease 0ms,
     opacity ${delay * 1.5}ms ease 0ms;`
-          : 'none',
-        ...css
+          : "none",
+        ...css,
       }}
+      expanded={selfExpanded}
     >
       <div ref={contentRef} className="nextui-expand-content">
         {children}

@@ -162,13 +162,13 @@ export default function App() {
 }`;
 
 const react = {
-  '/AddNoteIcon.js': AddNoteIcon,
-  '/CopyDocumentIcon.js': CopyDocumentIcon,
-  '/EditDocumentIcon.js': EditDocumentIcon,
-  '/DeleteDocumentIcon.js': DeleteDocumentIcon,
-  '/App.js': App
+  "/AddNoteIcon.js": AddNoteIcon,
+  "/CopyDocumentIcon.js": CopyDocumentIcon,
+  "/EditDocumentIcon.js": EditDocumentIcon,
+  "/DeleteDocumentIcon.js": DeleteDocumentIcon,
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

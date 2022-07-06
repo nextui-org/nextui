@@ -1,10 +1,13 @@
-import React, { useContext, useMemo } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { ModalContext } from './modal-context';
-import { Justify } from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
-import { StyledModalHeader, ModalHeaderVariantsProps } from './modal.styles';
-import cslx from '../utils/clsx';
+import type {CSS} from "../theme/stitches.config";
+
+import React, {useContext, useMemo} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import {Justify} from "../utils/prop-types";
+import cslx from "../utils/clsx";
+
+import {StyledModalHeader, ModalHeaderVariantsProps} from "./modal.styles";
+import {ModalContext} from "./modal-context";
 
 interface Props {
   className?: string;
@@ -15,19 +18,16 @@ interface Props {
 }
 
 const defaultProps = {
-  className: '',
-  justify: 'center' as Justify,
-  autoMargin: true
+  className: "",
+  justify: "center" as Justify,
+  autoMargin: true,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type ModalHeaderProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  ModalHeaderVariantsProps;
+export type ModalHeaderProps = Props & typeof defaultProps & NativeAttrs & ModalHeaderVariantsProps;
 
-const preClass = 'nextui-modal-header';
+const preClass = "nextui-modal-header";
 
 const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
   children,
@@ -37,7 +37,7 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
   css,
   ...props
 }) => {
-  const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
+  const {autoMargin: autoMarginContext, noPadding} = useContext(ModalContext);
 
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
@@ -45,17 +45,17 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
 
   return (
     <StyledModalHeader
+      autoMargin={autoMargin}
       className={cslx(
         preClass,
         {
           [`${preClass}-auto-margin`]: autoMargin,
-          [`${preClass}-no-padding`]: noPadding
+          [`${preClass}-no-padding`]: noPadding,
         },
-        className
+        className,
       )}
+      css={{justifyContent: justify, ...css}}
       noPadding={noPadding}
-      autoMargin={autoMargin}
-      css={{ justifyContent: justify, ...css }}
       {...props}
     >
       {children}
@@ -63,7 +63,7 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
   );
 };
 
-ModalHeader.toString = () => '.nextui-modal-header';
+ModalHeader.toString = () => ".nextui-modal-header";
 
 const MemoModalHeader = React.memo(ModalHeader);
 
