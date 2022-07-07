@@ -47,8 +47,8 @@
     "build:watch": "node ./scripts/build-watch.js",
     "dev": "yarn clear && yarn build:dev-types && yarn build:watch",
     "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
-    "test": "jest --config .jest.config.js --no-cache",
-    "test-update": "jest --config .jest.config.js --no-cache --update-snapshot",
+    "test": "jest --config jest.config.js --no-cache",
+    "test-update": "jest --config jest.config.js --no-cache --update-snapshot",
     "coverage": "yarn test --coverage",
     "coverage-update": "yarn test-update --coverage",
     "coverage:codecov": "yarn test --coverage && codecov"
@@ -101,7 +101,6 @@
     "@react-bootstrap/babel-preset": "^2.1.0",
     "@storybook/react": "^6.5.3",
     "@testing-library/dom": "^8.1.0",
-    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^13.2.0",

@@ -1,7 +1,8 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 
-import {Col, Row, Spacer} from "../index";
+import {Col, Row, Spacer, Grid, Avatar, Switch, Text} from "../index";
+import {Notification} from "../utils/icons";
 
 import Badge from "./index";
 
@@ -11,6 +12,201 @@ export default {
 } as Meta;
 
 export const Default = () => <Badge>New</Badge>;
+
+export const WithAvatar = () => (
+  <Grid.Container gap={1} justify="center">
+    <Grid>
+      <Badge color="error" content={5} size="sm">
+        <Avatar
+          bordered
+          pointer
+          squared
+          color="secondary"
+          size="lg"
+          src="https://i.pravatar.cc/300?u=a042581f4e29026707d"
+        />
+      </Badge>
+    </Grid>
+    <Grid>
+      <Badge color="error" content={5} placement="bottom-right" shape="circle" size="sm">
+        <Avatar
+          bordered
+          pointer
+          color="secondary"
+          size="lg"
+          src="https://i.pravatar.cc/300?u=a042581f4e29026707e"
+        />
+      </Badge>
+    </Grid>
+  </Grid.Container>
+);
+
+export const WithIcon = () => (
+  <Badge color="error" content={5} horizontalOffset={2} shape="circle">
+    <Notification fill="currentColor" size={30} />
+  </Badge>
+);
+
+export const WithContentIcon = () => (
+  <Badge
+    color="error"
+    content={<Notification fill="currentColor" size={12} />}
+    css={{p: "$2"}}
+    horizontalOffset={2}
+    shape="circle"
+  >
+    <Avatar
+      bordered
+      pointer
+      color="secondary"
+      size="lg"
+      src="https://i.pravatar.cc/300?u=a042581f4e29026707e"
+    />
+  </Badge>
+);
+
+export const ToggleBadge = () => {
+  const [invisible, setInvisible] = React.useState(false);
+
+  return (
+    <Grid.Container alignItems="center" gap={2}>
+      <Grid>
+        <Badge color="error" content={5} invisible={invisible} placement="top-right" shape="circle">
+          <Notification fill="currentColor" size={30} />
+        </Badge>
+      </Grid>
+      <Grid>
+        <Row align="center">
+          <Switch
+            initialChecked
+            css={{mr: "$2"}}
+            onChange={(ev) => setInvisible(!ev.target.checked)}
+          />
+          <Text>Show badge</Text>
+        </Row>
+      </Grid>
+    </Grid.Container>
+  );
+};
+
+export const WithContentPlacements = () => {
+  return (
+    <>
+      <Grid.Container gap={1} justify="center">
+        <Grid>
+          <Badge color="error" content={5} size="sm">
+            <Avatar
+              bordered
+              pointer
+              squared
+              color="secondary"
+              size="lg"
+              src="https://i.pravatar.cc/300?u=a042581f4e29026707d"
+            />
+          </Badge>
+        </Grid>
+        <Grid>
+          <Badge color="error" content={5} placement="bottom-right" size="sm">
+            <Avatar
+              bordered
+              pointer
+              squared
+              color="secondary"
+              size="lg"
+              src="https://i.pravatar.cc/300?u=a042581f4e29026707e"
+            />
+          </Badge>
+        </Grid>
+        <Grid>
+          <Badge color="error" content={5} placement="top-left" size="sm">
+            <Avatar
+              bordered
+              pointer
+              squared
+              color="secondary"
+              size="lg"
+              src="https://i.pravatar.cc/300?u=a042581f4e290267072"
+            />
+          </Badge>
+        </Grid>
+        <Grid>
+          <Badge color="error" content={5} placement="bottom-left" size="sm">
+            <Avatar
+              bordered
+              pointer
+              squared
+              color="secondary"
+              size="lg"
+              src="https://i.pravatar.cc/300?u=a042581f4e290267073"
+            />
+          </Badge>
+        </Grid>
+      </Grid.Container>
+      <Grid.Container gap={1} justify="center">
+        <Grid>
+          <Badge
+            invisible
+            color="primary"
+            content={5}
+            placement="bottom-right"
+            size="md"
+            variant="points"
+          >
+            <Avatar
+              bordered
+              pointer
+              color="primary"
+              size="lg"
+              src="https://i.pravatar.cc/300?u=a042581f4e29026707d"
+            />
+          </Badge>
+        </Grid>
+        <Grid>
+          <Badge
+            color="success"
+            content={5}
+            placement="bottom-right"
+            shape="circle"
+            size="md"
+            variant="dot"
+          >
+            <Avatar
+              bordered
+              pointer
+              color="success"
+              size="lg"
+              src="https://i.pravatar.cc/300?u=a042581f4e29026707e"
+            />
+          </Badge>
+        </Grid>
+        <Grid>
+          <Badge color="error" content={5} placement="top-left" size="sm">
+            <Avatar
+              bordered
+              pointer
+              squared
+              color="secondary"
+              size="lg"
+              src="https://i.pravatar.cc/300?u=a042581f4e290267072"
+            />
+          </Badge>
+        </Grid>
+        <Grid>
+          <Badge color="error" content={5} placement="bottom-left" size="sm">
+            <Avatar
+              bordered
+              pointer
+              squared
+              color="secondary"
+              size="lg"
+              src="https://i.pravatar.cc/300?u=a042581f4e290267073"
+            />
+          </Badge>
+        </Grid>
+      </Grid.Container>
+    </>
+  );
+};
 
 export const Sizes = () => (
   <Col css={{pl: "$6"}}>
@@ -103,35 +299,37 @@ export const Colors = () => (
 export const EnableShadow = () => (
   <Col css={{pl: "$6"}}>
     <Row>
-      <Badge enableShadow>Neutral</Badge>
+      <Badge disableOutline enableShadow>
+        Neutral
+      </Badge>
     </Row>
     <Spacer y={0.5} />
     <Row>
-      <Badge enableShadow color="primary">
+      <Badge disableOutline enableShadow color="primary">
         Primary
       </Badge>
     </Row>
     <Spacer y={0.5} />
     <Row>
-      <Badge enableShadow color="secondary">
+      <Badge disableOutline enableShadow color="secondary">
         Secondary
       </Badge>
     </Row>
     <Spacer y={0.5} />
     <Row>
-      <Badge enableShadow color="success">
+      <Badge disableOutline enableShadow color="success">
         Success
       </Badge>
     </Row>
     <Spacer y={0.5} />
     <Row>
-      <Badge enableShadow color="warning">
+      <Badge disableOutline enableShadow color="warning">
         Warning
       </Badge>
     </Row>
     <Spacer y={0.5} />
     <Row>
-      <Badge enableShadow color="error">
+      <Badge disableOutline enableShadow color="error">
         Error
       </Badge>
     </Row>
@@ -217,7 +415,9 @@ export const BorderedVariant = () => (
 export const DotVariant = () => (
   <Col css={{pl: "$6"}}>
     <Row>
-      <Badge size="xl" variant="dot" />
+      <Badge size="xl" variant="dot">
+        <span>new</span>
+      </Badge>
     </Row>
     <Spacer y={0.5} />
     <Row>

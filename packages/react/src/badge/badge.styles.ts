@@ -1,19 +1,28 @@
-import {styled, keyframes, VariantProps} from "../theme/stitches.config";
+import {styled, VariantProps} from "../theme/stitches.config";
 
-const pointAnimation = keyframes({
-  "0%": {
-    opacity: 1,
-  },
-  "50%": {
-    opacity: "0.4",
-    transform: "scale(0.5)",
-  },
-  "100%": {
-    opacity: 1,
-  },
+import {
+  pointAnimation,
+  appearanceInTopRight,
+  appearanceOutTopRight,
+  appearanceInTopLeft,
+  appearanceOutTopLeft,
+  appearanceInBottomRight,
+  appearanceOutBottomRight,
+  appearanceInBottomLeft,
+  appearanceOutBottomLeft,
+} from "./badge.animations";
+
+export const StyledBadgeRoot = styled("span", {
+  d: "inline-flex",
+  flexShrink: 0,
+  verticalAlign: "middle",
+  position: "relative",
+  overflow: "visible",
 });
 
 export const StyledBadge = styled("span", {
+  $$badgePlacementHOffset: "0%",
+  $$badgePlacementVOffset: "0%",
   display: "inline-block",
   whiteSpace: "nowrap",
   verticalAlign: "middle",
@@ -21,27 +30,53 @@ export const StyledBadge = styled("span", {
   color: "$$badgeTextColor",
   fontWeight: "$semibold",
   fontSize: "$$badgeFontSize",
+  p: "$1 $$badgeHPadding",
+  "@motion": {
+    animation: "none",
+    transition: "none",
+    "&.nextui-badge--invisible": {
+      animation: "none",
+      transition: "none",
+    },
+  },
   variants: {
     size: {
       xs: {
-        p: "$1 $3",
+        $$badgeHPadding: "$space$3",
         $$badgeFontSize: "0.65rem",
       },
       sm: {
-        p: "$1 $4",
+        $$badgeHPadding: "$space$4",
         $$badgeFontSize: "$fontSizes$xs",
       },
       md: {
-        p: "$1 $5",
+        $$badgeHPadding: "$space$4",
         $$badgeFontSize: "$fontSizes$sm",
       },
       lg: {
-        p: "$1 $6",
+        $$badgeHPadding: "$space$5",
         $$badgeFontSize: "$fontSizes$lg",
       },
       xl: {
-        p: "$1 $7",
+        $$badgeHPadding: "$space$5",
         $$badgeFontSize: "$fontSizes$xl",
+      },
+    },
+    shape: {
+      circle: {},
+      rectangle: {},
+    },
+    asChild: {
+      true: {
+        zIndex: "$2",
+        dflex: "center",
+        position: "absolute",
+      },
+    },
+    isOneChar: {
+      true: {
+        size: "calc($$badgeFontSize + $$badgeHPadding)",
+        p: "calc($$badgeHPadding + 1px)",
       },
     },
     color: {
@@ -89,23 +124,53 @@ export const StyledBadge = styled("span", {
         borderRadius: "$pill",
       },
     },
+    placement: {
+      "top-right": {
+        animation: `${appearanceInTopRight} 0.25s ease-out`,
+        "&.nextui-badge--invisible": {
+          opacity: 0,
+          animation: `${appearanceOutTopRight} 0.25s ease-in`,
+        },
+      },
+      "top-left": {
+        animation: `${appearanceInTopLeft} 0.25s ease-out`,
+        "&.nextui-badge--invisible": {
+          opacity: 0,
+          animation: `${appearanceOutTopLeft} 0.25s ease-in`,
+        },
+      },
+      "bottom-right": {
+        animation: `${appearanceInBottomRight} 0.25s ease-out`,
+        "&.nextui-badge--invisible": {
+          opacity: 0,
+          animation: `${appearanceOutBottomRight} 0.25s ease-in`,
+        },
+      },
+      "bottom-left": {
+        animation: `${appearanceInBottomLeft} 0.25s ease-out`,
+        "&.nextui-badge--invisible": {
+          opacity: 0,
+          animation: `${appearanceOutBottomLeft} 0.25s ease-in`,
+        },
+      },
+    },
     variant: {
       default: {},
       flat: {},
       dot: {
+        p: 0,
         dflex: "center",
         minSize: "$$badgeFontSize",
         boxSizing: "border-box",
-        border: "2px solid $colors$background",
-        p: 0,
       },
       points: {
         p: "calc($$badgeFontSize * 0.4)",
         boxSizing: "border-box",
-        border: "2px solid $colors$background",
+        $$badgePlacementHOffset: "calc($$badgeFontSize * 0.8)",
       },
       bordered: {
-        $$badgeBackgroundColor: "$background",
+        $$badgeBackgroundColor: "$colors$background",
+        bg: "$background",
         bw: "$$badgeBorderWeight",
         borderStyle: "solid",
         borderColor: "$$badgeTextColor",
@@ -126,6 +191,21 @@ export const StyledBadge = styled("span", {
       },
       black: {
         $$badgeBorderWeight: "$borderWeights$black",
+      },
+    },
+    disableOutline: {
+      false: {
+        border: "2px solid $colors$background",
+      },
+    },
+    disableAnimation: {
+      true: {
+        animation: "none",
+        transition: "none",
+        "&.nextui-badge--invisible": {
+          animation: "none",
+          transition: "none",
+        },
       },
     },
   },
@@ -240,12 +320,129 @@ export const StyledBadge = styled("span", {
         $$badgeTextColor: "$colors$error",
       },
     },
+    /***
+     * @asChild true
+     * @shape {rectangle, circle}
+     * @placement {top-right, top-left, bottom-right, bottom-left}
+     */
+    // placement=top-right && shape=rectangle
+    {
+      asChild: true,
+      shape: "rectangle",
+      placement: "top-right",
+      css: {
+        top: "calc(5% + $$badgePlacementVOffset)",
+        right: "calc(5% + $$badgePlacementHOffset)",
+        transform: "scale(1) translate(50%, -50%)",
+        transformOrigin: "100% 0%",
+      },
+    },
+    // placement=top-left && shape=rectangle
+    {
+      asChild: true,
+      shape: "rectangle",
+      placement: "top-left",
+      css: {
+        top: "calc(5% + $$badgePlacementVOffset)",
+        left: "calc(5% + $$badgePlacementHOffset)",
+        transform: "scale(1) translate(-50%, -50%)",
+        transformOrigin: "0% 0%",
+      },
+    },
+    // placement=bottom-right && shape=rectangle
+    {
+      asChild: true,
+      shape: "rectangle",
+      placement: "bottom-right",
+      css: {
+        bottom: "calc(5% + $$badgePlacementVOffset)",
+        right: "calc(5% + $$badgePlacementHOffset)",
+        transform: "scale(1) translate(50%, 50%)",
+        transformOrigin: "100% 100%",
+      },
+    },
+    // placement=bottom-left && shape=rectangle
+    {
+      asChild: true,
+      shape: "rectangle",
+      placement: "bottom-left",
+      css: {
+        bottom: "calc(5% + $$badgePlacementVOffset)",
+        left: "calc(5% + $$badgePlacementHOffset)",
+        transform: "scale(1) translate(-50%, 50%)",
+        transformOrigin: "0% 100%",
+      },
+    },
+    // placement=top-right && shape=circle
+    {
+      asChild: true,
+      shape: "circle",
+      placement: "top-right",
+      css: {
+        top: "calc(14% + $$badgePlacementVOffset)",
+        right: "calc(14% + $$badgePlacementHOffset)",
+        transform: "scale(1) translate(50%, -50%)",
+        transformOrigin: "100% 0%",
+      },
+    },
+    // placement=top-left && shape=circle
+    {
+      asChild: true,
+      shape: "circle",
+      placement: "top-left",
+      css: {
+        top: "calc(14% + $$badgePlacementVOffset)",
+        left: "calc(14% + $$badgePlacementHOffset)",
+        transform: "scale(1) translate(-50%, -50%)",
+        transformOrigin: "0% 0%",
+      },
+    },
+    // placement=bottom-right && shape=circle
+    {
+      asChild: true,
+      shape: "circle",
+      placement: "bottom-right",
+      css: {
+        bottom: "calc(14% + $$badgePlacementVOffset)",
+        right: "calc(14% + $$badgePlacementHOffset)",
+        transform: "scale(1) translate(50%, 50%)",
+        transformOrigin: "100% 100%",
+      },
+    },
+    // placement=bottom-left && shape=circle
+    {
+      asChild: true,
+      shape: "circle",
+      placement: "bottom-left",
+      css: {
+        bottom: "calc(14% + $$badgePlacementVOffset)",
+        left: "calc(14% + $$badgePlacementHOffset)",
+        transform: "scale(1) translate(-50%, 50%)",
+        transformOrigin: "0% 100%",
+      },
+    },
+    /**
+     * @variant dot
+     * @shape rectangle
+     */
+    {
+      variant: "dot",
+      shape: "rectangle",
+      css: {
+        $$badgePlacementHOffset: "calc($$badgeFontSize * 0.2)",
+        $$badgePlacementVOffset: "calc($$badgeFontSize * 0.1)",
+      },
+    },
   ],
   defaultVariants: {
     size: "sm",
     color: "neutral",
     variant: "default",
     borderWeight: "normal",
+    placement: "top-right",
+    shape: "rectangle",
+    enableShadow: false,
+    disableOutline: false,
     isSquared: false,
   },
 });
@@ -254,7 +451,7 @@ export const StyledBadgePoints = styled("div", {
   position: "relative",
   dflex: "center",
   "& .nextui-badge-point": {
-    size: "calc($$badgeFontSize * 0.5)",
+    size: "calc($$badgeFontSize * 0.3)",
     background: "$$badgeTextColor",
     margin: "0 2px",
     borderRadius: "$pill",
