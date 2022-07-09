@@ -8,11 +8,11 @@ import {__DEV__} from "../utils/assertion";
 import {StyledBadge, StyledBadgePoints, StyledBadgeRoot, BadgeVariantsProps} from "./badge.styles";
 
 interface Props extends Omit<HTMLNextUIProps<"span">, keyof BadgeVariantsProps> {
-  isInvisible?: boolean;
+  children?: React.ReactNode;
   content?: string | number | React.ReactNode;
+  isInvisible?: boolean;
   verticalOffset?: string | number;
   horizontalOffset?: string | number;
-  children?: React.ReactNode;
 }
 
 export type BadgeProps = Props & Omit<BadgeVariantsProps, "asChild" | "isOneChar">;

@@ -80,7 +80,7 @@ export const StyledBadge = styled("span", {
       true: {},
     },
     color: {
-      neutral: {
+      default: {
         $$badgeBackgroundColor: "$colors$neutral",
         $$badgeTextColor: "$colors$neutralSolidContrast",
         $$badgeShadowColor: "$colors$neutralShadow",
@@ -488,7 +488,7 @@ export const StyledBadge = styled("span", {
   ],
   defaultVariants: {
     size: "md",
-    color: "neutral",
+    color: "default",
     variant: "default",
     borderWeight: "normal",
     placement: "top-right",

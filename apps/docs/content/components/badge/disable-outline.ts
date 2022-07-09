@@ -7,7 +7,6 @@ export default function App() {
         <Badge color="error" content={5} shape="rectangle" size="md">
           <Avatar
             squared
-            color="primary"
             size="lg"
             src="https://i.pravatar.cc/300?u=a042581f4e290267072"
           />
@@ -17,7 +16,6 @@ export default function App() {
         <Badge disableOutline color="error" content={5} shape="circle" size="md">
           <Avatar
             squared
-            color="primary"
             size="lg"
             src="https://i.pravatar.cc/300?u=a042581f4e290267072"
           />

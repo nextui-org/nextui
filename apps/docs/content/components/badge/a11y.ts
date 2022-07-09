@@ -27,7 +27,7 @@ const NotificationIcon = `export const NotificationIcon = ({
 };`;
 
 const App = `import { Badge, Grid, styled } from "@nextui-org/react";
-import { CartIcon } from "./CartIcon";
+import { NotificationIcon } from "./NotificationIcon";
 
 const StyledButton = styled("button", {
   background: "transparent",
