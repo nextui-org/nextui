@@ -116,6 +116,7 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-optimize-clsx": "^2.6.2",
+    "babel-plugin-react-remove-properties": "^0.3.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "chalk": "^4.1.2",
     "cherry-pick": "^0.5.0",

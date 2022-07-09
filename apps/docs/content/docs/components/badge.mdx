@@ -1,0 +1,143 @@
+---
+title: 'Badge'
+description: 'Badges are used as a small numerical value or status descriptor for UI elements.'
+url: https://nextui.org/docs/components/badge
+---
+
+# Badge
+
+Badges are used as a small numerical value or status descriptor for UI elements.
+
+```jsx
+import { Badge } from '@nextui-org/react';
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+<Playground
+  title="Default"
+  desc="Badge with default styles, used in standalone when `content` is empty."
+  files={badgeContent.defaultBadge}
+/>
+
+<Playground
+  title="Sizes"
+  desc="Use `size` prop to change the size of the badge."
+  files={badgeContent.sizesBadge}
+/>
+
+<Playground
+  title="Colors"
+  desc="We preset a series of colorful Badge styles for use in different situations."
+  files={badgeContent.colorsBadge}
+/>
+
+<Playground
+  title="Shadow"
+  desc="Use `enableShadow` prop to add a shadow to the badge."
+  files={badgeContent.shadowBadge}
+/>
+
+<Playground
+  title="Dot"
+  desc="Use the `dot` variant to create a dot badge. Useful for indicating a status or showing a notification that there is new content."
+  files={badgeContent.dotBadge}
+/>
+
+<Playground
+  title="Points"
+  desc="Use the `points` variant to create a badge with a points animation. Useful for indicating a writing or loading status."
+  files={badgeContent.pointsBadge}
+/>
+
+<Playground
+  title="Bordered"
+  desc="Use the `bordered` variant to create a badge with a border and an empty background."
+  files={badgeContent.borderedBadge}
+/>
+
+<Playground
+  title="Flat"
+  desc="Use the `flat` variant to create a badge with a flat background that contrasts with the text based on the selected color. [Leran more about the color palette](/docs/theme/default-theme#understanding-the-base-scale)."
+  files={badgeContent.flatBadge}
+/>
+
+<Playground
+  title="Squared"
+  desc="Use the `isSquared` prop to create a badge with squared corners."
+  files={badgeContent.squaredBadge}
+/>
+
+<Playground
+  title="Content"
+  desc="If you pass the `content` prop, the badge will be rendered relative to its children."
+  files={badgeContent.contentBadge}
+/>
+
+<Playground
+  title="Content Placements"
+  desc="Use the `placement` prop to change the placement of the badge content. The default placement is `top-right`."
+  files={badgeContent.contentPlacementsBadge}
+/>
+
+<Playground
+  title="Content Shape"
+  desc="Use the `shape` prop to place the badge content relative to the corner of the children element. The default shape is `rectangle`."
+  files={badgeContent.contentShapeBadge}
+/>
+
+<Playground
+  title="Content Visibility"
+  desc="The visibility of badges can be controlled using the `isInvisible` prop."
+  files={badgeContent.contentVisibilityBadge}
+/>
+
+
+<Playground
+  title="Content Offset"
+  desc="You can use the `verticalOffset` and `horizontalOffset` props to adjust the position of the badge content. The default offset is `5%` for rectangles and `15%` for circles."
+  files={badgeContent.contentOffset}
+/>
+
+<Playground
+  title="Disable Outline"
+  desc="Use the `disableOutline` prop to remove the outline from the badge. The default outline is `2px` with a `solid` background color."
+  files={badgeContent.disableOutline}
+/>
+
+
+<Playground
+  title="Accessibility"
+  desc="You shouldn't rely on the content of the badge to be announced correctly. You should provide a full description, for instance, with `aria-label`."
+  files={badgeContent.a11y}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Badge Props
+
+| Attribute         | Type                                                   | Description                                                                                              | Default |
+| ----------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- | ------- |
+| **children\***    | `ReactNode[]`                                          | The content of the dropdown. It's usually the `Dropdown.Trigger`, `Dropdown.Button` and `Dropdown.Menu`. | -       |
+| **type**          | [TriggerType](#trigger-type)                           | The type of dropdown menu that the dropdown trigger opens.                                               | `menu`  |
+| **trigger**       | [MenuTriggerType](#menu-trigger-type)                  | How the dropdown menu is triggered.                                                                      | `press` |
+| **closeOnSelect** | `boolean`                                              | Whether the dropdown menu closes when a selection is made.                                               | `true`  |
+| **isDisabled**    | `boolean`                                              | Whether dropdown trigger is disabled.                                                                    | `false` |
+| **PopoverProps**  | [PopoverProps](/docs/components/popover#popover-props) | Since dropdown is based on the `Popover` you can use any of the `Popover` props.                         | -       |
+
+
+---
+
+<Spacer y={2} />
+
+### Badge types
+
+<Spacer y={1} />
+
+

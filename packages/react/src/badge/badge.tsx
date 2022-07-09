@@ -8,10 +8,10 @@ import {__DEV__} from "../utils/assertion";
 import {StyledBadge, StyledBadgePoints, StyledBadgeRoot, BadgeVariantsProps} from "./badge.styles";
 
 interface Props extends Omit<HTMLNextUIProps<"span">, keyof BadgeVariantsProps> {
-  invisible?: boolean;
+  isInvisible?: boolean;
   content?: string | number | React.ReactNode;
-  verticalOffset?: number;
-  horizontalOffset?: number;
+  verticalOffset?: string | number;
+  horizontalOffset?: string | number;
   children?: React.ReactNode;
 }
 
@@ -22,7 +22,7 @@ export const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
     css,
     children,
     content,
-    invisible = false,
+    isInvisible = false,
     disableOutline,
     placement = "top-right",
     variant = "default",
@@ -36,6 +36,17 @@ export const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
   const domRef = useDOMRef(ref);
 
   const asChild = content !== undefined && !!children;
+
+  const isOneChar = React.useMemo(() => {
+    if (asChild && content && variant !== "points" && variant !== "dot") {
+      return String(content)?.length === 1;
+    }
+    if (children && typeof children === "string") {
+      return children.length === 1;
+    }
+
+    return false;
+  }, [asChild, children, variant, content]);
 
   const badgeChildren = React.useMemo(() => {
     if (variant === "dot") {
@@ -53,36 +64,28 @@ export const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
     }
 
     return asChild ? content : children;
-  }, [variant, asChild, content, children]);
-
-  const isOneChar = React.useMemo(() => {
-    if (asChild && content && variant !== "points" && variant !== "dot") {
-      return String(content)?.length === 1;
-    }
-    if (children && typeof children === "string") {
-      return children.length === 1;
-    }
-
-    return false;
-  }, [asChild, children, variant, content]);
+  }, [variant, isOneChar, asChild, content, children]);
 
   const badgeCss = React.useMemo(() => {
+    const isHOffsetNumber = typeof horizontalOffset === "number";
+    const isVOffsetNumber = typeof verticalOffset === "number";
+
     if (verticalOffset && horizontalOffset) {
       return {
-        $$badgePlacementHOffset: `${horizontalOffset}px`,
-        $$badgePlacementVOffset: `${verticalOffset}px`,
+        $$badgePlacementHOffset: isHOffsetNumber ? `${horizontalOffset}px` : horizontalOffset,
+        $$badgePlacementVOffset: isVOffsetNumber ? `${verticalOffset}px` : verticalOffset,
         ...css,
       };
     }
     if (verticalOffset) {
       return {
-        $$badgePlacementVOffset: `${verticalOffset}px`,
+        $$badgePlacementVOffset: isVOffsetNumber ? `${verticalOffset}px` : verticalOffset,
         ...css,
       };
     }
     if (horizontalOffset) {
       return {
-        $$badgePlacementHOffset: `${horizontalOffset}px`,
+        $$badgePlacementHOffset: isHOffsetNumber ? `${horizontalOffset}px` : horizontalOffset,
         ...css,
       };
     }
@@ -96,7 +99,7 @@ export const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
       <StyledBadge
         asChild={asChild}
         className={clsx("nextui-badge", {
-          "nextui-badge--invisible": invisible,
+          "nextui-badge--is-invisible": isInvisible,
         })}
         css={badgeCss}
         disableAnimation={disableAnimation || !asChild}

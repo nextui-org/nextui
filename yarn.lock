@@ -6816,6 +6816,11 @@ babel-plugin-react-docgen@^4.2.1:
     lodash "^4.17.15"
     react-docgen "^5.0.0"
 
+babel-plugin-react-remove-properties@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-react-remove-properties/-/babel-plugin-react-remove-properties-0.3.0.tgz#7b623fb3c424b6efb4edc9b1ae4cc50e7154b87f"
+  integrity sha512-vbxegtXGyVcUkCvayLzftU95vuvpYFV85pRpeMpohMHeEY46Qe0VNWfkVVcCbaZ12CXHzDFOj0esumATcW83ng==
+
 babel-plugin-syntax-dynamic-import@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-dynamic-import/-/babel-plugin-syntax-dynamic-import-6.18.0.tgz#8d6a26229c83745a9982a441051572caa179b1da"

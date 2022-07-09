@@ -1,6 +1,13 @@
 module.exports = (api) => {
   const env = api.env();
 
+  const removePropsPlugin = [
+    "react-remove-properties",
+    {
+      properties: ["data-testid"],
+    },
+  ];
+
   let dev = false;
   let modules;
   let plugins;
@@ -14,9 +21,9 @@ module.exports = (api) => {
       modules = false;
       break;
     case "dist-prod":
-      plugins = ["@testing-library/babel-plugin-react"];
+      plugins = [removePropsPlugin];
     case "production":
-      plugins = ["@testing-library/babel-plugin-react"];
+      plugins = [removePropsPlugin];
     case "esm":
       modules = false;
       break;

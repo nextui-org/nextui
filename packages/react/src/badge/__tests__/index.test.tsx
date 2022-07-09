@@ -1,11 +1,19 @@
 import React from "react";
-import {render, screen} from "@testing-library/react";
+import {mount} from "enzyme";
+import {render} from "@testing-library/react";
 
 import Badge from "../index";
 
 describe("Badge", () => {
   it("should render correctly", () => {
     const wrapper = render(<Badge>New</Badge>);
+
+    expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("ref should be forwarded", () => {
+    const ref = React.createRef<HTMLSpanElement>();
+    const wrapper = mount(<Badge ref={ref}>action</Badge>);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -47,13 +55,13 @@ describe("Badge", () => {
     expect(wrapper.getAllByTestId("badge-point")).toHaveLength(3);
   });
 
-  // it("should be invisible if invisible is true", () => {
-  //   const {container} = render(
-  //     <Badge invisible content={<span data-testid="badge-content" />} data-testid="badge-root">
-  //       <span data-testid="badge-children">new</span>
-  //     </Badge>,
-  //   );
+  it("should be invisible if invisible is true", () => {
+    const wrapper = mount(
+      <Badge isInvisible content={<span data-testid="badge-content" />} data-testid="badge-root">
+        <span data-testid="badge-children">new</span>
+      </Badge>,
+    );
 
-  //   expect(container.querySelectorAll(".nextui-badge")[0]).toHaveClass("nextui-badge--invisible");
-  // });
+    expect(wrapper.find(".nextui-badge--is-invisible").at(0)).toHaveLength(1);
+  });
 });

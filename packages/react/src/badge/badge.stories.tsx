@@ -2,7 +2,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 
 import {Col, Row, Spacer, Grid, Avatar, Switch, Text} from "../index";
-import {Notification} from "../utils/icons";
+import {Notification, CartIcon} from "../utils/icons";
 
 import Badge from "./index";
 
@@ -11,7 +11,7 @@ export default {
   component: Badge,
 } as Meta;
 
-export const Default = () => <Badge>New</Badge>;
+export const Default = () => <Badge>Default</Badge>;
 
 export const WithAvatar = () => (
   <Grid.Container gap={1} justify="center">
@@ -66,23 +66,24 @@ export const WithContentIcon = () => (
 );
 
 export const ToggleBadge = () => {
-  const [invisible, setInvisible] = React.useState(false);
+  const [isInvisible, setIsInvisible] = React.useState(false);
 
   return (
     <Grid.Container alignItems="center" gap={2}>
       <Grid>
-        <Badge color="error" content={5} invisible={invisible} placement="top-right" shape="circle">
+        <Badge color="error" content={5} isInvisible={isInvisible} shape="circle">
           <Notification fill="currentColor" size={30} />
         </Badge>
       </Grid>
       <Grid>
+        <Badge color="error" content={50} isInvisible={isInvisible} shape="circle">
+          <CartIcon fill="currentColor" size={30} />
+        </Badge>
+      </Grid>
+      <Grid>
         <Row align="center">
-          <Switch
-            initialChecked
-            css={{mr: "$2"}}
-            onChange={(ev) => setInvisible(!ev.target.checked)}
-          />
-          <Text>Show badge</Text>
+          <Switch initialChecked onChange={(ev) => setIsInvisible(!ev.target.checked)} />
+          <Text css={{ml: "$3"}}>Show badge</Text>
         </Row>
       </Grid>
     </Grid.Container>
@@ -94,7 +95,7 @@ export const WithContentPlacements = () => {
     <>
       <Grid.Container gap={1} justify="center">
         <Grid>
-          <Badge color="error" content={5} size="sm">
+          <Badge color="error" content={5} size="xs">
             <Avatar
               bordered
               pointer
@@ -106,7 +107,7 @@ export const WithContentPlacements = () => {
           </Badge>
         </Grid>
         <Grid>
-          <Badge color="error" content={5} placement="bottom-right" size="sm">
+          <Badge color="error" content={5} placement="bottom-right" size="md">
             <Avatar
               bordered
               pointer
@@ -145,7 +146,7 @@ export const WithContentPlacements = () => {
       <Grid.Container gap={1} justify="center">
         <Grid>
           <Badge
-            invisible
+            isInvisible
             color="primary"
             content={5}
             placement="bottom-right"
@@ -209,28 +210,151 @@ export const WithContentPlacements = () => {
 };
 
 export const Sizes = () => (
-  <Col css={{pl: "$6"}}>
-    <Row>
-      <Badge size="xs">New (xs)</Badge>
-    </Row>
-    <Spacer y={0.5} />
-    <Row>
-      <Badge size="sm">New (sm)</Badge>
-    </Row>
-    <Spacer y={0.5} />
-    <Row>
-      <Badge size="md">New (md)</Badge>
-    </Row>
-    <Spacer y={0.5} />
-    <Row>
-      <Badge size="lg">New (lg)</Badge>
-    </Row>
-    <Spacer y={0.5} />
-    <Row>
-      <Badge size="xl">New (xl)</Badge>
-    </Row>
-    <Spacer y={0.5} />
-  </Col>
+  <Grid.Container>
+    <Grid.Container alignItems="center" gap={1} justify="center">
+      <Grid>
+        <Badge size="xs">New (xs)</Badge>
+      </Grid>
+      <Grid>
+        <Badge size="sm">New (sm)</Badge>
+      </Grid>
+      <Grid>
+        <Badge size="md">New (md)</Badge>
+      </Grid>
+      <Grid>
+        <Badge size="lg">New (lg)</Badge>
+      </Grid>
+      <Grid>
+        <Badge size="xl">New (xl)</Badge>
+      </Grid>
+    </Grid.Container>
+    <Spacer y={1} />
+    <Grid.Container gap={1} justify="center">
+      <Grid>
+        <Badge color="error" content="xs" size="xs">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e29026707d"
+          />
+        </Badge>
+      </Grid>
+      <Grid>
+        <Badge color="error" content="sm" size="sm">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e29026707e"
+          />
+        </Badge>
+      </Grid>
+      <Grid>
+        <Badge color="error" content="md" size="md">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e290267072"
+          />
+        </Badge>
+      </Grid>
+      <Grid>
+        <Badge color="error" content="lg" size="lg">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e290267073"
+          />
+        </Badge>
+      </Grid>
+      <Grid>
+        <Badge color="error" content="xl" size="xl">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e290267071"
+          />
+        </Badge>
+      </Grid>
+    </Grid.Container>
+    <Spacer y={1} />
+    <Grid.Container gap={2} justify="center">
+      <Grid>
+        <Badge color="error" content="999+" size="xs">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e29026707d"
+          />
+        </Badge>
+      </Grid>
+      <Grid>
+        <Badge color="error" content="999+" size="sm">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e29026707e"
+          />
+        </Badge>
+      </Grid>
+      <Grid>
+        <Badge color="error" content="999+" size="md">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e290267072"
+          />
+        </Badge>
+      </Grid>
+      <Grid>
+        <Badge color="error" content="999+" size="lg">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e290267073"
+          />
+        </Badge>
+      </Grid>
+      <Grid>
+        <Badge color="error" content="999+" size="xl">
+          <Avatar
+            bordered
+            pointer
+            squared
+            color="secondary"
+            size="lg"
+            src="https://i.pravatar.cc/300?u=a042581f4e290267071"
+          />
+        </Badge>
+      </Grid>
+    </Grid.Container>
+  </Grid.Container>
 );
 
 export const Squared = () => (
