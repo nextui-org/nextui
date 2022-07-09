@@ -3,6 +3,7 @@ import { loadScript } from '@utils/scripts';
 import { useTheme } from '@nextui-org/react';
 import { isProd } from '@utils/index';
 import useIsMounted from '@hooks/use-is-mounted';
+import carbonOptimize from './carbon-optimize'
 
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
@@ -21,6 +22,7 @@ const CarbonAd: React.FC<unknown> = () => {
           ref.current
         );
         script.id = '_carbonads_js';
+        carbonOptimize.init();
       });
     return () => {
       load && clearTimeout(load);
