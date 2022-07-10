@@ -22,9 +22,6 @@ export const StyledAvatar = styled(
       transition: "$avatar",
       size: "100%",
     },
-    "&:hover .nextui-avatar-bg": {
-      boxShadow: " inset 0 0 40px 0 rgb(0 0 0 / 14%)",
-    },
     ".nextui-avatar-img": {
       opacity: 0,
       zIndex: "$3",
@@ -208,9 +205,6 @@ export const StyledAvatar = styled(
       },
       bordered: {
         true: {
-          "&:hover:not(.only-text-avatar) .nextui-avatar-bg": {
-            opacity: "0.6",
-          },
           ".nextui-avatar-img": {
             borderStyle: "solid",
             borderColor: "$background",
@@ -225,6 +219,9 @@ export const StyledAvatar = styled(
       pointer: {
         true: {
           cursor: "pointer",
+          "&:hover .nextui-avatar-bg": {
+            boxShadow: "inset 0 0 40px 0 rgb(0 0 0 / 14%)",
+          },
         },
       },
       rounded: {
@@ -295,6 +292,16 @@ export const StyledAvatar = styled(
           borderRadius: "$squared",
           ".nextui-avatar-img": {
             borderRadius: "$squared",
+          },
+        },
+      },
+      // bordered && pointer
+      {
+        bordered: true,
+        pointer: true,
+        css: {
+          "&:hover:not(.only-text-avatar) .nextui-avatar-bg": {
+            opacity: "0.7",
           },
         },
       },

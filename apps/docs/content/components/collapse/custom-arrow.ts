@@ -1,6 +1,4 @@
-const SunIcon = `import { React } from '@nextui-org/react';
-
-export const SunIcon = ({
+const SunIcon = `export const SunIcon = ({
   fill = 'currentColor',
   filled,
   size,
@@ -58,11 +56,9 @@ export const SunIcon = ({
       ></path>
     </svg>
   );
-}`;
+};`;
 
-const MoonIcon = `import { React } from '@nextui-org/react';
-
-export const MoonIcon = ({
+const MoonIcon = `export const MoonIcon = ({
   fill = 'currentColor',
   filled,
   size,
@@ -100,11 +96,9 @@ export const MoonIcon = ({
       ></path>
     </svg>
   );
-}`;
+};`;
 
-const AnchorIcon = `import { React } from '@nextui-org/react';
-
-export const AnchorIcon = ({
+const AnchorIcon = `export const AnchorIcon = ({
   fill = 'currentColor',
   filled,
   size,
@@ -131,7 +125,7 @@ export const AnchorIcon = ({
       ></path>
     </svg>
   );
-}`;
+};`;
 
 const AppJs = `import { Collapse,Text,Grid } from '@nextui-org/react';
 import { SunIcon } from './SunIcon';

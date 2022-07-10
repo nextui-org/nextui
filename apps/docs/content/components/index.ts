@@ -24,6 +24,7 @@ import gridContent from "./grid";
 import spacerContent from "./spacer";
 import popoverContent from "./popover";
 import dropdownContent from "./dropdown";
+import badgeContent from "./badge";
 
 export default {
   tableContent,
@@ -52,4 +53,5 @@ export default {
   spacerContent,
   popoverContent,
   dropdownContent,
+  badgeContent,
 };

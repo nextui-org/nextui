@@ -1,6 +1,4 @@
-const SunIcon = `import { React } from '@nextui-org/react';\n
-
-export const SunIcon = ({
+const SunIcon = `export const SunIcon = ({
   fill = "currentColor",
   filled,
   size,
@@ -60,9 +58,7 @@ export const SunIcon = ({
   );
 };`;
 
-const MoonIcon = `import { React } from '@nextui-org/react';\n
-
-export const MoonIcon = ({
+const MoonIcon = `export const MoonIcon = ({
   fill = "currentColor",
   filled,
   size,
@@ -102,9 +98,7 @@ export const MoonIcon = ({
   );
 };`;
 
-const VideoIcon = `import { React } from '@nextui-org/react';\n
-
-export const VideoIcon = ({
+const VideoIcon = `export const VideoIcon = ({
   fill = "currentColor",
   filled,
   size,
@@ -145,9 +139,7 @@ export const VideoIcon = ({
   );
 };`;
 
-const VideoOffIcon = `import { React } from '@nextui-org/react';\n
-
-export const VideoOffIcon = ({
+const VideoOffIcon = `export const VideoOffIcon = ({
   fill = "currentColor",
   filled,
   size,
@@ -188,9 +180,7 @@ export const VideoOffIcon = ({
   );
 };`;
 
-const VolumeUpIcon = `import { React } from '@nextui-org/react';\n
-
-export const VolumeUpIcon = ({
+const VolumeUpIcon = `export const VolumeUpIcon = ({
   fill = "currentColor",
   size,
   height,
@@ -218,9 +208,7 @@ export const VolumeUpIcon = ({
   );
 };`;
 
-const NotificationIcon = `import { React } from '@nextui-org/react';\n
-
-export const NotificationIcon = ({
+const NotificationIcon = `export const NotificationIcon = ({
   fill = "currentColor",
   filled,
   size,
@@ -248,9 +236,7 @@ export const NotificationIcon = ({
   );
 };`;
 
-const MicrophoneIcon = `import { React } from '@nextui-org/react';\n
-
-export const MicrophoneIcon = ({
+const MicrophoneIcon = `export const MicrophoneIcon = ({
  fill = "currentColor",
   filled,
   size,
@@ -299,9 +285,7 @@ export const MicrophoneIcon = ({
   );
 };`;
 
-const MicrophoneOffIcon = `import { React } from '@nextui-org/react';\n
-
-export const MicrophoneOffIcon = ({
+const MicrophoneOffIcon = `export const MicrophoneOffIcon = ({
   fill = "currentColor",
   filled,
   size,

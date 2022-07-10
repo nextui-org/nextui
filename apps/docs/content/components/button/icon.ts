@@ -1,6 +1,4 @@
-const HeartIcon = `import { React } from '@nextui-org/react';\n
-
-export const HeartIcon = ({
+const HeartIcon = `export const HeartIcon = ({
   fill = 'currentColor',
   filled,
   size,
@@ -27,11 +25,9 @@ export const HeartIcon = ({
       />
     </svg>
   );
-}`;
+};`;
 
-const CameraIcon = `import { React } from '@nextui-org/react';\n
-
-export const CameraIcon = ({
+const CameraIcon = `export const CameraIcon = ({
   fill = 'currentColor',
   filled,
   size,
@@ -57,11 +53,9 @@ export const CameraIcon = ({
       />
     </svg>
   );
-}`;
+};`;
 
-const LockIcon = `import { React } from '@nextui-org/react';\n
-
-export const LockIcon = ({
+const LockIcon = `export const LockIcon = ({
   fill = 'currentColor',
   filled,
   size,
@@ -99,11 +93,9 @@ export const LockIcon = ({
       </g>
     </svg>
   );
-}`;
+};`;
 
-const NotificationIcon = `import { React } from '@nextui-org/react';\n
-
-export const NotificationIcon = ({
+const NotificationIcon = `export const NotificationIcon = ({
   fill = 'currentColor',
   filled,
   size,
@@ -129,11 +121,9 @@ export const NotificationIcon = ({
       />
     </svg>
   );
-}`;
+};`;
 
-const UserIcon = `import { React } from '@nextui-org/react';\n
-
-export const UserIcon = ({
+const UserIcon = `export const UserIcon = ({
   fill = 'currentColor',
   filled,
   size,
@@ -172,7 +162,7 @@ export const UserIcon = ({
   );
 }`;
 
-const AppJs = `import { Button,Spacer } from '@nextui-org/react';
+const AppJs = `import { Button, Spacer } from '@nextui-org/react';
 import { HeartIcon } from './HeartIcon';
 import { CameraIcon } from './CameraIcon';
 import { LockIcon } from './LockIcon';
@@ -212,12 +202,12 @@ export default function App() {
 }`;
 
 const react = {
+  "/App.js": AppJs,
   "/HeartIcon.js": HeartIcon,
   "/CameraIcon.js": CameraIcon,
   "/LockIcon.js": LockIcon,
   "/NotificationIcon.js": NotificationIcon,
   "/UserIcon.js": UserIcon,
-  "/App.js": AppJs,
 };
 
 export default {
