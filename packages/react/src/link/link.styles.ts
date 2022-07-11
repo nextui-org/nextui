@@ -4,13 +4,13 @@ import {addColorAlpha} from "../utils/color";
 export const StyledLinkIcon = styled("svg", {
   ml: "$1",
   as: "center",
-  display: "inline-flex",
+  display: "flex",
   color: "currentColor",
 });
 
 export const StyledLink = styled("a", {
-  display: "inline-flex",
-  alignItems: "baseline",
+  display: "flex",
+  alignItems: "center",
   lineHeight: "inherit",
   textDecoration: "none",
   width: "fitContent",
