@@ -10,6 +10,7 @@ import {StyledNavbar, StyledNavbarContainer, NavbarVariantsProps} from "./navbar
 import NavbarBrand from "./navbar-brand";
 import NavbarContent from "./navbar-content";
 import NavbarItem from "./navbar-item";
+import NavbarLink from "./navbar-link";
 
 interface Props extends Omit<HTMLNextUIProps<"nav">, keyof NavbarVariantsProps> {
   children?: React.ReactNode | React.ReactNode[];
@@ -49,6 +50,7 @@ type NavbarComponent<P = {}> = React.FC<P> & {
   Brand: typeof NavbarBrand;
   Content: typeof NavbarContent;
   Item: typeof NavbarItem;
+  Link: typeof NavbarLink;
 };
 
 export default Navbar as NavbarComponent<NavbarProps>;

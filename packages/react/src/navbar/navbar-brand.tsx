@@ -5,25 +5,29 @@ import {useDOMRef} from "../utils/dom";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
+import NavbarItem, {NavbarItemProps} from "./navbar-item";
 import {StyledNavbarBrand} from "./navbar.styles";
 
 export interface NavbarBrandProps extends HTMLNextUIProps<"span"> {
   children?: React.ReactNode | React.ReactNode[];
+  itemProps?: NavbarItemProps;
 }
 
 const NavbarBrand = forwardRef<NavbarBrandProps, "span">((props, ref) => {
   const domRef = useDOMRef(ref);
 
-  const {children, className, ...otherProps} = props;
+  const {children, className, itemProps, ...otherProps} = props;
 
   return (
-    <StyledNavbarBrand
-      ref={domRef}
-      className={clsx("nextui-navbar-brand", className)}
-      {...otherProps}
-    >
-      {children}
-    </StyledNavbarBrand>
+    <NavbarItem {...itemProps}>
+      <StyledNavbarBrand
+        ref={domRef}
+        className={clsx("nextui-navbar-brand", className)}
+        {...otherProps}
+      >
+        {children}
+      </StyledNavbarBrand>
+    </NavbarItem>
   );
 });
 

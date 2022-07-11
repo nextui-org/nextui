@@ -31,7 +31,7 @@ const AcmeLogo = () => (
 
 const DefaultContent = () => (
   <>
-    <Navbar.Content placement="start">
+    <Navbar.Content css={{"@smMax": {d: "none"}}} placement="start">
       <Navbar.Brand as={Link} color="text">
         <AcmeLogo />
         <Text b css={{"@xsMax": {d: "none"}}}>
@@ -39,27 +39,25 @@ const DefaultContent = () => (
         </Text>
       </Navbar.Brand>
     </Navbar.Content>
-    <Navbar.Content css={{"@smMax": {d: "none"}}}>
-      <Navbar.Item as={Link} color="text" href="#">
+    <Navbar.Content css={{"@smMax": {d: "none"}}} placement="center">
+      <Navbar.Link color="text" href="#">
         Features
-      </Navbar.Item>
-      <Navbar.Item as={Link} color="text" href="#">
+      </Navbar.Link>
+      <Navbar.Link color="text" href="#">
         Customers
-      </Navbar.Item>
-      <Navbar.Item as={Link} color="text" href="#">
+      </Navbar.Link>
+      <Navbar.Link color="text" href="#">
         Integrations
-      </Navbar.Item>
-      <Navbar.Item as={Link} color="text" href="#">
+      </Navbar.Link>
+      <Navbar.Link color="text" href="#">
         Pricing
-      </Navbar.Item>
-      <Navbar.Item as={Link} color="text" href="#">
+      </Navbar.Link>
+      <Navbar.Link color="text" href="#">
         Company
-      </Navbar.Item>
+      </Navbar.Link>
     </Navbar.Content>
     <Navbar.Content placement="end">
-      <Navbar.Item as={Link} href="#">
-        Login
-      </Navbar.Item>
+      <Navbar.Link href="#">Login</Navbar.Link>
       <Navbar.Item>
         <Button auto flat as={Link} href="#">
           Sign Up

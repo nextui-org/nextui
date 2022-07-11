@@ -42,6 +42,9 @@ export const StyledNavbarContent = styled(StyledBaseNavbarList, {
     placement: {
       start: {
         justifyContent: "flex-start",
+        [`& ${StyledNavbarItem}`]: {
+          mr: "$$navbarContentItemSpace",
+        },
       },
       center: {
         justifyContent: "center",
