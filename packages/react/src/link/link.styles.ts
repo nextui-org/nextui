@@ -1,4 +1,5 @@
 import {theme, styled, VariantProps} from "../theme/stitches.config";
+import {cssFocusVisible} from "../theme/shared-css";
 import {addColorAlpha} from "../utils/color";
 
 export const StyledLinkIcon = styled("svg", {
@@ -8,126 +9,101 @@ export const StyledLinkIcon = styled("svg", {
   color: "currentColor",
 });
 
-export const StyledLink = styled("a", {
-  display: "flex",
-  alignItems: "center",
-  lineHeight: "inherit",
-  textDecoration: "none",
-  width: "fitContent",
-  backgroundImage: "inherit",
-  backgroundColor: "inherit",
-  backgroundClip: "inherit",
-  WebkitTextFillColor: "inherit",
-  "&:hover": {
-    opacity: 0.8,
-  },
-  "@motion": {
-    transition: "none",
-  },
-  variants: {
-    color: {
-      default: {
-        color: "$link",
-      },
-      text: {
-        color: "$text",
-      },
-      primary: {
-        color: "$primary",
-      },
-      secondary: {
-        color: "$secondary",
-      },
-      success: {
-        color: "$success",
-      },
-      warning: {
-        color: "$warning",
-      },
-      error: {
-        color: "$error",
-      },
+export const StyledLink = styled(
+  "a",
+  {
+    display: "flex",
+    alignItems: "center",
+    lineHeight: "inherit",
+    textDecoration: "none",
+    width: "fitContent",
+    backgroundImage: "inherit",
+    backgroundColor: "inherit",
+    backgroundClip: "inherit",
+    WebkitTextFillColor: "inherit",
+    outline: "none",
+    "&:hover": {
+      opacity: 0.8,
     },
-    underline: {
-      true: {
-        "&:hover, &:active, &:focus": {
-          textDecoration: "underline",
+    "@motion": {
+      transition: "none",
+    },
+    variants: {
+      color: {
+        default: {
+          color: "$link",
+          $$linkBackgroundColor: addColorAlpha(theme.colors?.link?.value, 0.2),
+        },
+        text: {
+          color: "$text",
+          $$linkBackgroundColor: addColorAlpha(theme.colors?.text?.value, 0.2),
+        },
+        primary: {
+          color: "$primary",
+          $$linkBackgroundColor: "$colors$primaryLight",
+        },
+        secondary: {
+          color: "$secondary",
+          $$linkBackgroundColor: "$colors$secondaryLight",
+        },
+        success: {
+          color: "$success",
+          $$linkBackgroundColor: "$colors$successLight",
+        },
+        warning: {
+          color: "$warning",
+          $$linkBackgroundColor: "$colors$warningLight",
+        },
+        error: {
+          color: "$error",
+          $$linkBackgroundColor: "$colors$errorLight",
+        },
+      },
+      underline: {
+        true: {
+          "&:hover, &:active, &:focus": {
+            textDecoration: "underline",
+          },
+        },
+      },
+      block: {
+        true: {
+          padding: "$2 $4",
+          borderRadius: "$base",
+          "&:hover": {
+            backgroundColor: "$$linkBackgroundColor",
+          },
+        },
+      },
+      animated: {
+        true: {
+          transition: "opacity 0.25s ease 0s, box-shadow 0.25s ease 0s",
         },
       },
     },
-    block: {
-      true: {
-        padding: "$2 $4",
-        borderRadius: "$base",
+    compoundVariants: [
+      /**
+       * @block true
+       * @animated true
+       */
+      {
+        block: true,
+        animated: true,
+        css: {
+          transition: "opacity 0.25s ease 0s, box-shadow 0.25s ease 0s, background 0.25s ease 0s",
+          "@motion": {
+            transition: "none",
+          },
+        },
       },
-    },
-    animated: {
-      true: {
-        transition: "$link",
-      },
-    },
-  },
-  compoundVariants: [
-    {
+    ],
+    defaultVariants: {
       color: "default",
-      block: true,
-      css: {
-        "&:hover": {
-          backgroundColor: addColorAlpha(theme.colors?.link?.value, 0.2),
-        },
-      },
+      animated: true,
     },
-    {
-      color: "primary",
-      block: true,
-      css: {
-        "&:hover": {
-          backgroundColor: "$primaryLight",
-        },
-      },
-    },
-    {
-      color: "secondary",
-      block: true,
-      css: {
-        "&:hover": {
-          backgroundColor: "$secondaryLight",
-        },
-      },
-    },
-    {
-      color: "success",
-      block: true,
-      css: {
-        "&:hover": {
-          backgroundColor: "$successLight",
-        },
-      },
-    },
-    {
-      color: "warning",
-      block: true,
-      css: {
-        "&:hover": {
-          backgroundColor: "$warningLight",
-        },
-      },
-    },
-    {
-      color: "error",
-      block: true,
-      css: {
-        "&:hover": {
-          backgroundColor: "$errorLight",
-        },
-      },
-    },
-  ],
-  defaultVariants: {
-    color: "default",
-    animated: true,
   },
-});
+  cssFocusVisible,
+);
 
 export type LinkVariantsProps = VariantProps<typeof StyledLink>;
 

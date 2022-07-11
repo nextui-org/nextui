@@ -61,11 +61,9 @@ const DefaultContent = () => (
         Login
       </Navbar.Item>
       <Navbar.Item>
-        <Link href="#">
-          <Button auto flat>
-            Sign Up
-          </Button>
-        </Link>
+        <Button auto flat as={Link} href="#">
+          Sign Up
+        </Button>
       </Navbar.Item>
     </Navbar.Content>
   </>

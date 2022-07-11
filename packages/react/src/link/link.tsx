@@ -1,35 +1,48 @@
-import React from "react";
+import type {AriaLinkProps} from "@react-types/link";
 
-import withDefaults from "../utils/with-defaults";
-import {CSS} from "../theme/stitches.config";
+import React from "react";
+import {useLink} from "@react-aria/link";
+import {mergeProps} from "@react-aria/utils";
+import {useFocusRing} from "@react-aria/focus";
+
+import {HTMLNextUIProps, forwardRef} from "../utils/system";
+import {useDOMRef} from "../utils/dom";
+import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
 import LinkIcon from "./icon";
 import StyledLink, {LinkVariantsProps} from "./link.styles";
 
-export interface Props {
+interface Props extends Omit<HTMLNextUIProps<"a">, keyof LinkVariantsProps> {
+  children?: React.ReactNode | React.ReactNode[];
   icon?: boolean;
-  as?: keyof JSX.IntrinsicElements;
 }
 
-const defaultProps = {
-  icon: false,
-};
+export type LinkProps = Props & LinkVariantsProps & AriaLinkProps;
 
-type NativeAttrs = Omit<React.AnchorHTMLAttributes<unknown>, keyof Props>;
+const Link = forwardRef<LinkProps, "a">((props, ref) => {
+  const {children, icon = false, as, autoFocus, className, ...otherProps} = props;
 
-export type LinkProps = Props & typeof defaultProps & NativeAttrs & LinkVariantsProps & {css?: CSS};
+  const domRef = useDOMRef(ref);
 
-const Link = React.forwardRef<React.ElementRef<typeof StyledLink>, LinkProps>(
-  ({children, icon, ...props}, forwardedRef) => (
-    <StyledLink {...props} ref={forwardedRef}>
+  const {linkProps} = useLink({...otherProps, elementType: as} as AriaLinkProps, domRef);
+  const {isFocusVisible, focusProps} = useFocusRing({autoFocus});
+
+  return (
+    <StyledLink
+      ref={domRef}
+      as={as}
+      className={clsx("nextui-link", className)}
+      isFocusVisible={isFocusVisible}
+      {...mergeProps(linkProps, focusProps, otherProps)}
+    >
       <>
         {children}
         {icon && <LinkIcon />}
       </>
     </StyledLink>
-  ),
-);
+  );
+});
 
 if (__DEV__) {
   Link.displayName = "NextUI.Link";
@@ -37,4 +50,4 @@ if (__DEV__) {
 
 Link.toString = () => ".nextui-link";
 
-export default withDefaults(Link, defaultProps);
+export default Link;

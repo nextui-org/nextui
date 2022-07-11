@@ -11,7 +11,7 @@ import NavbarBrand from "./navbar-brand";
 import NavbarContent from "./navbar-content";
 import NavbarItem from "./navbar-item";
 
-export interface Props extends Omit<HTMLNextUIProps<"nav">, keyof NavbarVariantsProps> {
+interface Props extends Omit<HTMLNextUIProps<"nav">, keyof NavbarVariantsProps> {
   children?: React.ReactNode | React.ReactNode[];
   enableShadowOnlyOnScroll?: boolean;
   containerCss?: CSS;

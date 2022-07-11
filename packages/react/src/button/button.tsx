@@ -1,4 +1,4 @@
-import type {PressEvents, PressEvent, FocusableProps} from "@react-types/shared";
+import type {PressEvent} from "@react-types/shared";
 import type {AriaButtonProps} from "@react-types/button";
 import type {FocusRingAria} from "@react-aria/focus";
 
@@ -25,7 +25,7 @@ import ButtonGroup from "./button-group";
 import ButtonIcon from "./button-icon";
 import StyledButton, {ButtonVariantsProps} from "./button.styles";
 
-export interface Props extends PressEvents, FocusableProps, AriaButtonProps {
+export interface Props extends AriaButtonProps {
   light?: boolean;
   color?: NormalColors;
   flat?: boolean;
