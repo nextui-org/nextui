@@ -1,9 +1,10 @@
 import { Action } from 'kbar';
-import { NextRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
+import { ThemeType } from '@nextui-org/react';
+import { useTheme as useNextTheme } from 'next-themes';
 import { Route } from '@lib/docs/page';
 import { getId } from '../utils/collections';
 import { removeFromLast } from '@utils/index';
-import { ThemeType, changeTheme } from '@nextui-org/react';
 // data imported from manifest
 import docsManifest from '../../content/docs/manifest.json';
 
@@ -57,13 +58,15 @@ const handleExternalLink = (href: string) => {
   }).click();
 };
 
-const handleChangeTheme = (theme: ThemeType) => {
-  changeTheme(theme);
-};
-
-const getActions = (router: NextRouter): Action[] => {
+const useActions = (): Action[] => {
+  const router = useRouter();
+  const { setTheme } = useNextTheme();
   const routes = docsManifest.routes;
   buildDocsActions(router, routes);
+
+  const handleChangeTheme = (theme: ThemeType) => {
+    setTheme(theme);
+  };
 
   const staticActions: Action[] = [
     {
@@ -129,4 +132,4 @@ const getActions = (router: NextRouter): Action[] => {
   return [...docsActions, ...staticActions];
 };
 
-export default getActions;
+export default useActions;
