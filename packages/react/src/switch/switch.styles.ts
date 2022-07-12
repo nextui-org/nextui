@@ -255,46 +255,43 @@ export const StyledSwitch = styled(
 );
 
 export const StyledSwitchInput = styled(
-  'input',
+  "input",
   {
     [`& + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
-      transform: 'translateX(calc($$switchWidth / 15))'
+      transform: "translateX(calc($$switchWidth / 15))",
     },
     [`&:checked + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
-      transform:
-        'translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchHeight * 0.7))'
+      transform: "translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchHeight * 0.7))",
     },
     [`& + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
-      transform: 'translateX(calc($$switchWidth / 7.5))'
+      transform: "translateX(calc($$switchWidth / 7.5))",
     },
     [`&:checked + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
       transform:
-        'translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchHeight * 0.7))'
+        "translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchHeight * 0.7))",
     },
     variants: {
       bordered: {
         true: {
           [`& + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
-            transform:
-              'translateX(calc($$switchWidth / 15 - $$switchBorderW / 2))'
+            transform: "translateX(calc($$switchWidth / 15 - $$switchBorderW / 2))",
           },
           [`&:checked + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
             transform:
-              'translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchBorderW * 1.5 - $$switchHeight * 0.7))'
+              "translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchBorderW * 1.5 - $$switchHeight * 0.7))",
           },
           [`& + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
-            transform:
-              'translateX(calc($$switchWidth / 7.5 - $$switchBorderW / 2))'
+            transform: "translateX(calc($$switchWidth / 7.5 - $$switchBorderW / 2))",
           },
           [`&:checked + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
             transform:
-              'translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchBorderW * 1.5 - $$switchHeight * 0.7))'
-          }
-        }
-      }
-    }
+              "translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchBorderW * 1.5 - $$switchHeight * 0.7))",
+          },
+        },
+      },
+    },
   },
-  sharedVisuallyHidden
+  sharedVisuallyHidden,
 );
 
 // types
