@@ -1,7 +1,9 @@
-import React from 'react';
-import withDefaults from '../utils/with-defaults';
-import { CSS } from '../theme/stitches.config';
-import { StyledCode, StyledPre, CodeVariantsProps } from './code.styles';
+import React from "react";
+
+import withDefaults from "../utils/with-defaults";
+import {CSS} from "../theme/stitches.config";
+
+import {StyledCode, StyledPre, CodeVariantsProps} from "./code.styles";
 
 interface Props {
   block?: boolean;
@@ -9,18 +11,15 @@ interface Props {
 }
 
 const defaultProps = {
-  block: false
+  block: false,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
-export type CodeProps = Props & NativeAttrs & CodeVariantsProps & { css?: CSS };
+export type CodeProps = Props & NativeAttrs & CodeVariantsProps & {css?: CSS};
 
-const Code: React.FC<React.PropsWithChildren<CodeProps>> = ({
-  block,
-  children,
-  ...props
-}) => {
+const Code: React.FC<React.PropsWithChildren<CodeProps>> = ({block, children, ...props}) => {
   if (!block) return <StyledCode {...props}>{children}</StyledCode>;
+
   return (
     <StyledPre {...props}>
       <StyledCode>{children}</StyledCode>
@@ -28,7 +27,7 @@ const Code: React.FC<React.PropsWithChildren<CodeProps>> = ({
   );
 };
 
-Code.toString = () => '.nextui-code';
+Code.toString = () => ".nextui-code";
 
 const MemoCode = React.memo(Code);
 

@@ -1,10 +1,10 @@
-import default_modal from './default';
-import largeContent from './largeContent';
-import fullscreen from './fullscreen';
-import withoutPadding from './withoutPadding';
-import blurBackground from './blurBackground';
-import preventClose from './preventClose';
-import noAnimated from './noAnimated';
+import default_modal from "./default";
+import largeContent from "./largeContent";
+import fullscreen from "./fullscreen";
+import withoutPadding from "./withoutPadding";
+import blurBackground from "./blurBackground";
+import preventClose from "./preventClose";
+import noAnimated from "./noAnimated";
 
 export default {
   default_modal,
@@ -13,7 +13,5 @@ export default {
   withoutPadding,
   blurBackground,
   preventClose,
-  noAnimated
-
+  noAnimated,
 };
-

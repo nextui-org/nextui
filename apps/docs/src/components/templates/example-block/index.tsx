@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
-import { NextUITheme, useTheme } from '@nextui-org/react';
-import withDefaults from '@utils/with-defaults';
+import React, {useMemo} from "react";
+import {NextUITheme, useTheme} from "@nextui-org/react";
+import withDefaults from "@utils/with-defaults";
 
 interface Props {
   plain?: number | boolean;
@@ -12,21 +12,22 @@ interface Props {
 const defaultProps = {
   plain: false,
   height: 30,
-  radius: '10px'
+  radius: "10px",
 };
 
 export type ExampleBlockProps = Props & typeof defaultProps;
 
 const getBackground = (plain: number | boolean, theme?: NextUITheme) => {
-  if (typeof plain !== 'number') return theme?.colors?.primary?.value;
+  if (typeof plain !== "number") return theme?.colors?.primary?.value;
   const colors = [
     theme?.colors?.accents1?.value,
     theme?.colors?.accents2?.value,
     theme?.colors?.accents3?.value,
     theme?.colors?.accents4?.value,
     theme?.colors?.accents5?.value,
-    theme?.colors?.accents6?.value
+    theme?.colors?.accents6?.value,
   ];
+
   return colors[plain - 1] || theme?.colors?.primary?.value;
 };
 
@@ -38,9 +39,9 @@ const ExampleBlock: React.FC<React.PropsWithChildren<ExampleBlockProps>> = ({
   radius,
   ...props
 }) => {
-  const { theme } = useTheme();
+  const {theme} = useTheme();
   const blockWidth = useMemo(() => {
-    return width ? `${width}px` : '100%';
+    return width ? `${width}px` : "100%";
   }, [width]);
   const bg = useMemo(() => getBackground(plain, theme), [theme, plain]);
 

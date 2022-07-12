@@ -1,24 +1,24 @@
-import React from 'react';
-import { NextPage } from 'next';
-import { debounce } from 'lodash';
-import { NextRouter, Router } from 'next/router';
-import { NextUIProvider } from '@nextui-org/react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import NProgress from 'nprogress';
-import PlausibleProvider from 'next-plausible';
-import { AppInitialProps } from 'next/app';
-import { NextComponent } from '@lib/types';
-import { lightTheme, darkTheme } from '../theme/shared';
-import { isProd } from '@utils/index';
-import RouterEvents from '@lib/router-events';
-import globalStyles from '../styles/globalStyles';
-import '../styles/sandpack.css';
-import { KBarWrapper as KBarProvider } from '@components';
+import React from "react";
+import {NextPage} from "next";
+import dynamic from "next/dynamic";
+import {debounce} from "lodash";
+import {NextRouter, Router, useRouter} from "next/router";
+import {NextUIProvider} from "@nextui-org/react";
+import {ThemeProvider as NextThemesProvider} from "next-themes";
+import NProgress from "nprogress";
+import PlausibleProvider from "next-plausible";
+import {AppInitialProps} from "next/app";
+import {NextComponent} from "@lib/types";
+import generateKbarActions from "@lib/kbar-actions";
+import {KBarProvider} from "kbar";
+import {isProd} from "@utils/index";
+import RouterEvents from "@lib/router-events";
 
-type AppPropsType<
-  R extends NextRouter = NextRouter,
-  P = {}
-> = AppInitialProps & {
+import {lightTheme, darkTheme} from "../theme/shared";
+import globalStyles from "../styles/globalStyles";
+import "../styles/sandpack.css";
+
+type AppPropsType<R extends NextRouter = NextRouter, P = {}> = AppInitialProps & {
   Component: NextComponent<P>;
   router: R;
   __N_SSG?: boolean;
@@ -27,34 +27,52 @@ type AppPropsType<
 
 type AppProps<P = {}> = AppPropsType<Router, P>;
 
-NProgress.configure({ parent: '#app-container' });
+const KbarComponent = dynamic(() => import("../components/kbar"), {
+  ssr: false,
+});
+
+NProgress.configure({parent: "#app-container"});
 
 const start = debounce(NProgress.start, 100);
-RouterEvents.on('routeChangeStart', start);
-RouterEvents.on('routeChangeComplete', (url) => {
+
+RouterEvents.on("routeChangeStart", start);
+RouterEvents.on("routeChangeComplete", (url) => {
   console.log(`Changed to URL: ${url}`);
   start.cancel();
   NProgress.done();
 });
-RouterEvents.on('routeChangeError', () => {
+RouterEvents.on("routeChangeError", () => {
   start.cancel();
   NProgress.done();
 });
 
-const Application: NextPage<AppProps<{}>> = ({ Component, pageProps }) => {
+const Application: NextPage<AppProps<{}>> = ({Component, pageProps}) => {
+  const router = useRouter();
+  const kbarActions = generateKbarActions(router);
+
   globalStyles();
+
   return (
     <NextThemesProvider
-      defaultTheme="system"
       attribute="class"
+      defaultTheme="system"
       value={{
         light: lightTheme.className,
-        dark: darkTheme.className
+        dark: darkTheme.className,
       }}
     >
       <NextUIProvider>
         <PlausibleProvider domain="nextui.org" enabled={isProd}>
-          <KBarProvider>
+          <KBarProvider
+            actions={kbarActions}
+            options={{
+              animations: {
+                enterMs: 250,
+                exitMs: 100,
+              },
+            }}
+          >
+            <KbarComponent />
             <Component {...pageProps} />
           </KBarProvider>
         </PlausibleProvider>

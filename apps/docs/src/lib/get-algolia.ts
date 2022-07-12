@@ -1,8 +1,8 @@
-import algoliasearch from 'algoliasearch/lite';
-import { SearchOptions, MultipleQueriesQuery } from '@algolia/client-search';
+import algoliasearch from "algoliasearch/lite";
+import {SearchOptions, MultipleQueriesQuery} from "@algolia/client-search";
 
-const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '';
-const apiKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || '';
+const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || "";
+const apiKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY || "";
 
 interface Request {
   params: SearchOptions;
@@ -15,7 +15,7 @@ export default function getAlgoliaClient() {
 
   return {
     async search(requests: SearchRequest[]) {
-      if (requests.every(({ params: { query } }) => Boolean(query) === false)) {
+      if (requests.every(({params: {query}}) => Boolean(query) === false)) {
         return {
           results: requests.map(() => {
             return {

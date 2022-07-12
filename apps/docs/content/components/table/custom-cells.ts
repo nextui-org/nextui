@@ -54,8 +54,7 @@ export const IconButton = styled('button', {
   }
 });`;
 
-const EyeIconTs = `import { React } from '@nextui-org/react';\n
-type IconProps = {
+const EyeIconTs = `type IconProps = {
   fill?: string;
   size?: string | number;
   height?: string | number;
@@ -96,8 +95,7 @@ export const EyeIcon: React.FC<IconProps> = ({
   );
 };`;
 
-const EditIconTs = `import { React } from '@nextui-org/react';\n
-type IconProps = {
+const EditIconTs = `type IconProps = {
   fill?: string;
   size?: string | number;
   height?: string | number;
@@ -148,8 +146,7 @@ export const EditIcon: React.FC<IconProps> = ({
   );
 };`;
 
-const DeleteIconTs = `import { React } from '@nextui-org/react';\n
-type IconProps = {
+const DeleteIconTs = `type IconProps = {
   fill?: string;
   size?: string | number;
   height?: string | number;
@@ -211,8 +208,7 @@ export const DeleteIcon: React.FC<IconProps> = ({
   );
 };`;
 
-const EyeIconJs = `import { React } from '@nextui-org/react';\n
-export const EyeIcon = ({
+const EyeIconJs = `export const EyeIcon = ({
   fill,
   size,
   height,
@@ -246,8 +242,7 @@ export const EyeIcon = ({
   );
 };`;
 
-const EditIconJs = `import { React } from '@nextui-org/react';\n
-export const EditIcon = ({
+const EditIconJs = `export const EditIcon = ({
   fill,
   size,
   height,
@@ -291,8 +286,7 @@ export const EditIcon = ({
   );
 };`;
 
-const DeleteIconJs = `import { React } from '@nextui-org/react';\n
-export const DeleteIcon = ({
+const DeleteIconJs = `export const DeleteIcon = ({
   fill,
   size,
   height,
@@ -679,24 +673,24 @@ export default function App() {
 }`;
 
 const react = {
-  '/StyledBadge.js': StyledBadge,
-  '/IconButton.js': IconButton,
-  '/EyeIcon.js': EyeIconJs,
-  '/EditIcon.js': EditIconJs,
-  '/DeleteIcon.js': DeleteIconJs,
-  '/App.js': AppJs
+  "/StyledBadge.js": StyledBadge,
+  "/IconButton.js": IconButton,
+  "/EyeIcon.js": EyeIconJs,
+  "/EditIcon.js": EditIconJs,
+  "/DeleteIcon.js": DeleteIconJs,
+  "/App.js": AppJs,
 };
 
 const reactTs = {
-  '/StyledBadge.tsx': StyledBadge,
-  '/IconButton.tsx': IconButton,
-  '/EyeIcon.tsx': EyeIconTs,
-  '/EditIcon.tsx': EditIconTs,
-  '/DeleteIcon.tsx': DeleteIconTs,
-  '/App.tsx': AppTs
+  "/StyledBadge.tsx": StyledBadge,
+  "/IconButton.tsx": IconButton,
+  "/EyeIcon.tsx": EyeIconTs,
+  "/EditIcon.tsx": EditIconTs,
+  "/DeleteIcon.tsx": DeleteIconTs,
+  "/App.tsx": AppTs,
 };
 
 export default {
   ...react,
-  ...reactTs
+  ...reactTs,
 };

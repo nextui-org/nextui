@@ -1,37 +1,37 @@
-import { styled, VariantProps } from '../theme/stitches.config';
+import {styled, VariantProps} from "../theme/stitches.config";
 
-export const StyledText = styled('p', {
+export const StyledText = styled("p", {
   variants: {
     weight: {
       hairline: {
-        fontWeight: '$hairline'
+        fontWeight: "$hairline",
       },
       thin: {
-        fontWeight: '$thin'
+        fontWeight: "$thin",
       },
       light: {
-        fontWeight: '$light'
+        fontWeight: "$light",
       },
       normal: {
-        fontWeight: '$normal'
+        fontWeight: "$normal",
       },
       medium: {
-        fontWeight: '$medium'
+        fontWeight: "$medium",
       },
       semibold: {
-        fontWeight: '$semibold'
+        fontWeight: "$semibold",
       },
       bold: {
-        fontWeight: '$bold'
+        fontWeight: "$bold",
       },
       extrabold: {
-        fontWeight: '$extrabold'
+        fontWeight: "$extrabold",
       },
       black: {
-        fontWeight: '$black'
-      }
-    }
-  }
+        fontWeight: "$black",
+      },
+    },
+  },
 });
 
 export type TextVariantsProps = VariantProps<typeof StyledText>;

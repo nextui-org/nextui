@@ -1,10 +1,9 @@
-import * as React from 'react';
-import { useTheme } from '@nextui-org/react';
+import * as React from "react";
+import {useTheme} from "@nextui-org/react";
 
-const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({
-  children
-}) => {
-  const { theme } = useTheme();
+const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({children}) => {
+  const {theme} = useTheme();
+
   return (
     <div className="wrapper">
       {children}
@@ -21,11 +20,7 @@ const DotsContainer: React.FC<React.PropsWithChildren<unknown>> = ({
                 transparent 1%
               )
               50%,
-            linear-gradient(
-                ${theme?.colors?.background?.value} 21px,
-                transparent 1%
-              )
-              50%,
+            linear-gradient(${theme?.colors?.background?.value} 21px, transparent 1%) 50%,
             ${theme?.colors?.accents2?.value};
           background-size: var(--dot-space) var(--dot-space);
         }

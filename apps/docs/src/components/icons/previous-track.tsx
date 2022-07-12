@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { IconProps, Icon } from './index';
-import withDefaults from '@utils/with-defaults';
+import * as React from "react";
+import withDefaults from "@utils/with-defaults";
+
+import {IconProps, Icon} from "./index";
 
 const defaultProps = {
-  fill: 'currentColor'
+  fill: "currentColor",
 };
 
 const PreviousTrack: React.FC<IconProps> = ({
@@ -17,10 +18,10 @@ const PreviousTrack: React.FC<IconProps> = ({
 }) => {
   return (
     <Icon
-      width={size || width || 24}
+      fill="none"
       height={size || height || 24}
       viewBox="0 0 24 24"
-      fill="none"
+      width={size || width || 24}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >

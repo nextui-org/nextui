@@ -1,15 +1,13 @@
-import React, { useMemo } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { CollapseContext, CollapseConfig } from './collapse-context';
-import useCurrentState from '../use-current-state';
-import { setChildrenIndex } from '../utils/collections';
-import { CSS } from '../theme/stitches.config';
+import React, {useMemo} from "react";
 
-import {
-  StyledCollapseGroup,
-  CollapseGroupVariantsProps
-} from './collapse.styles';
-import Collapse from './collapse';
+import withDefaults from "../utils/with-defaults";
+import useCurrentState from "../use-current-state";
+import {setChildrenIndex} from "../utils/collections";
+import {CSS} from "../theme/stitches.config";
+
+import {CollapseContext, CollapseConfig} from "./collapse-context";
+import {StyledCollapseGroup, CollapseGroupVariantsProps} from "./collapse.styles";
+import Collapse from "./collapse";
 
 interface Props {
   accordion?: boolean;
@@ -20,14 +18,12 @@ interface Props {
 }
 
 const defaultProps = {
-  accordion: true
+  accordion: true,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type CollapseGroupProps = Props &
-  NativeAttrs &
-  CollapseGroupVariantsProps & { css?: CSS };
+export type CollapseGroupProps = Props & NativeAttrs & CollapseGroupVariantsProps & {css?: CSS};
 
 const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
   children,
@@ -41,9 +37,11 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
 
   const updateValues = (currentIndex: number, nextState: boolean) => {
     const hasChild = stateRef.current.find((val) => val === currentIndex);
+
     onChange && onChange(currentIndex, nextState);
     if (accordion) {
       if (nextState) return setState([currentIndex]);
+
       return setState([]);
     }
     if (nextState) {
@@ -51,6 +49,7 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
       // If the user incorrectly set the state, Group component should ignore it.
       /* istanbul ignore if */
       if (hasChild) return;
+
       return setState([...stateRef.current, currentIndex]);
     }
     setState(stateRef.current.filter((item) => item !== currentIndex));
@@ -61,15 +60,12 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
       values: state,
       updateValues,
       divider,
-      animated
+      animated,
     }),
-    [state.join(',')]
+    [state.join(",")],
   );
 
-  const hasIndexChildren = useMemo(
-    () => setChildrenIndex(children, [Collapse]),
-    [children]
-  );
+  const hasIndexChildren = useMemo(() => setChildrenIndex(children, [Collapse]), [children]);
 
   return (
     <CollapseContext.Provider value={initialValue}>
@@ -78,6 +74,6 @@ const CollapseGroup: React.FC<React.PropsWithChildren<CollapseGroupProps>> = ({
   );
 };
 
-CollapseGroup.toString = () => '.nextui-collapse-group';
+CollapseGroup.toString = () => ".nextui-collapse-group";
 
 export default withDefaults(CollapseGroup, defaultProps);

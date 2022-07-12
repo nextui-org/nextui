@@ -1,3 +1,3 @@
-import ShopCard from './shop-card';
+import ShopCard from "./shop-card";
 
 export default ShopCard;

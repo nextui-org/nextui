@@ -1,13 +1,12 @@
-import React from 'react';
-import clsx from '../utils/clsx';
-import { useDOMRef } from '../utils/dom';
-import { __DEV__ } from '../utils/assertion';
-import { CheckboxGroupProvider } from './checkbox-context';
-import { useCheckboxGroup, UseCheckboxGroupProps } from './use-checkbox-group';
-import {
-  StyledCheckboxGroup,
-  StyledCheckboxGroupContainer
-} from './checkbox.styles';
+import React from "react";
+
+import clsx from "../utils/clsx";
+import {useDOMRef} from "../utils/dom";
+import {__DEV__} from "../utils/assertion";
+
+import {CheckboxGroupProvider} from "./checkbox-context";
+import {useCheckboxGroup, UseCheckboxGroupProps} from "./use-checkbox-group";
+import {StyledCheckboxGroup, StyledCheckboxGroupContainer} from "./checkbox.styles";
 
 interface Props extends UseCheckboxGroupProps {
   children: React.ReactNode;
@@ -19,9 +18,9 @@ export type CheckboxGroupProps = Props;
 
 const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
   (props: CheckboxGroupProps, ref: React.Ref<HTMLDivElement | null>) => {
-    const { children, className, as, label, ...otherProps } = props;
+    const {children, className, as, label, ...otherProps} = props;
 
-    const { css, ...context } = useCheckboxGroup({ ...otherProps, label });
+    const {css, ...context} = useCheckboxGroup({...otherProps, label});
 
     const domRef = useDOMRef(ref);
 
@@ -29,32 +28,27 @@ const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps>(
       <StyledCheckboxGroup
         ref={domRef}
         {...context.groupProps}
-        className={clsx('nextui-checkbox-group', className)}
-        size={context.size}
-        isDisabled={context.groupState.isDisabled}
         as={as}
+        className={clsx("nextui-checkbox-group", className)}
         css={css}
+        isDisabled={context.groupState.isDisabled}
+        size={context.size}
       >
         {label && (
-          <label
-            className="nextui-checkbox-group-label"
-            {...context.labelProps}
-          >
+          <label className="nextui-checkbox-group-label" {...context.labelProps}>
             {label}
           </label>
         )}
         <StyledCheckboxGroupContainer
           className="nextui-checkbox-group-items"
+          isRow={context.orientation === "horizontal"}
           role="presentation"
-          isRow={context.orientation === 'horizontal'}
         >
-          <CheckboxGroupProvider value={context}>
-            {children}
-          </CheckboxGroupProvider>
+          <CheckboxGroupProvider value={context}>{children}</CheckboxGroupProvider>
         </StyledCheckboxGroupContainer>
       </StyledCheckboxGroup>
     );
-  }
+  },
 );
 
 type CheckboxGroupComponent<T, P = {}> = React.ForwardRefExoticComponent<
@@ -62,12 +56,9 @@ type CheckboxGroupComponent<T, P = {}> = React.ForwardRefExoticComponent<
 >;
 
 if (__DEV__) {
-  CheckboxGroup.displayName = 'NextUI.CheckboxGroup';
+  CheckboxGroup.displayName = "NextUI.CheckboxGroup";
 }
 
-CheckboxGroup.toString = () => '.nextui-checkbox-group';
+CheckboxGroup.toString = () => ".nextui-checkbox-group";
 
-export default CheckboxGroup as CheckboxGroupComponent<
-  HTMLDivElement,
-  CheckboxGroupProps
->;
+export default CheckboxGroup as CheckboxGroupComponent<HTMLDivElement, CheckboxGroupProps>;
