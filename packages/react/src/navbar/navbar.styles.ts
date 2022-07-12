@@ -18,14 +18,16 @@ export const StyledBaseNavbarList = styled("ul", {
 });
 
 export const StyledNavbarBrand = styled("span", {
-  d: "flex",
-  bg: "transparent",
+  display: "flex",
+  flexWrap: "nowrap",
+  flexDirection: "row",
   justifyContent: "flex-start",
+  bg: "transparent",
   alignItems: "center",
   textDecoration: "none",
   fontSize: "$base",
   whiteSpace: "nowrap",
-  marginRight: "$$navbarContentItemSpace",
+  boxSizing: "border-box",
 });
 
 export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
@@ -33,47 +35,21 @@ export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
 });
 
 export const StyledNavbarContent = styled(StyledBaseNavbarList, {
-  $$navbarContentItemSpace: "$space$8",
+  $$navbarContentItemGap: "$space$8",
   d: "flex",
-  size: "100%",
+  height: "100%",
   flexWrap: "nowrap",
   alignItems: "center",
-  variants: {
-    placement: {
-      start: {
-        justifyContent: "flex-start",
-        [`& ${StyledNavbarItem}`]: {
-          mr: "$$navbarContentItemSpace",
-        },
-      },
-      center: {
-        justifyContent: "center",
-        [`& ${StyledNavbarItem}`]: {
-          mx: "$$navbarContentItemSpace",
-        },
-      },
-      around: {
-        justifyContent: "space-around",
-      },
-      between: {
-        justifyContent: "space-between",
-      },
-      end: {
-        justifyContent: "flex-end",
-        [`& ${StyledNavbarItem}`]: {
-          ml: "$$navbarContentItemSpace",
-        },
-      },
-    },
-  },
-  defaultVariants: {
-    placement: "center",
-  },
+  gap: "$$navbarContentItemGap",
 });
 
 export const StyledNavbarContainer = styled("div", {
-  size: "100%",
+  width: "100%",
+  height: "$$navbarHeight",
+  minHeight: "$$navbarHeight",
   display: "flex",
+  flexWrap: "nowrap",
+  justifyContent: "space-between",
   alignItems: "center",
   position: "relative",
   boxSizing: "border-box",
@@ -102,15 +78,30 @@ export const StyledNavbar = styled("nav", {
   width: "100%",
   dflex: "center",
   position: "relative",
-  height: "$$navbarHeight",
-  minHeight: "$$navbarHeight",
+  height: "auto",
   variants: {
     variant: {
-      static: {},
-      fixed: {},
-      sticky: {},
+      static: {
+        position: "static",
+      },
+      sticky: {
+        top: 0,
+        right: 0,
+        left: 0,
+        position: "sticky",
+        zIndex: "$2",
+      },
       floating: {
+        top: 0,
+        right: 0,
+        left: 0,
+        position: "sticky",
+        zIndex: "$2",
+        bg: "linear-gradient(180deg, rgba(248, 248, 248, 0.95) 44%, rgba(248, 248, 248, 0.46) 73%, rgba(255, 255, 255,0))",
+        // @dark
+        // bg: "linear-gradient(180deg,rgba(22,29,49,.9) 44%,rgba(22,29,49,.43) 73%,rgba(22,29,49,0))",
         [`& ${StyledNavbarContainer}`]: {
+          mt: "calc($$navbarFloatingMargin * 0.5)",
           mx: "$$navbarFloatingMargin",
           borderRadius: "$$navbarBorderRadius",
         },
@@ -154,16 +145,24 @@ export const StyledNavbar = styled("nav", {
     isCompact: {
       true: {
         $$navbarHeight: "54px",
+        $$navbarBorderRadius: "$radii$md",
       },
     },
-    enableShadow: {
-      true: {
+    disableShadow: {
+      false: {
         boxShadow: "$$navbarShadow",
         clipPath: "inset(0px 0px calc($$navbarHeight*-1) 0px)",
       },
     },
     disableBlur: {
-      true: {},
+      false: {
+        "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
+          $$navbarBackgroundColor: "$colors$backgroundAlpha",
+          [`& ${StyledNavbarContainer}`]: {
+            backdropFilter: "saturate(180%) blur(10px)",
+          },
+        },
+      },
     },
     borderWeight: {
       light: {
@@ -199,11 +198,11 @@ export const StyledNavbar = styled("nav", {
     },
     /**
      * @variant floating
-     * @enableShadow true
+     * @disableShadow true
      */
     {
       variant: "floating",
-      enableShadow: true,
+      disableShadow: false,
       css: {
         boxShadow: "none",
         clipPath: "none",
@@ -219,7 +218,7 @@ export const StyledNavbar = styled("nav", {
     maxWidth: "lg",
     isBordered: false,
     isInverted: false,
-    enableShadow: true,
+    disableShadow: false,
     disableBlur: false,
   },
 });

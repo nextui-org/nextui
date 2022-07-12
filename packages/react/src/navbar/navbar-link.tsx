@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 
 import {forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
@@ -15,11 +15,30 @@ export interface NavbarLinkProps extends LinkProps {
 const NavbarLink = forwardRef<NavbarLinkProps, "a">((props, ref) => {
   const domRef = useDOMRef(ref);
 
-  const {children, className, itemProps, ...otherProps} = props;
+  const {children, className, color, css, itemProps, ...otherProps} = props;
+
+  const linkCss = useMemo(() => {
+    if (color) {
+      return {
+        ...css,
+      };
+    }
+
+    return {
+      color: "inherit",
+      ...css,
+    };
+  }, [color, css]);
 
   return (
     <NavbarItem {...itemProps}>
-      <Link ref={domRef} className={clsx("nextui-navbar-link", className)} {...otherProps}>
+      <Link
+        ref={domRef}
+        className={clsx("nextui-navbar-link", className)}
+        color={color}
+        css={linkCss}
+        {...otherProps}
+      >
         {children}
       </Link>
     </NavbarItem>

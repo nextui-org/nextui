@@ -6,6 +6,7 @@ export default {
     background: "$white",
     foreground: "$black",
     backgroundContrast: "$white",
+    backgroundAlpha: "rgba(255, 255, 255, 0.8)",
 
     //semantic colors
     ...blue,
