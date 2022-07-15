@@ -3,15 +3,7 @@ import {useTheme} from "@nextui-org/react";
 
 import {IconProps} from "./index";
 
-const MicrophoneOff: React.FC<IconProps> = ({
-  fill,
-  filled,
-  size,
-  height,
-  width,
-  label,
-  ...props
-}) => {
+const MicrophoneOff: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}) => {
   const {theme} = useTheme();
 
   if (filled) {

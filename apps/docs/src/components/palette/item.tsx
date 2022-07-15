@@ -12,7 +12,7 @@ interface Props {
 
 export type ItemProps = Props & GridProps;
 
-const Item: React.FC<ItemProps> = ({color, title, inverted, textColor, hexColor, ...props}) => {
+const Item: React.FC<ItemProps> = ({color, title, textColor, hexColor, ...props}) => {
   const isGradient = color.includes("gradient");
 
   const {copy} = useClipboard();
