@@ -1,6 +1,4 @@
-const LockIcon = `import { React } from '@nextui-org/react';
-
-export const LockIcon = ({
+const LockIcon = `export const LockIcon = ({
   fill,
   filled,
   size,
@@ -40,9 +38,7 @@ export const LockIcon = ({
   );
 };`;
 
-const UnLockIcon = `import { React } from "@nextui-org/react";
-
-export const UnLockIcon = ({
+const UnLockIcon = `export const UnLockIcon = ({
   fill,
   filled,
   size,

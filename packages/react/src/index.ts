@@ -143,3 +143,6 @@ export * from "./popover";
 
 export {default as Dropdown} from "./dropdown";
 export * from "./dropdown";
+
+export {default as Badge} from "./badge";
+export * from "./badge";

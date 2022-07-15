@@ -39,6 +39,7 @@ const Title: React.FC<TitleProps> = ({title, desc}) => {
         }
         :global(.react-markdown p) {
           font-size: 1.125rem;
+          margin-block-start: 1rem;
         }
         h3 > :global(code),
         h3 > :global(pre) {

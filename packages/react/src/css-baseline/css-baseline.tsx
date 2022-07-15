@@ -146,7 +146,7 @@ const globalStyles = globalCss({
     fontSize: "$sm",
     borderRadius: "$lg",
     padding: "$md $lg",
-    margin: "$lg 0 ",
+    margin: "$lg 0",
     fontFamily: "$mono",
     lineHeight: "$md",
     webkitOverflowScrolling: "touch",
@@ -232,6 +232,9 @@ const globalStyles = globalCss({
   },
   "kbd + kbd": {
     ml: "$2",
+  },
+  "dl, dd, hr, figure, p": {
+    margin: 0,
   },
 });
 

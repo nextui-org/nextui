@@ -3,7 +3,7 @@ import {useTheme} from "@nextui-org/react";
 
 import {IconProps} from "./index";
 
-const Palette: React.FC<IconProps> = ({fill, size, height, width, label, ...props}) => {
+const Palette: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
   const {theme} = useTheme();
 
   return (

@@ -8,7 +8,6 @@ const Sun: React.FC<IconProps> = ({
   size,
   height,
   width,
-  label,
   ...props
 }) => {
   if (filled) {

@@ -8,7 +8,6 @@ const Moon: React.FC<IconProps> = ({
   size,
   height,
   width,
-  label,
   ...props
 }) => {
   if (filled) {

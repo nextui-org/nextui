@@ -41,17 +41,7 @@ const StyledLargeLogo = styled("svg", {
   },
 });
 
-const Logo: React.FC<LogoProps> = ({
-  auto,
-  size,
-  width,
-  height,
-  dark,
-  small,
-  css,
-  className,
-  ...props
-}) => {
+const Logo: React.FC<LogoProps> = ({auto, size, width, height, small, css, ...props}) => {
   const Small = () => (
     <StyledSmallLogo
       auto={auto}

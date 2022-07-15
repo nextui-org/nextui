@@ -29,7 +29,7 @@ export const nextuiTheme: SandpackTheme = {
   typography: {
     bodyFont: "var(--nextui-fonts-sans)",
     monoFont: "var(--nextui-fonts-mono)",
-    fontSize: "14px",
-    lineHeight: "1.4",
+    fontSize: "var(--nextui-fontSizes-sm)",
+    lineHeight: "var(--nextui-lineHeights-sm)",
   },
 };

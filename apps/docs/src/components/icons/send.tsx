@@ -3,16 +3,7 @@ import {useTheme} from "@nextui-org/react";
 
 import {IconProps} from "./index";
 
-const Send: React.FC<IconProps> = ({
-  fill,
-  filled,
-  size,
-  height,
-  width,
-  label,
-  className,
-  ...props
-}) => {
+const Send: React.FC<IconProps> = ({fill, size, height, width, className, ...props}) => {
   const {theme} = useTheme();
   const color = fill || theme?.colors?.accents3?.value;
 
