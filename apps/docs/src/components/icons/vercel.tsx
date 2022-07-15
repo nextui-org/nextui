@@ -19,6 +19,7 @@ const defaultProps = {
 const Vercel: React.FC<Props> = ({fill, width, height, className, ...props}) => {
   return (
     <Icon
+      className={className}
       fill="none"
       height={height}
       viewBox="0 0 4438 1000"

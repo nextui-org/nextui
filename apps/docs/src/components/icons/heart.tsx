@@ -2,7 +2,7 @@ import * as React from "react";
 
 import {IconProps, Icon} from "./index";
 
-const Heart: React.FC<IconProps> = ({fill, filled, size, height, width, label, ...props}) => {
+const Heart: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}) => {
   return (
     <Icon
       fill={filled ? fill : "none"}

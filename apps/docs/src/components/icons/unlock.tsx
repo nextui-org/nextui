@@ -3,7 +3,7 @@ import {useTheme} from "@nextui-org/react";
 
 import {IconProps} from "./index";
 
-const Unlock: React.FC<IconProps> = ({fill, filled, size, height, width, label, ...props}) => {
+const Unlock: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
   const {theme} = useTheme();
   const color = fill || theme?.colors?.accents3?.value;
 
