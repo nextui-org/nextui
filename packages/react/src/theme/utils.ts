@@ -1,17 +1,27 @@
 import clsx from "../utils/clsx";
+import {rgbToRgba, hexToRGBA} from "../utils/color";
 
 import commonTheme from "./common";
 import defaultTheme from "./light-theme";
 import {ThemeType, TokenValue, TokenKeyName} from "./types";
 
-export const getTokenValue = (token: TokenKeyName, tokenName: string) => {
-  if (!document || !token) return "";
+export const getTokenValue = (token: TokenKeyName, tokenName: string, alpha = 1) => {
+  if (typeof document === "undefined" || !token) return "";
   let docStyle = getComputedStyle(document.documentElement);
   const tokenKey = `--${commonTheme.prefix}-${token}-${tokenName}`;
   const tokenValue = docStyle.getPropertyValue(tokenKey);
 
   if (tokenValue && tokenValue.includes("var")) {
     getTokenValue(token, tokenValue);
+  }
+
+  if (tokenValue && alpha !== 1) {
+    if (tokenValue.includes("rgb")) {
+      return rgbToRgba(tokenValue, alpha);
+    }
+    if (tokenValue.includes("#")) {
+      return hexToRGBA(tokenValue, alpha);
+    }
   }
 
   return tokenValue;

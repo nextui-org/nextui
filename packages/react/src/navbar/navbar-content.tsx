@@ -1,21 +1,23 @@
 import React from "react";
 
+import {CSSGapUnit, CSSColor} from "../theme";
 import {HTMLNextUIProps, forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
 import clsx from "../utils/clsx";
-import {CSS} from "../theme/stitches.config";
 import {__DEV__} from "../utils/assertion";
 
 import {StyledNavbarContent, NavbarContentVariantsProps} from "./navbar.styles";
 
-type GapUnit = CSS["gap"];
-
-interface Props extends Omit<HTMLNextUIProps<"ul">, keyof NavbarContentVariantsProps> {
+interface Props extends Omit<HTMLNextUIProps<"ul">, keyof NavbarContentVariantsProps | "color"> {
   children?: React.ReactNode | React.ReactNode[];
   /**
    * The gap between each item. Defaults to `$space$8 = 1rem`.
    */
-  gap?: GapUnit;
+  gap?: CSSGapUnit;
+  /**
+   * The main color of the navbar items.
+   */
+  color?: CSSColor;
 }
 
 export type NavbarContentProps = Props & NavbarContentVariantsProps;
@@ -23,7 +25,7 @@ export type NavbarContentProps = Props & NavbarContentVariantsProps;
 const NavbarContent = forwardRef<NavbarContentProps, "ul">((props, ref) => {
   const domRef = useDOMRef(ref);
 
-  const {children, gap = "$8", css, className, ...otherProps} = props;
+  const {children, gap = "$8", color = "inherit", css, className, ...otherProps} = props;
 
   return (
     <StyledNavbarContent
@@ -31,6 +33,7 @@ const NavbarContent = forwardRef<NavbarContentProps, "ul">((props, ref) => {
       className={clsx("nextui-navbar-content", className)}
       css={{
         gap,
+        color,
         ...css,
       }}
       {...otherProps}

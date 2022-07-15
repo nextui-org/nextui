@@ -1,15 +1,5 @@
-import React from "react";
-import {Meta} from "@storybook/react";
-
-import {Link, Text, Button, Spacer} from "../index";
-import {styled} from "../theme/stitches.config";
-
-import Navbar from "./index";
-
-export default {
-  title: "Navigation/Navbar",
-  component: Navbar,
-} as Meta;
+import {useTheme, Text, Spacer, Navbar, Link, Button, styled} from "@nextui-org/react";
+import {ThemeToggle} from "@components";
 
 const AcmeLogo = () => (
   <svg
@@ -31,14 +21,13 @@ const AcmeLogo = () => (
 );
 
 const Box = styled("div", {
-  // Reset
   boxSizing: "border-box",
 });
 
-const DefaultPageContent = () => (
+const Content = () => (
   <Box css={{px: "$12", mt: "$8", "@xsMax": {px: "$10"}}}>
     <Text h2>Lorem ipsum dolor sit amet</Text>
-    <Text size="$xl">
+    <Text size="$lg">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua. Purus gravida quis blandit turpis. Augue neque gravida in
       fermentum et sollicitudin ac orci. Et sollicitudin ac orci phasellus egestas. Elementum tempus
@@ -46,7 +35,7 @@ const DefaultPageContent = () => (
       placerat duis ultricies.
     </Text>
     <Spacer y={1} />
-    <Text size="$xl">
+    <Text size="$lg">
       Rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui. Praesent semper feugiat nibh
       sed pulvinar. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Malesuada
       proin libero nunc consequat interdum varius sit amet. Lectus quam id leo in vitae. Sed viverra
@@ -54,7 +43,7 @@ const DefaultPageContent = () => (
       gravida in.
     </Text>
     <Spacer y={1} />
-    <Text size="$xl">
+    <Text size="$lg">
       Tincidunt vitae semper quis lectus nulla at volutpat diam. Gravida dictum fusce ut placerat.
       Erat velit scelerisque in dictum non. Tempus quam pellentesque nec nam aliquam sem et tortor
       consequat. Eu nisl nunc mi ipsum faucibus. Cras fermentum odio eu feugiat pretium nibh. Vel
@@ -64,7 +53,7 @@ const DefaultPageContent = () => (
       tellus orci ac.
     </Text>
     <Spacer y={1} />
-    <Text size="$xl">
+    <Text size="$lg">
       Tempor orci dapibus ultrices in iaculis nunc sed augue lacus. In pellentesque massa placerat
       duis ultricies. Sit amet massa vitae tortor condimentum. Morbi tincidunt augue interdum velit
       euismod. Aliquet enim tortor at auctor urna nunc id. A scelerisque purus semper eget. Vitae
@@ -76,7 +65,7 @@ const DefaultPageContent = () => (
       phasellus vestibulum lorem sed risus.
     </Text>
     <Spacer y={1} />
-    <Text size="$xl">
+    <Text size="$lg">
       Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel. Imperdiet massa tincidunt
       nunc pulvinar sapien et ligula ullamcorper malesuada. Faucibus pulvinar elementum integer enim
       neque volutpat. Gravida arcu ac tortor dignissim convallis aenean. Lectus quam id leo in
@@ -90,7 +79,7 @@ const DefaultPageContent = () => (
       risus nec feugiat in fermentum posuere. Morbi tempus iaculis urna id. Amet commodo nulla
       facilisi nullam vehicula ipsum a arcu.
     </Text>
-    <Text size="$xl">
+    <Text size="$lg">
       Rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui. Praesent semper feugiat nibh
       sed pulvinar. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque. Malesuada
       proin libero nunc consequat interdum varius sit amet. Lectus quam id leo in vitae. Sed viverra
@@ -98,7 +87,7 @@ const DefaultPageContent = () => (
       gravida in.
     </Text>
     <Spacer y={1} />
-    <Text size="$xl">
+    <Text size="$lg">
       Tincidunt vitae semper quis lectus nulla at volutpat diam. Gravida dictum fusce ut placerat.
       Erat velit scelerisque in dictum non. Tempus quam pellentesque nec nam aliquam sem et tortor
       consequat. Eu nisl nunc mi ipsum faucibus. Cras fermentum odio eu feugiat pretium nibh. Vel
@@ -111,70 +100,63 @@ const DefaultPageContent = () => (
   </Box>
 );
 
-const DefaultNavbarContent = ({color}: {color?: any}) => (
-  <>
-    <Navbar.Brand>
-      <AcmeLogo />
-      <Text b color="inherit" css={{"@xsMax": {d: "none"}}}>
-        ACME
-      </Text>
-    </Navbar.Brand>
-    <Navbar.Content css={{"@smMax": {d: "none"}}}>
-      <Navbar.Link href="#">Features</Navbar.Link>
-      <Navbar.Link href="#">Customers</Navbar.Link>
-      <Navbar.Link href="#">Integrations</Navbar.Link>
-      <Navbar.Link href="#">Pricing</Navbar.Link>
-      <Navbar.Link href="#">Company</Navbar.Link>
-    </Navbar.Content>
-    <Navbar.Content>
-      <Navbar.Link color="inherit" href="#">
-        Login
-      </Navbar.Link>
-      <Navbar.Item>
-        <Button auto flat as={Link} color={color} href="#">
-          Sign Up
-        </Button>
-      </Navbar.Item>
-    </Navbar.Content>
-  </>
-);
-
-const App = ({children}: any) => (
+const Layout = ({children}: any) => (
   <Box
     css={{
-      maxW: "920px",
+      maxW: "100%",
       maxHeight: "600px",
       overflow: "visible scroll",
       boxShadow: "$md",
       position: "relative",
       border: "1px solid $colors$border",
+      borderRadius: "$md",
+      m: "$6",
+      "::-webkit-scrollbar": {
+        display: "none",
+        width: 0,
+        height: 0,
+        background: "transparent",
+      },
     }}
   >
     {children}
-    <DefaultPageContent />
+    <Content />
   </Box>
 );
 
-export const Static = () => (
-  <App>
-    <Navbar>
-      <DefaultNavbarContent />
-    </Navbar>
-  </App>
-);
+const TestPage = () => {
+  const {isDark} = useTheme();
 
-export const Sticky = () => (
-  <App>
-    <Navbar variant="sticky">
-      <DefaultNavbarContent />
-    </Navbar>
-  </App>
-);
+  return (
+    <Layout>
+      <Navbar isBordered={isDark} variant="floating">
+        <Navbar.Brand>
+          <AcmeLogo />
+          <Text b color="inherit" css={{"@xsMax": {d: "none"}}}>
+            ACME
+          </Text>
+        </Navbar.Brand>
+        <Navbar.Content css={{"@smMax": {d: "none"}}}>
+          <Navbar.Link href="#">Features</Navbar.Link>
+          <Navbar.Link href="#">Customers</Navbar.Link>
+          <Navbar.Link href="#">Integrations</Navbar.Link>
+          <Navbar.Link href="#">Pricing</Navbar.Link>
+          <Navbar.Link href="#">Company</Navbar.Link>
+        </Navbar.Content>
+        <Navbar.Content>
+          <ThemeToggle />
+          <Navbar.Link color="inherit" href="#">
+            Login
+          </Navbar.Link>
+          <Navbar.Item>
+            <Button auto flat as={Link} href="#">
+              Sign Up
+            </Button>
+          </Navbar.Item>
+        </Navbar.Content>
+      </Navbar>
+    </Layout>
+  );
+};
 
-export const Floating = () => (
-  <App>
-    <Navbar color="contrast" variant="floating">
-      <DefaultNavbarContent />
-    </Navbar>
-  </App>
-);
+export default TestPage;

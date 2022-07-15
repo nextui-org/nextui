@@ -13,9 +13,9 @@ export default {
   colors: {
     // background
     background: "$black",
+    backgroundAlpha: "rgba(0, 0, 0, 0.6)",
     foreground: "$white",
     backgroundContrast: "$accents0",
-    backgroundAlpha: "rgba(0, 0, 0, 0.5)",
 
     //semantic colors
     ...blueDark,
@@ -67,6 +67,7 @@ export default {
     codeLight: "$cyan50",
     code: "$cyan600",
     selection: "$pink800",
+    border: "rgba(255, 255, 255, 0.15)",
   },
   shadows: {
     xs: "0 2px 8px 1px rgb(0 0 0 / 0.07), 0 1px 1px -1px rgb(0 0 0 / 0.04)",

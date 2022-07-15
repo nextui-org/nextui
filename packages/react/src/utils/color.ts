@@ -49,7 +49,7 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
     b = "0x" + hex[5] + hex[6];
   }
 
-  return `rgba(${+r}, ${+g},${+b},${alpha})`;
+  return `rgba(${+r},${+g},${+b},${alpha})`;
 };
 
 export const isNormalColor = (color: string): boolean => {
@@ -115,7 +115,9 @@ export const colorToRgbValues = (colorProp: string) => {
   const regArray = safeColor.match(/\((.+)\)/);
 
   if (!colorType.startsWith("rgb") || !regArray) {
-    throw new Error(`Next UI: Only support ["RGB", "RGBA", "HEX"] color.`);
+    console.warn(`NextUI: Only supports ["RGB", "RGBA", "HEX"] color.`);
+
+    return [0, 0, 0];
   }
 
   return regArray[1].split(",").map((str) => Number.parseFloat(str));
@@ -131,6 +133,13 @@ export const addColorAlpha = (colorProp?: string, alpha: number = 1) => {
     return color;
   }
   const [r, g, b] = colorToRgbValues(color);
+  const safeAlpha = alpha > 1 ? 1 : alpha < 0 ? 0 : alpha;
+
+  return `rgba(${r}, ${g}, ${b}, ${safeAlpha})`;
+};
+
+export const rgbToRgba = (rgb: string, alpha: number = 1) => {
+  const [r, g, b] = rgb.split(",").map((str) => Number.parseFloat(str));
   const safeAlpha = alpha > 1 ? 1 : alpha < 0 ? 0 : alpha;
 
   return `rgba(${r}, ${g}, ${b}, ${safeAlpha})`;

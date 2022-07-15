@@ -58,7 +58,7 @@ export const Icon = () => (
 export const Block = () => (
   <Grid.Container gap={1}>
     <Grid xs={12}>
-      <Link block href="#">
+      <Link block color="primary" href="#">
         {text}
       </Link>
     </Grid>

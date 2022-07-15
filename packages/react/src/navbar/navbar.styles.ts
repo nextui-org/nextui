@@ -66,6 +66,7 @@ export const StyledNavbarContainer = styled("div", {
 export const StyledNavbar = styled("nav", {
   // variables
   $$navbarBackgroundColor: "$colors$background",
+  $$navbarBlurBackgroundColor: "$colors$backgroundAlpha",
   $$navbarTextColor: "$colors$text",
   $$navbarHeight: "76px",
   $$navbarBorderColor: "$colors$border",
@@ -74,6 +75,7 @@ export const StyledNavbar = styled("nav", {
   $$navbarFloatingMargin: "$space$10",
   $$navbarContainerMaxWidth: "$breakpoints$lg",
   $$navbarShadow: "$shadows$md",
+  $$navbarBlur: "10px",
   // styles
   width: "100%",
   dflex: "center",
@@ -97,9 +99,9 @@ export const StyledNavbar = styled("nav", {
         left: 0,
         position: "sticky",
         zIndex: "$2",
-        bg: "linear-gradient(180deg, rgba(248, 248, 248, 0.95) 44%, rgba(248, 248, 248, 0.46) 73%, rgba(255, 255, 255,0))",
-        // @dark
-        // bg: "linear-gradient(180deg,rgba(22,29,49,.9) 44%,rgba(22,29,49,.43) 73%,rgba(22,29,49,0))",
+        "@safari": {
+          top: "-5px",
+        },
         [`& ${StyledNavbarContainer}`]: {
           mt: "calc($$navbarFloatingMargin * 0.5)",
           mx: "$$navbarFloatingMargin",
@@ -127,20 +129,12 @@ export const StyledNavbar = styled("nav", {
         $$navbarContainerMaxWidth: "100%",
       },
     },
-    applyBackgroundContrast: {
-      true: {
-        $$navbarBackgroundColor: "$colors$backgroundContrast",
-      },
-    },
     isBordered: {
       true: {
         [`& ${StyledNavbarContainer}`]: {
           borderBottom: "$$navbarBorderWeight solid $$navbarBorderColor",
         },
       },
-    },
-    isInverted: {
-      true: {},
     },
     isCompact: {
       true: {
@@ -157,9 +151,9 @@ export const StyledNavbar = styled("nav", {
     disableBlur: {
       false: {
         "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
-          $$navbarBackgroundColor: "$colors$backgroundAlpha",
           [`& ${StyledNavbarContainer}`]: {
-            backdropFilter: "saturate(180%) blur(10px)",
+            bg: "$$navbarBlurBackgroundColor",
+            backdropFilter: "saturate(180%) blur($$navbarBlur)",
           },
         },
       },
@@ -217,7 +211,6 @@ export const StyledNavbar = styled("nav", {
     borderWeight: "light",
     maxWidth: "lg",
     isBordered: false,
-    isInverted: false,
     disableShadow: false,
     disableBlur: false,
   },

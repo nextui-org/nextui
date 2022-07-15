@@ -197,7 +197,9 @@
             },
             {
               "title": "Navbar",
-              "comingSoon": true
+              "keywords": "navbar, nav, navbar, navigation, menu, header",
+              "path": "/docs/components/navbar.mdx",
+              "newPost": true
             },
             {
               "title": "Switch",

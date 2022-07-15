@@ -1,6 +1,5 @@
-import {theme, styled, VariantProps} from "../theme/stitches.config";
+import {styled, VariantProps} from "../theme/stitches.config";
 import {cssFocusVisible} from "../theme/shared-css";
-import {addColorAlpha} from "../utils/color";
 
 export const StyledLinkIcon = styled("svg", {
   ml: "$1",
@@ -22,6 +21,7 @@ export const StyledLink = styled(
     backgroundClip: "inherit",
     WebkitTextFillColor: "inherit",
     outline: "none",
+    maxW: "max-content",
     "&:hover": {
       opacity: 0.8,
     },
@@ -30,33 +30,29 @@ export const StyledLink = styled(
     },
     variants: {
       color: {
+        inherit: {
+          color: "inherit",
+        },
         default: {
           color: "$link",
-          $$linkBackgroundColor: addColorAlpha(theme.colors?.link?.value, 0.2),
         },
         text: {
           color: "$text",
-          $$linkBackgroundColor: addColorAlpha(theme.colors?.text?.value, 0.2),
         },
         primary: {
           color: "$primary",
-          $$linkBackgroundColor: "$colors$primaryLight",
         },
         secondary: {
           color: "$secondary",
-          $$linkBackgroundColor: "$colors$secondaryLight",
         },
         success: {
           color: "$success",
-          $$linkBackgroundColor: "$colors$successLight",
         },
         warning: {
           color: "$warning",
-          $$linkBackgroundColor: "$colors$warningLight",
         },
         error: {
           color: "$error",
-          $$linkBackgroundColor: "$colors$errorLight",
         },
       },
       underline: {

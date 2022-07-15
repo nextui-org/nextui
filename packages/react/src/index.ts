@@ -146,3 +146,5 @@ export * from "./dropdown";
 
 export {default as Badge} from "./badge";
 export * from "./badge";
+
+export {default as Navbar} from "./navbar";

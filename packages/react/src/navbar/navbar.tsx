@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useMemo} from "react";
 
 import {HTMLNextUIProps, forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
 import clsx from "../utils/clsx";
 import {CSS} from "../theme/stitches.config";
+import useTheme from "../use-theme";
+import {addColorAlpha} from "../utils/color";
 import {__DEV__} from "../utils/assertion";
 
 import {StyledNavbar, StyledNavbarContainer, NavbarVariantsProps} from "./navbar.styles";
@@ -21,18 +23,49 @@ interface Props extends Omit<HTMLNextUIProps<"nav">, keyof NavbarVariantsProps> 
 export type NavbarProps = Props & NavbarVariantsProps;
 
 const Navbar = forwardRef<NavbarProps, "nav">((props, ref) => {
+  const {theme, isDark} = useTheme();
   const domRef = useDOMRef(ref);
 
   const {
     children,
+    variant = "static",
     className,
+    css,
     containerCss,
     enableShadowOnlyOnScroll = false,
     ...otherProps
   } = props;
 
+  const navbarCss = useMemo(() => {
+    let customCss = {};
+
+    if (variant === "floating") {
+      // linear gradient behind the navbar
+      customCss = {
+        bg: `linear-gradient(180deg, ${addColorAlpha(
+          theme?.colors?.background?.value,
+          0.95,
+        )} 44%, ${addColorAlpha(theme?.colors?.background?.value, 0.46)} 73%, ${addColorAlpha(
+          theme?.colors?.background?.value,
+          0,
+        )})`,
+      };
+    }
+
+    return {
+      ...customCss,
+      ...css,
+    };
+  }, [css, isDark, theme?.colors, variant]);
+
   return (
-    <StyledNavbar ref={domRef} className={clsx("nextui-navbar", className)} {...otherProps}>
+    <StyledNavbar
+      ref={domRef}
+      className={clsx("nextui-navbar", className)}
+      css={navbarCss}
+      variant={variant}
+      {...otherProps}
+    >
       <StyledNavbarContainer className="nextui-navbar-container" css={containerCss}>
         {children}
       </StyledNavbarContainer>
