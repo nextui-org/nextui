@@ -44,12 +44,12 @@ yarn add @nextui-org/react
 npm i @nextui-org/react
 ```
 
-2. Setup: For NextUI to work correctly, you need to set up the CssBaseline at the root of your application.
+2. Setup: For NextUI to work correctly, you need to set up the `NextUIProvider` at the root of your application.
 
 Go to the root of your application and do this:
 
 ```jsx
-import { NextUIProvider } from '@nextui-org/react';
+import {NextUIProvider} from '@nextui-org/react';
 
 const Application = () => (
   <NextUIProvider>
@@ -63,7 +63,7 @@ const Application = () => (
    each component is exported separately.
 
 ```jsx
-import { Button } from '@nextui-org/react';
+import {Button} from '@nextui-org/react';
 
 const Component = () => <Button>Click me</Button>;
 ```
