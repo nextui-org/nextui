@@ -7,7 +7,7 @@ const defaultProps = {
   fill: "#ffffff",
 };
 
-const Play: React.FC<IconProps> = ({fill, filled, size, height, width, label, ...props}) => {
+const Play: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}) => {
   return (
     <Icon
       fill={filled ? fill : "none"}

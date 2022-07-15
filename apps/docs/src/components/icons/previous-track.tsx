@@ -7,15 +7,7 @@ const defaultProps = {
   fill: "currentColor",
 };
 
-const PreviousTrack: React.FC<IconProps> = ({
-  fill,
-  filled,
-  size,
-  height,
-  width,
-  label,
-  ...props
-}) => {
+const PreviousTrack: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
   return (
     <Icon
       fill="none"
