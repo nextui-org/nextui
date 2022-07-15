@@ -263,14 +263,18 @@ export const StyledSwitchInput = styled(
     [`&:checked + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
       transform: "translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchHeight * 0.7))",
     },
-    [`& + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
-      transform: "translateX(calc($$switchWidth / 7.5))",
-    },
-    [`&:checked + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
-      transform:
-        "translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchHeight * 0.7))",
-    },
     variants: {
+      animated: {
+        true: {
+          [`& + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+            transform: "translateX(calc($$switchWidth / 7.5))",
+          },
+          [`&:checked + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+            transform:
+              "translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchHeight * 0.7))",
+          },
+        },
+      },
       bordered: {
         true: {
           [`& + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
@@ -280,6 +284,14 @@ export const StyledSwitchInput = styled(
             transform:
               "translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchBorderW * 1.5 - $$switchHeight * 0.7))",
           },
+        },
+      },
+    },
+    compoundVariants: [
+      {
+        animated: true,
+        bordered: true,
+        css: {
           [`& + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
             transform: "translateX(calc($$switchWidth / 7.5 - $$switchBorderW / 2))",
           },
@@ -289,7 +301,7 @@ export const StyledSwitchInput = styled(
           },
         },
       },
-    },
+    ],
   },
   sharedVisuallyHidden,
 );
