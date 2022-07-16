@@ -1,45 +1,45 @@
 import React from "react";
 
-import {CSSGapUnit, CSSColor} from "../theme";
-import {HTMLNextUIProps, forwardRef} from "../utils/system";
+import {forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
-import {StyledNavbarContent, NavbarContentVariantsProps} from "./navbar.styles";
+import {NavbarContentProvider} from "./navbar-content-context";
+import {StyledNavbarContent} from "./navbar.styles";
+import {useNavbarContent, UseNavbarContentProps} from "./use-navbar-content";
 
-interface Props extends Omit<HTMLNextUIProps<"ul">, keyof NavbarContentVariantsProps | "color"> {
+interface Props {
+  /**
+   * The content of the Navbar.Content. It is usually the `Navbar.Link` and `Navbar.Item`,
+   */
   children?: React.ReactNode | React.ReactNode[];
-  /**
-   * The gap between each item. Defaults to `$space$8 = 1rem`.
-   */
-  gap?: CSSGapUnit;
-  /**
-   * The main color of the navbar items.
-   */
-  color?: CSSColor;
 }
 
-export type NavbarContentProps = Props & NavbarContentVariantsProps;
+export type NavbarContentProps = Props & UseNavbarContentProps;
 
 const NavbarContent = forwardRef<NavbarContentProps, "ul">((props, ref) => {
+  const {children, ...otherProps} = props;
+
+  const context = useNavbarContent(otherProps);
+
   const domRef = useDOMRef(ref);
 
-  const {children, gap = "$8", color = "inherit", css, className, ...otherProps} = props;
-
   return (
-    <StyledNavbarContent
-      ref={domRef}
-      className={clsx("nextui-navbar-content", className)}
-      css={{
-        gap,
-        color,
-        ...css,
-      }}
-      {...otherProps}
-    >
-      {children}
-    </StyledNavbarContent>
+    <NavbarContentProvider value={context}>
+      <StyledNavbarContent
+        ref={domRef}
+        className={clsx("nextui-navbar-content", context.className)}
+        css={{
+          gap: context.gap,
+          color: context.color,
+          ...context.css,
+        }}
+        {...context.otherProps}
+      >
+        {children}
+      </StyledNavbarContent>
+    </NavbarContentProvider>
   );
 });
 

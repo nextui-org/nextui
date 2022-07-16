@@ -119,9 +119,11 @@ const DefaultNavbarContent = ({color}: {color?: any}) => (
         ACME
       </Text>
     </Navbar.Brand>
-    <Navbar.Content css={{"@smMax": {d: "none"}}}>
+    <Navbar.Content css={{"@smMax": {d: "none"}}} variant="highlight-rounded">
       <Navbar.Link href="#">Features</Navbar.Link>
-      <Navbar.Link href="#">Customers</Navbar.Link>
+      <Navbar.Link isActive href="#">
+        Customers
+      </Navbar.Link>
       <Navbar.Link href="#">Integrations</Navbar.Link>
       <Navbar.Link href="#">Pricing</Navbar.Link>
       <Navbar.Link href="#">Company</Navbar.Link>

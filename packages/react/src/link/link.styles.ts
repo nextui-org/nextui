@@ -11,6 +11,7 @@ export const StyledLinkIcon = styled("svg", {
 export const StyledLink = styled(
   "a",
   {
+    $$linkColor: "$colors$link",
     display: "flex",
     alignItems: "center",
     lineHeight: "inherit",
@@ -20,6 +21,7 @@ export const StyledLink = styled(
     backgroundImage: "inherit",
     backgroundClip: "inherit",
     WebkitTextFillColor: "inherit",
+    color: "$$linkColor",
     outline: "none",
     maxW: "max-content",
     "&:hover": {
@@ -31,28 +33,28 @@ export const StyledLink = styled(
     variants: {
       color: {
         inherit: {
-          color: "inherit",
+          $$linkColor: "inherit",
         },
         default: {
-          color: "$link",
+          $$linkColor: "$colors$link",
         },
         text: {
-          color: "$text",
+          $$linkColor: "$colors$text",
         },
         primary: {
-          color: "$primary",
+          $$linkColor: "$colors$primary",
         },
         secondary: {
-          color: "$secondary",
+          $$linkColor: "$colors$secondary",
         },
         success: {
-          color: "$success",
+          $$linkColor: "$colors$success",
         },
         warning: {
-          color: "$warning",
+          $$linkColor: "$colors$warning",
         },
         error: {
-          color: "$error",
+          $$linkColor: "$colors$error",
         },
       },
       underline: {

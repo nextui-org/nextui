@@ -176,9 +176,9 @@
               "path": "/docs/components/progress.mdx"
             },
             {
-              "title": "Badge",
-              "keywords": "badge, status, display, count, highlight",
-              "path": "/docs/components/badge.mdx",
+              "title": "Navbar",
+              "keywords": "navbar, nav, navbar, navigation, menu, header",
+              "path": "/docs/components/navbar.mdx",
               "newPost": true
             },
             {
@@ -196,15 +196,15 @@
               "path": "/docs/components/loading.mdx"
             },
             {
-              "title": "Navbar",
-              "keywords": "navbar, nav, navbar, navigation, menu, header",
-              "path": "/docs/components/navbar.mdx",
-              "newPost": true
-            },
-            {
               "title": "Switch",
               "keywords": "toggle, switch",
               "path": "/docs/components/switch.mdx"
+            },
+            {
+              "title": "Badge",
+              "keywords": "badge, status, display, count, highlight",
+              "path": "/docs/components/badge.mdx",
+              "newPost": true
             },
             {
               "title": "Text",

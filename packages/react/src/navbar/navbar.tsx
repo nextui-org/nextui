@@ -16,7 +16,6 @@ import NavbarLink from "./navbar-link";
 
 interface Props extends Omit<HTMLNextUIProps<"nav">, keyof NavbarVariantsProps> {
   children?: React.ReactNode | React.ReactNode[];
-  enableShadowOnlyOnScroll?: boolean;
   containerCss?: CSS;
 }
 
@@ -26,22 +25,12 @@ const Navbar = forwardRef<NavbarProps, "nav">((props, ref) => {
   const {theme, isDark} = useTheme();
   const domRef = useDOMRef(ref);
 
-  const {
-    children,
-    variant = "static",
-    className,
-    css,
-    containerCss,
-    enableShadowOnlyOnScroll = false,
-    ...otherProps
-  } = props;
+  const {children, variant = "static", className, css, containerCss, ...otherProps} = props;
 
   const navbarCss = useMemo(() => {
-    let customCss = {};
-
     if (variant === "floating") {
       // linear gradient behind the navbar
-      customCss = {
+      return {
         bg: `linear-gradient(180deg, ${addColorAlpha(
           theme?.colors?.background?.value,
           0.95,
@@ -49,13 +38,11 @@ const Navbar = forwardRef<NavbarProps, "nav">((props, ref) => {
           theme?.colors?.background?.value,
           0,
         )})`,
+        ...css,
       };
     }
 
-    return {
-      ...customCss,
-      ...css,
-    };
+    return css;
   }, [css, isDark, theme?.colors, variant]);
 
   return (

@@ -31,11 +31,243 @@ export const StyledNavbarBrand = styled("span", {
 });
 
 export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
-  fontSize: "inherit",
+  $$navbarItemFontSize: "inherit",
+  $$navbarItemFontWeight: "$fontWeights$normal",
+  fontSize: "$$navbarItemFontSize",
+  fontWeight: "$$navbarItemFontWeight",
+  "*": {
+    zIndex: "$2",
+  },
+  "&:before": {
+    opacity: 0,
+    zIndex: "$1",
+    content: '""',
+    display: "block",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: "$sm",
+  },
+  "&:after": {
+    opacity: 0,
+    zIndex: "$1",
+    content: '""',
+    display: "block",
+    position: "absolute",
+    left: "0",
+    right: "0",
+    bottom: "0",
+    height: "$$navbarItemUnderlineHeight",
+    borderRadius: "calc($$navbarItemUnderlineHeight / 2)",
+    background: "$$navbarItemActiveColor",
+  },
+  variants: {
+    activeColor: {
+      default: {
+        $$navbarItemActiveColor: "$colors$link",
+        $$navbarItemHighlightBackgroundColor: "$colors$primaryLight",
+        $$navbarItemHighlightTextColor: "$colors$primaryLightContrast",
+        $$navbarItemHighlightSolidBackgroundColor: "$colors$primary",
+        $$navbarItemHighlightSolidTextColor: "$colors$primarySolidContrast",
+      },
+      neutral: {
+        $$navbarItemActiveColor: "$colors$neutral",
+        $$navbarItemHighlightBackgroundColor: "$colors$neutralLight",
+        $$navbarItemHighlightTextColor: "$colors$text",
+        $$navbarItemHighlightSolidBackgroundColor: "$colors$neutral",
+        $$navbarItemHighlightSolidTextColor: "$colors$neutralSolidContrast",
+      },
+      primary: {
+        $$navbarItemActiveColor: "$colors$primary",
+        $$navbarItemHighlightBackgroundColor: "$colors$primaryLight",
+        $$navbarItemHighlightTextColor: "$colors$primaryLightContrast",
+        $$navbarItemHighlightSolidBackgroundColor: "$colors$primary",
+        $$navbarItemHighlightSolidTextColor: "$colors$primarySolidContrast",
+      },
+      secondary: {
+        $$navbarItemActiveColor: "$colors$secondary",
+        $$navbarItemHighlightBackgroundColor: "$colors$secondaryLight",
+        $$navbarItemHighlightTextColor: "$colors$secondaryLightContrast",
+        $$navbarItemHighlightSolidBackgroundColor: "$colors$secondary",
+        $$navbarItemHighlightSolidTextColor: "$colors$secondarySolidContrast",
+      },
+      success: {
+        $$navbarItemActiveColor: "$colors$success",
+        $$navbarItemHighlightBackgroundColor: "$colors$successLight",
+        $$navbarItemHighlightTextColor: "$colors$successLightContrast",
+        $$navbarItemHighlightSolidBackgroundColor: "$colors$success",
+        $$navbarItemHighlightSolidTextColor: "$colors$successSolidContrast",
+      },
+      warning: {
+        $$navbarItemActiveColor: "$colors$warning",
+        $$navbarItemHighlightBackgroundColor: "$colors$warningLight",
+        $$navbarItemHighlightTextColor: "$colors$warningLightContrast",
+        $$navbarItemHighlightSolidBackgroundColor: "$colors$warning",
+        $$navbarItemHighlightSolidTextColor: "$colors$warningSolidContrast",
+      },
+      error: {
+        $$navbarItemActiveColor: "$colors$error",
+        $$navbarItemHighlightBackgroundColor: "$colors$errorLight",
+        $$navbarItemHighlightTextColor: "$colors$errorLightContrast",
+        $$navbarItemHighlightSolidBackgroundColor: "$colors$error",
+        $$navbarItemHighlightSolidTextColor: "$colors$errorSolidContrast",
+      },
+    },
+    isActive: {
+      true: {
+        color: "$$navbarItemActiveColor",
+      },
+    },
+    variant: {
+      default: {},
+      underline: {
+        color: "inherit",
+        position: "relative",
+        height: "100%",
+      },
+      "underline-squared": {
+        color: "inherit",
+        position: "relative",
+        height: "100%",
+      },
+      highlight: {},
+      "highlight-solid": {},
+      "highlight-rounded": {},
+      "highlight-solid-rounded": {},
+    },
+    underlineHeight: {
+      light: {
+        $$navbarItemUnderlineHeight: "2px",
+      },
+      normal: {
+        $$navbarItemUnderlineHeight: "4px",
+      },
+      bold: {
+        $$navbarItemUnderlineHeight: "6px",
+      },
+      extrabold: {
+        $$navbarItemUnderlineHeight: "8px",
+      },
+      black: {
+        $$navbarItemUnderlineHeight: "10px",
+      },
+    },
+  },
+  compoundVariants: [
+    /**
+     * @isActive true
+     * @variant underline
+     */
+    {
+      isActive: true,
+      variant: "underline",
+      css: {
+        color: "inherit",
+        "&:after": {
+          opacity: 1,
+        },
+      },
+    },
+    /**
+     * @isActive true
+     * @variant underline
+     */
+    {
+      isActive: true,
+      variant: "underline-squared",
+      css: {
+        color: "inherit",
+        "&:after": {
+          opacity: 1,
+          borderRadius: "0px",
+        },
+      },
+    },
+    /**
+     * @isActive true
+     * @variant highlight
+     */
+    {
+      isActive: true,
+      variant: "highlight",
+      css: {
+        color: "$$navbarItemHighlightTextColor",
+        "*:first-child": {
+          color: "inherit",
+        },
+        "&:before": {
+          opacity: 1,
+          background: "$$navbarItemHighlightBackgroundColor",
+        },
+      },
+    },
+    /**
+     * @isActive true
+     * @variant highlight-solid
+     */
+    {
+      isActive: true,
+      variant: "highlight-solid",
+      css: {
+        color: "$$navbarItemHighlightSolidTextColor",
+        "*:first-child": {
+          color: "inherit",
+        },
+        "&:before": {
+          opacity: 1,
+          background: "$$navbarItemHighlightSolidBackgroundColor",
+        },
+      },
+    },
+    /**
+     * @isActive true
+     * @variant highlight-rounded
+     */
+    {
+      isActive: true,
+      variant: "highlight-rounded",
+      css: {
+        color: "$$navbarItemHighlightTextColor",
+        "*:first-child": {
+          color: "inherit",
+        },
+        "&:before": {
+          opacity: 1,
+          background: "$$navbarItemHighlightBackgroundColor",
+        },
+      },
+    },
+    /**
+     * @isActive true
+     * @variant highlight-solid
+     */
+    {
+      isActive: true,
+      variant: "highlight-solid-rounded",
+      css: {
+        color: "$$navbarItemHighlightSolidTextColor",
+        "*:first-child": {
+          color: "inherit",
+        },
+        "&:before": {
+          opacity: 1,
+          background: "$$navbarItemHighlightSolidBackgroundColor",
+        },
+      },
+    },
+  ],
+  defaultVariants: {
+    variant: "default",
+    activeColor: "default",
+    underlineHeight: "normal",
+  },
 });
 
 export const StyledNavbarContent = styled(StyledBaseNavbarList, {
   $$navbarContentItemGap: "$space$8",
+  $$navbarContentItemHorizontalPadding: "$space$8",
   d: "flex",
   height: "100%",
   flexWrap: "nowrap",
@@ -53,9 +285,9 @@ export const StyledNavbarContainer = styled("div", {
   alignItems: "center",
   position: "relative",
   boxSizing: "border-box",
+  color: "inherit",
   px: "$$navbarPadding",
   bg: "$$navbarBackgroundColor",
-  color: "$$navbarTextColor",
   maxW: "$$navbarContainerMaxWidth",
   "@xsMax": {
     $$navbarPadding: "$space$6",
@@ -65,10 +297,11 @@ export const StyledNavbarContainer = styled("div", {
 
 export const StyledNavbar = styled("nav", {
   // variables
+  $$navbarTextColor: "$colors$text",
   $$navbarBackgroundColor: "$colors$background",
   $$navbarBlurBackgroundColor: "$colors$backgroundAlpha",
-  $$navbarTextColor: "$colors$text",
   $$navbarHeight: "76px",
+  $$navbarItemMaxHeight: "calc($$navbarHeight * 0.5)",
   $$navbarBorderColor: "$colors$border",
   $$navbarBorderRadius: "$radii$lg",
   $$navbarPadding: "$space$10",
@@ -81,6 +314,7 @@ export const StyledNavbar = styled("nav", {
   dflex: "center",
   position: "relative",
   height: "auto",
+  color: "$$navbarTextColor",
   variants: {
     variant: {
       static: {
@@ -140,6 +374,7 @@ export const StyledNavbar = styled("nav", {
       true: {
         $$navbarHeight: "54px",
         $$navbarBorderRadius: "$radii$md",
+        $$navbarItemMaxHeight: "calc($$navbarHeight * 0.6)",
       },
     },
     disableShadow: {
@@ -217,5 +452,4 @@ export const StyledNavbar = styled("nav", {
 });
 
 export type NavbarVariantsProps = VariantProps<typeof StyledNavbar>;
-export type NavbarContentVariantsProps = VariantProps<typeof StyledNavbarContent>;
 export type NavbarItemVariantsProps = VariantProps<typeof StyledNavbarItem>;

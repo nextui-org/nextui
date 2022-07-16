@@ -1,13 +1,15 @@
 import {Layout, Box, AcmeLogo, Content} from "./common";
 
-const App = `import { Navbar } from "@nextui-org/react";
+const App = `import { Navbar, Button, Text, useTheme } from "@nextui-org/react";
 import { Layout } from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
 
 export default function App() {
+  const { isDark } = useTheme();
+
   return (
     <Layout>
-      <Navbar variant="sticky">
+      <Navbar isBordered={isDark} variant="sticky">
         <Navbar.Brand>
           <AcmeLogo />
           <Text b color="inherit" css={{"@xsMax": {d: "none"}}}>
