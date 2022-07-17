@@ -1,5 +1,57 @@
 import {styled, VariantProps} from "../theme/stitches.config";
 
+const itemColors = {
+  default: {
+    $$navbarItemActiveColor: "$colors$link",
+    $$navbarItemHighlightBackgroundColor: "$colors$primaryLight",
+    $$navbarItemHighlightTextColor: "$colors$primaryLightContrast",
+    $$navbarItemHighlightSolidBackgroundColor: "$colors$primary",
+    $$navbarItemHighlightSolidTextColor: "$colors$primarySolidContrast",
+  },
+  neutral: {
+    $$navbarItemActiveColor: "$colors$neutral",
+    $$navbarItemHighlightBackgroundColor: "$colors$neutralLight",
+    $$navbarItemHighlightTextColor: "$colors$text",
+    $$navbarItemHighlightSolidBackgroundColor: "$colors$neutral",
+    $$navbarItemHighlightSolidTextColor: "$colors$neutralSolidContrast",
+  },
+  primary: {
+    $$navbarItemActiveColor: "$colors$primary",
+    $$navbarItemHighlightBackgroundColor: "$colors$primaryLight",
+    $$navbarItemHighlightTextColor: "$colors$primaryLightContrast",
+    $$navbarItemHighlightSolidBackgroundColor: "$colors$primary",
+    $$navbarItemHighlightSolidTextColor: "$colors$primarySolidContrast",
+  },
+  secondary: {
+    $$navbarItemActiveColor: "$colors$secondary",
+    $$navbarItemHighlightBackgroundColor: "$colors$secondaryLight",
+    $$navbarItemHighlightTextColor: "$colors$secondaryLightContrast",
+    $$navbarItemHighlightSolidBackgroundColor: "$colors$secondary",
+    $$navbarItemHighlightSolidTextColor: "$colors$secondarySolidContrast",
+  },
+  success: {
+    $$navbarItemActiveColor: "$colors$success",
+    $$navbarItemHighlightBackgroundColor: "$colors$successLight",
+    $$navbarItemHighlightTextColor: "$colors$successLightContrast",
+    $$navbarItemHighlightSolidBackgroundColor: "$colors$success",
+    $$navbarItemHighlightSolidTextColor: "$colors$successSolidContrast",
+  },
+  warning: {
+    $$navbarItemActiveColor: "$colors$warning",
+    $$navbarItemHighlightBackgroundColor: "$colors$warningLight",
+    $$navbarItemHighlightTextColor: "$colors$warningLightContrast",
+    $$navbarItemHighlightSolidBackgroundColor: "$colors$warning",
+    $$navbarItemHighlightSolidTextColor: "$colors$warningSolidContrast",
+  },
+  error: {
+    $$navbarItemActiveColor: "$colors$error",
+    $$navbarItemHighlightBackgroundColor: "$colors$errorLight",
+    $$navbarItemHighlightTextColor: "$colors$errorLightContrast",
+    $$navbarItemHighlightSolidBackgroundColor: "$colors$error",
+    $$navbarItemHighlightSolidTextColor: "$colors$errorSolidContrast",
+  },
+};
+
 export const StyledBaseNavbarItem = styled("li", {
   mb: 0,
   display: "flex",
@@ -35,6 +87,7 @@ export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
   $$navbarItemFontWeight: "$fontWeights$normal",
   fontSize: "$$navbarItemFontSize",
   fontWeight: "$$navbarItemFontWeight",
+  position: "relative",
   "*": {
     zIndex: "$2",
   },
@@ -64,67 +117,17 @@ export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
     background: "$$navbarItemActiveColor",
   },
   variants: {
-    activeColor: {
-      default: {
-        $$navbarItemActiveColor: "$colors$link",
-        $$navbarItemHighlightBackgroundColor: "$colors$primaryLight",
-        $$navbarItemHighlightTextColor: "$colors$primaryLightContrast",
-        $$navbarItemHighlightSolidBackgroundColor: "$colors$primary",
-        $$navbarItemHighlightSolidTextColor: "$colors$primarySolidContrast",
-      },
-      neutral: {
-        $$navbarItemActiveColor: "$colors$neutral",
-        $$navbarItemHighlightBackgroundColor: "$colors$neutralLight",
-        $$navbarItemHighlightTextColor: "$colors$text",
-        $$navbarItemHighlightSolidBackgroundColor: "$colors$neutral",
-        $$navbarItemHighlightSolidTextColor: "$colors$neutralSolidContrast",
-      },
-      primary: {
-        $$navbarItemActiveColor: "$colors$primary",
-        $$navbarItemHighlightBackgroundColor: "$colors$primaryLight",
-        $$navbarItemHighlightTextColor: "$colors$primaryLightContrast",
-        $$navbarItemHighlightSolidBackgroundColor: "$colors$primary",
-        $$navbarItemHighlightSolidTextColor: "$colors$primarySolidContrast",
-      },
-      secondary: {
-        $$navbarItemActiveColor: "$colors$secondary",
-        $$navbarItemHighlightBackgroundColor: "$colors$secondaryLight",
-        $$navbarItemHighlightTextColor: "$colors$secondaryLightContrast",
-        $$navbarItemHighlightSolidBackgroundColor: "$colors$secondary",
-        $$navbarItemHighlightSolidTextColor: "$colors$secondarySolidContrast",
-      },
-      success: {
-        $$navbarItemActiveColor: "$colors$success",
-        $$navbarItemHighlightBackgroundColor: "$colors$successLight",
-        $$navbarItemHighlightTextColor: "$colors$successLightContrast",
-        $$navbarItemHighlightSolidBackgroundColor: "$colors$success",
-        $$navbarItemHighlightSolidTextColor: "$colors$successSolidContrast",
-      },
-      warning: {
-        $$navbarItemActiveColor: "$colors$warning",
-        $$navbarItemHighlightBackgroundColor: "$colors$warningLight",
-        $$navbarItemHighlightTextColor: "$colors$warningLightContrast",
-        $$navbarItemHighlightSolidBackgroundColor: "$colors$warning",
-        $$navbarItemHighlightSolidTextColor: "$colors$warningSolidContrast",
-      },
-      error: {
-        $$navbarItemActiveColor: "$colors$error",
-        $$navbarItemHighlightBackgroundColor: "$colors$errorLight",
-        $$navbarItemHighlightTextColor: "$colors$errorLightContrast",
-        $$navbarItemHighlightSolidBackgroundColor: "$colors$error",
-        $$navbarItemHighlightSolidTextColor: "$colors$errorSolidContrast",
-      },
-    },
+    activeColor: itemColors,
     isActive: {
       true: {
         color: "$$navbarItemActiveColor",
+        $$navbarItemFontWeight: "$fontWeights$semibold",
       },
     },
     variant: {
       default: {},
       underline: {
         color: "inherit",
-        position: "relative",
         height: "100%",
       },
       "underline-squared": {
@@ -152,6 +155,12 @@ export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
       },
       black: {
         $$navbarItemUnderlineHeight: "10px",
+      },
+    },
+    isDisabled: {
+      true: {
+        opacity: 0.5,
+        cursor: "not-allowed",
       },
     },
   },
@@ -265,6 +274,34 @@ export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
   },
 });
 
+// @internal
+export const StyledCursorHighlight = styled(StyledBaseNavbarItem, {
+  position: "absolute",
+  top: "calc(50% - $$navbarItemMaxHeight * 0.5)",
+  height: "$$navbarItemMaxHeight",
+  background: "$neutralLight",
+  borderRadius: "$sm",
+  transition: "width 0.2s ease 0s, transform 0.2s ease 0s, opacity 0.2s ease 0s",
+  variants: {
+    color: itemColors,
+    isHighlightVariant: {
+      true: {
+        background: "$$navbarItemHighlightBackgroundColor",
+      },
+    },
+    isHighlightSolidVariant: {
+      true: {
+        background: "$$navbarItemHighlightSolidBackgroundColor",
+      },
+    },
+    isRounded: {
+      true: {
+        borderRadius: "$pill",
+      },
+    },
+  },
+});
+
 export const StyledNavbarContent = styled(StyledBaseNavbarList, {
   $$navbarContentItemGap: "$space$8",
   $$navbarContentItemHorizontalPadding: "$space$8",
@@ -273,6 +310,14 @@ export const StyledNavbarContent = styled(StyledBaseNavbarList, {
   flexWrap: "nowrap",
   alignItems: "center",
   gap: "$$navbarContentItemGap",
+  variants: {
+    enableCursorHighlight: {
+      true: {
+        zIndex: "$2",
+        position: "relative",
+      },
+    },
+  },
 });
 
 export const StyledNavbarContainer = styled("div", {
@@ -452,4 +497,5 @@ export const StyledNavbar = styled("nav", {
 });
 
 export type NavbarVariantsProps = VariantProps<typeof StyledNavbar>;
+export type NavbarContentVariantsProps = VariantProps<typeof StyledNavbarContent>;
 export type NavbarItemVariantsProps = VariantProps<typeof StyledNavbarItem>;

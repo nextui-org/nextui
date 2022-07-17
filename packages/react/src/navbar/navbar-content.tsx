@@ -4,9 +4,10 @@ import {forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
+import {mergeRefs} from "../utils/refs";
 
 import {NavbarContentProvider} from "./navbar-content-context";
-import {StyledNavbarContent} from "./navbar.styles";
+import {StyledNavbarContent, StyledCursorHighlight} from "./navbar.styles";
 import {useNavbarContent, UseNavbarContentProps} from "./use-navbar-content";
 
 interface Props {
@@ -28,15 +29,29 @@ const NavbarContent = forwardRef<NavbarContentProps, "ul">((props, ref) => {
   return (
     <NavbarContentProvider value={context}>
       <StyledNavbarContent
-        ref={domRef}
+        ref={mergeRefs(context.wrapperRef, domRef)}
         className={clsx("nextui-navbar-content", context.className)}
         css={{
           gap: context.gap,
           color: context.color,
           ...context.css,
         }}
+        enableCursorHighlight={context.enableCursorHighlight}
+        style={context.style}
+        onMouseLeave={context.resetHighlight}
         {...context.otherProps}
       >
+        {context.enableCursorHighlight && (
+          <StyledCursorHighlight
+            ref={context.cursorHighlightRef}
+            className="nextui-navbar-cursor-highlight"
+            color={context.activeColor}
+            css={context.cursorHighlightCss}
+            isHighlightSolidVariant={context.isHighlightSolidVariant}
+            isHighlightVariant={context.isHighlightVariant}
+            isRounded={context.isRounded}
+          />
+        )}
         {children}
       </StyledNavbarContent>
     </NavbarContentProvider>

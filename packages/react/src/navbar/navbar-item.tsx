@@ -1,4 +1,7 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useEffect} from "react";
+import {useHover} from "@react-aria/interactions";
+import {mergeProps} from "@react-aria/utils";
+import {useId} from "@react-aria/utils";
 
 import {HTMLNextUIProps, forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
@@ -11,22 +14,72 @@ import {StyledNavbarItem, NavbarItemVariantsProps} from "./navbar.styles";
 export interface Props
   extends Omit<HTMLNextUIProps<"li">, keyof NavbarItemVariantsProps | "color"> {
   children?: React.ReactNode | React.ReactNode[];
+  isDisabled?: boolean;
 }
 
 export type NavbarItemProps = Props & NavbarItemVariantsProps;
 
 const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
-  const {children, className, variant, activeColor, isActive, underlineHeight, css, ...otherProps} =
-    props;
+  const {
+    id,
+    css,
+    children,
+    variant,
+    activeColor,
+    isActive,
+    underlineHeight,
+    onMouseOver,
+    onMouseLeave,
+    isDisabled,
+    className,
+    ...otherProps
+  } = props;
 
   const contentProps = useNavbarContentContext();
   const domRef = useDOMRef(ref);
 
   const itemVariant = variant || contentProps?.variant;
+  const stringVariant = itemVariant?.toString();
+  const isHighlightVariant = stringVariant.includes?.("highlight");
+  const isHighlightSolidVariant = stringVariant.includes?.("highlight-solid");
+
+  const {hoverProps, isHovered} = useHover({isDisabled});
+  const itemId = useId(id);
+
+  useEffect(() => {
+    if (!domRef.current) {
+      return;
+    }
+    if (contentProps && contentProps?.enableCursorHighlight && isActive && isHighlightVariant) {
+      contentProps.updateActiveItem(domRef?.current);
+    }
+  }, [domRef, isHighlightVariant, isActive]);
+
+  const isActiveAndHighlighted = useMemo(() => {
+    if (!contentProps) {
+      return false;
+    }
+
+    return contentProps.highlightedItem?.id === itemId;
+  }, [itemId, contentProps]);
+
+  const shouldUseActiveTextColor = useMemo(() => {
+    if (
+      !isActiveAndHighlighted &&
+      contentProps?.enableCursorHighlight &&
+      isHighlightSolidVariant &&
+      itemId === contentProps?.activeItem?.id
+    ) {
+      return true;
+    }
+
+    return false;
+  }, [contentProps, itemId, isActiveAndHighlighted, isHighlightSolidVariant]);
 
   const itemCss = useMemo(() => {
     const customCss = [];
-    const stringVariant = itemVariant?.toString();
+    const isStringChildren = typeof children === "string";
+    const isHighlightSolidVariant = stringVariant.includes?.("highlight-solid");
 
     if (!contentProps) {
       customCss.push({
@@ -34,19 +87,30 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
       });
     }
 
-    if (itemVariant && stringVariant.includes?.("highlight")) {
+    if (isHighlightVariant) {
       customCss.push({
         dflex: "center",
-        position: "relative",
         height: "$$navbarItemMaxHeight",
-        px: "$$navbarContentItemHorizontalPadding",
       });
+
+      if (isStringChildren) {
+        customCss.push({
+          px: "$$navbarContentItemHorizontalPadding",
+        });
+      } else {
+        customCss.push({
+          "*:first-child": {
+            size: "100%",
+            px: "$$navbarContentItemHorizontalPadding",
+          },
+        });
+      }
     }
 
     if (
-      itemVariant &&
-      stringVariant.includes?.("highlight") &&
-      stringVariant.includes?.("rounded")
+      isHighlightVariant &&
+      stringVariant.includes?.("rounded") &&
+      !contentProps.enableCursorHighlight
     ) {
       customCss.push({
         "&:before": {
@@ -55,9 +119,36 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
       });
     }
 
-    if (isActive && !stringVariant.includes?.("highlight")) {
+    if (contentProps.enableCursorHighlight) {
+      customCss.push({
+        "&:before": {
+          display: "none",
+        },
+      });
+    }
+
+    if (isActive && !isHighlightVariant) {
       customCss.push({
         $$navbarItemFontWeight: "$fontWeights$semibold",
+      });
+    }
+
+    if (isHovered && contentProps.enableCursorHighlight) {
+      if (isHighlightVariant) {
+        customCss.push({
+          color: "$$navbarItemHighlightTextColor",
+        });
+      }
+      if (isHighlightSolidVariant) {
+        customCss.push({
+          color: "$$navbarItemHighlightSolidTextColor",
+        });
+      }
+    }
+
+    if (shouldUseActiveTextColor) {
+      customCss.push({
+        color: "$$navbarItemActiveColor",
       });
     }
 
@@ -69,7 +160,42 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
       ...customCssObject,
       ...css,
     };
-  }, [contentProps, isActive, itemVariant, css]);
+  }, [
+    children,
+    css,
+    contentProps,
+    stringVariant,
+    shouldUseActiveTextColor,
+    isActive,
+    isHovered,
+    isHighlightVariant,
+  ]);
+
+  const handleOnMouseLeave = (event: React.MouseEvent<HTMLLIElement>) => {
+    if (
+      !contentProps?.resetHighlight ||
+      !contentProps.enableCursorHighlight ||
+      !isHighlightVariant
+    ) {
+      onMouseLeave?.(event);
+
+      return;
+    }
+
+    contentProps.resetHighlight();
+    onMouseLeave?.(event);
+  };
+
+  const handleOnMouseOver = (event: React.MouseEvent<HTMLLIElement>) => {
+    if (!contentProps?.repositionHighlight) {
+      onMouseOver?.(event);
+
+      return;
+    }
+
+    contentProps.repositionHighlight(event, domRef?.current);
+    onMouseOver?.(event);
+  };
 
   return (
     <StyledNavbarItem
@@ -77,10 +203,13 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
       activeColor={activeColor || contentProps?.activeColor}
       className={clsx("nextui-navbar-item", className)}
       css={itemCss}
+      id={itemId}
       isActive={isActive}
       underlineHeight={underlineHeight || contentProps?.underlineHeight}
       variant={itemVariant}
-      {...otherProps}
+      onMouseLeave={handleOnMouseLeave}
+      onMouseOver={handleOnMouseOver}
+      {...mergeProps(hoverProps, otherProps)}
     >
       {children}
     </StyledNavbarItem>

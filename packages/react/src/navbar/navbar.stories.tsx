@@ -119,7 +119,13 @@ const DefaultNavbarContent = ({color}: {color?: any}) => (
         ACME
       </Text>
     </Navbar.Brand>
-    <Navbar.Content css={{"@smMax": {d: "none"}}} variant="highlight-rounded">
+    <Navbar.Content
+      enableCursorHighlight
+      activeColor="warning"
+      css={{"@smMax": {d: "none"}}}
+      underlineHeight="light"
+      variant="highlight"
+    >
       <Navbar.Link href="#">Features</Navbar.Link>
       <Navbar.Link isActive href="#">
         Customers
@@ -167,7 +173,7 @@ export const Static = () => (
 
 export const Sticky = () => (
   <App>
-    <Navbar variant="sticky">
+    <Navbar isBordered isCompact variant="sticky">
       <DefaultNavbarContent />
     </Navbar>
   </App>

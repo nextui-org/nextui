@@ -27,6 +27,7 @@ const NavbarLink = forwardRef<NavbarLinkProps, "a">((props, ref) => {
     underlineHeight,
     itemCss,
     itemClassName,
+    isDisabled,
     css,
     variant,
     className,
@@ -52,6 +53,7 @@ const NavbarLink = forwardRef<NavbarLinkProps, "a">((props, ref) => {
       className={itemClassName}
       css={itemCss}
       isActive={isActive}
+      isDisabled={isDisabled}
       underlineHeight={underlineHeight}
       variant={variant}
     >
