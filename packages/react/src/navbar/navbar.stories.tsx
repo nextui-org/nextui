@@ -121,10 +121,9 @@ const DefaultNavbarContent = ({color}: {color?: any}) => (
     </Navbar.Brand>
     <Navbar.Content
       enableCursorHighlight
-      activeColor="warning"
+      isCursorHighlightRounded
+      activeColor={color}
       css={{"@smMax": {d: "none"}}}
-      underlineHeight="light"
-      variant="highlight"
     >
       <Navbar.Link href="#">Features</Navbar.Link>
       <Navbar.Link isActive href="#">
@@ -173,7 +172,7 @@ export const Static = () => (
 
 export const Sticky = () => (
   <App>
-    <Navbar isBordered isCompact variant="sticky">
+    <Navbar isBordered variant="sticky">
       <DefaultNavbarContent />
     </Navbar>
   </App>

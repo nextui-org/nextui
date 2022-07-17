@@ -113,7 +113,7 @@ export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
     right: "0",
     bottom: "0",
     height: "$$navbarItemUnderlineHeight",
-    borderRadius: "calc($$navbarItemUnderlineHeight / 2)",
+    borderRadius: "0px",
     background: "$$navbarItemActiveColor",
   },
   variants: {
@@ -130,9 +130,8 @@ export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
         color: "inherit",
         height: "100%",
       },
-      "underline-squared": {
+      "underline-rounded": {
         color: "inherit",
-        position: "relative",
         height: "100%",
       },
       highlight: {},
@@ -185,12 +184,12 @@ export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
      */
     {
       isActive: true,
-      variant: "underline-squared",
+      variant: "underline-rounded",
       css: {
         color: "inherit",
         "&:after": {
           opacity: 1,
-          borderRadius: "0px",
+          borderRadius: "calc($$navbarItemUnderlineHeight / 2)",
         },
       },
     },
@@ -303,8 +302,8 @@ export const StyledCursorHighlight = styled(StyledBaseNavbarItem, {
 });
 
 export const StyledNavbarContent = styled(StyledBaseNavbarList, {
-  $$navbarContentItemGap: "$space$8",
-  $$navbarContentItemHorizontalPadding: "$space$8",
+  $$navbarContentItemGap: "$space$10",
+  $$navbarContentItemHorizontalPadding: "$space$10",
   d: "flex",
   height: "100%",
   flexWrap: "nowrap",

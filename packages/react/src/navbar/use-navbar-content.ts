@@ -9,7 +9,7 @@ import {NavbarItemVariantsProps, NavbarContentVariantsProps} from "./navbar.styl
 interface Props extends Omit<HTMLNextUIProps<"ul">, "color"> {
   /**
    * The gap between each item
-   * @default "$space$8 = 1rem" and "0px" (for highlight variants)
+   * @default "$space$10 = 1.5rem" and "0px" (for highlight variants)
    */
   gap?: CSSGapUnit;
   /**
@@ -26,6 +26,12 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "color"> {
    * @default "normal = 4px"
    */
   underlineHeight?: NavbarItemVariantsProps["underlineHeight"];
+
+  /**
+   * Whether the navbar content highlighted cursor should be rounded.
+   * @default "false"
+   */
+  isCursorHighlightRounded?: boolean;
   /**
    * The variant of the navbar content items.
    * @default "default"
@@ -40,12 +46,13 @@ export type UseNavbarContentProps = Props & NavbarContentVariantsProps;
  */
 export function useNavbarContent(props: UseNavbarContentProps = {}) {
   const {
-    gap = "$8",
+    gap = "$10",
     color = "inherit",
     variant = "default",
     activeColor = "default",
     underlineHeight = "normal",
     enableCursorHighlight = false,
+    isCursorHighlightRounded = false,
     css,
     style,
     className,
@@ -64,10 +71,13 @@ export function useNavbarContent(props: UseNavbarContentProps = {}) {
   const stringVariant = variant?.toString?.();
   const isHighlightVariant = stringVariant.includes?.("highlight");
   const isHighlightSolidVariant = stringVariant.includes?.("highlight-solid");
-  const isRounded = stringVariant.includes?.("rounded");
+
+  const isRounded = useMemo(() => {
+    return isCursorHighlightRounded || stringVariant.includes?.("rounded");
+  }, [isCursorHighlightRounded, stringVariant]);
 
   const contentGap = useMemo(() => {
-    if (isHighlightVariant && gap === "$8") {
+    if (isHighlightVariant && gap === "$10") {
       return "0px";
     }
 
@@ -179,6 +189,7 @@ export function useNavbarContent(props: UseNavbarContentProps = {}) {
     isRounded,
     isHighlightVariant,
     isHighlightSolidVariant,
+    isCursorHighlightRounded,
     enableCursorHighlight,
     cursorHighlightCss,
     repositionHighlight,

@@ -95,13 +95,13 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
 
       if (isStringChildren) {
         customCss.push({
-          px: "$$navbarContentItemHorizontalPadding",
+          px: "calc($$navbarContentItemHorizontalPadding * 0.5)",
         });
       } else {
         customCss.push({
           "*:first-child": {
             size: "100%",
-            px: "$$navbarContentItemHorizontalPadding",
+            px: "calc($$navbarContentItemHorizontalPadding * 0.5)",
           },
         });
       }
