@@ -17,6 +17,9 @@ export {default as useClickAnywhere} from "./use-click-anywhere";
 export {default as useInput} from "./use-input";
 export {default as useKeyboard} from "./use-keyboard";
 export {default as usePagination} from "./use-pagination";
+export {default as useScrollPosition} from "./use-scroll-position";
+
+// miscs & types
 export {default as useDrip} from "./use-drip";
 export {default as Drip} from "./utils/drip";
 export type {PaginationParams} from "./use-pagination";

@@ -124,6 +124,7 @@ const DefaultNavbarContent = ({color}: {color?: any}) => (
       isCursorHighlightRounded
       activeColor={color}
       css={{"@smMax": {d: "none"}}}
+      variant="highlight"
     >
       <Navbar.Link href="#">Features</Navbar.Link>
       <Navbar.Link isActive href="#">
@@ -146,21 +147,26 @@ const DefaultNavbarContent = ({color}: {color?: any}) => (
   </>
 );
 
-const App = ({children}: any) => (
-  <Box
-    css={{
-      maxW: "920px",
-      maxHeight: "600px",
-      overflow: "visible scroll",
-      boxShadow: "$md",
-      position: "relative",
-      border: "1px solid $colors$border",
-    }}
-  >
-    {children}
-    <DefaultPageContent />
-  </Box>
-);
+const App = React.forwardRef(({children}: any, ref: any) => {
+  return (
+    <Box
+      ref={ref}
+      css={{
+        maxW: "920px",
+        maxHeight: "600px",
+        overflow: "visible scroll",
+        boxShadow: "$md",
+        position: "relative",
+        border: "1px solid $colors$border",
+      }}
+    >
+      {children}
+      <DefaultPageContent />
+    </Box>
+  );
+});
+
+App.displayName = "App";
 
 export const Static = () => (
   <App>
@@ -185,3 +191,15 @@ export const Floating = () => (
     </Navbar>
   </App>
 );
+
+export const HideOnScroll = () => {
+  const parentRef = React.useRef(null);
+
+  return (
+    <App ref={parentRef}>
+      <Navbar isBordered shouldHideOnScroll parentRef={parentRef} variant="floating">
+        <DefaultNavbarContent />
+      </Navbar>
+    </App>
+  );
+};
