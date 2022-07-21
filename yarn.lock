@@ -3917,7 +3917,7 @@
     "@react-stately/utils" "^3.5.0"
     "@react-types/checkbox" "^3.3.0"
 
-"@react-stately/collections@^3.4.0":
+"@react-stately/collections@3.4.0", "@react-stately/collections@^3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.4.0.tgz#0622b6033e033c9b8c2dd33c173293916f8e7b6b"
   integrity sha512-ODS/Nm5OH4XqLugKII7jGc698XnaQEJo423jKa0jhyIpSnviqFRpXRbrPiFPAcaE3S4d/pp20HdDotWZAbM8Ww==
@@ -3943,7 +3943,7 @@
     "@react-types/grid" "^3.1.0"
     "@react-types/shared" "^3.13.0"
 
-"@react-stately/menu@^3.3.0":
+"@react-stately/menu@3.3.0", "@react-stately/menu@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@react-stately/menu/-/menu-3.3.0.tgz#646e0468c5747a768643279fb0ed239e01778012"
   integrity sha512-kdw8YoynxVha6YNTZvHwrA9b5mxC+v5F4hq/fB6I6tqsyW3ntM/8wIvjpdCS01Nygn03Nnuy2t8atycvEeYH0g==
