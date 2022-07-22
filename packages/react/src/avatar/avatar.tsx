@@ -41,7 +41,7 @@ const safeText = (text: string): string => {
 };
 
 export const Avatar = React.forwardRef((props: AvatarProps, ref: ReactRef<HTMLSpanElement>) => {
-  const {as, src, css, text, icon, alt, className,       imgRef: imgRefProp,...otherProps} = props;
+  const {as, src, css, text, icon, alt, className, imgRef: imgRefProp, ...otherProps} = props;
 
   const domRef = useDOMRef(ref);
 

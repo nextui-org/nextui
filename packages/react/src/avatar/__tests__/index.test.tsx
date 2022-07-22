@@ -1,4 +1,4 @@
-import React from "react";
+import React, {createRef} from "react";
 import {mount, render, shallow} from "enzyme";
 
 import Avatar from "../index";
@@ -107,14 +107,12 @@ describe("Avatar", () => {
     expect(avatar).toMatchSnapshot();
   });
 
-  it('should populate imgRef', () => {
+  it("should populate imgRef", () => {
     const imgRef = createRef<HTMLImageElement>();
     const wrapper = mount(
-      <Avatar
-        imgRef={imgRef}
-        src="https://i.pravatar.cc/300?u=a042581f4e29026705d"
-      />
+      <Avatar imgRef={imgRef} src="https://i.pravatar.cc/300?u=a042581f4e29026705d" />,
     );
+
     expect(imgRef.current).not.toBeNull();
     expect(() => wrapper.unmount()).not.toThrow();
   });
