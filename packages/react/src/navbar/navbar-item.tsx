@@ -5,6 +5,7 @@ import {useId} from "@react-aria/utils";
 
 import {HTMLNextUIProps, forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
+import {arrayToObject} from "../utils/object";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
@@ -152,9 +153,7 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
       });
     }
 
-    const customCssObject = customCss.reduce((acc, css) => {
-      return {...acc, ...css};
-    }, {});
+    const customCssObject = arrayToObject(customCss);
 
     return {
       ...customCssObject,

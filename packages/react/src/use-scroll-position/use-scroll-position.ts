@@ -6,7 +6,6 @@ export type ScrollValue = {x: any; y: any};
 
 function getScrollPosition(element: HTMLElement | undefined | null): ScrollValue {
   if (!isBrowser) return {x: 0, y: 0};
-
   if (!element) {
     return {x: window.scrollX, y: window.scrollY};
   }
@@ -24,7 +23,9 @@ export interface UseScrollPositionOptions {
 const useScrollPosition = (props: UseScrollPositionOptions): ScrollValue => {
   const {elementRef, wait = 30, callback, enabled} = props;
 
-  const position = useRef<ScrollValue>(getScrollPosition(elementRef?.current));
+  const position = useRef<ScrollValue>(
+    enabled ? getScrollPosition(elementRef?.current) : {x: 0, y: 0},
+  );
 
   let throttleTimeout: ReturnType<typeof setTimeout> | null = null;
 

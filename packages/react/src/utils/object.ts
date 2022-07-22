@@ -88,3 +88,16 @@ export const getProp = (
 
   return obj === undefined ? fallback : obj;
 };
+
+/**
+ * Converting an array of objects into a single object.
+ * @param arr - the array of objects
+ * @returns the single object
+ */
+export const arrayToObject = (arr: any[]) => {
+  if (!arr.length || !Array.isArray(arr)) return {};
+
+  return arr.reduce((acc, item) => {
+    return {...acc, ...item};
+  }, {});
+};

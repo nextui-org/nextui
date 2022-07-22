@@ -29,7 +29,7 @@ const touchHandler = (event: TouchEvent): boolean => {
 };
 
 const useBodyScroll = (
-  elementRef?: RefObject<HTMLElement> | null,
+  elementRef?: RefObject<HTMLElement> | null | undefined,
   options?: BodyScrollOptions,
 ): [boolean, Dispatch<SetStateAction<boolean>>] => {
   /* istanbul ignore next */

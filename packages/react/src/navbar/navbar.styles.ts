@@ -1,4 +1,5 @@
 import {styled, VariantProps} from "../theme/stitches.config";
+import {cssFocusVisible} from "../theme/shared-css";
 
 const itemColors = {
   default: {
@@ -68,6 +69,112 @@ export const StyledBaseNavbarList = styled("ul", {
     mb: 0,
   },
 });
+
+export const StyledNavbarListItem = styled(StyledBaseNavbarItem, {
+  opacity: 0,
+  transform: "translateY(calc((40px + $$navbarListItemPosition * 10px) * -1))",
+  pb: "20px",
+  transition:
+    "opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .03s, transform .4s cubic-bezier(0.32, 0.08, 0.24, 1) .02s",
+});
+
+export const StyledNavbarList = styled("div", {
+  $$navbarListColor: "$colors$text",
+  $$navbarListBackgroundColor: "$colors$background",
+  $$navbarListBlurBackgroundColor: "$colors$backgroundAlpha",
+  $$navbarListBlur: "20px",
+  position: "absolute",
+  background: "$$navbarListBackgroundColor",
+  width: "100%",
+  height: "0px",
+  top: "76px",
+  zIndex: "$10",
+  willChange: "height",
+  overflowY: "scroll",
+  userSelect: "none",
+  transition: "height 400ms cubic-bezier(0.52, 0.16, 0.24, 1) 0s",
+  variants: {
+    isOpen: {
+      true: {
+        height: "100%",
+        [`${StyledNavbarListItem}`]: {
+          opacity: 1,
+          transform: "translateY(0px)",
+        },
+      },
+    },
+    disableBlur: {
+      false: {
+        "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
+          bg: "$$navbarListBlurBackgroundColor",
+          backdropFilter: "saturate(180%) blur($$navbarListBlur)",
+        },
+      },
+    },
+  },
+  defaultVariants: {
+    disableBlur: "false",
+  },
+});
+
+export const StyledNavbarListWrapper = styled(StyledBaseNavbarList, {
+  p: "$8 $8 0 $8",
+  height: "100%",
+});
+
+export const StyledNavbarToggleIconContainer = styled("div", {
+  dflex: "center",
+  flexDirection: "column",
+  pointerEvents: "none",
+  size: "22px",
+  "& .line": {
+    height: "1px",
+    width: "100%",
+    backgroundColor: "$$navbarTextColor",
+    transition: "transform 0.3s ease",
+    "&.top": {
+      transform: "translateY(-4px) rotate(0deg)",
+    },
+    "&.bottom": {
+      transform: "translateY(4px) rotate(0deg)",
+    },
+  },
+  variants: {
+    isExpanded: {
+      true: {
+        "& .line": {
+          "&.top": {
+            transform: "translateY(1px) rotate(45deg)",
+          },
+          "&.bottom": {
+            transform: "translateY(0px) rotate(-45deg)",
+          },
+        },
+      },
+    },
+  },
+});
+
+export const StyledNavbarToggle = styled(
+  "button",
+  {
+    // reset button styles
+    appearance: "none",
+    background: "transparent",
+    border: "none",
+    cursor: "pointer",
+    p: "$2",
+    transition: "box-shadow 0.25s ease 0s, opacity 0.25s ease 0s",
+    variants: {
+      isPressed: {
+        true: {
+          opacity: 0.7,
+        },
+      },
+    },
+  },
+  cssFocusVisible,
+);
 
 export const StyledNavbarBrand = styled("span", {
   display: "flex",
@@ -310,6 +417,33 @@ export const StyledNavbarContent = styled(StyledBaseNavbarList, {
   alignItems: "center",
   gap: "$$navbarContentItemGap",
   variants: {
+    hideIn: {
+      xs: {
+        "@xsMax": {
+          display: "none",
+        },
+      },
+      sm: {
+        "@smMax": {
+          display: "none",
+        },
+      },
+      md: {
+        "@mdMax": {
+          display: "none",
+        },
+      },
+      lg: {
+        "@lgMax": {
+          display: "none",
+        },
+      },
+      xl: {
+        "@xlMax": {
+          display: "none",
+        },
+      },
+    },
     enableCursorHighlight: {
       true: {
         zIndex: "$2",
@@ -498,3 +632,8 @@ export const StyledNavbar = styled("nav", {
 export type NavbarVariantsProps = VariantProps<typeof StyledNavbar>;
 export type NavbarContentVariantsProps = VariantProps<typeof StyledNavbarContent>;
 export type NavbarItemVariantsProps = VariantProps<typeof StyledNavbarItem>;
+export type NavbarToggleVariantsProps = VariantProps<typeof StyledNavbarToggle>;
+export type NavbarToggleIconContainerVariantsProps = VariantProps<
+  typeof StyledNavbarToggleIconContainer
+>;
+export type NavbarListVariantsProps = VariantProps<typeof StyledNavbarList>;
