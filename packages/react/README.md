@@ -22,7 +22,7 @@
 
 <p align="center">
   <a rel="noopener noreferrer" target="_blank" href="https://www.vercel.com?utm_source=nextui&utm_marketing=oss">
-    <img height="34px" src="https://raw.githubusercontent.com/nextui-org/nextui/main/apps/docs/public/images/deployed-on-vercel.svg" alt="Deployed on vercel">
+    <img height="34px" src="https://raw.githubusercontent.com/nextui-org/nextui/main/apps/docs/public/deployed-on-vercel.svg" alt="Deployed on vercel">
   </a>
 </p>
 
