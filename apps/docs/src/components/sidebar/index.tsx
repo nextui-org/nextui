@@ -75,7 +75,6 @@ const Sidebar: React.FC<SidebarProps> = ({
             return (
               <Category
                 key={pathname}
-                routes={routes}
                 isMobile={isMobile}
                 iconUrl={icon}
                 level={level}

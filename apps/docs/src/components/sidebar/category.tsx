@@ -4,13 +4,11 @@ import Image from 'next/image';
 import ArrowRight from '../icons/arrow-right';
 import withDefaults from '@utils/with-defaults';
 import { useTheme } from '@nextui-org/react';
-import { Route } from '@lib/docs/page';
 import { Badge } from '@components';
 
 export interface Props {
   level: number;
   title: string;
-  routes: Route[];
   iconUrl?: string;
   isMobile: boolean;
   selected: boolean;
