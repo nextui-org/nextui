@@ -72,10 +72,8 @@ export const StyledBaseNavbarList = styled("ul", {
 
 export const StyledNavbarListItem = styled(StyledBaseNavbarItem, {
   opacity: 0,
-  transform: "translateY(calc((40px + $$navbarListItemPosition * 10px) * -1))",
   pb: "20px",
-  transition:
-    "opacity .3s cubic-bezier(0.32, 0.08, 0.24, 1) .03s, transform .4s cubic-bezier(0.32, 0.08, 0.24, 1) .02s",
+  transformOrigin: "bottom",
 });
 
 export const StyledNavbarList = styled("div", {
@@ -92,14 +90,17 @@ export const StyledNavbarList = styled("div", {
   willChange: "height",
   overflowY: "scroll",
   userSelect: "none",
-  transition: "height 400ms cubic-bezier(0.52, 0.16, 0.24, 1) 0s",
+  transition: "height 300ms ease 0s",
+  "@motion": {
+    transition: "none",
+  },
   variants: {
     isOpen: {
       true: {
         height: "100%",
         [`${StyledNavbarListItem}`]: {
           opacity: 1,
-          transform: "translateY(0px)",
+          transform: "none",
         },
       },
     },
@@ -108,6 +109,14 @@ export const StyledNavbarList = styled("div", {
         "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
           bg: "$$navbarListBlurBackgroundColor",
           backdropFilter: "saturate(180%) blur($$navbarListBlur)",
+        },
+      },
+    },
+    disableAnimation: {
+      true: {
+        transition: "none",
+        [`${StyledNavbarListItem}`]: {
+          transition: "none",
         },
       },
     },

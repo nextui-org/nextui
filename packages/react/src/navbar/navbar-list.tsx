@@ -18,12 +18,19 @@ import {
 
 interface Props extends HTMLNextUIProps<"ul"> {
   portalName?: string;
+  animationDelay?: number;
 }
 
 export type NavbarListProps = Props & NavbarListVariantsProps;
 
 const NavbarList = forwardRef<NavbarListProps, "button">((props, ref) => {
-  const {children, className, portalName = "nextui-navbar-list", ...otherProps} = props;
+  const {
+    children,
+    className,
+    portalName = "nextui-navbar-list",
+    animationDelay = 60,
+    ...otherProps
+  } = props;
 
   const context = useNavbarContext();
   const portal = usePortal(portalName, () => context.parentRef?.current);
@@ -46,16 +53,22 @@ const NavbarList = forwardRef<NavbarListProps, "button">((props, ref) => {
     >
       <StyledNavbarListWrapper>
         {children}
-        {items.map((item, index) => (
-          <StyledNavbarListItem
-            key={index}
-            css={{
-              $$navbarListItemPosition: index,
-            }}
-          >
-            {item}
-          </StyledNavbarListItem>
-        ))}
+        {items.map((item, index) => {
+          const pos = context.isListOpen ? index + 1 : (index + 1) * -1;
+          const time = pos * animationDelay;
+
+          return (
+            <StyledNavbarListItem
+              key={item}
+              css={{
+                transform: `translateY(calc((${pos} * 10px) * -1))`,
+                transition: `opacity ${time}ms ease ${time}ms, transform ${time}ms ease ${time}ms`,
+              }}
+            >
+              {item}
+            </StyledNavbarListItem>
+          );
+        })}
       </StyledNavbarListWrapper>
     </StyledNavbarList>
   );
