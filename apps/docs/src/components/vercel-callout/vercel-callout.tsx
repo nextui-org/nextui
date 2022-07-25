@@ -25,7 +25,7 @@ const VercelCallout: React.FC<unknown> = () => {
       target="_blank"
     >
       <Text b css={{my: 0, mr: "$4"}}>
-        Sponsored by
+        Deployed on
       </Text>
       <VercelLogo height={18} />
     </Link>

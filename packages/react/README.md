@@ -22,9 +22,11 @@
 
 <p align="center">
   <a rel="noopener noreferrer" target="_blank" href="https://www.vercel.com?utm_source=nextui&utm_marketing=oss">
-    <img height="34px" src="https://raw.githubusercontent.com/nextui-org/nextui/main/apps/docs/public/images/sponsored-by-vercel.svg" alt="Sponsored by vercel">
+    <img height="34px" src="https://raw.githubusercontent.com/nextui-org/nextui/main/apps/docs/public/deployed-on-vercel.svg" alt="Deployed on vercel">
   </a>
 </p>
+
+> **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com), but does get some inspiration from there.
 
 ## Getting Started
 
@@ -89,9 +91,9 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 
 Contributions are always welcome!
 
-See `CONTRIBUTING.md` for ways to get started.
+See [CONTRIBUTING.md](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.MD) for ways to get started.
 
-Please adhere to this project's `CODE_OF_CONDUCT`.
+Please adhere to this project's [CODE_OF_CONDUCT](https://github.com/nextui-org/nextui/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
