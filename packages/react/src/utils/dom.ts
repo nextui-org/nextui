@@ -119,7 +119,7 @@ export function createFocusableRef<T extends HTMLElement = HTMLElement>(
 }
 
 export function useDOMRef<T extends HTMLElement = HTMLElement>(
-  ref: RefObject<T | null> | Ref<T | null>,
+  ref?: RefObject<T | null> | Ref<T | null>,
 ) {
   const domRef = useRef<T>(null);
 
