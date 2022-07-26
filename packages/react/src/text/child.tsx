@@ -34,7 +34,7 @@ export interface Props {
    * **Initial value**: `none`
    *
    */
-  transform?: CSS["textTransform"];
+  transform?: CSS["tt"];
   css?: CSS;
   as?: As;
 }
@@ -77,7 +77,7 @@ export const TextChild = React.forwardRef((props: TextChildProps, ref: ReactRef<
         color,
         fontSize,
         tt: transform,
-        ...(css as any),
+        ...css,
       }}
       {...otherProps}
     >

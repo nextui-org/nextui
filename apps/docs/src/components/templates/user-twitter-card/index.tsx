@@ -42,7 +42,7 @@ const UserTwitterCard: React.FC<UserTwitterCardProps> = ({
         mw: "250px",
         borderRadius: "$lg",
         padding: "$sm",
-        ...(css as any),
+        ...css,
       }}
       onClick={onClick}
       {...props}

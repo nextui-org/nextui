@@ -1,7 +1,8 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 
 import {BreakpointsValue, Justify, Direction, AlignItems, AlignContent} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import clsx from "../utils/clsx";
 import withDefaults from "../utils/with-defaults";
 
@@ -134,7 +135,7 @@ const GridItem = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridIt
               ...getItemLayout(xl),
             },
           },
-          ...(css as any),
+          ...css,
         }}
         {...props}
       >

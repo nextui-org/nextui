@@ -1,9 +1,10 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo} from "react";
 
 import CSSTransition from "../utils/css-transition";
 import withDefaults from "../utils/with-defaults";
 import {valueToPercent} from "../utils/numbers";
-import {CSS} from "../theme/stitches.config";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
@@ -68,7 +69,7 @@ const Progress: React.FC<ProgressProps> = ({
           opacity: 1,
           width: `${percent}%`,
         },
-        ...(css as any),
+        ...css,
       }}
       indeterminated={indeterminated}
       role="progressbar"

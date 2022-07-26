@@ -1,6 +1,7 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 
-import {CSS} from "../theme/stitches.config";
 import {Wrap} from "../utils/prop-types";
 import clsx from "../utils/clsx";
 import withDefaults from "../utils/with-defaults";
@@ -39,7 +40,7 @@ const GridContainer = React.forwardRef<HTMLDivElement, React.PropsWithChildren<G
           boxSizing: "border-box",
           margin: "calc(-1 * $$gridGapUnit)",
           width: "calc(100% + $$gridGapUnit * 2)",
-          ...(css as any),
+          ...css,
         }}
         {...props}
       >

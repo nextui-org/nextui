@@ -1,10 +1,10 @@
 import type {ReactNode} from "react";
 import type {UseCardProps} from "./use-card";
+import type {CSS} from "../theme/stitches.config";
 
 import React, {PropsWithoutRef, RefAttributes} from "react";
 
 import Drip from "../utils/drip";
-import {CSS} from "../theme/stitches.config";
 import {Image, Divider} from "../index";
 import {__DEV__} from "../utils/assertion";
 
@@ -46,7 +46,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={cardRef}
         as={as}
         borderWeight={borderWeight}
-        css={css as any}
+        css={css}
         disableAnimation={disableAnimation}
         isFocusVisible={isFocusVisible}
         isHovered={isHovered}

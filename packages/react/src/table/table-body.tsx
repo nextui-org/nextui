@@ -1,9 +1,10 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useMemo} from "react";
 import {TableCollection} from "@react-types/table";
 import {TableState} from "@react-stately/table";
 import {mergeProps} from "@react-aria/utils";
 
-import {CSS} from "../theme/stitches.config";
 import {Loading, LoadingProps} from "../index";
 import clsx from "../utils/clsx";
 
@@ -109,8 +110,8 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
       css={{
         pb: "$10",
         position: "relative",
-        ...(props.css as any),
-        ...(collection.body?.props?.css as any),
+        ...props.css,
+        ...collection.body?.props?.css,
       }}
       isInfinityScroll={infinityScroll}
       onScroll={handleScroll}

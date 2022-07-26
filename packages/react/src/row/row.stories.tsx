@@ -18,7 +18,11 @@ export default {
 } as Meta;
 
 const MockItem = () => {
-  return <Card shadow color="primary" style={{width: "100%", height: "40px"}} />;
+  return (
+    <Card color="primary" style={{width: "100%", height: "40px"}}>
+      <Card.Body />
+    </Card>
+  );
 };
 
 export const Default = () => (

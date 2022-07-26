@@ -8,7 +8,7 @@ export type GridProps = GridItemProps;
 const Grid = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridProps>>(
   ({children, css, ...props}, ref) => {
     return (
-      <GridBasicItem ref={ref} css={{...(css as any)}} {...props}>
+      <GridBasicItem ref={ref} css={css} {...props}>
         {children}
       </GridBasicItem>
     );

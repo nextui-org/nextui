@@ -1,3 +1,5 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {
   PropsWithoutRef,
   RefAttributes,
@@ -10,7 +12,6 @@ import React, {
 import {useLabel} from "@react-aria/label";
 
 import {ContentPosition} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import Textarea from "../textarea";
 import useTheme from "../use-theme";
 import {warn} from "../utils/console";
@@ -201,10 +202,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
         borderWeight={borderWeight}
         className={clsx(`${preClass}-main-container`, `${preClass}-main-container--${getState}`)}
         color={color}
-        css={{
-          width,
-          ...(css as any),
-        }}
+        css={{width, ...css}}
         data-state={getState}
         disabled={disabled}
         helperColor={helperColor}

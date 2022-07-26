@@ -1,8 +1,9 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React from "react";
 
 import withDefaults from "../utils/with-defaults";
 import {getMargin} from "../utils/dimensions";
-import {CSS} from "../theme/stitches.config";
 
 import {StyledSpacer, SpacerVariantsProps} from "./spacer.styles";
 
@@ -22,7 +23,7 @@ type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
 export type SpacerProps = Props & typeof defaultProps & NativeAttrs & SpacerVariantsProps;
 
-const Spacer: React.FC<SpacerProps> = ({x, y, inline, css, ...props}) => {
+const Spacer: React.FC<SpacerProps> = ({x, y, css, ...props}) => {
   const marginLeft = getMargin(x);
   const marginTop = getMargin(y);
 
@@ -32,7 +33,7 @@ const Spacer: React.FC<SpacerProps> = ({x, y, inline, css, ...props}) => {
       css={{
         marginLeft: `${marginLeft} !important`,
         marginTop: `${marginTop} !important`,
-        ...(css as any),
+        ...css,
       }}
       {...props}
     />

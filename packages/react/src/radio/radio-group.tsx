@@ -33,7 +33,7 @@ export const RadioGroup = React.forwardRef(
         ref={domRef}
         as={as}
         className={clsx("nextui-radio-group", className)}
-        css={css as any}
+        css={css}
         size={context.size}
         {...context.radioGroupProps}
       >

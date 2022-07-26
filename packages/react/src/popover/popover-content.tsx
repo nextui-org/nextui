@@ -1,10 +1,11 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {ReactNode} from "react";
 import {useModal, useOverlay, DismissButton} from "@react-aria/overlays";
 import {useDialog} from "@react-aria/dialog";
 import {FocusScope, useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 
-import {CSS} from "../theme/stitches.config";
 import CSSTransition from "../utils/css-transition";
 import {__DEV__} from "../utils/assertion";
 import {mergeRefs, ReactRef} from "../utils/refs";
@@ -85,10 +86,7 @@ const PopoverContent = React.forwardRef(
         )}
         as={as}
         className={clsx("nextui-popover-content-container", className)}
-        css={{
-          transformOrigin,
-          ...(css as any),
-        }}
+        css={{transformOrigin, ...css}}
         isFocusVisible={isFocusVisible}
       >
         <DismissButton onDismiss={onClose} />

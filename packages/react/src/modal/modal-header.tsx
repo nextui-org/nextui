@@ -1,8 +1,9 @@
+import type {CSS} from "../theme/stitches.config";
+
 import React, {useContext, useMemo} from "react";
 
 import withDefaults from "../utils/with-defaults";
 import {Justify} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import cslx from "../utils/clsx";
 
 import {StyledModalHeader, ModalHeaderVariantsProps} from "./modal.styles";
@@ -53,10 +54,7 @@ const ModalHeader: React.FC<React.PropsWithChildren<ModalHeaderProps>> = ({
         },
         className,
       )}
-      css={{
-        justifyContent: justify,
-        ...(css as any),
-      }}
+      css={{justifyContent: justify, ...css}}
       noPadding={noPadding}
       {...props}
     >
