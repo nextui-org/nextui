@@ -51,8 +51,10 @@ export const Radio = React.forwardRef(
       autoFocus,
       disableAnimation,
       hoverProps,
-      inputProps
+      inputProps,
+      required,
     } = useRadio({ ...otherProps, children: children ?? label });
+
 
     const domRef = useFocusableRef<HTMLLabelElement>(
       ref as FocusableRef<HTMLLabelElement>,
@@ -100,6 +102,7 @@ export const Radio = React.forwardRef(
               <input
                 ref={inputRef}
                 className="nextui-radio-input"
+                required={required}
                 {...mergeProps(inputProps, focusProps)}
               />
             </VisuallyHidden>
