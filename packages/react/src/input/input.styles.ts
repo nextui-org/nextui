@@ -528,7 +528,6 @@ export const StyledInputBlockLabel = styled('label', {
         padding: 0,
         zIndex: '$1',
         left: '$space$6',
-        top: '20%',
         mb: 0,
         cursor: 'text',
         color: '$$inputPlaceholderColor',
@@ -567,7 +566,8 @@ export const StyledInputBlockLabel = styled('label', {
       underlined: true,
       asPlaceholder: true,
       css: {
-        left: '$space$2'
+        left: '$space$2',
+        top: '20%'
       }
     },
     // asPlaceholder && focused && !underlined
