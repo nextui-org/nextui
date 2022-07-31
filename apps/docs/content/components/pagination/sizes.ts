@@ -1,8 +1,8 @@
-const App = `import React from "react";
+const App = `import { useState } from "react";
 import { Pagination, Grid, Radio } from "@nextui-org/react";
 
 export default function App() {
-  const [selectedSize, setSelectedSize] = React.useState("md");
+  const [selectedSize, setSelectedSize] = useState("md");
   const sizes = ["xs", "sm", "md", "lg", "xl"];
   const capitalize = (str) => {
     const lower = str.toLowerCase();

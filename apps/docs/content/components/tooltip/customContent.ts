@@ -1,5 +1,4 @@
-const DeleteUser = `import React from "react";
-import { Text, Button, Grid, Row } from "@nextui-org/react";
+const DeleteUser = `import { Text, Button, Grid, Row } from "@nextui-org/react";
 
 export const DeleteUser = () => {
   return (
@@ -35,7 +34,7 @@ export const DeleteUser = () => {
   );
 };`;
 
-const UserTwitterCard = `import React from "react"; 
+const UserTwitterCard = `import { useState } from "react"; 
 import { Avatar, Row, Col, Text, Button, Spacer, Grid } from "@nextui-org/react";
 
 export const UserTwitterCard = ({
@@ -45,7 +44,7 @@ export const UserTwitterCard = ({
   onClick,
   ...props
 }) => {
-  const [following, setFollowing] = React.useState(false);
+  const [following, setFollowing] = useState(false);
 
   return (
     <Grid.Container

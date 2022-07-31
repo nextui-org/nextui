@@ -1,8 +1,8 @@
-const App = `import React from "react";
+const App = `import { useState } from "react";
 import { Grid, Dropdown, Radio } from "@nextui-org/react";
 
 export default function App() {
-  const [selectedColor, setSelectedColor] = React.useState("default");
+  const [selectedColor, setSelectedColor] = useState("default");
   const colors = [
     "default",
     "primary",

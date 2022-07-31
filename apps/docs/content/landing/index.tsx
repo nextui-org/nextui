@@ -89,7 +89,7 @@ export default {
       icon: <Magic fill="#FF4ECD" />
     }
   ],
-  themingCode: `import { createTheme } from '@nextui-org/react';
+  themingCode: `import { createTheme } from "@nextui-org/react";
 
 const lightTheme = createTheme({
   type: 'light',
@@ -216,8 +216,7 @@ return (
 
 `,
   comparativeCode: {
-    nextui: `import * as React from 'react';
-import { Input } from '@nextui-org/react';
+    nextui: `import { Input } from "@nextui-org/react";
 
 const MyComponent = () => {
   return (
@@ -227,17 +226,17 @@ const MyComponent = () => {
 
 export default MyComponent
 `,
-    others: `import * as React from 'react';
-import ButtonIcon from '@other-library/ButtonIcon';
-import InputOutlined from '@other-library/InputOutlined';
-import LabelInput from '@other-library/LabelInput';
-import AdornmentInput from '@other-library/AdornmentInput';
-import ControlForm from '@other-library/ControlForm';
-import EyeIcon from '@other-library/icons/EyeIcon';
-import EyeIconOff from '@other-library/icons/EyeIconOff';
+    others: `import { useState } from "react";
+import ButtonIcon from "@other-library/ButtonIcon";
+import InputOutlined from "@other-library/InputOutlined";
+import LabelInput from "@other-library/LabelInput";
+import AdornmentInput from "@other-library/AdornmentInput";
+import ControlForm from "@other-library/ControlForm";
+import EyeIcon from "@other-library/icons/EyeIcon";
+import EyeIconOff from "@other-library/icons/EyeIconOff";
 
 const MyComponent = () => {
-  const [values, setValues] = React.useState({
+  const [values, setValues] = useState({
     password: '',
     showPassword: false
   });
@@ -308,9 +307,8 @@ const App = () => {
 
 export default App;
 `,
-  customizationCode: `import React from 'react';
-import { Button } from '@nextui-org/react';
-import confetti from 'canvas-confetti';
+  customizationCode: `import { Button } from "@nextui-org/react";
+import confetti from "canvas-confetti";
 
 const CustomButton = () => {
   const handleConfetti = () => {

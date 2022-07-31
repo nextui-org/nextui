@@ -1,10 +1,10 @@
-const App = `import React from "react";
+const App = `import { useState, useMemo } from "react";
 import { Dropdown } from "@nextui-org/react";
 
 export default function App() {
-  const [selected, setSelected] = React.useState(new Set(["text"]));
+  const [selected, setSelected] = useState(new Set(["text"]));
 
-  const selectedValue = React.useMemo(
+  const selectedValue = useMemo(
     () => Array.from(selected).join(", ").replaceAll("_", " "),
     [selected]
   );

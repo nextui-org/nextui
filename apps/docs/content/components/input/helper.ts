@@ -1,4 +1,4 @@
-const App = `import React from "react";
+const App = `import { useMemo } from "react";
 import { Input, useInput, Grid } from "@nextui-org/react";
 
 
@@ -9,7 +9,7 @@ export default function App() {
     return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
   };
 
-  const helper = React.useMemo(() => {
+  const helper = useMemo(() => {
     if (!value)
       return {
         text: "",
