@@ -5,6 +5,7 @@ import React from "react";
 import {forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
 import clsx from "../utils/clsx";
+import {pickChild} from "../utils/collections";
 import {__DEV__} from "../utils/assertion";
 
 import NavbarBrand from "./navbar-brand";
@@ -12,7 +13,7 @@ import NavbarContent from "./navbar-content";
 import NavbarItem from "./navbar-item";
 import NavbarLink from "./navbar-link";
 import NavbarToggle from "./navbar-toggle";
-import NavbarList from "./navbar-list";
+import NavbarCollapse from "./navbar-collapse";
 import {NavbarProvider} from "./navbar-context";
 import {useNavbar, UseNavbarProps} from "./use-navbar";
 import {StyledNavbar, StyledNavbarContainer} from "./navbar.styles";
@@ -24,8 +25,11 @@ export interface NavbarProps extends UseNavbarProps {
 const Navbar = forwardRef<NavbarProps, "nav">((props, ref) => {
   const {children, ...otherProps} = props;
 
-  const context = useNavbar(otherProps);
   const domRef = useDOMRef(ref);
+  const context = useNavbar(otherProps);
+
+  // validates if contains a NextUI Navbar Collapse as a child
+  const [withoutCollapseChildren, collapseChildren] = pickChild(children, NavbarCollapse);
 
   return (
     <NavbarProvider value={context}>
@@ -33,12 +37,15 @@ const Navbar = forwardRef<NavbarProps, "nav">((props, ref) => {
         ref={domRef}
         className={clsx("nextui-navbar", context.className)}
         css={context.navbarCss}
+        disableBlur={context.disableBlur}
+        isBordered={context.isBordered}
         variant={context.variant}
-        {...otherProps}
+        {...context.otherProps}
       >
         <StyledNavbarContainer className="nextui-navbar-container" css={context.containerCss}>
-          {children}
+          {withoutCollapseChildren}
         </StyledNavbarContainer>
+        {collapseChildren}
       </StyledNavbar>
     </NavbarProvider>
   );
@@ -58,7 +65,7 @@ type NavbarComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Item: typeof NavbarItem;
   Link: typeof NavbarLink;
   Toggle: typeof NavbarToggle;
-  List: typeof NavbarList;
+  Collapse: typeof NavbarCollapse;
 };
 
 export default Navbar as NavbarComponent<HTMLElement, NavbarProps>;

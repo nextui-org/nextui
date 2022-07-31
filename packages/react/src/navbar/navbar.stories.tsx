@@ -1,7 +1,7 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 
-import {Link, Text, Button, Spacer, Grid} from "../index";
+import {Link, Text, Button, Spacer} from "../index";
 import {styled} from "../theme/stitches.config";
 
 import Navbar from "./index";
@@ -133,7 +133,7 @@ const App = React.forwardRef(({children}: any, ref: any) => {
       css={{
         maxW: "920px",
         maxHeight: "600px",
-        overflow: "visible scroll",
+        overflow: "hidden scroll",
         boxShadow: "$md",
         position: "relative",
         border: "1px solid $colors$border",
@@ -222,7 +222,7 @@ export const Toggle = () => {
             </Button>
           </Navbar.Item>
         </Navbar.Content>
-        <Navbar.List />
+        <Navbar.Collapse />
       </Navbar>
     </App>
   );

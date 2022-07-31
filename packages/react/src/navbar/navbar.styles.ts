@@ -70,37 +70,50 @@ export const StyledBaseNavbarList = styled("ul", {
   },
 });
 
-export const StyledNavbarListItem = styled(StyledBaseNavbarItem, {
+export const StyledNavbarCollapseItem = styled(StyledBaseNavbarItem, {
   opacity: 0,
   pb: "20px",
-  transformOrigin: "bottom",
+  transformOrigin: "top",
+  fontSize: "3rem",
+  variants: {
+    disableAnimation: {
+      true: {
+        transition: "none",
+      },
+    },
+  },
 });
 
-export const StyledNavbarList = styled("div", {
+export const StyledNavbarCollapseWrapper = styled(StyledBaseNavbarList, {
+  px: "$$navbarPadding",
+  pb: "$8",
+});
+
+export const StyledNavbarCollapse = styled("div", {
   $$navbarListColor: "$colors$text",
   $$navbarListBackgroundColor: "$colors$background",
   $$navbarListBlurBackgroundColor: "$colors$backgroundAlpha",
-  $$navbarListBlur: "20px",
+  $$navbarListBlur: "16px",
   position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
   background: "$$navbarListBackgroundColor",
   width: "100%",
   height: "0px",
-  top: "76px",
-  zIndex: "$10",
-  willChange: "height",
+  zIndex: "$4",
+  boxSizing: "border-box",
+  overflowX: "hidden",
   overflowY: "scroll",
-  userSelect: "none",
-  transition: "height 300ms ease 0s",
-  "@motion": {
-    transition: "none",
-  },
   variants: {
     isOpen: {
       true: {
-        height: "100%",
-        [`${StyledNavbarListItem}`]: {
-          opacity: 1,
-          transform: "none",
+        pt: "$8",
+        top: "$$navbarHeight",
+        pb: "calc($space$8 + $$navbarHeight * 1.5)",
+        height: "calc(100vh - $$navbarHeight)",
+        "@safari": {
+          pb: "calc($space$8 + $$navbarHeight * 1.8)",
         },
       },
     },
@@ -109,13 +122,18 @@ export const StyledNavbarList = styled("div", {
         "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
           bg: "$$navbarListBlurBackgroundColor",
           backdropFilter: "saturate(180%) blur($$navbarListBlur)",
+          "@safari": {
+            [`& ${StyledNavbarCollapseWrapper}`]: {
+              bg: "$$navbarListBlurBackgroundColor",
+              backdropFilter: "saturate(180%) blur($$navbarListBlur)",
+            },
+          },
         },
       },
     },
     disableAnimation: {
       true: {
-        transition: "none",
-        [`${StyledNavbarListItem}`]: {
+        [`& ${StyledNavbarCollapseItem}`]: {
           transition: "none",
         },
       },
@@ -124,11 +142,6 @@ export const StyledNavbarList = styled("div", {
   defaultVariants: {
     disableBlur: "false",
   },
-});
-
-export const StyledNavbarListWrapper = styled(StyledBaseNavbarList, {
-  p: "$8 $8 0 $8",
-  height: "100%",
 });
 
 export const StyledNavbarToggleIconContainer = styled("div", {
@@ -476,6 +489,7 @@ export const StyledNavbarContainer = styled("div", {
   px: "$$navbarPadding",
   bg: "$$navbarBackgroundColor",
   maxW: "$$navbarContainerMaxWidth",
+  zIndex: "$5",
   "@xsMax": {
     $$navbarPadding: "$space$6",
     $$navbarFloatingMargin: "$space$6",
@@ -483,25 +497,12 @@ export const StyledNavbarContainer = styled("div", {
 });
 
 export const StyledNavbar = styled("nav", {
-  // variables
-  $$navbarTextColor: "$colors$text",
-  $$navbarBackgroundColor: "$colors$background",
-  $$navbarBlurBackgroundColor: "$colors$backgroundAlpha",
-  $$navbarHeight: "76px",
-  $$navbarItemMaxHeight: "calc($$navbarHeight * 0.5)",
-  $$navbarBorderColor: "$colors$border",
-  $$navbarBorderRadius: "$radii$lg",
-  $$navbarPadding: "$space$10",
-  $$navbarFloatingMargin: "$space$10",
-  $$navbarContainerMaxWidth: "$breakpoints$lg",
-  $$navbarShadow: "$shadows$md",
-  $$navbarBlur: "10px",
-  // styles
   width: "100%",
   dflex: "center",
   position: "relative",
   height: "auto",
   color: "$$navbarTextColor",
+  zIndex: "$2",
   variants: {
     variant: {
       static: {
@@ -512,14 +513,12 @@ export const StyledNavbar = styled("nav", {
         right: 0,
         left: 0,
         position: "sticky",
-        zIndex: "$2",
       },
       floating: {
         top: 0,
         right: 0,
         left: 0,
         position: "sticky",
-        zIndex: "$2",
         "@safari": {
           top: "-5px",
         },
@@ -527,6 +526,9 @@ export const StyledNavbar = styled("nav", {
           mt: "calc($$navbarFloatingMargin * 0.5)",
           mx: "$$navbarFloatingMargin",
           borderRadius: "$$navbarBorderRadius",
+        },
+        [`& ${StyledNavbarCollapseWrapper}`]: {
+          px: "calc($$navbarFloatingMargin + $space$4)",
         },
       },
     },
@@ -559,7 +561,7 @@ export const StyledNavbar = styled("nav", {
     },
     isCompact: {
       true: {
-        $$navbarHeight: "54px",
+        $$navbarHeight: "calc($$navbarHeight * 0.658)",
         $$navbarBorderRadius: "$radii$md",
         $$navbarItemMaxHeight: "calc($$navbarHeight * 0.6)",
       },
@@ -567,7 +569,6 @@ export const StyledNavbar = styled("nav", {
     disableShadow: {
       false: {
         boxShadow: "$$navbarShadow",
-        clipPath: "inset(0px 0px calc($$navbarHeight*-1) 0px)",
       },
     },
     disableBlur: {
@@ -578,23 +579,6 @@ export const StyledNavbar = styled("nav", {
             backdropFilter: "saturate(180%) blur($$navbarBlur)",
           },
         },
-      },
-    },
-    borderWeight: {
-      light: {
-        $$navbarBorderWeight: "$borderWeights$light",
-      },
-      normal: {
-        $$navbarBorderWeight: "$borderWeights$normal",
-      },
-      bold: {
-        $$navbarBorderWeight: "$borderWeights$bold",
-      },
-      extrabold: {
-        $$navbarBorderWeight: "$borderWeights$extrabold",
-      },
-      black: {
-        $$navbarBorderWeight: "$borderWeights$black",
       },
     },
   },
@@ -621,7 +605,6 @@ export const StyledNavbar = styled("nav", {
       disableShadow: false,
       css: {
         boxShadow: "none",
-        clipPath: "none",
         [`& ${StyledNavbarContainer}`]: {
           boxShadow: "$$navbarShadow",
         },
@@ -630,7 +613,6 @@ export const StyledNavbar = styled("nav", {
   ],
   defaultVariants: {
     variant: "static",
-    borderWeight: "light",
     maxWidth: "lg",
     isBordered: false,
     disableShadow: false,
@@ -645,4 +627,5 @@ export type NavbarToggleVariantsProps = VariantProps<typeof StyledNavbarToggle>;
 export type NavbarToggleIconContainerVariantsProps = VariantProps<
   typeof StyledNavbarToggleIconContainer
 >;
-export type NavbarListVariantsProps = VariantProps<typeof StyledNavbarList>;
+export type NavbarCollapseVariantsProps = VariantProps<typeof StyledNavbarCollapse>;
+export type NavbarCollapseItemVariantsProps = VariantProps<typeof StyledNavbarCollapseItem>;

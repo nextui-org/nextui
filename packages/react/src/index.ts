@@ -18,6 +18,7 @@ export {default as useInput} from "./use-input";
 export {default as useKeyboard} from "./use-keyboard";
 export {default as usePagination} from "./use-pagination";
 export {default as useScrollPosition} from "./use-scroll-position";
+export {default as useIntersectionObserver} from "./use-intersection-observer";
 
 // miscs & types
 export {default as useDrip} from "./use-drip";

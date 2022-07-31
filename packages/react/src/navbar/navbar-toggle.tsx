@@ -9,6 +9,7 @@ import {mergeProps} from "@react-aria/utils";
 
 import {HTMLNextUIProps, forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
+import useBodyScroll from "../use-body-scroll";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
@@ -26,11 +27,14 @@ export type NavbarToggleProps = Props &
 const NavbarToggle = forwardRef<NavbarToggleProps, "button">((props, ref) => {
   const {children, className, autoFocus, onChange, as, css} = props;
 
-  const {setIsListOpen} = useNavbarContext();
+  const {parentRef, setIsCollapseOpen} = useNavbarContext();
+
+  const [, setBodyHidden] = useBodyScroll(parentRef, {scrollLayer: true});
 
   const handleChange = (isOpen: boolean) => {
-    setIsListOpen(isOpen);
+    setIsCollapseOpen(isOpen);
     onChange?.(isOpen);
+    setBodyHidden(isOpen);
   };
 
   const domRef = useDOMRef(ref);

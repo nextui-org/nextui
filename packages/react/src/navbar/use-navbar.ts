@@ -1,17 +1,34 @@
 import type {CSS} from "../theme";
+import type {NormalWeights} from "../utils/prop-types";
 
 import {useMemo, useState} from "react";
 
-import useTheme from "../use-theme";
 import {addColorAlpha} from "../utils/color";
 import {arrayToObject} from "../utils/object";
 import {HTMLNextUIProps} from "../utils/system";
 import useScrollPosition from "../use-scroll-position";
+import {globalCss} from "../theme/stitches.config";
+import useTheme from "../use-theme";
 
 import {NavbarVariantsProps} from "./navbar.styles";
 
 interface Props extends Omit<HTMLNextUIProps<"nav">, keyof NavbarVariantsProps> {
   children?: React.ReactNode | React.ReactNode[];
+  /**
+   * The height of the navbar.
+   * @default "76px" and "54px" for "isCompact=true".
+   */
+  height?: number | string;
+  /**
+   * The border weight of the bordered navbar.
+   *  @default light
+   */
+  borderWeight?: NormalWeights;
+  /**
+   * Whether the navbar should be bordered.
+   * @default false
+   */
+  isBordered?: boolean;
   /**
    * Whether the navbar should hide on scroll or not.
    * @default false
@@ -37,18 +54,55 @@ export type UseNavbarProps = Props & NavbarVariantsProps;
 export function useNavbar(props: UseNavbarProps = {}) {
   const {
     css,
-    variant = "static",
     containerCss,
     parentRef,
+    isBordered,
+    variant = "static",
+    height = "76px",
+    borderWeight = "light",
     shouldHideOnScroll = false,
+    disableBlur: disableBlurProp = false,
     className,
     ...otherProps
   } = props;
 
   const [sticky, setSticky] = useState(false);
-  const [isListOpen, setIsListOpen] = useState(false);
+  const [isCollapseOpen, setIsCollapseOpen] = useState(false);
 
-  const {theme, isDark} = useTheme();
+  const {theme} = useTheme();
+
+  const borderWeightValue = useMemo(() => {
+    if (!isBordered) {
+      return "0px";
+    }
+
+    return `$borderWeights$${borderWeight}`;
+  }, [isBordered, borderWeight]);
+
+  const disableBlur = useMemo(
+    () => disableBlurProp || isCollapseOpen,
+    [disableBlurProp, isCollapseOpen],
+  );
+
+  const navbarGlobalCss = globalCss({
+    html: {
+      $$navbarHeight: height,
+      $$navbarTextColor: "$colors$text",
+      $$navbarBackgroundColor: "$colors$background",
+      $$navbarBlurBackgroundColor: "$colors$backgroundAlpha",
+      $$navbarItemMaxHeight: "calc($$navbarHeight * 0.5)",
+      $$navbarBorderColor: "$colors$border",
+      $$navbarBorderRadius: "$radii$lg",
+      $$navbarPadding: "$space$10",
+      $$navbarFloatingMargin: "$space$10",
+      $$navbarContainerMaxWidth: "$breakpoints$lg",
+      $$navbarShadow: "$shadows$md",
+      $$navbarBorderWeight: borderWeightValue,
+      $$navbarBlur: "10px",
+    },
+  });
+
+  navbarGlobalCss();
 
   useScrollPosition({
     elementRef: parentRef,
@@ -95,18 +149,21 @@ export function useNavbar(props: UseNavbarProps = {}) {
       ...customCssObject,
       ...css,
     };
-  }, [css, isDark, theme?.colors, variant, shouldHideOnScroll, sticky]);
+  }, [css, theme?.colors, variant, shouldHideOnScroll, sticky]);
 
   return {
     css,
     variant,
     sticky,
+    isBordered,
     containerCss,
     navbarCss,
     parentRef,
+    borderWeight,
     shouldHideOnScroll,
-    isListOpen,
-    setIsListOpen,
+    disableBlur,
+    isCollapseOpen,
+    setIsCollapseOpen,
     className,
     otherProps,
   };
