@@ -185,6 +185,24 @@ export const HideOnScroll = () => {
 
 export const Toggle = () => {
   const parentRef = React.useRef(null);
+  const collapseItems = [
+    "Store",
+    "Mac",
+    "iPad",
+    "iPhone",
+    "Watch",
+    "TV & Home",
+    "Music",
+    "Support",
+    "Store",
+    "Mac",
+    "iPad",
+    "iPhone",
+    "Watch",
+    "TV & Home",
+    "Music",
+    "Support",
+  ];
 
   return (
     <App ref={parentRef}>
@@ -222,7 +240,11 @@ export const Toggle = () => {
             </Button>
           </Navbar.Item>
         </Navbar.Content>
-        <Navbar.Collapse />
+        <Navbar.Collapse>
+          {collapseItems.map((item, index) => (
+            <Navbar.CollapseItem key={`${item}-${index}`}>{item}</Navbar.CollapseItem>
+          ))}
+        </Navbar.Collapse>
       </Navbar>
     </App>
   );

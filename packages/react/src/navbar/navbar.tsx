@@ -14,6 +14,7 @@ import NavbarItem from "./navbar-item";
 import NavbarLink from "./navbar-link";
 import NavbarToggle from "./navbar-toggle";
 import NavbarCollapse from "./navbar-collapse";
+import NavbarCollapseItem from "./navbar-collapse-item";
 import {NavbarProvider} from "./navbar-context";
 import {useNavbar, UseNavbarProps} from "./use-navbar";
 import {StyledNavbar, StyledNavbarContainer} from "./navbar.styles";
@@ -66,6 +67,7 @@ type NavbarComponent<T, P = {}> = React.ForwardRefExoticComponent<
   Link: typeof NavbarLink;
   Toggle: typeof NavbarToggle;
   Collapse: typeof NavbarCollapse;
+  CollapseItem: typeof NavbarCollapseItem;
 };
 
 export default Navbar as NavbarComponent<HTMLElement, NavbarProps>;
