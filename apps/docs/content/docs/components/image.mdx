@@ -36,7 +36,7 @@ import { Image } from '@nextui-org/react';
 
 <Playground
   title="Object-Fit"
-  desc="This property tells the content to fill the container in a variety of ways."
+  desc="This property tells the content to fill the container in a variety of ways. "
   files={imageContent.objectFit}
 />
 
@@ -51,14 +51,14 @@ import { Image } from '@nextui-org/react';
 | Attribute        | Type                           | Description                                         | Default      |
 | ---------------- | ------------------------------ | --------------------------------------------------- | ------------ |
 | **src**          | `string`                       | Image source (local or remote)                      | -            |
-| **autoResize**   | `boolean`                      | Resize Image to fit screen                          | `false`      |
+| **autoResize**   | `boolean`                      | Resize Image to fits screen                         | `false`      |
 | **showSkeleton** | `boolean`                      | Shows loading Skeleton while image is loading       | `true`       |
 | **objectFit**    | [ObjectFit](#image-object-fit) | Property tells the content to fill the container    | `scale-down` |
-| **width**        | `number`                       | Specifies Image Width                               | -            |
-| **height**       | `number`                       | Specifies Image Height                              | -            |
+| **width**        | `string`                       | Specifies Image Width                               | -            |
+| **height**       | `string`                       | Specifies Image Height                              | -            |
 | **maxDelay**     | `number`                       | Specifies how long Image Skeleton Renders Animation | `3000`       |
-| **className**    | `string`                       | Give Image A Class Name                             | -            |
-| **containerCss** | `Stitches.CSS`                 | Override Default Image Container Style              | -            |
+| **className**    | `string`                       | Give Image A ClasName                               | -            |
+| **containerCss** | `Stitches.CSS`                 | Override Default Image Contianer Style              | -            |
 | **css**          | `Stitches.CSS`                 | Override Default CSS style                          | -            |
 | **as**           | `keyof JSX.IntrinsicElements`  | Changes which tag component outputs                 | `img`        |
 | ...              | `ImageHTMLAttributes`          | Native props                                        | -            |
