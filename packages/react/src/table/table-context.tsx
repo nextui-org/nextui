@@ -60,6 +60,11 @@ const Provider: React.FC<React.PropsWithChildren<ProviderProps>> = ({
     defaultValues?.color
   );
 
+  React.useEffect(() => {
+    setCollection(defaultValues?.collection);
+    setCurrentPage(defaultContext.currentPage);
+  }, [defaultValues?.collection]);
+
   const providerValue = React.useMemo<TableConfig>(
     () => ({
       animated,
