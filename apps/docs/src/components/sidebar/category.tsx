@@ -1,16 +1,14 @@
-import React, { useRef, useMemo, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 import ArrowRight from '../icons/arrow-right';
 import withDefaults from '@utils/with-defaults';
 import { useTheme } from '@nextui-org/react';
-import { Route } from '@lib/docs/page';
 import { Badge } from '@components';
 
 export interface Props {
   level: number;
   title: string;
-  routes: Route[];
   iconUrl?: string;
   isMobile: boolean;
   selected: boolean;
@@ -34,7 +32,6 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
   level = 1,
   title,
   selected,
-  routes,
   iconUrl,
   updated,
   opened,
@@ -52,11 +49,6 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
 
   const levelClass = `level-${level}`;
   const margin = 18;
-
-  const postsHeight = useMemo(
-    () => routes.length * (isMobile ? 32 : 26) + margin * (routes.length - 1),
-    [routes, isMobile]
-  );
 
   // If a category is selected indirectly, open it. This can happen when using the search input
   useEffect(() => {
@@ -175,7 +167,7 @@ const Category: React.FC<React.PropsWithChildren<CategoryProps>> = ({
           transition: height 200ms ease;
         }
         .open .posts {
-          height: ${postsHeight}px;
+          height: 100%;
         }
 
         @keyframes appear {
