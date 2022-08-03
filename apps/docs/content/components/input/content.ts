@@ -58,7 +58,7 @@ const SunIcon = `export const SunIcon = ({
   );
 };`;
 
-const SendIcon = `const SendIcon = ({
+const SendIcon = `export const SendIcon = ({
   fill = "currentColor",
   filled,
   size,
