@@ -67,6 +67,11 @@ export const useRadio = (props: UseRadioProps) => {
     [groupContext.validationState]
   );
 
+  const required = useMemo(
+    ()=> groupContext.isRequired ?? false,
+    [groupContext.isRequired]
+  )
+
   return {
     size,
     color,
@@ -79,7 +84,8 @@ export const useRadio = (props: UseRadioProps) => {
     isSquared,
     disableAnimation,
     inputProps,
-    hoverProps
+    hoverProps,
+    required
   };
 };
 

@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { Meta } from '@storybook/react';
 import Radio from './index';
+
+const handleSubmit = (e: FormEvent) => {
+  e.preventDefault()
+  alert('Submitted!')
+}
 
 export default {
   title: 'Inputs/Radio',
@@ -16,6 +21,18 @@ export const Default = () => (
     <Radio value="D">Option D</Radio>
   </Radio.Group>
 );
+
+export const Required = () => (
+  <form onSubmit={handleSubmit}>
+    <Radio.Group label="Options" isRequired>
+      <Radio value="A">Option A</Radio>
+      <Radio value="B">Option B</Radio>
+      <Radio value="C">Option C</Radio>
+      <Radio value="D">Option D</Radio>
+    </Radio.Group>
+    <button type='submit'>Submit</button>
+  </form>
+)
 
 export const Disabled = () => (
   <Radio.Group label="Options" defaultValue="A" isDisabled>
