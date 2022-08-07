@@ -5,6 +5,7 @@ import React, {useState, useEffect, useMemo} from "react";
 import {HTMLNextUIProps} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
 import {pickChild} from "../utils/collections";
+import {arrayToObject} from "../utils/object";
 
 import NavbarCollapseItem from "./navbar-collapse-item";
 import {NavbarCollapseVariantsProps} from "./navbar.styles";
@@ -53,11 +54,29 @@ export function useNavbarCollapse(props: UseNavbarCollapseProps = {}) {
     };
   }, [context.isCollapseOpen]);
 
+  const collpaseCss = useMemo(() => {
+    const customCss = [];
+
+    if (context.parentRef && context.parentRef.current) {
+      customCss.push({
+        maxHeight: context.parentRef.current?.clientHeight,
+      });
+    }
+
+    const customCssObject = arrayToObject(customCss);
+
+    return {
+      ...customCssObject,
+      ...css,
+    };
+  }, [context.parentRef?.current, css]);
+
   return {
     css,
     domRef,
     children,
     items,
+    collpaseCss,
     isOpen: context.isCollapseOpen,
     hasScrolled,
     className,

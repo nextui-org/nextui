@@ -85,8 +85,10 @@ export const StyledNavbarCollapseItem = styled(StyledBaseNavbarItem, {
 });
 
 export const StyledNavbarCollapseWrapper = styled(StyledBaseNavbarList, {
+  py: "$8",
   px: "$$navbarPadding",
-  pb: "$8",
+  overflowY: "scroll",
+  maxHeight: "100%",
 });
 
 export const StyledNavbarCollapse = styled("div", {
@@ -103,18 +105,13 @@ export const StyledNavbarCollapse = styled("div", {
   height: "0px",
   zIndex: "$4",
   boxSizing: "border-box",
-  overflowX: "hidden",
-  overflowY: "scroll",
+  overflow: "hidden",
   variants: {
     isOpen: {
       true: {
-        pt: "$8",
         top: "$$navbarHeight",
-        pb: "calc($space$8 + $$navbarHeight * 1.5)",
-        height: "calc(100vh - $$navbarHeight)",
-        "@safari": {
-          pb: "calc($space$8 + $$navbarHeight * 1.8)",
-        },
+        pb: "$$navbarHeight",
+        height: "100vh",
       },
     },
     disableBlur: {

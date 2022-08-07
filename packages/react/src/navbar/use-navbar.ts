@@ -15,6 +15,12 @@ import {NavbarVariantsProps} from "./navbar.styles";
 interface Props extends Omit<HTMLNextUIProps<"nav">, keyof NavbarVariantsProps> {
   children?: React.ReactNode | React.ReactNode[];
   /**
+   * The parent element where the navbar is placed within.
+   * This is used to determine the scroll position and whether the navbar should be hidden or not.
+   * @default `window`
+   */
+  parentRef?: React.RefObject<HTMLElement>;
+  /**
    * The height of the navbar.
    * @default "76px" and "54px" for "isCompact=true".
    */
@@ -35,15 +41,20 @@ interface Props extends Omit<HTMLNextUIProps<"nav">, keyof NavbarVariantsProps> 
    */
   shouldHideOnScroll?: boolean;
   /**
-   * The parent element where the navbar is placed within.
-   * This is used to determine the scroll position and whether the navbar should be hidden or not.
-   * @default `window`
+   * Whether the navbar parent scroll event should be listened to or not.
+   * @default false
    */
-  parentRef?: React.RefObject<HTMLElement>;
+  disableScrollHandler?: boolean;
   /**
    * The css object of the navbar container.
    */
   containerCss?: CSS;
+
+  /**
+   * The scroll event handler for the navbar. The event fires when the navbar parent element is scrolled.
+   * it only works if `disableScrollHandler` is set to `false` or `shouldHideOnScroll` is set to `true`.
+   */
+  onScrollPositionChange?: (scrollPosition: number) => void;
 }
 
 export type UseNavbarProps = Props & NavbarVariantsProps;
@@ -61,6 +72,8 @@ export function useNavbar(props: UseNavbarProps = {}) {
     height = "76px",
     borderWeight = "light",
     shouldHideOnScroll = false,
+    disableScrollHandler = false,
+    onScrollPositionChange,
     disableBlur: disableBlurProp = false,
     className,
     ...otherProps
@@ -106,13 +119,16 @@ export function useNavbar(props: UseNavbarProps = {}) {
 
   useScrollPosition({
     elementRef: parentRef,
-    enabled: shouldHideOnScroll,
+    enabled: shouldHideOnScroll || !disableScrollHandler,
     callback: ({prevPos, currPos}) => {
-      setSticky((prevSticky) => {
-        const next = currPos.y > prevPos.y;
+      onScrollPositionChange?.(currPos.y);
+      if (shouldHideOnScroll) {
+        setSticky((prevSticky) => {
+          const next = currPos.y > prevPos.y;
 
-        return next !== prevSticky ? next : prevSticky;
-      });
+          return next !== prevSticky ? next : prevSticky;
+        });
+      }
     },
   });
 
