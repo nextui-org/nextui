@@ -229,7 +229,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
           <InputBlockLabel
             id={labelProps.id}
             className={`${preClass}-block-label`}
-            htmlFor={labelProps.htmlFor}
+            htmlFor={'htmlFor' in labelProps ? labelProps.htmlFor : ''}
             isTextarea={isTextarea}
             underlined={underlined}
             animated={animated}
