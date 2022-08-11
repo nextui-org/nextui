@@ -20,6 +20,11 @@ export interface UseDropdownProps extends Omit<PopoverProps, "children"> {
    */
   trigger?: MenuTriggerType;
   /**
+   * Whether the trigger should show a pressed animation when the menu is open.
+   * @default false
+   */
+  disableTriggerPressedAnimation?: boolean;
+  /**
    * Whether the Menu closes when a selection is made.
    * @default true
    */
@@ -38,6 +43,7 @@ export function useDropdown(props: UseDropdownProps = {}) {
     borderWeight,
     closeOnSelect,
     disableAnimation = false,
+    disableTriggerPressedAnimation = false,
     ...popoverProps
   } = props;
 
@@ -62,10 +68,11 @@ export function useDropdown(props: UseDropdownProps = {}) {
 
       return {
         ...realTriggerProps,
+        "data-pressed-transition-disabled": disableTriggerPressedAnimation,
         ref: mergeRefs(triggerRef, _ref),
       };
     },
-    [triggerRef, triggerRefProp, menuTriggerProps],
+    [triggerRef, triggerRefProp, menuTriggerProps, disableTriggerPressedAnimation],
   );
 
   return {

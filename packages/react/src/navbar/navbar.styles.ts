@@ -214,8 +214,10 @@ export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
   fontSize: "$$navbarItemFontSize",
   fontWeight: "$$navbarItemFontWeight",
   position: "relative",
-  "*": {
+  "> *": {
     zIndex: "$2",
+    fontSize: "inherit !important",
+    fontWeight: "inherit !important",
   },
   "&:before": {
     opacity: 0,

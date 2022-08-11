@@ -151,7 +151,6 @@ export function useNavbarContent(props: UseNavbarContentProps = {}) {
 
   const repositionHighlight = (event: React.MouseEvent<HTMLElement>, item: HTMLElement) => {
     if (!(event?.target instanceof Element)) return;
-
     setItemBoundingBox(event.target?.getBoundingClientRect?.());
     setWrapperBoundingBox(wrapperRef.current?.getBoundingClientRect?.());
     setIsHoveredFromNull(!highlightedItem);

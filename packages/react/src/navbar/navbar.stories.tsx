@@ -1,7 +1,7 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 
-import {Link, Text, Button, Spacer} from "../index";
+import {Link, Text, Button, Spacer, Dropdown} from "../index";
 import {styled} from "../theme/stitches.config";
 
 import Navbar from "./index";
@@ -183,7 +183,7 @@ export const HideOnScroll = () => {
   );
 };
 
-export const Toggle = () => {
+export const WithToggle = () => {
   const parentRef = React.useRef(null);
   const collapseItems = [
     "Store",
@@ -223,6 +223,87 @@ export const Toggle = () => {
           variant="underline"
         >
           <Navbar.Link href="#">Features</Navbar.Link>
+          <Navbar.Link isActive href="#">
+            Customers
+          </Navbar.Link>
+          <Navbar.Link href="#">Integrations</Navbar.Link>
+          <Navbar.Link href="#">Pricing</Navbar.Link>
+          <Navbar.Link href="#">Company</Navbar.Link>
+        </Navbar.Content>
+        <Navbar.Content>
+          <Navbar.Link color="inherit" href="#">
+            Login
+          </Navbar.Link>
+          <Navbar.Item>
+            <Button auto flat as={Link} href="#">
+              Sign Up
+            </Button>
+          </Navbar.Item>
+        </Navbar.Content>
+        <Navbar.Collapse>
+          {collapseItems.map((item, index) => (
+            <Navbar.CollapseItem key={`${item}-${index}`}>{item}</Navbar.CollapseItem>
+          ))}
+        </Navbar.Collapse>
+      </Navbar>
+    </App>
+  );
+};
+
+export const WithDropdown = () => {
+  const parentRef = React.useRef(null);
+  const collapseItems = [
+    "Store",
+    "Mac",
+    "iPad",
+    "iPhone",
+    "Watch",
+    "TV & Home",
+    "Music",
+    "Support",
+    "Store",
+    "Mac",
+    "iPad",
+    "iPhone",
+    "Watch",
+    "TV & Home",
+    "Music",
+    "Support",
+  ];
+
+  return (
+    <App ref={parentRef}>
+      <Navbar isBordered parentRef={parentRef} variant="sticky">
+        <Navbar.Content>
+          <Navbar.Toggle aria-label="toggle navigation" />
+          <Navbar.Brand>
+            <AcmeLogo />
+            <Text b color="inherit" css={{"@xsMax": {d: "none"}}}>
+              ACME
+            </Text>
+          </Navbar.Brand>
+        </Navbar.Content>
+        <Navbar.Content
+          enableCursorHighlight
+          isCursorHighlightRounded
+          hideIn="sm"
+          variant="underline"
+        >
+          <Dropdown disableTriggerPressedAnimation>
+            <Navbar.Item>
+              <Dropdown.Button auto light css={{px: 0}} ripple={false}>
+                Features
+              </Dropdown.Button>
+            </Navbar.Item>
+            <Dropdown.Menu aria-label="Static Actions">
+              <Dropdown.Item key="new">New file</Dropdown.Item>
+              <Dropdown.Item key="copy">Copy link</Dropdown.Item>
+              <Dropdown.Item key="edit">Edit file</Dropdown.Item>
+              <Dropdown.Item key="delete" color="error">
+                Delete file
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           <Navbar.Link isActive href="#">
             Customers
           </Navbar.Link>

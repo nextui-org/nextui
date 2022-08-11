@@ -7,6 +7,7 @@ import {HTMLNextUIProps, forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
 import {arrayToObject} from "../utils/object";
 import clsx from "../utils/clsx";
+import {Text} from "../index";
 import {__DEV__} from "../utils/assertion";
 
 import {useNavbarContentContext} from "./navbar-content-context";
@@ -14,7 +15,7 @@ import {StyledNavbarItem, NavbarItemVariantsProps} from "./navbar.styles";
 
 export interface Props
   extends Omit<HTMLNextUIProps<"li">, keyof NavbarItemVariantsProps | "color"> {
-  children?: React.ReactNode | React.ReactNode[];
+  children?: React.ReactNode;
   isDisabled?: boolean;
 }
 
@@ -29,7 +30,7 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
     activeColor,
     isActive,
     underlineHeight,
-    onMouseOver,
+    onMouseEnter,
     onMouseLeave,
     isDisabled,
     className,
@@ -185,16 +186,31 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
     onMouseLeave?.(event);
   };
 
-  const handleOnMouseOver = (event: React.MouseEvent<HTMLLIElement>) => {
+  const handleOnMouseEnter = (event: React.MouseEvent<HTMLLIElement>) => {
     if (!contentProps?.repositionHighlight) {
-      onMouseOver?.(event);
+      onMouseEnter?.(event);
 
       return;
     }
 
-    contentProps.repositionHighlight(event, domRef?.current);
-    onMouseOver?.(event);
+    const targetId = (event.target as HTMLElement)?.id;
+
+    if (targetId === itemId) {
+      contentProps.repositionHighlight(event, domRef?.current);
+    }
+    onMouseEnter?.(event);
   };
+
+  // enforce a single child
+  const child: any =
+    typeof children === "string" ? <Text>{children}</Text> : React.Children.only(children);
+
+  // add event listeners to the children
+  const childrenWithEventListeners = React.cloneElement(child, {
+    id: child.props?.id || itemId,
+    onMouseEnter: handleOnMouseEnter,
+    onMouseLeave: handleOnMouseLeave,
+  });
 
   return (
     <StyledNavbarItem
@@ -206,11 +222,9 @@ const NavbarItem = forwardRef<NavbarItemProps, "li">((props, ref) => {
       isActive={isActive}
       underlineHeight={underlineHeight || contentProps?.underlineHeight}
       variant={itemVariant}
-      onMouseLeave={handleOnMouseLeave}
-      onMouseOver={handleOnMouseOver}
       {...mergeProps(hoverProps, otherProps)}
     >
-      {children}
+      {childrenWithEventListeners}
     </StyledNavbarItem>
   );
 });

@@ -14,6 +14,7 @@ export type DropdownButtonProps = ButtonProps;
 const DropdownButton = React.forwardRef(
   (props: DropdownButtonProps, ref: React.Ref<HTMLButtonElement | null>) => {
     const {
+      css,
       children,
       className,
       iconRight,
@@ -40,6 +41,12 @@ const DropdownButton = React.forwardRef(
           animated={isAnimated}
           auto={auto}
           className={clsx("nextui-dropdown-button", className)}
+          css={{
+            "& .nextui-button-icon-right, & .nextui-button-text-right": {
+              pointerEvents: "none",
+            },
+            ...css,
+          }}
           iconRight={getIconRight}
           iconRightCss={{
             mt: "$1",
