@@ -2,122 +2,27 @@
 
 exports[`Avatar should render component of a specified size 1`] = `
 LoadedCheerio {
-  "0": Node {
-    "attribs": Object {
-      "class": "nextui-c-gEEnVX nextui-c-PJLV nextui-c-jWfFif nextui-c-jMTBsW nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-ihFPSGE-css only-text-avatar",
-      "data-state": "ready",
-    },
-    "children": Array [
-      Node {
-        "attribs": Object {
-          "class": "nextui-avatar-bg",
-        },
-        "children": Array [],
-        "name": "span",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-    ],
-    "name": "span",
-    "namespace": "http://www.w3.org/1999/xhtml",
-    "next": null,
-    "parent": Node {
-      "children": Array [
-        [Circular],
-      ],
-      "name": "root",
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "type": "root",
-    },
-    "prev": null,
-    "type": "tag",
-    "x-attribsNamespace": Object {
-      "class": undefined,
-      "data-state": undefined,
-    },
-    "x-attribsPrefix": Object {
-      "class": undefined,
-      "data-state": undefined,
-    },
-  },
+  "0": <span
+    class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-jWfFif nextui-c-jMTBsW nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-ihFPSGE-css only-text-avatar"
+    data-state="ready"
+  >
+    <span
+      class="nextui-avatar-bg"
+    />
+  </span>,
   "_root": LoadedCheerio {
-    "0": Node {
+    "0": Document {
       "children": Array [
-        Node {
-          "attribs": Object {},
-          "children": Array [
-            Node {
-              "attribs": Object {},
-              "children": Array [],
-              "name": "head",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [],
-                "name": "body",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "tag",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-            Node {
-              "attribs": Object {},
-              "children": Array [],
-              "name": "body",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {},
-                "children": Array [],
-                "name": "head",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-          ],
-          "name": "html",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
-          "parent": [Circular],
-          "prev": null,
-          "type": "tag",
-          "x-attribsNamespace": Object {},
-          "x-attribsPrefix": Object {},
-        },
+        <html>
+          <head />
+          <body />
+        </html>,
       ],
-      "name": "root",
+      "endIndex": null,
       "next": null,
       "parent": null,
       "prev": null,
+      "startIndex": null,
       "type": "root",
       "x-mode": "quirks",
     },
@@ -140,122 +45,27 @@ exports[`Avatar should render correctly with an icon 1`] = `"<span class=\\"next
 
 exports[`Avatar should render text element 1`] = `
 LoadedCheerio {
-  "0": Node {
-    "attribs": Object {
-      "class": "nextui-c-gEEnVX nextui-c-PJLV nextui-c-jWfFif nextui-c-jMTBsW nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar",
-      "data-state": "ready",
-    },
-    "children": Array [
-      Node {
-        "attribs": Object {
-          "class": "nextui-avatar-bg",
-        },
-        "children": Array [],
-        "name": "span",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-    ],
-    "name": "span",
-    "namespace": "http://www.w3.org/1999/xhtml",
-    "next": null,
-    "parent": Node {
-      "children": Array [
-        [Circular],
-      ],
-      "name": "root",
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "type": "root",
-    },
-    "prev": null,
-    "type": "tag",
-    "x-attribsNamespace": Object {
-      "class": undefined,
-      "data-state": undefined,
-    },
-    "x-attribsPrefix": Object {
-      "class": undefined,
-      "data-state": undefined,
-    },
-  },
+  "0": <span
+    class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-jWfFif nextui-c-jMTBsW nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
+    data-state="ready"
+  >
+    <span
+      class="nextui-avatar-bg"
+    />
+  </span>,
   "_root": LoadedCheerio {
-    "0": Node {
+    "0": Document {
       "children": Array [
-        Node {
-          "attribs": Object {},
-          "children": Array [
-            Node {
-              "attribs": Object {},
-              "children": Array [],
-              "name": "head",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [],
-                "name": "body",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "tag",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-            Node {
-              "attribs": Object {},
-              "children": Array [],
-              "name": "body",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {},
-                "children": Array [],
-                "name": "head",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-          ],
-          "name": "html",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
-          "parent": [Circular],
-          "prev": null,
-          "type": "tag",
-          "x-attribsNamespace": Object {},
-          "x-attribsPrefix": Object {},
-        },
+        <html>
+          <head />
+          <body />
+        </html>,
       ],
-      "name": "root",
+      "endIndex": null,
       "next": null,
       "parent": null,
       "prev": null,
+      "startIndex": null,
       "type": "root",
       "x-mode": "quirks",
     },
@@ -276,190 +86,32 @@ LoadedCheerio {
 
 exports[`Avatar should render text element 2`] = `
 LoadedCheerio {
-  "0": Node {
-    "attribs": Object {
-      "class": "nextui-c-gEEnVX nextui-c-PJLV nextui-c-jWfFif nextui-c-jMTBsW nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar",
-      "data-state": "ready",
-    },
-    "children": Array [
-      Node {
-        "attribs": Object {
-          "class": "nextui-avatar-bg",
-        },
-        "children": Array [],
-        "name": "span",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Node {
-          "attribs": Object {
-            "class": "nextui-avatar-text",
-          },
-          "children": Array [
-            Node {
-              "data": "text",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "span",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-          },
-        },
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-      Node {
-        "attribs": Object {
-          "class": "nextui-avatar-text",
-        },
-        "children": Array [
-          Node {
-            "data": "text",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "text",
-          },
-        ],
-        "name": "span",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": Node {
-          "attribs": Object {
-            "class": "nextui-avatar-bg",
-          },
-          "children": Array [],
-          "name": "span",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": null,
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-          },
-        },
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-    ],
-    "name": "span",
-    "namespace": "http://www.w3.org/1999/xhtml",
-    "next": null,
-    "parent": Node {
-      "children": Array [
-        [Circular],
-      ],
-      "name": "root",
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "type": "root",
-    },
-    "prev": null,
-    "type": "tag",
-    "x-attribsNamespace": Object {
-      "class": undefined,
-      "data-state": undefined,
-    },
-    "x-attribsPrefix": Object {
-      "class": undefined,
-      "data-state": undefined,
-    },
-  },
+  "0": <span
+    class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-jWfFif nextui-c-jMTBsW nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
+    data-state="ready"
+  >
+    <span
+      class="nextui-avatar-bg"
+    />
+    <span
+      class="nextui-avatar-text"
+    >
+      text
+    </span>
+  </span>,
   "_root": LoadedCheerio {
-    "0": Node {
+    "0": Document {
       "children": Array [
-        Node {
-          "attribs": Object {},
-          "children": Array [
-            Node {
-              "attribs": Object {},
-              "children": Array [],
-              "name": "head",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Node {
-                "attribs": Object {},
-                "children": Array [],
-                "name": "body",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "tag",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-            Node {
-              "attribs": Object {},
-              "children": Array [],
-              "name": "body",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Node {
-                "attribs": Object {},
-                "children": Array [],
-                "name": "head",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {},
-                "x-attribsPrefix": Object {},
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {},
-              "x-attribsPrefix": Object {},
-            },
-          ],
-          "name": "html",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
-          "parent": [Circular],
-          "prev": null,
-          "type": "tag",
-          "x-attribsNamespace": Object {},
-          "x-attribsPrefix": Object {},
-        },
+        <html>
+          <head />
+          <body />
+        </html>,
       ],
-      "name": "root",
+      "endIndex": null,
       "next": null,
       "parent": null,
       "prev": null,
+      "startIndex": null,
       "type": "root",
       "x-mode": "quirks",
     },
