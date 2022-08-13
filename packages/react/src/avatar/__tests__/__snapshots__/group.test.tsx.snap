@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="nextui-c-ckyKsw"
+        class="nextui-c-dZPNrK"
       >
         <span
-          class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-evoADT-bordered-true nextui-c-fFabR-gBVgtO-stacked-true nextui-c-fFabR-bAEoQm-rounded-true nextui-c-fFabR-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+          class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-dbZNQr-bordered-true nextui-c-gEEnVX-gBVgtO-stacked-true nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-gEEnVX-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
           data-state="ready"
         >
           <span
@@ -22,7 +22,7 @@ Object {
           </span>
         </span>
         <span
-          class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-evoADT-bordered-true nextui-c-fFabR-gBVgtO-stacked-true nextui-c-fFabR-bAEoQm-rounded-true nextui-c-fFabR-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+          class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-dbZNQr-bordered-true nextui-c-gEEnVX-gBVgtO-stacked-true nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-gEEnVX-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
           data-state="ready"
         >
           <span
@@ -35,7 +35,7 @@ Object {
           </span>
         </span>
         <span
-          class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-evoADT-bordered-true nextui-c-fFabR-gBVgtO-stacked-true nextui-c-fFabR-bAEoQm-rounded-true nextui-c-fFabR-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+          class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-dbZNQr-bordered-true nextui-c-gEEnVX-gBVgtO-stacked-true nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-gEEnVX-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
           data-state="ready"
         >
           <span
@@ -48,7 +48,7 @@ Object {
           </span>
         </span>
         <span
-          class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-evoADT-bordered-true nextui-c-fFabR-gBVgtO-stacked-true nextui-c-fFabR-bAEoQm-rounded-true nextui-c-fFabR-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+          class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-dbZNQr-bordered-true nextui-c-gEEnVX-gBVgtO-stacked-true nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-gEEnVX-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
           data-state="ready"
         >
           <span
@@ -65,10 +65,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="nextui-c-ckyKsw"
+      class="nextui-c-dZPNrK"
     >
       <span
-        class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-evoADT-bordered-true nextui-c-fFabR-gBVgtO-stacked-true nextui-c-fFabR-bAEoQm-rounded-true nextui-c-fFabR-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-dbZNQr-bordered-true nextui-c-gEEnVX-gBVgtO-stacked-true nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-gEEnVX-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
         data-state="ready"
       >
         <span
@@ -81,7 +81,7 @@ Object {
         </span>
       </span>
       <span
-        class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-evoADT-bordered-true nextui-c-fFabR-gBVgtO-stacked-true nextui-c-fFabR-bAEoQm-rounded-true nextui-c-fFabR-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-dbZNQr-bordered-true nextui-c-gEEnVX-gBVgtO-stacked-true nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-gEEnVX-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
         data-state="ready"
       >
         <span
@@ -94,7 +94,7 @@ Object {
         </span>
       </span>
       <span
-        class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-evoADT-bordered-true nextui-c-fFabR-gBVgtO-stacked-true nextui-c-fFabR-bAEoQm-rounded-true nextui-c-fFabR-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-dbZNQr-bordered-true nextui-c-gEEnVX-gBVgtO-stacked-true nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-gEEnVX-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
         data-state="ready"
       >
         <span
@@ -107,7 +107,7 @@ Object {
         </span>
       </span>
       <span
-        class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-evoADT-bordered-true nextui-c-fFabR-gBVgtO-stacked-true nextui-c-fFabR-bAEoQm-rounded-true nextui-c-fFabR-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-dbZNQr-bordered-true nextui-c-gEEnVX-gBVgtO-stacked-true nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-gEEnVX-MtAEf-cv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
         data-state="ready"
       >
         <span
@@ -181,10 +181,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="nextui-c-ckyKsw nextui-c-ckyKsw-hEoPQl-animated-true"
+        class="nextui-c-dZPNrK nextui-c-dZPNrK-fkvkLX-animated-true"
       >
         <span
-          class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+          class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
           data-state="ready"
         >
           <span
@@ -197,7 +197,7 @@ Object {
           </span>
         </span>
         <span
-          class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+          class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
           data-state="ready"
         >
           <span
@@ -214,10 +214,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="nextui-c-ckyKsw nextui-c-ckyKsw-hEoPQl-animated-true"
+      class="nextui-c-dZPNrK nextui-c-dZPNrK-fkvkLX-animated-true"
     >
       <span
-        class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
         data-state="ready"
       >
         <span
@@ -230,7 +230,7 @@ Object {
         </span>
       </span>
       <span
-        class="nextui-c-fFabR nextui-c-PJLV nextui-c-ldmKBv nextui-c-fFabR-qXFXw-color-default nextui-c-fFabR-duCSmO-textColor-default nextui-c-fFabR-iHugVF-size-md nextui-c-fFabR-krOtXB-borderWeight-normal nextui-c-fFabR-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-fFabR-iPJLV-css only-text-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar"
         data-state="ready"
       >
         <span
