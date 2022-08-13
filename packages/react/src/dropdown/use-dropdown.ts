@@ -62,7 +62,7 @@ export function useDropdown(props: UseDropdownProps = {}) {
 
   const getMenuTriggerProps = useCallback(
     (props = {}, _ref = null) => {
-      const {css = {}, ...realTriggerProps} = triggerRefProp?.current
+      const {css, ...realTriggerProps} = triggerRefProp?.current
         ? mergeProps(menuTriggerProps, props)
         : mergeProps(props, menuTriggerProps);
 
@@ -70,9 +70,9 @@ export function useDropdown(props: UseDropdownProps = {}) {
         ref: mergeRefs(triggerRef, _ref),
         css: !disableTriggerPressedAnimation
           ? {
-              backfaceVisibility: "hidden",
               '&[aria-haspopup="true"]&[aria-expanded="true"]': {
                 opacity: 0.7,
+                backfaceVisibility: "hidden",
                 transform: "translateZ(0) scale(0.97)",
               },
               ...css,
@@ -92,6 +92,7 @@ export function useDropdown(props: UseDropdownProps = {}) {
     onClose: state.close,
     autoFocus: state.focusStrategy || true,
     disableAnimation,
+    disableTriggerPressedAnimation,
     menuRef,
     borderWeight,
     menuPopoverRef,

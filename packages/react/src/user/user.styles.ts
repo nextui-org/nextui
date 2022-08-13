@@ -1,5 +1,5 @@
 import {styled} from "../theme/stitches.config";
-import {cssFocusVisible, sharedDialogPopup, cssNoBlurriness} from "../theme/shared-css";
+import {cssFocusVisible} from "../theme/shared-css";
 
 export const StyledUser = styled(
   "div",
@@ -16,8 +16,6 @@ export const StyledUser = styled(
     },
   },
   cssFocusVisible,
-  cssNoBlurriness,
-  sharedDialogPopup,
 );
 
 export const StyledUserInfo = styled("div", {

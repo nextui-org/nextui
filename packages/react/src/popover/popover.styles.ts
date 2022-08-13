@@ -8,11 +8,13 @@ export const appearanceIn = keyframes({
   },
   "60%": {
     opacity: 0.75,
-    transform: "scale(1.05)",
+    /* Avoid blurriness */
+    backfaceVisibility: "hidden",
+    webkitFontSmoothing: "antialiased",
+    transform: "translateZ(0) scale(1.05)",
   },
   "100%": {
     opacity: 1,
-    transform: "scale(1)",
   },
 });
 
@@ -67,6 +69,7 @@ export const StyledPopoverContentContainer = styled(
       animationDirection: "normal",
       animationDuration: "250ms",
     },
+
     "&.nextui-popover-content-leave": {
       animationName: appearanceOut,
       animationTimingFunction: "ease-in",
@@ -115,10 +118,6 @@ export const StyledPopoverContentContainer = styled(
   cssFocusVisible,
 );
 
-export const StyledPopoverContent = styled("div", {
-  /* Avoid blurriness */
-  transform: "translateZ(0)",
-  backfaceVisibility: "hidden",
-});
+export const StyledPopoverContent = styled("div", {});
 
 export type PopoverContentVariantsProps = VariantProps<typeof StyledPopoverContentContainer>;

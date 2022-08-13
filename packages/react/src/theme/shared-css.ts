@@ -47,14 +47,3 @@ export const sharedVisuallyHidden = css({
   whiteSpace: "nowrap",
   position: "absolute",
 });
-
-export const sharedDialogPopup = css(
-  {
-    // for dropdown triggers
-    '&[aria-haspopup="true"]&[aria-expanded="true"]&[data-pressed-transition-disabled="false"]': {
-      opacity: 0.7,
-      transform: "scale(0.97)",
-    },
-  },
-  cssNoBlurriness,
-);

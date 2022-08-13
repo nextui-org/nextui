@@ -35,18 +35,19 @@ const DropdownButton = React.forwardRef(
     const isAnimated = useMemo(() => animated || !disableAnimation, [animated, disableAnimation]);
 
     return (
-      <DropdownTrigger>
+      <DropdownTrigger
+        css={{
+          "& .nextui-button-icon-right, & .nextui-button-text-right": {
+            pointerEvents: "none",
+          },
+          ...css,
+        }}
+      >
         <Button
           ref={buttonRef}
           animated={isAnimated}
           auto={auto}
           className={clsx("nextui-dropdown-button", className)}
-          css={{
-            "& .nextui-button-icon-right, & .nextui-button-text-right": {
-              pointerEvents: "none",
-            },
-            ...css,
-          }}
           iconRight={getIconRight}
           iconRightCss={{
             mt: "$1",

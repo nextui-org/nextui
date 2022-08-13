@@ -38,6 +38,10 @@ interface Props<T> extends FocusableProps {
   icon?: ReactNode;
   dividerWeight?: NormalWeights;
   as?: keyof JSX.IntrinsicElements;
+  /**
+   * Whether the item description should be truncated or not.
+   */
+  showFullDescription?: boolean;
   onAction?: (key: Key) => void;
 }
 
@@ -60,6 +64,7 @@ const DropdownItem = <T extends object>({
   isVirtualized,
   withDivider,
   dividerWeight,
+  showFullDescription,
   className,
   onAction,
 }: DropdownItemProps<T>) => {
@@ -161,6 +166,7 @@ const DropdownItem = <T extends object>({
       isSelectable={isSelectable}
       isSelected={isSelected}
       shouldShowOutline={isFocusVisible && variant === "shadow"}
+      showFullDescription={showFullDescription || item.props.showFullDescription}
       textColor={getTextColor}
       variant={item.props.variant || variant}
       withDescription={!!withDescription}
