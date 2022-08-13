@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
-import { loadScript } from '@utils/scripts';
-import { useTheme } from '@nextui-org/react';
-import { isProd } from '@utils/index';
-import useIsMounted from '@hooks/use-is-mounted';
-import carbonOptimize from './carbon-optimize'
+import React, {useEffect} from "react";
+import {loadScript} from "@utils/scripts";
+import {useTheme} from "@nextui-org/react";
+import {isProd} from "@utils/index";
+import useIsMounted from "@hooks/use-is-mounted";
+
+import carbonOptimize from "./carbon-optimize";
 
 const CarbonAd: React.FC<unknown> = () => {
   const ref = React.useRef(null);
-  const { theme, isDark } = useTheme();
+  const {theme, isDark} = useTheme();
   const isMounted = useIsMounted();
 
   useEffect(() => {
@@ -18,12 +19,14 @@ const CarbonAd: React.FC<unknown> = () => {
       isMounted &&
       setTimeout(() => {
         const script = loadScript(
-          'https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg',
-          ref.current
+          "https://cdn.carbonads.com/carbon.js?serve=CESIC53Y&placement=nextuiorg",
+          ref.current,
         );
-        script.id = '_carbonads_js';
+
+        script.id = "_carbonads_js";
         carbonOptimize.init();
       });
+
     return () => {
       load && clearTimeout(load);
     };
@@ -33,8 +36,8 @@ const CarbonAd: React.FC<unknown> = () => {
 
   return (
     <div className="carbon-ad-container">
-      <span id="carbon-ad" ref={ref}>
-        <style jsx global>
+      <span ref={ref} id="carbon-ad">
+        <style global jsx>
           {`
             .carbon-ad-container {
               min-height: 132px;
@@ -53,7 +56,7 @@ const CarbonAd: React.FC<unknown> = () => {
               width: 100%;
               z-index: 100;
               border-radius: ${theme?.radii?.lg?.value};
-              background-color: ${!isDark ? '#363449' : '#111'};
+              background-color: ${!isDark ? "#363449" : "#111"};
               box-shadow: 0px 5px 20px -5px rgb(0 0 0 / 20%);
             }
             #carbonads a {
@@ -62,9 +65,7 @@ const CarbonAd: React.FC<unknown> = () => {
               transition: color 0.25s ease;
             }
             #carbonads a:hover {
-              color: ${!isDark
-                ? theme?.colors?.accents3?.value
-                : theme?.colors?.accents7?.value};
+              color: ${!isDark ? theme?.colors?.accents3?.value : theme?.colors?.accents7?.value};
             }
             #carbonads span {
               width: 100%;
@@ -94,9 +95,7 @@ const CarbonAd: React.FC<unknown> = () => {
               display: block;
               font-size: 1rem;
               width: 100%;
-              color: ${!isDark
-                ? theme?.colors?.accents2?.value
-                : theme?.colors?.accents6?.value};
+              color: ${!isDark ? theme?.colors?.accents2?.value : theme?.colors?.accents6?.value};
               padding-left: ${theme?.space?.md?.value};
               padding-right: ${theme?.space?.md?.value};
             }
@@ -108,9 +107,7 @@ const CarbonAd: React.FC<unknown> = () => {
               bottom: 0;
               right: 0;
               padding: 10px 0;
-              color: ${!isDark
-                ? theme?.colors?.accents1?.value
-                : theme?.colors?.accents4?.value};
+              color: ${!isDark ? theme?.colors?.accents1?.value : theme?.colors?.accents4?.value};
               text-transform: uppercase;
               letter-space: .value 0.5px;
               font-weight: 600;
@@ -118,8 +115,7 @@ const CarbonAd: React.FC<unknown> = () => {
               line-height: 0;
               transition: all 0.25 ease;
             }
-            @media only screen and (max-width: ${theme?.breakpoints?.xs
-                .value}) {
+            @media only screen and (max-width: ${theme?.breakpoints?.xs.value}) {
               #carbonads .carbon-text {
                 font-size: 0.9rem;
               }

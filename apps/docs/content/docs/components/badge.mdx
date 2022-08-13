@@ -1,0 +1,189 @@
+---
+title: "Badge"
+description: "Badges are used as a small numerical value or status descriptor for UI elements."
+url: https://nextui.org/docs/components/badge
+---
+
+# Badge
+
+Badges are used as a small numerical value or status descriptor for UI elements.
+
+```jsx
+import { Badge } from "@nextui-org/react";
+```
+
+<CarbonAd />
+
+<Spacer y={2} />
+
+<Playground
+  title="Default"
+  desc="Badge with default styles, used in standalone when `content` prop is empty."
+  files={badgeContent.defaultBadge}
+/>
+
+<Playground
+  title="Sizes"
+  desc="Use `size` prop to change the size of the badge."
+  files={badgeContent.sizesBadge}
+/>
+
+<Playground
+  title="Colors"
+  desc="We preset a series of colorful Badge styles for use in different situations."
+  files={badgeContent.colorsBadge}
+/>
+
+<Playground
+  title="Shadow"
+  desc="Use `enableShadow` prop to add a shadow to the badge."
+  files={badgeContent.shadowBadge}
+/>
+
+<Playground
+  title="Dot"
+  desc="Use the `dot` variant to create a dot badge. Useful for indicating a status or showing a notification that there is new content."
+  files={badgeContent.dotBadge}
+/>
+
+<Playground
+  title="Points"
+  desc="Use the `points` variant to create a badge with a points animation. Useful for indicating a writing or loading status."
+  files={badgeContent.pointsBadge}
+/>
+
+<Playground
+  title="Bordered"
+  desc="Use the `bordered` variant to create a badge with a border and an empty background."
+  files={badgeContent.borderedBadge}
+/>
+
+<Playground
+  title="Flat"
+  desc="Use the `flat` variant to create a badge with a flat background that contrasts with the text based on the selected color. [Leran more about the color palette](/docs/theme/default-theme#understanding-the-base-scale)."
+  files={badgeContent.flatBadge}
+/>
+
+<Playground
+  title="Squared"
+  desc="Use the `isSquared` prop to create a badge with squared corners."
+  files={badgeContent.squaredBadge}
+/>
+
+<Playground
+  title="Content"
+  desc="If you pass the `content` prop, the badge will be rendered relative to its children."
+  files={badgeContent.contentBadge}
+/>
+
+<Playground
+  title="Content Placements"
+  desc="Use the `placement` prop to change the placement of the badge content. The default placement is `top-right`."
+  files={badgeContent.contentPlacementsBadge}
+/>
+
+<Playground
+  title="Content Shape"
+  desc="Use the `shape` prop to place the badge content relative to the corner of the children element. The default shape is `rectangle`."
+  files={badgeContent.contentShapeBadge}
+/>
+
+<Playground
+  title="Content Visibility"
+  desc="The visibility of badges can be controlled using the `isInvisible` prop."
+  files={badgeContent.contentVisibilityBadge}
+/>
+
+<Playground
+  title="Content Offset"
+  desc="You can use the `verticalOffset` and `horizontalOffset` props to adjust the position of the badge content. The default offset is `5%` for rectangles and `15%` for circles."
+  files={badgeContent.contentOffset}
+/>
+
+<Playground
+  title="Disable Outline"
+  desc="Use the `disableOutline` prop to remove the outline from the badge. The default outline is `2px` with a `solid` background color."
+  files={badgeContent.disableOutline}
+/>
+
+<Playground
+  title="Accessibility"
+  desc="You shouldn't rely on the content of the badge to be announced correctly. You should provide a full description, for instance, with `aria-label`."
+  files={badgeContent.a11y}
+/>
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Badge Props
+
+| Attribute            | Type                                 | Description                                                                        | Default     |
+| -------------------- | ------------------------------------ | ---------------------------------------------------------------------------------- | ----------- |
+| **children**         | `ReactNode`                          | The wrapped component.                                                             | -           |
+| **content**          | `string` `number` `ReactNode`        | The content of the badge. The badge will be rendered relative to its **children**. | -           |
+| **color**            | [SimpleColors](#simple-colors)       | The badge color.                                                                   | `default`   |
+| **size**             | [NormalSizes](#normal-sizes)         | The badge size.                                                                    | `md`        |
+| **variant**          | [BadgeVariant](#badge-variants)      | The badge variation.                                                               | `default`   |
+| **placement**        | [BadgePlacements](#badge-placements) | The placement of the badge **content**.                                            | `top-right` |
+| **borderWeight**     | [NormalWeights](#normal-weights)     | The border weight for **bordered** badge variation.                                | `normal`    |
+| **shape**            | `circle` `rectangle`                 | The wrapped shape the badge should overlap.                                        | `rectangle` |
+| **horizontalOffset** | `string` `number`                    | The horizontal offset of the badge **content**.                                    | -           |
+| **verticalOffset**   | `string` `number`                    | The vertical offset of the badge **content**.                                      | -           |
+| **isInvisible**      | `boolean`                            | Whether the badge is invisible.                                                    | `false`     |
+| **enableShadow**     | `boolean`                            | Whether the badge shadow should be enabled.                                        | `false`     |
+| **isSquared**        | `boolean`                            | Whether the badge corners should be squared.                                       | `false`     |
+| **disableOutline**   | `boolean`                            | Whether the badge outline should be disabled.                                      | `false`     |
+| **disableAnimation** | `boolean`                            | Whether the badge **content** animation should be disabled.                | `false`     |
+| **css**              | `Stitches.CSS`                       | Override Default CSS style.                                                        | -           |
+| **as**               | `keyof JSX.IntrinsicElements`        | Changes which tag component outputs.                                               | `span`      |
+
+---
+
+<Spacer y={2} />
+
+### Badge types
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | "default"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error";
+```
+
+#### Normal Sizes
+
+```ts
+type NormalSizes = "xs" | "sm" | "md" | "lg" | "xl";
+```
+
+<Spacer y={1} />
+
+#### Badge Variants
+
+```ts
+type BadgeVariants = "default" | "flat" | "dot" | "points" | "bordered";
+```
+
+#### Badge Placements
+
+```ts
+type BadgePlacements =
+  | "top-right"
+  | "top-left"
+  | "bottom-right"
+  | "bottom-left";
+```
+
+#### Normal Weights
+
+```ts
+type NormalWeights = "light" | "normal" | "bold" | "extrabold" | "black";
+```

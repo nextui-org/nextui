@@ -1,21 +1,22 @@
-import React from 'react';
-import { useTheme } from '@nextui-org/react';
-import { Send } from '../../icons';
+import React from "react";
+import {useTheme} from "@nextui-org/react";
+
+import {Send} from "../../icons";
 
 interface Props {
   onClick: () => void;
 }
 
-const SendButton: React.FC<Props> = ({ onClick }) => {
-  const { theme } = useTheme();
+const SendButton: React.FC<Props> = ({onClick}) => {
+  const {theme} = useTheme();
 
   const handleClick = () => {
     onClick && onClick();
   };
 
   return (
-    <div className="send-button-container" onClick={handleClick}>
-      <Send fill="white" className="send-button__arrow-icon" />
+    <div className="send-button-container" role="button" onClick={handleClick}>
+      <Send className="send-button__arrow-icon" fill="white" />
       <style jsx>{`
         .send-button-container {
           width: 24px;

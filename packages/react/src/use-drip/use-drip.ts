@@ -1,9 +1,9 @@
-import { PressEvent } from '@react-types/shared';
-import React, { useState } from 'react';
+import {PressEvent} from "@react-types/shared";
+import React, {useState} from "react";
 
 const useDrip = (
   initialValue: boolean = false,
-  ref: React.RefObject<HTMLElement>
+  ref: React.RefObject<HTMLElement>,
 ): {
   visible: boolean;
   x: number;
@@ -24,6 +24,7 @@ const useDrip = (
   const clickHandler = (event: React.MouseEvent<HTMLElement>) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
+
     setDripVisible(true);
     setDripX(event.clientX - rect.left);
     setDripY(event.clientY - rect.top);
@@ -34,7 +35,7 @@ const useDrip = (
     x: dripX,
     y: dripY,
     onClick: clickHandler,
-    onCompleted: dripCompletedHandle
+    onCompleted: dripCompletedHandle,
   };
 };
 

@@ -1,22 +1,24 @@
-import React, { useMemo } from 'react';
-import { CSS } from '../theme/stitches.config';
-import { Pagination, PaginationProps } from '../index';
-import { NormalAlignment } from '../utils/prop-types';
-import { useTableContext } from './table-context';
-import clsx from '../utils/clsx';
+import React, {useMemo} from "react";
+
+import {CSS} from "../theme/stitches.config";
+import {Pagination, PaginationProps} from "../index";
+import {NormalAlignment} from "../utils/prop-types";
+import clsx from "../utils/clsx";
+
+import {useTableContext} from "./table-context";
 
 interface Props {
   animated?: boolean;
   rowsPerPage?: number;
   align?: NormalAlignment;
-  onPageChange?: PaginationProps['onChange'];
+  onPageChange?: PaginationProps["onChange"];
 }
 
-type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
+type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props | "onChange">;
 
 export type TablePaginationProps = Props &
   NativeAttrs &
-  Omit<Partial<PaginationProps>, 'onChage'> & { css?: CSS };
+  Omit<Partial<PaginationProps>, "onChange"> & {css?: CSS};
 
 const TablePagination: React.FC<TablePaginationProps> = ({
   align,
@@ -32,7 +34,7 @@ const TablePagination: React.FC<TablePaginationProps> = ({
     rowsPerPage,
     setFooterAlign,
     setRowsPerPage,
-    setCurrentPage
+    setCurrentPage,
   } = useTableContext();
 
   React.useEffect(() => {
@@ -53,26 +55,25 @@ const TablePagination: React.FC<TablePaginationProps> = ({
   };
 
   const totalPagination = useMemo(() => {
-    const rowsCount = collection?.body
-      ? [...collection?.body?.childNodes].length
-      : 0;
+    const rowsCount = collection?.body ? [...collection?.body?.childNodes].length : 0;
+
     return rowsPerPage > 0 ? Math.ceil(rowsCount / rowsPerPage) : 1;
   }, [collection, rowsPerPage]);
 
   return (
     <Pagination
-      total={totalPagination}
       animated={animated}
+      className={clsx("nextui-table-pagination", props.className)}
+      color={props.color || (color as PaginationProps["color"])}
+      total={totalPagination}
       onChange={handlePageChanged}
-      color={props.color || (color as PaginationProps['color'])}
-      className={clsx('nextui-table-pagination', props.className)}
       {...props}
     />
   );
 };
 
-TablePagination.displayName = 'NextUI.TablePagination';
+TablePagination.displayName = "NextUI.TablePagination";
 
-TablePagination.toString = () => '.nextui-table-pagination';
+TablePagination.toString = () => ".nextui-table-pagination";
 
 export default TablePagination;

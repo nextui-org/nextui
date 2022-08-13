@@ -169,12 +169,12 @@ export default function App() {
 }`;
 
 const react = {
-  '/SunIcon.js': SunIcon,
-  '/App.js': AppJs,
-  '/SendButton.js': SendButton,
-  '/SendIcon.js': SendIcon
+  "/SunIcon.js": SunIcon,
+  "/App.js": AppJs,
+  "/SendButton.js": SendButton,
+  "/SendIcon.js": SendIcon,
 };
 
 export default {
-  ...react
+  ...react,
 };

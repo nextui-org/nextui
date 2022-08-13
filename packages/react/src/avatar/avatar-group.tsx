@@ -1,12 +1,14 @@
-import React, { ReactNode } from 'react';
-import { CSS } from '../theme/stitches.config';
-import { ReactRef } from '../utils/refs';
-import { useDOMRef } from '../utils/dom';
-import { __DEV__ } from '../utils/assertion';
+import React, {ReactNode} from "react";
+
+import {CSS} from "../theme/stitches.config";
+import {ReactRef} from "../utils/refs";
+import {useDOMRef} from "../utils/dom";
+import {__DEV__} from "../utils/assertion";
+
 import StyledAvatarGroup, {
   StyledAvatarGroupCount,
-  AvatarGroupVariants
-} from './avatar-group.styles';
+  AvatarGroupVariants,
+} from "./avatar-group.styles";
 
 interface Props {
   count?: number;
@@ -16,13 +18,11 @@ interface Props {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type AvatarGroupProps = Props &
-  NativeAttrs &
-  AvatarGroupVariants & { css?: CSS };
+export type AvatarGroupProps = Props & NativeAttrs & AvatarGroupVariants & {css?: CSS};
 
 export const AvatarGroup = React.forwardRef(
   (props: AvatarGroupProps, ref: ReactRef<HTMLDivElement>) => {
-    const { count, children, ...otherProps } = props;
+    const {count, children, ...otherProps} = props;
 
     const domRef = useDOMRef(ref);
 
@@ -36,13 +36,13 @@ export const AvatarGroup = React.forwardRef(
         )}
       </StyledAvatarGroup>
     );
-  }
+  },
 );
 
 if (__DEV__) {
-  AvatarGroup.displayName = 'NextUI.AvatarGroup';
+  AvatarGroup.displayName = "NextUI.AvatarGroup";
 }
 
-AvatarGroup.toString = () => '.nextui-avatar-group';
+AvatarGroup.toString = () => ".nextui-avatar-group";
 
 export default AvatarGroup;

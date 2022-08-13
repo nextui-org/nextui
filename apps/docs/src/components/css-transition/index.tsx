@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import withDefaults from '@utils/with-defaults';
+import React, {useEffect, useState} from "react";
+import withDefaults from "@utils/with-defaults";
 
 interface Props {
   visible?: boolean;
@@ -15,8 +15,8 @@ const defaultProps = {
   enterTime: 60,
   leaveTime: 60,
   clearTime: 60,
-  className: '',
-  name: 'transition',
+  className: "",
+  name: "transition",
 };
 
 export type CSSTransitionProps = Props & typeof defaultProps;
@@ -31,12 +31,13 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
   name,
   ...props
 }) => {
-  const [classes, setClasses] = useState<string>('');
+  const [classes, setClasses] = useState<string>("");
   const [renderable, setRenderable] = useState<boolean>(visible);
 
   useEffect(() => {
-    const statusClassName = visible ? 'enter' : 'leave';
+    const statusClassName = visible ? "enter" : "leave";
     const time = visible ? enterTime : leaveTime;
+
     if (visible && !renderable) {
       setRenderable(true);
     }
@@ -45,16 +46,14 @@ const CSSTransition: React.FC<React.PropsWithChildren<CSSTransitionProps>> = ({
 
     // set class to active
     const timer = setTimeout(() => {
-      setClasses(
-        `${name}-${statusClassName} ${name}-${statusClassName}-active`
-      );
+      setClasses(`${name}-${statusClassName} ${name}-${statusClassName}-active`);
       clearTimeout(timer);
     }, time);
 
     // remove classess when animation over
     const clearClassesTimer = setTimeout(() => {
       if (!visible) {
-        setClasses('');
+        setClasses("");
         setRenderable(false);
       }
       clearTimeout(clearClassesTimer);

@@ -1,16 +1,17 @@
-import * as React from 'react';
-import { useTheme } from '@nextui-org/react';
+import * as React from "react";
+import {useTheme} from "@nextui-org/react";
 
 export interface MenuToggleProps {
   expanded: boolean;
 }
 
-const MenuToggle: React.FC<MenuToggleProps> = ({ expanded }) => {
-  const { theme } = useTheme();
+const MenuToggle: React.FC<MenuToggleProps> = ({expanded}) => {
+  const {theme} = useTheme();
+
   return (
     <div
-      className={`wrap ${expanded ? 'expanded' : ''}`}
-      aria-label={`${expanded ? 'close menu' : 'open menu'}`}
+      aria-label={`${expanded ? "close menu" : "open menu"}`}
+      className={`wrap ${expanded ? "expanded" : ""}`}
     >
       <div className="line top" />
       <div className="line bottom" />

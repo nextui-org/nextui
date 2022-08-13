@@ -1,9 +1,11 @@
-import React, { useContext, useMemo } from 'react';
-import withDefaults from '../utils/with-defaults';
-import { ModalContext } from './modal-context';
-import { CSS } from '../theme/stitches.config';
-import { StyledModalBody, ModalBodyVariantsProps } from './modal.styles';
-import cslx from '../utils/clsx';
+import React, {useContext, useMemo} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import {CSS} from "../theme/stitches.config";
+import cslx from "../utils/clsx";
+
+import {ModalContext} from "./modal-context";
+import {StyledModalBody, ModalBodyVariantsProps} from "./modal.styles";
 
 interface Props {
   className?: string;
@@ -12,8 +14,8 @@ interface Props {
 }
 
 const defaultProps = {
-  className: '',
-  autoMargin: true
+  className: "",
+  autoMargin: true,
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<HTMLElement>, keyof Props>;
@@ -21,9 +23,9 @@ type NativeAttrs = Omit<React.HTMLAttributes<HTMLElement>, keyof Props>;
 export type ModalBodyProps = Props &
   typeof defaultProps &
   NativeAttrs &
-  ModalBodyVariantsProps & { css?: CSS };
+  ModalBodyVariantsProps & {css?: CSS};
 
-const preClass = 'nextui-modal-body';
+const preClass = "nextui-modal-body";
 
 const ModalBody: React.FC<ModalBodyProps> = ({
   className,
@@ -31,7 +33,7 @@ const ModalBody: React.FC<ModalBodyProps> = ({
   autoMargin: autoMarginProp,
   ...props
 }) => {
-  const { autoMargin: autoMarginContext, noPadding } = useContext(ModalContext);
+  const {autoMargin: autoMarginContext, noPadding} = useContext(ModalContext);
 
   const autoMargin = useMemo(() => {
     return autoMarginContext !== undefined ? autoMarginContext : autoMarginProp;
@@ -39,15 +41,15 @@ const ModalBody: React.FC<ModalBodyProps> = ({
 
   return (
     <StyledModalBody
+      autoMargin={autoMargin}
       className={cslx(
         preClass,
         {
           [`${preClass}-auto-margin`]: autoMargin,
-          [`${preClass}-no-padding`]: noPadding
+          [`${preClass}-no-padding`]: noPadding,
         },
-        className
+        className,
       )}
-      autoMargin={autoMargin}
       noPadding={noPadding}
       {...props}
     >
@@ -56,7 +58,7 @@ const ModalBody: React.FC<ModalBodyProps> = ({
   );
 };
 
-ModalBody.toString = () => '.nextui-modal-body';
+ModalBody.toString = () => ".nextui-modal-body";
 
 const MemoModalBody = React.memo(ModalBody);
 

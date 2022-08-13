@@ -1,16 +1,14 @@
-import React, { useEffect, useRef, useMemo, useState } from 'react';
-import withDefaults from '../utils/with-defaults';
-import CSSTransition from '../utils/css-transition';
-import { isChildElement } from '../utils/collections';
-import { CSS } from '../theme/stitches.config';
-import ModalCloseButton from './modal-close-button';
-import { KeyCode } from '../use-keyboard';
-import {
-  StyledModal,
-  StyledModalHideTab,
-  ModalVariantsProps
-} from './modal.styles';
-import cslx from '../utils/clsx';
+import React, {useEffect, useRef, useMemo, useState} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import CSSTransition from "../utils/css-transition";
+import {isChildElement} from "../utils/collections";
+import {CSS} from "../theme/stitches.config";
+import {KeyCode} from "../use-keyboard";
+import cslx from "../utils/clsx";
+
+import ModalCloseButton from "./modal-close-button";
+import {StyledModal, StyledModalHideTab, ModalVariantsProps} from "./modal.styles";
 
 interface Props {
   visible?: boolean;
@@ -25,18 +23,16 @@ interface Props {
 }
 
 const defaultProps = {
-  className: '',
+  className: "",
   visible: false,
-  rebound: false
+  rebound: false,
 };
 
 type NativeAttrs = Omit<React.DialogHTMLAttributes<unknown>, keyof Props>;
 
-export type ModalWrapperProps = Props &
-  NativeAttrs &
-  ModalVariantsProps & { css?: CSS };
+export type ModalWrapperProps = Props & NativeAttrs & ModalVariantsProps & {css?: CSS};
 
-const preClass = 'nextui-modal';
+const preClass = "nextui-modal";
 
 const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   className,
@@ -60,6 +56,7 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
       setRendered(true);
       clearTimeout(timer);
     }, 300);
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -67,14 +64,17 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
     if (!visible) return;
     const activeElement = document.activeElement;
     const isChild = isChildElement(modalContent.current, activeElement);
+
     if (isChild) return;
     tabStart.current && tabStart.current.focus();
   }, [visible]);
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     const isTabDown = event.keyCode === KeyCode.Tab;
+
     if (!visible || !isTabDown) return;
     const activeElement = document.activeElement;
+
     if (event.shiftKey) {
       if (activeElement === tabStart.current) {
         tabEnd.current && tabEnd.current.focus();
@@ -91,21 +91,15 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   };
 
   const getState = useMemo(() => {
-    return visible ? 'open' : 'closed';
+    return visible ? "open" : "closed";
   }, [visible]);
 
   const renderChildren = useMemo(() => {
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <StyledModal
-        role="dialog"
-        tabIndex={-1}
-        aria-modal={visible}
         ref={modalContent}
-        data-state={getState}
-        fullScreen={fullScreen}
-        scroll={scroll}
-        closeButton={closeButton}
+        aria-modal={visible}
         className={cslx(
           preClass,
           `${preClass}--${getState}`,
@@ -113,28 +107,34 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
             [`${preClass}-fullscreen`]: fullScreen,
             [`${preClass}-with-close-button`]: closeButton,
             [`${preClass}-rebound`]: rebound,
-            [`${preClass}-rendered`]: rendered
+            [`${preClass}-rendered`]: rendered,
           },
-          className
+          className,
         )}
+        closeButton={closeButton}
+        data-state={getState}
+        fullScreen={fullScreen}
+        role="dialog"
+        scroll={scroll}
+        tabIndex={-1}
         {...props}
         onKeyDown={onKeyDown}
       >
         <StyledModalHideTab
+          ref={tabStart}
+          aria-hidden="true"
+          className={`${preClass}-hide-tab`}
           role="button"
           tabIndex={0}
-          className={`${preClass}-hide-tab`}
-          aria-hidden="true"
-          ref={tabStart}
         />
         {closeButton && <ModalCloseButton onClick={handleClose} />}
         {children}
         <StyledModalHideTab
+          ref={tabEnd}
+          aria-hidden="true"
+          className={`${preClass}-hide-tab`}
           role="button"
           tabIndex={0}
-          className={`${preClass}-hide-tab`}
-          aria-hidden="true"
-          ref={tabEnd}
         />
       </StyledModal>
     );
@@ -144,11 +144,11 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
     <>
       {animated ? (
         <CSSTransition
-          name={`${preClass}-wrapper`}
-          visible={visible}
+          clearTime={300}
           enterTime={20}
           leaveTime={20}
-          clearTime={300}
+          name={`${preClass}-wrapper`}
+          visible={visible}
         >
           {renderChildren}
         </CSSTransition>
@@ -159,6 +159,6 @@ const ModalWrapper: React.FC<React.PropsWithChildren<ModalWrapperProps>> = ({
   );
 };
 
-ModalWrapper.toString = () => '.nextui-modal-wrapper';
+ModalWrapper.toString = () => ".nextui-modal-wrapper";
 
 export default withDefaults(ModalWrapper, defaultProps);

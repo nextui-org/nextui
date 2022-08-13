@@ -1,8 +1,9 @@
-import React from 'react';
-import cn from 'classnames';
-import { SandpackPredefinedTemplate } from '@codesandbox/sandpack-react';
-import { TypescriptLogo, JavascriptLogo } from '@components';
-import { StyledPlaygroundButtons, StyledLanguageButton } from './styles';
+import React from "react";
+import cn from "classnames";
+import {SandpackPredefinedTemplate} from "@codesandbox/sandpack-react";
+import {TypescriptLogo, JavascriptLogo} from "@components";
+
+import {StyledPlaygroundButtons, StyledLanguageButton} from "./styles";
 
 interface Props {
   template: SandpackPredefinedTemplate;
@@ -11,12 +12,10 @@ interface Props {
 
 export type LanguageSelectorProps = Props;
 
-const LanguageSelector: React.FC<LanguageSelectorProps> = ({
-  template,
-  onChange
-}) => {
+const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onChange}) => {
   const handleToggle = () => {
-    const newTemplate = template === 'react' ? 'react-ts' : 'react';
+    const newTemplate = template === "react" ? "react-ts" : "react";
+
     onChange?.(newTemplate);
   };
 
@@ -24,15 +23,15 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     <StyledPlaygroundButtons bottom>
       <StyledLanguageButton onClick={handleToggle}>
         <JavascriptLogo
-          className={cn('sp-language-icon', {
-            'sp-language-icon--selected': template === 'react'
+          className={cn("sp-language-icon", {
+            "sp-language-icon--selected": template === "react",
           })}
         />
       </StyledLanguageButton>
       <StyledLanguageButton onClick={handleToggle}>
         <TypescriptLogo
-          className={cn('sp-language-icon', {
-            'sp-language-icon--selected': template === 'react-ts'
+          className={cn("sp-language-icon", {
+            "sp-language-icon--selected": template === "react-ts",
           })}
         />
       </StyledLanguageButton>

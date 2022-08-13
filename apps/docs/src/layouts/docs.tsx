@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from './navbar';
-import Footer from './footer';
-import { Container, Row, Col } from '@nextui-org/react';
-import NextLink from 'next/link';
-import { Route } from '@lib/docs/page';
-import { Sidebar, TableOfContent } from '@components';
-import { Link } from '@nextui-org/react';
-import { Heading, getHeadings } from '@utils/get-headings';
-import { MetaProps } from '@lib/docs/meta';
-import Header from '@layouts/header';
-import { Fixed, PageNav } from '@components';
-import { REPO_NAME, GITHUB_URL } from '@lib/github/constants';
-import { TAG, CONTENT_PATH } from '@lib/docs/config';
-import { StyledImg } from '@primitives';
-import { darkTheme } from '@theme/shared';
-import { appears } from '@utils/animations';
+import React, {useState, useEffect} from "react";
+import {Container, Row, Col} from "@nextui-org/react";
+import NextLink from "next/link";
+import {Route} from "@lib/docs/page";
+import {Sidebar, TableOfContent} from "@components";
+import {Link} from "@nextui-org/react";
+import {Heading, getHeadings} from "@utils/get-headings";
+import {MetaProps} from "@lib/docs/meta";
+import Header from "@layouts/header";
+import {Fixed, PageNav} from "@components";
+import {REPO_NAME, GITHUB_URL} from "@lib/github/constants";
+import {TAG, CONTENT_PATH} from "@lib/docs/config";
+import {StyledImg} from "@primitives";
+import {darkTheme} from "@theme/shared";
+import {appears} from "@utils/animations";
+
+import Footer from "./footer";
+import Navbar from "./navbar";
 
 export interface Props {
   routes: Route[];
@@ -34,7 +35,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
   currentRoute,
   tag,
   slug,
-  meta
+  meta,
 }) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
 
@@ -48,70 +49,70 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
     <div id="app-container">
       <Navbar routes={routes} />
       <Container
-        lg={true}
         as="main"
-        id="main-container"
         className="docs__container"
+        css={{position: "relative"}}
         display="flex"
-        css={{ position: 'relative' }}
+        id="main-container"
+        lg={true}
       >
         <Header {...meta} />
         <Row
           className="docs__content"
-          gap={0}
           css={{
-            '@lg': {
-              pt: '1rem'
-            }
+            "@lg": {
+              pt: "1rem",
+            },
           }}
+          gap={0}
         >
           <Col
             css={{
-              width: '32%',
-              display: 'none',
-              '@md': {
-                display: 'block'
-              }
+              width: "32%",
+              display: "none",
+              "@md": {
+                display: "block",
+              },
             }}
           >
             <Fixed
-              offset={92}
               className="docs__left-sidebar"
               css={{
-                maxHeight: 'calc(100vh - 4rem)',
-                overflow: 'auto',
-                zIndex: '$2',
-                pb: '$28',
-                '&::-webkit-scrollbar': {
-                  width: '0px'
-                }
+                maxHeight: "calc(100vh - 4rem)",
+                overflow: "auto",
+                zIndex: "$2",
+                pb: "$28",
+                "&::-webkit-scrollbar": {
+                  width: "0px",
+                },
               }}
+              offset={92}
             >
-              <Sidebar routes={routes} tag={tag} slug={slug} />
+              <Sidebar routes={routes} slug={slug} tag={tag} />
             </Fixed>
           </Col>
           <Col
             className="docs__center"
             css={{
-              zIndex: '$10',
-              maxWidth: '100%',
-              overflow: 'auto',
-              '@xsMax': {
-                p: 0
-              }
+              zIndex: "$10",
+              maxWidth: "100%",
+              overflow: "auto",
+              "@xsMax": {
+                p: 0,
+              },
             }}
           >
             {children}
-            <PageNav tag={tag} prevRoute={prevRoute} nextRoute={nextRoute} />
+            <PageNav nextRoute={nextRoute} prevRoute={prevRoute} tag={tag} />
             <footer>
               {tag ? (
-                <NextLink href={slug || ''}>
+                <NextLink href={slug || ""}>
                   <Link>
                     <small>Go to the live version of this page</small>
                   </Link>
                 </NextLink>
               ) : (
-                <a href={editUrl} target="_blank" rel="noopener noreferrer">
+                <a href={editUrl} rel="noopener noreferrer" target="_blank">
                   <small>Edit this page on GitHub</small>
                 </a>
               )}
@@ -119,72 +120,72 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
           </Col>
           <Col
             css={{
-              width: '28%',
-              height: '100%',
-              display: 'none',
-              '@lg': {
-                display: 'block'
-              }
+              width: "28%",
+              height: "100%",
+              display: "none",
+              "@lg": {
+                display: "block",
+              },
             }}
           >
             <Fixed
-              offset={92}
               className="docs__right-sidebar"
               css={{
-                width: '100%',
-                zIndex: '$2',
-                pb: '$20',
-                '&::-webkit-scrollbar': {
-                  width: '0px'
-                }
+                width: "100%",
+                zIndex: "$2",
+                pb: "$20",
+                "&::-webkit-scrollbar": {
+                  width: "0px",
+                },
               }}
+              offset={92}
             >
               <TableOfContent headings={headings} />
             </Fixed>
           </Col>
           <StyledImg
-            className="docs__gradient-blue"
-            src="/gradient-left-dark.svg"
             alt="gradient blue background"
+            className="docs__gradient-blue"
             css={{
-              display: 'none',
+              display: "none",
               opacity: 0,
-              position: 'fixed',
-              zIndex: '$1',
-              bottom: '-50%',
-              left: '-10%',
-              right: '-50%',
+              position: "fixed",
+              zIndex: "$1",
+              bottom: "-50%",
+              left: "-10%",
+              right: "-50%",
               animation: `${appears} 200ms 100ms ease forwards`,
               [`.${darkTheme} &`]: {
-                display: 'block'
-              }
+                display: "block",
+              },
             }}
+            src="/gradient-left-dark.svg"
           />
           <StyledImg
-            className="docs__gradient-violet"
-            src="/gradient-right-dark.svg"
             alt="gradient violet background"
+            className="docs__gradient-violet"
             css={{
-              display: 'none',
+              display: "none",
               top: 0,
               opacity: 0,
-              position: 'fixed',
+              position: "fixed",
               animation: `${appears} 200ms 100ms ease forwards`,
-              '@lg': {
-                top: '-50%',
-                right: '-50%'
+              "@lg": {
+                top: "-50%",
+                right: "-50%",
               },
-              '@mdMax': {
-                top: '-35%',
-                right: '-45%'
+              "@mdMax": {
+                top: "-35%",
+                right: "-45%",
               },
               [`.${darkTheme} &`]: {
-                display: 'block'
-              }
+                display: "block",
+              },
             }}
+            src="/gradient-right-dark.svg"
           />
         </Row>
-        <Footer css={{ jc: 'flex-end' }} />
+        <Footer css={{jc: "flex-end"}} />
       </Container>
     </div>
   );

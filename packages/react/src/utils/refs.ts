@@ -1,10 +1,8 @@
-import * as React from 'react';
-import { isFunction } from './assertion';
+import * as React from "react";
 
-export type ReactRef<T> =
-  | React.Ref<T>
-  | React.RefObject<T>
-  | React.MutableRefObject<T>;
+import {isFunction} from "./assertion";
+
+export type ReactRef<T> = React.Ref<T> | React.RefObject<T> | React.MutableRefObject<T>;
 
 /**
  * Assigns a value to a ref function or object
@@ -17,6 +15,7 @@ export function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T) {
 
   if (isFunction(ref)) {
     ref(value);
+
     return;
   }
 

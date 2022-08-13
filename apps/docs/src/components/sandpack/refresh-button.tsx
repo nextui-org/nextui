@@ -1,7 +1,6 @@
-import { useClasser } from '@code-hike/classer';
-import * as React from 'react';
-
-import { useSandpackNavigation } from '@codesandbox/sandpack-react';
+import {useClasser} from "@code-hike/classer";
+import * as React from "react";
+import {useSandpackNavigation} from "@codesandbox/sandpack-react";
 
 export const RefreshIcon = (): React.ReactElement => (
   <svg
@@ -26,18 +25,16 @@ interface RefreshButtonProps {
 /**
  * @category Components
  */
-export const RefreshButton = ({
-  clientId
-}: RefreshButtonProps): JSX.Element => {
-  const { refresh } = useSandpackNavigation(clientId);
-  const c = useClasser('sp');
+export const RefreshButton = ({clientId}: RefreshButtonProps): JSX.Element => {
+  const {refresh} = useSandpackNavigation(clientId);
+  const c = useClasser("sp");
 
   return (
     <button
-      className={c('button', 'icon-standalone')}
-      onClick={refresh}
+      className={c("button", "icon-standalone")}
       title="Refresh Sandpack"
       type="button"
+      onClick={refresh}
     >
       <RefreshIcon />
     </button>
