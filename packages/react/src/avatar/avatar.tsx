@@ -70,7 +70,7 @@ export const Avatar = React.forwardRef((props: AvatarProps, ref: ReactRef<HTMLSp
         },
         className,
       )}
-      css={mergeProps(
+      css={
         as === "button"
           ? {
               // reset button styles
@@ -78,10 +78,10 @@ export const Avatar = React.forwardRef((props: AvatarProps, ref: ReactRef<HTMLSp
               outline: "none",
               border: "none",
               cursor: "pointer",
+              ...css,
             }
-          : {},
-        css as any,
-      )}
+          : css
+      }
       data-state={getState}
       isFocusVisible={isFocusVisible}
     >

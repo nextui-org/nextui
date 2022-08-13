@@ -62,14 +62,23 @@ export function useDropdown(props: UseDropdownProps = {}) {
 
   const getMenuTriggerProps = useCallback(
     (props = {}, _ref = null) => {
-      const realTriggerProps = triggerRefProp?.current
+      const {css = {}, ...realTriggerProps} = triggerRefProp?.current
         ? mergeProps(menuTriggerProps, props)
         : mergeProps(props, menuTriggerProps);
 
       return {
-        ...realTriggerProps,
-        "data-pressed-transition-disabled": disableTriggerPressedAnimation,
         ref: mergeRefs(triggerRef, _ref),
+        css: !disableTriggerPressedAnimation
+          ? {
+              backfaceVisibility: "hidden",
+              '&[aria-haspopup="true"]&[aria-expanded="true"]': {
+                opacity: 0.7,
+                transform: "translateZ(0) scale(0.97)",
+              },
+              ...css,
+            }
+          : css,
+        ...realTriggerProps,
       };
     },
     [triggerRef, triggerRefProp, menuTriggerProps, disableTriggerPressedAnimation],

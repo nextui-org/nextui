@@ -40,7 +40,7 @@ const PopoverTrigger = React.forwardRef(
     return React.cloneElement(
       child,
       getTriggerProps(
-        mergeProps(child.props, hasNextUIButton ? {onPress, ...otherProps} : buttonProps),
+        mergeProps(child.props, hasNextUIButton ? {onPress} : buttonProps, otherProps),
         child.ref,
       ),
     );
