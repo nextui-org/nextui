@@ -1,6 +1,6 @@
 {
-    "version": 2,
-    "github": {
-      "enabled": false
-    }
+  "github": {
+    "silent": false,
+    "autoJobCancelation": true
   }
+}
