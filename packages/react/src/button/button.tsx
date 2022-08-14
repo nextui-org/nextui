@@ -73,7 +73,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     css,
     iconLeftCss,
     iconRightCss,
-    onClick,
+    onClick: deprecatedOnClick,
     onPress,
     onPressStart,
     onPressEnd,
@@ -105,22 +105,21 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
     ...otherProps
   } = filteredProps;
 
-  const handleDrip = (e: React.MouseEvent<HTMLButtonElement> | PressEvent) => {
+  const handleDrip = (e: React.MouseEvent<HTMLButtonElement> | PressEvent | Event) => {
     if (animated && ripple && buttonRef.current) {
       onDripClickHandler(e);
     }
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    handleDrip(e);
-    onClick?.(e);
-  };
-
   const handlePress = (e: PressEvent) => {
     if (e.pointerType === "keyboard" || e.pointerType === "virtual") {
       handleDrip(e);
-      // TODO: take this out and deprecate onClick function for next release (only use the @react-aria/button impl)
-      onClick?.(e as any);
+    } else if (typeof window !== "undefined" && window.event) {
+      handleDrip(window.event);
+    }
+    if (deprecatedOnClick) {
+      deprecatedOnClick(e as any);
+      console.warn("onClick is deprecated, please use onPress");
     }
     onPress?.(e);
   };
@@ -129,7 +128,6 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
   const {buttonProps, isPressed} = useButton(
     {
       ...btnProps,
-      onClick: handleClick,
       isDisabled: disabled,
       elementType: as,
       onPress: handlePress,
@@ -223,7 +221,7 @@ const Button = forwardRef<ButtonProps, "button">((props, ref) => {
       ) : (
         <span className="nextui-button-text">{children}</span>
       )}
-      <ButtonDrip color="white" {...dripBindings} />
+      <ButtonDrip className="nextui-button-drip" color="white" {...dripBindings} />
     </StyledButton>
   );
 });
