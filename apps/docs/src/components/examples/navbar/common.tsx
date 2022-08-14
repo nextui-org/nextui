@@ -1,7 +1,10 @@
-import {useTheme, Text, Spacer, Navbar, Link, Button, styled} from "@nextui-org/react";
-import {ThemeToggle} from "@components";
+import {Text, Spacer, styled} from "@nextui-org/react";
 
-const AcmeLogo = () => (
+export const Box = styled("div", {
+  boxSizing: "border-box",
+});
+
+export const AcmeLogo = () => (
   <svg
     className=""
     fill="none"
@@ -20,11 +23,7 @@ const AcmeLogo = () => (
   </svg>
 );
 
-const Box = styled("div", {
-  boxSizing: "border-box",
-});
-
-const Content = () => (
+export const NavbarContent = () => (
   <Box css={{px: "$12", mt: "$8", "@xsMax": {px: "$10"}}}>
     <Text h2>Lorem ipsum dolor sit amet</Text>
     <Text size="$lg">
@@ -100,63 +99,14 @@ const Content = () => (
   </Box>
 );
 
-const Layout = ({children}: any) => (
+export const NavbarLayout = ({children}: {children: React.ReactNode}) => (
   <Box
     css={{
       maxW: "100%",
-      maxHeight: "600px",
-      overflow: "visible scroll",
-      boxShadow: "$md",
-      position: "relative",
-      border: "1px solid $colors$border",
-      borderRadius: "$md",
-      m: "$6",
-      "::-webkit-scrollbar": {
-        display: "none",
-        width: 0,
-        height: 0,
-        background: "transparent",
-      },
+      maxHeight: "100%",
     }}
   >
     {children}
-    <Content />
+    <NavbarContent />
   </Box>
 );
-
-const TestPage = () => {
-  const {isDark} = useTheme();
-
-  return (
-    <Layout>
-      <Navbar isBordered={isDark} variant="floating">
-        <Navbar.Brand>
-          <AcmeLogo />
-          <Text b color="inherit" css={{"@xsMax": {d: "none"}}}>
-            ACME
-          </Text>
-        </Navbar.Brand>
-        <Navbar.Content css={{"@smMax": {d: "none"}}}>
-          <Navbar.Link href="#">Features</Navbar.Link>
-          <Navbar.Link href="#">Customers</Navbar.Link>
-          <Navbar.Link href="#">Integrations</Navbar.Link>
-          <Navbar.Link href="#">Pricing</Navbar.Link>
-          <Navbar.Link href="#">Company</Navbar.Link>
-        </Navbar.Content>
-        <Navbar.Content>
-          <ThemeToggle />
-          <Navbar.Link color="inherit" href="#">
-            Login
-          </Navbar.Link>
-          <Navbar.Item>
-            <Button auto flat as={Link} href="#">
-              Sign Up
-            </Button>
-          </Navbar.Item>
-        </Navbar.Content>
-      </Navbar>
-    </Layout>
-  );
-};
-
-export default TestPage;

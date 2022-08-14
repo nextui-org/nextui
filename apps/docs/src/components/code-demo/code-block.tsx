@@ -12,8 +12,6 @@ import highlightLine from "@lib/rehype-highlight-line";
 import highlightWord from "@lib/rehype-highlight-word";
 import {WindowActions} from "@components";
 
-import {Box} from "../primitives";
-
 import {Pre} from "./pre";
 
 refractor.register(js);
