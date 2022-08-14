@@ -169,7 +169,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       e: React.MouseEvent<HTMLDivElement>
     ) => {
       if (disabled) return;
-      onContentClick && onContentClick(key, e);
+      onContentClick && onContentClick(key, e, selfValue);
     };
 
     useEffect(() => {

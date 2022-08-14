@@ -48,7 +48,8 @@ export interface Props
   onBlur?: (e: React.FocusEvent<FormElement>) => void;
   onContentClick?: (
     key: ContentPosition,
-    e: React.MouseEvent<HTMLDivElement>
+    e: React.MouseEvent<HTMLDivElement>,
+    inputValue: string
   ) => void;
   autoComplete?: string;
 }
