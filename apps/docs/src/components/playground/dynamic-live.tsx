@@ -6,6 +6,7 @@ import {validateEmail} from "@utils/index";
 import withDefaults from "@utils/with-defaults";
 import {Box} from "@primitives";
 import * as Components from "@nextui-org/react";
+import {WindowActions} from "@components";
 
 import * as TemplateComponents from "../templates";
 import Palette from "../palette";
@@ -19,6 +20,7 @@ export interface Props {
   showEditor?: boolean;
   noInline?: boolean;
   initialEditorOpen?: boolean;
+  showWindowActions?: boolean;
   overflow?: "auto" | "visible" | "hidden";
 }
 
@@ -59,6 +61,23 @@ const StyledWrapper = Components.styled(Box, {
         ml: 0,
       },
     },
+    isBrowser: {
+      true: {
+        p: 0,
+        my: "$10",
+        overflow: "hidden",
+        boxShadow: "$md",
+        position: "relative",
+        border: "1px solid $colors$border",
+        borderRadius: "$md",
+        "::-webkit-scrollbar": {
+          display: "none",
+          width: 0,
+          height: 0,
+          background: "transparent",
+        },
+      },
+    },
   },
   defaultVariants: {
     overflow: "hidden",
@@ -81,13 +100,30 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
   initialEditorOpen,
   noInline,
   overflow,
+  showWindowActions,
   css,
 }) => {
   const codeTheme = makeCodeTheme();
 
   return (
     <LiveProvider code={code} noInline={noInline} scope={scope} theme={codeTheme}>
-      <StyledWrapper className="wrapper" css={css} noInline={noInline} overflow={overflow}>
+      <StyledWrapper
+        className="dynamic-live-wrapper"
+        css={css}
+        isBrowser={showWindowActions}
+        noInline={noInline}
+        overflow={overflow}
+      >
+        {showWindowActions && (
+          <WindowActions
+            css={{
+              py: "$6",
+              px: "$10",
+              bg: "$accents0",
+            }}
+            variant="normal"
+          />
+        )}
         <LivePreview />
         <LiveError />
       </StyledWrapper>

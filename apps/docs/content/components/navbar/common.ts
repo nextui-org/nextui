@@ -111,16 +111,6 @@ export const Layout = ({ children }) => (
       maxW: "100%",
       maxHeight: "600px",
       overflow: "visible scroll",
-      boxShadow: "$md",
-      position: "relative",
-      border: "1px solid $colors$border",
-      borderRadius: "$md",
-      "::-webkit-scrollbar": {
-        display: "none",
-        width: 0,
-        height: 0,
-        background: "transparent",
-      },
     }}
   >
     {children}

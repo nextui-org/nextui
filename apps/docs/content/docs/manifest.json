@@ -168,7 +168,8 @@
             {
               "title": "Dropdown",
               "keywords": "dropdown, select, selectable, menu",
-              "path": "/docs/components/dropdown.mdx"
+              "path": "/docs/components/dropdown.mdx",
+              "updated": true
             },
             {
               "title": "Progress",

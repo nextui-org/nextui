@@ -37,6 +37,7 @@ interface Props {
   showEditor?: boolean;
   showSandpackPreview?: boolean;
   initialEditorOpen?: boolean;
+  showWindowActions?: boolean;
   overflow?: "auto" | "visible" | "hidden";
   files?: SandpackFiles;
   template?: SandpackPredefinedTemplate;
@@ -52,6 +53,7 @@ const defaultProps = {
   showEditor: true,
   showSandpackPreview: false,
   initialEditorOpen: false,
+  showWindowActions: false,
   overflow: "visible",
   bindings: {},
 };
@@ -65,6 +67,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   showEditor,
   highlightedLines,
   showSandpackPreview,
+  showWindowActions,
   files,
   overflow,
   desc,
@@ -150,7 +153,13 @@ const Playground: React.FC<PlaygroundProps> = ({
             highlightedLines={highlightedLines}
             showPreview={showSandpackPreview}
           >
-            <LiveCode code={code} noInline={noInline} overflow={overflow} showEditor={false} />
+            <LiveCode
+              code={code}
+              noInline={noInline}
+              overflow={overflow}
+              showEditor={false}
+              showWindowActions={showWindowActions}
+            />
           </DynamicSandpack>
         ) : (
           <DynamicLive
