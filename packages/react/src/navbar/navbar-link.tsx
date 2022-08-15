@@ -20,6 +20,7 @@ const NavbarLink = forwardRef<NavbarLinkProps, "a">((props, ref) => {
   const domRef = useDOMRef(ref);
 
   const {
+    css,
     children,
     isActive,
     color,
@@ -28,7 +29,8 @@ const NavbarLink = forwardRef<NavbarLinkProps, "a">((props, ref) => {
     itemCss,
     itemClassName,
     isDisabled,
-    css,
+    hideIn,
+    showIn,
     variant,
     className,
     ...otherProps
@@ -53,8 +55,10 @@ const NavbarLink = forwardRef<NavbarLinkProps, "a">((props, ref) => {
       activeColor={activeColor}
       className={itemClassName}
       css={itemCss}
+      hideIn={hideIn}
       isActive={isActive}
       isDisabled={isDisabled}
+      showIn={showIn}
       underlineHeight={underlineHeight}
       variant={variant}
     >

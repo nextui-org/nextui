@@ -47,3 +47,69 @@ export const sharedVisuallyHidden = css({
   whiteSpace: "nowrap",
   position: "absolute",
 });
+
+export const cssHideIn = css({
+  variants: {
+    hideIn: {
+      xs: {
+        "@xsMax": {
+          display: "none",
+        },
+      },
+      sm: {
+        "@smMax": {
+          display: "none",
+        },
+      },
+      md: {
+        "@mdMax": {
+          display: "none",
+        },
+      },
+      lg: {
+        "@lgMax": {
+          display: "none",
+        },
+      },
+      xl: {
+        "@xlMax": {
+          display: "none",
+        },
+      },
+    },
+  },
+});
+
+export const cssShowIn = css({
+  variants: {
+    showIn: {
+      xs: {
+        "@xs": {
+          display: "none",
+        },
+      },
+      sm: {
+        "@sm": {
+          display: "none",
+        },
+      },
+      md: {
+        "@md": {
+          display: "none",
+        },
+      },
+      lg: {
+        "@lg": {
+          display: "none",
+        },
+      },
+      xl: {
+        "@xl": {
+          display: "none",
+        },
+      },
+    },
+  },
+});
+
+export const cssHideShowIn = css(cssHideIn, cssShowIn);

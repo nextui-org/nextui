@@ -5,11 +5,13 @@ import {useDOMRef} from "../utils/dom";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
 
-import {StyledNavbarBrand} from "./navbar.styles";
+import {StyledNavbarBrand, NavbarBrandVariantsProps} from "./navbar.styles";
 
-export interface NavbarBrandProps extends HTMLNextUIProps<"span"> {
+export interface Props extends HTMLNextUIProps<"span"> {
   children?: React.ReactNode | React.ReactNode[];
 }
+
+export type NavbarBrandProps = Props & NavbarBrandVariantsProps;
 
 const NavbarBrand = forwardRef<NavbarBrandProps, "span">((props, ref) => {
   const domRef = useDOMRef(ref);

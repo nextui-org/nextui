@@ -18,6 +18,7 @@ import makeCodeTheme from "./code-theme";
 
 export interface Props {
   code: string;
+  height?: string | number;
   showEditor?: boolean;
   noInline?: boolean;
   initialEditorOpen?: boolean;
@@ -32,6 +33,7 @@ const defaultProps = {
   showEditor: true,
   enableResize: false,
   showWindowActions: false,
+  height: "auto",
 };
 
 const WindowIframe = Components.styled("iframe", {
@@ -144,11 +146,6 @@ const LiveContainer = Components.styled(Box, {
         my: "$10",
       },
     },
-    enableResize: {
-      true: {
-        height: "600px",
-      },
-    },
   },
 });
 
@@ -174,6 +171,7 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
   enableResize,
   iframeSrc,
   iframeTitle,
+  height,
   css,
 }) => {
   const codeTheme = makeCodeTheme();
@@ -196,7 +194,9 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
     <LiveProvider code={code} noInline={noInline} scope={scope} theme={codeTheme}>
       <LiveContainer
         className="dynamic-live-container"
-        enableResize={enableResize}
+        css={{
+          height: enableResize && height === "auto" ? "320px" : height,
+        }}
         showWindowActions={showWindowActions}
       >
         <StyledWrapper

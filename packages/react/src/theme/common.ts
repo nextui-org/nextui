@@ -149,7 +149,7 @@ export const defaultTokens = {
     avatar: "box-shadow 0.25s ease 0s, opacity 0.25s ease 0s",
     card: "transform 0.25s ease 0s, filter 0.25s ease 0s, box-shadow 0.25s ease 0s",
     dropdownItem:
-      "background 0.25s ease, transform 0.25s ease, color 0.15s ease, box-shadow 0.25s ease 0s",
+      "background 0.12s ease, transform 0.12s ease, color 0.12s ease, box-shadow 0.12s ease 0s",
   },
   breakpoints: {
     xs: "650px",

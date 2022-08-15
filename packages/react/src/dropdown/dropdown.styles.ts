@@ -32,7 +32,7 @@ export const StyledDropdownItemKbd = styled("kbd", {
   fontFamily: "$sans",
   boxShadow: "none",
   bg: "transparent",
-  transition: "border 0.26s ease 0s",
+  transition: "border 0.12s ease 0s",
 });
 
 export const StyledDropdownItemContentWrapper = styled("div", {

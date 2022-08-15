@@ -97,13 +97,23 @@ export function useNavbar(props: UseNavbarProps = {}) {
     [disableBlurProp, isCollapseOpen],
   );
 
+  const navbarHeight = useMemo(() => {
+    if (typeof height === "number") {
+      return `${height}px`;
+    }
+
+    return height;
+  }, [height]);
+
   const navbarGlobalCss = globalCss({
-    html: {
-      $$navbarHeight: height,
+    ":root": {
+      $$navbarHeight: navbarHeight,
+      $$navbarCompactHeight: "calc($$navbarHeight * 0.7)",
       $$navbarTextColor: "$colors$text",
       $$navbarBackgroundColor: "$colors$background",
       $$navbarBlurBackgroundColor: "$colors$backgroundAlpha",
       $$navbarItemMaxHeight: "calc($$navbarHeight * 0.5)",
+      $$navbarCompactItemMaxHeight: "calc($$navbarHeight * 0.5)",
       $$navbarBorderColor: "$colors$border",
       $$navbarBorderRadius: "$radii$lg",
       $$navbarPadding: "$space$10",

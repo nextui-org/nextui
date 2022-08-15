@@ -127,6 +127,18 @@
               "path": "/docs/components/collapse.mdx"
             },
             {
+              "title": "Navbar",
+              "keywords": "navbar, nav, navbar, navigation, menu, header",
+              "path": "/docs/components/navbar.mdx",
+              "newPost": true
+            },
+            {
+              "title": "Badge",
+              "keywords": "badge, status, display, count, highlight",
+              "path": "/docs/components/badge.mdx",
+              "newPost": true
+            },
+            {
               "title": "Input",
               "keywords": "text input, input, textarea",
               "path": "/docs/components/input.mdx"
@@ -177,12 +189,6 @@
               "path": "/docs/components/progress.mdx"
             },
             {
-              "title": "Navbar",
-              "keywords": "navbar, nav, navbar, navigation, menu, header",
-              "path": "/docs/components/navbar.mdx",
-              "newPost": true
-            },
-            {
               "title": "Select",
               "comingSoon": true
             },
@@ -202,15 +208,10 @@
               "path": "/docs/components/switch.mdx"
             },
             {
-              "title": "Badge",
-              "keywords": "badge, status, display, count, highlight",
-              "path": "/docs/components/badge.mdx",
-              "newPost": true
-            },
-            {
               "title": "Text",
               "keywords": "text, txt, paragraph",
-              "path": "/docs/components/text.mdx"
+              "path": "/docs/components/text.mdx",
+              "updated": true
             },
             {
               "title": "Link",

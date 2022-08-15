@@ -18,7 +18,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({children, rout
   return (
     <div id="app-container">
       <Header />
-      <NotifyBanner href="/docs/components/dropdown" text="Dropdown component" />
+      <NotifyBanner href="/docs/components/navbar" text="Navbar component" />
       <Navbar hasNotify isHome routes={routes} />
       <Container
         alignContent="space-between"

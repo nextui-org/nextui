@@ -25,7 +25,7 @@ export type NavbarToggleProps = Props &
   NavbarToggleVariantsProps;
 
 const NavbarToggle = forwardRef<NavbarToggleProps, "button">((props, ref) => {
-  const {children, className, autoFocus, onChange, as, css} = props;
+  const {children, className, autoFocus, onChange, as, css, ...otherProps} = props;
 
   const {parentRef, setIsCollapseOpen} = useNavbarContext();
 
@@ -54,7 +54,7 @@ const NavbarToggle = forwardRef<NavbarToggleProps, "button">((props, ref) => {
       css={css}
       isFocusVisible={isFocusVisible}
       isPressed={isPressed}
-      {...mergeProps(buttonProps, focusProps)}
+      {...mergeProps(buttonProps, focusProps, otherProps)}
     >
       {child}
     </StyledNavbarToggle>

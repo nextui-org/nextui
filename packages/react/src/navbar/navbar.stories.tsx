@@ -158,7 +158,7 @@ export const Static = () => (
 
 export const Sticky = () => (
   <App>
-    <Navbar isBordered variant="sticky">
+    <Navbar isBordered isCompact variant="sticky">
       <DefaultNavbarContent />
     </Navbar>
   </App>

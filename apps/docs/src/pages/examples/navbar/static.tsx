@@ -7,11 +7,11 @@ export default function NavbarStaticExample() {
       <Navbar>
         <Navbar.Brand>
           <Examples.AcmeLogo />
-          <Text b color="inherit" css={{"@xsMax": {d: "none"}}}>
+          <Text b color="inherit" hideIn="xs">
             ACME
           </Text>
         </Navbar.Brand>
-        <Navbar.Content css={{"@xsMax": {d: "none"}}} gap="$6">
+        <Navbar.Content hideIn="xs">
           <Navbar.Link href="#">Features</Navbar.Link>
           <Navbar.Link href="#">Customers</Navbar.Link>
           <Navbar.Link href="#">Pricing</Navbar.Link>

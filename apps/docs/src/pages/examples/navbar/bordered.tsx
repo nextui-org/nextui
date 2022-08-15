@@ -1,12 +1,10 @@
 import {Examples} from "@components";
-import {Navbar, Text, Button, Link, useTheme} from "@nextui-org/react";
+import {Navbar, Text, Button, Link} from "@nextui-org/react";
 
-export default function NavbarFloatingExample() {
-  const {isDark} = useTheme();
-
+export default function NavbarBorderedExample() {
   return (
     <Examples.NavbarLayout>
-      <Navbar isBordered={isDark} variant="floating">
+      <Navbar isBordered>
         <Navbar.Brand>
           <Examples.AcmeLogo />
           <Text b color="inherit" hideIn="xs">

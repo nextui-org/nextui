@@ -41,6 +41,7 @@ interface Props {
   showWindowActions?: boolean;
   iframeSrc?: string;
   asIframe?: boolean;
+  previewHeight?: string | number;
   overflow?: "auto" | "visible" | "hidden";
   files?: SandpackFiles;
   template?: SandpackPredefinedTemplate;
@@ -59,6 +60,7 @@ const defaultProps = {
   initialEditorOpen: false,
   showWindowActions: false,
   enableResize: false,
+  previewHeight: "auto",
   overflow: "visible",
   bindings: {},
 };
@@ -78,6 +80,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   iframeSrc,
   asIframe,
   overflow,
+  previewHeight,
   desc,
 }) => {
   const isSanpackEditor = !isEmpty(files);
@@ -164,6 +167,7 @@ const Playground: React.FC<PlaygroundProps> = ({
             <LiveCode
               code={code}
               enableResize={enableResize || asIframe}
+              height={previewHeight}
               iframeSrc={iframeSrc}
               iframeTitle={title}
               noInline={noInline}

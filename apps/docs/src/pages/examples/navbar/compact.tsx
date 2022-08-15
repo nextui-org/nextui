@@ -1,12 +1,10 @@
 import {Examples} from "@components";
-import {Navbar, Text, Button, Link, useTheme} from "@nextui-org/react";
+import {Navbar, Text, Button, Link} from "@nextui-org/react";
 
-export default function NavbarFloatingExample() {
-  const {isDark} = useTheme();
-
+export default function NavbarBorderedExample() {
   return (
     <Examples.NavbarLayout>
-      <Navbar isBordered={isDark} variant="floating">
+      <Navbar isBordered isCompact variant="sticky">
         <Navbar.Brand>
           <Examples.AcmeLogo />
           <Text b color="inherit" hideIn="xs">
@@ -24,7 +22,7 @@ export default function NavbarFloatingExample() {
             Login
           </Navbar.Link>
           <Navbar.Item>
-            <Button auto flat as={Link} href="#">
+            <Button auto flat as={Link} href="#" size="sm">
               Sign Up
             </Button>
           </Navbar.Item>

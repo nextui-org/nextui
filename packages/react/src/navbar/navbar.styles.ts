@@ -1,5 +1,5 @@
 import {styled, VariantProps} from "../theme/stitches.config";
-import {cssFocusVisible} from "../theme/shared-css";
+import {cssFocusVisible, cssHideShowIn} from "../theme/shared-css";
 
 const itemColors = {
   default: {
@@ -91,55 +91,59 @@ export const StyledNavbarCollapseWrapper = styled(StyledBaseNavbarList, {
   maxHeight: "100%",
 });
 
-export const StyledNavbarCollapse = styled("div", {
-  $$navbarListColor: "$colors$text",
-  $$navbarListBackgroundColor: "$colors$background",
-  $$navbarListBlurBackgroundColor: "$colors$backgroundAlpha",
-  $$navbarListBlur: "16px",
-  position: "absolute",
-  top: 0,
-  left: 0,
-  right: 0,
-  background: "$$navbarListBackgroundColor",
-  width: "100%",
-  height: "0px",
-  zIndex: "$4",
-  boxSizing: "border-box",
-  overflow: "hidden",
-  variants: {
-    isOpen: {
-      true: {
-        top: "$$navbarHeight",
-        pb: "$$navbarHeight",
-        height: "100vh",
+export const StyledNavbarCollapse = styled(
+  "div",
+  {
+    $$navbarListColor: "$colors$text",
+    $$navbarListBackgroundColor: "$colors$background",
+    $$navbarListBlurBackgroundColor: "$colors$backgroundAlpha",
+    $$navbarListBlur: "16px",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    background: "$$navbarListBackgroundColor",
+    width: "100%",
+    height: "0px",
+    zIndex: "$4",
+    boxSizing: "border-box",
+    overflow: "hidden",
+    variants: {
+      isOpen: {
+        true: {
+          top: "$$navbarHeight",
+          pb: "$$navbarHeight",
+          height: "100vh",
+        },
       },
-    },
-    disableBlur: {
-      false: {
-        "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
-          bg: "$$navbarListBlurBackgroundColor",
-          backdropFilter: "saturate(180%) blur($$navbarListBlur)",
-          "@safari": {
-            [`& ${StyledNavbarCollapseWrapper}`]: {
-              bg: "$$navbarListBlurBackgroundColor",
-              backdropFilter: "saturate(180%) blur($$navbarListBlur)",
+      disableBlur: {
+        false: {
+          "@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))": {
+            bg: "$$navbarListBlurBackgroundColor",
+            backdropFilter: "saturate(180%) blur($$navbarListBlur)",
+            "@safari": {
+              [`& ${StyledNavbarCollapseWrapper}`]: {
+                bg: "$$navbarListBlurBackgroundColor",
+                backdropFilter: "saturate(180%) blur($$navbarListBlur)",
+              },
             },
           },
         },
       },
-    },
-    disableAnimation: {
-      true: {
-        [`& ${StyledNavbarCollapseItem}`]: {
-          transition: "none",
+      disableAnimation: {
+        true: {
+          [`& ${StyledNavbarCollapseItem}`]: {
+            transition: "none",
+          },
         },
       },
     },
+    defaultVariants: {
+      disableBlur: "false",
+    },
   },
-  defaultVariants: {
-    disableBlur: "false",
-  },
-});
+  cssHideShowIn,
+);
 
 export const StyledNavbarToggleIconContainer = styled("div", {
   dflex: "center",
@@ -192,214 +196,223 @@ export const StyledNavbarToggle = styled(
       },
     },
   },
+  cssHideShowIn,
   cssFocusVisible,
 );
 
-export const StyledNavbarBrand = styled("span", {
-  display: "flex",
-  flexWrap: "nowrap",
-  flexDirection: "row",
-  justifyContent: "flex-start",
-  bg: "transparent",
-  alignItems: "center",
-  textDecoration: "none",
-  fontSize: "$base",
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
-});
+export const StyledNavbarBrand = styled(
+  "span",
+  {
+    display: "flex",
+    flexWrap: "nowrap",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    bg: "transparent",
+    alignItems: "center",
+    textDecoration: "none",
+    fontSize: "$base",
+    whiteSpace: "nowrap",
+    boxSizing: "border-box",
+  },
+  cssHideShowIn,
+);
 
-export const StyledNavbarItem = styled(StyledBaseNavbarItem, {
-  $$navbarItemFontSize: "inherit",
-  $$navbarItemFontWeight: "$fontWeights$normal",
-  fontSize: "$$navbarItemFontSize",
-  fontWeight: "$$navbarItemFontWeight",
-  position: "relative",
-  "> *": {
-    zIndex: "$2",
-    fontSize: "inherit !important",
-    fontWeight: "inherit !important",
-  },
-  "&:before": {
-    opacity: 0,
-    zIndex: "$1",
-    content: '""',
-    display: "block",
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    borderRadius: "$sm",
-  },
-  "&:after": {
-    opacity: 0,
-    zIndex: "$1",
-    content: '""',
-    display: "block",
-    position: "absolute",
-    left: "0",
-    right: "0",
-    bottom: "0",
-    height: "$$navbarItemUnderlineHeight",
-    borderRadius: "0px",
-    background: "$$navbarItemActiveColor",
-  },
-  variants: {
-    activeColor: itemColors,
-    isActive: {
-      true: {
-        color: "$$navbarItemActiveColor",
-        $$navbarItemFontWeight: "$fontWeights$semibold",
-      },
+export const StyledNavbarItem = styled(
+  StyledBaseNavbarItem,
+  {
+    $$navbarItemFontSize: "inherit",
+    $$navbarItemFontWeight: "$fontWeights$normal",
+    fontSize: "$$navbarItemFontSize",
+    fontWeight: "$$navbarItemFontWeight",
+    position: "relative",
+    "> *": {
+      zIndex: "$2",
+      fontSize: "inherit !important",
+      fontWeight: "inherit !important",
     },
-    variant: {
-      default: {},
-      underline: {
-        color: "inherit",
-        height: "100%",
-      },
-      "underline-rounded": {
-        color: "inherit",
-        height: "100%",
-      },
-      highlight: {},
-      "highlight-solid": {},
-      "highlight-rounded": {},
-      "highlight-solid-rounded": {},
+    "&:before": {
+      opacity: 0,
+      zIndex: "$1",
+      content: '""',
+      display: "block",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      borderRadius: "$sm",
     },
-    underlineHeight: {
-      light: {
-        $$navbarItemUnderlineHeight: "2px",
-      },
-      normal: {
-        $$navbarItemUnderlineHeight: "4px",
-      },
-      bold: {
-        $$navbarItemUnderlineHeight: "6px",
-      },
-      extrabold: {
-        $$navbarItemUnderlineHeight: "8px",
-      },
-      black: {
-        $$navbarItemUnderlineHeight: "10px",
-      },
+    "&:after": {
+      opacity: 0,
+      zIndex: "$1",
+      content: '""',
+      display: "block",
+      position: "absolute",
+      left: "0",
+      right: "0",
+      bottom: "0",
+      height: "$$navbarItemUnderlineHeight",
+      borderRadius: "0px",
+      background: "$$navbarItemActiveColor",
     },
-    isDisabled: {
-      true: {
-        opacity: 0.5,
-        cursor: "not-allowed",
-      },
-    },
-  },
-  compoundVariants: [
-    /**
-     * @isActive true
-     * @variant underline
-     */
-    {
-      isActive: true,
-      variant: "underline",
-      css: {
-        color: "inherit",
-        "&:after": {
-          opacity: 1,
+    variants: {
+      activeColor: itemColors,
+      isActive: {
+        true: {
+          color: "$$navbarItemActiveColor",
+          $$navbarItemFontWeight: "$fontWeights$semibold",
         },
       },
-    },
-    /**
-     * @isActive true
-     * @variant underline
-     */
-    {
-      isActive: true,
-      variant: "underline-rounded",
-      css: {
-        color: "inherit",
-        "&:after": {
-          opacity: 1,
-          borderRadius: "calc($$navbarItemUnderlineHeight / 2)",
-        },
-      },
-    },
-    /**
-     * @isActive true
-     * @variant highlight
-     */
-    {
-      isActive: true,
-      variant: "highlight",
-      css: {
-        color: "$$navbarItemHighlightTextColor",
-        "*:first-child": {
+      variant: {
+        default: {},
+        underline: {
           color: "inherit",
+          height: "100%",
         },
-        "&:before": {
-          opacity: 1,
-          background: "$$navbarItemHighlightBackgroundColor",
-        },
-      },
-    },
-    /**
-     * @isActive true
-     * @variant highlight-solid
-     */
-    {
-      isActive: true,
-      variant: "highlight-solid",
-      css: {
-        color: "$$navbarItemHighlightSolidTextColor",
-        "*:first-child": {
+        "underline-rounded": {
           color: "inherit",
+          height: "100%",
         },
-        "&:before": {
-          opacity: 1,
-          background: "$$navbarItemHighlightSolidBackgroundColor",
+        highlight: {},
+        "highlight-solid": {},
+        "highlight-rounded": {},
+        "highlight-solid-rounded": {},
+      },
+      underlineHeight: {
+        light: {
+          $$navbarItemUnderlineHeight: "2px",
+        },
+        normal: {
+          $$navbarItemUnderlineHeight: "4px",
+        },
+        bold: {
+          $$navbarItemUnderlineHeight: "6px",
+        },
+        extrabold: {
+          $$navbarItemUnderlineHeight: "8px",
+        },
+        black: {
+          $$navbarItemUnderlineHeight: "10px",
+        },
+      },
+      isDisabled: {
+        true: {
+          opacity: 0.5,
+          cursor: "not-allowed",
         },
       },
     },
-    /**
-     * @isActive true
-     * @variant highlight-rounded
-     */
-    {
-      isActive: true,
-      variant: "highlight-rounded",
-      css: {
-        color: "$$navbarItemHighlightTextColor",
-        "*:first-child": {
+    compoundVariants: [
+      /**
+       * @isActive true
+       * @variant underline
+       */
+      {
+        isActive: true,
+        variant: "underline",
+        css: {
           color: "inherit",
-        },
-        "&:before": {
-          opacity: 1,
-          background: "$$navbarItemHighlightBackgroundColor",
+          "&:after": {
+            opacity: 1,
+          },
         },
       },
-    },
-    /**
-     * @isActive true
-     * @variant highlight-solid
-     */
-    {
-      isActive: true,
-      variant: "highlight-solid-rounded",
-      css: {
-        color: "$$navbarItemHighlightSolidTextColor",
-        "*:first-child": {
+      /**
+       * @isActive true
+       * @variant underline
+       */
+      {
+        isActive: true,
+        variant: "underline-rounded",
+        css: {
           color: "inherit",
-        },
-        "&:before": {
-          opacity: 1,
-          background: "$$navbarItemHighlightSolidBackgroundColor",
+          "&:after": {
+            opacity: 1,
+            borderRadius: "calc($$navbarItemUnderlineHeight / 2)",
+          },
         },
       },
+      /**
+       * @isActive true
+       * @variant highlight
+       */
+      {
+        isActive: true,
+        variant: "highlight",
+        css: {
+          color: "$$navbarItemHighlightTextColor",
+          "*:first-child": {
+            color: "inherit",
+          },
+          "&:before": {
+            opacity: 1,
+            background: "$$navbarItemHighlightBackgroundColor",
+          },
+        },
+      },
+      /**
+       * @isActive true
+       * @variant highlight-solid
+       */
+      {
+        isActive: true,
+        variant: "highlight-solid",
+        css: {
+          color: "$$navbarItemHighlightSolidTextColor",
+          "*:first-child": {
+            color: "inherit",
+          },
+          "&:before": {
+            opacity: 1,
+            background: "$$navbarItemHighlightSolidBackgroundColor",
+          },
+        },
+      },
+      /**
+       * @isActive true
+       * @variant highlight-rounded
+       */
+      {
+        isActive: true,
+        variant: "highlight-rounded",
+        css: {
+          color: "$$navbarItemHighlightTextColor",
+          "*:first-child": {
+            color: "inherit",
+          },
+          "&:before": {
+            opacity: 1,
+            background: "$$navbarItemHighlightBackgroundColor",
+          },
+        },
+      },
+      /**
+       * @isActive true
+       * @variant highlight-solid
+       */
+      {
+        isActive: true,
+        variant: "highlight-solid-rounded",
+        css: {
+          color: "$$navbarItemHighlightSolidTextColor",
+          "*:first-child": {
+            color: "inherit",
+          },
+          "&:before": {
+            opacity: 1,
+            background: "$$navbarItemHighlightSolidBackgroundColor",
+          },
+        },
+      },
+    ],
+    defaultVariants: {
+      variant: "default",
+      activeColor: "default",
+      underlineHeight: "normal",
     },
-  ],
-  defaultVariants: {
-    variant: "default",
-    activeColor: "default",
-    underlineHeight: "normal",
   },
-});
+  cssHideShowIn,
+);
 
 // @internal
 export const StyledCursorHighlight = styled(StyledBaseNavbarItem, {
@@ -429,50 +442,27 @@ export const StyledCursorHighlight = styled(StyledBaseNavbarItem, {
   },
 });
 
-export const StyledNavbarContent = styled(StyledBaseNavbarList, {
-  $$navbarContentItemGap: "$space$10",
-  $$navbarContentItemHorizontalPadding: "$space$10",
-  d: "flex",
-  height: "100%",
-  flexWrap: "nowrap",
-  alignItems: "center",
-  gap: "$$navbarContentItemGap",
-  variants: {
-    hideIn: {
-      xs: {
-        "@xsMax": {
-          display: "none",
+export const StyledNavbarContent = styled(
+  StyledBaseNavbarList,
+  {
+    $$navbarContentItemGap: "$space$10",
+    $$navbarContentItemHorizontalPadding: "$space$10",
+    d: "flex",
+    height: "100%",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    gap: "$$navbarContentItemGap",
+    variants: {
+      enableCursorHighlight: {
+        true: {
+          zIndex: "$2",
+          position: "relative",
         },
-      },
-      sm: {
-        "@smMax": {
-          display: "none",
-        },
-      },
-      md: {
-        "@mdMax": {
-          display: "none",
-        },
-      },
-      lg: {
-        "@lgMax": {
-          display: "none",
-        },
-      },
-      xl: {
-        "@xlMax": {
-          display: "none",
-        },
-      },
-    },
-    enableCursorHighlight: {
-      true: {
-        zIndex: "$2",
-        position: "relative",
       },
     },
   },
-});
+  cssHideShowIn,
+);
 
 export const StyledNavbarContainer = styled("div", {
   width: "100%",
@@ -560,9 +550,9 @@ export const StyledNavbar = styled("nav", {
     },
     isCompact: {
       true: {
-        $$navbarHeight: "calc($$navbarHeight * 0.658)",
+        $$navbarHeight: "$$navbarCompactHeight",
+        $$navbarItemMaxHeight: "$$navbarCompactItemMaxHeight",
         $$navbarBorderRadius: "$radii$md",
-        $$navbarItemMaxHeight: "calc($$navbarHeight * 0.6)",
       },
     },
     disableShadow: {
@@ -620,6 +610,7 @@ export const StyledNavbar = styled("nav", {
 });
 
 export type NavbarVariantsProps = VariantProps<typeof StyledNavbar>;
+export type NavbarBrandVariantsProps = VariantProps<typeof StyledNavbarBrand>;
 export type NavbarContentVariantsProps = VariantProps<typeof StyledNavbarContent>;
 export type NavbarItemVariantsProps = VariantProps<typeof StyledNavbarItem>;
 export type NavbarToggleVariantsProps = VariantProps<typeof StyledNavbarToggle>;
