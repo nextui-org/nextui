@@ -15,4 +15,30 @@ Navbar.Toggle = NavbarToggle;
 Navbar.Collapse = NavbarCollapse;
 Navbar.CollapseItem = NavbarCollapseItem;
 
+// export styled components
+export {
+  StyledBaseNavbarItem,
+  StyledBaseNavbarList,
+  StyledNavbarCollapseItem,
+  StyledNavbarCollapseWrapper,
+  StyledNavbarCollapse,
+  StyledNavbarToggleIconContainer,
+  StyledNavbarToggle,
+  StyledNavbarBrand,
+  StyledNavbarItem,
+  StyledNavbarContent,
+  StyledNavbarContainer,
+  StyledNavbar,
+} from "./navbar.styles";
+
+// export types
+export type {NavbarProps} from "./navbar";
+export type {NavbarContentProps} from "./navbar-content";
+export type {NavbarBrandProps} from "./navbar-brand";
+export type {NavbarItemProps} from "./navbar-item";
+export type {NavbarLinkProps} from "./navbar-link";
+export type {NavbarToggleProps} from "./navbar-toggle";
+export type {NavbarCollapseProps} from "./navbar-collapse";
+export type {NavbarCollapseItemProps} from "./navbar-collapse-item";
+
 export default Navbar;

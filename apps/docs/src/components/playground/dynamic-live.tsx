@@ -1,13 +1,15 @@
-import React, {useRef, useEffect} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import {LivePreview, LiveProvider, LiveError} from "react-live";
 import NextLink from "next/link";
 import {useMediaQuery} from "@hooks/use-media-query";
 import {validateEmail} from "@utils/index";
 import withDefaults from "@utils/with-defaults";
 import {motion, useTransform, useMotionValue} from "framer-motion";
+import {InView} from "react-intersection-observer";
 import {Box} from "@primitives";
 import * as Components from "@nextui-org/react";
 import {WindowActions} from "@components";
+import {isProd} from "@utils/index";
 
 import * as TemplateComponents from "../templates";
 import Palette from "../palette";
@@ -174,6 +176,8 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
   height,
   css,
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
   const codeTheme = makeCodeTheme();
 
   const resizerX = useMotionValue(0);
@@ -192,84 +196,88 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
 
   return (
     <LiveProvider code={code} noInline={noInline} scope={scope} theme={codeTheme}>
-      <LiveContainer
-        className="dynamic-live-container"
-        css={{
-          height: enableResize && height === "auto" ? "320px" : height,
-        }}
-        showWindowActions={showWindowActions}
-      >
-        <StyledWrapper
-          as={motion.div}
-          className="dynamic-live-wrapper"
-          css={css}
-          enableResize={enableResize}
-          isBrowser={showWindowActions}
-          noInline={noInline}
-          overflow={overflow}
-          style={{
-            // @ts-ignore
-            "--iframe-resizer-x": browserWidth,
+      <InView className="inview-section" triggerOnce={isProd} onChange={setIsVisible}>
+        <LiveContainer
+          className="dynamic-live-container"
+          css={{
+            height: enableResize && height === "auto" ? "420px" : height,
           }}
+          showWindowActions={showWindowActions}
         >
-          {showWindowActions ? (
-            <>
-              <WindowActions
-                css={{
-                  py: "$6",
-                  px: "$10",
-                  bg: "$accents0",
-                }}
-                variant="normal"
-              />
-              <WindowIframe
-                ref={iframeRef}
-                as={motion.iframe}
-                id="dynamic-live-iframe"
-                src={iframeSrc}
-                title={iframeTitle}
-              />
-            </>
-          ) : (
-            <LivePreview className="live-preview" />
-          )}
-
-          <LiveError />
-        </StyledWrapper>
-        {enableResize && (
-          <Resizer
-            ref={constraintsResizerRef}
-            className="window-resizer"
-            css={{
-              top: 0,
-              bottom: 0,
-              right: 0,
-              width: `calc(100% - ${MIN_WIDTH}px - 20px)`,
+          <StyledWrapper
+            as={motion.div}
+            className="dynamic-live-wrapper"
+            css={css}
+            enableResize={enableResize}
+            isBrowser={showWindowActions}
+            noInline={noInline}
+            overflow={overflow}
+            style={{
+              // @ts-ignore
+              "--iframe-resizer-x": browserWidth,
             }}
           >
-            <Box
-              ref={resizerRef}
-              _dragX={resizerX}
-              as={motion.div}
-              className="resizer-bar"
-              drag="x"
-              dragConstraints={constraintsResizerRef}
-              dragElastic={0}
-              dragMomentum={false}
-              style={{x: resizerX}}
-              onDragEnd={() => {
-                document.documentElement.classList.remove("dragging-ew");
-                iframeRef.current?.classList.remove("dragging-ew");
+            {showWindowActions ? (
+              <>
+                <WindowActions
+                  css={{
+                    py: "$6",
+                    px: "$10",
+                    bg: "$accents0",
+                  }}
+                  variant="normal"
+                />
+                {isVisible && (
+                  <WindowIframe
+                    ref={iframeRef}
+                    as={motion.iframe}
+                    id="dynamic-live-iframe"
+                    src={iframeSrc}
+                    title={iframeTitle}
+                  />
+                )}
+              </>
+            ) : (
+              <LivePreview className="live-preview" />
+            )}
+
+            <LiveError />
+          </StyledWrapper>
+          {enableResize && (
+            <Resizer
+              ref={constraintsResizerRef}
+              className="window-resizer"
+              css={{
+                top: 0,
+                bottom: 0,
+                right: 0,
+                width: `calc(100% - ${MIN_WIDTH}px - 20px)`,
               }}
-              onDragStart={() => {
-                document.documentElement.classList.add("dragging-ew");
-                iframeRef.current?.classList.add("dragging-ew");
-              }}
-            />
-          </Resizer>
-        )}
-        {showEditor && <Editor code={code} initialOpen={initialEditorOpen} />}
-      </LiveContainer>
+            >
+              <Box
+                ref={resizerRef}
+                _dragX={resizerX}
+                as={motion.div}
+                className="resizer-bar"
+                drag="x"
+                dragConstraints={constraintsResizerRef}
+                dragElastic={0}
+                dragMomentum={false}
+                style={{x: resizerX}}
+                onDragEnd={() => {
+                  document.documentElement.classList.remove("dragging-ew");
+                  iframeRef.current?.classList.remove("dragging-ew");
+                }}
+                onDragStart={() => {
+                  document.documentElement.classList.add("dragging-ew");
+                  iframeRef.current?.classList.add("dragging-ew");
+                }}
+              />
+            </Resizer>
+          )}
+          {showEditor && <Editor code={code} initialOpen={initialEditorOpen} />}
+        </LiveContainer>
+      </InView>
     </LiveProvider>
   );
 };
