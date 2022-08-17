@@ -1,7 +1,7 @@
 import * as React from "react";
 import NextLink from "next/link";
-import {Badge, Spacer, Text} from "@nextui-org/react";
-import {ChevronRight} from "@components";
+import {Badge, Spacer, useTheme} from "@nextui-org/react";
+import {ChevronRight, Sparkles} from "@components";
 import {AnimatedText} from "@primitives";
 import {darkTheme} from "@theme/shared";
 
@@ -11,10 +11,13 @@ interface Props {
   text: string;
   href?: string;
   showBadge?: boolean;
+  showSparkles?: boolean;
 }
 
 const NotifyBanner: React.FC<Props> = (props) => {
-  const {showBadge = true, text, href = "#"} = props;
+  const {showBadge = true, showSparkles = true, text, href = "#"} = props;
+
+  const {isDark} = useTheme();
 
   return (
     <StyledNotifyBanner>
@@ -53,9 +56,19 @@ const NotifyBanner: React.FC<Props> = (props) => {
       <NextLink href={href}>
         <StyledContent>
           <Spacer x={0.3} />
-          <AnimatedText css={{cursor: "pointer", userSelect: "none"}} size={16}>
-            {text}
-          </AnimatedText>
+          {showSparkles ? (
+            <Sparkles
+              color={isDark ? "var(--nextui-colors-purple900)" : "var(--nextui-colors-yellow600)"}
+            >
+              <AnimatedText css={{cursor: "pointer", userSelect: "none"}} size={16}>
+                {text}
+              </AnimatedText>
+            </Sparkles>
+          ) : (
+            <AnimatedText css={{cursor: "pointer", userSelect: "none"}} size={16}>
+              {text}
+            </AnimatedText>
+          )}
           <Spacer x={0.2} />
           <ChevronRight
             className="chevron-right-icon"

@@ -72,3 +72,4 @@ export {default as VercelLogo} from "./vercel";
 export {default as TypescriptLogo} from "./typescript";
 export {default as JavascriptLogo} from "./javascript";
 export {default as Scale} from "./scale";
+export {default as Sparkle} from "./sparkle";

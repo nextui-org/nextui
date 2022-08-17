@@ -40,5 +40,6 @@ export {default as VercelCallout} from "./vercel-callout";
 export {default as NotifyBanner} from "./notify-banner";
 export {default as WindowActions} from "./window-actions";
 export {default as SandpackEditor} from "./sandpack";
+export {default as Sparkles} from "./sparkles";
 export * as Examples from "./examples";
 export * from "./sandpack";
