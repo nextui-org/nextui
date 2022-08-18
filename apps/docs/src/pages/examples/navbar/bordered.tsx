@@ -4,7 +4,7 @@ import {Navbar, Text, Button, Link} from "@nextui-org/react";
 export default function NavbarBorderedExample() {
   return (
     <Examples.NavbarLayout>
-      <Navbar isBordered>
+      <Navbar isBordered variant="sticky">
         <Navbar.Brand>
           <Examples.AcmeLogo />
           <Text b color="inherit" hideIn="xs">

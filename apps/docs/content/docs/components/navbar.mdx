@@ -18,11 +18,21 @@ import { Navbar } from "@nextui-org/react";
 
 <Playground
   asIframe
-  title="Static"
+  title="Variants"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
-  iframeSrc="/examples/navbar/static"
+  iframeSrc="/examples/navbar/variants"
   files={navbarContent.staticVariant}
 />
+
+<Playground
+  asIframe
+  title="Active Item Variants"
+  previewHeight="600px"
+  iframeSrc="/examples/navbar/active-item-variants"
+  desc="Badge with default styles, used in standalone when `content` prop is empty."
+  files={navbarContent.floatingVariant}
+/>
+
 
 <Playground
   asIframe
@@ -30,22 +40,6 @@ import { Navbar } from "@nextui-org/react";
   iframeSrc="/examples/navbar/bordered"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
   files={navbarContent.staticVariant}
-/>
-
-<Playground
-  asIframe
-  title="Sticky"
-  iframeSrc="/examples/navbar/sticky"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.stickyVariant}
-/>
-
-<Playground
-  asIframe
-  title="Floating"
-  iframeSrc="/examples/navbar/floating"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.floatingVariant}
 />
 
 <Playground
@@ -74,16 +68,6 @@ import { Navbar } from "@nextui-org/react";
 
 <Playground
   asIframe
-  title="Active Item Variants"
-  previewHeight="600px"
-  iframeSrc="/examples/navbar/active-item-variants"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.floatingVariant}
-/>
-
-
-<Playground
-  asIframe
   title="With Toggle Button"
   previewHeight="600px"
   iframeSrc="/examples/navbar/with-toggle-button"
@@ -96,6 +80,15 @@ import { Navbar } from "@nextui-org/react";
   title="With Dropdown Menu"
   previewHeight="600px"
   iframeSrc="/examples/navbar/with-dropdown-menu"
+  desc="Badge with default styles, used in standalone when `content` prop is empty."
+  files={navbarContent.floatingVariant}
+/>
+
+<Playground
+  asIframe
+  title="With Avatar User"
+  previewHeight="600px"
+  iframeSrc="/examples/navbar/with-avatar-user"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
   files={navbarContent.floatingVariant}
 />

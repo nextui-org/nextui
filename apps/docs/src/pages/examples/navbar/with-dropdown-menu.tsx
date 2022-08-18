@@ -1,7 +1,7 @@
 import {Examples, ChevronDown, TagUser, Server, Flash, Activity, Scale} from "@components";
 import {Navbar, Text, Button, Link, Dropdown} from "@nextui-org/react";
 
-export default function NavbarWithToggleButtonExample() {
+export default function NavbarWithDropdownMenuExample() {
   const icons = {
     chevron: <ChevronDown fill="currentColor" size={16} />,
     scale: <Scale fill="var(--nextui-colors-warning)" size={30} />,

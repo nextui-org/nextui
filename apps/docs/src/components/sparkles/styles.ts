@@ -1,4 +1,5 @@
-import {styled, keyframes} from "@nextui-org/react";
+import {styled, keyframes, VariantProps} from "@nextui-org/react";
+import {darkTheme} from "@theme/shared";
 
 const growAndShrink = keyframes({
   "0%": {
@@ -30,6 +31,12 @@ export const StyledSparkleWrapper = styled("span", {
   svg: {
     display: "block",
     animation: `${spin} 1250ms linear forwards`,
+    path: {
+      fill: "$yellow600",
+      [`.${darkTheme} &`]: {
+        fill: "$purple900",
+      },
+    },
   },
   "@motion": {
     animation: "none",
@@ -42,10 +49,24 @@ export const StyledSparkleWrapper = styled("span", {
 export const StyledSparkles = styled("div", {
   position: "relative",
   display: "inline-block",
-  "&:hover": {
-    [`& ${StyledSparkleWrapper}`]: {
-      opacity: 1,
+  variants: {
+    activeOnHover: {
+      true: {
+        "&:hover": {
+          [`& ${StyledSparkleWrapper}`]: {
+            opacity: 1,
+          },
+        },
+      },
+      false: {
+        [`& ${StyledSparkleWrapper}`]: {
+          opacity: 1,
+        },
+      },
     },
+  },
+  defaultVariants: {
+    activeOnHover: false,
   },
 });
 
@@ -54,3 +75,5 @@ export const StyledChildWrapper = styled("strong", {
   position: "relative",
   fontWeight: "bold",
 });
+
+export type SparkleVariantProps = VariantProps<typeof StyledSparkles>;

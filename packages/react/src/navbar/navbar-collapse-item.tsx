@@ -13,6 +13,7 @@ import {StyledNavbarCollapseItem, NavbarCollapseItemVariantsProps} from "./navba
 export type NavbarCollapseItemProps = HTMLNextUIProps<"li"> &
   NavbarCollapseItemVariantsProps & {
     transitionDelay?: number; // in seconds
+    transitionTime?: number; // in seconds
   };
 
 const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref) => {
@@ -20,6 +21,7 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
     children,
     className,
     transitionDelay = 0,
+    transitionTime = 0.75,
     disableAnimation,
     style,
     css,
@@ -68,7 +70,7 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
         : "matrix(0.85, 0, 0, 0.85, 5, 20)",
       "--netxui--collapseItemTransition":
         !disableAnimation && context.isCollapseOpen
-          ? `opacity 1s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s, transform 1s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s`
+          ? `opacity ${transitionTime}s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s, transform ${transitionTime}s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s`
           : "none",
     };
   }, [

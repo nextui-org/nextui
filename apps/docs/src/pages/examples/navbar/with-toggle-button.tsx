@@ -3,22 +3,15 @@ import {Navbar, Text, Button, Link} from "@nextui-org/react";
 
 export default function NavbarWithToggleButtonExample() {
   const collapseItems = [
-    "Store",
-    "Mac",
-    "iPad",
-    "iPhone",
-    "Watch",
-    "TV & Home",
-    "Music",
-    "Support",
-    "Store",
-    "Mac",
-    "iPad",
-    "iPhone",
-    "Watch",
-    "TV & Home",
-    "Music",
-    "Support",
+    "Features",
+    "Customers",
+    "Pricing",
+    "Company",
+    "Legal",
+    "Team",
+    "Help & Feedback",
+    "Login",
+    "Sign Up",
   ];
 
   return (
@@ -58,7 +51,17 @@ export default function NavbarWithToggleButtonExample() {
         </Navbar.Content>
         <Navbar.Collapse>
           {collapseItems.map((item, index) => (
-            <Navbar.CollapseItem key={`${item}-${index}`}>{item}</Navbar.CollapseItem>
+            <Navbar.CollapseItem key={`${item}-${index}`}>
+              <Link
+                color="inherit"
+                css={{
+                  minWidth: "100%",
+                }}
+                href="#"
+              >
+                {item}
+              </Link>
+            </Navbar.CollapseItem>
           ))}
         </Navbar.Collapse>
       </Navbar>

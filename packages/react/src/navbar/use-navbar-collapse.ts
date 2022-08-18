@@ -6,6 +6,7 @@ import {HTMLNextUIProps} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
 import {pickChild} from "../utils/collections";
 import {arrayToObject} from "../utils/object";
+import useBodyScroll from "../use-body-scroll";
 
 import NavbarCollapseItem from "./navbar-collapse-item";
 import {NavbarCollapseVariantsProps} from "./navbar.styles";
@@ -30,15 +31,19 @@ export function useNavbarCollapse(props: UseNavbarCollapseProps = {}) {
   const domRef = useDOMRef(ref);
 
   const [, items] = pickChild(children, NavbarCollapseItem);
+  const [, setBodyHidden] = useBodyScroll(null, {scrollLayer: true});
 
   useEffect(() => {
     if (!context.isCollapseOpen) {
       // restore scroll to the top of the collapse
       domRef.current &&
-        domRef.current?.scrollTo({
+        domRef.current?.scrollTo?.({
           top: 0,
         });
       setHasScrolled(false);
+      setBodyHidden(false);
+    } else {
+      setBodyHidden(true);
     }
 
     const handleScroll = () => {

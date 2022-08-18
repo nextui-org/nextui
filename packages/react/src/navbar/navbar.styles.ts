@@ -72,15 +72,27 @@ export const StyledBaseNavbarList = styled("ul", {
 
 export const StyledNavbarCollapseItem = styled(StyledBaseNavbarItem, {
   opacity: 0,
-  pb: "20px",
+  paddingBottom: "$6",
+  fontSize: "$lg",
+  lineHeight: "$lg",
+  fontWeight: "$normal",
   transformOrigin: "top",
-  fontSize: "3rem",
   variants: {
+    activeColor: itemColors,
+    isActive: {
+      true: {
+        color: "$$navbarItemActiveColor",
+        fontWeight: "$semibold",
+      },
+    },
     disableAnimation: {
       true: {
         transition: "none",
       },
     },
+  },
+  defaultVariants: {
+    activeColor: "default",
   },
 });
 

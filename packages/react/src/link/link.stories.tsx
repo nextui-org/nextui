@@ -43,13 +43,13 @@ export const Variants = () => (
   </>
 );
 
-export const Icon = () => (
+export const isExternal = () => (
   <>
-    <Link icon href="#">
+    <Link isExternal href="#">
       {text}
     </Link>
     <Spacer y={0.5} />
-    <Link icon color="primary" href="#">
+    <Link isExternal color="primary" href="#">
       {text}
     </Link>
   </>

@@ -1,6 +1,6 @@
 import React from "react";
 import {Examples} from "@components";
-import {Navbar, Text, Button, Card, Spacer, Radio, Link, styled, useTheme} from "@nextui-org/react";
+import {Navbar, Text, Button, Card, Radio, Link, styled, useTheme} from "@nextui-org/react";
 
 const StyledVariantContainer = styled("div", {
   dflex: "center",
@@ -10,40 +10,29 @@ const StyledVariantContainer = styled("div", {
   "& .nextui-radio-group-items": {
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
-    gridTemplateRows: "repeat(2, 1fr)",
+    gridTemplateRows: "1fr",
     gridColumnGap: "$8",
     gridRowGap: "$2",
   },
 });
 
-export default function NavbarActiveItemVariantsExample() {
-  const [variant, setVariant] = React.useState<any>("default");
-  const [activeColor, setActiveColor] = React.useState<any>("primary");
+export default function NavbarVariantsExample() {
+  const [variant, setVariant] = React.useState<any>("static");
 
   const {isDark} = useTheme();
 
-  const variants = [
-    "default",
-    "highlight",
-    "highlight-solid",
-    "underline",
-    "highlight-rounded",
-    "highlight-solid-rounded",
-    "underline-rounded",
-  ];
-
-  const colors = ["primary", "secondary", "success", "warning", "error"];
+  const variants = ["static", "floating", "sticky"];
 
   return (
     <Examples.NavbarLayout>
-      <Navbar isBordered={isDark} variant="sticky">
+      <Navbar isBordered={isDark} variant={variant}>
         <Navbar.Brand>
           <Examples.AcmeLogo />
           <Text b color="inherit" hideIn="xs">
             ACME
           </Text>
         </Navbar.Brand>
-        <Navbar.Content activeColor={activeColor} hideIn="xs" variant={variant}>
+        <Navbar.Content hideIn="xs">
           <Navbar.Link href="#">Features</Navbar.Link>
           <Navbar.Link isActive href="#">
             Customers
@@ -56,41 +45,26 @@ export default function NavbarActiveItemVariantsExample() {
             Login
           </Navbar.Link>
           <Navbar.Item>
-            <Button auto flat as={Link} color={activeColor} href="#">
+            <Button auto flat as={Link} href="#">
               Sign Up
             </Button>
           </Navbar.Item>
         </Navbar.Content>
       </Navbar>
       <StyledVariantContainer>
-        <Card css={{px: "$6", maxW: "90%"}}>
-          <Card.Body>
+        <Card css={{maxW: "50%"}}>
+          <Card.Body css={{pt: "$8", px: "$8"}}>
             <Radio.Group
               defaultValue="default"
-              label="Select active variant"
+              label="Select variant"
               orientation="horizontal"
               size="sm"
               value={variant}
               onChange={setVariant}
             >
               {variants.map((variant) => (
-                <Radio key={variant} color={activeColor} value={variant}>
+                <Radio key={variant} value={variant}>
                   {variant}
-                </Radio>
-              ))}
-            </Radio.Group>
-            <Spacer y={0.5} />
-            <Radio.Group
-              defaultValue="default"
-              label="Select active color"
-              orientation="horizontal"
-              size="sm"
-              value={activeColor}
-              onChange={setActiveColor}
-            >
-              {colors.map((color) => (
-                <Radio key={color} color={activeColor} value={color}>
-                  {color === "primary" ? "primary (default)" : color}
                 </Radio>
               ))}
             </Radio.Group>

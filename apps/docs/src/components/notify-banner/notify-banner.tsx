@@ -57,9 +57,7 @@ const NotifyBanner: React.FC<Props> = (props) => {
         <StyledContent>
           <Spacer x={0.3} />
           {showSparkles ? (
-            <Sparkles
-              color={isDark ? "var(--nextui-colors-purple900)" : "var(--nextui-colors-yellow600)"}
-            >
+            <Sparkles activeOnHover>
               <AnimatedText css={{cursor: "pointer", userSelect: "none"}} size={16}>
                 {text}
               </AnimatedText>

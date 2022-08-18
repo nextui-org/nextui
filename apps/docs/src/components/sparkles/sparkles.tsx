@@ -6,14 +6,21 @@ import usePrefersReducedMotion from "@hooks/use-prefers-reduced-motion";
 
 import {Sparkle} from "../icons";
 
-import {StyledSparkles, StyledChildWrapper, StyledSparkleWrapper} from "./styles";
+import {
+  StyledSparkles,
+  StyledChildWrapper,
+  StyledSparkleWrapper,
+  SparkleVariantProps,
+} from "./styles";
 
-export interface SparklesProps {
+interface Props {
   children?: React.ReactNode;
   floatAbove?: boolean;
   color?: string;
   css?: CSS;
 }
+
+export type SparklesProps = Props & SparkleVariantProps;
 
 const generateSparkle = (color = yellow.yellow500, floatAbove = true) => {
   return {
