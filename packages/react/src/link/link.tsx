@@ -18,7 +18,7 @@ import StyledLink, {LinkVariantsProps} from "./link.styles";
 
 interface Props extends Omit<HTMLNextUIProps<"a">, keyof LinkVariantsProps> {
   children?: React.ReactNode | React.ReactNode[];
-  icon?: boolean;
+  isExternal?: boolean;
 }
 
 export type LinkProps = Props & LinkVariantsProps & AriaLinkProps;
@@ -41,7 +41,7 @@ interface IFocusRingAria extends FocusRingAria {
 const Link = forwardRef<LinkProps, "a">((props, ref) => {
   const {
     children,
-    icon = false,
+    isExternal = false,
     as,
     css,
     color = "default",
@@ -93,7 +93,7 @@ const Link = forwardRef<LinkProps, "a">((props, ref) => {
     >
       <>
         {children}
-        {icon && <LinkIcon />}
+        {isExternal && <LinkIcon />}
       </>
     </StyledLink>
   );

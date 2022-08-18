@@ -11,7 +11,7 @@ describe("Link", () => {
         <Link color="secondary" href="https://nextui.org">
           link
         </Link>
-        <Link icon color="success" href="https://nextui.org">
+        <Link isExternal color="success" href="https://nextui.org">
           link
         </Link>
         <Link underline href="https://nextui.org">
@@ -23,7 +23,6 @@ describe("Link", () => {
       </div>,
     );
 
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
