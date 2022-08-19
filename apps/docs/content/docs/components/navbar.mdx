@@ -1,12 +1,12 @@
 ---
 title: "Navbar"
-description: "Navbar"
-url: https://nextui.org/docs/components/badge
+description: "A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse and more."
+url: https://nextui.org/docs/components/navbar
 ---
 
 # Navbar
 
-Badges are used as a small numerical value or status descriptor for UI elements.
+A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse and more.
 
 ```jsx
 import { Navbar } from "@nextui-org/react";
@@ -16,12 +16,28 @@ import { Navbar } from "@nextui-org/react";
 
 <Spacer y={2} />
 
+
+#### Anatomy
+
+- **Navbar**: The wrapper that provides state and general context management.
+- **Navbar.Brand**: A simple and flexible wrapper for branding content.
+- **Navbar.Content**: The wrapper that provides the state and variants for the navbar content items.
+- **Navbar.Item**: The individual items. Must be a direct child of `Navbar.Content`.
+- **Navbar.Link**: A link item. Must be a direct child of `Navbar.Content`.
+- **Navbar.Toggle**: The toggle button that toggles the navbar. Must be a direct child of `Navbar`.
+- **Navbar.Collapse**: The collapse wrapper that provides the state and menu for the navbar collapse items.
+- **Navbar.CollapseItem**: The individual items. Must be a direct child of `Navbar.Collapse`.
+
+
+<Spacer y={2} />
+
 <Playground
   asIframe
   title="Variants"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
+  desc="Navbar can be styled with different variants. The default variant is `static`, but you can also use `floating` and `sticky`."
   iframeSrc="/examples/navbar/variants"
-  files={navbarContent.staticVariant}
+  highlightedLines="16"
+  files={navbarContent.variants}
 />
 
 <Playground
@@ -29,8 +45,9 @@ import { Navbar } from "@nextui-org/react";
   title="Active Item Variants"
   previewHeight="600px"
   iframeSrc="/examples/navbar/active-item-variants"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.floatingVariant}
+  desc="The navbar content active items can be styled with different variants. You can apply the `variant` and `activeColor` either to the `Navbar.Content` or `Navbar.Item`."
+  highlightedLines="34"
+  files={navbarContent.activeItemVariants}
 />
 
 
@@ -38,8 +55,9 @@ import { Navbar } from "@nextui-org/react";
   asIframe
   title="Bordered"
   iframeSrc="/examples/navbar/bordered"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.staticVariant}
+  desc="You can add a border to the navbar with the `isBordered` prop."
+  highlightedLines="8"
+  files={navbarContent.bordered}
 />
 
 <Playground
@@ -47,7 +65,7 @@ import { Navbar } from "@nextui-org/react";
   title="Compact"
   iframeSrc="/examples/navbar/compact"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.staticVariant}
+  files={navbarContent.variants}
 />
 
 <Playground
@@ -55,7 +73,7 @@ import { Navbar } from "@nextui-org/react";
   title="Hide on scroll"
   iframeSrc="/examples/navbar/hide-on-scroll"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.floatingVariant}
+  files={navbarContent.variants}
 />
 
 <Playground
@@ -63,7 +81,7 @@ import { Navbar } from "@nextui-org/react";
   title="Cursor Highlight"
   iframeSrc="/examples/navbar/cursor-highlight"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.staticVariant}
+  files={navbarContent.variants}
 />
 
 <Playground
@@ -72,7 +90,7 @@ import { Navbar } from "@nextui-org/react";
   previewHeight="600px"
   iframeSrc="/examples/navbar/with-toggle-button"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.floatingVariant}
+  files={navbarContent.variants}
 />
 
 <Playground
@@ -81,7 +99,7 @@ import { Navbar } from "@nextui-org/react";
   previewHeight="600px"
   iframeSrc="/examples/navbar/with-dropdown-menu"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.floatingVariant}
+  files={navbarContent.variants}
 />
 
 <Playground
@@ -90,5 +108,5 @@ import { Navbar } from "@nextui-org/react";
   previewHeight="600px"
   iframeSrc="/examples/navbar/with-avatar-user"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.floatingVariant}
+  files={navbarContent.variants}
 />

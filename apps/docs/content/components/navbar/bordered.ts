@@ -1,22 +1,22 @@
 import {Layout, Box, AcmeLogo, Content} from "./common";
 
-const App = `import { Navbar } from "@nextui-org/react";
+const App = `import { Navbar, Button, Link, Text } from "@nextui-org/react";
 import { Layout } from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
 
 export default function App() {
   return (
     <Layout>
-      <Navbar>
+      <Navbar isBordered variant="floating">
         <Navbar.Brand>
           <AcmeLogo />
-          <Text b color="inherit" css={{"@xsMax": {d: "none"}}}>
+          <Text b color="inherit" hideIn="xs">
             ACME
           </Text>
         </Navbar.Brand>
-        <Navbar.Content css={{"@smMax": {d: "none"}}}>
+        <Navbar.Content hideIn="xs" variant="highlight-rounded">
           <Navbar.Link href="#">Features</Navbar.Link>
-          <Navbar.Link href="#">Customers</Navbar.Link>
+          <Navbar.Link isActive href="#">Customers</Navbar.Link>
           <Navbar.Link href="#">Integrations</Navbar.Link>
           <Navbar.Link href="#">Pricing</Navbar.Link>
           <Navbar.Link href="#">Company</Navbar.Link>

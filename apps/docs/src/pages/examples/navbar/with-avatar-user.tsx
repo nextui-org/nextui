@@ -12,7 +12,7 @@ export default function NavbarWithAvatarUserExample() {
     "My Settings",
     "Team Settings",
     "Help & Feedback",
-    "Logout",
+    "Log Out",
   ];
 
   return (

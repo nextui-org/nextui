@@ -1,9 +1,9 @@
-import staticVariant from "./static";
-import stickyVariant from "./sticky";
-import floatingVariant from "./floating";
+import variants from "./variants";
+import activeItemVariants from "./active-item-variants";
+import bordered from "./bordered";
 
 export default {
-  staticVariant,
-  stickyVariant,
-  floatingVariant,
+  variants,
+  activeItemVariants,
+  bordered,
 };

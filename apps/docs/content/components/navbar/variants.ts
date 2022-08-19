@@ -1,42 +1,31 @@
-import React from "react";
-import {Examples} from "@components";
-import {Navbar, Text, Button, Card, Radio, Link, styled, useTheme} from "@nextui-org/react";
+import {Layout, Box, AcmeLogo, Content, VariantsSelectorWrapper} from "./common";
 
-const VariantsSelectorWrapper = styled("div", {
-  dflex: "center",
-  position: "fixed",
-  width: "100%",
-  bottom: "10px",
-  "& .nextui-radio-group-items": {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gridTemplateRows: "1fr",
-    gridColumnGap: "$8",
-    gridRowGap: "$2",
-  },
-});
+const App = `import React from "react";
+import { Navbar, Button, Link, Text, Card, Radio, useTheme } from "@nextui-org/react";
+import { Layout } from "./Layout.js";
+import { AcmeLogo } from "./AcmeLogo.js";
+import { VariantsSelectorWrapper } from "./VariantsSelectorWrapper.js";
 
-export default function NavbarVariantsExample() {
-  const [variant, setVariant] = React.useState<any>("static");
+export default function App() {
+  const [variant, setVariant] = React.useState("static");
 
-  const {isDark} = useTheme();
+  const { isDark } = useTheme();
 
   const variants = ["static", "floating", "sticky"];
-
+  
   return (
-    <Examples.NavbarLayout>
+    <Layout>
       <Navbar isBordered={isDark} variant={variant}>
         <Navbar.Brand>
-          <Examples.AcmeLogo />
+          <AcmeLogo />
           <Text b color="inherit" hideIn="xs">
             ACME
           </Text>
         </Navbar.Brand>
         <Navbar.Content hideIn="xs">
           <Navbar.Link href="#">Features</Navbar.Link>
-          <Navbar.Link isActive href="#">
-            Customers
-          </Navbar.Link>
+          <Navbar.Link isActive href="#">Customers</Navbar.Link>
+          <Navbar.Link href="#">Integrations</Navbar.Link>
           <Navbar.Link href="#">Pricing</Navbar.Link>
           <Navbar.Link href="#">Company</Navbar.Link>
         </Navbar.Content>
@@ -70,7 +59,20 @@ export default function NavbarVariantsExample() {
             </Radio.Group>
           </Card.Body>
         </Card>
-      </VariantsSelectorWrapper>
-    </Examples.NavbarLayout>
-  );
-}
+      </VariantsSelectorWrapper>      
+    </Layout>
+  )
+}`;
+
+const react = {
+  "/Content.js": Content,
+  "/Layout.js": Layout,
+  "/AcmeLogo.js": AcmeLogo,
+  "/Box.js": Box,
+  "/VariantsSelectorWrapper.js": VariantsSelectorWrapper,
+  "/App.js": App,
+};
+
+export default {
+  ...react,
+};
