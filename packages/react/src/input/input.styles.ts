@@ -166,9 +166,24 @@ export const StyledInputMainContainer = styled('div', {
   }
 });
 
+const inputAutofillStyles = {
+  // WebkitBoxShadow: '$$inputColor 0px 0px 0px 50px inset',
+  WebkitTextFillColor: '$$inputTextColor',
+  WebkitBackgroundClip: 'text !important',
+  caretColor: '$$inputTextColor',
+}
+
 export const StyledInputContainer = styled('div', {
   width: '100%',
   br: '$$inputBorderRadius',
+  input: {
+    '&:-webkit-autofill': {
+      ...inputAutofillStyles,
+      '&:hover': inputAutofillStyles,
+      '&:focus': inputAutofillStyles,
+      '&:active': inputAutofillStyles,
+    },
+  },
   '@motion': {
     transition: 'none'
   },
