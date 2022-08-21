@@ -120,7 +120,7 @@ export const Layout = ({ children }) => (
 );`;
 
 export const VariantsSelectorWrapper = `// used as a wrapper for the navbar variants radio buttons
-const VariantsSelectorWrapper = styled("div", {
+export const VariantsSelectorWrapper = styled("div", {
   dflex: "center",
   position: "fixed",
   width: "100%",
