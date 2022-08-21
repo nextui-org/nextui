@@ -1,7 +1,10 @@
-import {Examples} from "@components";
-import {Navbar, Text, Dropdown, Avatar, Link} from "@nextui-org/react";
+import {Layout, Box, AcmeLogo, Content} from "./common";
 
-export default function NavbarWithAvatarUserExample() {
+const App = `import { Navbar, Link, Text, Avatar, Dropdown } from "@nextui-org/react";
+import { Layout } from "./Layout.js";
+import { AcmeLogo } from "./AcmeLogo.js";
+
+export default function App() {
   const collapseItems = [
     "Profile",
     "Dashboard",
@@ -16,7 +19,7 @@ export default function NavbarWithAvatarUserExample() {
   ];
 
   return (
-    <Examples.NavbarLayout>
+    <Layout>
       <Navbar isBordered variant="sticky">
         <Navbar.Toggle showIn="xs" />
         <Navbar.Brand
@@ -26,8 +29,8 @@ export default function NavbarWithAvatarUserExample() {
             },
           }}
         >
-          <Examples.AcmeLogo />
-          <Text b color="inherit">
+          <AcmeLogo />
+          <Text b color="inherit" hideIn="xs">
             ACME
           </Text>
         </Navbar.Brand>
@@ -37,13 +40,12 @@ export default function NavbarWithAvatarUserExample() {
           hideIn="xs"
           variant="highlight-rounded"
         >
+          <Navbar.Link href="#">Features</Navbar.Link>
           <Navbar.Link isActive href="#">
-            Dashboard
+            Customers
           </Navbar.Link>
-          <Navbar.Link href="#">Team</Navbar.Link>
-          <Navbar.Link href="#">Deployments</Navbar.Link>
-          <Navbar.Link href="#">Activity</Navbar.Link>
-          <Navbar.Link href="#">Settings</Navbar.Link>
+          <Navbar.Link href="#">Pricing</Navbar.Link>
+          <Navbar.Link href="#">Company</Navbar.Link>
         </Navbar.Content>
         <Navbar.Content
           css={{
@@ -68,13 +70,13 @@ export default function NavbarWithAvatarUserExample() {
             <Dropdown.Menu
               aria-label="User menu actions"
               color="secondary"
-              onAction={(actionKey) => console.log({actionKey})}
+              onAction={(actionKey) => console.log({ actionKey })}
             >
-              <Dropdown.Item key="profile" css={{height: "$18"}}>
-                <Text b color="inherit" css={{d: "flex"}}>
+              <Dropdown.Item key="profile" css={{ height: "$18" }}>
+                <Text b color="inherit" css={{ d: "flex" }}>
                   Signed in as
                 </Text>
-                <Text b color="inherit" css={{d: "flex"}}>
+                <Text b color="inherit" css={{ d: "flex" }}>
                   zoey@example.com
                 </Text>
               </Dropdown.Item>
@@ -99,7 +101,7 @@ export default function NavbarWithAvatarUserExample() {
         <Navbar.Collapse>
           {collapseItems.map((item, index) => (
             <Navbar.CollapseItem
-              key={`${item}-${index}`}
+              key={item}
               activeColor="secondary"
               css={{
                 color: index === collapseItems.length - 1 ? "$error" : "",
@@ -119,6 +121,18 @@ export default function NavbarWithAvatarUserExample() {
           ))}
         </Navbar.Collapse>
       </Navbar>
-    </Examples.NavbarLayout>
+    </Layout>
   );
-}
+}`;
+
+const react = {
+  "/Content.js": Content,
+  "/Layout.js": Layout,
+  "/AcmeLogo.js": AcmeLogo,
+  "/Box.js": Box,
+  "/App.js": App,
+};
+
+export default {
+  ...react,
+};

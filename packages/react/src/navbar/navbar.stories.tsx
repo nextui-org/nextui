@@ -1,8 +1,8 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 
-import {Link, Text, Button, Spacer, Dropdown, Avatar} from "../index";
-import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "../utils/icons";
+import {Link, Text, Button, Spacer, Dropdown, Avatar, Input} from "../index";
+import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale, Search} from "../utils/icons";
 import {styled} from "../theme/stitches.config";
 
 import Navbar from "./index";
@@ -470,6 +470,90 @@ export const WithAvatarUser = () => {
                   bordered
                   as="button"
                   color="secondary"
+                  size="md"
+                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                />
+              </Dropdown.Trigger>
+            </Navbar.Item>
+            <Dropdown.Menu
+              aria-label="User menu actions"
+              color="secondary"
+              onAction={(actionKey) => console.log({actionKey})}
+            >
+              <Dropdown.Item key="profile" css={{height: "$18"}}>
+                <Text b color="inherit" css={{d: "flex"}}>
+                  Signed in as
+                </Text>
+                <Text b color="inherit" css={{d: "flex"}}>
+                  zoey@example.com
+                </Text>
+              </Dropdown.Item>
+              <Dropdown.Item key="settings" withDivider>
+                My Settings
+              </Dropdown.Item>
+              <Dropdown.Item key="team_settings">Team Settings</Dropdown.Item>
+              <Dropdown.Item key="analytics" withDivider>
+                Analytics
+              </Dropdown.Item>
+              <Dropdown.Item key="system">System</Dropdown.Item>
+              <Dropdown.Item key="configurations">Configurations</Dropdown.Item>
+              <Dropdown.Item key="help_and_feedback" withDivider>
+                Help & Feedback
+              </Dropdown.Item>
+              <Dropdown.Item key="logout" withDivider color="error">
+                Log Out
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Navbar.Content>
+      </Navbar>
+    </App>
+  );
+};
+
+export const WithSearchInput = () => {
+  return (
+    <App>
+      <Navbar isBordered variant="sticky">
+        <Navbar.Content hideIn="xs" variant="highlight">
+          <Navbar.Brand css={{mr: "$11"}}>
+            <AcmeLogo />
+            <Text b color="inherit">
+              ACME
+            </Text>
+          </Navbar.Brand>
+          <Navbar.Link isActive href="#">
+            Dashboard
+          </Navbar.Link>
+          <Navbar.Link href="#">Team</Navbar.Link>
+          <Navbar.Link href="#">Deployments</Navbar.Link>
+          <Navbar.Link href="#">Activity</Navbar.Link>
+          <Navbar.Link href="#">Settings</Navbar.Link>
+        </Navbar.Content>
+        <Navbar.Content gap="$6">
+          <Navbar.Item>
+            <Input
+              clearable
+              contentLeft={<Search fill="var(--nextui-colors-accents6)" size={16} />}
+              contentLeftStyling={false}
+              css={{
+                w: "210px",
+                "& .nextui-input-content--left": {
+                  h: "100%",
+                  ml: "$4",
+                  dflex: "center",
+                },
+              }}
+              placeholder="Search..."
+            />
+          </Navbar.Item>
+          <Dropdown placement="bottom-right">
+            <Navbar.Item>
+              <Dropdown.Trigger>
+                <Avatar
+                  bordered
+                  as="button"
+                  color="primary"
                   size="md"
                   src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
                 />

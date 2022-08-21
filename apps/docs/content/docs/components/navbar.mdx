@@ -16,7 +16,6 @@ import { Navbar } from "@nextui-org/react";
 
 <Spacer y={2} />
 
-
 #### Anatomy
 
 - **Navbar**: The wrapper that provides state and general context management.
@@ -27,7 +26,6 @@ import { Navbar } from "@nextui-org/react";
 - **Navbar.Toggle**: The toggle button that toggles the navbar. Must be a direct child of `Navbar`.
 - **Navbar.Collapse**: The collapse wrapper that provides the state and menu for the navbar collapse items.
 - **Navbar.CollapseItem**: The individual items. Must be a direct child of `Navbar.Collapse`.
-
 
 <Spacer y={2} />
 
@@ -49,7 +47,6 @@ import { Navbar } from "@nextui-org/react";
   highlightedLines="34"
   files={navbarContent.activeItemVariants}
 />
-
 
 <Playground
   asIframe
@@ -93,8 +90,9 @@ import { Navbar } from "@nextui-org/react";
   previewHeight="600px"
   iframeInitialWidth={420}
   iframeSrc="/examples/navbar/with-toggle-button"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.variants}
+  desc="You can show a collapse menu by adding the `Navbar.Toggle` and `Navbar.Collapse` components to the navbar."
+  highlightedLines="22"
+  files={navbarContent.withToggleButton}
 />
 
 <Playground
@@ -102,8 +100,9 @@ import { Navbar } from "@nextui-org/react";
   title="With Dropdown Menu"
   previewHeight="600px"
   iframeSrc="/examples/navbar/with-dropdown-menu"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.variants}
+  desc="You can use the `Dropdown` component as navbar item to show a dropdown menu."
+  highlightedLines="34"
+  files={navbarContent.withDropdownMenu}
 />
 
 <Playground
@@ -111,6 +110,30 @@ import { Navbar } from "@nextui-org/react";
   title="With Avatar User"
   previewHeight="600px"
   iframeSrc="/examples/navbar/with-avatar-user"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.variants}
+  desc="A common use case is to display the user's avatar in the navbar. To achieve this, you can use the `Avatar` component as navbar item or combine it with the `Dropdown` to show a dropdown menu."
+  highlightedLines="46"
+  files={navbarContent.withAvatarUser}
+/>
+
+
+<Playground
+  asIframe
+  title="With Search Input"
+  previewHeight="600px"
+  iframeSrc="/examples/navbar/with-search-input"
+  desc="Another common use case is to display a search input in the navbar. You can do this by using the `Input` component as navbar item."
+  highlightedLines="53"
+  files={navbarContent.withSearchInput}
+/>
+
+
+<Playground
+  asIframe
+  title="Disable collapse animation"
+  previewHeight="600px"
+  iframeInitialWidth={420}
+  iframeSrc="/examples/navbar/disable-collapse-animation"
+  desc="By adding the `disableAnimation` prop to the `Navbar.Collapse` you can disable the animation of the collapse menu and its items when it is opened or closed."
+  highlightedLines="99"
+  files={navbarContent.disableCollapseAnimation}
 />

@@ -1,7 +1,7 @@
 import {Examples} from "@components";
 import {Navbar, Text, Dropdown, Avatar, Link} from "@nextui-org/react";
 
-export default function NavbarWithAvatarUserExample() {
+export default function NavbarDisableCollapseAnimationExample() {
   const collapseItems = [
     "Profile",
     "Dashboard",
@@ -31,12 +31,7 @@ export default function NavbarWithAvatarUserExample() {
             ACME
           </Text>
         </Navbar.Brand>
-        <Navbar.Content
-          enableCursorHighlight
-          activeColor="secondary"
-          hideIn="xs"
-          variant="highlight-rounded"
-        >
+        <Navbar.Content enableCursorHighlight activeColor="warning" hideIn="xs" variant="highlight">
           <Navbar.Link isActive href="#">
             Dashboard
           </Navbar.Link>
@@ -59,7 +54,7 @@ export default function NavbarWithAvatarUserExample() {
                 <Avatar
                   bordered
                   as="button"
-                  color="secondary"
+                  color="warning"
                   size="md"
                   src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
                 />
@@ -67,7 +62,7 @@ export default function NavbarWithAvatarUserExample() {
             </Navbar.Item>
             <Dropdown.Menu
               aria-label="User menu actions"
-              color="secondary"
+              color="warning"
               onAction={(actionKey) => console.log({actionKey})}
             >
               <Dropdown.Item key="profile" css={{height: "$18"}}>
@@ -96,11 +91,11 @@ export default function NavbarWithAvatarUserExample() {
             </Dropdown.Menu>
           </Dropdown>
         </Navbar.Content>
-        <Navbar.Collapse>
+        <Navbar.Collapse disableAnimation>
           {collapseItems.map((item, index) => (
             <Navbar.CollapseItem
               key={`${item}-${index}`}
-              activeColor="secondary"
+              activeColor="warning"
               css={{
                 color: index === collapseItems.length - 1 ? "$error" : "",
               }}
