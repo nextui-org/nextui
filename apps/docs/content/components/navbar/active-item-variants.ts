@@ -36,7 +36,6 @@ export default function App() {
         <Navbar.Content activeColor={activeColor} hideIn="xs" variant={variant}>
           <Navbar.Link href="#">Features</Navbar.Link>
           <Navbar.Link isActive href="#">Customers</Navbar.Link>
-          <Navbar.Link href="#">Integrations</Navbar.Link>
           <Navbar.Link href="#">Pricing</Navbar.Link>
           <Navbar.Link href="#">Company</Navbar.Link>
         </Navbar.Content>

@@ -64,30 +64,34 @@ import { Navbar } from "@nextui-org/react";
   asIframe
   title="Compact"
   iframeSrc="/examples/navbar/compact"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.variants}
+  desc="You can reduce the height and amount of padding that navbar contains by using the `isCompact` property."
+  highlightedLines="8"
+  files={navbarContent.compact}
 />
 
 <Playground
   asIframe
   title="Hide on scroll"
   iframeSrc="/examples/navbar/hide-on-scroll"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.variants}
+  desc="By using the `shouldHideOnScroll` the navbar hides on scroll down to leave more space for content."
+  highlightedLines="10"
+  files={navbarContent.hideOnScroll}
 />
 
 <Playground
   asIframe
   title="Cursor Highlight"
   iframeSrc="/examples/navbar/cursor-highlight"
-  desc="Badge with default styles, used in standalone when `content` prop is empty."
-  files={navbarContent.variants}
+  desc="You can highlight the navbar content items when the cursor is over them with the `enableCursorHighlight` prop."
+  highlightedLines="17"
+  files={navbarContent.cursorHighlight}
 />
 
 <Playground
   asIframe
   title="With Toggle Button"
   previewHeight="600px"
+  iframeInitialWidth={420}
   iframeSrc="/examples/navbar/with-toggle-button"
   desc="Badge with default styles, used in standalone when `content` prop is empty."
   files={navbarContent.variants}

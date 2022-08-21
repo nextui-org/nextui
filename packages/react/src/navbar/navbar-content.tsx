@@ -33,7 +33,6 @@ const NavbarContent = forwardRef<NavbarContentProps, "ul">((props, ref) => {
         className={clsx("nextui-navbar-content", context.className)}
         css={{
           gap: context.gap,
-          color: context.color,
           ...context.css,
         }}
         enableCursorHighlight={context.enableCursorHighlight}

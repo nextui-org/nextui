@@ -195,14 +195,14 @@ export const WithToggle = () => {
     "TV & Home",
     "Music",
     "Support",
-    "Store",
-    "Mac",
-    "iPad",
-    "iPhone",
-    "Watch",
-    "TV & Home",
-    "Music",
-    "Support",
+    "Store2",
+    "Mac2",
+    "iPad2",
+    "iPhone2",
+    "Watch2",
+    "TV & Home2",
+    "Music2",
+    "Support2",
   ];
 
   return (
@@ -243,7 +243,9 @@ export const WithToggle = () => {
         </Navbar.Content>
         <Navbar.Collapse>
           {collapseItems.map((item, index) => (
-            <Navbar.CollapseItem key={`${item}-${index}`}>{item}</Navbar.CollapseItem>
+            <Navbar.CollapseItem key={`${item}-${index}`} css={{fontSize: "$lg"}}>
+              {item}
+            </Navbar.CollapseItem>
           ))}
         </Navbar.Collapse>
       </Navbar>

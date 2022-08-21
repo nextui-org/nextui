@@ -1,14 +1,17 @@
-import {Examples} from "@components";
-import {Navbar, Text, Button, Link, useTheme} from "@nextui-org/react";
+import {Layout, Box, AcmeLogo, Content} from "./common";
 
-export default function NavbarCursorHighlightExample() {
-  const {isDark} = useTheme();
+const App = `import { Navbar, Button, Link, Text, useTheme } from "@nextui-org/react";
+import { Layout } from "./Layout.js";
+import { AcmeLogo } from "./AcmeLogo.js";
+
+export default function App() {
+  const { isDark } = useTheme();
 
   return (
-    <Examples.NavbarLayout>
+    <Layout>
       <Navbar isBordered={isDark} variant="sticky">
         <Navbar.Brand>
-          <Examples.AcmeLogo />
+          <AcmeLogo />
           <Text b color="inherit" hideIn="xs">
             ACME
           </Text>
@@ -32,6 +35,18 @@ export default function NavbarCursorHighlightExample() {
           </Navbar.Item>
         </Navbar.Content>
       </Navbar>
-    </Examples.NavbarLayout>
-  );
-}
+    </Layout>
+  )
+}`;
+
+const react = {
+  "/Content.js": Content,
+  "/Layout.js": Layout,
+  "/AcmeLogo.js": AcmeLogo,
+  "/Box.js": Box,
+  "/App.js": App,
+};
+
+export default {
+  ...react,
+};

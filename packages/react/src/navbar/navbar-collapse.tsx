@@ -16,13 +16,15 @@ const NavbarCollapse = forwardRef<NavbarCollapseProps, "ul">((props, ref) => {
   return (
     <NavbarCollapseProvider value={context}>
       <StyledNavbarCollapse
-        ref={context.domRef}
         className={clsx("nextui-navbar-collapse", context.className)}
         css={context.collpaseCss}
         isOpen={context.isOpen}
         {...context.otherProps}
       >
-        <StyledNavbarCollapseWrapper className="nextui-navbar-collapse-wrapper">
+        <StyledNavbarCollapseWrapper
+          ref={context.domRef}
+          className="nextui-navbar-collapse-wrapper"
+        >
           {context.children}
         </StyledNavbarCollapseWrapper>
       </StyledNavbarCollapse>

@@ -27,6 +27,7 @@ export interface Props {
   showWindowActions?: boolean;
   iframeSrc?: string;
   iframeTitle?: string;
+  iframeInitialWidth?: number;
   enableResize?: boolean;
   overflow?: "auto" | "visible" | "hidden";
 }
@@ -173,6 +174,7 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
   code,
   showEditor,
   initialEditorOpen,
+  iframeInitialWidth,
   noInline,
   overflow,
   showWindowActions,
@@ -186,7 +188,7 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
 
   const codeTheme = makeCodeTheme();
 
-  const resizerX = useMotionValue(0);
+  const resizerX = useMotionValue(-(iframeInitialWidth || 0));
   let constraintsResizerRef = useRef<HTMLDivElement>(null);
   let resizerRef = useRef<HTMLDivElement>(null);
   let iframeRef = useRef<HTMLIFrameElement>(null);

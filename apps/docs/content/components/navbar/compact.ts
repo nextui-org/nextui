@@ -7,14 +7,14 @@ import { AcmeLogo } from "./AcmeLogo.js";
 export default function App() {
   return (
     <Layout>
-      <Navbar isBordered variant="floating">
+      <Navbar isCompact isBordered variant="sticky">
         <Navbar.Brand>
           <AcmeLogo />
           <Text b color="inherit" hideIn="xs">
             ACME
           </Text>
         </Navbar.Brand>
-        <Navbar.Content hideIn="xs" variant="highlight-rounded">
+        <Navbar.Content hideIn="xs" variant="underline">
           <Navbar.Link href="#">Features</Navbar.Link>
           <Navbar.Link isActive href="#">Customers</Navbar.Link>
           <Navbar.Link href="#">Pricing</Navbar.Link>

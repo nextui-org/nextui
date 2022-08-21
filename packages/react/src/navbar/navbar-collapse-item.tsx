@@ -14,17 +14,23 @@ export type NavbarCollapseItemProps = HTMLNextUIProps<"li"> &
   NavbarCollapseItemVariantsProps & {
     transitionDelay?: number; // in seconds
     transitionTime?: number; // in seconds
+    transitionMatrix?: {
+      in: string;
+      out: string;
+    };
   };
 
 const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref) => {
   const {
     children,
     className,
-    transitionDelay = 0,
-    transitionTime = 0.75,
+    transitionDelay,
+    transitionTime,
+    transitionMatrix,
     disableAnimation,
     style,
     css,
+
     ...otherProps
   } = props;
 
@@ -52,12 +58,31 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
     return -1;
   }, [collapseContext?.items]);
 
+  const itemTransitions = useMemo(() => {
+    return {
+      transitionDelay: transitionDelay ?? collapseContext?.transitionDelay ?? 0,
+      transitionTime: transitionTime ?? collapseContext?.transitionTime ?? 0,
+      transitionMatrix: transitionMatrix ??
+        collapseContext?.transitionMatrix ?? {
+          in: "matrix(1, 0, 0, 1, 0, 0)",
+          out: "matrix(0.95, 0, 0, 1, 0, 15)",
+        },
+    };
+  }, [
+    transitionDelay,
+    transitionTime,
+    transitionMatrix,
+    collapseContext.transitionMatrix,
+    collapseContext.transitionDelay,
+    collapseContext.transitionTime,
+  ]);
+
   const defaultDelay = useMemo(
     () =>
       collapseContext.items && index > -1
-        ? index / collapseContext.items.length + transitionDelay
+        ? index / collapseContext.items.length + itemTransitions.transitionDelay
         : 0.1,
-    [index, transitionDelay, collapseContext?.items],
+    [index, itemTransitions.transitionDelay, collapseContext?.items],
   );
 
   const itemStyle = useMemo(() => {
@@ -66,11 +91,11 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
     return {
       "--nextui--collapseItemOpacity": isVisible ? 1 : 0,
       "--nextui--collapseItemTransform": isVisible
-        ? "matrix(1, 0, 0, 1, 0, 0)"
-        : "matrix(0.85, 0, 0, 0.85, 5, 20)",
+        ? itemTransitions.transitionMatrix.in
+        : itemTransitions.transitionMatrix.out,
       "--netxui--collapseItemTransition":
         !disableAnimation && context.isCollapseOpen
-          ? `opacity ${transitionTime}s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s, transform ${transitionTime}s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s`
+          ? `opacity ${itemTransitions.transitionTime}s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s, transform ${itemTransitions.transitionTime}s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s`
           : "none",
     };
   }, [
@@ -78,6 +103,8 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
     isVisible,
     disableAnimation,
     defaultDelay,
+    itemTransitions.transitionMatrix,
+    itemTransitions.transitionTime,
     context.isCollapseOpen,
     collapseContext.hasScrolled,
   ]);

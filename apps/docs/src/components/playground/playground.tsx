@@ -41,6 +41,7 @@ interface Props {
   showWindowActions?: boolean;
   iframeSrc?: string;
   asIframe?: boolean;
+  iframeInitialWidth?: number;
   previewHeight?: string | number;
   overflow?: "auto" | "visible" | "hidden";
   files?: SandpackFiles;
@@ -75,6 +76,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   highlightedLines,
   showSandpackPreview,
   showWindowActions,
+  iframeInitialWidth,
   enableResize,
   files,
   iframeSrc,
@@ -168,6 +170,7 @@ const Playground: React.FC<PlaygroundProps> = ({
               code={code}
               enableResize={enableResize || asIframe}
               height={previewHeight}
+              iframeInitialWidth={iframeInitialWidth}
               iframeSrc={iframeSrc}
               iframeTitle={title}
               noInline={noInline}

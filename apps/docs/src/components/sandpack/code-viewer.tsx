@@ -60,6 +60,7 @@ const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
 
     const lineCount = lineCountRef.current[activePath];
     const isExpandable = lineCount > 12 || isExpanded;
+    const isAppFile = activePath.includes("App");
 
     React.useEffect(() => {
       if (containerRef && containerRef?.current !== null && isExpandable) {
@@ -99,7 +100,7 @@ const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
           ref={ref}
           readOnly
           code={propCode || code}
-          decorators={decorators}
+          decorators={isAppFile ? decorators : []}
           filePath={sandpack.activePath}
           initMode={initMode || sandpack.initMode}
           showLineNumbers={showLineNumbers}

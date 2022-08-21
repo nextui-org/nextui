@@ -1,7 +1,7 @@
 import {useMemo, useState, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 
-import {CSSGapUnit, CSSColor} from "../theme";
+import {CSSGapUnit} from "../theme";
 import {HTMLNextUIProps} from "../utils/system";
 
 import {NavbarItemVariantsProps, NavbarContentVariantsProps} from "./navbar.styles";
@@ -12,10 +12,6 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "color"> {
    * @default "$space$10 = 1.5rem" and "0px" (for highlight variants)
    */
   gap?: CSSGapUnit;
-  /**
-   * The main color of the navbar content items.
-   */
-  color?: CSSColor;
   /**
    * The active color of the navbar content items.
    * @default "$colors$link"
@@ -47,7 +43,6 @@ export type UseNavbarContentProps = Props & NavbarContentVariantsProps;
 export function useNavbarContent(props: UseNavbarContentProps = {}) {
   const {
     gap = "$10",
-    color = "inherit",
     variant = "default",
     activeColor = "default",
     underlineHeight = "normal",
@@ -177,7 +172,6 @@ export function useNavbarContent(props: UseNavbarContentProps = {}) {
   return {
     css,
     gap: contentGap,
-    color,
     variant,
     activeColor,
     activeItem,

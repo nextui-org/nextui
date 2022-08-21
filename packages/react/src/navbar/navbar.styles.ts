@@ -464,6 +464,7 @@ export const StyledNavbarContent = styled(
     flexWrap: "nowrap",
     alignItems: "center",
     gap: "$$navbarContentItemGap",
+    color: "inherit",
     variants: {
       enableCursorHighlight: {
         true: {

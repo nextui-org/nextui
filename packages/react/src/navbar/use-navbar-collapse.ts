@@ -15,6 +15,12 @@ import {useNavbarContext} from "./navbar-context";
 interface Props extends Omit<HTMLNextUIProps<"ul">, keyof NavbarCollapseVariantsProps> {
   ref?: ForwardedRef<any>;
   children?: React.ReactNode | React.ReactNode[];
+  transitionDelay?: number; // in seconds
+  transitionTime?: number; // in seconds
+  transitionMatrix?: {
+    in: string;
+    out: string;
+  };
 }
 
 export type UseNavbarCollapseProps = Props & NavbarCollapseVariantsProps;
@@ -23,7 +29,16 @@ export type UseNavbarCollapseProps = Props & NavbarCollapseVariantsProps;
  * @internal
  */
 export function useNavbarCollapse(props: UseNavbarCollapseProps = {}) {
-  const {css, children, ref, className, ...otherProps} = props;
+  const {
+    css,
+    children,
+    ref,
+    transitionDelay = 0,
+    transitionTime = 0.5,
+    transitionMatrix = {in: "matrix(1, 0, 0, 1, 0, 0)", out: "matrix(0.95, 0, 0, 0.95, 10, 20)"},
+    className,
+    ...otherProps
+  } = props;
 
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -45,7 +60,6 @@ export function useNavbarCollapse(props: UseNavbarCollapseProps = {}) {
     } else {
       setBodyHidden(true);
     }
-
     const handleScroll = () => {
       if (domRef.current && domRef.current?.scrollTop > 0 && !hasScrolled) {
         setHasScrolled(true);
@@ -84,6 +98,9 @@ export function useNavbarCollapse(props: UseNavbarCollapseProps = {}) {
     collpaseCss,
     isOpen: context.isCollapseOpen,
     hasScrolled,
+    transitionDelay,
+    transitionTime,
+    transitionMatrix,
     className,
     otherProps,
   };
