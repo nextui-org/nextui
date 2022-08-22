@@ -115,7 +115,6 @@ import { Navbar } from "@nextui-org/react";
   files={navbarContent.withAvatarUser}
 />
 
-
 <Playground
   asIframe
   title="With Search Input"
@@ -125,7 +124,6 @@ import { Navbar } from "@nextui-org/react";
   highlightedLines="53"
   files={navbarContent.withSearchInput}
 />
-
 
 <Playground
   asIframe
@@ -137,3 +135,181 @@ import { Navbar } from "@nextui-org/react";
   highlightedLines="99"
   files={navbarContent.disableCollapseAnimation}
 />
+
+<Spacer y={3} />
+
+### APIs
+
+<Spacer y={2} />
+
+#### Navbar Props
+
+| Attribute                | Type                                | Description                                                                                                                                         | Default  |
+| ------------------------ | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| **children\***           | `ReactNode[]`                       | The content of the navbar. It's usually the brand, content, toggle and collapse.                                                                    | -        |
+| **parentRef**            | `RefObject<HTMLElement>`            | The parent element where the navbar is placed within. This is used to determine the scroll position and whether the navbar should be hidden or not. | `window` |
+| **variant**              | [NavbarVariant](#navbar-variants)   | The navbar positions variantions                                                                                                                    | `static` |
+| **height**               | `number` `string`                   | The height of the navbar. When the navbar is compacted (isCompact=`true`) the height is reduced to `54px`                                           | `76px`   |
+| **maxWidth**             | [NavbarMaxWidth](#navbar-max-width) | The navbar maximum width.                                                                                                                           | `lg`     |
+| **isBordered**           | `boolean`                           | Whether the navbar should be bordered.                                                                                                              | `false`  |
+| **isCompact**            | `boolean`                           | Whether the navbar should be compact. It reduces the height to `54px`.                                                                              | `false`  |
+| **borderWeight**         | [NormalWeights](#normal-weights)    | The border weight of the bordered navbar.                                                                                                           | `light`  |
+| **shouldHideOnScroll**   | `boolean`                           | Whether the navbar should hide on scroll or not.                                                                                                    | `false`  |
+| **disableShadow**        | `boolean`                           | Whether the navbar should have a shadow or not.                                                                                                     | `false`  |
+| **disableBlur**          | `boolean`                           | Whether the navbar should be blurred or not. (only supported by this browser [list](https://caniuse.com/?search=backdrop-filter%3A%20blur)          | `false`  |
+| **disableScrollHandler** | `boolean`                           | Whether the navbar parent scroll event should be listened to or not.                                                                                | `false`  |
+| **containerCss**         | `Stitches.CSS`                      | The css object of the navbar container.                                                                                                             | -        |
+| **css**                  | `Stitches.CSS`                      | Override Default CSS style.                                                                                                                         | -        |
+| **as**                   | `keyof JSX.IntrinsicElements`       | Changes which tag component outputs.                                                                                                                | `nav`    |
+
+<Spacer y={1} />
+
+#### Navbar Events
+
+| Attribute                  | Type                               | Description                                                                                                                                                                                              | Default |
+| -------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **onScrollPositionChange** | `(scrollPosition: number) => void` | The scroll event handler for the navbar. The event fires when the navbar parent element is scrolled. it only works if `disableScrollHandler` is set to `false` or `shouldHideOnScroll` is set to `true`. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Navbar.Brand Props
+
+| Attribute      | Type        | Description                                                                                                                                                                | Default |
+| -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| **children\*** | `ReactNode` | The dropdown trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessiblity. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Navbar.Content Props
+
+| Attribute       | Type                                                | Description                                                                           | Default |
+| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------- | ------- |
+| **ButtonProps** | [ButtonProps](/docs/components/button#button-props) | Since dropdown button is based on the `Button` you can use any of the `Button` props. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Navbar.Item Props
+
+| Attribute                  | Type                                                                                                         | Description                                                                                             | Default   |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
+| **children\***             | [CollectionChildrentype](#collection-children-type)                                                          | The contents of the collection. It's usually the `Dropdown.Item` or `Dropdown.Section`.                 | -         |
+| **items**                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)       | Item objects in the collection.                                                                         | -         |
+| **selectedKeys**           | `all` [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The currently selected keys in the collection (controlled).                                             | -         |
+| **defaultSelectedKeys**    | `all` [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The initial selected keys in the collection (uncontrolled).                                             | -         |
+| **disabledKeys**           | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)       | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
+| **selectionMode**          | [SelectionModeType](#selection-mode-type)                                                                    | The type of selection that is allowed in the collection.                                                | -         |
+| **keyboardDelegate**       | [KeyboardDelegateType](#keyboard-delegate-type)                                                              | An optional keyboard delegate implementation for type to select, to override the default.               | -         |
+| **color**                  | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items color                                                                           | `default` |
+| **textColor**              | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items text color                                                                      | `default` |
+| **variant**                | [DropdownVariant](#dropdown-variants)                                                                        | The dropdown menu items variantion                                                                      | `flat`    |
+| **isVirtualized**          | `boolean`                                                                                                    | Whether the dropdown menu uses virtual scrolling.                                                       | `false`   |
+| **disallowEmptySelection** | `boolean`                                                                                                    | Whether the collection allows empty selection.                                                          | `false`   |
+| **autoFocus**              | `boolean` [FocusStrategyType](#focus-strategy-type)                                                          | Where the focus should be set.                                                                          | `false`   |
+| **shouldFocusWrap**        | `boolean`                                                                                                    | Whether keyboard navigation is circular.                                                                | `false`   |
+| **css**                    | `Stitches.CSS`                                                                                               | Override Default CSS style.                                                                             | -         |
+| **as**                     | `keyof JSX.IntrinsicElements`                                                                                | Changes which tag component outputs.                                                                    | `ul`      |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Navbar.Link Props
+
+| Attribute       | Type                                                | Description                                                                           | Default |
+| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------- | ------- |
+| **ButtonProps** | [ButtonProps](/docs/components/button#button-props) | Since dropdown button is based on the `Button` you can use any of the `Button` props. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Navbar.Toggle Props
+
+| Attribute            | Type     | Description                                                                                                        | Default |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
+| **id**               | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
+| **aria-label**       | `string` | Defines a string value that labels the current element                                                             | -       |
+| **aria-labelledby**  | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
+| **aria-describedby** | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
+| **aria-details**     | `string` | Identifies the element (or elements) that provide a detailed, extended description for the object.                 | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Navbar.Collapse Props
+
+| Attribute                     | Type                                                | Description                                                      | Default   |
+| ----------------------------- | --------------------------------------------------- | ---------------------------------------------------------------- | --------- |
+| **key**                       | [Key](https://reactjs.org/docs/lists-and-keys.html) | The unique key for the menu item.                                | `false`   |
+| **description**               | `string`                                            | Description text element inside the dropdown menu item.          | -         |
+| **command**                   | `string`                                            | Right-aligned label text content, useful for displaying hotkeys. | -         |
+| **icon**                      | `ReactNode`                                         | The icon to render before the dropdown menu item's label.        | -         |
+| **dividerWeight**             | [NormalWeights](#normal-weights)                    | The dropdown item divider height                                 | `light`   |
+| **color**                     | [SimpleColors](#simple-colors)                      | The dropdown item color                                          | `default` |
+| **textColor**                 | [SimpleColors](#simple-colors)                      | The dropdown item text color                                     | `default` |
+| **variant**                   | [DropdownVariant](#dropdown-variants)               | The dropdown item variation                                      | `flat`    |
+| **withDivider**               | `boolean`                                           | Whether the dropdown item should have a border on top            | `false`   |
+| **showFullDescription** `new` | `boolean`                                           | Whether the item description should be truncated or not.         | `false`   |
+| **css**                       | `Stitches.CSS`                                      | Override Default CSS style.                                      | -         |
+| **as**                        | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                             | `li`      |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+#### Navbar.CollapseItem
+
+| Attribute      | Type     | Description                                            | Default |
+| -------------- | -------- | ------------------------------------------------------ | ------- |
+| **aria-label** | `string` | A screen reader only label for the dropdown menu item. | -       |
+
+<Spacer y={2} />
+
+---
+
+<Spacer y={2} />
+
+### Navbar types
+
+<Spacer y={1} />
+
+#### Navbar Variants
+
+```ts
+type NavbarVariants = "static" | "sticky" | "floating";
+```
+
+#### Navbar Max Width
+
+```ts
+type NavbarMaxWidth = "xs" | "sm" | "md" | "lg" | "xl" | "fluid";
+```
+
+> **Note**: `fluid` means the navbar will fill the entire width of the screen. You can see the complete breakpoint list [here](https://nextui.org/docs/theme/default-theme#breakpoints).
+
+#### Normal Weights
+
+```ts
+type NormalWeights = "light" | "normal" | "bold" | "extrabold" | "black";
+```

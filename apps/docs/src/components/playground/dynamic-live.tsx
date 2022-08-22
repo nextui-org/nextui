@@ -80,6 +80,16 @@ const Resizer = Components.styled(Box, {
   "@xsMax": {
     display: "none",
   },
+  variants: {
+    hasInitalWidth: {
+      true: {
+        justifyContent: "flex-start",
+        "& .resizer-bar": {
+          ml: "$2",
+        },
+      },
+    },
+  },
 });
 
 const StyledWrapper = Components.styled(Box, {
@@ -130,7 +140,28 @@ const StyledWrapper = Components.styled(Box, {
       },
     },
     enableResize: {
-      true: {
+      true: {},
+    },
+    hasInitialWidth: {
+      true: {},
+    },
+  },
+  compoundVariants: [
+    {
+      enableResize: true,
+      hasInitialWidth: true,
+      css: {
+        width: "var(--iframe-resizer-x)",
+        "@xsMax": {
+          ml: "0px",
+          width: "100%",
+        },
+      },
+    },
+    {
+      enableResize: true,
+      hasInitialWidth: false,
+      css: {
         width: "calc(100% - 34px + var(--iframe-resizer-x))",
         "@xsMax": {
           ml: "0px",
@@ -138,7 +169,7 @@ const StyledWrapper = Components.styled(Box, {
         },
       },
     },
-  },
+  ],
   defaultVariants: {
     overflow: "hidden",
   },
@@ -188,10 +219,12 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
 
   const codeTheme = makeCodeTheme();
 
-  const resizerX = useMotionValue(-(iframeInitialWidth || 0));
+  const resizerX = useMotionValue(0);
   let constraintsResizerRef = useRef<HTMLDivElement>(null);
   let resizerRef = useRef<HTMLDivElement>(null);
   let iframeRef = useRef<HTMLIFrameElement>(null);
+
+  const hasInitialWidth = iframeInitialWidth !== undefined;
 
   useEffect(() => {
     if (!resizerRef.current) {
@@ -200,7 +233,9 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
     resizerRef.current.onselectstart = () => false;
   }, []);
 
-  let browserWidth = useTransform(resizerX, (x) => `${x}px`);
+  let browserWidth = useTransform(resizerX, (x) =>
+    hasInitialWidth ? `${x + iframeInitialWidth}px` : `${x}px`,
+  );
 
   return (
     <LiveProvider code={code} noInline={noInline} scope={scope} theme={codeTheme}>
@@ -217,6 +252,7 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
             className="dynamic-live-wrapper"
             css={css}
             enableResize={enableResize}
+            hasInitialWidth={hasInitialWidth}
             isBrowser={showWindowActions}
             noInline={noInline}
             overflow={overflow}
@@ -259,8 +295,9 @@ const DynamicLive: React.FC<Props & {css?: Components.CSS}> = ({
                 top: 0,
                 bottom: 0,
                 right: 0,
-                width: `calc(100% - ${MIN_WIDTH}px - 20px)`,
+                width: `calc(100% - ${hasInitialWidth ? iframeInitialWidth : MIN_WIDTH}px - 20px)`,
               }}
+              hasInitalWidth={hasInitialWidth}
             >
               <Box
                 ref={resizerRef}
