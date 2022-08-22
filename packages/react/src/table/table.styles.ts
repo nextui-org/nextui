@@ -20,11 +20,13 @@ export const StyledTableColumnHeader = styled(
     },
     '&:first-child': {
       pl: '$8',
-      br: '$md 0 0 $md'
+      btlr: '$md',
+      bblr: '$md',
     },
     '&:last-child': {
       pr: '$8',
-      br: '0 $md $md 0'
+      btrr: '$md',
+      bbrr: '$md'
     },
     variants: {
       align: {
