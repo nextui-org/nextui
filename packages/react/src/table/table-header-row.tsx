@@ -1,10 +1,12 @@
-import React, { useRef, useImperativeHandle } from 'react';
-import { CSS } from '../theme/stitches.config';
-import { useTableHeaderRow } from '@react-aria/table';
-import { StyledTableHeaderRow } from './table.styles';
-import { GridNode } from '@react-types/grid';
-import { TableState } from '@react-stately/table';
-import clsx from '../utils/clsx';
+import React, {useRef, useImperativeHandle} from "react";
+import {useTableHeaderRow} from "@react-aria/table";
+import {GridNode} from "@react-types/grid";
+import {TableState} from "@react-stately/table";
+
+import {CSS} from "../theme/stitches.config";
+import clsx from "../utils/clsx";
+
+import {StyledTableHeaderRow} from "./table.styles";
 
 interface Props<T> {
   item: GridNode<T>;
@@ -14,45 +16,36 @@ interface Props<T> {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<any>>;
 
-export type TableHeaderRowProps<T = unknown> = Props<T> &
-  NativeAttrs & { css?: CSS };
+export type TableHeaderRowProps<T = unknown> = Props<T> & NativeAttrs & {css?: CSS};
 
 const TableHeaderRow = React.forwardRef<
   HTMLTableRowElement,
   React.PropsWithChildren<TableHeaderRowProps>
->(
-  (
-    { children, item, state, ...props },
-    ref: React.Ref<HTMLTableRowElement | null>
-  ) => {
-    const tableHeaderRowRef = useRef<HTMLTableRowElement | null>(null);
+>(({children, item, state, ...props}, ref: React.Ref<HTMLTableRowElement | null>) => {
+  const tableHeaderRowRef = useRef<HTMLTableRowElement | null>(null);
 
-    useImperativeHandle(ref, () => tableHeaderRowRef?.current);
+  useImperativeHandle(ref, () => tableHeaderRowRef?.current);
 
-    const {
-      rowProps
-    }: {
-      rowProps: Omit<
-        React.HTMLAttributes<unknown>,
-        keyof TableHeaderRowProps<unknown>
-      >;
-    } = useTableHeaderRow({ node: item }, state, tableHeaderRowRef);
+  const {
+    rowProps,
+  }: {
+    rowProps: Omit<React.HTMLAttributes<unknown>, keyof TableHeaderRowProps<unknown>>;
+  } = useTableHeaderRow({node: item}, state, tableHeaderRowRef);
 
-    return (
-      <StyledTableHeaderRow
-        ref={tableHeaderRowRef}
-        className={clsx('nextui-table-header-row', props.className)}
-        {...props}
-        {...rowProps}
-      >
-        {children}
-      </StyledTableHeaderRow>
-    );
-  }
-);
+  return (
+    <StyledTableHeaderRow
+      ref={tableHeaderRowRef}
+      className={clsx("nextui-table-header-row", props.className)}
+      {...props}
+      {...rowProps}
+    >
+      {children}
+    </StyledTableHeaderRow>
+  );
+});
 
-TableHeaderRow.displayName = 'NextUI.TableHeaderRow';
+TableHeaderRow.displayName = "NextUI.TableHeaderRow";
 
-TableHeaderRow.toString = () => '.nextui-table-header-row';
+TableHeaderRow.toString = () => ".nextui-table-header-row";
 
 export default TableHeaderRow;

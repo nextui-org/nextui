@@ -1,17 +1,18 @@
-import mitt from 'mitt';
-import Router from 'next/router';
+import mitt from "mitt";
+import Router from "next/router";
 
 const emitter = mitt();
+
 export default emitter;
 
 Router.onRouteChangeStart = (url) => {
-  emitter.emit('routeChangeStart', url);
+  emitter.emit("routeChangeStart", url);
 };
 
 Router.onRouteChangeComplete = (...args) => {
-  emitter.emit('routeChangeComplete', ...args);
+  emitter.emit("routeChangeComplete", ...args);
 };
 
 Router.onRouteChangeError = (...args) => {
-  emitter.emit('routeChangeError', ...args);
+  emitter.emit("routeChangeError", ...args);
 };

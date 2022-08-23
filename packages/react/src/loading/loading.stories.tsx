@@ -1,24 +1,26 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Loading from './index';
-import { Spacer } from '../index';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {Spacer} from "../index";
+
+import Loading from "./index";
 
 export default {
-  title: 'Feedback/Loading',
-  component: Loading
+  title: "Feedback/Loading",
+  component: Loading,
 } as Meta;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Container = ({ children }: any) => (
+const Container = ({children}: any) => (
   <div
     style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      alignItems: 'flex-start',
-      marginLeft: '1rem',
-      width: '100%',
-      maxWidth: '340px'
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+      marginLeft: "1rem",
+      width: "100%",
+      maxWidth: "340px",
     }}
   >
     {children}
@@ -95,19 +97,19 @@ export const Types = () => (
   <Container>
     <Loading type="default">default</Loading>
     <Spacer y={2} />
-    <Loading type="spinner" size="lg">
+    <Loading size="lg" type="spinner">
       spinner
     </Loading>
     <Spacer y={2} />
-    <Loading type="points" style={{ marginLeft: '-0.5rem' }}>
+    <Loading style={{marginLeft: "-0.5rem"}} type="points">
       points
     </Loading>
     <Spacer y={2} />
-    <Loading style={{ marginLeft: '-0.5rem' }} type="points-opacity">
+    <Loading style={{marginLeft: "-0.5rem"}} type="points-opacity">
       points-opacity
     </Loading>
     <Spacer y={2} />
-    <Loading type="gradient" style={{ marginLeft: '-0.5rem' }}>
+    <Loading style={{marginLeft: "-0.5rem"}} type="gradient">
       gradient
     </Loading>
   </Container>

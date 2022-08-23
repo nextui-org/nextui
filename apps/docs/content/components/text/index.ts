@@ -1,10 +1,10 @@
-import default_text from './default';
-import gradient from './gradient';
-import paragraph from './paragraph';
-import blockquote from './blockquote';
-import color from './color';
-import size from './size';
-import compose from './compose';
+import default_text from "./default";
+import gradient from "./gradient";
+import paragraph from "./paragraph";
+import blockquote from "./blockquote";
+import color from "./color";
+import size from "./size";
+import compose from "./compose";
 
 export default {
   default_text,
@@ -13,5 +13,5 @@ export default {
   blockquote,
   color,
   size,
-  compose
+  compose,
 };

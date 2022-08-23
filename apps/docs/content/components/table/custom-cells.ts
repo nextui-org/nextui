@@ -676,24 +676,24 @@ export default function App() {
 }`;
 
 const react = {
-  '/StyledBadge.js': StyledBadge,
-  '/IconButton.js': IconButton,
-  '/EyeIcon.js': EyeIconJs,
-  '/EditIcon.js': EditIconJs,
-  '/DeleteIcon.js': DeleteIconJs,
-  '/App.js': AppJs
+  "/StyledBadge.js": StyledBadge,
+  "/IconButton.js": IconButton,
+  "/EyeIcon.js": EyeIconJs,
+  "/EditIcon.js": EditIconJs,
+  "/DeleteIcon.js": DeleteIconJs,
+  "/App.js": AppJs,
 };
 
 const reactTs = {
-  '/StyledBadge.tsx': StyledBadge,
-  '/IconButton.tsx': IconButton,
-  '/EyeIcon.tsx': EyeIconTs,
-  '/EditIcon.tsx': EditIconTs,
-  '/DeleteIcon.tsx': DeleteIconTs,
-  '/App.tsx': AppTs
+  "/StyledBadge.tsx": StyledBadge,
+  "/IconButton.tsx": IconButton,
+  "/EyeIcon.tsx": EyeIconTs,
+  "/EditIcon.tsx": EditIconTs,
+  "/DeleteIcon.tsx": DeleteIconTs,
+  "/App.tsx": AppTs,
 };
 
 export default {
   ...react,
-  ...reactTs
+  ...reactTs,
 };

@@ -1,14 +1,16 @@
-import { Route, RouteContext } from '@lib/docs/page';
+import {Route, RouteContext} from "@lib/docs/page";
 
 const getRouteContext = (
   routes: Route[],
   currentRoute?: Route,
-  ctx: RouteContext = {}
+  ctx: RouteContext = {},
 ): RouteContext => {
   const path = currentRoute?.path;
-  const { parent } = ctx;
+  const {parent} = ctx;
+
   for (let i = 0; i < routes?.length; i += 1) {
     const route = routes[i];
+
     if (route.routes) {
       ctx.parent = route;
       ctx = getRouteContext(route.routes, currentRoute, ctx);
@@ -18,9 +20,7 @@ const getRouteContext = (
     if (!route.path) continue;
     if (ctx.route) {
       ctx.nextRoute =
-        parent && i === 0
-          ? { ...route, title: `${parent.title}: ${route.title}` }
-          : route;
+        parent && i === 0 ? {...route, title: `${parent.title}: ${route.title}`} : route;
 
       return ctx;
     }
@@ -29,17 +29,18 @@ const getRouteContext = (
         ...currentRoute,
         title:
           parent && !parent.heading
-            ? `${parent.title}: ${currentRoute?.title}` || ''
-            : currentRoute?.title || ''
+            ? `${parent.title}: ${currentRoute?.title}` || ""
+            : currentRoute?.title || "",
       };
       // Continue the loop until we know the next route
       continue;
     }
     ctx.prevRoute =
       parent && !parent.heading && !routes[i + 1]?.path
-        ? { ...route, title: `${parent.title}: ${route.title}` }
+        ? {...route, title: `${parent.title}: ${route.title}`}
         : route;
   }
+
   return ctx;
 };
 
@@ -49,9 +50,10 @@ const getRouteContext = (
 const useDocsRoute = (
   routes: Route[],
   currentRoute?: Route,
-  ctx: RouteContext = {}
+  ctx: RouteContext = {},
 ): RouteContext => {
   getRouteContext(routes, currentRoute, ctx);
+
   // The loop ended and the previous route was found, or nothing
   return ctx;
 };

@@ -1,30 +1,29 @@
-import React, { ReactNode, Key, useRef, useMemo } from 'react';
-import { Node } from '@react-types/shared';
-import { mergeProps } from '@react-aria/utils';
-import { TreeState } from '@react-stately/tree';
-import { useFocusRing } from '@react-aria/focus';
-import type { FocusableProps } from '@react-types/shared';
-import { useHover, usePress } from '@react-aria/interactions';
-import { useMenuItem } from '@react-aria/menu';
-import { CSS } from '../theme/stitches.config';
-import type {
-  SimpleColors,
-  NormalWeights,
-  DropdownVariants
-} from '../utils/prop-types';
-import Checkmark from '../utils/checkmark';
-import type { IFocusRingAria, IMenuItemAria } from './dropdown-types';
-import { useDropdownContext } from './dropdown-context';
+import type {FocusableProps} from "@react-types/shared";
+import type {SimpleColors, NormalWeights, DropdownVariants} from "../utils/prop-types";
+import type {IFocusRingAria, IMenuItemAria} from "./dropdown-types";
+
+import React, {ReactNode, Key, useRef, useMemo} from "react";
+import {Node} from "@react-types/shared";
+import {mergeProps} from "@react-aria/utils";
+import {TreeState} from "@react-stately/tree";
+import {useFocusRing} from "@react-aria/focus";
+import {useHover, usePress} from "@react-aria/interactions";
+import {useMenuItem} from "@react-aria/menu";
+
+import {CSS} from "../theme/stitches.config";
+import Checkmark from "../utils/checkmark";
+import clsx from "../utils/clsx";
+import {__DEV__} from "../utils/assertion";
+
+import {useDropdownContext} from "./dropdown-context";
 import {
   StyledDropdownItem,
   StyledDropdownItemKbd,
   StyledDropdownItemContent,
   StyledDropdownItemIconWrapper,
   StyledDropdownItemContentWrapper,
-  StyledDropdownItemDescription
-} from './dropdown.styles';
-import clsx from '../utils/clsx';
-import { __DEV__ } from '../utils/assertion';
+  StyledDropdownItemDescription,
+} from "./dropdown.styles";
 
 interface Props<T> extends FocusableProps {
   item: Node<T>;
@@ -44,8 +43,7 @@ interface Props<T> extends FocusableProps {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props<object>>;
 
-export type DropdownItemProps<T = object> = Props<T> &
-  NativeAttrs & { css?: CSS };
+export type DropdownItemProps<T = object> = Props<T> & NativeAttrs & {css?: CSS};
 
 const DropdownItem = <T extends object>({
   as,
@@ -62,13 +60,12 @@ const DropdownItem = <T extends object>({
   isVirtualized,
   withDivider,
   dividerWeight,
+  className,
   onAction,
-  className
 }: DropdownItemProps<T>) => {
-  const { onClose, closeOnSelect, disableAnimation, borderWeight } =
-    useDropdownContext();
+  const {onClose, closeOnSelect, disableAnimation, borderWeight} = useDropdownContext();
 
-  const { rendered, key } = item;
+  const {rendered, key} = item;
 
   const isSelected = state.selectionManager.isSelected(key);
   const isFocused = state.selectionManager.focusedKey === item.key;
@@ -76,107 +73,98 @@ const DropdownItem = <T extends object>({
 
   const ref = useRef<HTMLLIElement>(null);
 
-  const { pressProps, isPressed } = usePress({
+  const {pressProps, isPressed} = usePress({
     ref,
-    isDisabled
+    isDisabled,
   });
 
-  const { isFocusVisible, focusProps }: IFocusRingAria = useFocusRing({
-    autoFocus
+  const {isFocusVisible, focusProps}: IFocusRingAria = useFocusRing({
+    autoFocus,
   });
 
-  const { hoverProps, isHovered } = useHover({ isDisabled });
+  const {hoverProps, isHovered} = useHover({isDisabled});
 
-  const isSelectable =
-    state.selectionManager.selectionMode !== 'none' && !isDisabled;
+  const isSelectable = state.selectionManager.selectionMode !== "none" && !isDisabled;
 
-  const {
-    menuItemProps,
-    labelProps,
-    descriptionProps,
-    keyboardShortcutProps
-  }: IMenuItemAria = useMenuItem(
-    {
-      key,
-      onClose,
-      isSelected,
-      isDisabled,
-      'aria-label': item['aria-label'],
-      closeOnSelect,
-      isVirtualized,
-      onAction
-    },
-    state,
-    ref
-  );
+  const {menuItemProps, labelProps, descriptionProps, keyboardShortcutProps}: IMenuItemAria =
+    useMenuItem(
+      {
+        key,
+        onClose,
+        isSelected,
+        isDisabled,
+        "aria-label": item["aria-label"],
+        closeOnSelect,
+        isVirtualized,
+        onAction,
+      },
+      state,
+      ref,
+    );
 
   const getState = useMemo(() => {
-    if (isHovered) return 'hovered';
-    if (isSelected) return 'selected';
-    if (isPressed) return 'pressed';
-    return isDisabled ? 'disabled' : 'ready';
+    if (isHovered) return "hovered";
+    if (isSelected) return "selected";
+    if (isPressed) return "pressed";
+
+    return isDisabled ? "disabled" : "ready";
   }, [isSelected, isDisabled, isHovered, isPressed]);
 
   const getTextColor = useMemo(() => {
     if (item.props.textColor) {
       return item.props.textColor;
     }
-    if (item.props.color && textColor === 'default') {
+    if (item.props.color && textColor === "default") {
       return item.props.color;
     }
+
     return textColor;
   }, [textColor, item.props.color, item.props.textColor]);
 
   const withDescription = useMemo(
     () => description || item.props.description,
-    [description, item.props.description]
+    [description, item.props.description],
   );
 
-  const withCommand = useMemo(
-    () => command || item.props.command,
-    [command, item.props.command]
-  );
+  const withCommand = useMemo(() => command || item.props.command, [command, item.props.command]);
 
-  const withIcon = useMemo(
-    () => icon || item.props.icon,
-    [icon, item.props.icon]
-  );
+  const withIcon = useMemo(() => icon || item.props.icon, [icon, item.props.icon]);
 
   return (
     <StyledDropdownItem
       ref={ref}
       {...mergeProps(menuItemProps, hoverProps, pressProps, focusProps)}
       as={item.props.as || as}
-      css={{ ...mergeProps(css, item.props.css) }}
-      data-state={getState}
-      color={item.props.color || color}
-      variant={item.props.variant || variant}
-      textColor={getTextColor}
-      isFocused={isFocused}
-      isFocusVisible={isFocusVisible}
-      shouldShowOutline={isFocusVisible && variant === 'shadow'}
-      isHovered={isHovered}
-      isSelected={isSelected}
-      isDisabled={isDisabled}
-      isPressed={isPressed}
-      isSelectable={isSelectable}
-      withDivider={withDivider || item.props.withDivider}
-      withDescription={!!withDescription}
-      dividerWeight={dividerWeight || item.props.dividerWeight || borderWeight}
-      disableAnimation={disableAnimation}
       className={clsx(
-        'nextui-dropdown-item',
+        "nextui-dropdown-item",
         {
-          'is-disabled': isDisabled,
-          'is-selected': isSelected,
-          'is-selectable': isSelectable,
-          'is-hovered': isHovered,
-          'is-focused': isFocused,
-          'is-pressed': isPressed
+          "is-disabled": isDisabled,
+          "is-selected": isSelected,
+          "is-selectable": isSelectable,
+          "is-hovered": isHovered,
+          "is-focused": isFocused,
+          "is-pressed": isPressed,
         },
         className,
-        item.props.className
+        item.props.className,
       )}
+      color={item.props.color || color}
+      css={{...mergeProps(css, item.props.css)}}
+      data-state={getState}
+      disableAnimation={disableAnimation}
+      dividerWeight={dividerWeight || item.props.dividerWeight || borderWeight}
+      isDisabled={isDisabled}
+      isFocusVisible={isFocusVisible}
+      isFocused={isFocused}
+      isHovered={isHovered}
+      isPressed={isPressed}
+      isSelectable={isSelectable}
+      isSelected={isSelected}
+      shouldShowOutline={isFocusVisible && variant === "shadow"}
+      textColor={getTextColor}
+      variant={item.props.variant || variant}
+      withDescription={!!withDescription}
+      withDivider={withDivider || item.props.withDivider}
     >
       {withIcon && (
         <StyledDropdownItemIconWrapper className="nextui-dropdown-item-icon-wrapper">
@@ -185,42 +173,33 @@ const DropdownItem = <T extends object>({
       )}
       {withDescription ? (
         <StyledDropdownItemContentWrapper>
-          <StyledDropdownItemContent
-            className="nextui-dropdown-item-content"
-            {...labelProps}
-          >
+          <StyledDropdownItemContent className="nextui-dropdown-item-content" {...labelProps}>
             {rendered}
           </StyledDropdownItemContent>
           <StyledDropdownItemDescription
             className="nextui-dropdown-item-description"
-            hasIcon={!!withIcon}
             hasCommand={!!withCommand}
+            hasIcon={!!withIcon}
             {...descriptionProps}
           >
             {withDescription}
           </StyledDropdownItemDescription>
         </StyledDropdownItemContentWrapper>
       ) : (
-        <StyledDropdownItemContent
-          className="nextui-dropdown-item-content"
-          {...labelProps}
-        >
+        <StyledDropdownItemContent className="nextui-dropdown-item-content" {...labelProps}>
           {rendered}
         </StyledDropdownItemContent>
       )}
 
       {withCommand && (
-        <StyledDropdownItemKbd
-          className="nextui-dropdown-item-command"
-          {...keyboardShortcutProps}
-        >
+        <StyledDropdownItemKbd className="nextui-dropdown-item-command" {...keyboardShortcutProps}>
           {withCommand}
         </StyledDropdownItemKbd>
       )}
       {isSelected && (
         <Checkmark
           css={{
-            ml: '$4'
+            ml: "$4",
           }}
         />
       )}
@@ -229,8 +208,8 @@ const DropdownItem = <T extends object>({
 };
 
 if (__DEV__) {
-  DropdownItem.displayName = 'NextUI.DropdownItem';
+  DropdownItem.displayName = "NextUI.DropdownItem";
 }
-DropdownItem.toString = () => '.nextui-dropdown-item';
+DropdownItem.toString = () => ".nextui-dropdown-item";
 
 export default DropdownItem;

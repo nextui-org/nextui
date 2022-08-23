@@ -1,33 +1,32 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Card from './index';
-import { styled } from '../theme/stitches.config';
-import {
-  Row,
-  Col,
-  Link,
-  Text,
-  Code,
-  Button,
-  Grid,
-  Checkbox,
-  Spacer,
-  Input
-} from '../index';
-import AppleEvent from '../../assets/apple-event.jpeg';
-import Homepods from '../../assets/homepod.jpeg';
-import Relaxing from '../../assets/relaxing.jpeg';
-import BreathingApp from '../../assets/breathing-app-icon.jpeg';
-import { Mail, Password } from '../utils/icons';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {styled} from "../theme/stitches.config";
+import {Row, Col, Link, Text, Code, Button, Grid, Checkbox, Spacer, Input} from "../index";
+import AppleEvent from "../../assets/apple-event.jpeg";
+import Homepods from "../../assets/homepod.jpeg";
+import Relaxing from "../../assets/relaxing.jpeg";
+import BreathingApp from "../../assets/breathing-app-icon.jpeg";
+import {Mail, Password} from "../utils/icons";
+
+import Card from "./index";
 
 export default {
-  title: 'Surfaces/Card',
-  component: Card
+  title: "Surfaces/Card",
+  component: Card,
 } as Meta;
 
 export const Default = () => (
-  <Card css={{ w: '400px' }}>
-    <Card.Body css={{ py: '$lg' }}>
+  <Card css={{w: "400px"}}>
+    <Card.Body css={{py: "$lg"}}>
+      <Text>A basic card</Text>
+    </Card.Body>
+  </Card>
+);
+
+export const Hoverable = () => (
+  <Card isHoverable css={{w: "400px"}} variant="bordered">
+    <Card.Body css={{py: "$lg"}}>
       <Text>A basic card</Text>
     </Card.Body>
   </Card>
@@ -62,37 +61,30 @@ export const Variants = () => (
 export const WithFooter = () => (
   <Grid.Container gap={2}>
     <Grid xs={4}>
-      <Card css={{ p: '$6' }}>
+      <Card css={{p: "$6"}}>
         <Card.Header>
           <img
             alt="nextui logo"
+            height="34px"
             src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
             width="34px"
-            height="34px"
           />
-          <Grid.Container css={{ pl: '$6' }}>
+          <Grid.Container css={{pl: "$6"}}>
             <Grid xs={12}>
-              <Text h4 css={{ lineHeight: '$xs' }}>
+              <Text h4 css={{lineHeight: "$xs"}}>
                 Next UI
               </Text>
             </Grid>
             <Grid xs={12}>
-              <Text css={{ color: '$accents8' }}>nextui.org</Text>
+              <Text css={{color: "$accents8"}}>nextui.org</Text>
             </Grid>
           </Grid.Container>
         </Card.Header>
-        <Card.Body css={{ py: '$2' }}>
-          <Text>
-            Make beautiful websites regardless of your design experience.
-          </Text>
+        <Card.Body css={{py: "$2"}}>
+          <Text>Make beautiful websites regardless of your design experience.</Text>
         </Card.Body>
         <Card.Footer>
-          <Link
-            icon
-            color="primary"
-            target="_blank"
-            href="https://github.com/nextui-org/nextui"
-          >
+          <Link icon color="primary" href="https://github.com/nextui-org/nextui" target="_blank">
             Visit source code on GitHub.
           </Link>
         </Card.Footer>
@@ -105,15 +97,10 @@ export const AbsImageWithHeader = () => {
   return (
     <Grid.Container gap={1} justify="center">
       <Grid>
-        <Card css={{ w: '330px' }}>
-          <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
+        <Card css={{w: "330px"}}>
+          <Card.Header css={{position: "absolute", top: 5, zIndex: 1}}>
             <Col>
-              <Text
-                size={12}
-                weight="bold"
-                transform="uppercase"
-                color="#ffffffAA"
-              >
+              <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
                 What to watch
               </Text>
               <Text h3 color="white">
@@ -122,12 +109,12 @@ export const AbsImageWithHeader = () => {
             </Col>
           </Card.Header>
           <Card.Image
-            autoResize={false}
-            src={AppleEvent}
-            height={440}
-            width="100%"
             alt="Apple event background"
-            style={{ objectFit: 'cover' }}
+            autoResize={false}
+            height={440}
+            src={AppleEvent}
+            style={{objectFit: "cover"}}
+            width="100%"
           />
         </Card>
       </Grid>
@@ -139,35 +126,30 @@ export const AbsImgWithHeaderFooter = () => {
   return (
     <Grid.Container gap={2} justify="center">
       <Grid>
-        <Card css={{ w: '330px', bg: '$gray50' }}>
-          <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
+        <Card css={{w: "330px", bg: "$gray50"}}>
+          <Card.Header css={{position: "absolute", top: 5, zIndex: 1}}>
             <Col>
-              <Text
-                size={12}
-                weight="bold"
-                transform="uppercase"
-                color="#9E9E9E"
-              >
+              <Text color="#9E9E9E" size={12} transform="uppercase" weight="bold">
                 New
               </Text>
               <Text h2 color="black">
                 HomePod mini
               </Text>
-              <Text size={14} style={{ paddingRight: '10px' }}>
-                Room-filling sound, Intelligent assistant. Smart home control.
-                Works seamlessly with iPhone. Check it out
+              <Text size={14} style={{paddingRight: "10px"}}>
+                Room-filling sound, Intelligent assistant. Smart home control. Works seamlessly with
+                iPhone. Check it out
               </Text>
             </Col>
           </Card.Header>
           <Card.Image
-            autoResize={false}
-            src={Homepods}
-            height={440}
-            width="100%"
             alt="Apple homedpods background"
-            style={{ objectFit: 'cover', paddingTop: '100px' }}
+            autoResize={false}
+            height={440}
+            src={Homepods}
+            style={{objectFit: "cover", paddingTop: "100px"}}
+            width="100%"
           />
-          <Card.Footer css={{ m: 0 }}>
+          <Card.Footer css={{m: 0}}>
             <Row>
               <Col>
                 <Text size={12}>Available soon.</Text>
@@ -175,8 +157,8 @@ export const AbsImgWithHeaderFooter = () => {
               </Col>
               <Col>
                 <Row justify="flex-end">
-                  <Button flat auto rounded>
-                    <Text size={12} weight="bold" transform="uppercase">
+                  <Button auto flat rounded>
+                    <Text size={12} transform="uppercase" weight="bold">
                       Notify Me
                     </Text>
                   </Button>
@@ -187,15 +169,10 @@ export const AbsImgWithHeaderFooter = () => {
         </Card>
       </Grid>
       <Grid>
-        <Card css={{ w: '630px' }}>
-          <Card.Header css={{ position: 'absolute', top: 5, zIndex: 1 }}>
+        <Card css={{w: "630px"}}>
+          <Card.Header css={{position: "absolute", top: 5, zIndex: 1}}>
             <Col>
-              <Text
-                size={12}
-                weight="bold"
-                transform="uppercase"
-                color="#9E9E9E"
-              >
+              <Text color="#9E9E9E" size={12} transform="uppercase" weight="bold">
                 Your day your way
               </Text>
               <Text h3 color="white">
@@ -204,21 +181,21 @@ export const AbsImgWithHeaderFooter = () => {
             </Col>
           </Card.Header>
           <Card.Image
-            autoResize={false}
-            src={Relaxing}
-            height={440}
-            width="100%"
             alt="Apple homedpods background"
-            style={{ objectFit: 'cover' }}
+            autoResize={false}
+            height={440}
+            src={Relaxing}
+            style={{objectFit: "cover"}}
+            width="100%"
           />
           <Card.Footer
             isBlurred
             css={{
-              position: 'absolute',
-              bgBlur: '#0f111466',
-              borderTop: '$borderWeights$light solid $gray500',
+              position: "absolute",
+              bgBlur: "#0f111466",
+              borderTop: "$borderWeights$light solid $gray500",
               bottom: 0,
-              zIndex: 1
+              zIndex: 1,
             }}
           >
             <Row>
@@ -226,12 +203,12 @@ export const AbsImgWithHeaderFooter = () => {
                 <Row>
                   <Col span={3}>
                     <Card.Image
-                      autoResize={false}
-                      src={BreathingApp}
-                      style={{ background: 'black' }}
-                      height={40}
-                      width={40}
                       alt="Breathing app icon"
+                      autoResize={false}
+                      height={40}
+                      src={BreathingApp}
+                      style={{background: "black"}}
+                      width={40}
                     />
                   </Col>
                   <Col>
@@ -239,20 +216,15 @@ export const AbsImgWithHeaderFooter = () => {
                       Breathing App
                     </Text>
                     <Text color="#d1d1d1" size={12}>
-                      Get a good night's sleep.
+                      Get a good night&apos;s sleep.
                     </Text>
                   </Col>
                 </Row>
               </Col>
               <Col>
                 <Row justify="flex-end">
-                  <Button
-                    flat
-                    auto
-                    rounded
-                    css={{ color: '#94f9f0', bg: '#94f9f026' }}
-                  >
-                    <Text size={12} weight="bold" transform="uppercase">
+                  <Button auto flat rounded css={{color: "#94f9f0", bg: "#94f9f026"}}>
+                    <Text size={12} transform="uppercase" weight="bold">
                       Get App
                     </Text>
                   </Button>
@@ -268,16 +240,11 @@ export const AbsImgWithHeaderFooter = () => {
 
 export const CoverImage = () => (
   <Grid.Container gap={2} justify="center">
-    <Grid xs={12} sm={4}>
+    <Grid sm={4} xs={12}>
       <Card>
-        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
           <Col>
-            <Text
-              size={12}
-              weight="bold"
-              transform="uppercase"
-              color="#ffffffAA"
-            >
+            <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
               What to watch
             </Text>
             <Text h4 color="white">
@@ -286,24 +253,19 @@ export const CoverImage = () => (
           </Col>
         </Card.Header>
         <Card.Image
-          src="https://nextui.org/images/card-example-4.jpeg"
-          objectFit="cover"
-          width="100%"
-          height={340}
           alt="Card image background"
+          height={340}
+          objectFit="cover"
+          src="https://nextui.org/images/card-example-4.jpeg"
+          width="100%"
         />
       </Card>
     </Grid>
-    <Grid xs={12} sm={4}>
-      <Card css={{ w: '100%' }}>
-        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+    <Grid sm={4} xs={12}>
+      <Card css={{w: "100%"}}>
+        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
           <Col>
-            <Text
-              size={12}
-              weight="bold"
-              transform="uppercase"
-              color="#ffffffAA"
-            >
+            <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
               Plant a tree
             </Text>
             <Text h4 color="white">
@@ -312,24 +274,19 @@ export const CoverImage = () => (
           </Col>
         </Card.Header>
         <Card.Image
-          src="https://nextui.org/images/card-example-3.jpeg"
-          width="100%"
+          alt="Card image background"
           height={340}
           objectFit="cover"
-          alt="Card image background"
+          src="https://nextui.org/images/card-example-3.jpeg"
+          width="100%"
         />
       </Card>
     </Grid>
-    <Grid xs={12} sm={4}>
-      <Card css={{ bg: '$black', w: '100%' }}>
-        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+    <Grid sm={4} xs={12}>
+      <Card css={{bg: "$black", w: "100%"}}>
+        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
           <Col>
-            <Text
-              size={12}
-              weight="bold"
-              transform="uppercase"
-              color="#ffffffAA"
-            >
+            <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
               Supercharged
             </Text>
             <Text h4 color="white">
@@ -338,24 +295,19 @@ export const CoverImage = () => (
           </Col>
         </Card.Header>
         <Card.Image
-          src="https://nextui.org/images/card-example-2.jpeg"
-          width="100%"
+          alt="Card image background"
           height={340}
           objectFit="cover"
-          alt="Card image background"
+          src="https://nextui.org/images/card-example-2.jpeg"
+          width="100%"
         />
       </Card>
     </Grid>
-    <Grid xs={12} sm={5}>
-      <Card css={{ w: '100%', h: '400px' }}>
-        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+    <Grid sm={5} xs={12}>
+      <Card css={{w: "100%", h: "400px"}}>
+        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
           <Col>
-            <Text
-              size={12}
-              weight="bold"
-              transform="uppercase"
-              color="#ffffffAA"
-            >
+            <Text color="#ffffffAA" size={12} transform="uppercase" weight="bold">
               New
             </Text>
             <Text h3 color="black">
@@ -363,23 +315,23 @@ export const CoverImage = () => (
             </Text>
           </Col>
         </Card.Header>
-        <Card.Body css={{ p: 0 }}>
+        <Card.Body css={{p: 0}}>
           <Card.Image
-            src="https://nextui.org/images/card-example-6.jpeg"
-            width="100%"
+            alt="Card example background"
             height="100%"
             objectFit="cover"
-            alt="Card example background"
+            src="https://nextui.org/images/card-example-6.jpeg"
+            width="100%"
           />
         </Card.Body>
         <Card.Footer
           isBlurred
           css={{
-            position: 'absolute',
-            bgBlur: '#ffffff66',
-            borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
+            position: "absolute",
+            bgBlur: "#ffffff66",
+            borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
             bottom: 0,
-            zIndex: 1
+            zIndex: 1,
           }}
         >
           <Row>
@@ -393,13 +345,8 @@ export const CoverImage = () => (
             </Col>
             <Col>
               <Row justify="flex-end">
-                <Button flat auto rounded color="secondary">
-                  <Text
-                    css={{ color: 'inherit' }}
-                    size={12}
-                    weight="bold"
-                    transform="uppercase"
-                  >
+                <Button auto flat rounded color="secondary">
+                  <Text css={{color: "inherit"}} size={12} transform="uppercase" weight="bold">
                     Notify Me
                   </Text>
                 </Button>
@@ -409,11 +356,11 @@ export const CoverImage = () => (
         </Card.Footer>
       </Card>
     </Grid>
-    <Grid xs={12} sm={7}>
-      <Card css={{ w: '100%', h: '400px' }}>
-        <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+    <Grid sm={7} xs={12}>
+      <Card css={{w: "100%", h: "400px"}}>
+        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
           <Col>
-            <Text size={12} weight="bold" transform="uppercase" color="#9E9E9E">
+            <Text color="#9E9E9E" size={12} transform="uppercase" weight="bold">
               Your day your way
             </Text>
             <Text h3 color="white">
@@ -421,23 +368,23 @@ export const CoverImage = () => (
             </Text>
           </Col>
         </Card.Header>
-        <Card.Body css={{ p: 0 }}>
+        <Card.Body css={{p: 0}}>
           <Card.Image
-            src="https://nextui.org/images/card-example-5.jpeg"
-            objectFit="cover"
-            width="100%"
-            height="100%"
             alt="Relaxing app background"
+            height="100%"
+            objectFit="cover"
+            src="https://nextui.org/images/card-example-5.jpeg"
+            width="100%"
           />
         </Card.Body>
         <Card.Footer
           isBlurred
           css={{
-            position: 'absolute',
-            bgBlur: '#0f111466',
-            borderTop: '$borderWeights$light solid $gray700',
+            position: "absolute",
+            bgBlur: "#0f111466",
+            borderTop: "$borderWeights$light solid $gray700",
             bottom: 0,
-            zIndex: 1
+            zIndex: 1,
           }}
         >
           <Row>
@@ -445,11 +392,11 @@ export const CoverImage = () => (
               <Row>
                 <Col span={3}>
                   <Card.Image
-                    src="https://nextui.org/images/breathing-app-icon.jpeg"
-                    css={{ bg: 'black', br: '50%' }}
-                    height={40}
-                    width={40}
                     alt="Breathing app icon"
+                    css={{bg: "black", br: "50%"}}
+                    height={40}
+                    src="https://nextui.org/images/breathing-app-icon.jpeg"
+                    width={40}
                   />
                 </Col>
                 <Col>
@@ -457,25 +404,15 @@ export const CoverImage = () => (
                     Breathing App
                   </Text>
                   <Text color="#d1d1d1" size={12}>
-                    Get a good night's sleep.
+                    Get a good night&apos;s sleep.
                   </Text>
                 </Col>
               </Row>
             </Col>
             <Col>
               <Row justify="flex-end">
-                <Button
-                  flat
-                  auto
-                  rounded
-                  css={{ color: '#94f9f0', bg: '#94f9f026' }}
-                >
-                  <Text
-                    css={{ color: 'inherit' }}
-                    size={12}
-                    weight="bold"
-                    transform="uppercase"
-                  >
+                <Button auto flat rounded css={{color: "#94f9f0", bg: "#94f9f026"}}>
+                  <Text css={{color: "inherit"}} size={12} transform="uppercase" weight="bold">
                     Get App
                   </Text>
                 </Button>
@@ -491,67 +428,65 @@ export const CoverImage = () => (
 export const PrimaryAction = () => {
   const list = [
     {
-      title: 'Orange',
-      img: '/images/fruit-1.jpeg',
-      price: '$5.50'
+      title: "Orange",
+      img: "/images/fruit-1.jpeg",
+      price: "$5.50",
     },
     {
-      title: 'Tangerine',
-      img: '/images/fruit-2.jpeg',
-      price: '$3.00'
+      title: "Tangerine",
+      img: "/images/fruit-2.jpeg",
+      price: "$3.00",
     },
     {
-      title: 'Raspberry',
-      img: '/images/fruit-3.jpeg',
-      price: '$10.00'
+      title: "Raspberry",
+      img: "/images/fruit-3.jpeg",
+      price: "$10.00",
     },
     {
-      title: 'Lemon',
-      img: '/images/fruit-4.jpeg',
-      price: '$5.30'
+      title: "Lemon",
+      img: "/images/fruit-4.jpeg",
+      price: "$5.30",
     },
     {
-      title: 'Advocato',
-      img: '/images/fruit-5.jpeg',
-      price: '$15.70'
+      title: "Advocato",
+      img: "/images/fruit-5.jpeg",
+      price: "$15.70",
     },
     {
-      title: 'Lemon 2',
-      img: '/images/fruit-6.jpeg',
-      price: '$8.00'
+      title: "Lemon 2",
+      img: "/images/fruit-6.jpeg",
+      price: "$8.00",
     },
     {
-      title: 'Banana',
-      img: '/images/fruit-7.jpeg',
-      price: '$7.50'
+      title: "Banana",
+      img: "/images/fruit-7.jpeg",
+      price: "$7.50",
     },
     {
-      title: 'Watermelon',
-      img: '/images/fruit-8.jpeg',
-      price: '$12.20'
-    }
+      title: "Watermelon",
+      img: "/images/fruit-8.jpeg",
+      price: "$12.20",
+    },
   ];
 
   return (
     <Grid.Container gap={2} justify="flex-start">
       {list.map((item, index) => (
-        <Grid xs={6} sm={3} key={index}>
+        <Grid key={index} sm={3} xs={6}>
           <Card isPressable>
-            <Card.Body css={{ p: 0 }}>
+            <Card.Body css={{p: 0}}>
               <Card.Image
-                src={'https://nextui.org' + item.img}
-                objectFit="cover"
-                width="100%"
-                height={140}
                 alt={item.title}
+                height={140}
+                objectFit="cover"
+                src={"https://nextui.org" + item.img}
+                width="100%"
               />
             </Card.Body>
-            <Card.Footer css={{ justifyItems: 'flex-start' }}>
-              <Row wrap="wrap" justify="space-between">
+            <Card.Footer css={{justifyItems: "flex-start"}}>
+              <Row justify="space-between" wrap="wrap">
                 <Text b>{item.title}</Text>
-                <Text css={{ color: '$accents7', fontWeight: '$semibold' }}>
-                  {item.price}
-                </Text>
+                <Text css={{color: "$accents7", fontWeight: "$semibold"}}>{item.price}</Text>
               </Row>
             </Card.Footer>
           </Card>
@@ -564,59 +499,55 @@ export const PrimaryAction = () => {
 export const CenterImgWithHeader = () => {
   const list = [
     {
-      title: 'Mac',
-      img: require('../../assets/mac.png')
+      title: "Mac",
+      img: require("../../assets/mac.png"),
     },
     {
-      title: 'iPhone',
-      img: require('../../assets/iphone.png')
+      title: "iPhone",
+      img: require("../../assets/iphone.png"),
     },
     {
-      title: 'iPad',
-      img: require('../../assets/ipad.png')
+      title: "iPad",
+      img: require("../../assets/ipad.png"),
     },
     {
-      title: 'Apple Watch',
-      img: require('../../assets/apple-watch.png')
+      title: "Apple Watch",
+      img: require("../../assets/apple-watch.png"),
     },
     {
-      title: 'AirPods',
-      img: require('../../assets/airpods.png')
+      title: "AirPods",
+      img: require("../../assets/airpods.png"),
     },
     {
-      title: 'AirTag',
-      img: require('../../assets/airtag.png')
+      title: "AirTag",
+      img: require("../../assets/airtag.png"),
     },
     {
-      title: 'Apple TV',
-      img: require('../../assets/appletv.png')
+      title: "Apple TV",
+      img: require("../../assets/appletv.png"),
     },
     {
-      title: 'HomePod mini',
-      img: require('../../assets/homepod-mini.png')
+      title: "HomePod mini",
+      img: require("../../assets/homepod-mini.png"),
     },
     {
-      title: 'Accessories',
-      img: require('../../assets/accessories.png')
-    }
+      title: "Accessories",
+      img: require("../../assets/accessories.png"),
+    },
   ];
+
   return (
     <Grid.Container gap={2} justify="center">
       {list.map((item, index) => (
         <Grid key={index}>
-          <Card isHoverable isPressable css={{ w: '200px', h: '220px' }}>
-            <Card.Header css={{ p: 0 }}>
-              <Text h5 style={{ paddingLeft: '24px', paddingTop: '10px' }}>
+          <Card isHoverable isPressable css={{w: "200px", h: "220px"}}>
+            <Card.Header css={{p: 0}}>
+              <Text h5 style={{paddingLeft: "24px", paddingTop: "10px"}}>
                 {item.title}
               </Text>
             </Card.Header>
-            <Card.Body css={{ h: '100%', jc: 'center' }}>
-              <Card.Image
-                autoResize={false}
-                src={item.img}
-                width={180}
-                alt={item.title}
-              />
+            <Card.Body css={{h: "100%", jc: "center"}}>
+              <Card.Image alt={item.title} autoResize={false} src={item.img} width={180} />
             </Card.Body>
           </Card>
         </Grid>
@@ -626,20 +557,18 @@ export const CenterImgWithHeader = () => {
 };
 
 export const WithDivider = () => (
-  <Card css={{ w: '400px' }}>
+  <Card css={{w: "400px"}}>
     <Card.Header>
       <Text b>Description</Text>
     </Card.Header>
     <Card.Divider />
     <Card.Body>
-      <Text>
-        The Object constructor creates an object wrapper for the given value.
-      </Text>
+      <Text>The Object constructor creates an object wrapper for the given value.</Text>
     </Card.Body>
     <Card.Divider />
     <Card.Footer>
       <Text>
-        When called in a non-constructor context, Object behaves identically to{' '}
+        When called in a non-constructor context, Object behaves identically to{" "}
         <Code>new Object()</Code>.
       </Text>
     </Card.Footer>
@@ -647,33 +576,33 @@ export const WithDivider = () => (
 );
 
 export const Shadows = () => {
-  const Box = styled('div', {
-    size: '120px',
-    dflex: 'center',
-    bg: '$backgroundContrast',
-    br: '$md'
+  const Box = styled("div", {
+    size: "120px",
+    dflex: "center",
+    bg: "$backgroundContrast",
+    br: "$md",
   });
 
-  const shadows = ['$xs', '$sm', '$md', '$lg', '$xl'];
+  const shadows = ["$xs", "$sm", "$md", "$lg", "$xl"];
 
   return (
-    <Grid.Container justify="center" gap={3}>
-      <Grid xs={12} justify="center">
+    <Grid.Container gap={3} justify="center">
+      <Grid justify="center" xs={12}>
         <Text b>Drop shadows</Text>
       </Grid>
       {shadows.map((shadow, index) => (
-        <Grid key={`${shadow}_${index}`} xs={6} sm={2}>
-          <Box css={{ dropShadow: shadow }}>
+        <Grid key={`${shadow}_${index}`} sm={2} xs={6}>
+          <Box css={{dropShadow: shadow}}>
             <Text>Shadow: {shadow}</Text>
           </Box>
         </Grid>
       ))}
-      <Grid xs={12} justify="center">
+      <Grid justify="center" xs={12}>
         <Text b>Box shadows</Text>
       </Grid>
       {shadows.map((shadow, index) => (
-        <Grid key={`${shadow}_${index}`} xs={6} sm={2}>
-          <Box css={{ boxShadow: shadow }}>
+        <Grid key={`${shadow}_${index}`} sm={2} xs={6}>
+          <Box css={{boxShadow: shadow}}>
             <Text>Shadow: {shadow}</Text>
           </Box>
         </Grid>
@@ -684,8 +613,8 @@ export const Shadows = () => {
 
 export const withForm = () => {
   return (
-    <Card css={{ mw: '400px' }}>
-      <Card.Header css={{ justifyContent: 'center' }}>
+    <Card css={{mw: "400px"}}>
+      <Card.Header css={{justifyContent: "center"}}>
         <Text size={18}>
           Welcome to&nbsp;
           <Text b size={18}>
@@ -693,40 +622,40 @@ export const withForm = () => {
           </Text>
         </Text>
       </Card.Header>
-      <Card.Body css={{ px: '$10', pt: '$1', ov: 'visible' }}>
+      <Card.Body css={{px: "$10", pt: "$1", ov: "visible"}}>
         <Input
-          clearable
           bordered
+          clearable
           fullWidth
-          size="lg"
           color="primary"
-          placeholder="Email"
           contentLeft={<Mail fill="currentColor" />}
+          placeholder="Email"
+          size="lg"
         />
         <Spacer y={0.5} />
         <Input
-          clearable
           bordered
+          clearable
           fullWidth
-          size="lg"
           color="primary"
-          placeholder="Password"
           contentLeft={<Password />}
+          placeholder="Password"
+          size="lg"
         />
         <Spacer y={0.5} />
-        <Row justify="space-between" align="center">
+        <Row align="center" justify="space-between">
           <Checkbox>
-            <Text size={14} css={{ color: '$accents8' }}>
+            <Text css={{color: "$accents8"}} size={14}>
               Remember me
             </Text>
           </Checkbox>
-          <Link href="#" css={{ color: '$link', fontSize: '$sm' }}>
+          <Link css={{color: "$link", fontSize: "$sm"}} href="#">
             Forgot password?
           </Link>
         </Row>
       </Card.Body>
-      <Card.Footer css={{ pt: 0 }}>
-        <Grid.Container justify="flex-end" gap={1}>
+      <Card.Footer css={{pt: 0}}>
+        <Grid.Container gap={1} justify="flex-end">
           <Grid>
             <Button auto flat>
               Sign Up

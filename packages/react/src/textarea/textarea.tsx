@@ -1,16 +1,15 @@
-import React, { useRef, useImperativeHandle, useLayoutEffect } from 'react';
-import withDefaults from '../utils/with-defaults';
-import Input from '../input';
-import useResize from '../use-resize';
-import useWarning from '../use-warning';
-import { Props as InputProps } from '../input/input-props';
-import {
-  excludedInputPropsForTextarea,
-  ExcludedInputProps
-} from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
-import { __DEV__ } from '../utils/assertion';
-import { calculateNodeHeight, SizingData, getSizingData } from './utils';
+import React, {useRef, useImperativeHandle, useLayoutEffect} from "react";
+
+import withDefaults from "../utils/with-defaults";
+import Input from "../input";
+import useResize from "../use-resize";
+import {warn} from "../utils/console";
+import {Props as InputProps} from "../input/input-props";
+import {excludedInputPropsForTextarea, ExcludedInputProps} from "../utils/prop-types";
+import {CSS} from "../theme/stitches.config";
+import {__DEV__} from "../utils/assertion";
+
+import {calculateNodeHeight, SizingData, getSizingData} from "./utils";
 
 export type TextareaHeightChangeMeta = {
   rowHeight: number;
@@ -31,20 +30,14 @@ const defaultProps = {
   minRows: 3,
   maxRows: 6,
   cacheMeasurements: true,
-  initialValue: ''
+  initialValue: "",
 };
 
-type NativeAttrs = Omit<
-  React.TextareaHTMLAttributes<any>,
-  keyof Props | keyof InputProps
->;
+type NativeAttrs = Omit<React.TextareaHTMLAttributes<any>, keyof Props | keyof InputProps>;
 
 type BaseAttrs = Omit<InputProps, ExcludedInputProps>;
 
-export type TextareaProps = Props &
-  typeof defaultProps &
-  NativeAttrs &
-  BaseAttrs & { css?: CSS };
+export type TextareaProps = Props & typeof defaultProps & NativeAttrs & BaseAttrs & {css?: CSS};
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (textareaProps, ref: React.Ref<HTMLTextAreaElement | null>) => {
@@ -52,16 +45,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     const heightRef = React.useRef<number>(0);
     const measurementsCacheRef = React.useRef<SizingData>();
 
-    const {
-      cacheMeasurements,
-      rows,
-      maxRows,
-      minRows,
-      onChange,
-      onHeightChange,
-      css,
-      ...props
-    } = textareaProps;
+    const {cacheMeasurements, rows, maxRows, minRows, onChange, onHeightChange, css, ...props} =
+      textareaProps;
 
     Object.keys(props).forEach((propNameKey: any) => {
       if (excludedInputPropsForTextarea.indexOf(propNameKey) > -1) {
@@ -73,15 +58,11 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     const isControlled = props.value !== undefined;
 
     if (__DEV__ && props.style) {
-      if ('maxHeight' in props.style) {
-        useWarning(
-          'Using `style.maxHeight` for <Textarea/> is not supported. Please use `maxRows`.'
-        );
+      if ("maxHeight" in props.style) {
+        warn("Using `style.maxHeight` for <Textarea/> is not supported. Please use `maxRows`.");
       }
-      if ('minHeight' in props.style) {
-        useWarning(
-          'Using `style.minHeight` for <Textarea/> is not supported. Please use `minRows`.'
-        );
+      if ("minHeight" in props.style) {
+        warn("Using `style.minHeight` for <Textarea/> is not supported. Please use `minRows`.");
       }
     }
 
@@ -102,15 +83,15 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
       const [height, rowHeight] = calculateNodeHeight(
         nodeSizingData,
-        node.value || node.placeholder || 'x',
+        node.value || node.placeholder || "x",
         rows || minRows,
-        rows || maxRows
+        rows || maxRows,
       );
 
       if (heightRef.current !== height) {
         heightRef.current = height;
-        node.style.setProperty('height', `${height}px`, 'important');
-        onHeightChange && onHeightChange(height, { rowHeight });
+        node.style.setProperty("height", `${height}px`, "important");
+        onHeightChange && onHeightChange(height, {rowHeight});
       }
     };
 
@@ -121,27 +102,29 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       onChange && onChange(event);
     };
 
-    if (typeof document !== 'undefined') {
+    if (typeof document !== "undefined") {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       useLayoutEffect(resizeTextarea);
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       useResize(resizeTextarea);
     }
 
     return (
       <Input
-        as="textarea"
         ref={textareaRef}
+        as="textarea"
+        css={{...(css as any)}}
         onChange={handleChange}
-        css={{ ...(css as any) }}
         {...props}
       />
     );
-  }
+  },
 );
 
 if (__DEV__) {
-  Textarea.displayName = 'NextUI.Textarea';
+  Textarea.displayName = "NextUI.Textarea";
 }
 
-Textarea.toString = () => '.nextui-textarea';
+Textarea.toString = () => ".nextui-textarea";
 
 export default withDefaults(Textarea, defaultProps);
