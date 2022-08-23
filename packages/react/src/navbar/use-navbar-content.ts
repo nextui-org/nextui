@@ -14,7 +14,7 @@ interface Props extends Omit<HTMLNextUIProps<"ul">, "color"> {
   gap?: CSSGapUnit;
   /**
    * The active color of the navbar content items.
-   * @default "$colors$link"
+   * @default "default"
    */
   activeColor?: NavbarItemVariantsProps["activeColor"];
   /**

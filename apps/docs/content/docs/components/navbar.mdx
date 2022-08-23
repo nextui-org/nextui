@@ -146,10 +146,10 @@ import { Navbar } from "@nextui-org/react";
 
 | Attribute                | Type                                | Description                                                                                                                                         | Default  |
 | ------------------------ | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| **children\***           | `ReactNode[]`                       | The content of the navbar. It's usually the brand, content, toggle and collapse.                                                                    | -        |
+| **children\***           | `ReactNode` `ReactNode[]`           | The content of the navbar. It's usually the brand, content, toggle and collapse.                                                                    | -        |
 | **parentRef**            | `RefObject<HTMLElement>`            | The parent element where the navbar is placed within. This is used to determine the scroll position and whether the navbar should be hidden or not. | `window` |
-| **variant**              | [NavbarVariant](#navbar-variants)   | The navbar positions variantions                                                                                                                    | `static` |
-| **height**               | `number` `string`                   | The height of the navbar. When the navbar is compacted (isCompact=`true`) the height is reduced to `54px`                                           | `76px`   |
+| **variant**              | [NavbarVariants](#navbar-variants)  | The navbar positions variantions.                                                                                                                   | `static` |
+| **height**               | `number` `string`                   | The height of the navbar. When the navbar is compacted (isCompact=`true`) the height is reduced to `54px`.                                          | `76px`   |
 | **maxWidth**             | [NavbarMaxWidth](#navbar-max-width) | The navbar maximum width.                                                                                                                           | `lg`     |
 | **isBordered**           | `boolean`                           | Whether the navbar should be bordered.                                                                                                              | `false`  |
 | **isCompact**            | `boolean`                           | Whether the navbar should be compact. It reduces the height to `54px`.                                                                              | `false`  |
@@ -178,9 +178,13 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.Brand Props
 
-| Attribute      | Type        | Description                                                                                                                                                                | Default |
-| -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| **children\*** | `ReactNode` | The dropdown trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessiblity. | -       |
+| Attribute    | Type                             | Description                                                                   | Default |
+| ------------ | -------------------------------- | ----------------------------------------------------------------------------- | ------- |
+| **children** | `ReactNode` `ReactNode[]`        | The content of the navbar brand. It's usually the logo and name of the brand. | -       |
+| **hideIn**   | [HideShowIn](#hide-in-&-show-in) | Sets the breakpoint from where the component should start hiding.             | -       |
+| **showIn**   | [HideShowIn](#hide-in-&-show-in) | Sets the breakpoint from where the component should start displaying.         | -       |
+| **css**      | `Stitches.CSS`                   | Override Default CSS style.                                                   | -       |
+| **as**       | `keyof JSX.IntrinsicElements`    | Changes which tag component outputs.                                          | `span`  |
 
 <Spacer y={2} />
 
@@ -190,9 +194,19 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.Content Props
 
-| Attribute       | Type                                                | Description                                                                           | Default |
-| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------- | ------- |
-| **ButtonProps** | [ButtonProps](/docs/components/button#button-props) | Since dropdown button is based on the `Button` you can use any of the `Button` props. | -       |
+| Attribute                    | Type                                                              | Description                                                                      | Default          |
+| ---------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------- | ---------------- |
+| **children**                 | `ReactNode` `ReactNode[]`                                         | The content of the navbar content. It's usually the navbar item and navbar link. | -                |
+| **variant**                  | [NavbarContentVariants](#navbar-content-variants)                 | The variant of the navbar content items.                                         | `default`        |
+| **gap**                      | `number` `string` [CSSGapUnit](/docs/theme/default-theme#spacing) | The gap between each content item. It's `0px` for highlight variants.            | `$10`            |
+| **activeColor**              | [SimpleColors](#simple-colors)                                    | The active color of the navbar content items.                                    | `default (link)` |
+| **underlineHeight**          | [NormalWeights](#normal-weights)                                  | The height of the navbar content items's underline.                              | `normal`         |
+| **enableCursorHighlight**    | [NormalWeights](#normal-weights)                                  | Whether the navbar content highlighted cursor should be visible.                 | `false`          |
+| **isCursorHighlightRounded** | [NormalWeights](#normal-weights)                                  | Whether the navbar content highlighted cursor should be rounded.                 | `false`          |
+| **hideIn**                   | [HideShowIn](#hide-in-&-show-in)                                  | Sets the breakpoint from where the component should start hiding.                | -                |
+| **showIn**                   | [HideShowIn](#hide-in-&-show-in)                                  | Sets the breakpoint from where the component should start displaying.            | -                |
+| **css**                      | `Stitches.CSS`                                                    | Override Default CSS style.                                                      | -                |
+| **as**                       | `keyof JSX.IntrinsicElements`                                     | Changes which tag component outputs.                                             | `ul`             |
 
 <Spacer y={2} />
 
@@ -202,24 +216,13 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.Item Props
 
-| Attribute                  | Type                                                                                                         | Description                                                                                             | Default   |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- |
-| **children\***             | [CollectionChildrentype](#collection-children-type)                                                          | The contents of the collection. It's usually the `Dropdown.Item` or `Dropdown.Section`.                 | -         |
-| **items**                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)       | Item objects in the collection.                                                                         | -         |
-| **selectedKeys**           | `all` [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The currently selected keys in the collection (controlled).                                             | -         |
-| **defaultSelectedKeys**    | `all` [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The initial selected keys in the collection (uncontrolled).                                             | -         |
-| **disabledKeys**           | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)       | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -         |
-| **selectionMode**          | [SelectionModeType](#selection-mode-type)                                                                    | The type of selection that is allowed in the collection.                                                | -         |
-| **keyboardDelegate**       | [KeyboardDelegateType](#keyboard-delegate-type)                                                              | An optional keyboard delegate implementation for type to select, to override the default.               | -         |
-| **color**                  | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items color                                                                           | `default` |
-| **textColor**              | [SimpleColors](#simple-colors)                                                                               | The dropdown menu items text color                                                                      | `default` |
-| **variant**                | [DropdownVariant](#dropdown-variants)                                                                        | The dropdown menu items variantion                                                                      | `flat`    |
-| **isVirtualized**          | `boolean`                                                                                                    | Whether the dropdown menu uses virtual scrolling.                                                       | `false`   |
-| **disallowEmptySelection** | `boolean`                                                                                                    | Whether the collection allows empty selection.                                                          | `false`   |
-| **autoFocus**              | `boolean` [FocusStrategyType](#focus-strategy-type)                                                          | Where the focus should be set.                                                                          | `false`   |
-| **shouldFocusWrap**        | `boolean`                                                                                                    | Whether keyboard navigation is circular.                                                                | `false`   |
-| **css**                    | `Stitches.CSS`                                                                                               | Override Default CSS style.                                                                             | -         |
-| **as**                     | `keyof JSX.IntrinsicElements`                                                                                | Changes which tag component outputs.                                                                    | `ul`      |
+| Attribute      | Type                                                | Description                                                                             | Default |
+| -------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------- | ------- |
+| **children\*** | [CollectionChildrentype](#collection-children-type) | The contents of the collection. It's usually the `Dropdown.Item` or `Dropdown.Section`. | -       |
+| **hideIn**     | [HideShowIn](#hide-in-&-show-in)                    | Sets the breakpoint from where the component should start hiding.                       | -       |
+| **showIn**     | [HideShowIn](#hide-in-&-show-in)                    | Sets the breakpoint from where the component should start displaying.                   | -       |
+| **css**        | `Stitches.CSS`                                      | Override Default CSS style.                                                             | -       |
+| **as**         | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                                                    | `li`    |
 
 <Spacer y={2} />
 
@@ -307,6 +310,42 @@ type NavbarMaxWidth = "xs" | "sm" | "md" | "lg" | "xl" | "fluid";
 ```
 
 > **Note**: `fluid` means the navbar will fill the entire width of the screen. You can see the complete breakpoint list [here](https://nextui.org/docs/theme/default-theme#breakpoints).
+
+#### Hide In & Show In
+
+```ts
+type HideIn = "xsMax" | "smMax" | "mdMax" | "lgMax" | "xlMax";
+type ShowIn = "xsMin" | "smMin" | "mdMin" | "lgMin" | "xlMin";
+```
+
+> **Note**: You can see the complete media breakpoint list [here](/docs/theme/media#media-queries).
+
+#### Navbar Content Variants
+
+```ts
+type NavbarVariants =
+  | "default"
+  | "underline"
+  | "underline-rounded"
+  | "highlight"
+  | "highlight-solid"
+  | "highlight-rounded"
+  | "highlight-solid-rounded";
+```
+
+> **Note**: You can try the complete list of item variants [here](#active-item-variants).
+
+#### Simple Colors
+
+```ts
+type SimpleColors =
+  | "default"
+  | "primary"
+  | "secondary"
+  | "success"
+  | "warning"
+  | "error";
+```
 
 #### Normal Weights
 
