@@ -15,8 +15,8 @@ import {useNavbarContext} from "./navbar-context";
 interface Props extends Omit<HTMLNextUIProps<"ul">, keyof NavbarCollapseVariantsProps> {
   ref?: ForwardedRef<any>;
   children?: React.ReactNode | React.ReactNode[];
-  transitionDelay?: number; // in seconds
-  transitionTime?: number; // in seconds
+  transitionDelay?: number; // in milliseconds
+  transitionTime?: number; // in milliseconds
   transitionMatrix?: {
     in: string;
     out: string;

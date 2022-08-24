@@ -12,8 +12,8 @@ import {StyledNavbarCollapseItem, NavbarCollapseItemVariantsProps} from "./navba
 
 export type NavbarCollapseItemProps = HTMLNextUIProps<"li"> &
   NavbarCollapseItemVariantsProps & {
-    transitionDelay?: number; // in seconds
-    transitionTime?: number; // in seconds
+    transitionDelay?: number; // in milliseconds
+    transitionTime?: number; // in milliseconds
     transitionMatrix?: {
       in: string;
       out: string;
@@ -79,8 +79,8 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
   const defaultDelay = useMemo(
     () =>
       collapseContext.items && index > -1
-        ? index / collapseContext.items.length + itemTransitions.transitionDelay
-        : 100,
+        ? (index / collapseContext.items.length) * 1000 + itemTransitions.transitionDelay
+        : 0.1,
     [index, itemTransitions.transitionDelay, collapseContext?.items],
   );
 
