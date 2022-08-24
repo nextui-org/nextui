@@ -111,7 +111,7 @@ import { Navbar } from "@nextui-org/react";
   previewHeight="600px"
   iframeSrc="/examples/navbar/with-avatar-user"
   desc="A common use case is to display the user's avatar in the navbar. To achieve this, you can use the `Avatar` component as navbar item or combine it with the `Dropdown` to show a dropdown menu."
-  highlightedLines="46"
+  highlightedLines="59"
   files={navbarContent.withAvatarUser}
 />
 
@@ -216,13 +216,18 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.Item Props
 
-| Attribute      | Type                                                | Description                                                                             | Default |
-| -------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------- | ------- |
-| **children\*** | [CollectionChildrentype](#collection-children-type) | The contents of the collection. It's usually the `Dropdown.Item` or `Dropdown.Section`. | -       |
-| **hideIn**     | [HideShowIn](#hide-in-&-show-in)                    | Sets the breakpoint from where the component should start hiding.                       | -       |
-| **showIn**     | [HideShowIn](#hide-in-&-show-in)                    | Sets the breakpoint from where the component should start displaying.                   | -       |
-| **css**        | `Stitches.CSS`                                      | Override Default CSS style.                                                             | -       |
-| **as**         | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                                                    | `li`    |
+| Attribute           | Type                                              | Description                                                           | Default          |
+| ------------------- | ------------------------------------------------- | --------------------------------------------------------------------- | ---------------- |
+| **children\***      | `ReactNode`                                       | The contents of the navbar item.                                      | -                |
+| **variant**         | [NavbarContentVariants](#navbar-content-variants) | The variant of the navbar item.                                       | `default`        |
+| **activeColor**     | [SimpleColors](#simple-colors)                    | The active color of the navbar item.                                  | `default (link)` |
+| **underlineHeight** | [NormalWeights](#normal-weights)                  | The height of the navbar item underline.                              | `normal`         |
+| **isActive**        | `boolean`                                         | Whether navbar item is active.                                        | `false`          |
+| **isDisabled**      | `boolean`                                         | Whether navbar item is disabled.                                      | `false`          |
+| **hideIn**          | [HideShowIn](#hide-in-&-show-in)                  | Sets the breakpoint from where the component should start hiding.     | -                |
+| **showIn**          | [HideShowIn](#hide-in-&-show-in)                  | Sets the breakpoint from where the component should start displaying. | -                |
+| **css**             | `Stitches.CSS`                                    | Override Default CSS style.                                           | -                |
+| **as**              | `keyof JSX.IntrinsicElements`                     | Changes which tag component outputs.                                  | `li`             |
 
 <Spacer y={2} />
 
@@ -232,9 +237,14 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.Link Props
 
-| Attribute       | Type                                                | Description                                                                           | Default |
-| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------- | ------- |
-| **ButtonProps** | [ButtonProps](/docs/components/button#button-props) | Since dropdown button is based on the `Button` you can use any of the `Button` props. | -       |
+| Attribute         | Type                                          | Description                                                                                                    | Default |
+| ----------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------- |
+| **ItemProps**     | [NavbarItemProps](#navbaritem-props)          | Since dropdown navbar link is based on the `Navbar.Item` component you can use any of the `Navbar.Item` props. | -       |
+| **LinkProps**     | [LinkProps](/docs/components/link#link-props) | Since dropdown navbar link uses the `Link` component as a base, you can use any of the `Link` props.           | -       |
+| **itemCss**       | `Stitches.CSS`                                | Override the navbar item CSS style.                                                                            | -       |
+| **itemClassName** | `string`                                      | Add a class name to the navbar item.                                                                           | -       |
+| **css**           | `Stitches.CSS`                                | Override Default CSS style.                                                                                    | -       |
+| **as**            | `keyof JSX.IntrinsicElements`                 | Changes which tag component outputs.                                                                           | `a`     |
 
 <Spacer y={2} />
 
@@ -244,13 +254,33 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.Toggle Props
 
+| Attribute           | Type                             | Description                                                                | Default  |
+| ------------------- | -------------------------------- | -------------------------------------------------------------------------- | -------- |
+| **children**        | `ReactNode`                      | The contents of the navbar toggle. It's usually an hamburguer icon button. | -        |
+| **isSelected**      | [HideShowIn](#hide-in-&-show-in) | Whether the element should be selected (controlled).                       | `false`  |
+| **defaultSelected** | [HideShowIn](#hide-in-&-show-in) | Whether the element should be selected (uncontrolled).                     | -        |
+| **autoFocus**       | [HideShowIn](#hide-in-&-show-in) | Whether the element should receive focus on render.                        | `false`  |
+| **hideIn**          | [HideShowIn](#hide-in-&-show-in) | Sets the breakpoint from where the component should start hiding.          | -        |
+| **showIn**          | [HideShowIn](#hide-in-&-show-in) | Sets the breakpoint from where the component should start displaying.      | -        |
+| **css**             | `Stitches.CSS`                   | Override Default CSS style.                                                | -        |
+| **as**              | `keyof JSX.IntrinsicElements`    | Changes which tag component outputs.                                       | `button` |
+
+<Spacer y={1} />
+
+#### Navbar.Toggle Events
+
+| Attribute    | Type                            | Description                                                        | Default |
+| ------------ | ------------------------------- | ------------------------------------------------------------------ | ------- |
+| **onChange** | `(isSelected: boolean) => void` | Handler that is called when the element's selection state changes. | -       |
+
+<Spacer y={1} />
+
+#### Navbar.Toggle Accessibility Props
+
 | Attribute            | Type     | Description                                                                                                        | Default |
 | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
 | **id**               | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
 | **aria-label**       | `string` | Defines a string value that labels the current element                                                             | -       |
-| **aria-labelledby**  | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
-| **aria-describedby** | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
-| **aria-details**     | `string` | Identifies the element (or elements) that provide a detailed, extended description for the object.                 | -       |
 
 <Spacer y={2} />
 
@@ -260,20 +290,28 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.Collapse Props
 
-| Attribute                     | Type                                                | Description                                                      | Default   |
-| ----------------------------- | --------------------------------------------------- | ---------------------------------------------------------------- | --------- |
-| **key**                       | [Key](https://reactjs.org/docs/lists-and-keys.html) | The unique key for the menu item.                                | `false`   |
-| **description**               | `string`                                            | Description text element inside the dropdown menu item.          | -         |
-| **command**                   | `string`                                            | Right-aligned label text content, useful for displaying hotkeys. | -         |
-| **icon**                      | `ReactNode`                                         | The icon to render before the dropdown menu item's label.        | -         |
-| **dividerWeight**             | [NormalWeights](#normal-weights)                    | The dropdown item divider height                                 | `light`   |
-| **color**                     | [SimpleColors](#simple-colors)                      | The dropdown item color                                          | `default` |
-| **textColor**                 | [SimpleColors](#simple-colors)                      | The dropdown item text color                                     | `default` |
-| **variant**                   | [DropdownVariant](#dropdown-variants)               | The dropdown item variation                                      | `flat`    |
-| **withDivider**               | `boolean`                                           | Whether the dropdown item should have a border on top            | `false`   |
-| **showFullDescription** `new` | `boolean`                                           | Whether the item description should be truncated or not.         | `false`   |
-| **css**                       | `Stitches.CSS`                                      | Override Default CSS style.                                      | -         |
-| **as**                        | `keyof JSX.IntrinsicElements`                       | Changes which tag component outputs.                             | `li`      |
+| Attribute            | Type                                                    | Description                                                                | Default                                                                    |
+| -------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **children**         | `ReactNode` `ReactNode[]`                               | The contents of the navbar toggle. It's usually an hamburguer icon button. | -                                                                          |
+| **transitionDelay**  | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `0`                                                                        |
+| **transitionTime**   | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `450`                                                                      |
+| **transitionMatrix** | [CollapseTransitionMatrix](#collapse-transition-matrix) | The matrix of all collapse items transition.                               | `{in: "matrix(1, 0, 0, 1, 0, 0)", out: "matrix(0.95, 0, 0, 0.95, 5, 20)"}` |
+| **disableAnimation** | `boolean`                                               | Whether the all navbar collapse items are animated.                        | `false`                                                                    |
+| **hideIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start hiding.          | -                                                                          |
+| **showIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start displaying.      | -                                                                          |
+| **css**              | `Stitches.CSS`                                          | Override Default CSS style.                                                | -                                                                          |
+| **as**               | `keyof JSX.IntrinsicElements`                           | Changes which tag component outputs.                                       | `ul`                                                                       |
+
+<Spacer y={1} />
+
+#### Navbar.Collapse Accessibility Props
+
+| Attribute            | Type     | Description                                                                                                        | Default |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
+| **id**               | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
+| **aria-labelledby**  | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
+| **aria-describedby** | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
+
 
 <Spacer y={2} />
 
@@ -283,9 +321,17 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.CollapseItem
 
-| Attribute      | Type     | Description                                            | Default |
-| -------------- | -------- | ------------------------------------------------------ | ------- |
-| **aria-label** | `string` | A screen reader only label for the dropdown menu item. | -       |
+| Attribute            | Type                                                    | Description                                                                | Default                                                                    |
+| -------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **children**         | `ReactNode` `ReactNode[]`                               | The contents of the navbar toggle. It's usually an hamburguer icon button. | -                                                                          |
+| **transitionDelay**  | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `0`                                                                        |
+| **transitionTime**   | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `450`                                                                      |
+| **transitionMatrix** | [CollapseTransitionMatrix](#collapse-transition-matrix) | The matrix of all collapse items transition.                               | `{in: "matrix(1, 0, 0, 1, 0, 0)", out: "matrix(0.95, 0, 0, 0.95, 5, 20)"}` |
+| **disableAnimation** | `boolean`                                               | Whether the navbar collapse item is animated.                              | `false`                                                                    |
+| **hideIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start hiding.          | -                                                                          |
+| **showIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start displaying.      | -                                                                          |
+| **css**              | `Stitches.CSS`                                          | Override Default CSS style.                                                | -                                                                          |
+| **as**               | `keyof JSX.IntrinsicElements`                           | Changes which tag component outputs.                                       | `li`                                                                       |
 
 <Spacer y={2} />
 
@@ -334,6 +380,17 @@ type NavbarVariants =
 ```
 
 > **Note**: You can try the complete list of item variants [here](#active-item-variants).
+
+#### Collapse Transition Matrix
+
+```ts
+type CollapseTransitionMatrix = {
+  in?: string;
+  out?: string;
+};
+```
+
+> **Note**: For more information about the transition matrix, check the [transition matrix documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/matrix).
 
 #### Simple Colors
 

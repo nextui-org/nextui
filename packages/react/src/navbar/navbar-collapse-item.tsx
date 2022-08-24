@@ -30,7 +30,6 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
     disableAnimation,
     style,
     css,
-
     ...otherProps
   } = props;
 
@@ -81,7 +80,7 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
     () =>
       collapseContext.items && index > -1
         ? index / collapseContext.items.length + itemTransitions.transitionDelay
-        : 0.1,
+        : 100,
     [index, itemTransitions.transitionDelay, collapseContext?.items],
   );
 
@@ -95,7 +94,7 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
         : itemTransitions.transitionMatrix.out,
       "--netxui--collapseItemTransition":
         !disableAnimation && context.isCollapseOpen
-          ? `opacity ${itemTransitions.transitionTime}s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s, transform ${itemTransitions.transitionTime}s cubic-bezier(0.5, 0, 0, 1) ${timeDelay}s`
+          ? `opacity ${itemTransitions.transitionTime}ms cubic-bezier(0.5, 0, 0, 1) ${timeDelay}ms, transform ${itemTransitions.transitionTime}ms cubic-bezier(0.5, 0, 0, 1) ${timeDelay}ms`
           : "none",
     };
   }, [
