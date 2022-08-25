@@ -32,6 +32,7 @@ interface Props {
   onVisibleChange?: TooltipOnVisibleChange;
   as?: keyof JSX.IntrinsicElements;
   triggerCss?: CSS;
+  isDisabled?: boolean;
 }
 
 const defaultProps = {
@@ -80,6 +81,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
   onClick,
   keepMounted,
   visible: customVisible,
+  isDisabled,
   ...props
 }) => {
   const timer = useRef<number>();
@@ -155,7 +157,7 @@ const Tooltip: React.FC<React.PropsWithChildren<TooltipProps>> = ({
       {...props}
     >
       {children}
-      {content && <TooltipContent {...contentProps}>{content}</TooltipContent>}
+      {content && !isDisabled ? <TooltipContent {...contentProps}>{content}</TooltipContent> : null}
     </StyledTooltipTrigger>
   );
 };
