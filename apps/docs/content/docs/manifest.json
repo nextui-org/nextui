@@ -1,231 +1,226 @@
 {
-    "routes": [
+  "routes": [
+    {
+      "title": "Documentation",
+      "keywords": "docs, doc, documentation, getting started, nextui",
+      "subtitle": "For an advanced search please use the search input",
+      "icon": "note",
+      "section": "Scope",
+      "heading": true,
+      "routes": [
         {
-            "title": "Documentation",
-            "keywords": "docs, doc, documentation, getting started, nextui",
-            "subtitle": "For an advanced search please use the search input",
-            "icon": "note",
-            "section": "Scope",
-            "heading": true,
-            "routes": [
-                {
-                    "title": "Guide",
-                    "open": true,
-                    "keywords": "guide, getting started, start, nextui",
-                    "icon": "/paper.svg",
-                    "routes": [
-                        {
-                            "title": "Getting Started",
-                            "keywords": "getting started, start, nextui",
-                            "path": "/docs/guide/getting-started.mdx"
-                        },
-                        {
-                            "title": "NextUI + Next.js",
-                            "keywords": "next, nextjs, nextui",
-                            "path": "/docs/guide/nextui-plus-nextjs.mdx"
-                        }
-                    ]
-                },
-                {
-                    "title": "Theme",
-                    "keywords": "themeable, theme, customize, palette",
-                    "icon": "/category.svg",
-                    "open": true,
-                    "routes": [
-                        {
-                            "title": "Default theme",
-                            "updated": true,
-                            "path": "/docs/theme/default-theme.mdx"
-                        },
-                        {
-                            "title": "Customize theme",
-                            "path": "/docs/theme/customize-theme.mdx"
-                        },
-                        {
-                            "title": "Dark mode",
-                            "path": "/docs/theme/dark-mode.mdx"
-                        },
-                        {
-                            "title": "Override styles",
-                            "path": "/docs/theme/override-styles.mdx"
-                        },
-                        {
-                            "title": "Typescript",
-                            "path": "/docs/theme/typescript.mdx"
-                        },
-                        {
-                            "title": "Utilities",
-                            "path": "/docs/theme/utilities.mdx"
-                        },
-                        {
-                            "title": "Media",
-                            "path": "/docs/theme/media.mdx"
-                        }
-                    ]
-                },
-                {
-                    "title": "Layout",
-                    "icon": "/layout.svg",
-                    "keywords": "layout, container, grid, spacer, flex",
-                    "open": true,
-                    "routes": [
-                        {
-                            "title": "Container",
-                            "keywords": "cont, container, flex, media query",
-                            "path": "/docs/layout/container.mdx"
-                        },
-                        {
-                            "title": "Grid",
-                            "keywords": "grid, container, media query",
-                            "path": "/docs/layout/grid.mdx"
-                        },
-                        {
-                            "title": "Spacer",
-                            "keywords": "space, spacer, gap",
-                            "path": "/docs/layout/spacer.mdx"
-                        }
-                    ]
-                },
-                {
-                    "title": "Components",
-                    "keywords": "components, btn, button, input, modal",
-                    "icon": "/components.svg",
-                    "open": true,
-                    "routes": [
-                        {
-                            "title": "Avatar",
-                            "keywords": "avatar, avatar group, group",
-                            "path": "/docs/components/avatar.mdx"
-                        },
-                        {
-                            "title": "Button",
-                            "keywords": "button, btn, buttons, action",
-                            "path": "/docs/components/button.mdx"
-                        },
-                        {
-                            "title": "Button Group",
-                            "keywords": "btn, button, btn group, button group, group",
-                            "path": "/docs/components/button-group.mdx"
-                        },
-                        {
-                            "title": "Card",
-                            "keywords": "card, content, action, media",
-                            "path": "/docs/components/card.mdx",
-                            "updated": true
-                        },
-                        {
-                            "title": "Pagination",
-                            "keywords": "pagination, paginate, table pagination, pages, navigate",
-                            "path": "/docs/components/pagination.mdx"
-                        },
-                        {
-                            "title": "Table",
-                            "keywords":"table, data table, grid, data grid",
-                            "path": "/docs/components/table.mdx"
-                        },
-                        {
-                            "title": "Collapse",
-                            "keywords": "collapse, accordion, expand, reveal",
-                            "path": "/docs/components/collapse.mdx"
-                        },
-                        {
-                            "title": "Input",
-                            "keywords": "text input, input, textarea",
-                            "path": "/docs/components/input.mdx"
-                        },
-                        {
-                            "title": "Autocomplete",
-                            "comingSoon": true
-                        },
-                        {
-                            "title": "Textarea",
-                            "keywords": "textarea, input, text input, large text input",
-                            "path": "/docs/components/textarea.mdx"
-                        },
-                        {
-                            "title": "Checkbox",
-                            "keywords": "check, radio, selectable, checkbox, box",
-                            "path": "/docs/components/checkbox.mdx"
-                        },
-                        {
-                            "title": "Checkbox Group",
-                            "keywords": "check, radio, selectable, checkbox, box, group, items",
-                            "path": "/docs/components/checkbox-group.mdx"
-                        },
-                        {
-                            "title": "Radio",
-                            "updated": true,
-                            "keywords": "check, radio, select",
-                            "path": "/docs/components/radio.mdx"
-                        },
-                        {
-                          "title": "Popover",
-                          "keywords": "popover, tooltip, tooltip, popover, popover",
-                          "path": "/docs/components/popover.mdx",
-                          "updated": true
-                        },
-                        {
-                          "title": "Tooltip",
-                          "keywords": "tool, popover, tooltip, hoverable",
-                          "path": "/docs/components/tooltip.mdx"
-                        },
-                        {
-                            "title": "Dropdown",
-                            "keywords": "dropdown, select, selectable, menu",
-                            "path": "/docs/components/dropdown.mdx",
-                            "newPost": true
-                        },
-                        {
-                            "title": "Progress",
-                            "keywords": "progress, bar, task, display, activity",
-                            "path": "/docs/components/progress.mdx"
-                        },
-                        {
-                          "title": "Select",
-                          "comingSoon": true
-                        },
-                        {
-                            "title": "Modal",
-                            "keywords": "modal, dialog, backdrop",
-                            "path": "/docs/components/modal.mdx"
-                        },
-                        {
-                            "title": "Loading",
-                            "keywords": "loading, spinner, loadable, progress",
-                            "path": "/docs/components/loading.mdx"
-                        },
-                        {
-                            "title": "Navbar",
-                            "comingSoon": true
-                        },
-                        {
-                            "title": "Switch",
-                            "keywords": "toggle, switch",
-                            "path": "/docs/components/switch.mdx"
-                        },
-                        {
-                            "title": "Text",
-                            "keywords": "text, txt, paragraph",
-                            "path": "/docs/components/text.mdx"
-                        },
-                        {
-                            "title": "Link",
-                            "keywords": "link, navigation, href, next link",
-                            "path": "/docs/components/link.mdx"
-                        },
-                        {
-                            "title": "User",
-                            "keywords": "User, avatar, name, initials",
-                            "path": "/docs/components/user.mdx"
-                        },
-                        {
-                            "title": "Image",
-                            "keywords": "Image, Next.js Image, image component",
-                            "path": "/docs/components/image.mdx"
-                        }
-                    ]
-                }
-            ]
+          "title": "Guide",
+          "open": true,
+          "keywords": "guide, getting started, start, nextui",
+          "icon": "/paper.svg",
+          "routes": [
+            {
+              "title": "Getting Started",
+              "keywords": "getting started, start, nextui",
+              "path": "/docs/guide/getting-started.mdx"
+            },
+            {
+              "title": "NextUI + Next.js",
+              "keywords": "next, nextjs, nextui",
+              "path": "/docs/guide/nextui-plus-nextjs.mdx"
+            }
+          ]
+        },
+        {
+          "title": "Theme",
+          "keywords": "themeable, theme, customize, palette",
+          "icon": "/category.svg",
+          "open": true,
+          "routes": [
+            {
+              "title": "Default theme",
+              "path": "/docs/theme/default-theme.mdx"
+            },
+            {
+              "title": "Customize theme",
+              "path": "/docs/theme/customize-theme.mdx"
+            },
+            {
+              "title": "Dark mode",
+              "path": "/docs/theme/dark-mode.mdx"
+            },
+            {
+              "title": "Override styles",
+              "path": "/docs/theme/override-styles.mdx"
+            },
+            {
+              "title": "Typescript",
+              "path": "/docs/theme/typescript.mdx"
+            },
+            {
+              "title": "Utilities",
+              "path": "/docs/theme/utilities.mdx"
+            },
+            {
+              "title": "Media",
+              "path": "/docs/theme/media.mdx"
+            }
+          ]
+        },
+        {
+          "title": "Layout",
+          "icon": "/layout.svg",
+          "keywords": "layout, container, grid, spacer, flex",
+          "open": true,
+          "routes": [
+            {
+              "title": "Container",
+              "keywords": "cont, container, flex, media query",
+              "path": "/docs/layout/container.mdx"
+            },
+            {
+              "title": "Grid",
+              "keywords": "grid, container, media query",
+              "path": "/docs/layout/grid.mdx"
+            },
+            {
+              "title": "Spacer",
+              "keywords": "space, spacer, gap",
+              "path": "/docs/layout/spacer.mdx"
+            }
+          ]
+        },
+        {
+          "title": "Components",
+          "keywords": "components, btn, button, input, modal",
+          "icon": "/components.svg",
+          "open": true,
+          "routes": [
+            {
+              "title": "Avatar",
+              "keywords": "avatar, avatar group, group",
+              "path": "/docs/components/avatar.mdx"
+            },
+            {
+              "title": "Button",
+              "keywords": "button, btn, buttons, action",
+              "path": "/docs/components/button.mdx"
+            },
+            {
+              "title": "Button Group",
+              "keywords": "btn, button, btn group, button group, group",
+              "path": "/docs/components/button-group.mdx"
+            },
+            {
+              "title": "Card",
+              "keywords": "card, content, action, media",
+              "path": "/docs/components/card.mdx"
+            },
+            {
+              "title": "Pagination",
+              "keywords": "pagination, paginate, table pagination, pages, navigate",
+              "path": "/docs/components/pagination.mdx"
+            },
+            {
+              "title": "Table",
+              "keywords": "table, data table, grid, data grid",
+              "path": "/docs/components/table.mdx"
+            },
+            {
+              "title": "Collapse",
+              "keywords": "collapse, accordion, expand, reveal",
+              "path": "/docs/components/collapse.mdx"
+            },
+            {
+              "title": "Input",
+              "keywords": "text input, input, textarea",
+              "path": "/docs/components/input.mdx"
+            },
+            {
+              "title": "Autocomplete",
+              "comingSoon": true
+            },
+            {
+              "title": "Textarea",
+              "keywords": "textarea, input, text input, large text input",
+              "path": "/docs/components/textarea.mdx"
+            },
+            {
+              "title": "Checkbox",
+              "keywords": "check, radio, selectable, checkbox, box",
+              "path": "/docs/components/checkbox.mdx"
+            },
+            {
+              "title": "Checkbox Group",
+              "keywords": "check, radio, selectable, checkbox, box, group, items",
+              "path": "/docs/components/checkbox-group.mdx"
+            },
+            {
+              "title": "Radio",
+              "keywords": "check, radio, select",
+              "path": "/docs/components/radio.mdx"
+            },
+            {
+              "title": "Popover",
+              "keywords": "popover, tooltip, tooltip, popover, popover",
+              "path": "/docs/components/popover.mdx"
+            },
+            {
+              "title": "Tooltip",
+              "keywords": "tool, popover, tooltip, hoverable",
+              "path": "/docs/components/tooltip.mdx"
+            },
+            {
+              "title": "Dropdown",
+              "keywords": "dropdown, select, selectable, menu",
+              "path": "/docs/components/dropdown.mdx"
+            },
+            {
+              "title": "Progress",
+              "keywords": "progress, bar, task, display, activity",
+              "path": "/docs/components/progress.mdx"
+            },
+            {
+              "title": "Select",
+              "comingSoon": true
+            },
+            {
+              "title": "Modal",
+              "keywords": "modal, dialog, backdrop",
+              "path": "/docs/components/modal.mdx"
+            },
+            {
+              "title": "Loading",
+              "keywords": "loading, spinner, loadable, progress",
+              "path": "/docs/components/loading.mdx"
+            },
+            {
+              "title": "Navbar",
+              "comingSoon": true
+            },
+            {
+              "title": "Switch",
+              "keywords": "toggle, switch",
+              "path": "/docs/components/switch.mdx"
+            },
+            {
+              "title": "Text",
+              "keywords": "text, txt, paragraph",
+              "path": "/docs/components/text.mdx"
+            },
+            {
+              "title": "Link",
+              "keywords": "link, navigation, href, next link",
+              "path": "/docs/components/link.mdx"
+            },
+            {
+              "title": "User",
+              "keywords": "User, avatar, name, initials",
+              "path": "/docs/components/user.mdx"
+            },
+            {
+              "title": "Image",
+              "keywords": "Image, Next.js Image, image component",
+              "path": "/docs/components/image.mdx"
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }
