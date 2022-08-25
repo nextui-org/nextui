@@ -1,7 +1,7 @@
 import React from "react";
 import {Container} from "@nextui-org/react";
-import {NotifyBanner} from "@components";
 import {Route} from "@lib/docs/page";
+import {NotifyBanner} from "@components";
 
 import Header from "./header";
 import Footer from "./footer";
