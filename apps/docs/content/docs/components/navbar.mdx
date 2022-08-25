@@ -277,10 +277,10 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.Toggle Accessibility Props
 
-| Attribute            | Type     | Description                                                                                                        | Default |
-| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
-| **id**               | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
-| **aria-label**       | `string` | Defines a string value that labels the current element                                                             | -       |
+| Attribute      | Type     | Description                                                                                                        | Default |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------ | ------- |
+| **id**         | `string` | The element's unique identifier. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) | -       |
+| **aria-label** | `string` | Defines a string value that labels the current element                                                             | -       |
 
 <Spacer y={2} />
 
@@ -290,17 +290,17 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.Collapse Props
 
-| Attribute            | Type                                                    | Description                                                                | Default                                                                    |
-| -------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| **children**         | `ReactNode` `ReactNode[]`                               | The contents of the navbar toggle. It's usually an hamburguer icon button. | -                                                                          |
-| **transitionDelay**  | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `0`                                                                        |
-| **transitionTime**   | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `450`                                                                      |
-| **transitionMatrix** | [CollapseTransitionMatrix](#collapse-transition-matrix) | The matrix of all collapse items transition.                               | `{in: "matrix(1, 0, 0, 1, 0, 0)", out: "matrix(0.95, 0, 0, 0.95, 5, 20)"}` |
-| **disableAnimation** | `boolean`                                               | Whether the all navbar collapse items are animated.                        | `false`                                                                    |
-| **hideIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start hiding.          | -                                                                          |
-| **showIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start displaying.      | -                                                                          |
-| **css**              | `Stitches.CSS`                                          | Override Default CSS style.                                                | -                                                                          |
-| **as**               | `keyof JSX.IntrinsicElements`                           | Changes which tag component outputs.                                       | `ul`                                                                       |
+| Attribute            | Type                                                    | Description                                                                | Default                                                                 |
+| -------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **children**         | `ReactNode` `ReactNode[]`                               | The contents of the navbar toggle. It's usually an hamburguer icon button. | -                                                                       |
+| **transitionDelay**  | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `0`                                                                     |
+| **transitionTime**   | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `450`                                                                   |
+| **transitionMatrix** | [CollapseTransitionMatrix](#collapse-transition-matrix) | The matrix of all collapse items transition.                               | `{in: "matrix(1, 0, 0, 1, 0, 0)", out: "matrix(0.97, 0, 0, 1, 0, 20)"}` |
+| **disableAnimation** | `boolean`                                               | Whether the all navbar collapse items are animated.                        | `false`                                                                 |
+| **hideIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start hiding.          | -                                                                       |
+| **showIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start displaying.      | -                                                                       |
+| **css**              | `Stitches.CSS`                                          | Override Default CSS style.                                                | -                                                                       |
+| **as**               | `keyof JSX.IntrinsicElements`                           | Changes which tag component outputs.                                       | `ul`                                                                    |
 
 <Spacer y={1} />
 
@@ -312,7 +312,6 @@ import { Navbar } from "@nextui-org/react";
 | **aria-labelledby**  | `string` | Identifies the element (or elements) that labels the current element                                               | -       |
 | **aria-describedby** | `string` | Identifies the element (or elements) that describes the object.                                                    | -       |
 
-
 <Spacer y={2} />
 
 ---
@@ -321,17 +320,17 @@ import { Navbar } from "@nextui-org/react";
 
 #### Navbar.CollapseItem
 
-| Attribute            | Type                                                    | Description                                                                | Default                                                                    |
-| -------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| **children**         | `ReactNode` `ReactNode[]`                               | The contents of the navbar toggle. It's usually an hamburguer icon button. | -                                                                          |
-| **transitionDelay**  | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `0`                                                                        |
-| **transitionTime**   | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `450`                                                                      |
-| **transitionMatrix** | [CollapseTransitionMatrix](#collapse-transition-matrix) | The matrix of all collapse items transition.                               | `{in: "matrix(1, 0, 0, 1, 0, 0)", out: "matrix(0.95, 0, 0, 0.95, 5, 20)"}` |
-| **disableAnimation** | `boolean`                                               | Whether the navbar collapse item is animated.                              | `false`                                                                    |
-| **hideIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start hiding.          | -                                                                          |
-| **showIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start displaying.      | -                                                                          |
-| **css**              | `Stitches.CSS`                                          | Override Default CSS style.                                                | -                                                                          |
-| **as**               | `keyof JSX.IntrinsicElements`                           | Changes which tag component outputs.                                       | `li`                                                                       |
+| Attribute            | Type                                                    | Description                                                                | Default                                                                 |
+| -------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **children**         | `ReactNode` `ReactNode[]`                               | The contents of the navbar toggle. It's usually an hamburguer icon button. | -                                                                       |
+| **transitionDelay**  | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `0`                                                                     |
+| **transitionTime**   | `number`                                                | The delay of all collapse items transition. (milliseconds)                 | `450`                                                                   |
+| **transitionMatrix** | [CollapseTransitionMatrix](#collapse-transition-matrix) | The matrix of all collapse items transition.                               | `{in: "matrix(1, 0, 0, 1, 0, 0)", out: "matrix(0.97, 0, 0, 1, 0, 20)"}` |
+| **disableAnimation** | `boolean`                                               | Whether the navbar collapse item is animated.                              | `false`                                                                 |
+| **hideIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start hiding.          | -                                                                       |
+| **showIn**           | [HideShowIn](#hide-in-&-show-in)                        | Sets the breakpoint from where the component should start displaying.      | -                                                                       |
+| **css**              | `Stitches.CSS`                                          | Override Default CSS style.                                                | -                                                                       |
+| **as**               | `keyof JSX.IntrinsicElements`                           | Changes which tag component outputs.                                       | `li`                                                                    |
 
 <Spacer y={2} />
 

@@ -64,7 +64,7 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
       transitionMatrix: transitionMatrix ??
         collapseContext?.transitionMatrix ?? {
           in: "matrix(1, 0, 0, 1, 0, 0)",
-          out: "matrix(0.95, 0, 0, 1, 0, 15)",
+          out: "matrix(0.97, 0, 0, 1, 0, 20)",
         },
     };
   }, [
@@ -79,7 +79,7 @@ const NavbarCollapseItem = forwardRef<NavbarCollapseItemProps, "li">((props, ref
   const defaultDelay = useMemo(
     () =>
       collapseContext.items && index > -1
-        ? (index / collapseContext.items.length) * 1000 + itemTransitions.transitionDelay
+        ? (index / collapseContext.items.length) * 0.5 * 1000 + itemTransitions.transitionDelay
         : 0.1,
     [index, itemTransitions.transitionDelay, collapseContext?.items],
   );

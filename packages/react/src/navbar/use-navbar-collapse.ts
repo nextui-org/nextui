@@ -34,8 +34,8 @@ export function useNavbarCollapse(props: UseNavbarCollapseProps = {}) {
     children,
     ref,
     transitionDelay = 0,
-    transitionTime = 450,
-    transitionMatrix = {in: "matrix(1, 0, 0, 1, 0, 0)", out: "matrix(0.95, 0, 0, 0.95, 5, 20)"},
+    transitionTime = 350,
+    transitionMatrix = {in: "matrix(1, 0, 0, 1, 0, 0)", out: "matrix(0.97, 0, 0, 1, 0, 20)"},
     className,
     ...otherProps
   } = props;
