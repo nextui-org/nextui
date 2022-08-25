@@ -19,7 +19,7 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <div id="app-container">
       <Header />
-      <Navbar isHome hasNotify routes={routes} />
+      <Navbar isHome routes={routes} />
       <Container
         lg={true}
         id="main-container"
