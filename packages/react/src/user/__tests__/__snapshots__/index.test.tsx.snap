@@ -4,10 +4,10 @@ exports[` User should support image and text 1`] = `
 LoadedCheerio {
   "0": <div>
     <div
-      class="nextui-c-ijHtNE nextui-c-PJLV nextui-c-jMTBsW nextui-c-ldmKBv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-ijHtNE-iPJLV-css"
+      class="nextui-c-ijHtNE nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-ijHtNE-iPJLV-css"
     >
       <span
-        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css only-text-avatar nextui-user-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false only-text-avatar nextui-user-avatar"
         data-state="ready"
       >
         <span
@@ -33,10 +33,10 @@ LoadedCheerio {
       </div>
     </div>
     <div
-      class="nextui-c-ijHtNE nextui-c-PJLV nextui-c-jMTBsW nextui-c-ldmKBv nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-ijHtNE-iPJLV-css"
+      class="nextui-c-ijHtNE nextui-c-PJLV nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-ijHtNE-iPJLV-css"
     >
       <span
-        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-ldmKBv nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-c-gEEnVX-iPJLV-css nextui-user-avatar"
+        class="nextui-c-gEEnVX nextui-c-PJLV nextui-c-gEEnVX-qXFXw-color-default nextui-c-gEEnVX-duCSmO-textColor-default nextui-c-gEEnVX-iHugVF-size-md nextui-c-gEEnVX-krOtXB-borderWeight-normal nextui-c-gEEnVX-bAEoQm-rounded-true nextui-c-PJLV-gulvcB-isFocusVisible-false nextui-user-avatar"
         data-state="loading"
       >
         <span

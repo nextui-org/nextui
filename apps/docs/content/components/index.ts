@@ -25,6 +25,7 @@ import spacerContent from "./spacer";
 import popoverContent from "./popover";
 import dropdownContent from "./dropdown";
 import badgeContent from "./badge";
+import navbarContent from "./navbar";
 
 export default {
   tableContent,
@@ -54,4 +55,5 @@ export default {
   popoverContent,
   dropdownContent,
   badgeContent,
+  navbarContent,
 };

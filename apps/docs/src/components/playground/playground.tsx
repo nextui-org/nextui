@@ -37,6 +37,12 @@ interface Props {
   showEditor?: boolean;
   showSandpackPreview?: boolean;
   initialEditorOpen?: boolean;
+  enableResize?: boolean;
+  showWindowActions?: boolean;
+  iframeSrc?: string;
+  asIframe?: boolean;
+  iframeInitialWidth?: number;
+  previewHeight?: string | number;
   overflow?: "auto" | "visible" | "hidden";
   files?: SandpackFiles;
   template?: SandpackPredefinedTemplate;
@@ -50,8 +56,12 @@ const defaultProps = {
   code: "",
   files: {},
   showEditor: true,
+  asIframe: false,
   showSandpackPreview: false,
   initialEditorOpen: false,
+  showWindowActions: false,
+  enableResize: false,
+  previewHeight: "auto",
   overflow: "visible",
   bindings: {},
 };
@@ -65,8 +75,14 @@ const Playground: React.FC<PlaygroundProps> = ({
   showEditor,
   highlightedLines,
   showSandpackPreview,
+  showWindowActions,
+  iframeInitialWidth,
+  enableResize,
   files,
+  iframeSrc,
+  asIframe,
   overflow,
+  previewHeight,
   desc,
 }) => {
   const isSanpackEditor = !isEmpty(files);
@@ -150,7 +166,18 @@ const Playground: React.FC<PlaygroundProps> = ({
             highlightedLines={highlightedLines}
             showPreview={showSandpackPreview}
           >
-            <LiveCode code={code} noInline={noInline} overflow={overflow} showEditor={false} />
+            <LiveCode
+              code={code}
+              enableResize={enableResize || asIframe}
+              height={previewHeight}
+              iframeInitialWidth={iframeInitialWidth}
+              iframeSrc={iframeSrc}
+              iframeTitle={title}
+              noInline={noInline}
+              overflow={overflow}
+              showEditor={false}
+              showWindowActions={showWindowActions || asIframe}
+            />
           </DynamicSandpack>
         ) : (
           <DynamicLive

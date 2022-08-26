@@ -1,5 +1,7 @@
 import React from "react";
 import {mount} from "enzyme";
+import {render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import Button from "../index";
 import {nativeEvent} from "../../../tests/utils";
@@ -31,17 +33,18 @@ describe("ButtonGroup", () => {
 
   it("should ignore events when group disabled", () => {
     const handler = jest.fn();
-    const wrapper = mount(
-      <Button.Group>
-        <Button onClick={handler}>action</Button>
+    const wrapper = render(
+      <Button.Group disabled>
+        <Button data-testid="button-test" onClick={handler}>
+          action
+        </Button>
       </Button.Group>,
     );
 
-    wrapper.find("button").simulate("click", nativeEvent);
-    expect(handler).toHaveBeenCalledTimes(1);
-    wrapper.setProps({disabled: true});
-    wrapper.find("button").simulate("click", nativeEvent);
-    expect(handler).toHaveBeenCalledTimes(1);
+    let button = wrapper.getByTestId("button-test");
+
+    userEvent.click(button);
+    expect(handler).toBeCalledTimes(0);
   });
 
   it("buttons should be displayed vertically", () => {

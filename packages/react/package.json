@@ -62,6 +62,7 @@
     "@react-aria/i18n": "3.5.1",
     "@react-aria/interactions": "3.10.0",
     "@react-aria/label": "3.4.0",
+    "@react-aria/link": "3.3.1",
     "@react-aria/menu": "3.6.0",
     "@react-aria/overlays": "3.10.0",
     "@react-aria/radio": "3.3.0",

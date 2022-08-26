@@ -8,7 +8,7 @@ const useDrip = (
   visible: boolean;
   x: number;
   y: number;
-  onClick: (event: React.MouseEvent<HTMLElement> | PressEvent) => void;
+  onClick: (event: React.MouseEvent<HTMLElement> | PressEvent | Event) => void;
   onCompleted: () => void;
 } => {
   const [dripVisible, setDripVisible] = useState<boolean>(initialValue);

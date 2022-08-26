@@ -14,6 +14,7 @@ export type DropdownButtonProps = ButtonProps;
 const DropdownButton = React.forwardRef(
   (props: DropdownButtonProps, ref: React.Ref<HTMLButtonElement | null>) => {
     const {
+      css,
       children,
       className,
       iconRight,
@@ -34,7 +35,14 @@ const DropdownButton = React.forwardRef(
     const isAnimated = useMemo(() => animated || !disableAnimation, [animated, disableAnimation]);
 
     return (
-      <DropdownTrigger>
+      <DropdownTrigger
+        css={{
+          "& .nextui-button-icon-right, & .nextui-button-text-right": {
+            pointerEvents: "none",
+          },
+          ...css,
+        }}
+      >
         <Button
           ref={buttonRef}
           animated={isAnimated}

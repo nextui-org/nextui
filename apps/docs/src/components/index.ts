@@ -38,5 +38,8 @@ export {default as Community} from "./community";
 export {default as InstallBanner} from "./install-banner";
 export {default as VercelCallout} from "./vercel-callout";
 export {default as NotifyBanner} from "./notify-banner";
+export {default as WindowActions} from "./window-actions";
 export {default as SandpackEditor} from "./sandpack";
+export {default as Sparkles} from "./sparkles";
+export * as Examples from "./examples";
 export * from "./sandpack";

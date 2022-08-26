@@ -20,6 +20,11 @@ export interface UseDropdownProps extends Omit<PopoverProps, "children"> {
    */
   trigger?: MenuTriggerType;
   /**
+   * Whether the trigger should show a pressed animation when the menu is open.
+   * @default false
+   */
+  disableTriggerPressedAnimation?: boolean;
+  /**
    * Whether the Menu closes when a selection is made.
    * @default true
    */
@@ -38,6 +43,7 @@ export function useDropdown(props: UseDropdownProps = {}) {
     borderWeight,
     closeOnSelect,
     disableAnimation = false,
+    disableTriggerPressedAnimation = false,
     ...popoverProps
   } = props;
 
@@ -56,16 +62,26 @@ export function useDropdown(props: UseDropdownProps = {}) {
 
   const getMenuTriggerProps = useCallback(
     (props = {}, _ref = null) => {
-      const realTriggerProps = triggerRefProp?.current
+      const {css, ...realTriggerProps} = triggerRefProp?.current
         ? mergeProps(menuTriggerProps, props)
         : mergeProps(props, menuTriggerProps);
 
       return {
-        ...realTriggerProps,
         ref: mergeRefs(triggerRef, _ref),
+        css: !disableTriggerPressedAnimation
+          ? {
+              '&[aria-haspopup="true"]&[aria-expanded="true"]': {
+                opacity: 0.7,
+                backfaceVisibility: "hidden",
+                transform: "translateZ(0) scale(0.97)",
+              },
+              ...css,
+            }
+          : css,
+        ...realTriggerProps,
       };
     },
-    [triggerRef, triggerRefProp, menuTriggerProps],
+    [triggerRef, triggerRefProp, menuTriggerProps, disableTriggerPressedAnimation],
   );
 
   return {
@@ -76,6 +92,7 @@ export function useDropdown(props: UseDropdownProps = {}) {
     onClose: state.close,
     autoFocus: state.focusStrategy || true,
     disableAnimation,
+    disableTriggerPressedAnimation,
     menuRef,
     borderWeight,
     menuPopoverRef,

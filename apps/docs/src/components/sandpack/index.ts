@@ -3,4 +3,5 @@ export type {SandpackFiles, SandpackPredefinedTemplate} from "@codesandbox/sandp
 
 export type {HighlightedLines as SandpackHighlightedLines} from "./types";
 
+export type {SandpackProps} from "./sandpack";
 export default Sandpack;

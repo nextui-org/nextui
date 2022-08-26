@@ -48,10 +48,68 @@ export const sharedVisuallyHidden = css({
   position: "absolute",
 });
 
-export const sharedDialogPopup = css({
-  // for dropdown triggers
-  '&[aria-haspopup="true"]&[aria-expanded="true"]': {
-    opacity: 0.7,
-    transform: "scale(0.97)",
+export const cssHideIn = css({
+  variants: {
+    hideIn: {
+      xs: {
+        "@xsMax": {
+          display: "none",
+        },
+      },
+      sm: {
+        "@smMax": {
+          display: "none",
+        },
+      },
+      md: {
+        "@mdMax": {
+          display: "none",
+        },
+      },
+      lg: {
+        "@lgMax": {
+          display: "none",
+        },
+      },
+      xl: {
+        "@xlMax": {
+          display: "none",
+        },
+      },
+    },
   },
 });
+
+export const cssShowIn = css({
+  variants: {
+    showIn: {
+      xs: {
+        "@xs": {
+          display: "none",
+        },
+      },
+      sm: {
+        "@sm": {
+          display: "none",
+        },
+      },
+      md: {
+        "@md": {
+          display: "none",
+        },
+      },
+      lg: {
+        "@lg": {
+          display: "none",
+        },
+      },
+      xl: {
+        "@xl": {
+          display: "none",
+        },
+      },
+    },
+  },
+});
+
+export const cssHideShowIn = css(cssHideIn, cssShowIn);

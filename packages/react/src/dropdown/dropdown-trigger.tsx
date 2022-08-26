@@ -3,16 +3,22 @@ import type {ReactRef} from "../utils/refs";
 import React from "react";
 
 import Popover from "../popover";
+import {CSS} from "../theme";
 import {__DEV__} from "../utils/assertion";
 
 import {useDropdownContext} from "./dropdown-context";
+
+export interface DropdownTriggerProps {
+  children?: React.ReactNode;
+  css?: CSS;
+}
 
 /**
  * DropdownTrigger opens the popover's content. It must be an interactive element
  * such as `button` or `a`.
  */
 const DropdownTrigger = React.forwardRef(
-  (props: React.PropsWithChildren<{}>, _: ReactRef<HTMLElement>) => {
+  (props: DropdownTriggerProps, _: ReactRef<HTMLElement>) => {
     const {children, ...otherProps} = props;
     const {getMenuTriggerProps} = useDropdownContext();
 
@@ -30,7 +36,4 @@ type DropdownTriggerComponent<T, P = {}> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>
 >;
 
-export default DropdownTrigger as DropdownTriggerComponent<
-  HTMLElement,
-  React.PropsWithChildren<{}>
->;
+export default DropdownTrigger as DropdownTriggerComponent<HTMLElement, DropdownTriggerProps>;

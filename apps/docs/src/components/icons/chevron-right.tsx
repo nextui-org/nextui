@@ -5,10 +5,18 @@ export interface Props {
   width?: number;
   height?: number;
   size?: number;
+  strokeWidth?: number;
   className?: string;
 }
 
-const ChevronRight: React.FC<Props> = ({fill, size, width = 24, height = 24, ...props}) => {
+const ChevronRight: React.FC<Props> = ({
+  fill,
+  size,
+  width = 24,
+  height = 24,
+  strokeWidth = 1.5,
+  ...props
+}) => {
   return (
     <svg
       height={size || height}
@@ -22,7 +30,7 @@ const ChevronRight: React.FC<Props> = ({fill, size, width = 24, height = 24, ...
         stroke={fill}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={1.5}
+        strokeWidth={strokeWidth}
         {...props}
       >
         <path d="M14.43 5.93L20.5 12l-6.07 6.07" />

@@ -42,11 +42,9 @@ const Footer: React.FC<Props> = ({css, containerCss}) => {
           span
           className="footer__by"
           css={{
-            fontSize: "$xs",
+            fontSize: "$sm",
             color: "$accents7",
-            "@mdMax": {
-              fontSize: "$xs",
-            },
+            dflex: "center",
           }}
         >
           Created&nbsp;by&nbsp;

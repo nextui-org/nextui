@@ -84,7 +84,12 @@ export const WithFooter = () => (
           <Text>Make beautiful websites regardless of your design experience.</Text>
         </Card.Body>
         <Card.Footer>
-          <Link icon color="primary" href="https://github.com/nextui-org/nextui" target="_blank">
+          <Link
+            isExternal
+            color="primary"
+            href="https://github.com/nextui-org/nextui"
+            target="_blank"
+          >
             Visit source code on GitHub.
           </Link>
         </Card.Footer>

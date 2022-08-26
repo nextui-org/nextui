@@ -1,29 +1,13 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 
-import {Spacer, Text} from "../index";
+import {Spacer, Grid, Text} from "../index";
 
 import Link from "./link";
 
 export default {
   title: "Navigation/Link",
   component: Link,
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          width: "100%",
-          maxWidth: "100%",
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
 } as Meta;
 
 const text = `"First solve the problem. Then, write the code." - Jon Johnson.`;
@@ -59,20 +43,49 @@ export const Variants = () => (
   </>
 );
 
-export const Icon = () => (
+export const isExternal = () => (
   <>
-    <Link icon href="#">
+    <Link isExternal href="#">
       {text}
     </Link>
     <Spacer y={0.5} />
-    <Link icon color="primary" href="#">
+    <Link isExternal color="primary" href="#">
       {text}
     </Link>
   </>
 );
 
 export const Block = () => (
-  <Link block href="#">
-    {text}
-  </Link>
+  <Grid.Container gap={1}>
+    <Grid xs={12}>
+      <Link block color="primary" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link block color="text" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link block color="secondary" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link block color="success" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link block color="warning" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link block color="error" href="#">
+        {text}
+      </Link>
+    </Grid>
+  </Grid.Container>
 );
