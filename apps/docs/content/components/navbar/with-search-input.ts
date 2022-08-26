@@ -20,19 +20,6 @@ import { AcmeLogo } from "./AcmeLogo.js";
 import { SearchIcon } from "./SearchIcon.js";
 
 export default function App() {
-  const collapseItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
-
   return (
     <Layout>
       <Navbar isBordered variant="sticky">

@@ -62,7 +62,8 @@ const CartIcon = `export const CartIcon = ({
   );
 };`;
 
-const App = `import { Badge, Grid } from "@nextui-org/react";
+const App = `import React from "react";
+import { Badge, Grid, Row, Switch, Text } from "@nextui-org/react";
 import { NotificationIcon } from './NotificationIcon';
 import { CartIcon } from './CartIcon';
 

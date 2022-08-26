@@ -12,7 +12,7 @@ import useLocalStorage from "@hooks/use-local-storage";
 
 import {getHighlightedLines, getFileName} from "./utils";
 import CopyButton from "./copy-button";
-import {entry} from "./entry";
+import {entry, entryWithoutContainer} from "./entry";
 import {nextuiTheme} from "./themes";
 import CodeSandboxButton from "./codesanbox-button";
 import BugReportButton from "./bugreport-button";
@@ -28,6 +28,7 @@ interface Props {
   showCopyCode?: boolean;
   showReportBug?: boolean;
   showOpenInCodeSandbox?: boolean;
+  removeEntryContainer?: boolean;
   template?: SandpackPredefinedTemplate;
   highlightedLines?: HighlightedLines;
 }
@@ -37,6 +38,7 @@ const defaultProps = {
   showPreview: true,
   showEditor: true,
   showOpenInCodeSandbox: true,
+  removeEntryContainer: false,
   showReportBug: true,
   showCopyCode: true,
   template: "react",
@@ -52,6 +54,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
   showEditor,
   showReportBug,
   showOpenInCodeSandbox,
+  removeEntryContainer,
   showCopyCode,
   template,
 }) => {
@@ -127,7 +130,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
         files: {
           ...sortedFiles,
           [entryFile]: {
-            code: entry,
+            code: removeEntryContainer ? entryWithoutContainer : entry,
             hidden: true,
           },
         },

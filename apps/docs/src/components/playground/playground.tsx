@@ -42,6 +42,7 @@ interface Props {
   iframeSrc?: string;
   asIframe?: boolean;
   iframeInitialWidth?: number;
+  removeEntryContainer?: boolean;
   previewHeight?: string | number;
   overflow?: "auto" | "visible" | "hidden";
   files?: SandpackFiles;
@@ -60,6 +61,7 @@ const defaultProps = {
   showSandpackPreview: false,
   initialEditorOpen: false,
   showWindowActions: false,
+  removeEntryContainer: false,
   enableResize: false,
   previewHeight: "auto",
   overflow: "visible",
@@ -77,6 +79,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   showSandpackPreview,
   showWindowActions,
   iframeInitialWidth,
+  removeEntryContainer,
   enableResize,
   files,
   iframeSrc,
@@ -164,6 +167,7 @@ const Playground: React.FC<PlaygroundProps> = ({
           <DynamicSandpack
             files={files}
             highlightedLines={highlightedLines}
+            removeEntryContainer={removeEntryContainer}
             showPreview={showSandpackPreview}
           >
             <LiveCode

@@ -1,4 +1,4 @@
-const App = `import { Badge, Avatar, Grid } from "@nextui-org/react";
+const App = `import { Badge, Avatar, Spacer, Grid } from "@nextui-org/react";
 
 export default function App() {
   return (

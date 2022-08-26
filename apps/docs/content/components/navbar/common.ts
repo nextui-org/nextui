@@ -27,7 +27,7 @@ export const Box = styled("div", {
 export const Content = `import { Text, Spacer } from "@nextui-org/react"
 import { Box } from "./Box.js"
 
-const Content = () => (
+export const Content = () => (
   <Box css={{px: "$12", mt: "$8", "@xsMax": {px: "$10"}}}>
     <Text h2>Lorem ipsum dolor sit amet</Text>
     <Text size="$lg">
@@ -104,12 +104,12 @@ const Content = () => (
 );`;
 
 export const Layout = `import { Content } from "./Content.js"
+import { Box } from "./Box.js";
 
 export const Layout = ({ children }) => (
   <Box
     css={{
       maxW: "100%",
-      maxHeight: "600px",
       position: "relative",
       overflow: "visible scroll",
     }}
@@ -119,7 +119,8 @@ export const Layout = ({ children }) => (
   </Box>
 );`;
 
-export const VariantsSelectorWrapper = `// used as a wrapper for the navbar variants radio buttons
+export const VariantsSelectorWrapper = `import { styled } from "@nextui-org/react"
+// used as a wrapper for the navbar variants radio buttons
 export const VariantsSelectorWrapper = styled("div", {
   dflex: "center",
   position: "fixed",

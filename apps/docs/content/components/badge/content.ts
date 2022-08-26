@@ -54,7 +54,7 @@ const NotificationIcon = `export const NotificationIcon = ({
 };`;
 
 const App = `import { Badge, Avatar, Grid } from "@nextui-org/react";
-import { NotificationIcon } from './NotificationIcon"
+import { NotificationIcon } from "./NotificationIcon"
 import { CheckIcon } from "./CheckIcon";
 
 export default function App() {

@@ -159,24 +159,12 @@ export const icons = {
   user: <TagUserIcon fill="var(--nextui-colors-error)" size={30} />,
 };`;
 
-const App = `import { Navbar, Button, Link, Text } from "@nextui-org/react";
+const App = `import { Navbar, Dropdown, Button, Link, Text } from "@nextui-org/react";
 import { Layout } from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
 import { icons } from "./Icons.js";
 
 export default function App() {
-  const collapseItems = [
-    "Features",
-    "Customers",
-    "Pricing",
-    "Company",
-    "Legal",
-    "Team",
-    "Help & Feedback",
-    "Login",
-    "Sign Up",
-  ];
-
   return (
     <Layout>
       <Navbar isBordered variant="sticky">
