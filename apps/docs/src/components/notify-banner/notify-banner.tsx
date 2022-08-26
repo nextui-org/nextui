@@ -1,6 +1,6 @@
 import * as React from "react";
 import NextLink from "next/link";
-import {Badge, Spacer, useTheme} from "@nextui-org/react";
+import {Badge, Spacer} from "@nextui-org/react";
 import {ChevronRight, Sparkles} from "@components";
 import {AnimatedText} from "@primitives";
 import {darkTheme} from "@theme/shared";
@@ -16,8 +16,6 @@ interface Props {
 
 const NotifyBanner: React.FC<Props> = (props) => {
   const {showBadge = true, showSparkles = true, text, href = "#"} = props;
-
-  const {isDark} = useTheme();
 
   return (
     <StyledNotifyBanner>
