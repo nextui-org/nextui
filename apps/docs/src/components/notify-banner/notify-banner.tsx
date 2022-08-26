@@ -1,51 +1,78 @@
-import * as React from 'react';
-import NextLink from 'next/link';
-import { Badge } from '@components';
-import { Text, Spacer } from '@nextui-org/react';
-import { ChevronRight } from '@components';
-import { StyledNotifyBanner, StyledContent, StyledImg } from './styles';
+import * as React from "react";
+import NextLink from "next/link";
+import {Badge, Spacer, useTheme} from "@nextui-org/react";
+import {ChevronRight, Sparkles} from "@components";
+import {AnimatedText} from "@primitives";
+import {darkTheme} from "@theme/shared";
+
+import {StyledNotifyBanner, StyledContent, StyledImg} from "./styles";
 
 interface Props {
   text: string;
   href?: string;
   showBadge?: boolean;
+  showSparkles?: boolean;
 }
 
 const NotifyBanner: React.FC<Props> = (props) => {
-  const { showBadge = true, text, href = '#' } = props;
+  const {showBadge = true, showSparkles = true, text, href = "#"} = props;
+
+  const {isDark} = useTheme();
 
   return (
     <StyledNotifyBanner>
       <StyledImg
-        src="/notify-gradient.svg"
-        className="notify-gradient"
         alt="gradient blue background"
+        className="notify-gradient"
         css={{
-          position: 'absolute',
+          position: "absolute",
           opacity: 0.7,
           zIndex: -1,
-          left: '0%'
+          left: "0%",
         }}
+        src="/notify-gradient.svg"
       />
       {showBadge && (
-        <Badge solid>
-          <span role="img" aria-label="notify-emoji">
-            🚀
+        <Badge
+          disableOutline
+          color="secondary"
+          css={{
+            fontSize: "10px",
+            fontWeight: "$black",
+            [`.${darkTheme} &`]: {
+              bg: "$purple400",
+              color: "$purple900",
+            },
+          }}
+          size="xs"
+          variant="flat"
+        >
+          <span aria-label="notify" role="img">
+            🎉
           </span>
-          &nbsp;&nbsp;New
+          &nbsp;NEW
         </Badge>
       )}
       <NextLink href={href}>
         <StyledContent>
-          <Spacer x={0.2} />
-          <Text b size={15} css={{ color: 'currentColor' }}>
-            {text}
-          </Text>
+          <Spacer x={0.3} />
+          {showSparkles ? (
+            <Sparkles activeOnHover>
+              <AnimatedText css={{cursor: "pointer", userSelect: "none"}} size={16}>
+                {text}
+              </AnimatedText>
+            </Sparkles>
+          ) : (
+            <AnimatedText css={{cursor: "pointer", userSelect: "none"}} size={16}>
+              {text}
+            </AnimatedText>
+          )}
           <Spacer x={0.2} />
           <ChevronRight
-            size={20}
             className="chevron-right-icon"
-            fill="currentColor"
+            fill="var(--nextui-colors-secondary)"
+            size={20}
+            strokeWidth={2}
           />
         </StyledContent>
       </NextLink>

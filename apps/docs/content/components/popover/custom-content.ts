@@ -159,11 +159,11 @@ export default function App() {
 }`;
 
 const react = {
-  '/UserTwitterCard.js': UserTwitterCard,
-  '/DeleteUser.js': DeleteUser,
-  '/App.js': App
+  "/UserTwitterCard.js": UserTwitterCard,
+  "/DeleteUser.js": DeleteUser,
+  "/App.js": App,
 };
 
 export default {
-  ...react
+  ...react,
 };

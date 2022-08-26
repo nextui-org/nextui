@@ -28,6 +28,7 @@
   all: initial;
   font-size: var(--sp-font-size);
   font-family: var(--sp-font-body);
+  line-height: var(--nextui-lineHeights-md);
   display: block;
   box-sizing: border-box;
   text-rendering: optimizeLegibility;

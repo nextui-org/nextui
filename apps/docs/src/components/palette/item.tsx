@@ -1,12 +1,6 @@
-import React from 'react';
-import cn from 'classnames';
-import {
-  Grid,
-  Text,
-  Tooltip,
-  GridProps,
-  useClipboard
-} from '@nextui-org/react';
+import React from "react";
+import cn from "classnames";
+import {Grid, Text, Tooltip, GridProps, useClipboard} from "@nextui-org/react";
 
 interface Props {
   color: string;
@@ -18,46 +12,39 @@ interface Props {
 
 export type ItemProps = Props & GridProps;
 
-const Item: React.FC<ItemProps> = ({
-  color,
-  title,
-  inverted,
-  textColor,
-  hexColor,
-  ...props
-}) => {
-  const isGradient = color.includes('gradient');
+const Item: React.FC<ItemProps> = ({color, title, textColor, hexColor, ...props}) => {
+  const isGradient = color.includes("gradient");
 
-  const { copy } = useClipboard();
+  const {copy} = useClipboard();
 
   const renderItem = () => {
     return (
       <Grid
-        className={cn('color', {
-          'is-gradient': isGradient
+        className={cn("color", {
+          "is-gradient": isGradient,
         })}
         css={{
-          size: '100px',
-          px: '$5',
-          dflex: 'center',
-          marginBottom: '20px',
-          flexDirection: 'column',
-          transition: '$default',
-          cursor: 'pointer',
+          size: "100px",
+          px: "$5",
+          dflex: "center",
+          marginBottom: "20px",
+          flexDirection: "column",
+          transition: "$default",
+          cursor: "pointer",
           background: color,
-          marginRight: '10px',
-          br: '$lg',
-          '.text': {
-            fontSize: '$xs',
-            wordBreak: 'break-all',
-            textAlign: 'center'
+          marginRight: "10px",
+          br: "$lg",
+          ".text": {
+            fontSize: "$xs",
+            wordBreak: "break-all",
+            textAlign: "center",
           },
-          '&:hover': {
-            transform: 'translateY(5px)'
+          "&:hover": {
+            transform: "translateY(5px)",
           },
-          '@smMax': {
-            size: '80px'
-          }
+          "@smMax": {
+            size: "80px",
+          },
         }}
         {...props}
       >
@@ -66,11 +53,11 @@ const Item: React.FC<ItemProps> = ({
             className="text"
             css={{
               m: 0,
-              fontWeight: '$semibold',
+              fontWeight: "$semibold",
               color: textColor,
-              '@smMax': {
-                fontSize: '$xs'
-              }
+              "@smMax": {
+                fontSize: "$xs",
+              },
             }}
           >
             {title}
@@ -81,11 +68,11 @@ const Item: React.FC<ItemProps> = ({
               className="text"
               css={{
                 m: 0,
-                fontWeight: '$semibold',
+                fontWeight: "$semibold",
                 color: textColor,
-                '@smMax': {
-                  fontSize: '$xs'
-                }
+                "@smMax": {
+                  fontSize: "$xs",
+                },
               }}
             >
               {title}
@@ -94,11 +81,11 @@ const Item: React.FC<ItemProps> = ({
               className="hex-text"
               css={{
                 m: 0,
-                fontSize: '$xs',
+                fontSize: "$xs",
                 color: textColor,
                 opacity: 0.8,
-                tt: 'uppercase',
-                fontWeight: '$bold'
+                tt: "uppercase",
+                fontWeight: "$bold",
               }}
             >
               {hexColor}
@@ -112,15 +99,11 @@ const Item: React.FC<ItemProps> = ({
   return (
     <>
       {isGradient ? (
-        <Tooltip trigger="click" title="Gradient" content={hexColor}>
+        <Tooltip content={hexColor} title="Gradient" trigger="click">
           <>{renderItem()}</>
         </Tooltip>
       ) : (
-        <Tooltip
-          trigger="click"
-          content="Copied!"
-          onClick={() => copy(hexColor.trim())}
-        >
+        <Tooltip content="Copied!" trigger="click" onClick={() => copy(hexColor.trim())}>
           <>{renderItem()}</>
         </Tooltip>
       )}

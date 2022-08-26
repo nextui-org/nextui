@@ -1,23 +1,25 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Spacer from './index';
-import useTheme from '../use-theme';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import useTheme from "../use-theme";
+
+import Spacer from "./index";
 
 export default {
-  title: 'Layout/Spacer',
-  component: Spacer
+  title: "Layout/Spacer",
+  component: Spacer,
 } as Meta;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Container = ({ children, vertical }: any) => (
+const Container = ({children, vertical}: any) => (
   <div
     style={{
-      display: 'flex',
-      flexDirection: vertical ? 'column' : 'row',
-      justifyContent: 'space-between',
-      width: '100%',
-      maxWidth: '50%',
-      minWidth: '50%'
+      display: "flex",
+      flexDirection: vertical ? "column" : "row",
+      justifyContent: "space-between",
+      width: "100%",
+      maxWidth: "50%",
+      minWidth: "50%",
     }}
   >
     {children}
@@ -25,14 +27,15 @@ const Container = ({ children, vertical }: any) => (
 );
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SpacerContainer = ({ children }: any) => {
-  const { theme } = useTheme();
+const SpacerContainer = ({children}: any) => {
+  const {theme} = useTheme();
+
   return (
     <div
       style={{
-        width: '100%',
+        width: "100%",
         background: theme?.colors.primary.value,
-        borderRadius: '8px'
+        borderRadius: "8px",
       }}
     >
       {children}

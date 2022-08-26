@@ -1,8 +1,9 @@
-import React, { useMemo, HTMLAttributes } from 'react';
-import { useRadioGroupState } from '@react-stately/radio';
-import { useRadioGroup as useReactAriaRadioGroup } from '@react-aria/radio';
-import type { AriaRadioGroupProps } from '@react-types/radio';
-import type { NormalSizes, SimpleColors } from '../utils/prop-types';
+import type {AriaRadioGroupProps} from "@react-types/radio";
+import type {NormalSizes, SimpleColors} from "../utils/prop-types";
+
+import React, {useMemo, HTMLAttributes} from "react";
+import {useRadioGroupState} from "@react-stately/radio";
+import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
 
 interface Props extends AriaRadioGroupProps {
   size?: NormalSizes;
@@ -16,9 +17,9 @@ export type UseRadioGroupProps = Props & NativeAttrs;
 
 interface IRadioGroupAria {
   /** Props for the radio group wrapper element. */
-  radioGroupProps: Omit<HTMLAttributes<HTMLElement>, 'css'>;
+  radioGroupProps: Omit<HTMLAttributes<HTMLElement>, "css">;
   /** Props for the radio group's visible label (if any). */
-  labelProps: Omit<HTMLAttributes<HTMLElement>, 'css'>;
+  labelProps: Omit<HTMLAttributes<HTMLElement>, "css">;
 }
 
 /**
@@ -26,10 +27,10 @@ interface IRadioGroupAria {
  */
 export const useRadioGroup = (props: UseRadioGroupProps) => {
   const {
-    size = 'md',
-    color = 'default',
-    labelColor = 'default',
-    orientation = 'vertical',
+    size = "md",
+    color = "default",
+    labelColor = "default",
+    orientation = "vertical",
     isRequired,
     validationState,
     ...otherProps
@@ -38,14 +39,16 @@ export const useRadioGroup = (props: UseRadioGroupProps) => {
   const otherPropsWithOrientation = useMemo<AriaRadioGroupProps>(() => {
     return {
       ...otherProps,
-      orientation
+      orientation,
     };
   }, [otherProps]);
 
   const radioGroupState = useRadioGroupState(otherPropsWithOrientation);
 
-  const { radioGroupProps, labelProps }: IRadioGroupAria =
-    useReactAriaRadioGroup(otherPropsWithOrientation, radioGroupState);
+  const {radioGroupProps, labelProps}: IRadioGroupAria = useReactAriaRadioGroup(
+    otherPropsWithOrientation,
+    radioGroupState,
+  );
 
   return {
     size,
@@ -56,7 +59,7 @@ export const useRadioGroup = (props: UseRadioGroupProps) => {
     validationState,
     radioGroupState,
     radioGroupProps,
-    labelProps
+    labelProps,
   };
 };
 

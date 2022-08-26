@@ -1,13 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Grid all breakpoint values should be supported 1`] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-icgwmtB-css nextui-grid-item xs sm md lg xl nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-iddATLy-css nextui-grid-item xs sm md lg xl\\">test</div></div>"`;
+exports[
+  `Grid all breakpoint values should be supported 1`
+] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-icgwmtB-css nextui-grid-item xs sm md lg xl nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-iddATLy-css nextui-grid-item xs sm md lg xl\\">test</div></div>"`;
 
-exports[`Grid css value should be passed through 1`] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ibomLZK-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-idTBjfx-css nextui-grid-item\\">test</div></div>"`;
+exports[
+  `Grid css value should be passed through 1`
+] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ibomLZK-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-idTBjfx-css nextui-grid-item\\">test</div></div>"`;
 
-exports[`Grid decimal spacing should be supported 1`] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ikiOHGz-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div></div>"`;
+exports[
+  `Grid decimal spacing should be supported 1`
+] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ikiOHGz-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div></div>"`;
 
-exports[`Grid nested components should be supported 1`] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div></div>,</div>,</div>,</div>"`;
+exports[
+  `Grid nested components should be supported 1`
+] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div></div>,</div>,</div>,</div>"`;
 
-exports[`Grid should render correctly 1`] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div></div>"`;
+exports[
+  `Grid should render correctly 1`
+] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-igNCIse-css nextui-grid-item\\">test</div></div>"`;
 
-exports[`Grid should work correctly when size exceeds 1`] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-icxokNG-css nextui-grid-item xs\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ieSqvQu-css nextui-grid-item xs\\">test</div></div>"`;
+exports[
+  `Grid should work correctly when size exceeds 1`
+] = `"<div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ijDEIix-css nextui-grid-item nextui-grid-container\\"><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-icxokNG-css nextui-grid-item xs\\">test</div><div class=\\"nextui-c-kRHeuF nextui-c-kRHeuF-ieSqvQu-css nextui-grid-item xs\\">test</div></div>"`;

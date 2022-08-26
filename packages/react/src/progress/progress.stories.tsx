@@ -1,18 +1,20 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Progress from './index';
-import { Spacer, Grid } from '../index';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {Spacer, Grid} from "../index";
+
+import Progress from "./index";
 
 export default {
-  title: 'General/Progress',
+  title: "General/Progress",
   component: Progress,
   decorators: [
     (Story) => (
       <Grid.Container xs={4}>
         <Story />
       </Grid.Container>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
 export const Default = () => {
@@ -21,17 +23,17 @@ export const Default = () => {
 
 export const Colors = () => (
   <>
-    <Progress value={50} color="primary" />
+    <Progress color="primary" value={50} />
     <Spacer y={0.5} />
-    <Progress value={30} color="secondary" />
+    <Progress color="secondary" value={30} />
     <Spacer y={0.5} />
-    <Progress value={70} color="success" />
+    <Progress color="success" value={70} />
     <Spacer y={0.5} />
-    <Progress value={90} color="warning" />
+    <Progress color="warning" value={90} />
     <Spacer y={0.5} />
-    <Progress value={30} color="error" />
+    <Progress color="error" value={30} />
     <Spacer y={0.5} />
-    <Progress value={70} color="gradient" />
+    <Progress color="gradient" value={70} />
   </>
 );
 
@@ -51,36 +53,36 @@ export const Sizes = () => (
 
 export const Status = () => (
   <>
-    <Progress value={50} color="primary" status="primary" />
+    <Progress color="primary" status="primary" value={50} />
     <Spacer y={0.5} />
-    <Progress value={30} color="secondary" status="secondary" />
+    <Progress color="secondary" status="secondary" value={30} />
     <Spacer y={0.5} />
-    <Progress value={70} color="success" status="success" />
+    <Progress color="success" status="success" value={70} />
     <Spacer y={0.5} />
-    <Progress value={90} color="warning" status="warning" />
+    <Progress color="warning" status="warning" value={90} />
     <Spacer y={0.5} />
-    <Progress value={10} color="error" status="error" />
+    <Progress color="error" status="error" value={10} />
   </>
 );
 
 export const Shadow = () => (
   <>
-    <Progress shadow value={50} color="primary" status="primary" />
+    <Progress shadow color="primary" status="primary" value={50} />
     <Spacer y={0.5} />
-    <Progress shadow value={30} color="secondary" status="secondary" />
+    <Progress shadow color="secondary" status="secondary" value={30} />
     <Spacer y={0.5} />
-    <Progress shadow value={70} color="success" status="success" />
+    <Progress shadow color="success" status="success" value={70} />
     <Spacer y={0.5} />
-    <Progress shadow value={90} color="warning" status="warning" />
+    <Progress shadow color="warning" status="warning" value={90} />
     <Spacer y={0.5} />
-    <Progress shadow value={10} color="error" status="error" />
+    <Progress shadow color="error" status="error" value={10} />
   </>
 );
 
 export const Striped = () => {
   return (
     <>
-      <Progress striped value={200} max={250} />
+      <Progress striped max={250} value={200} />
       <Spacer y={0.5} />
       <Progress striped value={45} />
       <Spacer y={0.5} />
@@ -92,7 +94,7 @@ export const Striped = () => {
 export const Squared = () => {
   return (
     <>
-      <Progress squared value={200} max={250} />
+      <Progress squared max={250} value={200} />
       <Spacer y={0.5} />
       <Progress squared value={45} />
       <Spacer y={0.5} />
@@ -104,7 +106,7 @@ export const Squared = () => {
 export const indeterminated = () => {
   return (
     <>
-      <Progress indeterminated value={50} color="primary" />
+      <Progress indeterminated color="primary" value={50} />
     </>
   );
 };
@@ -112,7 +114,7 @@ export const indeterminated = () => {
 export const NoAnimated = () => {
   return (
     <>
-      <Progress animated={false} value={200} max={250} />
+      <Progress animated={false} max={250} value={200} />
       <Spacer y={0.5} />
       <Progress animated={false} value={45} />
       <Spacer y={0.5} />

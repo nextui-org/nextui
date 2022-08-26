@@ -127,6 +127,18 @@
               "path": "/docs/components/collapse.mdx"
             },
             {
+              "title": "Navbar",
+              "keywords": "navbar, nav, navbar, navigation, menu, header",
+              "path": "/docs/components/navbar.mdx",
+              "newPost": true
+            },
+            {
+              "title": "Badge",
+              "keywords": "badge, status, display, count, highlight",
+              "path": "/docs/components/badge.mdx",
+              "newPost": true
+            },
+            {
               "title": "Input",
               "keywords": "text input, input, textarea",
               "path": "/docs/components/input.mdx"
@@ -168,7 +180,8 @@
             {
               "title": "Dropdown",
               "keywords": "dropdown, select, selectable, menu",
-              "path": "/docs/components/dropdown.mdx"
+              "path": "/docs/components/dropdown.mdx",
+              "updated": true
             },
             {
               "title": "Progress",
@@ -190,10 +203,6 @@
               "path": "/docs/components/loading.mdx"
             },
             {
-              "title": "Navbar",
-              "comingSoon": true
-            },
-            {
               "title": "Switch",
               "keywords": "toggle, switch",
               "path": "/docs/components/switch.mdx"
@@ -201,12 +210,14 @@
             {
               "title": "Text",
               "keywords": "text, txt, paragraph",
-              "path": "/docs/components/text.mdx"
+              "path": "/docs/components/text.mdx",
+              "updated": true
             },
             {
               "title": "Link",
               "keywords": "link, navigation, href, next link",
-              "path": "/docs/components/link.mdx"
+              "path": "/docs/components/link.mdx",
+              "updated": true
             },
             {
               "title": "User",

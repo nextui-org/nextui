@@ -1,13 +1,15 @@
-import React, { useMemo } from 'react';
-import { DOTS } from '../use-pagination';
-import clsx from '../utils/clsx';
-import withDefaults from '../utils/with-defaults';
-import { CSS } from '../theme/stitches.config';
+import React, {useMemo} from "react";
+
+import {DOTS} from "../use-pagination";
+import clsx from "../utils/clsx";
+import withDefaults from "../utils/with-defaults";
+import {CSS} from "../theme/stitches.config";
+
 import {
   StyledPaginationItem,
   StyledPaginationItemContent,
-  PaginationItemVariantsProps
-} from './pagination.styles';
+  PaginationItemVariantsProps,
+} from "./pagination.styles";
 
 interface Props {
   active?: boolean;
@@ -22,22 +24,22 @@ interface Props {
 }
 
 const defaultProps = {
-  preserveContent: false
+  preserveContent: false,
 };
 
 const getItemAriaLabel = (page?: string | number) => {
   if (!page) return;
   switch (page) {
     case DOTS:
-      return 'dots element';
-    case '<':
-      return 'previous page button';
-    case '>':
-      return 'next page button';
-    case 'first':
-      return 'first page button';
-    case 'last':
-      return 'last page button';
+      return "dots element";
+    case "<":
+      return "previous page button";
+    case ">":
+      return "next page button";
+    case "first":
+      return "first page button";
+    case "last":
+      return "last page button";
     default:
       return `${page} item`;
   }
@@ -45,15 +47,11 @@ const getItemAriaLabel = (page?: string | number) => {
 
 type NativeAttrs = Omit<React.ButtonHTMLAttributes<unknown>, keyof Props>;
 
-export type PaginationItemProps = Props &
-  NativeAttrs &
-  PaginationItemVariantsProps & { css?: CSS };
+export type PaginationItemProps = Props & NativeAttrs & PaginationItemVariantsProps & {css?: CSS};
 
-const preClass = 'nextui-pagination-item';
+const preClass = "nextui-pagination-item";
 
-const PaginationItem: React.FC<
-  React.PropsWithChildren<PaginationItemProps>
-> = ({
+const PaginationItem: React.FC<React.PropsWithChildren<PaginationItemProps>> = ({
   active,
   value,
   children,
@@ -66,9 +64,8 @@ const PaginationItem: React.FC<
   ...props
 }) => {
   const ariaLabel = useMemo(
-    () =>
-      active ? `${getItemAriaLabel(value)} active` : getItemAriaLabel(value),
-    [value, active]
+    () => (active ? `${getItemAriaLabel(value)} active` : getItemAriaLabel(value)),
+    [value, active],
   );
 
   const clickHandler = (event: React.MouseEvent) => {
@@ -78,23 +75,23 @@ const PaginationItem: React.FC<
 
   return (
     <StyledPaginationItem
+      active={active}
+      animated={animated}
+      aria-label={ariaLabel}
+      bordered={bordered}
       className={clsx(preClass, {
         [`${preClass}-active`]: active,
         [`${preClass}-animated`]: animated,
         [`${preClass}-disabled`]: disabled,
         [`${preClass}-bordered`]: bordered,
         [`${preClass}-only-dots`]: onlyDots,
-        [`${preClass}-preserve-content`]: preserveContent
+        [`${preClass}-preserve-content`]: preserveContent,
       })}
-      animated={animated}
-      active={active}
       disabled={disabled}
-      bordered={bordered}
       onlyDots={onlyDots}
       preserveContent={preserveContent}
-      onClick={clickHandler}
-      aria-label={ariaLabel}
       tabIndex={disabled ? -1 : 0}
+      onClick={clickHandler}
       {...props}
     >
       <StyledPaginationItemContent className={`${preClass}-content`}>
@@ -104,6 +101,6 @@ const PaginationItem: React.FC<
   );
 };
 
-PaginationItem.toString = () => '.nextui-pagination-item';
+PaginationItem.toString = () => ".nextui-pagination-item";
 
 export default withDefaults(PaginationItem, defaultProps);
