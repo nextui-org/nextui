@@ -216,7 +216,8 @@
             {
               "title": "Link",
               "keywords": "link, navigation, href, next link",
-              "path": "/docs/components/link.mdx"
+              "path": "/docs/components/link.mdx",
+              "updated": true
             },
             {
               "title": "User",
