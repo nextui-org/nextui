@@ -41,7 +41,7 @@
     "coverage:codecov": "yarn workspace @nextui-org/react coverage:codecov",
     "cov:co": "yarn coverage:codecov",
     "cov:up": "yarn workspace @nextui-org/react coverage-update",
-    "build:docs-meta": "ts-node scripts/update-index-docs.ts",
+    "build:docs-meta": "node scripts/update-index-docs.js",
     "clean": "yarn turbo:clean"
   },
   "devDependencies": {
