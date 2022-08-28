@@ -49,7 +49,7 @@ const Suggestion: React.FC<Props> = ({hit, highlighted}) => {
               cursor: pointer;
               padding: 16px 8px;
               justify-content: space-between;
-              border-bottom: 1px solid ${addColorAlpha(theme?.colors?.border?.value, 0.6)};
+              border-bottom: 1px solid ${addColorAlpha(theme?.colors?.border?.value, 0.1)};
               min-height: 68px;
               transition: all 0.2s ease;
             }
