@@ -39,6 +39,7 @@ export const useRadioGroup = (props: UseRadioGroupProps) => {
   const otherPropsWithOrientation = useMemo<AriaRadioGroupProps>(() => {
     return {
       ...otherProps,
+      isRequired,
       orientation,
     };
   }, [otherProps]);
