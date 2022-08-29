@@ -1,21 +1,17 @@
-import Card from './card';
+import Image from "../image";
+import Divider from "../divider";
+
+import Card from "./card";
 import {
   StyledCardHeader as CardHeader,
   StyledCardFooter as CardFooter,
-  StyledCardBody as CardBody
-} from './card.styles';
-import Image from '../image';
-import Divider from '../divider';
+  StyledCardBody as CardBody,
+} from "./card.styles";
 
-export type { CardProps } from './card';
+export type {CardProps} from "./card";
 
-export {
-  StyledCard,
-  StyledCardHeader,
-  StyledCardFooter,
-  StyledCardBody
-} from './card.styles';
-export type { CardFooterVariantsProps, CardVariantsProps } from './card.styles';
+export {StyledCard, StyledCardHeader, StyledCardFooter, StyledCardBody} from "./card.styles";
+export type {CardFooterVariantsProps, CardVariantsProps} from "./card.styles";
 
 Card.Header = CardHeader;
 Card.Body = CardBody;

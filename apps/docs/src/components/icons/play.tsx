@@ -1,26 +1,19 @@
-import * as React from 'react';
-import { IconProps, Icon } from './index';
-import withDefaults from '@utils/with-defaults';
+import * as React from "react";
+import withDefaults from "@utils/with-defaults";
+
+import {IconProps, Icon} from "./index";
 
 const defaultProps = {
-  fill: '#ffffff'
+  fill: "#ffffff",
 };
 
-const Play: React.FC<IconProps> = ({
-  fill,
-  filled,
-  size,
-  height,
-  width,
-  label,
-  ...props
-}) => {
+const Play: React.FC<IconProps> = ({fill, filled, size, height, width, ...props}) => {
   return (
     <Icon
-      width={size || width || 16}
+      fill={filled ? fill : "none"}
       height={size || height || 19}
       viewBox="0 0 14.71 17.33"
-      fill={filled ? fill : 'none'}
+      width={size || width || 16}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >

@@ -1,16 +1,10 @@
-import React from 'react';
-import { UnstyledOpenInCodeSandboxButton } from '@codesandbox/sandpack-react';
-import { Tooltip } from '@nextui-org/react';
-import { Box } from '@primitives';
+import React from "react";
+import {UnstyledOpenInCodeSandboxButton} from "@codesandbox/sandpack-react";
+import {Tooltip} from "@nextui-org/react";
+import {Box} from "@primitives";
 
 export const CSBIcon = (): React.ReactElement => (
-  <svg
-    fill="none"
-    height="24"
-    width="24"
-    viewBox="0 0 18 18"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg fill="none" height="24" viewBox="0 0 18 18" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M3.24284 5.11427L8.63639 2.17808C8.92945 2.01854 9.28432 2.02264 9.57361 2.18889L14.7726 5.17673C15.011 5.3137 15.1579 5.56762 15.1579 5.84251V12.1884C15.1579 12.4639 15.0103 12.7183 14.7711 12.8551L9.38463 15.9346C9.1466 16.0707 8.85406 16.0696 8.61711 15.9316L3.22361 12.7912C2.9874 12.6537 2.8421 12.4009 2.8421 12.1276V5.7887C2.8421 5.50747 2.99584 5.24873 3.24284 5.11427Z" />
     <path
       clipRule="evenodd"
@@ -33,23 +27,23 @@ const CodeSandboxButton = () => {
       hideArrow
       content="Open in CodeSandbox"
       triggerCss={{
-        cursor: 'pointer',
-        ml: '$2',
-        '&:hover': {
-          opacity: 0.8
-        }
+        cursor: "pointer",
+        ml: "$2",
+        "&:hover": {
+          opacity: 0.8,
+        },
       }}
     >
       <Box as="span" title="Open in CodeSandbox">
         <UnstyledOpenInCodeSandboxButton
           style={{
             // reset button styles
-            background: 'none',
-            border: 'none',
+            background: "none",
+            border: "none",
             padding: 0,
             margin: 0,
-            outline: 'none',
-            cursor: 'pointer'
+            outline: "none",
+            cursor: "pointer",
           }}
         >
           <CSBIcon />

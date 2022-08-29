@@ -1,8 +1,9 @@
-import { Dispatch, MutableRefObject, SetStateAction } from 'react';
-import useCurrentState from '../use-current-state';
+import {Dispatch, MutableRefObject, SetStateAction} from "react";
+
+import useCurrentState from "../use-current-state";
 
 const useModal = (
-  initialVisible: boolean = false
+  initialVisible: boolean = false,
 ): {
   visible: boolean;
   setVisible: Dispatch<SetStateAction<boolean>>;
@@ -12,9 +13,7 @@ const useModal = (
     onClose: () => void;
   };
 } => {
-  const [visible, setVisible, currentRef] = useCurrentState<boolean>(
-    initialVisible
-  );
+  const [visible, setVisible, currentRef] = useCurrentState<boolean>(initialVisible);
 
   return {
     visible,
@@ -22,8 +21,8 @@ const useModal = (
     currentRef,
     bindings: {
       open: visible,
-      onClose: () => setVisible(false)
-    }
+      onClose: () => setVisible(false),
+    },
   };
 };
 

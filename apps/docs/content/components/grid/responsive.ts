@@ -64,10 +64,10 @@ export default function App() {
 }`;
 
 const react = {
-  '/useMediaQuery.js': useMediaQuery,
-  '/App.js': AppJs
+  "/useMediaQuery.js": useMediaQuery,
+  "/App.js": AppJs,
 };
 
 export default {
-  ...react
+  ...react,
 };

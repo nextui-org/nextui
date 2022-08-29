@@ -1,15 +1,11 @@
-import React, { useMemo, RefAttributes, PropsWithoutRef } from 'react';
-import {
-  BreakpointsValue,
-  Justify,
-  Direction,
-  AlignItems,
-  AlignContent
-} from '../utils/prop-types';
-import { CSS } from '../theme/stitches.config';
-import { StyledGridItem, GridItemVariantProps } from './grid.styles';
-import clsx from '../utils/clsx';
-import withDefaults from '../utils/with-defaults';
+import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
+
+import {BreakpointsValue, Justify, Direction, AlignItems, AlignContent} from "../utils/prop-types";
+import {CSS} from "../theme/stitches.config";
+import clsx from "../utils/clsx";
+import withDefaults from "../utils/with-defaults";
+
+import {StyledGridItem, GridItemVariantProps} from "./grid.styles";
 
 interface Props {
   xs?: BreakpointsValue;
@@ -32,7 +28,7 @@ const defaultProps = {
   md: false as BreakpointsValue,
   lg: false as BreakpointsValue,
   xl: false as BreakpointsValue,
-  className: ''
+  className: "",
 };
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
@@ -43,29 +39,29 @@ export type GridItemProps = Props &
   GridItemVariantProps;
 
 const getItemLayout = (val?: BreakpointsValue): React.CSSProperties => {
-  const display = val === 0 ? 'none' : 'inherit';
-  if (typeof val === 'number') {
+  const display = val === 0 ? "none" : "inherit";
+
+  if (typeof val === "number") {
     const width = (100 / 12) * val;
-    const ratio = width > 100 ? '100%' : width < 0 ? '0' : `${width}%`;
+    const ratio = width > 100 ? "100%" : width < 0 ? "0" : `${width}%`;
+
     return {
       flexGrow: 0,
       display,
       maxWidth: ratio,
-      flexBasis: ratio
+      flexBasis: ratio,
     };
   }
+
   return {
     flexGrow: 1,
     display,
-    maxWidth: '100%',
-    flexBasis: '0'
+    maxWidth: "100%",
+    flexBasis: "0",
   };
 };
 
-const GridItem = React.forwardRef<
-  HTMLDivElement,
-  React.PropsWithChildren<GridItemProps>
->(
+const GridItem = React.forwardRef<HTMLDivElement, React.PropsWithChildren<GridItemProps>>(
   (
     {
       xs,
@@ -82,73 +78,74 @@ const GridItem = React.forwardRef<
       className,
       ...props
     },
-    ref
+    ref,
   ) => {
     const classes = useMemo(() => {
-      const breaks: { [key: string]: unknown } = {
+      const breaks: {[key: string]: unknown} = {
         xs,
         sm,
         md,
         lg,
-        xl
+        xl,
       };
       const classString = Object.keys(breaks).reduce((pre, name) => {
-        if (breaks[name] !== undefined && breaks[name] !== false)
-          return `${pre} ${name}`;
+        if (breaks[name] !== undefined && breaks[name] !== false) return `${pre} ${name}`;
+
         return pre;
-      }, '');
+      }, "");
+
       return classString.trim();
     }, [xs, sm, md, lg, xl]);
 
     return (
       <StyledGridItem
         ref={ref}
-        className={clsx('nextui-grid-item', classes, className)}
+        className={clsx("nextui-grid-item", classes, className)}
         css={{
           alignItems,
           alignContent,
           justifyContent: justify,
           flexDirection: direction,
-          '&.xs': {
-            ...getItemLayout(xs)
+          "&.xs": {
+            ...getItemLayout(xs),
           },
-          '@xsMax': {
-            '&.xs': {
-              ...getItemLayout(xs)
-            }
+          "@xsMax": {
+            "&.xs": {
+              ...getItemLayout(xs),
+            },
           },
-          '@sm': {
-            '&.sm': {
-              ...getItemLayout(sm)
-            }
+          "@sm": {
+            "&.sm": {
+              ...getItemLayout(sm),
+            },
           },
-          '@md': {
-            '&.md': {
-              ...getItemLayout(md)
-            }
+          "@md": {
+            "&.md": {
+              ...getItemLayout(md),
+            },
           },
-          '@lg': {
-            '&.lg': {
-              ...getItemLayout(lg)
-            }
+          "@lg": {
+            "&.lg": {
+              ...getItemLayout(lg),
+            },
           },
-          '@xl': {
-            '&.xl': {
-              ...getItemLayout(xl)
-            }
+          "@xl": {
+            "&.xl": {
+              ...getItemLayout(xl),
+            },
           },
-          ...(css as any)
+          ...(css as any),
         }}
         {...props}
       >
         {children}
       </StyledGridItem>
     );
-  }
+  },
 );
 
-GridItem.displayName = 'NextUI.GridItem';
-GridItem.toString = () => '.nextui-grid-item';
+GridItem.displayName = "NextUI.GridItem";
+GridItem.toString = () => ".nextui-grid-item";
 
 type GridItemComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>

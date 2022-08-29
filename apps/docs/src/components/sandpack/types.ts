@@ -1,4 +1,4 @@
-import { SandpackPredefinedTemplate } from '@codesandbox/sandpack-react';
+import {SandpackPredefinedTemplate} from "@codesandbox/sandpack-react";
 
 export type HighlightedLines =
   | string
@@ -6,7 +6,7 @@ export type HighlightedLines =
       [key in SandpackPredefinedTemplate]?: string;
     };
 
-export type Language = 'typescript' | 'javascript';
+export type Language = "typescript" | "javascript";
 
 export type HighlightedLine = {
   start?: number | string;

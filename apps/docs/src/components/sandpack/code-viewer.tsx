@@ -1,17 +1,19 @@
-import * as React from 'react';
+import type {SandpackInitMode} from "@codesandbox/sandpack-react";
+
+import * as React from "react";
 import {
   FileTabs,
   CodeEditor,
   useSandpack,
   useActiveCode,
-  SandpackStack
-} from '@codesandbox/sandpack-react';
-import type { SandpackInitMode } from '@codesandbox/sandpack-react';
-import scrollIntoView from 'scroll-into-view-if-needed';
-import { Decorators } from './types';
-import { getId } from '@utils/collections';
-import { Box } from '@primitives';
-import { StyledShoreMoreButton } from './styles';
+  SandpackStack,
+} from "@codesandbox/sandpack-react";
+import scrollIntoView from "scroll-into-view-if-needed";
+import {getId} from "@utils/collections";
+import {Box} from "@primitives";
+
+import {Decorators} from "./types";
+import {StyledShoreMoreButton} from "./styles";
 
 export interface CodeViewerProps {
   showTabs?: boolean;
@@ -37,39 +39,32 @@ export interface CodeViewerProps {
  */
 const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
   (
-    {
-      showTabs,
-      code: propCode,
-      decorators,
-      initMode,
-      showLineNumbers,
-      wrapContent,
-      containerRef
-    },
-    ref
+    {showTabs, code: propCode, decorators, initMode, showLineNumbers, wrapContent, containerRef},
+    ref,
   ) => {
-    const { sandpack } = useSandpack();
-    const { code } = useActiveCode();
+    const {sandpack} = useSandpack();
+    const {code} = useActiveCode();
 
-    const { activePath } = sandpack;
+    const {activePath} = sandpack;
     const [isExpanded, setIsExpanded] = React.useState(false);
     // hack to make sure we re-render the code editor and chenge current file
     // TODO: open an issue on sandpack-react
     const [internalKey, setInternalKey] = React.useState(getId());
-    const lineCountRef = React.useRef<{ [key: string]: number }>({});
+    const lineCountRef = React.useRef<{[key: string]: number}>({});
 
     if (!lineCountRef.current[activePath]) {
-      lineCountRef.current[activePath] = code.split('\n').length;
+      lineCountRef.current[activePath] = code.split("\n").length;
     }
 
     const shouldShowTabs = showTabs ?? sandpack.openPaths.length > 1;
 
     const lineCount = lineCountRef.current[activePath];
     const isExpandable = lineCount > 12 || isExpanded;
+    const isAppFile = activePath.includes("App");
 
     React.useEffect(() => {
       if (containerRef && containerRef?.current !== null && isExpandable) {
-        containerRef.current.style.height = '350px';
+        containerRef.current.style.height = "350px";
       }
     }, [containerRef]);
 
@@ -79,17 +74,19 @@ const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
 
     const handleExpand = () => {
       const nextIsExpanded = !isExpanded;
+
       setIsExpanded(nextIsExpanded);
       if (containerRef && containerRef?.current !== null) {
         const container = containerRef?.current;
+
         if (nextIsExpanded) {
-          container.style.height = 'auto';
+          container.style.height = "auto";
         } else {
-          container.style.height = '350px';
+          container.style.height = "350px";
           scrollIntoView(container, {
-            behavior: 'smooth',
-            scrollMode: 'if-needed',
-            block: 'center'
+            behavior: "smooth",
+            scrollMode: "if-needed",
+            block: "center",
           });
         }
       }
@@ -99,11 +96,11 @@ const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
       <SandpackStack>
         {shouldShowTabs ? <FileTabs /> : null}
         <CodeEditor
-          readOnly
           key={internalKey}
           ref={ref}
+          readOnly
           code={propCode || code}
-          decorators={decorators}
+          decorators={isAppFile ? decorators : []}
           filePath={sandpack.activePath}
           initMode={initMode || sandpack.initMode}
           showLineNumbers={showLineNumbers}
@@ -111,17 +108,17 @@ const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
           wrapContent={wrapContent}
         />
         {isExpandable && (
-          <Box css={{ py: '$3', pl: 'var(--sp-space-4)' }}>
+          <Box css={{py: "$3", pl: "var(--sp-space-4)"}}>
             <StyledShoreMoreButton onClick={handleExpand}>
-              {isExpanded ? 'Show less' : 'Show more'}
+              {isExpanded ? "Show less" : "Show more"}
             </StyledShoreMoreButton>
           </Box>
         )}
       </SandpackStack>
     );
-  }
+  },
 );
 
-SandpackCodeViewer.displayName = 'SandpackCodeViewer';
+SandpackCodeViewer.displayName = "SandpackCodeViewer";
 
 export default SandpackCodeViewer;

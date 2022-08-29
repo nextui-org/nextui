@@ -1,17 +1,16 @@
-import { useMemo, useRef } from 'react';
-import { useToggleState } from '@react-stately/toggle';
-import type { AriaCheckboxProps } from '@react-types/checkbox';
+import type {AriaCheckboxProps} from "@react-types/checkbox";
+import type {NormalSizes, NormalColors, SimpleColors} from "../utils/prop-types";
+
+import {useMemo, useRef} from "react";
+import {useToggleState} from "@react-stately/toggle";
 import {
   useCheckbox as useReactAriaCheckbox,
-  useCheckboxGroupItem as useReactAriaCheckboxGroupItem
-} from '@react-aria/checkbox';
-import { __DEV__ } from '../utils/assertion';
-import { useCheckboxGroupContext } from './checkbox-context';
-import type {
-  NormalSizes,
-  NormalColors,
-  SimpleColors
-} from '../utils/prop-types';
+  useCheckboxGroupItem as useReactAriaCheckboxGroupItem,
+} from "@react-aria/checkbox";
+
+import {__DEV__} from "../utils/assertion";
+
+import {useCheckboxGroupContext} from "./checkbox-context";
 
 export interface UseCheckboxProps extends AriaCheckboxProps {
   isRounded?: boolean;
@@ -29,9 +28,9 @@ export const useCheckbox = (props: UseCheckboxProps) => {
   const groupContext = useCheckboxGroupContext();
 
   const {
-    size = groupContext?.size ?? 'md',
-    color = groupContext?.color ?? 'default',
-    labelColor = groupContext?.labelColor ?? 'default',
+    size = groupContext?.size ?? "md",
+    color = groupContext?.color ?? "default",
+    labelColor = groupContext?.labelColor ?? "default",
     lineThrough,
     isRounded = false,
     disableAnimation = false,
@@ -41,12 +40,15 @@ export const useCheckbox = (props: UseCheckboxProps) => {
 
   if (groupContext && __DEV__) {
     const warningMessage =
-      'The Checkbox.Group is being used, `%s` will be ignored. Use the `%s` of the Checkbox.Group instead.';
-    if ('isSelected' in otherProps) {
-      console.warn(warningMessage, 'isSelected', 'value');
+      "The Checkbox.Group is being used, `%s` will be ignored. Use the `%s` of the Checkbox.Group instead.";
+
+    if ("isSelected" in otherProps) {
+      // eslint-disable-next-line no-console
+      console.warn(warningMessage, "isSelected", "value");
     }
-    if ('defaultSelected' in otherProps) {
-      console.warn(warningMessage, 'defaultSelected', 'defaultValue');
+    if ("defaultSelected" in otherProps) {
+      // eslint-disable-next-line no-console
+      console.warn(warningMessage, "defaultSelected", "defaultValue");
     }
   }
 
@@ -56,25 +58,22 @@ export const useCheckbox = (props: UseCheckboxProps) => {
     return {
       ...otherProps,
       isIndeterminate,
-      value: otherProps.value ?? '',
-      isRequired: otherProps.isRequired ?? false
+      value: otherProps.value ?? "",
+      isRequired: otherProps.isRequired ?? false,
     };
   }, [isIndeterminate, otherProps]);
 
-  const { inputProps } = groupContext
-    ? useReactAriaCheckboxGroupItem(
+  const {inputProps} = groupContext
+    ? // eslint-disable-next-line
+      useReactAriaCheckboxGroupItem(
         {
           ...ariaCheckboxProps,
-          validationState: otherProps.validationState
+          validationState: otherProps.validationState,
         },
         groupContext.groupState,
-        inputRef
+        inputRef,
       )
-    : useReactAriaCheckbox(
-        ariaCheckboxProps,
-        useToggleState(ariaCheckboxProps),
-        inputRef
-      );
+    : useReactAriaCheckbox(ariaCheckboxProps, useToggleState(ariaCheckboxProps), inputRef); // eslint-disable-line
 
   return {
     size,
@@ -85,7 +84,7 @@ export const useCheckbox = (props: UseCheckboxProps) => {
     disableAnimation,
     isIndeterminate,
     inputRef,
-    inputProps
+    inputProps,
   };
 };
 

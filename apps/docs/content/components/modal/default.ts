@@ -109,11 +109,11 @@ export default function App() {
 }`;
 
 const react = {
-  '/Password.js': Password,
-  '/Mail.js': Mail,
-  '/App.js': AppJs
+  "/Password.js": Password,
+  "/Mail.js": Mail,
+  "/App.js": AppJs,
 };
 
 export default {
-  ...react
+  ...react,
 };

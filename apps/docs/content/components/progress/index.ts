@@ -1,12 +1,12 @@
-import default_progress from './default';
-import indeterminated_progress from './indeterminated';
-import color from './color';
-import size from './size';
-import status from './status';
-import shadow from './shadow';
-import striped from './striped';
-import squared from './squared';
-import noAnimation from './noAnimation';
+import default_progress from "./default";
+import indeterminated_progress from "./indeterminated";
+import color from "./color";
+import size from "./size";
+import status from "./status";
+import shadow from "./shadow";
+import striped from "./striped";
+import squared from "./squared";
+import noAnimation from "./noAnimation";
 
 export default {
   default_progress,
@@ -17,5 +17,5 @@ export default {
   shadow,
   striped,
   squared,
-  noAnimation
+  noAnimation,
 };

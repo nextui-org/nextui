@@ -1,15 +1,17 @@
-import React from 'react';
-import { IconProps } from './index';
-import { useTheme } from '@nextui-org/react';
+import React from "react";
+import {useTheme} from "@nextui-org/react";
 
-const Plus: React.FC<IconProps> = ({ fill, size, height, width, ...props }) => {
-  const { theme } = useTheme();
+import {IconProps} from "./index";
+
+const Plus: React.FC<IconProps> = ({fill, size, height, width, ...props}) => {
+  const {theme} = useTheme();
+
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size || width || 24}
       height={size || height || 24}
       viewBox="0 0 24 24"
+      width={size || width || 24}
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <g

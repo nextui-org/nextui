@@ -1,18 +1,20 @@
-import React from 'react';
-import { Meta } from '@storybook/react';
-import Button from './index';
-import { Grid } from '../index';
+import React from "react";
+import {Meta} from "@storybook/react";
+
+import {Grid} from "../index";
+
+import Button from "./index";
 
 export default {
-  title: 'General/ButtonGroup',
+  title: "General/ButtonGroup",
   component: Button,
   decorators: [
     (Story) => (
-      <Grid.Container gap={2} justify="center" direction="column">
+      <Grid.Container direction="column" gap={2} justify="center">
         <Story />
       </Grid.Container>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
 export const Default = () => (
@@ -48,17 +50,17 @@ export const Variants = () => (
       <Button>Two</Button>
       <Button disabled>Three</Button>
     </Button.Group>
-    <Button.Group color="primary" bordered>
+    <Button.Group bordered color="primary">
       <Button disabled>Action1</Button>
       <Button>Action2</Button>
       <Button>Action3</Button>
     </Button.Group>
-    <Button.Group color="gradient" bordered>
+    <Button.Group bordered color="gradient">
       <Button disabled>Action1</Button>
       <Button>Action2</Button>
       <Button>Action3</Button>
     </Button.Group>
-    <Button.Group color="warning" flat>
+    <Button.Group flat color="warning">
       <Button>Action1</Button>
       <Button disabled>Action2</Button>
       <Button>Action2</Button>
@@ -68,12 +70,12 @@ export const Variants = () => (
       <Button>Two</Button>
       <Button>Three</Button>
     </Button.Group>
-    <Button.Group color="secondary" light>
+    <Button.Group light color="secondary">
       <Button>One</Button>
       <Button disabled>Two</Button>
       <Button>Three</Button>
     </Button.Group>
-    <Button.Group color="gradient" ghost>
+    <Button.Group ghost color="gradient">
       <Button>One</Button>
       <Button disabled>Two</Button>
       <Button>Three</Button>
@@ -112,7 +114,7 @@ export const Sizes = () => (
 
 export const Vertical = () => (
   <>
-    <Button.Group size="sm" vertical>
+    <Button.Group vertical size="sm">
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>
@@ -123,7 +125,7 @@ export const Vertical = () => (
 
 export const Disabled = () => (
   <>
-    <Button.Group size="sm" disabled>
+    <Button.Group disabled size="sm">
       <Button>One</Button>
       <Button>Two</Button>
       <Button>Three</Button>

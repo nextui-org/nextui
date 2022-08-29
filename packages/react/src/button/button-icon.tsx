@@ -1,7 +1,8 @@
-import React from 'react';
-import { styled, VariantProps, CSS } from '../theme/stitches.config';
-import withDefaults from '../utils/with-defaults';
-import clsx from '../utils/clsx';
+import React from "react";
+
+import {styled, VariantProps, CSS} from "../theme/stitches.config";
+import withDefaults from "../utils/with-defaults";
+import clsx from "../utils/clsx";
 
 interface Props {
   isRight?: boolean;
@@ -10,44 +11,44 @@ interface Props {
 }
 
 const defaultProps = {
-  className: ''
+  className: "",
 };
 
-export const StyledButtonIcon = styled('span', {
-  dflex: 'center',
-  position: 'absolute',
-  left: '$$buttonPadding',
-  right: 'auto',
-  top: '50%',
-  transform: 'translateY(-50%)',
-  color: 'inherit',
-  zIndex: '$1',
-  '& svg': {
-    background: 'transparent'
+export const StyledButtonIcon = styled("span", {
+  dflex: "center",
+  position: "absolute",
+  left: "$$buttonPadding",
+  right: "auto",
+  top: "50%",
+  transform: "translateY(-50%)",
+  color: "inherit",
+  zIndex: "$1",
+  "& svg": {
+    background: "transparent",
   },
   variants: {
     isAuto: {
       true: {
-        position: 'relative',
-        transform: 'none',
-        top: '0%'
-      }
+        position: "relative",
+        transform: "none",
+        top: "0%",
+      },
     },
     isRight: {
       true: {
-        right: '$$buttonPadding',
-        left: 'auto'
-      }
+        right: "$$buttonPadding",
+        left: "auto",
+      },
     },
     isSingle: {
       true: {
-        position: 'static',
-        transform: 'none'
-      }
+        position: "static",
+        transform: "none",
+      },
     },
     isGradientButtonBorder: {
-      true: {}
-    }
+      true: {},
+    },
   },
   compoundVariants: [
     // isAuto && isRight
@@ -57,10 +58,10 @@ export const StyledButtonIcon = styled('span', {
       isSingle: false,
       css: {
         order: 2,
-        ml: 'calc($$buttonPadding / 2)',
-        right: '0%',
-        left: '0%'
-      }
+        ml: "calc($$buttonPadding / 2)",
+        right: "0%",
+        left: "0%",
+      },
     },
     // isAuto && !isRight
     {
@@ -69,26 +70,26 @@ export const StyledButtonIcon = styled('span', {
       isSingle: false,
       css: {
         order: 0,
-        mr: 'calc($$buttonPadding / 2)',
-        right: '0%',
-        left: '0%'
-      }
+        mr: "calc($$buttonPadding / 2)",
+        right: "0%",
+        left: "0%",
+      },
     },
     // isSingle && isRight
     {
       isSingle: true,
       isRight: false,
       css: {
-        ml: 0
-      }
+        ml: 0,
+      },
     },
     // isSingle && !isRight
     {
       isSingle: true,
       isRight: true,
       css: {
-        mr: 0
-      }
+        mr: 0,
+      },
     },
     // isSingle && !isRight && hasButttonBorder
     {
@@ -96,10 +97,10 @@ export const StyledButtonIcon = styled('span', {
       isRight: false,
       isGradientButtonBorder: true,
       css: {
-        mr: 'calc($$buttonPadding / 2)'
-      }
-    }
-  ]
+        mr: "calc($$buttonPadding / 2)",
+      },
+    },
+  ],
 });
 
 type ButtonIconVariants = VariantProps<typeof StyledButtonIcon>;
@@ -119,15 +120,15 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
   return (
     <StyledButtonIcon
       className={clsx(
-        'nextui-button-icon',
+        "nextui-button-icon",
         {
-          'nextui-button-icon-right': props.isRight,
-          'nextui-button-icon-single': props.isSingle
+          "nextui-button-icon-right": props.isRight,
+          "nextui-button-icon-single": props.isSingle,
         },
-        className
+        className,
       )}
       css={{
-        ...(css as any)
+        ...(css as any),
       }}
       {...props}
     >
@@ -136,7 +137,7 @@ const ButtonIcon: React.FC<React.PropsWithChildren<ButtonIconProps>> = ({
   );
 };
 
-ButtonIcon.toString = () => '.nextui-button-icon';
+ButtonIcon.toString = () => ".nextui-button-icon";
 
 const MemoButtonIcon = React.memo(ButtonIcon);
 

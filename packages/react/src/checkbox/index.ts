@@ -1,8 +1,8 @@
-import Checkbox from './checkbox';
-import CheckboxGroup from './checkbox-group';
+import Checkbox from "./checkbox";
+import CheckboxGroup from "./checkbox-group";
 
-export type { CheckboxProps } from './checkbox';
-export type { CheckboxGroupProps } from './checkbox-group';
+export type {CheckboxProps} from "./checkbox";
+export type {CheckboxGroupProps} from "./checkbox-group";
 
 Checkbox.Group = CheckboxGroup;
 
@@ -15,8 +15,8 @@ export {
   StyledIconCheck,
   StyledCheckboxMask,
   StyledCheckboxText,
-  StyledCheckboxGroup
-} from './checkbox.styles';
+  StyledCheckboxGroup,
+} from "./checkbox.styles";
 export type {
   CheckboxGroupVariantsProps,
   CheckboxTextVariantsProps,
@@ -25,7 +25,7 @@ export type {
   CheckboxIconCheckFirstLineVariantsProps,
   CheckboxIconCheckSecondLineVariantsProps,
   CheckboxLabelVariantsProps,
-  CheckboxContainerVariantsProps
-} from './checkbox.styles';
+  CheckboxContainerVariantsProps,
+} from "./checkbox.styles";
 
 export default Checkbox;

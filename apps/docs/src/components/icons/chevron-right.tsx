@@ -1,10 +1,11 @@
-import * as React from 'react';
+import * as React from "react";
 
 export interface Props {
   fill?: string;
   width?: number;
   height?: number;
   size?: number;
+  strokeWidth?: number;
   className?: string;
 }
 
@@ -13,14 +14,15 @@ const ChevronRight: React.FC<Props> = ({
   size,
   width = 24,
   height = 24,
+  strokeWidth = 1.5,
   ...props
 }) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size || width}
       height={size || height}
       viewBox="0 0 24 24"
+      width={size || width}
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <g
@@ -28,7 +30,7 @@ const ChevronRight: React.FC<Props> = ({
         stroke={fill}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={1.5}
+        strokeWidth={strokeWidth}
         {...props}
       >
         <path d="M14.43 5.93L20.5 12l-6.07 6.07" />

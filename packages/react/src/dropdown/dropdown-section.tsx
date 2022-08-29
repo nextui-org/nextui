@@ -1,20 +1,23 @@
-import React, { Fragment, Key } from 'react';
-import type { TreeState } from '@react-stately/tree';
-import type { Node } from '@react-types/shared';
-import { mergeProps } from '@react-aria/utils';
-import { useMenuSection } from '@react-aria/menu';
-import DropdownItem from './dropdown-item';
-import type { CSS } from '../theme/stitches.config';
-import type { SimpleColors, DropdownVariants } from '../utils/prop-types';
-import Divider from '../divider';
-import clsx from '../utils/clsx';
+import type {TreeState} from "@react-stately/tree";
+import type {Node} from "@react-types/shared";
+import type {CSS} from "../theme/stitches.config";
+import type {SimpleColors, DropdownVariants} from "../utils/prop-types";
+import type {IMenuSectionAria} from "./dropdown-types";
+
+import {useMenuSection} from "@react-aria/menu";
+import {mergeProps} from "@react-aria/utils";
+import React, {Fragment, Key} from "react";
+
+import clsx from "../utils/clsx";
+import Divider from "../divider";
+import {__DEV__} from "../utils/assertion";
+
 import {
   StyledDropdownSection,
   StyledDropdownSectionWrapper,
-  StyledDropdownSectionTitle
-} from './dropdown.styles';
-import type { IMenuSectionAria } from './dropdown-types';
-import { __DEV__ } from '../utils/assertion';
+  StyledDropdownSectionTitle,
+} from "./dropdown.styles";
+import DropdownItem from "./dropdown-item";
 
 interface Props<T> {
   item: Node<T>;
@@ -48,58 +51,48 @@ const DropdownSection = <T extends object>(props: DropdownSectionProps<T>) => {
     variant,
     withDivider = true,
     className,
-    onAction
+    onAction,
   } = props;
 
-  const { itemProps, headingProps, groupProps }: IMenuSectionAria =
-    useMenuSection({
-      heading: item.rendered,
-      'aria-label': item['aria-label']
-    });
+  const {itemProps, headingProps, groupProps}: IMenuSectionAria = useMenuSection({
+    heading: item.rendered,
+    "aria-label": item["aria-label"],
+  });
 
   return (
     <Fragment>
       {item.key !== state.collection.getFirstKey() && withDivider && (
-        <Divider
-          as="li"
-          className="nextui-dropdown-section-divider"
-          css={{ my: '$2' }}
-        />
+        <Divider as="li" className="nextui-dropdown-section-divider" css={{my: "$2"}} />
       )}
-      <StyledDropdownSectionWrapper
-        {...itemProps}
-        className="nextui-dropdown-section-wrapper"
-      >
+      <StyledDropdownSectionWrapper {...itemProps} className="nextui-dropdown-section-wrapper">
         {item.rendered && (
-          <StyledDropdownSectionTitle
-            {...headingProps}
-            className="nextui-dropdown-section-title"
-          >
+          <StyledDropdownSectionTitle {...headingProps} className="nextui-dropdown-section-title">
             {item.rendered}
           </StyledDropdownSectionTitle>
         )}
         <StyledDropdownSection
           {...groupProps}
           as={item.props?.as || as}
-          css={{ ...mergeProps(css, item.props?.css) }}
-          className={clsx('nextui-dropdown-section', className)}
+          className={clsx("nextui-dropdown-section", className)}
+          css={{...mergeProps(css, item.props?.css)}}
         >
           {[...item.childNodes].map((node) => {
             let item = (
               <DropdownItem
                 key={node.key}
+                color={color}
                 item={node}
                 state={state}
-                onAction={onAction}
-                color={color}
                 textColor={textColor}
                 variant={variant}
+                onAction={onAction}
               />
             );
 
             if (node.wrapper) {
               item = node.wrapper(item);
             }
+
             return item;
           })}
         </StyledDropdownSection>
@@ -109,9 +102,9 @@ const DropdownSection = <T extends object>(props: DropdownSectionProps<T>) => {
 };
 
 if (__DEV__) {
-  DropdownSection.displayName = 'NextUI.DropdownSection';
+  DropdownSection.displayName = "NextUI.DropdownSection";
 }
 
-DropdownSection.toString = () => '.nextui-dropdown-section';
+DropdownSection.toString = () => ".nextui-dropdown-section";
 
 export default DropdownSection;

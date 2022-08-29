@@ -17,6 +17,24 @@ render(
 );
 `;
 
+export const entryWithoutContainer = `import React, { StrictMode } from "react";
+import ReactDOM from "react-dom";
+import { NextUIProvider } from '@nextui-org/react';
+import App from "./App";
+
+
+const rootElement = document.getElementById("root");
+
+ReactDOM.render(
+  <StrictMode>
+    <NextUIProvider>
+        <App />
+    </NextUIProvider>
+  </StrictMode>,
+  rootElement
+);
+`;
+
 export const lightThemeEntry = `
 import { StrictMode } from "react";
 import { render } from "react-dom";

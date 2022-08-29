@@ -1,21 +1,25 @@
-import { useEffect, useState } from 'react';
-import useSSR from './use-ssr';
-import { getId } from '../utils/collections';
+import {useEffect, useState} from "react";
+
+import {getId} from "../utils/collections";
+
+import useSSR from "./use-ssr";
 
 const createElement = (id: string): HTMLElement => {
-  const el = document.createElement('div');
-  el.setAttribute('id', id);
+  const el = document.createElement("div");
+
+  el.setAttribute("id", id);
+
   return el;
 };
 
 const usePortal = (
   selectId: string = getId(),
-  getContainer?: () => HTMLElement | null
+  getContainer?: () => HTMLElement | null,
 ): HTMLElement | null => {
   const id = `nextui-${selectId}`;
-  const { isBrowser } = useSSR();
+  const {isBrowser} = useSSR();
   const [elSnapshot, setElSnapshot] = useState<HTMLElement | null>(
-    isBrowser ? createElement(id) : null
+    isBrowser ? createElement(id) : null,
   );
 
   useEffect(() => {

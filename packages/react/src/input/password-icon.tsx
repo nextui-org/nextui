@@ -1,23 +1,23 @@
-import React from 'react';
+import React from "react";
 
 interface Props {
   visible: boolean;
 }
 
-const PasswordIcon: React.FC<Props> = ({ visible }) => {
+const PasswordIcon: React.FC<Props> = ({visible}) => {
   return (
     <svg
-      viewBox="0 0 24 24"
-      width="16"
+      className="nextui-input-password-icon"
+      fill="none"
       height="16"
+      shapeRendering="geometricPrecision"
       stroke="currentColor"
-      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      fill="none"
-      className="nextui-input-password-icon"
-      shapeRendering="geometricPrecision"
-      style={{ color: 'currentColor' }}
+      strokeWidth="1.5"
+      style={{color: "currentColor"}}
+      viewBox="0 0 24 24"
+      width="16"
     >
       {!visible ? (
         <>

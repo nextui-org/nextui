@@ -1,37 +1,34 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-import { Loading } from '@nextui-org/react';
-import withDefaults from '@utils/with-defaults';
-import {
-  SandpackFiles,
-  SandpackPredefinedTemplate,
-  SandpackHighlightedLines
-} from '@components';
-import { Box } from '@primitives';
-import Title from './title';
-import { isEmpty } from 'lodash';
-import LiveCode, { scope } from './dynamic-live';
-import { transformCode, joinCode, getFileName } from './utils';
-import { FileCode } from './types';
+import React from "react";
+import dynamic from "next/dynamic";
+import {Loading} from "@nextui-org/react";
+import withDefaults from "@utils/with-defaults";
+import {SandpackFiles, SandpackPredefinedTemplate, SandpackHighlightedLines} from "@components";
+import {Box} from "@primitives";
+import {isEmpty} from "lodash";
 
-const DynamicLive = dynamic(() => import('./dynamic-live'), {
+import Title from "./title";
+import LiveCode, {scope} from "./dynamic-live";
+import {transformCode, joinCode, getFileName} from "./utils";
+import {FileCode} from "./types";
+
+const DynamicLive = dynamic(() => import("./dynamic-live"), {
   ssr: false,
   // eslint-disable-next-line react/display-name
   loading: () => (
-    <div style={{ padding: '20pt 0' }}>
+    <div style={{padding: "20pt 0"}}>
       <Loading type="spinner" />
     </div>
-  )
+  ),
 });
 
-const DynamicSandpack = dynamic(() => import('../sandpack'), {
+const DynamicSandpack = dynamic(() => import("../sandpack"), {
   ssr: false,
   // eslint-disable-next-line react/display-name
   loading: () => (
-    <div style={{ padding: '20pt 0' }}>
+    <div style={{padding: "20pt 0"}}>
       <Loading type="spinner" />
     </div>
-  )
+  ),
 });
 
 interface Props {
@@ -40,7 +37,14 @@ interface Props {
   showEditor?: boolean;
   showSandpackPreview?: boolean;
   initialEditorOpen?: boolean;
-  overflow?: 'auto' | 'visible' | 'hidden';
+  enableResize?: boolean;
+  showWindowActions?: boolean;
+  iframeSrc?: string;
+  asIframe?: boolean;
+  iframeInitialWidth?: number;
+  removeEntryContainer?: boolean;
+  previewHeight?: string | number;
+  overflow?: "auto" | "visible" | "hidden";
   files?: SandpackFiles;
   template?: SandpackPredefinedTemplate;
   highlightedLines?: SandpackHighlightedLines;
@@ -48,15 +52,20 @@ interface Props {
 }
 
 const defaultProps = {
-  desc: '',
-  title: '',
-  code: '',
+  desc: "",
+  title: "",
+  code: "",
   files: {},
   showEditor: true,
+  asIframe: false,
   showSandpackPreview: false,
   initialEditorOpen: false,
-  overflow: 'visible',
-  bindings: {}
+  showWindowActions: false,
+  removeEntryContainer: false,
+  enableResize: false,
+  previewHeight: "auto",
+  overflow: "visible",
+  bindings: {},
 };
 
 export type PlaygroundProps = Props & typeof defaultProps;
@@ -68,9 +77,16 @@ const Playground: React.FC<PlaygroundProps> = ({
   showEditor,
   highlightedLines,
   showSandpackPreview,
+  showWindowActions,
+  iframeInitialWidth,
+  removeEntryContainer,
+  enableResize,
   files,
+  iframeSrc,
+  asIframe,
   overflow,
-  desc
+  previewHeight,
+  desc,
 }) => {
   const isSanpackEditor = !isEmpty(files);
 
@@ -84,10 +100,11 @@ const Playground: React.FC<PlaygroundProps> = ({
     const scopeKeys = Object.keys(scope);
     // convert scopeKeys to string values
     const scopeValues = scopeKeys.map((key) => {
-      return { [key]: `${key}` };
+      return {[key]: `${key}`};
     });
+
     // add 'React' to scopeValues
-    scopeValues.push({ React: 'React' });
+    scopeValues.push({React: "React"});
     // convert scopeValues to object
     const imports = Object.assign({}, ...scopeValues);
 
@@ -95,6 +112,7 @@ const Playground: React.FC<PlaygroundProps> = ({
     if (Object.keys(files).length === 1) {
       // get first item from files
       const file = Object.values(files)[0] as string;
+
       code = transformCode(file, imports);
     }
     // else if multiple files
@@ -102,20 +120,17 @@ const Playground: React.FC<PlaygroundProps> = ({
       // get files with its code
       Object.entries(files).forEach(([fileName, fileCode]) => {
         //only files with .js can processes by react-live
-        if (!fileName.includes('.js')) {
+        if (!fileName.includes(".js")) {
           return;
         }
 
         const componentName = getFileName(fileName);
-        const transformedCode = transformCode(
-          fileCode as string,
-          imports,
-          componentName
-        );
+        const transformedCode = transformCode(fileCode as string, imports, componentName);
+
         // add to filesCode
         filesCode.push({
           fileName,
-          code: transformedCode
+          code: transformedCode,
         });
       });
 
@@ -127,6 +142,7 @@ const Playground: React.FC<PlaygroundProps> = ({
         if (b.code.includes(getFileName(a.fileName))) {
           return -1;
         }
+
         return 0;
       });
 
@@ -134,38 +150,45 @@ const Playground: React.FC<PlaygroundProps> = ({
     }
   }
 
-  noInline = code.includes('render');
+  noInline = code.includes("render");
 
   return (
     <>
-      {(title || desc) && <Title title={title} desc={desc} />}
+      {(title || desc) && <Title desc={desc} title={title} />}
       <Box
         className="playground"
         css={{
-          w: '100%',
-          mb: '$xl',
-          ov: 'auto'
+          w: "100%",
+          mb: "$xl",
+          ov: "auto",
         }}
       >
         {isSanpackEditor ? (
           <DynamicSandpack
             files={files}
-            showPreview={showSandpackPreview}
             highlightedLines={highlightedLines}
+            removeEntryContainer={removeEntryContainer}
+            showPreview={showSandpackPreview}
           >
             <LiveCode
-              noInline={noInline}
-              showEditor={false}
               code={code}
+              enableResize={enableResize || asIframe}
+              height={previewHeight}
+              iframeInitialWidth={iframeInitialWidth}
+              iframeSrc={iframeSrc}
+              iframeTitle={title}
+              noInline={noInline}
               overflow={overflow}
+              showEditor={false}
+              showWindowActions={showWindowActions || asIframe}
             />
           </DynamicSandpack>
         ) : (
           <DynamicLive
-            showEditor={showEditor}
-            initialEditorOpen={initialEditorOpen}
             code={code}
+            initialEditorOpen={initialEditorOpen}
             overflow={overflow}
+            showEditor={showEditor}
           />
         )}
       </Box>

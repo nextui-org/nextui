@@ -1,3 +1,3 @@
-import VercelCallout from './vercel-callout';
+import VercelCallout from "./vercel-callout";
 
 export default VercelCallout;
