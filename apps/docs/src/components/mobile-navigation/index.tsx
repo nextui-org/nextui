@@ -1,5 +1,5 @@
 import React from "react";
-import {usePortal} from "@nextui-org/react";
+import {usePortal, useTheme} from "@nextui-org/react";
 import cn from "classnames";
 import withDefaults from "@utils/with-defaults";
 import {Route} from "@lib/docs/page";
@@ -22,6 +22,8 @@ const defaultProps = {
 const MobileNavigation: React.FC<Props> = ({opened, detached, hasNotify, routes, onClose}) => {
   const portal = usePortal("mobile-navigation");
 
+  const {isDark} = useTheme();
+
   const handlePostClick = () => {
     onClose && onClose();
   };
@@ -33,6 +35,7 @@ const MobileNavigation: React.FC<Props> = ({opened, detached, hasNotify, routes,
             opened,
             detached,
             hasNotify,
+            isDark,
           })}
         >
           <div className="mobile-navigation__wrapper">
@@ -75,8 +78,12 @@ const MobileNavigation: React.FC<Props> = ({opened, detached, hasNotify, routes,
             @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
               .mobile-navigation__wrapper {
                 background: var(--nextui-colors-menuBackground);
-                backdrop-filter: saturate(180%) blur(10px);
-                --webkit-backdrop-filter: saturate(180%) blur(10px);
+                backdrop-filter: saturate(180%) blur(60px);
+                --webkit-backdrop-filter: saturate(180%) blur(34px);
+              }
+              .mobile-navigation__container.isDark {
+                backdrop-filter: saturate(180%) blur(24px);
+                --webkit-backdrop-filter: saturate(180%) blur(20px);
               }
             }
             .mobile-navigation__list {
