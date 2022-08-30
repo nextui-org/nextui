@@ -3,6 +3,7 @@ import cn from "classnames";
 import withDefaults from "@utils/with-defaults";
 import {Badge} from "@components";
 import {useTheme, Spacer} from "@nextui-org/react";
+import {addColorAlpha} from "@utils/index";
 
 import NavLink, {NavLinkProps} from "../nav-link";
 
@@ -46,7 +47,7 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
 
   const linkColor = useMemo(() => {
     if (route.selected) return theme?.colors?.text?.value;
-    if (route.comingSoon) return theme?.colors?.accents5?.value;
+    if (route.comingSoon) return addColorAlpha(theme?.colors?.text?.value, 0.4);
 
     return theme?.colors?.accents8?.value;
   }, [isDark, route.selected]);
