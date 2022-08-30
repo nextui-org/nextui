@@ -12,7 +12,7 @@ export const lightTheme = createTheme({
     fonts,
     colors: {
       headerBackground: "hsla(0,0%,100%,0.8)",
-      menuBackground: "rgba(255, 255, 255, 0.7)",
+      menuBackground: "rgba(255, 255, 255, 0.8)",
       headerIconColor: "$accents4",
       codeBackground: "#363449",
       codeComment: "$accents7",
