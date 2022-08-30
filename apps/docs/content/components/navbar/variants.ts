@@ -1,7 +1,7 @@
 import {Layout, Box, AcmeLogo, Content, VariantsSelectorWrapper} from "./common";
 
 const App = `import React from "react";
-import { Navbar, Button, Link, Text, Card, Radio, useTheme } from "@nextui-org/react";
+import { Navbar, Button, Link, Text, Card, Radio } from "@nextui-org/react";
 import { Layout } from "./Layout.js";
 import { AcmeLogo } from "./AcmeLogo.js";
 import { VariantsSelectorWrapper } from "./VariantsSelectorWrapper.js";
@@ -9,13 +9,11 @@ import { VariantsSelectorWrapper } from "./VariantsSelectorWrapper.js";
 export default function App() {
   const [variant, setVariant] = React.useState("static");
 
-  const { isDark } = useTheme();
-
   const variants = ["static", "floating", "sticky"];
   
   return (
     <Layout>
-      <Navbar isBordered={isDark} variant={variant}>
+      <Navbar isBordered variant={variant}>
         <Navbar.Brand>
           <AcmeLogo />
           <Text b color="inherit" hideIn="xs">

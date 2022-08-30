@@ -1,6 +1,6 @@
 import React from "react";
 import {Examples} from "@components";
-import {Navbar, Text, Button, Card, Radio, Link, styled, useTheme} from "@nextui-org/react";
+import {Navbar, Text, Button, Card, Radio, Link, styled} from "@nextui-org/react";
 
 const VariantsSelectorWrapper = styled("div", {
   dflex: "center",
@@ -19,13 +19,11 @@ const VariantsSelectorWrapper = styled("div", {
 export default function NavbarVariantsExample() {
   const [variant, setVariant] = React.useState<any>("static");
 
-  const {isDark} = useTheme();
-
   const variants = ["static", "floating", "sticky"];
 
   return (
     <Examples.NavbarLayout>
-      <Navbar isBordered={isDark} variant={variant}>
+      <Navbar isBordered variant={variant}>
         <Navbar.Brand>
           <Examples.AcmeLogo />
           <Text b color="inherit" hideIn="xs">
