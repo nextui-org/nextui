@@ -33,7 +33,7 @@ export const darkTheme = createTheme({
   theme: {
     fonts,
     colors: {
-      menuBackground: "rgba(0,0,0,0.7)",
+      menuBackground: "rgba(0,0,0,0.5)",
       headerBackground: "rgba(0,0,0,0.5)",
       headerIconColor: "$accents8",
       codeBackground: "#111111",
