@@ -21,6 +21,8 @@ interface Props<T> {
   animated?: boolean;
   hideLoading?: boolean;
   hasPagination?: boolean;
+  // @internal
+  isStatic?: boolean;
   color?: TableVariantsProps["color"];
   as?: keyof JSX.IntrinsicElements;
 }
@@ -40,6 +42,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
   color,
   hasPagination,
   hideLoading,
+  isStatic,
   ...props
 }) => {
   const {currentPage, rowsPerPage} = useTableContext();
@@ -107,7 +110,6 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
       as="tbody"
       className={clsx("nextui-table-body", props.className)}
       css={{
-        pb: "$10",
         position: "relative",
         ...(props.css as any),
         ...(collection.body?.props?.css as any),
@@ -134,7 +136,7 @@ const TableBody: React.FC<React.PropsWithChildren<TableBodyProps>> = ({
                   state={state}
                 />
               ) : (
-                <TableCell key={cell?.key} cell={cell} state={state} />
+                <TableCell key={cell?.key} cell={cell} isStatic={isStatic} state={state} />
               ),
             )}
           </TableRow>
