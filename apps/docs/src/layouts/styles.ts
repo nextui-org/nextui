@@ -7,27 +7,6 @@ export const StyledNavMainContainer = styled("nav", {
   position: "fixed",
   background: "transparent",
   zIndex: "$max",
-  variants: {
-    hasNotify: {
-      true: {
-        top: "$$notifyBannerHeight",
-        transition: "top 0.2s ease",
-      },
-    },
-    isDetached: {
-      true: {},
-    },
-  },
-  compoundVariants: [
-    // isDetached && hasNotify
-    {
-      isDetached: true,
-      hasNotify: true,
-      css: {
-        top: 0,
-      },
-    },
-  ],
 });
 
 export const StyledNavContainer = styled("div", {
