@@ -74,7 +74,7 @@ const NavLink: React.FC<NavLinkProps> = ({
     return (
       <BaseLink
         css={{
-          color: color ? color : "inherit",
+          color: color ?? "inherit",
         }}
         disabled={comingSoon}
         href={pathname}
@@ -89,7 +89,7 @@ const NavLink: React.FC<NavLinkProps> = ({
     <NextLink href={!comingSoon ? pathname || href : ""}>
       <BaseLink
         css={{
-          color: color ? color : "inherit",
+          color: color ?? "inherit",
         }}
         disabled={comingSoon}
         href={pathname}
