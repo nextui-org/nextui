@@ -2,10 +2,32 @@ import {styled} from "@nextui-org/react";
 
 export const StyledNavMainContainer = styled("nav", {
   top: 0,
-  height: "76px",
-  position: "sticky",
+  height: "$$navbarHeight",
+  width: "100%",
+  position: "fixed",
   background: "transparent",
   zIndex: "$max",
+  variants: {
+    hasNotify: {
+      true: {
+        top: "$$notifyBannerHeight",
+        transition: "top 0.2s ease",
+      },
+    },
+    isDetached: {
+      true: {},
+    },
+  },
+  compoundVariants: [
+    // isDetached && hasNotify
+    {
+      isDetached: true,
+      hasNotify: true,
+      css: {
+        top: 0,
+      },
+    },
+  ],
 });
 
 export const StyledNavContainer = styled("div", {
@@ -24,7 +46,7 @@ export const StyledNavContainer = styled("div", {
         },
       },
     },
-    detached: {
+    isDetached: {
       true: {
         backdropFilter: "saturate(180%) blur(10px)",
         boxShadow: "0px 5px 20px -5px rgba(2, 1, 1, 0.1)",

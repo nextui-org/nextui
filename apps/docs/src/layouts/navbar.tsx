@@ -36,7 +36,7 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
   const [, setBodyHidden] = useBodyScroll(null, {scrollLayer: true});
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const detached = hasNotify ? scrollPosition > 30 : scrollPosition > 0;
+  const isDetached = hasNotify ? scrollPosition > 30 : scrollPosition > 0;
 
   useEffect(() => {
     setScrollPosition((typeof window !== "undefined" && window.pageYOffset) || 0);
@@ -65,11 +65,11 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
     isMobile && setBodyHidden(!expanded);
   };
 
-  const showBlur = !!expanded || !!detached || isHome;
+  const showBlur = !!expanded || !!isDetached || isHome;
 
   return (
-    <StyledNavMainContainer id="navbar-container">
-      <StyledNavContainer detached={detached} showBlur={showBlur}>
+    <StyledNavMainContainer hasNotify={hasNotify} id="navbar-container" isDetached={isDetached}>
+      <StyledNavContainer isDetached={isDetached} showBlur={showBlur}>
         <Container alignItems="center" as="nav" display="flex" lg={true} wrap="nowrap">
           <Col
             className="navbar__logo-container"
@@ -259,7 +259,7 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
                   }}
                 />
               </Row>
-              <SearchInput offsetTop={detached ? 0 : 30} />
+              <SearchInput offsetTop={isDetached ? 0 : 30} />
               <Spacer x={0.5} />
               <Button
                 auto
@@ -327,7 +327,7 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
             </Box>
           </Col>
           <MobileNavigation
-            detached={detached}
+            detached={isDetached}
             hasNotify={hasNotify}
             opened={expanded}
             routes={routes}

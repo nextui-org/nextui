@@ -121,7 +121,14 @@ const Autocomplete: React.FC<Props> = ({hits, refine, offsetTop}) => {
     (inputProps: RenderInputComponentProps) => {
       return (
         <label className="search__input-container">
-          <input className="search__input" {...inputProps} placeholder="Search..." />
+          <input
+            className="search__input"
+            {...inputProps}
+            placeholder="Search..."
+            onKeyUp={(e) => {
+              e.preventDefault();
+            }}
+          />
           {!value ? (
             <span className="search__placeholder-container">
               <Keyboard
