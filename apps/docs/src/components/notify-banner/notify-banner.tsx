@@ -5,31 +5,21 @@ import {ChevronRight, Sparkles} from "@components";
 import {AnimatedText} from "@primitives";
 import {darkTheme} from "@theme/shared";
 
-import {StyledNotifyBanner, StyledContent, StyledImg} from "./styles";
+import {StyledNotifyBanner, StyledContent} from "./styles";
 
 interface Props {
   text: string;
   href?: string;
   showBadge?: boolean;
+  isVisible?: boolean;
   showSparkles?: boolean;
 }
 
 const NotifyBanner: React.FC<Props> = (props) => {
-  const {showBadge = true, showSparkles = true, text, href = "#"} = props;
+  const {showBadge = true, showSparkles = true, isVisible = true, text, href = "#"} = props;
 
   return (
-    <StyledNotifyBanner>
-      <StyledImg
-        alt="gradient blue background"
-        className="notify-gradient"
-        css={{
-          position: "absolute",
-          opacity: 0.7,
-          zIndex: -1,
-          left: "0%",
-        }}
-        src="/notify-gradient.svg"
-      />
+    <StyledNotifyBanner isVisible={isVisible}>
       {showBadge && (
         <Badge
           disableOutline

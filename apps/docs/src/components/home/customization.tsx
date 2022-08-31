@@ -37,7 +37,7 @@ const CustomizationSection = () => {
         <Subtitle>
           Thanks to NextUI is built on top of the amazing CSS-in-JS library&nbsp;
           <Link
-            css={{color: "$green600"}}
+            css={{color: "$green600", d: "inline-flex"}}
             href="https://stitches.dev/"
             rel="noreferer noopener"
             target="_blank"
@@ -46,11 +46,11 @@ const CustomizationSection = () => {
           </Link>
           , you can customize any components in several ways eather using the&nbsp;
           <NextLink href="/docs/theme/override-styles#using-the-css-prop">
-            <Link css={{color: "$green600"}}>css&nbsp;</Link>
+            <Link css={{color: "$green600", d: "inline-flex"}}>css&nbsp;</Link>
           </NextLink>
           prop,&nbsp;
           <NextLink href="/docs/theme/override-styles#using-the-styled-function">
-            <Link css={{color: "$green600"}}>styled&nbsp;</Link>
+            <Link css={{color: "$green600", d: "inline-flex"}}>styled&nbsp;</Link>
           </NextLink>
           function or native CSS selectors.
         </Subtitle>

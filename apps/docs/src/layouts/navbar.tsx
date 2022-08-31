@@ -1,5 +1,15 @@
 import React, {useState, useEffect} from "react";
-import {Logo, MenuToggle, Badge, Twitter, Discord, Github, ThemeToggle, Heart} from "@components";
+import {
+  Logo,
+  MenuToggle,
+  Badge,
+  Twitter,
+  Discord,
+  Github,
+  ThemeToggle,
+  Heart,
+  NotifyBanner,
+} from "@components";
 import {Box} from "@primitives";
 import cn from "classnames";
 import NextLink from "next/link";
@@ -36,7 +46,7 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
   const [, setBodyHidden] = useBodyScroll(null, {scrollLayer: true});
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const isDetached = hasNotify ? scrollPosition > 30 : scrollPosition > 0;
+  const isDetached = hasNotify ? scrollPosition > 40 : scrollPosition > 0;
 
   useEffect(() => {
     setScrollPosition((typeof window !== "undefined" && window.pageYOffset) || 0);
@@ -68,7 +78,14 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
   const showBlur = !!expanded || !!isDetached || isHome;
 
   return (
-    <StyledNavMainContainer hasNotify={hasNotify} id="navbar-container" isDetached={isDetached}>
+    <StyledNavMainContainer id="navbar-container">
+      {hasNotify && (
+        <NotifyBanner
+          href="/docs/components/navbar"
+          isVisible={!isDetached}
+          text="Navbar component"
+        />
+      )}
       <StyledNavContainer isDetached={isDetached} showBlur={showBlur}>
         <Container alignItems="center" as="nav" display="flex" lg={true} wrap="nowrap">
           <Col
@@ -259,7 +276,7 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
                   }}
                 />
               </Row>
-              <SearchInput offsetTop={isDetached ? 0 : 30} />
+              <SearchInput offsetTop={!isDetached && hasNotify ? 40 : 0} />
               <Spacer x={0.5} />
               <Button
                 auto
