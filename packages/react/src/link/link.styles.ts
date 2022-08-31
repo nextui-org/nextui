@@ -12,7 +12,7 @@ export const StyledLink = styled(
   "a",
   {
     $$linkColor: "$colors$link",
-    display: "flex",
+    display: "inline-flex",
     alignItems: "center",
     lineHeight: "inherit",
     textDecoration: "none",
