@@ -66,7 +66,7 @@ const BuiltInStitchesSection = () => {
         <Subtitle>
           NextUI provides a set of out of the box&nbsp;
           <Link
-            css={{color: "#FF1CF7"}}
+            css={{color: "#FF1CF7", d: "inline-flex"}}
             href="https://stitches.dev/"
             rel="noreferer noopener"
             target="_blank"

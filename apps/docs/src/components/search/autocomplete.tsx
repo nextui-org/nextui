@@ -121,7 +121,14 @@ const Autocomplete: React.FC<Props> = ({hits, refine, offsetTop}) => {
     (inputProps: RenderInputComponentProps) => {
       return (
         <label className="search__input-container">
-          <input className="search__input" {...inputProps} placeholder="Search..." />
+          <input
+            className="search__input"
+            {...inputProps}
+            placeholder="Search..."
+            onKeyUp={(e) => {
+              e.preventDefault();
+            }}
+          />
           {!value ? (
             <span className="search__placeholder-container">
               <Keyboard
@@ -331,7 +338,7 @@ const Autocomplete: React.FC<Props> = ({hits, refine, offsetTop}) => {
           .react-autosuggest__suggestions-container,
           .no-results {
             position: absolute;
-            top: 64px;
+            top: calc(64px + ${offsetTop}px);
             right: 20px;
             height: 0;
             padding: 12px 0;
@@ -459,7 +466,7 @@ const Autocomplete: React.FC<Props> = ({hits, refine, offsetTop}) => {
               ?.value}) and (max-width: ${theme?.breakpoints?.md.value}) {
             .react-autosuggest__suggestions-container,
             .no-results {
-              top: 60px;
+              top: calc(60px + ${offsetTop}px);
               right: 180px;
             }
             .react-autosuggest__input {
