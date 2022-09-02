@@ -1,12 +1,18 @@
-import React from "react";
+import {useRef} from "react";
 import {Button} from "@nextui-org/react";
 import confetti from "canvas-confetti";
 
 const CustomButton = () => {
-  const handleConfetti = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const {currentTarget} = event;
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  const handleConfetti = () => {
     const {clientWidth, clientHeight} = document.documentElement;
-    const {y: targetY, x: targetX, width: targetWidth} = currentTarget.getBoundingClientRect();
+    const boundingBox = buttonRef.current?.getBoundingClientRect?.();
+
+    const targetY = boundingBox?.y ?? 0;
+    const targetX = boundingBox?.x ?? 0;
+    const targetWidth = boundingBox?.width ?? 0;
+
     const targetCenterX = targetX + targetWidth / 2;
 
     confetti({
@@ -22,6 +28,7 @@ const CustomButton = () => {
 
   return (
     <Button
+      ref={buttonRef}
       auto
       rounded
       css={{

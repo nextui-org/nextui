@@ -96,6 +96,7 @@ const DocsLayout: React.FC<React.PropsWithChildren<Props>> = ({
               zIndex: "$10",
               maxWidth: "100%",
               overflow: "auto",
+              mt: "$$navbarHeight",
               "@xsMax": {
                 p: 0,
               },
