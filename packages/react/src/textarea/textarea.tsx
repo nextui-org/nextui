@@ -1,7 +1,7 @@
 import React, {useRef, useImperativeHandle, useLayoutEffect} from "react";
 
 import withDefaults from "../utils/with-defaults";
-import Input from "../input";
+import Input from "../input/input";
 import useResize from "../use-resize";
 import {warn} from "../utils/console";
 import {Props as InputProps} from "../input/input-props";
