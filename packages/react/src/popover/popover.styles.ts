@@ -4,7 +4,7 @@ import {cssFocusVisible} from "../theme/shared-css";
 export const appearanceIn = keyframes({
   "0%": {
     opacity: 0,
-    transform: "scale(0.95)",
+    transform: "translateZ(0)  scale(0.95)",
   },
   "60%": {
     opacity: 0.75,
@@ -15,6 +15,7 @@ export const appearanceIn = keyframes({
   },
   "100%": {
     opacity: 1,
+    transform: "translateZ(0) scale(1)",
   },
 });
 
@@ -67,7 +68,7 @@ export const StyledPopoverContentContainer = styled(
       animationName: appearanceIn,
       animationTimingFunction: "ease-out",
       animationDirection: "normal",
-      animationDuration: "250ms",
+      animationDuration: "300ms",
     },
 
     "&.nextui-popover-content-leave": {

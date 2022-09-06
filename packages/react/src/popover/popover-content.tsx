@@ -51,6 +51,11 @@ const PopoverContent = React.forwardRef(
 
     const transformOrigin = getTransformOrigin(placement);
 
+    const popoverCss = {
+      transformOrigin,
+      ...css,
+    };
+
     // Hide content outside the modal from screen readers.
     const {modalProps} = useModal({isDisabled: true});
 
@@ -82,13 +87,10 @@ const PopoverContent = React.forwardRef(
         ref={mergeRefs(overlayRef, ref)}
         {...getPopoverProps(
           mergeProps(overlayProps, modalProps, dialogProps, focusProps, completeProps),
+          popoverCss,
         )}
         as={as}
         className={clsx("nextui-popover-content-container", className)}
-        css={{
-          transformOrigin,
-          ...(css as any),
-        }}
         isFocusVisible={isFocusVisible}
       >
         <DismissButton onDismiss={onClose} />
