@@ -127,7 +127,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
 
     const changeHandler = (event: React.ChangeEvent<FormElement>) => {
       if (disabled || readOnly) return;
-      setSelfValue(event.target.value);
+      isControlledComponent || setSelfValue(event.target.value);
       onChange && onChange(event);
     };
 
@@ -136,7 +136,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
       event.stopPropagation();
       event.nativeEvent.stopImmediatePropagation();
 
-      setSelfValue("");
+      isControlledComponent || setSelfValue("");
       onClearClick && onClearClick(event);
       /* istanbul ignore next */
       if (!inputRef.current) return;
