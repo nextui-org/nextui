@@ -18,6 +18,7 @@ interface Props {
   max?: number;
   min?: number;
   css?: CSS;
+  neverFull?: boolean;
   as?: keyof JSX.IntrinsicElements;
 }
 
@@ -49,6 +50,7 @@ const Progress: React.FC<ProgressProps> = ({
   shadow,
   indeterminated,
   css,
+  neverFull,
   ...props
 }) => {
   const value = useMemo(
@@ -56,7 +58,9 @@ const Progress: React.FC<ProgressProps> = ({
     [valueProp, min, max],
   );
 
-  const percent = useMemo(() => valueToPercent(value, min, max), [value, min, max]);
+  let percent = useMemo(() => valueToPercent(value, min, max), [value, min, max]);
+  if (neverFull && percent == 100) percent = 98
+    
 
   return (
     <StyledProgress
