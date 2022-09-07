@@ -64,7 +64,7 @@ interface IFocusRingAria extends FocusRingAria {
 type VariantProps = Omit<ButtonVariantsProps, "isPressed" | "isHovered" | "isChildLess">;
 
 export type ButtonProps = Props &
-  Omit<HTMLNextUIProps<"button">, keyof VariantProps> &
+  Omit<HTMLNextUIProps<button>, keyof VariantProps> &
   VariantProps;
 
 const Button = forwardRef<ButtonProps, "button">((props, ref) => {
