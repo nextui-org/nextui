@@ -1,4 +1,5 @@
 import {renderHook, act} from "@testing-library/react-hooks";
+
 import usePagination, {PaginationParams} from "../index";
 
 describe("UsePagination", () => {
@@ -23,14 +24,16 @@ describe("UsePagination", () => {
   });
 
   it("does not change range length between page changes", () => {
-    const {result, rerender} = renderHook((props) => usePagination(props), {initialProps: {total: 10} as PaginationParams});
+    const {result, rerender} = renderHook((props) => usePagination(props), {
+      initialProps: {total: 10} as PaginationParams,
+    });
 
     new Array(10).fill(null).forEach(() => {
       expect(result.current.range.length).toBe(7);
       act(() => result.current.next());
     });
 
-    rerender({total: 10, siblings: 4})
+    rerender({total: 10, siblings: 4});
 
     new Array(10).fill(null).forEach(() => {
       expect(result.current.range.length).toBe(10);
@@ -88,23 +91,27 @@ describe("UsePagination", () => {
   });
 
   it("return correct state when page changes", () => {
-    const {result} = renderHook(() => usePagination({total: 10, initialPage: 1}))
-    act(() => result.current.next())
-    expect(result.current.active).toBe(2)
-    act(() => result.current.previous())
-    expect(result.current.active).toBe(1)
-    act(() => result.current.last())
-    expect(result.current.active).toBe(10)
-    act(() => result.current.first())
-    expect(result.current.active).toBe(1)
-  })
+    const {result} = renderHook(() => usePagination({total: 10, initialPage: 1}));
 
-  it('activePage keeps consistent with page parameter', () => {
-    const {result, rerender} = renderHook((props) => usePagination(props), {initialProps: {total: 10, page: 1}})
-    expect(result.current.active).toBe(1)
+    act(() => result.current.next());
+    expect(result.current.active).toBe(2);
+    act(() => result.current.previous());
+    expect(result.current.active).toBe(1);
+    act(() => result.current.last());
+    expect(result.current.active).toBe(10);
+    act(() => result.current.first());
+    expect(result.current.active).toBe(1);
+  });
 
-    rerender({total: 10, page: 2})
-    
-    expect(result.current.active).toBe(2)
-  })
+  it("activePage keeps consistent with page parameter", () => {
+    const {result, rerender} = renderHook((props) => usePagination(props), {
+      initialProps: {total: 10, page: 1},
+    });
+
+    expect(result.current.active).toBe(1);
+
+    rerender({total: 10, page: 2});
+
+    expect(result.current.active).toBe(2);
+  });
 });
