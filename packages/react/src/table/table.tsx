@@ -2,6 +2,7 @@ import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 import {useTable} from "@react-aria/table";
 import {useTableState, TableStateProps} from "@react-stately/table";
 import {SelectionMode, SelectionBehavior, CollectionChildren} from "@react-types/shared";
+import {mergeProps} from "@react-aria/utils";
 
 import {Spacer} from "../index";
 import {CSS} from "../theme/stitches.config";
@@ -72,6 +73,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       sticked,
       containerCss,
       className,
+      ...otherProps
     } = tableProps;
 
     const [withoutPaginationChildren, paginationChildren] = pickSingleChild<
@@ -131,7 +133,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             hoverable={isHoverable}
             isMultiple={selectionMode === "multiple"}
             shadow={shadow}
-            {...gridProps}
+            {...mergeProps(gridProps, otherProps)}
           >
             <TableRowGroup as="thead" isFixed={isInfinityScroll(collection)}>
               {collection.headerRows.map((headerRow) => (
