@@ -1,12 +1,21 @@
 import React, {useState, useEffect} from "react";
-import {Logo, MenuToggle, Badge, Twitter, Discord, Github, ThemeToggle, Heart} from "@components";
+import {
+  Logo,
+  MenuToggle,
+  Badge,
+  Twitter,
+  Discord,
+  Github,
+  ThemeToggle,
+  Heart,
+  NotifyBanner,
+} from "@components";
 import {Box} from "@primitives";
 import cn from "classnames";
 import NextLink from "next/link";
 import dynamic from "next/dynamic";
-import {Row, Col, Spacer, Link, Button, useBodyScroll} from "@nextui-org/react";
+import {Row, Col, Spacer, Link, Button, Container, useBodyScroll} from "@nextui-org/react";
 import {Route} from "@lib/docs/page";
-import {Container} from "@nextui-org/react";
 import {useRouter} from "next/router";
 import {useMediaQuery} from "@hooks/use-media-query";
 import {isActive} from "@utils/links";
@@ -37,7 +46,7 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
   const [, setBodyHidden] = useBodyScroll(null, {scrollLayer: true});
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const detached = hasNotify ? scrollPosition > 30 : scrollPosition > 0;
+  const isDetached = hasNotify ? scrollPosition > 40 : scrollPosition > 0;
 
   useEffect(() => {
     setScrollPosition((typeof window !== "undefined" && window.pageYOffset) || 0);
@@ -66,11 +75,18 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
     isMobile && setBodyHidden(!expanded);
   };
 
-  const showBlur = !!expanded || !!detached || isHome;
+  const showBlur = !!expanded || !!isDetached || isHome;
 
   return (
     <StyledNavMainContainer id="navbar-container">
-      <StyledNavContainer detached={detached} showBlur={showBlur}>
+      {hasNotify && (
+        <NotifyBanner
+          href="/docs/components/navbar"
+          isVisible={!isDetached}
+          text="Navbar component"
+        />
+      )}
+      <StyledNavContainer isDetached={isDetached} showBlur={showBlur}>
         <Container alignItems="center" as="nav" display="flex" lg={true} wrap="nowrap">
           <Col
             className="navbar__logo-container"
@@ -260,7 +276,7 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
                   }}
                 />
               </Row>
-              <SearchInput offsetTop={detached ? 0 : 30} />
+              <SearchInput offsetTop={!isDetached && hasNotify ? 40 : 0} />
               <Spacer x={0.5} />
               <Button
                 auto
@@ -328,7 +344,7 @@ const Navbar: React.FC<Props> = ({isHome, hasNotify, routes}) => {
             </Box>
           </Col>
           <MobileNavigation
-            detached={detached}
+            detached={isDetached}
             hasNotify={hasNotify}
             opened={expanded}
             routes={routes}

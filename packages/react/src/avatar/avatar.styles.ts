@@ -1,5 +1,5 @@
 import {styled, VariantProps} from "../theme/stitches.config";
-import {cssFocusVisible, sharedDialogPopup} from "../theme/shared-css";
+import {cssFocusVisible} from "../theme/shared-css";
 
 export const StyledAvatar = styled(
   "span",
@@ -315,7 +315,6 @@ export const StyledAvatar = styled(
     },
   },
   cssFocusVisible,
-  sharedDialogPopup,
 );
 
 export type AvatarVariantsProps = VariantProps<typeof StyledAvatar>;

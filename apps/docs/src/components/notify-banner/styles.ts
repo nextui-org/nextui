@@ -7,18 +7,28 @@ export const StyledNotifyBanner = styled(StyledCardBlur, {
   fd: "row",
   p: 0,
   br: 0,
+  background: "$headerBackground",
   position: "relative",
   zIndex: "$1",
-  height: "40px",
+  height: "$$notifyBannerHeight",
   color: "$text",
   width: "100%",
   border: "1.5px solid $border",
   borderTopColor: "transparent",
   borderLeftColor: "transparent",
   borderRightColor: "transparent",
+  transition: "margin-bottom 0.25s ease 0s, transform 0.25s linear 0s",
   [`.${lightTheme} &`]: {
     "& .notify-gradient": {
       display: "none",
+    },
+  },
+  variants: {
+    isVisible: {
+      false: {
+        transform: "translateY(-$$notifyBannerHeight)",
+        mb: "-$$notifyBannerHeight",
+      },
     },
   },
 });
@@ -43,5 +53,3 @@ export const StyledContent = styled("a", {
     },
   },
 });
-
-export const StyledImg = styled("img", {});

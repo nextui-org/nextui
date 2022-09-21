@@ -119,18 +119,15 @@ export const StyledSwitchContainer = styled("label", {
   },
 });
 
-export const StyledSwitchInput = styled("input", {}, sharedVisuallyHidden);
-
 export const StyledSwitchCircle = styled("span", {
   position: "absolute",
   display: "flex",
   size: "calc($$switchHeight * 0.7)",
   jc: "center",
   ai: "center",
-  top: "50%",
-  transform: "translateY(-50%)",
-  left: "calc($$switchWidth / 15)",
-  transition: "left 0.25s ease, width 0.2s ease",
+  top: "calc(50% - $$switchHeight * 0.35)",
+  left: "0",
+  transition: "transform 0.25s ease, width 0.2s ease",
   bg: "$background",
   br: "$pill",
   "& svg": {
@@ -161,9 +158,6 @@ export const StyledSwitch = styled(
       checked: {
         true: {
           bg: "$$switchColor",
-          [`& ${StyledSwitchCircle}`]: {
-            left: "calc(100% - ($$switchWidth / 15) - $$switchHeight * 0.7)",
-          },
           "&:hover:not(&:active)": {
             bg: "$$switchColorHover",
           },
@@ -177,7 +171,6 @@ export const StyledSwitch = styled(
             borderColor: "$$switchColor",
           },
           [`& ${StyledSwitchCircle}`]: {
-            left: "calc(($$switchWidth / 15) - ($$switchBorderW / 2))",
             bg: "$accents2",
           },
         },
@@ -241,30 +234,6 @@ export const StyledSwitch = styled(
           normalShadowVar: "$$switchColorShadow",
         },
       },
-      // animated && !checked
-      {
-        animated: true,
-        checked: false,
-        css: {
-          "&:active": {
-            [`& ${StyledSwitchCircle}`]: {
-              left: "calc($$switchWidth / 7.5)",
-            },
-          },
-        },
-      },
-      // animated && checked
-      {
-        animated: true,
-        checked: true,
-        css: {
-          "&:active": {
-            [`& ${StyledSwitchCircle}`]: {
-              left: "calc(100% - ($$switchWidth / 5) - $$switchHeight * 0.7)",
-            },
-          },
-        },
-      },
       // checked && bordered
       {
         checked: true,
@@ -276,7 +245,6 @@ export const StyledSwitch = styled(
             borderColor: "transparent",
           },
           [`& ${StyledSwitchCircle}`]: {
-            left: "calc(100% - ($$switchWidth / 15) - $$switchHeight * 0.7 + ($$switchBorderW / 2))",
             bg: "$background",
           },
         },
@@ -284,6 +252,58 @@ export const StyledSwitch = styled(
     ],
   },
   sharedFocus,
+);
+
+export const StyledSwitchInput = styled(
+  "input",
+  {
+    [`& + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
+      transform: "translateX(calc($$switchWidth / 15))",
+    },
+    [`&:checked + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
+      transform: "translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchHeight * 0.7))",
+    },
+    variants: {
+      animated: {
+        true: {
+          [`& + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+            transform: "translateX(calc($$switchWidth / 7.5))",
+          },
+          [`&:checked + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+            transform:
+              "translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchHeight * 0.7))",
+          },
+        },
+      },
+      bordered: {
+        true: {
+          [`& + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
+            transform: "translateX(calc($$switchWidth / 15 - $$switchBorderW / 2))",
+          },
+          [`&:checked + ${StyledSwitch} > ${StyledSwitchCircle}`]: {
+            transform:
+              "translateX(calc($$switchWidth - $$switchWidth / 15 - $$switchBorderW * 1.5 - $$switchHeight * 0.7))",
+          },
+        },
+      },
+    },
+    compoundVariants: [
+      {
+        animated: true,
+        bordered: true,
+        css: {
+          [`& + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+            transform: "translateX(calc($$switchWidth / 7.5 - $$switchBorderW / 2))",
+          },
+          [`&:checked + ${StyledSwitch}:active > ${StyledSwitchCircle}`]: {
+            transform:
+              "translateX(calc($$switchWidth - $$switchWidth / 7.5 - $$switchWidth / 10 - $$switchBorderW * 1.5 - $$switchHeight * 0.7))",
+          },
+        },
+      },
+    ],
+  },
+  sharedVisuallyHidden,
 );
 
 // types

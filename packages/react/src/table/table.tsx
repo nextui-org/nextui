@@ -1,14 +1,16 @@
 import type {CSS} from "../theme/stitches.config";
 
-import React, {useImperativeHandle, useRef, RefAttributes, PropsWithoutRef} from "react";
+import React, {useMemo, RefAttributes, PropsWithoutRef} from "react";
 import {useTable} from "@react-aria/table";
 import {useTableState, TableStateProps} from "@react-stately/table";
 import {SelectionMode, SelectionBehavior, CollectionChildren} from "@react-types/shared";
+import {mergeProps} from "@react-aria/utils";
 
 import {Spacer} from "../index";
 import {pickSingleChild} from "../utils/collections";
 import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
+import {useDOMRef} from "../utils/dom";
 
 import TableRowGroup from "./table-row-group";
 import TableColumnHeader from "./table-column-header";
@@ -72,6 +74,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       sticked,
       containerCss,
       className,
+      ...otherProps
     } = tableProps;
 
     const [withoutPaginationChildren, paginationChildren] = pickSingleChild<
@@ -89,16 +92,14 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           : selectionMode === "multiple" && selectionBehavior !== "replace",
     });
 
-    const tableRef = useRef<HTMLTableElement | null>(null);
-
-    useImperativeHandle(ref, () => tableRef?.current);
+    const domRef = useDOMRef<HTMLTableElement>(ref);
 
     const {collection} = state;
     const {
       gridProps,
     }: {
       gridProps: Omit<React.HTMLAttributes<unknown>, keyof TableProps<unknown>>;
-    } = useTable(tableProps, state, tableRef);
+    } = useTable(tableProps, state, domRef);
 
     const initialValues = React.useMemo<Partial<TableConfig>>(() => {
       return {
@@ -108,6 +109,11 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
         rowsPerPage,
       };
     }, [collection, animated, color, rowsPerPage]);
+
+    const isHoverable = useMemo(
+      () => !!(selectionMode !== "none" || hoverable),
+      [selectionMode, hoverable],
+    );
 
     return (
       <TableContext.Provider defaultValues={initialValues}>
@@ -119,16 +125,16 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
           shadow={shadow}
         >
           <StyledTable
-            ref={tableRef}
+            ref={domRef}
             animated={animated}
             className={clsx("nextui-table", className)}
             color={color}
             css={css}
             hasPagination={hasPagination}
-            hoverable={selectionMode !== "none" || hoverable}
+            hoverable={isHoverable}
             isMultiple={selectionMode === "multiple"}
             shadow={shadow}
-            {...gridProps}
+            {...mergeProps(gridProps, otherProps)}
           >
             <TableRowGroup as="thead" isFixed={isInfinityScroll(collection)}>
               {collection.headerRows.map((headerRow) => (
@@ -161,6 +167,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
               color={color}
               hasPagination={hasPagination}
               hideLoading={hideLoading}
+              isStatic={!isHoverable}
               state={state}
             />
 

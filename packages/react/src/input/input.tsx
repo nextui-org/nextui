@@ -12,7 +12,7 @@ import React, {
 import {useLabel} from "@react-aria/label";
 
 import {ContentPosition} from "../utils/prop-types";
-import Textarea from "../textarea";
+import {CSS} from "../theme/stitches.config";
 import useTheme from "../use-theme";
 import {warn} from "../utils/console";
 import ClearIcon from "../utils/clear-icon";
@@ -218,7 +218,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
             className={`${preClass}-block-label`}
             focused={hover}
             hasContentLeft={!!contentLeft}
-            htmlFor={labelProps.htmlFor}
+            htmlFor={"htmlFor" in labelProps ? labelProps.htmlFor : ""}
             id={labelProps.id}
             isTextarea={isTextarea}
             rounded={rounded}
@@ -374,7 +374,6 @@ const Input = React.forwardRef<FormElement, InputProps>(
 type InputComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>
 > & {
-  Textarea: typeof Textarea;
   Password: typeof InputPassword;
 };
 

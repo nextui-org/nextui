@@ -7,7 +7,11 @@ export default function App() {
   return (
     <Grid.Container gap={2}>
       <Grid>
-        <Radio.Group label="Options (controlled)" defaultValue="A">
+        <Radio.Group 
+          label="Options (controlled)"
+          value={checked}
+          onChange={setChecked}
+        >
           <Radio value="A">Option A</Radio>
           <Radio value="B">Option B</Radio>
           <Radio value="C">Option C</Radio>
@@ -15,11 +19,10 @@ export default function App() {
         </Radio.Group>
       </Grid>
       <Grid>
-        <Radio.Group 
+        <Radio.Group
           label="Options (uncontrolled)"
+          defaultValue="A"
           color="secondary"
-          value={checked}
-          onChange={setChecked}
         >
           <Radio value="A">Option A</Radio>
           <Radio value="B">Option B</Radio>

@@ -13,7 +13,7 @@ const createElement = (id: string): HTMLElement => {
 
 const usePortal = (
   selectId: string = getId(),
-  getContainer?: () => HTMLElement | null,
+  getContainer?: () => HTMLElement | null | undefined,
 ): HTMLElement | null => {
   const id = `nextui-${selectId}`;
   const {isBrowser} = useSSR();
@@ -24,7 +24,7 @@ const usePortal = (
   useEffect(() => {
     const customContainer = getContainer ? getContainer() : null;
     const parentElement = customContainer || document.body;
-    const hasElement = parentElement.querySelector<HTMLElement>(`#${id}`);
+    const hasElement = parentElement?.querySelector<HTMLElement>(`#${id}`);
     const el = hasElement || createElement(id);
 
     if (!hasElement) {

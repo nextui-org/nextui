@@ -1,6 +1,8 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 
+import {Button, Spacer} from "../index";
+
 import Radio from "./index";
 
 export default {
@@ -16,6 +18,24 @@ export const Default = () => (
     <Radio value="C">Option C</Radio>
     <Radio value="D">Option D</Radio>
   </Radio.Group>
+);
+
+const handleSubmit = (e: any) => {
+  e.preventDefault();
+  alert("Submitted!");
+};
+
+export const Required = () => (
+  <form onSubmit={handleSubmit}>
+    <Radio.Group isRequired label="Options">
+      <Radio value="A">Option A</Radio>
+      <Radio value="B">Option B</Radio>
+      <Radio value="C">Option C</Radio>
+      <Radio value="D">Option D</Radio>
+    </Radio.Group>
+    <Spacer y={1} />
+    <Button type="submit">Submit</Button>
+  </form>
 );
 
 export const Disabled = () => (

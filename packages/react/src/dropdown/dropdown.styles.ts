@@ -5,9 +5,12 @@ export const StyledDropdownMenu = styled("ul", {
   $$dropdownItemHeight: "$space$13",
   $$dropdownMenuPadding: "$space$4",
   $$dropdownMenuWidth: "250px",
+  $$dropdownMenuMinWidth: "250px",
   listStyle: "none",
   position: "relative",
-  width: "$$dropdownMenuWidth",
+  maxWidth: "$$dropdownMenuWidth",
+  minWidth: "$$dropdownMenuMinWidth",
+  width: "100%",
   p: "$$dropdownMenuPadding",
   m: 0,
   outline: "none",
@@ -29,7 +32,7 @@ export const StyledDropdownItemKbd = styled("kbd", {
   fontFamily: "$sans",
   boxShadow: "none",
   bg: "transparent",
-  transition: "border 0.26s ease 0s",
+  transition: "border 0.12s ease 0s",
 });
 
 export const StyledDropdownItemContentWrapper = styled("div", {
@@ -48,7 +51,7 @@ export const StyledDropdownItemDescription = styled("span", {
   fontSize: "$xs",
   color: "$$dropdownItemDescriptionColor",
   truncateText: "calc($$dropdownMenuWidth * 0.9)",
-  transition: "color 0.26s ease 0s",
+  transition: "color 0.12s ease 0s",
   variants: {
     hasIcon: {
       true: {
@@ -283,6 +286,16 @@ export const StyledDropdownItem = styled(
         },
         black: {
           $$dropdownItemBorderWeight: "$borderWeights$black",
+        },
+      },
+      showFullDescription: {
+        true: {
+          [`& ${StyledDropdownItemDescription}`]: {
+            mt: "$2",
+            overflow: "visible",
+            textOverflow: "visible",
+            whiteSpace: "normal",
+          },
         },
       },
       disableAnimation: {

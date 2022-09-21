@@ -1,5 +1,5 @@
 import {styled} from "../theme/stitches.config";
-import {cssFocusVisible, sharedDialogPopup, cssNoBlurriness} from "../theme/shared-css";
+import {cssFocusVisible} from "../theme/shared-css";
 
 export const StyledUser = styled(
   "div",
@@ -16,8 +16,6 @@ export const StyledUser = styled(
     },
   },
   cssFocusVisible,
-  cssNoBlurriness,
-  sharedDialogPopup,
 );
 
 export const StyledUserInfo = styled("div", {
@@ -32,7 +30,6 @@ export const StyledUserName = styled("span", {
   fontSize: "$sm",
   color: "$text",
   lh: "$sm",
-  tt: "capitalize",
   fontWeight: "$medium",
   maxW: "$60",
   to: "ellipsis", // text overflow

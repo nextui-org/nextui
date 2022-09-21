@@ -34,6 +34,7 @@ export const useRadio = (props: UseRadioProps) => {
     labelColor = groupContext.labelColor ?? "default",
     autoFocus,
     isSquared = false,
+    isDisabled: isDisabledProp = false,
     disableAnimation = false,
     ...otherProps
   } = props;
@@ -49,7 +50,15 @@ export const useRadio = (props: UseRadioProps) => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const {inputProps} = useReactAriaRadio(otherProps, groupContext.radioGroupState, inputRef);
+  const {inputProps} = useReactAriaRadio(
+    {
+      ...otherProps,
+      ...groupContext,
+      isDisabled: isDisabledProp,
+    },
+    groupContext.radioGroupState,
+    inputRef,
+  );
 
   const isDisabled = useMemo(() => inputProps.disabled ?? false, [inputProps.disabled]);
 
@@ -59,6 +68,8 @@ export const useRadio = (props: UseRadioProps) => {
     () => groupContext.validationState === "invalid",
     [groupContext.validationState],
   );
+
+  const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
 
   return {
     size,
@@ -70,6 +81,7 @@ export const useRadio = (props: UseRadioProps) => {
     isInvalid,
     isHovered,
     isSquared,
+    isRequired,
     disableAnimation,
     inputProps,
     hoverProps,

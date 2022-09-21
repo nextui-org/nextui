@@ -134,6 +134,8 @@ const Switch: React.FC<SwitchProps> = ({
   return (
     <StyledSwitchContainer animated={animated} data-state={getState} disabled={disabled} {...props}>
       <StyledSwitchInput
+        animated={animated}
+        bordered={bordered}
         checked={selfChecked}
         className={clsx(`${preClass}-input`)}
         data-state={getState}

@@ -17,7 +17,7 @@ interface Props extends Omit<HTMLNextUIProps<"span">, keyof BadgeVariantsProps> 
 
 export type BadgeProps = Props & Omit<BadgeVariantsProps, "asChild" | "isOneChar">;
 
-export const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
+const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
   const {
     css,
     children,
@@ -120,3 +120,5 @@ if (__DEV__) {
 }
 
 Badge.toString = () => ".nextui-badge";
+
+export default Badge;

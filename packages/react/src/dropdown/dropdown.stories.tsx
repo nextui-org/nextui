@@ -363,7 +363,7 @@ export const Sections = () => (
 export const CustomTrigger = () => (
   <Grid.Container gap={2} justify="center">
     <Grid>
-      <Dropdown placement="bottom-right">
+      <Dropdown disableTriggerPressedAnimation={false} placement="bottom-right">
         <Dropdown.Trigger>
           <Avatar
             bordered

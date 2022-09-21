@@ -15,7 +15,6 @@ export default function App() {
       <Grid>
         <Badge disableOutline color="error" content={5} shape="circle" size="md">
           <Avatar
-            squared
             size="lg"
             src="https://i.pravatar.cc/300?u=a042581f4e290267072"
           />

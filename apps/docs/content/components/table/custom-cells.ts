@@ -61,6 +61,7 @@ const EyeIconTs = `type IconProps = {
   width?: string | number;
   label?: string;
 }
+
 export const EyeIcon: React.FC<IconProps> = ({
   fill,
   size,
@@ -102,6 +103,7 @@ const EditIconTs = `type IconProps = {
   width?: string | number;
   label?: string;
 }
+
 export const EditIcon: React.FC<IconProps> = ({
   fill,
   size,
@@ -153,6 +155,7 @@ const DeleteIconTs = `type IconProps = {
   width?: string | number;
   label?: string;
 }
+
 export const DeleteIcon: React.FC<IconProps> = ({
   fill,
   size,

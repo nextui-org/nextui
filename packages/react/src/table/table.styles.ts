@@ -20,11 +20,13 @@ export const StyledTableColumnHeader = styled(
     },
     "&:first-child": {
       pl: "$8",
-      br: "$md 0 0 $md",
+      btlr: "$md",
+      bblr: "$md",
     },
     "&:last-child": {
       pr: "$8",
-      br: "0 $md $md 0",
+      btrr: "$md",
+      bbrr: "$md",
     },
     variants: {
       align: {
@@ -104,6 +106,7 @@ export const StyledTableCell = styled(
   {
     position: "relative",
     userSelect: "none",
+    cursor: "default",
     py: "$5",
     pr: "$5",
     zIndex: "$2",
@@ -138,6 +141,12 @@ export const StyledTableCell = styled(
         },
         end: {
           textAlign: "right",
+        },
+      },
+      isStatic: {
+        true: {
+          cursor: "text",
+          userSelect: "text",
         },
       },
     },
@@ -186,6 +195,7 @@ export const StyledTableRowGroup = styled("thead", {
         display: "block",
         height: "100%",
         overflow: "auto",
+        pb: "$10",
         [`& ${StyledTableRow}`]: {
           display: "table",
           width: "100%",
@@ -398,11 +408,6 @@ export const StyledTable = styled("table", {
               opacity: 0.8,
             },
           },
-        },
-      },
-      false: {
-        [`& ${StyledTableCell}`]: {
-          userSelect: "all",
         },
       },
     },

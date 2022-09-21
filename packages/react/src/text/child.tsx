@@ -4,6 +4,7 @@ import type {SimpleColors} from "../utils/prop-types";
 import React, {useMemo, ReactNode} from "react";
 
 import {isNormalColor} from "../utils/color";
+import {CSSFontSize} from "../theme";
 import {ReactRef} from "../utils/refs";
 import {useDOMRef} from "../utils/dom";
 import {__DEV__} from "../utils/assertion";
@@ -11,7 +12,6 @@ import {__DEV__} from "../utils/assertion";
 import {StyledText, TextVariantsProps} from "./text.styles";
 
 type As = keyof JSX.IntrinsicElements | React.ComponentType<any>;
-type FontSize = CSS["fontSize"];
 
 export interface Props {
   tag: keyof JSX.IntrinsicElements;
@@ -25,7 +25,7 @@ export interface Props {
    * **Initial value**: `medium`
    *
    */
-  size?: FontSize;
+  size?: CSSFontSize;
   /**
    * The **`text-transform`** CSS property specifies how to capitalize an element's text. It can be used to make text appear in all-uppercase or all-lowercase, or with each word capitalized. It also can help improve legibility for ruby.
    *

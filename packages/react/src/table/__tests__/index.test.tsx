@@ -35,7 +35,6 @@ describe("Table", () => {
       </Table>,
     );
 
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
@@ -270,7 +269,6 @@ describe("Table", () => {
     expect(thirdColumnHeader.text()).toBe("DATE MODIFIED");
     expect(thirdColumnHeader.props()["aria-sort"]).toBe("none");
 
-    expect(wrapper.html()).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 

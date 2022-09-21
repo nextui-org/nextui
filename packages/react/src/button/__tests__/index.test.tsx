@@ -1,6 +1,7 @@
 import React from "react";
 import {mount} from "enzyme";
 import userEvent from "@testing-library/user-event";
+import {render} from "@testing-library/react";
 
 import Button from "../index";
 
@@ -89,38 +90,62 @@ describe("Button", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it("should trigger callback function", () => {
-    const WrapperButton = () => {
-      const [state, setState] = React.useState<string>("state1");
+  it("should trigger onPress function", () => {
+    let onPressFn = jest.fn();
+    const wrapper = render(
+      <Button data-testid="button-test" onPress={onPressFn}>
+        action
+      </Button>,
+    );
 
-      return <Button onClick={() => setState("state2")}>{state}</Button>;
-    };
-    const wrapper = mount(<WrapperButton />);
+    let button = wrapper.getByTestId("button-test");
 
-    expect(wrapper.text()).toContain("state1");
+    userEvent.click(button);
+    expect(onPressFn).toBeCalledTimes(1);
+  });
 
-    wrapper.simulate("click");
-    userEvent.click(wrapper.find("button").getDOMNode());
-    expect(wrapper.text()).toContain("state2");
+  it("should trigger onClick function", () => {
+    let onClickFn = jest.fn();
+    const wrapper = render(
+      <Button data-testid="button-test" onClick={onClickFn}>
+        action
+      </Button>,
+    );
+
+    let button = wrapper.getByTestId("button-test");
+
+    userEvent.click(button);
+    expect(onClickFn).toBeCalledTimes(1);
+  });
+
+  it("should show warning message when onClick is being used", () => {
+    let warnMessage = "";
+    const warnSpy = jest.spyOn(console, "warn").mockImplementation((msg) => (warnMessage = msg));
+
+    const wrapper = render(
+      <Button data-testid="button-test" onClick={() => {}}>
+        action
+      </Button>,
+    );
+    let button = wrapper.getByTestId("button-test");
+
+    userEvent.click(button);
+    expect(warnMessage).toEqual("onClick is deprecated, please use onPress");
+    warnSpy.mockRestore();
   });
 
   it("should ignore events when disabled", () => {
-    const WrapperButton = () => {
-      const [state, setState] = React.useState<string>("state1");
+    let onClickFn = jest.fn();
+    const wrapper = render(
+      <Button disabled data-testid="button-test" onClick={onClickFn}>
+        action
+      </Button>,
+    );
 
-      return (
-        <Button disabled onClick={() => setState("state2")}>
-          {state}
-        </Button>
-      );
-    };
-    const wrapper = mount(<WrapperButton />);
+    let button = wrapper.getByTestId("button-test");
 
-    expect(wrapper.text()).toContain("state1");
-
-    userEvent.click(wrapper.find("button").getDOMNode());
-    expect(wrapper.text()).toContain("state1");
-    expect(wrapper.text()).not.toContain("state2");
+    userEvent.click(button);
+    expect(onClickFn).toBeCalledTimes(0);
   });
 
   it("should remove expired events", () => {

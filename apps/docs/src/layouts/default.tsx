@@ -1,6 +1,5 @@
 import React from "react";
 import {Container} from "@nextui-org/react";
-import {NotifyBanner} from "@components";
 import {Route} from "@lib/docs/page";
 
 import Header from "./header";
@@ -18,7 +17,6 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({children, rout
   return (
     <div id="app-container">
       <Header />
-      <NotifyBanner href="/docs/components/dropdown" text="Dropdown component" />
       <Navbar hasNotify isHome routes={routes} />
       <Container
         alignContent="space-between"
@@ -26,7 +24,9 @@ const DefaultLayout: React.FC<React.PropsWithChildren<Props>> = ({children, rout
         className="main-container"
         css={{
           position: "relative",
+          pt: "$$notifyBannerHeight", // only when the notify banner is visible
           minHeight: "100vh",
+          marginTop: "var(--nextui--navbarHeight)",
           "@mdMax": {
             overflowX: "hidden",
           },

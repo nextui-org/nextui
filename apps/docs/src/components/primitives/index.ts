@@ -1,4 +1,11 @@
-import {styled, Link} from "@nextui-org/react";
+import {styled, Link, Text, keyframes} from "@nextui-org/react";
+import {darkTheme} from "@theme/shared";
+
+const animatedText = keyframes({
+  "100%": {
+    backgroundPosition: "-200% center",
+  },
+});
 
 export const Title = styled("h1", {
   display: "inline",
@@ -136,3 +143,24 @@ export const StyledCardBlur = styled("div", {
 });
 
 export const StyledImg = styled("img", {});
+
+export const AnimatedText = styled(Text, {
+  $$colorA: "$colors$pink700",
+  $$colorB: "$colors$secondary",
+  cursor: "default",
+  position: "relative",
+  fontWeight: "$semibold",
+  backgroundImage: "linear-gradient(120deg, $$colorA 0%, $$colorB 50%, $$colorA 100%)",
+  backgroundOrigin: "padding-box",
+  backgroundSize: "200%",
+  WebkitBoxDecorationBreak: "clone",
+  backgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  color: "unset",
+  overflow: "visible",
+  animation: `3s linear 0s infinite normal forwards running ${animatedText}`,
+  [`.${darkTheme} &`]: {
+    $$colorA: "$colors$pink900",
+    $$colorB: "$colors$purple700",
+  },
+});

@@ -23,7 +23,12 @@ export const StyledBadgeRoot = styled("span", {
 export const StyledBadge = styled("span", {
   $$badgePlacementHOffset: "0%",
   $$badgePlacementVOffset: "0%",
-  dflex: "center",
+  lineHeight: 1,
+  display: "flex",
+  flexFlow: "row wrap",
+  placeContent: "center",
+  alignItems: "center",
+  boxSizing: "border-box",
   whiteSpace: "nowrap",
   bg: "$$badgeBackgroundColor",
   color: "$$badgeTextColor",
@@ -42,26 +47,26 @@ export const StyledBadge = styled("span", {
     size: {
       xs: {
         $$badgeVPadding: "$space$2",
-        $$badgeHPadding: "$space$3",
+        $$badgeHPadding: "$space$2",
         $$badgeFontSize: "0.65rem",
       },
       sm: {
         $$badgeVPadding: "$space$2",
-        $$badgeHPadding: "$space$4",
-        $$badgeFontSize: "0.7rem",
+        $$badgeHPadding: "$space$3",
+        $$badgeFontSize: "0.73rem",
       },
       md: {
-        $$badgeVPadding: "$space$2",
-        $$badgeHPadding: "$space$5",
+        $$badgeVPadding: "$space$3",
+        $$badgeHPadding: "$space$4",
         $$badgeFontSize: "$fontSizes$xs",
       },
       lg: {
-        $$badgeVPadding: "$space$2",
-        $$badgeHPadding: "$space$6",
+        $$badgeVPadding: "$space$4",
+        $$badgeHPadding: "$space$5",
         $$badgeFontSize: "$fontSizes$base",
       },
       xl: {
-        $$badgeVPadding: "$space$2",
+        $$badgeVPadding: "$space$5",
         $$badgeHPadding: "$space$6",
         $$badgeFontSize: "$fontSizes$xl",
       },
@@ -74,6 +79,7 @@ export const StyledBadge = styled("span", {
       true: {
         zIndex: "$2",
         position: "absolute",
+        lineHeight: 1.5,
       },
     },
     isOneChar: {
@@ -194,6 +200,9 @@ export const StyledBadge = styled("span", {
       },
     },
     disableOutline: {
+      true: {
+        border: "2px solid transparent",
+      },
       false: {
         border: "2px solid $colors$background",
       },
@@ -212,12 +221,12 @@ export const StyledBadge = styled("span", {
   compoundVariants: [
     /***
      * @variant flat
-     * @color {neutral, primary, secondary, success, warning, error}
+     * @color {default, primary, secondary, success, warning, error}
      */
-    // variant=flat && color=neutral
+    // variant=flat && color=default
     {
       variant: "flat",
-      color: "neutral",
+      color: "default",
       css: {
         $$badgeBackgroundColor: "$colors$neutralLight",
         $$badgeTextColor: "$colors$neutralLightContrast",
@@ -270,12 +279,12 @@ export const StyledBadge = styled("span", {
     },
     /***
      * @variant bordered
-     * @color {neutral, primary, secondary, success, warning, error}
+     * @color {default, primary, secondary, success, warning, error}
      */
-    // variant=bordered && color=neutral
+    // variant=bordered && color=default
     {
       variant: "bordered",
-      color: "neutral",
+      color: "default",
       css: {
         $$badgeTextColor: "$colors$neutral",
       },
@@ -483,6 +492,17 @@ export const StyledBadge = styled("span", {
       size: "xl",
       css: {
         $$badgeHPadding: "$space$5",
+      },
+    },
+    /**
+     * @disableOutline true
+     * @variant bordered
+     */
+    {
+      disableOutline: true,
+      variant: "bordered",
+      css: {
+        borderColor: "$$badgeTextColor",
       },
     },
   ],

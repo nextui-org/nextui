@@ -2,8 +2,19 @@ import {globalCss} from "@nextui-org/react";
 
 export default globalCss({
   html: {
+    $$notifyBannerHeight: "40px",
+    $$navbarHeight: "76px",
     scrollPaddingTop: "80px",
+    "&.dragging-ew": {
+      userSelect: "none !important",
+      cursor: "ew-resize !important",
+      "*": {
+        userSelect: "none !important",
+        cursor: "ew-resize !important",
+      },
+    },
   },
+
   // css baseline overrides
   blockquote: {
     mb: "$14 !important",

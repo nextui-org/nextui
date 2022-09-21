@@ -46,10 +46,11 @@ const Post: React.FC<React.PropsWithChildren<PostProps>> = ({
 
   const linkColor = useMemo(() => {
     if (route.selected) return theme?.colors?.text?.value;
-    if (route.comingSoon) return theme?.colors?.accents5?.value;
+    if (route.comingSoon)
+      return isDark ? theme?.colors?.accents6?.value : theme?.colors?.accents5?.value;
 
     return theme?.colors?.accents8?.value;
-  }, [isDark, route.selected]);
+  }, [theme, isDark, route.selected, route.comingSoon]);
 
   return (
     <div ref={ref} className={cn("link", `level-${level}`, {disabled: route?.comingSoon})}>

@@ -10,9 +10,7 @@ import hastToHtml from "hast-util-to-html";
 import rangeParser from "parse-numeric-range";
 import highlightLine from "@lib/rehype-highlight-line";
 import highlightWord from "@lib/rehype-highlight-word";
-import {styled} from "@nextui-org/react";
-
-import {Box} from "../primitives";
+import {WindowActions} from "@components";
 
 import {Pre} from "./pre";
 
@@ -23,25 +21,6 @@ refractor.register(css);
 refractor.register(diff);
 
 type PreProps = Omit<React.ComponentProps<typeof Pre>, "css">;
-
-const WindowIcon = styled(Box, {
-  size: "$6",
-  br: "$pill",
-  mr: "$4",
-  variants: {
-    color: {
-      red: {
-        bg: "$red600",
-      },
-      green: {
-        bg: "$green600",
-      },
-      yellow: {
-        bg: "$yellow600",
-      },
-    },
-  },
-});
 
 type CodeBlockProps = PreProps & {
   language: "js" | "jsx" | "bash" | "css" | "diff";
@@ -173,25 +152,7 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>((_props, forw
       data-line-numbers={showLineNumbers}
       {...props}
     >
-      {showWindowIcons && (
-        <Box
-          css={{
-            dflex: "flex-start",
-            alignItems: "center",
-            px: "$2",
-            pt: "$5",
-            pb: "$4",
-            zIndex: "$2",
-            position: "sticky",
-            background: "$codeBackground",
-            top: 0,
-          }}
-        >
-          <WindowIcon color="red" />
-          <WindowIcon color="yellow" />
-          <WindowIcon color="green" />
-        </Box>
-      )}
+      {showWindowIcons && <WindowActions />}
       <code className={classes} dangerouslySetInnerHTML={{__html: result}} />
     </Pre>
   );
