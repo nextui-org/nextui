@@ -52,12 +52,12 @@ const PopoverContent = React.forwardRef(
 
     const transformOrigin = getTransformOrigin(placement);
 
-    const popoverCss = useMemo(()=>{
+    const popoverCss = useMemo<CSS>(() => {
       return {
         transformOrigin,
         ...css,
-      }
-    },[transformOrigin, css]);
+      };
+    }, [transformOrigin, css]);
 
     // Hide content outside the modal from screen readers.
     const {modalProps} = useModal({isDisabled: true});

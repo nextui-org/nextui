@@ -12,7 +12,6 @@ import React, {
 import {useLabel} from "@react-aria/label";
 
 import {ContentPosition} from "../utils/prop-types";
-import {CSS} from "../theme/stitches.config";
 import useTheme from "../use-theme";
 import {warn} from "../utils/console";
 import ClearIcon from "../utils/clear-icon";
