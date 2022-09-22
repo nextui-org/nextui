@@ -16,6 +16,7 @@ import {warn} from "../utils/console";
 import ClearIcon from "../utils/clear-icon";
 import clsx from "../utils/clsx";
 import {__DEV__} from "../utils/assertion";
+import useId from "../use-id";
 
 import {
   StyledInput,
@@ -98,6 +99,8 @@ const Input = React.forwardRef<FormElement, InputProps>(
 
     useImperativeHandle(ref, () => inputRef.current);
 
+    const id = useId(props?.id);
+
     const [selfValue, setSelfValue] = useState<string>(initialValue);
     const [hover, setHover] = useState<boolean>(false);
 
@@ -176,6 +179,7 @@ const Input = React.forwardRef<FormElement, InputProps>(
     const inputProps = {
       ...props,
       ...controlledValue,
+      id,
     };
 
     const {labelProps, fieldProps} = useLabel({
