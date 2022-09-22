@@ -2,8 +2,11 @@ import type {AriaRadioGroupProps} from "@react-types/radio";
 import type {NormalSizes, SimpleColors} from "../utils/prop-types";
 
 import React, {useMemo, HTMLAttributes} from "react";
+import {mergeProps} from "@react-aria/utils";
 import {useRadioGroupState} from "@react-stately/radio";
 import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
+
+import useId from "../use-id";
 
 interface Props extends AriaRadioGroupProps {
   size?: NormalSizes;
@@ -36,20 +39,32 @@ export const useRadioGroup = (props: UseRadioGroupProps) => {
     ...otherProps
   } = props;
 
+  const labelId = useId();
+  const id = useId(props?.id);
+  const name = useId(props?.name);
+
   const otherPropsWithOrientation = useMemo<AriaRadioGroupProps>(() => {
     return {
       ...otherProps,
       isRequired,
       orientation,
     };
-  }, [otherProps]);
+  }, [otherProps, isRequired, orientation]);
 
   const radioGroupState = useRadioGroupState(otherPropsWithOrientation);
 
-  const {radioGroupProps, labelProps}: IRadioGroupAria = useReactAriaRadioGroup(
+  const radioGroup: IRadioGroupAria = useReactAriaRadioGroup(
     otherPropsWithOrientation,
     radioGroupState,
   );
+
+  const radioGroupProps = useMemo(() => {
+    return mergeProps(radioGroup.radioGroupProps, {id, "aria-labelledby": labelId});
+  }, [radioGroup.radioGroupProps, id, labelId]);
+
+  const labelProps = useMemo(() => {
+    return mergeProps(radioGroup.labelProps, {id: labelId});
+  }, [radioGroup.labelProps, labelId]);
 
   return {
     size,
@@ -61,6 +76,7 @@ export const useRadioGroup = (props: UseRadioGroupProps) => {
     radioGroupState,
     radioGroupProps,
     labelProps,
+    name,
   };
 };
 

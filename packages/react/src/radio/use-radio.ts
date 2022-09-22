@@ -50,7 +50,7 @@ export const useRadio = (props: UseRadioProps) => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const {inputProps} = useReactAriaRadio(
+  const radio = useReactAriaRadio(
     {
       ...otherProps,
       ...groupContext,
@@ -59,6 +59,10 @@ export const useRadio = (props: UseRadioProps) => {
     groupContext.radioGroupState,
     inputRef,
   );
+
+  const inputProps = useMemo(() => {
+    return {...radio.inputProps, name: groupContext.name};
+  }, [radio.inputProps, groupContext.name]);
 
   const isDisabled = useMemo(() => inputProps.disabled ?? false, [inputProps.disabled]);
 
