@@ -1,6 +1,5 @@
 import React, {useEffect, useMemo} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {useId} from "@react-aria/utils";
 
 import {warn} from "../utils/console";
 import useCurrentState from "../use-current-state";
@@ -9,6 +8,7 @@ import {CSS} from "../theme/stitches.config";
 import useKeyboard, {KeyCode} from "../use-keyboard";
 import clsx from "../utils/clsx";
 import withDefaults from "../utils/with-defaults";
+import useId from "../use-id";
 
 import CollapseGroup from "./collapse-group";
 import {useCollapseContext} from "./collapse-context";
