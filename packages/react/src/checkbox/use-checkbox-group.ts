@@ -5,7 +5,10 @@ import type {NormalSizes, NormalColors, SimpleColors} from "../utils/prop-types"
 
 import {useCheckboxGroup as useReactAriaCheckboxGroup} from "@react-aria/checkbox";
 import {useCheckboxGroupState} from "@react-stately/checkbox";
-import React from "react";
+import {mergeProps} from "@react-aria/utils";
+import React, {useMemo} from "react";
+
+import useId from "../use-id";
 
 interface Props extends AriaCheckboxGroupProps {
   size?: NormalSizes;
@@ -31,9 +34,20 @@ export const useCheckboxGroup = (props: UseCheckboxGroupProps = {}) => {
     ...otherProps
   } = props;
 
+  const labelId = useId();
+  const id = useId(props?.id);
+
   const groupState = useCheckboxGroupState(otherProps);
 
-  const {labelProps, groupProps} = useReactAriaCheckboxGroup(otherProps, groupState);
+  const checkboxGroup = useReactAriaCheckboxGroup(otherProps, groupState);
+
+  const groupProps = useMemo(() => {
+    return mergeProps(checkboxGroup.groupProps, {id, "aria-labelledby": labelId});
+  }, [checkboxGroup.groupProps, id, labelId]);
+
+  const labelProps = useMemo(() => {
+    return mergeProps(checkboxGroup.labelProps, {id: labelId});
+  }, [checkboxGroup.labelProps, labelId]);
 
   return {
     css,
