@@ -96,3 +96,11 @@ export const Icons = () => {
     </div>
   );
 };
+
+export const WithName = () => (
+  <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <Switch name="switch" />
+    <br />
+    <Switch name="switch" initialChecked />
+  </div>
+);

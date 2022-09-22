@@ -35,6 +35,7 @@ interface Props {
   iconOff?: React.ReactNode;
   initialChecked?: boolean;
   preventDefault?: boolean;
+  name?: string;
   disabled?: boolean;
   onChange?: (ev: SwitchEvent) => void;
   as?: keyof JSX.IntrinsicElements;
@@ -71,6 +72,7 @@ const Switch: React.FC<SwitchProps> = ({
   iconOff,
   animated,
   preventDefault,
+  name,
   ...props
 }) => {
   const [selfChecked, setSelfChecked] = useState<boolean>(initialChecked);
@@ -142,6 +144,7 @@ const Switch: React.FC<SwitchProps> = ({
         disabled={disabled}
         checked={selfChecked}
         onChange={changeHandle}
+        name={name}
       />
       <StyledSwitch
         role="switch"
