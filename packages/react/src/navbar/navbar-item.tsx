@@ -1,7 +1,6 @@
 import React, {useMemo, useEffect} from "react";
 import {useHover} from "@react-aria/interactions";
 import {mergeProps} from "@react-aria/utils";
-import {useId} from "@react-aria/utils";
 
 import {HTMLNextUIProps, forwardRef} from "../utils/system";
 import {useDOMRef} from "../utils/dom";
@@ -9,6 +8,7 @@ import {arrayToObject} from "../utils/object";
 import clsx from "../utils/clsx";
 import {Text} from "../index";
 import {__DEV__} from "../utils/assertion";
+import useId from "../use-id";
 
 import {useNavbarContentContext} from "./navbar-content-context";
 import {StyledNavbarItem, NavbarItemVariantsProps} from "./navbar.styles";
