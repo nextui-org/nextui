@@ -1,9 +1,10 @@
-import {useRef, useCallback} from "react";
+import {useRef, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuTriggerType} from "@react-types/menu";
 import {useMenuTrigger} from "@react-aria/menu";
 import {useMenuTriggerState} from "@react-stately/menu";
 
+import useId from "../use-id";
 import {mergeRefs} from "../utils/refs";
 import {PopoverProps} from "../popover";
 
@@ -47,6 +48,8 @@ export function useDropdown(props: UseDropdownProps = {}) {
     ...popoverProps
   } = props;
 
+  const triggerId = useId();
+
   const triggerRef = useRef<HTMLElement>(null);
   const menuTriggerRef = triggerRefProp || triggerRef;
   const menuRef = useRef<HTMLUListElement>(null);
@@ -79,13 +82,21 @@ export function useDropdown(props: UseDropdownProps = {}) {
             }
           : css,
         ...realTriggerProps,
+        id: triggerId,
       };
     },
-    [triggerRef, triggerRefProp, menuTriggerProps, disableTriggerPressedAnimation],
+    [triggerRef, triggerRefProp, menuTriggerProps, disableTriggerPressedAnimation, triggerId],
   );
+
+  const ariaProps = useMemo(() => {
+    return {
+      "aria-labelledby": triggerId,
+    };
+  }, [triggerId]);
 
   return {
     ...menuProps,
+    ...ariaProps,
     popoverProps,
     state,
     ref: menuRef,
