@@ -6,6 +6,7 @@ import {mergeProps} from "@react-aria/utils";
 import {useOverlayPosition, useOverlayTrigger} from "@react-aria/overlays";
 import {useOverlayTriggerState} from "@react-stately/overlays";
 
+import useId from "../use-id";
 import {mergeRefs} from "../utils/refs";
 import {isObject} from "../utils/object";
 
@@ -91,6 +92,8 @@ export function usePopover(props: UsePopoverProps = {}) {
     shouldCloseOnInteractOutside,
   } = props;
 
+  const id = useId();
+
   const domRef = useRef<HTMLElement>(null);
   const domTriggerRef = useRef<HTMLElement>(null);
 
@@ -140,16 +143,18 @@ export function usePopover(props: UsePopoverProps = {}) {
 
   const getTriggerProps = useCallback(
     (props = {}, _ref = null) => {
+      const aria = {"aria-controls": id};
+
       const realTriggerProps = triggerRefProp?.current
-        ? mergeProps(triggerProps, props)
-        : mergeProps(props, triggerProps);
+        ? mergeProps(triggerProps, props, aria)
+        : mergeProps(props, triggerProps, aria);
 
       return {
         ...realTriggerProps,
         ref: mergeRefs(triggerRef, _ref),
       };
     },
-    [triggerRef, triggerRefProp, triggerProps],
+    [triggerRef, triggerRefProp, triggerProps, id],
   );
 
   const getPopoverProps = useCallback(
@@ -186,6 +191,7 @@ export function usePopover(props: UsePopoverProps = {}) {
         ...realPositionProps,
         "data-state": getState,
         "data-placement": placement,
+        id,
       };
     },
     [getState, positionProps, overlayProps, placement],
