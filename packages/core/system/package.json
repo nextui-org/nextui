@@ -1,0 +1,49 @@
+{
+  "name": "@nextui-org/system",
+  "version": "1.0.0-beta.11",
+  "description": "NextUI system primitives",
+  "keywords": [
+    "system"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/core/system"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format=esm,cjs --dts",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src/index.ts --format=esm,cjs",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-aria": ">=3.18.0",
+    "@stitches/react": ">=1.2.8"
+  },
+  "devDependencies": {
+    "@stitches/react": "1.2.8",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/use-ssr": "workspace:*",
+    "react-aria": "3.18.0",
+    "clean-package": "2.1.1",
+    "react": "^17.0.2"
+  }
+}

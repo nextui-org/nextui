@@ -30,6 +30,13 @@ storybook-static
 .env.production.local
 .env.production
 
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
 # debug
 npm-debug.log*
 yarn-debug.log*
@@ -50,3 +57,4 @@ apps/**/sitemap.xml
 
 # turbo
 .turbo
+packages/**/.turbo

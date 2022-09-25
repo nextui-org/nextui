@@ -13,7 +13,7 @@ Hello!, I am very excited that you are interested in contributing with Next UI. 
 
 ### Tooling
 
-- [Yarn](https://yarnpkg.com/) to manage packages and dependecnies
+- [PNPM](https://pnpm.io/) to manage packages and dependencies
 - [Tsup](https://tsup.egoist.sh/) to bundle packages
 - [Storybook](https://storybook.js.org/) for rapid UI component development and
   testing
@@ -78,20 +78,20 @@ https://www.conventionalcommits.org/ or check out the
 
 3. Make and commit your changes following the
    [commit convention](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md#commit-convention).
-   As you develop, you can run `yarn pkg <module> build` and
-   `yarn test packages/<module>/<component>` to make sure everything works as expected.
+   As you develop, you can run `pnpm pkg <module> build` and
+   `pnpm test packages/<module>/<component>` to make sure everything works as expected.
 
-4. Run `yarn changeset` to create a detailed description of your changes. This
+4. Run `pnpm changeset` to create a detailed description of your changes. This
    will be used to generate a changelog when we publish an update.
    [Learn more about Changeset](https://github.com/atlassian/changesets/tree/master/packages/cli).
    Please note that you might have to run `git fetch origin main:master` (where
-   origin will be your fork on GitHub) before `yarn changeset` works.
+   origin will be your fork on GitHub) before `pnpm changeset` works.
 5. Also, if you provide `jsx` snippets to the changeset, please turn off the
    live preview by doing the following at the beginning of the snippet:
    ` ```jsx live=false`
 
 > If you made minor changes like CI config, prettier, etc, you can run
-> `yarn changeset add --empty` to generate an empty changeset file to document
+> `pnpm changeset add --empty` to generate an empty changeset file to document
 > your changes.
 
 ## Development Setup
@@ -101,11 +101,11 @@ After cloning the repository, execute the following commands in the root folder:
 1. Install dependencies
 
 ```bash
-yarn
+pnpm
 
 #or
 
-yarn install
+pnpm install
 ```
 
 We use [Turbo Repo](https://turborepo.org/) for the project management.
@@ -114,12 +114,12 @@ We use [Turbo Repo](https://turborepo.org/) for the project management.
 
 ```bash
 ## Start the dev babel server of NextUI core components
-yarn dev:nextui
+pnpm dev:nextui
 
 ## optional
-yarn dev:docs ## this will start the documentation next.js server and it will automatically detect the changes in the components.
+pnpm dev:docs ## this will start the documentation next.js server and it will automatically detect the changes in the components.
 
-yarn start:sb ## this will start the storybook server for a faster development and testing.
+pnpm start:sb ## this will start the storybook server for a faster development and testing.
 ```
 
 - If you will be working just on the documentation source code / mdx, you can use the following commands to build
@@ -127,20 +127,20 @@ yarn start:sb ## this will start the storybook server for a faster development a
 
 ```bash
 ## Build NextUI source components
-yarn build:nextui
+pnpm build:nextui
 
 ## Start the next.js documentation dev server
-yarn dev:docs
+pnpm dev:docs
 ```
 
 - You also can use Storybook to test the components and faster development:
 
 ```bash
-yarn sb
+pnpm sb
 
 #or
 
-yarn start:sb
+pnpm start:sb
 ```
 
 Remember that these commands must be executed in the root folder of the project.
@@ -164,10 +164,10 @@ You can run the nest command for component specific tests.
 
 ```
 # Test current code
-yarn test:update # or npm run test:update
+pnpm test:update # or npm run test:update
 
 # Test isolated component code
-yarn test:update src/button  # or npm run test:update src/button
+pnpm test:update src/button  # or npm run test:update src/button
 
 ```
 
@@ -175,7 +175,7 @@ yarn test:update src/button  # or npm run test:update src/button
 
 ```
 # Build current code
-yarn build # or npm run build
+pnpm build # or npm run build
 ```
 
 > Note: ensure your version of Node is 14 or higher to run scripts
