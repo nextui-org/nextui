@@ -34,8 +34,8 @@ export const StyledPopoverContentContainer = styled(
   "div",
   {
     /* variables */
-    $$popoverMinWidth: "$space$13",
-    $$popoverMinHeight: "$space$13",
+    $$popoverMinWidth: "$space$fit",
+    $$popoverMinHeight: "$space$fit",
     $$popoverBorderRadius: "$radii$lg",
     $$popoverBackground: "$colors$backgroundContrast",
     $$popoverBoxShadow: "$shadows$md",
