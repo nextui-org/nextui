@@ -1,10 +1,18 @@
 {
-  "name": "root",
+  "name": "nextui",
   "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
+  "author": {
+    "name": "Junior Garcia",
+    "email": "jrgarciadev@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nextui-org/nextui"
+  },
   "engines": {
     "node": ">=12.13.0 <18.0.0",
     "npm": ">=7.9.0",
@@ -13,13 +21,14 @@
   "scripts": {
     "dev:docs": "turbo run dev --scope=@nextui-org/docs --no-deps",
     "dev:nextui": "turbo run dev --scope=@nextui-org/react --no-deps",
-    "sb": "turbo run sb --scope=@nextui-org/react-storybook --no-deps",
     "start:docs": "turbo run start --scope=@nextui-org/docs --no-deps",
-    "start:sb": "turbo run start --scope=@nextui-org/react-storybook --no-deps",
     "build:docs": "turbo run build --scope=@nextui-org/docs",
     "build": "turbo run build",
     "build:nextui": "turbo run build --scope=@nextui-org/react --no-deps",
-    "build:sb": "turbo run build --scope=@nextui-org/react-storybook --no-deps",
+    "sb": "yarn storybook",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
+    "build:sb": "tyarn build-storybook",
+    "start:sb": "yarn build-storybook && http-server ./storybook-static",
     "turbo:graph": "yarn build --graph=dependency-graph.png",
     "turbo:clean": "rm -rf ./node_modules/.cache/turbo",
     "deploy:docs": "yarn workspace @nextui-org/docs deploy",
@@ -42,13 +51,31 @@
     "cov:co": "yarn coverage:codecov",
     "cov:up": "yarn workspace @nextui-org/react coverage-update",
     "build:docs-meta": "node scripts/update-index-docs.js",
-    "clean": "yarn turbo:clean"
+    "clean": "yarn turbo:clean",
+    "create:pkg": "plop component",
+    "version": "changeset version",
+    "release": "changeset publish",
+    "version:dev": "changeset version --snapshot dev",
+    "release:dev": "changeset publish --tag dev"
   },
-  "devDependencies": {
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "@types/react": "17.0.33",
+    "@types/react-dom": "17.0.9",
     "@docusaurus/utils": "2.0.0-beta.3",
+    "@babel/core": "^7.16.7",
+    "@storybook/addon-a11y": "^6.5.3",
+    "@storybook/addon-actions": "^6.5.3",
+    "@storybook/addon-essentials": "^6.5.3",
+    "@storybook/addon-links": "^6.5.3",
+    "@storybook/addon-storysource": "^6.5.3",
+    "@storybook/builder-webpack5": "^6.5.3",
+    "@storybook/manager-webpack5": "^6.5.3",
+    "@storybook/react": "^6.5.3",
+    "babel-loader": "^8.2.3",
+    "storybook-dark-mode": "^1.1.0",
     "@types/node": "^14.14.41",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
     "@types/shelljs": "^0.8.9",
     "@types/styled-jsx": "^2.2.8",
     "@types/uuid": "^8.3.1",
@@ -83,15 +110,21 @@
     "prettier-eslint-cli": "^5.0.1",
     "shelljs": "^0.8.4",
     "ts-node": "^10.1.0",
-    "turbo": "^1.0.24",
-    "typescript": "4.6.2",
-    "uuid": "^8.3.2"
+    "tsup": "6.1.3",
+    "plop": "3.1.1",
+    "turbo": "1.3.4",
+    "typescript": "^4.7.4",
+    "find-up": "^6.3.0",
+    "uuid": "^8.3.2",
+    "rimraf": "^3.0.2",
+    "@changesets/changelog-github": "0.4.6",
+    "@changesets/cli": "2.24.1",
+    "@changesets/get-release-plan": "3.0.12",
+    "@changesets/types": "5.1.0",
+    "gray-matter": "^4.0.3"
   },
   "resolutions": {
     "@types/react": "17.0.33"
-  },
-  "dependencies": {
-    "gray-matter": "^4.0.3"
   },
   "packageManager": "yarn@1.22.17"
 }

@@ -1,0 +1,22 @@
+import * as React from "react";
+import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
+import {useDOMRef} from "@nextui-org/dom-utils";
+import {__DEV__} from "@nextui-org/shared-utils";
+
+import { Styled{{capitalize componentName}} } from "./{{componentName}}.styles";
+
+export interface {{capitalize componentName}}Props extends HTMLNextUIProps<"div"> {}
+
+const {{capitalize componentName}} = forwardRef<{{capitalize componentName}}Props, "div">((props, ref) => {
+  const domRef = useDOMRef(ref);
+
+  return <Styled{{capitalize componentName}} ref={domRef} />;
+});
+
+if (__DEV__) {
+  {{capitalize componentName}}.displayName = "NextUI.{{capitalize componentName}}";
+}
+
+{{capitalize componentName}}.toString = () => ".nextui-{{componentName}}";
+
+export default {{capitalize componentName}};

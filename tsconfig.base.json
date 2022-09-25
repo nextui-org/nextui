@@ -1,38 +1,26 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
-    "paths": {},
-    "strictNullChecks": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "allowJs": true,
-    "target": "es6",
-    "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "skipLibCheck": true,
-    "noEmit": true,
+    "target": "esnext",
     "module": "esnext",
-    "resolveJsonModule": true,
+    "lib": ["dom", "esnext"],
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "strict": true,
     "isolatedModules": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "typeRoots": [
-      "./node_modules/@types", "./typings"
-    ]
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true
   },
-  "exclude": ["node_modules"],
   "include": [
-    "**/*.ts", 
-    "**/*.tsx", 
-    "**/*.js", 
-    "**/*.jsx"
+    "packages",
+    "react-shim.js"
   ],
+  "exclude": ["node_modules"],
 }
 
   
