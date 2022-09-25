@@ -57,7 +57,6 @@ export type ScaleValue<T> = Stitches.ScaleValue<T>;
 export type CSSProperties = Stitches.CSSProperties;
 export type CSS = Stitches.CSS<StitchesConfig>;
 export type StitchesTheme = typeof theme;
-export type StyledComponent = typeof styled;
 
 // common theme types
 export type Spaces = StitchesConfig["theme"]["space"];

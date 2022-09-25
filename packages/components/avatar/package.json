@@ -37,11 +37,13 @@
     "react": ">=16.8.0",
     "react-aria": ">=3.18.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-css": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/dom-utils": "workspace:*"
+  },
+  "devDependencies": {
     "react-aria": "3.18.0",
     "clean-package": "2.1.1",
     "react": "^17.0.2"

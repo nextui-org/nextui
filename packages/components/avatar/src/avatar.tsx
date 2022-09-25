@@ -1,5 +1,5 @@
 import {useState, useEffect, useMemo} from "react";
-import {useFocusRing} from "react-aria";
+import {useFocusRing, mergeProps} from "react-aria";
 import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
 import {useDOMRef, IFocusRingAria} from "@nextui-org/dom-utils";
 import {clsx, ReactRef, safeText, __DEV__} from "@nextui-org/shared-utils";

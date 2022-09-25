@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
     "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "esnext"],
-    "declaration": true,
     "sourceMap": true,
+    "declaration": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
     "strict": true,
     "isolatedModules": true,
+    "allowJs": true,
     "noFallthroughCasesInSwitch": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
@@ -17,11 +17,6 @@
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true
   },
-  "include": [
-    "packages",
-    "react-shim.js"
-  ],
-  "exclude": ["**/node_modules"],
+  "include": ["packages", "react-shim.js"],
+  "exclude": ["**/node_modules"]
 }
-
-  

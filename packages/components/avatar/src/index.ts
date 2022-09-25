@@ -1,7 +1,5 @@
-export * from "./use-avatar";
-
 // export styled components
-export {StyledAvatar} from "./avatar.styles";
+export * from "./avatar.styles";
 
 // export types
 export type {AvatarProps} from "./avatar";

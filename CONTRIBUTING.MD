@@ -78,8 +78,10 @@ https://www.conventionalcommits.org/ or check out the
 
 3. Make and commit your changes following the
    [commit convention](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md#commit-convention).
-   As you develop, you can run `pnpm pkg <module> build` and
-   `pnpm test packages/<module>/<component>` to make sure everything works as expected.
+   As you develop, you can run `pnpm build --filter=<module>` and
+   `pnpm test --filter=<module>` e.g. `pnpm build --filter=avatar` to make sure everything works as expected.
+
+   > To know more about the `--filter` option, please check the turborepo [docs](https://turborepo.org/docs/core-concepts/filtering).
 
 4. Run `pnpm changeset` to create a detailed description of your changes. This
    will be used to generate a changelog when we publish an update.
