@@ -27,7 +27,7 @@ module.exports = {
       ...config.resolve.alias,
       "@nextui-org/react": path.resolve(
         __dirname,
-        "../packages/components/react/src",
+        "../packages/core/react/src",
       ),
     }
     config.resolve.extensions.push(".ts", ".tsx")

@@ -5,6 +5,7 @@ import {useDOMRef, IFocusRingAria} from "@nextui-org/dom-utils";
 import {clsx, ReactRef, safeText, __DEV__} from "@nextui-org/shared-utils";
 
 import {StyledAvatar, AvatarVariantsProps} from "./avatar.styles";
+import AvatarGroup from "./avatar-group";
 
 export interface AvatarProps extends HTMLNextUIProps<"span", AvatarVariantsProps> {
   text?: string;
@@ -39,6 +40,7 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
       as={as}
       {...mergeProps(otherProps, focusProps)}
       className={clsx(
+        "nextui-avatar",
         {
           "only-text-avatar": showText,
         },
@@ -79,7 +81,7 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
 });
 
 type AvatarComponent<P = {}> = React.NamedExoticComponent<P> & {
-  // Group: typeof AvatarGroup;
+  Group: typeof AvatarGroup;
 };
 
 if (__DEV__) {

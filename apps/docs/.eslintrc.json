@@ -1,25 +1,24 @@
 {
-    "extends": ["../../.eslintrc.json"],
-    "ignorePatterns": ["!**/*"],
-    "overrides": [
-      {
-        "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-        "parserOptions": {
-            "project": ["apps/docs/tsconfig(.*)?.json"],
-            "ecmaFeatures": {
-              "jsx": true
-            }
-        },
-        "rules": {}
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["apps/docs/tsconfig(.*)?.json"],
+        "ecmaFeatures": {
+          "jsx": true
+        }
       },
-      {
-        "files": ["*.ts", "*.tsx"],
-        "rules": {}
-      },
-      {
-        "files": ["*.js", "*.jsx"],
-        "rules": {}
-      }
-    ]
-  }
-  
+      "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
+}

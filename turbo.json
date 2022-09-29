@@ -17,14 +17,6 @@
       "dependsOn": ["^build"],
       "outputs": []
     },
-    "test": {
-      "dependsOn": ["^build"],
-      "outputs": []
-    },
-    "test-update": {
-      "dependsOn": ["^build"],
-      "outputs": []
-    },
     "lint": {
       "outputs": []
     },

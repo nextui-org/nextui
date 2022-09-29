@@ -2,10 +2,15 @@
 .next/*
 *.css
 examples/*
-dist/*
+dist
 esm/*
 public/*
 scripts/*
 tests/*
 *.config.js
 .DS_Store
+node_modules
+coverage
+.next
+build
+

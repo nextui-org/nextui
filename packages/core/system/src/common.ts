@@ -1,6 +1,4 @@
-import type * as Stitches from "@stitches/react";
-
-import {defaultThemeMap as defaultStitchesThemeMap} from "@stitches/react";
+import {PropertyValue, defaultThemeMap as defaultStitchesThemeMap} from "@stitches/react";
 
 export const defaultTokens = {
   fonts: {
@@ -271,233 +269,233 @@ export const defaultMedia = {
 };
 
 export const defaultUtils = {
-  p: (value: Stitches.PropertyValue<"padding">) => ({
+  p: (value: PropertyValue<"padding">) => ({
     padding: value,
   }),
-  pt: (value: Stitches.PropertyValue<"paddingTop">) => ({
+  pt: (value: PropertyValue<"paddingTop">) => ({
     paddingTop: value,
   }),
-  pr: (value: Stitches.PropertyValue<"paddingRight">) => ({
+  pr: (value: PropertyValue<"paddingRight">) => ({
     paddingRight: value,
   }),
-  pb: (value: Stitches.PropertyValue<"paddingBottom">) => ({
+  pb: (value: PropertyValue<"paddingBottom">) => ({
     paddingBottom: value,
   }),
-  pl: (value: Stitches.PropertyValue<"paddingLeft">) => ({
+  pl: (value: PropertyValue<"paddingLeft">) => ({
     paddingLeft: value,
   }),
-  px: (value: Stitches.PropertyValue<"paddingLeft">) => ({
+  px: (value: PropertyValue<"paddingLeft">) => ({
     paddingLeft: value,
     paddingRight: value,
   }),
-  py: (value: Stitches.PropertyValue<"paddingTop">) => ({
+  py: (value: PropertyValue<"paddingTop">) => ({
     paddingTop: value,
     paddingBottom: value,
   }),
-  m: (value: Stitches.PropertyValue<"margin">) => ({
+  m: (value: PropertyValue<"margin">) => ({
     margin: value,
   }),
-  mt: (value: Stitches.PropertyValue<"marginTop">) => ({
+  mt: (value: PropertyValue<"marginTop">) => ({
     marginTop: value,
   }),
-  mr: (value: Stitches.PropertyValue<"marginRight">) => ({
+  mr: (value: PropertyValue<"marginRight">) => ({
     marginRight: value,
   }),
-  mb: (value: Stitches.PropertyValue<"marginBottom">) => ({
+  mb: (value: PropertyValue<"marginBottom">) => ({
     marginBottom: value,
   }),
-  ml: (value: Stitches.PropertyValue<"marginLeft">) => ({
+  ml: (value: PropertyValue<"marginLeft">) => ({
     marginLeft: value,
   }),
-  mx: (value: Stitches.PropertyValue<"marginLeft">) => ({
+  mx: (value: PropertyValue<"marginLeft">) => ({
     marginLeft: value,
     marginRight: value,
   }),
-  my: (value: Stitches.PropertyValue<"marginTop">) => ({
+  my: (value: PropertyValue<"marginTop">) => ({
     marginTop: value,
     marginBottom: value,
   }),
-  ta: (value: Stitches.PropertyValue<"textAlign">) => ({
+  ta: (value: PropertyValue<"textAlign">) => ({
     textAlign: value,
   }),
-  tt: (value: Stitches.PropertyValue<"textTransform">) => ({
+  tt: (value: PropertyValue<"textTransform">) => ({
     textTransform: value,
   }),
-  to: (value: Stitches.PropertyValue<"textOverflow">) => ({
+  to: (value: PropertyValue<"textOverflow">) => ({
     textOverflow: value,
   }),
-  d: (value: Stitches.PropertyValue<"display">) => ({display: value}),
-  dflex: (value: Stitches.PropertyValue<"alignItems">) => ({
+  d: (value: PropertyValue<"display">) => ({display: value}),
+  dflex: (value: PropertyValue<"alignItems">) => ({
     display: "flex",
     alignItems: value,
     justifyContent: value,
   }),
-  fd: (value: Stitches.PropertyValue<"flexDirection">) => ({
+  fd: (value: PropertyValue<"flexDirection">) => ({
     flexDirection: value,
   }),
-  fw: (value: Stitches.PropertyValue<"flexWrap">) => ({flexWrap: value}),
-  ai: (value: Stitches.PropertyValue<"alignItems">) => ({
+  fw: (value: PropertyValue<"flexWrap">) => ({flexWrap: value}),
+  ai: (value: PropertyValue<"alignItems">) => ({
     alignItems: value,
   }),
-  ac: (value: Stitches.PropertyValue<"alignContent">) => ({
+  ac: (value: PropertyValue<"alignContent">) => ({
     alignContent: value,
   }),
-  jc: (value: Stitches.PropertyValue<"justifyContent">) => ({
+  jc: (value: PropertyValue<"justifyContent">) => ({
     justifyContent: value,
   }),
-  as: (value: Stitches.PropertyValue<"alignSelf">) => ({
+  as: (value: PropertyValue<"alignSelf">) => ({
     alignSelf: value,
   }),
-  fg: (value: Stitches.PropertyValue<"flexGrow">) => ({flexGrow: value}),
-  fs: (value: Stitches.PropertyValue<"fontSize">) => ({
+  fg: (value: PropertyValue<"flexGrow">) => ({flexGrow: value}),
+  fs: (value: PropertyValue<"fontSize">) => ({
     fontSize: value,
   }),
-  fb: (value: Stitches.PropertyValue<"flexBasis">) => ({
+  fb: (value: PropertyValue<"flexBasis">) => ({
     flexBasis: value,
   }),
-  bc: (value: Stitches.PropertyValue<"backgroundColor">) => ({
+  bc: (value: PropertyValue<"backgroundColor">) => ({
     backgroundColor: value,
   }),
-  bf: (value: Stitches.PropertyValue<"backdropFilter">) => ({
+  bf: (value: PropertyValue<"backdropFilter">) => ({
     backdropFilter: value,
   }),
-  bg: (value: Stitches.PropertyValue<"backgroundColor">) => ({
+  bg: (value: PropertyValue<"backgroundColor">) => ({
     background: value,
   }),
-  bgBlur: (value: Stitches.PropertyValue<"backgroundColor">) => ({
+  bgBlur: (value: PropertyValue<"backgroundColor">) => ({
     bf: "saturate(180%) blur(10px)",
     bg: value,
   }),
-  bgColor: (value: Stitches.PropertyValue<"backgroundColor">) => ({
+  bgColor: (value: PropertyValue<"backgroundColor">) => ({
     backgroundColor: value,
   }),
-  backgroundClip: (value: Stitches.PropertyValue<"backgroundClip">) => ({
+  backgroundClip: (value: PropertyValue<"backgroundClip">) => ({
     WebkitBackgroundClip: value,
     backgroundClip: value,
   }),
-  bgClip: (value: Stitches.PropertyValue<"backgroundClip">) => ({
+  bgClip: (value: PropertyValue<"backgroundClip">) => ({
     WebkitBackgroundClip: value,
     backgroundClip: value,
   }),
-  br: (value: Stitches.PropertyValue<"borderRadius">) => ({
+  br: (value: PropertyValue<"borderRadius">) => ({
     borderRadius: value,
   }),
-  bw: (value: Stitches.PropertyValue<"borderWidth">) => ({
+  bw: (value: PropertyValue<"borderWidth">) => ({
     borderWidth: value,
   }),
-  btrr: (value: Stitches.PropertyValue<"borderTopRightRadius">) => ({
+  btrr: (value: PropertyValue<"borderTopRightRadius">) => ({
     borderTopRightRadius: value,
   }),
-  bbrr: (value: Stitches.PropertyValue<"borderBottomRightRadius">) => ({
+  bbrr: (value: PropertyValue<"borderBottomRightRadius">) => ({
     borderBottomRightRadius: value,
   }),
-  bblr: (value: Stitches.PropertyValue<"borderBottomLeftRadius">) => ({
+  bblr: (value: PropertyValue<"borderBottomLeftRadius">) => ({
     borderBottomLeftRadius: value,
   }),
-  btlr: (value: Stitches.PropertyValue<"borderTopLeftRadius">) => ({
+  btlr: (value: PropertyValue<"borderTopLeftRadius">) => ({
     borderTopLeftRadius: value,
   }),
-  bs: (value: Stitches.PropertyValue<"boxShadow">) => ({
+  bs: (value: PropertyValue<"boxShadow">) => ({
     boxShadow: value,
   }),
-  ds: (value: Stitches.PropertyValue<"boxShadow">) => ({
+  ds: (value: PropertyValue<"boxShadow">) => ({
     dropShadow: value,
   }),
-  shadow: (value: Stitches.PropertyValue<"boxShadow">) => ({
+  shadow: (value: PropertyValue<"boxShadow">) => ({
     boxShadow: value,
   }),
-  dshadow: (value: Stitches.PropertyValue<"boxShadow">) => ({
+  dshadow: (value: PropertyValue<"boxShadow">) => ({
     dropShadow: value,
   }),
-  dropShadow: (value: Stitches.PropertyValue<"boxShadow">) => ({
+  dropShadow: (value: PropertyValue<"boxShadow">) => ({
     filter: `$dropShadows${value}`,
   }),
-  normalShadow: (value: Stitches.PropertyValue<"backgroundColor">) => ({
+  normalShadow: (value: PropertyValue<"backgroundColor">) => ({
     boxShadow: `0 4px 14px 0 $colors${value}`,
   }),
-  normalShadowVar: (value: Stitches.PropertyValue<"backgroundColor">) => ({
+  normalShadowVar: (value: PropertyValue<"backgroundColor">) => ({
     boxShadow: `0 4px 14px 0 ${value}`,
   }),
-  lh: (value: Stitches.PropertyValue<"lineHeight">) => ({
+  lh: (value: PropertyValue<"lineHeight">) => ({
     lineHeight: value,
   }),
-  ov: (value: Stitches.PropertyValue<"overflow">) => ({overflow: value}),
-  ox: (value: Stitches.PropertyValue<"overflowX">) => ({
+  ov: (value: PropertyValue<"overflow">) => ({overflow: value}),
+  ox: (value: PropertyValue<"overflowX">) => ({
     overflowX: value,
   }),
-  oy: (value: Stitches.PropertyValue<"overflowY">) => ({
+  oy: (value: PropertyValue<"overflowY">) => ({
     overflowY: value,
   }),
-  pe: (value: Stitches.PropertyValue<"pointerEvents">) => ({
+  pe: (value: PropertyValue<"pointerEvents">) => ({
     pointerEvents: value,
   }),
-  events: (value: Stitches.PropertyValue<"pointerEvents">) => ({
+  events: (value: PropertyValue<"pointerEvents">) => ({
     pointerEvents: value,
   }),
-  us: (value: Stitches.PropertyValue<"userSelect">) => ({
+  us: (value: PropertyValue<"userSelect">) => ({
     WebkitUserSelect: value,
     userSelect: value,
   }),
-  userSelect: (value: Stitches.PropertyValue<"userSelect">) => ({
+  userSelect: (value: PropertyValue<"userSelect">) => ({
     WebkitUserSelect: value,
     userSelect: value,
   }),
-  w: (value: Stitches.PropertyValue<"width">) => ({width: value}),
-  h: (value: Stitches.PropertyValue<"height">) => ({height: value}),
-  mw: (value: Stitches.PropertyValue<"maxWidth">) => ({maxWidth: value}),
-  maxW: (value: Stitches.PropertyValue<"maxWidth">) => ({
+  w: (value: PropertyValue<"width">) => ({width: value}),
+  h: (value: PropertyValue<"height">) => ({height: value}),
+  mw: (value: PropertyValue<"maxWidth">) => ({maxWidth: value}),
+  maxW: (value: PropertyValue<"maxWidth">) => ({
     maxWidth: value,
   }),
-  mh: (value: Stitches.PropertyValue<"maxHeight">) => ({
+  mh: (value: PropertyValue<"maxHeight">) => ({
     maxHeight: value,
   }),
-  maxH: (value: Stitches.PropertyValue<"maxHeight">) => ({
+  maxH: (value: PropertyValue<"maxHeight">) => ({
     maxHeight: value,
   }),
-  size: (value: Stitches.PropertyValue<"width">) => ({
+  size: (value: PropertyValue<"width">) => ({
     width: value,
     height: value,
   }),
-  minSize: (value: Stitches.PropertyValue<"width">) => ({
+  minSize: (value: PropertyValue<"width">) => ({
     minWidth: value,
     minHeight: value,
     width: value,
     height: value,
   }),
-  sizeMin: (value: Stitches.PropertyValue<"width">) => ({
+  sizeMin: (value: PropertyValue<"width">) => ({
     minWidth: value,
     minHeight: value,
     width: value,
     height: value,
   }),
-  maxSize: (value: Stitches.PropertyValue<"width">) => ({
+  maxSize: (value: PropertyValue<"width">) => ({
     maxWidth: value,
     maxHeight: value,
   }),
-  sizeMax: (value: Stitches.PropertyValue<"width">) => ({
+  sizeMax: (value: PropertyValue<"width">) => ({
     maxWidth: value,
     maxHeight: value,
   }),
-  appearance: (value: Stitches.PropertyValue<"appearance">) => ({
+  appearance: (value: PropertyValue<"appearance">) => ({
     WebkitAppearance: value,
     appearance: value,
   }),
-  scale: (value: Stitches.PropertyValue<"scale">) => ({
+  scale: (value: PropertyValue<"scale">) => ({
     transform: `scale(${value})`,
   }),
-  linearGradient: (value: Stitches.PropertyValue<"backgroundImage">) => ({
+  linearGradient: (value: PropertyValue<"backgroundImage">) => ({
     backgroundImage: `linear-gradient(${value})`,
   }),
-  tdl: (value: Stitches.PropertyValue<"textDecorationLine">) => ({
+  tdl: (value: PropertyValue<"textDecorationLine">) => ({
     textDecorationLine: value,
   }),
-  truncateText: (value: Stitches.PropertyValue<"width">) => ({
+  truncateText: (value: PropertyValue<"width">) => ({
     maxWidth: value,
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
   }),
-  textGradient: (value: Stitches.PropertyValue<"backgroundImage">) => ({
+  textGradient: (value: PropertyValue<"backgroundImage">) => ({
     backgroundImage: `linear-gradient(${value})`,
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
