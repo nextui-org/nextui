@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/avatar",
+  "name": "@nextui-org/icons-utils",
   "version": "1.0.0-beta.11",
-  "description": "The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.",
+  "description": "Internal icons set, commonly used in the components stories",
   "keywords": [
-    "avatar"
+    "icons-utils"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/avatar"
+    "directory": "packages/utilities/icons-utils"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -34,19 +34,9 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-aria": ">=3.18.0"
-  },
-  "dependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@nextui-org/spacer": "workspace:*",
-    "@nextui-org/icons-utils": "workspace:*",
-    "react-aria": "3.18.0",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   }

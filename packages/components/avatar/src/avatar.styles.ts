@@ -306,13 +306,6 @@ export const StyledAvatar = styled(
         },
       },
     ],
-    defaultVariants: {
-      size: "md",
-      rounded: true,
-      color: "default",
-      textColor: "default",
-      borderWeight: "normal",
-    },
   },
   cssFocusVisible,
 );

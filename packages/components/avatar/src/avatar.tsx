@@ -1,22 +1,60 @@
+import type {
+  ReactRef,
+  NormalColors,
+  SimpleColors,
+  NormalSizes,
+  NormalWeights,
+} from "@nextui-org/shared-utils";
+
 import {useState, useEffect, useMemo} from "react";
 import {useFocusRing, mergeProps} from "react-aria";
 import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
 import {useDOMRef, IFocusRingAria} from "@nextui-org/dom-utils";
-import {clsx, ReactRef, safeText, __DEV__} from "@nextui-org/shared-utils";
+import {clsx, safeText, __DEV__} from "@nextui-org/shared-utils";
 
-import {StyledAvatar, AvatarVariantsProps} from "./avatar.styles";
+import {StyledAvatar} from "./avatar.styles";
 import AvatarGroup from "./avatar-group";
 
-export interface AvatarProps extends HTMLNextUIProps<"span", AvatarVariantsProps> {
+export interface AvatarProps extends HTMLNextUIProps<"span"> {
+  bordered?: boolean;
+  rounded?: boolean;
+  stacked?: boolean;
+  pointer?: boolean;
+  squared?: boolean;
+  zoomed?: boolean;
   text?: string;
   src?: string;
   alt?: string;
+  color?: NormalColors;
+  textColor?: SimpleColors;
+  size?: NormalSizes;
+  borderWeight?: NormalWeights;
   icon?: React.ReactNode;
   imgRef?: ReactRef<HTMLImageElement>;
 }
 
 const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
-  const {as, src, css, text, icon, alt, className, imgRef: imgRefProp, ...otherProps} = props;
+  const {
+    as,
+    src,
+    css,
+    text,
+    icon,
+    alt,
+    bordered,
+    stacked,
+    pointer,
+    squared,
+    zoomed,
+    color = "default",
+    textColor = "default",
+    size = "md",
+    borderWeight = "normal",
+    rounded = true,
+    className,
+    imgRef: imgRefProp,
+    ...otherProps
+  } = props;
 
   const domRef = useDOMRef(ref);
   const imgRef = useDOMRef(imgRefProp);
@@ -34,10 +72,35 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
     return !ready && src ? "loading" : "ready";
   }, [src, ready]);
 
+  const getCss = useMemo(() => {
+    if (as === "button") {
+      return {
+        // reset button styles
+        appearance: "none",
+        outline: "none",
+        border: "none",
+        cursor: "pointer",
+        ...css,
+      };
+    }
+
+    return css;
+  }, [as, css]);
+
   return (
     <StyledAvatar
       ref={domRef}
       as={as}
+      borderWeight={borderWeight}
+      bordered={bordered}
+      color={color}
+      pointer={pointer}
+      rounded={rounded}
+      size={size}
+      squared={squared}
+      stacked={stacked}
+      textColor={textColor}
+      zoomed={zoomed}
       {...mergeProps(otherProps, focusProps)}
       className={clsx(
         "nextui-avatar",
@@ -46,18 +109,7 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
         },
         className,
       )}
-      css={
-        as === "button"
-          ? {
-              // reset button styles
-              appearance: "none",
-              outline: "none",
-              border: "none",
-              cursor: "pointer",
-              ...css,
-            }
-          : css
-      }
+      css={getCss}
       data-state={getState}
       isFocusVisible={isFocusVisible}
     >
@@ -90,4 +142,8 @@ if (__DEV__) {
 
 Avatar.toString = () => ".nextui-avatar";
 
-export default Avatar as AvatarComponent<AvatarProps>;
+const AvatarWithGroup = Avatar as AvatarComponent<AvatarProps>;
+
+AvatarWithGroup.Group = AvatarGroup;
+
+export default AvatarWithGroup;

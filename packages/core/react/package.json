@@ -41,7 +41,8 @@
   "dependencies": {
     "@babel/runtime": "^7.6.2",
     "@nextui-org/system": "workspace:*",
-    "@nextui-org/avatar": "workspace:*"
+    "@nextui-org/avatar": "workspace:*",
+    "@nextui-org/col": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

@@ -1,4 +1,4 @@
-import {styled, VariantProps} from "@nextui-org/system";
+import {styled} from "@nextui-org/system";
 
 import {StyledAvatar} from "./avatar.styles";
 
@@ -40,7 +40,3 @@ export const StyledAvatarGroup = styled("div", {
     animated: true,
   },
 });
-
-export type AvatarGroupVariants = VariantProps<typeof StyledAvatarGroup>;
-
-export default StyledAvatarGroup;

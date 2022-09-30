@@ -79,7 +79,7 @@ https://www.conventionalcommits.org/ or check out the
 3. Make and commit your changes following the
    [commit convention](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md#commit-convention).
    As you develop, you can run `pnpm build --filter=<module>` and
-   `pnpm test --filter=<module>` e.g. `pnpm build --filter=avatar` to make sure everything works as expected.
+   `pnpm test packages/<module>/<pkg>` e.g. `pnpm build --filter=avatar & pnpm test packages/components/avatar` to make sure everything works as expected.
 
    > To know more about the `--filter` option, please check the turborepo [docs](https://turborepo.org/docs/core-concepts/filtering).
 
