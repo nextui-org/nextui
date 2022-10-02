@@ -9,4 +9,11 @@ describe("Grid", () => {
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
+
+  it("ref should be forwarded", () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    render(<Grid ref={ref} />);
+    expect(ref.current).not.toBeNull();
+  });
 });

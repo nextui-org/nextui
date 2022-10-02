@@ -2,7 +2,7 @@
  * Part of this code is taken from @chakra-ui/system
  */
 
-import {forwardRef as baseForwardRef, NamedExoticComponent, ReactNode} from "react";
+import {forwardRef as baseForwardRef} from "react";
 
 import {CSS} from "./stitches.config";
 
