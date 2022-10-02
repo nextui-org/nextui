@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/dom-utils",
+  "name": "@nextui-org/link",
   "version": "1.0.0-beta.11",
-  "description": "NextUI DOM Utilities",
+  "description": "Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an &lt;a&gt;",
   "keywords": [
-    "dom-utils"
+    "link"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/utilities/dom-utils"
+    "directory": "packages/components/link"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -33,16 +33,21 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
-  "dependencies": {
-    "@react-types/shared": "^3.14.1"
-  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-aria": ">=3.18.0"
   },
+  "dependencies": {
+    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/shared-css": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/system": "workspace:*"
+  },
   "devDependencies": {
+    "@react-types/link": "^3.3.3",
+    "@nextui-org/react": "workspace:*",
     "clean-package": "2.1.1",
-    "react-aria": "3.18.0",
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "react-aria": "3.18.0"
   }
 }

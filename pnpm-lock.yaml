@@ -20,6 +20,8 @@ importers:
       '@changesets/types': 5.1.0
       '@docusaurus/utils': 2.0.0-beta.3
       '@react-bootstrap/babel-preset': ^2.1.0
+      '@react-types/link': ^3.3.3
+      '@react-types/shared': ^3.14.1
       '@storybook/addon-a11y': ^6.5.3
       '@storybook/addon-actions': ^6.5.3
       '@storybook/addon-essentials': ^6.5.3
@@ -106,6 +108,8 @@ importers:
       '@changesets/types': 5.1.0
       '@docusaurus/utils': 2.0.0-beta.3_cxgt5hwiwgacztvwocsya4465q
       '@react-bootstrap/babel-preset': 2.1.0
+      '@react-types/link': 3.3.3_react@17.0.2
+      '@react-types/shared': 3.14.1_react@17.0.2
       '@storybook/addon-a11y': 6.5.12_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addon-actions': 6.5.12_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addon-essentials': 6.5.12_ekvsmtdrng24vr6exv7osytnem
@@ -397,6 +401,29 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
+  packages/components/link:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/react': workspace:*
+      '@nextui-org/shared-css': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      '@react-types/link': ^3.3.3
+      clean-package: 2.1.1
+      react: ^17.0.2
+      react-aria: 3.18.0
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/shared-css': link:../../utilities/shared-css
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+    devDependencies:
+      '@nextui-org/react': link:../../core/react
+      '@react-types/link': 3.3.3_react@17.0.2
+      clean-package: 2.1.1
+      react: 17.0.2
+      react-aria: 3.18.0_react@17.0.2
+
   packages/components/row:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
@@ -451,9 +478,11 @@ importers:
       '@nextui-org/badge': workspace:*
       '@nextui-org/col': workspace:*
       '@nextui-org/container': workspace:*
+      '@nextui-org/grid': workspace:*
       '@nextui-org/row': workspace:*
       '@nextui-org/spacer': workspace:*
       '@nextui-org/system': workspace:*
+      '@nextui-org/text': workspace:*
       '@stitches/react': 1.2.8
       clean-package: 2.1.1
       react: 17.0.2
@@ -465,9 +494,11 @@ importers:
       '@nextui-org/badge': link:../../components/badge
       '@nextui-org/col': link:../../components/col
       '@nextui-org/container': link:../../components/container
+      '@nextui-org/grid': link:../../components/grid
       '@nextui-org/row': link:../../components/row
       '@nextui-org/spacer': link:../../components/spacer
       '@nextui-org/system': link:../system
+      '@nextui-org/text': link:../../components/text
     devDependencies:
       '@stitches/react': 1.2.8_react@17.0.2
       clean-package: 2.1.1
@@ -502,12 +533,12 @@ importers:
 
   packages/utilities/dom-utils:
     specifiers:
-      '@react-types/shared': 3.14.0
+      '@react-types/shared': ^3.14.1
       clean-package: 2.1.1
       react: ^17.0.2
       react-aria: 3.18.0
     dependencies:
-      '@react-types/shared': 3.14.0_react@17.0.2
+      '@react-types/shared': 3.14.1_react@17.0.2
     devDependencies:
       clean-package: 2.1.1
       react: 17.0.2
@@ -4591,7 +4622,6 @@ packages:
       '@react-aria/utils': 3.13.3_react@17.0.2
       '@react-types/shared': 3.14.1_react@17.0.2
       react: 17.0.2
-    dev: true
 
   /@react-aria/label/3.4.1_react@17.0.2:
     resolution: {integrity: sha512-sdXkCrMh3JfV8dw/S+ENOuATG39sFFyCcokhhRgshIlbqkjWU0Wa2RQ2fxr1hmDepai/5LNOPwWTTOqI+SfMMw==}
@@ -4854,7 +4884,6 @@ packages:
     dependencies:
       '@babel/runtime': 7.19.0
       react: 17.0.2
-    dev: true
 
   /@react-aria/switch/3.2.3_react@17.0.2:
     resolution: {integrity: sha512-+VMntitxI4j+ry51csibUJ5vKXVS6UcrB0anU7T2dZ/C19yXPQHOkRz7f+tEFaYrmAVnEaVT1TeGfEXEAt/NOg==}
@@ -4965,7 +4994,6 @@ packages:
       '@react-types/shared': 3.14.1_react@17.0.2
       clsx: 1.2.1
       react: 17.0.2
-    dev: true
 
   /@react-aria/visually-hidden/3.4.1_react@17.0.2:
     resolution: {integrity: sha512-dx7OSdnQvvR8awpxwiHHBdk0N3UGyGEBI17vogmO09685J+MRW8UuJuXRNl4Eg5FnWoFHxWRnmHmXin7fdGU+w==}
@@ -5304,7 +5332,6 @@ packages:
     dependencies:
       '@babel/runtime': 7.19.0
       react: 17.0.2
-    dev: true
 
   /@react-stately/virtualizer/3.3.0_react@17.0.2:
     resolution: {integrity: sha512-63HqPKIL1nhqJoE6UubZ+lb5AMU0ss/pgX38wuoDWHnU41hPG0cMXx0AkwNAHzkIepp4b931k3SfHOx5FiB4CA==}
@@ -5411,7 +5438,6 @@ packages:
       '@react-aria/interactions': 3.11.0_react@17.0.2
       '@react-types/shared': 3.14.1_react@17.0.2
       react: 17.0.2
-    dev: true
 
   /@react-types/listbox/3.3.3_react@17.0.2:
     resolution: {integrity: sha512-EhwUl1j2xv48LB8oLcw9uhDGbNY+K1sTrHVdkQpXJwtgV5Mp6WN1yWL3naR+GK23aWL1kD/yxkQU7Lg5a2EXBw==}
@@ -5497,21 +5523,12 @@ packages:
       react: 17.0.2
     dev: true
 
-  /@react-types/shared/3.14.0_react@17.0.2:
-    resolution: {integrity: sha512-K069Bh/P0qV3zUG8kqabeO8beAUlFdyVPvpcNVPjRl+0Q9NDS9mfdQbmUa0LqdVo5e6jRPdos77Ylflkrz8wcw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-    dependencies:
-      react: 17.0.2
-    dev: false
-
   /@react-types/shared/3.14.1_react@17.0.2:
     resolution: {integrity: sha512-yPPgVRWWanXqbdxFTgJmVwx0JlcnEK3dqkKDIbVk6mxAHvEESI9+oDnHvO8IMHqF+GbrTCzVtAs0zwhYI/uHJA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       react: 17.0.2
-    dev: true
 
   /@react-types/slider/3.2.1_react@17.0.2:
     resolution: {integrity: sha512-adqWZLE2IEzqBGnGHKYQwJ2IY4xlwFcPt3KWCsfp1c1WyG/d7xxQus8rL4eWLqoiMgguTxbYm9F2TF77itw8JA==}
@@ -9785,7 +9802,6 @@ packages:
   /clsx/1.2.1:
     resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
     engines: {node: '>=6'}
-    dev: true
 
   /co/4.6.0:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}

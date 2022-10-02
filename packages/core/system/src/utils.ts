@@ -5,9 +5,12 @@ import defaultTheme from "./light-theme";
 import {ThemeType, TokenValue, TokenKeyName} from "./types";
 
 export const getTokenValue = (token: TokenKeyName, tokenName: string, alpha = 1) => {
-  if (typeof document === "undefined" || !token) return "";
+  if (typeof document === "undefined" || !token || !tokenName) return "";
+
+  const name = tokenName.includes("$") ? tokenName.replace("$", "") : tokenName;
+
   let docStyle = getComputedStyle(document.documentElement);
-  const tokenKey = `--${commonTheme.prefix}-${token}-${tokenName}`;
+  const tokenKey = `--${commonTheme.prefix}-${token}-${name}`;
   const tokenValue = docStyle.getPropertyValue(tokenKey);
 
   if (tokenValue && tokenValue.includes("var")) {

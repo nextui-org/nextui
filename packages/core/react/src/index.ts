@@ -5,3 +5,5 @@ export * from "@nextui-org/container";
 export * from "@nextui-org/spacer";
 export * from "@nextui-org/avatar";
 export * from "@nextui-org/badge";
+export * from "@nextui-org/grid";
+export * from "@nextui-org/text";

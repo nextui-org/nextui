@@ -46,7 +46,9 @@
     "@nextui-org/row": "workspace:*",
     "@nextui-org/spacer": "workspace:*",
     "@nextui-org/container": "workspace:*",
-    "@nextui-org/badge": "workspace:*"
+    "@nextui-org/badge": "workspace:*",
+    "@nextui-org/grid": "workspace:*",
+    "@nextui-org/text": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

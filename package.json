@@ -15,7 +15,7 @@
     "pnpm": ">=1.12.x"
   },
   "scripts": {
-    "clean:pn-css-type": "rimraf node_modules/.pnpm/csstype*",
+    "clean:pn-types": "rimraf node_modules/.pnpm/csstype*",
     "dev:docs": "turbo run dev --scope=@nextui-org/docs --no-deps",
     "start:docs": "turbo run start --scope=@nextui-org/docs --no-deps",
     "build:docs": "turbo run build --scope=@nextui-org/docs",
@@ -43,11 +43,13 @@
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
     "release:dev": "changeset publish --tag dev",
-    "postinstall": "pnpm clean:pn-css-type"
+    "postinstall": "pnpm clean:pn-types"
   },
   "dependencies": {
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.16.7",
+    "@react-types/link": "^3.3.3",
+    "@react-types/shared": "^3.14.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.15.6",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.5",

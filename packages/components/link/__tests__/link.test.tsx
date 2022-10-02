@@ -1,11 +1,11 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
 
-import { {{capitalize componentName}} } from "../src";
+import {Link} from "../src";
 
-describe("{{capitalize componentName}}", () => {
+describe("Link", () => {
   it("should render correctly", () => {
-   const wrapper = render(<{{capitalize componentName}} />);
+    const wrapper = render(<Link />);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -13,7 +13,7 @@ describe("{{capitalize componentName}}", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLDivElement>();
 
-    render(<{{capitalize componentName}} ref={ref} />);
+    render(<Link ref={ref} />);
     expect(ref.current).not.toBeNull();
   });
 });

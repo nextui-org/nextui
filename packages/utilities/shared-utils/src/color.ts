@@ -57,7 +57,9 @@ export const hexToRGBA = (hex: string, alpha: number = 1): string => {
 };
 
 export const isNormalColor = (color: string): boolean => {
-  let found = normalColors.find((el) => el === color);
+  let c = color.includes("$") ? color.replace("$", "") : color;
+
+  let found = normalColors.find((el) => el === c);
 
   return found !== undefined && found !== null;
 };
