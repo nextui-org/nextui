@@ -8,7 +8,7 @@ import {useSpacer, UseSpacerProps} from "./use-spacer";
 export interface SpacerProps extends UseSpacerProps {}
 
 const Spacer = forwardRef<SpacerProps, "span">((props, ref) => {
-  const {spacerCss, inline, css, ...otherProps} = useSpacer(props);
+  const {children, spacerCss, inline, css, ...otherProps} = useSpacer(props);
 
   const domRef = useDOMRef(ref);
 
@@ -22,7 +22,9 @@ const Spacer = forwardRef<SpacerProps, "span">((props, ref) => {
       }}
       inline={inline}
       {...otherProps}
-    />
+    >
+      {children}
+    </StyledSpacer>
   );
 });
 

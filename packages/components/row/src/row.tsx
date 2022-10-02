@@ -8,7 +8,7 @@ import {StyledRow} from "./row.styles";
 export interface RowProps extends UseRowProps {}
 
 const Row = forwardRef<RowProps, "div">((props, ref) => {
-  const {rowCss, css, className, ...otherProps} = useRow(props);
+  const {children, rowCss, css, className, ...otherProps} = useRow(props);
 
   const domRef = useDOMRef(ref);
 
@@ -21,7 +21,9 @@ const Row = forwardRef<RowProps, "div">((props, ref) => {
         ...css,
       }}
       {...otherProps}
-    />
+    >
+      {children}
+    </StyledRow>
   );
 });
 

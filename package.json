@@ -15,6 +15,7 @@
     "pnpm": ">=1.12.x"
   },
   "scripts": {
+    "clean:pn-css-type": "rimraf node_modules/.pnpm/csstype*",
     "dev:docs": "turbo run dev --scope=@nextui-org/docs --no-deps",
     "start:docs": "turbo run start --scope=@nextui-org/docs --no-deps",
     "build:docs": "turbo run build --scope=@nextui-org/docs",
@@ -41,7 +42,8 @@
     "version": "changeset version",
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
-    "release:dev": "changeset publish --tag dev"
+    "release:dev": "changeset publish --tag dev",
+    "postinstall": "pnpm clean:pn-css-type"
   },
   "dependencies": {
     "@babel/cli": "^7.14.5",

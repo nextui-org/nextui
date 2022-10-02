@@ -8,7 +8,8 @@ import {useContainer, UseContainerProps} from "./use-container";
 export interface ContainerProps extends UseContainerProps {}
 
 const Container = forwardRef<ContainerProps, "div">((props, ref) => {
-  const {containerCss, css, fluid, responsive, className, ...otherProps} = useContainer(props);
+  const {children, containerCss, css, fluid, responsive, className, ...otherProps} =
+    useContainer(props);
 
   const domRef = useDOMRef(ref);
 
@@ -23,7 +24,9 @@ const Container = forwardRef<ContainerProps, "div">((props, ref) => {
       fluid={fluid}
       responsive={responsive}
       {...otherProps}
-    />
+    >
+      {children}
+    </StyledContainer>
   );
 });
 

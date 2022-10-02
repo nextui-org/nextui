@@ -12,6 +12,31 @@ import {useMemo} from "react";
 
 export interface UseContainerProps extends HTMLNextUIProps<"div"> {
   /**
+   * Max width extra small devices (<650px)
+   * @default "false"
+   */
+  xs?: boolean;
+  /**
+   * Max width small devices (>=650px)
+   * @default "false"
+   */
+  sm?: boolean;
+  /**
+   * Max width medium devices (>=960px)
+   * @default "false"
+   */
+  md?: boolean;
+  /**
+   * Max width large devices (>=1280px)
+   * @default "false"
+   */
+  lg?: boolean;
+  /**
+   * Max width extra large devices (>=1400px)
+   * @default "false"
+   */
+  xl?: boolean;
+  /**
    * Sets the width in 100% at all breakpoints
    * @default false
    */
@@ -53,31 +78,6 @@ export interface UseContainerProps extends HTMLNextUIProps<"div"> {
    * CSS "align-content" property
    */
   alignContent?: AlignContent;
-  /**
-   * Max width extra small devices (<650px)
-   * @default "false"
-   */
-  xs?: boolean;
-  /**
-   * Max width small devices (>=650px)
-   * @default "false"
-   */
-  sm?: boolean;
-  /**
-   * Max width medium devices (>=960px)
-   * @default "false"
-   */
-  md?: boolean;
-  /**
-   * Max width large devices (>=1280px)
-   * @default "false"
-   */
-  lg?: boolean;
-  /**
-   * Max width extra large devices (>=1400px)
-   * @default "false"
-   */
-  xl?: boolean;
 }
 
 export function useContainer(props: UseContainerProps) {
