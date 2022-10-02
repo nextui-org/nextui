@@ -1,7 +1,5 @@
-export * from "./use-container";
-
 // export types
-export type { ContainerProps } from "./container";
+export type {ContainerProps} from "./container";
 
 // export component
-export { default as Container } from './container';
+export {default as Container} from "./container";

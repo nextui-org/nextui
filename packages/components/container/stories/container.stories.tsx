@@ -1,12 +1,11 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 
-import { Container } from "../src";
+import {Container} from "../src";
 
 export default {
-  title: "Container",
+  title: "Layout/Container",
   component: Container,
 } as Meta;
-
 
 export const Default = () => <Container />;
