@@ -335,6 +335,21 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
+  packages/components/container:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
   packages/components/spacer:
     specifiers:
       '@nextui-org/dom-utils': workspace:*

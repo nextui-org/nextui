@@ -33,7 +33,11 @@ export interface AvatarProps extends HTMLNextUIProps<"span"> {
   imgRef?: ReactRef<HTMLImageElement>;
 }
 
-const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
+type CompundAvatar = {
+  Group: typeof AvatarGroup;
+};
+
+const Avatar = forwardRef<AvatarProps, "span", CompundAvatar>((props, ref) => {
   const {
     as,
     src,
@@ -132,9 +136,7 @@ const Avatar = forwardRef<AvatarProps, "span">((props, ref) => {
   );
 });
 
-type AvatarComponent<P = {}> = React.NamedExoticComponent<P> & {
-  Group: typeof AvatarGroup;
-};
+Avatar.Group = AvatarGroup;
 
 if (__DEV__) {
   Avatar.displayName = "NextUI.Avatar";
@@ -142,8 +144,4 @@ if (__DEV__) {
 
 Avatar.toString = () => ".nextui-avatar";
 
-const AvatarWithGroup = Avatar as AvatarComponent<AvatarProps>;
-
-AvatarWithGroup.Group = AvatarGroup;
-
-export default AvatarWithGroup;
+export default Avatar;

@@ -1,30 +1,23 @@
-import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {__DEV__} from "@nextui-org/shared-utils";
 
 import {StyledSpacer} from "./spacer.styles";
 import {useSpacer, UseSpacerProps} from "./use-spacer";
 
-export interface SpacerProps extends HTMLNextUIProps<"span", UseSpacerProps> {
-  /**
-   * Whether should have inline space
-   */
-  inline?: boolean;
-}
+export interface SpacerProps extends UseSpacerProps {}
 
 const Spacer = forwardRef<SpacerProps, "span">((props, ref) => {
+  const {spacerCss, inline, css, ...otherProps} = useSpacer(props);
+
   const domRef = useDOMRef(ref);
-
-  const {x, y, inline = false, css, ...otherProps} = props;
-
-  const {getSpacerCss} = useSpacer({x, y});
 
   return (
     <StyledSpacer
       ref={domRef}
       aria-hidden="true"
       css={{
-        ...getSpacerCss(),
+        ...spacerCss,
         ...css,
       }}
       inline={inline}

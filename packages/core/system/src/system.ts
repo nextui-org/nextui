@@ -2,7 +2,7 @@
  * Part of this code is taken from @chakra-ui/system
  */
 
-import {forwardRef as baseForwardRef} from "react";
+import {forwardRef as baseForwardRef, NamedExoticComponent, ReactNode} from "react";
 
 import {CSS} from "./stitches.config";
 
@@ -61,7 +61,11 @@ export type HTMLNextUIProps<T extends As, K extends object = {}> = Omit<
 > &
   K;
 
-export function forwardRef<Props extends object, Component extends As>(
+export function forwardRef<
+  Props extends object,
+  Component extends As,
+  CompoundComponents extends object = {},
+>(
   component: React.ForwardRefRenderFunction<
     any,
     RightJoinProps<PropsOf<Component>, Props> & {
@@ -69,5 +73,6 @@ export function forwardRef<Props extends object, Component extends As>(
     }
   >,
 ) {
-  return baseForwardRef(component) as unknown as ComponentWithAs<Component, Props>;
+  return baseForwardRef(component) as unknown as ComponentWithAs<Component, Props> &
+    CompoundComponents;
 }

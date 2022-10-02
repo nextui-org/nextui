@@ -1,6 +1,8 @@
-import {useCallback} from "react";
+import type {HTMLNextUIProps} from "@nextui-org/system";
 
-export interface UseSpacerProps {
+import {useMemo} from "react";
+
+export interface UseSpacerProps extends HTMLNextUIProps<"span"> {
   /**
    * x-axis spacing
    */
@@ -9,6 +11,10 @@ export interface UseSpacerProps {
    * 	y-axis spacing
    */
   y?: number;
+  /**
+   * Whether should have inline space
+   */
+  inline?: boolean;
 }
 
 const getMargin = (num: number): string => {
@@ -16,9 +22,9 @@ const getMargin = (num: number): string => {
 };
 
 export function useSpacer(props: UseSpacerProps) {
-  const {x, y} = props;
+  const {x, y, inline = false, ...otherProps} = props;
 
-  const getSpacerCss = useCallback(() => {
+  const spacerCss = useMemo(() => {
     let css = {};
 
     if (x) {
@@ -39,7 +45,9 @@ export function useSpacer(props: UseSpacerProps) {
   }, [x, y]);
 
   return {
-    getSpacerCss,
+    spacerCss,
+    inline,
+    ...otherProps,
   };
 }
 
