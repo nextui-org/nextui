@@ -5,7 +5,7 @@ import {clsx, __DEV__, isNormalColor} from "@nextui-org/shared-utils";
 
 import {StyledText} from "./text.styles";
 
-export interface TextChildProps extends Omit<HTMLNextUIProps<"p">, "color"> {
+export interface TextChildProps extends HTMLNextUIProps<"p"> {
   tag: keyof JSX.IntrinsicElements;
   /**
    * Text color.

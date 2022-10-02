@@ -7,3 +7,4 @@ export * from "./prop-types";
 export * from "./color";
 export * from "./object";
 export * from "./text";
+export * from "./dimensions";

@@ -365,6 +365,23 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
+  packages/components/divider:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      '@nextui-org/text': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+      '@nextui-org/text': link:../text
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
   packages/components/grid:
     specifiers:
       '@nextui-org/dom-utils': workspace:*

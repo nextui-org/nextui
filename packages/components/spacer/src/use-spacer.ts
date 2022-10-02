@@ -1,5 +1,6 @@
 import type {HTMLNextUIProps} from "@nextui-org/system";
 
+import {getMargin} from "@nextui-org/shared-utils";
 import {useMemo} from "react";
 
 export interface UseSpacerProps extends HTMLNextUIProps<"span"> {
@@ -16,10 +17,6 @@ export interface UseSpacerProps extends HTMLNextUIProps<"span"> {
    */
   inline?: boolean;
 }
-
-const getMargin = (num: number): string => {
-  return `calc(${num * 15.25}pt + 1px * ${num - 1})`;
-};
 
 export function useSpacer(props: UseSpacerProps) {
   const {x, y, inline = false, ...otherProps} = props;
