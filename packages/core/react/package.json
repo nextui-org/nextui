@@ -42,7 +42,11 @@
     "@babel/runtime": "^7.6.2",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
-    "@nextui-org/col": "workspace:*"
+    "@nextui-org/col": "workspace:*",
+    "@nextui-org/row": "workspace:*",
+    "@nextui-org/spacer": "workspace:*",
+    "@nextui-org/container": "workspace:*",
+    "@nextui-org/badge": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

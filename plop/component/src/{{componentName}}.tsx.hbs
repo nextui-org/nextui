@@ -1,15 +1,24 @@
-import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {__DEV__} from "@nextui-org/shared-utils";
 
 import { Styled{{capitalize componentName}} } from "./{{componentName}}.styles";
+import { Use{{capitalize componentName}}Props, use{{capitalize componentName}} } from "./use-{{componentName}}";
 
-export interface {{capitalize componentName}}Props extends HTMLNextUIProps<"div"> {}
+export interface {{capitalize componentName}}Props extends Use{{capitalize componentName}}Props {}
 
 const {{capitalize componentName}} = forwardRef<{{capitalize componentName}}Props, "div">((props, ref) => {
+  const {className, ...otherProps} =  use{{capitalize componentName}}(props);
+
   const domRef = useDOMRef(ref);
 
-  return <Styled{{capitalize componentName}} ref={domRef} />;
+  return (
+    <Styled{{capitalize componentName}} 
+      ref={domRef}
+      className={clsx("nextui-{{componentName}}", className)}
+      {...otherProps}
+    />
+  );
 });
 
 if (__DEV__) {

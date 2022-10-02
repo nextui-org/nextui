@@ -105,6 +105,26 @@ const placement = tuple(
   "rightEnd",
 );
 
+/**
+ * used for aria placements
+ */
+const normalPlacement = tuple(
+  "bottom",
+  "bottom-left",
+  "bottom-right",
+  "top",
+  "top-left",
+  "top-right",
+  "left",
+  "left-top",
+  "left-bottom",
+  "right",
+  "right-top",
+  "right-bottom",
+);
+
+const simplePlacement = tuple("top-right", "top-left", "bottom-right", "bottom-left");
+
 const position = tuple(
   "static",
   "relative",
@@ -234,6 +254,10 @@ export type TooltipColors = typeof extendedColorsNoGradient[number];
 export type NormalLoaders = typeof normalLoaders[number];
 
 export type NormalAlignment = typeof normalAlignments[number];
+
+export type NormalPlacement = typeof normalPlacement[number];
+
+export type SimplePlacement = typeof simplePlacement[number];
 
 export type SnippetTypes = typeof extendedColors[number];
 

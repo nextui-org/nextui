@@ -10,6 +10,13 @@ describe("Spacer", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
+  it("ref should be forwarded", () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    render(<Spacer ref={ref} />);
+    expect(ref.current).not.toBeNull();
+  });
+
   it("should support x and y props", () => {
     const wrapper = render(
       <div>

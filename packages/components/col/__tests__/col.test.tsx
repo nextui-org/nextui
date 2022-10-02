@@ -4,7 +4,7 @@ import {render} from "@testing-library/react";
 import {Col} from "../src";
 
 describe("Col", () => {
-  test("should render correctly", () => {
+  it("should render correctly", () => {
     const wrapper = render(<Col />);
 
     expect(() => wrapper.unmount()).not.toThrow();

@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
-import {__DEV__} from "@nextui-org/shared-utils";
+import {clsx, __DEV__} from "@nextui-org/shared-utils";
 
 import {StyledContainer} from "./container.styles";
 import {useContainer, UseContainerProps} from "./use-container";
@@ -8,13 +8,14 @@ import {useContainer, UseContainerProps} from "./use-container";
 export interface ContainerProps extends UseContainerProps {}
 
 const Container = forwardRef<ContainerProps, "div">((props, ref) => {
-  const {containerCss, css, fluid, responsive, ...otherProps} = useContainer(props);
+  const {containerCss, css, fluid, responsive, className, ...otherProps} = useContainer(props);
 
   const domRef = useDOMRef(ref);
 
   return (
     <StyledContainer
       ref={domRef}
+      className={clsx("nextui-container", className)}
       css={{
         ...containerCss,
         ...css,

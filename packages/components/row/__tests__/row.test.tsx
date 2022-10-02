@@ -4,10 +4,17 @@ import {render} from "@testing-library/react";
 import {Row} from "../src";
 
 describe("Row", () => {
-  test("should render correctly", () => {
+  it("should render correctly", () => {
     const wrapper = render(<Row />);
 
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("ref should be forwarded", () => {
+    const ref = React.createRef<HTMLDivElement>();
+
+    render(<Row ref={ref} />);
+    expect(ref.current).not.toBeNull();
   });
 
   it("should render different components", () => {

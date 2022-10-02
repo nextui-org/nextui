@@ -1,9 +1,12 @@
 import * as React from "react";
+import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
 
-export interface Use{{capitalize componentName}}Props {}
+export interface Use{{capitalize componentName}}Props extends HTMLNextUIProps<"div"> {}
 
 export function use{{capitalize componentName}}(props: Use{{capitalize componentName}}Props) {
-  return {};
+  const {...otherProps} = props;
+  
+  return {...otherProps};
 }
 
 export type Use{{capitalize componentName}}Return = ReturnType<typeof use{{capitalize componentName}}>;
