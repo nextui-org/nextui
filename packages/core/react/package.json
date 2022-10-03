@@ -39,7 +39,6 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.2",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/col": "workspace:*",
@@ -48,7 +47,8 @@
     "@nextui-org/container": "workspace:*",
     "@nextui-org/badge": "workspace:*",
     "@nextui-org/grid": "workspace:*",
-    "@nextui-org/text": "workspace:*"
+    "@nextui-org/text": "workspace:*",
+    "@nextui-org/link": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

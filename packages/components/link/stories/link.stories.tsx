@@ -1,6 +1,8 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {Spacer, Grid, Text} from "@nextui-org/react";
+import {Spacer} from "@nextui-org/spacer";
+import {Grid} from "@nextui-org/grid";
+import {Text} from "@nextui-org/text";
 
 import {Link} from "../src";
 
@@ -20,38 +22,46 @@ export const Underline = () => (
 );
 
 export const Variants = () => (
-  <>
-    <Text>
+  <Grid.Container gap={1}>
+    <Grid xs={12}>
       <Link href="#">{text}</Link>
-    </Text>
-    <Text>
+    </Grid>
+    <Grid xs={12}>
       <Link color="secondary" href="#">
         {text}
       </Link>
-    </Text>
-    <Text>
+    </Grid>
+    <Grid xs={12}>
       <Link color="success" href="#">
         {text}
       </Link>
-    </Text>
-    <Text>
+    </Grid>
+    <Grid xs={12}>
+      <Link color="warning" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
       <Link color="error" href="#">
         {text}
       </Link>
-    </Text>
-  </>
+    </Grid>
+  </Grid.Container>
 );
 
 export const isExternal = () => (
-  <>
-    <Link isExternal href="#">
-      {text}
-    </Link>
-    <Spacer y={0.5} />
-    <Link isExternal color="primary" href="#">
-      {text}
-    </Link>
-  </>
+  <Grid.Container gap={1}>
+    <Grid xs={12}>
+      <Link isExternal href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link isExternal color="secondary" href="#">
+        {text}
+      </Link>
+    </Grid>
+  </Grid.Container>
 );
 
 export const Block = () => (
@@ -83,6 +93,11 @@ export const Block = () => (
     </Grid>
     <Grid xs={12}>
       <Link block color="error" href="#">
+        {text}
+      </Link>
+    </Grid>
+    <Grid xs={12}>
+      <Link block color="$pink600" href="#">
         {text}
       </Link>
     </Grid>

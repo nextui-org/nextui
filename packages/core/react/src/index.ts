@@ -7,3 +7,4 @@ export * from "@nextui-org/avatar";
 export * from "@nextui-org/badge";
 export * from "@nextui-org/grid";
 export * from "@nextui-org/text";
+export * from "@nextui-org/link";

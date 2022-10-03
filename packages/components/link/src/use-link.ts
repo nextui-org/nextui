@@ -34,18 +34,28 @@ export interface UseLinkProps extends HTMLNextUIProps<"a", AriaLinkProps> {
 }
 
 export function useLink(props: UseLinkProps) {
-  const {isExternal = false, color = "$link", block = false, autoFocus, ...otherProps} = props;
+  const {
+    isExternal = false,
+    color = "$link",
+    block = false,
+    animated = true,
+    autoFocus,
+    ...otherProps
+  } = props;
 
   const {isFocusVisible, focusProps}: IFocusRingAria<UseLinkProps> = useFocusRing({autoFocus});
 
   const linkCss = useMemo(() => {
-    let backgroundColor = isNormalColor(color as string)
-      ? `${color}Light`
+    const isNormal = isNormalColor(color as string);
+
+    const linkColor = isNormal ? `$${color}` : color;
+    const backgroundColor = isNormal
+      ? `${linkColor}Light`
       : getTokenValue("colors", color as string, 0.2);
 
     if (block) {
       return {
-        color,
+        color: linkColor,
         padding: "$2 $4",
         borderRadius: "$base",
         "&:hover": {
@@ -54,10 +64,10 @@ export function useLink(props: UseLinkProps) {
       };
     }
 
-    return {color};
+    return {color: linkColor};
   }, [color, block]);
 
-  return {linkCss, focusProps, isExternal, isFocusVisible, ...otherProps};
+  return {linkCss, focusProps, isExternal, animated, isFocusVisible, ...otherProps};
 }
 
 export type UseLinkReturn = ReturnType<typeof useLink>;
