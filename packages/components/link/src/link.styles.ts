@@ -32,7 +32,7 @@ export const StyledLink = styled(
       },
       animated: {
         true: {
-          transition: "opacity 0.25s ease 0s, background 0.25s ease 0s",
+          transition: "opacity 0.2s ease 0s, background 0.2s ease 0s",
         },
       },
     },

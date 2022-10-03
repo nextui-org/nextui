@@ -18,7 +18,7 @@ interface ILinkAria {
   isPressed: boolean;
 }
 
-const Link = forwardRef<LinkProps, "div">((props, ref) => {
+const Link = forwardRef<LinkProps, "a">((props, ref) => {
   const {children, as, css, linkCss, isExternal, focusProps, className, ...otherProps} =
     useLink(props);
 
