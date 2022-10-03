@@ -78,9 +78,6 @@ export interface UseBadgeProps extends HTMLNextUIProps<"span"> {
   disableOutline?: boolean;
 }
 
-// disableOutline: false,
-// isSquared: false,
-
 export function useBadge(props: UseBadgeProps) {
   const {
     children,

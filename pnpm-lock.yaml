@@ -475,9 +475,31 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
+  packages/components/user:
+    specifiers:
+      '@nextui-org/avatar': workspace:*
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/link': workspace:*
+      '@nextui-org/shared-css': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+      react-aria: 3.18.0
+    dependencies:
+      '@nextui-org/avatar': link:../avatar
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/link': link:../link
+      '@nextui-org/shared-css': link:../../utilities/shared-css
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+      react-aria: 3.18.0_react@17.0.2
+
   packages/core/react:
     specifiers:
-      '@babel/runtime': ^7.6.2
       '@nextui-org/avatar': workspace:*
       '@nextui-org/badge': workspace:*
       '@nextui-org/col': workspace:*
@@ -494,7 +516,6 @@ importers:
       react-aria: 3.18.0
       react-stately: 3.16.0
     dependencies:
-      '@babel/runtime': 7.19.0
       '@nextui-org/avatar': link:../../components/avatar
       '@nextui-org/badge': link:../../components/badge
       '@nextui-org/col': link:../../components/col
