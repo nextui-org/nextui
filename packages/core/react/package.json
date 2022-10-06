@@ -48,7 +48,8 @@
     "@nextui-org/badge": "workspace:*",
     "@nextui-org/grid": "workspace:*",
     "@nextui-org/text": "workspace:*",
-    "@nextui-org/link": "workspace:*"
+    "@nextui-org/link": "workspace:*",
+    "@nextui-org/code": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

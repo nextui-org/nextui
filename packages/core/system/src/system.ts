@@ -1,5 +1,5 @@
 /**
- * Part of this code is taken from @chakra-ui/system
+ * Part of this code is taken from @chakra-ui/system ❤️
  */
 
 import {forwardRef as baseForwardRef} from "react";
@@ -7,6 +7,18 @@ import {forwardRef as baseForwardRef} from "react";
 import {CSS} from "./stitches.config";
 
 export type As<Props = any> = React.ElementType<Props>;
+export type DOMElements = keyof JSX.IntrinsicElements;
+
+export interface NextUIProps {
+  /**
+   * The HTML element to render.
+   */
+  as?: As;
+  /**
+   * The stiches's css style object
+   */
+  css?: CSS;
+}
 
 export type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = never> = Omit<
   Target,
@@ -53,10 +65,7 @@ export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
 };
 
 export type HTMLNextUIProps<T extends As, K extends object = {}> = Omit<
-  Omit<PropsOf<T>, "ref" | "color"> & {
-    as?: As;
-    css?: CSS;
-  },
+  Omit<PropsOf<T>, "ref" | "color"> & NextUIProps,
   keyof K
 > &
   K;
@@ -76,3 +85,10 @@ export function forwardRef<
   return baseForwardRef(component) as unknown as ComponentWithAs<Component, Props> &
     CompoundComponents;
 }
+
+export interface NextUIComponent<C extends As, P = {}>
+  extends ComponentWithAs<C, NextUIProps & P> {}
+
+export type HTMLNextUIComponents = {
+  [Tag in DOMElements]: NextUIComponent<Tag, {}>;
+};

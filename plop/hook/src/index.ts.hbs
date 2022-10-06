@@ -1,0 +1,11 @@
+
+export interface Use{{capitalize hookName}}Props {}
+
+export function {{camelCase hookName}}(props: Use{{capitalize hookName}}Props = {}) {
+  const {...otherProps} = props;
+  
+  return {...otherProps};
+}
+
+export type Use{{capitalize hookName}}Return = ReturnType<typeof {{camelCase hookName}}>;
+    

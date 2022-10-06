@@ -8,3 +8,5 @@ export * from "./color";
 export * from "./object";
 export * from "./text";
 export * from "./dimensions";
+export * from "./css-transition";
+export * from "./functions";

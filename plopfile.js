@@ -13,12 +13,21 @@ const camelCase = (str) => {
 const workspaces = ["components", "core", "hooks", "utilities"];
 const generators = ["component", "package", "hook"];
 
+const defaultOutDirs = {
+  component: "components",
+  hook: "hooks",
+  package: "utilities",
+};
+
 /**
  * @param {import("plop").NodePlopAPI} plop
  */
 module.exports = function main(plop) {
   plop.setHelper("capitalize", (text) => {
     return capitalize(camelCase(text));
+  });
+  plop.setHelper("camelCase", (text) => {
+    return camelCase(text);
   });
 
   generators.forEach((gen) => {
@@ -29,6 +38,29 @@ module.exports = function main(plop) {
           type: "input",
           name: `${gen}Name`,
           message: `Enter ${gen} name:`,
+
+          validate: (value) => {
+            if (!value) {
+              return `${gen} name is required`;
+            }
+
+            // check is has a valid hook name "use-something"
+            if (gen === "hook" && !value.startsWith("use-")) {
+              return "Hook name must start with 'use-'";
+            }
+
+            // check is case is correct
+            if (value !== value.toLowerCase()) {
+              return `${gen} name must be in lowercase`;
+            }
+
+            // cannot have spaces
+            if (value.includes(" ")) {
+              return `${gen} name cannot have spaces`;
+            }
+
+            return true;
+          },
         },
         {
           type: "input",
@@ -39,8 +71,15 @@ module.exports = function main(plop) {
           type: "list",
           name: "outDir",
           message: `where should this ${gen} live?`,
-          default: "packages",
+          default: defaultOutDirs[gen],
           choices: workspaces,
+          validate: (value) => {
+            if (!value) {
+              return `outDir is required`;
+            }
+
+            return true;
+          },
         },
       ],
       actions(answers) {

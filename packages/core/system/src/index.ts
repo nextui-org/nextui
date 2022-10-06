@@ -6,3 +6,4 @@ export * from "./theme-provider";
 export * from "./use-theme";
 export * from "./css-baseline";
 export * from "./system";
+export * from "./root";
