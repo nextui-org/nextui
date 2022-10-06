@@ -1,4 +1,4 @@
-import {StitchesTheme, createThemeBase, CSS} from "./stitches.config";
+import {StitchesTheme, createThemeBase} from "./stitches.config";
 import commonTheme from "./common";
 
 /** Configuration Interface */
@@ -53,13 +53,3 @@ export type NextUIThemeContext = {
   theme?: NextUITheme;
   isDark?: boolean;
 };
-
-/**
- * Stitches CSS Props
- */
-export type CSSFontSize = CSS["fontSize"];
-export type CSSColor = CSS["color"];
-export type CSSGapUnit = CSS["gap"];
-export type CSSFontWeight = CSS["fontWeight"];
-export type CSSLineHeight = CSS["lineHeight"];
-export type CSSLetterSpacing = CSS["letterSpacing"];

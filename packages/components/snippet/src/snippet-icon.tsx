@@ -1,4 +1,4 @@
-import {nextui, forwardRef, HTMLNextUIProps} from "@nextui-org/system";
+import {NextUI, forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, __DEV__} from "@nextui-org/shared-utils";
 
@@ -10,7 +10,7 @@ const SnippetIcon = forwardRef<SnippetIconProps, "div">((props, ref) => {
   const domRef = useDOMRef(ref);
 
   return (
-    <nextui.svg ref={domRef} className={clsx("nextui-snippet-icon", className)} {...otherProps} />
+    <NextUI.Svg ref={domRef} className={clsx("nextui-snippet-icon", className)} {...otherProps} />
   );
 });
 

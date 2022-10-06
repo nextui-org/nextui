@@ -19,7 +19,7 @@
     "dev:docs": "turbo run dev --scope=@nextui-org/docs --no-deps",
     "start:docs": "turbo run start --scope=@nextui-org/docs --no-deps",
     "build:docs": "turbo run build --scope=@nextui-org/docs",
-    "build": "turbo run build --filter=!./examples/*",
+    "build": "turbo run build --filter=!./examples/* --filter=!./apps/* --filter=!./packages/components/snippet",
     "build:fast": "turbo run build:fast --filter=!./examples/*",
     "sb": "pnpm storybook",
     "storybook": "start-storybook -p 6006",

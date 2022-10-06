@@ -57,17 +57,3 @@ export type ScaleValue<T> = Stitches.ScaleValue<T>;
 export type CSSProperties = Stitches.CSSProperties;
 export type CSS = Stitches.CSS<StitchesConfig>;
 export type StitchesTheme = typeof theme;
-
-// common theme types
-export type Spaces = StitchesConfig["theme"]["space"];
-export type FontSizes = StitchesConfig["theme"]["fontSizes"];
-export type Fonts = StitchesConfig["theme"]["fonts"];
-export type FontWeights = StitchesConfig["theme"]["fontWeights"];
-export type LineHeights = StitchesConfig["theme"]["lineHeights"];
-export type LetterSpacings = StitchesConfig["theme"]["letterSpacings"];
-export type Colors = StitchesConfig["theme"]["colors"];
-export type Radii = StitchesConfig["theme"]["radii"];
-export type zIndices = StitchesConfig["theme"]["zIndices"];
-export type BorderWeights = StitchesConfig["theme"]["borderWeights"];
-export type Tranistions = StitchesConfig["theme"]["transitions"];
-export type Breakpoints = StitchesConfig["theme"]["breakpoints"];

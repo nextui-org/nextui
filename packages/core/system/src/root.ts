@@ -1,9 +1,14 @@
 /**
  * Part of this code is taken from @chakra-ui/system 🙏🏻
  */
-
-import {styled} from "./stitches.config";
-import {As, DOMElements, NextUIComponent, HTMLNextUIComponents} from "./system";
+import {
+  As,
+  rootStyled,
+  DOMElements,
+  CapitalizedDOMElements,
+  NextUIComponent,
+  HTMLNextUIComponents,
+} from "./system";
 
 type NextUIRoot = {
   <T extends As, P = {}>(component: T): NextUIComponent<T, P>;
@@ -12,25 +17,27 @@ type NextUIRoot = {
 function root() {
   const cache = new Map<DOMElements, NextUIComponent<DOMElements>>();
 
-  return new Proxy(styled, {
+  return new Proxy(rootStyled, {
     /**
      * @example
      * const Div = NextUI("div")
      * const StyledComponent = NextUI(AnotherComponent)
      */
     apply(target, thisArg, argArray: [DOMElements]) {
-      return styled(...argArray);
+      return rootStyled(...argArray);
     },
     /**
      * @example
-     * <nextui.div />
+     * <NextUI.Div />
      */
-    get(_, element: DOMElements) {
-      if (!cache.has(element)) {
-        cache.set(element, styled(element));
+    get(_, element: CapitalizedDOMElements) {
+      const key = element.toLowerCase() as DOMElements;
+
+      if (!cache.has(key)) {
+        cache.set(key, rootStyled(key));
       }
 
-      return cache.get(element);
+      return cache.get(key);
     },
   }) as NextUIRoot & HTMLNextUIComponents;
 }
@@ -39,4 +46,4 @@ function root() {
  * and also a function that can be used to enable custom component receive nextui's props.
  *
  */
-export const nextui = root();
+export const NextUI = root();

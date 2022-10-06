@@ -4,10 +4,11 @@
 
 import {forwardRef as baseForwardRef} from "react";
 
-import {CSS} from "./stitches.config";
+import {CSS, styled} from "./stitches.config";
 
 export type As<Props = any> = React.ElementType<Props>;
 export type DOMElements = keyof JSX.IntrinsicElements;
+export type CapitalizedDOMElements = Capitalize<DOMElements>;
 
 export interface NextUIProps {
   /**
@@ -90,5 +91,11 @@ export interface NextUIComponent<C extends As, P = {}>
   extends ComponentWithAs<C, NextUIProps & P> {}
 
 export type HTMLNextUIComponents = {
-  [Tag in DOMElements]: NextUIComponent<Tag, {}>;
+  [Tag in CapitalizedDOMElements]: NextUIComponent<Uncapitalize<Tag>, {}>;
 };
+
+export function rootStyled<T extends As, P = {}>(component: T) {
+  const Component = styled(component as React.ComponentType<any>, {});
+
+  return Component as NextUIComponent<T, P>;
+}

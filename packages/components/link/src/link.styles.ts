@@ -39,10 +39,3 @@ export const StyledLink = styled(
   },
   cssFocusVisible,
 );
-
-export const StyledLinkIcon = styled("svg", {
-  ml: "$1",
-  as: "center",
-  display: "flex",
-  color: "currentColor",
-});
