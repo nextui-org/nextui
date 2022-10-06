@@ -1,5 +1,4 @@
 import {NextUI} from "@nextui-org/system";
-// import {StyledLinkIcon} from "./link.styles";
 
 export const LinkIcon = () => (
   <NextUI.Svg
