@@ -1,9 +1,9 @@
 import {HTMLAttributes} from "react";
-import {useLink as useAriaLink} from "react-aria";
+import {useLink as useAriaLink} from "@react-aria/link";
+import {mergeProps} from "@react-aria/utils";
 import {forwardRef} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, __DEV__} from "@nextui-org/shared-utils";
-import {mergeProps} from "react-aria";
 
 import {StyledLink} from "./link.styles";
 import {UseLinkProps, useLink} from "./use-link";

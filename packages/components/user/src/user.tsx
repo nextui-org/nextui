@@ -1,4 +1,4 @@
-import {mergeProps} from "react-aria";
+import {mergeProps} from "@react-aria/utils";
 import {forwardRef} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, __DEV__} from "@nextui-org/shared-utils";

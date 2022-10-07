@@ -7,7 +7,8 @@ import type {
 } from "@nextui-org/shared-utils";
 
 import {useState, useEffect, useMemo} from "react";
-import {useFocusRing, mergeProps} from "react-aria";
+import {useFocusRing} from "@react-aria/focus";
+import {mergeProps} from "@react-aria/utils";
 import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
 import {useDOMRef, IFocusRingAria} from "@nextui-org/dom-utils";
 import {clsx, safeText, __DEV__} from "@nextui-org/shared-utils";

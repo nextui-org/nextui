@@ -1,7 +1,7 @@
 import type {AvatarProps} from "@nextui-org/avatar";
 
 import {ReactNode, useMemo} from "react";
-import {useFocusRing} from "react-aria";
+import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {IFocusRingAria} from "@nextui-org/dom-utils";
 

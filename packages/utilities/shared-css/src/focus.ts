@@ -1,6 +1,6 @@
-import type {CSS} from "@nextui-org/system";
+import {css} from "@nextui-org/system";
 
-export const sharedFocus: CSS = {
+export const sharedFocus = css({
   WebkitTapHighlightColor: "transparent",
   "&:focus:not(&:focus-visible)": {
     boxShadow: "none",
@@ -13,9 +13,9 @@ export const sharedFocus: CSS = {
     WebkitTapHighlightColor: "transparent",
     outline: "none",
   },
-};
+});
 
-export const cssFocusVisible: CSS = {
+export const cssFocusVisible = css({
   variants: {
     isFocusVisible: {
       true: {
@@ -28,10 +28,10 @@ export const cssFocusVisible: CSS = {
       },
     },
   },
-};
+});
 
-export const cssNoBlurriness: CSS = {
+export const cssNoBlurriness = css({
   /* Avoid blurriness */
   transform: "translateZ(0)",
   backfaceVisibility: "hidden",
-};
+});

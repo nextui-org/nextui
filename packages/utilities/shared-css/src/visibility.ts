@@ -1,6 +1,6 @@
-import type {CSS} from "@nextui-org/system";
+import {css} from "@nextui-org/system";
 
-export const sharedVisuallyHidden: CSS = {
+export const sharedVisuallyHidden = css({
   border: "0px",
   clip: "rect(0px, 0px, 0px, 0px)",
   height: "1px",
@@ -10,9 +10,9 @@ export const sharedVisuallyHidden: CSS = {
   overflow: "hidden",
   whiteSpace: "nowrap",
   position: "absolute",
-};
+});
 
-export const cssHideIn: CSS = {
+export const cssHideIn = css({
   variants: {
     hideIn: {
       xs: {
@@ -42,9 +42,9 @@ export const cssHideIn: CSS = {
       },
     },
   },
-};
+});
 
-export const cssShowIn: CSS = {
+export const cssShowIn = css({
   variants: {
     showIn: {
       xs: {
@@ -74,6 +74,6 @@ export const cssShowIn: CSS = {
       },
     },
   },
-};
+});
 
-export const cssHideShowIn: CSS = {...cssHideIn, ...cssShowIn};
+export const cssHideShowIn = css(cssHideIn, cssShowIn);

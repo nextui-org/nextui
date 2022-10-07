@@ -12,7 +12,16 @@ export const getStitchesTheme = (targetTheme: BaseTheme): BaseTheme => {
   return deepMerge(targetTheme, commonTheme.theme);
 };
 
-const stitches = createStitches({
+export const {
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  theme,
+  config,
+  createTheme: createThemeBase,
+} = createStitches({
   ...commonTheme,
   theme: {
     ...commonTheme.theme,
@@ -28,15 +37,6 @@ const stitches = createStitches({
     },
   },
 });
-
-export const createThemeBase = stitches.createTheme;
-export const styled = stitches.styled;
-export const css = stitches.css;
-export const globalCss = stitches.globalCss;
-export const keyframes = stitches.keyframes;
-export const getCssText = stitches.getCssText;
-export const theme = stitches.theme;
-export const config = stitches.config;
 
 export const createTheme = ({type, theme = {}, className}: Theme) => {
   if (!type) {

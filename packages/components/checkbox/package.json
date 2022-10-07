@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/link",
+  "name": "@nextui-org/checkbox",
   "version": "1.0.0-beta.11",
-  "description": "Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an &lt;a&gt;",
+  "description": "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.",
   "keywords": [
-    "link"
+    "checkbox"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/link"
+    "directory": "packages/components/checkbox"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -37,19 +37,21 @@
     "react": ">=16.8.0"
   },
   "dependencies": {
-    "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/system": "workspace:*",
-    "@react-aria/link": "^3.3.4",
-    "@react-aria/utils": "^3.14.0",
-    "@react-aria/focus": "^3.9.0"
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/shared-css": "workspace:*",
+    "@nextui-org/dom-utils": "workspace:*",
+    "@react-aria/checkbox": "^3.6.0",
+    "@react-aria/focus": "^3.9.0",
+    "@react-aria/interactions": "^3.12.0",
+    "@react-aria/visually-hidden": "^3.5.0",
+    "@react-stately/checkbox": "^3.3.0",
+    "@react-stately/toggle": "^3.4.2",
+    "@react-aria/utils": "^3.14.0"
   },
   "devDependencies": {
-    "@react-types/link": "^3.3.3",
-    "@nextui-org/spacer": "workspace:*",
-    "@nextui-org/grid": "workspace:*",
-    "@nextui-org/text": "workspace:*",
+    "@react-types/checkbox": "^3.4.0",
+    "@react-types/shared": "^3.14.1",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   }

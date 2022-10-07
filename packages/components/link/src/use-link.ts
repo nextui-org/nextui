@@ -1,7 +1,7 @@
 import type {AriaLinkProps} from "@react-types/link";
 
 import {useMemo} from "react";
-import {useFocusRing} from "react-aria";
+import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps, CSS, getTokenValue} from "@nextui-org/system";
 import {IFocusRingAria} from "@nextui-org/dom-utils";
 import {isNormalColor} from "@nextui-org//shared-utils";

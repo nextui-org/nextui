@@ -35,17 +35,17 @@
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/use-ssr": "workspace:*"
+    "@nextui-org/use-ssr": "workspace:*",
+    "@react-aria/ssr": "^3.3.0",
+    "@react-aria/overlays": "^3.11.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-aria": ">=3.18.0",
     "@stitches/react": ">=1.2.8"
   },
   "devDependencies": {
+    "react": "^17.0.2",
     "@stitches/react": "1.2.8",
-    "react-aria": "3.18.0",
-    "clean-package": "2.1.1",
-    "react": "^17.0.2"
+    "clean-package": "2.1.1"
   }
 }

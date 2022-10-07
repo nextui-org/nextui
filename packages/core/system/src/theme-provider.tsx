@@ -1,5 +1,6 @@
 import React, {useState, useMemo, useEffect, ReactNode} from "react";
-import {SSRProvider, OverlayProvider} from "react-aria";
+import {SSRProvider} from "@react-aria/ssr";
+import {OverlayProvider} from "@react-aria/overlays";
 import {deepMerge, copyObject} from "@nextui-org/shared-utils";
 import {useSSR} from "@nextui-org/use-ssr";
 
