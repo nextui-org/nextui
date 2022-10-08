@@ -3,7 +3,7 @@ import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, __DEV__} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
-import {CheckboxGroupProvider} from "./checkbox-context";
+import {CheckboxGroupProvider} from "./checkbox-group-context";
 import {StyledCheckboxGroup, StyledCheckboxGroupContainer} from "./checkbox-group.styles";
 import {UseCheckboxGroupProps, useCheckboxGroup} from "./use-checkbox-group";
 

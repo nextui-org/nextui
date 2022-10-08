@@ -12,7 +12,7 @@ import {
   useCheckboxGroupItem as useReactAriaCheckboxGroupItem,
 } from "@react-aria/checkbox";
 
-import {useCheckboxGroupContext} from "./checkbox-context";
+import {useCheckboxGroupContext} from "./checkbox-group-context";
 
 export interface UseCheckboxProps extends HTMLNextUIProps<"label", AriaCheckboxProps> {
   /**

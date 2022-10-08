@@ -342,6 +342,41 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
+  packages/components/button:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/drip': workspace:*
+      '@nextui-org/icons-utils': workspace:*
+      '@nextui-org/shared-css': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/spacer': workspace:*
+      '@nextui-org/system': workspace:*
+      '@react-aria/button': ^3.6.2
+      '@react-aria/focus': ^3.9.0
+      '@react-aria/interactions': ^3.12.0
+      '@react-aria/utils': ^3.14.0
+      '@react-types/button': ^3.6.2
+      '@react-types/shared': ^3.14.1
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/drip': link:../drip
+      '@nextui-org/shared-css': link:../../utilities/shared-css
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+      '@react-aria/button': 3.6.2_react@17.0.2
+      '@react-aria/focus': 3.9.0_react@17.0.2
+      '@react-aria/interactions': 3.12.0_react@17.0.2
+      '@react-aria/utils': 3.14.0_react@17.0.2
+    devDependencies:
+      '@nextui-org/icons-utils': link:../../utilities/icons-utils
+      '@nextui-org/spacer': link:../spacer
+      '@react-types/button': 3.6.2_react@17.0.2
+      '@react-types/shared': 3.15.0_react@17.0.2
+      clean-package: 2.1.1
+      react: 17.0.2
+
   packages/components/card:
     specifiers:
       '@nextui-org/code': workspace:*
@@ -4653,6 +4688,21 @@ packages:
       tslib: 2.4.0
     dev: false
 
+  /@react-aria/button/3.6.2_react@17.0.2:
+    resolution: {integrity: sha512-8XRcPR5qXKNmnBO6u9FSY8vYa7P1FIgVix07EHBCTZiJYHYxcUsFYRWG9qf2aShGotJs4957unqGH1L1ncRYKQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.19.0
+      '@react-aria/focus': 3.9.0_react@17.0.2
+      '@react-aria/interactions': 3.12.0_react@17.0.2
+      '@react-aria/utils': 3.14.0_react@17.0.2
+      '@react-stately/toggle': 3.4.2_react@17.0.2
+      '@react-types/button': 3.6.2_react@17.0.2
+      '@react-types/shared': 3.15.0_react@17.0.2
+      react: 17.0.2
+    dev: false
+
   /@react-aria/checkbox/3.6.0_react@17.0.2:
     resolution: {integrity: sha512-E2MZoMZhtHtlS1mYjxTI29JRq4s3Y6d92KHj7tzvcC308d4Bzz0IHJd0bMz/8whoNteU02pQyZ3rDAcGf92bHQ==}
     peerDependencies:
@@ -4891,7 +4941,6 @@ packages:
     dependencies:
       '@react-types/shared': 3.15.0_react@17.0.2
       react: 17.0.2
-    dev: false
 
   /@react-types/checkbox/3.4.0_react@17.0.2:
     resolution: {integrity: sha512-ZDqbtAYWWSGPjL4ydinaWHrD65Qft9yEGA6BCKQTxdJCgxiXxgGkA3pI7Sxwk+OulR+O0CYJ1JROExM9cSJyyQ==}

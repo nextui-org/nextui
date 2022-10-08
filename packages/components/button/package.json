@@ -1,0 +1,58 @@
+{
+  "name": "@nextui-org/button",
+  "version": "1.0.0-beta.11",
+  "description": "Buttons allow users to perform actions and choose with a single tap.",
+  "keywords": [
+    "button"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/button"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format=esm,cjs --dts",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src/index.ts --format=esm,cjs",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "dependencies": {
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/shared-css": "workspace:*",
+    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/drip": "workspace:*",
+    "@react-aria/button": "^3.6.2",
+    "@react-aria/interactions": "^3.12.0",
+    "@react-aria/utils": "^3.14.0",
+    "@react-aria/focus": "^3.9.0"
+  },
+  "devDependencies": {
+    "@nextui-org/spacer": "workspace:*",
+    "@nextui-org/icons-utils": "workspace:*",
+    "@react-types/shared": "^3.14.1",
+    "@react-types/button": "^3.6.2",
+    "clean-package": "2.1.1",
+    "react": "^17.0.2"
+  }
+}
