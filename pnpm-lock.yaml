@@ -346,6 +346,7 @@ importers:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
       '@nextui-org/drip': workspace:*
+      '@nextui-org/grid': workspace:*
       '@nextui-org/icons-utils': workspace:*
       '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
@@ -370,6 +371,7 @@ importers:
       '@react-aria/interactions': 3.12.0_react@17.0.2
       '@react-aria/utils': 3.14.0_react@17.0.2
     devDependencies:
+      '@nextui-org/grid': link:../grid
       '@nextui-org/icons-utils': link:../../utilities/icons-utils
       '@nextui-org/spacer': link:../spacer
       '@react-types/button': 3.6.2_react@17.0.2

@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@nextui-org/spacer": "workspace:*",
+    "@nextui-org/grid": "workspace:*",
     "@nextui-org/icons-utils": "workspace:*",
     "@react-types/shared": "^3.14.1",
     "@react-types/button": "^3.6.2",
