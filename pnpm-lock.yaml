@@ -342,6 +342,49 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
+  packages/components/card:
+    specifiers:
+      '@nextui-org/code': workspace:*
+      '@nextui-org/col': workspace:*
+      '@nextui-org/divider': workspace:*
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/drip': workspace:*
+      '@nextui-org/grid': workspace:*
+      '@nextui-org/image': workspace:*
+      '@nextui-org/link': workspace:*
+      '@nextui-org/row': workspace:*
+      '@nextui-org/shared-css': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      '@nextui-org/text': workspace:*
+      '@react-aria/focus': ^3.9.0
+      '@react-aria/interactions': ^3.12.0
+      '@react-aria/utils': ^3.14.0
+      '@react-types/shared': ^3.14.1
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/divider': link:../divider
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/drip': link:../drip
+      '@nextui-org/image': link:../image
+      '@nextui-org/shared-css': link:../../utilities/shared-css
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+      '@react-aria/focus': 3.9.0_react@17.0.2
+      '@react-aria/interactions': 3.12.0_react@17.0.2
+      '@react-aria/utils': 3.14.0_react@17.0.2
+    devDependencies:
+      '@nextui-org/code': link:../code
+      '@nextui-org/col': link:../col
+      '@nextui-org/grid': link:../grid
+      '@nextui-org/link': link:../link
+      '@nextui-org/row': link:../row
+      '@nextui-org/text': link:../text
+      '@react-types/shared': 3.15.0_react@17.0.2
+      clean-package: 2.1.1
+      react: 17.0.2
+
   packages/components/checkbox:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
@@ -438,6 +481,21 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
+  packages/components/drip:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
   packages/components/grid:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
@@ -450,6 +508,29 @@ importers:
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
     devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
+  packages/components/image:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/grid': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      '@nextui-org/use-real-shape': workspace:*
+      '@nextui-org/use-ref-state': workspace:*
+      '@nextui-org/use-resize': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+      '@nextui-org/use-real-shape': link:../../hooks/use-real-shape
+      '@nextui-org/use-ref-state': link:../../hooks/use-ref-state
+      '@nextui-org/use-resize': link:../../hooks/use-resize
+    devDependencies:
+      '@nextui-org/grid': link:../grid
       clean-package: 2.1.1
       react: 17.0.2
 
@@ -626,6 +707,33 @@ importers:
       react: 17.0.2
 
   packages/hooks/use-clipboard:
+    specifiers:
+      clean-package: 2.1.1
+      react: ^17.0.2
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
+  packages/hooks/use-real-shape:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
+  packages/hooks/use-ref-state:
+    specifiers:
+      clean-package: 2.1.1
+      react: ^17.0.2
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
+  packages/hooks/use-resize:
     specifiers:
       clean-package: 2.1.1
       react: ^17.0.2

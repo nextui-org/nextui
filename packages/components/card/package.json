@@ -1,0 +1,62 @@
+{
+  "name": "@nextui-org/card",
+  "version": "1.0.0-beta.11",
+  "description": "Card is a container for text, photos, and actions in the context of a single subject.",
+  "keywords": [
+    "card"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/card"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format=esm,cjs --dts",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src/index.ts --format=esm,cjs",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "dependencies": {
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/shared-css": "workspace:*",
+    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/drip": "workspace:*",
+    "@nextui-org/divider": "workspace:*",
+    "@nextui-org/image": "workspace:*",
+    "@react-aria/focus": "^3.9.0",
+    "@react-aria/utils": "^3.14.0",
+    "@react-aria/interactions": "^3.12.0"
+  },
+  "devDependencies": {
+    "@react-types/shared": "^3.14.1",
+    "@nextui-org/text": "workspace:*",
+    "@nextui-org/grid": "workspace:*",
+    "@nextui-org/col": "workspace:*",
+    "@nextui-org/row": "workspace:*",
+    "@nextui-org/code": "workspace:*",
+    "@nextui-org/link": "workspace:*",
+    "clean-package": "2.1.1",
+    "react": "^17.0.2"
+  }
+}
