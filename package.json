@@ -34,7 +34,7 @@
     "build:docs-meta": "node ./scripts/update-index-docs.js",
     "eslint": "eslint packages/**/**/src --ext .ts,.tsx --config .eslintrc.json",
     "lint": "turbo run lint",
-    "test": "jest",
+    "test": "jest --verbose",
     "clean": "pnpm turbo:clean",
     "create:cmp": "plop component",
     "create:pkg": "plop package",
