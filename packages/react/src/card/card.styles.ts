@@ -59,6 +59,10 @@ export const StyledCard = styled(
             boxShadow: "$lg",
             dropShadow: "none",
           },
+          "@-moz-document url-prefix()": {
+            boxShadow: "$lg",
+            dropShadow: "none",
+          },
         },
         bordered: {
           borderStyle: "solid",
@@ -107,6 +111,10 @@ export const StyledCard = styled(
             boxShadow: "$lg",
             dropShadow: "none",
           },
+          "@-moz-document url-prefix()": {
+            boxShadow: "$lg",
+            dropShadow: "none",
+          },
         },
       },
     },
@@ -134,6 +142,10 @@ export const StyledCard = styled(
         css: {
           dropShadow: "$xl",
           "@safari": {
+            boxShadow: "$xl",
+            dropShadow: "none",
+          },
+          "@-moz-document url-prefix()": {
             boxShadow: "$xl",
             dropShadow: "none",
           },
