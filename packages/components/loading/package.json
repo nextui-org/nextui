@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/button",
+  "name": "@nextui-org/loading",
   "version": "1.0.0-beta.11",
-  "description": "Buttons allow users to perform actions and choose with a single tap.",
+  "description": "Loaders express an unspecified wait time or display the length of a process.",
   "keywords": [
-    "button"
+    "loading"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/button"
+    "directory": "packages/components/loading"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -39,21 +39,11 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
-    "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/drip": "workspace:*",
-    "@react-aria/button": "^3.6.2",
-    "@react-aria/interactions": "^3.12.0",
-    "@react-aria/utils": "^3.14.0",
-    "@react-aria/focus": "^3.9.0"
+    "@nextui-org/dom-utils": "workspace:*"
   },
   "devDependencies": {
     "@nextui-org/spacer": "workspace:*",
     "@nextui-org/grid": "workspace:*",
-    "@nextui-org/loading": "workspace:*",
-    "@nextui-org/icons-utils": "workspace:*",
-    "@react-types/shared": "^3.14.1",
-    "@react-types/button": "^3.6.2",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   }

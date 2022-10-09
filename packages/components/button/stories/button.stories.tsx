@@ -1,6 +1,8 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 import {Spacer} from "@nextui-org/spacer";
+import {Grid} from "@nextui-org/grid";
+import {Loading} from "@nextui-org/loading";
 import {Lock, Notification, User, Camera, Activity} from "@nextui-org/icons-utils";
 
 import {Button} from "../src";
@@ -43,6 +45,36 @@ export const Sizes = () => (
       Auto width
     </Button>
   </div>
+);
+
+export const Loadings = () => (
+  <Grid.Container gap={2}>
+    <Grid>
+      <Button auto disabled color="primary" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" />
+      </Button>
+    </Grid>
+    <Grid>
+      <Button auto disabled color="secondary" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" type="spinner" />
+      </Button>
+    </Grid>
+    <Grid>
+      <Button auto disabled color="success" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" type="points" />
+      </Button>
+    </Grid>
+    <Grid>
+      <Button auto disabled color="warning" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" type="points-opacity" />
+      </Button>
+    </Grid>
+    <Grid>
+      <Button auto disabled color="error" css={{px: "$13"}}>
+        <Loading color="currentColor" size="sm" type="spinner" />
+      </Button>
+    </Grid>
+  </Grid.Container>
 );
 
 export const Colors = () => (

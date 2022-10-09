@@ -348,6 +348,7 @@ importers:
       '@nextui-org/drip': workspace:*
       '@nextui-org/grid': workspace:*
       '@nextui-org/icons-utils': workspace:*
+      '@nextui-org/loading': workspace:*
       '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/spacer': workspace:*
@@ -373,6 +374,7 @@ importers:
     devDependencies:
       '@nextui-org/grid': link:../grid
       '@nextui-org/icons-utils': link:../../utilities/icons-utils
+      '@nextui-org/loading': link:../loading
       '@nextui-org/spacer': link:../spacer
       '@react-types/button': 3.6.2_react@17.0.2
       '@react-types/shared': 3.15.0_react@17.0.2
@@ -599,6 +601,25 @@ importers:
       '@nextui-org/spacer': link:../spacer
       '@nextui-org/text': link:../text
       '@react-types/link': 3.3.4_react@17.0.2
+      clean-package: 2.1.1
+      react: 17.0.2
+
+  packages/components/loading:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/grid': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/spacer': workspace:*
+      '@nextui-org/system': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+    devDependencies:
+      '@nextui-org/grid': link:../grid
+      '@nextui-org/spacer': link:../spacer
       clean-package: 2.1.1
       react: 17.0.2
 

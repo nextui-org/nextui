@@ -187,3 +187,32 @@ export const invertHex = (hexProp: string, smooth = true) => {
   // pad each with zeros and return
   return "#" + padZero(r.toString(16)) + padZero(g.toString(16)) + padZero(b.toString(16));
 };
+
+/**
+ * Function that returns the color token name, if it exists, otherwise returns the color itself
+ * @example getCSSColor("primary") // returns "$primary", getCSSColor("#fff") // returns "#fff"
+ * @param color - string
+ * @param defaultColor - string
+ * @returns string
+ */
+export function getCSSColor(color: string, defaultColor: string = "$colors$text") {
+  if (!color) {
+    return defaultColor;
+  }
+  if (isNormalColor(color)) {
+    switch (color) {
+      case "default":
+        return defaultColor;
+      default:
+        return `$colors$${color}`;
+    }
+  }
+
+  if (color?.startsWith("$") && color?.includes("$colors")) {
+    // $colors$<color> e.g. $colors$primary
+    return `$colors$${color}`;
+  }
+
+  // #color || rgb || rgba
+  return color;
+}

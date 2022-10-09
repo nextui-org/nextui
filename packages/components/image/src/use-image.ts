@@ -42,7 +42,7 @@ export interface UseImageProps extends Omit<HTMLNextUIProps<"img">, "height" | "
    */
   objectFit?: CSS["objectFit"];
   /**
-   * 	Override default Image xontainer styles
+   * 	Override default Image container styles
    */
   containerCss?: CSS;
 
