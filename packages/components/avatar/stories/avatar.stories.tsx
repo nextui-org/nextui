@@ -1,7 +1,7 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 import {Spacer} from "@nextui-org/spacer";
-import {Lock, User, VolumeUp, Camera, Activity} from "@nextui-org/icons-utils";
+import {Lock, User, VolumeUp, Camera, Activity} from "@nextui-org/shared-icons";
 
 import {Avatar} from "../src";
 

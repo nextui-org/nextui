@@ -1,4 +1,4 @@
-# @nextui-org/icons-utils
+# @nextui-org/shared-icons
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/icons-utils
+yarn add @nextui-org/shared-icons
 # or
-npm i @nextui-org/icons-utils
+npm i @nextui-org/shared-icons
 ```
 
 ## Contribution

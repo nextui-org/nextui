@@ -42,6 +42,13 @@
     "@nextui-org/dom-utils": "workspace:*"
   },
   "devDependencies": {
+    "@nextui-org/avatar": "workspace:*",
+    "@nextui-org/spacer": "workspace:*",
+    "@nextui-org/grid": "workspace:*",
+    "@nextui-org/col": "workspace:*",
+    "@nextui-org/row": "workspace:*",
+    "@nextui-org/text": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   }

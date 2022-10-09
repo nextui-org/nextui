@@ -3,7 +3,7 @@ import {Meta} from "@storybook/react";
 import {Spacer} from "@nextui-org/spacer";
 import {Grid} from "@nextui-org/grid";
 import {Loading} from "@nextui-org/loading";
-import {Lock, Notification, User, Camera, Activity} from "@nextui-org/icons-utils";
+import {Lock, Notification, User, Camera, Activity} from "@nextui-org/shared-icons";
 
 import {Button} from "../src";
 

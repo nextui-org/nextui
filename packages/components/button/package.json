@@ -51,7 +51,7 @@
     "@nextui-org/spacer": "workspace:*",
     "@nextui-org/grid": "workspace:*",
     "@nextui-org/loading": "workspace:*",
-    "@nextui-org/icons-utils": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
     "@react-types/shared": "^3.14.1",
     "@react-types/button": "^3.6.2",
     "clean-package": "2.1.1",
