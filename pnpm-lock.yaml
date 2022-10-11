@@ -730,30 +730,48 @@ importers:
     specifiers:
       '@nextui-org/avatar': workspace:*
       '@nextui-org/badge': workspace:*
+      '@nextui-org/button': workspace:*
+      '@nextui-org/card': workspace:*
+      '@nextui-org/checkbox': workspace:*
       '@nextui-org/code': workspace:*
       '@nextui-org/col': workspace:*
       '@nextui-org/container': workspace:*
+      '@nextui-org/divider': workspace:*
+      '@nextui-org/drip': workspace:*
       '@nextui-org/grid': workspace:*
+      '@nextui-org/image': workspace:*
       '@nextui-org/link': workspace:*
+      '@nextui-org/loading': workspace:*
       '@nextui-org/row': workspace:*
+      '@nextui-org/snippet': workspace:*
       '@nextui-org/spacer': workspace:*
       '@nextui-org/system': workspace:*
       '@nextui-org/text': workspace:*
+      '@nextui-org/user': workspace:*
       '@stitches/react': 1.2.8
       clean-package: 2.1.1
       react: 17.0.2
     dependencies:
       '@nextui-org/avatar': link:../../components/avatar
       '@nextui-org/badge': link:../../components/badge
+      '@nextui-org/button': link:../../components/button
+      '@nextui-org/card': link:../../components/card
+      '@nextui-org/checkbox': link:../../components/checkbox
       '@nextui-org/code': link:../../components/code
       '@nextui-org/col': link:../../components/col
       '@nextui-org/container': link:../../components/container
+      '@nextui-org/divider': link:../../components/divider
+      '@nextui-org/drip': link:../../components/drip
       '@nextui-org/grid': link:../../components/grid
+      '@nextui-org/image': link:../../components/image
       '@nextui-org/link': link:../../components/link
+      '@nextui-org/loading': link:../../components/loading
       '@nextui-org/row': link:../../components/row
+      '@nextui-org/snippet': link:../../components/snippet
       '@nextui-org/spacer': link:../../components/spacer
       '@nextui-org/system': link:../system
       '@nextui-org/text': link:../../components/text
+      '@nextui-org/user': link:../../components/user
     devDependencies:
       '@stitches/react': 1.2.8_react@17.0.2
       clean-package: 2.1.1
@@ -838,10 +856,8 @@ importers:
 
   packages/utilities/shared-css:
     specifiers:
-      '@nextui-org/system': workspace:*
       clean-package: 2.1.1
     devDependencies:
-      '@nextui-org/system': link:../../core/system
       clean-package: 2.1.1
 
   packages/utilities/shared-icons:

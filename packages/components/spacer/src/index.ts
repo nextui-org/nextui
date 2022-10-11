@@ -1,5 +1,3 @@
-export * from "./use-spacer";
-
 // export types
 export type {SpacerProps} from "./spacer";
 

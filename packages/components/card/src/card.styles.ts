@@ -1,4 +1,4 @@
-import {styled} from "@nextui-org/system";
+import {styled, VariantProps} from "@nextui-org/system";
 import {cssFocusVisible, cssNoBlurriness} from "@nextui-org/shared-css";
 
 export const StyledCardBody = styled("div", {

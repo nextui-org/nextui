@@ -1,16 +1,56 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {clsx, __DEV__} from "@nextui-org/shared-utils";
 import {Divider} from "@nextui-org/divider";
 import {Image} from "@nextui-org/image";
 import {Drip} from "@nextui-org/drip";
+import {useDOMRef} from "@nextui-org/dom-utils";
 
-import {
-  StyledCard,
-  StyledCardHeader as CardHeader,
-  StyledCardFooter as CardFooter,
-  StyledCardBody as CardBody,
-} from "./card.styles";
+import {StyledCard, StyledCardFooter, StyledCardHeader, StyledCardBody} from "./card.styles";
 import {UseCardProps, useCard} from "./use-card";
+
+const CardHeader = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
+  const {className, children, ...otherProps} = props;
+
+  const domRef = useDOMRef(ref);
+
+  return (
+    <StyledCardHeader
+      ref={domRef}
+      {...otherProps}
+      className={clsx("nextui-card-header", className)}
+    >
+      {children}
+    </StyledCardHeader>
+  );
+});
+
+const CardBody = forwardRef<HTMLNextUIProps, "div">((props, ref) => {
+  const {className, children, ...otherProps} = props;
+
+  const domRef = useDOMRef(ref);
+
+  return (
+    <StyledCardBody ref={domRef} {...otherProps} className={clsx("nextui-card-body", className)}>
+      {children}
+    </StyledCardBody>
+  );
+});
+
+const CardFooter = forwardRef<HTMLNextUIProps & {isBlurred?: boolean}, "div">((props, ref) => {
+  const {className, children, ...otherProps} = props;
+
+  const domRef = useDOMRef(ref);
+
+  return (
+    <StyledCardFooter
+      ref={domRef}
+      {...otherProps}
+      className={clsx("nextui-card-footer", className)}
+    >
+      {children}
+    </StyledCardFooter>
+  );
+});
 
 export interface CardProps extends Omit<UseCardProps, "ref"> {}
 

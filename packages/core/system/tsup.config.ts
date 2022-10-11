@@ -3,7 +3,7 @@ import {findUpSync} from "find-up";
 
 export default defineConfig({
   clean: true,
-  minify: false,
+  minify: true,
   treeshake: true,
   format: ["cjs", "esm"],
   outExtension(ctx) {
