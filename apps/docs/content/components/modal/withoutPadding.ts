@@ -1,8 +1,8 @@
-const App = `import React from "react";
+const App = `import { useState } from "react";
 import { Modal, Button, Image, Text, Link } from "@nextui-org/react";
 
 export default function App() {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useState(false);
   const handler = () => setVisible(true);
   const closeHandler = () => {
     setVisible(false);

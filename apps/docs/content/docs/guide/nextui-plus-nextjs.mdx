@@ -40,7 +40,7 @@ to create file `_document.js`.
 Then we add the following code to the file:
 
 ```jsx
-import React from "react";
+import { Children } from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { CssBaseline } from "@nextui-org/react";
 
@@ -49,7 +49,7 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
-      styles: React.Children.toArray([initialProps.styles]),
+      styles: Children.toArray([initialProps.styles]),
     };
   }
 
@@ -78,15 +78,14 @@ Here's an example of what your `_document.js` file should look like: <a target="
 In the custom server, also get the style set from function `CssBaseline.flush` as shown below.
 
 ```jsx
-import React from "react";
-import ReactDOM from "react-dom/server";
+import { renderToString, renderToStaticMarkup } from "react-dom/server";
 import { CssBaseline } from "@nextui-org/react";
 import App from "./app";
 
 export default (req, res) => {
-  const app = ReactDOM.renderToString(<App />);
+  const app = renderToString(<App />);
   const styles = CssBaseline.flush();
-  const html = ReactDOM.renderToStaticMarkup(
+  const html = renderToStaticMarkup(
     <html>
       <head>{styles}</head>
       <body>

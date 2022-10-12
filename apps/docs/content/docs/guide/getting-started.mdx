@@ -39,8 +39,6 @@ For NextUI to work correctly, you need to set up the `NextUIProvider` at the roo
 Go to the root of your application and do this:
 
 ```jsx
-import * as React from 'react';
-
 // 1. import `NextUIProvider` component
 import { NextUIProvider } from '@nextui-org/react';
 
@@ -77,7 +75,7 @@ export default MyApp;
 2. Go to `pages/_document.js` or `pages/_document.tsx` (create if it doesn't exist) and add this:
 
 ```jsx
-import React from 'react';
+import { Children } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { CssBaseline } from '@nextui-org/react';
 
@@ -86,7 +84,7 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
-      styles: React.Children.toArray([initialProps.styles])
+      styles: Children.toArray([initialProps.styles])
     };
   }
 

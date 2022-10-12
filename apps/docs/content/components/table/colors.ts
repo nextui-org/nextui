@@ -1,8 +1,8 @@
-const App = `import React from "react";
+const App = `import { useState } from "react";
 import { Table, Grid, Radio } from "@nextui-org/react";
 
 export default function App() {
-  const [selectedColor, setSelectedColor] = React.useState("primary");
+  const [selectedColor, setSelectedColor] = useState("primary");
   const colors = ["primary", "secondary", "success", "warning", "error"];
   const capitalize = (str) => {
     const lower = str.toLowerCase();

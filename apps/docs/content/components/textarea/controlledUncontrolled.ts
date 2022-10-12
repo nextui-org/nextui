@@ -1,4 +1,4 @@
-const App = `import React from "react";
+const App = `import { useRef } from "react";
 import { Textarea, Grid, useInput, Spacer, Button } from "@nextui-org/react";
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
   } = useInput("Controlled Textarea");
 
   // Uncontrolled
-  const textareaRef = React.useRef(null);
+  const textareaRef = useRef(null);
   const onClick = () => {
     if (textareaRef.current) {
       textareaRef.current.value = Math.random().toString(32);

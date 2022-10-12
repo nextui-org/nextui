@@ -1,4 +1,10 @@
-import React, {useRef, useState, useEffect} from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {LivePreview, LiveProvider, LiveError} from "react-live";
 import NextLink from "next/link";
 import {useMediaQuery} from "@hooks/use-media-query";
@@ -197,6 +203,11 @@ export const scope = {
   Palette,
   useMediaQuery,
   validateEmail,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
 };
 
 const MIN_WIDTH = 400;

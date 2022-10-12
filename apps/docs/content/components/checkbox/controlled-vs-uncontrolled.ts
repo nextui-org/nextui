@@ -1,8 +1,8 @@
-const App = `import React from "react";
+const App = `import { useState } from "react";
 import { Checkbox, Spacer } from "@nextui-org/react";
 
 export default function App() {
-  const [selected, setSelected] = React.useState(true);
+  const [selected, setSelected] = useState(true);
 
   return (
     <>

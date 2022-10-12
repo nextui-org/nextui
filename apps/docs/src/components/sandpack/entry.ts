@@ -1,12 +1,11 @@
-export const entry = `import React, { StrictMode } from "react";
-import ReactDOM from "react-dom";
+export const entry = `import { StrictMode } from "react";
+import { render } from "react-dom";
 import { NextUIProvider, Container } from '@nextui-org/react';
 import App from "./App";
 
-
 const rootElement = document.getElementById("root");
 
-ReactDOM.render(
+render(
   <StrictMode>
     <NextUIProvider>
       <Container lg gap={2} css={{ mt:'$10' }}>
@@ -37,8 +36,8 @@ ReactDOM.render(
 `;
 
 export const lightThemeEntry = `
-import React, { StrictMode } from "react";
-import ReactDOM from "react-dom";
+import { StrictMode } from "react";
+import { render } from "react-dom";
 import { NextUIProvider, createTheme, Container } from '@nextui-org/react';
 import App from "./App";
 
@@ -48,7 +47,7 @@ const lightTheme = createTheme({
 
 const rootElement = document.getElementById("root");
 
-ReactDOM.render(
+render(
   <StrictMode>
     <NextUIProvider theme={lightTheme}>
       <Container lg gap={2} css={{ mt:'$10' }}>
@@ -61,8 +60,8 @@ ReactDOM.render(
 `;
 
 export const darkThemeEntry = `
-import React, { StrictMode } from "react";
-import ReactDOM from "react-dom";
+import { StrictMode } from "react";
+import { render } from "react-dom";
 import { NextUIProvider, createTheme, Container, getDocumentTheme } from '@nextui-org/react';
 import App from "./App";
 
@@ -72,7 +71,7 @@ const darkTheme = createTheme({
 
 const rootElement = document.getElementById("root");
 
-ReactDOM.render(
+render(
   <StrictMode>
     <NextUIProvider theme={darkTheme}>
       <Container lg gap={2} css={{ mt:'$10' }}>
