@@ -51,7 +51,7 @@ npm i @nextui-org/react
 Go to the root of your application and do this:
 
 ```jsx
-import {NextUIProvider} from '@nextui-org/react';
+import { NextUIProvider } from '@nextui-org/react';
 
 const Application = () => (
   <NextUIProvider>
@@ -65,7 +65,7 @@ const Application = () => (
    each component is exported separately.
 
 ```jsx
-import {Button} from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
 
 const Component = () => <Button>Click me</Button>;
 ```
