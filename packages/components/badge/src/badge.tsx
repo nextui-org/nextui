@@ -59,6 +59,7 @@ const Badge = forwardRef<BadgeProps, "span">((props, ref) => {
         css={{...badgeCss, ...css}}
         disableAnimation={disableAnimation || !asChild}
         disableOutline={variant === "bordered" || disableOutline}
+        isOneChar={isOneChar}
         {...otherProps}
       >
         {badgeChildren}

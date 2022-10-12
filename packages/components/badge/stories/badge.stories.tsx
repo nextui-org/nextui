@@ -23,7 +23,7 @@ export const Default = () => <Badge>Default</Badge>;
 export const WithAvatar = () => (
   <Grid.Container gap={1} justify="center">
     <Grid>
-      <Badge color="error" content={5} size="sm">
+      <Badge color="error" content={5}>
         <Avatar
           bordered
           pointer
@@ -35,7 +35,7 @@ export const WithAvatar = () => (
       </Badge>
     </Grid>
     <Grid>
-      <Badge color="error" content={5} placement="bottom-right" shape="circle" size="sm">
+      <Badge color="error" content={5} placement="bottom-right" shape="circle">
         <Avatar
           bordered
           pointer
@@ -72,7 +72,7 @@ export const WithContentIcon = () => (
   </Badge>
 );
 
-// TODO: create
+// TODO: create switch
 // export const ToggleBadge = () => {
 //   const [isInvisible, setIsInvisible] = React.useState(false);
 
