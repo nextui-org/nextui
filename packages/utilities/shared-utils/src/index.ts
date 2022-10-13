@@ -11,3 +11,4 @@ export * from "./dimensions";
 export * from "./css-transition";
 export * from "./functions";
 export * from "./context";
+export * from "./numbers";

@@ -1,7 +1,7 @@
 
-export interface Use{{capitalize hookName}}Props {}
+export interface {{capitalize hookName}}Props {}
 
-export function {{camelCase hookName}}(props: Use{{capitalize hookName}}Props = {}) {
+export function {{camelCase hookName}}(props: {{capitalize hookName}}Props = {}) {
   const {...otherProps} = props;
   
   return {...otherProps};

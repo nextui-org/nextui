@@ -58,7 +58,8 @@
     "@nextui-org/snippet": "workspace:*",
     "@nextui-org/spacer": "workspace:*",
     "@nextui-org/text": "workspace:*",
-    "@nextui-org/user": "workspace:*"
+    "@nextui-org/user": "workspace:*",
+    "@nextui-org/pagination": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

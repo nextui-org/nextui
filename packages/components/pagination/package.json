@@ -1,0 +1,52 @@
+{
+  "name": "@nextui-org/pagination",
+  "version": "1.0.0-beta.11",
+  "description": "The Pagination component allows you to display active page and navigate between multiple pages.",
+  "keywords": [
+    "pagination"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/pagination"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format=esm,cjs --dts",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src/index.ts --format=esm,cjs",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "dependencies": {
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/shared-css": "workspace:*",
+    "@nextui-org/dom-utils": "workspace:*",
+    "@nextui-org/use-pagination": "workspace:*",
+    "@nextui-org/grid": "workspace:*",
+    "@react-aria/utils": "^3.14.0"
+  },
+  "devDependencies": {
+    "clean-package": "2.1.1",
+    "react": "^17.0.2"
+  }
+}

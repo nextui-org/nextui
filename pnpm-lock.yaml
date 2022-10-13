@@ -637,6 +637,29 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
+  packages/components/pagination:
+    specifiers:
+      '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/grid': workspace:*
+      '@nextui-org/shared-css': workspace:*
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      '@nextui-org/use-pagination': workspace:*
+      '@react-aria/utils': ^3.14.0
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/grid': link:../grid
+      '@nextui-org/shared-css': link:../../utilities/shared-css
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
+      '@nextui-org/system': link:../../core/system
+      '@nextui-org/use-pagination': link:../../hooks/use-pagination
+      '@react-aria/utils': 3.14.0_react@17.0.2
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
   packages/components/row:
     specifiers:
       '@nextui-org/dom-utils': workspace:*
@@ -742,6 +765,7 @@ importers:
       '@nextui-org/image': workspace:*
       '@nextui-org/link': workspace:*
       '@nextui-org/loading': workspace:*
+      '@nextui-org/pagination': workspace:*
       '@nextui-org/row': workspace:*
       '@nextui-org/snippet': workspace:*
       '@nextui-org/spacer': workspace:*
@@ -766,6 +790,7 @@ importers:
       '@nextui-org/image': link:../../components/image
       '@nextui-org/link': link:../../components/link
       '@nextui-org/loading': link:../../components/loading
+      '@nextui-org/pagination': link:../../components/pagination
       '@nextui-org/row': link:../../components/row
       '@nextui-org/snippet': link:../../components/snippet
       '@nextui-org/spacer': link:../../components/spacer
@@ -800,6 +825,17 @@ importers:
     specifiers:
       clean-package: 2.1.1
       react: ^17.0.2
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
+  packages/hooks/use-pagination:
+    specifiers:
+      '@nextui-org/shared-utils': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/shared-utils': link:../../utilities/shared-utils
     devDependencies:
       clean-package: 2.1.1
       react: 17.0.2

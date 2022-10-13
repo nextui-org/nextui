@@ -9,3 +9,4 @@ export * from "@nextui-org/grid";
 export * from "@nextui-org/text";
 export * from "@nextui-org/link";
 export * from "@nextui-org/code";
+export * from "@nextui-org/pagination";
