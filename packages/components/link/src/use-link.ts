@@ -6,7 +6,7 @@ import {HTMLNextUIProps, CSS, getTokenValue} from "@nextui-org/system";
 import {IFocusRingAria} from "@nextui-org/dom-utils";
 import {isNormalColor} from "@nextui-org//shared-utils";
 
-export interface UseLinkProps extends HTMLNextUIProps<"a", AriaLinkProps> {
+export interface Props extends HTMLNextUIProps<"a"> {
   /**
    * The link's color.
    * @default "$colors$link"
@@ -32,6 +32,8 @@ export interface UseLinkProps extends HTMLNextUIProps<"a", AriaLinkProps> {
    */
   isExternal?: boolean;
 }
+
+export type UseLinkProps = Props & AriaLinkProps;
 
 export function useLink(props: UseLinkProps) {
   const {

@@ -10,7 +10,7 @@ import {mergeProps} from "@react-aria/utils";
 import {useDrip} from "@nextui-org/drip";
 import {useHover} from "@react-aria/interactions";
 import {IFocusRingAria, useDOMRef} from "@nextui-org/dom-utils";
-import {__DEV__} from "@nextui-org/shared-utils";
+import {__DEV__, warn} from "@nextui-org/shared-utils";
 
 import {getColors} from "./button-utils";
 import {useButtonGroupContext} from "./button-group-context";
@@ -157,7 +157,7 @@ export function useButton(props: UseButtonProps) {
 
   /* eslint-enable @typescript-eslint/no-unused-vars */
   if (__DEV__ && color === "gradient" && (flat || light)) {
-    console.warn("Using the gradient color on flat and light buttons will have no effect.");
+    warn("Using the gradient color on flat and light buttons will have no effect.", "Button");
   }
 
   const buttonProps = {
@@ -193,7 +193,7 @@ export function useButton(props: UseButtonProps) {
     }
     if (deprecatedOnClick) {
       deprecatedOnClick(e as any);
-      console.warn("onClick is deprecated, please use onPress");
+      warn("onClick is deprecated, please use onPress", "Button");
     }
     onPress?.(e);
   };

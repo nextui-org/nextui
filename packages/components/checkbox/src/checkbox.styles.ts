@@ -1,7 +1,7 @@
 import {styled} from "@nextui-org/system";
 import {cssFocusVisible} from "@nextui-org/shared-css";
 
-export const StyledCheckboxLabel = styled("label", {
+export const StyledCheckbox = styled("label", {
   $$checkboxBorderColor: "$colors$border",
   $$checkboxBorderRadius: "$radii$squared",
   d: "inline-flex",

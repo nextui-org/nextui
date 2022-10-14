@@ -1,6 +1,6 @@
 import {styled} from "@nextui-org/system";
 
-import {StyledCheckboxLabel} from "./checkbox.styles";
+import {StyledCheckbox} from "./checkbox.styles";
 
 export const StyledCheckboxGroupContainer = styled("div", {
   display: "flex",
@@ -10,14 +10,14 @@ export const StyledCheckboxGroupContainer = styled("div", {
       true: {
         flexDirection: "row",
         mt: 0,
-        [`& ${StyledCheckboxLabel}`]: {
+        [`& ${StyledCheckbox}`]: {
           mr: "$$checkboxSize",
         },
       },
       false: {
         mr: 0,
         flexDirection: "column",
-        [`& ${StyledCheckboxLabel}:not(:first-child)`]: {
+        [`& ${StyledCheckbox}:not(:first-child)`]: {
           mt: "$$checkboxSize",
         },
       },

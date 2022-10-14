@@ -6,7 +6,7 @@ import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
-import {NormalSizes, NormalColors, SimpleColors, __DEV__} from "@nextui-org/shared-utils";
+import {NormalSizes, NormalColors, SimpleColors, __DEV__, warn} from "@nextui-org/shared-utils";
 import {
   useCheckbox as useReactAriaCheckbox,
   useCheckboxGroupItem as useReactAriaCheckboxGroupItem,
@@ -76,16 +76,17 @@ export function useCheckbox(props: UseCheckboxProps) {
   } = props;
 
   if (groupContext && __DEV__) {
-    const warningMessage =
-      "The Checkbox.Group is being used, `%s` will be ignored. Use the `%s` of the Checkbox.Group instead.";
-
     if (isSelected) {
-      // eslint-disable-next-line no-console
-      console.warn(warningMessage, "isSelected", "value");
+      warn(
+        "The Checkbox.Group is being used, `isSelected` will be ignored. Use the `value` of the Checkbox.Group instead.",
+        "Checkbox",
+      );
     }
     if (defaultSelected) {
-      // eslint-disable-next-line no-console
-      console.warn(warningMessage, "defaultSelected", "defaultValue");
+      warn(
+        "The Checkbox.Group is being used, `defaultSelected` will be ignored. Use the `defaultValue` of the Checkbox.Group instead.",
+        "Checkbox",
+      );
     }
   }
 

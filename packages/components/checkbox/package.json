@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@react-types/checkbox": "^3.4.0",
-    "@react-types/shared": "^3.14.1",
+    "@react-types/shared": "^3.15.0",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   }

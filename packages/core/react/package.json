@@ -54,12 +54,13 @@
     "@nextui-org/image": "workspace:*",
     "@nextui-org/link": "workspace:*",
     "@nextui-org/loading": "workspace:*",
+    "@nextui-org/pagination": "workspace:*",
+    "@nextui-org/radio": "workspace:*",
     "@nextui-org/row": "workspace:*",
     "@nextui-org/snippet": "workspace:*",
     "@nextui-org/spacer": "workspace:*",
     "@nextui-org/text": "workspace:*",
-    "@nextui-org/user": "workspace:*",
-    "@nextui-org/pagination": "workspace:*"
+    "@nextui-org/user": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

@@ -5,7 +5,7 @@ import {mergeProps} from "@react-aria/utils";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 
 import {
-  StyledCheckboxLabel,
+  StyledCheckbox,
   StyledCheckboxContainer,
   StyledCheckboxMask,
   StyledCheckboxText,
@@ -48,7 +48,7 @@ const Checkbox = forwardRef<CheckboxProps, "label", CompoundCheckbox>((props, re
   const domRef = useFocusableRef(ref, inputRef);
 
   return (
-    <StyledCheckboxLabel
+    <StyledCheckbox
       ref={domRef}
       as={as}
       className={clsx("nextui-checkbox", className)}
@@ -117,7 +117,7 @@ const Checkbox = forwardRef<CheckboxProps, "label", CompoundCheckbox>((props, re
           {children || label}
         </StyledCheckboxText>
       )}
-    </StyledCheckboxLabel>
+    </StyledCheckbox>
   );
 });
 

@@ -5,7 +5,7 @@ import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {usePress, useHover} from "@react-aria/interactions";
 import {HTMLNextUIProps} from "@nextui-org/system";
-import {NormalWeights, ReactRef} from "@nextui-org/shared-utils";
+import {NormalWeights, ReactRef, warn} from "@nextui-org/shared-utils";
 import {useDOMRef, IFocusRingAria} from "@nextui-org/dom-utils";
 import {useDrip} from "@nextui-org/drip";
 
@@ -89,7 +89,7 @@ export function useCard(props: UseCardProps) {
     }
     if (deprecatedOnClick) {
       deprecatedOnClick(e as any);
-      console.warn("onClick is deprecated, please use onPress");
+      warn("onClick is deprecated, please use onPress", "Card");
     }
     onPress?.(e);
   };

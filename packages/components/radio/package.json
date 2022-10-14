@@ -1,9 +1,9 @@
 {
-  "name": "@nextui-org/card",
+  "name": "@nextui-org/radio",
   "version": "1.0.0-beta.11",
-  "description": "Card is a container for text, photos, and actions in the context of a single subject.",
+  "description": "Radios allow users to select a single option from a list of mutually exclusive options.",
   "keywords": [
-    "card"
+    "radio"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/card"
+    "directory": "packages/components/radio"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -37,25 +37,22 @@
     "react": ">=16.8.0"
   },
   "dependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-css": "workspace:*",
     "@nextui-org/dom-utils": "workspace:*",
-    "@nextui-org/drip": "workspace:*",
-    "@nextui-org/divider": "workspace:*",
-    "@nextui-org/image": "workspace:*",
+    "@nextui-org/shared-css": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/system": "workspace:*",
     "@react-aria/focus": "^3.9.0",
+    "@react-aria/interactions": "^3.12.0",
+    "@react-aria/radio": "^3.4.0",
     "@react-aria/utils": "^3.14.0",
-    "@react-aria/interactions": "^3.12.0"
+    "@react-aria/visually-hidden": "^3.5.0",
+    "@react-stately/radio": "^3.6.0"
   },
   "devDependencies": {
+    "@react-types/radio": "^3.3.0",
     "@react-types/shared": "^3.15.0",
-    "@nextui-org/text": "workspace:*",
-    "@nextui-org/grid": "workspace:*",
-    "@nextui-org/col": "workspace:*",
-    "@nextui-org/row": "workspace:*",
-    "@nextui-org/code": "workspace:*",
-    "@nextui-org/link": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "@nextui-org/spacer": "workspace:*",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   }

@@ -49,7 +49,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   const {labelProps, groupProps} = useReactAriaCheckboxGroup(otherProps, groupState);
 
-  const context = {
+  const context: ContextType = {
     size,
     color,
     labelColor,
