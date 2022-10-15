@@ -39,7 +39,6 @@ const Radio = forwardRef<RadioProps, "label", CompoundRadio>((props, ref) => {
     hoverProps,
     inputProps,
     isRequired,
-    ...otherProps
   } = useRadio({...radioProps, children: children ?? label});
 
   const domRef = useFocusableRef(ref, inputRef);
@@ -47,7 +46,7 @@ const Radio = forwardRef<RadioProps, "label", CompoundRadio>((props, ref) => {
   return (
     <StyledRadio
       ref={domRef}
-      {...mergeProps(hoverProps, otherProps)}
+      {...hoverProps}
       as={as}
       className={clsx("nextui-radio", className)}
       color={color}
