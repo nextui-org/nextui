@@ -1,13 +1,13 @@
-import React, {ReactNode} from "react";
-import {useModal, useOverlay, DismissButton} from "@react-aria/overlays";
-import {useDialog} from "@react-aria/dialog";
-import {FocusScope, useFocusRing} from "@react-aria/focus";
-import {mergeProps} from "@react-aria/utils";
+import React, { ReactNode } from "react";
+import { useModal, useOverlay, DismissButton } from "@react-aria/overlays";
+import { useDialog } from "@react-aria/dialog";
+import { FocusScope, useFocusRing } from "@react-aria/focus";
+import { mergeProps } from "@react-aria/utils";
 
-import {CSS} from "../theme/stitches.config";
+import { CSS } from "../theme/stitches.config";
 import CSSTransition from "../utils/css-transition";
-import {__DEV__} from "../utils/assertion";
-import {mergeRefs, ReactRef} from "../utils/refs";
+import { __DEV__ } from "../utils/assertion";
+import { mergeRefs, ReactRef } from "../utils/refs";
 import clsx from "../utils/clsx";
 
 import {
@@ -15,8 +15,8 @@ import {
   StyledPopoverContent,
   PopoverContentVariantsProps,
 } from "./popover.styles";
-import {usePopoverContext} from "./popover-context";
-import {getTransformOrigin} from "./utils";
+import { usePopoverContext } from "./popover-context";
+import { getTransformOrigin } from "./utils";
 
 interface Props {
   children: ReactNode;
@@ -25,11 +25,13 @@ interface Props {
 
 type NativeAttrs = Omit<React.HTMLAttributes<unknown>, keyof Props>;
 
-export type PopoverContentProps = Props & NativeAttrs & PopoverContentVariantsProps & {css?: CSS};
+export type PopoverContentProps = Props &
+  NativeAttrs &
+  PopoverContentVariantsProps & { css?: CSS };
 
 const PopoverContent = React.forwardRef(
   (props: PopoverContentProps, ref: ReactRef<HTMLDivElement>) => {
-    const {children, as, css, className, ...otherProps} = props;
+    const { children, as, css, className, ...otherProps } = props;
 
     const {
       state,
@@ -52,16 +54,16 @@ const PopoverContent = React.forwardRef(
     const transformOrigin = getTransformOrigin(placement);
 
     // Hide content outside the modal from screen readers.
-    const {modalProps} = useModal({isDisabled: true});
+    const { modalProps } = useModal({ isDisabled: true });
 
-    const {dialogProps} = useDialog(
+    const { dialogProps } = useDialog(
       {
         role: "dialog",
       },
-      overlayRef,
+      overlayRef
     );
 
-    const {overlayProps} = useOverlay(
+    const { overlayProps } = useOverlay(
       {
         onClose,
         isOpen: state.isOpen,
@@ -70,18 +72,27 @@ const PopoverContent = React.forwardRef(
         isKeyboardDismissDisabled,
         shouldCloseOnInteractOutside,
       },
-      overlayRef,
+      overlayRef
     );
 
-    const completeProps = mergeProps({isBordered, disableShadow, borderWeight}, otherProps);
+    const completeProps = mergeProps(
+      { isBordered, disableShadow, borderWeight },
+      otherProps
+    );
 
-    const {isFocusVisible, focusProps} = useFocusRing();
+    const { isFocusVisible, focusProps } = useFocusRing();
 
     const contents = (
       <StyledPopoverContentContainer
         ref={mergeRefs(overlayRef, ref)}
         {...getPopoverProps(
-          mergeProps(overlayProps, modalProps, dialogProps, focusProps, completeProps),
+          mergeProps(
+            overlayProps,
+            modalProps,
+            dialogProps,
+            focusProps,
+            completeProps
+          )
         )}
         as={as}
         className={clsx("nextui-popover-content-container", className)}
@@ -92,33 +103,36 @@ const PopoverContent = React.forwardRef(
         isFocusVisible={isFocusVisible}
       >
         <DismissButton onDismiss={onClose} />
-        <StyledPopoverContent className="nextui-popover-content">{children}</StyledPopoverContent>
+        <StyledPopoverContent className="nextui-popover-content">
+          {children}
+        </StyledPopoverContent>
         <DismissButton onDismiss={onClose} />
       </StyledPopoverContentContainer>
     );
 
+    // Unfortunately the popover without animation is has problems with rerendering after opening state change.
+    // If we disable animation by setting arbitary values we enforce a rerender and react-aria is able
+    // to correctly define position state because the DOM element 'exists'.
+    const animationProps = {
+      visible: state.isOpen,
+      enterTime: !disableAnimation ? 20 : 0,
+      leaveTime: !disableAnimation ? 60 : 0,
+      clearTime: !disableAnimation ? 300 : 0,
+      name: !disableAnimation ? "nextui-popover-content" : "",
+      onEntered: onEntered,
+      onExited: onExited,
+    };
+
     return (
       <>
-        {!disableAnimation ? (
+        {state.isOpen ? (
           <FocusScope restoreFocus>
-            <CSSTransition
-              clearTime={300}
-              enterTime={20}
-              leaveTime={60}
-              name="nextui-popover-content"
-              visible={state.isOpen}
-              onEntered={onEntered}
-              onExited={onExited}
-            >
-              {contents}
-            </CSSTransition>
+            <CSSTransition {...animationProps}>{contents}</CSSTransition>
           </FocusScope>
-        ) : state.isOpen ? (
-          <FocusScope restoreFocus>{contents}</FocusScope>
         ) : null}
       </>
     );
-  },
+  }
 );
 
 if (__DEV__) {
@@ -131,4 +145,7 @@ type PopoverContentComponent<T, P = {}> = React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>
 >;
 
-export default PopoverContent as PopoverContentComponent<HTMLDivElement, PopoverContentProps>;
+export default PopoverContent as PopoverContentComponent<
+  HTMLDivElement,
+  PopoverContentProps
+>;
