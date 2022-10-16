@@ -1,5 +1,4 @@
 import type {AriaRadioProps} from "@react-types/radio";
-import type {IFocusRingAria} from "@nextui-org/dom-utils";
 
 import {useMemo, useRef} from "react";
 import {useFocusRing} from "@react-aria/focus";
@@ -92,7 +91,7 @@ export function useRadio(props: UseRadioProps) {
 
   const {hoverProps, isHovered} = useHover({isDisabled});
 
-  const {focusProps, isFocusVisible}: IFocusRingAria<UseRadioProps> = useFocusRing({
+  const {focusProps, isFocusVisible} = useFocusRing({
     autoFocus,
   });
 

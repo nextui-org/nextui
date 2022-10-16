@@ -10,7 +10,7 @@ import {useState, useEffect, useMemo} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {HTMLNextUIProps, forwardRef} from "@nextui-org/system";
-import {useDOMRef, IFocusRingAria} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/dom-utils";
 import {clsx, safeText, __DEV__} from "@nextui-org/shared-utils";
 
 import {StyledAvatar} from "./avatar.styles";
@@ -67,7 +67,7 @@ const Avatar = forwardRef<AvatarProps, "span", CompundAvatar>((props, ref) => {
   const showText = !src;
   const [ready, setReady] = useState(false);
 
-  const {isFocusVisible, focusProps}: IFocusRingAria<AvatarProps> = useFocusRing();
+  const {isFocusVisible, focusProps} = useFocusRing();
 
   useEffect(() => {
     imgRef?.current?.complete && setReady(true);

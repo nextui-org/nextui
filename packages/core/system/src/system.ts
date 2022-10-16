@@ -66,7 +66,7 @@ export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
 };
 
 export type HTMLNextUIProps<T extends As = "div", K extends object = {}> = Omit<
-  Omit<PropsOf<T>, "ref" | "color"> & NextUIProps,
+  Omit<PropsOf<T>, "ref" | "color" | "slot"> & NextUIProps,
   keyof K
 > &
   K;

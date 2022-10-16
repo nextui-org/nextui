@@ -1,6 +1,7 @@
 import {useState, useEffect, useMemo} from "react";
 import {HTMLNextUIProps, CSS} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/dom-utils";
+import {ReactRef} from "@nextui-org/shared-utils";
 import {useRefState} from "@nextui-org/use-ref-state";
 import {useRealShape} from "@nextui-org/use-real-shape";
 import {useResize} from "@nextui-org/use-resize";
@@ -9,7 +10,7 @@ export interface UseImageProps extends Omit<HTMLNextUIProps<"img">, "height" | "
   /**
    * The image ref.
    */
-  ref?: React.Ref<HTMLImageElement>;
+  ref?: ReactRef<HTMLImageElement | null>;
   /**
    * 	The image source (local or remote)
    */

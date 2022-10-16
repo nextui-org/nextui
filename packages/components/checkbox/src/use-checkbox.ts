@@ -1,6 +1,5 @@
 import type {AriaCheckboxProps} from "@react-types/checkbox";
 import type {HTMLNextUIProps, CSS} from "@nextui-org/system";
-import type {IPressResult, IFocusRingAria} from "@nextui-org/dom-utils";
 
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
@@ -125,11 +124,11 @@ export function useCheckbox(props: UseCheckboxProps) {
   });
 
   // TODO: Event's propagation wasn't stopped https://github.com/adobe/react-spectrum/issues/2383
-  const {pressProps}: IPressResult<UseCheckboxProps> = usePress({
+  const {pressProps} = usePress({
     isDisabled: inputProps.disabled,
   });
 
-  const {focusProps, isFocusVisible}: IFocusRingAria<UseCheckboxProps> = useFocusRing({
+  const {focusProps, isFocusVisible} = useFocusRing({
     autoFocus: inputProps.autoFocus,
   });
 

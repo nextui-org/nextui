@@ -6,7 +6,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {usePress, useHover} from "@react-aria/interactions";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {NormalWeights, ReactRef, warn} from "@nextui-org/shared-utils";
-import {useDOMRef, IFocusRingAria} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/dom-utils";
 import {useDrip} from "@nextui-org/drip";
 
 export interface UseCardProps extends HTMLNextUIProps<"div", PressEvents & FocusableProps> {
@@ -106,7 +106,7 @@ export function useCard(props: UseCardProps) {
     ...otherProps,
   });
 
-  const {isFocusVisible, focusProps}: IFocusRingAria<Pick<UseCardProps, "css">> = useFocusRing({
+  const {isFocusVisible, focusProps} = useFocusRing({
     autoFocus,
   });
 

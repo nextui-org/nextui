@@ -1,4 +1,3 @@
-import {HTMLAttributes} from "react";
 import {useLink as useAriaLink} from "@react-aria/link";
 import {mergeProps} from "@react-aria/utils";
 import {forwardRef} from "@nextui-org/system";
@@ -11,20 +10,13 @@ import {LinkIcon} from "./link-icon";
 
 export interface LinkProps extends UseLinkProps {}
 
-interface ILinkAria {
-  /** Props for the link element. */
-  linkProps: Omit<HTMLAttributes<HTMLElement>, keyof UseLinkProps>;
-  /** Whether the link is currently pressed. */
-  isPressed: boolean;
-}
-
 const Link = forwardRef<LinkProps, "a">((props, ref) => {
   const {children, as, css, linkCss, isExternal, focusProps, className, ...otherProps} =
     useLink(props);
 
   const domRef = useDOMRef(ref);
 
-  const {linkProps}: ILinkAria = useAriaLink({...otherProps, elementType: `${as}`}, domRef);
+  const {linkProps} = useAriaLink({...otherProps, elementType: `${as}`}, domRef);
 
   return (
     <StyledLink

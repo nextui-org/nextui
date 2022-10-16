@@ -9,7 +9,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {useDrip} from "@nextui-org/drip";
 import {useHover} from "@react-aria/interactions";
-import {IFocusRingAria, useDOMRef} from "@nextui-org/dom-utils";
+import {useDOMRef} from "@nextui-org/dom-utils";
 import {__DEV__, warn} from "@nextui-org/shared-utils";
 
 import {getColors} from "./button-utils";
@@ -213,7 +213,7 @@ export function useButton(props: UseButtonProps) {
 
   const {hoverProps, isHovered} = useHover({isDisabled: disabled});
 
-  const {isFocused, isFocusVisible, focusProps}: IFocusRingAria<UseButtonProps> = useFocusRing({
+  const {isFocused, isFocusVisible, focusProps} = useFocusRing({
     autoFocus,
   });
 

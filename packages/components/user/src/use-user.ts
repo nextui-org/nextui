@@ -3,7 +3,6 @@ import type {AvatarProps} from "@nextui-org/avatar";
 import {ReactNode, useMemo} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps} from "@nextui-org/system";
-import {IFocusRingAria} from "@nextui-org/dom-utils";
 
 export interface UseUserProps extends HTMLNextUIProps<"div", AvatarProps> {
   /**
@@ -19,7 +18,7 @@ export interface UseUserProps extends HTMLNextUIProps<"div", AvatarProps> {
 export function useUser(props: UseUserProps) {
   const {as, className, css, name, description, ...otherProps} = props;
 
-  const {isFocusVisible, focusProps}: IFocusRingAria<UseUserProps> = useFocusRing();
+  const {isFocusVisible, focusProps} = useFocusRing();
 
   const userCss = useMemo(() => {
     if (as === "button") {

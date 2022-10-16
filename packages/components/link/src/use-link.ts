@@ -3,7 +3,6 @@ import type {AriaLinkProps} from "@react-types/link";
 import {useMemo} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {HTMLNextUIProps, CSS, getTokenValue} from "@nextui-org/system";
-import {IFocusRingAria} from "@nextui-org/dom-utils";
 import {isNormalColor} from "@nextui-org//shared-utils";
 
 export interface Props extends HTMLNextUIProps<"a"> {
@@ -45,7 +44,7 @@ export function useLink(props: UseLinkProps) {
     ...otherProps
   } = props;
 
-  const {isFocusVisible, focusProps}: IFocusRingAria<UseLinkProps> = useFocusRing({autoFocus});
+  const {isFocusVisible, focusProps} = useFocusRing({autoFocus});
 
   const linkCss = useMemo(() => {
     const isNormal = isNormalColor(color as string);
