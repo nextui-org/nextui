@@ -87,7 +87,7 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 - [Twitter](https://twitter.com/getnextui)
 - [GitHub Discussions](https://github.com/nextui-org/nextui/discussions)
 
-## Contributing
+## Contributing 🚀
 
 Contributions are always welcome!
 
