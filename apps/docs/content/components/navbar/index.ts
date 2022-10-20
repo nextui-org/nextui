@@ -9,6 +9,7 @@ import withDropdownMenu from "./with-dropdown-menu";
 import withAvatarUser from "./with-avatar-user";
 import withSearchInput from "./with-search-input";
 import disableCollapseAnimation from "./disable-collapse-animation";
+import nextJsLink from "./nextjs-link";
 
 export default {
   variants,
@@ -22,4 +23,5 @@ export default {
   withAvatarUser,
   withSearchInput,
   disableCollapseAnimation,
+  nextJsLink,
 };
