@@ -36,12 +36,14 @@
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/use-real-shape": "workspace:*",
+    "use-sync-external-store": "^1.2.0",
     "deepmerge": "4.2.2"
   },
   "peerDependencies": {
     "react": ">=16.8.0"
   },
   "devDependencies": {
+    "@types/use-sync-external-store": "^0.0.3",
     "clean-package": "2.1.1",
     "react": "^17.0.2"
   }

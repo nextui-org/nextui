@@ -14,3 +14,4 @@ export * from "./context";
 export * from "./numbers";
 export * from "./console";
 export * from "./expand";
+export * from "./fast-context";

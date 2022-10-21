@@ -1000,14 +1000,18 @@ importers:
     specifiers:
       '@nextui-org/system': workspace:*
       '@nextui-org/use-real-shape': workspace:*
+      '@types/use-sync-external-store': ^0.0.3
       clean-package: 2.1.1
       deepmerge: 4.2.2
       react: ^17.0.2
+      use-sync-external-store: ^1.2.0
     dependencies:
       '@nextui-org/system': link:../../core/system
       '@nextui-org/use-real-shape': link:../../hooks/use-real-shape
       deepmerge: 4.2.2
+      use-sync-external-store: 1.2.0_react@17.0.2
     devDependencies:
+      '@types/use-sync-external-store': 0.0.3
       clean-package: 2.1.1
       react: 17.0.2
 
@@ -7417,6 +7421,10 @@ packages:
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: false
+
+  /@types/use-sync-external-store/0.0.3:
+    resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==}
+    dev: true
 
   /@types/uuid/8.3.4:
     resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
