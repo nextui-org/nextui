@@ -998,10 +998,14 @@ importers:
 
   packages/utilities/shared-utils:
     specifiers:
+      '@nextui-org/system': workspace:*
+      '@nextui-org/use-real-shape': workspace:*
       clean-package: 2.1.1
       deepmerge: 4.2.2
       react: ^17.0.2
     dependencies:
+      '@nextui-org/system': link:../../core/system
+      '@nextui-org/use-real-shape': link:../../hooks/use-real-shape
       deepmerge: 4.2.2
     devDependencies:
       clean-package: 2.1.1

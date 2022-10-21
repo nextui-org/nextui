@@ -34,6 +34,8 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/use-real-shape": "workspace:*",
     "deepmerge": "4.2.2"
   },
   "peerDependencies": {

@@ -46,11 +46,29 @@ export const StyledCollapseItem = styled("div", {
   },
 });
 
+export const StyledCollapseItemHeading = styled("h2", {});
+
 export const StyledCollapseItemButton = styled(
   "button",
   {
-    textAlign: "start",
     width: "100%",
+    display: "flex",
+    appearance: "none",
+    alignItems: "center",
+    padding: "$4 $6",
+    background: "transparent",
+    border: "none",
+    outline: "none",
+    cursor: "pointer",
   },
   cssFocusVisible,
 );
+
+export const StyledCollapseItemTitle = styled("div", {
+  flex: "1 1 0%",
+  textAlign: "left",
+});
+
+export const StyledCollapseItemIndicator = styled("span", {
+  flexShrink: 0,
+});

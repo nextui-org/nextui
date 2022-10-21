@@ -1,8 +1,14 @@
 import {forwardRef} from "@nextui-org/system";
-import {clsx, __DEV__} from "@nextui-org/shared-utils";
+import {clsx, __DEV__, Expand} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
-import {StyledCollapseItem, StyledCollapseItemButton} from "./collapse.styles";
+import {
+  StyledCollapseItem,
+  StyledCollapseItemHeading,
+  StyledCollapseItemButton,
+  StyledCollapseItemTitle,
+  StyledCollapseItemIndicator,
+} from "./collapse.styles";
 import {UseCollapseItemProps, useCollapseItem} from "./use-collapse-item";
 
 export interface CollapseItemProps<T extends object = {}>
@@ -32,28 +38,32 @@ const CollapseItem = forwardRef<CollapseItemProps, "div">((props, ref) => {
       isOpen={isOpen}
       {...otherProps}
     >
-      <h2 className="collapse-item-heading">
+      <StyledCollapseItemHeading className="nextui-collapse-item-heading">
         <StyledCollapseItemButton
           {...mergeProps(buttonProps, focusProps)}
           ref={domRef}
-          className="collapse-item-button"
+          className="nextui-collapse-item-button"
           disabled={isDisabled}
           isFocusVisible={isFocusVisible}
         >
-          {item.props.title}
-          <span
+          <StyledCollapseItemTitle className="nextui-collapse-item-title">
+            {item.props.title}
+          </StyledCollapseItemTitle>
+          <StyledCollapseItemIndicator
             aria-hidden="true"
             aria-label="collapse item indicator"
-            className="collapse-item-indicator"
+            className="nextui-collapse-item-indicator"
             role="img"
           >
             {isOpen ? "🔽" : "▶️"}️
-          </span>
+          </StyledCollapseItemIndicator>
         </StyledCollapseItemButton>
-      </h2>
-      <div {...regionProps} className="collapse-item-content">
-        {item.props.children}
-      </div>
+      </StyledCollapseItemHeading>
+      <Expand isExpanded={isOpen}>
+        <div {...regionProps} className="nextui-collapse-item-content">
+          {item.props.children}
+        </div>
+      </Expand>
     </StyledCollapseItem>
   );
 });
