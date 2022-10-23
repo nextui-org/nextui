@@ -379,4 +379,57 @@ describe("Table", () => {
     expect(thirdColumnHeader.text()).toBe("DATE MODIFIED");
     expect(thirdColumnHeader.props()["aria-sort"]).toBe("none");
   });
+
+  it('should update the pagination when items change', async () => {
+    const TableWithPagination = ()  => {
+      const [rows, setRows] = React.useState(items)
+      
+      return (
+        <div>
+          <Table aria-label="Test pagination update">
+            <Table.Header columns={columns}>
+              {(column) => <Table.Column>{column.name}</Table.Column>}
+            </Table.Header>
+            <Table.Body items={rows}>
+              {(item: any) => (
+                <Table.Row key={item.test}>
+                  <Table.Cell>{item.test}</Table.Cell>
+                  <Table.Cell>{item.foo}</Table.Cell>
+                  <Table.Cell>{item.bar}</Table.Cell>
+                </Table.Row>
+              )}
+            </Table.Body>
+            <Table.Pagination rowsPerPage={2} />
+          </Table>
+          <button id='add-item' onClick={() => setRows([...rows, {
+            test: `Test ${items.length+1}`,
+            foo: `Foo ${items.length+1}`,
+            bar: `Bar ${items.length+1}`,
+            yay: `Yay ${items.length+1}`,
+            baz: `Baz ${items.length+1}`
+          }])}>
+            Add item
+          </button>
+        </div>
+      )
+    }
+    const wrapper = mount(<TableWithPagination />)
+
+    const table = wrapper.find('[role="grid"]').at(0);
+    expect(table.props()["aria-label"]).toBe("Test pagination update");
+
+    const pagination = table.find('.nextui-table-pagination');
+
+    //pagination should contain left and right navigation button and one page
+    expect(pagination.find('button').length).toBe(3)
+
+    const button = wrapper.find('#add-item')
+    button.simulate('click')
+    // three rows on two pages
+    expect(wrapper.find('[role="grid"] .nextui-table-pagination button').length).toBe(4)
+
+    button.simulate('click')
+    // four rows still on two pages
+    expect(wrapper.find('[role="grid"] .nextui-table-pagination button').length).toBe(4)
+  })
 });
