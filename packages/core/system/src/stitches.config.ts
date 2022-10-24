@@ -36,15 +36,18 @@ export const {
   },
 });
 
-// mutators
-export function setMedia<Media extends {} = {}>(media: ConfigType.Media<Media>): void {
+/**
+ * Mutators
+ * @internal
+ */
+function setMedia<Media extends {} = {}>(media: ConfigType.Media<Media>): void {
   config.media = {
     ...config.media,
     ...media,
   };
 }
 
-export function setUtils<Utils extends {} = {}>(utils: ConfigType.Utils<Utils>): void {
+function setUtils<Utils extends {} = {}>(utils: ConfigType.Utils<Utils>): void {
   config.utils = {
     ...config.utils,
     ...utils,
