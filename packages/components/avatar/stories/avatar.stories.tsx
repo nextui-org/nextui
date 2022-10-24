@@ -2,6 +2,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {Spacer} from "@nextui-org/spacer";
 import {Lock, User, VolumeUp, Camera, Activity} from "@nextui-org/shared-icons";
+import {NextUI, NextUIProvider, createTheme, PropertyValue} from "@nextui-org/system";
 
 import {Avatar} from "../src";
 
@@ -35,6 +36,42 @@ const Container = ({children}: any) => (
 );
 
 export const Simple = () => <Avatar text="Hello" />;
+
+const userTheme = createTheme({
+  type: "light",
+  className: "user-theme",
+  media: {
+    xsMax: "(min-width: 320px) and (max-width: 540px)",
+    p1: "(min-width: 0px) and (max-width: 320px)",
+  },
+  utils: {
+    myUtility: (value: PropertyValue<"width">) => ({
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: `calc(${value} * 2)`,
+      height: `calc(${value} * 2)`,
+    }),
+  },
+});
+
+export const BreakpointTest = () => (
+  <NextUIProvider theme={userTheme}>
+    <NextUI.Div
+      css={{
+        "@bp1": {
+          bg: "red",
+          myUtility: "100px",
+        },
+        "@xsMax": {
+          bg: "blue",
+        },
+      }}
+    >
+      <Avatar text={nameUsers[0]} />
+    </NextUI.Div>
+  </NextUIProvider>
+);
 
 export const Default = () => {
   return (

@@ -1,12 +1,10 @@
-import type * as Stitches from "@stitches/react";
-
 import {createStitches} from "@stitches/react";
 import {deepMerge} from "@nextui-org/shared-utils";
 
 import commonTheme from "./common";
 import lightTheme from "./light-theme";
 import darkTheme from "./dark-theme";
-import {Theme, BaseTheme} from "./types";
+import {Theme, BaseTheme, ConfigType} from "./types";
 
 export const getStitchesTheme = (targetTheme: BaseTheme): BaseTheme => {
   return deepMerge(targetTheme, commonTheme.theme);
@@ -38,9 +36,50 @@ export const {
   },
 });
 
-export const createTheme = ({type, theme = {}, className}: Theme) => {
+// mutators
+export function setMedia<Media extends {} = {}>(media: ConfigType.Media<Media>): void {
+  config.media = {
+    ...config.media,
+    ...media,
+  };
+}
+
+export function setUtils<Utils extends {} = {}>(utils: ConfigType.Utils<Utils>): void {
+  config.utils = {
+    ...config.utils,
+    ...utils,
+  };
+}
+
+function setThemeMap<ThemeMap extends {} = {}>(themeMap: ConfigType.ThemeMap<ThemeMap>): void {
+  config.themeMap = {
+    ...config.themeMap,
+    ...themeMap,
+  };
+}
+
+export const createTheme = ({
+  type,
+  className,
+  theme = {},
+  media = {},
+  utils = {},
+  themeMap = {},
+}: Theme) => {
   if (!type) {
     throw new Error("Theme type is required");
+  }
+
+  if (Object.keys(media).length > 0) {
+    setMedia(media);
+  }
+
+  if (Object.keys(utils).length > 0) {
+    setUtils(utils);
+  }
+
+  if (Object.keys(themeMap).length > 0) {
+    setThemeMap(themeMap);
   }
 
   return createThemeBase(
@@ -48,13 +87,3 @@ export const createTheme = ({type, theme = {}, className}: Theme) => {
     deepMerge(type === "dark" ? darkTheme : lightTheme, theme),
   );
 };
-
-// stitches types
-export type StitchesConfig = typeof config;
-export type VariantProps<T> = Stitches.VariantProps<T>;
-export type PropertyValue<T extends keyof Stitches.CSSProperties> = Stitches.PropertyValue<T>;
-export type ScaleValue<T> = Stitches.ScaleValue<T>;
-export type CSSProperties = Stitches.CSSProperties;
-export type CSS = Stitches.CSS<StitchesConfig>;
-export type StitchesTheme = typeof theme;
-export type CSSComponent = typeof css;

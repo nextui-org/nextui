@@ -506,6 +506,7 @@ importers:
     specifiers:
       '@nextui-org/aria-utils': workspace:*
       '@nextui-org/dom-utils': workspace:*
+      '@nextui-org/react-utils': workspace:*
       '@nextui-org/shared-css': workspace:*
       '@nextui-org/shared-utils': workspace:*
       '@nextui-org/system': workspace:*
@@ -520,6 +521,7 @@ importers:
     dependencies:
       '@nextui-org/aria-utils': link:../../utilities/aria-utils
       '@nextui-org/dom-utils': link:../../utilities/dom-utils
+      '@nextui-org/react-utils': link:../../utilities/react-utils
       '@nextui-org/shared-css': link:../../utilities/shared-css
       '@nextui-org/shared-utils': link:../../utilities/shared-utils
       '@nextui-org/system': link:../../core/system
@@ -982,6 +984,21 @@ importers:
       clean-package: 2.1.1
       react: 17.0.2
 
+  packages/utilities/react-utils:
+    specifiers:
+      '@nextui-org/shared-utils': workspace:*
+      '@nextui-org/system': workspace:*
+      '@nextui-org/use-real-shape': workspace:*
+      clean-package: 2.1.1
+      react: ^17.0.2
+    dependencies:
+      '@nextui-org/shared-utils': link:../shared-utils
+      '@nextui-org/system': link:../../core/system
+      '@nextui-org/use-real-shape': link:../../hooks/use-real-shape
+    devDependencies:
+      clean-package: 2.1.1
+      react: 17.0.2
+
   packages/utilities/shared-css:
     specifiers:
       clean-package: 2.1.1
@@ -998,16 +1015,12 @@ importers:
 
   packages/utilities/shared-utils:
     specifiers:
-      '@nextui-org/system': workspace:*
-      '@nextui-org/use-real-shape': workspace:*
       '@types/use-sync-external-store': ^0.0.3
       clean-package: 2.1.1
       deepmerge: 4.2.2
       react: ^17.0.2
       use-sync-external-store: ^1.2.0
     dependencies:
-      '@nextui-org/system': link:../../core/system
-      '@nextui-org/use-real-shape': link:../../hooks/use-real-shape
       deepmerge: 4.2.2
       use-sync-external-store: 1.2.0_react@17.0.2
     devDependencies:

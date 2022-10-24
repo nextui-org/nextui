@@ -149,13 +149,6 @@ export const defaultTokens = {
     dropdownItem:
       "background 0.12s ease, transform 0.12s ease, color 0.12s ease, box-shadow 0.12s ease 0s",
   },
-  breakpoints: {
-    xs: "650px",
-    sm: "960px",
-    md: "1280px",
-    lg: "1400px",
-    xl: "1920px",
-  },
 };
 
 export const defaultColors = {
@@ -246,21 +239,21 @@ export const defaultColors = {
 };
 
 export const defaultMedia = {
-  xs: `(min-width: ${defaultTokens.breakpoints.xs})`,
-  sm: `(min-width: ${defaultTokens.breakpoints.sm})`,
-  md: `(min-width: ${defaultTokens.breakpoints.md})`,
-  lg: `(min-width: ${defaultTokens.breakpoints.lg})`,
-  xl: `(min-width: ${defaultTokens.breakpoints.xl})`,
-  xsMin: `(min-width: ${defaultTokens.breakpoints.xs})`,
-  smMin: `(min-width: ${defaultTokens.breakpoints.sm})`,
-  mdMin: `(min-width: ${defaultTokens.breakpoints.md})`,
-  lgMin: `(min-width: ${defaultTokens.breakpoints.lg})`,
-  xlMin: `(min-width: ${defaultTokens.breakpoints.xl})`,
-  xsMax: `(max-width: ${defaultTokens.breakpoints.xs})`,
-  smMax: `(max-width: ${defaultTokens.breakpoints.sm})`,
-  mdMax: `(max-width: ${defaultTokens.breakpoints.md})`,
-  lgMax: `(max-width: ${defaultTokens.breakpoints.lg})`,
-  xlMax: `(max-width: ${defaultTokens.breakpoints.xl})`,
+  xs: "(min-width: 650px)",
+  sm: "(min-width: 960px)",
+  md: "(min-width: 1280px)",
+  lg: "(min-width: 1400px)",
+  xl: "(min-width: 1920px)",
+  xsMin: "(min-width: 650px)",
+  smMin: "(min-width: 960px)",
+  mdMin: "(min-width: 1280px)",
+  lgMin: "(min-width: 1400px)",
+  xlMin: "(min-width: 1920px)",
+  xsMax: "(max-width: 650px)",
+  smMax: "(max-width: 960px)",
+  mdMax: "(max-width: 1280px)",
+  lgMax: "(max-width: 1400px)",
+  xlMax: "(max-width: 1920px)",
   motion: "(prefers-reduced-motion: reduce)",
   safari: "not all and (min-resolution:.001dpcm)",
   hover: "(any-hover: hover)",
