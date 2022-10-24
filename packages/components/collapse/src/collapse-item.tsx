@@ -1,5 +1,7 @@
-import {forwardRef} from "@nextui-org/system";
-import {clsx, __DEV__, Expand} from "@nextui-org/shared-utils";
+import {useMemo} from "react";
+import {forwardRef, NextUI} from "@nextui-org/system";
+import {Expand} from "@nextui-org/react-utils";
+import {clsx, __DEV__} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
 import {
@@ -18,6 +20,7 @@ const CollapseItem = forwardRef<CollapseItemProps, "div">((props, ref) => {
   const {
     className,
     domRef,
+    indicator,
     item,
     isOpen,
     isDisabled,
@@ -30,6 +33,28 @@ const CollapseItem = forwardRef<CollapseItemProps, "div">((props, ref) => {
     ref,
     ...props,
   });
+
+  const indicatorWrapper = useMemo(() => {
+    return (
+      <StyledCollapseItemIndicator
+        aria-hidden="true"
+        aria-label="collapse item indicator"
+        className="nextui-collapse-item-indicator"
+        isOpen={isOpen}
+        role="img"
+      >
+        {indicator}
+      </StyledCollapseItemIndicator>
+    );
+  }, [indicator]);
+
+  const indicatorComponent = useMemo(() => {
+    if (typeof item.props?.renderIndicator === "function") {
+      return item.props?.renderIndicator({indicator, isOpen, isDisabled});
+    }
+
+    return indicatorWrapper;
+  }, [item.props?.renderIndicator, indicator, indicatorWrapper, isOpen, isDisabled]);
 
   return (
     <StyledCollapseItem
@@ -47,22 +72,15 @@ const CollapseItem = forwardRef<CollapseItemProps, "div">((props, ref) => {
           isFocusVisible={isFocusVisible}
         >
           <StyledCollapseItemTitle className="nextui-collapse-item-title">
-            {item.props.title}
+            {item.props?.title}
           </StyledCollapseItemTitle>
-          <StyledCollapseItemIndicator
-            aria-hidden="true"
-            aria-label="collapse item indicator"
-            className="nextui-collapse-item-indicator"
-            role="img"
-          >
-            {isOpen ? "🔽" : "▶️"}️
-          </StyledCollapseItemIndicator>
+          {indicatorComponent}
         </StyledCollapseItemButton>
       </StyledCollapseItemHeading>
       <Expand isExpanded={isOpen}>
-        <div {...regionProps} className="nextui-collapse-item-content">
-          {item.props.children}
-        </div>
+        <NextUI.Div {...regionProps} className="nextui-collapse-item-content">
+          {item.props?.children}
+        </NextUI.Div>
       </Expand>
     </StyledCollapseItem>
   );

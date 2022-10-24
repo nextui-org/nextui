@@ -34,8 +34,6 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/use-real-shape": "workspace:*",
     "use-sync-external-store": "^1.2.0",
     "deepmerge": "4.2.2"
   },

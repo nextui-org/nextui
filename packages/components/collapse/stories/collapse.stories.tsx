@@ -25,6 +25,29 @@ export const Default = () => (
   </Collapse>
 );
 
+export const CustomIndicator = () => {
+  const renderIndicator = ({isOpen}) => {
+    return isOpen ? <span>🔽</span> : <span>🚀</span>;
+  };
+
+  return (
+    <Collapse selectionMode="single">
+      <Collapse.Item key="1" renderIndicator={renderIndicator} title="Your files">
+        file
+      </Collapse.Item>
+      <Collapse.Item key="2" title="Shared with you">
+        shared
+      </Collapse.Item>
+      <Collapse.Item key="3" title="Last item">
+        last
+      </Collapse.Item>
+      <Collapse.Item key="4" title="Four item">
+        four
+      </Collapse.Item>
+    </Collapse>
+  );
+};
+
 export const Controlled = () => {
   const [expandedKeys, setExpandedKeys] = React.useState<Set<React.Key>>(new Set([]));
 

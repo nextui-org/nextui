@@ -71,4 +71,18 @@ export const StyledCollapseItemTitle = styled("div", {
 
 export const StyledCollapseItemIndicator = styled("span", {
   flexShrink: 0,
+  variants: {
+    isOpen: {
+      true: {
+        svg: {
+          transform: "rotateZ(-90deg)",
+        },
+      },
+      false: {
+        svg: {
+          transform: "rotateZ(0deg)",
+        },
+      },
+    },
+  },
 });

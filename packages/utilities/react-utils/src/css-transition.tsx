@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
-
-import {clsx} from "./clsx";
+import {clsx} from "@nextui-org/shared-utils";
 
 interface CSSTransitionProps {
   visible?: boolean;
